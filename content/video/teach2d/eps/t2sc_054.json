@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "My flight ___ canceled.",
+    "stem": "Everyone can ___ a mistake.",
     "options": [
-     "is",
-     "was"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "She wears ___ every day.",
-    "options": [
-     "a glasses",
-     "glasses"
+     "do",
+     "make"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "I studied ___ three hours.",
+    "stem": "Good luck ___ your test!",
     "options": [
-     "for",
-     "during"
+     "with",
+     "for"
     ],
     "answer": 0,
-    "pick": 1,
+    "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "He admitted ___ the last cookie.",
+    "stem": "She ___ me the news.",
     "options": [
-     "eating",
-     "to eat"
+     "said",
+     "told"
     ],
-    "answer": 0,
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A1"
+   },
+   {
+    "stem": "There's a high risk ___ rain today.",
+    "options": [
+     "to",
+     "of"
+    ],
+    "answer": 1,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "I have too much ___.",
+    "stem": "The MRI scan uses ___.",
     "options": [
-     "luggage",
-     "luggages"
+     "magnets",
+     "X-rays"
     ],
     "answer": 0,
     "pick": 1,
-    "cefr": "B1"
+    "cefr": "C1"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_14311c65",
-   "sb_ff076731",
-   "sb_f3392adc",
-   "sb_097145e5",
-   "sb_682c8238"
+   "sb_ded82381",
+   "sb_d6acb235",
+   "sb_136af047",
+   "sb_014af894",
+   "sb_03afa19f"
   ]
  },
  "est": {

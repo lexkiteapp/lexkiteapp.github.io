@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "The shop ___ me a discount.",
+    "stem": "Do you want ___ us?",
     "options": [
-     "made",
-     "gave"
+     "join",
+     "to join"
     ],
     "answer": 1,
-    "pick": 0,
-    "cefr": "B2"
+    "pick": 1,
+    "cefr": "B1"
    },
    {
-    "stem": "The price is very ___.",
+    "stem": "I ___ an accident on my way home.",
+    "options": [
+     "had",
+     "made"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "The price of the room is very ___.",
     "options": [
      "low",
      "cheap"
     ],
     "answer": 0,
-    "pick": 0,
+    "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "My uncle ___ me to drive.",
+    "stem": "I'd prefer ___ refund.",
     "options": [
-     "taught",
-     "learned"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Thanks for your help! ___",
-    "options": [
-     "Sometime!",
-     "Anytime!"
+     "the",
+     "a"
     ],
     "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
+    "pick": 0,
+    "cefr": "B1"
    },
    {
-    "stem": "I ___ in Hue. I was born here.",
+    "stem": "The most important ___ is speed.",
     "options": [
-     "live",
-     "stay"
+     "thing",
+     "is"
     ],
     "answer": 0,
-    "pick": 1,
-    "cefr": "A2"
+    "pick": 0,
+    "cefr": "B2"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_e526a4e3",
-   "sb_78a5eb43",
-   "sb_325da830",
-   "sb_01728393",
-   "sb_99be1ee6"
+   "sb_b56e5263",
+   "sb_b430e6a3",
+   "sb_3051e94c",
+   "sb_847a8b03",
+   "sb_27e08c50"
   ]
  },
  "est": {

@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "Please ___ me outside.",
+    "stem": "She is nervous ___ the test.",
     "options": [
-     "wait for",
-     "wait"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "We want to ___ a flat for a year.",
-    "options": [
-     "hire",
-     "rent"
+     "with",
+     "about"
     ],
     "answer": 1,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "I finished ___ the report.",
+    "stem": "He has ___ experience in sales.",
     "options": [
-     "to write",
-     "writing"
+     "many",
+     "a lot of"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Is there a bank ___ here?",
+    "options": [
+     "near",
+     "near to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A1"
+   },
+   {
+    "stem": "My phone is different ___ yours.",
+    "options": [
+     "with",
+     "from"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "My dad taught me ___ ride a bike.",
+    "stem": "I walk ___ after class.",
     "options": [
-     "how",
-     "how to"
+     "to home",
+     "home"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "A1"
-   },
-   {
-    "stem": "___ me an hour to cook dinner.",
-    "options": [
-     "It takes",
-     "I take"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A1"
+    "cefr": "A2"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_49256b98",
-   "sb_e4fb5276",
-   "sb_51a55050",
-   "sb_24ac31f5",
-   "sb_14cf6349"
+   "sb_2bf49caa",
+   "sb_6dbf5c1a",
+   "sb_00f4553a",
+   "sb_85b49008",
+   "sb_46f96315"
   ]
  },
  "est": {

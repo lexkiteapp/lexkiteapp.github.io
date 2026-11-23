@@ -43,50 +43,50 @@
  "data": {
   "items": [
    {
-    "stem": "The coffee machine ___.",
+    "stem": "I ___ spicy food.",
     "options": [
-     "is not work",
-     "isn't working"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "The library is very ___.",
-    "options": [
-     "quiet",
-     "quite"
+     "like",
+     "am like"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "The taxi ___ the hotel.",
+    "stem": "He fell in love ___ her.",
     "options": [
-     "approached",
-     "approached to"
+     "with",
+     "to"
     ],
     "answer": 0,
     "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I'm listening ___ a podcast.",
+    "options": [
+     "(nothing)",
+     "to"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A1"
+   },
+   {
+    "stem": "Today I'll present our app ___ you.",
+    "options": [
+     "for",
+     "to"
+    ],
+    "answer": 1,
+    "pick": 1,
     "cefr": "B2"
    },
    {
-    "stem": "How ___ transfer money?",
+    "stem": "I live ___, but I'm not lonely.",
     "options": [
-     "do I",
-     "I can"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I was surprised ___ the price.",
-    "options": [
-     "at",
-     "for"
+     "alone",
+     "lonely"
     ],
     "answer": 0,
     "pick": 0,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_7c1c35bd",
-   "sb_556966c7",
-   "sb_dc881ba7",
-   "sb_d11da4f4",
-   "sb_6d62d506"
+   "sb_77020772",
+   "sb_fa69f2b5",
+   "sb_0f8cdbf0",
+   "sb_c03dbf46",
+   "sb_0ad85c2e"
   ]
  },
  "est": {

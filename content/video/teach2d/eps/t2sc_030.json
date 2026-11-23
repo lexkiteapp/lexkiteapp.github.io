@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "The bus will ___ Hue at six.",
+    "stem": "The museum forbids ___ photos.",
     "options": [
-     "reach",
-     "reach to"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Great talk yesterday, ___?",
-    "options": [
-     "isn't",
-     "wasn't it"
+     "to take",
+     "taking"
     ],
     "answer": 1,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I bought an ___ car.",
-    "options": [
-     "economical",
-     "economic"
-    ],
-    "answer": 0,
-    "pick": 0,
+    "pick": 1,
     "cefr": "B2"
    },
    {
-    "stem": "I'm really ___ in this role.",
+    "stem": "A bill that lists every item is ___.",
     "options": [
-     "interesting",
-     "interested"
+     "detailed",
+     "itemized"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "C1"
+   },
+   {
+    "stem": "I ___ housework every weekend.",
+    "options": [
+     "make",
+     "do"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "Let's ___ a break for ten minutes.",
+    "stem": "He is interested ___ history.",
     "options": [
-     "take",
-     "do"
+     "in",
+     "for"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "A degree is a ___.",
+    "options": [
+     "qualification",
+     "quality"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "A2"
+    "cefr": "B1"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_4c9858e0",
-   "sb_8401e4b0",
-   "sb_054c669e",
-   "sb_9f45e757",
-   "sb_290c5183"
+   "sb_03e3ffac",
+   "sb_01260417",
+   "sb_c62fa795",
+   "sb_4afeafcc",
+   "sb_0179d25f"
   ]
  },
  "est": {

@@ -39,53 +39,53 @@
  "data": {
   "items": [
    {
-    "stem": "She wants to ___ the race.",
+    "stem": "___ people like music.",
     "options": [
-     "participate in",
-     "participate"
+     "Most",
+     "Almost"
     ],
     "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "Do you want ___ us?",
-    "options": [
-     "join",
-     "to join"
-    ],
-    "answer": 1,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "I ___ an accident on my way home.",
+    "stem": "Doctors save ___.",
     "options": [
-     "had",
-     "made"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "The price of the room is very ___.",
-    "options": [
-     "low",
-     "cheap"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I'd prefer ___ refund.",
-    "options": [
-     "the",
-     "a"
+     "lifes",
+     "lives"
     ],
     "answer": 1,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "The hotel ___ offers massages.",
+    "options": [
+     "spa",
+     "pool"
+    ],
+    "answer": 0,
     "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "The ___ here is beautiful.",
+    "options": [
+     "sceneries",
+     "scenery"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "The coffee machine ___.",
+    "options": [
+     "is not work",
+     "isn't working"
+    ],
+    "answer": 1,
+    "pick": 1,
     "cefr": "B1"
    }
   ],
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_372b694c",
-   "sb_b56e5263",
-   "sb_b430e6a3",
-   "sb_3051e94c",
-   "sb_847a8b03"
+   "sb_a0d8398b",
+   "sb_ae8a3381",
+   "sb_0d6dc593",
+   "sb_6935ba91",
+   "sb_7c1c35bd"
   ]
  },
  "est": {

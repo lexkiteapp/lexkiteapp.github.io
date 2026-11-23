@@ -39,33 +39,23 @@
  "data": {
   "items": [
    {
-    "stem": "Please don't hesitate ___ us.",
+    "stem": "She managed ___ the door.",
     "options": [
-     "to call",
-     "calling"
+     "to open",
+     "opening"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B2"
    },
    {
-    "stem": "Are you ready ___ the test?",
+    "stem": "I'm really ___ about this offer.",
     "options": [
-     "to",
-     "for"
+     "exciting",
+     "excited"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I took the ___ to plan the event.",
-    "options": [
-     "initiative",
-     "start"
-    ],
-    "answer": 0,
-    "pick": 0,
     "cefr": "B2"
    },
    {
@@ -85,8 +75,18 @@
      "to buy"
     ],
     "answer": 0,
-    "pick": 1,
+    "pick": 0,
     "cefr": "A2"
+   },
+   {
+    "stem": "Can you help me ___ the box?",
+    "options": [
+     "moving",
+     "move"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A1"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_29c61515",
-   "sb_b2fdab23",
-   "sb_024874ec",
+   "sb_3486e4c7",
+   "sb_f940bc04",
    "sb_dfe2abf2",
-   "sb_068cf065"
+   "sb_068cf065",
+   "sb_1dff6fb4"
   ]
  },
  "est": {

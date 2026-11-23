@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "I have too much ___ today.",
+    "stem": "The bus will ___ Hue at six.",
     "options": [
-     "work",
-     "works"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Your idea ___ interesting.",
-    "options": [
-     "sounds",
-     "sounds like"
+     "reach",
+     "reach to"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "The train arrived ___.",
+    "stem": "I ___ you have a great trip!",
     "options": [
-     "late",
-     "lately"
+     "wish",
+     "hope"
     ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
+    "answer": 1,
+    "pick": 1,
+    "cefr": "C1"
    },
    {
-    "stem": "He is scared ___ the dark.",
+    "stem": "Great talk yesterday, ___?",
     "options": [
-     "of",
-     "from"
+     "isn't",
+     "wasn't it"
     ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "The kids lost ___ keys.",
-    "options": [
-     "their",
-     "there"
-    ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "B1"
+   },
+   {
+    "stem": "I bought an ___ car.",
+    "options": [
+     "economical",
+     "economic"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "Let's ___ a break for ten minutes.",
+    "options": [
+     "take",
+     "do"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_67e92c87",
-   "sb_0b8263d3",
-   "sb_78d1e10c",
-   "sb_df97e077",
-   "sb_40706a40"
+   "sb_4c9858e0",
+   "sb_6e178745",
+   "sb_8401e4b0",
+   "sb_054c669e",
+   "sb_290c5183"
   ]
  },
  "est": {

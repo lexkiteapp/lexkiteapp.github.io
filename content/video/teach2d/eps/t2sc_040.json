@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "I can't go because I am ___.",
+    "stem": "He ___ a bike to school.",
     "options": [
-     "illness",
-     "ill"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Pay attention ___ the teacher.",
-    "options": [
-     "on",
-     "to"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I disagree ___ you about this.",
-    "options": [
-     "with",
-     "to"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Can you ___ a photo of us?",
-    "options": [
-     "take",
-     "make"
+     "rides",
+     "drives"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "I love tacos! ___",
+    "stem": "So how ___ know Emma?",
     "options": [
-     "Me also!",
-     "Me too!"
+     "you",
+     "do you"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
+   },
+   {
+    "stem": "Are utilities ___ in the rent?",
+    "options": [
+     "included",
+     "include"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "She didn't ___ the price.",
+    "options": [
+     "mention about",
+     "mention"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I ___ up in Hue.",
+    "options": [
+     "grew",
+     "was grown"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_057c6ae7",
-   "sb_49f8754d",
-   "sb_d8f735d9",
-   "sb_5ae0c1c8",
-   "sb_8449414e"
+   "sb_c864b070",
+   "sb_7281e267",
+   "sb_836058ef",
+   "sb_5d41ed6c",
+   "sb_699b0f58"
   ]
  },
  "est": {

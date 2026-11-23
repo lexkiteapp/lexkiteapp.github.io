@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "The truck collided ___ a tree.",
+    "stem": "___ the flight is late.",
     "options": [
-     "with",
-     "to"
+     "I'm scared",
+     "I'm afraid"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "It ___ on the weather.",
+    "options": [
+     "depends",
+     "depend of"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "She is nervous ___ the test.",
+    "stem": "Can you explain this rule ___?",
     "options": [
-     "with",
-     "about"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "He has ___ experience in sales.",
-    "options": [
-     "many",
-     "a lot of"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Is there a bank ___ here?",
-    "options": [
-     "near",
-     "near to"
+     "to me",
+     "me"
     ],
     "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Can you ___ me to buy milk?",
+    "options": [
+     "remember",
+     "remind"
+    ],
+    "answer": 1,
     "pick": 0,
     "cefr": "A1"
    },
    {
-    "stem": "My phone is different ___ yours.",
+    "stem": "My flight ___ canceled.",
     "options": [
-     "with",
-     "from"
+     "is",
+     "was"
     ],
     "answer": 1,
-    "pick": 0,
-    "cefr": "A2"
+    "pick": 1,
+    "cefr": "B1"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_017d1a81",
-   "sb_2bf49caa",
-   "sb_6dbf5c1a",
-   "sb_00f4553a",
-   "sb_85b49008"
+   "sb_0d57e20a",
+   "sb_99bdb159",
+   "sb_d2fd585c",
+   "sb_1740b6df",
+   "sb_14311c65"
   ]
  },
  "est": {

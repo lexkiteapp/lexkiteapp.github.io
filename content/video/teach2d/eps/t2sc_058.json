@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "Please pay attention ___ the board.",
+    "stem": "She took advantage ___ the sale.",
+    "options": [
+     "from",
+     "of"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "We arrived ___ Hanoi at noon.",
     "options": [
      "to",
-     "on"
+     "in"
     ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "My talk is divided ___ three parts.",
+    "stem": "We arranged ___ at the station.",
     "options": [
-     "into",
-     "in"
+     "to meet",
+     "meeting"
     ],
     "answer": 0,
     "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I am grateful ___ your help.",
+    "options": [
+     "for",
+     "to"
+    ],
+    "answer": 0,
+    "pick": 0,
     "cefr": "B2"
    },
    {
-    "stem": "He is very ___.",
+    "stem": "Please ___ me outside.",
     "options": [
-     "high",
-     "tall"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Please don't ___ me.",
-    "options": [
-     "laugh",
-     "laugh at"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "It all depends ___ you.",
-    "options": [
-     "on",
-     "of"
+     "wait for",
+     "wait"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B1"
+    "cefr": "A2"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_b02a45a5",
-   "sb_816745d7",
-   "sb_6ce1a133",
-   "sb_6e4b5fa0",
-   "sb_f6d438d7"
+   "sb_a6a08261",
+   "sb_9762bb80",
+   "sb_237d4691",
+   "sb_6d557cd2",
+   "sb_49256b98"
   ]
  },
  "est": {

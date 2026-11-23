@@ -39,14 +39,24 @@
  "data": {
   "items": [
    {
-    "stem": "This soup lacks ___.",
+    "stem": "When ___ call me?",
     "options": [
-     "salt",
-     "of salt"
+     "you will",
+     "will you"
     ],
-    "answer": 0,
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "He was ___ a crime.",
+    "options": [
+     "guilty for",
+     "guilty of"
+    ],
+    "answer": 1,
     "pick": 0,
-    "cefr": "B1"
+    "cefr": "B2"
    },
    {
     "stem": "This book ___ to me.",
@@ -66,16 +76,6 @@
     ],
     "answer": 0,
     "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Don't risk ___ your phone.",
-    "options": [
-     "to break",
-     "breaking"
-    ],
-    "answer": 1,
-    "pick": 0,
     "cefr": "B1"
    },
    {
@@ -106,10 +106,10 @@
  },
  "src": {
   "gold": [
-   "sb_43b7bd40",
+   "sb_5af5827b",
+   "sb_813c80f1",
    "sb_9d10327c",
    "sb_25206a92",
-   "sb_2dbe96b7",
    "sb_116f3374"
   ]
  },

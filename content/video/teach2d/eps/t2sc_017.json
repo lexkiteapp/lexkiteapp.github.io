@@ -39,34 +39,24 @@
  "data": {
   "items": [
    {
-    "stem": "He was ___ a crime.",
+    "stem": "I took the ___ to plan the event.",
     "options": [
-     "guilty for",
-     "guilty of"
+     "initiative",
+     "start"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "It's late. I need to head ___.",
+    "options": [
+     "away of",
+     "off"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B2"
-   },
-   {
-    "stem": "As you can see ___ this slide…",
-    "options": [
-     "in",
-     "on"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "I'll ___ you the address.",
-    "options": [
-     "message send",
-     "text"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
    },
    {
     "stem": "He ___ a crime last year.",
@@ -75,6 +65,16 @@
      "committed"
     ],
     "answer": 1,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "This soup lacks ___.",
+    "options": [
+     "salt",
+     "of salt"
+    ],
+    "answer": 0,
     "pick": 0,
     "cefr": "B1"
    },
@@ -106,10 +106,10 @@
  },
  "src": {
   "gold": [
-   "sb_813c80f1",
-   "sb_8df64e9f",
-   "sb_e34dea6c",
+   "sb_024874ec",
+   "sb_14b91513",
    "sb_16707e4b",
+   "sb_43b7bd40",
    "sb_0c045175"
   ]
  },

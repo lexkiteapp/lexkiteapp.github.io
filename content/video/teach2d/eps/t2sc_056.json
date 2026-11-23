@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "I walk ___ after class.",
+    "stem": "She wears ___ every day.",
     "options": [
-     "to home",
-     "home"
+     "a glasses",
+     "glasses"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "She took advantage ___ the sale.",
+    "stem": "I studied ___ three hours.",
     "options": [
-     "from",
-     "of"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "We arrived ___ Hanoi at noon.",
-    "options": [
-     "to",
-     "in"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "We arranged ___ at the station.",
-    "options": [
-     "to meet",
-     "meeting"
+     "for",
+     "during"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "I am grateful ___ your help.",
+    "stem": "He admitted ___ the last cookie.",
     "options": [
-     "for",
+     "eating",
+     "to eat"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I have too much ___.",
+    "options": [
+     "luggage",
+     "luggages"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "The truck collided ___ a tree.",
+    "options": [
+     "with",
      "to"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B2"
+    "cefr": "B1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_46f96315",
-   "sb_a6a08261",
-   "sb_9762bb80",
-   "sb_237d4691",
-   "sb_6d557cd2"
+   "sb_ff076731",
+   "sb_f3392adc",
+   "sb_097145e5",
+   "sb_682c8238",
+   "sb_017d1a81"
   ]
  },
  "est": {

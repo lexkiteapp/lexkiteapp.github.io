@@ -46448,7 +46448,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46470,7 +46470,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46492,7 +46492,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46514,7 +46514,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46536,7 +46536,7 @@
    "hook": "Score 40/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46558,7 +46558,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46566,7 +46566,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "ee35ffaaedf7",
+   "hash": "981726d47362",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -46580,7 +46580,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46588,7 +46588,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "7b8d78348f91",
+   "hash": "5406136b5896",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -46602,7 +46602,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46610,7 +46610,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "af962043a4cf",
+   "hash": "514a06b3169b",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -46624,7 +46624,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46632,7 +46632,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "837b25148347",
+   "hash": "9f23902f556a",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -46646,7 +46646,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46654,7 +46654,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "2dd4b59056e2",
+   "hash": "a21398b736b2",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -46668,7 +46668,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46676,7 +46676,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "d032d360bac9",
+   "hash": "2fc6eefabfdf",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -46690,7 +46690,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46698,7 +46698,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "10163695edc3",
+   "hash": "df5824babd1d",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -46712,7 +46712,7 @@
    "hook": "Score 40/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46720,7 +46720,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "3d2c3383e506",
+   "hash": "ec129976436d",
    "script": {
     "h": "Score forty. Beat me?",
     "k": "Five questions. Two right.",
@@ -46734,7 +46734,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46742,7 +46742,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "86ea693d10f0",
+   "hash": "4de910fd87ff",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -46756,7 +46756,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46764,7 +46764,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "4d6d53c70d70",
+   "hash": "c91f9fd617e8",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -46778,7 +46778,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46786,7 +46786,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "905cb801304b",
+   "hash": "a14811c04c44",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -46800,7 +46800,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46808,7 +46808,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "340989222178",
+   "hash": "f10d62c06aa8",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -46822,7 +46822,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46830,7 +46830,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "84d8aede35c2",
+   "hash": "261fefc1ec85",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -46844,7 +46844,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46852,7 +46852,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "2c5fd76a225b",
+   "hash": "af07ba952e04",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -46866,7 +46866,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46874,7 +46874,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "e7e210c095c1",
+   "hash": "3b3452c90edd",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -46888,7 +46888,7 @@
    "hook": "Score 40/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46896,7 +46896,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "8ce8a0c08382",
+   "hash": "2021cd585866",
    "script": {
     "h": "Score forty. Beat me?",
     "k": "Five questions. Two right.",
@@ -46910,7 +46910,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46918,7 +46918,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "da44d8da2c85",
+   "hash": "25ce38b32e47",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -46932,7 +46932,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46940,7 +46940,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "d623d9a14e91",
+   "hash": "b63bef3c7490",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -46954,7 +46954,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46962,7 +46962,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "33824325fa2f",
+   "hash": "c4f2a594b826",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -46976,7 +46976,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -46984,7 +46984,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "b4d689912ddd",
+   "hash": "d898cedb9223",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -46998,7 +46998,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47006,7 +47006,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "2529f9781398",
+   "hash": "ae495f05b5d8",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -47020,7 +47020,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47028,7 +47028,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "d50e20dfc574",
+   "hash": "07df15b9daff",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -47042,7 +47042,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47050,7 +47050,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "e2c6881465a2",
+   "hash": "c30e1b3d6b94",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47064,7 +47064,7 @@
    "hook": "Score 40/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47072,7 +47072,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "c7b2acfc5902",
+   "hash": "bbc0aa362222",
    "script": {
     "h": "Score forty. Beat me?",
     "k": "Five questions. Two right.",
@@ -47086,7 +47086,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47094,7 +47094,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "ff2767515851",
+   "hash": "bbfeab6aa167",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -47108,7 +47108,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47116,7 +47116,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "bf7cf39cbf10",
+   "hash": "c7b2acfc5902",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47130,7 +47130,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47138,7 +47138,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "17a52252ad5d",
+   "hash": "d536b0340f9e",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -47152,7 +47152,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47160,7 +47160,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "161e7e99a4da",
+   "hash": "da6c02eaf8ec",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47174,7 +47174,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47182,7 +47182,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "3fe72045538b",
+   "hash": "17a52252ad5d",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -47196,7 +47196,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47204,7 +47204,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "745a045beae4",
+   "hash": "71f8d6e4794f",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -47218,7 +47218,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47226,7 +47226,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "9eaa07deed24",
+   "hash": "e754c1dffb6c",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47240,7 +47240,7 @@
    "hook": "Score 40/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47248,7 +47248,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "4f99576933fa",
+   "hash": "745a045beae4",
    "script": {
     "h": "Score forty. Beat me?",
     "k": "Five questions. Two right.",
@@ -47262,7 +47262,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47270,7 +47270,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "6138a3b5a975",
+   "hash": "9eaa07deed24",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -47284,7 +47284,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47292,7 +47292,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "93083a704fe2",
+   "hash": "049c3202a2ab",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47306,7 +47306,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47314,7 +47314,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "4e4ccff4b3d4",
+   "hash": "d70501f035d5",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -47328,7 +47328,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47336,7 +47336,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "da714285212a",
+   "hash": "8ca5b1c03d43",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47350,7 +47350,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47358,7 +47358,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "efb69f8b1549",
+   "hash": "21405d1dd3b1",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -47372,7 +47372,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47380,7 +47380,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "e25c203887f1",
+   "hash": "1b3e1c2a36dd",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -47394,7 +47394,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47402,7 +47402,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "bd1b837fad84",
+   "hash": "fb0c972f14cb",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47416,7 +47416,7 @@
    "hook": "Score 40/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47424,7 +47424,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "f258919fdd85",
+   "hash": "c35a532b414e",
    "script": {
     "h": "Score forty. Beat me?",
     "k": "Five questions. Two right.",
@@ -47438,7 +47438,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47446,7 +47446,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "d3fb63ee4c88",
+   "hash": "80eb77432be8",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -47460,7 +47460,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47468,7 +47468,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "e558d533d9a1",
+   "hash": "fe4626d639fb",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47482,7 +47482,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47490,7 +47490,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "0660671f1770",
+   "hash": "8114ed9a0a58",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -47504,7 +47504,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47512,7 +47512,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "c2e0158bb00f",
+   "hash": "6053e0e39394",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47526,7 +47526,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47534,7 +47534,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "a939c1d65a62",
+   "hash": "36ea8184a9c7",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -47548,7 +47548,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47556,7 +47556,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "7b359002e701",
+   "hash": "c9191dc5c8ed",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -47570,7 +47570,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47578,7 +47578,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "c584602da9c4",
+   "hash": "6a1111c22bcb",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47592,7 +47592,7 @@
    "hook": "Score 40/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47600,7 +47600,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "9d5e46b4ec34",
+   "hash": "892241bb8a3b",
    "script": {
     "h": "Score forty. Beat me?",
     "k": "Five questions. Two right.",
@@ -47614,7 +47614,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47622,7 +47622,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "493368ceec22",
+   "hash": "b5be5bb3fe99",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -47636,7 +47636,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47644,7 +47644,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "c1b806514b86",
+   "hash": "be5bb40330b3",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47658,7 +47658,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47666,7 +47666,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "83552f6e4eb8",
+   "hash": "e0365d8d9da7",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -47680,7 +47680,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47688,7 +47688,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "3c3d4f457436",
+   "hash": "4931c786dc85",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
@@ -47702,7 +47702,7 @@
    "hook": "Score 60/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47710,7 +47710,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "646c39b58b64",
+   "hash": "14954242ea01",
    "script": {
     "h": "Score sixty. Beat me?",
     "k": "Five questions. Three right.",
@@ -47724,7 +47724,7 @@
    "hook": "Score 100/100. Match me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47732,7 +47732,7 @@
     "hook": true,
     "dup": true
    },
-   "hash": "1adc30b27602",
+   "hash": "21a811269382",
    "script": {
     "h": "Perfect score. Match me?",
     "k": "Five questions. All five right.",
@@ -47746,7 +47746,7 @@
    "hook": "Score 80/100. Beat me?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
    "machine": true,
    "gates": {
     "data": true,
@@ -47754,11 +47754,55 @@
     "hook": true,
     "dup": true
    },
-   "hash": "d13770e4e0b7",
+   "hash": "55c08cecacde",
    "script": {
     "h": "Score eighty. Beat me?",
     "k": "Five questions. Four right.",
     "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_061": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2f437f63b660",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_062": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "906747ae01e3",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
     "ch": "Can you beat that? Take the free test.",
     "c": "lexkite.com"
    }

@@ -39,6 +39,26 @@
  "data": {
   "items": [
    {
+    "stem": "Please send it ___ Friday.",
+    "options": [
+     "until",
+     "by"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I'm suspicious ___ cheap deals online.",
+    "options": [
+     "of",
+     "to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "C1"
+   },
+   {
     "stem": "She apologized ___ her friend.",
     "options": [
      "to",
@@ -59,16 +79,6 @@
     "cefr": "A2"
    },
    {
-    "stem": "I'm sick. Can you cover ___ me?",
-    "options": [
-     "for",
-     "to"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
     "stem": "We need ___ details.",
     "options": [
      "farther",
@@ -77,16 +87,6 @@
     "answer": 1,
     "pick": 0,
     "cefr": "B1"
-   },
-   {
-    "stem": "The team ___ of five people.",
-    "options": [
-     "consists",
-     "is consisted"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
+   "sb_1ec77f5c",
+   "sb_0968a1c3",
    "sb_040ec72a",
    "sb_4e2ac59d",
-   "sb_1f332c48",
-   "sb_4404e98f",
-   "sb_57885755"
+   "sb_4404e98f"
   ]
  },
  "est": {

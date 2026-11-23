@@ -43,6 +43,36 @@
  "data": {
   "items": [
    {
+    "stem": "I had my brother ___ me.",
+    "options": [
+     "to help",
+     "help"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "C1"
+   },
+   {
+    "stem": "As you can see ___ this slide…",
+    "options": [
+     "in",
+     "on"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "Don't risk ___ your phone.",
+    "options": [
+     "to break",
+     "breaking"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
     "stem": "Do you have ___ to enter?",
     "options": [
      "permission",
@@ -50,26 +80,6 @@
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Beethoven wrote ___ music.",
-    "options": [
-     "classical",
-     "classic"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "Is the rent with ___ included?",
-    "options": [
-     "tools",
-     "utilities"
-    ],
-    "answer": 1,
-    "pick": 1,
     "cefr": "B1"
    },
    {
@@ -81,16 +91,6 @@
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
-   },
-   {
-    "stem": "I am ___ this city.",
-    "options": [
-     "familiar with",
-     "familiar to"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
+   "sb_17b6d916",
+   "sb_8df64e9f",
+   "sb_2dbe96b7",
    "sb_4b65ca0f",
-   "sb_34ccb489",
-   "sb_5e4a563f",
-   "sb_7dc78d29",
-   "sb_904eea31"
+   "sb_7dc78d29"
   ]
  },
  "est": {

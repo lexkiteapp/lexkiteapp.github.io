@@ -39,14 +39,34 @@
  "data": {
   "items": [
    {
-    "stem": "That town is worth ___.",
+    "stem": "___ the price that I don't like.",
     "options": [
-     "to visit",
-     "visiting"
+     "It's",
+     "There's"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "C1"
+   },
+   {
+    "stem": "She was made ___ the form again.",
+    "options": [
+     "to fill",
+     "fill"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "C1"
+   },
+   {
+    "stem": "Is the rent with ___ included?",
+    "options": [
+     "tools",
+     "utilities"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "B2"
+    "cefr": "B1"
    },
    {
     "stem": "___ students here are young.",
@@ -67,26 +87,6 @@
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
-   },
-   {
-    "stem": "She works ___ every day.",
-    "options": [
-     "hardly",
-     "hard"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "I'm moving out ___ the end of June.",
-    "options": [
-     "in",
-     "at"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B1"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_abcf714c",
+   "sb_1c10aec1",
+   "sb_112e385b",
+   "sb_5e4a563f",
    "sb_a8dac88f",
-   "sb_287f44f3",
-   "sb_02cd8fd2",
-   "sb_bf3fc815"
+   "sb_287f44f3"
   ]
  },
  "est": {

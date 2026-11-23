@@ -39,44 +39,34 @@
  "data": {
   "items": [
    {
-    "stem": "She managed ___ the door.",
+    "stem": "You ___ see a doctor.",
     "options": [
-     "to open",
-     "opening"
+     "ought to",
+     "ought"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "He tends ___ late.",
+    "options": [
+     "to be",
+     "being"
     ],
     "answer": 0,
     "pick": 1,
     "cefr": "B2"
    },
    {
-    "stem": "I'm really ___ about this offer.",
+    "stem": "Could you ___ a second?",
     "options": [
-     "exciting",
-     "excited"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "Three ___ were playing outside.",
-    "options": [
-     "children",
-     "childs"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I go to school by ___.",
-    "options": [
-     "the bus",
-     "bus"
+     "wait me",
+     "hold on"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "A2"
+    "cefr": "B1"
    },
    {
     "stem": "I need to ___ an essay tonight.",
@@ -87,6 +77,16 @@
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
+   },
+   {
+    "stem": "Are you ready ___ the test?",
+    "options": [
+     "to",
+     "for"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_3486e4c7",
-   "sb_f940bc04",
-   "sb_a5326200",
-   "sb_0343c80d",
-   "sb_95d90309"
+   "sb_1c160466",
+   "sb_e5f5579b",
+   "sb_14cb88e7",
+   "sb_95d90309",
+   "sb_b2fdab23"
   ]
  },
  "est": {

@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "She pretended ___ asleep.",
+    "stem": "I enjoy ___ on Sundays.",
     "options": [
-     "being",
-     "to be"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "I ___ with you.",
-    "options": [
-     "am agree",
-     "agree"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "We bought some new ___.",
-    "options": [
-     "furnitures",
-     "furniture"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "She ___ my question.",
-    "options": [
-     "answered",
-     "answered to"
+     "swimming",
+     "to swim"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "He dreams ___ a pilot.",
+    "stem": "He is used to ___ alone.",
     "options": [
-     "of becoming",
-     "to become"
+     "live",
+     "living"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I see it a bit ___.",
+    "options": [
+     "differently",
+     "different"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "A2"
+    "cefr": "B2"
+   },
+   {
+    "stem": "The map is very ___.",
+    "options": [
+     "confusing",
+     "confused"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I went to the store ___ milk.",
+    "options": [
+     "for buy",
+     "to buy"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A1"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_344dfdad",
-   "sb_4f5a34f3",
-   "sb_74c70f2e",
-   "sb_f82b0a44",
-   "sb_0e092805"
+   "sb_bc8b2f12",
+   "sb_1aec9c5d",
+   "sb_2b4d86ec",
+   "sb_191cddf2",
+   "sb_1257a097"
   ]
  },
  "est": {

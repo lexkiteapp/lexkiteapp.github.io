@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "The most important ___ is speed.",
+    "stem": "The library is very ___.",
     "options": [
-     "thing",
-     "is"
+     "quiet",
+     "quite"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "The taxi ___ the hotel.",
+    "options": [
+     "approached",
+     "approached to"
     ],
     "answer": 0,
     "pick": 1,
     "cefr": "B2"
    },
    {
-    "stem": "I saw him ___ month.",
+    "stem": "How ___ transfer money?",
     "options": [
-     "the last",
-     "last"
+     "do I",
+     "I can"
     ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Let's look ___ the numbers.",
-    "options": [
-     "on",
-     "at"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "Can you imagine ___ in space?",
-    "options": [
-     "to live",
-     "living"
-    ],
-    "answer": 1,
+    "answer": 0,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "He stopped ___ last year.",
+    "stem": "I was surprised ___ the price.",
     "options": [
-     "to smoke",
-     "smoking"
+     "at",
+     "for"
     ],
-    "answer": 1,
+    "answer": 0,
     "pick": 0,
     "cefr": "A2"
+   },
+   {
+    "stem": "She wants to ___ the race.",
+    "options": [
+     "participate in",
+     "participate"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
    }
   ],
   "right": 2,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_27e08c50",
-   "sb_a09e7d2a",
-   "sb_ec31bdce",
-   "sb_a451cd93",
-   "sb_ef399b2d"
+   "sb_556966c7",
+   "sb_dc881ba7",
+   "sb_d11da4f4",
+   "sb_6d62d506",
+   "sb_372b694c"
   ]
  },
  "est": {

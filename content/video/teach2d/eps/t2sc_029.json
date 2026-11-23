@@ -39,52 +39,52 @@
  "data": {
   "items": [
    {
-    "stem": "I'm saving ___ for a new phone.",
+    "stem": "I prefer cats ___ dogs.",
     "options": [
-     "up",
-     "on"
+     "than",
+     "to"
     ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "___ coffee, I also like tea.",
+    "stem": "He is satisfied ___ his new phone.",
     "options": [
-     "Besides",
-     "Beside"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "We are proud ___ you.",
-    "options": [
-     "about",
-     "of"
+     "of",
+     "with"
     ],
     "answer": 1,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "I drank tea ___ coffee.",
+    "stem": "The country has two ___ people.",
     "options": [
-     "instead of",
-     "instead"
+     "billions",
+     "billion"
     ],
-    "answer": 0,
-    "pick": 1,
+    "answer": 1,
+    "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "My house is close ___ the school.",
+    "stem": "She loves walking in ___.",
     "options": [
-     "to",
-     "with"
+     "nature",
+     "the nature"
     ],
     "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "No cashier? Use the ___.",
+    "options": [
+     "self-cashier",
+     "self-checkout"
+    ],
+    "answer": 1,
     "pick": 0,
     "cefr": "A2"
    }
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_23878717",
-   "sb_2ed92c40",
-   "sb_a3e0f657",
-   "sb_e847b5c6",
-   "sb_ac56922e"
+   "sb_02a04869",
+   "sb_62da8cc9",
+   "sb_16e7bf04",
+   "sb_19a2c1a8",
+   "sb_92b16d01"
   ]
  },
  "est": {

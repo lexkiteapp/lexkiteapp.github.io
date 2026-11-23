@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "We ___ to finish by Friday.",
+    "stem": "The sun ___ at six.",
     "options": [
-     "suppose",
-     "are supposed"
+     "raises",
+     "rises"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "___ the other hand, it is cheaper.",
+    "stem": "Sorry for the late ___.",
     "options": [
-     "On",
-     "In"
+     "reply",
+     "answering"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "Carbon dioxide is a ___ gas.",
+    "options": [
+     "greenhouse",
+     "green"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B2"
    },
    {
-    "stem": "Every day I ___ to school by bike.",
+    "stem": "Please ___ the room.",
     "options": [
-     "go",
-     "travel"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A1"
-   },
-   {
-    "stem": "He can't cope ___ the noise.",
-    "options": [
-     "with",
-     "(nothing)"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "I can't afford ___ a new phone.",
-    "options": [
-     "buying",
-     "to buy"
+     "enter to",
+     "enter"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "B1"
+    "cefr": "A2"
+   },
+   {
+    "stem": "She is angry ___ her brother.",
+    "options": [
+     "with",
+     "on"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_0a4a65be",
-   "sb_4bc6cc80",
-   "sb_00ac2cbe",
-   "sb_00b3d3f4",
-   "sb_03473678"
+   "sb_3e77d39c",
+   "sb_02938065",
+   "sb_03ae3a7b",
+   "sb_5a3afafa",
+   "sb_c1d23040"
   ]
  },
  "est": {

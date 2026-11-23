@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "I wasn't aware ___ the problem.",
+    "stem": "My name ___ Minh.",
     "options": [
-     "of",
-     "about"
+     "is",
+     "is called"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B2"
+    "cefr": "A2"
    },
    {
-    "stem": "The boy denied ___ the cake.",
+    "stem": "We must ___ the problem now.",
     "options": [
-     "to eat",
-     "eating"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "He advised me ___ more exercise.",
-    "options": [
-     "do",
-     "to do"
+     "deal",
+     "deal with"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "I bought ___ new jeans.",
+    "stem": "I listen to ___ every day.",
     "options": [
-     "a",
-     "a pair of"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I ___ a mistake on the test.",
-    "options": [
-     "made",
-     "did"
+     "music",
+     "musics"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "A1"
+    "cefr": "A2"
+   },
+   {
+    "stem": "I'm pleased ___ you.",
+    "options": [
+     "to meet",
+     "meeting"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I suggest you ___ early.",
+    "options": [
+     "to leave",
+     "leave"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "C1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_1785ef90",
-   "sb_01c4ef56",
-   "sb_d9414771",
-   "sb_33c9b363",
-   "sb_37234b0e"
+   "sb_aa063c4b",
+   "sb_e10eb8a3",
+   "sb_059c364d",
+   "sb_9be78c2b",
+   "sb_42fa0282"
   ]
  },
  "est": {

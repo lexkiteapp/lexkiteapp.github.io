@@ -49,13 +49,23 @@
     "cefr": "A1"
    },
    {
+    "stem": "She ___ her sister.",
+    "options": [
+     "resembles",
+     "resembles to"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "C1"
+   },
+   {
     "stem": "I ___ a job interview on Monday.",
     "options": [
      "have",
      "make"
     ],
     "answer": 0,
-    "pick": 1,
+    "pick": 0,
     "cefr": "B1"
    },
    {
@@ -77,16 +87,6 @@
     "answer": 0,
     "pick": 1,
     "cefr": "A2"
-   },
-   {
-    "stem": "I ___ my keys at the office.",
-    "options": [
-     "left",
-     "forgot"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
    }
   ],
   "right": 3,
@@ -107,10 +107,10 @@
  "src": {
   "gold": [
    "sb_5bd6385f",
+   "sb_9e149cb1",
    "sb_57fd10a9",
    "sb_cc6fbe77",
-   "sb_7a1cccd5",
-   "sb_dbc8cb18"
+   "sb_7a1cccd5"
   ]
  },
  "est": {

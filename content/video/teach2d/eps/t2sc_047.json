@@ -39,50 +39,50 @@
  "data": {
   "items": [
    {
-    "stem": "In my opinion, ___ it's true.",
+    "stem": "I saw him ___ month.",
     "options": [
-     "I think",
-     "(nothing)"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A1"
-   },
-   {
-    "stem": "Let's keep ___ after the course.",
-    "options": [
-     "contact",
-     "in touch"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I've worked in sales ___ six years.",
-    "options": [
-     "since",
-     "for"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "The book is ___ read.",
-    "options": [
-     "wide",
-     "widely"
+     "the last",
+     "last"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "I need some ___.",
+    "stem": "Let's look ___ the numbers.",
     "options": [
-     "informations",
-     "information"
+     "on",
+     "at"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "Can you imagine ___ in space?",
+    "options": [
+     "to live",
+     "living"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "The shop ___ me a discount.",
+    "options": [
+     "made",
+     "gave"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "Thanks for your help! ___",
+    "options": [
+     "Sometime!",
+     "Anytime!"
     ],
     "answer": 1,
     "pick": 1,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_072f702a",
-   "sb_b8781c2a",
-   "sb_d7a49df5",
-   "sb_0ce8ec98",
-   "sb_af50243a"
+   "sb_a09e7d2a",
+   "sb_ec31bdce",
+   "sb_a451cd93",
+   "sb_e526a4e3",
+   "sb_01728393"
   ]
  },
  "est": {

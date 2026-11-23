@@ -32712,13 +32712,13 @@
    "part": 6,
    "area": "placement",
    "point": "scorecard:t2sc_006",
-   "hash": "ee35ffaaedf7",
+   "hash": "981726d47362",
    "heads": [
     "scorecard:sb_5bd6385f",
+    "scorecard:sb_9e149cb1",
     "scorecard:sb_57fd10a9",
     "scorecard:sb_cc6fbe77",
-    "scorecard:sb_7a1cccd5",
-    "scorecard:sb_dbc8cb18"
+    "scorecard:sb_7a1cccd5"
    ],
    "taught": [],
    "facts": [
@@ -32734,6 +32734,17 @@
      "pick": 1
     },
     {
+     "id": "sb_9e149cb1",
+     "q": "She ___ her sister.",
+     "options": [
+      "resembles",
+      "resembles to"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 1
+    },
+    {
      "id": "sb_57fd10a9",
      "q": "I ___ a job interview on Monday.",
      "options": [
@@ -32742,7 +32753,7 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_cc6fbe77",
@@ -32765,33 +32776,22 @@
      "answer": 0,
      "cefr": "A2",
      "pick": 1
-    },
-    {
-     "id": "sb_dbc8cb18",
-     "q": "I ___ my keys at the office.",
-     "options": [
-      "left",
-      "forgot"
-     ],
-     "answer": 0,
-     "cefr": "B1",
-     "pick": 0
     }
    ],
    "in": {
     "items": [
      "sb_5bd6385f",
+     "sb_9e149cb1",
      "sb_57fd10a9",
      "sb_cc6fbe77",
-     "sb_7a1cccd5",
-     "sb_dbc8cb18"
+     "sb_7a1cccd5"
     ],
     "picks": [
      1,
      1,
      0,
-     1,
-     0
+     0,
+     1
     ]
    }
   },
@@ -32803,16 +32803,27 @@
    "part": 7,
    "area": "placement",
    "point": "scorecard:t2sc_007",
-   "hash": "7b8d78348f91",
+   "hash": "5406136b5896",
    "heads": [
+    "scorecard:sb_dbc8cb18",
     "scorecard:sb_d998ff3a",
     "scorecard:sb_0101aedc",
     "scorecard:sb_f50aa0c6",
-    "scorecard:sb_ad193784",
-    "scorecard:sb_864022e5"
+    "scorecard:sb_ad193784"
    ],
    "taught": [],
    "facts": [
+    {
+     "id": "sb_dbc8cb18",
+     "q": "I ___ my keys at the office.",
+     "options": [
+      "left",
+      "forgot"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
     {
      "id": "sb_d998ff3a",
      "q": "He spends hours ___ games.",
@@ -32833,7 +32844,7 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_f50aa0c6",
@@ -32856,33 +32867,22 @@
      "answer": 1,
      "cefr": "B1",
      "pick": 1
-    },
-    {
-     "id": "sb_864022e5",
-     "q": "He insisted ___ paying.",
-     "options": [
-      "to",
-      "on"
-     ],
-     "answer": 1,
-     "cefr": "B2",
-     "pick": 0
     }
    ],
    "in": {
     "items": [
+     "sb_dbc8cb18",
      "sb_d998ff3a",
      "sb_0101aedc",
      "sb_f50aa0c6",
-     "sb_ad193784",
-     "sb_864022e5"
+     "sb_ad193784"
     ],
     "picks": [
+     0,
      1,
+     0,
      1,
-     1,
-     1,
-     0
+     1
     ]
    }
   },
@@ -32894,16 +32894,27 @@
    "part": 8,
    "area": "placement",
    "point": "scorecard:t2sc_008",
-   "hash": "af962043a4cf",
+   "hash": "514a06b3169b",
    "heads": [
+    "scorecard:sb_864022e5",
     "scorecard:sb_03115b51",
     "scorecard:sb_20315a8f",
     "scorecard:sb_07a07564",
-    "scorecard:sb_1ec77f5c",
     "scorecard:sb_3040fca3"
    ],
    "taught": [],
    "facts": [
+    {
+     "id": "sb_864022e5",
+     "q": "He insisted ___ paying.",
+     "options": [
+      "to",
+      "on"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
     {
      "id": "sb_03115b51",
      "q": "She's skilled ___ language teaching.",
@@ -32938,17 +32949,6 @@
      "pick": 0
     },
     {
-     "id": "sb_1ec77f5c",
-     "q": "Please send it ___ Friday.",
-     "options": [
-      "until",
-      "by"
-     ],
-     "answer": 1,
-     "cefr": "B2",
-     "pick": 1
-    },
-    {
      "id": "sb_3040fca3",
      "q": "We ___ won the game.",
      "options": [
@@ -32962,17 +32962,17 @@
    ],
    "in": {
     "items": [
+     "sb_864022e5",
      "sb_03115b51",
      "sb_20315a8f",
      "sb_07a07564",
-     "sb_1ec77f5c",
      "sb_3040fca3"
     ],
     "picks": [
      1,
-     0,
-     0,
      1,
+     0,
+     0,
      1
     ]
    }
@@ -32985,16 +32985,38 @@
    "part": 9,
    "area": "placement",
    "point": "scorecard:t2sc_009",
-   "hash": "837b25148347",
+   "hash": "9f23902f556a",
    "heads": [
+    "scorecard:sb_1ec77f5c",
+    "scorecard:sb_0968a1c3",
     "scorecard:sb_040ec72a",
     "scorecard:sb_4e2ac59d",
-    "scorecard:sb_1f332c48",
-    "scorecard:sb_4404e98f",
-    "scorecard:sb_57885755"
+    "scorecard:sb_4404e98f"
    ],
    "taught": [],
    "facts": [
+    {
+     "id": "sb_1ec77f5c",
+     "q": "Please send it ___ Friday.",
+     "options": [
+      "until",
+      "by"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_0968a1c3",
+     "q": "I'm suspicious ___ cheap deals online.",
+     "options": [
+      "of",
+      "to"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 0
+    },
     {
      "id": "sb_040ec72a",
      "q": "She apologized ___ her friend.",
@@ -33018,17 +33040,6 @@
      "pick": 1
     },
     {
-     "id": "sb_1f332c48",
-     "q": "I'm sick. Can you cover ___ me?",
-     "options": [
-      "for",
-      "to"
-     ],
-     "answer": 0,
-     "cefr": "B2",
-     "pick": 0
-    },
-    {
      "id": "sb_4404e98f",
      "q": "We need ___ details.",
      "options": [
@@ -33038,32 +33049,21 @@
      "answer": 1,
      "cefr": "B1",
      "pick": 0
-    },
-    {
-     "id": "sb_57885755",
-     "q": "The team ___ of five people.",
-     "options": [
-      "consists",
-      "is consisted"
-     ],
-     "answer": 0,
-     "cefr": "B2",
-     "pick": 0
     }
    ],
    "in": {
     "items": [
+     "sb_1ec77f5c",
+     "sb_0968a1c3",
      "sb_040ec72a",
      "sb_4e2ac59d",
-     "sb_1f332c48",
-     "sb_4404e98f",
-     "sb_57885755"
+     "sb_4404e98f"
     ],
     "picks": [
-     0,
      1,
      0,
      0,
+     1,
      0
     ]
    }
@@ -33076,26 +33076,37 @@
    "part": 10,
    "area": "placement",
    "point": "scorecard:t2sc_010",
-   "hash": "2dd4b59056e2",
+   "hash": "a21398b736b2",
    "heads": [
-    "scorecard:sb_16c56ea4",
+    "scorecard:sb_1f332c48",
+    "scorecard:sb_57885755",
     "scorecard:sb_5c008136",
-    "scorecard:sb_04105eed",
     "scorecard:sb_3495dbab",
     "scorecard:sb_e4fee30e"
    ],
    "taught": [],
    "facts": [
     {
-     "id": "sb_16c56ea4",
-     "q": "He didn't dare ___ his boss.",
+     "id": "sb_1f332c48",
+     "q": "I'm sick. Can you cover ___ me?",
      "options": [
-      "calling",
-      "call"
+      "for",
+      "to"
      ],
-     "answer": 1,
+     "answer": 0,
      "cefr": "B2",
-     "pick": 1
+     "pick": 0
+    },
+    {
+     "id": "sb_57885755",
+     "q": "The team ___ of five people.",
+     "options": [
+      "consists",
+      "is consisted"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
     },
     {
      "id": "sb_5c008136",
@@ -33106,17 +33117,6 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 1
-    },
-    {
-     "id": "sb_04105eed",
-     "q": "Small shops rely ___ local customers.",
-     "options": [
-      "in",
-      "on"
-     ],
-     "answer": 1,
-     "cefr": "B2",
      "pick": 1
     },
     {
@@ -33144,15 +33144,15 @@
    ],
    "in": {
     "items": [
-     "sb_16c56ea4",
+     "sb_1f332c48",
+     "sb_57885755",
      "sb_5c008136",
-     "sb_04105eed",
      "sb_3495dbab",
      "sb_e4fee30e"
     ],
     "picks": [
-     1,
-     1,
+     0,
+     0,
      1,
      0,
      0
@@ -33167,10 +33167,10 @@
    "part": 11,
    "area": "placement",
    "point": "scorecard:t2sc_011",
-   "hash": "d032d360bac9",
+   "hash": "2fc6eefabfdf",
    "heads": [
-    "scorecard:sb_13bcedda",
-    "scorecard:sb_57e42a5c",
+    "scorecard:sb_16c56ea4",
+    "scorecard:sb_04105eed",
     "scorecard:sb_24aedfd4",
     "scorecard:sb_52fcf41b",
     "scorecard:sb_19a7dd81"
@@ -33178,26 +33178,26 @@
    "taught": [],
    "facts": [
     {
-     "id": "sb_13bcedda",
-     "q": "It rained. ___, we played.",
+     "id": "sb_16c56ea4",
+     "q": "He didn't dare ___ his boss.",
      "options": [
-      "Because",
-      "Nevertheless"
+      "calling",
+      "call"
      ],
      "answer": 1,
      "cefr": "B2",
      "pick": 1
     },
     {
-     "id": "sb_57e42a5c",
-     "q": "___, Lee will send the report.",
+     "id": "sb_04105eed",
+     "q": "Small shops rely ___ local customers.",
      "options": [
-      "To wrap up",
-      "For finish"
+      "in",
+      "on"
      ],
-     "answer": 0,
+     "answer": 1,
      "cefr": "B2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_24aedfd4",
@@ -33235,15 +33235,15 @@
    ],
    "in": {
     "items": [
-     "sb_13bcedda",
-     "sb_57e42a5c",
+     "sb_16c56ea4",
+     "sb_04105eed",
      "sb_24aedfd4",
      "sb_52fcf41b",
      "sb_19a7dd81"
     ],
     "picks": [
      1,
-     0,
+     1,
      1,
      1,
      1
@@ -33258,10 +33258,10 @@
    "part": 12,
    "area": "placement",
    "point": "scorecard:t2sc_012",
-   "hash": "10163695edc3",
+   "hash": "df5824babd1d",
    "heads": [
-    "scorecard:sb_f7fada2b",
-    "scorecard:sb_803a54ea",
+    "scorecard:sb_13bcedda",
+    "scorecard:sb_57e42a5c",
     "scorecard:sb_878144b4",
     "scorecard:sb_403980fc",
     "scorecard:sb_cb81b434"
@@ -33269,24 +33269,24 @@
    "taught": [],
    "facts": [
     {
-     "id": "sb_f7fada2b",
-     "q": "He is addicted ___ video games.",
+     "id": "sb_13bcedda",
+     "q": "It rained. ___, we played.",
      "options": [
-      "to",
-      "with"
-     ],
-     "answer": 0,
-     "cefr": "B2",
-     "pick": 0
-    },
-    {
-     "id": "sb_803a54ea",
-     "q": "I'm happy to ___ the offer.",
-     "options": [
-      "agree",
-      "accept"
+      "Because",
+      "Nevertheless"
      ],
      "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_57e42a5c",
+     "q": "___, Lee will send the report.",
+     "options": [
+      "To wrap up",
+      "For finish"
+     ],
+     "answer": 0,
      "cefr": "B2",
      "pick": 0
     },
@@ -33299,7 +33299,7 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_403980fc",
@@ -33326,16 +33326,16 @@
    ],
    "in": {
     "items": [
-     "sb_f7fada2b",
-     "sb_803a54ea",
+     "sb_13bcedda",
+     "sb_57e42a5c",
      "sb_878144b4",
      "sb_403980fc",
      "sb_cb81b434"
     ],
     "picks": [
-     0,
-     0,
      1,
+     0,
+     0,
      0,
      1
     ]
@@ -33349,13 +33349,104 @@
    "part": 13,
    "area": "placement",
    "point": "scorecard:t2sc_013",
-   "hash": "3d2c3383e506",
+   "hash": "ec129976436d",
+   "heads": [
+    "scorecard:sb_f7fada2b",
+    "scorecard:sb_803a54ea",
+    "scorecard:sb_14363e18",
+    "scorecard:sb_a5326200",
+    "scorecard:sb_0343c80d"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_f7fada2b",
+     "q": "He is addicted ___ video games.",
+     "options": [
+      "to",
+      "with"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_803a54ea",
+     "q": "I'm happy to ___ the offer.",
+     "options": [
+      "agree",
+      "accept"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_14363e18",
+     "q": "Sleep has a big effect ___ your mood.",
+     "options": [
+      "to",
+      "on"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_a5326200",
+     "q": "Three ___ were playing outside.",
+     "options": [
+      "children",
+      "childs"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_0343c80d",
+     "q": "I go to school by ___.",
+     "options": [
+      "the bus",
+      "bus"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_f7fada2b",
+     "sb_803a54ea",
+     "sb_14363e18",
+     "sb_a5326200",
+     "sb_0343c80d"
+    ],
+    "picks": [
+     1,
+     1,
+     1,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_014",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 14,
+   "area": "placement",
+   "point": "scorecard:t2sc_014",
+   "hash": "4de910fd87ff",
    "heads": [
     "scorecard:sb_1c160466",
     "scorecard:sb_e5f5579b",
-    "scorecard:sb_14363e18",
     "scorecard:sb_14cb88e7",
-    "scorecard:sb_df31e3c5"
+    "scorecard:sb_95d90309",
+    "scorecard:sb_b2fdab23"
    ],
    "taught": [],
    "facts": [
@@ -33379,18 +33470,7 @@
      ],
      "answer": 0,
      "cefr": "B2",
-     "pick": 0
-    },
-    {
-     "id": "sb_14363e18",
-     "q": "Sleep has a big effect ___ your mood.",
-     "options": [
-      "to",
-      "on"
-     ],
-     "answer": 1,
-     "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_14cb88e7",
@@ -33401,97 +33481,6 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 0
-    },
-    {
-     "id": "sb_df31e3c5",
-     "q": "I ___ the meeting yesterday.",
-     "options": [
-      "attended to",
-      "attended"
-     ],
-     "answer": 1,
-     "cefr": "B1",
-     "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_1c160466",
-     "sb_e5f5579b",
-     "sb_14363e18",
-     "sb_14cb88e7",
-     "sb_df31e3c5"
-    ],
-    "picks": [
-     0,
-     0,
-     0,
-     0,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_014",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 14,
-   "area": "placement",
-   "point": "scorecard:t2sc_014",
-   "hash": "86ea693d10f0",
-   "heads": [
-    "scorecard:sb_3486e4c7",
-    "scorecard:sb_f940bc04",
-    "scorecard:sb_a5326200",
-    "scorecard:sb_0343c80d",
-    "scorecard:sb_95d90309"
-   ],
-   "taught": [],
-   "facts": [
-    {
-     "id": "sb_3486e4c7",
-     "q": "She managed ___ the door.",
-     "options": [
-      "to open",
-      "opening"
-     ],
-     "answer": 0,
-     "cefr": "B2",
-     "pick": 1
-    },
-    {
-     "id": "sb_f940bc04",
-     "q": "I'm really ___ about this offer.",
-     "options": [
-      "exciting",
-      "excited"
-     ],
-     "answer": 1,
-     "cefr": "B2",
-     "pick": 0
-    },
-    {
-     "id": "sb_a5326200",
-     "q": "Three ___ were playing outside.",
-     "options": [
-      "children",
-      "childs"
-     ],
-     "answer": 0,
-     "cefr": "A2",
-     "pick": 0
-    },
-    {
-     "id": "sb_0343c80d",
-     "q": "I go to school by ___.",
-     "options": [
-      "the bus",
-      "bus"
-     ],
-     "answer": 1,
-     "cefr": "A2",
      "pick": 1
     },
     {
@@ -33504,22 +33493,33 @@
      "answer": 1,
      "cefr": "B1",
      "pick": 1
+    },
+    {
+     "id": "sb_b2fdab23",
+     "q": "Are you ready ___ the test?",
+     "options": [
+      "to",
+      "for"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
     }
    ],
    "in": {
     "items": [
-     "sb_3486e4c7",
-     "sb_f940bc04",
-     "sb_a5326200",
-     "sb_0343c80d",
-     "sb_95d90309"
+     "sb_1c160466",
+     "sb_e5f5579b",
+     "sb_14cb88e7",
+     "sb_95d90309",
+     "sb_b2fdab23"
     ],
     "picks": [
-     1,
-     0,
      0,
      1,
-     1
+     1,
+     1,
+     0
     ]
    }
   },
@@ -33531,48 +33531,37 @@
    "part": 15,
    "area": "placement",
    "point": "scorecard:t2sc_015",
-   "hash": "4d6d53c70d70",
+   "hash": "c91f9fd617e8",
    "heads": [
-    "scorecard:sb_29c61515",
-    "scorecard:sb_b2fdab23",
-    "scorecard:sb_024874ec",
+    "scorecard:sb_3486e4c7",
+    "scorecard:sb_f940bc04",
     "scorecard:sb_dfe2abf2",
-    "scorecard:sb_068cf065"
+    "scorecard:sb_068cf065",
+    "scorecard:sb_1dff6fb4"
    ],
    "taught": [],
    "facts": [
     {
-     "id": "sb_29c61515",
-     "q": "Please don't hesitate ___ us.",
+     "id": "sb_3486e4c7",
+     "q": "She managed ___ the door.",
      "options": [
-      "to call",
-      "calling"
+      "to open",
+      "opening"
      ],
      "answer": 0,
      "cefr": "B2",
      "pick": 0
     },
     {
-     "id": "sb_b2fdab23",
-     "q": "Are you ready ___ the test?",
+     "id": "sb_f940bc04",
+     "q": "I'm really ___ about this offer.",
      "options": [
-      "to",
-      "for"
+      "exciting",
+      "excited"
      ],
      "answer": 1,
-     "cefr": "A2",
-     "pick": 1
-    },
-    {
-     "id": "sb_024874ec",
-     "q": "I took the ___ to plan the event.",
-     "options": [
-      "initiative",
-      "start"
-     ],
-     "answer": 0,
      "cefr": "B2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_dfe2abf2",
@@ -33594,23 +33583,34 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
+    },
+    {
+     "id": "sb_1dff6fb4",
+     "q": "Can you help me ___ the box?",
+     "options": [
+      "moving",
+      "move"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 0
     }
    ],
    "in": {
     "items": [
-     "sb_29c61515",
-     "sb_b2fdab23",
-     "sb_024874ec",
+     "sb_3486e4c7",
+     "sb_f940bc04",
      "sb_dfe2abf2",
-     "sb_068cf065"
+     "sb_068cf065",
+     "sb_1dff6fb4"
     ],
     "picks": [
      0,
      1,
-     0,
      1,
-     1
+     0,
+     0
     ]
    }
   },
@@ -33622,37 +33622,37 @@
    "part": 16,
    "area": "placement",
    "point": "scorecard:t2sc_016",
-   "hash": "905cb801304b",
+   "hash": "a14811c04c44",
    "heads": [
-    "scorecard:sb_14b91513",
-    "scorecard:sb_5af5827b",
+    "scorecard:sb_2ac8da2b",
+    "scorecard:sb_29c61515",
     "scorecard:sb_851ba94f",
-    "scorecard:sb_1dff6fb4",
+    "scorecard:sb_e34dea6c",
     "scorecard:sb_aab92e69"
    ],
    "taught": [],
    "facts": [
     {
-     "id": "sb_14b91513",
-     "q": "It's late. I need to head ___.",
+     "id": "sb_2ac8da2b",
+     "q": "I ___ you enjoy the party!",
      "options": [
-      "away of",
-      "off"
+      "hope",
+      "wish"
      ],
-     "answer": 1,
-     "cefr": "B2",
-     "pick": 1
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 0
     },
     {
-     "id": "sb_5af5827b",
-     "q": "When ___ call me?",
+     "id": "sb_29c61515",
+     "q": "Please don't hesitate ___ us.",
      "options": [
-      "you will",
-      "will you"
+      "to call",
+      "calling"
      ],
-     "answer": 1,
+     "answer": 0,
      "cefr": "B2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_851ba94f",
@@ -33666,14 +33666,14 @@
      "pick": 1
     },
     {
-     "id": "sb_1dff6fb4",
-     "q": "Can you help me ___ the box?",
+     "id": "sb_e34dea6c",
+     "q": "I'll ___ you the address.",
      "options": [
-      "moving",
-      "move"
+      "message send",
+      "text"
      ],
      "answer": 1,
-     "cefr": "A1",
+     "cefr": "B1",
      "pick": 1
     },
     {
@@ -33690,15 +33690,15 @@
    ],
    "in": {
     "items": [
-     "sb_14b91513",
-     "sb_5af5827b",
+     "sb_2ac8da2b",
+     "sb_29c61515",
      "sb_851ba94f",
-     "sb_1dff6fb4",
+     "sb_e34dea6c",
      "sb_aab92e69"
     ],
     "picks": [
-     1,
-     1,
+     0,
+     0,
      1,
      1,
      0
@@ -33713,47 +33713,36 @@
    "part": 17,
    "area": "placement",
    "point": "scorecard:t2sc_017",
-   "hash": "340989222178",
+   "hash": "f10d62c06aa8",
    "heads": [
-    "scorecard:sb_813c80f1",
-    "scorecard:sb_8df64e9f",
-    "scorecard:sb_e34dea6c",
+    "scorecard:sb_024874ec",
+    "scorecard:sb_14b91513",
     "scorecard:sb_16707e4b",
+    "scorecard:sb_43b7bd40",
     "scorecard:sb_0c045175"
    ],
    "taught": [],
    "facts": [
     {
-     "id": "sb_813c80f1",
-     "q": "He was ___ a crime.",
+     "id": "sb_024874ec",
+     "q": "I took the ___ to plan the event.",
      "options": [
-      "guilty for",
-      "guilty of"
+      "initiative",
+      "start"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_14b91513",
+     "q": "It's late. I need to head ___.",
+     "options": [
+      "away of",
+      "off"
      ],
      "answer": 1,
      "cefr": "B2",
-     "pick": 1
-    },
-    {
-     "id": "sb_8df64e9f",
-     "q": "As you can see ___ this slide…",
-     "options": [
-      "in",
-      "on"
-     ],
-     "answer": 1,
-     "cefr": "B2",
-     "pick": 1
-    },
-    {
-     "id": "sb_e34dea6c",
-     "q": "I'll ___ you the address.",
-     "options": [
-      "message send",
-      "text"
-     ],
-     "answer": 1,
-     "cefr": "B1",
      "pick": 1
     },
     {
@@ -33764,6 +33753,17 @@
       "committed"
      ],
      "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_43b7bd40",
+     "q": "This soup lacks ___.",
+     "options": [
+      "salt",
+      "of salt"
+     ],
+     "answer": 0,
      "cefr": "B1",
      "pick": 0
     },
@@ -33781,16 +33781,16 @@
    ],
    "in": {
     "items": [
-     "sb_813c80f1",
-     "sb_8df64e9f",
-     "sb_e34dea6c",
+     "sb_024874ec",
+     "sb_14b91513",
      "sb_16707e4b",
+     "sb_43b7bd40",
      "sb_0c045175"
     ],
     "picks": [
+     0,
      1,
-     1,
-     1,
+     0,
      0,
      1
     ]
@@ -33804,25 +33804,36 @@
    "part": 18,
    "area": "placement",
    "point": "scorecard:t2sc_018",
-   "hash": "84d8aede35c2",
+   "hash": "261fefc1ec85",
    "heads": [
-    "scorecard:sb_43b7bd40",
+    "scorecard:sb_5af5827b",
+    "scorecard:sb_813c80f1",
     "scorecard:sb_9d10327c",
     "scorecard:sb_25206a92",
-    "scorecard:sb_2dbe96b7",
     "scorecard:sb_116f3374"
    ],
    "taught": [],
    "facts": [
     {
-     "id": "sb_43b7bd40",
-     "q": "This soup lacks ___.",
+     "id": "sb_5af5827b",
+     "q": "When ___ call me?",
      "options": [
-      "salt",
-      "of salt"
+      "you will",
+      "will you"
      ],
-     "answer": 0,
-     "cefr": "B1",
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_813c80f1",
+     "q": "He was ___ a crime.",
+     "options": [
+      "guilty for",
+      "guilty of"
+     ],
+     "answer": 1,
+     "cefr": "B2",
      "pick": 0
     },
     {
@@ -33848,17 +33859,6 @@
      "pick": 1
     },
     {
-     "id": "sb_2dbe96b7",
-     "q": "Don't risk ___ your phone.",
-     "options": [
-      "to break",
-      "breaking"
-     ],
-     "answer": 1,
-     "cefr": "B1",
-     "pick": 0
-    },
-    {
      "id": "sb_116f3374",
      "q": "I hate ___ in traffic.",
      "options": [
@@ -33872,17 +33872,17 @@
    ],
    "in": {
     "items": [
-     "sb_43b7bd40",
+     "sb_5af5827b",
+     "sb_813c80f1",
      "sb_9d10327c",
      "sb_25206a92",
-     "sb_2dbe96b7",
      "sb_116f3374"
     ],
     "picks": [
+     1,
      0,
      1,
      1,
-     0,
      1
     ]
    }
@@ -33895,16 +33895,49 @@
    "part": 19,
    "area": "placement",
    "point": "scorecard:t2sc_019",
-   "hash": "2c5fd76a225b",
+   "hash": "af07ba952e04",
    "heads": [
+    "scorecard:sb_17b6d916",
+    "scorecard:sb_8df64e9f",
+    "scorecard:sb_2dbe96b7",
     "scorecard:sb_4b65ca0f",
-    "scorecard:sb_34ccb489",
-    "scorecard:sb_5e4a563f",
-    "scorecard:sb_7dc78d29",
-    "scorecard:sb_904eea31"
+    "scorecard:sb_7dc78d29"
    ],
    "taught": [],
    "facts": [
+    {
+     "id": "sb_17b6d916",
+     "q": "I had my brother ___ me.",
+     "options": [
+      "to help",
+      "help"
+     ],
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 1
+    },
+    {
+     "id": "sb_8df64e9f",
+     "q": "As you can see ___ this slide…",
+     "options": [
+      "in",
+      "on"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_2dbe96b7",
+     "q": "Don't risk ___ your phone.",
+     "options": [
+      "to break",
+      "breaking"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
     {
      "id": "sb_4b65ca0f",
      "q": "Do you have ___ to enter?",
@@ -33917,28 +33950,6 @@
      "pick": 0
     },
     {
-     "id": "sb_34ccb489",
-     "q": "Beethoven wrote ___ music.",
-     "options": [
-      "classical",
-      "classic"
-     ],
-     "answer": 0,
-     "cefr": "B2",
-     "pick": 0
-    },
-    {
-     "id": "sb_5e4a563f",
-     "q": "Is the rent with ___ included?",
-     "options": [
-      "tools",
-      "utilities"
-     ],
-     "answer": 1,
-     "cefr": "B1",
-     "pick": 1
-    },
-    {
      "id": "sb_7dc78d29",
      "q": "Can you ___ us a joke?",
      "options": [
@@ -33948,30 +33959,19 @@
      "answer": 0,
      "cefr": "A2",
      "pick": 0
-    },
-    {
-     "id": "sb_904eea31",
-     "q": "I am ___ this city.",
-     "options": [
-      "familiar with",
-      "familiar to"
-     ],
-     "answer": 0,
-     "cefr": "B2",
-     "pick": 0
     }
    ],
    "in": {
     "items": [
+     "sb_17b6d916",
+     "sb_8df64e9f",
+     "sb_2dbe96b7",
      "sb_4b65ca0f",
-     "sb_34ccb489",
-     "sb_5e4a563f",
-     "sb_7dc78d29",
-     "sb_904eea31"
+     "sb_7dc78d29"
     ],
     "picks": [
-     0,
-     0,
+     1,
+     1,
      1,
      0,
      0
@@ -33986,25 +33986,47 @@
    "part": 20,
    "area": "placement",
    "point": "scorecard:t2sc_020",
-   "hash": "e7e210c095c1",
+   "hash": "3b3452c90edd",
    "heads": [
-    "scorecard:sb_abcf714c",
+    "scorecard:sb_1c10aec1",
+    "scorecard:sb_112e385b",
+    "scorecard:sb_5e4a563f",
     "scorecard:sb_a8dac88f",
-    "scorecard:sb_287f44f3",
-    "scorecard:sb_02cd8fd2",
-    "scorecard:sb_bf3fc815"
+    "scorecard:sb_287f44f3"
    ],
    "taught": [],
    "facts": [
     {
-     "id": "sb_abcf714c",
-     "q": "That town is worth ___.",
+     "id": "sb_1c10aec1",
+     "q": "___ the price that I don't like.",
      "options": [
-      "to visit",
-      "visiting"
+      "It's",
+      "There's"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 1
+    },
+    {
+     "id": "sb_112e385b",
+     "q": "She was made ___ the form again.",
+     "options": [
+      "to fill",
+      "fill"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 0
+    },
+    {
+     "id": "sb_5e4a563f",
+     "q": "Is the rent with ___ included?",
+     "options": [
+      "tools",
+      "utilities"
      ],
      "answer": 1,
-     "cefr": "B2",
+     "cefr": "B1",
      "pick": 1
     },
     {
@@ -34028,43 +34050,21 @@
      "answer": 0,
      "cefr": "A2",
      "pick": 0
-    },
-    {
-     "id": "sb_02cd8fd2",
-     "q": "She works ___ every day.",
-     "options": [
-      "hardly",
-      "hard"
-     ],
-     "answer": 1,
-     "cefr": "B2",
-     "pick": 1
-    },
-    {
-     "id": "sb_bf3fc815",
-     "q": "I'm moving out ___ the end of June.",
-     "options": [
-      "in",
-      "at"
-     ],
-     "answer": 1,
-     "cefr": "B1",
-     "pick": 0
     }
    ],
    "in": {
     "items": [
-     "sb_abcf714c",
+     "sb_1c10aec1",
+     "sb_112e385b",
+     "sb_5e4a563f",
      "sb_a8dac88f",
-     "sb_287f44f3",
-     "sb_02cd8fd2",
-     "sb_bf3fc815"
+     "sb_287f44f3"
     ],
     "picks": [
      1,
      0,
-     0,
      1,
+     0,
      0
     ]
    }
@@ -34077,16 +34077,38 @@
    "part": 21,
    "area": "placement",
    "point": "scorecard:t2sc_021",
-   "hash": "8ce8a0c08382",
+   "hash": "2021cd585866",
    "heads": [
+    "scorecard:sb_91e27418",
+    "scorecard:sb_34ccb489",
     "scorecard:sb_9a0040a5",
     "scorecard:sb_75ec2b91",
-    "scorecard:sb_36b7cec3",
-    "scorecard:sb_1b09af9d",
-    "scorecard:sb_6e59e923"
+    "scorecard:sb_bf3fc815"
    ],
    "taught": [],
    "facts": [
+    {
+     "id": "sb_91e27418",
+     "q": "I ___ drink coffee.",
+     "options": [
+      "don't rarely",
+      "rarely"
+     ],
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 0
+    },
+    {
+     "id": "sb_34ccb489",
+     "q": "Beethoven wrote ___ music.",
+     "options": [
+      "classical",
+      "classic"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 1
+    },
     {
      "id": "sb_9a0040a5",
      "q": "Your clothes ___ dirty.",
@@ -34110,50 +34132,28 @@
      "pick": 0
     },
     {
-     "id": "sb_36b7cec3",
-     "q": "Thanks, everyone, for ___.",
+     "id": "sb_bf3fc815",
+     "q": "I'm moving out ___ the end of June.",
      "options": [
-      "your coming",
-      "coming"
+      "in",
+      "at"
      ],
      "answer": 1,
-     "cefr": "B2",
-     "pick": 0
-    },
-    {
-     "id": "sb_1b09af9d",
-     "q": "I was impressed ___ her speech.",
-     "options": [
-      "by",
-      "about"
-     ],
-     "answer": 0,
-     "cefr": "B2",
-     "pick": 0
-    },
-    {
-     "id": "sb_6e59e923",
-     "q": "I ___ the exam last week.",
-     "options": [
-      "failed",
-      "failed in"
-     ],
-     "answer": 0,
-     "cefr": "A2",
+     "cefr": "B1",
      "pick": 1
     }
    ],
    "in": {
     "items": [
+     "sb_91e27418",
+     "sb_34ccb489",
      "sb_9a0040a5",
      "sb_75ec2b91",
-     "sb_36b7cec3",
-     "sb_1b09af9d",
-     "sb_6e59e923"
+     "sb_bf3fc815"
     ],
     "picks": [
      0,
-     0,
+     1,
      0,
      0,
      1
@@ -34168,16 +34168,49 @@
    "part": 22,
    "area": "placement",
    "point": "scorecard:t2sc_022",
-   "hash": "da44d8da2c85",
+   "hash": "25ce38b32e47",
    "heads": [
+    "scorecard:sb_904eea31",
+    "scorecard:sb_abcf714c",
+    "scorecard:sb_6e59e923",
     "scorecard:sb_3aca1292",
-    "scorecard:sb_9172f8df",
-    "scorecard:sb_45aa51fc",
-    "scorecard:sb_88ab7735",
-    "scorecard:sb_3311f3c9"
+    "scorecard:sb_9172f8df"
    ],
    "taught": [],
    "facts": [
+    {
+     "id": "sb_904eea31",
+     "q": "I am ___ this city.",
+     "options": [
+      "familiar with",
+      "familiar to"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_abcf714c",
+     "q": "That town is worth ___.",
+     "options": [
+      "to visit",
+      "visiting"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_6e59e923",
+     "q": "I ___ the exam last week.",
+     "options": [
+      "failed",
+      "failed in"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
     {
      "id": "sb_3aca1292",
      "q": "___ going to love this!",
@@ -34187,7 +34220,7 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_9172f8df",
@@ -34199,6 +34232,64 @@
      "answer": 1,
      "cefr": "B1",
      "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_904eea31",
+     "sb_abcf714c",
+     "sb_6e59e923",
+     "sb_3aca1292",
+     "sb_9172f8df"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_023",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 23,
+   "area": "placement",
+   "point": "scorecard:t2sc_023",
+   "hash": "b63bef3c7490",
+   "heads": [
+    "scorecard:sb_02cd8fd2",
+    "scorecard:sb_36b7cec3",
+    "scorecard:sb_45aa51fc",
+    "scorecard:sb_88ab7735",
+    "scorecard:sb_3311f3c9"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_02cd8fd2",
+     "q": "She works ___ every day.",
+     "options": [
+      "hardly",
+      "hard"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_36b7cec3",
+     "q": "Thanks, everyone, for ___.",
+     "options": [
+      "your coming",
+      "coming"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
     },
     {
      "id": "sb_45aa51fc",
@@ -34209,7 +34300,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_88ab7735",
@@ -34236,39 +34327,50 @@
    ],
    "in": {
     "items": [
-     "sb_3aca1292",
-     "sb_9172f8df",
+     "sb_02cd8fd2",
+     "sb_36b7cec3",
      "sb_45aa51fc",
      "sb_88ab7735",
      "sb_3311f3c9"
     ],
     "picks": [
      0,
-     0,
      1,
+     0,
      0,
      1
     ]
    }
   },
   {
-   "id": "t2sc_023",
+   "id": "t2sc_024",
    "template": "scorecard",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 23,
+   "part": 24,
    "area": "placement",
-   "point": "scorecard:t2sc_023",
-   "hash": "d623d9a14e91",
+   "point": "scorecard:t2sc_024",
+   "hash": "c4f2a594b826",
    "heads": [
+    "scorecard:sb_1b09af9d",
     "scorecard:sb_a8d53d5c",
     "scorecard:sb_7c00a5f9",
     "scorecard:sb_d91b406f",
-    "scorecard:sb_32557b14",
     "scorecard:sb_5c2deea7"
    ],
    "taught": [],
    "facts": [
+    {
+     "id": "sb_1b09af9d",
+     "q": "I was impressed ___ her speech.",
+     "options": [
+      "by",
+      "about"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
     {
      "id": "sb_a8d53d5c",
      "q": "Please ___ the door first.",
@@ -34289,7 +34391,7 @@
      ],
      "answer": 0,
      "cefr": "B2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_d91b406f",
@@ -34300,17 +34402,6 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 0
-    },
-    {
-     "id": "sb_32557b14",
-     "q": "I have too ___ baggage.",
-     "options": [
-      "much",
-      "many"
-     ],
-     "answer": 0,
-     "cefr": "B1",
      "pick": 0
     },
     {
@@ -34327,15 +34418,15 @@
    ],
    "in": {
     "items": [
+     "sb_1b09af9d",
      "sb_a8d53d5c",
      "sb_7c00a5f9",
      "sb_d91b406f",
-     "sb_32557b14",
      "sb_5c2deea7"
     ],
     "picks": [
      0,
-     1,
+     0,
      0,
      0,
      0
@@ -34343,23 +34434,34 @@
    }
   },
   {
-   "id": "t2sc_024",
+   "id": "t2sc_025",
    "template": "scorecard",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 24,
+   "part": 25,
    "area": "placement",
-   "point": "scorecard:t2sc_024",
-   "hash": "33824325fa2f",
+   "point": "scorecard:t2sc_025",
+   "hash": "d898cedb9223",
    "heads": [
+    "scorecard:sb_32557b14",
     "scorecard:sb_5c7bba0d",
     "scorecard:sb_643721d5",
     "scorecard:sb_e84afaab",
-    "scorecard:sb_cb15e32f",
-    "scorecard:sb_13a16c00"
+    "scorecard:sb_18d9514a"
    ],
    "taught": [],
    "facts": [
+    {
+     "id": "sb_32557b14",
+     "q": "I have too ___ baggage.",
+     "options": [
+      "much",
+      "many"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
     {
      "id": "sb_5c7bba0d",
      "q": "The market was very ___.",
@@ -34391,8 +34493,55 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
+    {
+     "id": "sb_18d9514a",
+     "q": "The number of tourists ___ rising.",
+     "options": [
+      "are",
+      "is"
+     ],
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_32557b14",
+     "sb_5c7bba0d",
+     "sb_643721d5",
+     "sb_e84afaab",
+     "sb_18d9514a"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_026",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 26,
+   "area": "placement",
+   "point": "scorecard:t2sc_026",
+   "hash": "ae495f05b5d8",
+   "heads": [
+    "scorecard:sb_cb15e32f",
+    "scorecard:sb_060aa8e2",
+    "scorecard:sb_7ede0d14",
+    "scorecard:sb_1795a1f5",
+    "scorecard:sb_13a16c00"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_cb15e32f",
      "q": "Don't waste time ___.",
@@ -34404,53 +34553,6 @@
      "cefr": "B1",
      "pick": 1
     },
-    {
-     "id": "sb_13a16c00",
-     "q": "The movie was so ___!",
-     "options": [
-      "excited",
-      "exciting"
-     ],
-     "answer": 1,
-     "cefr": "B1",
-     "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_5c7bba0d",
-     "sb_643721d5",
-     "sb_e84afaab",
-     "sb_cb15e32f",
-     "sb_13a16c00"
-    ],
-    "picks": [
-     0,
-     0,
-     1,
-     1,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_025",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 25,
-   "area": "placement",
-   "point": "scorecard:t2sc_025",
-   "hash": "b4d689912ddd",
-   "heads": [
-    "scorecard:sb_060aa8e2",
-    "scorecard:sb_7ede0d14",
-    "scorecard:sb_1795a1f5",
-    "scorecard:sb_14821351",
-    "scorecard:sb_47b3e9e9"
-   ],
-   "taught": [],
-   "facts": [
     {
      "id": "sb_060aa8e2",
      "q": "I have a habit ___ up early.",
@@ -34485,6 +34587,53 @@
      "pick": 0
     },
     {
+     "id": "sb_13a16c00",
+     "q": "The movie was so ___!",
+     "options": [
+      "excited",
+      "exciting"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_cb15e32f",
+     "sb_060aa8e2",
+     "sb_7ede0d14",
+     "sb_1795a1f5",
+     "sb_13a16c00"
+    ],
+    "picks": [
+     1,
+     1,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_027",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 27,
+   "area": "placement",
+   "point": "scorecard:t2sc_027",
+   "hash": "07df15b9daff",
+   "heads": [
+    "scorecard:sb_14821351",
+    "scorecard:sb_22b003a8",
+    "scorecard:sb_90abd680",
+    "scorecard:sb_47b3e9e9",
+    "scorecard:sb_8c80b46f"
+   ],
+   "taught": [],
+   "facts": [
+    {
      "id": "sb_14821351",
      "q": "The news ___ true.",
      "options": [
@@ -34496,53 +34645,6 @@
      "pick": 1
     },
     {
-     "id": "sb_47b3e9e9",
-     "q": "Someone ___ my wallet!",
-     "options": [
-      "stole",
-      "robbed"
-     ],
-     "answer": 0,
-     "cefr": "B1",
-     "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_060aa8e2",
-     "sb_7ede0d14",
-     "sb_1795a1f5",
-     "sb_14821351",
-     "sb_47b3e9e9"
-    ],
-    "picks": [
-     1,
-     1,
-     0,
-     1,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_026",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 26,
-   "area": "placement",
-   "point": "scorecard:t2sc_026",
-   "hash": "2529f9781398",
-   "heads": [
-    "scorecard:sb_22b003a8",
-    "scorecard:sb_8c80b46f",
-    "scorecard:sb_a0e24cbd",
-    "scorecard:sb_8580f675",
-    "scorecard:sb_011d162f"
-   ],
-   "taught": [],
-   "facts": [
-    {
      "id": "sb_22b003a8",
      "q": "Please ___ me by email.",
      "options": [
@@ -34550,6 +34652,28 @@
       "contact"
      ],
      "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_90abd680",
+     "q": "I wish I ___ swim.",
+     "options": [
+      "can",
+      "could"
+     ],
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 1
+    },
+    {
+     "id": "sb_47b3e9e9",
+     "q": "Someone ___ my wallet!",
+     "options": [
+      "stole",
+      "robbed"
+     ],
+     "answer": 0,
      "cefr": "B1",
      "pick": 0
     },
@@ -34563,7 +34687,43 @@
      "answer": 0,
      "cefr": "B2",
      "pick": 0
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_14821351",
+     "sb_22b003a8",
+     "sb_90abd680",
+     "sb_47b3e9e9",
+     "sb_8c80b46f"
+    ],
+    "picks": [
+     1,
+     1,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_028",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 28,
+   "area": "placement",
+   "point": "scorecard:t2sc_028",
+   "hash": "c30e1b3d6b94",
+   "heads": [
+    "scorecard:sb_a0e24cbd",
+    "scorecard:sb_8580f675",
+    "scorecard:sb_011d162f",
+    "scorecard:sb_05671f6f",
+    "scorecard:sb_19bde506"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_a0e24cbd",
      "q": "She has too ___ money.",
@@ -34573,7 +34733,7 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_8580f675",
@@ -34584,7 +34744,7 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_011d162f",
@@ -34596,43 +34756,7 @@
      "answer": 0,
      "cefr": "A2",
      "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_22b003a8",
-     "sb_8c80b46f",
-     "sb_a0e24cbd",
-     "sb_8580f675",
-     "sb_011d162f"
-    ],
-    "picks": [
-     0,
-     0,
-     0,
-     1,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_027",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 27,
-   "area": "placement",
-   "point": "scorecard:t2sc_027",
-   "hash": "d50e20dfc574",
-   "heads": [
-    "scorecard:sb_05671f6f",
-    "scorecard:sb_19bde506",
-    "scorecard:sb_02a04869",
-    "scorecard:sb_62da8cc9",
-    "scorecard:sb_16e7bf04"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_05671f6f",
      "q": "This old car isn't fit ___ long trips.",
@@ -34654,7 +34778,43 @@
      "answer": 0,
      "cefr": "B1",
      "pick": 0
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_a0e24cbd",
+     "sb_8580f675",
+     "sb_011d162f",
+     "sb_05671f6f",
+     "sb_19bde506"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_029",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 29,
+   "area": "placement",
+   "point": "scorecard:t2sc_029",
+   "hash": "bbc0aa362222",
+   "heads": [
+    "scorecard:sb_02a04869",
+    "scorecard:sb_62da8cc9",
+    "scorecard:sb_16e7bf04",
+    "scorecard:sb_19a2c1a8",
+    "scorecard:sb_92b16d01"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_02a04869",
      "q": "I prefer cats ___ dogs.",
@@ -34675,7 +34835,7 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_16e7bf04",
@@ -34686,44 +34846,8 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_05671f6f",
-     "sb_19bde506",
-     "sb_02a04869",
-     "sb_62da8cc9",
-     "sb_16e7bf04"
-    ],
-    "picks": [
-     1,
-     0,
-     1,
-     1,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_028",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 28,
-   "area": "placement",
-   "point": "scorecard:t2sc_028",
-   "hash": "e2c6881465a2",
-   "heads": [
-    "scorecard:sb_19a2c1a8",
-    "scorecard:sb_03e3ffac",
-    "scorecard:sb_c62fa795",
-    "scorecard:sb_4afeafcc",
-    "scorecard:sb_0179d25f"
-   ],
-   "taught": [],
-   "facts": [
+     "pick": 0
+    },
     {
      "id": "sb_19a2c1a8",
      "q": "She loves walking in ___.",
@@ -34736,6 +34860,53 @@
      "pick": 0
     },
     {
+     "id": "sb_92b16d01",
+     "q": "No cashier? Use the ___.",
+     "options": [
+      "self-cashier",
+      "self-checkout"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_02a04869",
+     "sb_62da8cc9",
+     "sb_16e7bf04",
+     "sb_19a2c1a8",
+     "sb_92b16d01"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_030",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 30,
+   "area": "placement",
+   "point": "scorecard:t2sc_030",
+   "hash": "bbfeab6aa167",
+   "heads": [
+    "scorecard:sb_03e3ffac",
+    "scorecard:sb_01260417",
+    "scorecard:sb_c62fa795",
+    "scorecard:sb_4afeafcc",
+    "scorecard:sb_0179d25f"
+   ],
+   "taught": [],
+   "facts": [
+    {
      "id": "sb_03e3ffac",
      "q": "The museum forbids ___ photos.",
      "options": [
@@ -34744,6 +34915,17 @@
      ],
      "answer": 1,
      "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_01260417",
+     "q": "A bill that lists every item is ___.",
+     "options": [
+      "detailed",
+      "itemized"
+     ],
+     "answer": 1,
+     "cefr": "C1",
      "pick": 0
     },
     {
@@ -34766,7 +34948,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_0179d25f",
@@ -34782,29 +34964,29 @@
    ],
    "in": {
     "items": [
-     "sb_19a2c1a8",
      "sb_03e3ffac",
+     "sb_01260417",
      "sb_c62fa795",
      "sb_4afeafcc",
      "sb_0179d25f"
     ],
     "picks": [
-     0,
-     0,
      1,
      0,
+     1,
+     1,
      0
     ]
    }
   },
   {
-   "id": "t2sc_029",
+   "id": "t2sc_031",
    "template": "scorecard",
    "teacher": "ama",
    "theme": "dusk",
-   "part": 29,
+   "part": 31,
    "area": "placement",
-   "point": "scorecard:t2sc_029",
+   "point": "scorecard:t2sc_031",
    "hash": "c7b2acfc5902",
    "heads": [
     "scorecard:sb_23878717",
@@ -34846,7 +35028,7 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_e847b5c6",
@@ -34857,7 +35039,7 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_ac56922e",
@@ -34882,26 +35064,26 @@
     "picks": [
      0,
      1,
-     0,
      1,
+     0,
      0
     ]
    }
   },
   {
-   "id": "t2sc_030",
+   "id": "t2sc_032",
    "template": "scorecard",
    "teacher": "carlos",
    "theme": "dusk",
-   "part": 30,
+   "part": 32,
    "area": "placement",
-   "point": "scorecard:t2sc_030",
-   "hash": "ff2767515851",
+   "point": "scorecard:t2sc_032",
+   "hash": "d536b0340f9e",
    "heads": [
     "scorecard:sb_4c9858e0",
+    "scorecard:sb_6e178745",
     "scorecard:sb_8401e4b0",
     "scorecard:sb_054c669e",
-    "scorecard:sb_9f45e757",
     "scorecard:sb_290c5183"
    ],
    "taught": [],
@@ -34915,6 +35097,17 @@
      ],
      "answer": 0,
      "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_6e178745",
+     "q": "I ___ you have a great trip!",
+     "options": [
+      "wish",
+      "hope"
+     ],
+     "answer": 1,
+     "cefr": "C1",
      "pick": 1
     },
     {
@@ -34926,7 +35119,7 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_054c669e",
@@ -34938,17 +35131,6 @@
      "answer": 0,
      "cefr": "B2",
      "pick": 0
-    },
-    {
-     "id": "sb_9f45e757",
-     "q": "I'm really ___ in this role.",
-     "options": [
-      "interesting",
-      "interested"
-     ],
-     "answer": 1,
-     "cefr": "B1",
-     "pick": 1
     },
     {
      "id": "sb_290c5183",
@@ -34965,38 +35147,49 @@
    "in": {
     "items": [
      "sb_4c9858e0",
+     "sb_6e178745",
      "sb_8401e4b0",
      "sb_054c669e",
-     "sb_9f45e757",
      "sb_290c5183"
     ],
     "picks": [
-     1,
-     0,
      0,
      1,
+     1,
+     0,
      0
     ]
    }
   },
   {
-   "id": "t2sc_031",
+   "id": "t2sc_033",
    "template": "scorecard",
    "teacher": "ama",
    "theme": "dusk",
-   "part": 31,
+   "part": 33,
    "area": "placement",
-   "point": "scorecard:t2sc_031",
-   "hash": "bf7cf39cbf10",
+   "point": "scorecard:t2sc_033",
+   "hash": "da6c02eaf8ec",
    "heads": [
+    "scorecard:sb_9f45e757",
     "scorecard:sb_bc68bba4",
-    "scorecard:sb_92b16d01",
     "scorecard:sb_52a6bffb",
     "scorecard:sb_2bcb2bbd",
     "scorecard:sb_4ca5d171"
    ],
    "taught": [],
    "facts": [
+    {
+     "id": "sb_9f45e757",
+     "q": "I'm really ___ in this role.",
+     "options": [
+      "interesting",
+      "interested"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
     {
      "id": "sb_bc68bba4",
      "q": "I applied ___ a job at the bank.",
@@ -35006,18 +35199,7 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 1
-    },
-    {
-     "id": "sb_92b16d01",
-     "q": "No cashier? Use the ___.",
-     "options": [
-      "self-cashier",
-      "self-checkout"
-     ],
-     "answer": 1,
-     "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_52a6bffb",
@@ -35028,7 +35210,7 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_2bcb2bbd",
@@ -35055,29 +35237,29 @@
    ],
    "in": {
     "items": [
+     "sb_9f45e757",
      "sb_bc68bba4",
-     "sb_92b16d01",
      "sb_52a6bffb",
      "sb_2bcb2bbd",
      "sb_4ca5d171"
     ],
     "picks": [
      1,
-     1,
      0,
+     1,
      1,
      0
     ]
    }
   },
   {
-   "id": "t2sc_032",
+   "id": "t2sc_034",
    "template": "scorecard",
    "teacher": "carlos",
    "theme": "dusk",
-   "part": 32,
+   "part": 34,
    "area": "placement",
-   "point": "scorecard:t2sc_032",
+   "point": "scorecard:t2sc_034",
    "hash": "17a52252ad5d",
    "heads": [
     "scorecard:sb_67e92c87",
@@ -35097,7 +35279,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_0b8263d3",
@@ -35119,7 +35301,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_df97e077",
@@ -35153,29 +35335,29 @@
      "sb_40706a40"
     ],
     "picks": [
+     1,
      0,
-     0,
-     0,
+     1,
      0,
      0
     ]
    }
   },
   {
-   "id": "t2sc_033",
+   "id": "t2sc_035",
    "template": "scorecard",
    "teacher": "ama",
    "theme": "dusk",
-   "part": 33,
+   "part": 35,
    "area": "placement",
-   "point": "scorecard:t2sc_033",
-   "hash": "161e7e99a4da",
+   "point": "scorecard:t2sc_035",
+   "hash": "71f8d6e4794f",
    "heads": [
     "scorecard:sb_aa063c4b",
     "scorecard:sb_e10eb8a3",
     "scorecard:sb_059c364d",
     "scorecard:sb_9be78c2b",
-    "scorecard:sb_2b4d86ec"
+    "scorecard:sb_42fa0282"
    ],
    "taught": [],
    "facts": [
@@ -35188,7 +35370,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_e10eb8a3",
@@ -35224,15 +35406,15 @@
      "pick": 0
     },
     {
-     "id": "sb_2b4d86ec",
-     "q": "I see it a bit ___.",
+     "id": "sb_42fa0282",
+     "q": "I suggest you ___ early.",
      "options": [
-      "differently",
-      "different"
+      "to leave",
+      "leave"
      ],
-     "answer": 0,
-     "cefr": "B2",
-     "pick": 0
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 1
     }
    ],
    "in": {
@@ -35241,30 +35423,30 @@
      "sb_e10eb8a3",
      "sb_059c364d",
      "sb_9be78c2b",
-     "sb_2b4d86ec"
+     "sb_42fa0282"
     ],
     "picks": [
-     1,
+     0,
      1,
      0,
      0,
-     0
+     1
     ]
    }
   },
   {
-   "id": "t2sc_034",
+   "id": "t2sc_036",
    "template": "scorecard",
    "teacher": "carlos",
    "theme": "dusk",
-   "part": 34,
+   "part": 36,
    "area": "placement",
-   "point": "scorecard:t2sc_034",
-   "hash": "3fe72045538b",
+   "point": "scorecard:t2sc_036",
+   "hash": "e754c1dffb6c",
    "heads": [
     "scorecard:sb_bc8b2f12",
     "scorecard:sb_1aec9c5d",
-    "scorecard:sb_d6f13678",
+    "scorecard:sb_2b4d86ec",
     "scorecard:sb_191cddf2",
     "scorecard:sb_1257a097"
    ],
@@ -35290,17 +35472,17 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 0
+     "pick": 1
     },
     {
-     "id": "sb_d6f13678",
-     "q": "Can you ___ your village?",
+     "id": "sb_2b4d86ec",
+     "q": "I see it a bit ___.",
      "options": [
-      "describe about",
-      "describe"
+      "differently",
+      "different"
      ],
-     "answer": 1,
-     "cefr": "B1",
+     "answer": 0,
+     "cefr": "B2",
      "pick": 0
     },
     {
@@ -35312,7 +35494,7 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_1257a097",
@@ -35330,27 +35512,27 @@
     "items": [
      "sb_bc8b2f12",
      "sb_1aec9c5d",
-     "sb_d6f13678",
+     "sb_2b4d86ec",
      "sb_191cddf2",
      "sb_1257a097"
     ],
     "picks": [
      0,
+     1,
      0,
-     0,
-     0,
+     1,
      1
     ]
    }
   },
   {
-   "id": "t2sc_035",
+   "id": "t2sc_037",
    "template": "scorecard",
    "teacher": "ama",
    "theme": "dusk",
-   "part": 35,
+   "part": 37,
    "area": "placement",
-   "point": "scorecard:t2sc_035",
+   "point": "scorecard:t2sc_037",
    "hash": "745a045beae4",
    "heads": [
     "scorecard:sb_1785ef90",
@@ -35370,7 +35552,7 @@
      ],
      "answer": 0,
      "cefr": "B2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_01c4ef56",
@@ -35381,7 +35563,7 @@
      ],
      "answer": 1,
      "cefr": "B2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_d9414771",
@@ -35403,7 +35585,7 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_37234b0e",
@@ -35426,22 +35608,22 @@
      "sb_37234b0e"
     ],
     "picks": [
+     1,
      0,
      1,
-     1,
-     1,
+     0,
      0
     ]
    }
   },
   {
-   "id": "t2sc_036",
+   "id": "t2sc_038",
    "template": "scorecard",
    "teacher": "carlos",
    "theme": "dusk",
-   "part": 36,
+   "part": 38,
    "area": "placement",
-   "point": "scorecard:t2sc_036",
+   "point": "scorecard:t2sc_038",
    "hash": "9eaa07deed24",
    "heads": [
     "scorecard:sb_344dfdad",
@@ -35472,7 +35654,7 @@
      ],
      "answer": 1,
      "cefr": "B2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_74c70f2e",
@@ -35483,7 +35665,7 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_f82b0a44",
@@ -35494,7 +35676,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_0e092805",
@@ -35518,28 +35700,28 @@
     ],
     "picks": [
      1,
+     0,
      1,
-     0,
-     0,
+     1,
      0
     ]
    }
   },
   {
-   "id": "t2sc_037",
+   "id": "t2sc_039",
    "template": "scorecard",
    "teacher": "ama",
    "theme": "dusk",
-   "part": 37,
+   "part": 39,
    "area": "placement",
-   "point": "scorecard:t2sc_037",
-   "hash": "4f99576933fa",
+   "point": "scorecard:t2sc_039",
+   "hash": "049c3202a2ab",
    "heads": [
     "scorecard:sb_01d0269f",
     "scorecard:sb_30c60846",
     "scorecard:sb_155a64a8",
     "scorecard:sb_d8d52cb2",
-    "scorecard:sb_28a25c23"
+    "scorecard:sb_03f6978d"
    ],
    "taught": [],
    "facts": [
@@ -35552,7 +35734,7 @@
      ],
      "answer": 0,
      "cefr": "B2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_30c60846",
@@ -35563,7 +35745,7 @@
      ],
      "answer": 1,
      "cefr": "B2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_155a64a8",
@@ -35574,7 +35756,7 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_d8d52cb2",
@@ -35585,55 +35767,8 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 1
-    },
-    {
-     "id": "sb_28a25c23",
-     "q": "With ___, you get money back.",
-     "options": [
-      "cashback",
-      "cash out"
-     ],
-     "answer": 0,
-     "cefr": "B1",
      "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_01d0269f",
-     "sb_30c60846",
-     "sb_155a64a8",
-     "sb_d8d52cb2",
-     "sb_28a25c23"
-    ],
-    "picks": [
-     1,
-     0,
-     1,
-     1,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_038",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 38,
-   "area": "placement",
-   "point": "scorecard:t2sc_038",
-   "hash": "6138a3b5a975",
-   "heads": [
-    "scorecard:sb_03f6978d",
-    "scorecard:sb_c864b070",
-    "scorecard:sb_7281e267",
-    "scorecard:sb_836058ef",
-    "scorecard:sb_5d41ed6c"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_03f6978d",
      "q": "Bad sleep can lead ___ stress.",
@@ -35643,8 +35778,44 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 0
-    },
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_01d0269f",
+     "sb_30c60846",
+     "sb_155a64a8",
+     "sb_d8d52cb2",
+     "sb_03f6978d"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_040",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 40,
+   "area": "placement",
+   "point": "scorecard:t2sc_040",
+   "hash": "d70501f035d5",
+   "heads": [
+    "scorecard:sb_c864b070",
+    "scorecard:sb_7281e267",
+    "scorecard:sb_836058ef",
+    "scorecard:sb_5d41ed6c",
+    "scorecard:sb_699b0f58"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_c864b070",
      "q": "He ___ a bike to school.",
@@ -35654,7 +35825,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_7281e267",
@@ -35688,43 +35859,7 @@
      "answer": 1,
      "cefr": "B2",
      "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_03f6978d",
-     "sb_c864b070",
-     "sb_7281e267",
-     "sb_836058ef",
-     "sb_5d41ed6c"
-    ],
-    "picks": [
-     0,
-     1,
-     1,
-     0,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_039",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 39,
-   "area": "placement",
-   "point": "scorecard:t2sc_039",
-   "hash": "93083a704fe2",
-   "heads": [
-    "scorecard:sb_699b0f58",
-    "scorecard:sb_a958a159",
-    "scorecard:sb_f0648eea",
-    "scorecard:sb_c1d18a88",
-    "scorecard:sb_0ce10d3a"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_699b0f58",
      "q": "I ___ up in Hue.",
@@ -35735,7 +35870,43 @@
      "answer": 0,
      "cefr": "A2",
      "pick": 0
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_c864b070",
+     "sb_7281e267",
+     "sb_836058ef",
+     "sb_5d41ed6c",
+     "sb_699b0f58"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_041",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 41,
+   "area": "placement",
+   "point": "scorecard:t2sc_041",
+   "hash": "8ca5b1c03d43",
+   "heads": [
+    "scorecard:sb_a958a159",
+    "scorecard:sb_f0648eea",
+    "scorecard:sb_c1d18a88",
+    "scorecard:sb_057c6ae7",
+    "scorecard:sb_0ce10d3a"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_a958a159",
      "q": "Can you ___ me your pen?",
@@ -35770,6 +35941,17 @@
      "pick": 0
     },
     {
+     "id": "sb_057c6ae7",
+     "q": "I can't go because I am ___.",
+     "options": [
+      "illness",
+      "ill"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
      "id": "sb_0ce10d3a",
      "q": "I started this job two years ___.",
      "options": [
@@ -35783,50 +35965,39 @@
    ],
    "in": {
     "items": [
-     "sb_699b0f58",
      "sb_a958a159",
      "sb_f0648eea",
      "sb_c1d18a88",
+     "sb_057c6ae7",
      "sb_0ce10d3a"
     ],
     "picks": [
      0,
      0,
      0,
-     0,
+     1,
      0
     ]
    }
   },
   {
-   "id": "t2sc_040",
+   "id": "t2sc_042",
    "template": "scorecard",
    "teacher": "carlos",
    "theme": "dusk",
-   "part": 40,
+   "part": 42,
    "area": "placement",
-   "point": "scorecard:t2sc_040",
-   "hash": "4e4ccff4b3d4",
+   "point": "scorecard:t2sc_042",
+   "hash": "21405d1dd3b1",
    "heads": [
-    "scorecard:sb_057c6ae7",
     "scorecard:sb_49f8754d",
     "scorecard:sb_d8f735d9",
     "scorecard:sb_5ae0c1c8",
+    "scorecard:sb_d7bb9b73",
     "scorecard:sb_8449414e"
    ],
    "taught": [],
    "facts": [
-    {
-     "id": "sb_057c6ae7",
-     "q": "I can't go because I am ___.",
-     "options": [
-      "illness",
-      "ill"
-     ],
-     "answer": 1,
-     "cefr": "A2",
-     "pick": 1
-    },
     {
      "id": "sb_49f8754d",
      "q": "Pay attention ___ the teacher.",
@@ -35836,7 +36007,7 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_d8f735d9",
@@ -35861,53 +36032,6 @@
      "pick": 0
     },
     {
-     "id": "sb_8449414e",
-     "q": "I love tacos! ___",
-     "options": [
-      "Me also!",
-      "Me too!"
-     ],
-     "answer": 1,
-     "cefr": "B1",
-     "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_057c6ae7",
-     "sb_49f8754d",
-     "sb_d8f735d9",
-     "sb_5ae0c1c8",
-     "sb_8449414e"
-    ],
-    "picks": [
-     1,
-     1,
-     0,
-     0,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_041",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 41,
-   "area": "placement",
-   "point": "scorecard:t2sc_041",
-   "hash": "da714285212a",
-   "heads": [
-    "scorecard:sb_d7bb9b73",
-    "scorecard:sb_77020772",
-    "scorecard:sb_fa69f2b5",
-    "scorecard:sb_0f8cdbf0",
-    "scorecard:sb_c03dbf46"
-   ],
-   "taught": [],
-   "facts": [
-    {
      "id": "sb_d7bb9b73",
      "q": "What is the ___ of that tower?",
      "options": [
@@ -35918,6 +36042,53 @@
      "cefr": "B1",
      "pick": 1
     },
+    {
+     "id": "sb_8449414e",
+     "q": "I love tacos! ___",
+     "options": [
+      "Me also!",
+      "Me too!"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_49f8754d",
+     "sb_d8f735d9",
+     "sb_5ae0c1c8",
+     "sb_d7bb9b73",
+     "sb_8449414e"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_043",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 43,
+   "area": "placement",
+   "point": "scorecard:t2sc_043",
+   "hash": "1b3e1c2a36dd",
+   "heads": [
+    "scorecard:sb_77020772",
+    "scorecard:sb_fa69f2b5",
+    "scorecard:sb_0f8cdbf0",
+    "scorecard:sb_c03dbf46",
+    "scorecard:sb_0ad85c2e"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_77020772",
      "q": "I ___ spicy food.",
@@ -35960,44 +36131,8 @@
      ],
      "answer": 1,
      "cefr": "B2",
-     "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_d7bb9b73",
-     "sb_77020772",
-     "sb_fa69f2b5",
-     "sb_0f8cdbf0",
-     "sb_c03dbf46"
-    ],
-    "picks": [
-     1,
-     0,
-     0,
-     1,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_042",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 42,
-   "area": "placement",
-   "point": "scorecard:t2sc_042",
-   "hash": "efb69f8b1549",
-   "heads": [
-    "scorecard:sb_0ad85c2e",
-    "scorecard:sb_a0d8398b",
-    "scorecard:sb_ae8a3381",
-    "scorecard:sb_0d6dc593",
-    "scorecard:sb_6935ba91"
-   ],
-   "taught": [],
-   "facts": [
+     "pick": 1
+    },
     {
      "id": "sb_0ad85c2e",
      "q": "I live ___, but I'm not lonely.",
@@ -36008,7 +36143,43 @@
      "answer": 0,
      "cefr": "A2",
      "pick": 0
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_77020772",
+     "sb_fa69f2b5",
+     "sb_0f8cdbf0",
+     "sb_c03dbf46",
+     "sb_0ad85c2e"
+    ],
+    "picks": [
+     0,
+     0,
+     1,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_044",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 44,
+   "area": "placement",
+   "point": "scorecard:t2sc_044",
+   "hash": "fb0c972f14cb",
+   "heads": [
+    "scorecard:sb_a0d8398b",
+    "scorecard:sb_ae8a3381",
+    "scorecard:sb_0d6dc593",
+    "scorecard:sb_6935ba91",
+    "scorecard:sb_7c1c35bd"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_a0d8398b",
      "q": "___ people like music.",
@@ -36029,7 +36200,7 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_0d6dc593",
@@ -36052,43 +36223,7 @@
      "answer": 1,
      "cefr": "B2",
      "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_0ad85c2e",
-     "sb_a0d8398b",
-     "sb_ae8a3381",
-     "sb_0d6dc593",
-     "sb_6935ba91"
-    ],
-    "picks": [
-     0,
-     1,
-     0,
-     0,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_043",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 43,
-   "area": "placement",
-   "point": "scorecard:t2sc_043",
-   "hash": "e25c203887f1",
-   "heads": [
-    "scorecard:sb_7c1c35bd",
-    "scorecard:sb_556966c7",
-    "scorecard:sb_dc881ba7",
-    "scorecard:sb_d11da4f4",
-    "scorecard:sb_6d62d506"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_7c1c35bd",
      "q": "The coffee machine ___.",
@@ -36099,7 +36234,43 @@
      "answer": 1,
      "cefr": "B1",
      "pick": 1
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_a0d8398b",
+     "sb_ae8a3381",
+     "sb_0d6dc593",
+     "sb_6935ba91",
+     "sb_7c1c35bd"
+    ],
+    "picks": [
+     1,
+     1,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_045",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 45,
+   "area": "placement",
+   "point": "scorecard:t2sc_045",
+   "hash": "c35a532b414e",
+   "heads": [
+    "scorecard:sb_556966c7",
+    "scorecard:sb_dc881ba7",
+    "scorecard:sb_d11da4f4",
+    "scorecard:sb_6d62d506",
+    "scorecard:sb_372b694c"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_556966c7",
      "q": "The library is very ___.",
@@ -36109,7 +36280,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_dc881ba7",
@@ -36120,7 +36291,7 @@
      ],
      "answer": 0,
      "cefr": "B2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_d11da4f4",
@@ -36131,7 +36302,7 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_6d62d506",
@@ -36143,43 +36314,7 @@
      "answer": 0,
      "cefr": "A2",
      "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_7c1c35bd",
-     "sb_556966c7",
-     "sb_dc881ba7",
-     "sb_d11da4f4",
-     "sb_6d62d506"
-    ],
-    "picks": [
-     1,
-     0,
-     0,
-     0,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_044",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 44,
-   "area": "placement",
-   "point": "scorecard:t2sc_044",
-   "hash": "bd1b837fad84",
-   "heads": [
-    "scorecard:sb_372b694c",
-    "scorecard:sb_b56e5263",
-    "scorecard:sb_b430e6a3",
-    "scorecard:sb_3051e94c",
-    "scorecard:sb_847a8b03"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_372b694c",
      "q": "She wants to ___ the race.",
@@ -36190,7 +36325,43 @@
      "answer": 0,
      "cefr": "B2",
      "pick": 0
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_556966c7",
+     "sb_dc881ba7",
+     "sb_d11da4f4",
+     "sb_6d62d506",
+     "sb_372b694c"
+    ],
+    "picks": [
+     1,
+     1,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_046",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 46,
+   "area": "placement",
+   "point": "scorecard:t2sc_046",
+   "hash": "80eb77432be8",
+   "heads": [
+    "scorecard:sb_b56e5263",
+    "scorecard:sb_b430e6a3",
+    "scorecard:sb_3051e94c",
+    "scorecard:sb_847a8b03",
+    "scorecard:sb_27e08c50"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_b56e5263",
      "q": "Do you want ___ us?",
@@ -36222,7 +36393,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_847a8b03",
@@ -36234,43 +36405,7 @@
      "answer": 1,
      "cefr": "B1",
      "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_372b694c",
-     "sb_b56e5263",
-     "sb_b430e6a3",
-     "sb_3051e94c",
-     "sb_847a8b03"
-    ],
-    "picks": [
-     0,
-     1,
-     0,
-     0,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_045",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 45,
-   "area": "placement",
-   "point": "scorecard:t2sc_045",
-   "hash": "f258919fdd85",
-   "heads": [
-    "scorecard:sb_27e08c50",
-    "scorecard:sb_a09e7d2a",
-    "scorecard:sb_ec31bdce",
-    "scorecard:sb_a451cd93",
-    "scorecard:sb_ef399b2d"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_27e08c50",
      "q": "The most important ___ is speed.",
@@ -36280,8 +36415,44 @@
      ],
      "answer": 0,
      "cefr": "B2",
-     "pick": 1
-    },
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_b56e5263",
+     "sb_b430e6a3",
+     "sb_3051e94c",
+     "sb_847a8b03",
+     "sb_27e08c50"
+    ],
+    "picks": [
+     1,
+     0,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_047",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 47,
+   "area": "placement",
+   "point": "scorecard:t2sc_047",
+   "hash": "fe4626d639fb",
+   "heads": [
+    "scorecard:sb_a09e7d2a",
+    "scorecard:sb_ec31bdce",
+    "scorecard:sb_a451cd93",
+    "scorecard:sb_e526a4e3",
+    "scorecard:sb_01728393"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_a09e7d2a",
      "q": "I saw him ___ month.",
@@ -36291,7 +36462,7 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_ec31bdce",
@@ -36302,7 +36473,7 @@
      ],
      "answer": 1,
      "cefr": "B2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_a451cd93",
@@ -36316,53 +36487,6 @@
      "pick": 1
     },
     {
-     "id": "sb_ef399b2d",
-     "q": "He stopped ___ last year.",
-     "options": [
-      "to smoke",
-      "smoking"
-     ],
-     "answer": 1,
-     "cefr": "A2",
-     "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_27e08c50",
-     "sb_a09e7d2a",
-     "sb_ec31bdce",
-     "sb_a451cd93",
-     "sb_ef399b2d"
-    ],
-    "picks": [
-     1,
-     0,
-     1,
-     1,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_046",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 46,
-   "area": "placement",
-   "point": "scorecard:t2sc_046",
-   "hash": "d3fb63ee4c88",
-   "heads": [
-    "scorecard:sb_e526a4e3",
-    "scorecard:sb_78a5eb43",
-    "scorecard:sb_325da830",
-    "scorecard:sb_01728393",
-    "scorecard:sb_99be1ee6"
-   ],
-   "taught": [],
-   "facts": [
-    {
      "id": "sb_e526a4e3",
      "q": "The shop ___ me a discount.",
      "options": [
@@ -36371,7 +36495,65 @@
      ],
      "answer": 1,
      "cefr": "B2",
-     "pick": 0
+     "pick": 1
+    },
+    {
+     "id": "sb_01728393",
+     "q": "Thanks for your help! ___",
+     "options": [
+      "Sometime!",
+      "Anytime!"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_a09e7d2a",
+     "sb_ec31bdce",
+     "sb_a451cd93",
+     "sb_e526a4e3",
+     "sb_01728393"
+    ],
+    "picks": [
+     1,
+     0,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_048",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 48,
+   "area": "placement",
+   "point": "scorecard:t2sc_048",
+   "hash": "8114ed9a0a58",
+   "heads": [
+    "scorecard:sb_ef399b2d",
+    "scorecard:sb_78a5eb43",
+    "scorecard:sb_325da830",
+    "scorecard:sb_99be1ee6",
+    "scorecard:sb_072f702a"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_ef399b2d",
+     "q": "He stopped ___ last year.",
+     "options": [
+      "to smoke",
+      "smoking"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
     },
     {
      "id": "sb_78a5eb43",
@@ -36396,17 +36578,6 @@
      "pick": 0
     },
     {
-     "id": "sb_01728393",
-     "q": "Thanks for your help! ___",
-     "options": [
-      "Sometime!",
-      "Anytime!"
-     ],
-     "answer": 1,
-     "cefr": "A2",
-     "pick": 1
-    },
-    {
      "id": "sb_99be1ee6",
      "q": "I ___ in Hue. I was born here.",
      "options": [
@@ -36415,44 +36586,8 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_e526a4e3",
-     "sb_78a5eb43",
-     "sb_325da830",
-     "sb_01728393",
-     "sb_99be1ee6"
-    ],
-    "picks": [
-     0,
-     0,
-     0,
-     1,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_047",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 47,
-   "area": "placement",
-   "point": "scorecard:t2sc_047",
-   "hash": "e558d533d9a1",
-   "heads": [
-    "scorecard:sb_072f702a",
-    "scorecard:sb_b8781c2a",
-    "scorecard:sb_d7a49df5",
-    "scorecard:sb_0ce8ec98",
-    "scorecard:sb_af50243a"
-   ],
-   "taught": [],
-   "facts": [
+     "pick": 0
+    },
     {
      "id": "sb_072f702a",
      "q": "In my opinion, ___ it's true.",
@@ -36463,7 +36598,43 @@
      "answer": 1,
      "cefr": "A1",
      "pick": 1
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_ef399b2d",
+     "sb_78a5eb43",
+     "sb_325da830",
+     "sb_99be1ee6",
+     "sb_072f702a"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_049",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 49,
+   "area": "placement",
+   "point": "scorecard:t2sc_049",
+   "hash": "6053e0e39394",
+   "heads": [
+    "scorecard:sb_b8781c2a",
+    "scorecard:sb_d7a49df5",
+    "scorecard:sb_0ce8ec98",
+    "scorecard:sb_af50243a",
+    "scorecard:sb_55270c0b"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_b8781c2a",
      "q": "Let's keep ___ after the course.",
@@ -36473,7 +36644,7 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_d7a49df5",
@@ -36495,7 +36666,7 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_af50243a",
@@ -36507,43 +36678,7 @@
      "answer": 1,
      "cefr": "A2",
      "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_072f702a",
-     "sb_b8781c2a",
-     "sb_d7a49df5",
-     "sb_0ce8ec98",
-     "sb_af50243a"
-    ],
-    "picks": [
-     1,
-     0,
-     1,
-     1,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_048",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 48,
-   "area": "placement",
-   "point": "scorecard:t2sc_048",
-   "hash": "0660671f1770",
-   "heads": [
-    "scorecard:sb_55270c0b",
-    "scorecard:sb_bb463289",
-    "scorecard:sb_27ef7399",
-    "scorecard:sb_324a7590",
-    "scorecard:sb_4650f9b0"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_55270c0b",
      "q": "What ___ a typical day look like?",
@@ -36554,7 +36689,43 @@
      "answer": 1,
      "cefr": "B1",
      "pick": 1
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_b8781c2a",
+     "sb_d7a49df5",
+     "sb_0ce8ec98",
+     "sb_af50243a",
+     "sb_55270c0b"
+    ],
+    "picks": [
+     1,
+     1,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_050",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 50,
+   "area": "placement",
+   "point": "scorecard:t2sc_050",
+   "hash": "36ea8184a9c7",
+   "heads": [
+    "scorecard:sb_bb463289",
+    "scorecard:sb_27ef7399",
+    "scorecard:sb_324a7590",
+    "scorecard:sb_9b0c41a0",
+    "scorecard:sb_4650f9b0"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_bb463289",
      "q": "There was ___ rain last night.",
@@ -36586,6 +36757,17 @@
      ],
      "answer": 0,
      "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_9b0c41a0",
+     "q": "Noise prevents me ___ sleeping.",
+     "options": [
+      "to",
+      "from"
+     ],
+     "answer": 1,
+     "cefr": "B2",
      "pick": 0
     },
     {
@@ -36602,15 +36784,15 @@
    ],
    "in": {
     "items": [
-     "sb_55270c0b",
      "sb_bb463289",
      "sb_27ef7399",
      "sb_324a7590",
+     "sb_9b0c41a0",
      "sb_4650f9b0"
     ],
     "picks": [
-     1,
      0,
+     1,
      1,
      0,
      1
@@ -36618,34 +36800,23 @@
    }
   },
   {
-   "id": "t2sc_049",
+   "id": "t2sc_051",
    "template": "scorecard",
    "teacher": "ama",
    "theme": "dusk",
-   "part": 49,
+   "part": 51,
    "area": "placement",
-   "point": "scorecard:t2sc_049",
-   "hash": "c2e0158bb00f",
+   "point": "scorecard:t2sc_051",
+   "hash": "c9191dc5c8ed",
    "heads": [
-    "scorecard:sb_9b0c41a0",
     "scorecard:sb_3e77d39c",
     "scorecard:sb_02938065",
     "scorecard:sb_03ae3a7b",
-    "scorecard:sb_5a3afafa"
+    "scorecard:sb_5a3afafa",
+    "scorecard:sb_c1d23040"
    ],
    "taught": [],
    "facts": [
-    {
-     "id": "sb_9b0c41a0",
-     "q": "Noise prevents me ___ sleeping.",
-     "options": [
-      "to",
-      "from"
-     ],
-     "answer": 1,
-     "cefr": "B2",
-     "pick": 1
-    },
     {
      "id": "sb_3e77d39c",
      "q": "The sun ___ at six.",
@@ -36666,7 +36837,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_03ae3a7b",
@@ -36689,43 +36860,7 @@
      "answer": 1,
      "cefr": "A2",
      "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_9b0c41a0",
-     "sb_3e77d39c",
-     "sb_02938065",
-     "sb_03ae3a7b",
-     "sb_5a3afafa"
-    ],
-    "picks": [
-     1,
-     1,
-     1,
-     0,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_050",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 50,
-   "area": "placement",
-   "point": "scorecard:t2sc_050",
-   "hash": "a939c1d65a62",
-   "heads": [
-    "scorecard:sb_c1d23040",
-    "scorecard:sb_1798babe",
-    "scorecard:sb_00e987d4",
-    "scorecard:sb_6c82a344",
-    "scorecard:sb_01002079"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_c1d23040",
      "q": "She is angry ___ her brother.",
@@ -36736,7 +36871,43 @@
      "answer": 0,
      "cefr": "A2",
      "pick": 0
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_3e77d39c",
+     "sb_02938065",
+     "sb_03ae3a7b",
+     "sb_5a3afafa",
+     "sb_c1d23040"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_052",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 52,
+   "area": "placement",
+   "point": "scorecard:t2sc_052",
+   "hash": "6a1111c22bcb",
+   "heads": [
+    "scorecard:sb_1798babe",
+    "scorecard:sb_00e987d4",
+    "scorecard:sb_01002079",
+    "scorecard:sb_0a4a65be",
+    "scorecard:sb_4bc6cc80"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_1798babe",
      "q": "The flood ___ many houses.",
@@ -36746,7 +36917,7 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_00e987d4",
@@ -36760,17 +36931,6 @@
      "pick": 0
     },
     {
-     "id": "sb_6c82a344",
-     "q": "She wants to go ___ next year.",
-     "options": [
-      "to abroad",
-      "abroad"
-     ],
-     "answer": 1,
-     "cefr": "A2",
-     "pick": 1
-    },
-    {
      "id": "sb_01002079",
      "q": "Don't put off ___ the doctor.",
      "options": [
@@ -36780,43 +36940,7 @@
      "answer": 0,
      "cefr": "B1",
      "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_c1d23040",
-     "sb_1798babe",
-     "sb_00e987d4",
-     "sb_6c82a344",
-     "sb_01002079"
-    ],
-    "picks": [
-     0,
-     1,
-     0,
-     1,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_051",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 51,
-   "area": "placement",
-   "point": "scorecard:t2sc_051",
-   "hash": "7b359002e701",
-   "heads": [
-    "scorecard:sb_0a4a65be",
-    "scorecard:sb_4bc6cc80",
-    "scorecard:sb_00ac2cbe",
-    "scorecard:sb_00b3d3f4",
-    "scorecard:sb_03473678"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_0a4a65be",
      "q": "We ___ to finish by Friday.",
@@ -36838,7 +36962,43 @@
      "answer": 0,
      "cefr": "B2",
      "pick": 0
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_1798babe",
+     "sb_00e987d4",
+     "sb_01002079",
+     "sb_0a4a65be",
+     "sb_4bc6cc80"
+    ],
+    "picks": [
+     0,
+     0,
+     1,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_053",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 53,
+   "area": "placement",
+   "point": "scorecard:t2sc_053",
+   "hash": "892241bb8a3b",
+   "heads": [
+    "scorecard:sb_00ac2cbe",
+    "scorecard:sb_00b3d3f4",
+    "scorecard:sb_fc42e435",
+    "scorecard:sb_03473678",
+    "scorecard:sb_389e26ad"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_00ac2cbe",
      "q": "Every day I ___ to school by bike.",
@@ -36859,6 +37019,17 @@
      ],
      "answer": 0,
      "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_fc42e435",
+     "q": "I'm afraid that ___ work for me.",
+     "options": [
+      "not",
+      "doesn't"
+     ],
+     "answer": 1,
+     "cefr": "B2",
      "pick": 0
     },
     {
@@ -36871,53 +37042,6 @@
      "answer": 1,
      "cefr": "B1",
      "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_0a4a65be",
-     "sb_4bc6cc80",
-     "sb_00ac2cbe",
-     "sb_00b3d3f4",
-     "sb_03473678"
-    ],
-    "picks": [
-     1,
-     0,
-     0,
-     0,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_052",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 52,
-   "area": "placement",
-   "point": "scorecard:t2sc_052",
-   "hash": "c584602da9c4",
-   "heads": [
-    "scorecard:sb_fc42e435",
-    "scorecard:sb_389e26ad",
-    "scorecard:sb_ded82381",
-    "scorecard:sb_d6acb235",
-    "scorecard:sb_136af047"
-   ],
-   "taught": [],
-   "facts": [
-    {
-     "id": "sb_fc42e435",
-     "q": "I'm afraid that ___ work for me.",
-     "options": [
-      "not",
-      "doesn't"
-     ],
-     "answer": 1,
-     "cefr": "B2",
-     "pick": 1
     },
     {
      "id": "sb_389e26ad",
@@ -36928,8 +37052,44 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 0
-    },
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_00ac2cbe",
+     "sb_00b3d3f4",
+     "sb_fc42e435",
+     "sb_03473678",
+     "sb_389e26ad"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_054",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 54,
+   "area": "placement",
+   "point": "scorecard:t2sc_054",
+   "hash": "b5be5bb3fe99",
+   "heads": [
+    "scorecard:sb_ded82381",
+    "scorecard:sb_d6acb235",
+    "scorecard:sb_136af047",
+    "scorecard:sb_014af894",
+    "scorecard:sb_03afa19f"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_ded82381",
      "q": "Everyone can ___ a mistake.",
@@ -36950,7 +37110,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_136af047",
@@ -36962,43 +37122,7 @@
      "answer": 1,
      "cefr": "A1",
      "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_fc42e435",
-     "sb_389e26ad",
-     "sb_ded82381",
-     "sb_d6acb235",
-     "sb_136af047"
-    ],
-    "picks": [
-     1,
-     0,
-     1,
-     1,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_053",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 53,
-   "area": "placement",
-   "point": "scorecard:t2sc_053",
-   "hash": "9d5e46b4ec34",
-   "heads": [
-    "scorecard:sb_014af894",
-    "scorecard:sb_0d57e20a",
-    "scorecard:sb_99bdb159",
-    "scorecard:sb_d2fd585c",
-    "scorecard:sb_1740b6df"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_014af894",
      "q": "There's a high risk ___ rain today.",
@@ -37008,8 +37132,55 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
+    {
+     "id": "sb_03afa19f",
+     "q": "The MRI scan uses ___.",
+     "options": [
+      "magnets",
+      "X-rays"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_ded82381",
+     "sb_d6acb235",
+     "sb_136af047",
+     "sb_014af894",
+     "sb_03afa19f"
+    ],
+    "picks": [
+     1,
+     0,
+     1,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_055",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 55,
+   "area": "placement",
+   "point": "scorecard:t2sc_055",
+   "hash": "be5bb40330b3",
+   "heads": [
+    "scorecard:sb_0d57e20a",
+    "scorecard:sb_99bdb159",
+    "scorecard:sb_d2fd585c",
+    "scorecard:sb_1740b6df",
+    "scorecard:sb_14311c65"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_0d57e20a",
      "q": "___ the flight is late.",
@@ -37019,7 +37190,7 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_99bdb159",
@@ -37030,7 +37201,7 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_d2fd585c",
@@ -37041,7 +37212,7 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_1740b6df",
@@ -37052,44 +37223,8 @@
      ],
      "answer": 1,
      "cefr": "A1",
-     "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_014af894",
-     "sb_0d57e20a",
-     "sb_99bdb159",
-     "sb_d2fd585c",
-     "sb_1740b6df"
-    ],
-    "picks": [
-     1,
-     0,
-     1,
-     1,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_054",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 54,
-   "area": "placement",
-   "point": "scorecard:t2sc_054",
-   "hash": "493368ceec22",
-   "heads": [
-    "scorecard:sb_14311c65",
-    "scorecard:sb_ff076731",
-    "scorecard:sb_f3392adc",
-    "scorecard:sb_097145e5",
-    "scorecard:sb_682c8238"
-   ],
-   "taught": [],
-   "facts": [
+     "pick": 0
+    },
     {
      "id": "sb_14311c65",
      "q": "My flight ___ canceled.",
@@ -37100,7 +37235,43 @@
      "answer": 1,
      "cefr": "B1",
      "pick": 1
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_0d57e20a",
+     "sb_99bdb159",
+     "sb_d2fd585c",
+     "sb_1740b6df",
+     "sb_14311c65"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_056",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 56,
+   "area": "placement",
+   "point": "scorecard:t2sc_056",
+   "hash": "e0365d8d9da7",
+   "heads": [
+    "scorecard:sb_ff076731",
+    "scorecard:sb_f3392adc",
+    "scorecard:sb_097145e5",
+    "scorecard:sb_682c8238",
+    "scorecard:sb_017d1a81"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_ff076731",
      "q": "She wears ___ every day.",
@@ -37121,7 +37292,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_097145e5",
@@ -37143,44 +37314,8 @@
      ],
      "answer": 0,
      "cefr": "B1",
-     "pick": 1
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_14311c65",
-     "sb_ff076731",
-     "sb_f3392adc",
-     "sb_097145e5",
-     "sb_682c8238"
-    ],
-    "picks": [
-     1,
-     1,
-     1,
-     0,
-     1
-    ]
-   }
-  },
-  {
-   "id": "t2sc_055",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 55,
-   "area": "placement",
-   "point": "scorecard:t2sc_055",
-   "hash": "c1b806514b86",
-   "heads": [
-    "scorecard:sb_017d1a81",
-    "scorecard:sb_2bf49caa",
-    "scorecard:sb_6dbf5c1a",
-    "scorecard:sb_00f4553a",
-    "scorecard:sb_85b49008"
-   ],
-   "taught": [],
-   "facts": [
+     "pick": 0
+    },
     {
      "id": "sb_017d1a81",
      "q": "The truck collided ___ a tree.",
@@ -37191,7 +37326,43 @@
      "answer": 0,
      "cefr": "B1",
      "pick": 0
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_ff076731",
+     "sb_f3392adc",
+     "sb_097145e5",
+     "sb_682c8238",
+     "sb_017d1a81"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_057",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 57,
+   "area": "placement",
+   "point": "scorecard:t2sc_057",
+   "hash": "4931c786dc85",
+   "heads": [
+    "scorecard:sb_2bf49caa",
+    "scorecard:sb_6dbf5c1a",
+    "scorecard:sb_00f4553a",
+    "scorecard:sb_85b49008",
+    "scorecard:sb_46f96315"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_2bf49caa",
      "q": "She is nervous ___ the test.",
@@ -37201,7 +37372,7 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_6dbf5c1a",
@@ -37234,44 +37405,8 @@
      ],
      "answer": 1,
      "cefr": "A2",
-     "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_017d1a81",
-     "sb_2bf49caa",
-     "sb_6dbf5c1a",
-     "sb_00f4553a",
-     "sb_85b49008"
-    ],
-    "picks": [
-     0,
-     1,
-     1,
-     0,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_056",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 56,
-   "area": "placement",
-   "point": "scorecard:t2sc_056",
-   "hash": "83552f6e4eb8",
-   "heads": [
-    "scorecard:sb_46f96315",
-    "scorecard:sb_a6a08261",
-    "scorecard:sb_9762bb80",
-    "scorecard:sb_237d4691",
-    "scorecard:sb_6d557cd2"
-   ],
-   "taught": [],
-   "facts": [
+     "pick": 1
+    },
     {
      "id": "sb_46f96315",
      "q": "I walk ___ after class.",
@@ -37282,7 +37417,43 @@
      "answer": 1,
      "cefr": "A2",
      "pick": 1
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_2bf49caa",
+     "sb_6dbf5c1a",
+     "sb_00f4553a",
+     "sb_85b49008",
+     "sb_46f96315"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_058",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 58,
+   "area": "placement",
+   "point": "scorecard:t2sc_058",
+   "hash": "14954242ea01",
+   "heads": [
+    "scorecard:sb_a6a08261",
+    "scorecard:sb_9762bb80",
+    "scorecard:sb_237d4691",
+    "scorecard:sb_6d557cd2",
+    "scorecard:sb_49256b98"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_a6a08261",
      "q": "She took advantage ___ the sale.",
@@ -37292,7 +37463,7 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     },
     {
      "id": "sb_9762bb80",
@@ -37314,7 +37485,7 @@
      ],
      "answer": 0,
      "cefr": "A2",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_6d557cd2",
@@ -37326,43 +37497,7 @@
      "answer": 0,
      "cefr": "B2",
      "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_46f96315",
-     "sb_a6a08261",
-     "sb_9762bb80",
-     "sb_237d4691",
-     "sb_6d557cd2"
-    ],
-    "picks": [
-     1,
-     1,
-     1,
-     0,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_057",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 57,
-   "area": "placement",
-   "point": "scorecard:t2sc_057",
-   "hash": "3c3d4f457436",
-   "heads": [
-    "scorecard:sb_49256b98",
-    "scorecard:sb_e4fb5276",
-    "scorecard:sb_51a55050",
-    "scorecard:sb_24ac31f5",
-    "scorecard:sb_14cf6349"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_49256b98",
      "q": "Please ___ me outside.",
@@ -37373,7 +37508,43 @@
      "answer": 0,
      "cefr": "A2",
      "pick": 0
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_a6a08261",
+     "sb_9762bb80",
+     "sb_237d4691",
+     "sb_6d557cd2",
+     "sb_49256b98"
+    ],
+    "picks": [
+     0,
+     1,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_059",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 59,
+   "area": "placement",
+   "point": "scorecard:t2sc_059",
+   "hash": "21a811269382",
+   "heads": [
+    "scorecard:sb_e4fb5276",
+    "scorecard:sb_51a55050",
+    "scorecard:sb_14cf6349",
+    "scorecard:sb_b02a45a5",
+    "scorecard:sb_816745d7"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_e4fb5276",
      "q": "We want to ___ a flat for a year.",
@@ -37383,7 +37554,7 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 0
+     "pick": 1
     },
     {
      "id": "sb_51a55050",
@@ -37397,17 +37568,6 @@
      "pick": 1
     },
     {
-     "id": "sb_24ac31f5",
-     "q": "My dad taught me ___ ride a bike.",
-     "options": [
-      "how",
-      "how to"
-     ],
-     "answer": 1,
-     "cefr": "A1",
-     "pick": 1
-    },
-    {
      "id": "sb_14cf6349",
      "q": "___ me an hour to cook dinner.",
      "options": [
@@ -37417,43 +37577,7 @@
      "answer": 0,
      "cefr": "A1",
      "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_49256b98",
-     "sb_e4fb5276",
-     "sb_51a55050",
-     "sb_24ac31f5",
-     "sb_14cf6349"
-    ],
-    "picks": [
-     0,
-     0,
-     1,
-     1,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_058",
-   "template": "scorecard",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 58,
-   "area": "placement",
-   "point": "scorecard:t2sc_058",
-   "hash": "646c39b58b64",
-   "heads": [
-    "scorecard:sb_b02a45a5",
-    "scorecard:sb_816745d7",
-    "scorecard:sb_6ce1a133",
-    "scorecard:sb_6e4b5fa0",
-    "scorecard:sb_f6d438d7"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_b02a45a5",
      "q": "Please pay attention ___ the board.",
@@ -37474,8 +37598,44 @@
      ],
      "answer": 0,
      "cefr": "B2",
-     "pick": 1
-    },
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_e4fb5276",
+     "sb_51a55050",
+     "sb_14cf6349",
+     "sb_b02a45a5",
+     "sb_816745d7"
+    ],
+    "picks": [
+     1,
+     1,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_060",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 60,
+   "area": "placement",
+   "point": "scorecard:t2sc_060",
+   "hash": "55c08cecacde",
+   "heads": [
+    "scorecard:sb_6ce1a133",
+    "scorecard:sb_07d8ef9d",
+    "scorecard:sb_6e4b5fa0",
+    "scorecard:sb_f6d438d7",
+    "scorecard:sb_7c67f786"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_6ce1a133",
      "q": "He is very ___.",
@@ -37485,6 +37645,17 @@
      ],
      "answer": 1,
      "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_07d8ef9d",
+     "q": "This hotel is superior ___ the others.",
+     "options": [
+      "than",
+      "to"
+     ],
+     "answer": 1,
+     "cefr": "C1",
      "pick": 0
     },
     {
@@ -37508,43 +37679,7 @@
      "answer": 0,
      "cefr": "B1",
      "pick": 0
-    }
-   ],
-   "in": {
-    "items": [
-     "sb_b02a45a5",
-     "sb_816745d7",
-     "sb_6ce1a133",
-     "sb_6e4b5fa0",
-     "sb_f6d438d7"
-    ],
-    "picks": [
-     0,
-     1,
-     0,
-     1,
-     0
-    ]
-   }
-  },
-  {
-   "id": "t2sc_059",
-   "template": "scorecard",
-   "teacher": "ama",
-   "theme": "dusk",
-   "part": 59,
-   "area": "placement",
-   "point": "scorecard:t2sc_059",
-   "hash": "1adc30b27602",
-   "heads": [
-    "scorecard:sb_7c67f786",
-    "scorecard:sb_cad1c068",
-    "scorecard:sb_6486fb27",
-    "scorecard:sb_2b414c2b",
-    "scorecard:sb_8ce033f9"
-   ],
-   "taught": [],
-   "facts": [
+    },
     {
      "id": "sb_7c67f786",
      "q": "I would rather ___ at home.",
@@ -37555,7 +37690,43 @@
      "answer": 1,
      "cefr": "B2",
      "pick": 1
-    },
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_6ce1a133",
+     "sb_07d8ef9d",
+     "sb_6e4b5fa0",
+     "sb_f6d438d7",
+     "sb_7c67f786"
+    ],
+    "picks": [
+     1,
+     0,
+     1,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_061",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 61,
+   "area": "placement",
+   "point": "scorecard:t2sc_061",
+   "hash": "2f437f63b660",
+   "heads": [
+    "scorecard:sb_cad1c068",
+    "scorecard:sb_6486fb27",
+    "scorecard:sb_2b414c2b",
+    "scorecard:sb_8b6e2723",
+    "scorecard:sb_8ce033f9"
+   ],
+   "taught": [],
+   "facts": [
     {
      "id": "sb_cad1c068",
      "q": "This cake tastes ___.",
@@ -37587,6 +37758,17 @@
      ],
      "answer": 1,
      "cefr": "A1",
+     "pick": 0
+    },
+    {
+     "id": "sb_8b6e2723",
+     "q": "Nobody ___ the fire.",
+     "options": [
+      "survived",
+      "survived from"
+     ],
+     "answer": 0,
+     "cefr": "B2",
      "pick": 1
     },
     {
@@ -37598,55 +37780,44 @@
      ],
      "answer": 1,
      "cefr": "B1",
-     "pick": 1
+     "pick": 0
     }
    ],
    "in": {
     "items": [
-     "sb_7c67f786",
      "sb_cad1c068",
      "sb_6486fb27",
      "sb_2b414c2b",
+     "sb_8b6e2723",
      "sb_8ce033f9"
     ],
     "picks": [
-     1,
      0,
      0,
+     0,
      1,
-     1
+     0
     ]
    }
   },
   {
-   "id": "t2sc_060",
+   "id": "t2sc_062",
    "template": "scorecard",
    "teacher": "carlos",
    "theme": "dusk",
-   "part": 60,
+   "part": 62,
    "area": "placement",
-   "point": "scorecard:t2sc_060",
-   "hash": "d13770e4e0b7",
+   "point": "scorecard:t2sc_062",
+   "hash": "906747ae01e3",
    "heads": [
-    "scorecard:sb_8b6e2723",
     "scorecard:sb_2408f7fd",
     "scorecard:sb_22196b6a",
     "scorecard:sb_d938ad5c",
-    "scorecard:sb_1c747068"
+    "scorecard:sb_1c747068",
+    "scorecard:sb_05b65d49"
    ],
    "taught": [],
    "facts": [
-    {
-     "id": "sb_8b6e2723",
-     "q": "Nobody ___ the fire.",
-     "options": [
-      "survived",
-      "survived from"
-     ],
-     "answer": 0,
-     "cefr": "B2",
-     "pick": 0
-    },
     {
      "id": "sb_2408f7fd",
      "q": "Want to ___ after class?",
@@ -37690,22 +37861,33 @@
      "answer": 1,
      "cefr": "B1",
      "pick": 0
+    },
+    {
+     "id": "sb_05b65d49",
+     "q": "They decided ___ a new car.",
+     "options": [
+      "to buy",
+      "buying"
+     ],
+     "answer": 0,
+     "cefr": "A1",
+     "pick": 1
     }
    ],
    "in": {
     "items": [
-     "sb_8b6e2723",
      "sb_2408f7fd",
      "sb_22196b6a",
      "sb_d938ad5c",
-     "sb_1c747068"
+     "sb_1c747068",
+     "sb_05b65d49"
     ],
     "picks": [
-     0,
      1,
      0,
      1,
-     0
+     0,
+     1
     ]
    }
   }

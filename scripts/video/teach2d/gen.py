@@ -526,12 +526,12 @@ T['slang'] = slang; SERIES['slang'] = 'Slang Card'
 # ---------------- scorecard: "Score Challenge" 9-12 s reels (growth series #5, docs/GROWTH-1M.md §2: "Mình được 82/100, bạn thử đi" -> the app's level test) ----------------
 # 5 REAL quiz items of the audited gold bank (stem, 2 options, answer key) + a SAMPLE pick per item: the score is computed from the shown ticks (20 points each), labelled
 # "SAMPLE ANSWERS" on screen, never a stat or a user claim. Teacher reacts to the score band with a TeacherRig EXPR; CTA = the real test (#/placement).
-SC_N, SC_PTS, SC_CEFR = 5, 20, ('A1', 'A2', 'B1', 'B2')
+SC_N, SC_PTS, SC_CEFR = 5, 20, ('A1', 'A2', 'B1', 'B2', 'C1')
 SC_EXPR = {100: 'hype', 80: 'smug', 60: 'shrug', 40: 'cringe'}   # score band -> TeacherRig EXPR (hype has an approved pose, the rest are drawn faces)
 SC_NUM, SC_COUNT = {40: 'forty', 60: 'sixty', 80: 'eighty'}, ['No', 'One', 'Two', 'Three', 'Four', 'All five']
 SC_REACT = {100: 'Perfect. Tough to match.', 80: 'Pretty good, right?', 60: 'Okay. You can beat that.', 40: 'Oops. Easy to beat!'}
 SC_CYCLE = [80, 60, 100, 80, 40, 60, 80, 100]   # bands in plan order: smug / shrug / hype alternate, so no two neighbours look alike
-SC_W, SC_ROW, SC_REGION = 720, 40, 820   # row text column (card 900 - badge column 116 - pad 40 = 744; 24 px margin: CI's pillow measures a few px differently from a local one), row font (= the 40 px min-text floor), card height room (card region 826)
+SC_W, SC_ROW, SC_REGION = 712, 40, 820   # row text column (card 900 - badge column 106 - pad 40 = 754; 42 px margin: CI's pillow measures a few px differently from a local one), row font (= the 40 px min-text floor), card height room (card region 826)
 SC_WORDS, SC_SECS = (16, 28), (9.0, 12.0)   # word / seconds range of the score challenge reel (speed = SLANG_SPEED)
 
 
@@ -1300,7 +1300,7 @@ def plan_slang(n, keys=None):   # one episode per slang card (English channels; 
     for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
 
 
-SCORE_REVIEWER = 'gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)'
+SCORE_REVIEWER = 'gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)'
 
 
 def plan_scorecard(n):   # n new Score Challenge rows; every item of the pool is used at most once across all scorecard rows (dup gate), bands follow SC_CYCLE
@@ -1310,9 +1310,9 @@ def plan_scorecard(n):   # n new Score Challenge rows; every item of the pool is
     def skip(k, r): why.setdefault(k, []).append(r)
     for _ in range(n):
         k = k0 + len(ok) + 1; rid = f't2sc_{k:03d}'; pick, pids, ty = [], set(), {}
-        for i in pool:   # 5 items: distinct point, <= 4 situational / <= 2 of any other type, <= 2 B2, at least one A1/A2
+        for i in pool:   # 5 items: distinct point, <= 4 situational / <= 2 of any other type, <= 2 B2/C1, at least one A1/A2
             g = GOLD[i]
-            if g['pid'] in pids or ty.get(g['type'], 0) >= (4 if g['type'] == 'situational' else 2) or (g['cefr'] == 'B2' and sum(GOLD[j]['cefr'] == 'B2' for j in pick) >= 2) or (len(pick) == SC_N - 1 and g['cefr'] not in ('A1', 'A2') and not any(GOLD[j]['cefr'] in ('A1', 'A2') for j in pick)): continue
+            if g['pid'] in pids or ty.get(g['type'], 0) >= (4 if g['type'] == 'situational' else 2) or (g['cefr'] in ('B2', 'C1') and sum(GOLD[j]['cefr'] in ('B2', 'C1') for j in pick) >= 2) or (len(pick) == SC_N - 1 and g['cefr'] not in ('A1', 'A2') and not any(GOLD[j]['cefr'] in ('A1', 'A2') for j in pick)): continue
             pick.append(i); pids.add(g['pid']); ty[g['type']] = ty.get(g['type'], 0) + 1
             if len(pick) == SC_N: break
         if len(pick) < SC_N or not any(GOLD[i]['cefr'] in ('A1', 'A2') for i in pick): skip('pool', rid); break

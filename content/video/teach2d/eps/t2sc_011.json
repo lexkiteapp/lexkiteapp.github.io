@@ -43,23 +43,23 @@
  "data": {
   "items": [
    {
-    "stem": "It rained. ___, we played.",
+    "stem": "He didn't dare ___ his boss.",
     "options": [
-     "Because",
-     "Nevertheless"
+     "calling",
+     "call"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B2"
    },
    {
-    "stem": "___, Lee will send the report.",
+    "stem": "Small shops rely ___ local customers.",
     "options": [
-     "To wrap up",
-     "For finish"
+     "in",
+     "on"
     ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "B2"
    },
    {
@@ -110,8 +110,8 @@
  },
  "src": {
   "gold": [
-   "sb_13bcedda",
-   "sb_57e42a5c",
+   "sb_16c56ea4",
+   "sb_04105eed",
    "sb_24aedfd4",
    "sb_52fcf41b",
    "sb_19a7dd81"
