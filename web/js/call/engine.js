@@ -10,12 +10,6 @@
   const fold = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const foldT = (s, tl) => (TLX[tl] && TLX[tl].fold ? TLX[tl].fold(s) : fold(s)), foldRe = (s, tl) => (TLX[tl] && TLX[tl].foldRe ? TLX[tl].foldRe(s) : fold(s)); // tl chưa khai fold → như cũ từng byte
   const TLX = { es: { fill: /\b(e+h+|e+m+|m{2,}|o sea)\b/g, link: /\b(porque|pero|entonces|aunque|ademas|tambien|por ejemplo|cuando|mientras|sin embargo|por eso|ya que|asi que|ademas)\b/ }, fr: { fill: /\b(e+u+h+|heu+|m{2,}|bah|ben)\b/g, link: /\b(parce que|puisque|car|mais|donc|alors|pourtant|cependant|quand|lorsque|pendant que|par exemple|aussi|ensuite|ainsi|d'abord|en effet|d'ailleurs|par contre|c'est pourquoi|bien que|meme si)\b/ } };
-    // ja (japanese-course.md W4): chữ không cách từ (sub: không dùng \b), fold = NFKC + katakana→hiragana (+ bỏ khoảng trắng/dấu câu khi so; foldRe giữ ký tự regex), từ = Intl.Segmenter (dự phòng: cụm chữ), has = chứa chuỗi
-    TLX.ja = { sub: true, fill: /(えーと|ええと|えっと|あのー?|うーん|まあ|そのー)/g, link: /(から|ので|けど|が、|でも|しかし|それから|そして|たとえば|ながら|ために|ですから|また|それに|もし)/,
-      fold: s => String(s || '').normalize('NFKC').replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/[\s\p{P}\p{S}]/gu, '').toLowerCase(),
-      foldRe: s => String(s || '').normalize('NFKC').replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).toLowerCase(),
-      words: s => { const t = String(s || '').normalize('NFKC'); try { return [...new Intl.Segmenter('ja', { granularity: 'word' }).segment(t)].filter(x => x.isWordLike).map(x => x.segment); } catch (e) { return t.match(/[\p{Script=Han}]+|[\p{Script=Hiragana}]{1,3}|[\p{Script=Katakana}ー]+|[A-Za-z0-9]+/gu) || []; } },
-      has: (text, w) => TLX.ja.fold(text).includes(TLX.ja.fold(w)) };
 
   // ---------- Đồ thị ----------
   function prep(c) {
@@ -40,7 +34,7 @@
     const brs = n.br || [];
     for (let k = 0; k < brs.length; k++) {
       const [re, line, to] = brs[k];
-      try { if (new RegExp((sub ? '' : '\\b') + '(' + (c.tl ? foldRe(re, c.tl) : re) + ')', 'i').test(sub ? s : s)) return { react: line, next: to !== undefined ? to : (n.next || null), br: k }; } catch (e) { /* regex hỏng → bỏ nhánh */ }
+      try { if (new RegExp((sub ? '' : '\\b') + '(' + (c.tl ? foldRe(re, c.tl) : re) + ')', 'i').test(s)) return { react: line, next: to !== undefined ? to : (n.next || null), br: k }; } catch (e) { /* regex hỏng → bỏ nhánh */ }
     }
     return { react: n.re || '', next: n.next || null, br: -1 };
   }
@@ -181,5 +175,5 @@
     return e.sr ? (e.pref === 'cloud' ? 'cloud' : 'ask') : 'tap';
   }
 
-  g.CallEngine = { fold, prep, depth, step, correct, slips, fluency, recap, retry, asrMode, words, pairIndex, EXTRA };
+  g.CallEngine = { TLX, fold, prep, depth, step, correct, slips, fluency, recap, retry, asrMode, words, pairIndex, EXTRA };
 })(typeof self !== 'undefined' ? self : this);

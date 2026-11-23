@@ -29,8 +29,9 @@
   const groupOf = c => (/^ielts/.test(c.exam) ? 'ielts' : c.exam === 'toeic' ? 'toeic' : 'everyday');
   const pref = (k, v) => { try { if (v === undefined) return localStorage.getItem('vb.call.' + k); localStorage.setItem('vb.call.' + k, v); } catch (e) { return null; } };
   // An toàn: lời lẽ thô tục/nhạy cảm → giáo viên nhẹ nhàng đưa cuộc gọi về chủ đề, không lặp lại lời đó
-  const UNSAFE_X = { es: /\b(mierda|puta|puto|joder|verga|pendej|cabron|coño|matar|suicid|droga|sexo|negrata)\w*/i, fr: /(^|[^\p{L}])(merde|putain|pute|connard|connasse|salope|enculé|encule|nique|baiser|tuer|suicid|drogue|sexe|nègre|negre)\p{L}*/iu, ja: /(死ね|殺す|殺し|ころす|しね|くそ|クソ|バカ野郎|ばか野郎|ちんこ|まんこ|セックス|自殺|じさつ|麻薬|まやく|やりまん)/ };
-  const SAFE_SAY = { es: 'Mantengamos la charla amable y en el tema.', fr: 'Gardons une conversation aimable et sur le sujet.', ja: '楽しく、話題に沿ってお話ししましょう。' };
+  const UNSAFE_X = { es: /\b(mierda|puta|puto|joder|verga|pendej|cabron|coño|matar|suicid|droga|sexo|negrata)\w*/i, fr: /(^|[^\p{L}])(merde|putain|pute|connard|connasse|salope|enculé|encule|nique|baiser|tuer|suicid|drogue|sexe|nègre|negre)\p{L}*/iu };
+  const SAFE_SAY = { es: 'Mantengamos la charla amable y en el tema.', fr: 'Gardons une conversation aimable et sur le sujet.' };
+  window.CallX = { UNSAFE_X, SAFE_SAY }; // gói ngôn ngữ (packs/tl/<tl>/cl.js) bổ sung bảng của nó
   const UNSAFE = { test: s => (UNSAFE_X[TLC] || /\b(fuck|shit|bitch|asshole|dick|sex|kill|suicide|drugs?|nigg|whore|slut)\w*/i).test(s) };
   // 🧩 Stitch v2.1 teacher-call (cờ ux1): khung tự sinh brand/stitch/v2/bind/teacher-call.json (ST2.mount → .v2s-teacher-call), giáo viên = c.who (Ama/Carlos) CHỈ qua Chars + LessonTeacher,
   // giọng = Chars.voice(who). Logic giữ nguyên CallEngine (nhánh, quyền riêng tư, lượt dài, gõ phím); trang cũ (.call-ov) làm dự phòng khi chưa bật cờ / thiếu khung.
