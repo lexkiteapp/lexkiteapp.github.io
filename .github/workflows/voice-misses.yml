@@ -1,0 +1,27 @@
+# Câu tiếng Anh hay rơi về giọng máy (đo trên người dùng thật, chỉ khóa băm – web/js/ui.js → /api/hit 'vm:') → web/audio/l/misses.tsv
+# (scripts/sentence-audio/misses.mjs: /api/vmiss ký HMAC LEXKITE_DRIVE_CLI_KEY, ghép khóa với nội dung tĩnh) → lượt "Tạo giọng đọc Kokoro"
+# (audio.yml, 02:00 VN) render các câu này như mọi câu khác (corpus.mjs nhóm misses, cổng ASR câu). 1 yêu cầu/ngày, không thăm dò.
+name: voice-misses
+on:
+  schedule:
+    - cron: '30 18 * * *'   # 01:30 giờ Việt Nam – trước audio.yml (19:00 UTC)
+  workflow_dispatch:
+concurrency: { group: voice-misses, cancel-in-progress: false }
+permissions:
+  contents: write
+jobs:
+  misses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Khóa rơi giọng máy → câu trong nội dung → misses.tsv → main
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: |
+          node scripts/sentence-audio/misses.mjs --from-api-to "$RUNNER_TEMP/top.json"
+          git diff --quiet -- web/audio/l/misses.tsv && { echo "không có câu mới"; exit 0; }
+          COMMIT_REGEN_NO_EXT=1 bash scripts/ci/commit-regen.sh "Âm thanh: câu hay rơi giọng máy → hàng dựng Kokoro (misses.tsv) [CF-Pages-Skip] [skip ci]" \
+            "node scripts/sentence-audio/misses.mjs --from $RUNNER_TEMP/top.json" web/audio/l/misses.tsv
