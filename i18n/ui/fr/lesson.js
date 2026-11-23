@@ -60,6 +60,7 @@
 "Trả lời câu hỏi":"Répondez à la question",
 "Trọng âm rơi vào âm tiết {n}/{m}":"L'accent tombe sur la syllabe {n} sur {m}",
 "Tuyệt!":"Super !",
+"Tìm từ sai":"Trouvez le mot faux",
 "Tăng điểm":"Booster de score",
 "Tỉ lệ trả lời đúng":"Bonnes réponses",
 "Từ bạn đã tra":"Votre recherche",

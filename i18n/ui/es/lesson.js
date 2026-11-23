@@ -60,6 +60,7 @@
 "Trả lời câu hỏi":"Responde la pregunta",
 "Trọng âm rơi vào âm tiết {n}/{m}":"El acento cae en la sílaba {n} de {m}",
 "Tuyệt!":"¡Genial!",
+"Tìm từ sai":"Encuentra el error",
 "Tăng điểm":"Sube tu nota",
 "Tỉ lệ trả lời đúng":"Respuestas correctas",
 "Từ bạn đã tra":"Tu búsqueda",

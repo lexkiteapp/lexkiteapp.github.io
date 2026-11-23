@@ -16,6 +16,7 @@ const used = new Set();
 for (const f of ['web/js/welcome.js', 'web/js/onboard.js', 'web/js/remind.js']) for (const x of rd(f).matchAll(/hab(?:Track)?\('([a-z0-9_]+)'\)/g)) used.add(x[1]);
 for (const e of used) if (!['plan_seen', 'plan_start', 'plan_done', 'resume_seen', 'resume_click'].includes(e)) ok(ONB.includes(e), `sự kiện ${e} có trong ONB_EV`);
 ok(/'onb_s_' \+ STEPS\[n\]/.test(rd('web/js/onboard.js')) && ['lang', 'goal', 'level', 'target', 'pace', 'ready'].every(k => ONB.includes('onb_s_' + k)), 'mọi bước thiết lập có sự kiện');
+ok(/setTimeout\(\(\) => document\.visibilityState === 'visible' && on\(\), 5e3\)/.test(rd('web/js/welcome.js')) && /'pointerdown', 'keydown', 'scroll'/.test(rd('web/js/welcome.js')), 'onb_welcome chỉ đếm khi có tương tác hoặc hiện ≥ 5 s');
 ok(['onb_welcome', 'onb_done', 'first_win', 'fw_d1', 'fw_d7'].every(e => ONB.includes(e)), 'đủ mốc phễu');
 ok(rd('functions/api/config.js').includes("'rem_lsn'") && rd('functions/api/admin.js').includes("'rem_lsn'"), 'rem_lsn có trong PUBLIC_KEYS + CONFIG_KEYS');
 

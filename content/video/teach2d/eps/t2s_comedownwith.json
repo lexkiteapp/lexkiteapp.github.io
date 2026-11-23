@@ -1,0 +1,134 @@
+{
+ "id": "t2s_comedownwith",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 60,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My throat hurts. Uh-oh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Come down with!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start to get sick.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I think I'm coming down with a cold.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "data": {
+  "key": "come down with",
+  "forms": [
+   "came down with",
+   "coming down with"
+  ],
+  "ipa": "/ˈkʌm ˈdaʊn wɪð/",
+  "mean": "Start to get sick.",
+  "define": "To begin to feel ill with something like a cold.",
+  "vi": "Bắt đầu bị ốm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a friend",
+   "text": "I think I'm coming down with a cold."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you're…",
+   "options": [
+    "falling down",
+    "getting sick"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say you 'came down with' a gift.",
+   "why": "It means starting to get sick."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My throat hurts. Uh-oh!"
+ },
+ "src": {
+  "slang": "come down with"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"come down with\" mean?",
+  "keyword": "come down with",
+  "value": "Come down with = Start to get sick. Example: \"I think I'm coming down with a cold.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"come down with\" mean?",
+    "description": "Come down with = Start to get sick. Example: \"I think I'm coming down with a cold.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "come down with",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"come down with\" mean?\n\nCome down with = Start to get sick. Example: \"I think I'm coming down with a cold.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"come down with\" mean?\n\nCome down with = Start to get sick. Example: \"I think I'm coming down with a cold.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"come down with\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say you 'came down with' a gift. It means starting to get sick. Real example: \"I think I'm coming down with a cold.\" More real English slang, free: {link}"
+ }
+}

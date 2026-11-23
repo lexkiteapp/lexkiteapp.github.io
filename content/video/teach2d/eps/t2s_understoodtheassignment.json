@@ -1,0 +1,137 @@
+{
+ "id": "t2s_understoodtheassignment",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 263,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Movie party. Full pirate costume!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Understood the assignment!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Did it perfectly.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pirate costume? She understood the assignment.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "understood the assignment",
+  "forms": [
+   "understand the assignment"
+  ],
+  "ipa": "/ˌʌndɚˈstʊd ði əˈsaɪnmənt/",
+  "mean": "Did it perfectly.",
+  "define": "Used to praise someone who did exactly what was needed, with style.",
+  "vi": "Làm quá chuẩn, hiểu bài",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "C1",
+  "era": "gen-z",
+  "theme": "praise",
+  "example": {
+   "ctx": "After a themed party",
+   "text": "Pirate costume? She understood the assignment."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It praises someone who…",
+   "options": [
+    "forgot homework",
+    "did it perfectly"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say it when someone missed the task.",
+   "why": "It praises perfect execution."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Movie party. Full pirate costume!"
+ },
+ "src": {
+  "slang": "understood the assignment"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"understood the assignment\" mean?",
+  "keyword": "understood the assignment",
+  "value": "Understood the assignment = Did it perfectly. Example: \"Pirate costume? She understood the assignment.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"understood the assignment\" mean?",
+    "description": "Understood the assignment = Did it perfectly. Example: \"Pirate costume? She understood the assignment.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "understood the assignment",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"understood the assignment\" mean?\n\nUnderstood the assignment = Did it perfectly. Example: \"Pirate costume? She understood the assignment.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"understood the assignment\" mean?\n\nUnderstood the assignment = Did it perfectly. Example: \"Pirate costume? She understood the assignment.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"understood the assignment\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say it when someone missed the task. It praises perfect execution. Real example: \"Pirate costume? She understood the assignment.\" More real English slang, free: {link}"
+ }
+}

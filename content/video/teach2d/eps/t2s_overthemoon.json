@@ -1,0 +1,135 @@
+{
+ "id": "t2s_overthemoon",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 290,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He passed his driving test!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Over the moon!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely happy.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She was over the moon about the news.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "over the moon",
+  "forms": [],
+  "ipa": "/ˈoʊvɚ ðə ˈmuːn/",
+  "mean": "Extremely happy.",
+  "define": "Used when you are very, very pleased.",
+  "vi": "Vui như mở cờ",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Hearing good news",
+   "text": "She was over the moon about the news."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "extremely happy",
+    "on the moon"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'over the moon' about space travel.",
+   "why": "It describes joy, not location."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He passed his driving test!"
+ },
+ "src": {
+  "slang": "over the moon"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.5,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "What does \"over the moon\" mean?",
+  "keyword": "over the moon",
+  "value": "Over the moon = Extremely happy. Example: \"She was over the moon about the news.\" (casual English, UK).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"over the moon\" mean?",
+    "description": "Over the moon = Extremely happy. Example: \"She was over the moon about the news.\" (casual English, UK).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "over the moon",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"over the moon\" mean?\n\nOver the moon = Extremely happy. Example: \"She was over the moon about the news.\" (casual English, UK).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"over the moon\" mean?\n\nOver the moon = Extremely happy. Example: \"She was over the moon about the news.\" (casual English, UK).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"over the moon\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: extremely happy. \"She was over the moon about the news.\" More real English slang, free: {link}"
+ }
+}

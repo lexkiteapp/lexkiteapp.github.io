@@ -1,0 +1,342 @@
+{
+ "motive": {
+  "n": "अगर पुलिस कहे कि अपराध का motive अभी साफ़ नहीं है, तो इसका मतलब है कि कारण या मकसद पता नहीं चला। motive वह चीज़ है जो किसी को कुछ करने के लिए प्रेरित करे, जैसे profit motive या ulterior motive (छिपा इरादा)। reason से यह ज़्यादा गहरा और अक्सर निजी होता है, और motive for/behind के साथ आता है।",
+  "x": [
+   [
+    "Police have not yet found a motive for the crime.",
+    "पुलिस को अब तक अपराध का कोई मकसद नहीं मिला है।"
+   ],
+   [
+    "Her motive for moving abroad was to earn more money.",
+    "उसके विदेश जाने का मकसद ज़्यादा पैसे कमाना था।"
+   ],
+   [
+    "He denied having any ulterior motive in offering help.",
+    "उसने मदद की पेशकश के पीछे कोई छिपा इरादा होने से इनकार किया।"
+   ]
+  ]
+ },
+ "presume": {
+  "n": "अदालत की भाषा में presumed innocent का मतलब है कि जब तक दोष सिद्ध न हो, व्यक्ति निर्दोष माना जाएगा। यही presume का सबसे जाना-पहचाना प्रयोग है: बिना पूरी जानकारी के कुछ मान लेना। वाक्य में अक्सर that आता है, और कर्मवाच्य में it is presumed that। assume से यह थोड़ा औपचारिक है, और I presume विनम्रता से अपनी धारणा पक्की करने के काम आता है।",
+  "x": [
+   [
+    "I presume you have already read the report.",
+    "मैं मानता हूँ कि आपने रिपोर्ट पहले ही पढ़ ली है।"
+   ],
+   [
+    "Everyone is presumed innocent until proven guilty.",
+    "जब तक दोष सिद्ध न हो, हर व्यक्ति को निर्दोष माना जाता है।"
+   ],
+   [
+    "The missing hikers are presumed dead after the storm.",
+    "तूफ़ान के बाद लापता पर्वतारोहियों को मृत माना जा रहा है।"
+   ]
+  ]
+ },
+ "rational": {
+  "n": "गुस्से में लिया गया फ़ैसला शायद irrational हो, जबकि सोच-समझकर लिया गया फ़ैसला rational कहलाता है। यह विशेषण तर्कसंगत के लिए है, यानी भावना के बजाय तर्क पर टिका। इसके साथ rational explanation, rational thinking और rational behaviour चलते हैं। संज्ञा rationality है, और क्रिया rationalize अक्सर गलत काम के बहाने खोजने के अर्थ में आती है।",
+  "x": [
+   [
+    "It is hard to stay rational when you are very angry.",
+    "बहुत गुस्से में तर्कसंगत बने रहना कठिन होता है।"
+   ],
+   [
+    "There must be a rational explanation for the noise.",
+    "उस आवाज़ का कोई तर्कसंगत कारण ज़रूर होगा।"
+   ],
+   [
+    "She made a calm, rational decision about her future.",
+    "उसने अपने भविष्य के बारे में शांत और सोच-समझकर फ़ैसला लिया।"
+   ]
+  ]
+ },
+ "scenario": {
+  "n": "योजना बनाते समय लोग पूछते हैं कि worst-case scenario क्या होगा, यानी सबसे बुरी स्थिति में क्या हो सकता है। scenario आगे की संभावित घटनाओं का एक वर्णन है, इसलिए best-case, likely, possible और alternative scenario जैसे जोड़ बनते हैं। situation से यह ज़्यादा काल्पनिक है, क्योंकि यह अनुमान पर टिका है, तथ्य पर नहीं।",
+  "x": [
+   [
+    "In the best-case scenario, the project will finish next month.",
+    "सबसे अच्छी स्थिति में, परियोजना अगले महीने पूरी हो जाएगी।"
+   ],
+   [
+    "We need a plan for every possible scenario.",
+    "हमें हर संभावित स्थिति के लिए एक योजना चाहिए।"
+   ],
+   [
+    "The scenario described in the report is very unlikely.",
+    "रिपोर्ट में बताया गया परिदृश्य बहुत कम संभव है।"
+   ]
+  ]
+ },
+ "sole": {
+  "n": "the child is sole जैसा वाक्य गलत है, क्योंकि sole हमेशा संज्ञा से पहले आता है। विशेषण sole का अर्थ एकमात्र है, जिसे कोई और साझा नहीं करता: sole purpose, sole responsibility, sole survivor, sole owner। only से यह ज़्यादा औपचारिक है, इसलिए कानूनी और व्यावसायिक लेखन में खूब मिलता है।",
+  "x": [
+   [
+    "She was the sole survivor of the accident.",
+    "वह दुर्घटना की एकमात्र जीवित बची व्यक्ति थी।"
+   ],
+   [
+    "The sole purpose of the meeting is to choose a new manager.",
+    "बैठक का एकमात्र उद्देश्य नया प्रबंधक चुनना है।"
+   ],
+   [
+    "He accepted sole responsibility for the mistake.",
+    "उसने गलती की पूरी ज़िम्मेदारी अकेले स्वीकार की।"
+   ]
+  ]
+ },
+ "successor": {
+  "n": "जब कोई निदेशक रिटायर होता है तो पहला सवाल यही होता है कि उसका successor कौन होगा। successor यानी उत्तराधिकारी, जो किसी के बाद उसकी जगह ले। सिंहासन के लिए successor to the throne कहते हैं, और natural successor वह है जिसे स्वाभाविक रूप से जगह मिलनी चाहिए। फ़ोन के नए मॉडल पर भी यह चलता है। विलोम predecessor है।",
+  "x": [
+   [
+    "The prime minister has not yet chosen a successor.",
+    "प्रधानमंत्री ने अभी तक अपना उत्तराधिकारी नहीं चुना है।"
+   ],
+   [
+    "This phone is the successor to last year's model.",
+    "यह फ़ोन पिछले साल के मॉडल का उत्तराधिकारी है।"
+   ],
+   [
+    "Everyone saw her as the natural successor to the director.",
+    "सबने उसे निदेशक की स्वाभाविक उत्तराधिकारी के रूप में देखा।"
+   ]
+  ]
+ },
+ "exploit": {
+  "n": "फ़ैक्टरी सस्ते मज़दूरों का exploit करे तो यह शोषण है, पर कोई देश गैस भंडारों का exploit करे तो वह बस उनका उपयोग है। यही क्रिया का दोहरा रूप है: पूरा लाभ उठाना (तटस्थ भी हो सकता है) और अनुचित फ़ायदा उठाना (हमेशा नकारात्मक)। बाद में सीधे कर्म आता है, जैसे exploit an opportunity। संज्ञा exploitation है।",
+  "x": [
+   [
+    "Many factories exploit cheap labour to keep prices low.",
+    "कई फ़ैक्टरियाँ कीमतें कम रखने के लिए सस्ते श्रम का शोषण करती हैं।"
+   ],
+   [
+    "The country plans to exploit its natural gas reserves.",
+    "देश अपने प्राकृतिक गैस भंडारों का उपयोग करने की योजना बना रहा है।"
+   ],
+   [
+    "You should exploit every chance to practise speaking.",
+    "आपको बोलने का अभ्यास करने के हर मौके का लाभ उठाना चाहिए।"
+   ]
+  ]
+ },
+ "precise": {
+  "n": "बैठक कब थी, इसका जवाब 'दोपहर के आसपास' हो सकता है, पर 'ठीक 12:10' precise जवाब है। विशेषण precise यानी सटीक, जिसमें बारीक ब्योरा हो। इसका ख़ास प्रयोग to be precise है, जिससे आप अपनी बात और ठीक करते हैं। exact और accurate से करीब है, पर precise बारीकी पर ज़ोर देता है। संज्ञा precision है।",
+  "x": [
+   [
+    "Can you give me the precise date of the meeting?",
+    "क्या आप मुझे बैठक की सटीक तारीख बता सकते हैं?"
+   ],
+   [
+    "It was about noon, or 12:10 to be precise.",
+    "लगभग दोपहर थी, या ठीक-ठीक कहें तो 12:10।"
+   ],
+   [
+    "The recipe requires precise measurements.",
+    "इस व्यंजन के लिए सटीक माप ज़रूरी हैं।"
+   ]
+  ]
+ },
+ "trace": {
+  "n": "मान लीजिए किसी बीमारी की शुरुआत खोजनी है: वैज्ञानिक कहेंगे कि उन्होंने उसे एक गाँव तक trace किया। क्रिया trace का अर्थ मूल या इतिहास का पता लगाना है, जैसे trace the origins, trace something back to और it was traced to a fault। इसका अर्थ खोए व्यक्ति को ढूँढना भी है। संज्ञा के रूप में trace बहुत छोटा निशान होता है।",
+  "x": [
+   [
+    "Scientists traced the virus back to a small village.",
+    "वैज्ञानिकों ने वायरस की शुरुआत एक छोटे गाँव तक खोज निकाली।"
+   ],
+   [
+    "She traced her family history back to the 1800s.",
+    "उसने अपने परिवार का इतिहास 1800 के दशक तक खोजा।"
+   ],
+   [
+    "Police could not trace the owner of the car.",
+    "पुलिस कार के मालिक का पता नहीं लगा सकी।"
+   ]
+  ]
+ },
+ "prospect": {
+  "n": "विदेश में पढ़ने की संभावना जितनी रोमांचक होती है, उतनी डराने वाली भी हो सकती है, और उसी भाव के लिए the prospect of ... कहा जाता है। एकवचन prospect भविष्य की किसी बात की संभावना है, और of के साथ आता है। बहुवचन prospects का अर्थ भविष्य के अवसर है: job prospects, bright prospects, poor prospects। chance से यह थोड़ा औपचारिक है।",
+  "x": [
+   [
+    "She is excited by the prospect of studying abroad.",
+    "वह विदेश में पढ़ाई करने की संभावना से उत्साहित है।"
+   ],
+   [
+    "Job prospects for engineers are excellent this year.",
+    "इस साल इंजीनियरों के लिए नौकरी की संभावनाएँ बहुत अच्छी हैं।"
+   ],
+   [
+    "The prospect of another long winter worried them.",
+    "एक और लंबी सर्दी की संभावना ने उन्हें चिंतित कर दिया।"
+   ]
+  ]
+ },
+ "pursue": {
+  "n": "करियर या डिग्री के बारे में बात करते समय pursue सबसे स्वाभाविक क्रिया है: pursue a career, pursue a degree, pursue a goal। यह seek से अधिक लगातार और व्यवस्थित कोशिश दिखाती है। पुलिस किसी कार का पीछा करे तो भी pursue ही कहा जाता है। संज्ञा pursuit है, जैसे in pursuit of happiness।",
+  "x": [
+   [
+    "He decided to pursue a degree in medicine.",
+    "उसने चिकित्सा में डिग्री हासिल करने का निर्णय लिया।"
+   ],
+   [
+    "She wants to pursue her dream of becoming a pilot.",
+    "वह पायलट बनने के अपने सपने का पीछा करना चाहती है।"
+   ],
+   [
+    "The police pursued the car through the city.",
+    "पुलिस ने शहर में उस कार का पीछा किया।"
+   ]
+  ]
+ },
+ "reinforce": {
+  "n": "पुराने पुल को स्टील से मज़बूत करने के लिए भी reinforce कहा जाता है, और किसी रूढ़ि को और पक्का करने के लिए भी। यानी क्रिया ढाँचे, विचार या भावना, तीनों को और सुदृढ़ करती है। reinforce stereotypes का अर्थ रूढ़ियों को पक्का करना है, reinforce learning का अर्थ दोहराकर सीखा हुआ मज़बूत करना। strengthen से करीब है। संज्ञा reinforcement है।",
+  "x": [
+   [
+    "Posters like this can reinforce harmful stereotypes about women.",
+    "ऐसे पोस्टर महिलाओं के बारे में हानिकारक रूढ़ियों को और मज़बूत कर सकते हैं।"
+   ],
+   [
+    "Regular practice helps reinforce what you learn in class.",
+    "नियमित अभ्यास से कक्षा में सीखी बातें मज़बूत होती हैं।"
+   ],
+   [
+    "Engineers reinforced the old bridge with steel.",
+    "इंजीनियरों ने पुराने पुल को स्टील से मज़बूत किया।"
+   ]
+  ]
+ },
+ "terminate": {
+  "n": "नौकरी के अनुबंध में पढ़ेंगे कि कंपनी terminate the contract कर सकती है, यानी उसे समाप्त कर सकती है। यह end से ज़्यादा औपचारिक है, और terminate a service या terminate employment जैसे प्रयोग भी आम हैं। कर्म के बिना भी चलता है: the train terminates at this station, यानी ट्रेन यहाँ आकर रुक जाती है। संज्ञा termination है।",
+  "x": [
+   [
+    "The company terminated his contract without warning.",
+    "कंपनी ने बिना चेतावनी के उसका अनुबंध समाप्त कर दिया।"
+   ],
+   [
+    "You may terminate this agreement at any time.",
+    "आप इस समझौते को किसी भी समय समाप्त कर सकते हैं।"
+   ],
+   [
+    "This train terminates at the central station.",
+    "यह ट्रेन केंद्रीय स्टेशन पर समाप्त होती है।"
+   ]
+  ]
+ },
+ "mutual": {
+  "n": "किसी ने कहा कि वह आपकी बहुत इज़्ज़त करता है और आपने जवाब दिया The feeling is mutual, यानी यही भावना मेरी भी है। mutual का अर्थ आपसी या पारस्परिक है, जो दो या अधिक लोग साझा करें: mutual respect, mutual trust, mutual benefit, mutual agreement। a mutual friend दोनों का परिचित है। shared और reciprocal से करीब है।",
+  "x": [
+   [
+    "They ended the meeting by mutual agreement.",
+    "उन्होंने आपसी सहमति से बैठक समाप्त की।"
+   ],
+   [
+    "Good teamwork depends on mutual respect.",
+    "अच्छा टीमवर्क आपसी सम्मान पर निर्भर करता है।"
+   ],
+   [
+    "We met through a mutual friend.",
+    "हम एक साझा दोस्त के ज़रिए मिले।"
+   ]
+  ]
+ },
+ "random": {
+  "n": "लॉटरी में विजेता at random चुना जाता है, यानी बिना किसी तय क्रम या योजना के, और हर संभावना को बराबर मौका मिलता है। विशेषण random का अर्थ बेतरतीब या यादृच्छिक है, जैसे random sample। बोलचाल में a random question अचानक पूछा गया या बेमेल सवाल भी हो सकता है।",
+  "x": [
+   [
+    "The winners were chosen at random from the list.",
+    "विजेताओं को सूची में से बेतरतीब ढंग से चुना गया।"
+   ],
+   [
+    "A random group of 500 students was chosen to take the exam.",
+    "परीक्षा देने के लिए 500 विद्यार्थियों का एक यादृच्छिक समूह चुना गया।"
+   ],
+   [
+    "He asked a random question during the meeting.",
+    "उसने बैठक के दौरान अचानक एक बेतुका सवाल पूछ लिया।"
+   ]
+  ]
+ },
+ "reluctance": {
+  "n": "जब कोई फ़ॉर्म पर हस्ताक्षर तो करता है, पर चेहरे पर साफ़ हिचक दिखती है, तब कहते हैं with reluctance। संज्ञा reluctance का अर्थ किसी काम को करने की अनिच्छा है, और इसके बाद to और क्रिया आती है: reluctance to speak। show reluctance, overcome reluctance भी आम हैं। विशेषण reluctant है, क्रियाविशेषण reluctantly। unwillingness से करीब है।",
+  "x": [
+   [
+    "She showed some reluctance to share her opinion.",
+    "उसने अपनी राय बताने में कुछ झिझक दिखाई।"
+   ],
+   [
+    "There is a reluctance to change old habits.",
+    "पुरानी आदतें बदलने में अनिच्छा रहती है।"
+   ],
+   [
+    "With obvious reluctance, he signed the form.",
+    "साफ़ अनिच्छा के साथ उसने फ़ॉर्म पर हस्ताक्षर किए।"
+   ]
+  ]
+ },
+ "tension": {
+  "n": "नतीजे आने से पहले कमरे में जो खिंचाव होता है, उसे tension कहते हैं, और यही शब्द दो देशों के टकराव के लिए भी चलता है: ethnic tension, rising tension, ease tension। शरीर में खिंचाव भी tension है, जैसे tension in the neck। आमतौर पर यह अगणनीय है, पर राजनीति में tensions बहुवचन भी आता है। strain से करीब है।",
+  "x": [
+   [
+    "There was a lot of tension in the room before the results.",
+    "नतीजों से पहले कमरे में बहुत तनाव था।"
+   ],
+   [
+    "The talks helped ease tension between the two countries.",
+    "बातचीत से दोनों देशों के बीच तनाव कम करने में मदद मिली।"
+   ],
+   [
+    "Stress can cause tension in your shoulders.",
+    "तनाव से कंधों में खिंचाव हो सकता है।"
+   ]
+  ]
+ },
+ "via": {
+  "n": "यात्रा के टिकट पर flight via Dubai लिखा हो तो उड़ान दुबई होकर जाएगी, और आवेदन via email का अर्थ ईमेल के माध्यम से है। via पूर्वसर्ग है और रास्ते या साधन के लिए आता है। यह through या by means of से छोटा और अधिक औपचारिक है। इसके बाद संज्ञा आती है, क्रिया नहीं।",
+  "x": [
+   [
+    "You can send your application via email.",
+    "आप अपना आवेदन ईमेल के माध्यम से भेज सकते हैं।"
+   ],
+   [
+    "We flew to New York via Dubai.",
+    "हम दुबई होते हुए न्यूयॉर्क गए।"
+   ],
+   [
+    "Tickets are available via the official website.",
+    "टिकट आधिकारिक वेबसाइट के माध्यम से उपलब्ध हैं।"
+   ]
+  ]
+ },
+ "artefact": {
+  "n": "संग्रहालय की काँच की अलमारी में रखा कोई प्राचीन बर्तन या औज़ार artefact कहलाता है: बहुत पहले मनुष्यों की बनाई ऐसी वस्तु जिसका ऐतिहासिक या सांस्कृतिक महत्व हो। ancient artefact, cultural artefact और historical artefact आम जोड़ हैं। ऐसी वस्तुएँ अक्सर खुदाई में मिलती हैं और पुरातत्व में खूब आती हैं। अमेरिकी वर्तनी artifact है, और relic इसका करीबी शब्द है।",
+  "x": [
+   [
+    "The museum displays artefacts from ancient Egypt.",
+    "संग्रहालय प्राचीन मिस्र की पुरातात्विक वस्तुएँ प्रदर्शित करता है।"
+   ],
+   [
+    "Workers found an old artefact while digging the road.",
+    "मज़दूरों को सड़क खोदते समय एक पुरानी पुरातात्विक वस्तु मिली।"
+   ],
+   [
+    "Each artefact tells us something about daily life long ago.",
+    "हर पुरातात्विक वस्तु हमें बहुत पहले के दैनिक जीवन के बारे में कुछ बताती है।"
+   ]
+  ]
+ },
+ "commence": {
+  "n": "निमंत्रण पत्र में लिखा होता है कि समारोह दस बजे commence होगा, यानी औपचारिक रूप से शुरू होगा। commence work, commence operations और commence proceedings जैसे प्रयोग आधिकारिक सूचनाओं और कानून में मिलते हैं। begin या start से अधिक औपचारिक है, और बोलचाल में start ही स्वाभाविक लगता है। संज्ञा commencement है, जो अमेरिका में दीक्षांत समारोह भी है।",
+  "x": [
+   [
+    "The ceremony will commence at ten o'clock.",
+    "समारोह दस बजे शुरू होगा।"
+   ],
+   [
+    "The company plans to commence operations in January.",
+    "कंपनी जनवरी में अपना संचालन शुरू करने की योजना बना रही है।"
+   ],
+   [
+    "Work on the new road will commence next week.",
+    "नई सड़क का काम अगले सप्ताह शुरू होगा।"
+   ]
+  ]
+ }
+}
