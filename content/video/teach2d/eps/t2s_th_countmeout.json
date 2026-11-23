@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_countmeout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 54,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wanna go to the late show?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Count me out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I won't take part.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm tired, so count me out.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "count me out",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈaʊt/",
+  "mean": "I won't take part.",
+  "define": "Used to politely say you won't join a plan.",
+  "vi": "Đừng tính tui",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Declining an invitation",
+   "text": "I'm tired, so count me out."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm leaving the country",
+    "I won't join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me out' to your boss's request.",
+   "why": "It sounds like a flat refusal."
+  },
+  "l1": "นับฉันออก",
+  "l1_hook": "อยากไปดูการแสดงดึกไหม?",
+  "l1_ex": "ฉันเหนื่อย, ดังนั้น \"count me out\"",
+  "right": "count me out",
+  "native": {
+   "hook": "“count me out” แปลว่าอะไร?",
+   "tip": "“count me out” = นับฉันออก. ตัวอย่าง: “I'm tired, so count me out.”",
+   "caption": "“count me out” แปลว่าอะไร?\n“count me out” = นับฉันออก.\nตัวอย่าง: “I'm tired, so count me out.” (ฉันเหนื่อย, ดังนั้น \"count me out\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “count me out” = นับฉันออก. “I'm tired, so count me out.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wanna go to the late show?"
+ },
+ "src": {
+  "slang": "count me out"
+ },
+ "lang": "th",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“count me out” แปลว่าอะไร?",
+  "keyword": "count me out",
+  "value": "“count me out” = นับฉันออก. ตัวอย่าง: “I'm tired, so count me out.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“count me out” แปลว่าอะไร?",
+    "description": "“count me out” = นับฉันออก. ตัวอย่าง: “I'm tired, so count me out.”\n\n“count me out” แปลว่าอะไร?\n“count me out” = นับฉันออก.\nตัวอย่าง: “I'm tired, so count me out.” (ฉันเหนื่อย, ดังนั้น \"count me out\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "count me out",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“count me out” แปลว่าอะไร?\n“count me out” = นับฉันออก.\nตัวอย่าง: “I'm tired, so count me out.” (ฉันเหนื่อย, ดังนั้น \"count me out\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“count me out” แปลว่าอะไร?\n\n“count me out” = นับฉันออก. ตัวอย่าง: “I'm tired, so count me out.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“count me out” แปลว่าอะไร? “count me out” = นับฉันออก. ตัวอย่าง: “I'm tired, so count me out.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “count me out” = นับฉันออก. “I'm tired, so count me out.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

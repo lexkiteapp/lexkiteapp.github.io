@@ -1,0 +1,152 @@
+{
+ "id": "t2s_es_cheerup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 66,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She looks sad. What now?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheer up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Feel happier.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheer up, we're having pizza!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheer up",
+  "forms": [
+   "cheered up"
+  ],
+  "ipa": "/ˈtʃɪr ˈʌp/",
+  "mean": "Feel happier.",
+  "define": "Used to tell someone to feel better.",
+  "vi": "Vui lên nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Cheer up, we're having pizza!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheer up\" means…",
+   "options": [
+    "yell loudly",
+    "feel happier"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheer up' to someone grieving.",
+   "why": "It sounds like you dismiss their pain."
+  },
+  "l1": "¡Ánimo!",
+  "l1_hook": "Se ve triste. \"cheer up\", ¿qué hacemos ahora?",
+  "l1_ex": "¡\"Cheer up\", vamos a comer pizza!",
+  "right": "cheer up",
+  "native": {
+   "hook": "¿Qué significa “cheer up”?",
+   "tip": "“cheer up” = ¡Ánimo!. Ejemplo: “Cheer up, we're having pizza!”",
+   "caption": "¿Qué significa “cheer up”?\n“cheer up” = ¡Ánimo!.\nEjemplo: “Cheer up, we're having pizza!” (¡\"Cheer up\", vamos a comer pizza!)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “cheer up” = ¡Ánimo!. “Cheer up, we're having pizza!” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She looks sad. What now?"
+ },
+ "src": {
+  "slang": "cheer up"
+ },
+ "lang": "es",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "¿Qué significa “cheer up”?",
+  "keyword": "cheer up",
+  "value": "“cheer up” = ¡Ánimo!. Ejemplo: “Cheer up, we're having pizza!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “cheer up”?",
+    "description": "“cheer up” = ¡Ánimo!. Ejemplo: “Cheer up, we're having pizza!”\n\n¿Qué significa “cheer up”?\n“cheer up” = ¡Ánimo!.\nEjemplo: “Cheer up, we're having pizza!” (¡\"Cheer up\", vamos a comer pizza!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "cheer up",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “cheer up”?\n“cheer up” = ¡Ánimo!.\nEjemplo: “Cheer up, we're having pizza!” (¡\"Cheer up\", vamos a comer pizza!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “cheer up”?\n\n“cheer up” = ¡Ánimo!. Ejemplo: “Cheer up, we're having pizza!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “cheer up”? “cheer up” = ¡Ánimo!. Ejemplo: “Cheer up, we're having pizza!” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “cheer up” = ¡Ánimo!. “Cheer up, we're having pizza!” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

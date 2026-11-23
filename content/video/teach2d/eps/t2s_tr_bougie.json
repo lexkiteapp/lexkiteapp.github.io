@@ -1,0 +1,146 @@
+{
+ "id": "t2s_tr_bougie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 53,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She only drinks fancy tea!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bougie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fancy, and a bit too proud.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coffee shop is so bougie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "bougie",
+  "forms": [],
+  "ipa": "/ˈbuːʒi/",
+  "mean": "Fancy, and a bit too proud.",
+  "define": "Liking expensive or fancy things, sometimes in a showy way.",
+  "vi": "Sang chảnh, làm màu",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "money",
+  "example": {
+   "ctx": "Visiting a new café",
+   "text": "This coffee shop is so bougie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bougie\" means…",
+   "options": [
+    "very cheap",
+    "fancy and showy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your host 'bougie' at dinner.",
+   "why": "It can sound snobbish and rude."
+  },
+  "l1": "süslü",
+  "l1_hook": "O sadece gösterişli çay içer!",
+  "l1_ex": "Bu kahve dükkanı çok bougie.",
+  "right": "bougie",
+  "native": {
+   "hook": "“bougie” ne demek?",
+   "tip": "“bougie” = süslü. Örnek: “This coffee shop is so bougie.”",
+   "caption": "“bougie” ne demek?\n“bougie” = süslü.\nÖrnek: “This coffee shop is so bougie.” (Bu kahve dükkanı çok bougie.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “bougie” = süslü. “This coffee shop is so bougie.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She only drinks fancy tea!"
+ },
+ "src": {
+  "slang": "bougie"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“bougie” ne demek?",
+  "keyword": "bougie",
+  "value": "“bougie” = süslü. Örnek: “This coffee shop is so bougie.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“bougie” ne demek?",
+    "description": "“bougie” = süslü. Örnek: “This coffee shop is so bougie.”\n\n“bougie” ne demek?\n“bougie” = süslü.\nÖrnek: “This coffee shop is so bougie.” (Bu kahve dükkanı çok bougie.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "bougie",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“bougie” ne demek?\n“bougie” = süslü.\nÖrnek: “This coffee shop is so bougie.” (Bu kahve dükkanı çok bougie.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bougie” ne demek?\n\n“bougie” = süslü. Örnek: “This coffee shop is so bougie.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bougie” ne demek? “bougie” = süslü. Örnek: “This coffee shop is so bougie.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “bougie” = süslü. “This coffee shop is so bougie.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

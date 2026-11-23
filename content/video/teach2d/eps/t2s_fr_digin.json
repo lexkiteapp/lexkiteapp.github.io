@@ -1,0 +1,150 @@
+{
+ "id": "t2s_fr_digin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 86,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dinner's ready. Who's hungry?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dig in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start eating now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dinner is ready, so dig in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "dig in",
+  "forms": [],
+  "ipa": "/ˈdɪɡ ˈɪn/",
+  "mean": "Start eating now.",
+  "define": "Used to invite people to begin eating.",
+  "vi": "Ăn đi nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "Serving dinner",
+   "text": "Dinner is ready, so dig in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dig in\" means…",
+   "options": [
+    "dig a hole",
+    "start eating"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell guests to 'dig in' before the host.",
+   "why": "Formal dinners wait for the host."
+  },
+  "l1": "passer à table",
+  "l1_hook": "Le dîner est prêt. Qui a faim ? \"dig in\"",
+  "l1_ex": "Le dîner est prêt, alors \\\"dig in\\\" !",
+  "right": "dig in",
+  "native": {
+   "hook": "Que veut dire « dig in » ?",
+   "tip": "“dig in” = passer à table. Exemple: “Dinner is ready, so dig in!”",
+   "caption": "Que veut dire « dig in » ?\n“dig in” = passer à table.\nExemple: “Dinner is ready, so dig in!” (Le dîner est prêt, alors \\\"dig in\\\" !)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “dig in” = passer à table. “Dinner is ready, so dig in!” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dinner's ready. Who's hungry?"
+ },
+ "src": {
+  "slang": "dig in"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Que veut dire « dig in » ?",
+  "keyword": "dig in",
+  "value": "“dig in” = passer à table. Exemple: “Dinner is ready, so dig in!”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « dig in » ?",
+    "description": "“dig in” = passer à table. Exemple: “Dinner is ready, so dig in!”\n\nQue veut dire « dig in » ?\n“dig in” = passer à table.\nExemple: “Dinner is ready, so dig in!” (Le dîner est prêt, alors \\\"dig in\\\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "dig in",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « dig in » ?\n“dig in” = passer à table.\nExemple: “Dinner is ready, so dig in!” (Le dîner est prêt, alors \\\"dig in\\\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « dig in » ?\n\n“dig in” = passer à table. Exemple: “Dinner is ready, so dig in!”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « dig in » ? “dig in” = passer à table. Exemple: “Dinner is ready, so dig in!” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “dig in” = passer à table. “Dinner is ready, so dig in!” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

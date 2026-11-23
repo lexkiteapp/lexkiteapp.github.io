@@ -1,0 +1,131 @@
+{
+ "id": "t2s_boredstiff",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 28,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two hours of the same slides!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bored stiff!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely bored.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I was bored stiff in that class.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "bored stiff",
+  "forms": [],
+  "ipa": "/ˈbɔːrd ˈstɪf/",
+  "mean": "Extremely bored.",
+  "define": "Used when something is very dull.",
+  "vi": "Chán muốn xỉu",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Leaving a long class",
+   "text": "I was bored stiff in that class."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "very strong",
+    "very bored"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell the speaker you're 'bored stiff'.",
+   "why": "It's rude to say directly."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Two hours of the same slides!"
+ },
+ "src": {
+  "slang": "bored stiff"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"bored stiff\" mean?",
+  "keyword": "bored stiff",
+  "value": "Bored stiff = Extremely bored. Example: \"I was bored stiff in that class.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bored stiff\" mean?",
+    "description": "Bored stiff = Extremely bored. Example: \"I was bored stiff in that class.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "bored stiff",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bored stiff\" mean?\n\nBored stiff = Extremely bored. Example: \"I was bored stiff in that class.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"bored stiff\" mean?\n\nBored stiff = Extremely bored. Example: \"I was bored stiff in that class.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bored stiff\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell the speaker you're 'bored stiff'. It's rude to say directly. Real example: \"I was bored stiff in that class.\" More real English slang, free: {link}"
+ }
+}

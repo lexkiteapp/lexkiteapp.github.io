@@ -1,0 +1,131 @@
+{
+ "id": "t2s_worksforme",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 248,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Seven o'clock, does that fit?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Works for me!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's fine with me.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Seven o'clock works for me.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "works for me",
+  "forms": [],
+  "ipa": "/ˈwɝːks fɚ ˈmiː/",
+  "mean": "That's fine with me.",
+  "define": "Used to agree to a plan.",
+  "vi": "Được đó, ok",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Agreeing on a time",
+   "text": "Seven o'clock works for me."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I agree",
+    "it fixes me"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'works for me' if the time's bad.",
+   "why": "People will plan around your yes."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Seven o'clock, does that fit?"
+ },
+ "src": {
+  "slang": "works for me"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.5,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "What does \"works for me\" mean?",
+  "keyword": "works for me",
+  "value": "Works for me = That's fine with me. Example: \"Seven o'clock works for me.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"works for me\" mean?",
+    "description": "Works for me = That's fine with me. Example: \"Seven o'clock works for me.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "works for me",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"works for me\" mean?\n\nWorks for me = That's fine with me. Example: \"Seven o'clock works for me.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"works for me\" mean?\n\nWorks for me = That's fine with me. Example: \"Seven o'clock works for me.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"works for me\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: I agree. \"Seven o'clock works for me.\" More real English slang, free: {link}"
+ }
+}

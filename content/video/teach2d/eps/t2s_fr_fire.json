@@ -1,0 +1,150 @@
+{
+ "id": "t2s_fr_fire",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 93,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at my new sneakers!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Fire!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's really cool.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Those sneakers are fire!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "fire",
+  "forms": [],
+  "ipa": "/ˈfaɪɚ/",
+  "mean": "That's really cool.",
+  "define": "Slang for something excellent or stylish.",
+  "vi": "Quá đỉnh",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "praise",
+  "example": {
+   "ctx": "Seeing a friend's shoes",
+   "text": "Those sneakers are fire!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Fire\" means…",
+   "options": [
+    "dangerous",
+    "excellent"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't yell 'fire' in a crowded room.",
+   "why": "People will panic, not praise."
+  },
+  "l1": "trop stylé",
+  "l1_hook": "Regarde mes nouvelles baskets ! Elles sont \"fire\".",
+  "l1_ex": "Ces baskets sont \"fire\" !",
+  "right": "fire",
+  "native": {
+   "hook": "Que veut dire « fire » ?",
+   "tip": "“fire” = trop stylé. Exemple: “Those sneakers are fire!”",
+   "caption": "Que veut dire « fire » ?\n“fire” = trop stylé.\nExemple: “Those sneakers are fire!” (Ces baskets sont \"fire\" !)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “fire” = trop stylé. “Those sneakers are fire!” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at my new sneakers!"
+ },
+ "src": {
+  "slang": "fire"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 15,
+  "seconds": 9.9,
+  "wpm": 90
+ },
+ "publish": {
+  "title": "Que veut dire « fire » ?",
+  "keyword": "fire",
+  "value": "“fire” = trop stylé. Exemple: “Those sneakers are fire!”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « fire » ?",
+    "description": "“fire” = trop stylé. Exemple: “Those sneakers are fire!”\n\nQue veut dire « fire » ?\n“fire” = trop stylé.\nExemple: “Those sneakers are fire!” (Ces baskets sont \"fire\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "fire",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « fire » ?\n“fire” = trop stylé.\nExemple: “Those sneakers are fire!” (Ces baskets sont \"fire\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « fire » ?\n\n“fire” = trop stylé. Exemple: “Those sneakers are fire!”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « fire » ? “fire” = trop stylé. Exemple: “Those sneakers are fire!” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “fire” = trop stylé. “Those sneakers are fire!” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

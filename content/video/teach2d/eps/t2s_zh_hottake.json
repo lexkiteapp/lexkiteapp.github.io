@@ -1,0 +1,148 @@
+{
+ "id": "t2s_zh_hottake",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 32,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pineapple pizza is the best!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hot take!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A strong, surprising opinion.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Here's my hot take: pineapple belongs on pizza.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "hot take",
+  "forms": [
+   "hot takes"
+  ],
+  "ipa": "/ˈhɑːt ˈteɪk/",
+  "mean": "A strong, surprising opinion.",
+  "define": "An opinion that is strong and often unpopular.",
+  "vi": "Quan điểm gây tranh cãi",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Chatting about food",
+   "text": "Here's my hot take: pineapple belongs on pizza."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"hot take\" is…",
+   "options": [
+    "a hot drink",
+    "a bold opinion"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call plain facts a 'hot take'.",
+   "why": "It means a bold, debatable opinion."
+  },
+  "l1": "热议观点",
+  "l1_hook": "菠萝披萨是最棒的！hot take",
+  "l1_ex": "这是我的hot take：菠萝应该放在披萨上。",
+  "right": "hot take",
+  "native": {
+   "hook": "“hot take”是什么意思？",
+   "tip": "“hot take” = 热议观点. 例句: “Here's my hot take: pineapple belongs on pizza.”",
+   "caption": "“hot take”是什么意思？\n“hot take” = 热议观点.\n例句: “Here's my hot take: pineapple belongs on pizza.” (这是我的hot take：菠萝应该放在披萨上。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “hot take” = 热议观点. “Here's my hot take: pineapple belongs on pizza.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pineapple pizza is the best!"
+ },
+ "src": {
+  "slang": "hot take"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“hot take”是什么意思？",
+  "keyword": "hot take",
+  "value": "“hot take” = 热议观点. 例句: “Here's my hot take: pineapple belongs on pizza.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“hot take”是什么意思？",
+    "description": "“hot take” = 热议观点. 例句: “Here's my hot take: pineapple belongs on pizza.”\n\n“hot take”是什么意思？\n“hot take” = 热议观点.\n例句: “Here's my hot take: pineapple belongs on pizza.” (这是我的hot take：菠萝应该放在披萨上。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "hot take",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“hot take”是什么意思？\n“hot take” = 热议观点.\n例句: “Here's my hot take: pineapple belongs on pizza.” (这是我的hot take：菠萝应该放在披萨上。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“hot take”是什么意思？\n\n“hot take” = 热议观点. 例句: “Here's my hot take: pineapple belongs on pizza.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“hot take”是什么意思？ “hot take” = 热议观点. 例句: “Here's my hot take: pineapple belongs on pizza.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “hot take” = 热议观点. “Here's my hot take: pineapple belongs on pizza.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

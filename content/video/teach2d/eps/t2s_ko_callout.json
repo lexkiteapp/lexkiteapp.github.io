@@ -1,0 +1,153 @@
+{
+ "id": "t2s_ko_callout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 26,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She told everyone my mistake!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Call out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Point out someone's mistake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She called me out for being late.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "call out",
+  "forms": [
+   "called me out",
+   "called out"
+  ],
+  "ipa": "/ˈkɔːl ˈaʊt/",
+  "mean": "Point out someone's mistake.",
+  "define": "To say publicly that someone did something wrong.",
+  "vi": "Chỉ ra lỗi công khai",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a mistake",
+   "text": "She called me out for being late."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"call out\" is to…",
+   "options": [
+    "shout out",
+    "point out a mistake"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'call out' a coworker in front of the boss.",
+   "why": "Public correction embarrasses people."
+  },
+  "l1": "지적하다",
+  "l1_hook": "그녀는 모두에게 내 실수를 'call out'했어.",
+  "l1_ex": "그녀는 내가 늦은 것을 'call out'했어.",
+  "right": "call out",
+  "native": {
+   "hook": "“call out” 무슨 뜻일까요?",
+   "tip": "“call out” = 지적하다. 예문: “She called me out for being late.”",
+   "caption": "“call out” 무슨 뜻일까요?\n“call out” = 지적하다.\n예문: “She called me out for being late.” (그녀는 내가 늦은 것을 'call out'했어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “call out” = 지적하다. “She called me out for being late.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She told everyone my mistake!"
+ },
+ "src": {
+  "slang": "call out"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“call out” 무슨 뜻일까요?",
+  "keyword": "call out",
+  "value": "“call out” = 지적하다. 예문: “She called me out for being late.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“call out” 무슨 뜻일까요?",
+    "description": "“call out” = 지적하다. 예문: “She called me out for being late.”\n\n“call out” 무슨 뜻일까요?\n“call out” = 지적하다.\n예문: “She called me out for being late.” (그녀는 내가 늦은 것을 'call out'했어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "call out",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“call out” 무슨 뜻일까요?\n“call out” = 지적하다.\n예문: “She called me out for being late.” (그녀는 내가 늦은 것을 'call out'했어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“call out” 무슨 뜻일까요?\n\n“call out” = 지적하다. 예문: “She called me out for being late.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“call out” 무슨 뜻일까요? “call out” = 지적하다. 예문: “She called me out for being late.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “call out” = 지적하다. “She called me out for being late.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

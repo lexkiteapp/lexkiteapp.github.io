@@ -368,12 +368,8 @@
   const fwBack = () => { const d = ls.get('lk.fw', ''); if (OFF || !/^\d{4}-\d\d-\d\d$/.test(d)) return; const n = Math.round((dayN(todayKey()) - dayN(d)) / DAY); for (const k of [1, 7]) if (n === k && !ls.get('lk.fw' + k, 0)) { ls.set('lk.fw' + k, 1); hab('fw_d' + k); } };
   let doneOnce = false, mo = null;
   const lessonDone = () => { if (doneOnce) return; doneOnce = true; if (mo) mo.disconnect(); firstWin(); setTimeout(() => softAsk().catch(() => {}), 1800); };
-  addEventListener('lexkite:practice-done', lessonDone); addEventListener('lexkite:test-done', lessonDone);
-  // Màn kết bài: ôn thẻ (.rev-done) và BÀI HỌC lesson engine (.lsn-end – đường chính khi cờ ux1 bật, không phát practice-done) → hỏi nhắc mềm sau bài đầu.
-  // subtree: màn kết bài cũ chèn vào #lsnBody bên trong #lsn; bài thử (?demo=) không tính.
-  const lsnOff = () => { try { const c = JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}; return String(c.rem_lsn) === '0'; } catch (e) { return false; } }; // công tắc khẩn /api/config rem_lsn = '0'
-  const ended = () => (document.querySelector('.lsn-end') && !/[?&]demo=/.test(location.hash) && !lsnOff()) || (document.querySelector('.rev-done') && ((state.stats.days || {})[todayKey()] || 0) > 0);
-  mo = new MutationObserver(() => { if (!doneOnce && ended()) lessonDone(); }); mo.observe(App.view || document.body, { childList: true, subtree: true });
+  for (const e of ['practice-done', 'test-done', 'lesson-done']) addEventListener('lexkite:' + e, lessonDone); // lesson-done: lesson engine (lesson/ui.js)
+  mo = new MutationObserver(() => { if (!doneOnce && document.querySelector('.rev-done') && ((state.stats.days || {})[todayKey()] || 0) > 0) lessonDone(); }); mo.observe(App.view || document.body, { childList: true });
 
   // ---------- Nhịp mỗi phút (thay checkReminder cũ của app.js) ----------
   async function tick() {

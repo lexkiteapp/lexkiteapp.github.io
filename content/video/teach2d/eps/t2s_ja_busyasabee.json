@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ja_busyasabee",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 40,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No free time this week!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Busy as a bee!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very busy and active.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm busy as a bee this week.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "busy as a bee",
+  "forms": [],
+  "ipa": "/ˈbɪzi əz ə ˈbiː/",
+  "mean": "Very busy and active.",
+  "define": "Used when someone is busy working.",
+  "vi": "Bận túi bụi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about a week",
+   "text": "I'm busy as a bee this week."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "fond of flowers",
+    "very busy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'busy as a bee' about a lazy afternoon.",
+   "why": "It means very busy."
+  },
+  "l1": "忙しい",
+  "l1_hook": "今週は \"busy as a bee\" で、自由な時間がない！",
+  "l1_ex": "今週は \"busy as a bee\" です。",
+  "right": "busy as a bee",
+  "native": {
+   "hook": "「busy as a bee」ってどういう意味？",
+   "tip": "“busy as a bee” = 忙しい. 例文: “I'm busy as a bee this week.”",
+   "caption": "「busy as a bee」ってどういう意味？\n“busy as a bee” = 忙しい.\n例文: “I'm busy as a bee this week.” (今週は \"busy as a bee\" です。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “busy as a bee” = 忙しい. “I'm busy as a bee this week.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "No free time this week!"
+ },
+ "src": {
+  "slang": "busy as a bee"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "「busy as a bee」ってどういう意味？",
+  "keyword": "busy as a bee",
+  "value": "“busy as a bee” = 忙しい. 例文: “I'm busy as a bee this week.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "「busy as a bee」ってどういう意味？",
+    "description": "“busy as a bee” = 忙しい. 例文: “I'm busy as a bee this week.”\n\n「busy as a bee」ってどういう意味？\n“busy as a bee” = 忙しい.\n例文: “I'm busy as a bee this week.” (今週は \"busy as a bee\" です。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "busy as a bee",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「busy as a bee」ってどういう意味？\n“busy as a bee” = 忙しい.\n例文: “I'm busy as a bee this week.” (今週は \"busy as a bee\" です。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「busy as a bee」ってどういう意味？\n\n“busy as a bee” = 忙しい. 例文: “I'm busy as a bee this week.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「busy as a bee」ってどういう意味？ “busy as a bee” = 忙しい. 例文: “I'm busy as a bee this week.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “busy as a bee” = 忙しい. “I'm busy as a bee this week.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}
