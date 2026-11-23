@@ -3497,6 +3497,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case speakSpkDuHocSongONuoc = "speak.spk.duHocSongONuoc"
     case speakSpkMayTinhInternetHangNgay = "speak.spk.mayTinhInternetHangNgay"
     case speakSpkThuThachNoi30Giay = "speak.spk.thuThachNoi30Giay"
+    case speakSpkNhatKyGiongNoi = "speak.spk.nhatKyGiongNoi"
 }
 
 public enum L10nLangs {

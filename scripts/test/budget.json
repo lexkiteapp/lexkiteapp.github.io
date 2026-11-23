@@ -18,7 +18,9 @@
     "_note": "Tải lần đầu theo gói (JS BUNDLES + CSS BCSS, gzip chuẩn) – chỉ được giảm. 3/11 ux1 (Home/Hôm nay): mốc main 32c7194bd = 122044 B (JS 56295 + CSS 65749).",
     "ux1": 122044
   },
-  "cpackTotal": 13690000,
+  "cpackTotal": 13837620,
+  "_cpackNoteVd2": "23/11 (giảm thật byte người học, voice-diary #1893 + main đã vượt 2 KB): dời web/js/toeic/reading3.js (76 691 B, đề TOEIC tải lười theo gói toeic, cùng mẫu listening3/4/7) sang web/cpack/toeic; cpackTotal +76 691 đúng phần dời, trần totalJs giữ nguyên.",
+  "_cpackNoteVd": "22/11 (Nhật ký giọng nói, docs/specs/voice-diary.md – mã + chuỗi tải lười, KHÔNG vào khung/byte người học; budget-self-decide): +70 929 B ≈ đo 13 923 626 B = web/cpack/diary-app (diary.js + diary-video.js) + web/cpack/i18n/diary-<13 ngôn ngữ>.js (dời khỏi web/js để byte người học không vượt).",
   "_cpackNoteFrW2": "22/11 (khóa tiếng Pháp W2, french-course.md – dữ liệu tải lười, KHÔNG vào khung/byte người học): +741 054 B đúng bằng web/cpack/fr (dr.js câu luyện 62 KB + 15 gói giải thích gx-<ngôn ngữ>.js, mỗi người học chỉ tải 1–2 gói ≈ 50 KB); đo 13 586 104 B + 9 KB.",
   "_cpackNoteFrW5": "22/11 (khóa tiếng Pháp W5 – luyện định dạng DELF/DALF, tải lười theo cấp): +56 KB đúng bằng web/cpack/fr/x-<cấp>.js (6 cấp × 2 đề, câu Tatoeba CC BY) + x-ui-<ngôn ngữ>.js; đo 13 642 080 B + 9 KB.",
   "_cpackNoteFrW3": "22/11 (khóa tiếng Pháp W3 phát âm, french-course.md – dữ liệu tải lười, KHÔNG vào khung/byte người học): +64 163 B đúng bằng web/cpack/fr/px*.js mới (px.js chủ đề/cặp/IPA 4,4 KB + 15 gói px-<ngôn ngữ>.js nhãn + giải thích, mỗi người học chỉ tải 1–2 gói ≈ 4 KB); đo 13 650 410 B tổng; mã pron-ui.js chung engine es, không thêm tệp mã.",
