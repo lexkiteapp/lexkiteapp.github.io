@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_house",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 14,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. What is it?",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: house!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A building in which a family, person lives.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "They live in a large house with a garden.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "house",
+  "ipa": "/haʊs/",
+  "mean": "a building in which a family, person lives",
+  "ex": "They live in a large house with a garden.",
+  "img": "house#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/house",
+  "link": "https://lexkite.com/app/#/dict/house",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. What is it?"
+ },
+ "src": {
+  "word": "house",
+  "img": "house#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.6,
+  "wpm": 134
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: H + 4 letters",
+  "keyword": "house",
+  "value": "House /haʊs/ = a building in which a family, person lives. Example: \"They live in a large house with a garden.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/house",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: H + 4 letters",
+    "description": "House /haʊs/ = a building in which a family, person lives. Example: \"They live in a large house with a garden.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/house\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "house",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: H + 4 letters\n\nHouse /haʊs/ = a building in which a family, person lives. Example: \"They live in a large house with a garden.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/house"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: H + 4 letters\n\nHouse /haʊs/ = a building in which a family, person lives. Example: \"They live in a large house with a garden.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: H + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: house. A building in which a family, person lives. Example: \"They live in a large house with a garden.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

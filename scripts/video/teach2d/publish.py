@@ -49,6 +49,10 @@ def facts(ep):
         k = D['key']; K = k[:1].upper() + k[1:]; tone = {'very-casual': 'very casual', 'casual': 'casual', 'neutral': 'everyday'}[D['reg']]
         return (_fit(f'What does {_q(k)} mean?', f'{K}: what does it mean?', f'{K} meaning'), k,
                 f'{K} = {D["mean"].rstrip(".!?")}. Example: "{D["example"]["text"]}" ({tone} English{", " + D["region"] if D["region"] != "global" else ""}).')
+    if t == 'guess3':   # Guess in 3 Seconds: the title hints (first letter + length) but never spoils; the value line = answer + IPA + meaning + example so the post teaches as plain text
+        w = D['word']; W_ = w.capitalize()
+        return (_fit(f'Guess in 3 seconds: {w[0].upper()} + {len(w) - 1} letters', f'Guess the picture in 3 seconds: {len(w)} letters'), w,
+                f'{W_} {D["ipa"]} = {D["mean"].rstrip(".!?")}. Example: "{D["ex"]}"')
     if t == 'review':
         w = D['word']; return _fit(f'What does {_q(w)} mean?', f'{w.capitalize()}: what does it mean?'), w, f'{w.capitalize()} means {D["mean"]}.'
     if t == 'usuk':
@@ -95,6 +99,7 @@ def build(ep):
     title, kw, value = facts(ep)
     lvl = str(ep.get('cefr') or (ep.get('data') or {}).get('cefr') or '').lower()
     tags = list(dict.fromkeys(['#learnenglish', '#englishtips', AREA_TAG.get(ep['area'], '#speakenglish')] + ([f'#{lvl}english'] if re.fullmatch(r'[abc][12]', lvl) else []) + ['#englishteacher']))[:5]
+    if ep['template'] == 'guess3': tags = ['#guesstheword', '#learnenglish', '#englishvocabulary', '#englishquiz', '#englishtips']
     if ep['template'] == 'slang': tags = ['#englishslang', '#learnenglish', '#slang', '#speakenglish', '#englishtips']
     link = ep['cta']['link']; say = ep['cta'].get('say') or 'Practice in the app'
     script = ' '.join(l['text'] for l in ep['lines'] if not l.get('quiz'))
@@ -117,6 +122,9 @@ def first_comment(ep, value):
     (+ the value line when it is plain English text – IPA / arrows would fail the en-only check), one {link} placeholder, 3 wordings rotated by id."""
     L = ep['lines']; qi = next((i for i, l in enumerate(L) if l.get('quiz')), None)
     a = (L[qi + 1]['text'] if qi is not None and qi + 1 < len(L) else value).strip()
+    if ep['template'] == 'guess3':   # the video asks the viewer to guess: the first comment gives the answer + meaning + the example and asks for the viewer's own guess
+        D = ep['data']; out = f'Answer: {D["word"]}. {D["mean"][0].upper() + D["mean"][1:].rstrip(".")}. Example: "{D["ex"]}" Did you guess it in time? More picture quizzes, free: {{link}}'
+        return re.sub(r' +', ' ', __import__('unicodedata').normalize('NFKD', out).encode('ascii', 'ignore').decode())
     if ep['template'] == 'slang':   # the quiz / misuse card is silent: the first comment answers it (right option, or where not to use it) + the example
         D = ep['data']; q = D['quiz']; ex = D['example']['text']
         if D['variant'] == 'quiz': out = f'Quiz answer: {q["options"][q["answer"]].rstrip(".")}. "{ex}" More real English slang, free: {{link}}'

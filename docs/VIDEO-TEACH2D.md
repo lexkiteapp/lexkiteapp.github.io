@@ -33,7 +33,12 @@
 | `call` | Ask Ama | app call script (`web/js/call/calls.js`: phrase, meaning, reply) – in-app caller is Mia, so the CTA says "Practice a real call" | `#/call/<id>` |
 | `roots` | Word Roots (Gốc từ, 17/11) | `content/video/teach2d/roots.json`: 40 Latin / Greek roots × 6–10 real words; IPA / definition / example from the audited bank | `#/dict/<first word>` |
 | `slang` | Slang Card (22/11, 7–12 s, [SAY-NATIVE.md](SAY-NATIVE.md#slang-card-2211--dòng-clip-ngắn-viral-thẻ-lóng--biểu-cảm)) | `content/say-native/slang.json` (≥ 300 thẻ lóng sạch) + TeacherRig EXPR biểu cảm mạnh; carousel vuông `card.py` | `#/phrases` |
+| `guess3` | Guess in 3 Seconds (23/11, 7–12 s, growth series #2, `GROWTH-1M.md` §2) | audited word bank + `img.json` picture of the exact `word#n` sense (30 s `guess` data source; Noto-emoji icons or conf ≥ 80 scene with a physical-thing gloss; TEXT_OBJ gate = no text in pictures) | `#/dict/<word>` |
 | `band` | Band 5 to 9 (20/11, [spec](specs/band-upgrade.md)) | `content/video/teach2d/bands.json`: 14 topics × 3 hand-written model sentences (IELTS band 5 / 7 / 9) + one reason and criterion per upgrade | `#/write` · `#/speaking` |
+
+## Guess in 3 Seconds – `guess3` (23/11, growth series #2)
+- Script: hook (≤ 6 words, 3 true variants) → **2.6 s silence = the 3-2-1 ring** over the picture with the word hidden (blank letter tiles; the viewer guesses in the comments) → `Answer: <word>!` (tiles fill, word + IPA) → bank meaning → bank example → `lexkite.com`. Kokoro 1.25× (one voice), Ama / Carlos alternate, drawn-face EXPR (`confused` / `smirk` / `hype`) held through the countdown.
+- Rows: `gen.py --guess3-eps N` (like `--slang-eps`) → auto.json + reviewed.json with machine gates **data** (facts == bank + the picture is this word sense) · **level** (spoken words ≤ B1 NGSL, ≤ 1 residual, taught word exempt) · **hook** (one of `G3_HOOKS`) · **dup** (word / picture pHash ≥ 10 bits, not a 30 s `guess` word) · 7–12 s. Test `scripts/test/teach2d-guess3.py` (preqc `gen`). Carousel: `card.py` (guess3 branch: guess / answer + teacher / sentence + filled tiles + CTA). Template approval stays `draft` until the pilots pass QC ≥ 90 short + wide.
 
 ## Variety (owner 29/10: "đa dạng, đỡ nhàm chán")
 - Fixed per series (recognition): series chip + series tint on the canvas (`theme.json` tints: US/UK teal, Verbs gold, Stress coral, Stop Saying red-coral, Phrasal mint) + one teacher per series.

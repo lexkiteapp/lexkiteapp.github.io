@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_leg",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 15,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: leg!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A part of the body from the thigh down.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I hurt my leg playing football.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "leg",
+  "ipa": "/leɡ/",
+  "mean": "a part of the body from the thigh down",
+  "ex": "I hurt my leg playing football.",
+  "img": "leg#n",
+  "n": 3
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/leg",
+  "link": "https://lexkite.com/app/#/dict/leg",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "leg",
+  "img": "leg#n"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.0,
+  "wpm": 131
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: L + 2 letters",
+  "keyword": "leg",
+  "value": "Leg /leɡ/ = a part of the body from the thigh down. Example: \"I hurt my leg playing football.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/leg",
+  "script_words": 23,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: L + 2 letters",
+    "description": "Leg /leɡ/ = a part of the body from the thigh down. Example: \"I hurt my leg playing football.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/leg\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "leg",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: L + 2 letters\n\nLeg /leɡ/ = a part of the body from the thigh down. Example: \"I hurt my leg playing football.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/leg"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: L + 2 letters\n\nLeg /leɡ/ = a part of the body from the thigh down. Example: \"I hurt my leg playing football.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: L + 2 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: leg. A part of the body from the thigh down. Example: \"I hurt my leg playing football.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

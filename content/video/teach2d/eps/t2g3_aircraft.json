@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_aircraft",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 56,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: aircraft!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A machine that can fly.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The airport can handle large aircraft.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "aircraft",
+  "ipa": "/ˈerkræft/",
+  "mean": "a machine that can fly",
+  "ex": "The airport can handle large aircraft.",
+  "img": "aircraft#n",
+  "n": 8
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/aircraft",
+  "link": "https://lexkite.com/app/#/dict/aircraft",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "aircraft",
+  "img": "aircraft#n"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 9.7,
+  "wpm": 123
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: A + 7 letters",
+  "keyword": "aircraft",
+  "value": "Aircraft /ˈerkræft/ = a machine that can fly. Example: \"The airport can handle large aircraft.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/aircraft",
+  "script_words": 19,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: A + 7 letters",
+    "description": "Aircraft /ˈerkræft/ = a machine that can fly. Example: \"The airport can handle large aircraft.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/aircraft\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "aircraft",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: A + 7 letters\n\nAircraft /ˈerkræft/ = a machine that can fly. Example: \"The airport can handle large aircraft.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/aircraft"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: A + 7 letters\n\nAircraft /ˈerkræft/ = a machine that can fly. Example: \"The airport can handle large aircraft.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: A + 7 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: aircraft. A machine that can fly. Example: \"The airport can handle large aircraft.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

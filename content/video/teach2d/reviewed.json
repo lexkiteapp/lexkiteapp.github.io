@@ -43340,6 +43340,1700 @@
     "e": "I yeeted my paper into the bin.",
     "c": "lexkite.com"
    }
+  },
+  "t2g3_airplane": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4db4928180f4",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: airplane!",
+    "m": "A vehicle with wings that flies.",
+    "e": "The airplane landed twenty minutes early despite the strong winds.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_bed": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "112ef02f1d3f",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: bed!",
+    "m": "A piece of furniture that people sleep on.",
+    "e": "I usually go to bed before midnight.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_bird": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "76d68e785ffc",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: bird!",
+    "m": "An animal with feathers that uses wings to fly.",
+    "e": "A small bird built a nest on our balcony.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_boy": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4a193fb41e25",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: boy!",
+    "m": "A young male person.",
+    "e": "The boy next door plays the violin every evening.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_bus": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5c9d65edaeb6",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: bus!",
+    "m": "A large road vehicle used for carrying many people.",
+    "e": "I take the bus to work every day.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_butter": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a119c2dcd5b0",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: butter!",
+    "m": "A yellow food made from cream.",
+    "e": "The hotel breakfast includes bread, butter, jam, and fresh fruit.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_camera": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a2338fe92466",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: camera!",
+    "m": "An object that takes pictures digitally, or on film.",
+    "e": "I bought a new camera for my trip.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_dog": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c446ad94e082",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: dog!",
+    "m": "An animal with four legs that barks.",
+    "e": "Our dog loves running on the beach.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_egg": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1303c9286199",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: egg!",
+    "m": "An oval object with a shell that birds lay.",
+    "e": "I usually have an egg for breakfast.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_fish": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "27ca5e40bd0f",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: fish!",
+    "m": "An animal that lives and swims in water.",
+    "e": "We had grilled fish for dinner.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_girl": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f45b5556e611",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: girl!",
+    "m": "A female child.",
+    "e": "The girl in the red coat is my cousin.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_hospital": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "74e5f398fbd5",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: hospital!",
+    "m": "A building for sick people, with doctors and nurses.",
+    "e": "My grandfather is in hospital after an operation.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_hotel": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ef8190611699",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: hotel!",
+    "m": "A place where people can stay when traveling.",
+    "e": "We stayed at a hotel near the beach.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_house": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3311314193e3",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: house!",
+    "m": "A building in which a family, person lives.",
+    "e": "They live in a large house with a garden.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_leg": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "930dca4fa286",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: leg!",
+    "m": "A part of the body from the thigh down.",
+    "e": "I hurt my leg playing football.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_man": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9b3a897d38ca",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: man!",
+    "m": "An adult male human being.",
+    "e": "The man at the reception desk gave us a map.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_mouse": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7a4eba7dcac9",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: mouse!",
+    "m": "A small animal with fur and a long tail.",
+    "e": "We found a mouse in the kitchen.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_mouth": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8d8f4f4197d7",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: mouth!",
+    "m": "A part of the face used for eating and talking.",
+    "e": "Don't talk with your mouth full.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_nose": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1845058f4a82",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: nose!",
+    "m": "A part of the face used for breathing and smelling.",
+    "e": "He has a cold and a runny nose.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_pizza": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "43a5889de512",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: pizza!",
+    "m": "A flat bread with cheese, tomato and toppings.",
+    "e": "We ordered pizza for everyone at the late team meeting.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_school": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ccd1f27ba51c",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: school!",
+    "m": "A building where you learn in classes with a teacher.",
+    "e": "My younger brother started school this year.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_shower": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "35865abe3d18",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: shower!",
+    "m": "The cleaning of a body by standing under falling water.",
+    "e": "I usually have a shower in the morning.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_sun": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f5fe320ed109",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: sun!",
+    "m": "The hot shining star the earth moves around.",
+    "e": "The sun rises at about six in summer.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_television": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "08c902633465",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: television!",
+    "m": "A piece of equipment with a screen that shows programmes.",
+    "e": "We don't watch much television at home.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_train": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8197dac58bdc",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: train!",
+    "m": "A vehicle that carries people and runs on rails.",
+    "e": "We took the night train to Hue.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_baseball": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0a74831e14fb",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: baseball!",
+    "m": "A bat-and-ball game played by two teams.",
+    "e": "The company bought baseball tickets for the team.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_brain": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "01bab2cb803c",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: brain!",
+    "m": "A part of the head that thinks and controls your body.",
+    "e": "Sleep is important for a healthy brain.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_elevator": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "52ab36b522d9",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: elevator!",
+    "m": "A machine that carries people between floors.",
+    "e": "Take the elevator to the fifth floor and turn left.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_engine": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "29fa65f21d13",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: engine!",
+    "m": "A machine that changes energy into motion.",
+    "e": "The car engine wouldn't start this morning.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_factory": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "49f435e8a5a7",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: factory!",
+    "m": "A building where things are made.",
+    "e": "My uncle works in a shoe factory.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_handbag": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0a604855b9bb",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: handbag!",
+    "m": "A small bag women use to carry personal items.",
+    "e": "I really like your handbag.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_motorcycle": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ea1bda6dc079",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: motorcycle!",
+    "m": "A two-wheeled vehicle with an engine.",
+    "e": "He rides a motorcycle to work to avoid the traffic.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_pilot": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "691ebb62b8ef",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: pilot!",
+    "m": "A person who controls an airplane, spacecraft, or boat.",
+    "e": "The pilot announced that we would land soon.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_printer": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "054f6e1f108a",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: printer!",
+    "m": "A machine that makes copies of papers and documents.",
+    "e": "The printer is out of paper.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_sausage": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "487f768e720d",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: sausage!",
+    "m": "A food made of ground meat and seasoning packed in a tube.",
+    "e": "We have no more sausage.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_scarf": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "51c83dbb6671",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: scarf!",
+    "m": "A piece of cloth worn around the neck.",
+    "e": "She bought a silk scarf at the airport shop.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_smartphone": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "647bfb126852",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: smartphone!",
+    "m": "A mobile phone that works like a computer.",
+    "e": "Customers can now order food through our new smartphone app.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_toothbrush": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e48ab3bf190e",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: toothbrush!",
+    "m": "A small brush with a long handle used to clean teeth.",
+    "e": "I need a new toothbrush.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_violin": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d4275a15516f",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: violin!",
+    "m": "A musical instrument with four strings.",
+    "e": "A violin player performed at the opening ceremony.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_bandage": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9c924effbc60",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: bandage!",
+    "m": "A strip of gauze used to protect a wound.",
+    "e": "I'll look for a bandage.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_battery": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7a25c46b6462",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: battery!",
+    "m": "A device that stores and supplies electricity.",
+    "e": "The battery in my laptop lasts eight hours.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_camel": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "03482cfa9093",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: camel!",
+    "m": "A large desert animal used for carrying loads or riding.",
+    "e": "Every part of the camel is used.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_coin": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7a3eaa2ac205",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: coin!",
+    "m": "A small, flat piece of metal used as money.",
+    "e": "He found an old coin in the garden.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_crane": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "73133171f121",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: crane!",
+    "m": "A tall machine for lifting heavy things.",
+    "e": "A crane is lifting containers onto the ship.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_elbow": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "992943d31632",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: elbow!",
+    "m": "The joint between the upper arm and the forearm.",
+    "e": "She hit her elbow during a fall.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_flute": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a598c463a91f",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: flute!",
+    "m": "A woodwind instrument with a tube and finger holes.",
+    "e": "I want my flute back.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_fountain": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "684a4463221e",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: fountain!",
+    "m": "A structure that sends water into the air.",
+    "e": "We met by the fountain in the plaza.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_hurricane": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8395378dae76",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: hurricane!",
+    "m": "A violent storm with strong winds.",
+    "e": "The hurricane forced the airport to close for two days.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_kettle": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ad6fff5ea0ad",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: kettle!",
+    "m": "A metal pot used for boiling liquids.",
+    "e": "Go and put the kettle on.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_microscope": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "349a48c3f4de",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: microscope!",
+    "m": "An instrument that makes very small things look bigger.",
+    "e": "The technician examined the sample under a microscope.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_purse": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1a5563a9afe9",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: purse!",
+    "m": "A small bag for money or a handbag.",
+    "e": "She left her purse in the conference room.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_ring": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "443fecfa60ed",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: ring!",
+    "m": "A round piece of jewellery worn on a finger.",
+    "e": "He gave her a ring on her birthday.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_stadium": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2a58c9174605",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: stadium!",
+    "m": "A large sports field with seats around it.",
+    "e": "The concert will be held at the city stadium.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_trumpet": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d088a1853da0",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: trumpet!",
+    "m": "A brass instrument that produces sound when the player vibrates their lips.",
+    "e": "I got a new trumpet.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_wrist": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7ee46c5c7522",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: wrist!",
+    "m": "The joint that connects the hand to the forearm.",
+    "e": "I took him by the wrist.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_aircraft": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6daa292861ca",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: aircraft!",
+    "m": "A machine that can fly.",
+    "e": "The airport can handle large aircraft.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_auditorium": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fea3c0685dfb",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: auditorium!",
+    "m": "A large room for performances or speeches.",
+    "e": "The keynote speech will be in the main auditorium.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_barn": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4359739c2622",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: barn!",
+    "m": "A farm building used for storing grain, feed, or keeping animals.",
+    "e": "I'm still in the barn.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_brewery": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7bcb10926d62",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: brewery!",
+    "m": "A factory or building where beer is made.",
+    "e": "The brewery produces three beers.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_comet": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "abf570e06b31",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: comet!",
+    "m": "A ball of ice and dust orbiting the sun.",
+    "e": "The comet's tail always points away from the sun.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_corridor": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a099b228f6a3",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: corridor!",
+    "m": "A narrow hallway with rooms opening onto it.",
+    "e": "He's running quite fast through the corridor.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_freighter": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2695acc2130c",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: freighter!",
+    "m": "A ship or plane that carries goods.",
+    "e": "The freighter arrived at the port two days late.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_helmet": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a63fc281c728",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: helmet!",
+    "m": "A hard hat that protects the head.",
+    "e": "Visitors must wear a helmet on the construction site.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_highway": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "acd306dd4d55",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: highway!",
+    "m": "A main road between cities.",
+    "e": "Traffic on the highway was very heavy this morning.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_mansion": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "dba5c3fe8df8",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: mansion!",
+    "m": "A large, luxurious house built for wealthy people.",
+    "e": "It is not a real mansion.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_mechanic": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "99de85cfdd4c",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: mechanic!",
+    "m": "A person who repairs engines and vehicles.",
+    "e": "The mechanic said the van needs new brakes.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_pier": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8226266cf18a",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: pier!",
+    "m": "A long platform built out over water.",
+    "e": "People are fishing from the end of the pier.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_railing": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b9f4f60b9e2c",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: railing!",
+    "m": "A fence made of metal or wooden bars.",
+    "e": "Tourists are leaning on the railing to enjoy the view.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_rat": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3ea4bfbb6a40",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: rat!",
+    "m": "An animal that looks like a large mouse.",
+    "e": "A rat ran across the street.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_sewer": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ef44e437d461",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: sewer!",
+    "m": "An underground pipe for waste water.",
+    "e": "The city is repairing the sewer on Main Street.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_stool": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "172f6686c26c",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: stool!",
+    "m": "A simple one‑person seat without a back or armrests.",
+    "e": "She got off her stool.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_terrace": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "985255a792c9",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: terrace!",
+    "m": "A paved outdoor platform attached to a house.",
+    "e": "You can't smoke except on the terrace.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_thermometer": {
+   "template": "guess3",
+   "hook": "Quick! Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "25247a3e4653",
+   "script": {
+    "h": "Quick! Guess in three seconds!",
+    "a": "Answer: thermometer!",
+    "m": "An instrument used for measuring temperature.",
+    "e": "I don't have a thermometer.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_trail": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "160a5ecb338e",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: trail!",
+    "m": "A path through the countryside.",
+    "e": "We followed a trail through the forest.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_asteroid": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d884bcbe3d18",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: asteroid!",
+    "m": "A large rock that moves around the sun.",
+    "e": "An asteroid impact may have wiped out the dinosaurs.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_banquet": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5a0db8851311",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: banquet!",
+    "m": "A large formal meal for many people.",
+    "e": "The closing banquet will be held in the hotel ballroom.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_ruler": {
+   "template": "guess3",
+   "hook": "Three seconds. What is it?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bb2ea973b11f",
+   "script": {
+    "h": "Three seconds. What is it?",
+    "a": "Answer: ruler!",
+    "m": "A straight strip used for measuring and drawing lines.",
+    "e": "Use a ruler to draw a straight line.",
+    "c": "lexkite.com"
+   }
   }
  }
 }

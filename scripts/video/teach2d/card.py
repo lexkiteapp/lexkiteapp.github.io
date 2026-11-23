@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Slang Card carousel (owner 22/11, docs/SAY-NATIVE.md "Slang Card"): 3 square 1080x1080 images for Facebook / Instagram from the SAME episode as the
+"""Slang Card / Guess in 3 Seconds carousel (owner 22/11, docs/SAY-NATIVE.md "Slang Card"): 3 square 1080x1080 images for Facebook / Instagram from the SAME episode as the
 7-12 s reel – same words, same IPA, same teacher with the SAME strong expression (the frame is cut from the reel's own rig.webm, never a stock/meme photo).
   python3 scripts/video/teach2d/card.py --ep content/video/teach2d/eps/<id>.json [--rig out/<id>/short/host/rig.webm --timeline <props.json.timeline.json>]
                                         [--teacher-png <png>] --out <dir>        (CI only: teach-video render job, after the short)
@@ -11,10 +11,10 @@ import argparse, json, os, subprocess, sys
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
-ap = argparse.ArgumentParser(); ap.add_argument('--ep', required=True); ap.add_argument('--rig'); ap.add_argument('--timeline'); ap.add_argument('--teacher-png')
+ap = argparse.ArgumentParser(); ap.add_argument('--ep', required=True); ap.add_argument('--rig'); ap.add_argument('--timeline'); ap.add_argument('--teacher-png'); ap.add_argument('--pic', help='guess3: the episode picture (pub/pic.png)')
 ap.add_argument('--out', required=True); ap.add_argument('--theme', default='dusk'); o = ap.parse_args()
-EP = json.load(open(o.ep)); D = EP['data']; assert EP['template'] == 'slang', 'card.py: slang episodes only'
-TH = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json')); C = TH[o.theme]; TINT = TH['tints']['slang']
+EP = json.load(open(o.ep)); D = EP['data']; GUESS3 = EP['template'] == 'guess3'; assert EP['template'] in ('slang', 'guess3'), 'card.py: slang / guess3 episodes only'; KEY = D['word'] if GUESS3 else D['key']
+TH = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json')); C = TH[o.theme]; TINT = TH['tints'][EP['template']]
 FD = f'{ROOT}/brand/social/src/fonts'; FJ, FN = f'{FD}/PlusJakartaSans-VF.ttf', f'{FD}/NotoSans-Medium.ttf'
 N = 1080; PAD = 64; GATES = dict(overflow=[], contrast=[], teacher=None)
 os.makedirs(o.out, exist_ok=True)
@@ -114,49 +114,72 @@ def cutout(maxh):
 def save(im, i): p = f'{o.out}/{EP["id"]}-card{i}.png'; im.convert('RGB').save(p, optimize=True); return p
 
 
+
+def tiles(d, ty, letters=False):   # the hidden word as blank tiles (slide 1) / the filled tiles (slide 3); returns the bottom y
+    n = D['n']; lw = min(96, (N - 2 * PAD - 14 * (n - 1)) // n); tx = (N - (lw * n + 14 * (n - 1))) // 2
+    for i in range(n):
+        xx = tx + i * (lw + 14); fill, edge, ledge = (('#FFC524', '#FFF1A8', '#A87803') if letters else (C['tile'], C['tile_edge'], C['tile_ledge']))
+        d.rounded_rectangle([xx, ty + 8, xx + lw, ty + lw * 1.2 + 8], 16, fill=rgb(ledge)); d.rounded_rectangle([xx, ty, xx + lw, ty + lw * 1.2], 16, fill=rgb(fill), outline=rgb(edge), width=2)
+        if letters: text(d, (xx, ty + lw * 0.12), D['word'][i].upper(), int(lw * 0.7), '#382600', fill, lw, max_lines=1, tag=f'tile{i}')
+    return ty + lw * 1.2 + 8
+
+
+def cta_block(d):
+    c0 = N - PAD - 190; d.rounded_rectangle([PAD, c0 + 10, N - PAD, c0 + 160], 40, fill=rgb(C['cta_ledge'])); d.rounded_rectangle([PAD, c0, N - PAD, c0 + 150], 40, fill=rgb(C['cta_a']))
+    text(d, (PAD, c0 + 22), 'Learn real English free', 50, C['cta_ink'], C['cta_a'], N - 2 * PAD, max_lines=1, tag='cta')
+    text(d, (PAD, c0 + 86), 'lexkite.com', 40, C['cta_ink'], C['cta_a'], N - 2 * PAD, max_lines=1, tag='url')
+
+
 L1 = D.get('l1'); RG = {'very-casual': 'VERY CASUAL', 'casual': 'CASUAL', 'neutral': 'EVERYDAY'}
 files = []
-# 1) cover
-im = canvas(); d = ImageDraw.Draw(im); chip(d, PAD, PAD, 'SLANG CARD'); brand(d, im)
-y = text(d, (PAD, 140), EP['hook']['text'], 60, C['ink'], C['bg'], N - 2 * PAD, max_lines=2, tag='hook')
+if GUESS3:   # 1) the picture with the word hidden (blank tiles) + the hook; the answer slide follows (the shared cover below), then the example + CTA
+    im = canvas(); d = ImageDraw.Draw(im); chip(d, PAD, PAD, 'GUESS IN 3 SECONDS'); brand(d, im)
+    y = text(d, (PAD, 140), EP['hook']['text'], 60, C['ink'], C['bg'], N - 2 * PAD, max_lines=2, tag='hook')
+    P = 520; x0 = (N - P) // 2; y0 = int(y + 20); card(d, [x0, y0, x0 + P, y0 + P], '#FFFFFF', C['edge'], C['ledge'])
+    pic = Image.open(o.pic).convert('RGBA'); pic.thumbnail((P - 60, P - 60)); im.alpha_composite(pic, (x0 + (P - pic.width) // 2, y0 + (P - pic.height) // 2)); d = ImageDraw.Draw(im)
+    yb = tiles(d, y0 + P + 34); text(d, (PAD, yb + 28), 'Comment your guess!', 48, C['accent'], C['bg'], N - 2 * PAD, max_lines=1, tag='bait')
+    GATES['pic'] = pic.width * pic.height > 0; files.append(save(im, 1))
+# cover (slang: hook + expression + the slang + IPA + meaning) / answer (guess3: the same layout with the word)
+im = canvas(); d = ImageDraw.Draw(im); chip(d, PAD, PAD, 'THE ANSWER' if GUESS3 else 'SLANG CARD'); brand(d, im)
+y = text(d, (PAD, 140), 'Did you guess it?' if GUESS3 else EP['hook']['text'], 60, C['ink'], C['bg'], N - 2 * PAD, max_lines=2, tag='hook')
 ml = len(wrap(d, L1 or D['mean'], font(52), N - 2 * PAD - 80)); need = 134 + 53 + 18 + ml * 62 + 60   # key + IPA + meaning lines + card padding
 fig = cutout(int(max(320, min(520, N - PAD - 8 - (y + 10) - need + 30)))); fx = (N - fig.width) // 2; fy = y + 10
 card(d, [PAD, fy + fig.height - 30, N - PAD, N - PAD - 8], C['card'], C['edge'], C['ledge'])
 im.alpha_composite(fig, (fx, fy)); d = ImageDraw.Draw(im)
-yy = text(d, (PAD + 40, fy + fig.height), D['key'], 112, C['coral'], C['card'], N - 2 * PAD - 80, max_lines=1, tag='key')
+yy = text(d, (PAD + 40, fy + fig.height), KEY, 112, C['coral'], C['card'], N - 2 * PAD - 80, max_lines=1, tag='key')
 yy = text(d, (PAD + 40, yy + 4), D['ipa'], 44, C['muted'], C['card'], N - 2 * PAD - 80, ipa=True, max_lines=1, tag='ipa')
 yy = text(d, (PAD + 40, yy + 14), L1 or D['mean'], 52, C['ink'], C['card'], N - 2 * PAD - 80, max_lines=2, tag='meaning')
 if yy > N - PAD - 20: GATES['overflow'].append(dict(tag='cover', why='meaning below the card', y=yy))
-files.append(save(im, 1))
-# 2) in real life
-im = canvas(); d = ImageDraw.Draw(im); x = chip(d, PAD, PAD, RG[D['reg']]); D['region'] != 'global' and chip(d, x + 16, PAD, D['region']); brand(d, im)
-y = text(d, (PAD, 170), 'IN REAL LIFE', 44, C['accent'], C['bg'], N - 2 * PAD, max_lines=1, tag='label')
-y = text(d, (PAD, y + 6), D['example']['ctx'], 42, C['muted'], C['bg'], N - 2 * PAD, max_lines=2, tag='ctx')
-b0 = y + 24; nl = len(wrap(d, f'“{D["example"]["text"]}”', font(64), N - 2 * PAD - 96)); bh = 100 + nl * 77
+files.append(save(im, len(files) + 1))
+# example (slang: in real life + "don't use it here" · guess3: the sentence + the filled tiles + CTA)
+im = canvas(); d = ImageDraw.Draw(im); x = chip(d, PAD, PAD, 'IN A SENTENCE' if GUESS3 else RG[D['reg']]); (not GUESS3 and D['region'] != 'global') and chip(d, x + 16, PAD, D['region']); brand(d, im)
+y = text(d, (PAD, 170), 'THE WORD IN USE' if GUESS3 else 'IN REAL LIFE', 44, C['accent'], C['bg'], N - 2 * PAD, max_lines=1, tag='label')
+if not GUESS3: y = text(d, (PAD, y + 6), D['example']['ctx'], 42, C['muted'], C['bg'], N - 2 * PAD, max_lines=2, tag='ctx')
+EX = D['ex'] if GUESS3 else D['example']['text']
+b0 = y + 24; nl = len(wrap(d, f'\u201c{EX}\u201d', font(64), N - 2 * PAD - 96)); bh = 100 + nl * 77
 card(d, [PAD, b0, N - PAD, b0 + bh], C['bubble_good'], C['bubble_good_edge'], C['ledge'])
-text(d, (PAD + 48, b0 + 50), f'“{D["example"]["text"]}”', 64, C['ongood'], C['bubble_good'], N - 2 * PAD - 96, max_lines=4, tag='example')
-m0 = b0 + bh + 56; card(d, [PAD, m0, N - PAD, m0 + 270], C['bad_bg'], C['bad_edge'], C['ledge'])
-chip(d, PAD + 40, m0 + 34, "DON'T USE IT HERE", fill=C['bad_bg'], ink=C['onbad'], edge=C['bad_edge'])
-yy = text(d, (PAD + 40, m0 + 110), D['misuse']['text'], 44, C['onbad'], C['bad_bg'], N - 2 * PAD - 80, align='l', max_lines=2, tag='misuse')
-text(d, (PAD + 40, yy + 4), D['misuse']['why'], 36, C['muted'], C['bad_bg'], N - 2 * PAD - 80, align='l', max_lines=1, tag='why')
-files.append(save(im, 2))
-# 3) quiz + CTA
-im = canvas(); d = ImageDraw.Draw(im); chip(d, PAD, PAD, 'QUICK QUIZ'); brand(d, im); q = D['quiz']
-y = text(d, (PAD, 230), q['ask'], 64, C['ink'], C['bg'], N - 2 * PAD, max_lines=3, tag='ask') + 40
-for i, opt in enumerate(q['options']):
-    card(d, [PAD, y, N - PAD, y + 130], C['pill'], C['pill_edge'], C['pill_ledge'], r=36)
-    d.rounded_rectangle([PAD + 30, y + 31, PAD + 98, y + 99], 18, fill=rgb(C['chip_bg']), outline=rgb(C['chip_edge']), width=2)
-    d.text((PAD + 50, y + 38), 'AB'[i], font=font(46), fill=C['chip_ink'])
-    text(d, (PAD + 130, y + 36), opt, 48, C['ink'], C['pill'], N - 2 * PAD - 170, align='l', max_lines=1, tag=f'opt{i}'); y += 160
-text(d, (PAD, y + 10), 'Answer in the first comment', 40, C['muted'], C['bg'], N - 2 * PAD, max_lines=1, tag='hint')
-c0 = N - PAD - 190; d.rounded_rectangle([PAD, c0 + 10, N - PAD, c0 + 160], 40, fill=rgb(C['cta_ledge'])); d.rounded_rectangle([PAD, c0, N - PAD, c0 + 150], 40, fill=rgb(C['cta_a']))
-text(d, (PAD, c0 + 22), 'Learn real English free', 50, C['cta_ink'], C['cta_a'], N - 2 * PAD, max_lines=1, tag='cta')
-text(d, (PAD, c0 + 86), 'lexkite.com', 40, C['cta_ink'], C['cta_a'], N - 2 * PAD, max_lines=1, tag='url')
-files.append(save(im, 3))
+text(d, (PAD + 48, b0 + 50), f'\u201c{EX}\u201d', 64, C['ongood'], C['bubble_good'], N - 2 * PAD - 96, max_lines=4, tag='example')
+if GUESS3: tiles(d, b0 + bh + 70, letters=True); cta_block(d)
+else:
+    m0 = b0 + bh + 56; card(d, [PAD, m0, N - PAD, m0 + 270], C['bad_bg'], C['bad_edge'], C['ledge'])
+    chip(d, PAD + 40, m0 + 34, "DON'T USE IT HERE", fill=C['bad_bg'], ink=C['onbad'], edge=C['bad_edge'])
+    yy = text(d, (PAD + 40, m0 + 110), D['misuse']['text'], 44, C['onbad'], C['bad_bg'], N - 2 * PAD - 80, align='l', max_lines=2, tag='misuse')
+    text(d, (PAD + 40, yy + 4), D['misuse']['why'], 36, C['muted'], C['bad_bg'], N - 2 * PAD - 80, align='l', max_lines=1, tag='why')
+files.append(save(im, len(files) + 1))
+if not GUESS3:   # slang: quick quiz + CTA
+    im = canvas(); d = ImageDraw.Draw(im); chip(d, PAD, PAD, 'QUICK QUIZ'); brand(d, im); q = D['quiz']
+    y = text(d, (PAD, 230), q['ask'], 64, C['ink'], C['bg'], N - 2 * PAD, max_lines=3, tag='ask') + 40
+    for i, opt in enumerate(q['options']):
+        card(d, [PAD, y, N - PAD, y + 130], C['pill'], C['pill_edge'], C['pill_ledge'], r=36)
+        d.rounded_rectangle([PAD + 30, y + 31, PAD + 98, y + 99], 18, fill=rgb(C['chip_bg']), outline=rgb(C['chip_edge']), width=2)
+        d.text((PAD + 50, y + 38), 'AB'[i], font=font(46), fill=C['chip_ink'])
+        text(d, (PAD + 130, y + 36), opt, 48, C['ink'], C['pill'], N - 2 * PAD - 170, align='l', max_lines=1, tag=f'opt{i}'); y += 160
+    text(d, (PAD, y + 10), 'Answer in the first comment', 40, C['muted'], C['bg'], N - 2 * PAD, max_lines=1, tag='hint'); cta_block(d)
+    files.append(save(im, len(files) + 1))
 
-ok = not GATES['overflow'] and not GATES['contrast'] and (GATES['teacher'] or 0) > 0.08
+ok = not GATES['overflow'] and not GATES['contrast'] and (GATES['teacher'] or 0) > 0.08 and (not GUESS3 or GATES.get('pic'))
 json.dump(dict(ep=EP['id'], ok=ok, files=[os.path.basename(f) for f in files], gates=GATES,
                caption=EP['publish']['platforms']['instagram']['caption'], hashtags=EP['publish']['hashtags'], first_comment=EP['publish']['first_comment']),
           open(f'{o.out}/cards.json', 'w'), indent=1, ensure_ascii=False)
-print(('✓' if ok else '✗'), 'slang cards', EP['id'], GATES)
+print(('\u2713' if ok else '\u2717'), EP['template'], 'cards', EP['id'], GATES)
 sys.exit(0 if ok else 1)

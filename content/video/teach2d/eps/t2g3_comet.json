@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_comet",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 60,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. What is it?",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: comet!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A ball of ice and dust orbiting the sun.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The comet's tail always points away from the sun.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "comet",
+  "ipa": "/ˈkɑːmət/",
+  "mean": "a ball of ice and dust orbiting the sun",
+  "ex": "The comet's tail always points away from the sun.",
+  "img": "comet#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/comet",
+  "link": "https://lexkite.com/app/#/dict/comet",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. What is it?"
+ },
+ "src": {
+  "word": "comet",
+  "img": "comet#n"
+ },
+ "est": {
+  "words": 27,
+  "seconds": 11.9,
+  "wpm": 136
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: C + 4 letters",
+  "keyword": "comet",
+  "value": "Comet /ˈkɑːmət/ = a ball of ice and dust orbiting the sun. Example: \"The comet's tail always points away from the sun.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/comet",
+  "script_words": 26,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: C + 4 letters",
+    "description": "Comet /ˈkɑːmət/ = a ball of ice and dust orbiting the sun. Example: \"The comet's tail always points away from the sun.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/comet\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "comet",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: C + 4 letters\n\nComet /ˈkɑːmət/ = a ball of ice and dust orbiting the sun. Example: \"The comet's tail always points away from the sun.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/comet"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: C + 4 letters\n\nComet /ˈkɑːmət/ = a ball of ice and dust orbiting the sun. Example: \"The comet's tail always points away from the sun.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: C + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: comet. A ball of ice and dust orbiting the sun. Example: \"The comet's tail always points away from the sun.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

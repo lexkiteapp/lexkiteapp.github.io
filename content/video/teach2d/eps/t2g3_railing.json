@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_railing",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 68,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. What is it?",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: railing!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A fence made of metal or wooden bars.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "Tourists are leaning on the railing to enjoy the view.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "railing",
+  "ipa": "/ˈreɪlɪŋ/",
+  "mean": "a fence made of metal or wooden bars",
+  "ex": "Tourists are leaning on the railing to enjoy the view.",
+  "img": "railing#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/railing",
+  "link": "https://lexkite.com/app/#/dict/railing",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. What is it?"
+ },
+ "src": {
+  "word": "railing",
+  "img": "railing#n"
+ },
+ "est": {
+  "words": 27,
+  "seconds": 11.9,
+  "wpm": 136
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: R + 6 letters",
+  "keyword": "railing",
+  "value": "Railing /ˈreɪlɪŋ/ = a fence made of metal or wooden bars. Example: \"Tourists are leaning on the railing to enjoy the view.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/railing",
+  "script_words": 26,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: R + 6 letters",
+    "description": "Railing /ˈreɪlɪŋ/ = a fence made of metal or wooden bars. Example: \"Tourists are leaning on the railing to enjoy the view.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/railing\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "railing",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: R + 6 letters\n\nRailing /ˈreɪlɪŋ/ = a fence made of metal or wooden bars. Example: \"Tourists are leaning on the railing to enjoy the view.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/railing"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: R + 6 letters\n\nRailing /ˈreɪlɪŋ/ = a fence made of metal or wooden bars. Example: \"Tourists are leaning on the railing to enjoy the view.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: R + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: railing. A fence made of metal or wooden bars. Example: \"Tourists are leaning on the railing to enjoy the view.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

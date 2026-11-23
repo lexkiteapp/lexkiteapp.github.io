@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_battery",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 41,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: battery!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A device that stores and supplies electricity.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The battery in my laptop lasts eight hours.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "battery",
+  "ipa": "/ˈbætəri/",
+  "mean": "a device that stores and supplies electricity",
+  "ex": "The battery in my laptop lasts eight hours.",
+  "img": "battery#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/battery",
+  "link": "https://lexkite.com/app/#/dict/battery",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "battery",
+  "img": "battery#n"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.0,
+  "wpm": 131
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: B + 6 letters",
+  "keyword": "battery",
+  "value": "Battery /ˈbætəri/ = a device that stores and supplies electricity. Example: \"The battery in my laptop lasts eight hours.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/battery",
+  "script_words": 23,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: B + 6 letters",
+    "description": "Battery /ˈbætəri/ = a device that stores and supplies electricity. Example: \"The battery in my laptop lasts eight hours.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/battery\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "battery",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: B + 6 letters\n\nBattery /ˈbætəri/ = a device that stores and supplies electricity. Example: \"The battery in my laptop lasts eight hours.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/battery"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: B + 6 letters\n\nBattery /ˈbætəri/ = a device that stores and supplies electricity. Example: \"The battery in my laptop lasts eight hours.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: B + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: battery. A device that stores and supplies electricity. Example: \"The battery in my laptop lasts eight hours.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

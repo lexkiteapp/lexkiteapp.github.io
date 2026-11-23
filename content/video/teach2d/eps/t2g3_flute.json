@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_flute",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 46,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. What is it?",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: flute!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A woodwind instrument with a tube and finger holes.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I want my flute back.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "flute",
+  "ipa": "/fluːt/",
+  "mean": "a woodwind instrument with a tube and finger holes",
+  "ex": "I want my flute back.",
+  "img": "flute#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/flute",
+  "link": "https://lexkite.com/app/#/dict/flute",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. What is it?"
+ },
+ "src": {
+  "word": "flute",
+  "img": "flute#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.7,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: F + 4 letters",
+  "keyword": "flute",
+  "value": "Flute /fluːt/ = a woodwind instrument with a tube and finger holes. Example: \"I want my flute back.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/flute",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: F + 4 letters",
+    "description": "Flute /fluːt/ = a woodwind instrument with a tube and finger holes. Example: \"I want my flute back.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/flute\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "flute",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: F + 4 letters\n\nFlute /fluːt/ = a woodwind instrument with a tube and finger holes. Example: \"I want my flute back.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/flute"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: F + 4 letters\n\nFlute /fluːt/ = a woodwind instrument with a tube and finger holes. Example: \"I want my flute back.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: F + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: flute. A woodwind instrument with a tube and finger holes. Example: \"I want my flute back.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

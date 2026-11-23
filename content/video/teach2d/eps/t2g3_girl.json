@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_girl",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 11,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: girl!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A female child.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The girl in the red coat is my cousin.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "girl",
+  "ipa": "/ɡɜːrl/",
+  "mean": "a female child",
+  "ex": "The girl in the red coat is my cousin.",
+  "img": "girl#n",
+  "n": 4
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/girl",
+  "link": "https://lexkite.com/app/#/dict/girl",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "girl",
+  "img": "girl#n"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 10.0,
+  "wpm": 126
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: G + 3 letters",
+  "keyword": "girl",
+  "value": "Girl /ɡɜːrl/ = a female child. Example: \"The girl in the red coat is my cousin.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/girl",
+  "script_words": 20,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: G + 3 letters",
+    "description": "Girl /ɡɜːrl/ = a female child. Example: \"The girl in the red coat is my cousin.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/girl\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "girl",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: G + 3 letters\n\nGirl /ɡɜːrl/ = a female child. Example: \"The girl in the red coat is my cousin.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/girl"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: G + 3 letters\n\nGirl /ɡɜːrl/ = a female child. Example: \"The girl in the red coat is my cousin.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: G + 3 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: girl. A female child. Example: \"The girl in the red coat is my cousin.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}
