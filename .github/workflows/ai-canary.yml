@@ -1,0 +1,22 @@
+# ci-policy: all-paths – workflow bảo trì theo nhịp (canary AI người dùng, không phải check PR); job ngắn
+# Canary 23/11 (docs/AI-CHAIN.md §Quota nền): 4 lời gọi /api/ai thật mỗi 3 giờ; > 5 % lỗi/tier thấp → đỏ, 2 lượt liền → issue `ai-canary`.
+name: ai-canary
+on:
+  schedule:
+    - cron: '23 */3 * * *'
+  workflow_dispatch:
+  pull_request:
+    paths: ['scripts/ci/ai-canary.mjs', '.github/workflows/ai-canary.yml']
+permissions: { contents: read, issues: write, actions: read }
+concurrency: { group: 'ai-canary-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts\n.github/workflows", sparse-checkout-cone-mode: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ci/ai-canary.mjs ${{ github.event_name == 'pull_request' && '--dry' || '' }}
+        env: { GITHUB_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}', GITHUB_EVENT_NAME: '${{ github.event_name }}' }
