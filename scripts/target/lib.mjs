@@ -117,7 +117,7 @@ export function validate(deck, o = {}) {
     for (const L of MEAN_LANGS) if (typeof gl[L] !== 'string' || !gl[L].trim()) bad('thiếu nghĩa ' + L);
     for (const L of Object.keys(gl)) { if (!MEAN_LANGS.includes(L)) bad('ngôn ngữ nghĩa lạ ' + L); else if (L !== 'vi' && (VI_ONLY.test(gl[L]) || (gl[L] === gl.vi && /[^\x20-\x7e]/.test(gl.vi)))) bad('lẫn tiếng Việt ở ' + L); }
     if (gl.en && /[^\x20-\x7e’]/.test(gl.en)) bad('nghĩa en có ký tự lạ');
-    for (const L of Object.keys(gl)) if (!['zh', 'ja', 'ko'].includes(L) && /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(gl[L])) bad(`nghĩa ${L} lẫn chữ Hán/kana: ${gl[L]}`); // ja lô 1 23/11: "tự động词" lọt vào gl.vi
+    for (const L of Object.keys(gl)) if (deck && deck.tl === 'ja' && !['zh', 'ja', 'ko'].includes(L) && /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(gl[L])) bad(`nghĩa ${L} lẫn chữ Hán/kana: ${gl[L]}`); // chỉ bộ ja (es/fr: dữ liệu của khóa khác, không đụng); ja lô 1 23/11: "tự động词" lọt vào gl.vi
     // chữ viết đúng ngôn ngữ (lượt thử W1: nghĩa vi/ja… bị trả nguyên từ gốc) + nghĩa vi không được là chính từ đích
     for (const [L, re] of Object.entries(SCRIPT)) if (gl[L] && !re.test(gl[L])) bad(`nghĩa ${L} sai chữ viết: ${gl[L]}`);
     if (gl.vi && deck && deck.tl && deck.tl !== 'vi' && gl.vi.trim().toLowerCase() === String(w.word).toLowerCase()) bad('nghĩa vi = nguyên từ ' + deck.tl);
