@@ -177,6 +177,7 @@ node scripts/test/accounts.mjs
 node scripts/test/ios-sign-patch.mjs
 node scripts/test/asc-signing.mjs
 node scripts/test/ai-pool.mjs
+node scripts/test/ai-share.mjs
 node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
