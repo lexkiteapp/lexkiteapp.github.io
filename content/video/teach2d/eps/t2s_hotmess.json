@@ -1,0 +1,131 @@
+{
+ "id": "t2s_hotmess",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 213,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Late, lost, and unprepared today!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hot mess!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A person or thing in chaos.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Today I'm a total hot mess.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "hot mess",
+  "forms": [],
+  "ipa": "/ˈhɑːt ˈmes/",
+  "mean": "A person or thing in chaos.",
+  "define": "Used for someone or something very messy.",
+  "vi": "Hỗn loạn",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Talking about a bad day",
+   "text": "Today I'm a total hot mess."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"hot mess\" is…",
+   "options": [
+    "a chaotic person",
+    "hot food"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your boss a 'hot mess'.",
+   "why": "It sounds insulting."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Late, lost, and unprepared today!"
+ },
+ "src": {
+  "slang": "hot mess"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "What does \"hot mess\" mean?",
+  "keyword": "hot mess",
+  "value": "Hot mess = A person or thing in chaos. Example: \"Today I'm a total hot mess.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"hot mess\" mean?",
+    "description": "Hot mess = A person or thing in chaos. Example: \"Today I'm a total hot mess.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "hot mess",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"hot mess\" mean?\n\nHot mess = A person or thing in chaos. Example: \"Today I'm a total hot mess.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"hot mess\" mean?\n\nHot mess = A person or thing in chaos. Example: \"Today I'm a total hot mess.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"hot mess\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: a chaotic person. \"Today I'm a total hot mess.\" More real English slang, free: {link}"
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "id": "t2s_thatsariot",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 297,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Watch this funny clip!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "That's a riot!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That is hilarious.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That video is a riot!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "that's a riot",
+  "forms": [
+   "a riot"
+  ],
+  "ipa": "/ðæts ə ˈraɪət/",
+  "mean": "That is hilarious.",
+  "define": "Used when something is very funny.",
+  "vi": "Hài muốn xỉu",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Reacting to a joke",
+   "text": "That video is a riot!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"riot\" here is…",
+   "options": [
+    "a fight",
+    "something very funny"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'a riot' about a serious speech.",
+   "why": "It means very funny."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Watch this funny clip!"
+ },
+ "src": {
+  "slang": "that's a riot"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"that's a riot\" mean?",
+  "keyword": "that's a riot",
+  "value": "That's a riot = That is hilarious. Example: \"That video is a riot!\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"that's a riot\" mean?",
+    "description": "That's a riot = That is hilarious. Example: \"That video is a riot!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "that's a riot",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"that's a riot\" mean?\n\nThat's a riot = That is hilarious. Example: \"That video is a riot!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"that's a riot\" mean?\n\nThat's a riot = That is hilarious. Example: \"That video is a riot!\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"that's a riot\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'a riot' about a serious speech. It means very funny. Real example: \"That video is a riot!\" More real English slang, free: {link}"
+ }
+}

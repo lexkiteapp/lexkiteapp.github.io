@@ -1,0 +1,131 @@
+{
+ "id": "t2s_busyasabee",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 40,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No free time this week!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Busy as a bee!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very busy and active.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm busy as a bee this week.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "busy as a bee",
+  "forms": [],
+  "ipa": "/ˈbɪzi əz ə ˈbiː/",
+  "mean": "Very busy and active.",
+  "define": "Used when someone is busy working.",
+  "vi": "Bận túi bụi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about a week",
+   "text": "I'm busy as a bee this week."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "fond of flowers",
+    "very busy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'busy as a bee' about a lazy afternoon.",
+   "why": "It means very busy."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "No free time this week!"
+ },
+ "src": {
+  "slang": "busy as a bee"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"busy as a bee\" mean?",
+  "keyword": "busy as a bee",
+  "value": "Busy as a bee = Very busy and active. Example: \"I'm busy as a bee this week.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"busy as a bee\" mean?",
+    "description": "Busy as a bee = Very busy and active. Example: \"I'm busy as a bee this week.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "busy as a bee",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"busy as a bee\" mean?\n\nBusy as a bee = Very busy and active. Example: \"I'm busy as a bee this week.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"busy as a bee\" mean?\n\nBusy as a bee = Very busy and active. Example: \"I'm busy as a bee this week.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"busy as a bee\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'busy as a bee' about a lazy afternoon. It means very busy. Real example: \"I'm busy as a bee this week.\" More real English slang, free: {link}"
+ }
+}
