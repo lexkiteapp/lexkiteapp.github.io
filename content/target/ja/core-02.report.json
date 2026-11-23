@@ -1,0 +1,547 @@
+{
+ "at": "2026-11-23T16:37:59.501Z",
+ "accepted": 61,
+ "rejected": [
+  {
+   "form": "エレベーター",
+   "word": "エレベーター",
+   "why": [
+    "giám khảo A: pitch accent number incorrect",
+    "sau sửa: giám khảo A: pitch accent incorrect / giám khảo B: Example sentence is in plain form (乗ります), not polite です/ます form as required."
+   ]
+  },
+  {
+   "form": "美味しい",
+   "word": "美味しい",
+   "why": [
+    "giám khảo A: pitch accent should be 0 (heiban)",
+    "sau sửa: giám khảo A: part of speech label wrong"
+   ]
+  },
+  {
+   "form": "多い",
+   "word": "多い",
+   "why": [
+    "giám khảo A: pitch accent likely incorrect",
+    "sau sửa: giám khảo A: part of speech label and pitch accent wrong"
+   ]
+  },
+  {
+   "form": "大きな",
+   "word": "大きな",
+   "why": [
+    "giám khảo A: part of speech label and pitch accent are off",
+    "sau sửa: giám khảo A: pitch accent incorrect / cổng: 大きな: pos sai"
+   ]
+  },
+  {
+   "form": "大勢",
+   "word": "大勢",
+   "why": [
+    "giám khảo A: pitch accent likely incorrect",
+    "sau sửa: giám khảo A: pitch accent incorrect / giám khảo B: Example sentence is in plain form (来ました), not polite です/ます form as required."
+   ]
+  },
+  {
+   "form": "お菓子",
+   "word": "お菓子",
+   "why": [
+    "giám khảo A: pitch accent likely incorrect",
+    "sau sửa: giám khảo A: pitch accent incorrect / giám khảo B: Example sentence is in plain form (食べます), not polite です/ます form as required. / dịch ngược lệch: zh"
+   ]
+  },
+  {
+   "form": "起きる",
+   "word": "起きる",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be heiban 0)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "奥さん",
+   "word": "奥さん",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be heiban 0)",
+    "dịch ngược lệch: zh",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "おじいさん",
+   "word": "おじいさん",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be heiban 0)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "返す",
+   "word": "返す",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be 0, not 1).",
+    "sau sửa: giám khảo A: Pitch accent should be 0 (heiban), not 1"
+   ]
+  },
+  {
+   "form": "帰る",
+   "word": "帰る",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be 0, not 1).",
+    "sau sửa: giám khảo A: Pitch accent should be 0 (heiban), not 1"
+   ]
+  },
+  {
+   "form": "かかる",
+   "word": "かかる",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be 0, not 2).",
+    "sau sửa: giám khảo A: Pitch accent should be 0 (heiban), not 2"
+   ]
+  },
+  {
+   "form": "鍵",
+   "word": "鍵",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be 0, not 2).",
+    "sau sửa: giám khảo A: Pitch accent should be 0 (heiban), not 2"
+   ]
+  },
+  {
+   "form": "書く",
+   "word": "書く",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be 0, not 1).",
+    "sau sửa: giám khảo A: Pitch accent should be 0 (heiban), not 1"
+   ]
+  },
+  {
+   "form": "掛ける",
+   "word": "掛ける",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be 0, not 2).",
+    "sau sửa: giám khảo A: Pitch accent should be 0 (heiban), not 2"
+   ]
+  },
+  {
+   "form": "かける",
+   "word": "かける",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be 0, not 2).",
+    "sau sửa: giám khảo A: Pitch accent should be 0 (heiban), not 2"
+   ]
+  },
+  {
+   "form": "傘",
+   "word": "傘",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be heiban, not 1)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "風邪",
+   "word": "風邪",
+   "why": [
+    "giám khảo A: Example mixes plain verb (ひいた) with polite clause",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "方",
+   "word": "方",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be heiban)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "家族",
+   "word": "家族",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be heiban)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "片仮名",
+   "word": "片仮名",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be heiban)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "カップ",
+   "word": "カップ",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be heiban)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "角",
+   "word": "角",
+   "why": [
+    "giám khảo A: Pitch accent incorrect (should be heiban)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "汚い",
+   "word": "汚い",
+   "why": [
+    "giám khảo A: Pitch accent should be 0 (heiban), not 3",
+    "sau sửa: giám khảo A: pos should be \"adj-i\", pitch incorrect (should be 0), adjective class mislabeled."
+   ]
+  },
+  {
+   "form": "喫茶店",
+   "word": "喫茶店",
+   "why": [
+    "giám khảo A: Pitch accent should be 0 (heiban), not 3",
+    "sau sửa: giám khảo A: Pitch accent wrong (should be 0), otherwise fine."
+   ]
+  },
+  {
+   "form": "昨日",
+   "word": "昨日",
+   "why": [
+    "giám khảo A: Pitch accent should be 0 (heiban), not 2",
+    "sau sửa: giám khảo A: Pitch accent wrong (should be 0), otherwise correct."
+   ]
+  },
+  {
+   "form": "九",
+   "word": "九",
+   "why": [
+    "giám khảo A: Pitch accent should be 0 (heiban), not 1",
+    "sau sửa: giám khảo A: Pitch accent wrong (should be 0); numeral class label acceptable but pitch incorrect."
+   ]
+  },
+  {
+   "form": "兄弟",
+   "word": "兄弟",
+   "why": [
+    "giám khảo A: Pitch accent should be 0 (heiban), not 1",
+    "sau sửa: giám khảo A: Pitch accent wrong (should be 0); other fields fine."
+   ]
+  },
+  {
+   "form": "公園",
+   "word": "公園",
+   "why": [
+    "dịch ngược lệch: id",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "紅茶",
+   "word": "紅茶",
+   "why": [
+    "dịch ngược lệch: zh,ko",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "声",
+   "word": "声",
+   "why": [
+    "giám khảo A: Pitch accent should be 0 (heiban), not 1.",
+    "dịch ngược lệch: th,zh",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "コート",
+   "word": "コート",
+   "why": [
+    "giám khảo A: Pitch accent should be 0 (heiban), not 1.",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "コーヒー",
+   "word": "コーヒー",
+   "why": [
+    "giám khảo A: Pitch accent should be 0 (heiban), not 3.",
+    "cổng: コーヒー: IPA sai ký tự: koːçiː",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "午後",
+   "word": "午後",
+   "why": [
+    "giám khảo A: Pitch accent should be 0 (heiban), not 1.",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "九日",
+   "word": "九日",
+   "why": [
+    "giám khảo A: Pitch accent is incorrect (should be 0), other fields fine.",
+    "sau sửa: không trả/không chấm"
+   ]
+  }
+ ],
+ "tried": [
+  "明るい",
+  "開く",
+  "開ける",
+  "上げる",
+  "朝",
+  "朝御飯",
+  "明後日",
+  "明日",
+  "あそこ",
+  "遊ぶ",
+  "暖かい",
+  "頭",
+  "新しい",
+  "あちら",
+  "暑い",
+  "熱い",
+  "厚い",
+  "あっち",
+  "後",
+  "あなた",
+  "兄",
+  "姉",
+  "アパート",
+  "いいえ",
+  "言う",
+  "いかが",
+  "行く",
+  "いくつ",
+  "いくら",
+  "池",
+  "医者",
+  "椅子",
+  "忙しい",
+  "痛い",
+  "一",
+  "一日",
+  "一番",
+  "いつ",
+  "五日",
+  "一緒",
+  "五つ",
+  "いつも",
+  "今",
+  "意味",
+  "妹",
+  "嫌",
+  "入口",
+  "居る",
+  "要る",
+  "入れる",
+  "色",
+  "色々",
+  "上",
+  "後ろ",
+  "薄い",
+  "あの",
+  "浴びる",
+  "危ない",
+  "甘い",
+  "洗う",
+  "あれ",
+  "うち",
+  "生まれる",
+  "売る",
+  "英語",
+  "駅",
+  "エレベーター",
+  "鉛筆",
+  "美味しい",
+  "多い",
+  "大きな",
+  "大勢",
+  "お母さん",
+  "お菓子",
+  "お金",
+  "起きる",
+  "置く",
+  "奥さん",
+  "お酒",
+  "お皿",
+  "おじいさん",
+  "教える",
+  "押す",
+  "遅い",
+  "お茶",
+  "大人",
+  "お腹",
+  "お弁当",
+  "重い",
+  "外国",
+  "会社",
+  "階段",
+  "買い物",
+  "買う",
+  "返す",
+  "帰る",
+  "顔",
+  "かかる",
+  "鍵",
+  "書く",
+  "学生",
+  "掛ける",
+  "かける",
+  "傘",
+  "貸す",
+  "風",
+  "風邪",
+  "方",
+  "家族",
+  "片仮名",
+  "カップ",
+  "家庭",
+  "角",
+  "かばん",
+  "花瓶",
+  "体",
+  "借りる",
+  "軽い",
+  "カレー",
+  "カレンダー",
+  "漢字",
+  "黄色",
+  "黄色い",
+  "北",
+  "ギター",
+  "汚い",
+  "喫茶店",
+  "切手",
+  "切符",
+  "昨日",
+  "九",
+  "牛肉",
+  "教室",
+  "兄弟",
+  "嫌い",
+  "薬",
+  "口",
+  "国",
+  "暗い",
+  "車",
+  "消す",
+  "公園",
+  "交差点",
+  "紅茶",
+  "交番",
+  "声",
+  "コート",
+  "コーヒー",
+  "ここ",
+  "午後",
+  "九日",
+  "九つ",
+  "午前",
+  "答える",
+  "こちら",
+  "こっち",
+  "コップ",
+  "今年",
+  "言葉",
+  "子供",
+  "この"
+ ],
+ "spot": [
+  "危ない",
+  "体",
+  "切手",
+  "消す"
+ ],
+ "fixed": 1,
+ "skipped": {
+  "dup": 0,
+  "name": 0
+ },
+ "stats": {
+  "used": {
+   "lexai": 0,
+   "gc": 27,
+   "cf2": 0,
+   "cfLeak": 0,
+   "cf2Dead": [],
+   "gem": 23,
+   "groq": 93
+  },
+  "budget": {
+   "lexai": 0,
+   "gc": 10000,
+   "cf2": 0
+  },
+  "by": {
+   "gem|gemini-3.8-flash": {
+    "ok": 0,
+    "fail": 63,
+    "bad": 0
+   },
+   "gem|gemini-3.6-flash": {
+    "ok": 23,
+    "fail": 9,
+    "bad": 0
+   },
+   "groq|openai/gpt-oss-120b": {
+    "ok": 54,
+    "fail": 0,
+    "bad": 0
+   },
+   "groq|qwen/qwen3.8-27b": {
+    "ok": 39,
+    "fail": 0,
+    "bad": 0
+   },
+   "lexai|gemma-3-27b-it": {
+    "ok": 0,
+    "fail": 20,
+    "bad": 0
+   },
+   "gem|gemini-3.7-flash": {
+    "ok": 0,
+    "fail": 9,
+    "bad": 0
+   },
+   "lexai|gemini-3.5-flash": {
+    "ok": 0,
+    "fail": 72,
+    "bad": 0
+   },
+   "gc-gemini|gemini-2.5-flash": {
+    "ok": 0,
+    "fail": 27,
+    "bad": 0
+   }
+  },
+  "keys": {
+   "gem": {
+    "size": 85,
+    "live": 40,
+    "parked": {
+     "minute": 16,
+     "day": 27,
+     "auth": 2
+    }
+   },
+   "groq": {
+    "size": 109,
+    "live": 108,
+    "parked": {
+     "auth": 1
+    }
+   }
+  }
+ },
+ "wiktFlags": [
+  "あの: từ loại det ↔ adnominal/intj",
+  "うち: từ loại n ↔ soft-redirect",
+  "遅い: từ loại adj ↔ soft-redirect",
+  "かばん: từ loại n ↔ soft-redirect",
+  "体: cách đọc からだ ↔ たい/てー",
+  "暗い: từ loại adj ↔ soft-redirect"
+ ]
+}

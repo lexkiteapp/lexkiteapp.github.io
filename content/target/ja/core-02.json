@@ -1,0 +1,2741 @@
+{
+  "v": 1,
+  "tl": "ja",
+  "variant": "ja-JP",
+  "status": "reviewed",
+  "source": {
+    "name": "open-anki-jlpt-decks (jamsinclair) – danh sách từ JLPT N5–N1 của Jonathan Waller (tanos.co.uk)",
+    "url": "https://raw.githubusercontent.com/jamsinclair/open-anki-jlpt-decks/main/src/",
+    "license": "MIT (bộ thẻ) / CC BY (danh sách tanos) – ghi công trong spec"
+  },
+  "words": [
+    {
+      "word": "あの",
+      "pos": "det",
+      "kana": "あの",
+      "romaji": "ano",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "ano",
+      "gl": {
+        "vi": "kia",
+        "en": "that (over there)",
+        "es": "aquel, aquella",
+        "pt": "aquele, aquela",
+        "fr": "ce ...-là",
+        "de": "jener, jene, jenes",
+        "id": "itu (di sana)",
+        "th": "โน่น, โน้น (ตรงโน้น)",
+        "zh": "那个（远指）",
+        "ja": "あの",
+        "ko": "저 (저쪽の)",
+        "hi": "वह (दूरांस)",
+        "ar": "ذاك",
+        "ru": "тот, та, то (там)",
+        "tr": "o (oradaki)"
+      },
+      "ex": {
+        "ja": "あの人は誰ですか。",
+        "en": "Who is that person over there?"
+      },
+      "rank": 31,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt",
+        "wikt": "từ loại det ↔ adnominal/intj"
+      }
+    },
+    {
+      "word": "浴びる",
+      "pos": "v",
+      "kana": "あびる",
+      "romaji": "abiru",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "ichidan",
+      "ipa": "abʲiɾɯ",
+      "gl": {
+        "vi": "tắm",
+        "en": "to bathe, to take a shower",
+        "es": "bañarse, ducharse",
+        "pt": "banhar-se, tomar banho",
+        "fr": "prendre une douche, se baigner",
+        "de": "duschen, baden",
+        "id": "mandi",
+        "th": "อาบ (น้ำ)",
+        "zh": "淋浴, 淋",
+        "ja": "浴びる",
+        "ko": "샤워하다, (물을) 뒤집어쓰다",
+        "hi": "नहाना",
+        "ar": "يستحم",
+        "ru": "принимать душ, обливаться",
+        "tr": "duş almak, yıkanmak"
+      },
+      "ex": {
+        "ja": "毎朝シャワーを浴びます。",
+        "en": "I take a shower every morning."
+      },
+      "exForm": "浴びます",
+      "rank": 32,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "危ない",
+      "pos": "adj",
+      "kana": "あぶない",
+      "romaji": "abunai",
+      "pitch": 0,
+      "jlpt": 5,
+      "aclass": "i",
+      "ipa": "abɯnai",
+      "gl": {
+        "vi": "nguy hiểm",
+        "en": "dangerous",
+        "es": "peligroso",
+        "pt": "perigoso",
+        "fr": "dangereux",
+        "de": "gefährlich",
+        "id": "berbahaya",
+        "th": "อันตราย",
+        "zh": "危险的",
+        "ja": "危ない",
+        "ko": "위험하다",
+        "hi": "खतरनाक",
+        "ar": "خطير",
+        "ru": "опасный",
+        "tr": "tehlikeli"
+      },
+      "ex": {
+        "ja": "ここは危ないですから、気をつけましょう。",
+        "en": "It is dangerous here, so let's be careful."
+      },
+      "rank": 33,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "spot": true,
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "甘い",
+      "pos": "adj",
+      "kana": "あまい",
+      "romaji": "amai",
+      "pitch": 0,
+      "jlpt": 5,
+      "aclass": "i",
+      "ipa": "amai",
+      "gl": {
+        "vi": "ngọt",
+        "en": "sweet",
+        "es": "dulce",
+        "pt": "doce",
+        "fr": "doux, sucré",
+        "de": "süß",
+        "id": "manis",
+        "th": "หวาน",
+        "zh": "甜的",
+        "ja": "甘い",
+        "ko": "달다",
+        "hi": "मीठा",
+        "ar": "حلو",
+        "ru": "сладкий",
+        "tr": "tatlı"
+      },
+      "ex": {
+        "ja": "このケーキは甘いです。",
+        "en": "This cake is sweet."
+      },
+      "rank": 34,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "洗う",
+      "pos": "v",
+      "kana": "あらう",
+      "romaji": "arau",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "godan",
+      "ipa": "aɾaɯ",
+      "gl": {
+        "vi": "rửa",
+        "en": "to wash",
+        "es": "lavar",
+        "pt": "lavar",
+        "fr": "laver",
+        "de": "waschen",
+        "id": "mencuci",
+        "th": "ล้าง",
+        "zh": "洗",
+        "ja": "洗う",
+        "ko": "씻다",
+        "hi": "धोना",
+        "ar": "يغسل",
+        "ru": "мыть",
+        "tr": "yıkamak"
+      },
+      "ex": {
+        "ja": "ごはんのまえにてを洗います。",
+        "en": "I wash my hands before meals."
+      },
+      "exForm": "洗います",
+      "rank": 38,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "あれ",
+      "pos": "pron",
+      "kana": "あれ",
+      "romaji": "are",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "aɾe",
+      "gl": {
+        "vi": "cái kia",
+        "en": "that one over there",
+        "es": "aquello",
+        "pt": "aquilo",
+        "fr": "cela là-bas",
+        "de": "das dort drüben",
+        "id": "itu (di sana)",
+        "th": "อันนั้น (ที่อยู่ไกล)",
+        "zh": "那个（远处）",
+        "ja": "あれ",
+        "ko": "저것",
+        "hi": "वह (दूर)",
+        "ar": "ذاك",
+        "ru": "то вон там",
+        "tr": "şundaki"
+      },
+      "ex": {
+        "ja": "あれは私の本です。",
+        "en": "That over there is my book."
+      },
+      "rank": 42,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "うち",
+      "pos": "n",
+      "kana": "うち",
+      "romaji": "uchi",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "ɯtɕi",
+      "gl": {
+        "vi": "nhà",
+        "en": "home",
+        "es": "casa",
+        "pt": "casa",
+        "fr": "maison",
+        "de": "Zuhause",
+        "id": "rumah",
+        "th": "บ้าน",
+        "zh": "家",
+        "ja": "うち",
+        "ko": "집",
+        "hi": "घर",
+        "ar": "بيت",
+        "ru": "дом",
+        "tr": "ev"
+      },
+      "ex": {
+        "ja": "これからうちに帰ります。",
+        "en": "I am going home now."
+      },
+      "rank": 79,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt",
+        "wikt": "từ loại n ↔ soft-redirect"
+      }
+    },
+    {
+      "word": "生まれる",
+      "pos": "v",
+      "kana": "うまれる",
+      "romaji": "umareru",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "ichidan",
+      "ipa": "ɯmaɾeɾɯ",
+      "gl": {
+        "vi": "sinh ra",
+        "en": "to be born",
+        "es": "nacer",
+        "pt": "nascer",
+        "fr": "naître",
+        "de": "geboren werden",
+        "id": "lahir",
+        "th": "เกิด",
+        "zh": "出生",
+        "ja": "生まれる",
+        "ko": "태어나다",
+        "hi": "पैदा होना",
+        "ar": "يولد",
+        "ru": "рождаться",
+        "tr": "doğmak"
+      },
+      "ex": {
+        "ja": "先月、赤ちゃんが生まれました。",
+        "en": "A baby was born last month."
+      },
+      "exForm": "生まれました",
+      "rank": 80,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "売る",
+      "pos": "v",
+      "kana": "うる",
+      "romaji": "uru",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "godan",
+      "ipa": "ɯɾɯ",
+      "gl": {
+        "vi": "bán",
+        "en": "to sell",
+        "es": "vender",
+        "pt": "vender",
+        "fr": "vendre",
+        "de": "verkaufen",
+        "id": "menjual",
+        "th": "ขาย",
+        "zh": "卖",
+        "ja": "売る",
+        "ko": "팔다",
+        "hi": "बेचना",
+        "ar": "يبيع",
+        "ru": "продавать",
+        "tr": "satmak"
+      },
+      "ex": {
+        "ja": "あの店で本を売っています。",
+        "en": "They sell books at that shop."
+      },
+      "exForm": "売っています",
+      "rank": 82,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "英語",
+      "pos": "n",
+      "kana": "えいご",
+      "romaji": "eigo",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "eːgo",
+      "gl": {
+        "vi": "tiếng Anh",
+        "en": "English language",
+        "es": "idioma inglés",
+        "pt": "língua inglesa",
+        "fr": "langue anglaise",
+        "de": "Englisch",
+        "id": "bahasa Inggris",
+        "th": "ภาษาอังกฤษ",
+        "zh": "英语",
+        "ja": "英語",
+        "ko": "영어",
+        "hi": "अंग्रेज़ी भाषा",
+        "ar": "اللغة الإنجليزية",
+        "ru": "английский язык",
+        "tr": "İngilizce"
+      },
+      "ex": {
+        "ja": "毎日英語を勉強します。",
+        "en": "I study English every day."
+      },
+      "rank": 88,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "駅",
+      "pos": "n",
+      "kana": "えき",
+      "romaji": "eki",
+      "pitch": 1,
+      "jlpt": 5,
+      "ipa": "ekʲi",
+      "gl": {
+        "vi": "nhà ga",
+        "en": "station",
+        "es": "estación",
+        "pt": "estação",
+        "fr": "gare",
+        "de": "Bahnhof",
+        "id": "stasiun",
+        "th": "สถานี",
+        "zh": "车站",
+        "ja": "駅",
+        "ko": "역",
+        "hi": "स्टेशन",
+        "ar": "محطة",
+        "ru": "станция",
+        "tr": "istasyon"
+      },
+      "ex": {
+        "ja": "駅まで歩きます。",
+        "en": "I will walk to the station."
+      },
+      "rank": 90,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          4,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "鉛筆",
+      "pos": "n",
+      "kana": "えんぴつ",
+      "romaji": "enpitsu",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "empʲitsɯ",
+      "gl": {
+        "vi": "bút chì",
+        "en": "pencil",
+        "es": "lápiz",
+        "pt": "lápis",
+        "fr": "crayon",
+        "de": "Bleistift",
+        "id": "pensil",
+        "th": "ดินสอ",
+        "zh": "铅笔",
+        "ja": "鉛筆",
+        "ko": "연필",
+        "hi": "पेंसिल",
+        "ar": "قلم رصاص",
+        "ru": "карандаш",
+        "tr": "kurşun kalem"
+      },
+      "ex": {
+        "ja": "鉛筆で書きます。",
+        "en": "I write with a pencil."
+      },
+      "rank": 92,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "お母さん",
+      "pos": "n",
+      "kana": "おかあさん",
+      "romaji": "okaasan",
+      "pitch": 2,
+      "jlpt": 5,
+      "ipa": "okaːsaɴ",
+      "gl": {
+        "vi": "mẹ",
+        "en": "mother",
+        "es": "madre",
+        "pt": "mãe",
+        "fr": "mère",
+        "de": "Mutter",
+        "id": "ibu",
+        "th": "คุณแม่",
+        "zh": "妈妈",
+        "ja": "お母さん",
+        "ko": "어머니",
+        "hi": "माँ",
+        "ar": "أم",
+        "ru": "мама",
+        "tr": "anne"
+      },
+      "ex": {
+        "ja": "お母さんは料理を作ります。",
+        "en": "My mother makes food."
+      },
+      "rank": 98,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          4,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "お金",
+      "pos": "n",
+      "kana": "おかね",
+      "romaji": "okane",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "okane",
+      "gl": {
+        "vi": "tiền",
+        "en": "money",
+        "es": "dinero",
+        "pt": "dinheiro",
+        "fr": "argent",
+        "de": "Geld",
+        "id": "uang",
+        "th": "เงิน",
+        "zh": "钱",
+        "ja": "お金",
+        "ko": "돈",
+        "hi": "पैसा",
+        "ar": "مال",
+        "ru": "деньги",
+        "tr": "para"
+      },
+      "ex": {
+        "ja": "お金を払います。",
+        "en": "I will pay money."
+      },
+      "rank": 100,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "置く",
+      "pos": "v",
+      "kana": "おく",
+      "romaji": "oku",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "godan",
+      "ipa": "okɯ",
+      "gl": {
+        "vi": "đặt, để",
+        "en": "to put, to place",
+        "es": "poner, colocar",
+        "pt": "colocar, pôr",
+        "fr": "poser, mettre",
+        "de": "stellen, legen",
+        "id": "meletakkan",
+        "th": "วาง",
+        "zh": "放置",
+        "ja": "置く",
+        "ko": "놓다",
+        "hi": "रखना",
+        "ar": "يضع",
+        "ru": "класть, ставить",
+        "tr": "koymak"
+      },
+      "ex": {
+        "ja": "机の上に本を置きます。",
+        "en": "I put the book on the desk."
+      },
+      "exForm": "置きます",
+      "rank": 102,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "お酒",
+      "pos": "n",
+      "kana": "おさけ",
+      "romaji": "osake",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "osake",
+      "gl": {
+        "vi": "rượu, đồ uống có cồn",
+        "en": "alcohol, sake",
+        "es": "alcohol, sake",
+        "pt": "álcool, saquê",
+        "fr": "alcool, saké",
+        "de": "Alkohol, Sake",
+        "id": "alkohol, sake",
+        "th": "เหล้า, สาเก",
+        "zh": "酒",
+        "ja": "お酒",
+        "ko": "술",
+        "hi": "शराब",
+        "ar": "مشروب كحولي",
+        "ru": "алкоголь, саке",
+        "tr": "alkol, sake"
+      },
+      "ex": {
+        "ja": "お酒を飲みますか。",
+        "en": "Do you drink alcohol?"
+      },
+      "rank": 104,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ai"
+      }
+    },
+    {
+      "word": "お皿",
+      "pos": "n",
+      "kana": "おさら",
+      "romaji": "osara",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "osaɾa",
+      "gl": {
+        "vi": "đĩa",
+        "en": "plate, dish",
+        "es": "plato",
+        "pt": "prato",
+        "fr": "assiette",
+        "de": "Teller",
+        "id": "piring",
+        "th": "จาน",
+        "zh": "盘子",
+        "ja": "お皿",
+        "ko": "접시",
+        "hi": "प्लेट",
+        "ar": "صحن",
+        "ru": "тарелка",
+        "tr": "tabak"
+      },
+      "ex": {
+        "ja": "お皿を洗います。",
+        "en": "I wash the dishes."
+      },
+      "rank": 105,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ai"
+      }
+    },
+    {
+      "word": "教える",
+      "pos": "v",
+      "kana": "おしえる",
+      "romaji": "oshieru",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "ichidan",
+      "ipa": "oɕieɾɯ",
+      "gl": {
+        "vi": "dạy, cho biết",
+        "en": "to teach, to tell",
+        "es": "enseñar, decir",
+        "pt": "ensinar, contar",
+        "fr": "enseigner, dire",
+        "de": "lehren, unterrichten, sagen",
+        "id": "mengajar, memberitahu",
+        "th": "สอน, บอก",
+        "zh": "教，告诉",
+        "ja": "教える",
+        "ko": "가르치다, 알려주다",
+        "hi": "सिखाना, बताना",
+        "ar": "يعلم، يخبر",
+        "ru": "учить, преподавать, сообщать",
+        "tr": "öğretmek, bildirmek"
+      },
+      "ex": {
+        "ja": "日本語を教えています。",
+        "en": "I am teaching Japanese."
+      },
+      "exForm": "教えています",
+      "rank": 107,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "押す",
+      "pos": "v",
+      "kana": "おす",
+      "romaji": "osu",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "godan",
+      "ipa": "osɯ",
+      "gl": {
+        "vi": "nhấn, đẩy",
+        "en": "to push, to press",
+        "es": "empujar, presionar",
+        "pt": "empurrar, pressionar",
+        "fr": "pousser, appuyer",
+        "de": "drücken, schieben",
+        "id": "menekan, mendorong",
+        "th": "กด, ผลัก",
+        "zh": "推，按",
+        "ja": "押す",
+        "ko": "누르다,密다",
+        "hi": "दबाना, धक्का देना",
+        "ar": "يدفع، يضغط",
+        "ru": "толкать, нажимать",
+        "tr": "itmek, basmak"
+      },
+      "ex": {
+        "ja": "このボタンを押してください。",
+        "en": "Please press this button."
+      },
+      "exForm": "押して",
+      "rank": 108,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "遅い",
+      "pos": "adj",
+      "kana": "おそい",
+      "romaji": "osoi",
+      "pitch": 0,
+      "jlpt": 5,
+      "aclass": "i",
+      "ipa": "osoi",
+      "gl": {
+        "vi": "chậm, muộn",
+        "en": "slow, late",
+        "es": "lento, tarde",
+        "pt": "lento, atrasado",
+        "fr": "lent, tard",
+        "de": "langsam, spät",
+        "id": "lambat, terlambat",
+        "th": "ช้า, สาย",
+        "zh": "慢的，迟的",
+        "ja": "遅い",
+        "ko": "느리다, 늦다",
+        "hi": "धीमा, देर",
+        "ar": "بطيء، متأخر",
+        "ru": "медленный, поздний",
+        "tr": "yavaş, geç"
+      },
+      "ex": {
+        "ja": "足が遅いです。",
+        "en": "I am slow at running."
+      },
+      "rank": 109,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt",
+        "wikt": "từ loại adj ↔ soft-redirect"
+      }
+    },
+    {
+      "word": "お茶",
+      "pos": "n",
+      "kana": "おちゃ",
+      "romaji": "ocha",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "otɕa",
+      "gl": {
+        "vi": "trà",
+        "en": "tea (especially green tea)",
+        "es": "té (verde)",
+        "pt": "chá (verde)",
+        "fr": "thé (vert)",
+        "de": "Tee (Grüner Tee)",
+        "id": "teh (hijau)",
+        "th": "ชา (เขียว)",
+        "zh": "茶",
+        "ja": "お茶",
+        "ko": "차 (녹차)",
+        "hi": "चाय",
+        "ar": "شاي",
+        "ru": "чай (зеленый)",
+        "tr": "çay"
+      },
+      "ex": {
+        "ja": "温かいお茶を飲みます。",
+        "en": "I drink warm tea."
+      },
+      "rank": 110,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "大人",
+      "pos": "n",
+      "kana": "おとな",
+      "romaji": "otona",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "otona",
+      "gl": {
+        "vi": "người lớn",
+        "en": "adult",
+        "es": "adulto",
+        "pt": "adulto",
+        "fr": "adulte",
+        "de": "Erwachsener",
+        "id": "orang dewasa",
+        "th": "ผู้ใหญ่",
+        "zh": "大人, 成年人",
+        "ja": "大人",
+        "ko": "어른",
+        "hi": "वयस्क",
+        "ar": "بالغ",
+        "ru": "взрослый",
+        "tr": "yetişkin"
+      },
+      "ex": {
+        "ja": "大人チケットを一枚ください。",
+        "en": "One adult ticket, please."
+      },
+      "rank": 118,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          4,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "お腹",
+      "pos": "n",
+      "kana": "おなか",
+      "romaji": "onaka",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "onaka",
+      "gl": {
+        "vi": "bụng",
+        "en": "stomach, belly",
+        "es": "estómago, barriga",
+        "pt": "barriga, estómago",
+        "fr": "ventre, estomac",
+        "de": "Bauch, Magen",
+        "id": "perut",
+        "th": "ท้อง",
+        "zh": "肚子",
+        "ja": "お腹",
+        "ko": "배",
+        "hi": "पेट",
+        "ar": "بطن",
+        "ru": "живот",
+        "tr": "karın, mide"
+      },
+      "ex": {
+        "ja": "お腹がすきました。",
+        "en": "I'm hungry."
+      },
+      "rank": 119,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          4,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "お弁当",
+      "pos": "n",
+      "kana": "おべんとう",
+      "romaji": "obentou",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "obentoː",
+      "gl": {
+        "vi": "cơm hộp",
+        "en": "bento",
+        "es": "bento",
+        "pt": "marmita",
+        "fr": "bento",
+        "de": "Bento",
+        "id": "bekal bento",
+        "th": "ข้าวกล่อง",
+        "zh": "便当",
+        "ja": "お弁当",
+        "ko": "도시락",
+        "hi": "बेंटो",
+        "ar": "وجبة غداء سفري",
+        "ru": "бэнто",
+        "tr": "bento"
+      },
+      "ex": {
+        "ja": "公園でお弁当を食べます。",
+        "en": "I eat a box lunch at the park."
+      },
+      "rank": 125,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ai"
+      }
+    },
+    {
+      "word": "重い",
+      "pos": "adj",
+      "kana": "おもい",
+      "romaji": "omoi",
+      "pitch": 0,
+      "jlpt": 5,
+      "aclass": "i",
+      "ipa": "omoi",
+      "gl": {
+        "vi": "nặng",
+        "en": "heavy",
+        "es": "pesado",
+        "pt": "pesado",
+        "fr": "lourd",
+        "de": "schwer",
+        "id": "berat",
+        "th": "หนัก",
+        "zh": "重的",
+        "ja": "重い",
+        "ko": "무겁다",
+        "hi": "भारी",
+        "ar": "ثقيل",
+        "ru": "тяжёлый",
+        "tr": "ağır"
+      },
+      "ex": {
+        "ja": "この荷物は重いです。",
+        "en": "This luggage is heavy."
+      },
+      "rank": 128,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "外国",
+      "pos": "n",
+      "kana": "がいこく",
+      "romaji": "gaikoku",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "gaikokɯ",
+      "gl": {
+        "vi": "nước ngoài",
+        "en": "foreign country",
+        "es": "país extranjero",
+        "pt": "país estrangeiro",
+        "fr": "pays étranger",
+        "de": "Ausland",
+        "id": "negeri asing",
+        "th": "ต่างประเทศ",
+        "zh": "外国",
+        "ja": "外国",
+        "ko": "외국",
+        "hi": "विदेश",
+        "ar": "بلد أجنبي",
+        "ru": "заграница",
+        "tr": "yabancı ülke"
+      },
+      "ex": {
+        "ja": "いつか外国に行きたいです。",
+        "en": "I want to go to a foreign country someday."
+      },
+      "rank": 136,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "会社",
+      "pos": "n",
+      "kana": "かいしゃ",
+      "romaji": "kaisha",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kaiɕa",
+      "gl": {
+        "vi": "công ty",
+        "en": "company",
+        "es": "empresa",
+        "pt": "empresa",
+        "fr": "entreprise",
+        "de": "Firma",
+        "id": "perusahaan",
+        "th": "บริษัท",
+        "zh": "公司",
+        "ja": "会社",
+        "ko": "회사",
+        "hi": "कंपनी",
+        "ar": "شركة",
+        "ru": "компания",
+        "tr": "şirket"
+      },
+      "ex": {
+        "ja": "毎朝八時に会社へ行きます。",
+        "en": "I go to the company at eight every morning."
+      },
+      "rank": 138,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "階段",
+      "pos": "n",
+      "kana": "かいだん",
+      "romaji": "kaidan",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kaidaɴ",
+      "gl": {
+        "vi": "cầu thang",
+        "en": "stairs",
+        "es": "escaleras",
+        "pt": "escada",
+        "fr": "escalier",
+        "de": "Treppe",
+        "id": "tangga",
+        "th": "บันได",
+        "zh": "楼梯",
+        "ja": "階段",
+        "ko": "계단",
+        "hi": "सीढ़ियाँ",
+        "ar": "درج",
+        "ru": "лестница",
+        "tr": "merdiven"
+      },
+      "ex": {
+        "ja": "階段を上ります。",
+        "en": "I go up the stairs."
+      },
+      "rank": 139,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "買い物",
+      "pos": "n",
+      "kana": "かいもの",
+      "romaji": "kaimono",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kaimono",
+      "gl": {
+        "vi": "việc mua sắm",
+        "en": "shopping",
+        "es": "compras",
+        "pt": "compras",
+        "fr": "courses",
+        "de": "Einkaufen",
+        "id": "belanja",
+        "th": "การซื้อของ",
+        "zh": "购物",
+        "ja": "買い物",
+        "ko": "쇼핑",
+        "hi": "खरीदारी",
+        "ar": "تسوق",
+        "ru": "покупки",
+        "tr": "alışveriş"
+      },
+      "ex": {
+        "ja": "デパートへ買い物に行きます。",
+        "en": "I am going shopping at the department store."
+      },
+      "rank": 140,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "買う",
+      "pos": "v",
+      "kana": "かう",
+      "romaji": "kau",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "godan",
+      "ipa": "kaɯ",
+      "gl": {
+        "vi": "mua",
+        "en": "to buy",
+        "es": "comprar",
+        "pt": "comprar",
+        "fr": "acheter",
+        "de": "kaufen",
+        "id": "membeli",
+        "th": "ซื้อ",
+        "zh": "买",
+        "ja": "買う",
+        "ko": "사다",
+        "hi": "खरीदना",
+        "ar": "يشترى",
+        "ru": "покупать",
+        "tr": "satın almak"
+      },
+      "ex": {
+        "ja": "新しい本を買いました。",
+        "en": "I bought a new book."
+      },
+      "exForm": "買いました",
+      "rank": 141,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "顔",
+      "pos": "n",
+      "kana": "かお",
+      "romaji": "kao",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kao",
+      "gl": {
+        "vi": "khuôn mặt",
+        "en": "face",
+        "es": "cara",
+        "pt": "rosto",
+        "fr": "visage",
+        "de": "Gesicht",
+        "id": "wajah",
+        "th": "ใบหน้า",
+        "zh": "脸",
+        "ja": "顔",
+        "ko": "얼굴",
+        "hi": "चेहरा",
+        "ar": "وجه",
+        "ru": "лицо",
+        "tr": "yüz"
+      },
+      "ex": {
+        "ja": "朝起きて顔を洗います。",
+        "en": "I wake up in the morning and wash my face."
+      },
+      "rank": 144,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "学生",
+      "pos": "n",
+      "kana": "がくせい",
+      "romaji": "gakusei",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "gakɯseː",
+      "gl": {
+        "vi": "học sinh, sinh viên",
+        "en": "student",
+        "es": "estudiante",
+        "pt": "estudante",
+        "fr": "étudiant",
+        "de": "Student",
+        "id": "siswa",
+        "th": "นักเรียน, นักศึกษา",
+        "zh": "学生",
+        "ja": "学生",
+        "ko": "학생",
+        "hi": "छात्र",
+        "ar": "طالب",
+        "ru": "студент",
+        "tr": "öğrenci"
+      },
+      "ex": {
+        "ja": "私は大学の学生です。",
+        "en": "I am a university student."
+      },
+      "rank": 148,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "貸す",
+      "pos": "v",
+      "kana": "かす",
+      "romaji": "kasu",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "godan",
+      "ipa": "kasɯ",
+      "gl": {
+        "vi": "cho vay, cho mượn",
+        "en": "to lend",
+        "es": "prestar",
+        "pt": "emprestar",
+        "fr": "prêter",
+        "de": "leihen",
+        "id": "meminjamkan",
+        "th": "ให้ยืม",
+        "zh": "借出",
+        "ja": "貸す",
+        "ko": "빌려주다",
+        "hi": "उधार देना",
+        "ar": "إقراض",
+        "ru": "одалживать",
+        "tr": "ödünç vermek"
+      },
+      "ex": {
+        "ja": "友達に本を貸しました。",
+        "en": "I lent a book to my friend."
+      },
+      "exForm": "貸しました",
+      "rank": 152,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "風",
+      "pos": "n",
+      "kana": "かぜ",
+      "romaji": "kaze",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kaze",
+      "gl": {
+        "vi": "gió",
+        "en": "wind",
+        "es": "viento",
+        "pt": "vento",
+        "fr": "vent",
+        "de": "Wind",
+        "id": "angin",
+        "th": "ลม",
+        "zh": "风",
+        "ja": "風",
+        "ko": "바람",
+        "hi": "हवा",
+        "ar": "ريح",
+        "ru": "ветер",
+        "tr": "rüzgar"
+      },
+      "ex": {
+        "ja": "今日は強い風が吹いています。",
+        "en": "A strong wind is blowing today."
+      },
+      "rank": 153,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "家庭",
+      "pos": "n",
+      "kana": "かてい",
+      "romaji": "katei",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kateː",
+      "gl": {
+        "vi": "gia đình, tổ ấm",
+        "en": "home, household",
+        "es": "hogar, familia",
+        "pt": "lar, família",
+        "fr": "foyer, famille",
+        "de": "Heim, Haushalt",
+        "id": "rumah tangga",
+        "th": "ครัวเรือน, บ้าน",
+        "zh": "家庭",
+        "ja": "家庭",
+        "ko": "가정",
+        "hi": "घर, परिवार",
+        "ar": "أسرة, بيت",
+        "ru": "дом, семья",
+        "tr": "ev, hane"
+      },
+      "ex": {
+        "ja": "温かい家庭を作りたいです。",
+        "en": "I want to build a warm home."
+      },
+      "rank": 160,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "かばん",
+      "pos": "n",
+      "kana": "かばん",
+      "romaji": "kaban",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kabaɴ",
+      "gl": {
+        "vi": "túi, cặp",
+        "en": "bag",
+        "es": "bolso",
+        "pt": "bolsa",
+        "fr": "sac",
+        "de": "Tasche",
+        "id": "tas",
+        "th": "กระเป๋า",
+        "zh": "包",
+        "ja": "かばん",
+        "ko": "가방",
+        "hi": "बैग",
+        "ar": "حقيبة",
+        "ru": "сумка",
+        "tr": "çanta"
+      },
+      "ex": {
+        "ja": "新しいかばんを買いました。",
+        "en": "I bought a new bag."
+      },
+      "rank": 162,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt",
+        "wikt": "từ loại n ↔ soft-redirect"
+      }
+    },
+    {
+      "word": "花瓶",
+      "pos": "n",
+      "kana": "かびん",
+      "romaji": "kabin",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kabʲiɴ",
+      "gl": {
+        "vi": "bình hoa",
+        "en": "vase",
+        "es": "florero",
+        "pt": "vaso de flores",
+        "fr": "vase",
+        "de": "Blumenvase",
+        "id": "vas bunga",
+        "th": "แจกัน",
+        "zh": "花瓶",
+        "ja": "花瓶",
+        "ko": "꽃병",
+        "hi": "फूलदान",
+        "ar": "مزهرية",
+        "ru": "ваза",
+        "tr": "vazo"
+      },
+      "ex": {
+        "ja": "机の上に花瓶があります。",
+        "en": "There is a vase on the desk."
+      },
+      "rank": 163,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "体",
+      "pos": "n",
+      "kana": "からだ",
+      "romaji": "karada",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kaɾada",
+      "gl": {
+        "vi": "cơ thể",
+        "en": "body",
+        "es": "cuerpo",
+        "pt": "corpo",
+        "fr": "corps",
+        "de": "Körper",
+        "id": "tubuh",
+        "th": "ร่างกาย",
+        "zh": "身体",
+        "ja": "体",
+        "ko": "몸",
+        "hi": "शरीर",
+        "ar": "جسم",
+        "ru": "тело",
+        "tr": "vücut"
+      },
+      "ex": {
+        "ja": "スポーツをして体を動かします。",
+        "en": "I play sports and move my body."
+      },
+      "rank": 169,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "spot": true,
+        "pitchSrc": "ojt",
+        "wikt": "cách đọc からだ ↔ たい/てー"
+      }
+    },
+    {
+      "word": "借りる",
+      "pos": "v",
+      "kana": "かりる",
+      "romaji": "kariru",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "ichidan",
+      "ipa": "kaɾʲiɾɯ",
+      "gl": {
+        "vi": "mượn",
+        "en": "to borrow",
+        "es": "pedir prestado",
+        "pt": "pedir emprestado",
+        "fr": "emprunter",
+        "de": "ausleihen",
+        "id": "meminjam",
+        "th": "ยืม",
+        "zh": "借",
+        "ja": "借りる",
+        "ko": "빌리다",
+        "hi": "उधार लेना",
+        "ar": "يستعير",
+        "ru": "брать взаймы",
+        "tr": "ödünç almak"
+      },
+      "ex": {
+        "ja": "図書館で本を借りました。",
+        "en": "I borrowed a book from the library."
+      },
+      "exForm": "借りました",
+      "rank": 170,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "軽い",
+      "pos": "adj",
+      "kana": "かるい",
+      "romaji": "karui",
+      "pitch": 0,
+      "jlpt": 5,
+      "aclass": "i",
+      "ipa": "kaɾɯi",
+      "gl": {
+        "vi": "nhẹ",
+        "en": "light (weight)",
+        "es": "ligero",
+        "pt": "leve",
+        "fr": "léger",
+        "de": "leicht",
+        "id": "ringan",
+        "th": "เบา",
+        "zh": "轻的",
+        "ja": "軽い",
+        "ko": "가벼운",
+        "hi": "हल्का",
+        "ar": "خفيف",
+        "ru": "лёгкий",
+        "tr": "hafif"
+      },
+      "ex": {
+        "ja": "この荷物は軽いです。",
+        "en": "This luggage is light."
+      },
+      "rank": 171,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "カレー",
+      "pos": "n",
+      "kana": "カレー",
+      "romaji": "karee",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kaɾeː",
+      "gl": {
+        "vi": "món cà ri",
+        "en": "curry",
+        "es": "curry",
+        "pt": "curry",
+        "fr": "curry",
+        "de": "Curry",
+        "id": "kari",
+        "th": "แกงกะหรี่",
+        "zh": "咖喱",
+        "ja": "カレー",
+        "ko": "카레",
+        "hi": "करी",
+        "ar": "كاري",
+        "ru": "карри",
+        "tr": "köri"
+      },
+      "ex": {
+        "ja": "今日のお昼ごはんはカレーです。",
+        "en": "Today's lunch is curry."
+      },
+      "rank": 172,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "カレンダー",
+      "pos": "n",
+      "kana": "カレンダー",
+      "romaji": "karendaa",
+      "pitch": 2,
+      "jlpt": 5,
+      "ipa": "kaɾendaː",
+      "gl": {
+        "vi": "lịch",
+        "en": "calendar",
+        "es": "calendario",
+        "pt": "calendário",
+        "fr": "calendrier",
+        "de": "Kalender",
+        "id": "kalender",
+        "th": "ปฏิทิน",
+        "zh": "日历",
+        "ja": "カレンダー",
+        "ko": "달력",
+        "hi": "कैलेंडर",
+        "ar": "تقويم",
+        "ru": "календарь",
+        "tr": "takvim"
+      },
+      "ex": {
+        "ja": "壁にカレンダーを掛けました。",
+        "en": "I hung a calendar on the wall."
+      },
+      "rank": 173,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "漢字",
+      "pos": "n",
+      "kana": "かんじ",
+      "romaji": "kanji",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kaɲdʑi",
+      "gl": {
+        "vi": "chữ Hán",
+        "en": "kanji",
+        "es": "kanji",
+        "pt": "kanji",
+        "fr": "kanji",
+        "de": "Kanji",
+        "id": "kanji",
+        "th": "อักษรคันจิ",
+        "zh": "汉字",
+        "ja": "漢字",
+        "ko": "한자",
+        "hi": "कांजी",
+        "ar": "كانجي",
+        "ru": "кандзи",
+        "tr": "kanji"
+      },
+      "ex": {
+        "ja": "毎日漢字を練習します。",
+        "en": "I practice kanji every day."
+      },
+      "rank": 175,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "黄色",
+      "pos": "n",
+      "kana": "きいろ",
+      "romaji": "kiiro",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kʲiːɾo",
+      "gl": {
+        "vi": "màu vàng",
+        "en": "yellow",
+        "es": "amarillo",
+        "pt": "amarelo",
+        "fr": "jaune",
+        "de": "Gelb",
+        "id": "warna kuning",
+        "th": "สีเหลือง",
+        "zh": "黄色",
+        "ja": "黄色",
+        "ko": "노란색",
+        "hi": "पीला रंग",
+        "ar": "لون أصفر",
+        "ru": "желтый цвет",
+        "tr": "sarı renk"
+      },
+      "ex": {
+        "ja": "黄色が好きです。",
+        "en": "I like yellow."
+      },
+      "rank": 177,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "readOjt": "オーショク",
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "黄色い",
+      "pos": "adj",
+      "kana": "きいろい",
+      "romaji": "kiiroi",
+      "pitch": 0,
+      "jlpt": 5,
+      "aclass": "i",
+      "ipa": "kʲiːɾoi",
+      "gl": {
+        "vi": "vàng",
+        "en": "yellow",
+        "es": "amarillo",
+        "pt": "amarelo",
+        "fr": "jaune",
+        "de": "gelb",
+        "id": "kuning",
+        "th": "เหลือง",
+        "zh": "黄色的",
+        "ja": "黄色い",
+        "ko": "노랗다",
+        "hi": "पीला",
+        "ar": "أصفر",
+        "ru": "желтый",
+        "tr": "sarı"
+      },
+      "ex": {
+        "ja": "黄色い花を買いました。",
+        "en": "I bought yellow flowers."
+      },
+      "rank": 178,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchAi": 3,
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "北",
+      "pos": "n",
+      "kana": "きた",
+      "romaji": "kita",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kʲita",
+      "gl": {
+        "vi": "phía bắc",
+        "en": "north",
+        "es": "norte",
+        "pt": "norte",
+        "fr": "nord",
+        "de": "Norden",
+        "id": "utara",
+        "th": "ทิศเหนือ",
+        "zh": "北",
+        "ja": "北",
+        "ko": "북쪽",
+        "hi": "उत्तर",
+        "ar": "شمال",
+        "ru": "север",
+        "tr": "kuzey"
+      },
+      "ex": {
+        "ja": "私の家は駅の北にあります。",
+        "en": "My house is to the north of the station."
+      },
+      "rank": 181,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "切手",
+      "pos": "n",
+      "kana": "きって",
+      "romaji": "kitte",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kʲitte",
+      "gl": {
+        "vi": "tem thư",
+        "en": "postage stamp",
+        "es": "sello postal",
+        "pt": "selo postal",
+        "fr": "timbre-poste",
+        "de": "Briefmarke",
+        "id": "perangko",
+        "th": "แสตมป์",
+        "zh": "邮票",
+        "ja": "切手",
+        "ko": "우표",
+        "hi": "डाक टिकट",
+        "ar": "طابع بريدي",
+        "ru": "почтовая марка",
+        "tr": "posta pulu"
+      },
+      "ex": {
+        "ja": "郵便局で切手を買いました。",
+        "en": "I bought stamps at the post office."
+      },
+      "rank": 185,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "spot": true,
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "切符",
+      "pos": "n",
+      "kana": "きっぷ",
+      "romaji": "kippu",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kʲippɯ",
+      "gl": {
+        "vi": "vé",
+        "en": "ticket",
+        "es": "billete",
+        "pt": "bilhete",
+        "fr": "ticket",
+        "de": "Fahrkarte",
+        "id": "tiket",
+        "th": "ตั๋ว",
+        "zh": "车票",
+        "ja": "切符",
+        "ko": "표",
+        "hi": "टिकट",
+        "ar": "تذكرة",
+        "ru": "билет",
+        "tr": "bilet"
+      },
+      "ex": {
+        "ja": "電車の切符を二枚買いました。",
+        "en": "I bought two train tickets."
+      },
+      "rank": 186,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "牛肉",
+      "pos": "n",
+      "kana": "ぎゅうにく",
+      "romaji": "gyuuniku",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "gʲɯːɲikɯ",
+      "gl": {
+        "vi": "thịt bò",
+        "en": "beef",
+        "es": "carne de vacuno",
+        "pt": "carne bovina",
+        "fr": "viande de bœuf",
+        "de": "Rindfleisch",
+        "id": "daging sapi",
+        "th": "เนื้อวัว",
+        "zh": "牛肉",
+        "ja": "牛肉",
+        "ko": "쇠고기",
+        "hi": "गोमांस",
+        "ar": "لحم بقر",
+        "ru": "говядина",
+        "tr": "sığır eti"
+      },
+      "ex": {
+        "ja": "スーパーで牛肉を買いました。",
+        "en": "I bought beef at the supermarket."
+      },
+      "rank": 189,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "教室",
+      "pos": "n",
+      "kana": "きょうしつ",
+      "romaji": "kyoushitsu",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kʲoːɕitsɯ",
+      "gl": {
+        "vi": "lớp học",
+        "en": "classroom",
+        "es": "aula",
+        "pt": "sala de aula",
+        "fr": "salle de classe",
+        "de": "Klassenzimmer",
+        "id": "ruang kelas",
+        "th": "ห้องเรียน",
+        "zh": "教室",
+        "ja": "教室",
+        "ko": "교실",
+        "hi": "कक्षा",
+        "ar": "قاعة الدراسة",
+        "ru": "классная комната",
+        "tr": "derslik"
+      },
+      "ex": {
+        "ja": "先生は教室にいます。",
+        "en": "The teacher is in the classroom."
+      },
+      "rank": 192,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "ギター",
+      "pos": "n",
+      "kana": "ギター",
+      "romaji": "gitaa",
+      "pitch": 1,
+      "jlpt": 5,
+      "ipa": "gʲitaː",
+      "gl": {
+        "vi": "đàn ghi-ta",
+        "en": "guitar",
+        "es": "guitarra",
+        "pt": "violão",
+        "fr": "guitare",
+        "de": "Gitarre",
+        "id": "gitar",
+        "th": "กีตาร์",
+        "zh": "吉他",
+        "ja": "ギター",
+        "ko": "기타",
+        "hi": "गिटार",
+        "ar": "قيثارة",
+        "ru": "гитара",
+        "tr": "gitar"
+      },
+      "ex": {
+        "ja": "友達はギターをひいています。",
+        "en": "My friend is playing the guitar."
+      },
+      "rank": 182,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "fixed": "gemini-3.6-flash",
+        "pitchAi": 0,
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "嫌い",
+      "pos": "adj",
+      "kana": "きらい",
+      "romaji": "kirai",
+      "pitch": 0,
+      "jlpt": 5,
+      "aclass": "na",
+      "ipa": "kʲiɾai",
+      "gl": {
+        "vi": "ghét",
+        "en": "disliked, hateful",
+        "es": "disgustar, detestar",
+        "pt": "detestar, odiar",
+        "fr": "détester",
+        "de": "gehasst, nicht mögen",
+        "id": "benci, tidak suka",
+        "th": "เกลียด, ไม่ชอบ",
+        "zh": "讨厌",
+        "ja": "嫌い",
+        "ko": "싫어함",
+        "hi": "नापसंद",
+        "ar": "كريه",
+        "ru": "нелюбимый",
+        "tr": "sevimsiz, sevilmeyen"
+      },
+      "ex": {
+        "ja": "私は野菜が嫌いです。",
+        "en": "I dislike vegetables."
+      },
+      "rank": 195,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "薬",
+      "pos": "n",
+      "kana": "くすり",
+      "romaji": "kusuri",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kɯsɯɾʲi",
+      "gl": {
+        "vi": "thuốc",
+        "en": "medicine",
+        "es": "medicina",
+        "pt": "remédio, medicamento",
+        "fr": "médicament",
+        "de": "Medizin, Medikament",
+        "id": "obat",
+        "th": "ยา",
+        "zh": "药",
+        "ja": "薬",
+        "ko": "약",
+        "hi": "दवा",
+        "ar": "دواء",
+        "ru": "лекарство",
+        "tr": "ilaç"
+      },
+      "ex": {
+        "ja": "ご飯の後に薬を飲みます。",
+        "en": "I take medicine after meals."
+      },
+      "rank": 201,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "口",
+      "pos": "n",
+      "kana": "くち",
+      "romaji": "kuchi",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kɯtɕi",
+      "gl": {
+        "vi": "miệng",
+        "en": "mouth",
+        "es": "boca",
+        "pt": "boca",
+        "fr": "bouche",
+        "de": "Mund",
+        "id": "mulut",
+        "th": "ปาก",
+        "zh": "嘴",
+        "ja": "口",
+        "ko": "입",
+        "hi": "मुँह",
+        "ar": "فم",
+        "ru": "рот",
+        "tr": "ağız"
+      },
+      "ex": {
+        "ja": "口を大きく開けてください。",
+        "en": "Please open your mouth wide."
+      },
+      "rank": 204,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "国",
+      "pos": "n",
+      "kana": "くに",
+      "romaji": "kuni",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kɯɲi",
+      "gl": {
+        "vi": "đất nước",
+        "en": "country",
+        "es": "país",
+        "pt": "país",
+        "fr": "pays",
+        "de": "Land",
+        "id": "negara",
+        "th": "ประเทศ",
+        "zh": "国家",
+        "ja": "国",
+        "ko": "나라",
+        "hi": "देश",
+        "ar": "بلد",
+        "ru": "страна",
+        "tr": "ülke"
+      },
+      "ex": {
+        "ja": "お国はどちらですか。",
+        "en": "Which country are you from?"
+      },
+      "rank": 207,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "暗い",
+      "pos": "adj",
+      "kana": "くらい",
+      "romaji": "kurai",
+      "pitch": 0,
+      "jlpt": 5,
+      "aclass": "i",
+      "ipa": "kɯɾai",
+      "gl": {
+        "vi": "tối",
+        "en": "dark",
+        "es": "oscuro",
+        "pt": "escuro",
+        "fr": "sombre",
+        "de": "dunkel",
+        "id": "gelap",
+        "th": "มืด",
+        "zh": "黑暗的",
+        "ja": "暗い",
+        "ko": "어둡다",
+        "hi": "अंधेरा",
+        "ar": "مظلم",
+        "ru": "тёмный",
+        "tr": "karanlık"
+      },
+      "ex": {
+        "ja": "この部屋は暗いです。",
+        "en": "This room is dark."
+      },
+      "rank": 210,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt",
+        "wikt": "từ loại adj ↔ soft-redirect"
+      }
+    },
+    {
+      "word": "車",
+      "pos": "n",
+      "kana": "くるま",
+      "romaji": "kuruma",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "kɯɾɯma",
+      "gl": {
+        "vi": "xe ô tô",
+        "en": "car",
+        "es": "coche",
+        "pt": "carro",
+        "fr": "voiture",
+        "de": "Auto",
+        "id": "mobil",
+        "th": "รถยนต์",
+        "zh": "汽车",
+        "ja": "車",
+        "ko": "차",
+        "hi": "कार",
+        "ar": "سيارة",
+        "ru": "машина",
+        "tr": "araba"
+      },
+      "ex": {
+        "ja": "白い車を持っています。",
+        "en": "I have a white car."
+      },
+      "rank": 214,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "消す",
+      "pos": "v",
+      "kana": "けす",
+      "romaji": "kesu",
+      "pitch": 0,
+      "jlpt": 5,
+      "vclass": "godan",
+      "ipa": "kesɯ",
+      "gl": {
+        "vi": "tắt, xóa",
+        "en": "to turn off, to erase",
+        "es": "apagar, borrar",
+        "pt": "desligar, apagar",
+        "fr": "éteindre, effacer",
+        "de": "ausschalten, löschen",
+        "id": "mematikan, menghapus",
+        "th": "ปิด (ไฟ/เครื่องใช้ไฟฟ้า), ลบ",
+        "zh": "关掉，擦掉",
+        "ja": "消す",
+        "ko": "끄다, 지우다",
+        "hi": "बुझाना, मिटाना",
+        "ar": "يطفئ، يمحي",
+        "ru": "выключать, стирать",
+        "tr": "kapatmak, silmek"
+      },
+      "ex": {
+        "ja": "部屋のテレビを消しました。",
+        "en": "I turned off the TV in the room."
+      },
+      "exForm": "消しました",
+      "rank": 219,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "spot": true,
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "交差点",
+      "pos": "n",
+      "kana": "こうさてん",
+      "romaji": "kousaten",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "koːsateɴ",
+      "gl": {
+        "vi": "ngã tư",
+        "en": "intersection",
+        "es": "intersección",
+        "pt": "cruzamento",
+        "fr": "carrefour",
+        "de": "Kreuzung",
+        "id": "persimpangan",
+        "th": "สี่แยก",
+        "zh": "十字路口",
+        "ja": "交差点",
+        "ko": "교차로",
+        "hi": "चौराहा",
+        "ar": "تقاطع طرق",
+        "ru": "перекрёсток",
+        "tr": "kavşak"
+      },
+      "ex": {
+        "ja": "次の交差点を右に曲がります。",
+        "en": "Turn right at the next intersection."
+      },
+      "rank": 227,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "交番",
+      "pos": "n",
+      "kana": "こうばん",
+      "romaji": "kouban",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "koːbaɴ",
+      "gl": {
+        "vi": "đồn cảnh sát nhỏ",
+        "en": "police box",
+        "es": "puesto de policía",
+        "pt": "posto policial",
+        "fr": "kōban (poste de police)",
+        "de": "Polizeiwache",
+        "id": "pos polisi",
+        "th": "ป้อมตำรวจ",
+        "zh": "派出所",
+        "ja": "交番",
+        "ko": "파출소",
+        "hi": "पुलिस चौकी",
+        "ar": "كشك الشرطة",
+        "ru": "полицейский будка",
+        "tr": "polis kulübesi"
+      },
+      "ex": {
+        "ja": "交番で道を尋ねました。",
+        "en": "I asked for directions at the police box."
+      },
+      "rank": 229,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    },
+    {
+      "word": "ここ",
+      "pos": "pron",
+      "kana": "ここ",
+      "romaji": "koko",
+      "pitch": 0,
+      "jlpt": 5,
+      "ipa": "koko",
+      "gl": {
+        "vi": "đây",
+        "en": "here",
+        "es": "aquí",
+        "pt": "aqui",
+        "fr": "ici",
+        "de": "hier",
+        "id": "sini",
+        "th": "ที่นี่",
+        "zh": "这里",
+        "ja": "ここ",
+        "ko": "여기",
+        "hi": "यहाँ",
+        "ar": "هنا",
+        "ru": "здесь",
+        "tr": "burası"
+      },
+      "ex": {
+        "ja": "ここへ来てください。",
+        "en": "Please come here."
+      },
+      "rank": 233,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "pitchSrc": "ojt"
+      }
+    }
+  ]
+}
