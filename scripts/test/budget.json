@@ -18,7 +18,8 @@
     "_note": "Tải lần đầu theo gói (JS BUNDLES + CSS BCSS, gzip chuẩn) – chỉ được giảm. 3/11 ux1 (Home/Hôm nay): mốc main 32c7194bd = 122044 B (JS 56295 + CSS 65749).",
     "ux1": 122044
   },
-  "cpackTotal": 13690000,
+  "cpackTotal": 13705000,
+  "_cpackNote16": "23/11 (điều phối giao – làm lại hub lộ trình ngày es/fr, tải lười theo route, KHÔNG vào khung/byte người học): nhãn hub mới (tuần/phút/trạng thái/thưởng/từ mở rộng: 14 khoá × 15 ngôn ngữ × 2 tl) + day-ui.js: web/cpack 13 676 946 → 13 691 901 B (+15 KB); trần 13 690 000 → 13 705 000 (đo + 0,1 %). CSS hub web/css/tlpath.css (2 KB gz) tải lười cùng st-v2-day.css; web/js không đổi.",
   "_cpackNoteFrW2": "22/11 (khóa tiếng Pháp W2, french-course.md – dữ liệu tải lười, KHÔNG vào khung/byte người học): +741 054 B đúng bằng web/cpack/fr (dr.js câu luyện 62 KB + 15 gói giải thích gx-<ngôn ngữ>.js, mỗi người học chỉ tải 1–2 gói ≈ 50 KB); đo 13 586 104 B + 9 KB.",
   "_cpackNoteFrW5": "22/11 (khóa tiếng Pháp W5 – luyện định dạng DELF/DALF, tải lười theo cấp): +56 KB đúng bằng web/cpack/fr/x-<cấp>.js (6 cấp × 2 đề, câu Tatoeba CC BY) + x-ui-<ngôn ngữ>.js; đo 13 642 080 B + 9 KB.",
   "_cpackNoteFrW3": "22/11 (khóa tiếng Pháp W3 phát âm, french-course.md – dữ liệu tải lười, KHÔNG vào khung/byte người học): +64 163 B đúng bằng web/cpack/fr/px*.js mới (px.js chủ đề/cặp/IPA 4,4 KB + 15 gói px-<ngôn ngữ>.js nhãn + giải thích, mỗi người học chỉ tải 1–2 gói ≈ 4 KB); đo 13 650 410 B tổng; mã pron-ui.js chung engine es, không thêm tệp mã.",
