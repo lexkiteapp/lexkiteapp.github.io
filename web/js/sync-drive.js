@@ -10,14 +10,14 @@
  *   → không bao giờ ghi đè: báo 'newer', sync.js quay về D1.
  * 0 USD: Drive API miễn phí dưới 400 triệu đơn vị/ngày/dự án; dung lượng ở Drive của người học (15–100 KB).
  * Ngân sách mỗi máy/ngày (cfg.cap) + lùi cấp số nhân khi lỗi/429/5xx → không dội API; mọi lỗi đều im lặng, dữ liệu chờ trên máy.
- * Token: lấy ở popup đăng nhập Google (Firebase, scope drive.appdata – hỏi 1 lần). Hết hạn (1 giờ) → chỉ gia hạn trong 1 cú chạm
- * của người dùng khi thật sự cần đồng bộ (popup tự đóng, prompt=none), tối đa 1 lần/45 phút, 3 lần/ngày; không bao giờ hiện hộp hỏi khi đang học. */
+ * Token: lấy ở popup đăng nhập Google (Firebase, scope drive.appdata – hỏi 1 lần). Hết hạn (1 giờ) → lượt nền KHÔNG BAO GIỜ mở popup:
+ * trả 'no-token', sync.js đồng bộ im lặng qua D1; popup gia hạn (prompt=none) chỉ khi người dùng bấm "Đồng bộ ngay"/"Kết nối Drive". */
 (function (w) {
   const DRIVE = 'https://www.googleapis.com/drive/v3/files', UP = 'https://www.googleapis.com/upload/drive/v3/files';
   const SCOPE = 'https://www.googleapis.com/auth/drive.appdata', PREFIX = 'lexkite-sync', NAME = 'lexkite-sync.v2.json.gz', SCHEMA = 2, NBAK = 3;
   const BAK = i => `lexkite-sync.bak${i}.v2.json.gz`, CORRUPT = 'lexkite-sync.corrupt.json.gz';
   const COST = { list: 100, get: 5, download: 200, create: 50, update: 50, delete: 50 }; // developers.google.com/workspace/drive/api/guides/limits
-  const cfg = () => Object.assign({ every: 600e3, cap: 1200, renewGap: 45 * 60e3, renewMax: 3, stale: 12 * 3600e3, bridgeDays: 30 }, w.LK_SYNC || {});
+  const cfg = () => Object.assign({ every: 600e3, cap: 1200, stale: 12 * 3600e3, bridgeDays: 30 }, w.LK_SYNC || {});
   const now = () => Date.now(), today = () => new Date().toISOString().slice(0, 10), dayNo = () => Math.floor(now() / 864e5);
 
   // ---------- Token (chỉ scope drive.appdata – chỉ chạm được tệp riêng của ứng dụng) ----------
@@ -121,7 +121,7 @@
   }
 
   // ---------- Một lượt đồng bộ ----------
-  // ctx (từ sync.js): { uid, build(): ảnh chụp cục bộ, apply(remote): GỘP vào máy, hash(snap), due(st), renew(interactive) }
+  // ctx (từ sync.js): { uid, build(): ảnh chụp cục bộ, apply(remote): GỘP vào máy, hash(snap), due(st) }
   let running = null, again = false;
   function cycle(ctx, why) {
     if (running) { again = true; return running; }
@@ -133,7 +133,7 @@
     if (st.nextAt > now() && why !== 'manual') return 'wait';
     if (st.newer && why !== 'manual') return 'newer';
     const token = tok.get(ctx.uid);
-    if (!token) { arm(ctx, st); return 'no-token'; }
+    if (!token) return 'no-token'; // không popup nền: sync.js chuyển sang D1 im lặng, token lấy lại khi người dùng bấm
     try {
       if (!st.listed) await list(st, token);
       let remoteVer = '', remoteHash = '', repair = false;
@@ -173,7 +173,7 @@
       return 'ok';
     } catch (e) {
       if (e.code === 'budget') { await save(ctx.uid, st); return 'budget'; }
-      if (e.status === 401) { tok.clear(); await save(ctx.uid, st); arm(ctx, st); return 'no-token'; }
+      if (e.status === 401) { tok.clear(); await save(ctx.uid, st); return 'no-token'; }
       if (e.status === 403 && /insufficient|PERMISSION_DENIED/i.test(e.reason || '')) { tok.clear(); st.scope = 'no'; await save(ctx.uid, st); return 'no-scope'; } // bỏ ô Drive / thu hồi quyền
       st.fail = (st.fail || 0) + 1; st.nextAt = now() + backoff(st.fail); // mất mạng, 429/403 rateLimit, 5xx, ghi dở
       await save(ctx.uid, st);
@@ -192,22 +192,6 @@
     return out;
   }
 
-  // ---------- Gia hạn token trong cú chạm kế tiếp (chỉ khi cần, có giới hạn) ----------
-  let armed = false;
-  function arm(ctx, st) {
-    const c = cfg();
-    if (armed || !ctx.renew || st.scope === 'no' || (st.renews || 0) >= c.renewMax && st.day === today() || now() - (st.renewAt || 0) < c.renewGap) return;
-    if (!ctx.due(st)) return; // không có gì cần gửi và vừa kéo gần đây → không gia hạn (không popup)
-    armed = true;
-    const go = () => {
-      w.removeEventListener('pointerdown', go, true); w.removeEventListener('keydown', go, true); armed = false;
-      st.renewAt = now(); st.renews = (st.day === today() ? st.renews || 0 : 0) + 1; save(ctx.uid, st);
-      // Gọi đồng bộ ngay trong sự kiện người dùng → trình duyệt cho mở popup; popup tự đóng (prompt=none) khi đã đồng ý trước đó
-      ctx.renew(false).then(r => { if (r && r.token) { tok.set(ctx.uid, r.token, r.expiresIn); cycle(ctx, 'renew'); } }).catch(() => {});
-    };
-    w.addEventListener('pointerdown', go, true); w.addEventListener('keydown', go, true);
-  }
-
   // Xóa mọi tệp đồng bộ trên Drive (xóa tài khoản) – cố gắng hết sức, không chặn việc xóa tài khoản
   async function wipe(uid) {
     const token = tok.get(uid);
@@ -223,5 +207,5 @@
     return !!token;
   }
 
-  w.SyncDrive = { SCOPE, NAME, SCHEMA, NBAK, BAK, CORRUPT, COST, cfg, tok, load, save, cycle, wipe, peek, backoff, pack, unpack, migrate, reset: () => { tok.clear(); running = null; again = false; armed = false; } };
+  w.SyncDrive = { SCOPE, NAME, SCHEMA, NBAK, BAK, CORRUPT, COST, cfg, tok, load, save, cycle, wipe, peek, backoff, pack, unpack, migrate, reset: () => { tok.clear(); running = null; again = false; } };
 })(window);
