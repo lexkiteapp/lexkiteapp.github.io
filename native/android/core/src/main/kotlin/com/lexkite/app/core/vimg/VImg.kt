@@ -80,13 +80,18 @@ class VImgStore(private val http: Http, private val dir: File, private val mode:
     }
 
     /** Fetch what [words] need. Returns whether pictures are on for this device. */
-    suspend fun prepare(words: List<String>): Boolean {
+    /** Loads the shards of [words]; [extra] = pool words that may serve as picture distractors (lpic): their shards load only while the total stays
+     *  ≤ [maxShards], most-covering shard first, so a lesson start never fans out into many downloads (shards are cached on disk). */
+    suspend fun prepare(words: List<String>, extra: List<String> = emptyList(), maxShards: Int = 4): Boolean {
         val m = mode(); if (m == 0) { enabled = false; return false }
         val h = head ?: text(VImg.HEAD_URL, "head.json")?.let(VImg::parseHead)?.also { head = it }
         if (h == null) { enabled = false; return false }
         enabled = m == 1 || h.on
         if (!enabled || h.n <= 0) return enabled
-        coroutineScope { words.map { VImg.shard(it, h.n) }.toSet().filter { !shards.containsKey(it) }.map { id ->
+        val want = words.map { VImg.shard(it, h.n) }.toMutableSet()
+        extra.map { VImg.shard(it, h.n) }.filter { it !in want }.groupingBy { it }.eachCount().entries.sortedWith(compareBy({ -it.value }, { it.key }))
+            .forEach { if (want.size < maxShards) want.add(it.key) }
+        coroutineScope { want.filter { !shards.containsKey(it) }.map { id ->
             async { text(VImg.SHARD_URL + "%02d.json".format(id), "s%02d.json".format(id))?.let(VImg::parseShard)?.let { shards[id] = it } }
         }.awaitAll() }
         return true
