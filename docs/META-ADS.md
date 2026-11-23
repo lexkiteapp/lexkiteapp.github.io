@@ -12,26 +12,26 @@ Một nguồn duy nhất cho chủ đề này. Thiết kế: nhẹ, không SDK M
 | Lần mở đầu: đọc referrer 1 lần | `mobile/.../InstallReferrerPlugin.kt` (thư viện Google `installreferrer:2.2`, ~30 KB, không cần quyền) | Không phải referrer Meta → app nhớ `lk.ir='-'` và **không bao giờ nạp thêm mã** (người dùng tự nhiên tốn 0 B) |
 | Gửi `install` | `mobile/meta-attr.js` (2,3 KB, chỉ app Android: `build-mobile.sh` chép vào app, KHÔNG vào web/add-on; native.js +~0,6 KB) → `POST /api/hit {t:'ma'}` | `iid` = 16 byte ngẫu nhiên (`lk.iid`), không phải GAID/IDFA |
 | Xong bài học đầu tiên = **ACTIVATE** | `remind.js firstWin` → sự kiện `lexkite:first-win` → `MetaAttr.activate()` | Cùng định nghĩa `first_win` của phễu (không tính máy đã học từ trước) |
-| Máy chủ → Meta | `functions/api/_meta_capi.js` → `POST graph.facebook.com/v21.0/<META_APP_ID>/activities` | `MOBILE_APP_INSTALL`, và `CUSTOM_APP_EVENTS` `_eventName: ACTIVATE`; `anon_id=XZ<iid>`, `install_referrer`, `extinfo` (a2) |
+| Máy chủ → Meta | `functions/api/_meta_capi.js` → `POST graph.facebook.com/v21.0/<dataset 902190262917017>/activities` | `MOBILE_APP_INSTALL`, và `CUSTOM_APP_EVENTS` `_eventName: ACTIVATE`; `anon_id=XZ<iid>`, `install_referrer`, `extinfo` (a2) |
 | iOS | `scripts/mobile-ads.mjs` (`SKAN_META`, chạy trong `build-mobile.sh`, kể cả khi AdMob tắt) + `native/ios/project.yml` | Chỉ thêm 2 mã SKAdNetwork Meta; **không SDK, không ATT, `NSPrivacyTracking` vẫn false** |
 
-Cổng ở máy chủ (theo thứ tự, mỗi cổng dừng im lặng): thiếu `META_APP_ID`/`META_CAPI_TOKEN` → cờ `ads_meta_capi` ≠ `1` (**mặc định TẮT; tắt = không ghi, không gửi, không đếm**) → đồng ý → giới hạn 20 lượt/giờ/IP băm (IP không lưu) → chỉ referrer Meta (cài tự nhiên chỉ đếm `ma:install:other`) → chống trùng (bảng `meta_attr`, PK `(iid, loại)`, giữ ≤ 90 ngày) → `activate` luôn dùng referrer **đã lưu** của lượt cài, không tin giá trị máy khách gửi.
+Cổng ở máy chủ (theo thứ tự, mỗi cổng dừng im lặng): thiếu `META_CAPI_TOKEN` → cờ `ads_meta_capi` ≠ `1` (**mặc định TẮT; tắt = không ghi, không gửi, không đếm**) → đồng ý → giới hạn 20 lượt/giờ/IP băm (IP không lưu) → chỉ referrer Meta (cài tự nhiên chỉ đếm `ma:install:other`) → chống trùng (bảng `meta_attr`, PK `(iid, loại)`, giữ ≤ 90 ngày) → `activate` luôn dùng referrer **đã lưu** của lượt cài, không tin giá trị máy khách gửi.
 
 **Đồng ý:** công tắc "Đo quảng cáo cài app (Meta)" ở Cài đặt › Dữ liệu (Android), mặc định TẮT; bật → `c:'y'`. Mặc định chỉ `c:'y'` được gửi. Muốn bật sẵn NGOÀI EEA/UK/CH (số liệu nhiều hơn rõ rệt) đặt biến Pages `META_CONSENT_DEFAULT=row` – quyết định pháp lý của chủ; trong EEA/UK/CH luôn cần bật tay.
 
 ## 2. Việc của chủ (làm 1 lần, ~20 phút, không cần code)
-1. **Meta Events Manager / developers.facebook.com** → tạo **App** (loại Business/Other), thêm nền tảng **Android**: package `com.lexkite.app`, Google Play link. Lấy **App ID**.
-2. Events Manager → nguồn dữ liệu của app → **Settings → Conversions API for App Events → Generate access token** (token hệ thống). Lưu lại (không dán vào chat/commit).
-3. Đặt bí mật cho Pages (tên đúng): `META_APP_ID` và `META_CAPI_TOKEN`:
+**ID đã dựng (23/11, công khai):** app "LexKite" `1319410583645611` (business Lexkite.com `1549691700258085`, use case app ads); dataset Conversions API cho app `902190262917017` (endpoint); iOS `com.lexkite.app` / App Store 6824714708; Android `com.lexkite.app` / `com.lexkite.app.MainActivity`. Lưu ý: env `META_APP_ID` đã dùng cho app đăng bài Autopilot – đo cài KHÔNG dùng biến đó.
+1. Events Manager → dataset `902190262917017` → Settings → Conversions API → **Generate access token** (không dán vào chat/commit).
+2. Đặt bí mật Pages:
    ```bash
-   printf '%s' "<APP_ID>" | CLOUDFLARE_API_TOKEN=$(cat ~/.config/lexkite/cf-token) npx wrangler pages secret put META_APP_ID --project-name lexkite
-   printf '%s' "<TOKEN>"  | CLOUDFLARE_API_TOKEN=$(cat ~/.config/lexkite/cf-token) npx wrangler pages secret put META_CAPI_TOKEN --project-name lexkite
+   printf '%s' "<TOKEN>" | CLOUDFLARE_API_TOKEN=$(cat ~/.config/lexkite/cf-token) npx wrangler pages secret put META_CAPI_TOKEN --project-name lexkite
+   printf '%s' "<KEY>"   | CLOUDFLARE_API_TOKEN=$(cat ~/.config/lexkite/cf-token) npx wrangler pages secret put META_INSTALL_REFERRER_KEY --project-name lexkite
    ```
-   (GitHub Actions không cần: chỉ Functions đọc.) Sửa lại bí mật ngay nếu đổi token.
-4. Quản trị (cờ công tắc) hoặc D1: đặt cấu hình `ads_meta_capi = 1`. Tắt khẩn: đặt `0`/xoá → có hiệu lực ngay ở bản ghi kế tiếp.
-5. Có bản Android chứa plugin trên Play (bản kế tiếp sau PR này). Bản cũ chưa có plugin không gửi gì.
-6. Play Console → **Data safety** cập nhật theo `STORE-READINESS.md` §G **cùng lúc** với bản đầu tiên có plugin.
-7. iOS: chưa gửi duyệt (khoá cổng Apple); 2 mã SKAdNetwork tự vào bản iOS kế tiếp.
+   `META_INSTALL_REFERRER_KEY` (Meta › Android › Install Referrer Decryption Key) hiện CHƯA được mã đọc: ta chuyển referrer thô, Meta tự giải mã; giữ sẵn nếu sau này cần đọc chiến dịch/quảng cáo. Chỉ `META_CAPI_TOKEN` là bắt buộc.
+3. Quản trị (cờ công tắc) hoặc D1: đặt cấu hình `ads_meta_capi = 1`. Tắt khẩn: đặt `0`/xoá → có hiệu lực ngay ở bản ghi kế tiếp.
+4. Có bản Android chứa plugin trên Play (bản kế tiếp sau PR này). Bản cũ chưa có plugin không gửi gì.
+5. Play Console → **Data safety** cập nhật theo `STORE-READINESS.md` §G **cùng lúc** với bản đầu tiên có plugin.
+6. iOS: chưa gửi duyệt (khoá cổng Apple); 2 mã SKAdNetwork tự vào bản iOS kế tiếp.
 
 ## 3. Chiến dịch đầu tiên (khuyến nghị)
 - **Android trước**, quốc gia ngoài EEA có người học thật (VN, ID, PH, BR, MX…), vì ở EEA cần bật tay nên số liệu rất thưa.

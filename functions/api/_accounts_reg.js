@@ -124,13 +124,13 @@ export const ROWS = [
   "account": "Meta · Lexkite",
   "store": "pages",
   "names": [
-   "META_APP_ID",
-   "META_CAPI_TOKEN"
+   "META_CAPI_TOKEN",
+   "META_INSTALL_REFERRER_KEY"
   ],
-  "scope": "Graph API /<app>/activities – INSTALL + ACTIVATE (docs/META-ADS.md); chỉ chạy khi cờ ads_meta_capi = 1",
+  "scope": "Graph API /<dataset>/activities – INSTALL + ACTIVATE (docs/META-ADS.md); chỉ chạy khi cờ ads_meta_capi = 1",
   "manage": "https://developers.facebook.com/apps/",
   "expires": "",
-  "note": "Chủ tạo app Meta + token rồi đặt 2 bí mật bằng wrangler pages secret put"
+  "note": "App Meta LexKite 1319410583645611, dataset 902190262917017 (ID công khai, trong _meta_capi.js). Chủ tạo token CAPI + dán khoá Install Referrer bằng wrangler pages secret put"
  },
  {
   "id": "pages-meta",

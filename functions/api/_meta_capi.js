@@ -3,7 +3,7 @@
  *   iid = mã cài đặt ngẫu nhiên (không phải mã thiết bị/quảng cáo) · ref = chuỗi Google Play Install Referrer (chỉ khi do quảng cáo Meta dẫn tới) ·
  *   c = 'y' người dùng bật trong Cài đặt › Dữ liệu · 'u' chưa chọn.
  * Máy chủ chuyển sang Meta Conversions API cho App Events (POST graph.facebook.com/<APP_ID>/activities) CHỈ khi: cờ config `ads_meta_capi` = '1'
- * (công tắc khẩn: xoá = dừng ngay) + đủ bí mật META_APP_ID / META_CAPI_TOKEN + có đồng ý + lượt cài đến từ quảng cáo Meta. Cờ tắt → không ghi gì.
+ * (công tắc khẩn: xoá = dừng ngay) + bí mật META_CAPI_TOKEN + có đồng ý + lượt cài đến từ quảng cáo Meta. Cờ tắt → không ghi gì.
  * Không lưu IP (khoá giới hạn tần suất là băm, chỉ ở bộ đệm biên); bảng meta_attr giữ mã cài đặt + referrer ≤ 90 ngày, mỗi (iid, loại) đúng 1 dòng = chống trùng. */
 import { region } from './_ads.js';
 
@@ -11,6 +11,9 @@ export const KINDS = ['install', 'activate'];
 export const EVENT_NAME = 'ACTIVATE'; // = xong bài học đầu tiên (web/js/remind.js firstWin) – sự kiện tối ưu của chiến dịch
 export const PACKAGE = 'com.lexkite.app';
 export const GRAPH = 'https://graph.facebook.com/v21.0/';
+// ID công khai (không bí mật) của app Meta "LexKite" (business Lexkite.com, use case app ads). KHÔNG dùng env META_APP_ID: biến đó của app đăng bài Autopilot (_meta_oauth.js).
+export const META_APP_ID = '1319410583645611', DATASET_ID = '902190262917017'; // dataset = nguồn Conversions API cho app; ghi đè bằng env META_DATASET_ID
+// META_INSTALL_REFERRER_KEY (khoá giải mã Install Referrer Android của Meta): chủ dán sẵn, chưa dùng – Meta tự giải mã referrer thô ta chuyển qua CAPI.
 export const KEEP_DAYS = 90;
 const IID = /^[a-f0-9]{16,32}$/, META_SRC = /^(?:facebook|instagram|apps\.facebook\.com|fb|ig|meta)/i;
 
@@ -49,7 +52,7 @@ export function capiParams(kind, row, env, now = Date.now()) {
 
 export async function sendCapi(env, kind, row, fetcher = fetch, now = Date.now()) {
   try {
-    const r = await fetcher(GRAPH + encodeURIComponent(env.META_APP_ID) + '/activities', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(capiParams(kind, row, env, now)).toString() });
+    const r = await fetcher(GRAPH + encodeURIComponent(env.META_DATASET_ID || DATASET_ID) + '/activities', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(capiParams(kind, row, env, now)).toString() });
     return !!r && r.ok === true;
   } catch (e) { return false; }
 }
@@ -59,7 +62,7 @@ const bump = (db, day, kind) => db.prepare('INSERT INTO ext_events (day, kind, n
 /** Xử lý beacon t:'ma'. deps = { env, db, country, now, day, limited (async () => bool), fetcher }. Không bao giờ ném lỗi ra ngoài. */
 export async function handleMa(b, d) {
   const { env, db } = d;
-  if (!b || !KINDS.includes(b.ev) || !IID.test(String(b.iid || '')) || !env.META_APP_ID || !env.META_CAPI_TOKEN) return 'skip';
+  if (!b || !KINDS.includes(b.ev) || !IID.test(String(b.iid || '')) || !env.META_CAPI_TOKEN) return 'skip';
   const flag = await db.prepare("SELECT v FROM config WHERE k = 'ads_meta_capi'").first().catch(() => null);
   if (!flag || String(flag.v) !== '1') return 'off'; // công tắc khẩn: tắt → không ghi, không gửi
   if (!consentOk(b.c, d.country, env)) return 'noconsent';

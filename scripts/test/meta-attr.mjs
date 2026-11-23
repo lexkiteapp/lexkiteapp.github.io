@@ -20,13 +20,13 @@ ok(!consentOk('u', 'VN') && !consentOk('', 'VN') && !consentOk(undefined, 'VN') 
 ok(consentOk('u', 'VN', { META_CONSENT_DEFAULT: 'row' }) && !consentOk('u', 'DE', { META_CONSENT_DEFAULT: 'row' }) && !consentOk('u', 'GB', { META_CONSENT_DEFAULT: 'row' }) && !consentOk('u', '', { META_CONSENT_DEFAULT: 'row' }) && !consentOk('', 'VN', { META_CONSENT_DEFAULT: 'row' }), 'META_CONSENT_DEFAULT=row: chưa chọn chỉ ngoài EEA/UK/CH và biết nước; tắt vẫn không gửi');
 
 // ---- 3) dạng gói CAPI ----
-const env = { META_APP_ID: '12345', META_CAPI_TOKEN: 'tok' };
+const env = { META_CAPI_TOKEN: 'tok' };
 const pi = capiParams('install', { iid: 'a'.repeat(32), ref: META_REF }, env), pa = capiParams('activate', { iid: 'a'.repeat(32), ref: META_REF }, env, 1700000000999);
 ok(pi.event === 'MOBILE_APP_INSTALL' && pi.install_referrer === META_REF && pi.anon_id === 'XZ' + 'a'.repeat(32) && pi.access_token === 'tok' && !pi.custom_events, 'gói install đúng trường');
 ok(pa.event === 'CUSTOM_APP_EVENTS' && JSON.parse(pa.custom_events)[0]._eventName === EVENT_NAME && JSON.parse(pa.custom_events)[0]._logTime === 1700000000, 'gói activate = CUSTOM_APP_EVENTS ACTIVATE, thời gian giây');
 ok(JSON.parse(pi.extinfo).length === 16 && JSON.parse(pi.extinfo)[0] === 'a2' && !/advertiser_id|ip|email|idfa|gaid/i.test(Object.keys(pi).join()), 'extinfo 16 phần tử (Android); không có mã quảng cáo/IP/email');
 { let got; const f = async (u, o) => { got = { u, o }; return { ok: true }; };
-  ok(await sendCapi(env, 'install', { iid: 'b'.repeat(32), ref: META_REF }, f) && got.u === GRAPH + '12345/activities' && got.o.method === 'POST' && /event=MOBILE_APP_INSTALL/.test(got.o.body), 'sendCapi POST /<app>/activities');
+  ok(await sendCapi(env, 'install', { iid: 'b'.repeat(32), ref: META_REF }, f) && got.u === GRAPH + '902190262917017/activities' && got.o.method === 'POST' && /event=MOBILE_APP_INSTALL/.test(got.o.body), 'sendCapi POST /<app>/activities');
   ok(!(await sendCapi(env, 'install', { iid: 'b'.repeat(32), ref: '' }, async () => ({ ok: false }))) && !(await sendCapi(env, 'install', { iid: 'b'.repeat(32), ref: '' }, async () => { throw new Error('net'); })), 'Meta lỗi/mạng lỗi → false, không ném'); }
 
 // ---- 4) handleMa với D1 giả ----
@@ -43,7 +43,7 @@ const run = async (b, o = {}) => { const db = o.db || fakeDb(o.flag === undefine
 const I = { ev: 'install', iid, ref: META_REF, c: 'y' }, A = { ev: 'activate', iid, ref: META_REF, c: 'y' };
 ok((await run(I, { flag: undefined, db: fakeDb(null) })).r === 'off' && (await run(I, { flag: '0' })).r === 'off' && (await run(I, { flag: '' })).r === 'off', 'cờ ads_meta_capi trống/0 → TẮT (mặc định)');
 { const x = await run(I, { flag: '0' }); ok(x.calls.length === 0 && x.db.rows.size === 0 && Object.keys(x.db.ev).length === 0, 'cờ tắt → không gửi, không ghi bảng, không đếm'); }
-ok((await run(I, { env: { META_APP_ID: '1' } })).r === 'skip' && (await run(I, { env: {} })).r === 'skip', 'thiếu bí mật META_APP_ID/META_CAPI_TOKEN → bỏ qua');
+ok((await run(I, { env: { META_APP_ID: '1' } })).r === 'skip' && (await run(I, { env: {} })).r === 'skip', 'thiếu bí mật META_CAPI_TOKEN → bỏ qua');
 ok((await run({ ...I, c: 'u' })).r === 'noconsent' && (await run({ ...I, c: '' })).r === 'noconsent' && (await run({ ...I, c: 'u' }, { env: { ...env, META_CONSENT_DEFAULT: 'row' }, country: 'FR' })).r === 'noconsent', 'chưa đồng ý (kể cả EEA khi mặc định row) → không gửi');
 ok((await run({ ...I, iid: 'xyz' })).r === 'skip' && (await run({ ...I, ev: 'purchase' })).r === 'skip' && (await run(null)).r === 'skip', 'iid sai / sự kiện lạ / thân rỗng → bỏ');
 ok((await run(I, { limited: true })).r === 'limited', 'quá giới hạn tần suất → bỏ');
