@@ -5,7 +5,7 @@
 name: Giọng đọc Truyện & podcast (Kokoro)
 on:
   push:
-    branches: [main]
+    branches: [main, stories-audio2]   # stories-audio2: lượt thử dựng + nghe thử (gỡ khi gộp main); publish chỉ chạy trên main
     paths: ['content/stories/**', 'scripts/stories/render-audio.mjs', '.github/workflows/stories-audio.yml']
   workflow_dispatch:
     inputs:
@@ -60,7 +60,7 @@ jobs:
           include-hidden-files: true
   publish:
     needs: [plan, gen]
-    if: always() && needs.plan.outputs.left != '0'
+    if: always() && needs.plan.outputs.left != '0' && github.ref == 'refs/heads/main'
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     steps:
