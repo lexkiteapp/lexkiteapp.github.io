@@ -1,0 +1,148 @@
+{
+ "id": "t2s_zh_breakthebank",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 72,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is lunch too expensive?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Break the bank!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Cost way too much money.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Don't worry, this lunch won't break the bank.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "break the bank",
+  "forms": [
+   "broke the bank"
+  ],
+  "ipa": "/ˈbreɪk ðə ˈbæŋk/",
+  "mean": "Cost way too much money.",
+  "define": "To cost so much that you can't afford it.",
+  "vi": "Tốn cả gia tài",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "Don't worry, this lunch won't break the bank."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It usually means to…",
+   "options": [
+    "rob a bank",
+    "cost too much"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'break the bank' at a bank.",
+   "why": "It only means costing too much."
+  },
+  "l1": "花光所有钱",
+  "l1_hook": "午餐会不会 \"break the bank\"？",
+  "l1_ex": "别担心，这顿午餐不会 \"break the bank\"。",
+  "right": "break the bank",
+  "native": {
+   "hook": "“break the bank”是什么意思？",
+   "tip": "“break the bank” = 花光所有钱. 例句: “Don't worry, this lunch won't break the bank.”",
+   "caption": "“break the bank”是什么意思？\n“break the bank” = 花光所有钱.\n例句: “Don't worry, this lunch won't break the bank.” (别担心，这顿午餐不会 \"break the bank\"。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “break the bank” = 花光所有钱. “Don't worry, this lunch won't break the bank.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is lunch too expensive?"
+ },
+ "src": {
+  "slang": "break the bank"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“break the bank”是什么意思？",
+  "keyword": "break the bank",
+  "value": "“break the bank” = 花光所有钱. 例句: “Don't worry, this lunch won't break the bank.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“break the bank”是什么意思？",
+    "description": "“break the bank” = 花光所有钱. 例句: “Don't worry, this lunch won't break the bank.”\n\n“break the bank”是什么意思？\n“break the bank” = 花光所有钱.\n例句: “Don't worry, this lunch won't break the bank.” (别担心，这顿午餐不会 \"break the bank\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "break the bank",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“break the bank”是什么意思？\n“break the bank” = 花光所有钱.\n例句: “Don't worry, this lunch won't break the bank.” (别担心，这顿午餐不会 \"break the bank\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“break the bank”是什么意思？\n\n“break the bank” = 花光所有钱. 例句: “Don't worry, this lunch won't break the bank.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“break the bank”是什么意思？ “break the bank” = 花光所有钱. 例句: “Don't worry, this lunch won't break the bank.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “break the bank” = 花光所有钱. “Don't worry, this lunch won't break the bank.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

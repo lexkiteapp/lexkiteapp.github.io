@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ko_epicfail",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 90,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My cake collapsed. Everyone watched!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Epic fail!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A big, funny failure.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My cake fell flat. Total epic fail!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "epic fail",
+  "forms": [],
+  "ipa": "/ˌepɪk ˈfeɪl/",
+  "mean": "A big, funny failure.",
+  "define": "A mistake or failure that is so big it is almost funny.",
+  "vi": "Thất bại hoành tráng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Looking at a kitchen mess",
+   "text": "My cake fell flat. Total epic fail!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "An \"epic fail\" is a…",
+   "options": [
+    "great success",
+    "big failure"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's loss an 'epic fail'.",
+   "why": "It sounds like mocking them."
+  },
+  "l1": "폭망",
+  "l1_hook": "내 케이크가 무너졌어. 모두가 봤어!",
+  "l1_ex": "내 케이크가 납작해졌어. 완전 'epic fail'이야!",
+  "right": "epic fail",
+  "native": {
+   "hook": "“epic fail” 무슨 뜻일까요?",
+   "tip": "“epic fail” = 폭망. 예문: “My cake fell flat. Total epic fail!”",
+   "caption": "“epic fail” 무슨 뜻일까요?\n“epic fail” = 폭망.\n예문: “My cake fell flat. Total epic fail!” (내 케이크가 납작해졌어. 완전 'epic fail'이야!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “epic fail” = 폭망. “My cake fell flat. Total epic fail!” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My cake collapsed. Everyone watched!"
+ },
+ "src": {
+  "slang": "epic fail"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“epic fail” 무슨 뜻일까요?",
+  "keyword": "epic fail",
+  "value": "“epic fail” = 폭망. 예문: “My cake fell flat. Total epic fail!”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“epic fail” 무슨 뜻일까요?",
+    "description": "“epic fail” = 폭망. 예문: “My cake fell flat. Total epic fail!”\n\n“epic fail” 무슨 뜻일까요?\n“epic fail” = 폭망.\n예문: “My cake fell flat. Total epic fail!” (내 케이크가 납작해졌어. 완전 'epic fail'이야!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "epic fail",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“epic fail” 무슨 뜻일까요?\n“epic fail” = 폭망.\n예문: “My cake fell flat. Total epic fail!” (내 케이크가 납작해졌어. 완전 'epic fail'이야!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“epic fail” 무슨 뜻일까요?\n\n“epic fail” = 폭망. 예문: “My cake fell flat. Total epic fail!”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“epic fail” 무슨 뜻일까요? “epic fail” = 폭망. 예문: “My cake fell flat. Total epic fail!” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “epic fail” = 폭망. “My cake fell flat. Total epic fail!” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_id_gameplan",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 92,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Test tomorrow. Where do we start?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Game plan!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The plan for what to do.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "So, what's the game plan?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "game plan",
+  "forms": [],
+  "ipa": "/ˈɡeɪm ˈplæn/",
+  "mean": "The plan for what to do.",
+  "define": "A clear plan to reach a goal.",
+  "vi": "Kế hoạch hành động",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Talking before a project",
+   "text": "So, what's the game plan?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"game plan\" is…",
+   "options": [
+    "a video game",
+    "a clear plan"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a vague idea a 'game plan'.",
+   "why": "It means a clear plan."
+  },
+  "l1": "rencana aksi",
+  "l1_hook": "Ujian besok. Dari mana kita mulai? \"game plan\"",
+  "l1_ex": "Jadi, apa game plan-nya?",
+  "right": "game plan",
+  "native": {
+   "hook": "Apa arti “game plan”?",
+   "tip": "“game plan” = rencana aksi. Contoh: “So, what's the game plan?”",
+   "caption": "Apa arti “game plan”?\n“game plan” = rencana aksi.\nContoh: “So, what's the game plan?” (Jadi, apa game plan-nya?)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “game plan” = rencana aksi. “So, what's the game plan?” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Test tomorrow. Where do we start?"
+ },
+ "src": {
+  "slang": "game plan"
+ },
+ "lang": "id",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Apa arti “game plan”?",
+  "keyword": "game plan",
+  "value": "“game plan” = rencana aksi. Contoh: “So, what's the game plan?”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “game plan”?",
+    "description": "“game plan” = rencana aksi. Contoh: “So, what's the game plan?”\n\nApa arti “game plan”?\n“game plan” = rencana aksi.\nContoh: “So, what's the game plan?” (Jadi, apa game plan-nya?)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "game plan",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “game plan”?\n“game plan” = rencana aksi.\nContoh: “So, what's the game plan?” (Jadi, apa game plan-nya?)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “game plan”?\n\n“game plan” = rencana aksi. Contoh: “So, what's the game plan?”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “game plan”? “game plan” = rencana aksi. Contoh: “So, what's the game plan?” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “game plan” = rencana aksi. “So, what's the game plan?” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

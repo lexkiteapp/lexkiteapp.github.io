@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ar_comfortfood",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 67,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sad day? Warm soup!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Comfort food!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Food that makes you feel better.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Warm soup is my comfort food.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "comfort food",
+  "forms": [
+   "comfort foods"
+  ],
+  "ipa": "/ˈkʌmfɚt ˈfuːd/",
+  "mean": "Food that makes you feel better.",
+  "define": "Simple food that makes you feel better and at home.",
+  "vi": "Món ăn an ủi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "Talking about a bad day",
+   "text": "Warm soup is my comfort food."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Comfort food\" makes you feel…",
+   "options": [
+    "cozy",
+    "nervous"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call hospital food your 'comfort food'.",
+   "why": "It means food that cozily soothes you."
+  },
+  "l1": "طعام مريح",
+  "l1_hook": "يوم حزين؟ حساء دافئ!",
+  "l1_ex": "الحساء الدافئ هو الـ \"comfort food\" بالنسبة لي.",
+  "right": "comfort food",
+  "native": {
+   "hook": "ما معنى “comfort food”؟",
+   "tip": "“comfort food” = طعام مريح. مثال: “Warm soup is my comfort food.”",
+   "caption": "ما معنى “comfort food”؟\n“comfort food” = طعام مريح.\nمثال: “Warm soup is my comfort food.” (الحساء الدافئ هو الـ \"comfort food\" بالنسبة لي.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “comfort food” = طعام مريح. “Warm soup is my comfort food.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sad day? Warm soup!"
+ },
+ "src": {
+  "slang": "comfort food"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 20,
+  "seconds": 11.5,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "ما معنى “comfort food”؟",
+  "keyword": "comfort food",
+  "value": "“comfort food” = طعام مريح. مثال: “Warm soup is my comfort food.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “comfort food”؟",
+    "description": "“comfort food” = طعام مريح. مثال: “Warm soup is my comfort food.”\n\nما معنى “comfort food”؟\n“comfort food” = طعام مريح.\nمثال: “Warm soup is my comfort food.” (الحساء الدافئ هو الـ \"comfort food\" بالنسبة لي.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "comfort food",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “comfort food”؟\n“comfort food” = طعام مريح.\nمثال: “Warm soup is my comfort food.” (الحساء الدافئ هو الـ \"comfort food\" بالنسبة لي.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “comfort food”؟\n\n“comfort food” = طعام مريح. مثال: “Warm soup is my comfort food.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “comfort food”؟ “comfort food” = طعام مريح. مثال: “Warm soup is my comfort food.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “comfort food” = طعام مريح. “Warm soup is my comfort food.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}
