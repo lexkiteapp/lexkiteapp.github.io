@@ -17,30 +17,6 @@
    "ux1-home@1440l",
    "ux1-home@1440d"
   ],
-  "tap|button#avatarBtn": [
-   "home@768l",
-   "vocab@768l",
-   "practice@768l",
-   "skills@768l",
-   "tests@768l",
-   "me@768l"
-  ],
-  "tap|button#examChip": [
-   "home@768l",
-   "vocab@768l",
-   "practice@768l",
-   "skills@768l",
-   "tests@768l",
-   "me@768l"
-  ],
-  "tap|button#langBtn": [
-   "home@768l",
-   "vocab@768l",
-   "practice@768l",
-   "skills@768l",
-   "tests@768l",
-   "me@768l"
-  ],
   "tap|button#rmGive": [
    "review@768l",
    "review-type@768l",
@@ -81,20 +57,6 @@
    "tests@768l",
    "me@768l"
   ],
-  "tap|div>div.row>button.btn.sm": [
-   "home@768l",
-   "home@768d",
-   "home@1440l",
-   "home@1440d"
-  ],
-  "tap|div>h4.text-[22px].tracking-[0em]>a.after:absolute.after:inset-0": [
-   "ux1-train@390l",
-   "ux1-train@390d",
-   "ux1-train@768l",
-   "ux1-train@768d",
-   "ux1-train@1440l",
-   "ux1-train@1440d"
-  ],
   "tap|main#view>div.page-head>button.btn.sm": [
    "skills@768l",
    "tests@768l",
@@ -102,18 +64,6 @@
    "skills@768d",
    "tests@768d",
    "stats@768d"
-  ],
-  "tap|main#view>div.today-head>a.goal-chip": [
-   "home@768l",
-   "home@768d",
-   "home@1440l",
-   "home@1440d"
-  ],
-  "tap|section.card.rings-card>div.rings-legend>a": [
-   "home@768l",
-   "home@768d",
-   "home@1440l",
-   "home@1440d"
   ],
   "wrap|span.pron2>span.pron-acc>button.icon-btn.sm": [
    "review-card@390l",
