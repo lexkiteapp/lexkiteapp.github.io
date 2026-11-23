@@ -39,7 +39,7 @@
 - [specs/content-upgrade-2.md](specs/content-upgrade-2.md) — Nâng cấp nội dung Đợt 2 (05/11): 3 làn gộp/mở khoá/viết, cổng QC, thứ tự O2→O5→O3→O4→O6; đọc khi: mở phiên content-lead hoặc Sonnet viết lô
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
 - [specs/merge-queue.md](specs/merge-queue.md) — Merge queue + chống xung đột PR, việc chủ bấm ở ruleset; đọc khi: PR kẹt hàng, sửa pr-unconflict
-- [specs/native-apps.md](specs/native-apps.md) — Spec app iOS (SwiftUI) + Android (Compose) native thay bản Capacitor: 29 mục parity (native/shared/parity.json), một nguồn sinh tokens/chuỗi 15 ngôn ngữ/khung/luật chấm điểm (scripts/native/gen.mjs), MVVM + SwiftData/Room, CI native-ios/native-android, lộ trình M0–M6; đọc khi: sửa native/, thêm route web, thay app trên store
+- [specs/native-apps.md](specs/native-apps.md) — Spec app iOS (SwiftUI) + Android (Compose) native thay bản Capacitor: 29 mục parity (native/shared/parity.json), một nguồn sinh tokens/chuỗi/khung/luật chấm (scripts/native/gen.mjs), MVVM + SwiftData/Room, lộ trình M0–M6; đọc khi: sửa native/, thêm route web, thay app trên store
 - [specs/native-m2-vectors.md](specs/native-m2-vectors.md) — Lược đồ vector M2 (bài học, rig giáo viên, âm thanh) + ảnh giáo viên đóng gói cho bản port Swift/Kotlin; đọc khi: port/sửa trình học bài, giáo viên, âm thanh native
 - [specs/native-m3-vectors.md](specs/native-m3-vectors.md) — Lược đồ vector M3 `vocab.json` (P04/P05) và kiểm kê màn từ vựng
 - [specs/native-m4-vectors.md](specs/native-m4-vectors.md) — Vector M4 `skills.json` (P06 nghe & đọc), kiểm kê màn; đọc khi: port nghe/đọc native
@@ -58,7 +58,7 @@
 - [CODEMAP.md](CODEMAP.md) — Bản đồ mã nguồn tự sinh (khu vực, god node, route, workflow, test, sửa-ở-đâu; json đầy đủ docs/codemap.json); đọc khi: ĐẦU MỖI PHIÊN, trước khi tìm code
 - [CI-RUNNERS.md](CI-RUNNERS.md) — Ngân sách 40 runner GitHub Pro (repo giữ công khai): việc nền ≤ ~20 (max-parallel), concurrency PR hủy lượt cũ, prod-release 1 lượt chờ, lượt ma queued; đọc khi: thêm workflow ma trận/nền hoặc check PR phải xếp hàng
 - [CI-SIGNING-IOS.md](CI-SIGNING-IOS.md) — Ký iOS trên CI bằng chứng chỉ Distribution cố định (secret p12 + hồ sơ), tạo/gia hạn, dọn chứng chỉ CI cũ; đọc khi: TestFlight đỏ vì ký/chứng chỉ, hoặc gia hạn hằng năm
-- [QUALITY-PIPELINE.md](QUALITY-PIPELINE.md) — Phương pháp "làm 1 lần ăn ngay" cho pipeline sinh nội dung (ảnh, kho từ): thước đo trước, nhánh riêng, pilot mẫu khó cố định, đạt mới hàng loạt, tự dừng khi tụt, mỗi lỗi một test; đọc khi: bắt đầu/đổi prompt, mô hình, giám khảo, nguồn
+- [QUALITY-PIPELINE.md](QUALITY-PIPELINE.md) — Phương pháp "làm 1 lần ăn ngay" cho pipeline sinh nội dung (ảnh, kho từ): thước đo trước, pilot mẫu khó, đạt mới hàng loạt, tự dừng khi tụt; đọc khi: bắt đầu/đổi prompt, mô hình, giám khảo, nguồn
 - [SYNC-DRIVE.md](SYNC-DRIVE.md) — Đồng bộ local-first qua Google Drive appDataFolder của chính người học: so sánh hạn mức, thiết kế, di chuyển từ D1, việc chủ duyệt; đọc khi: sửa đồng bộ/đăng nhập/xóa tài khoản.
 - [specs/account-flow.md](specs/account-flow.md) — Spec luồng tài khoản: hiện trạng, 8 lỗi kèm cách tái hiện, thiết kế đích, 5 mốc + việc của chủ; đọc khi: sửa đăng ký/đăng nhập/gộp/đồng bộ.
 - [FREE-TIER.md](FREE-TIER.md) — Free-tier guard hằng ngày: số dùng thật so với trần gói miễn phí (Workers, D1, R2, Pages build, repo), chế độ shed của Worker; đọc khi: thêm Worker/trang tự sinh/việc nền hoặc có issue free-tier
@@ -127,7 +127,7 @@
 - [specs/score-card.md](specs/score-card.md) — Thử thách nói 30 giây: thẻ điểm Canvas + link /c/<id> so điểm với bạn, chấm bằng Speak.score; đọc khi: sửa score30, api/challenge.js, functions/c, sự kiện sc_*.
 - [SEO-AUDIT-1211.md](archive/SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
 - [SEO-AUDIT-1511.md](archive/SEO-AUDIT-1511.md) — Soát live blog/từ R2/đề thi: lỗi + mức ưu tiên, đã sửa gì; đọc khi: làm SEO, sitemap, lastmod hoặc trang từ R2.
-- [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
+- [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/; đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
 - [specs/exit-button.md](specs/exit-button.md) — Lối thoát mọi màn học: nút X/Quay lại ở top-bar, Esc, back hệ thống, vuốt iOS, hỏi nhẹ khi đang dở (module web/js/exit-guard.js); đọc khi: thêm màn học/route mới, sửa top-bar màn học, exit-sweep đỏ
@@ -138,7 +138,7 @@
 - [specs/mediation.md](specs/mediation.md) — Trung gian (O3): định dạng content/mediation/m<NN>.json gắn Can-do M.*, nguồn theo cấp, ý cần/ý bỏ, bài mẫu; cổng mediation-check; đọc khi viết/soát lô S-MED hoặc làm màn luyện trung gian
 - [specs/spanish-course.md](specs/spanish-course.md) — Khóa tiếng Tây Ban Nha (tl `es`) cho 14 ngôn ngữ: mở rộng Target, nguồn miễn phí + giấy phép, 8 đợt W0–W7, ước tính token/CI, 6 cổng QC, điểm chủ quyết.
 - [specs/french-course.md](specs/french-course.md) — Khóa tiếng Pháp (tl `fr`) cho 14 ngôn ngữ: cùng engine với es, nguồn miễn phí, 8 đợt W0–W7, h muet/aspiré + tu/vous, cổng QC; đọc khi thêm ngôn ngữ đích thứ ba hoặc đụng `content/target/fr/`.
-- [specs/japanese-course.md](specs/japanese-course.md) — Khóa tiếng Nhật (tl `ja`, JLPT N5→N1) cho 14 ngôn ngữ: cùng engine es/fr, đặc thù chữ viết gom ở `scripts/target/ja-kana.mjs` (kana → romaji IME/IPA, mora, cao độ, furigana, chấm IME), nguồn miễn phí, 8 đợt W0–W7, cổng QC; đọc khi đụng `content/target/ja/` hoặc giả định từ cách nhau bằng khoảng trắng.
+- [specs/japanese-course.md](specs/japanese-course.md) — Khóa tiếng Nhật (tl `ja`, JLPT N5→N1) cho 14 ngôn ngữ: cùng engine es/fr, đặc thù chữ viết ở `scripts/target/ja-kana.mjs` (kana → romaji/IPA, mora, furigana, chấm IME), 8 đợt W0–W7; đọc khi đụng `content/target/ja/`.
 - [specs/korean-course.md](specs/korean-course.md) — Khóa tiếng Hàn (tl `ko`, TOPIK 1→6): như es/fr/ja, đặc thù ở `ko-hangul.mjs`; đọc khi đụng `content/target/ko/`.
 - [specs/spanish-exam-w5.md](specs/spanish-exam-w5.md) — W5 luyện định dạng DELE/SIELE (spec + trạng thái đợt 1); đọc khi làm thi thử TBN
 - [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau live; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
@@ -190,6 +190,7 @@
 - [NEW-UI-QA.md](NEW-UI-QA.md) — Soát hình các màn mới trên CI (15 ngôn ngữ × 4 khung × sáng/tối, đầu dò tràn/che/44 px/tương phản/nhân vật, contact sheet); đọc khi: sửa màn bài học, chuỗi, giáo viên, video
 - [research/latent-bugs-1611.md](research/latent-bugs-1611.md) — Soát lỗi tiềm ẩn trên main 16/11 (6 vùng, kiểm lại độc lập, nhóm theo chủ vùng, 2 P0 + 6 P1); đọc khi: nhận việc sửa lỗi trong vùng của mình
 
-- [specs/top1-upgrade-plan.md](specs/top1-upgrade-plan.md) — Kế hoạch lên top 1 từ kiểm toán CI 18/11 (so Duolingo/Speak/ELSA/Cake theo hành trình; UI/UX, nội dung, tính năng; thước đo, thứ tự); đọc khi: chọn việc nâng chất lượng, vẽ màn Stitch mới
+- [specs/top1-upgrade-plan.md](specs/top1-upgrade-plan.md) — Kế hoạch lên top 1 từ kiểm toán CI 18/11 (so Duolingo/Speak/ELSA/Cake; UI/UX, nội dung, tính năng); đọc khi: chọn việc nâng chất lượng, vẽ màn Stitch mới
 - [specs/stitch-v2-group-b.md](specs/stitch-v2-group-b.md) — Port 5 màn Stitch v2 nhóm B (Thư viện, Bộ từ, Chủ đề, Sổ lỗi sai, Tiến độ) từ #247, mỗi màn một PR; đọc khi làm màn nhóm B
+- [specs/chon-cta-khu-b.md](specs/chon-cta-khu-b.md) — Một kiểu chọn (.on) + một CTA chính/màn (khu B rà soát 23/11); đọc khi: sửa chip/tab/thẻ chọn hoặc nút chính
 

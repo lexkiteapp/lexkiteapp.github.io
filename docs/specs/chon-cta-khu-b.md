@@ -10,7 +10,7 @@
 
 ## Quyết định (khuôn duy nhất)
 **Chọn** — tài liệu tham chiếu: bảng kỳ thi #1926 (`web/css/tl-pick.css` `.tlp-row.on`).
-- `.on`, `[aria-pressed="true"]`, `[aria-selected="true"]` (chip, tab, thẻ, ô lưới) → `border-color: var(--done)`, `background: var(--accent-soft)`, dấu ✓ tròn (trong ô hoặc `::after`), viền 2 px nên thấy được ở tối.
+- `.on`, `[aria-pressed="true"]`, `[aria-selected="true"]` (chip, tab, thẻ, ô lưới) → `border-color: var(--done)`, `background: var(--accent-soft)`, viền 2 px (inset) nên thấy được ở tối; chip có thêm dấu ✓ (`.chip.on::before`), tab chỉ vòng + nền (không đổi bề rộng).
 - `:hover` (chỉ `@media (hover:hover)`) → chỉ `background: var(--surface-2)`, KHÔNG đổi viền/màu viền.
 - `:focus-visible` → `outline: 3px solid var(--accent); outline-offset: 2px` (vòng riêng, không lẫn trạng thái chọn).
 - Bỏ: nền nâu đục, viền cam/đỏ, checkbox native trong thẻ (dùng ✓ tròn Stitch), chip "Tất cả" gradient.
