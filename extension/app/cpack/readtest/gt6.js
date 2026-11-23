@@ -345,7 +345,7 @@ items: [
 options: ['Artificial light made the evenings longer and more productive.', 'Electric lamps were introduced, but they were more expensive.', 'Physicians started advising people to nap during the day.', 'Seasonal daylight increased, making evenings brighter earlier.'],
 a: 0, cue: 'evenings became longer and more productive' },
 { n: 40, q: 'What is the writer\'s main purpose in paragraph G?',
-options: ['to denounce the methods used by sleep specialists', 'to demonstrate that the traditional theory is accurate', 'to recommend a balanced and more relaxed attitude to sleep', 'to claim that people can function well with far less than eight hours of sleep'],
+options: ['to criticise the work of sleep therapists', 'to prove that the historical theory is correct', 'to recommend a balanced and more relaxed attitude to sleep', 'to argue that nobody needs eight hours of rest'],
 a: 2, cue: 'people would benefit from a more relaxed attitude towards sleep' },
 ] },
 ],

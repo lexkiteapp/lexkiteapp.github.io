@@ -292,7 +292,7 @@ script: [
 { s: 'P', t: "Because these formations grow in layers, a bit like tree rings, scientists can use them to study past climates. But please don't touch them if you visit a cave. Oils from human skin can stop the calcite from building up, and a formation that took thousands of years to grow can be damaged in seconds." },
 ],
 groups: [mcq('Answer the questions about the talk.', [
-{ n: 55, q: 'What is the talk mainly about?', options: ['The structural properties that make limestone suitable for construction', 'How rivers cut deep valleys through rock', 'The chemical processes that form limestone caves and their features', 'The safety guidelines for conducting cave exploration tours'], a: 2, cue: "It's chemistry",
+{ n: 55, q: 'What is the talk mainly about?', options: ['Why limestone is used as a building material', 'How rivers cut deep valleys through rock', 'The chemical processes that form limestone caves and their features', 'How to explore caves safely'], a: 2, cue: "It's chemistry",
 explain: "Câu hỏi ý chính: giáo sư giải thích hang lớn hình thành chủ yếu nhờ phản ứng hóa học (nước có tính axit hòa tan đá vôi) và cùng cơ chế đó tạo ra thạch nhũ, măng đá. Sông tạo thung lũng chỉ là bài tuần trước." },
 { n: 56, q: 'Why is rainwater able to dissolve limestone?', options: ['It becomes warm deep underground.', 'It flows very fast through underground passages.', 'It contains small pieces of sand that wear away rock.', 'It becomes slightly acidic after taking in carbon dioxide.'], a: 3, cue: 'carbonic acid',
 explain: "Nước mưa hấp thụ CO₂ từ không khí và nhất là từ đất, trở nên \"slightly acidic\" (chứa axit cacbonic yếu) nên hòa tan được canxit trong đá vôi. Giáo sư nhấn mạnh công cụ chính KHÔNG phải dòng nước chảy xiết." },

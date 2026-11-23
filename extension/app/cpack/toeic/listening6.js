@@ -328,8 +328,8 @@ items: [
 explain: 'Anh trả phòng nhưng tối mới bay nên hỏi "Is there somewhere I can leave my suitcases?" (có chỗ nào để gửi vali không?) → gửi hành lý. Chuyến bay vẫn giữ nguyên lúc 9 giờ tối; anh không xin ở thêm hay nâng hạng phòng.' },
 { n: 33, q: 'What problem does the man mention?', options: ['He was charged for something he did not use.', 'His room was not cleaned by the staff.', 'The minibar items were completely expired.', 'His luggage claim ticket was misplaced.'], a: 0, cue: "I noticed a charge on my bill for the minibar, but I didn't take anything from it",
 explain: 'Người đàn ông phàn nàn bị tính tiền minibar dù "didn\'t take anything from it" (không dùng đồ), nghĩa là bị charged cho dịch vụ không sử dụng. Bài không đề cập đồ hết hạn hay phòng chưa dọn.' },
-{ n: 34, q: 'What does the woman say about the airport shuttle?', options: ['The shuttle runs every 30 minutes.', 'Tickets can be bought at the front desk.', 'Payment is required at the airport kiosk.', 'The service operates only on weekdays.'], a: 1, cue: 'you can buy a ticket right here at the desk',
-explain: 'Cô nói rằng vé xe đưa đón có thể mua ngay tại quầy lễ tân, vì vậy việc trả tiền và mua vé diễn ra tại chỗ, không liên quan đến việc xe chạy miễn phí hay khởi hành từ bãi đỗ xe.' },
+{ n: 34, q: 'What does the woman say about the airport shuttle?', options: ['It is free for hotel guests.', 'Tickets can be bought at the front desk.', 'It leaves from a parking garage.', 'It must be booked a day in advance.'], a: 1, cue: 'you can buy a ticket right here at the desk',
+explain: 'Xe đưa đón chạy mỗi giờ từ lối vào chính, giá 12 đô la và "you can buy a ticket right here at the desk" → mua vé ngay tại quầy lễ tân. Xe có thu phí (không miễn phí), khởi hành từ lối vào chính chứ không phải bãi đỗ xe.' },
 ] },
 { type: 'mcq', instr: g.TQL[17],
 items: [
@@ -378,8 +378,8 @@ explain: 'Đoàn được tham quan hậu trường miễn phí ("a free backsta
 ] },
 { type: 'mcq', instr: g.TQL[22],
 items: [
-{ n: 50, q: g.TQL[44], options: ['A purchase of laboratory instruments', 'Construction of a research facility', 'A staff position application', 'A report for a funding organization'], a: 3, cue: 'the progress report for our research grant is due to the foundation',
-explain: 'Đáp án D đúng vì nội dung nói về báo cáo tiến độ cần nộp cho quỹ tài trợ. Các lựa chọn khác đề cập đến bán thiết bị, xây dựng phòng thí nghiệm, hoặc xin việc, không liên quan tới báo cáo.' },
+{ n: 50, q: g.TQL[44], options: ['An equipment sale', 'A new laboratory building', 'An application for a job', 'A report for a funding organization'], a: 3, cue: 'the progress report for our research grant is due to the foundation',
+explain: 'Họ bàn về báo cáo tiến độ khoản tài trợ nghiên cứu phải nộp cho quỹ ("foundation") → báo cáo cho tổ chức tài trợ.' },
 { n: 51, q: 'According to Rosalind, why was spending higher than planned?', options: ['More staff were hired.', 'An experiment had to be repeated.', 'Equipment costs increased.', 'The lab moved to a new building.'], a: 2, cue: 'The supplier raised its prices in March',
 explain: 'Nhà cung cấp tăng giá và phải thay kính hiển vi hỏng → chi phí thiết bị tăng.' },
 { n: 52, q: 'What will the speakers do by Friday?', options: ['Review a draft', 'Buy a new microscope', 'Meet with the foundation', 'Submit the report'], a: 0, cue: "Let's each review the full draft by Friday",
@@ -432,7 +432,7 @@ explain: 'Nina được giao tổng hợp nhận xét và gửi cho công ty thi
 ] },
 { type: 'mcq', instr: g.TQL[28],
 items: [
-{ n: 68, q: g.TQL[44], options: ['A new cafeteria menu', 'A company bike-share program', 'A workplace wellness seminar', 'An office lighting upgrade'], a: 1, cue: 'the new bike-share program for employees',
+{ n: 68, q: g.TQL[44], options: ['A new bus route', 'A company bike-share program', 'A fitness challenge', 'A building renovation'], a: 1, cue: 'the new bike-share program for employees',
 explain: 'Chủ đề là chương trình xe đạp dùng chung cho nhân viên ("bike-share program"). Vòi sen chỉ là chi tiết phụ.' },
 { n: 69, q: 'What does the man mean when he says, "that settles it"?', options: ['He has decided to join the program.', 'He has paid a fee.', 'He will move closer to the office.', 'He has fixed his bicycle.'], a: 0, cue: 'that settles it',
 explain: '"That settles it" = vậy là quyết rồi. Sau khi nghe các lợi ích (trạm xe ngay trước tòa nhà, sắp có phòng tắm), anh quyết định tham gia và hỏi ngay cách đăng ký.' },
@@ -623,8 +623,8 @@ items: [
 explain: 'Podcast du lịch về "places most tourists never see" – những nơi ít du khách biết đến. Ngư dân chỉ là một khách mời trong tập này.' },
 { n: 90, q: "What does the speaker mean when she says, \"there wasn't a single empty bed in town\"?", options: ['The village has no hotels.', 'She did not plan to stay overnight.', 'Accommodation was fully booked.', 'The festival was canceled.'], a: 2, cue: "there wasn't a single empty bed in town",
 explain: 'Cô đến đúng dịp lễ hội thuyền nên cả thị trấn không còn một giường trống → mọi chỗ ở đều đã kín. Ngay sau đó, một gia đình địa phương cho cô ở nhờ, khẳng định ý này.' },
-{ n: 91, q: 'How can listeners suggest a place to visit?', options: ['By emailing the program team', 'By telephone to the broadcast center', 'By sharing a picture online', 'By leaving a voice message online'], a: 3, cue: 'you can leave a voice message on our website',
-explain: 'Đáp án D đúng vì người nghe được hướng dẫn để lại tin nhắn thoại trên trang web. Các cách khác như gửi email, gọi điện hoặc chia sẻ ảnh không phải là phương thức được nêu.' },
+{ n: 91, q: 'How can listeners suggest a place to visit?', options: ['By sending an e-mail', 'By calling the studio', 'By posting a photo', 'By leaving a voice message online'], a: 3, cue: 'you can leave a voice message on our website',
+explain: 'Thính giả muốn giới thiệu địa điểm có thể để lại tin nhắn thoại trên website của chương trình.' },
 ] },
 { type: 'mcq', instr: g.TQL[36],
 items: [
