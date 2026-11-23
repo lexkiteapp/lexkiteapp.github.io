@@ -57,14 +57,6 @@
    "tests@768l",
    "me@768l"
   ],
-  "tap|div>h4.text-[22px].tracking-[0em]>a.after:absolute.after:inset-0": [
-   "ux1-train@390l",
-   "ux1-train@390d",
-   "ux1-train@768l",
-   "ux1-train@768d",
-   "ux1-train@1440l",
-   "ux1-train@1440d"
-  ],
   "tap|main#view>div.page-head>button.btn.sm": [
    "skills@768l",
    "tests@768l",
