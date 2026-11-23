@@ -3,7 +3,7 @@
 // Luật 2: nội dung cuối trang không bị thanh dưới dính che (cuộn tới đáy, chữ cuối cùng phải nằm trên mép trên của thanh dính đáy). Route cũ còn vi phạm nằm trong
 //   scripts/test/chrome-fit-baseline.json (chỉ GIẢM, không thêm: route mới/đã sạch mà vi phạm = đỏ).
 // Luật 3: MỘT nút chính (.btn.primary / button.primary) nhìn thấy trong màn đầu (route cũ nhiều hơn 1 nằm baseline.prim, chỉ giảm).
-// Luật 4 (cứng): trong mỗi [role=radiogroup] chỉ ≤ 1 mục aria-checked=true, và .on ⇔ aria-checked=true (một kiểu chọn, không mơ hồ).
+// Luật 4 (cứng): trong mỗi [role=radiogroup] chỉ ≤ 1 mục aria-checked=true, và nếu nhóm dùng class .on thì .on ⇔ aria-checked=true (một kiểu chọn, không mơ hồ).
 // Dùng: node scripts/test/chrome-fit.mjs <base> [--write-baseline]
 import { chromium } from 'playwright'; import fs from 'fs';
 const BASE = (process.argv[2] || 'http://localhost:8080').replace(/\/$/, ''), WRITE = process.argv.includes('--write-baseline');
@@ -34,7 +34,7 @@ for (const [W, H] of [[390, 844], [768, 1024]]) {
       const last = leaves.map(e => e.getBoundingClientRect()).filter(q => q.bottom > 0).sort((a, b) => b.bottom - a.bottom)[0];
       scrollTo(0, 0);
       const pr = [...document.querySelectorAll('#view .btn.primary, #view button.primary')].filter(e => vis(e) && e.getBoundingClientRect().top < vh && !e.closest('[hidden],.hidden,[aria-hidden=true]')).length;
-      const rg = [...document.querySelectorAll('[role=radiogroup]')].flatMap(g => { const it = [...g.querySelectorAll('[role=radio]')], on = it.filter(x => x.getAttribute('aria-checked') === 'true'); const mism = it.filter(x => x.classList.contains('on') !== (x.getAttribute('aria-checked') === 'true')); return [...(on.length > 1 ? ['nhiều hơn 1 mục chọn'] : []), ...(mism.length ? ['.on lệch aria-checked'] : [])]; });
+      const rg = [...document.querySelectorAll('[role=radiogroup]')].flatMap(g => { const it = [...g.querySelectorAll('[role=radio]')], on = it.filter(x => x.getAttribute('aria-checked') === 'true'); const mism = it.some(x => x.classList.contains('on')) ? it.filter(x => x.classList.contains('on') !== (x.getAttribute('aria-checked') === 'true')) : []; return [...(on.length > 1 ? ['nhiều hơn 1 mục chọn'] : []), ...(mism.length ? ['.on lệch aria-checked'] : [])]; });
       return { pr, rg, bad, covered: !!(last && last.bottom > top + 2), over: last ? Math.round(last.bottom - top) : 0 };
     }).catch(e => ({ bad: [], covered: false, err: String(e.message).slice(0, 60) }));
     r.bad.forEach(b => hard.push(`${h}@${W}: ${b}`)); (r.rg || []).forEach(b => hard.push(`${h}@${W}: radiogroup ${b}`)); if (r.covered) cover.push(`${h}@${W}`); if (r.pr > 1) prim.push(`${h}@${W}`);
