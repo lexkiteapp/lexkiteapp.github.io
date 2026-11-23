@@ -33,7 +33,7 @@ ok(recheckVerdict(st('pending'), 1) === 'wait' && recheckVerdict(st('failure'), 
 ok(statusOf([{ id: 'size-budget', ok: false }, { id: 'fmt', ok: true }], 'abcdef0123').state === 'failure' && /size-budget/.test(statusOf([{ id: 'size-budget', ok: false }], 'abcdef0123').description) && statusOf([{ id: 'fmt', ok: true }], 'abcdef0123').state === 'success' && CONTEXT === 'merge-recheck', 'status ghép kết quả');
 { const g = fs.readFileSync('scripts/ci/required-gate.mjs', 'utf8'), w = fs.readFileSync('.github/workflows/merge-recheck.yml', 'utf8');
   ok(/recheck: async sha/.test(g) && /withRecheck/.test(g) && /RECHECK_CONTEXT\) continue/.test(g), 'required-gate gọi merge-recheck và không đếm status của nó như check PR');
-  ok(/git merge --no-commit/.test(w) && /show "\$\{\{ inputs\.main \}\}:scripts\/ci\/cheap\.mjs"/.test(w) && !/GITHUB_TOKEN[^\n]*\n[^\n]*npm ci/.test(w), 'merge-recheck: ghép main, mã đo lấy từ main, bước chạy mã PR không token'); }
+  ok(/git merge --no-commit/.test(w) && /show "\$MAIN:scripts\/ci\/cheap\.mjs"/.test(w) && !/GITHUB_TOKEN[^\n]*\n[^\n]*npm ci/.test(w), 'merge-recheck: ghép main, mã đo lấy từ main, bước chạy mã PR không token'); }
 
 // ---- 3) không đốt runner khi main đỏ
 const R = (conclusion, extra = {}) => ({ status: 'completed', conclusion, ...extra });

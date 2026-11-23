@@ -24,9 +24,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - name: Mã đo lấy từ main (không tin mã của PR)
+        env: { MAIN: '${{ inputs.main }}' }
         run: |
           git fetch --no-tags origin main
-          git show "${{ inputs.main }}:scripts/ci/cheap.mjs" > "$RUNNER_TEMP/cheap.mjs"
+          git show "$MAIN:scripts/ci/cheap.mjs" > "$RUNNER_TEMP/cheap.mjs"
       - name: Ghép main vào đầu PR (không commit) rồi chạy check rẻ (không token)
         env: { MAIN: '${{ inputs.main }}' }
         run: |
