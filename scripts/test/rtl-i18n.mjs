@@ -9,10 +9,10 @@ const rd = f => fs.readFileSync(new URL(f, import.meta.url), 'utf8');
 const css = rd('../../web/css/style.css'), ui = rd('../../web/js/ui.js');
 ok(/\[dir="rtl"\]\s*\.i-dir\s*\{[^}]*scaleX\(-1\)/.test(css), 'style.css thiếu [dir="rtl"] .i-dir { transform: scaleX(-1) }');
 const dir = (ui.match(/const DIRI = \/(.+)\/;/) || [])[1] || '';
-for (const nm of ['arrow-left', 'arrow-right', 'chevron-left', 'chevron-right', 'chevrons-right', 'skip-forward']) ok(new RegExp(dir).test(nm), `UI.icon: "${nm}" phải tự có .i-dir (DIRI)`);
+for (const nm of ['arrow-left', 'arrow-right', 'chevron-left', 'chevron-right', 'chevrons-right', 'skip-forward']) ok(new RegExp(dir).test(nm.replace(/-/g, '_')), `UI.icon: "${nm}" phải tự có .i-dir (DIRI)`);
 for (const nm of ['x', 'search', 'check', 'arrow-up', 'volume-2']) ok(!new RegExp(dir).test(nm), `UI.icon: icon không hướng "${nm}" không được lật`);
 ok(/const rtlFix\b/.test(ui) && /documentElement\.dir !== 'rtl'/.test(ui) && /createElement\('bdi'\)/.test(ui), 'ui.js thiếu rtlFix (Material Symbols / "→" / bdi)');
-ok(new RegExp((ui.match(/const MDIR = \/(.+)\/;/) || [])[1] || '$^').test('chevron_right'), 'MDIR thiếu chevron_right');
+ok(new RegExp(dir || '$^').test('chevron_right'), 'DIRI thiếu chevron_right (Material)');
 ok(/bdi\[dir="ltr"\]\s*\{[^}]*unicode-bidi:\s*isolate/.test(css), 'style.css thiếu bdi[dir="ltr"] { unicode-bidi: isolate }');
 
 // (b)
