@@ -325,3 +325,11 @@ html.native .v2 .w-head { padding-top: env(safe-area-inset-top, 0px); height: au
 .ai-err .bad { color: #e11d48; text-decoration: line-through; } .ai-err .good { color: var(--good-text); font-weight: 700; }
 .ai-vocab { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .4rem .9rem; margin-top: .3rem; font-size: .9rem; }
 .ai-ex { margin-top: .6rem; padding: .6rem .7rem; border-radius: 12px; background: rgba(22, 163, 74, .08); border: 1px solid rgba(22, 163, 74, .25); }
+.exam-list { display: grid; gap: .5rem; margin-top: .8rem; }
+.exam-opt { display: flex; align-items: center; gap: .8rem; width: 100%; text-align: start; padding: .8rem 1rem; border: 1.5px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--text); font: inherit; cursor: pointer; transition: border-color .15s, background .15s; }
+@media (hover: hover) { .exam-opt:hover { border-color: var(--primary); }
+}
+.exam-opt.on { border-color: var(--primary); background: var(--primary-soft); }
+.exam-opt .em { font-size: 1.5rem; }
+.exam-opt small { display: block; color: var(--muted); font-size: .82rem; margin-top: .1rem; }
+.exam-opt .tick { margin-left: auto; color: var(--primary); font-weight: 800; }
