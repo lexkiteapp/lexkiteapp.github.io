@@ -1,0 +1,149 @@
+{
+ "id": "t2s_vi_clapback",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 45,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He mocked her. She replied!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Clap back!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Reply with a sharp comeback.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She clapped back with a great reply.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "clap back",
+  "forms": [
+   "clapback",
+   "clapped back"
+  ],
+  "ipa": "/ˈklæp ˈbæk/",
+  "mean": "Reply with a sharp comeback.",
+  "define": "To answer criticism quickly and cleverly.",
+  "vi": "Đáp trả sắc sảo",
+  "reg": "casual",
+  "region": "US",
+  "level": "C1",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Reading online comments",
+   "text": "She clapped back with a great reply."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"clap back\" is to…",
+   "options": [
+    "reply sharply",
+    "applaud"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't 'clap back' at a parent's advice.",
+   "why": "It sounds disrespectful."
+  },
+  "l1": "Đáp trả sắc sảo",
+  "l1_hook": "Ổng chê cổ. Cổ đáp trả liền!",
+  "l1_ex": "Cổ clapped back bằng một câu đáp trả đỉnh.",
+  "right": "clap back",
+  "native": {
+   "hook": "“clap back” nghĩa là gì?",
+   "tip": "“clap back” = Đáp trả sắc sảo. Ví dụ: “She clapped back with a great reply.”",
+   "caption": "“clap back” nghĩa là gì?\n“clap back” = Đáp trả sắc sảo.\nVí dụ: “She clapped back with a great reply.” (Cổ clapped back bằng một câu đáp trả đỉnh.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “clap back” = Đáp trả sắc sảo. “She clapped back with a great reply.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He mocked her. She replied!"
+ },
+ "src": {
+  "slang": "clap back"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "“clap back” nghĩa là gì?",
+  "keyword": "clap back",
+  "value": "“clap back” = Đáp trả sắc sảo. Ví dụ: “She clapped back with a great reply.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“clap back” nghĩa là gì?",
+    "description": "“clap back” = Đáp trả sắc sảo. Ví dụ: “She clapped back with a great reply.”\n\n“clap back” nghĩa là gì?\n“clap back” = Đáp trả sắc sảo.\nVí dụ: “She clapped back with a great reply.” (Cổ clapped back bằng một câu đáp trả đỉnh.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "clap back",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“clap back” nghĩa là gì?\n“clap back” = Đáp trả sắc sảo.\nVí dụ: “She clapped back with a great reply.” (Cổ clapped back bằng một câu đáp trả đỉnh.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“clap back” nghĩa là gì?\n\n“clap back” = Đáp trả sắc sảo. Ví dụ: “She clapped back with a great reply.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“clap back” nghĩa là gì? “clap back” = Đáp trả sắc sảo. Ví dụ: “She clapped back with a great reply.” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “clap back” = Đáp trả sắc sảo. “She clapped back with a great reply.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

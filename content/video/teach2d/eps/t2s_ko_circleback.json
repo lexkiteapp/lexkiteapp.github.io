@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_circleback",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 42,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No time now. Later?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Circle back!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Return to this later.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's circle back to that after lunch.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "circle back",
+  "forms": [],
+  "ipa": "/ˈsɜːrkl ˈbæk/",
+  "mean": "Return to this later.",
+  "define": "To come back to a topic after other things.",
+  "vi": "Quay lại sau nhé",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "In a team meeting",
+   "text": "Let's circle back to that after lunch."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Circle back\" means…",
+   "options": [
+    "walk in circles",
+    "return to it later"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'circle back' when you'll ignore it.",
+   "why": "People will wait for your reply."
+  },
+  "l1": "나중에 다시 다루다",
+  "l1_hook": "지금은 시간이 없어. \"circle back\" 할래?",
+  "l1_ex": "점심 먹고 나서 그 문제로 다시 돌아오죠('circle back').",
+  "right": "circle back",
+  "native": {
+   "hook": "“circle back” 무슨 뜻일까요?",
+   "tip": "“circle back” = 나중에 다시 다루다. 예문: “Let's circle back to that after lunch.”",
+   "caption": "“circle back” 무슨 뜻일까요?\n“circle back” = 나중에 다시 다루다.\n예문: “Let's circle back to that after lunch.” (점심 먹고 나서 그 문제로 다시 돌아오죠('circle back').)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “circle back” = 나중에 다시 다루다. “Let's circle back to that after lunch.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "No time now. Later?"
+ },
+ "src": {
+  "slang": "circle back"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“circle back” 무슨 뜻일까요?",
+  "keyword": "circle back",
+  "value": "“circle back” = 나중에 다시 다루다. 예문: “Let's circle back to that after lunch.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“circle back” 무슨 뜻일까요?",
+    "description": "“circle back” = 나중에 다시 다루다. 예문: “Let's circle back to that after lunch.”\n\n“circle back” 무슨 뜻일까요?\n“circle back” = 나중에 다시 다루다.\n예문: “Let's circle back to that after lunch.” (점심 먹고 나서 그 문제로 다시 돌아오죠('circle back').)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "circle back",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“circle back” 무슨 뜻일까요?\n“circle back” = 나중에 다시 다루다.\n예문: “Let's circle back to that after lunch.” (점심 먹고 나서 그 문제로 다시 돌아오죠('circle back').)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“circle back” 무슨 뜻일까요?\n\n“circle back” = 나중에 다시 다루다. 예문: “Let's circle back to that after lunch.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“circle back” 무슨 뜻일까요? “circle back” = 나중에 다시 다루다. 예문: “Let's circle back to that after lunch.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “circle back” = 나중에 다시 다루다. “Let's circle back to that after lunch.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

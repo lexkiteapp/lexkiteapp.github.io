@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ko_drip",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 46,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New jacket, new shoes, new confidence!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Drip!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very stylish clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Nice jacket, you've got drip today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "drip",
+  "forms": [],
+  "ipa": "/ˈdrɪp/",
+  "mean": "Very stylish clothes.",
+  "define": "Slang for cool clothes and a stylish look.",
+  "vi": "Phong cách chất lừ",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Seeing a friend's outfit",
+   "text": "Nice jacket, you've got drip today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Drip\" means…",
+   "options": [
+    "a water drop",
+    "a cool style"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your boss 'nice drip' at work.",
+   "why": "It's too slangy for formal settings."
+  },
+  "l1": "멋",
+  "l1_hook": "새 재킷, 새 신발, 새 자신감! \"drip\".",
+  "l1_ex": "멋진 재킷이네, 오늘 'drip' 좀 있는데.",
+  "right": "drip",
+  "native": {
+   "hook": "“drip” 무슨 뜻일까요?",
+   "tip": "“drip” = 멋. 예문: “Nice jacket, you've got drip today.”",
+   "caption": "“drip” 무슨 뜻일까요?\n“drip” = 멋.\n예문: “Nice jacket, you've got drip today.” (멋진 재킷이네, 오늘 'drip' 좀 있는데.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “drip” = 멋. “Nice jacket, you've got drip today.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "New jacket, new shoes, new confidence!"
+ },
+ "src": {
+  "slang": "drip"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“drip” 무슨 뜻일까요?",
+  "keyword": "drip",
+  "value": "“drip” = 멋. 예문: “Nice jacket, you've got drip today.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“drip” 무슨 뜻일까요?",
+    "description": "“drip” = 멋. 예문: “Nice jacket, you've got drip today.”\n\n“drip” 무슨 뜻일까요?\n“drip” = 멋.\n예문: “Nice jacket, you've got drip today.” (멋진 재킷이네, 오늘 'drip' 좀 있는데.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "drip",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“drip” 무슨 뜻일까요?\n“drip” = 멋.\n예문: “Nice jacket, you've got drip today.” (멋진 재킷이네, 오늘 'drip' 좀 있는데.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“drip” 무슨 뜻일까요?\n\n“drip” = 멋. 예문: “Nice jacket, you've got drip today.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“drip” 무슨 뜻일까요? “drip” = 멋. 예문: “Nice jacket, you've got drip today.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “drip” = 멋. “Nice jacket, you've got drip today.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

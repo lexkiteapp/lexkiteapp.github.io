@@ -1,0 +1,150 @@
+{
+ "id": "t2s_de_catchyoulater",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 87,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gotta go. Class starts now!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Catch you later!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "See you later.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Catch you later, I have to go!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "catch you later",
+  "forms": [],
+  "ipa": "/ˈkætʃ ju ˈleɪtɚ/",
+  "mean": "See you later.",
+  "define": "A friendly, casual goodbye.",
+  "vi": "Gặp lại sau nhé",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Leaving a friend",
+   "text": "Catch you later, I have to go!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It's a way to say…",
+   "options": [
+    "stop that thief",
+    "goodbye"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't end a formal interview with 'catch you later'.",
+   "why": "It's too casual for formal talks."
+  },
+  "l1": "bis später",
+  "l1_hook": "Muss los, der Unterricht beginnt jetzt! 'catch you later'!",
+  "l1_ex": "\\\"Catch you later\\\", ich muss gehen!",
+  "right": "catch you later",
+  "native": {
+   "hook": "Was heißt “catch you later”?",
+   "tip": "“catch you later” = bis später. Beispiel: “Catch you later, I have to go!”",
+   "caption": "Was heißt “catch you later”?\n“catch you later” = bis später.\nBeispiel: “Catch you later, I have to go!” (\\\"Catch you later\\\", ich muss gehen!)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “catch you later” = bis später. “Catch you later, I have to go!” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gotta go. Class starts now!"
+ },
+ "src": {
+  "slang": "catch you later"
+ },
+ "lang": "de",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Was heißt “catch you later”?",
+  "keyword": "catch you later",
+  "value": "“catch you later” = bis später. Beispiel: “Catch you later, I have to go!”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “catch you later”?",
+    "description": "“catch you later” = bis später. Beispiel: “Catch you later, I have to go!”\n\nWas heißt “catch you later”?\n“catch you later” = bis später.\nBeispiel: “Catch you later, I have to go!” (\\\"Catch you later\\\", ich muss gehen!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "catch you later",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “catch you later”?\n“catch you later” = bis später.\nBeispiel: “Catch you later, I have to go!” (\\\"Catch you later\\\", ich muss gehen!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “catch you later”?\n\n“catch you later” = bis später. Beispiel: “Catch you later, I have to go!”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “catch you later”? “catch you later” = bis später. Beispiel: “Catch you later, I have to go!” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “catch you later” = bis später. “Catch you later, I have to go!” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

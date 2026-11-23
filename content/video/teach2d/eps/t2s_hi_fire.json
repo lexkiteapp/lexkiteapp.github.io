@@ -1,0 +1,150 @@
+{
+ "id": "t2s_hi_fire",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 93,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at my new sneakers!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Fire!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's really cool.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Those sneakers are fire!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "fire",
+  "forms": [],
+  "ipa": "/ˈfaɪɚ/",
+  "mean": "That's really cool.",
+  "define": "Slang for something excellent or stylish.",
+  "vi": "Quá đỉnh",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "praise",
+  "example": {
+   "ctx": "Seeing a friend's shoes",
+   "text": "Those sneakers are fire!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Fire\" means…",
+   "options": [
+    "dangerous",
+    "excellent"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't yell 'fire' in a crowded room.",
+   "why": "People will panic, not praise."
+  },
+  "l1": "बहुत शानदार",
+  "l1_hook": "मेरे नए स्नीकर्स देखो! ये \"fire\" है।",
+  "l1_ex": "वो स्नीकर्स fire हैं।",
+  "right": "fire",
+  "native": {
+   "hook": "“fire” का मतलब क्या है?",
+   "tip": "“fire” = बहुत शानदार. उदाहरण: “Those sneakers are fire!”",
+   "caption": "“fire” का मतलब क्या है?\n“fire” = बहुत शानदार.\nउदाहरण: “Those sneakers are fire!” (वो स्नीकर्स fire हैं।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “fire” = बहुत शानदार. “Those sneakers are fire!” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at my new sneakers!"
+ },
+ "src": {
+  "slang": "fire"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 15,
+  "seconds": 9.9,
+  "wpm": 90
+ },
+ "publish": {
+  "title": "“fire” का मतलब क्या है?",
+  "keyword": "fire",
+  "value": "“fire” = बहुत शानदार. उदाहरण: “Those sneakers are fire!”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“fire” का मतलब क्या है?",
+    "description": "“fire” = बहुत शानदार. उदाहरण: “Those sneakers are fire!”\n\n“fire” का मतलब क्या है?\n“fire” = बहुत शानदार.\nउदाहरण: “Those sneakers are fire!” (वो स्नीकर्स fire हैं।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "fire",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“fire” का मतलब क्या है?\n“fire” = बहुत शानदार.\nउदाहरण: “Those sneakers are fire!” (वो स्नीकर्स fire हैं।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“fire” का मतलब क्या है?\n\n“fire” = बहुत शानदार. उदाहरण: “Those sneakers are fire!”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“fire” का मतलब क्या है? “fire” = बहुत शानदार. उदाहरण: “Those sneakers are fire!” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “fire” = बहुत शानदार. “Those sneakers are fire!” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

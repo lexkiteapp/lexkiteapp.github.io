@@ -1,0 +1,152 @@
+{
+ "id": "t2s_de_cheerup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 66,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She looks sad. What now?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheer up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Feel happier.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheer up, we're having pizza!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheer up",
+  "forms": [
+   "cheered up"
+  ],
+  "ipa": "/ˈtʃɪr ˈʌp/",
+  "mean": "Feel happier.",
+  "define": "Used to tell someone to feel better.",
+  "vi": "Vui lên nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Cheer up, we're having pizza!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheer up\" means…",
+   "options": [
+    "yell loudly",
+    "feel happier"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheer up' to someone grieving.",
+   "why": "It sounds like you dismiss their pain."
+  },
+  "l1": "Kopf hoch",
+  "l1_hook": "Sie sieht traurig aus. Was jetzt? \"Cheer up\"!",
+  "l1_ex": "\"Cheer up\", wir essen Pizza!",
+  "right": "cheer up",
+  "native": {
+   "hook": "Was heißt “cheer up”?",
+   "tip": "“cheer up” = Kopf hoch. Beispiel: “Cheer up, we're having pizza!”",
+   "caption": "Was heißt “cheer up”?\n“cheer up” = Kopf hoch.\nBeispiel: “Cheer up, we're having pizza!” (\"Cheer up\", wir essen Pizza!)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “cheer up” = Kopf hoch. “Cheer up, we're having pizza!” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She looks sad. What now?"
+ },
+ "src": {
+  "slang": "cheer up"
+ },
+ "lang": "de",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "Was heißt “cheer up”?",
+  "keyword": "cheer up",
+  "value": "“cheer up” = Kopf hoch. Beispiel: “Cheer up, we're having pizza!”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “cheer up”?",
+    "description": "“cheer up” = Kopf hoch. Beispiel: “Cheer up, we're having pizza!”\n\nWas heißt “cheer up”?\n“cheer up” = Kopf hoch.\nBeispiel: “Cheer up, we're having pizza!” (\"Cheer up\", wir essen Pizza!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "cheer up",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “cheer up”?\n“cheer up” = Kopf hoch.\nBeispiel: “Cheer up, we're having pizza!” (\"Cheer up\", wir essen Pizza!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “cheer up”?\n\n“cheer up” = Kopf hoch. Beispiel: “Cheer up, we're having pizza!”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “cheer up”? “cheer up” = Kopf hoch. Beispiel: “Cheer up, we're having pizza!” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “cheer up” = Kopf hoch. “Cheer up, we're having pizza!” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

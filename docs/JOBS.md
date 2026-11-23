@@ -45,10 +45,11 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
 | 00:17 | `free-tier-guard` | `35 1 * * *`<br>`17 * * * *` | reports | gh_minutes | 2 | — | — |
 | 00:17 | `required-gate` | `17,47 * * * *` | reports | gh_minutes | 1 | — | — |
-| 00:17 | `lexicon-expand` | `17 */3 * * *` | render | cf_pool, gh_minutes | 120 | cf_pool_neurons≈600000 | ✓ |
+| 00:17 | `lexicon-expand` | `17 */3 * * *` | render | cf_pool, gh_minutes | 120 | cf_pool_neurons≈600000, gemini_calls≈20 | ✓ |
 | 00:20 | `word-audio` | `20 */4 * * *` | render | gh_minutes | 150 | — | — |
 | 00:23 | `pages-deploy` | `23 */3 * * *` | publishing | gh_minutes | 2 | — | — |
 | 00:23 | `pr-unconflict` | `23,53 * * * *` | reports | gh_minutes | 2 | — | — |
+| 00:23 | `ai-canary` | `23 */3 * * *` | reports | gh_minutes | 2 | — | — |
 | 00:41 | `main-red-sweep` | `41 * * * *` | reports | gh_minutes | 1 | — | — |
 | 00:41 | `ads-revenue-hourly` | `41 * * * *` | reports | gh_minutes, d1_main | 1 | d1_main_reads≈1100, d1_main_writes≈500 | — |
 | 00:47 | `cdn-mirror` | `47 * * * *` | reports | gh_minutes | 3 | — | — |
@@ -77,7 +78,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 02:20 | `font-audit` | `20 2 * * 1` | reports | gh_minutes | 10 | — | — |
 | 02:30 | `i18n` | `30 2 * * *` | render | gemini, gh_minutes | 90 | — | — |
 | 02:30 | `world-scorecard` | `30 2 * * 1` | reports | gh_minutes | 15 | — | — |
-| 02:40 | `vocab-img-scene` | `40 2,4,7,10,13,16,19,22 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈6000, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000 | ✓ |
+| 02:40 | `vocab-img-scene` | `40 2,4,7,10,13,16,19,22 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈6000, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000, gemini_calls≈3, groq_calls≈500 | ✓ |
 | 02:50 | `social-metrics` | `50 2 * * *` | reports | youtube_api, d1_main | 2 | d1_main_reads≈200, d1_main_writes≈150 | — |
 | 03:17 | `ai-keys-sync` | `17 3 * * 1` | reports | gh_minutes | 1 | — | — |
 | 03:17 | `ota-ios-e2e` | `17 3 * * *` | reports | gh_minutes | 45 | — | — |
@@ -102,16 +103,16 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 05:37 | `video-junk` | `37 5 * * 0` | reports | gh_minutes | 15 | — | — |
 | 06:03 | `ads-revenue` | `3 6 * * *` | reports | gh_minutes, d1_main | 2 | d1_main_reads≈1500, d1_main_writes≈300 | — |
 | 06:20 | `footage-verify` | `20 6 * * 1` | reports | drive_pool, d1_internal | 20 | d1_internal_reads≈8000, drive_calls≈300 | ✓ |
-| 06:41 | `ai-golden` | `41 6 * * *` | reports | gh_minutes | 15 | — | — |
+| 06:41 | `ai-golden` | `41 6 * * *` | reports | gemini, gh_minutes | 15 | gemini_calls≈90, groq_calls≈600 | — |
 | 07:20 | `ci-queue-report` | `20 7 * * *` | reports | gh_minutes | 3 | — | — |
-| 07:30 | `explain` | `30 7 * * *` | render | gemini, grabcast_ai, gh_minutes | 40 | gemini_calls≈400, grabcast_text≈200 | — |
+| 07:30 | `explain` | `30 7 * * *` | render | gemini, grabcast_ai, gh_minutes | 40 | gemini_calls≈250, grabcast_text≈200 | — |
 | 07:43 | `drive-tidy` | `43 7,19 * * *` | archive | drive_pool, d1_internal | 5 | d1_internal_reads≈4000, drive_calls≈300 | ✓ |
 | 08:53 | `news-auto` | `53 8 * * *` | render | gh_minutes, workers_ai_b, gemini, drive_pool | 150 | clips≈6, gemini_calls≈12, drive_calls≈60, workers_ai_b_neurons≈3000 | ✓ |
 | 11:30 | `release-archive` | `30 11 * * 6` | archive | drive_pool, gh_minutes | 30 | drive_calls≈40 | ✓ |
 | 12:00 | `code-bundle` | `0 12 * * 0` | archive | drive_pool, gh_minutes | 60 | drive_calls≈20 | ✓ |
 | 13:05 | `video-tpl1b` | `5 13 * * *` | render (tạm dừng) | gh_minutes, grabcast_ai, drive_pool | 45 | clips≈12, grabcast_calls≈6, drive_calls≈40 | ✓ |
 | 13:10 | `vocab-img` | `10 13 * * *` | bulk | grabcast_ai, gh_minutes | 85 | grabcast_images≈400, grabcast_text≈220, senses≈220, images≈130 | ✓ |
-| 17:50 | `content-factory` | `50 17 * * *` | render | gemini, grabcast_ai, gh_minutes | 90 | gemini_calls≈600, grabcast_text≈300 | — |
+| 17:50 | `content-factory` | `50 17 * * *` | render | gemini, grabcast_ai, gh_minutes | 90 | gemini_calls≈280, grabcast_text≈300 | — |
 | 18:30 | `voice-misses` | `30 18 * * *` | render | d1_main, gh_minutes | 15 | d1_main_reads≈20000 | — |
 | 19:00 | `audio` | `0 19 * * *` | render | gh_minutes | 60 | — | — |
 | 19:17 | `audit-all` | `17 19 * * 1,4` | reports | gh_minutes | 300 | — | — |

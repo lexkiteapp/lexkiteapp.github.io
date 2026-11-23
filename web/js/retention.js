@@ -371,7 +371,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   // ---------- Khởi động ----------
   if (on()) { css(); applyFrame(); }
   if (on() && g.StreakUI && !g.StreakUI._retWrapped) { g.StreakUI.showSavedModal = () => Ret.thaw(); g.StreakUI._retWrapped = 1; } // màn "đã cứu chuỗi" → nghi thức rã băng (cùng cờ đã xem streak_saved_seen)
-  g.addEventListener('lexkite:practice-done', () => setTimeout(check, 1200));
+  for (const e of ['practice-done', 'lesson-done']) g.addEventListener('lexkite:' + e, () => setTimeout(check, 1200));
   const toPage = e => { if (on() && e.target && e.target.closest && e.target.closest('#streakPill') && (e.type === 'click' || e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); location.hash = '#/streak'; } };
   document.addEventListener('click', toPage); document.addEventListener('keydown', toPage);
   const pill = document.getElementById('streakPill'); if (pill && on()) { pill.style.cursor = 'pointer'; pill.setAttribute('role', 'link'); pill.tabIndex = 0; }

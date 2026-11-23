@@ -98,7 +98,7 @@
 
   // Các thời điểm kiểm: xong bài/bài thi (chờ 6 s để không chồng lên màn thưởng/hỏi quyền nhắc học) và khi mở lại app (chuỗi/số từ tăng)
   const later = why => setTimeout(() => consider(why).catch(() => {}), why === 'lesson' ? 6000 : 4000);
-  addEventListener('lexkite:practice-done', () => later('lesson')); addEventListener('lexkite:test-done', () => later('lesson'));
+  for (const e of ['practice-done', 'test-done', 'lesson-done']) addEventListener('lexkite:' + e, () => later('lesson')); // lesson-done: bài học lesson engine (đường chính ux1)
   if (!document.hidden) setTimeout(() => later('open'), 8000);
   g.Install = { pick, streakOf, androidHref, consider, MOMENTS };
 })(window);

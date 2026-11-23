@@ -1,0 +1,148 @@
+{
+ "id": "t2s_id_justkidding",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 51,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I ate your cake!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Just kidding!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I was only joking.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I ate your cake! Just kidding.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "just kidding",
+  "forms": [
+   "JK"
+  ],
+  "ipa": "/dʒʌst ˈkɪdɪŋ/",
+  "mean": "I was only joking.",
+  "define": "Used after a joke to show you didn't mean it.",
+  "vi": "Đùa thôi mà",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Joking with a friend",
+   "text": "I ate your cake! Just kidding."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm serious",
+    "I'm joking"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'just kidding' after a serious insult.",
+   "why": "It doesn't erase hurt feelings."
+  },
+  "l1": "cuma bercanda",
+  "l1_hook": "Aku makan kuemu! Cuma bercanda (\"just kidding\").",
+  "l1_ex": "Aku makan kuemu! Just kidding.",
+  "right": "just kidding",
+  "native": {
+   "hook": "Apa arti “just kidding”?",
+   "tip": "“just kidding” = cuma bercanda. Contoh: “I ate your cake! Just kidding.”",
+   "caption": "Apa arti “just kidding”?\n“just kidding” = cuma bercanda.\nContoh: “I ate your cake! Just kidding.” (Aku makan kuemu! Just kidding.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “just kidding” = cuma bercanda. “I ate your cake! Just kidding.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I ate your cake!"
+ },
+ "src": {
+  "slang": "just kidding"
+ },
+ "lang": "id",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "Apa arti “just kidding”?",
+  "keyword": "just kidding",
+  "value": "“just kidding” = cuma bercanda. Contoh: “I ate your cake! Just kidding.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “just kidding”?",
+    "description": "“just kidding” = cuma bercanda. Contoh: “I ate your cake! Just kidding.”\n\nApa arti “just kidding”?\n“just kidding” = cuma bercanda.\nContoh: “I ate your cake! Just kidding.” (Aku makan kuemu! Just kidding.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "just kidding",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “just kidding”?\n“just kidding” = cuma bercanda.\nContoh: “I ate your cake! Just kidding.” (Aku makan kuemu! Just kidding.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “just kidding”?\n\n“just kidding” = cuma bercanda. Contoh: “I ate your cake! Just kidding.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “just kidding”? “just kidding” = cuma bercanda. Contoh: “I ate your cake! Just kidding.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “just kidding” = cuma bercanda. “I ate your cake! Just kidding.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

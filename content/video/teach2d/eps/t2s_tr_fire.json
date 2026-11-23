@@ -1,0 +1,150 @@
+{
+ "id": "t2s_tr_fire",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 93,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at my new sneakers!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Fire!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's really cool.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Those sneakers are fire!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "fire",
+  "forms": [],
+  "ipa": "/ˈfaɪɚ/",
+  "mean": "That's really cool.",
+  "define": "Slang for something excellent or stylish.",
+  "vi": "Quá đỉnh",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "praise",
+  "example": {
+   "ctx": "Seeing a friend's shoes",
+   "text": "Those sneakers are fire!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Fire\" means…",
+   "options": [
+    "dangerous",
+    "excellent"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't yell 'fire' in a crowded room.",
+   "why": "People will panic, not praise."
+  },
+  "l1": "çok havalı",
+  "l1_hook": "Yeni ayakkabıma bak! Bunlar \"fire\"!",
+  "l1_ex": "O ayakkabılar \"fire\"!",
+  "right": "fire",
+  "native": {
+   "hook": "“fire” ne demek?",
+   "tip": "“fire” = çok havalı. Örnek: “Those sneakers are fire!”",
+   "caption": "“fire” ne demek?\n“fire” = çok havalı.\nÖrnek: “Those sneakers are fire!” (O ayakkabılar \"fire\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “fire” = çok havalı. “Those sneakers are fire!” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at my new sneakers!"
+ },
+ "src": {
+  "slang": "fire"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 15,
+  "seconds": 9.9,
+  "wpm": 90
+ },
+ "publish": {
+  "title": "“fire” ne demek?",
+  "keyword": "fire",
+  "value": "“fire” = çok havalı. Örnek: “Those sneakers are fire!”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“fire” ne demek?",
+    "description": "“fire” = çok havalı. Örnek: “Those sneakers are fire!”\n\n“fire” ne demek?\n“fire” = çok havalı.\nÖrnek: “Those sneakers are fire!” (O ayakkabılar \"fire\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "fire",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“fire” ne demek?\n“fire” = çok havalı.\nÖrnek: “Those sneakers are fire!” (O ayakkabılar \"fire\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“fire” ne demek?\n\n“fire” = çok havalı. Örnek: “Those sneakers are fire!”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“fire” ne demek? “fire” = çok havalı. Örnek: “Those sneakers are fire!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “fire” = çok havalı. “Those sneakers are fire!” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

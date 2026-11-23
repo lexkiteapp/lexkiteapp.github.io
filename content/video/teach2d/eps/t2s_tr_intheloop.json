@@ -1,0 +1,146 @@
+{
+ "id": "t2s_tr_intheloop",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 117,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Nobody told me the news!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "In the loop!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Knowing the latest news.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Keep me in the loop about the trip.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "key": "in the loop",
+  "forms": [],
+  "ipa": "/ɪn ðə ˈluːp/",
+  "mean": "Knowing the latest news.",
+  "define": "Being included and informed about what's going on.",
+  "vi": "Được cập nhật tin",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Chatting at work",
+   "text": "Keep me in the loop about the trip."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"In the loop\" means…",
+   "options": [
+    "going in circles",
+    "up to date"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'in the loop' about a roller coaster.",
+   "why": "It means knowing the latest news."
+  },
+  "l1": "güncel olmak",
+  "l1_hook": "Bana haber kimse vermedi! \"in the loop\"",
+  "l1_ex": "Seyahat hakkında beni \"in the loop\" tut.",
+  "right": "in the loop",
+  "native": {
+   "hook": "“in the loop” ne demek?",
+   "tip": "“in the loop” = güncel olmak. Örnek: “Keep me in the loop about the trip.”",
+   "caption": "“in the loop” ne demek?\n“in the loop” = güncel olmak.\nÖrnek: “Keep me in the loop about the trip.” (Seyahat hakkında beni \"in the loop\" tut.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “in the loop” = güncel olmak. “Keep me in the loop about the trip.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Nobody told me the news!"
+ },
+ "src": {
+  "slang": "in the loop"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“in the loop” ne demek?",
+  "keyword": "in the loop",
+  "value": "“in the loop” = güncel olmak. Örnek: “Keep me in the loop about the trip.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“in the loop” ne demek?",
+    "description": "“in the loop” = güncel olmak. Örnek: “Keep me in the loop about the trip.”\n\n“in the loop” ne demek?\n“in the loop” = güncel olmak.\nÖrnek: “Keep me in the loop about the trip.” (Seyahat hakkında beni \"in the loop\" tut.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "in the loop",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“in the loop” ne demek?\n“in the loop” = güncel olmak.\nÖrnek: “Keep me in the loop about the trip.” (Seyahat hakkında beni \"in the loop\" tut.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“in the loop” ne demek?\n\n“in the loop” = güncel olmak. Örnek: “Keep me in the loop about the trip.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“in the loop” ne demek? “in the loop” = güncel olmak. Örnek: “Keep me in the loop about the trip.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “in the loop” = güncel olmak. “Keep me in the loop about the trip.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ru_countmein",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 35,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Game night at my place!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Count me in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I want to join.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Game night? Count me in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "count me in",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈɪn/",
+  "mean": "I want to join.",
+  "define": "Used to say you will take part in a plan.",
+  "vi": "Tính tui vào nhé",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Replying to an invite",
+   "text": "Game night? Count me in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'll count",
+    "I'll join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me in' before checking the date.",
+   "why": "People will count on you."
+  },
+  "l1": "я за",
+  "l1_hook": "Вечер игр у меня дома! «count me in»",
+  "l1_ex": "Вечер игр? «Count me in»!",
+  "right": "count me in",
+  "native": {
+   "hook": "Что значит «count me in»?",
+   "tip": "“count me in” = я за. Пример: “Game night? Count me in!”",
+   "caption": "Что значит «count me in»?\n“count me in” = я за.\nПример: “Game night? Count me in!” (Вечер игр? «Count me in»!)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “count me in” = я за. “Game night? Count me in!” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Game night at my place!"
+ },
+ "src": {
+  "slang": "count me in"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Что значит «count me in»?",
+  "keyword": "count me in",
+  "value": "“count me in” = я за. Пример: “Game night? Count me in!”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «count me in»?",
+    "description": "“count me in” = я за. Пример: “Game night? Count me in!”\n\nЧто значит «count me in»?\n“count me in” = я за.\nПример: “Game night? Count me in!” (Вечер игр? «Count me in»!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "count me in",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «count me in»?\n“count me in” = я за.\nПример: “Game night? Count me in!” (Вечер игр? «Count me in»!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «count me in»?\n\n“count me in” = я за. Пример: “Game night? Count me in!”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «count me in»? “count me in” = я за. Пример: “Game night? Count me in!” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “count me in” = я за. “Game night? Count me in!” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

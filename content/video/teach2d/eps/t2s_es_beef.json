@@ -1,0 +1,148 @@
+{
+ "id": "t2s_es_beef",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 7,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Those two stopped talking. Why?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Beef!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "An ongoing argument with someone.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "They have beef over a game.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "beef",
+  "forms": [
+   "beef with"
+  ],
+  "ipa": "/ˈbiːf/",
+  "mean": "An ongoing argument with someone.",
+  "define": "A long-lasting disagreement between people.",
+  "vi": "Mâu thuẫn, bất hòa",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about friends",
+   "text": "They have beef over a game."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Beef\" here means…",
+   "options": [
+    "an argument",
+    "dinner"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'we have beef' about a small mix-up.",
+   "why": "It sounds like a serious feud."
+  },
+  "l1": "disputa",
+  "l1_hook": "Esos dos dejaron de hablarse. ¿Tienen algún \"beef\"?",
+  "l1_ex": "Ellos tienen \"beef\" por un juego.",
+  "right": "beef",
+  "native": {
+   "hook": "¿Qué significa “beef”?",
+   "tip": "“beef” = disputa. Ejemplo: “They have beef over a game.”",
+   "caption": "¿Qué significa “beef”?\n“beef” = disputa.\nEjemplo: “They have beef over a game.” (Ellos tienen \"beef\" por un juego.)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “beef” = disputa. “They have beef over a game.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Those two stopped talking. Why?"
+ },
+ "src": {
+  "slang": "beef"
+ },
+ "lang": "es",
+ "est": {
+  "words": 19,
+  "seconds": 10.5,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "¿Qué significa “beef”?",
+  "keyword": "beef",
+  "value": "“beef” = disputa. Ejemplo: “They have beef over a game.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “beef”?",
+    "description": "“beef” = disputa. Ejemplo: “They have beef over a game.”\n\n¿Qué significa “beef”?\n“beef” = disputa.\nEjemplo: “They have beef over a game.” (Ellos tienen \"beef\" por un juego.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "beef",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “beef”?\n“beef” = disputa.\nEjemplo: “They have beef over a game.” (Ellos tienen \"beef\" por un juego.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “beef”?\n\n“beef” = disputa. Ejemplo: “They have beef over a game.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “beef”? “beef” = disputa. Ejemplo: “They have beef over a game.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “beef” = disputa. “They have beef over a game.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}
