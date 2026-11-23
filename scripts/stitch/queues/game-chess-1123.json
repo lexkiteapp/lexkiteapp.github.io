@@ -1,0 +1,17 @@
+[
+ {
+  "id": "game-chess",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Lexkite – English learning app (IELTS · TOEIC · TOEFL · CEFR) shipped in 15 UI languages incl. German, Russian, Vietnamese, Arabic (RTL): design every label for +40% longer text, wrap instead of truncating, never shrink buttons. Use the project design system (Lexkite Kit / Tactile Gamified Prep): Plus Jakarta Sans, deep teal #0F3D3E brand, coral CTA with tactile bottom ledge, cream light background, rounded 16-24px cards. App shell: mobile bottom tab bar with exactly 5 tabs Today, Vocab, Skills, Tests, Me; desktop left sidebar with the same 5 items. No hearts or lives anywhere. No photos and no drawn people: where the teacher appears, leave an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama or Carlos is inserted by code). Material Symbols Rounded icons. Every tap target at least 44x44 px, text contrast at least 4.5:1, icons at least 3:1. Realistic content, no lorem ipsum.\n\nScreen (mobile 390px, light theme, inner learning screen – NO bottom tab bar): \"Chess puzzle\" mini-game – find the checkmate in one move; each puzzle teaches an English chess term. Top bar: close X button (44px) on the left, a slim progress bar with the counter \"3 / 8 puzzles\", and a small chip \"+15 XP\". Under the top bar a line \"Chiếu hết trong 1 nước – bên Trắng đi\" and a pill chip showing the English term \"back-rank mate\". Main: a square 8x8 chess board (rounded 16px outer frame, light cream and teal squares, rank/file labels a-h and 1-8 small), pieces drawn as simple Unicode chess glyphs (no photos), one piece highlighted with a coral 2px outline as selected and its legal target squares marked with small teal dots; one square flagged as a wrong move with pale coral. Below the board: a hint button \"Gợi ý\" with a lightbulb icon and a secondary button \"Thế khác\" with a shuffle icon, both 44px tall. A short feedback line under the board \"Đúng! Đó là back-rank mate\" in pale teal. Keep it uncluttered, one primary action only."
+ },
+ {
+  "id": "game-chess",
+  "mode": "bright",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "game-chess/light",
+  "prompt": "Convert this exact screen to the LIGHT theme \"Bright Day\" of the Lexkite Kit design system. Keep the identical layout, chess board, components and every text string. Page background warm cream #FFF7EA, cards white #FFFFFF with soft beige borders #EADEC8 and a 3px tactile bottom ledge #D8CFBC, primary text deep teal #0F3D3E, secondary text #5A6D6C. Board squares cream #F3E6CC and teal #5FA8A0; selected piece coral #F2553B 2px outline; wrong square pale coral #FFEAE5; correct feedback pale teal #E3F8F5 with deep teal #12514D text. Keep the coral-to-amber gradient CTA with dark text #26100A (contrast 4.5:1). Remove any round profile avatar from the top bar. Text contrast at least 4.5:1, icons at least 3:1, every tap target at least 44 px. Simplify: remove the round profile avatar, the duplicate second XP chip, the \"Active drill\" label and the coach / hint-insight box."
+ }
+]

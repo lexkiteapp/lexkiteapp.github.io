@@ -31,6 +31,20 @@
    "Ảnh minh họa đang mở dần – thử chế độ khác nhé": "Pictures are rolling out gradually – try another mode",
    "Xong rồi!": "All done!",
    "Ghép đúng hết!": "Perfect match!",
-   "Cặp đã nối": "Pairs matched"
+   "Cặp đã nối": "Pairs matched",
+   "Chiếu hết trong 1 nước": "Checkmate in one move",
+   "Chạm một quân rồi chạm ô để đi": "Tap a piece, then tap a square to move",
+   "Thế khác": "Another position",
+   "Bàn cờ": "Chess board",
+   "Đen đi": "Black to move",
+   "Trắng đi": "White to move",
+   "Chiếu hết!": "Checkmate!",
+   "Đó là “{term}”.": "That is “{term}”.",
+   "Chưa chiếu hết": "Not checkmate yet",
+   "Vua đối phương vẫn còn nước thoát – thử quân hoặc ô khác nhé.": "The enemy king can still escape – try another piece or square.",
+   "Hết thế mới rồi – thử thế này nhé": "No more new positions – try this one",
+   "Chiếu hết cả bộ!": "Every mate found!",
+   "Thế giải đúng": "Puzzles solved",
+   "Thuật ngữ vừa học": "Terms you just learned"
   });
 })(typeof self !== 'undefined' ? self : this);

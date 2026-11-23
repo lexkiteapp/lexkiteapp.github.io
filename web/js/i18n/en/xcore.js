@@ -130,4 +130,6 @@
 'Mini-test biến thể': 'Variant mini-test',
 'Ghép tranh': 'Picture match',
 'Nối 6 ảnh với đúng từ – nhìn là nhớ': 'Match 6 pictures to their words – see it, remember it',
+"Cờ câu đố": "Chess puzzles",
+"Tìm nước chiếu hết – học thuật ngữ cờ": "Find the checkmate – learn chess terms",
 }); })(typeof self !== 'undefined' ? self : this);

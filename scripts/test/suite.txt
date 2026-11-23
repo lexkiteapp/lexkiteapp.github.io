@@ -520,3 +520,5 @@ node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
 node scripts/test/play-crossword.mjs
 node scripts/test/play-picmatch.mjs
+node scripts/test/play-chess-core.mjs
+node scripts/test/play-chess.mjs

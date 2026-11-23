@@ -1,0 +1,110 @@
+{
+ "_doc": "Màn Cờ câu đố (#/practice/chess, gói lười pch; game-system P5c). Stitch key1 63ba8423… (bản gốc là Tactile Night = bản TỐI); bản sáng = cùng DOM, đổi token màu tailwind sang Bright Day + ô cờ kem/xanh ngọc + quân trắng có viền tối (scripts/stitch/queues/game-chess-1123.json còn mục 'bright' để Stitch thử lại sau). Thanh trên (X + tiến độ + XP) giữ, bỏ avatar/nhãn Active Drill/hộp huấn luyện viên/chip trùng. Lưới 8×8 dựng bằng code từ ô mẫu (data-v: sqL/sqD ô sáng-tối, pcB/pcW quân đen-trắng, sel đang chọn, dot ô đi được, bad nước sai, hint ô gợi ý); chip thuật ngữ + thẻ phản hồi ẩn tới khi có kết quả. web/cpack/play-app/play-chess.js đọc class ô mẫu – CSS luôn khớp Stitch.",
+ "i18n": {
+  "Close puzzle": "Thoát"
+ },
+ "keys": {},
+ "text": {
+  "3 / 10": "d.cnt",
+  "+25 XP": "d.xpL",
+  "White to move": "d.turn",
+  "Chiếu hết trong 1 nước – bên Trắng đi": "t('Chiếu hết trong 1 nước')",
+  "Find the winning move · Checkmate in 1 move": "t('Chạm một quân rồi chạm ô để đi')",
+  "back-rank mate": "''",
+  "Gợi ý": "t('Gợi ý')",
+  "Thế khác": "t('Thế khác')",
+  "Mục tiêu: Đưa Xe lên d8": "''",
+  "KIỂM TRA NƯỚC ĐI": "t('Tiếp')"
+ },
+ "attr": {
+  ":scope > div > header > div > button": {
+   "id": "'chX'",
+   "href": "d.close",
+   "aria-label": "t('Thoát')"
+  },
+  ":scope > div > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > div > main > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)": {
+   "id": "'chTurn'"
+  },
+  ":scope > div > main > div > div:nth-child(2) > div:nth-child(4) > div:nth-child(1)": {
+   "id": "'chTerm'",
+   "hidden": "''"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2)": {
+   "id": "'chBoard'",
+   "role": "'group'",
+   "aria-label": "t('Bàn cờ')"
+  },
+  ":scope > div > main > div > div:nth-child(5) > button:nth-child(1)": {
+   "id": "'chHint'",
+   "type": "'button'"
+  },
+  ":scope > div > main > div > div:nth-child(5) > button:nth-child(2)": {
+   "id": "'chSkip'",
+   "type": "'button'"
+  },
+  ":scope > div > main > div > div:nth-child(6)": {
+   "id": "'chFb'",
+   "hidden": "''",
+   "role": "'status'",
+   "aria-live": "'polite'"
+  },
+  ":scope > div > main > div > div:nth-child(7) > button": {
+   "id": "'chGo'",
+   "type": "'button'",
+   "disabled": "''"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > :nth-child(1)": {
+   "data-v": "'sqL'"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > :nth-child(2)": {
+   "data-v": "'sqD'"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > :nth-child(3)": {
+   "data-v": "'pcB'"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > :nth-child(55)": {
+   "data-v": "'pcW'"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > :nth-child(60)": {
+   "data-v": "'sel'"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > :nth-child(4)": {
+   "data-v": "'dot'"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > :nth-child(61)": {
+   "data-v": "'bad'"
+  },
+  ":scope > div > main > div > div:nth-child(6) > div > span": {
+   "id": "'chFbT'"
+  },
+  ":scope > div > main > div > div:nth-child(6) > p": {
+   "id": "'chFbB'"
+  }
+ },
+ "tag": {
+  ":scope > div > header > div > button": {
+   "to": "a"
+  }
+ },
+ "addClass": {
+  ":scope > div > header > div > button": "no-underline"
+ },
+ "html": {
+  ":scope > div > main > div > div:nth-child(6) > p": "''"
+ },
+ "remove": [
+  ":scope > div > header > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)",
+  ":scope > div > header > div > div:nth-child(3) > div",
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(2) > :not([data-v])",
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(3)",
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(1)",
+  ":scope > div > main > div > div:nth-child(3)",
+  ":scope > div > main > div > div:nth-child(2) > div:nth-child(4) > div:nth-child(2)",
+  ":scope > div > main > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)",
+  ":scope > div > main > div > div:nth-child(1)"
+ ],
+ "out": "web/cpack/game/game-chess.js"
+}
