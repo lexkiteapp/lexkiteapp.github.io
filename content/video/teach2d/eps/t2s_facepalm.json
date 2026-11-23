@@ -1,0 +1,133 @@
+{
+ "id": "t2s_facepalm",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 108,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He searched for his phone!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Facepalm!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "When you can't believe it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My phone was in my hand. Facepalm!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "facepalm",
+  "forms": [
+   "face palm"
+  ],
+  "ipa": "/ˈfeɪsˌpɑːm/",
+  "mean": "When you can't believe it.",
+  "define": "A hand-on-face gesture of disbelief.",
+  "vi": "Ôm mặt ngán ngẩm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Seeing a mistake",
+   "text": "My phone was in my hand. Facepalm!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Facepalm\" shows…",
+   "options": [
+    "joy",
+    "disbelief"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'facepalm' at your teacher's answer.",
+   "why": "The gesture looks rude."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He searched for his phone!"
+ },
+ "src": {
+  "slang": "facepalm"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "What does \"facepalm\" mean?",
+  "keyword": "facepalm",
+  "value": "Facepalm = When you can't believe it. Example: \"My phone was in my hand. Facepalm!\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"facepalm\" mean?",
+    "description": "Facepalm = When you can't believe it. Example: \"My phone was in my hand. Facepalm!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "facepalm",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"facepalm\" mean?\n\nFacepalm = When you can't believe it. Example: \"My phone was in my hand. Facepalm!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"facepalm\" mean?\n\nFacepalm = When you can't believe it. Example: \"My phone was in my hand. Facepalm!\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"facepalm\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't 'facepalm' at your teacher's answer. The gesture looks rude. Real example: \"My phone was in my hand. Facepalm!\" More real English slang, free: {link}"
+ }
+}

@@ -76,15 +76,19 @@
       for (const w of ws) await App.addWord(w, null, { silent: true });
       return ws.length;
     };
-    const seen = new Set();
-    const vocab = (g.IELTS_DATA ? IELTS_DATA.TOPICS : []).flatMap(tp => tp.words).filter(w => {
+    // Kho câu hỏi dựng SAU khi gói words + grammar về (nút Bắt đầu chờ; màn giới thiệu vẽ ngay không cần chúng – LCP #/placement 9,4 s → màn giới thiệu)
+    let vocab = [], vpool = [], gpool = [];
+    const prep = () => {
+      const seen = new Set();
+      vocab = (g.IELTS_DATA ? IELTS_DATA.TOPICS : []).flatMap(tp => tp.words).filter(w => {
       const k = String(w.word || '').toLowerCase();
       if (!k || seen.has(k) || /\s/.test(k) || B[w.level] == null || !mean(w) || (D() && D().posOf(w.pos) === 'phr')) return false;
       seen.add(k); return true;
     });
-    const vpool = vocab.map(w => ({ id: 'v:' + w.word, kind: 'vocab', lv: w.level === 'A1' ? 'A2' : w.level === 'C2' ? 'C1' : w.level, w }));
-    const gpool = (g.GRAMMAR || []).flatMap(l => (l.quiz || []).map((q, k) => ({ id: 'g:' + l.id + ':' + k, kind: 'grammar', lv: l.level, l, q })))
+      vpool = vocab.map(w => ({ id: 'v:' + w.word, kind: 'vocab', lv: w.level === 'A1' ? 'A2' : w.level === 'C2' ? 'C1' : w.level, w }));
+      gpool = (g.GRAMMAR || []).flatMap(l => (l.quiz || []).map((q, k) => ({ id: 'g:' + l.id + ':' + k, kind: 'grammar', lv: l.level, l, q })))
       .filter(x => LADDER.includes(x.lv) && x.q && Array.isArray(x.q.options) && x.q.options.length >= 3 && !VI.test(x.q.q) && !x.q.options.some(o => VI.test(o)));
+    };
     const rnd = Math.random, used = new Set(), resp = [];
     let cur = null, busy = false, keys = null;
     const ask = () => {
@@ -164,6 +168,12 @@
       <p class="small muted">${t('Không biết thì chọn “Tôi không biết” – đừng đoán, kết quả sẽ chính xác hơn.')}</p>
       <div class="pl-cta"><button class="btn primary lg block" id="go">${t('Bắt đầu →')}</button>${inv ? `<button type="button" class="btn block" id="plSkip">${t('Bỏ qua')}</button><p class="small muted">${t('Bỏ qua thì bạn học từ chặng đầu – làm bài sau ở Hôm nay cũng được.')}</p>` : ''}</div></div></div>`;
     if (inv) $('#plSkip').onclick = () => { endInv(); App.replaceHash('#/home'); }; // bỏ qua → mặc định
-    $('#go').onclick = () => { if (App.holdRoute) App.holdRoute(); document.addEventListener('keydown', keys); ask(); }; // đang làm bài → boot không vẽ lại xóa tiến độ
+    const warm = () => (App.need ? App.need('words', 'grammar') : Promise.resolve());
+    (App.calm || (f => setTimeout(f, 600)))(() => warm().catch(() => {})); // nạp kho câu hỏi nền khi người dùng đọc phần giới thiệu
+    $('#go').onclick = async () => {
+      const b = $('#go'); b.disabled = true;
+      try { await warm(); } catch (e) { b.disabled = false; return; } // lỗi mạng → bấm lại
+      prep(); if (App.holdRoute) App.holdRoute(); document.addEventListener('keydown', keys); ask(); // đang làm bài → boot không vẽ lại xóa tiến độ
+    };
   };
 })();

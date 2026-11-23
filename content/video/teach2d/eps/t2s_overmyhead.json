@@ -1,0 +1,131 @@
+{
+ "id": "t2s_overmyhead",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 151,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The lecture got too hard!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Over my head!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too hard for me to understand.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That lesson went over my head.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "key": "over my head",
+  "forms": [],
+  "ipa": "/ˈoʊvɚ maɪ ˈhed/",
+  "mean": "Too hard for me to understand.",
+  "define": "Used when something is too complex.",
+  "vi": "Quá khó hiểu",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "After a hard lesson",
+   "text": "That lesson went over my head."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "a hat",
+    "too hard to follow"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'over my head' about a hat.",
+   "why": "It means too hard to understand."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The lecture got too hard!"
+ },
+ "src": {
+  "slang": "over my head"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"over my head\" mean?",
+  "keyword": "over my head",
+  "value": "Over my head = Too hard for me to understand. Example: \"That lesson went over my head.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"over my head\" mean?",
+    "description": "Over my head = Too hard for me to understand. Example: \"That lesson went over my head.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "over my head",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"over my head\" mean?\n\nOver my head = Too hard for me to understand. Example: \"That lesson went over my head.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"over my head\" mean?\n\nOver my head = Too hard for me to understand. Example: \"That lesson went over my head.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"over my head\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'over my head' about a hat. It means too hard to understand. Real example: \"That lesson went over my head.\" More real English slang, free: {link}"
+ }
+}

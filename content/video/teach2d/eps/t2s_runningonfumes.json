@@ -1,0 +1,133 @@
+{
+ "id": "t2s_runningonfumes",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 228,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Finals week. Barely any sleep!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Running on fumes!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Almost no energy left.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm running on fumes after finals week.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "running on fumes",
+  "forms": [
+   "run on fumes"
+  ],
+  "ipa": "/ˈrʌnɪŋ ɑːn ˈfjuːmz/",
+  "mean": "Almost no energy left.",
+  "define": "Used when you keep going even though you are almost empty of energy.",
+  "vi": "Cạn sạch pin rồi",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking to a coworker",
+   "text": "I'm running on fumes after finals week."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Running on fumes\" means…",
+   "options": [
+    "driving a car",
+    "almost no energy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'running on fumes' when fully rested.",
+   "why": "It means almost no energy."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Finals week. Barely any sleep!"
+ },
+ "src": {
+  "slang": "running on fumes"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"running on fumes\" mean?",
+  "keyword": "running on fumes",
+  "value": "Running on fumes = Almost no energy left. Example: \"I'm running on fumes after finals week.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"running on fumes\" mean?",
+    "description": "Running on fumes = Almost no energy left. Example: \"I'm running on fumes after finals week.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "running on fumes",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"running on fumes\" mean?\n\nRunning on fumes = Almost no energy left. Example: \"I'm running on fumes after finals week.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"running on fumes\" mean?\n\nRunning on fumes = Almost no energy left. Example: \"I'm running on fumes after finals week.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"running on fumes\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'running on fumes' when fully rested. It means almost no energy. Real example: \"I'm running on fumes after finals week.\" More real English slang, free: {link}"
+ }
+}
