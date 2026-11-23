@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_oak",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 27,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: oak!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A large forest tree that produces acorns and hard, strong wood.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I'm here to cut down the big oak.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "oak",
+  "ipa": "/oʊk/",
+  "mean": "a large forest tree that produces acorns and hard, strong wood",
+  "ex": "I'm here to cut down the big oak.",
+  "img": "oak#n",
+  "n": 3
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/oak",
+  "link": "https://lexkite.com/app/#/dict/oak",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "oak",
+  "img": "oak#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.1,
+  "wpm": 141
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: O + 2 letters",
+  "keyword": "oak",
+  "value": "Oak /oʊk/ = a large forest tree that produces acorns and hard, strong wood. Example: \"I'm here to cut down the big oak.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/oak",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: O + 2 letters",
+    "description": "Oak /oʊk/ = a large forest tree that produces acorns and hard, strong wood. Example: \"I'm here to cut down the big oak.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/oak\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "oak",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: O + 2 letters\n\nOak /oʊk/ = a large forest tree that produces acorns and hard, strong wood. Example: \"I'm here to cut down the big oak.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/oak"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: O + 2 letters\n\nOak /oʊk/ = a large forest tree that produces acorns and hard, strong wood. Example: \"I'm here to cut down the big oak.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: O + 2 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: oak. A large forest tree that produces acorns and hard, strong wood. Example: \"I'm here to cut down the big oak.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

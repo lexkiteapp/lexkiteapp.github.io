@@ -2,17 +2,17 @@
  "id": "t2g3_man",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 16,
+ "part": 13,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
- "speed": 1.25,
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
    "text": "Guess in three seconds!",
-   "pause": 2.6
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "The man at the reception desk gave us a map.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "smirk",
@@ -60,8 +60,8 @@
  },
  "est": {
   "words": 23,
-  "seconds": 10.7,
-  "wpm": 129
+  "seconds": 10.5,
+  "wpm": 131
  },
  "publish": {
   "title": "Guess in 3 seconds: M + 2 letters",
@@ -79,7 +79,7 @@
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: M + 2 letters",
-    "description": "Man /mæn/ = an adult male human being. Example: \"The man at the reception desk gave us a map.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/man\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "description": "Man /mæn/ = an adult male human being. Example: \"The man at the reception desk gave us a map.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/man\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
     "tags": [
      "man",
      "Guess in 3 Seconds",

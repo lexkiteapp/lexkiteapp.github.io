@@ -2,17 +2,17 @@
  "id": "t2g3_baseball",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 26,
+ "part": 21,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
- "speed": 1.25,
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Quick! Guess in three seconds!",
-   "pause": 2.6
+   "text": "Name it in three seconds!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "The company bought baseball tickets for the team.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "smirk",
@@ -52,7 +52,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Quick! Guess in three seconds!"
+  "text": "Name it in three seconds!"
  },
  "src": {
   "word": "baseball",
@@ -60,8 +60,8 @@
  },
  "est": {
   "words": 24,
-  "seconds": 11.0,
-  "wpm": 131
+  "seconds": 11.9,
+  "wpm": 121
  },
  "publish": {
   "title": "Guess in 3 seconds: B + 7 letters",
@@ -79,7 +79,7 @@
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: B + 7 letters",
-    "description": "Baseball /ˈbeɪsbɔːl/ = a bat-and-ball game played by two teams. Example: \"The company bought baseball tickets for the team.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/baseball\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "description": "Baseball /ˈbeɪsbɔːl/ = a bat-and-ball game played by two teams. Example: \"The company bought baseball tickets for the team.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/baseball\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
     "tags": [
      "baseball",
      "Guess in 3 Seconds",

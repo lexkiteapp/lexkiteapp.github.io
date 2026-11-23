@@ -2,17 +2,17 @@
  "id": "t2g3_trail",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 74,
+ "part": 61,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
- "speed": 1.25,
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Three seconds. What is it?",
-   "pause": 2.6
+   "text": "Three seconds. Go!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "We followed a trail through the forest.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "hype",
@@ -52,16 +52,16 @@
  },
  "hook": {
   "line": "h",
-  "text": "Three seconds. What is it?"
+  "text": "Three seconds. Go!"
  },
  "src": {
   "word": "trail",
   "img": "trail#n"
  },
  "est": {
-  "words": 21,
-  "seconds": 10.0,
-  "wpm": 126
+  "words": 19,
+  "seconds": 9.5,
+  "wpm": 121
  },
  "publish": {
   "title": "Guess in 3 seconds: T + 4 letters",
@@ -75,11 +75,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/dict/trail",
-  "script_words": 20,
+  "script_words": 18,
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: T + 4 letters",
-    "description": "Trail /treɪl/ = a path through the countryside. Example: \"We followed a trail through the forest.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/trail\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "description": "Trail /treɪl/ = a path through the countryside. Example: \"We followed a trail through the forest.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/trail\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
     "tags": [
      "trail",
      "Guess in 3 Seconds",

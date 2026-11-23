@@ -2,17 +2,17 @@
  "id": "t2g3_highway",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 64,
+ "part": 52,
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.25,
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Three seconds. What is it?",
-   "pause": 2.6
+   "text": "Three seconds. Go!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "Traffic on the highway was very heavy this morning.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "hype",
@@ -52,16 +52,16 @@
  },
  "hook": {
   "line": "h",
-  "text": "Three seconds. What is it?"
+  "text": "Three seconds. Go!"
  },
  "src": {
   "word": "highway",
   "img": "highway#n"
  },
  "est": {
-  "words": 23,
-  "seconds": 10.7,
-  "wpm": 129
+  "words": 21,
+  "seconds": 10.8,
+  "wpm": 117
  },
  "publish": {
   "title": "Guess in 3 seconds: H + 6 letters",
@@ -75,7 +75,7 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/dict/highway",
-  "script_words": 22,
+  "script_words": 20,
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: H + 6 letters",

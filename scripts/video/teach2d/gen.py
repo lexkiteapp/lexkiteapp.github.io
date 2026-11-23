@@ -525,17 +525,18 @@ T['slang'] = slang; SERIES['slang'] = 'Slang Card'
 
 
 # ---------------- guess3: "Guess in 3 Seconds" 7-12 s reels (growth series #2, docs/GROWTH-1M.md §2): picture + hidden word, 3-2-1 ring, reveal ----------------
-G3_HOOKS = ('Guess in three seconds!', 'Three seconds. What is it?', 'Quick! Guess in three seconds!')   # each <= 6 words and TRUE: the ring counts 3-2-1 right after it
+G3_HOOKS = ('Guess in three seconds!', 'Three seconds. Go!', 'Name it in three seconds!')   # each <= 6 words and TRUE: the ring counts 3-2-1 right after it
 G3_EXPR = ('confused', 'smirk', 'hype')   # TeacherRig EXPR faces held through the hook + countdown (drawn face: the ring is the focus, no pose image over it)
-G3_RING = 2.6   # L() caps a pause at 2.6 s: the silence after the hook IS the 3-2-1 countdown
-G3_SPEED = 1.25   # 1.25x Kokoro: the 2.6 s countdown leaves ~8 s of speech in a 12 s reel (still <= 150 wpm with the pauses)
+G3_RING = 1.5   # the silence after the hook; the 3-2-1 ring runs over the hook + this silence (~3 s)
+G3_SYL_S = 3.5   # syllables per second of Kokoro at G3_SPEED (calibrated on CI renders)
+G3_SPEED = 1.33   # Kokoro 1.33x: the highest speed under the qc pace gate (<= 5 syllables / s per line; 1.25x measured 4.5) – a 12 s reel holds ~9 s of speech
 SHORT_T = ('slang', 'guess3')   # 7-12 s vertical reels: same pace / word / length gates
 
 
 def guess3(p):   # Guess in 3 Seconds: hook + picture with the word hidden (blank tiles) + 3-2-1 ring (viewer guesses in the comments) -> answer + IPA -> meaning -> one example -> CTA
     w = p['word']; ipa, dfn, ex = frozen(p); assert ipa and dfn and ex, ('word not in the audited bank', w)
     h = int(hashlib.sha1(w.encode()).hexdigest(), 16); hook = G3_HOOKS[h % 3]  ; expr = G3_EXPR[h // 3 % 3]; mean = dfn[0].upper() + dfn[1:].rstrip('.') + '.'
-    lines = [L('h', hook, G3_RING), L('a', f'Answer: {w}!', 0.15), L('m', mean, 0.1), L('e', ex, 0.2), L('c', 'lexkite.com', 0.4)]
+    lines = [L('h', hook, G3_RING), L('a', f'Answer: {w}!', 0.15), L('m', mean, 0.1), L('e', ex, 0.15), L('c', 'lexkite.com', 0.3)]
     return dict(lines=lines, expr=expr, data=dict(word=w, ipa=ipa, mean=dfn, ex=ex, img=p['img'], n=len(w)),
                 cta=cta('dictionary', f'#/dict/{w}', 'Look up any word'), hook=dict(line='h', text=hook), src=dict(word=w, img=p['img']))
 
@@ -575,6 +576,9 @@ def levels3(p):   # hook -> A1 line -> B1 line -> C1 line (silent quick quiz in 
 T['levels3'] = levels3; SERIES['levels3'] = 'One Situation, 3 Levels'
 
 
+def syllables(s): return sum(max(1, len(re.findall(r'[aeiouy]+', w.lower())) - (1 if w.lower().endswith('e') and not w.lower().endswith(('le', 'ee')) and len(re.findall(r'[aeiouy]+', w.lower())) > 1 else 0)) for w in re.findall(r"[A-Za-z']+", s))
+
+
 def words(s): return re.findall(r"[A-Za-z0-9'’-]+", s)
 
 
@@ -588,6 +592,7 @@ def make(row):
               voice=REG['people'][who]['voice']['video'], speed=row.get('speed', SLANG_SPEED if t == 'slang' else G3_SPEED if t == 'guess3' else LV3_SPEED if t == 'levels3' else 0.8), area=sp['cta']['area'], **sp)
     # self-checks (the CI gates re-check on the real audio): hook <= 6 words, one point, 55-95 words, est. <= 150 wpm
     n = sum(len(words(l['text'])) for l in ep['lines']); est = n / (2.55 * ep['speed']) + sum(l['pause'] for l in ep['lines'])
+    if t in ('guess3', 'levels3'): est = sum(syllables(l['text']) for l in ep['lines']) / (G3_SYL_S * ep['speed'] / 1.25) + sum(l['pause'] for l in ep['lines'])   # levels3 uses the same syllable clock (guess3 lesson 24/11: words / 2.55 under-counts by ~25 %)   # measured on the CI pilots (run 45197149417): ~3.5 syllables / s at 1.25x (words / 2.55 under-counted by 25 %: violin 14.6 s, crane 13.8 s)
     hk = ep['lines'][0]['text']
     assert len(words(hk)) <= 7, ('hook too long', hk)
     lo, hi = LV3_WORDS if t == 'levels3' else SLANG_WORDS if t in SHORT_T else (30, 70)   # slang / guess3 reels are 7-12 s (owner 22/11); every other template 18-28 s

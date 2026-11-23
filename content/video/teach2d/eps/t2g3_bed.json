@@ -6,13 +6,13 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.25,
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
    "text": "Guess in three seconds!",
-   "pause": 2.6
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "I usually go to bed before midnight.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "confused",
@@ -60,8 +60,8 @@
  },
  "est": {
   "words": 23,
-  "seconds": 10.7,
-  "wpm": 129
+  "seconds": 11.1,
+  "wpm": 125
  },
  "publish": {
   "title": "Guess in 3 seconds: B + 2 letters",

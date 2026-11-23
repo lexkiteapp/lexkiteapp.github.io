@@ -2,17 +2,17 @@
  "id": "t2g3_stool",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 71,
+ "part": 59,
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 1.25,
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Three seconds. What is it?",
-   "pause": 2.6
+   "text": "Three seconds. Go!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "She got off her stool.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "hype",
@@ -52,16 +52,16 @@
  },
  "hook": {
   "line": "h",
-  "text": "Three seconds. What is it?"
+  "text": "Three seconds. Go!"
  },
  "src": {
   "word": "stool",
   "img": "stool#n"
  },
  "est": {
-  "words": 24,
-  "seconds": 11.0,
-  "wpm": 131
+  "words": 22,
+  "seconds": 10.0,
+  "wpm": 132
  },
  "publish": {
   "title": "Guess in 3 seconds: S + 4 letters",
@@ -75,7 +75,7 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/dict/stool",
-  "script_words": 22,
+  "script_words": 20,
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: S + 4 letters",

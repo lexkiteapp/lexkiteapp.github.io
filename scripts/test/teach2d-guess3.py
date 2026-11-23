@@ -18,9 +18,12 @@ for i, r in enumerate(rows):
     ep = gen.make(r); assert not publish.check(ep), (r['id'], publish.check(ep))
     assert [l['id'] for l in ep['lines']] == ['h', 'a', 'm', 'e', 'c'] and ep['lines'][0]['pause'] == gen.G3_RING, r['id']   # the silence after the hook IS the 3-2-1 ring
     assert gen.hook_gate(r, ep) and ep['hook']['text'] in gen.G3_HOOKS and len(ep['hook']['text'].split()) <= 6, r['id']
-    assert 7 <= ep['est']['seconds'] <= 12 and ep['est']['wpm'] <= 150, (r['id'], ep['est'])
+    assert 7 <= ep['est']['seconds'] <= 12 and ep['est']['wpm'] <= 150, (r['id'], ep['est'])   # est = syllables / 3.5 per s (1.25x) + pauses, calibrated on CI run 45197149417 (words / 2.55 had hidden 14.6 s)
+    assert ep['speed'] <= 1.35, ('qc pace gate: <= 5 syllables / s per line', ep['speed'])
     assert ep['expr'] in gen.G3_EXPR and 'pose' not in ep, r['id']   # drawn face only: the ring silence is a quiz countdown, rig_plan plays no pose image there
     assert ep['data']['word'].lower() not in ep['lines'][0]['text'].lower() and ep['publish']['title'].count(ep['data']['word']) == 0, ('the title / hook must not spoil the answer', r['id'])
     assert len(ep['data']['word']) == ep['data']['n'] <= 12 and ep['teacher'] == ('ama' if i % 2 == 0 else 'carlos'), r['id']
     v = R[r['id']]; assert v['gates'] == dict(data=True, level=True, hook=True, dup=True) and v['script'] == {l['id']: l['text'] for l in ep['lines']}, ('reviewed.json verdict stale', r['id'])
 print(f'✓ teach2d-guess3: {len(rows)} rows, {sum("ph" not in r for r in rows)} icon pictures')
+_b = open(f'{ROOT}/scripts/video/teach2d/build.py').read()
+assert 't_h = t_rev - 0.3' in _b and 'out=t_m - 0.3' in _b and 'c.place(t_m, t_e - 0.3' in _b, 'build.py T_guess3: every card / title must leave 0.3 s before the next one (qc layout overlap, CI run 45197149417)'

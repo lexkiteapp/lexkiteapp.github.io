@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_station",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 18,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: station!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A place where you can catch a train or a bus.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The station is a ten-minute walk from here.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "station",
+  "ipa": "/ˈsteɪʃn/",
+  "mean": "a place where you can catch a train or a bus",
+  "ex": "The station is a ten-minute walk from here.",
+  "img": "station#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/station",
+  "link": "https://lexkite.com/app/#/dict/station",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "station",
+  "img": "station#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.1,
+  "wpm": 141
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: S + 6 letters",
+  "keyword": "station",
+  "value": "Station /ˈsteɪʃn/ = a place where you can catch a train or a bus. Example: \"The station is a ten-minute walk from here.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/station",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: S + 6 letters",
+    "description": "Station /ˈsteɪʃn/ = a place where you can catch a train or a bus. Example: \"The station is a ten-minute walk from here.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/station\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "station",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: S + 6 letters\n\nStation /ˈsteɪʃn/ = a place where you can catch a train or a bus. Example: \"The station is a ten-minute walk from here.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/station"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: S + 6 letters\n\nStation /ˈsteɪʃn/ = a place where you can catch a train or a bus. Example: \"The station is a ten-minute walk from here.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: S + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: station. A place where you can catch a train or a bus. Example: \"The station is a ten-minute walk from here.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

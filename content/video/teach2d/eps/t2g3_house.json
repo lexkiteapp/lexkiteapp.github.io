@@ -2,17 +2,17 @@
  "id": "t2g3_house",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 14,
+ "part": 11,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
- "speed": 1.25,
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Three seconds. What is it?",
-   "pause": 2.6
+   "text": "Three seconds. Go!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "They live in a large house with a garden.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "smirk",
@@ -52,16 +52,16 @@
  },
  "hook": {
   "line": "h",
-  "text": "Three seconds. What is it?"
+  "text": "Three seconds. Go!"
  },
  "src": {
   "word": "house",
   "img": "house#n"
  },
  "est": {
-  "words": 26,
-  "seconds": 11.6,
-  "wpm": 134
+  "words": 24,
+  "seconds": 11.1,
+  "wpm": 130
  },
  "publish": {
   "title": "Guess in 3 seconds: H + 4 letters",
@@ -75,11 +75,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/dict/house",
-  "script_words": 25,
+  "script_words": 23,
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: H + 4 letters",
-    "description": "House /haʊs/ = a building in which a family, person lives. Example: \"They live in a large house with a garden.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/house\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "description": "House /haʊs/ = a building in which a family, person lives. Example: \"They live in a large house with a garden.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/house\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
     "tags": [
      "house",
      "Guess in 3 Seconds",
