@@ -367,7 +367,7 @@
     const rest = all.filter(x => !FOCUS.includes(x.href)), tiles = [...focus, ...rest].map((x, ci) => Object.assign({ ci }, x));
     const tot = plan.length, dn = plan.filter(x => x.done).length, nx = plan.find(x => !x.done), pct = tot ? Math.round(dn / tot * 100) : 0, sprAria = t('Tiếp tục nước rút ngày');
     const mockName = t('Thi thử {x} đầy đủ', { x: Xe.short }), mins = { ielts: 165, ieltsgt: 165, toeic: 120, toefl: 120 }[ex];
-    const d = { ex: { name: Xe.short, pred: cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), title: Xe.short + (tg ? ' · ' + tg : ''), left: leftT, leftAria: leftT },
+    const d = { ex: { name: Xe.short, pred: cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm'), title: Xe.short + (tg ? ' · ' + tg : ''), left: leftT, leftAria: leftT },
       sp: { xp: '+' + (((g.days || {})[k] || {}).xp || 0) + ' XP', title: t('Nước rút ngày {a}/{b}', { a: dn, b: tot }), left: t('Còn {n} bài', { n: tot - dn }), pct, aria: sprAria, cta: t('Tiếp tục'), href: nx && nx.href ? nx.href : '#/home?all=1' },
       count: t('{n} mô-đun', { n: tiles.length }), tiles,
       mock: { title: mockName, chip: mins ? t('{n} phút', { n: mins }) : Xe.short, cta: t('Bắt đầu'), href: MOCK[ex] || '#/mock', aria: t('Bắt đầu thi thử {x}', { x: Xe.short }) } };

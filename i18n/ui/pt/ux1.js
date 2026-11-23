@@ -32,6 +32,7 @@
 "Chào buổi sáng!":"Bom dia!",
 "Chào buổi tối!":"Boa noite!",
 "Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.":"Oi, eu sou a Ama! Vamos nos preparar em 3 passinhos.",
+"Chưa có điểm":"Sem nota ainda",
 "Chưa có điểm dự đoán":"Ainda sem nota prevista",
 "Chưa luyện":"Sem prática",
 "Chưa đạt":"Ainda não conquistado",

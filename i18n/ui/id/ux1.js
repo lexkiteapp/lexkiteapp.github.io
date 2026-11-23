@@ -32,6 +32,7 @@
 "Chào buổi sáng!":"Selamat pagi!",
 "Chào buổi tối!":"Selamat malam!",
 "Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.":"Hai, aku Ama! Yuk bersiap dalam 3 langkah kecil.",
+"Chưa có điểm":"Belum ada skor",
 "Chưa có điểm dự đoán":"Belum ada perkiraan skor",
 "Chưa luyện":"Belum berlatih",
 "Chưa đạt":"Belum diraih",

@@ -32,6 +32,7 @@
 "Chào buổi sáng!":"좋은 아침이에요!",
 "Chào buổi tối!":"좋은 저녁이에요!",
 "Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.":"안녕하세요, 저는 Ama예요! 3단계로 가볍게 준비해요.",
+"Chưa có điểm":"점수 없음",
 "Chưa có điểm dự đoán":"아직 예상 점수가 없어요",
 "Chưa luyện":"연습 전",
 "Chưa đạt":"아직 획득 전",

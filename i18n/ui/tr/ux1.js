@@ -32,6 +32,7 @@
 "Chào buổi sáng!":"Günaydın!",
 "Chào buổi tối!":"İyi akşamlar!",
 "Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.":"Merhaba, ben Ama! 3 küçük adımda hazırlanalım.",
+"Chưa có điểm":"Henüz puan yok",
 "Chưa có điểm dự đoán":"Henüz tahmini puan yok",
 "Chưa luyện":"Henüz çalışılmadı",
 "Chưa đạt":"Henüz kazanılmadı",

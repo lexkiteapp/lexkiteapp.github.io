@@ -32,6 +32,7 @@
 "Chào buổi sáng!":"早上好！",
 "Chào buổi tối!":"晚上好！",
 "Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.":"你好，我是 Ama！我们用 3 个小步骤做好准备吧。",
+"Chưa có điểm":"暂无分数",
 "Chưa có điểm dự đoán":"暂无预估分数",
 "Chưa luyện":"尚未练习",
 "Chưa đạt":"尚未获得",
