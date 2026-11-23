@@ -564,7 +564,8 @@ def levels3(p):   # hook -> A1 line -> B1 line -> C1 line (silent quick quiz in 
     it = levels3_src()[p['id']]; h = int(hashlib.sha1(it['id'].encode()).hexdigest(), 16); wrong = 'ab'[h % 2]
     opts = [lv3_label(it['c']['key']), lv3_label(it[wrong]['key'])]; ans = int(hashlib.sha1((it['id'] + 'q').encode()).hexdigest(), 16) % 2
     if ans: opts.reverse()
-    assert all(text_w(o, 56) <= 640 for o in opts), ('quiz option too wide', opts)   # pill: one line at 56 px inside the card
+    try: assert all(text_w(o, 56) <= 640 for o in opts), ('quiz option too wide', opts)   # pill: one line at 56 px inside the card (checked where PIL exists: the planner, render jobs; preqc regen has no PIL and replays rows that already passed)
+    except ImportError: pass
     lines = [L('h', levels3_hook(it), 0.35), L('a', it['a']['text'], 0.3), L('b', it['b']['text'], 0.3), L('n', it['c']['text'], LV3_RING, quiz=True), L('c', 'lexkite.com', 0.4)]
     return dict(lines=lines, exprs=LV3_EXPR,
                 data=dict(id=it['id'], title=it['title'], em=it['em'], chip=it['chip'], reg=it['reg'], levels={k: it[k] for k in 'abc'}, quiz=dict(ask='Which would a native say?', options=opts, answer=ans)),
