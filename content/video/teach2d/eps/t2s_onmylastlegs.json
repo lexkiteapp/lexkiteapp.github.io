@@ -1,0 +1,135 @@
+{
+ "id": "t2s_onmylastlegs",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 204,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Almost home. Can't move!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "On my last legs!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely tired.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm on my last legs after this hike.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "on my last legs",
+  "forms": [],
+  "ipa": "/ɑːn maɪ ˈlæst ˈleɡz/",
+  "mean": "Extremely tired.",
+  "define": "Used when you are almost out of energy.",
+  "vi": "Gần kiệt sức",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "At the end of a hike",
+   "text": "I'm on my last legs after this hike."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "ready to run",
+    "almost out of energy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'on my last legs' about a chair.",
+   "why": "It means very tired."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Almost home. Can't move!"
+ },
+ "src": {
+  "slang": "on my last legs"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"on my last legs\" mean?",
+  "keyword": "on my last legs",
+  "value": "On my last legs = Extremely tired. Example: \"I'm on my last legs after this hike.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"on my last legs\" mean?",
+    "description": "On my last legs = Extremely tired. Example: \"I'm on my last legs after this hike.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "on my last legs",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"on my last legs\" mean?\n\nOn my last legs = Extremely tired. Example: \"I'm on my last legs after this hike.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"on my last legs\" mean?\n\nOn my last legs = Extremely tired. Example: \"I'm on my last legs after this hike.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"on my last legs\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'on my last legs' about a chair. It means very tired. Real example: \"I'm on my last legs after this hike.\" More real English slang, free: {link}"
+ }
+}

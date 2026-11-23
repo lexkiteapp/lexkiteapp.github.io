@@ -1,0 +1,133 @@
+{
+ "id": "t2s_smh",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 246,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He forgot again. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "SMH!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm shaking my head.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He forgot again, SMH.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "SMH",
+  "forms": [
+   "smh"
+  ],
+  "ipa": "/ˌes ˌem ˈeɪtʃ/",
+  "mean": "I'm shaking my head.",
+  "define": "Short for \"shaking my head\", showing disapproval.",
+  "vi": "Lắc đầu ngán ngẩm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Texting",
+   "text": "He forgot again, SMH."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "SMH shows…",
+   "options": [
+    "joy",
+    "disapproval"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't write 'SMH' in a work report.",
+   "why": "It's texting shorthand."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He forgot again. Seriously?"
+ },
+ "src": {
+  "slang": "SMH"
+ },
+ "est": {
+  "words": 15,
+  "seconds": 9.2,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"SMH\" mean?",
+  "keyword": "SMH",
+  "value": "SMH = I'm shaking my head. Example: \"He forgot again, SMH.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"SMH\" mean?",
+    "description": "SMH = I'm shaking my head. Example: \"He forgot again, SMH.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "SMH",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"SMH\" mean?\n\nSMH = I'm shaking my head. Example: \"He forgot again, SMH.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"SMH\" mean?\n\nSMH = I'm shaking my head. Example: \"He forgot again, SMH.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"SMH\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't write 'SMH' in a work report. It's texting shorthand. Real example: \"He forgot again, SMH.\" More real English slang, free: {link}"
+ }
+}

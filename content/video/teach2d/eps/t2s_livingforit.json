@@ -1,0 +1,133 @@
+{
+ "id": "t2s_livingforit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 270,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "They're playing my favorite song!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Living for it!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I love this so much.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "They're singing my song. Living for it!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "key": "living for it",
+  "forms": [
+   "living for this"
+  ],
+  "ipa": "/ˈlɪvɪŋ fɔːr ɪt/",
+  "mean": "I love this so much.",
+  "define": "Used when you are really enjoying something and want more.",
+  "vi": "Mê tít luôn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "feelings",
+  "example": {
+   "ctx": "At a concert",
+   "text": "They're singing my song. Living for it!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Living for it\" shows you…",
+   "options": [
+    "love it",
+    "hate it"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'living for it' about a boring meeting.",
+   "why": "It shows strong excitement."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "They're playing my favorite song!"
+ },
+ "src": {
+  "slang": "living for it"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "What does \"living for it\" mean?",
+  "keyword": "living for it",
+  "value": "Living for it = I love this so much. Example: \"They're singing my song. Living for it!\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"living for it\" mean?",
+    "description": "Living for it = I love this so much. Example: \"They're singing my song. Living for it!\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "living for it",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"living for it\" mean?\n\nLiving for it = I love this so much. Example: \"They're singing my song. Living for it!\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"living for it\" mean?\n\nLiving for it = I love this so much. Example: \"They're singing my song. Living for it!\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"living for it\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: love it. \"They're singing my song. Living for it!\" More real English slang, free: {link}"
+ }
+}
