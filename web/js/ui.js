@@ -571,7 +571,10 @@
   const LAT = /[“"‘']?[+\-−]?[A-Za-z0-9\u00C0-\u024F][A-Za-z0-9\u00C0-\u024F+\-–−.,:;\/%()&·!?~=×…'’“” ]*[A-Za-z0-9\u00C0-\u024F%)?!.\-”"’']/g;
   const rtlFix = root => {
     if (document.documentElement.dir !== 'rtl') return;
-    root.querySelectorAll('.material-symbols-outlined:not(.i-dir)').forEach(e => { if (MDIR.test(e.textContent.trim())) e.classList.add('i-dir'); });
+    // chỉ lật khi font icon đã tải: chưa có font thì ligature hiện thành chữ "arrow_forward", lật gương làm chữ tràn khỏi nút
+    let msOk = false; try { msOk = !document.fonts || document.fonts.check('1em "Material Symbols Outlined"'); } catch (_) { msOk = true; }
+    if (msOk) root.querySelectorAll('.material-symbols-outlined:not(.i-dir)').forEach(e => { if (MDIR.test(e.textContent.trim())) e.classList.add('i-dir'); });
+    else if (document.fonts && !rtlFix.w) { rtlFix.w = 1; document.fonts.ready.then(() => rtlFix(document.body)); }
     const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), hits = []; let n;
     while ((n = w.nextNode())) if (/[A-Za-z0-9]/.test(n.nodeValue)) hits.push(n);
     for (const x of hits) {
