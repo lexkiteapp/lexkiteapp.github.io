@@ -581,7 +581,8 @@
     "test/content-factory.mjs"
    ]
   },
-  { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
+  { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" },
+  { "id": "topic-depth", "paths": ["content/topic-depth", "web/cpack/topic"], "owner": "claude", "gen": false, "checks": ["schema"], "delegate": ["test/topic-depth.mjs"], "doc": "docs/specs/topic-depth.md" }
  ],
  "skip": {
   "web/cpack/score-app": "MÃ giao diện Thử thách nói 30 giây (score30.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; 8 đoạn đọc ngắn viết tay ≤ 30 từ (test scripts/test/score-card.mjs), thiết kế docs/specs/score-card.md",
