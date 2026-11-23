@@ -138,6 +138,8 @@
 - [specs/mediation.md](specs/mediation.md) — Trung gian (O3): định dạng content/mediation/m<NN>.json gắn Can-do M.*, nguồn theo cấp, ý cần/ý bỏ, bài mẫu; cổng mediation-check; đọc khi viết/soát lô S-MED hoặc làm màn luyện trung gian
 - [specs/spanish-course.md](specs/spanish-course.md) — Khóa tiếng Tây Ban Nha (tl `es`) cho 14 ngôn ngữ: mở rộng Target, nguồn miễn phí + giấy phép, 8 đợt W0–W7, ước tính token/CI, 6 cổng QC, điểm chủ quyết.
 - [specs/french-course.md](specs/french-course.md) — Khóa tiếng Pháp (tl `fr`) cho 14 ngôn ngữ: cùng engine với es, nguồn miễn phí, 8 đợt W0–W7, h muet/aspiré + tu/vous, cổng QC; đọc khi thêm ngôn ngữ đích thứ ba hoặc đụng `content/target/fr/`.
+- [specs/japanese-course.md](specs/japanese-course.md) — Khóa tiếng Nhật (tl `ja`, JLPT N5→N1) cho 14 ngôn ngữ: cùng engine es/fr, đặc thù chữ viết gom ở `scripts/target/ja-kana.mjs` (kana → romaji IME/IPA, mora, cao độ, furigana, chấm IME), nguồn miễn phí, 8 đợt W0–W7, cổng QC; đọc khi đụng `content/target/ja/` hoặc giả định từ cách nhau bằng khoảng trắng.
+- [specs/korean-course.md](specs/korean-course.md) — Khóa tiếng Hàn (tl `ko`, TOPIK 1→6): như es/fr/ja, đặc thù ở `ko-hangul.mjs`; đọc khi đụng `content/target/ko/`.
 - [specs/spanish-exam-w5.md](specs/spanish-exam-w5.md) — W5 luyện định dạng DELE/SIELE (spec + trạng thái đợt 1); đọc khi làm thi thử TBN
 - [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau live; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
 - [specs/content-private.md](specs/content-private.md) — Chuyển đề/lời giải/bài học/kho từ sang repo private lexkite-content ($0, runner public + deploy key, fixtures, cổng chống lộ); đọc khi: sửa dữ liệu nội dung, workflow sinh nội dung, build/deploy hoặc job đỏ content-leak
@@ -185,9 +187,3 @@
 
 ## Phần còn lại của mục lục
 - [INDEX-ARCHIVE.md](INDEX-ARCHIVE.md) — Con trỏ tài liệu đã chuyển, thư mục con (agents/audits/legal/research/specs…), kho docs/archive/ (tách nguyên văn từ INDEX.md khi INDEX chạm 45 KB); đọc khi: tìm dòng mục lục của doc trong thư mục con hoặc archive, hoặc thêm doc mới ở đó
-- [NEW-UI-QA.md](NEW-UI-QA.md) — Soát hình các màn mới trên CI (15 ngôn ngữ × 4 khung × sáng/tối, đầu dò tràn/che/44 px/tương phản/nhân vật, contact sheet); đọc khi: sửa màn bài học, chuỗi, giáo viên, video
-- [research/latent-bugs-1611.md](research/latent-bugs-1611.md) — Soát lỗi tiềm ẩn trên main 16/11 (6 vùng, kiểm lại độc lập, nhóm theo chủ vùng, 2 P0 + 6 P1); đọc khi: nhận việc sửa lỗi trong vùng của mình
-
-- [specs/top1-upgrade-plan.md](specs/top1-upgrade-plan.md) — Kế hoạch lên top 1 từ kiểm toán CI 18/11 (so Duolingo/Speak/ELSA/Cake theo hành trình; UI/UX, nội dung, tính năng; thước đo, thứ tự); đọc khi: chọn việc nâng chất lượng, vẽ màn Stitch mới
-- [specs/stitch-v2-group-b.md](specs/stitch-v2-group-b.md) — Port 5 màn Stitch v2 nhóm B (Thư viện, Bộ từ, Chủ đề, Sổ lỗi sai, Tiến độ) từ #247, mỗi màn một PR; đọc khi làm màn nhóm B
-
