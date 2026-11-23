@@ -83,6 +83,8 @@
   // (bước extlink mở Safari) → app nạp lại gói production KHÔNG có harness → "Không có sự kiện 45 s" × 13 (app-stdout: "CapgoUpdater … Reloading").
   function freezeOta() {
     const U = P().CapacitorUpdater; if (!U || U.__e2e) return; U.__e2e = 1;
+    // Hộp "Có bản Lexkite mới" (ota.js nativePrompt → AppUpdate.getAppUpdateInfo tra App Store thật): khi cửa hàng có bản mới hơn bản kiểm thử, hộp z-index 99999 phủ cả app → mọi phép đo chạm/che đỏ theo thời điểm. Bản kiểm thử không phụ thuộc cửa hàng: báo "không có bản mới".
+    const A = P().AppUpdate; if (A && !A.__e2e) { A.__e2e = 1; try { A.getAppUpdateInfo = async () => { emit({ type: 'info', key: 'appupdate-stubbed' }); return { updateAvailability: 1, currentVersionName: '9.9.9' }; }; } catch (e) { /* bỏ qua */ } }
     for (const m of ['download', 'next', 'set']) { try { U[m] = async () => { emit({ type: 'info', key: 'ota-blocked', m }); throw new Error('e2e: OTA tắt trong bản kiểm thử'); }; } catch (e) { /* bỏ qua */ } }
   }
   freezeOta();
