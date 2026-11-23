@@ -4,6 +4,7 @@
 // Dùng: node scripts/target/tl-pack.mjs ja   (ghi)   · --check (gói khớp nguồn, test target-lang)
 import fs from 'node:fs';
 import path from 'node:path';
+import { isMain } from '../lib/is-main.mjs';
 import { ROOT, MEAN_LANGS, readJSON, seedPath, coreFiles, validate } from './lib.mjs';
 
 export const COLS = ['word', 'kana', 'romaji', 'pitch', 'jlpt', 'pos', 'vclass', 'aclass', 'gender', 'plural', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exEn', 'exForm'];
@@ -22,7 +23,7 @@ export function build(tl) {
   for (const L of MEAN_LANGS) out[L] = JSON.stringify({ v: 1, tl, lang: L, n: words.length, cols, words: words.map(w => { const r = row(w, L); return cols.map(c => r[c] ?? null); }) }) + '\n';
   return { out, err, n: words.length };
 }
-if (import.meta.url === 'file://' + process.argv[1]) {
+if (isMain(import.meta.url)) {
   const tl = process.argv.slice(2).find(a => /^[a-z]{2}$/.test(a)), check = process.argv.includes('--check');
   if (!tl) { console.error('Dùng: node scripts/target/tl-pack.mjs <tl> [--check]'); process.exit(2); }
   const { out, err, n } = build(tl), dir = packDir(tl);
