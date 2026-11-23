@@ -1,0 +1,164 @@
+{
+ "id": "t2sc_021",
+ "template": "scorecard",
+ "series": "Score Challenge",
+ "part": 21,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "placement",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Score forty. Beat me?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Five questions. Two right.",
+   "pause": 0.25
+  },
+  {
+   "id": "r",
+   "text": "Oops. Easy to beat!",
+   "pause": 0.3
+  },
+  {
+   "id": "ch",
+   "text": "Can you beat that? Take the free test.",
+   "pause": 0.4
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "items": [
+   {
+    "stem": "That town is worth ___.",
+    "options": [
+     "to visit",
+     "visiting"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "He is tired ___ the noise.",
+    "options": [
+     "of",
+     "for"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "How much ___ the security deposit?",
+    "options": [
+     "I give",
+     "is"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "She works ___ every day.",
+    "options": [
+     "hardly",
+     "hard"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "Your clothes ___ dirty.",
+    "options": [
+     "is",
+     "are"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A2"
+   }
+  ],
+  "right": 2,
+  "score": 40,
+  "pts": 20,
+  "sample": true
+ },
+ "cta": {
+  "area": "placement",
+  "route": "#/placement",
+  "link": "https://lexkite.com/app/#/placement",
+  "say": "Take the level test"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Score 40/100. Beat me?"
+ },
+ "src": {
+  "gold": [
+   "sb_abcf714c",
+   "sb_287f44f3",
+   "sb_cc4c2bf0",
+   "sb_02cd8fd2",
+   "sb_9a0040a5"
+  ]
+ },
+ "est": {
+  "words": 22,
+  "seconds": 9.8,
+  "wpm": 134
+ },
+ "publish": {
+  "title": "Can you beat 40/100 on this English quiz?",
+  "keyword": "english quiz score",
+  "value": "Sample score from 5 real quiz questions: 2 right x 20 points = 40/100 (sample answers, not a real learner result). Take the free level test and see your own score.",
+  "hashtags": [
+   "#englishquiz",
+   "#englishtest",
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish"
+  ],
+  "link": "https://lexkite.com/app/#/placement",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Can you beat 40/100 on this English quiz?",
+    "description": "Sample score from 5 real quiz questions: 2 right x 20 points = 40/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement\n\nSeries: Score Challenge · Teacher: Ama\n\n#englishquiz #englishtest #learnenglish #englishtips #speakenglish",
+    "tags": [
+     "english quiz score",
+     "Score Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Can you beat 40/100 on this English quiz?\n\nSample score from 5 real quiz questions: 2 right x 20 points = 40/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement"
+   },
+   "instagram": {
+    "caption": "Can you beat 40/100 on this English quiz?\n\nSample score from 5 real quiz questions: 2 right x 20 points = 40/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test: link in bio.",
+    "hashtags": [
+     "#englishquiz",
+     "#englishtest",
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish"
+    ]
+   },
+   "tiktok": {
+    "caption": "Can you beat 40/100 on this English quiz? #englishquiz #englishtest #learnenglish"
+   }
+  },
+  "first_comment": "Answers: 1) visiting. 2) of. 3) is. 4) hard. 5) are. Sample score 2/5 = 40/100. Try your own, free: {link}"
+ }
+}

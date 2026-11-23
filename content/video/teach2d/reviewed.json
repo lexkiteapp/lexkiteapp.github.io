@@ -43340,6 +43340,1392 @@
     "e": "I yeeted my paper into the bin.",
     "c": "lexkite.com"
    }
+  },
+  "t2sc_001": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "88dd1a3c036a",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_002": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fa2405bd6ef3",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_003": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5f181a0b37ed",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_004": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "adab090a04e3",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_005": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4d7a6810d6ad",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_006": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0fec9e26b49a",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_007": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3a205de522c5",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_008": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2a59856b4b64",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_009": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fa77385a2dd4",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_010": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a21398b736b2",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_011": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2fc6eefabfdf",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_012": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "df5824babd1d",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_013": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c064be3c4436",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_014": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "02b628aed19a",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_015": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5c27b811ebe9",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_016": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3d2c74d66771",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_017": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "88529ee3db69",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_018": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7d1946053fc4",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_019": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ae0daf8790fe",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_020": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1e68ee60c831",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_021": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9ccd39da6665",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_022": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "642da9c1c4e9",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_023": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "da44d8da2c85",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_024": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "668f88223982",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_025": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "acafb82f7469",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_026": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f348c080f78c",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_027": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3fc16d1d5858",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_028": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ba8e235a3c04",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_029": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "76ad3e46cb5b",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_030": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ff1deb8ee17b",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_031": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f1c01498aee0",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_032": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cf8195170f7c",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_033": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1169338ad7f3",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_034": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bf17029ecc93",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_035": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d67e0ce5c24a",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_036": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "133eb3890b64",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_037": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "411ef7a36c20",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_038": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0eb26a8aedea",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_039": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "253dd8d3095a",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_040": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "63f46b6d96ae",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_041": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1f443f08b33c",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_042": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0356e3ae4f82",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_043": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f1e91eabe62e",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_044": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "98dff36d62c5",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_045": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bcf5c5a990c4",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_046": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e25c203887f1",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_047": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bd1b837fad84",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_048": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f258919fdd85",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_049": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9e28ccd94704",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_050": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "102041a655ef",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_051": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "86a07263ce88",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_052": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f29919a6a387",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_053": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "49cdeacd17e0",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_054": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b2b4ca6992ca",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_055": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b40fd5666df0",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_056": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d9e94192af59",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_057": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e501d63ccc18",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_058": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "224e09e91176",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_059": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cab876dddde9",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_060": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "07dc80316bb6",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_061": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "21a811269382",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_062": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f23019ed0d31",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_063": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "64ea709013f7",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
   }
  }
 }

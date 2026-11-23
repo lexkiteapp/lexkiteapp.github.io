@@ -1,0 +1,168 @@
+{
+ "id": "t2sc_032",
+ "template": "scorecard",
+ "series": "Score Challenge",
+ "part": 32,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "placement",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Perfect score. Match me?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Five questions. All five right.",
+   "pause": 0.25
+  },
+  {
+   "id": "r",
+   "text": "Perfect. Tough to match.",
+   "pause": 0.3
+  },
+  {
+   "id": "ch",
+   "text": "Can you match that? Take the free test.",
+   "pause": 0.4
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "items": [
+   {
+    "stem": "Great talk yesterday, ___?",
+    "options": [
+     "isn't",
+     "wasn't it"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I bought an ___ car.",
+    "options": [
+     "economical",
+     "economic"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I'm really ___ in this role.",
+    "options": [
+     "interesting",
+     "interested"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I applied ___ a job at the bank.",
+    "options": [
+     "for",
+     "to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Let's ___ a break for ten minutes.",
+    "options": [
+     "take",
+     "do"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   }
+  ],
+  "right": 5,
+  "score": 100,
+  "pts": 20,
+  "sample": true
+ },
+ "cta": {
+  "area": "placement",
+  "route": "#/placement",
+  "link": "https://lexkite.com/app/#/placement",
+  "say": "Take the level test"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Score 100/100. Match me?"
+ },
+ "src": {
+  "gold": [
+   "sb_8401e4b0",
+   "sb_054c669e",
+   "sb_9f45e757",
+   "sb_bc68bba4",
+   "sb_290c5183"
+  ]
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.9,
+  "wpm": 127
+ },
+ "publish": {
+  "title": "Can you match 100/100 on this English quiz?",
+  "keyword": "english quiz score",
+  "value": "Sample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.",
+  "hashtags": [
+   "#englishquiz",
+   "#englishtest",
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish"
+  ],
+  "link": "https://lexkite.com/app/#/placement",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Can you match 100/100 on this English quiz?",
+    "description": "Sample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement\n\nSeries: Score Challenge · Teacher: Carlos\n\n#englishquiz #englishtest #learnenglish #englishtips #speakenglish",
+    "tags": [
+     "english quiz score",
+     "Score Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Can you match 100/100 on this English quiz?\n\nSample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement"
+   },
+   "instagram": {
+    "caption": "Can you match 100/100 on this English quiz?\n\nSample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test: link in bio.",
+    "hashtags": [
+     "#englishquiz",
+     "#englishtest",
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish"
+    ]
+   },
+   "tiktok": {
+    "caption": "Can you match 100/100 on this English quiz? #englishquiz #englishtest #learnenglish"
+   }
+  },
+  "first_comment": "Answers: 1) wasn't it. 2) economical. 3) interested. 4) for. 5) take. Sample score 5/5 = 100/100. Try your own, free: {link}"
+ }
+}

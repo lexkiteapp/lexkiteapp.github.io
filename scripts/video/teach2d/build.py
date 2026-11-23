@@ -31,7 +31,7 @@ EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; _TJ = json.load(open
 MIX = (json.load(open(o.mix))['mix'].get(EP['id']) if o.mix and os.path.exists(o.mix) else None) or {}   # mix.py combination (never changes a word of the script)
 if EP['template'] in ('rule', 'band'): o.layout = 'corner'   # rule: always the corner layout (no teacher bubble in the platform right rail), whatever mix.json or --layout say
 elif o.format == 'short' and not o.layout and MIX.get('layout'): o.layout = MIX['layout']
-if EP['template'] == 'slang' and o.layout == 'bubble': o.layout = 'corner'   # Slang Card: the strong expression is the hook – the teacher stays big (mix.py never picks bubble for it)
+if EP['template'] in ('slang', 'scorecard') and o.layout == 'bubble': o.layout = 'corner'   # Slang Card / Score Challenge: the strong expression is the hook – the teacher stays big (mix.py never picks bubble for it)
 TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carries it, so each series is recognisable from frame 0
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)
@@ -855,8 +855,27 @@ def T_slang():
     end_card()
 
 
+def T_scorecard():
+    """Score Challenge (growth series #5): hook headline while the teacher shows the score band's EXPR, then ONE Kit score card = SAMPLE ANSWERS chip + the 5 real quiz
+    items filled with the sample pick (each its own check / cross as the voice counts them) + the score computed from those ticks, then the challenge card and the CTA
+    to the app's level test (#/placement). Nothing here is a user claim: the chip says SAMPLE ANSWERS and the points line shows the sum."""
+    D = EP['data']; series_chip(); s, n = D['score'], D['right']; hw = EP['hook']['text'].split()
+    title([[' '.join(hw[:-2]) + ' ', 'ink'], [' '.join(hw[-2:]), 'primary']], 96, RY0 + 120, None, start('k') - 0.2, hook=True)
+    t_k, t_ch, t_c = start('k'), start('ch'), start('c'); t_sc = at('k', 2); step = (t_sc - t_k - 0.1) / len(D['items'])
+    c = Card(RY0); chip(c, 'SAMPLE ANSWERS', t_k); c.lp = PAD + 76   # rows leave the left column to the check / cross
+    for i, it in enumerate(D['items']):
+        t_i = t_k + 0.1 + i * step; right = it['pick'] == it['answer']; a, b = it['stem'].split('___'); pk = it['options'][it['pick']] + re.match(r'\S*', b)[0]
+        y0 = c.y; nn = c.text([[a, 'ink'], [pk, 'good' if right else 'bad'], [b[len(re.match(r'\S*', b)[0]):], 'ink']], 40, t_i, gap=14); by = y0 + (nn[0]['box'][3] - nn[0]['box'][1] - 56) / 2
+        c.rows.append(dict(id=nid('b'), type='check' if right else 'cross', box=[PAD, by, PAD + 56, by + 56], **{'in': cue(t_i, 'pop' if right else 'soft')}))
+    c.lp = PAD; c.text([[str(s), 'coral'], ['/100', 'ink']], S['big'], t_sc, align='c'); c.text([[f"{n} right × {D['pts']} points", 'muted']], S['sub'], at('k', 3), align='c')
+    c.place(t_k, t_ch - 0.2, 'a')
+    c = Card(RY0); chip(c, 'YOUR TURN', t_ch); c.text([[('Match ' if s == 100 else 'Beat '), 'ink'], [f'{s}/100', 'coral'], ['?', 'ink']], S['big'], t_ch, align='c')
+    c.text([['Take the free level test', 'muted']], S['sub'], at('ch', 'Take'), align='c'); c.place(t_ch, t_c - 0.2, 'a')
+    end_card()
+
+
 dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, l1=T_l1, guess=T_guess, level=T_level,
-     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, slang=T_slang, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]()
+     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, slang=T_slang, scorecard=T_scorecard, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
 BY = {n['id']: n for n in NODES}
@@ -1009,7 +1028,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     # music bed: preset by series, ~ -30 dBFS RMS, ducked 12 dB under the voice (smooth 0.25 s), fades in/out
     PRE = dict(l1='quiz-pulse', usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
                pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse',
-               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright', roots='chill-keys', band='chill-keys', slang='pop-bright')
+               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright', roots='chill-keys', band='chill-keys', slang='pop-bright', scorecard='pop-bright')
     MUS = MIX.get('music') or PRE.get(EP['template'], 'lofi-warm')   # mix.py 'music' (series preset without a mix)
     mf = f'{o.public}/_music.wav'; subprocess.run(['node', f'{ROOT}/scripts/video/synth.mjs', '--music', MUS, str(TOTAL + 0.5), mf], check=True, capture_output=True)
     with wave.open(mf) as w: sr_ = w.getframerate(); ch_ = w.getnchannels(); mu = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768

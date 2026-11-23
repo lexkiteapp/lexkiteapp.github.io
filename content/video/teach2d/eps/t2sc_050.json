@@ -1,0 +1,164 @@
+{
+ "id": "t2sc_050",
+ "template": "scorecard",
+ "series": "Score Challenge",
+ "part": 50,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "placement",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Score sixty. Beat me?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Five questions. Three right.",
+   "pause": 0.25
+  },
+  {
+   "id": "r",
+   "text": "Okay. You can beat that.",
+   "pause": 0.3
+  },
+  {
+   "id": "ch",
+   "text": "Can you beat that? Take the free test.",
+   "pause": 0.4
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "items": [
+   {
+    "stem": "I ___ in Hue. I was born here.",
+    "options": [
+     "live",
+     "stay"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "In my opinion, ___ it's true.",
+    "options": [
+     "I think",
+     "(nothing)"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A1"
+   },
+   {
+    "stem": "Let's keep ___ after the course.",
+    "options": [
+     "contact",
+     "in touch"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I've worked in sales ___ six years.",
+    "options": [
+     "since",
+     "for"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "The book is ___ read.",
+    "options": [
+     "wide",
+     "widely"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A2"
+   }
+  ],
+  "right": 3,
+  "score": 60,
+  "pts": 20,
+  "sample": true
+ },
+ "cta": {
+  "area": "placement",
+  "route": "#/placement",
+  "link": "https://lexkite.com/app/#/placement",
+  "say": "Take the level test"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Score 60/100. Beat me?"
+ },
+ "src": {
+  "gold": [
+   "sb_99be1ee6",
+   "sb_072f702a",
+   "sb_b8781c2a",
+   "sb_d7a49df5",
+   "sb_0ce8ec98"
+  ]
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.2,
+  "wpm": 135
+ },
+ "publish": {
+  "title": "Can you beat 60/100 on this English quiz?",
+  "keyword": "english quiz score",
+  "value": "Sample score from 5 real quiz questions: 3 right x 20 points = 60/100 (sample answers, not a real learner result). Take the free level test and see your own score.",
+  "hashtags": [
+   "#englishquiz",
+   "#englishtest",
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish"
+  ],
+  "link": "https://lexkite.com/app/#/placement",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Can you beat 60/100 on this English quiz?",
+    "description": "Sample score from 5 real quiz questions: 3 right x 20 points = 60/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement\n\nSeries: Score Challenge · Teacher: Carlos\n\n#englishquiz #englishtest #learnenglish #englishtips #speakenglish",
+    "tags": [
+     "english quiz score",
+     "Score Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Can you beat 60/100 on this English quiz?\n\nSample score from 5 real quiz questions: 3 right x 20 points = 60/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement"
+   },
+   "instagram": {
+    "caption": "Can you beat 60/100 on this English quiz?\n\nSample score from 5 real quiz questions: 3 right x 20 points = 60/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test: link in bio.",
+    "hashtags": [
+     "#englishquiz",
+     "#englishtest",
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish"
+    ]
+   },
+   "tiktok": {
+    "caption": "Can you beat 60/100 on this English quiz? #englishquiz #englishtest #learnenglish"
+   }
+  },
+  "first_comment": "Answers: 1) live. 2) (nothing). 3) in touch. 4) for. 5) widely. Sample score 3/5 = 60/100. Try your own, free: {link}"
+ }
+}

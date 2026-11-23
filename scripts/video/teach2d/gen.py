@@ -523,6 +523,56 @@ def slang(p):   # Slang Card: hook + STRONG expression (drawn face or approved p
 
 T['slang'] = slang; SERIES['slang'] = 'Slang Card'
 
+# ---------------- scorecard: "Score Challenge" 9-12 s reels (growth series #5, docs/GROWTH-1M.md §2: "Mình được 82/100, bạn thử đi" -> the app's level test) ----------------
+# 5 REAL quiz items of the audited gold bank (stem, 2 options, answer key) + a SAMPLE pick per item: the score is computed from the shown ticks (20 points each), labelled
+# "SAMPLE ANSWERS" on screen, never a stat or a user claim. Teacher reacts to the score band with a TeacherRig EXPR; CTA = the real test (#/placement).
+SC_N, SC_PTS, SC_CEFR = 5, 20, ('A1', 'A2', 'B1', 'B2')
+SC_EXPR = {100: 'hype', 80: 'smug', 60: 'shrug', 40: 'cringe'}   # score band -> TeacherRig EXPR (hype has an approved pose, the rest are drawn faces)
+SC_NUM, SC_COUNT = {40: 'forty', 60: 'sixty', 80: 'eighty'}, ['No', 'One', 'Two', 'Three', 'Four', 'All five']
+SC_REACT = {100: 'Perfect. Tough to match.', 80: 'Pretty good, right?', 60: 'Okay. You can beat that.', 40: 'Oops. Easy to beat!'}
+SC_CYCLE = [80, 60, 100, 80, 40, 60, 80, 100]   # bands in plan order: smug / shrug / hype alternate, so no two neighbours look alike
+SC_W, SC_ROW, SC_REGION = 736, 40, 820   # row text column (card 900 - badge column 116 - pad 40, 8 px margin), row font (= the 40 px min-text floor), card height room (card region 826)
+CLIP = dict(slang=(SLANG_SPEED, SLANG_WORDS, SLANG_SECS), scorecard=(SLANG_SPEED, (16, 28), (9.0, 12.0)))   # template -> (speed, word range, seconds range) of the short reels
+
+
+def sc_ok(g):   # a gold quiz item the card can show: one gap, 2 short options, learner level, audited (qc.gold), BOTH fillings fit one 40 px row
+    q = g['quiz']; s = q['q']
+    if not (s.count('___') == 1 and len(q['options']) == 2 and not re.search(r'[0-9/()]', s) and g['cefr'] in SC_CEFR and (g.get('qc') or {}).get('gold') is True and all(len(o) <= 14 for o in q['options'])): return False
+    a, b = s.split('___'); return all(text_w(a + o + b, SC_ROW) <= SC_W for o in q['options'])
+
+
+def sc_pool(): return {i: g for i, g in GOLD.items() if sc_ok(g)}
+def sc_fact(i, pick): g = GOLD[i]; q = g['quiz']; return dict(id=i, q=q['q'], options=q['options'], answer=q['answer'], cefr=g['cefr'], pick=pick)
+def sc_right(F): return sum(f['pick'] == f['answer'] for f in F)
+def sc_score(F): return SC_PTS * sc_right(F)
+def sc_verb(s): return 'match' if s == 100 else 'beat'
+def sc_hook(s): return f"Score {s}/100. {sc_verb(s).capitalize()} me?"
+def sc_filled(f):   # the sentence with the sample pick in the gap: (before, pick + attached punctuation, after)
+    a, b = f['q'].split('___'); m = re.match(r'\S*', b); return a, f['options'][f['pick']] + m[0], b[m.end():]
+
+
+def sc_height():   # card height of build.py T_scorecard with 5 single-line rows (Card.text: line = 1.22 x size + 6, row gap 14); place() asserts the same on CI
+    h = lambda sz: round(sz * 1.22)
+    return 40 + (40 + 28) + 24 + SC_N * (h(SC_ROW) + 6 + 8) + (h(104) + 6 + 24) + (h(48) + 6 + 24) - 24 + 40 + 10
+
+
+def scorecard(p):
+    F = [sc_fact(i, k) for i, k in zip(p['items'], p['picks'])]; assert len(F) == SC_N and all(k in (0, 1) for k in p['picks']), ('scorecard: 5 items, picks 0/1', p)
+    s, n = sc_score(F), sc_right(F); assert s in SC_EXPR, ('scorecard: score band', s); XP = slang_src()[1]['x'][SC_EXPR[s]]; g = XP.get('gesture'); X_ = slang_src()[1]
+    hs = 'Perfect score. Match me?' if s == 100 else f'Score {SC_NUM[s]}. Beat me?'
+    def secs(ls): return sum(len(words(l['text'])) for l in ls) / (2.55 * SLANG_SPEED) + sum(l['pause'] for l in ls)
+    for pose_ok in ((True, False) if g else (False,)):   # same rule as slang: the approved pose image needs a >= 1.2 s voiced gap, else the drawn face carries the expression
+        lines = [L('h', hs, 1.25 if pose_ok else 0.55), L('k', f'Five questions. {SC_COUNT[n]} right.', 0.25), L('r', SC_REACT[s], 0.3),
+                 L('ch', f'Can you {sc_verb(s)} that? Take the free test.', 0.4), L('c', 'lexkite.com', 0.5)]
+        if secs(lines) <= CLIP['scorecard'][2][1]: break
+    pose = dict(clip=X_['g'][g]['pose'], after='h') if g and pose_ok else None
+    return dict(lines=lines, expr=SC_EXPR[s], **({'pose': pose} if pose else {}),
+                data=dict(items=[dict(stem=f['q'], options=f['options'], answer=f['answer'], pick=f['pick'], cefr=f['cefr']) for f in F], right=n, score=s, pts=SC_PTS, sample=True),
+                cta=cta('placement', '#/placement', 'Take the level test'), hook=dict(line='h', text=sc_hook(s)), src=dict(gold=[f['id'] for f in F]))
+
+
+T['scorecard'] = scorecard; SERIES['scorecard'] = 'Score Challenge'
+
 
 def words(s): return re.findall(r"[A-Za-z0-9'’-]+", s)
 
@@ -534,17 +584,17 @@ def make(row):
     if 'teacher' in sp:   # react: the series' own teacher (Ama = female voice, Carlos = male voice) + a pose from that teacher's registry clips
         assert sp.pop('teacher') == who and sp['pose']['clip'] in REG['people'][who]['clips'], ('react: series teacher / pose mismatch', who, sp['pose'])
     ep = dict(id=row['id'], template=t, series=SERIES[t], part=row.get('part', 1), theme=row['theme'], teacher=who,
-              voice=REG['people'][who]['voice']['video'], speed=row.get('speed', SLANG_SPEED if t == 'slang' else 0.8), area=sp['cta']['area'], **sp)
+              voice=REG['people'][who]['voice']['video'], speed=row.get('speed', CLIP[t][0] if t in CLIP else 0.8), area=sp['cta']['area'], **sp)
     # self-checks (the CI gates re-check on the real audio): hook <= 6 words, one point, 55-95 words, est. <= 150 wpm
     n = sum(len(words(l['text'])) for l in ep['lines']); est = n / (2.55 * ep['speed']) + sum(l['pause'] for l in ep['lines'])
     hk = ep['lines'][0]['text']
     assert len(words(hk)) <= 7, ('hook too long', hk)
-    lo, hi = SLANG_WORDS if t == 'slang' else (30, 70)   # slang reels are 7-12 s (owner 22/11); every other template 18-28 s
+    lo, hi = CLIP[t][1] if t in CLIP else (30, 70)   # slang reels are 7-12 s (owner 22/11), score challenges 9-12 s; every other template 18-28 s
     assert lo <= n <= hi, ('word count', n)
     assert 60 * n / est <= 150, ('pace', 60 * n / est)
     if row.get('lang'): ep['lang'] = row['lang']   # L1 clip: routed only to pages whose cfg.lang == lang (functions/api/_distribution.js blockOf)
     ep['est'] = dict(words=n, seconds=round(est, 1), wpm=round(60 * n / est))
-    if t == 'slang': assert SLANG_SECS[0] <= est <= SLANG_SECS[1], ('slang clip length', round(est, 1), SLANG_SECS)
+    if t in CLIP: assert CLIP[t][2][0] <= est <= CLIP[t][2][1], (t, 'clip length', round(est, 1), CLIP[t][2])
     ep['publish'] = PUBLISH.build(ep)   # posting metadata written at production from this script (publish.py, docs/specs/video-production-v2.md §2)
     return ep
 
@@ -813,6 +863,15 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
         it = slang_src()[0].get(p['key'].lower())
         if not it: bad.append('slang key gone from slang.json')
         elif slang_facts(it) != row.get('facts'): bad.append('slang card changed in slang.json (re-plan + review)')
+    elif t == 'scorecard':   # Score Challenge: the row froze 5 gold quiz items + the sample picks; the live audited bank must still say the same, and the score is recomputed from the ticks
+        ids, pk = p['items'], p['picks']; pool = sc_pool()
+        if len(set(ids)) != SC_N or len(ids) != SC_N or len(pk) != SC_N: bad.append('scorecard needs 5 distinct items and 5 picks')
+        elif any(i not in pool for i in ids): bad.append('a quiz item left the audited gold bank / the card item rules')
+        else:
+            Fx = [sc_fact(i, k) for i, k in zip(ids, pk)]
+            if Fx != row.get('facts'): bad.append('quiz item changed in the gold bank (re-plan + review)')
+            if len({GOLD[i]['pid'] for i in ids}) != SC_N: bad.append('two items test the same point')
+            if sc_score(Fx) not in SC_EXPR: bad.append('score band')
     elif t in ('mistake', 'phrasal'):   # hand-written rows (hand.json): the gold-bank row is the audited fact
         g = GOLD.get(p['gold']) or {}
         if not g: bad.append('gold row gone')
@@ -844,6 +903,7 @@ def hook_gate(row, ep):   # the on-screen hook is a true claim about these facts
     if t == 'band': ok = ok and hk == 'Band five to nine'
     if t == 'rule': ok = ok and hk == f"The {' '.join(p_letter(row))} is silent"
     if t == 'usuk': ok = ok and p['us'] != p['uk'] and p['ipa_us'] != p['ipa_uk']
+    if t == 'scorecard': ok = ok and hk == sc_hook(sc_score(row['facts'])) and hk[-1:] == '?'   # the number on screen is the one computed from the shown ticks
     if t == 'slang': ok = ok and hk == slang_src()[0][p['key'].lower()]['hook'] and hk[-1:] in '?!'   # a situation question/shout from the reviewed card, never a definition
     return ok
 
@@ -1182,6 +1242,43 @@ def plan_slang(n, keys=None):   # one episode per slang card (English channels; 
     for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
 
 
+SCORE_REVIEWER = 'gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= B2 · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)'
+
+
+def plan_scorecard(n):   # n new Score Challenge rows; every item of the pool is used at most once across all scorecard rows (dup gate), bands follow SC_CYCLE
+    F = facts(); A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; why = {}; used_h = {r['hash'] for r in rows}; ok = []
+    used_i = {i for r in rows if r['template'] == 'scorecard' for i in r['in']['items']}; k0 = sum(1 for r in rows if r['template'] == 'scorecard')
+    pool = sorted((i for i in sc_pool() if i not in used_i), key=lambda i: hashlib.sha1(i.encode()).hexdigest())
+    def skip(k, r): why.setdefault(k, []).append(r)
+    for _ in range(n):
+        k = k0 + len(ok) + 1; rid = f't2sc_{k:03d}'; pick, pids, ty = [], set(), {}
+        for i in pool:   # 5 items: distinct point, <= 4 situational / <= 2 of any other type, <= 2 B2, at least one A1/A2
+            g = GOLD[i]
+            if g['pid'] in pids or ty.get(g['type'], 0) >= (4 if g['type'] == 'situational' else 2) or (g['cefr'] == 'B2' and sum(GOLD[j]['cefr'] == 'B2' for j in pick) >= 2) or (len(pick) == SC_N - 1 and g['cefr'] not in ('A1', 'A2') and not any(GOLD[j]['cefr'] in ('A1', 'A2') for j in pick)): continue
+            pick.append(i); pids.add(g['pid']); ty[g['type']] = ty.get(g['type'], 0) + 1
+            if len(pick) == SC_N: break
+        if len(pick) < SC_N or not any(GOLD[i]['cefr'] in ('A1', 'A2') for i in pick): skip('pool', rid); break
+        s = SC_CYCLE[(k - 1) % len(SC_CYCLE)]; wrong = set(sorted(pick, key=lambda i: hashlib.sha1((rid + i).encode()).hexdigest())[:SC_N - s // SC_PTS])
+        picks = [1 - GOLD[i]['quiz']['answer'] if i in wrong else GOLD[i]['quiz']['answer'] for i in pick]; Fx = [sc_fact(i, p_) for i, p_ in zip(pick, picks)]
+        row = dict(id=rid, template='scorecard', teacher='ama' if k % 2 else 'carlos', theme='dusk', part=k, area='placement', point=f'scorecard:{rid}', hash=chash('scorecard', ','.join(sorted(pick))),
+                   heads=[f'scorecard:{i}' for i in pick], taught=[], facts=Fx, **{'in': dict(items=pick, picks=picks)})
+        if row['hash'] in used_h: skip('dup', rid); continue
+        if data_gate(row, F): skip('data:' + ','.join(data_gate(row, F)), rid); continue
+        try: ep = make(row)
+        except AssertionError as e: skip('shape:' + str(e.args[0]), rid); continue
+        if not hook_gate(row, ep): skip('hook', rid); continue
+        spoken = ' '.join(l['text'] for l in ep['lines'] if l['id'] != 'c')
+        un = [u for u in unknown([spoken])[0] if u.lower() not in FRAME | set(SC_NUM.values()) and not lvl_ok(u, F)]   # number words are plain learner English
+        if un: skip('level:' + ','.join(un), rid); continue
+        ok.append(row); rows.append(row); used_h.add(row['hash']); pool = [i for i in pool if i not in pick]
+        R_['verdicts'][rid] = dict(template='scorecard', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=SCORE_REVIEWER, machine=True,
+                                   gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    print(f"scorecard: +{len(ok)} rows, total {sum(1 for r in rows if r['template'] == 'scorecard')}")
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
+
+
 def pilot_point(r):
     p = r['in']; return dict(usuk=lambda: f"{p.get('us')}/{p.get('uk')}", verbs=lambda: p.get('base'), stress=lambda: f"{p['a']['word']}/{p['b']['word']}" if 'a' in p else '',
                              guess=lambda: p.get('word'), review=lambda: p.get('word')).get(r['template'], lambda: r['id'])()
@@ -1219,6 +1316,7 @@ if __name__ == '__main__':
     if '--hand' in A_: plan_hand(); sys.exit(0)
     if '--roots' in A_: plan_roots(); sys.exit(0)
     if '--slang-eps' in A_: plan_slang(int(A_[A_.index('--slang-eps') + 1]), A_[A_.index('--keys') + 1].split('|') if '--keys' in A_ else None); sys.exit(0)
+    if '--scorecard-eps' in A_: plan_scorecard(int(A_[A_.index('--scorecard-eps') + 1])); sys.exit(0)
     if '--band-eps' in A_: plan_bands(int(A_[A_.index('--band-eps') + 1])); sys.exit(0)
     if '--rule-eps' in A_: plan_rules(int(A_[A_.index('--rule-eps') + 1])); sys.exit(0)
     if '--rules' in A_:   # Spell->Sound word mining (rules.py): rules-words.json regenerates identically (--check) or is rewritten

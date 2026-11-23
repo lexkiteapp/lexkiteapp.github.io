@@ -1,0 +1,164 @@
+{
+ "id": "t2sc_039",
+ "template": "scorecard",
+ "series": "Score Challenge",
+ "part": 39,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "placement",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Score eighty. Beat me?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Five questions. Four right.",
+   "pause": 0.25
+  },
+  {
+   "id": "r",
+   "text": "Pretty good, right?",
+   "pause": 0.3
+  },
+  {
+   "id": "ch",
+   "text": "Can you beat that? Take the free test.",
+   "pause": 0.4
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "items": [
+   {
+    "stem": "Thank you all for ___.",
+    "options": [
+     "your listening",
+     "listening"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "He dreams ___ a pilot.",
+    "options": [
+     "of becoming",
+     "to become"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I ___ a bath after work.",
+    "options": [
+     "made",
+     "took"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "He avoided ___ to me.",
+    "options": [
+     "talking",
+     "to talk"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Is there any ___ on the salary?",
+    "options": [
+     "more or not",
+     "flexibility"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   }
+  ],
+  "right": 4,
+  "score": 80,
+  "pts": 20,
+  "sample": true
+ },
+ "cta": {
+  "area": "placement",
+  "route": "#/placement",
+  "link": "https://lexkite.com/app/#/placement",
+  "say": "Take the level test"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Score 80/100. Beat me?"
+ },
+ "src": {
+  "gold": [
+   "sb_30c60846",
+   "sb_0e092805",
+   "sb_155a64a8",
+   "sb_d8d52cb2",
+   "sb_93e59268"
+  ]
+ },
+ "est": {
+  "words": 21,
+  "seconds": 9.5,
+  "wpm": 133
+ },
+ "publish": {
+  "title": "Can you beat 80/100 on this English quiz?",
+  "keyword": "english quiz score",
+  "value": "Sample score from 5 real quiz questions: 4 right x 20 points = 80/100 (sample answers, not a real learner result). Take the free level test and see your own score.",
+  "hashtags": [
+   "#englishquiz",
+   "#englishtest",
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish"
+  ],
+  "link": "https://lexkite.com/app/#/placement",
+  "script_words": 20,
+  "platforms": {
+   "youtube": {
+    "title": "Can you beat 80/100 on this English quiz?",
+    "description": "Sample score from 5 real quiz questions: 4 right x 20 points = 80/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement\n\nSeries: Score Challenge · Teacher: Ama\n\n#englishquiz #englishtest #learnenglish #englishtips #speakenglish",
+    "tags": [
+     "english quiz score",
+     "Score Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Can you beat 80/100 on this English quiz?\n\nSample score from 5 real quiz questions: 4 right x 20 points = 80/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement"
+   },
+   "instagram": {
+    "caption": "Can you beat 80/100 on this English quiz?\n\nSample score from 5 real quiz questions: 4 right x 20 points = 80/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test: link in bio.",
+    "hashtags": [
+     "#englishquiz",
+     "#englishtest",
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish"
+    ]
+   },
+   "tiktok": {
+    "caption": "Can you beat 80/100 on this English quiz? #englishquiz #englishtest #learnenglish"
+   }
+  },
+  "first_comment": "Answers: 1) listening. 2) of becoming. 3) took. 4) talking. 5) flexibility. Sample score 4/5 = 80/100. Try your own, free: {link}"
+ }
+}

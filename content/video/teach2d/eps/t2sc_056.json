@@ -1,0 +1,168 @@
+{
+ "id": "t2sc_056",
+ "template": "scorecard",
+ "series": "Score Challenge",
+ "part": 56,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "placement",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Perfect score. Match me?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Five questions. All five right.",
+   "pause": 0.25
+  },
+  {
+   "id": "r",
+   "text": "Perfect. Tough to match.",
+   "pause": 0.3
+  },
+  {
+   "id": "ch",
+   "text": "Can you match that? Take the free test.",
+   "pause": 0.4
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "items": [
+   {
+    "stem": "Good luck ___ your test!",
+    "options": [
+     "with",
+     "for"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "She ___ me the news.",
+    "options": [
+     "said",
+     "told"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A1"
+   },
+   {
+    "stem": "There's a high risk ___ rain today.",
+    "options": [
+     "to",
+     "of"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "___ the flight is late.",
+    "options": [
+     "I'm scared",
+     "I'm afraid"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "It ___ on the weather.",
+    "options": [
+     "depends",
+     "depend of"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   }
+  ],
+  "right": 5,
+  "score": 100,
+  "pts": 20,
+  "sample": true
+ },
+ "cta": {
+  "area": "placement",
+  "route": "#/placement",
+  "link": "https://lexkite.com/app/#/placement",
+  "say": "Take the level test"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Score 100/100. Match me?"
+ },
+ "src": {
+  "gold": [
+   "sb_d6acb235",
+   "sb_136af047",
+   "sb_014af894",
+   "sb_0d57e20a",
+   "sb_99bdb159"
+  ]
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.9,
+  "wpm": 127
+ },
+ "publish": {
+  "title": "Can you match 100/100 on this English quiz?",
+  "keyword": "english quiz score",
+  "value": "Sample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.",
+  "hashtags": [
+   "#englishquiz",
+   "#englishtest",
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish"
+  ],
+  "link": "https://lexkite.com/app/#/placement",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Can you match 100/100 on this English quiz?",
+    "description": "Sample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement\n\nSeries: Score Challenge · Teacher: Carlos\n\n#englishquiz #englishtest #learnenglish #englishtips #speakenglish",
+    "tags": [
+     "english quiz score",
+     "Score Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Can you match 100/100 on this English quiz?\n\nSample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement"
+   },
+   "instagram": {
+    "caption": "Can you match 100/100 on this English quiz?\n\nSample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test: link in bio.",
+    "hashtags": [
+     "#englishquiz",
+     "#englishtest",
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish"
+    ]
+   },
+   "tiktok": {
+    "caption": "Can you match 100/100 on this English quiz? #englishquiz #englishtest #learnenglish"
+   }
+  },
+  "first_comment": "Answers: 1) with. 2) told. 3) of. 4) I'm afraid. 5) depends. Sample score 5/5 = 100/100. Try your own, free: {link}"
+ }
+}

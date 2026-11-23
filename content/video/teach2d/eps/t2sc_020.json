@@ -1,0 +1,164 @@
+{
+ "id": "t2sc_020",
+ "template": "scorecard",
+ "series": "Score Challenge",
+ "part": 20,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "placement",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Score eighty. Beat me?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Five questions. Four right.",
+   "pause": 0.25
+  },
+  {
+   "id": "r",
+   "text": "Pretty good, right?",
+   "pause": 0.3
+  },
+  {
+   "id": "ch",
+   "text": "Can you beat that? Take the free test.",
+   "pause": 0.4
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "items": [
+   {
+    "stem": "Beethoven wrote ___ music.",
+    "options": [
+     "classical",
+     "classic"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "Is the rent with ___ included?",
+    "options": [
+     "tools",
+     "utilities"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Can you ___ us a joke?",
+    "options": [
+     "tell",
+     "say"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I am ___ this city.",
+    "options": [
+     "familiar with",
+     "familiar to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "___ students here are young.",
+    "options": [
+     "Most",
+     "Most of"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   }
+  ],
+  "right": 4,
+  "score": 80,
+  "pts": 20,
+  "sample": true
+ },
+ "cta": {
+  "area": "placement",
+  "route": "#/placement",
+  "link": "https://lexkite.com/app/#/placement",
+  "say": "Take the level test"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Score 80/100. Beat me?"
+ },
+ "src": {
+  "gold": [
+   "sb_34ccb489",
+   "sb_5e4a563f",
+   "sb_7dc78d29",
+   "sb_904eea31",
+   "sb_a8dac88f"
+  ]
+ },
+ "est": {
+  "words": 21,
+  "seconds": 9.5,
+  "wpm": 133
+ },
+ "publish": {
+  "title": "Can you beat 80/100 on this English quiz?",
+  "keyword": "english quiz score",
+  "value": "Sample score from 5 real quiz questions: 4 right x 20 points = 80/100 (sample answers, not a real learner result). Take the free level test and see your own score.",
+  "hashtags": [
+   "#englishquiz",
+   "#englishtest",
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish"
+  ],
+  "link": "https://lexkite.com/app/#/placement",
+  "script_words": 20,
+  "platforms": {
+   "youtube": {
+    "title": "Can you beat 80/100 on this English quiz?",
+    "description": "Sample score from 5 real quiz questions: 4 right x 20 points = 80/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement\n\nSeries: Score Challenge · Teacher: Carlos\n\n#englishquiz #englishtest #learnenglish #englishtips #speakenglish",
+    "tags": [
+     "english quiz score",
+     "Score Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Can you beat 80/100 on this English quiz?\n\nSample score from 5 real quiz questions: 4 right x 20 points = 80/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement"
+   },
+   "instagram": {
+    "caption": "Can you beat 80/100 on this English quiz?\n\nSample score from 5 real quiz questions: 4 right x 20 points = 80/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test: link in bio.",
+    "hashtags": [
+     "#englishquiz",
+     "#englishtest",
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish"
+    ]
+   },
+   "tiktok": {
+    "caption": "Can you beat 80/100 on this English quiz? #englishquiz #englishtest #learnenglish"
+   }
+  },
+  "first_comment": "Answers: 1) classical. 2) utilities. 3) tell. 4) familiar with. 5) Most. Sample score 4/5 = 80/100. Try your own, free: {link}"
+ }
+}
