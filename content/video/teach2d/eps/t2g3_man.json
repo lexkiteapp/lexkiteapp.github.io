@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_man",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 16,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: man!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "An adult male human being.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The man at the reception desk gave us a map.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "man",
+  "ipa": "/mæn/",
+  "mean": "an adult male human being",
+  "ex": "The man at the reception desk gave us a map.",
+  "img": "man#n",
+  "n": 3
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/man",
+  "link": "https://lexkite.com/app/#/dict/man",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "man",
+  "img": "man#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.7,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: M + 2 letters",
+  "keyword": "man",
+  "value": "Man /mæn/ = an adult male human being. Example: \"The man at the reception desk gave us a map.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/man",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: M + 2 letters",
+    "description": "Man /mæn/ = an adult male human being. Example: \"The man at the reception desk gave us a map.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/man\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "man",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: M + 2 letters\n\nMan /mæn/ = an adult male human being. Example: \"The man at the reception desk gave us a map.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/man"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: M + 2 letters\n\nMan /mæn/ = an adult male human being. Example: \"The man at the reception desk gave us a map.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: M + 2 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: man. An adult male human being. Example: \"The man at the reception desk gave us a map.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

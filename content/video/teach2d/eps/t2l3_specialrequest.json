@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_specialrequest",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 53,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.2,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Special request: three levels!",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "No meat, please.",
+   "pause": 0.3
+  },
+  {
+   "id": "b",
+   "text": "Could I have it without meat, please?",
+   "pause": 0.3
+  },
+  {
+   "id": "n",
+   "text": "Could you hold the meat, please?",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "special-request",
+  "title": "Special request",
+  "em": "🥗",
+  "chip": "At a restaurant",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "No meat, please.",
+    "key": "No meat",
+    "note": "Clear, but very short."
+   },
+   "b": {
+    "text": "Could I have it without meat, please?",
+    "key": "without meat",
+    "note": "Polite and exact."
+   },
+   "c": {
+    "text": "Could you hold the meat, please?",
+    "key": "hold the",
+    "note": "\"Hold the\" means leave out."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Hold the",
+    "No meat"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Special request: three levels!"
+ },
+ "src": {
+  "levels3": "special-request"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.7,
+  "wpm": 123
+ },
+ "publish": {
+  "title": "Special request: A1, B1 or C1?",
+  "keyword": "special request",
+  "value": "Special request, three ways. A1: \"No meat, please.\" B1: \"Could I have it without meat, please?\" C1: \"Could you hold the meat, please?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "Special request: A1, B1 or C1?",
+    "description": "Special request, three ways. A1: \"No meat, please.\" B1: \"Could I have it without meat, please?\" C1: \"Could you hold the meat, please?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "special request",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Special request: A1, B1 or C1?\n\nSpecial request, three ways. A1: \"No meat, please.\" B1: \"Could I have it without meat, please?\" C1: \"Could you hold the meat, please?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Special request: A1, B1 or C1?\n\nSpecial request, three ways. A1: \"No meat, please.\" B1: \"Could I have it without meat, please?\" C1: \"Could you hold the meat, please?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Special request: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Hold the. Native line: \"Could you hold the meat, please?\" Which level are you? More real English, free: {link}"
+ }
+}

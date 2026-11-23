@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_rat",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 69,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: rat!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "An animal that looks like a large mouse.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "A rat ran across the street.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "rat",
+  "ipa": "/ræt/",
+  "mean": "an animal that looks like a large mouse",
+  "ex": "A rat ran across the street.",
+  "img": "rat#n",
+  "n": 3
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/rat",
+  "link": "https://lexkite.com/app/#/dict/rat",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "rat",
+  "img": "rat#n"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.4,
+  "wpm": 128
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: R + 2 letters",
+  "keyword": "rat",
+  "value": "Rat /ræt/ = an animal that looks like a large mouse. Example: \"A rat ran across the street.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/rat",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: R + 2 letters",
+    "description": "Rat /ræt/ = an animal that looks like a large mouse. Example: \"A rat ran across the street.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/rat\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "rat",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: R + 2 letters\n\nRat /ræt/ = an animal that looks like a large mouse. Example: \"A rat ran across the street.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/rat"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: R + 2 letters\n\nRat /ræt/ = an animal that looks like a large mouse. Example: \"A rat ran across the street.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: R + 2 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: rat. An animal that looks like a large mouse. Example: \"A rat ran across the street.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

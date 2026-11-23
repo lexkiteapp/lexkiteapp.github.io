@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_coin",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 43,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: coin!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A small, flat piece of metal used as money.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "He found an old coin in the garden.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "coin",
+  "ipa": "/kɔɪn/",
+  "mean": "a small, flat piece of metal used as money",
+  "ex": "He found an old coin in the garden.",
+  "img": "coin#n",
+  "n": 4
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/coin",
+  "link": "https://lexkite.com/app/#/dict/coin",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "coin",
+  "img": "coin#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.6,
+  "wpm": 134
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: C + 3 letters",
+  "keyword": "coin",
+  "value": "Coin /kɔɪn/ = a small, flat piece of metal used as money. Example: \"He found an old coin in the garden.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/coin",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: C + 3 letters",
+    "description": "Coin /kɔɪn/ = a small, flat piece of metal used as money. Example: \"He found an old coin in the garden.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/coin\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "coin",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: C + 3 letters\n\nCoin /kɔɪn/ = a small, flat piece of metal used as money. Example: \"He found an old coin in the garden.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/coin"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: C + 3 letters\n\nCoin /kɔɪn/ = a small, flat piece of metal used as money. Example: \"He found an old coin in the garden.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: C + 3 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: coin. A small, flat piece of metal used as money. Example: \"He found an old coin in the garden.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

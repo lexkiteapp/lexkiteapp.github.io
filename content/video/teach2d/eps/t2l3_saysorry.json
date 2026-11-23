@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_saysorry",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 28,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.2,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say sorry: three levels!",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "I am sorry.",
+   "pause": 0.3
+  },
+  {
+   "id": "b",
+   "text": "I'm so sorry. I didn't mean to.",
+   "pause": 0.3
+  },
+  {
+   "id": "n",
+   "text": "Oops, my bad, I wasn't looking.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "say-sorry",
+  "title": "Say sorry",
+  "em": "😬",
+  "chip": "Everyday",
+  "reg": "casual",
+  "levels": {
+   "a": {
+    "text": "I am sorry.",
+    "key": "I am sorry",
+    "note": "Clear and simple."
+   },
+   "b": {
+    "text": "I'm so sorry. I didn't mean to.",
+    "key": "didn't mean to",
+    "note": "Shows it was an accident."
+   },
+   "c": {
+    "text": "Oops, my bad, I wasn't looking.",
+    "key": "my bad",
+    "note": "Casual sorry between friends."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Didn't mean to",
+    "My bad"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Say sorry: three levels!"
+ },
+ "src": {
+  "levels3": "say-sorry"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.7,
+  "wpm": 123
+ },
+ "publish": {
+  "title": "Say sorry: A1, B1 or C1?",
+  "keyword": "say sorry",
+  "value": "Say sorry, three ways. A1: \"I am sorry.\" B1: \"I'm so sorry. I didn't mean to.\" C1: \"Oops, my bad, I wasn't looking.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "Say sorry: A1, B1 or C1?",
+    "description": "Say sorry, three ways. A1: \"I am sorry.\" B1: \"I'm so sorry. I didn't mean to.\" C1: \"Oops, my bad, I wasn't looking.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "say sorry",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say sorry: A1, B1 or C1?\n\nSay sorry, three ways. A1: \"I am sorry.\" B1: \"I'm so sorry. I didn't mean to.\" C1: \"Oops, my bad, I wasn't looking.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Say sorry: A1, B1 or C1?\n\nSay sorry, three ways. A1: \"I am sorry.\" B1: \"I'm so sorry. I didn't mean to.\" C1: \"Oops, my bad, I wasn't looking.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say sorry: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: My bad. Native line: \"Oops, my bad, I wasn't looking.\" Which level are you? More real English, free: {link}"
+ }
+}

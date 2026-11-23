@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_jobintro",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 12,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.2,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Job interview: three levels!",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "I work in a shop.",
+   "pause": 0.3
+  },
+  {
+   "id": "b",
+   "text": "I have three years of experience in sales.",
+   "pause": 0.3
+  },
+  {
+   "id": "n",
+   "text": "I've been in sales for three years.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "job-intro",
+  "title": "Job interview",
+  "em": "💼",
+  "chip": "At an interview",
+  "reg": "formal",
+  "levels": {
+   "a": {
+    "text": "I work in a shop.",
+    "key": "I work in",
+    "note": "Simple, but very short."
+   },
+   "b": {
+    "text": "I have three years of experience in sales.",
+    "key": "years of experience",
+    "note": "Clear and professional."
+   },
+   "c": {
+    "text": "I've been in sales for three years.",
+    "key": "for three years",
+    "note": "Smooth, like a story."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "For three years",
+    "I work in"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Job interview: three levels!"
+ },
+ "src": {
+  "levels3": "job-intro"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 12.0,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Job interview: A1, B1 or C1?",
+  "keyword": "job interview",
+  "value": "Job interview, three ways. A1: \"I work in a shop.\" B1: \"I have three years of experience in sales.\" C1: \"I've been in sales for three years.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 18,
+  "platforms": {
+   "youtube": {
+    "title": "Job interview: A1, B1 or C1?",
+    "description": "Job interview, three ways. A1: \"I work in a shop.\" B1: \"I have three years of experience in sales.\" C1: \"I've been in sales for three years.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "job interview",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Job interview: A1, B1 or C1?\n\nJob interview, three ways. A1: \"I work in a shop.\" B1: \"I have three years of experience in sales.\" C1: \"I've been in sales for three years.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Job interview: A1, B1 or C1?\n\nJob interview, three ways. A1: \"I work in a shop.\" B1: \"I have three years of experience in sales.\" C1: \"I've been in sales for three years.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Job interview: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: For three years. Native line: \"I've been in sales for three years.\" Which level are you? More real English, free: {link}"
+ }
+}

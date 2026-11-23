@@ -72,7 +72,7 @@ def plan():
     for eid in order():
         E = json.load(open(f'{ROOT}/content/video/teach2d/eps/{eid}.json')); who = E['teacher']
         gl, gp = gestures_for(who, G_LINE), gestures_for(who, G_PRAISE)
-        ax = dict(AX, layout=['corner', 'side']) if E['template'] in ('slang', 'scorecard') else AX   # Slang Card / Score Challenge: the teacher's strong face IS the hook – never shrunk into the bubble call window
+        ax = dict(AX, layout=['corner', 'side']) if E['template'] in ('slang', 'guess3', 'levels3', 'scorecard') else AX   # Slang Card: the teacher's strong face IS the hook – never shrunk into the bubble call window (guess3 too: the ring + picture need the full region)
         R = random.Random(int(hashlib.sha256(eid.encode()).hexdigest()[:16], 16)); best = None
         for _ in range(CANDS):
             c = {k: R.choice(v) for k, v in ax.items()}; c['g_line'] = R.choice(gl); c['g_praise'] = R.choice(gp)

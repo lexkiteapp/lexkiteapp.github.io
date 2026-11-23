@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_handbag",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 31,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: handbag!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A small bag women use to carry personal items.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I really like your handbag.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "handbag",
+  "ipa": "/ˈhændbæɡ/",
+  "mean": "a small bag women use to carry personal items",
+  "ex": "I really like your handbag.",
+  "img": "handbag#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/handbag",
+  "link": "https://lexkite.com/app/#/dict/handbag",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "handbag",
+  "img": "handbag#n"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.4,
+  "wpm": 128
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: H + 6 letters",
+  "keyword": "handbag",
+  "value": "Handbag /ˈhændbæɡ/ = a small bag women use to carry personal items. Example: \"I really like your handbag.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/handbag",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: H + 6 letters",
+    "description": "Handbag /ˈhændbæɡ/ = a small bag women use to carry personal items. Example: \"I really like your handbag.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/handbag\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "handbag",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: H + 6 letters\n\nHandbag /ˈhændbæɡ/ = a small bag women use to carry personal items. Example: \"I really like your handbag.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/handbag"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: H + 6 letters\n\nHandbag /ˈhændbæɡ/ = a small bag women use to carry personal items. Example: \"I really like your handbag.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: H + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: handbag. A small bag women use to carry personal items. Example: \"I really like your handbag.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

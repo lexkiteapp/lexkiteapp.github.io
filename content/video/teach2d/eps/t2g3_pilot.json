@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_pilot",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 33,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: pilot!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A person who controls an airplane, spacecraft, or boat.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The pilot announced that we would land soon.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "pilot",
+  "ipa": "/ˈpaɪlət/",
+  "mean": "a person who controls an airplane, spacecraft, or boat",
+  "ex": "The pilot announced that we would land soon.",
+  "img": "pilot#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/pilot",
+  "link": "https://lexkite.com/app/#/dict/pilot",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "pilot",
+  "img": "pilot#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.6,
+  "wpm": 134
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: P + 4 letters",
+  "keyword": "pilot",
+  "value": "Pilot /ˈpaɪlət/ = a person who controls an airplane, spacecraft, or boat. Example: \"The pilot announced that we would land soon.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/pilot",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: P + 4 letters",
+    "description": "Pilot /ˈpaɪlət/ = a person who controls an airplane, spacecraft, or boat. Example: \"The pilot announced that we would land soon.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/pilot\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "pilot",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: P + 4 letters\n\nPilot /ˈpaɪlət/ = a person who controls an airplane, spacecraft, or boat. Example: \"The pilot announced that we would land soon.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/pilot"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: P + 4 letters\n\nPilot /ˈpaɪlət/ = a person who controls an airplane, spacecraft, or boat. Example: \"The pilot announced that we would land soon.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: P + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: pilot. A person who controls an airplane, spacecraft, or boat. Example: \"The pilot announced that we would land soon.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

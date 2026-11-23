@@ -12,16 +12,19 @@ const ti = process.argv.indexOf('--tl'), TL = ti > 0 ? process.argv[ti + 1] : 'e
 if (!TLP[TL]) { console.error(`✗ tl "${TL}" chưa có dòng TLP (drill-lib.mjs)`); process.exit(2); }
 const D = TLP[TL].D, OUT = TLP[TL].OUT, CHECK = process.argv.includes('--check');
 const { files, dr, pts, cloze } = build(TL);
+const PACKS = `web/packs/${TL}/`, dest = f => f.startsWith('@packs/') ? PACKS + f.slice(7) : OUT + f; // từ lộ trình → web/packs/<tl> (path-lib)
 if (!CHECK) {
   fs.mkdirSync(OUT, { recursive: true });
-  for (const [f, s] of Object.entries(files)) fs.writeFileSync(OUT + f, s);
+  if (Object.keys(files).some(f => f.startsWith('@packs/'))) fs.mkdirSync(PACKS, { recursive: true });
+  for (const [f, s] of Object.entries(files)) fs.writeFileSync(dest(f), s);
   console.log(`✓ drill-pack: ${Object.values(dr).flat().length} câu (${LV.map(l => l + ' ' + dr[l].length).join(' · ')}), ${GX_LANGS.length} ngôn ngữ giải thích`);
   process.exit(0);
 }
 
 const errs = [], E = m => errs.push(m);
-for (const [f, s] of Object.entries(files)) if (!fs.existsSync(OUT + f) || fs.readFileSync(OUT + f, 'utf8') !== s) E(`${OUT}${f} cũ so với nguồn – chạy: node scripts/target/drill-pack.mjs`);
+for (const [f, s] of Object.entries(files)) if (!fs.existsSync(dest(f)) || fs.readFileSync(dest(f), 'utf8') !== s) E(`${dest(f)} cũ so với nguồn – chạy: node scripts/target/drill-pack.mjs`);
 for (const f of fs.existsSync(OUT) ? fs.readdirSync(OUT) : []) if (!files[f]) E(`${OUT}${f} mồ côi (không có trong nguồn)`);
+for (const f of fs.existsSync(PACKS) ? fs.readdirSync(PACKS) : []) if (!files['@packs/' + f]) E(`${PACKS}${f} mồ côi (không có trong nguồn)`);
 const VN = /[ơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđă]/i, en = readJSON(`${D}gx/en.json`), lint = TL_RULES[TL].lint || [], mix = TL_RULES[TL].mix;
 const GXD = Object.fromEntries(GX_LANGS.map(l => [l, readJSON(`${D}gx/${l}.json`)])), kept = (id, seg) => GX_LANGS.filter(l => l !== 'en' && GXD[l][id] && GXD[l][id].x.includes(seg)).length;
 for (const p of pts) {

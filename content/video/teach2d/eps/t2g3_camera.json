@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_camera",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 7,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: camera!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "An object that takes pictures digitally, or on film.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I bought a new camera for my trip.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "camera",
+  "ipa": "/ˈkæmərə/",
+  "mean": "an object that takes pictures digitally, or on film",
+  "ex": "I bought a new camera for my trip.",
+  "img": "camera#n",
+  "n": 6
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/camera",
+  "link": "https://lexkite.com/app/#/dict/camera",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "camera",
+  "img": "camera#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.3,
+  "wpm": 133
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: C + 5 letters",
+  "keyword": "camera",
+  "value": "Camera /ˈkæmərə/ = an object that takes pictures digitally, or on film. Example: \"I bought a new camera for my trip.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/camera",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: C + 5 letters",
+    "description": "Camera /ˈkæmərə/ = an object that takes pictures digitally, or on film. Example: \"I bought a new camera for my trip.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/camera\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "camera",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: C + 5 letters\n\nCamera /ˈkæmərə/ = an object that takes pictures digitally, or on film. Example: \"I bought a new camera for my trip.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/camera"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: C + 5 letters\n\nCamera /ˈkæmərə/ = an object that takes pictures digitally, or on film. Example: \"I bought a new camera for my trip.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: C + 5 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: camera. An object that takes pictures digitally, or on film. Example: \"I bought a new camera for my trip.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

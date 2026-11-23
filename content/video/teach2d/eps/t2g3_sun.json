@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_sun",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 23,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: sun!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "The hot shining star the earth moves around.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The sun rises at about six in summer.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "sun",
+  "ipa": "/sʌn/",
+  "mean": "the hot shining star the earth moves around",
+  "ex": "The sun rises at about six in summer.",
+  "img": "sun#n",
+  "n": 3
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/sun",
+  "link": "https://lexkite.com/app/#/dict/sun",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "sun",
+  "img": "sun#n"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.0,
+  "wpm": 131
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: S + 2 letters",
+  "keyword": "sun",
+  "value": "Sun /sʌn/ = the hot shining star the earth moves around. Example: \"The sun rises at about six in summer.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/sun",
+  "script_words": 23,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: S + 2 letters",
+    "description": "Sun /sʌn/ = the hot shining star the earth moves around. Example: \"The sun rises at about six in summer.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/sun\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "sun",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: S + 2 letters\n\nSun /sʌn/ = the hot shining star the earth moves around. Example: \"The sun rises at about six in summer.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/sun"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: S + 2 letters\n\nSun /sʌn/ = the hot shining star the earth moves around. Example: \"The sun rises at about six in summer.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: S + 2 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: sun. The hot shining star the earth moves around. Example: \"The sun rises at about six in summer.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

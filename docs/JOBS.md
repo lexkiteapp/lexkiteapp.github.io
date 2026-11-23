@@ -111,6 +111,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 13:05 | `video-tpl1b` | `5 13 * * *` | render (tạm dừng) | gh_minutes, grabcast_ai, drive_pool | 45 | clips≈12, grabcast_calls≈6, drive_calls≈40 | ✓ |
 | 13:10 | `vocab-img` | `10 13 * * *` | bulk | grabcast_ai, gh_minutes | 85 | grabcast_images≈400, grabcast_text≈220, senses≈220, images≈130 | ✓ |
 | 17:50 | `content-factory` | `50 17 * * *` | render | gemini, grabcast_ai, gh_minutes | 90 | gemini_calls≈600, grabcast_text≈300 | — |
+| 18:30 | `voice-misses` | `30 18 * * *` | render | d1_main, gh_minutes | 15 | d1_main_reads≈20000 | — |
 | 19:00 | `audio` | `0 19 * * *` | render | gh_minutes | 60 | — | — |
 | 19:17 | `audit-all` | `17 19 * * 1,4` | reports | gh_minutes | 300 | — | — |
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |

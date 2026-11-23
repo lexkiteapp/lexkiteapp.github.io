@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_motorcycle",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 32,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: motorcycle!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A two-wheeled vehicle with an engine.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "He rides a motorcycle to work to avoid the traffic.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "motorcycle",
+  "ipa": "/ˈmoʊtərsaɪkl/",
+  "mean": "a two-wheeled vehicle with an engine",
+  "ex": "He rides a motorcycle to work to avoid the traffic.",
+  "img": "motorcycle#n",
+  "n": 10
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/motorcycle",
+  "link": "https://lexkite.com/app/#/dict/motorcycle",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "motorcycle",
+  "img": "motorcycle#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.3,
+  "wpm": 133
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: M + 9 letters",
+  "keyword": "motorcycle",
+  "value": "Motorcycle /ˈmoʊtərsaɪkl/ = a two-wheeled vehicle with an engine. Example: \"He rides a motorcycle to work to avoid the traffic.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/motorcycle",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: M + 9 letters",
+    "description": "Motorcycle /ˈmoʊtərsaɪkl/ = a two-wheeled vehicle with an engine. Example: \"He rides a motorcycle to work to avoid the traffic.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/motorcycle\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "motorcycle",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: M + 9 letters\n\nMotorcycle /ˈmoʊtərsaɪkl/ = a two-wheeled vehicle with an engine. Example: \"He rides a motorcycle to work to avoid the traffic.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/motorcycle"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: M + 9 letters\n\nMotorcycle /ˈmoʊtərsaɪkl/ = a two-wheeled vehicle with an engine. Example: \"He rides a motorcycle to work to avoid the traffic.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: M + 9 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: motorcycle. A two-wheeled vehicle with an engine. Example: \"He rides a motorcycle to work to avoid the traffic.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

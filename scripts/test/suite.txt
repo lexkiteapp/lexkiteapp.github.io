@@ -260,6 +260,7 @@ node scripts/test/grammar-hub.mjs
 node scripts/test/pron-hub.mjs
 node scripts/test/dict-hub.mjs
 node scripts/test/inline-box.mjs
+node scripts/test/qa-bot-tapbox.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
 node scripts/test/mobile-guards.mjs
@@ -361,6 +362,7 @@ node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/sitemap-lastmod.mjs
 node scripts/test/indexnow-wait.mjs
+node scripts/test/serp-overrides.mjs
 node scripts/test/outcomes.mjs
 node scripts/test/today-debt.mjs
 node scripts/test/ci-shards-busy.mjs
@@ -517,3 +519,5 @@ node scripts/stitch-v2-convert.mjs --check
 node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
+node scripts/say-native/levels3.mjs --check
+node scripts/test/lesson-lip-late.mjs

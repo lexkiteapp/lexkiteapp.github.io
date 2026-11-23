@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_printer",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 34,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: printer!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A machine that makes copies of papers and documents.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The printer is out of paper.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "printer",
+  "ipa": "/ˈprɪntər/",
+  "mean": "a machine that makes copies of papers and documents",
+  "ex": "The printer is out of paper.",
+  "img": "printer#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/printer",
+  "link": "https://lexkite.com/app/#/dict/printer",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "printer",
+  "img": "printer#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.7,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: P + 6 letters",
+  "keyword": "printer",
+  "value": "Printer /ˈprɪntər/ = a machine that makes copies of papers and documents. Example: \"The printer is out of paper.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/printer",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: P + 6 letters",
+    "description": "Printer /ˈprɪntər/ = a machine that makes copies of papers and documents. Example: \"The printer is out of paper.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/printer\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "printer",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: P + 6 letters\n\nPrinter /ˈprɪntər/ = a machine that makes copies of papers and documents. Example: \"The printer is out of paper.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/printer"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: P + 6 letters\n\nPrinter /ˈprɪntər/ = a machine that makes copies of papers and documents. Example: \"The printer is out of paper.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: P + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: printer. A machine that makes copies of papers and documents. Example: \"The printer is out of paper.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

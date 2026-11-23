@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_thermometer",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 73,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: thermometer!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "An instrument used for measuring temperature.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I don't have a thermometer.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "thermometer",
+  "ipa": "/θərˈmɑːmətər/",
+  "mean": "an instrument used for measuring temperature",
+  "ex": "I don't have a thermometer.",
+  "img": "thermometer#n",
+  "n": 11
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/thermometer",
+  "link": "https://lexkite.com/app/#/dict/thermometer",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "thermometer",
+  "img": "thermometer#n"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 9.7,
+  "wpm": 123
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: T + 10 letters",
+  "keyword": "thermometer",
+  "value": "Thermometer /θərˈmɑːmətər/ = an instrument used for measuring temperature. Example: \"I don't have a thermometer.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/thermometer",
+  "script_words": 19,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: T + 10 letters",
+    "description": "Thermometer /θərˈmɑːmətər/ = an instrument used for measuring temperature. Example: \"I don't have a thermometer.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/thermometer\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "thermometer",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: T + 10 letters\n\nThermometer /θərˈmɑːmətər/ = an instrument used for measuring temperature. Example: \"I don't have a thermometer.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/thermometer"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: T + 10 letters\n\nThermometer /θərˈmɑːmətər/ = an instrument used for measuring temperature. Example: \"I don't have a thermometer.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: T + 10 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: thermometer. An instrument used for measuring temperature. Example: \"I don't have a thermometer.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

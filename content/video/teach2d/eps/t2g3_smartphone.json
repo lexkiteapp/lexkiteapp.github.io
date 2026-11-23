@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_smartphone",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 37,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: smartphone!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A mobile phone that works like a computer.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "Customers can now order food through our new smartphone app.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "smartphone",
+  "ipa": "/ˈsmɑːrtfoʊn/",
+  "mean": "a mobile phone that works like a computer",
+  "ex": "Customers can now order food through our new smartphone app.",
+  "img": "smartphone#n",
+  "n": 10
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/smartphone",
+  "link": "https://lexkite.com/app/#/dict/smartphone",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "smartphone",
+  "img": "smartphone#n"
+ },
+ "est": {
+  "words": 27,
+  "seconds": 11.9,
+  "wpm": 136
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: S + 9 letters",
+  "keyword": "smartphone",
+  "value": "Smartphone /ˈsmɑːrtfoʊn/ = a mobile phone that works like a computer. Example: \"Customers can now order food through our new smartphone app.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/smartphone",
+  "script_words": 26,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: S + 9 letters",
+    "description": "Smartphone /ˈsmɑːrtfoʊn/ = a mobile phone that works like a computer. Example: \"Customers can now order food through our new smartphone app.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/smartphone\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "smartphone",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: S + 9 letters\n\nSmartphone /ˈsmɑːrtfoʊn/ = a mobile phone that works like a computer. Example: \"Customers can now order food through our new smartphone app.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/smartphone"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: S + 9 letters\n\nSmartphone /ˈsmɑːrtfoʊn/ = a mobile phone that works like a computer. Example: \"Customers can now order food through our new smartphone app.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: S + 9 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: smartphone. A mobile phone that works like a computer. Example: \"Customers can now order food through our new smartphone app.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

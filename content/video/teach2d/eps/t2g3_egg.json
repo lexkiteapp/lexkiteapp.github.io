@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_egg",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 9,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: egg!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "An oval object with a shell that birds lay.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I usually have an egg for breakfast.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "egg",
+  "ipa": "/eɡ/",
+  "mean": "an oval object with a shell that birds lay",
+  "ex": "I usually have an egg for breakfast.",
+  "img": "egg#n",
+  "n": 3
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/egg",
+  "link": "https://lexkite.com/app/#/dict/egg",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "egg",
+  "img": "egg#n"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.0,
+  "wpm": 131
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: E + 2 letters",
+  "keyword": "egg",
+  "value": "Egg /eɡ/ = an oval object with a shell that birds lay. Example: \"I usually have an egg for breakfast.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/egg",
+  "script_words": 23,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: E + 2 letters",
+    "description": "Egg /eɡ/ = an oval object with a shell that birds lay. Example: \"I usually have an egg for breakfast.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/egg\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "egg",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: E + 2 letters\n\nEgg /eɡ/ = an oval object with a shell that birds lay. Example: \"I usually have an egg for breakfast.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/egg"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: E + 2 letters\n\nEgg /eɡ/ = an oval object with a shell that birds lay. Example: \"I usually have an egg for breakfast.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: E + 2 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: egg. An oval object with a shell that birds lay. Example: \"I usually have an egg for breakfast.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}
