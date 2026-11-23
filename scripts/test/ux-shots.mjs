@@ -8,7 +8,7 @@ const [AFTER, BEFORE, OUT = 'out/ux'] = process.argv.slice(2); fs.mkdirSync(OUT,
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
 // UX1=1 (nhánh ux-shots-ux1*): bật cờ ux1 ở cả 2 bản (bản trước không có → giao diện cũ); 'sau|trước' = trang tương ứng ở bản cũ; đo fps khi đổi tab
 const UX1 = process.env.UX1 === '1';
-const ROUTES = UX1 ? ['home?pick=1|home', 'home', 'lesson/go?demo=1', 'lesson-fb', 'goal', 'train|skills', 'tests', 'me', 'league'] : ['home', 'skills', 'practice', 'review', 'vocab', 'library', 'tests', 'mistakes', 'quick', 'me', 'goal', 'dict/sustainable', 'confidence', 'grammar', 'pron/th-sounds'];
+const ROUTES = UX1 ? ['home?pick=1|home', 'home', 'lesson/go?demo=1', 'lesson-fb', 'goal', 'train|skills', 'tests', 'me', 'league', 'practice/chess'] : ['home', 'skills', 'practice', 'review', 'vocab', 'library', 'tests', 'mistakes', 'quick', 'me', 'goal', 'dict/sustainable', 'confidence', 'grammar', 'pron/th-sounds', 'practice/chess'];
 const CONFIGS = UX1 ? [['mobile', 'light', 'en'], ['mobile', 'dark', 'en'], ['mobile', 'light', 'ar'], ['desktop', 'light', 'en'], ['desktop', 'dark', 'en']] : [['mobile', 'light', 'en'], ['mobile', 'dark', 'en'], ['mobile', 'light', 'ar'], ['desktop', 'light', 'en'], ['desktop', 'dark', 'vi']];
 const browser = await chromium.launch();
 const report = { errs: [], metrics: {} };

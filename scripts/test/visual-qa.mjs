@@ -104,6 +104,7 @@ function icons() {
 const STATES = [
   ['practice/learn', 'answer'], ['review', 'answer'], ['practice/test?src=topic:education', 'answer'], ['practice/test?src=topic:education', 'answer-wrong'], ['practice/mcq?src=topic:education', 'answer'], ['practice/mcq?src=topic:education', 'answer-wrong'], ['home', 'modal'], ['home', 'acct'], ['settings', 'signed'], ['me', 'signed'], ['home', 'toast'], ['home', 'xp'], ['home', 'nudge'], ['dict/hello', 'select'],
   ['home', 'focus-modal'], ['home', 'focus-toast'],
+  ['practice/chess', 'page'],
 ];
 async function act(page, kind) {
   await page.evaluate(async kind => {
