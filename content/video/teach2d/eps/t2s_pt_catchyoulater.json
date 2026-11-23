@@ -1,0 +1,150 @@
+{
+ "id": "t2s_pt_catchyoulater",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 87,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gotta go. Class starts now!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Catch you later!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "See you later.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Catch you later, I have to go!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "catch you later",
+  "forms": [],
+  "ipa": "/ˈkætʃ ju ˈleɪtɚ/",
+  "mean": "See you later.",
+  "define": "A friendly, casual goodbye.",
+  "vi": "Gặp lại sau nhé",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Leaving a friend",
+   "text": "Catch you later, I have to go!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It's a way to say…",
+   "options": [
+    "stop that thief",
+    "goodbye"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't end a formal interview with 'catch you later'.",
+   "why": "It's too casual for formal talks."
+  },
+  "l1": "até mais",
+  "l1_hook": "Tenho que ir. A aula começa agora! \"catch you later\"",
+  "l1_ex": "\"Catch you later\", eu preciso ir!",
+  "right": "catch you later",
+  "native": {
+   "hook": "O que significa “catch you later”?",
+   "tip": "“catch you later” = até mais. Exemplo: “Catch you later, I have to go!”",
+   "caption": "O que significa “catch you later”?\n“catch you later” = até mais.\nExemplo: “Catch you later, I have to go!” (\"Catch you later\", eu preciso ir!)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “catch you later” = até mais. “Catch you later, I have to go!” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gotta go. Class starts now!"
+ },
+ "src": {
+  "slang": "catch you later"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "O que significa “catch you later”?",
+  "keyword": "catch you later",
+  "value": "“catch you later” = até mais. Exemplo: “Catch you later, I have to go!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “catch you later”?",
+    "description": "“catch you later” = até mais. Exemplo: “Catch you later, I have to go!”\n\nO que significa “catch you later”?\n“catch you later” = até mais.\nExemplo: “Catch you later, I have to go!” (\"Catch you later\", eu preciso ir!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "catch you later",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “catch you later”?\n“catch you later” = até mais.\nExemplo: “Catch you later, I have to go!” (\"Catch you later\", eu preciso ir!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “catch you later”?\n\n“catch you later” = até mais. Exemplo: “Catch you later, I have to go!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “catch you later”? “catch you later” = até mais. Exemplo: “Catch you later, I have to go!” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “catch you later” = até mais. “Catch you later, I have to go!” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

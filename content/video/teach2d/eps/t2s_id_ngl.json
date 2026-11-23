@@ -1,0 +1,148 @@
+{
+ "id": "t2s_id_ngl",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 89,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Honest opinion about that movie?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Ngl!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Not gonna lie.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Ngl, I loved that movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "ngl",
+  "forms": [
+   "NGL"
+  ],
+  "ipa": "/ˌen dʒiː ˈel/",
+  "mean": "Not gonna lie.",
+  "define": "Short for \"not gonna lie\", before an honest opinion.",
+  "vi": "Nói thật nha",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Texting",
+   "text": "Ngl, I loved that movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Ngl\" means…",
+   "options": [
+    "never go left",
+    "to be honest"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't use 'ngl' in a job application.",
+   "why": "Texting shorthand looks unprofessional."
+  },
+  "l1": "jujur aja",
+  "l1_hook": "Pendapat jujur tentang film itu? \"ngl\"",
+  "l1_ex": "Ngl, aku suka film itu.",
+  "right": "ngl",
+  "native": {
+   "hook": "Apa arti “ngl”?",
+   "tip": "“ngl” = jujur aja. Contoh: “Ngl, I loved that movie.”",
+   "caption": "Apa arti “ngl”?\n“ngl” = jujur aja.\nContoh: “Ngl, I loved that movie.” (Ngl, aku suka film itu.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “ngl” = jujur aja. “Ngl, I loved that movie.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Honest opinion about that movie?"
+ },
+ "src": {
+  "slang": "ngl"
+ },
+ "lang": "id",
+ "est": {
+  "words": 16,
+  "seconds": 9.6,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Apa arti “ngl”?",
+  "keyword": "ngl",
+  "value": "“ngl” = jujur aja. Contoh: “Ngl, I loved that movie.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “ngl”?",
+    "description": "“ngl” = jujur aja. Contoh: “Ngl, I loved that movie.”\n\nApa arti “ngl”?\n“ngl” = jujur aja.\nContoh: “Ngl, I loved that movie.” (Ngl, aku suka film itu.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "ngl",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “ngl”?\n“ngl” = jujur aja.\nContoh: “Ngl, I loved that movie.” (Ngl, aku suka film itu.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “ngl”?\n\n“ngl” = jujur aja. Contoh: “Ngl, I loved that movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “ngl”? “ngl” = jujur aja. Contoh: “Ngl, I loved that movie.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “ngl” = jujur aja. “Ngl, I loved that movie.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

@@ -1,0 +1,152 @@
+{
+ "id": "t2s_es_chefskiss",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 48,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Taste this and tell me!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Chef's kiss!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Absolutely perfect.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The soup was chef's kiss.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "chef's kiss",
+  "forms": [
+   "chef’s kiss"
+  ],
+  "ipa": "/ˌʃefs ˈkɪs/",
+  "mean": "Absolutely perfect.",
+  "define": "Said to show something is perfect, like a great meal.",
+  "vi": "Hoàn hảo, ngon tuyệt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "food",
+  "example": {
+   "ctx": "After tasting dinner",
+   "text": "The soup was chef's kiss."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Chef's kiss\" means…",
+   "options": [
+    "too salty",
+    "perfect"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chef's kiss' about burnt toast.",
+   "why": "It praises perfect things only."
+  },
+  "l1": "perfecto",
+  "l1_hook": "¡Prueba esto y dime! \"chef's kiss\"",
+  "l1_ex": "La sopa estuvo \"chef's kiss\".",
+  "right": "chef's kiss",
+  "native": {
+   "hook": "¿Qué significa “chef's kiss”?",
+   "tip": "“chef's kiss” = perfecto. Ejemplo: “The soup was chef's kiss.”",
+   "caption": "¿Qué significa “chef's kiss”?\n“chef's kiss” = perfecto.\nEjemplo: “The soup was chef's kiss.” (La sopa estuvo \"chef's kiss\".)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “chef's kiss” = perfecto. “The soup was chef's kiss.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Taste this and tell me!"
+ },
+ "src": {
+  "slang": "chef's kiss"
+ },
+ "lang": "es",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "¿Qué significa “chef's kiss”?",
+  "keyword": "chef's kiss",
+  "value": "“chef's kiss” = perfecto. Ejemplo: “The soup was chef's kiss.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “chef's kiss”?",
+    "description": "“chef's kiss” = perfecto. Ejemplo: “The soup was chef's kiss.”\n\n¿Qué significa “chef's kiss”?\n“chef's kiss” = perfecto.\nEjemplo: “The soup was chef's kiss.” (La sopa estuvo \"chef's kiss\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "chef's kiss",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “chef's kiss”?\n“chef's kiss” = perfecto.\nEjemplo: “The soup was chef's kiss.” (La sopa estuvo \"chef's kiss\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “chef's kiss”?\n\n“chef's kiss” = perfecto. Ejemplo: “The soup was chef's kiss.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “chef's kiss”? “chef's kiss” = perfecto. Ejemplo: “The soup was chef's kiss.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “chef's kiss” = perfecto. “The soup was chef's kiss.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

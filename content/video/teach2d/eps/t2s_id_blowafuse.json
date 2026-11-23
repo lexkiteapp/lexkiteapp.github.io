@@ -1,0 +1,148 @@
+{
+ "id": "t2s_id_blowafuse",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 9,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dad saw the messy room!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Blow a fuse!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly become very angry.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He blew a fuse over the messy room.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "blow a fuse",
+  "forms": [
+   "blew a fuse"
+  ],
+  "ipa": "/ˈbloʊ ə ˈfjuːz/",
+  "mean": "Suddenly become very angry.",
+  "define": "To lose your temper quickly.",
+  "vi": "Nổi nóng bất chợt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Telling a story",
+   "text": "He blew a fuse over the messy room."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "get angry",
+    "fix electricity"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'blow a fuse' about mild annoyance.",
+   "why": "It means sudden, big anger."
+  },
+  "l1": "meledak marah",
+  "l1_hook": "Ayah melihat kamar berantakan! \"blow a fuse\".",
+  "l1_ex": "Dia \"blow a fuse\" karena kamar yang berantakan.",
+  "right": "blow a fuse",
+  "native": {
+   "hook": "Apa arti “blow a fuse”?",
+   "tip": "“blow a fuse” = meledak marah. Contoh: “He blew a fuse over the messy room.”",
+   "caption": "Apa arti “blow a fuse”?\n“blow a fuse” = meledak marah.\nContoh: “He blew a fuse over the messy room.” (Dia \"blow a fuse\" karena kamar yang berantakan.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “blow a fuse” = meledak marah. “He blew a fuse over the messy room.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dad saw the messy room!"
+ },
+ "src": {
+  "slang": "blow a fuse"
+ },
+ "lang": "id",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "Apa arti “blow a fuse”?",
+  "keyword": "blow a fuse",
+  "value": "“blow a fuse” = meledak marah. Contoh: “He blew a fuse over the messy room.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “blow a fuse”?",
+    "description": "“blow a fuse” = meledak marah. Contoh: “He blew a fuse over the messy room.”\n\nApa arti “blow a fuse”?\n“blow a fuse” = meledak marah.\nContoh: “He blew a fuse over the messy room.” (Dia \"blow a fuse\" karena kamar yang berantakan.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "blow a fuse",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “blow a fuse”?\n“blow a fuse” = meledak marah.\nContoh: “He blew a fuse over the messy room.” (Dia \"blow a fuse\" karena kamar yang berantakan.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “blow a fuse”?\n\n“blow a fuse” = meledak marah. Contoh: “He blew a fuse over the messy room.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “blow a fuse”? “blow a fuse” = meledak marah. Contoh: “He blew a fuse over the messy room.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “blow a fuse” = meledak marah. “He blew a fuse over the messy room.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

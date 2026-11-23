@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_nocap",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Best pizza in town. Believe me?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "No cap!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm not lying.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This pizza is the best in town, no cap.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "no cap",
+  "forms": [],
+  "ipa": "/ˌnoʊ ˈkæp/",
+  "mean": "I'm not lying.",
+  "define": "Used to say that you are being completely honest.",
+  "vi": "Nói thật, không xạo",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Texting a friend about lunch",
+   "text": "This pizza is the best in town, no cap."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"No cap\" means…",
+   "options": [
+    "I lost my hat",
+    "I'm telling the truth"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'no cap' about a baseball hat.",
+   "why": "It means 'no lie' in slang."
+  },
+  "l1": "sem caô",
+  "l1_hook": "A melhor pizza da cidade. Acredite, \"no cap\".",
+  "l1_ex": "Esta pizza é a melhor da cidade, \"no cap\".",
+  "right": "no cap",
+  "native": {
+   "hook": "O que significa “no cap”?",
+   "tip": "“no cap” = sem caô. Exemplo: “This pizza is the best in town, no cap.”",
+   "caption": "O que significa “no cap”?\n“no cap” = sem caô.\nExemplo: “This pizza is the best in town, no cap.” (Esta pizza é a melhor da cidade, \"no cap\".)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “no cap” = sem caô. “This pizza is the best in town, no cap.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Best pizza in town. Believe me?"
+ },
+ "src": {
+  "slang": "no cap"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "O que significa “no cap”?",
+  "keyword": "no cap",
+  "value": "“no cap” = sem caô. Exemplo: “This pizza is the best in town, no cap.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “no cap”?",
+    "description": "“no cap” = sem caô. Exemplo: “This pizza is the best in town, no cap.”\n\nO que significa “no cap”?\n“no cap” = sem caô.\nExemplo: “This pizza is the best in town, no cap.” (Esta pizza é a melhor da cidade, \"no cap\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "no cap",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “no cap”?\n“no cap” = sem caô.\nExemplo: “This pizza is the best in town, no cap.” (Esta pizza é a melhor da cidade, \"no cap\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “no cap”?\n\n“no cap” = sem caô. Exemplo: “This pizza is the best in town, no cap.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “no cap”? “no cap” = sem caô. Exemplo: “This pizza is the best in town, no cap.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “no cap” = sem caô. “This pizza is the best in town, no cap.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

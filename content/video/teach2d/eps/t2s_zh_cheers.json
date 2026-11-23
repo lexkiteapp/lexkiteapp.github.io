@@ -1,0 +1,152 @@
+{
+ "id": "t2s_zh_cheers",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 106,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He held the door. Say thanks!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheers!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Thanks, or goodbye.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheers for the lift!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheers",
+  "forms": [
+   "cheer"
+  ],
+  "ipa": "/ˈtʃɪrz/",
+  "mean": "Thanks, or goodbye.",
+  "define": "A British way to say thank you or goodbye.",
+  "vi": "Cảm ơn nha, tạm biệt",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Thanking a friend",
+   "text": "Cheers for the lift!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheers\" can mean…",
+   "options": [
+    "angry",
+    "thanks"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't expect Americans to understand 'cheers' as thanks.",
+   "why": "It's mostly British casual usage."
+  },
+  "l1": "谢谢",
+  "l1_hook": "他帮我开门，记得说 \"cheers\"。",
+  "l1_ex": "\"cheers\"，谢谢你的顺风车！",
+  "right": "cheers",
+  "native": {
+   "hook": "“cheers”是什么意思？",
+   "tip": "“cheers” = 谢谢. 例句: “Cheers for the lift!”",
+   "caption": "“cheers”是什么意思？\n“cheers” = 谢谢.\n例句: “Cheers for the lift!” (\"cheers\"，谢谢你的顺风车！)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “cheers” = 谢谢. “Cheers for the lift!” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He held the door. Say thanks!"
+ },
+ "src": {
+  "slang": "cheers"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "“cheers”是什么意思？",
+  "keyword": "cheers",
+  "value": "“cheers” = 谢谢. 例句: “Cheers for the lift!”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“cheers”是什么意思？",
+    "description": "“cheers” = 谢谢. 例句: “Cheers for the lift!”\n\n“cheers”是什么意思？\n“cheers” = 谢谢.\n例句: “Cheers for the lift!” (\"cheers\"，谢谢你的顺风车！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "cheers",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“cheers”是什么意思？\n“cheers” = 谢谢.\n例句: “Cheers for the lift!” (\"cheers\"，谢谢你的顺风车！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cheers”是什么意思？\n\n“cheers” = 谢谢. 例句: “Cheers for the lift!”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cheers”是什么意思？ “cheers” = 谢谢. 例句: “Cheers for the lift!” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “cheers” = 谢谢. “Cheers for the lift!” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

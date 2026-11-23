@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ru_catchyoulater",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 87,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gotta go. Class starts now!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Catch you later!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "See you later.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Catch you later, I have to go!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "catch you later",
+  "forms": [],
+  "ipa": "/ˈkætʃ ju ˈleɪtɚ/",
+  "mean": "See you later.",
+  "define": "A friendly, casual goodbye.",
+  "vi": "Gặp lại sau nhé",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Leaving a friend",
+   "text": "Catch you later, I have to go!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It's a way to say…",
+   "options": [
+    "stop that thief",
+    "goodbye"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't end a formal interview with 'catch you later'.",
+   "why": "It's too casual for formal talks."
+  },
+  "l1": "увидимся позже",
+  "l1_hook": "Надо идти, сейчас начинается урок! «catch you later».",
+  "l1_ex": "«Catch you later», мне нужно идти!",
+  "right": "catch you later",
+  "native": {
+   "hook": "Что значит «catch you later»?",
+   "tip": "“catch you later” = увидимся позже. Пример: “Catch you later, I have to go!”",
+   "caption": "Что значит «catch you later»?\n“catch you later” = увидимся позже.\nПример: “Catch you later, I have to go!” («Catch you later», мне нужно идти!)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “catch you later” = увидимся позже. “Catch you later, I have to go!” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gotta go. Class starts now!"
+ },
+ "src": {
+  "slang": "catch you later"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Что значит «catch you later»?",
+  "keyword": "catch you later",
+  "value": "“catch you later” = увидимся позже. Пример: “Catch you later, I have to go!”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «catch you later»?",
+    "description": "“catch you later” = увидимся позже. Пример: “Catch you later, I have to go!”\n\nЧто значит «catch you later»?\n“catch you later” = увидимся позже.\nПример: “Catch you later, I have to go!” («Catch you later», мне нужно идти!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "catch you later",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «catch you later»?\n“catch you later” = увидимся позже.\nПример: “Catch you later, I have to go!” («Catch you later», мне нужно идти!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «catch you later»?\n\n“catch you later” = увидимся позже. Пример: “Catch you later, I have to go!”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «catch you later»? “catch you later” = увидимся позже. Пример: “Catch you later, I have to go!” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “catch you later” = увидимся позже. “Catch you later, I have to go!” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}
