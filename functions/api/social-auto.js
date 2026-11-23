@@ -29,7 +29,7 @@ export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(412, { error: 'not-configured' });
   if (b.op === 'status') return json(200, await autoStatus(env));
   if (b.op === 'autofill') { try { return json(200, await autoFill(env)); } catch (e) { return json(500, { error: 'autofill-error', cause: String((e && e.message) || e).slice(0, 80) }); } } // máy gác tự lấp (social-coverage): duyệt thêm + xếp lịch, 0 lượt GrabCast
-  if (b.op === 'audit') { await setupDist(env.DB).catch(() => {}); try { return json(200, await auditDb(env.DB, ((await manifest(env)).items || []), Date.now(), Math.min(30, Math.max(1, +b.days || 14)))); } catch (e) { return json(500, { error: 'audit-error', cause: String((e && e.message) || e).slice(0, 80) }); } } // máy gác đúng page/ngôn ngữ/giờ (_social_audit.js), chỉ đọc D1
+  if (b.op === 'audit') { await setupDist(env.DB).catch(() => {}); try { return json(200, await auditDb(env.DB, ((await manifest(env)).items || []), Date.now(), Math.min(30, Math.max(1, +b.days || 14)), Math.min(14, Math.max(0, +b.back || 0)))); } catch (e) { return json(500, { error: 'audit-error', cause: String((e && e.message) || e).slice(0, 80) }); } } // máy gác đúng page/ngôn ngữ/giờ (_social_audit.js), chỉ đọc D1
   if (b.op === 'coverage') { await setupDist(env.DB).catch(() => {}); try { return json(200, await coverage(env.DB)); } catch (e) { return json(500, { error: 'coverage-error' }); } } // chỉ đọc D1, 0 lượt GrabCast
   if (b.op === 'preview') {
     if (b.clip != null && !CLIP_RE.test(String(b.clip))) return json(400, { error: 'bad-clip' });
