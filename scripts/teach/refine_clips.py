@@ -56,6 +56,14 @@ def measure(fr, sc):
     return dict(warp=sum(top) / max(1, len(top)), lines=max(int(M._hand_lines(x, sc, 45)[0].sum() / sc ** 2) for x in fr[::4]), olive=max(int(M.olive_px(x).sum() / sc ** 2) for x in fr))
 
 
+def inpaint_olive(f, sc):
+    """Lỗ phông xanh sót (Kling vẽ hai tay chồng nhau) → vá bằng màu liền kề (alpha giữ nguyên)."""
+    m = M.olive_px(f).astype(np.uint8)
+    if not m.any(): return f
+    import cv2
+    m = cv2.dilate(m, np.ones((3, 3), np.uint8)) * 255; o = f.copy(); o[..., :3] = cv2.inpaint(np.ascontiguousarray(f[..., :3]), m, max(2, int(3 * sc)), cv2.INPAINT_TELEA); return o
+
+
 def bad(m): return m['warp'] > M.MAX_WARP or m['lines'] > M.MAX_LINES or m['olive'] > M.MAX_OLIVE
 
 
@@ -69,6 +77,9 @@ for who in R['people']:
         before = measure(fr, sc)
         if not ONLY and not bad(before): continue
         res, info = M.smear([M.clean_hands(M.despill(x), sc) for x in fr], sc); after = measure(res, sc)
+        for _ in range(3):   # còn dư (đốm phông xanh, nét đen ở HD, vung): vá đốm bằng inpaint rồi lại lấp nét + nhoè thêm, tối đa 3 vòng
+            if not bad(after): break
+            res, info2 = M.smear([M.clean_hands(inpaint_olive(x, sc), sc) for x in res], sc); after = measure(res, sc); info['smeared'] = max(info['smeared'], info2['smeared'])
         cap = (900 if p.endswith('-hd.mp4') else 240) * 1024; tmp = f + '.new.mp4'; done = False
         for q in range(CRF, CRF + 6):
             for cq in (0, -2, -4):
