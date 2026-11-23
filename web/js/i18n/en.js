@@ -1502,6 +1502,8 @@
 'Đề A2 Key → C2 Proficiency: Đọc & Viết, Nghe, Nói': 'A2 Key → C2 Proficiency tests: Reading & Writing, Listening, Speaking',
 'Trung gian': 'Mediation',
 'Chuyển ý từ nguồn tiếng Anh cho đúng người cần': 'Pass on what matters from English sources',
+'Phiên dịch': 'Interpreter',
+'Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí': 'Two people, two languages: speak, translate, learn new words – free',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* ✍️ Soát lỗi viết trong add-on (extension/writecheck.js, popup, web/js/writecheck-rules.js). Định dạng JSON để service worker đọc được (bản tiếng Anh cho add-on). */
