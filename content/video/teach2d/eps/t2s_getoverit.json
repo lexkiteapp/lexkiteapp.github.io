@@ -1,0 +1,131 @@
+{
+ "id": "t2s_getoverit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 218,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Still upset about last week?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Get over it!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stop worrying about it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Come on, get over it!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "get over it",
+  "forms": [],
+  "ipa": "/ˈɡet ˈoʊvɚ ɪt/",
+  "mean": "Stop worrying about it.",
+  "define": "Used to tell someone to stop being upset.",
+  "vi": "Bỏ qua đi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Come on, get over it!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "climb it",
+    "move on"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell a sad friend to 'get over it'.",
+   "why": "It sounds cold and dismissive."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Still upset about last week?"
+ },
+ "src": {
+  "slang": "get over it"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"get over it\" mean?",
+  "keyword": "get over it",
+  "value": "Get over it = Stop worrying about it. Example: \"Come on, get over it!\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"get over it\" mean?",
+    "description": "Get over it = Stop worrying about it. Example: \"Come on, get over it!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "get over it",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"get over it\" mean?\n\nGet over it = Stop worrying about it. Example: \"Come on, get over it!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"get over it\" mean?\n\nGet over it = Stop worrying about it. Example: \"Come on, get over it!\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"get over it\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell a sad friend to 'get over it'. It sounds cold and dismissive. Real example: \"Come on, get over it!\" More real English slang, free: {link}"
+ }
+}

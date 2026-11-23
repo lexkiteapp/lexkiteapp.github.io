@@ -1,0 +1,133 @@
+{
+ "id": "t2s_chipin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 91,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gift for her? Anyone?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Chip in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Give a bit of money to share.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's all chip in for her gift.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "chip in",
+  "forms": [
+   "chipped in"
+  ],
+  "ipa": "/ˈtʃɪp ɪn/",
+  "mean": "Give a bit of money to share.",
+  "define": "To give some money so a group can buy something.",
+  "vi": "Góp tiền chung",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Planning a gift",
+   "text": "Let's all chip in for her gift."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"chip in\" is to…",
+   "options": [
+    "eat chips",
+    "share the cost"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chip in' about potato chips.",
+   "why": "It means sharing the cost."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gift for her? Anyone?"
+ },
+ "src": {
+  "slang": "chip in"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"chip in\" mean?",
+  "keyword": "chip in",
+  "value": "Chip in = Give a bit of money to share. Example: \"Let's all chip in for her gift.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"chip in\" mean?",
+    "description": "Chip in = Give a bit of money to share. Example: \"Let's all chip in for her gift.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "chip in",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"chip in\" mean?\n\nChip in = Give a bit of money to share. Example: \"Let's all chip in for her gift.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"chip in\" mean?\n\nChip in = Give a bit of money to share. Example: \"Let's all chip in for her gift.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"chip in\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'chip in' about potato chips. It means sharing the cost. Real example: \"Let's all chip in for her gift.\" More real English slang, free: {link}"
+ }
+}
