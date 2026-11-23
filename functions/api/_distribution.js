@@ -6,6 +6,9 @@ const MIN = 60e3, DAY = 864e5;
 export const SOCIAL_DAY_MAX = 3; // trần tuyệt đối (kênh CHÍNH); kênh bản ngữ luôn 1 – xem dayCapOf
 /** Chủ 18/11: kênh CHÍNH (tiếng Anh: Lexkite English FB/IG/TikTok/YouTube) 2–3 bài/ngày, giãn ≥ 4 giờ; kênh bản ngữ 1 bài/ngày. MỘT nguồn cho planner, bước gửi và dời bài. */
 export const MAIN_DAY = { min: 2, max: 3, gap_min: 240 }, NATIVE_DAY = 1;
+/** Giờ cao điểm theo giờ ĐỊA PHƯƠNG của thị trường (chủ 23/11: đăng đúng giờ người học online – nghỉ trưa + tối). MỘT nguồn: planner YouTube, schedule() social, máy gác _social_audit.js. Dung sai ±30 phút (jitter ±20). */
+export const PEAK_WINDOWS = [['11:30', '14:00'], ['18:00', '22:30']];
+export const peakOk = (ms, tz, tol = 30) => { const [h, m] = localHM(ms, tz).split(':').map(Number), t = h * 60 + m, mm = x => +x.slice(0, 2) * 60 + +x.slice(3); return PEAK_WINDOWS.some(([f, e]) => t >= mm(f) - tol && t <= mm(e) + tol); };
 export const isMainLang = lang => !lang || lang === 'en';
 export const dayCapOf = (lang, cap) => isMainLang(lang) ? Math.min(MAIN_DAY.max, Math.max(MAIN_DAY.min, Math.floor(+cap) || 0)) : NATIVE_DAY;
 export const capCfg = c => c.role === 'embed' ? c : { ...c, daily_cap: dayCapOf(c.lang, c.daily_cap), min_gap_min: gapOf(c.lang, c.min_gap_min) };
