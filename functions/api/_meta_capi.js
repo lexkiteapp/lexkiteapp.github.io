@@ -2,7 +2,7 @@
  * Máy khách (mobile/meta-attr.js, chỉ app Android – build-mobile.sh chép vào app) gửi POST /api/hit { t:'ma', ev:'install'|'activate', iid, ref, c:'y'|'u' }:
  *   iid = mã cài đặt ngẫu nhiên (không phải mã thiết bị/quảng cáo) · ref = chuỗi Google Play Install Referrer (chỉ khi do quảng cáo Meta dẫn tới) ·
  *   c = 'y' người dùng bật trong Cài đặt › Dữ liệu · 'u' chưa chọn.
- * Máy chủ chuyển sang Meta Conversions API cho App Events (POST graph.facebook.com/<APP_ID>/activities) CHỈ khi: cờ config `ads_meta_capi` = '1'
+ * Máy chủ chuyển sang Meta Conversions API cho App Events (POST graph.facebook.com/<dataset>/events) CHỈ khi: cờ config `ads_meta_capi` = '1'
  * (công tắc khẩn: xoá = dừng ngay) + bí mật META_CAPI_TOKEN + có đồng ý + lượt cài đến từ quảng cáo Meta. Cờ tắt → không ghi gì.
  * Không lưu IP (khoá giới hạn tần suất là băm, chỉ ở bộ đệm biên); bảng meta_attr giữ mã cài đặt + referrer ≤ 90 ngày, mỗi (iid, loại) đúng 1 dòng = chống trùng. */
 import { region } from './_ads.js';
@@ -36,26 +36,31 @@ export function consentOk(c, country, env = {}) {
   return c === 'u' && env.META_CONSENT_DEFAULT === 'row' && region(String(country || 'XX').toUpperCase()) !== 'eea' && !!country && country !== 'XX';
 }
 
-/** Tham số gửi tới Graph API /activities (form-urlencoded) – hàm thuần để kiểm thử hình dạng. */
-export function capiParams(kind, row, env, now = Date.now()) {
-  const p = {
-    event: kind === 'install' ? 'MOBILE_APP_INSTALL' : 'CUSTOM_APP_EVENTS',
-    application_tracking_enabled: '1', advertiser_tracking_enabled: '1', // Android: không có ATT; người dùng đã đồng ý đo lường
-    anon_id: 'XZ' + row.iid, // mã ẩn danh theo app (không phải GAID/IDFA)
-    extinfo: JSON.stringify(['a2', PACKAGE, '', '', '', '', '', '', '', '', '', '', '', '', '', '']),
-    install_referrer: String(row.ref || '').slice(0, 600),
+/** Thân JSON gửi tới Graph API /<dataset>/events (Conversions API cho app) – hàm thuần để kiểm thử hình dạng. test_event_code (env META_TEST_CODE) → chỉ hiện ở Events Manager › Test events, không tính vào quảng cáo. */
+export function capiBody(kind, row, env, now = Date.now()) {
+  const body = {
+    data: [{
+      event_name: kind === 'install' ? 'MobileAppInstall' : EVENT_NAME, event_time: Math.floor(now / 1000), event_id: kind + ':' + row.iid, // event_id = chống trùng phía Meta
+      action_source: 'app',
+      user_data: { anon_id: 'XZ' + row.iid }, // mã ẩn danh theo app (không phải GAID/IDFA, không IP/email)
+      app_data: { install_referrer: String(row.ref || '').slice(0, 600), advertiser_tracking_enabled: 1, application_tracking_enabled: 1, // Android: không có ATT; người dùng đã đồng ý đo lường
+        extinfo: ['a2', PACKAGE, '', '', '', '', '', '', '', '', '', '', '', '', '', ''] },
+    }],
     access_token: env.META_CAPI_TOKEN,
   };
-  if (kind === 'activate') p.custom_events = JSON.stringify([{ _eventName: EVENT_NAME, _logTime: Math.floor(now / 1000) }]);
-  return p;
+  if (env.META_TEST_CODE) body.test_event_code = String(env.META_TEST_CODE).slice(0, 40);
+  return body;
 }
 
-export async function sendCapi(env, kind, row, fetcher = fetch, now = Date.now()) {
+/** → { ok, status, received } – không bao giờ ném, không trả token. */
+export async function postCapi(env, kind, row, fetcher = fetch, now = Date.now()) {
   try {
-    const r = await fetcher(GRAPH + encodeURIComponent(env.META_DATASET_ID || DATASET_ID) + '/activities', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(capiParams(kind, row, env, now)).toString() });
-    return !!r && r.ok === true;
-  } catch (e) { return false; }
+    const r = await fetcher(GRAPH + encodeURIComponent(env.META_DATASET_ID || DATASET_ID) + '/events', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(capiBody(kind, row, env, now)) });
+    let j = null; try { j = r && r.json ? await r.json() : null; } catch (e) { j = null; }
+    return { ok: !!r && r.ok === true, status: r ? r.status : 0, received: j && j.events_received != null ? j.events_received : null };
+  } catch (e) { return { ok: false, status: 0, received: null }; }
 }
+export const sendCapi = async (...a) => (await postCapi(...a)).ok;
 
 const bump = (db, day, kind) => db.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(day, kind);
 

@@ -12,7 +12,7 @@ Một nguồn duy nhất cho chủ đề này. Thiết kế: nhẹ, không SDK M
 | Lần mở đầu: đọc referrer 1 lần | `mobile/.../InstallReferrerPlugin.kt` (thư viện Google `installreferrer:2.2`, ~30 KB, không cần quyền) | Không phải referrer Meta → app nhớ `lk.ir='-'` và **không bao giờ nạp thêm mã** (người dùng tự nhiên tốn 0 B) |
 | Gửi `install` | `mobile/meta-attr.js` (2,3 KB, chỉ app Android: `build-mobile.sh` chép vào app, KHÔNG vào web/add-on; native.js +~0,6 KB) → `POST /api/hit {t:'ma'}` | `iid` = 16 byte ngẫu nhiên (`lk.iid`), không phải GAID/IDFA |
 | Xong bài học đầu tiên = **ACTIVATE** | `remind.js firstWin` → sự kiện `lexkite:first-win` → `MetaAttr.activate()` | Cùng định nghĩa `first_win` của phễu (không tính máy đã học từ trước) |
-| Máy chủ → Meta | `functions/api/_meta_capi.js` → `POST graph.facebook.com/v21.0/<dataset 902190262917017>/activities` | `MOBILE_APP_INSTALL`, và `CUSTOM_APP_EVENTS` `_eventName: ACTIVATE`; `anon_id=XZ<iid>`, `install_referrer`, `extinfo` (a2) |
+| Máy chủ → Meta | `functions/api/_meta_capi.js` → `POST graph.facebook.com/v21.0/<dataset 902190262917017>/events` | `MobileAppInstall` và `ACTIVATE` (JSON, `action_source: app`); `user_data.anon_id=XZ<iid>`, `app_data.install_referrer`, `extinfo` (a2), `event_id` chống trùng |
 | iOS | `scripts/mobile-ads.mjs` (`SKAN_META`, chạy trong `build-mobile.sh`, kể cả khi AdMob tắt) + `native/ios/project.yml` | Chỉ thêm 2 mã SKAdNetwork Meta; **không SDK, không ATT, `NSPrivacyTracking` vẫn false** |
 
 Cổng ở máy chủ (theo thứ tự, mỗi cổng dừng im lặng): thiếu `META_CAPI_TOKEN` → cờ `ads_meta_capi` ≠ `1` (**mặc định TẮT; tắt = không ghi, không gửi, không đếm**) → đồng ý → giới hạn 20 lượt/giờ/IP băm (IP không lưu) → chỉ referrer Meta (cài tự nhiên chỉ đếm `ma:install:other`) → chống trùng (bảng `meta_attr`, PK `(iid, loại)`, giữ ≤ 90 ngày) → `activate` luôn dùng referrer **đã lưu** của lượt cài, không tin giá trị máy khách gửi.
@@ -38,7 +38,7 @@ Cổng ở máy chủ (theo thứ tự, mỗi cổng dừng im lặng): thiếu 
 - Mục tiêu "App installs" (Facebook/Instagram), ngân sách nhỏ cố định **5–10 USD/ngày** trong 7 ngày đầu; 1 bộ quảng cáo, 3–4 mẫu (clip 9:16 ngắn từ kho video, bản ngữ).
 - **Tối ưu cho sự kiện `ACTIVATE`** (Meta cần ~50 sự kiện/tuần để thoát giai đoạn học). Mới chạy mà chưa đủ sự kiện → tạm tối ưu "App installs" vài ngày rồi chuyển.
 - Giữ chặt: không đổi giữa tuần, không bật nhiều bộ cùng lúc, không tăng ngân sách quá 20 %/lần.
-- Mở **Events Manager → Test events** trước khi chi tiền: tự cài từ link quảng cáo thử, bật công tắc, học 1 bài → phải thấy `MOBILE_APP_INSTALL` + `ACTIVATE`. Nếu Meta báo trường nào sai, sửa `capiParams()` (hàm thuần, có test) – đây là chỗ DUY NHẤT cần đối chiếu tài liệu Meta mới nhất.
+- Mở **Events Manager → Test events** trước khi chi tiền: tự cài từ link quảng cáo thử, bật công tắc, học 1 bài → phải thấy `MobileAppInstall` + `ACTIVATE`. Nếu Meta báo trường nào sai, sửa `capiParams()` (hàm thuần, có test) – đây là chỗ DUY NHẤT cần đối chiếu tài liệu Meta mới nhất.
 
 ## 4. Đọc kết quả
 - **Meta Ads Manager:** CPI (chi phí/cài), chi phí/`ACTIVATE` (= chi phí mỗi người học xong bài đầu), tỷ lệ cài→ACTIVATE. Đây là số quyết định tăng/giảm ngân sách.

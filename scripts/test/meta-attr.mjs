@@ -1,7 +1,7 @@
 // Đo cài/kích hoạt cho quảng cáo Meta (docs/META-ADS.md) – 0 mạng: đọc referrer, cổng đồng ý, công tắc khẩn, dạng gói CAPI, chống trùng,
 // máy khách (vm), SKAdNetwork iOS, không lộ cờ ở /api/config. Chạy: node scripts/test/meta-attr.mjs
 import fs from 'node:fs'; import vm from 'node:vm';
-import { parseReferrer, consentOk, capiParams, handleMa, sendCapi, GRAPH, EVENT_NAME } from '../../functions/api/_meta_capi.js';
+import { parseReferrer, consentOk, capiBody, handleMa, sendCapi, postCapi, GRAPH, EVENT_NAME } from '../../functions/api/_meta_capi.js';
 import { patchSkan, patchPlist, SKAN_META } from '../mobile-ads.mjs';
 import { PUBLIC_KEYS } from '../../functions/api/config.js';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.error('✗ ' + m); } };
@@ -21,12 +21,14 @@ ok(consentOk('u', 'VN', { META_CONSENT_DEFAULT: 'row' }) && !consentOk('u', 'DE'
 
 // ---- 3) dạng gói CAPI ----
 const env = { META_CAPI_TOKEN: 'tok' };
-const pi = capiParams('install', { iid: 'a'.repeat(32), ref: META_REF }, env), pa = capiParams('activate', { iid: 'a'.repeat(32), ref: META_REF }, env, 1700000000999);
-ok(pi.event === 'MOBILE_APP_INSTALL' && pi.install_referrer === META_REF && pi.anon_id === 'XZ' + 'a'.repeat(32) && pi.access_token === 'tok' && !pi.custom_events, 'gói install đúng trường');
-ok(pa.event === 'CUSTOM_APP_EVENTS' && JSON.parse(pa.custom_events)[0]._eventName === EVENT_NAME && JSON.parse(pa.custom_events)[0]._logTime === 1700000000, 'gói activate = CUSTOM_APP_EVENTS ACTIVATE, thời gian giây');
-ok(JSON.parse(pi.extinfo).length === 16 && JSON.parse(pi.extinfo)[0] === 'a2' && !/advertiser_id|ip|email|idfa|gaid/i.test(Object.keys(pi).join()), 'extinfo 16 phần tử (Android); không có mã quảng cáo/IP/email');
-{ let got; const f = async (u, o) => { got = { u, o }; return { ok: true }; };
-  ok(await sendCapi(env, 'install', { iid: 'b'.repeat(32), ref: META_REF }, f) && got.u === GRAPH + '902190262917017/activities' && got.o.method === 'POST' && /event=MOBILE_APP_INSTALL/.test(got.o.body), 'sendCapi POST /<app>/activities');
+const pi = capiBody('install', { iid: 'a'.repeat(32), ref: META_REF }, env, 1700000000999), pa = capiBody('activate', { iid: 'a'.repeat(32), ref: META_REF }, { ...env, META_TEST_CODE: 'TEST123' }, 1700000000999);
+const di = pi.data[0], da = pa.data[0];
+ok(di.event_name === 'MobileAppInstall' && di.action_source === 'app' && di.event_time === 1700000000 && di.event_id === 'install:' + 'a'.repeat(32) && di.app_data.install_referrer === META_REF && di.user_data.anon_id === 'XZ' + 'a'.repeat(32) && pi.access_token === 'tok' && !pi.test_event_code, 'gói install đúng trường (không có test code khi không đặt)');
+ok(da.event_name === EVENT_NAME && da.event_id === 'activate:' + 'a'.repeat(32) && pa.test_event_code === 'TEST123', 'gói activate = ACTIVATE, event_id riêng, test_event_code khi đặt META_TEST_CODE');
+ok(di.app_data.extinfo.length === 16 && di.app_data.extinfo[0] === 'a2' && Object.keys(di.user_data).join() === 'anon_id' && !/advertiser_id|madid|email|idfa|gaid|client_ip/i.test(JSON.stringify(pi)), 'extinfo 16 phần tử (Android); chỉ anon_id – không mã quảng cáo/IP/email');
+{ let got; const f = async (u, o) => { got = { u, o }; return { ok: true, status: 200, json: async () => ({ events_received: 1 }) }; };
+  ok(await sendCapi(env, 'install', { iid: 'b'.repeat(32), ref: META_REF }, f) && got.u === GRAPH + '902190262917017/events' && got.o.method === 'POST' && JSON.parse(got.o.body).data[0].event_name === 'MobileAppInstall', 'sendCapi POST /<dataset>/events (JSON)');
+  { const r = await postCapi(env, 'install', { iid: 'b'.repeat(32), ref: META_REF }, f); ok(r.ok && r.status === 200 && r.received === 1 && !JSON.stringify(r).includes('tok'), 'postCapi trả {ok,status,received}, không lộ token'); }
   ok(!(await sendCapi(env, 'install', { iid: 'b'.repeat(32), ref: '' }, async () => ({ ok: false }))) && !(await sendCapi(env, 'install', { iid: 'b'.repeat(32), ref: '' }, async () => { throw new Error('net'); })), 'Meta lỗi/mạng lỗi → false, không ném'); }
 
 // ---- 4) handleMa với D1 giả ----
@@ -49,7 +51,7 @@ ok((await run({ ...I, iid: 'xyz' })).r === 'skip' && (await run({ ...I, ev: 'pur
 ok((await run(I, { limited: true })).r === 'limited', 'quá giới hạn tần suất → bỏ');
 { const x = await run({ ...I, ref: 'utm_source=google-play&utm_medium=organic' }); ok(x.r === 'other' && x.calls.length === 0 && x.db.rows.size === 0 && x.db.ev['ma:install:other'] === 1, 'cài tự nhiên: chỉ đếm, không lưu, không gửi'); }
 { const db = fakeDb('1'); const a = await run(I, { db }), b = await run(I, { db }); ok(a.r === 'sent' && a.calls.length === 1 && b.r === 'dup' && b.calls.length === 0 && db.ev['ma:install:sent'] === 1, 'install gửi đúng 1 lần, lần 2 = trùng');
-  const c = await run(A, { db }), d = await run(A, { db }); ok(c.r === 'sent' && /CUSTOM_APP_EVENTS/.test(c.calls[0]) && d.r === 'dup', 'activate gửi 1 lần theo referrer đã lưu của lượt cài, lần 2 = trùng');
+  const c = await run(A, { db }), d = await run(A, { db }); ok(c.r === 'sent' && /"event_name":"ACTIVATE"/.test(c.calls[0]) && d.r === 'dup', 'activate gửi 1 lần theo referrer đã lưu của lượt cài, lần 2 = trùng');
   ok(decodeURIComponent(c.calls[0]).includes('utm_source=apps.facebook.com'), 'activate dùng referrer đã lưu'); }
 ok((await run(A)).r === 'nolink', 'activate không có lượt cài từ Meta → không gửi');
 ok((await run({ ...A, ref: 'x' }, { db: (() => { const d = fakeDb('1'); return d; })() })).r === 'nolink', 'activate không tin referrer từ máy khách (dùng bản đã lưu)');
