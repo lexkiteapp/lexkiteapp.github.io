@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_findseat",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 50,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.2,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Find a seat: three levels!",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "Is this chair free?",
+   "pause": 0.3
+  },
+  {
+   "id": "b",
+   "text": "Excuse me, is anyone sitting here?",
+   "pause": 0.3
+  },
+  {
+   "id": "n",
+   "text": "Is this seat taken?",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "find-seat",
+  "title": "Find a seat",
+  "em": "💺",
+  "chip": "On the train",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "Is this chair free?",
+    "key": "Is this chair",
+    "note": "Clear and correct."
+   },
+   "b": {
+    "text": "Excuse me, is anyone sitting here?",
+    "key": "is anyone sitting",
+    "note": "Polite and natural."
+   },
+   "c": {
+    "text": "Is this seat taken?",
+    "key": "seat taken",
+    "note": "\"Taken\" means someone has it."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Is anyone sitting",
+    "Seat taken"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Find a seat: three levels!"
+ },
+ "src": {
+  "levels3": "find-seat"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 10.4,
+  "wpm": 121
+ },
+ "publish": {
+  "title": "Find a seat: A1, B1 or C1?",
+  "keyword": "find a seat",
+  "value": "Find a seat, three ways. A1: \"Is this chair free?\" B1: \"Excuse me, is anyone sitting here?\" C1: \"Is this seat taken?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "Find a seat: A1, B1 or C1?",
+    "description": "Find a seat, three ways. A1: \"Is this chair free?\" B1: \"Excuse me, is anyone sitting here?\" C1: \"Is this seat taken?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "find a seat",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Find a seat: A1, B1 or C1?\n\nFind a seat, three ways. A1: \"Is this chair free?\" B1: \"Excuse me, is anyone sitting here?\" C1: \"Is this seat taken?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Find a seat: A1, B1 or C1?\n\nFind a seat, three ways. A1: \"Is this chair free?\" B1: \"Excuse me, is anyone sitting here?\" C1: \"Is this seat taken?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Find a seat: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Seat taken. Native line: \"Is this seat taken?\" Which level are you? More real English, free: {link}"
+ }
+}

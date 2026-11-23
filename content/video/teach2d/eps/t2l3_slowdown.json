@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_slowdown",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 26,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.2,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Slow it down: three levels!",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "Not so fast, please.",
+   "pause": 0.3
+  },
+  {
+   "id": "b",
+   "text": "Could you speak more slowly, please?",
+   "pause": 0.3
+  },
+  {
+   "id": "n",
+   "text": "Sorry, could you slow down a bit?",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "slow-down",
+  "title": "Slow it down",
+  "em": "🐢",
+  "chip": "In a chat",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "Not so fast, please.",
+    "key": "Not so fast",
+    "note": "Understood, but not natural."
+   },
+   "b": {
+    "text": "Could you speak more slowly, please?",
+    "key": "more slowly",
+    "note": "Polite and correct."
+   },
+   "c": {
+    "text": "Sorry, could you slow down a bit?",
+    "key": "slow down",
+    "note": "Natural and friendly."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Slow down",
+    "More slowly"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Slow it down: three levels!"
+ },
+ "src": {
+  "levels3": "slow-down"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.4,
+  "wpm": 126
+ },
+ "publish": {
+  "title": "Slow it down: A1, B1 or C1?",
+  "keyword": "slow it down",
+  "value": "Slow it down, three ways. A1: \"Not so fast, please.\" B1: \"Could you speak more slowly, please?\" C1: \"Sorry, could you slow down a bit?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "Slow it down: A1, B1 or C1?",
+    "description": "Slow it down, three ways. A1: \"Not so fast, please.\" B1: \"Could you speak more slowly, please?\" C1: \"Sorry, could you slow down a bit?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "slow it down",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Slow it down: A1, B1 or C1?\n\nSlow it down, three ways. A1: \"Not so fast, please.\" B1: \"Could you speak more slowly, please?\" C1: \"Sorry, could you slow down a bit?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Slow it down: A1, B1 or C1?\n\nSlow it down, three ways. A1: \"Not so fast, please.\" B1: \"Could you speak more slowly, please?\" C1: \"Sorry, could you slow down a bit?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Slow it down: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Slow down. Native line: \"Sorry, could you slow down a bit?\" Which level are you? More real English, free: {link}"
+ }
+}

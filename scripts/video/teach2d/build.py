@@ -31,7 +31,7 @@ EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; _TJ = json.load(open
 MIX = (json.load(open(o.mix))['mix'].get(EP['id']) if o.mix and os.path.exists(o.mix) else None) or {}   # mix.py combination (never changes a word of the script)
 if EP['template'] in ('rule', 'band'): o.layout = 'corner'   # rule: always the corner layout (no teacher bubble in the platform right rail), whatever mix.json or --layout say
 elif o.format == 'short' and not o.layout and MIX.get('layout'): o.layout = MIX['layout']
-if EP['template'] in ('slang', 'guess3') and o.layout == 'bubble': o.layout = 'corner'   # Slang Card / Guess in 3: the strong expression is the hook – the teacher stays big (mix.py never picks bubble for it)
+if EP['template'] in ('slang', 'guess3', 'levels3') and o.layout == 'bubble': o.layout = 'corner'   # Slang Card / Guess in 3: the strong expression is the hook – the teacher stays big (mix.py never picks bubble for it)
 TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carries it, so each series is recognisable from frame 0
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)
@@ -882,8 +882,28 @@ def T_guess3():
     end_card()
 
 
+def T_levels3():
+    """One Situation, 3 Levels (growth series #3): hook headline + the situation chip from frame 0, then ONE Kit card per level (A1 -> B1 -> C1: level badge, the line with its key phrase highlighted, a short note)
+    over a 3-step track, each spoken with its own teacher face; the C1 pause holds a silent quick quiz (which key phrase would a native say?, the answer lights on the CTA), CTA."""
+    D = EP['data']; LV = D['levels']; series_chip(); t_a, t_b, t_n, t_c = start('a'), start('b'), start('n'), start('c'); t_q = end('n') + 0.12
+    hw = EP['hook']['text'].split(); n2 = min(2, len(hw) - 1)
+    y = title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 96, RY0 + 120, None, t_a - 0.2, hook=True)
+    ct = f"{D['em']} {D['chip'].upper()}"; cw = chip_w(ct, tw, S['chip']); top('chip', [RX0 + (RW - cw) / 2, y + 24, RX0 + (RW + cw) / 2, y + 24 + S['chip'] + 28], None, out=t_a - 0.2, text=ct, tone='chip', size=S['chip'])
+    ts = [t_a, t_b, t_n]; top('track', [RX0 + 20, RY0, RX1 - 20, RY0 + 70], t_a, out=t_q - 0.05, steps=3, st=[dict(t=round(t_, 4), s=f'cur{i}') for i, t_ in enumerate(ts, 1)])
+    NAME = dict(a=('A1', 'BEGINNER'), b=('B1', 'EVERYDAY'), c=('C1', 'LIKE A NATIVE'))
+    for i, k in enumerate('abc'):
+        x = LV[k]; t0 = ts[i]; t_o = (ts[i + 1] if i < 2 else t_q) - (0.2 if i < 2 else 0.3); nat = k == 'c'
+        c = Card(RY0 + 100, tone='bubble_good' if nat else 'card'); chip(c, f'{NAME[k][0]} \u00b7 {NAME[k][1]}', t0, **({'tone': 'good'} if nat else {}))
+        runs = runs_hl(x['text'], x['key'], 'onhl' if nat else 'accent', 'ongood' if nat else 'ink'); sz = next((z for z in (84, 72, 64) if len(c.wrap(runs, z)) <= 3), 60)
+        c.text(runs, sz, t0); c.text([[x['note'], 'ongood' if nat else 'muted']], S['sub'], t0); c.place(t0, t_o, 'a')
+    q = D['quiz']; t_r1 = end('n') + LINES['n']['pause'] - 0.75
+    c = Card(RY0); chip(c, 'QUICK QUIZ', t_q); c.text([[q['ask'], 'ink']], S['body'], t_q); pills(c, q['options'], t_q, t_r1 + 0.05, q['answer'])
+    b = c.place(t_q, t_c - 0.2, 'b'); ring(b, t_q + 0.05, t_r1)
+    end_card()
+
+
 dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, l1=T_l1, guess=T_guess, level=T_level,
-     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, slang=T_slang, guess3=T_guess3, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]()
+     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, slang=T_slang, guess3=T_guess3, levels3=T_levels3, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
 BY = {n['id']: n for n in NODES}
@@ -1036,7 +1056,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     # music bed: preset by series, ~ -30 dBFS RMS, ducked 12 dB under the voice (smooth 0.25 s), fades in/out
     PRE = dict(l1='quiz-pulse', usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
                pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse',
-               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright', roots='chill-keys', band='chill-keys', slang='pop-bright', guess3='quiz-pulse')
+               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright', roots='chill-keys', band='chill-keys', slang='pop-bright', guess3='quiz-pulse', levels3='upbeat-claps')
     MUS = MIX.get('music') or PRE.get(EP['template'], 'lofi-warm')   # mix.py 'music' (series preset without a mix)
     mf = f'{o.public}/_music.wav'; subprocess.run(['node', f'{ROOT}/scripts/video/synth.mjs', '--music', MUS, str(TOTAL + 0.5), mf], check=True, capture_output=True)
     with wave.open(mf) as w: sr_ = w.getframerate(); ch_ = w.getnchannels(); mu = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
@@ -1085,7 +1105,7 @@ json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, nf=NF, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
                lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause'],
                               quiz=bool(v.get('quiz')), repeat=bool(v.get('repeat'))) for k, v in LINES.items()},
-               host='rig' if RIG else 'registry', rig=dict(frames=f'{o.host}/rig.frames.json', vo=o.vo) if RIG else None, pose=EP.get('pose'), expr=EP.get('expr'), mix=MIX or None,
+               host='rig' if RIG else 'registry', rig=dict(frames=f'{o.host}/rig.frames.json', vo=o.vo) if RIG else None, pose=EP.get('pose'), expr=EP.get('expr'), exprs=EP.get('exprs'), mix=MIX or None,
                speech=SPEECH, segs=SEG, host_xfade=HOST['xfade'], host_len=LEN, head=[round(v, 1) for v in HEAD], body=[round(v, 1) for v in BODY], cues=CUES, ipa=IPA, slots=SLOTS, sfx=SFX, vtt=VTT,
                voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], cta=EP['cta'], nodes=NODES, caps=CAPS),
           open(o.out + '.timeline.json', 'w'), indent=0)

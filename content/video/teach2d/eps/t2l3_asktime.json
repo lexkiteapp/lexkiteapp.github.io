@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_asktime",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 36,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.2,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask the time: three levels!",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "What time is it?",
+   "pause": 0.3
+  },
+  {
+   "id": "b",
+   "text": "Excuse me, do you know the time?",
+   "pause": 0.3
+  },
+  {
+   "id": "n",
+   "text": "Sorry, do you happen to have the time?",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "ask-time",
+  "title": "Ask the time",
+  "em": "🕒",
+  "chip": "On the street",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "What time is it?",
+    "key": "What time",
+    "note": "Simple and correct."
+   },
+   "b": {
+    "text": "Excuse me, do you know the time?",
+    "key": "do you know",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "Sorry, do you happen to have the time?",
+    "key": "happen to have",
+    "note": "A soft, polite opening."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Happen to have",
+    "What time"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Ask the time: three levels!"
+ },
+ "src": {
+  "levels3": "ask-time"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 12.0,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Ask the time: A1, B1 or C1?",
+  "keyword": "ask the time",
+  "value": "Ask the time, three ways. A1: \"What time is it?\" B1: \"Excuse me, do you know the time?\" C1: \"Sorry, do you happen to have the time?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "Ask the time: A1, B1 or C1?",
+    "description": "Ask the time, three ways. A1: \"What time is it?\" B1: \"Excuse me, do you know the time?\" C1: \"Sorry, do you happen to have the time?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "ask the time",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Ask the time: A1, B1 or C1?\n\nAsk the time, three ways. A1: \"What time is it?\" B1: \"Excuse me, do you know the time?\" C1: \"Sorry, do you happen to have the time?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Ask the time: A1, B1 or C1?\n\nAsk the time, three ways. A1: \"What time is it?\" B1: \"Excuse me, do you know the time?\" C1: \"Sorry, do you happen to have the time?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ask the time: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Happen to have. Native line: \"Sorry, do you happen to have the time?\" Which level are you? More real English, free: {link}"
+ }
+}

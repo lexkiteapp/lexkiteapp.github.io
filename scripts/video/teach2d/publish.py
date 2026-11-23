@@ -49,6 +49,9 @@ def facts(ep):
         k = D['key']; K = k[:1].upper() + k[1:]; tone = {'very-casual': 'very casual', 'casual': 'casual', 'neutral': 'everyday'}[D['reg']]
         return (_fit(f'What does {_q(k)} mean?', f'{K}: what does it mean?', f'{K} meaning'), k,
                 f'{K} = {D["mean"].rstrip(".!?")}. Example: "{D["example"]["text"]}" ({tone} English{", " + D["region"] if D["region"] != "global" else ""}).')
+    if t == 'levels3':   # One Situation, 3 Levels: the title names the situation, the value line gives the three sentences so the post teaches as plain text
+        tt = D['title']; V = {k: D['levels'][k]['text'] for k in 'abc'}
+        return _fit(f'{tt}: A1, B1 or C1?', f'{tt} at 3 English levels', f'{tt}: 3 levels'), tt.lower(), f'{tt}, three ways. A1: "{V["a"]}" B1: "{V["b"]}" C1: "{V["c"]}"'
     if t == 'guess3':   # Guess in 3 Seconds: the title hints (first letter + length) but never spoils; the value line = answer + IPA + meaning + example so the post teaches as plain text
         w = D['word']; W_ = w.capitalize()
         return (_fit(f'Guess in 3 seconds: {w[0].upper()} + {len(w) - 1} letters', f'Guess the picture in 3 seconds: {len(w)} letters'), w,
@@ -99,6 +102,7 @@ def build(ep):
     title, kw, value = facts(ep)
     lvl = str(ep.get('cefr') or (ep.get('data') or {}).get('cefr') or '').lower()
     tags = list(dict.fromkeys(['#learnenglish', '#englishtips', AREA_TAG.get(ep['area'], '#speakenglish')] + ([f'#{lvl}english'] if re.fullmatch(r'[abc][12]', lvl) else []) + ['#englishteacher']))[:5]
+    if ep['template'] == 'levels3': tags = ['#englishlevels', '#learnenglish', '#a1b1c1', '#speakenglish', '#englishtips']
     if ep['template'] == 'guess3': tags = ['#guesstheword', '#learnenglish', '#englishvocabulary', '#englishquiz', '#englishtips']
     if ep['template'] == 'slang': tags = ['#englishslang', '#learnenglish', '#slang', '#speakenglish', '#englishtips']
     link = ep['cta']['link']; say = ep['cta'].get('say') or 'Practice in the app'
@@ -122,6 +126,9 @@ def first_comment(ep, value):
     (+ the value line when it is plain English text – IPA / arrows would fail the en-only check), one {link} placeholder, 3 wordings rotated by id."""
     L = ep['lines']; qi = next((i for i, l in enumerate(L) if l.get('quiz')), None)
     a = (L[qi + 1]['text'] if qi is not None and qi + 1 < len(L) else value).strip()
+    if ep['template'] == 'levels3':   # the quiz is silent: the first comment answers it (the native key phrase + the C1 line) and asks which level the viewer is
+        D = ep['data']; q = D['quiz']; out = f'Quiz answer: {q["options"][q["answer"]]}. Native line: "{D["levels"]["c"]["text"]}" Which level are you? More real English, free: {{link}}'
+        return re.sub(r' +', ' ', __import__('unicodedata').normalize('NFKD', out).encode('ascii', 'ignore').decode())
     if ep['template'] == 'guess3':   # the video asks the viewer to guess: the first comment gives the answer + meaning + the example and asks for the viewer's own guess
         D = ep['data']; out = f'Answer: {D["word"]}. {D["mean"][0].upper() + D["mean"][1:].rstrip(".")}. Example: "{D["ex"]}" Did you guess it in time? More picture quizzes, free: {{link}}'
         return re.sub(r' +', ' ', __import__('unicodedata').normalize('NFKD', out).encode('ascii', 'ignore').decode())

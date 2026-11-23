@@ -677,7 +677,14 @@
    "status": "draft",
    "spec": "content/video/teach2d/eps/*.json",
    "note": "Guess in 3 Seconds 7-12 s (growth series #2, docs/GROWTH-1M.md section 2): picture + hidden word + 3-2-1 ring + reveal; bank = audited words + img.json. Flips to approved when the 3 pilots (short + wide) pass every qc.py gate"
+  },  {
+   "id": "levels3",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "One Situation, 3 Levels 10-13 s (growth series #3, docs/GROWTH-1M.md section 2): the same line at A1 / B1 / C1, bank content/video/teach2d/levels3.json (levels3.mjs gates). Flips to approved when the 3 pilots (short + wide) pass every qc.py gate"
   },
+
   {
    "id": "slang",
    "engine": "teach2d",

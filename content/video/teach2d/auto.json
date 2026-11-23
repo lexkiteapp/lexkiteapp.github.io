@@ -29527,6 +29527,2727 @@
    "heads": [
     "g3:ruler"
    ]
+  },
+  {
+   "id": "t2l3_ordercoffee",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 1,
+   "area": "phrases",
+   "point": "levels3:order-coffee",
+   "hash": "603df50da968",
+   "heads": [
+    "lv3:order-coffee"
+   ],
+   "taught": [
+    "grab"
+   ],
+   "facts": {
+    "id": "order-coffee",
+    "title": "Order coffee",
+    "em": "☕",
+    "chip": "At a café",
+    "reg": "casual",
+    "a": {
+     "text": "I want a coffee, please.",
+     "key": "I want",
+     "note": "Clear, but a little blunt."
+    },
+    "b": {
+     "text": "Could I have a large latte, please?",
+     "key": "Could I have",
+     "note": "Polite and natural."
+    },
+    "c": {
+     "text": "Can I grab a flat white to go?",
+     "key": "grab",
+     "note": "\"Grab\" means get. Quick and casual."
+    }
+   },
+   "in": {
+    "id": "order-coffee"
+   }
+  },
+  {
+   "id": "t2l3_airportcheckin",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 2,
+   "area": "phrases",
+   "point": "levels3:airport-checkin",
+   "hash": "2f300def2c55",
+   "heads": [
+    "lv3:airport-checkin"
+   ],
+   "taught": [
+    "checking",
+    "in",
+    "for"
+   ],
+   "facts": {
+    "id": "airport-checkin",
+    "title": "Airport check-in",
+    "em": "✈️",
+    "chip": "At the airport",
+    "reg": "neutral",
+    "a": {
+     "text": "Here is my passport.",
+     "key": "Here is",
+     "note": "Simple and clear."
+    },
+    "b": {
+     "text": "I'd like to check in, please.",
+     "key": "check in",
+     "note": "Polite and clear."
+    },
+    "c": {
+     "text": "Hi, I'm just checking in for my flight.",
+     "key": "checking in for",
+     "note": "Friendly, with a softener."
+    }
+   },
+   "in": {
+    "id": "airport-checkin"
+   }
+  },
+  {
+   "id": "t2l3_hotelcheckin",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 3,
+   "area": "phrases",
+   "point": "levels3:hotel-checkin",
+   "hash": "a27f7e0e5c89",
+   "heads": [
+    "lv3:hotel-checkin"
+   ],
+   "taught": [
+    "I've",
+    "got",
+    "a"
+   ],
+   "facts": {
+    "id": "hotel-checkin",
+    "title": "Hotel check-in",
+    "em": "🏨",
+    "chip": "At the hotel",
+    "reg": "polite",
+    "a": {
+     "text": "Hello. I have a room.",
+     "key": "I have",
+     "note": "Understood, but very basic."
+    },
+    "b": {
+     "text": "I have a reservation for tonight.",
+     "key": "a reservation",
+     "note": "Standard hotel English."
+    },
+    "c": {
+     "text": "Hi there, I've got a booking for tonight.",
+     "key": "I've got a",
+     "note": "Relaxed and friendly."
+    }
+   },
+   "in": {
+    "id": "hotel-checkin"
+   }
+  },
+  {
+   "id": "t2l3_askdirections",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 4,
+   "area": "phrases",
+   "point": "levels3:ask-directions",
+   "hash": "015c44cbb5a4",
+   "heads": [
+    "lv3:ask-directions"
+   ],
+   "taught": [
+    "trying",
+    "to",
+    "get",
+    "to"
+   ],
+   "facts": {
+    "id": "ask-directions",
+    "title": "Ask directions",
+    "em": "🧭",
+    "chip": "On the street",
+    "reg": "neutral",
+    "a": {
+     "text": "Where is the station?",
+     "key": "Where is",
+     "note": "Basic but correct."
+    },
+    "b": {
+     "text": "How do I get to the station, please?",
+     "key": "How do I get",
+     "note": "Polite and natural."
+    },
+    "c": {
+     "text": "Sorry, I'm trying to get to the station.",
+     "key": "trying to get to",
+     "note": "Says your goal, not a question."
+    }
+   },
+   "in": {
+    "id": "ask-directions"
+   }
+  },
+  {
+   "id": "t2l3_booktable",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 5,
+   "area": "phrases",
+   "point": "levels3:book-table",
+   "hash": "d2cafd44abf6",
+   "heads": [
+    "lv3:book-table"
+   ],
+   "taught": [
+    "have",
+    "you",
+    "got"
+   ],
+   "facts": {
+    "id": "book-table",
+    "title": "Book a table",
+    "em": "🍽️",
+    "chip": "At a restaurant",
+    "reg": "polite",
+    "a": {
+     "text": "A table for two, please.",
+     "key": "A table for",
+     "note": "Short and clear."
+    },
+    "b": {
+     "text": "Could we have a table for two?",
+     "key": "Could we have",
+     "note": "Polite and natural."
+    },
+    "c": {
+     "text": "Hi, have you got a table?",
+     "key": "have you got",
+     "note": "Common in British English."
+    }
+   },
+   "in": {
+    "id": "book-table"
+   }
+  },
+  {
+   "id": "t2l3_orderfood",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 6,
+   "area": "phrases",
+   "point": "levels3:order-food",
+   "hash": "e8c01a0f3435",
+   "heads": [
+    "lv3:order-food"
+   ],
+   "taught": [
+    "I'll",
+    "go",
+    "for"
+   ],
+   "facts": {
+    "id": "order-food",
+    "title": "Order food",
+    "em": "🍕",
+    "chip": "At a restaurant",
+    "reg": "neutral",
+    "a": {
+     "text": "I want a pizza, please.",
+     "key": "I want",
+     "note": "Fine, but sounds like a list."
+    },
+    "b": {
+     "text": "I'd like the chicken pasta, please.",
+     "key": "I'd like",
+     "note": "Polite and standard."
+    },
+    "c": {
+     "text": "I'll go for the chicken pasta.",
+     "key": "I'll go for",
+     "note": "Natural when you decide."
+    }
+   },
+   "in": {
+    "id": "order-food"
+   }
+  },
+  {
+   "id": "t2l3_paybill",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 7,
+   "area": "phrases",
+   "point": "levels3:pay-bill",
+   "hash": "f0ef07259056",
+   "heads": [
+    "lv3:pay-bill"
+   ],
+   "taught": [
+    "No",
+    "rush"
+   ],
+   "facts": {
+    "id": "pay-bill",
+    "title": "Pay the bill",
+    "em": "🧾",
+    "chip": "At a restaurant",
+    "reg": "neutral",
+    "a": {
+     "text": "The bill, please.",
+     "key": "The bill",
+     "note": "Short and polite."
+    },
+    "b": {
+     "text": "Could we have the bill, please?",
+     "key": "Could we have",
+     "note": "Polite and standard."
+    },
+    "c": {
+     "text": "Could we get the bill? No rush.",
+     "key": "No rush",
+     "note": "Friendly, no pressure."
+    }
+   },
+   "in": {
+    "id": "pay-bill"
+   }
+  },
+  {
+   "id": "t2l3_returnitem",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 9,
+   "area": "phrases",
+   "point": "levels3:return-item",
+   "hash": "f9624107677e",
+   "heads": [
+    "lv3:return-item"
+   ],
+   "taught": [
+    "bring",
+    "this",
+    "back"
+   ],
+   "facts": {
+    "id": "return-item",
+    "title": "Return something",
+    "em": "📦",
+    "chip": "In a shop",
+    "reg": "neutral",
+    "a": {
+     "text": "I want my money back.",
+     "key": "money back",
+     "note": "Clear, but quite strong."
+    },
+    "b": {
+     "text": "I'd like to return this, please.",
+     "key": "return this",
+     "note": "Polite and standard."
+    },
+    "c": {
+     "text": "Hi, I need to bring this back.",
+     "key": "bring this back",
+     "note": "Everyday phrasal verb."
+    }
+   },
+   "in": {
+    "id": "return-item"
+   }
+  },
+  {
+   "id": "t2l3_seedoctor",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 10,
+   "area": "phrases",
+   "point": "levels3:see-doctor",
+   "hash": "bb8bd6129bdd",
+   "heads": [
+    "lv3:see-doctor"
+   ],
+   "taught": [
+    "was",
+    "hoping",
+    "to"
+   ],
+   "facts": {
+    "id": "see-doctor",
+    "title": "See a doctor",
+    "em": "🩺",
+    "chip": "At the clinic",
+    "reg": "neutral",
+    "a": {
+     "text": "I need a doctor, please.",
+     "key": "I need",
+     "note": "Clear, but very basic."
+    },
+    "b": {
+     "text": "I'd like to make an appointment.",
+     "key": "make an appointment",
+     "note": "Polite and standard."
+    },
+    "c": {
+     "text": "I was hoping to book an appointment.",
+     "key": "was hoping to",
+     "note": "Softer and very natural."
+    }
+   },
+   "in": {
+    "id": "see-doctor"
+   }
+  },
+  {
+   "id": "t2l3_askforsomeone",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 11,
+   "area": "phrases",
+   "point": "levels3:ask-for-someone",
+   "hash": "d381f1444f24",
+   "heads": [
+    "lv3:ask-for-someone"
+   ],
+   "taught": [
+    "a",
+    "quick",
+    "word"
+   ],
+   "facts": {
+    "id": "ask-for-someone",
+    "title": "Ask for someone",
+    "em": "📞",
+    "chip": "On the phone",
+    "reg": "polite",
+    "a": {
+     "text": "Hello. Is Ana there?",
+     "key": "Is Ana",
+     "note": "Clear, a little direct."
+    },
+    "b": {
+     "text": "Hello, could I speak to Ana?",
+     "key": "Could I speak to",
+     "note": "Standard phone English."
+    },
+    "c": {
+     "text": "Hi, could I have a quick word with Ana?",
+     "key": "a quick word",
+     "note": "Polite and relaxed."
+    }
+   },
+   "in": {
+    "id": "ask-for-someone"
+   }
+  },
+  {
+   "id": "t2l3_jobintro",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 12,
+   "area": "phrases",
+   "point": "levels3:job-intro",
+   "hash": "68362a23e07c",
+   "heads": [
+    "lv3:job-intro"
+   ],
+   "taught": [
+    "for",
+    "three",
+    "years"
+   ],
+   "facts": {
+    "id": "job-intro",
+    "title": "Job interview",
+    "em": "💼",
+    "chip": "At an interview",
+    "reg": "formal",
+    "a": {
+     "text": "I work in a shop.",
+     "key": "I work in",
+     "note": "Simple, but very short."
+    },
+    "b": {
+     "text": "I have three years of experience in sales.",
+     "key": "years of experience",
+     "note": "Clear and professional."
+    },
+    "c": {
+     "text": "I've been in sales for three years.",
+     "key": "for three years",
+     "note": "Smooth, like a story."
+    }
+   },
+   "in": {
+    "id": "job-intro"
+   }
+  },
+  {
+   "id": "t2l3_taketaxi",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 15,
+   "area": "phrases",
+   "point": "levels3:take-taxi",
+   "hash": "413a8debb437",
+   "heads": [
+    "lv3:take-taxi"
+   ],
+   "taught": [
+    "drop",
+    "me",
+    "off"
+   ],
+   "facts": {
+    "id": "take-taxi",
+    "title": "Take a taxi",
+    "em": "🚕",
+    "chip": "In a taxi",
+    "reg": "neutral",
+    "a": {
+     "text": "To the airport, please.",
+     "key": "To the airport",
+     "note": "Short and polite."
+    },
+    "b": {
+     "text": "Could you take me to the airport?",
+     "key": "take me to",
+     "note": "Polite, full sentence."
+    },
+    "c": {
+     "text": "Could you drop me off at the airport?",
+     "key": "drop me off",
+     "note": "What locals really say."
+    }
+   },
+   "in": {
+    "id": "take-taxi"
+   }
+  },
+  {
+   "id": "t2l3_buyticket",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 16,
+   "area": "phrases",
+   "point": "levels3:buy-ticket",
+   "hash": "9ef295c87452",
+   "heads": [
+    "lv3:buy-ticket"
+   ],
+   "taught": [
+    "a",
+    "return"
+   ],
+   "facts": {
+    "id": "buy-ticket",
+    "title": "Buy a ticket",
+    "em": "🚌",
+    "chip": "At the station",
+    "reg": "neutral",
+    "a": {
+     "text": "One ticket, please.",
+     "key": "One ticket",
+     "note": "Short and clear."
+    },
+    "b": {
+     "text": "Could I have a ticket to the city?",
+     "key": "a ticket to",
+     "note": "Polite and specific."
+    },
+    "c": {
+     "text": "Can I get a return to the city?",
+     "key": "a return",
+     "note": "British for round trip."
+    }
+   },
+   "in": {
+    "id": "buy-ticket"
+   }
+  },
+  {
+   "id": "t2l3_trainlate",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 17,
+   "area": "phrases",
+   "point": "levels3:train-late",
+   "hash": "e97344bbb0c7",
+   "heads": [
+    "lv3:train-late"
+   ],
+   "taught": [
+    "running",
+    "late"
+   ],
+   "facts": {
+    "id": "train-late",
+    "title": "Train is late",
+    "em": "🚆",
+    "chip": "At the station",
+    "reg": "neutral",
+    "a": {
+     "text": "The train is late.",
+     "key": "is late",
+     "note": "Simple, but clear."
+    },
+    "b": {
+     "text": "Do you know why the train is late?",
+     "key": "Do you know why",
+     "note": "Polite and clear."
+    },
+    "c": {
+     "text": "Any idea why the train's running late?",
+     "key": "running late",
+     "note": "Natural and common."
+    }
+   },
+   "in": {
+    "id": "train-late"
+   }
+  },
+  {
+   "id": "t2l3_askbag",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 18,
+   "area": "phrases",
+   "point": "levels3:ask-bag",
+   "hash": "f02a73501d93",
+   "heads": [
+    "lv3:ask-bag"
+   ],
+   "taught": [
+    "with",
+    "that"
+   ],
+   "facts": {
+    "id": "ask-bag",
+    "title": "Get a bag",
+    "em": "🛍️",
+    "chip": "At the till",
+    "reg": "neutral",
+    "a": {
+     "text": "A bag, please.",
+     "key": "A bag",
+     "note": "Short and polite."
+    },
+    "b": {
+     "text": "Could I have a bag, please?",
+     "key": "Could I have",
+     "note": "Polite and standard."
+    },
+    "c": {
+     "text": "Could I get a bag with that?",
+     "key": "with that",
+     "note": "Natural at the till."
+    }
+   },
+   "in": {
+    "id": "ask-bag"
+   }
+  },
+  {
+   "id": "t2l3_joingym",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 20,
+   "area": "phrases",
+   "point": "levels3:join-gym",
+   "hash": "ed1761ef351c",
+   "heads": [
+    "lv3:join-gym"
+   ],
+   "taught": [
+    "thinking",
+    "of"
+   ],
+   "facts": {
+    "id": "join-gym",
+    "title": "Join a gym",
+    "em": "🏋️",
+    "chip": "At the gym",
+    "reg": "neutral",
+    "a": {
+     "text": "I want to join.",
+     "key": "I want to join",
+     "note": "Clear, but a little blunt."
+    },
+    "b": {
+     "text": "Hi, I'd like to sign up, please.",
+     "key": "sign up",
+     "note": "Polite and standard."
+    },
+    "c": {
+     "text": "Hi, I'm thinking of signing up.",
+     "key": "thinking of",
+     "note": "Casual, open and natural."
+    }
+   },
+   "in": {
+    "id": "join-gym"
+   }
+  },
+  {
+   "id": "t2l3_cinematickets",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 21,
+   "area": "phrases",
+   "point": "levels3:cinema-tickets",
+   "hash": "83cbb187eb0d",
+   "heads": [
+    "lv3:cinema-tickets"
+   ],
+   "taught": [
+    "Two",
+    "for"
+   ],
+   "facts": {
+    "id": "cinema-tickets",
+    "title": "Buy cinema tickets",
+    "em": "🎬",
+    "chip": "At the cinema",
+    "reg": "neutral",
+    "a": {
+     "text": "Two tickets, please.",
+     "key": "Two tickets",
+     "note": "Short and clear."
+    },
+    "b": {
+     "text": "Could I get two tickets for the next film?",
+     "key": "the next film",
+     "note": "Polite and specific."
+    },
+    "c": {
+     "text": "Two for the eight o'clock, please.",
+     "key": "Two for",
+     "note": "Natives drop the nouns."
+    }
+   },
+   "in": {
+    "id": "cinema-tickets"
+   }
+  },
+  {
+   "id": "t2l3_gethaircut",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 22,
+   "area": "phrases",
+   "point": "levels3:get-haircut",
+   "hash": "cf5667f0346d",
+   "heads": [
+    "lv3:get-haircut"
+   ],
+   "taught": [
+    "a",
+    "trim"
+   ],
+   "facts": {
+    "id": "get-haircut",
+    "title": "Get a haircut",
+    "em": "💇",
+    "chip": "At the hairdresser",
+    "reg": "casual",
+    "a": {
+     "text": "I want short hair.",
+     "key": "short hair",
+     "note": "Clear, but very basic."
+    },
+    "b": {
+     "text": "Could you cut it a little shorter, please?",
+     "key": "a little shorter",
+     "note": "Polite and specific."
+    },
+    "c": {
+     "text": "Just a trim, please, nothing drastic.",
+     "key": "a trim",
+     "note": "Short and natural."
+    }
+   },
+   "in": {
+    "id": "get-haircut"
+   }
+  },
+  {
+   "id": "t2l3_acceptinvite",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 23,
+   "area": "phrases",
+   "point": "levels3:accept-invite",
+   "hash": "fbf3994e2e7c",
+   "heads": [
+    "lv3:accept-invite"
+   ],
+   "taught": [
+    "Count",
+    "me",
+    "in"
+   ],
+   "facts": {
+    "id": "accept-invite",
+    "title": "Accept an invite",
+    "em": "🎉",
+    "chip": "By text",
+    "reg": "casual",
+    "a": {
+     "text": "Yes, I can come.",
+     "key": "I can come",
+     "note": "Clear, a bit plain."
+    },
+    "b": {
+     "text": "Thanks for inviting me, I'd love to come.",
+     "key": "I'd love to",
+     "note": "Warm and polite."
+    },
+    "c": {
+     "text": "Count me in! What time works?",
+     "key": "Count me in",
+     "note": "A classic, friendly yes."
+    }
+   },
+   "in": {
+    "id": "accept-invite"
+   }
+  },
+  {
+   "id": "t2l3_saynopolitely",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 24,
+   "area": "phrases",
+   "point": "levels3:say-no-politely",
+   "hash": "66073b9ac55a",
+   "heads": [
+    "lv3:say-no-politely"
+   ],
+   "taught": [
+    "pass",
+    "this",
+    "time"
+   ],
+   "facts": {
+    "id": "say-no-politely",
+    "title": "Say no politely",
+    "em": "🙅",
+    "chip": "By text",
+    "reg": "polite",
+    "a": {
+     "text": "I can't come. Sorry.",
+     "key": "I can't",
+     "note": "Clear, but a bit cold."
+    },
+    "b": {
+     "text": "Thank you, but I'm busy that day.",
+     "key": "I'm busy",
+     "note": "Polite, with a reason."
+    },
+    "c": {
+     "text": "Thanks, but I'll pass this time.",
+     "key": "pass this time",
+     "note": "A soft, friendly no."
+    }
+   },
+   "in": {
+    "id": "say-no-politely"
+   }
+  },
+  {
+   "id": "t2l3_askrepeat",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 25,
+   "area": "phrases",
+   "point": "levels3:ask-repeat",
+   "hash": "ad722e773a69",
+   "heads": [
+    "lv3:ask-repeat"
+   ],
+   "taught": [
+    "didn't",
+    "catch"
+   ],
+   "facts": {
+    "id": "ask-repeat",
+    "title": "Ask to repeat",
+    "em": "🔁",
+    "chip": "In a chat",
+    "reg": "neutral",
+    "a": {
+     "text": "Again, please.",
+     "key": "Again",
+     "note": "Short, but a bit blunt."
+    },
+    "b": {
+     "text": "Could you say that again, please?",
+     "key": "say that again",
+     "note": "Polite and clear."
+    },
+    "c": {
+     "text": "Sorry, I didn't catch that.",
+     "key": "didn't catch",
+     "note": "What natives say."
+    }
+   },
+   "in": {
+    "id": "ask-repeat"
+   }
+  },
+  {
+   "id": "t2l3_slowdown",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 26,
+   "area": "phrases",
+   "point": "levels3:slow-down",
+   "hash": "3da756b6983b",
+   "heads": [
+    "lv3:slow-down"
+   ],
+   "taught": [
+    "slow",
+    "down"
+   ],
+   "facts": {
+    "id": "slow-down",
+    "title": "Slow it down",
+    "em": "🐢",
+    "chip": "In a chat",
+    "reg": "polite",
+    "a": {
+     "text": "Not so fast, please.",
+     "key": "Not so fast",
+     "note": "Understood, but not natural."
+    },
+    "b": {
+     "text": "Could you speak more slowly, please?",
+     "key": "more slowly",
+     "note": "Polite and correct."
+    },
+    "c": {
+     "text": "Sorry, could you slow down a bit?",
+     "key": "slow down",
+     "note": "Natural and friendly."
+    }
+   },
+   "in": {
+    "id": "slow-down"
+   }
+  },
+  {
+   "id": "t2l3_saythanks",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 27,
+   "area": "phrases",
+   "point": "levels3:say-thanks",
+   "hash": "be61fa1b971f",
+   "heads": [
+    "lv3:say-thanks"
+   ],
+   "taught": [
+    "I",
+    "owe",
+    "you",
+    "one"
+   ],
+   "facts": {
+    "id": "say-thanks",
+    "title": "Say thanks",
+    "em": "🙏",
+    "chip": "Everyday",
+    "reg": "casual",
+    "a": {
+     "text": "Thank you.",
+     "key": "Thank you",
+     "note": "Always correct."
+    },
+    "b": {
+     "text": "Thank you so much for your help.",
+     "key": "so much",
+     "note": "Warmer and polite."
+    },
+    "c": {
+     "text": "Thanks a million, I owe you one.",
+     "key": "I owe you one",
+     "note": "You promise to help back."
+    }
+   },
+   "in": {
+    "id": "say-thanks"
+   }
+  },
+  {
+   "id": "t2l3_saysorry",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 28,
+   "area": "phrases",
+   "point": "levels3:say-sorry",
+   "hash": "66ee61994ed5",
+   "heads": [
+    "lv3:say-sorry"
+   ],
+   "taught": [
+    "my",
+    "bad"
+   ],
+   "facts": {
+    "id": "say-sorry",
+    "title": "Say sorry",
+    "em": "😬",
+    "chip": "Everyday",
+    "reg": "casual",
+    "a": {
+     "text": "I am sorry.",
+     "key": "I am sorry",
+     "note": "Clear and simple."
+    },
+    "b": {
+     "text": "I'm so sorry. I didn't mean to.",
+     "key": "didn't mean to",
+     "note": "Shows it was an accident."
+    },
+    "c": {
+     "text": "Oops, my bad, I wasn't looking.",
+     "key": "my bad",
+     "note": "Casual sorry between friends."
+    }
+   },
+   "in": {
+    "id": "say-sorry"
+   }
+  },
+  {
+   "id": "t2l3_givecompliment",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 29,
+   "area": "phrases",
+   "point": "levels3:give-compliment",
+   "hash": "cbb2ebec0a73",
+   "heads": [
+    "lv3:give-compliment"
+   ],
+   "taught": [
+    "Love",
+    "your"
+   ],
+   "facts": {
+    "id": "give-compliment",
+    "title": "Give a compliment",
+    "em": "😍",
+    "chip": "With a friend",
+    "reg": "casual",
+    "a": {
+     "text": "Your shirt is nice.",
+     "key": "is nice",
+     "note": "Correct, but plain."
+    },
+    "b": {
+     "text": "I really like your shirt.",
+     "key": "really like",
+     "note": "Warm and clear."
+    },
+    "c": {
+     "text": "Love your shirt, where did you get it?",
+     "key": "Love your",
+     "note": "Natives drop the \"I\"."
+    }
+   },
+   "in": {
+    "id": "give-compliment"
+   }
+  },
+  {
+   "id": "t2l3_agreewith",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 30,
+   "area": "phrases",
+   "point": "levels3:agree-with",
+   "hash": "65576e271004",
+   "heads": [
+    "lv3:agree-with"
+   ],
+   "taught": [
+    "say",
+    "that",
+    "again"
+   ],
+   "facts": {
+    "id": "agree-with",
+    "title": "Agree with someone",
+    "em": "👍",
+    "chip": "In a chat",
+    "reg": "casual",
+    "a": {
+     "text": "Yes, I think so too.",
+     "key": "I think so",
+     "note": "Clear and simple."
+    },
+    "b": {
+     "text": "I totally agree with you.",
+     "key": "totally agree",
+     "note": "Strong and clear."
+    },
+    "c": {
+     "text": "You can say that again!",
+     "key": "say that again",
+     "note": "A fun, strong \"yes\"."
+    }
+   },
+   "in": {
+    "id": "agree-with"
+   }
+  },
+  {
+   "id": "t2l3_disagreepolitely",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 31,
+   "area": "phrases",
+   "point": "levels3:disagree-politely",
+   "hash": "cb9cf45c5ed2",
+   "heads": [
+    "lv3:disagree-politely"
+   ],
+   "taught": [
+    "I",
+    "hear",
+    "you"
+   ],
+   "facts": {
+    "id": "disagree-politely",
+    "title": "Disagree politely",
+    "em": "🤔",
+    "chip": "In a chat",
+    "reg": "polite",
+    "a": {
+     "text": "No, I don't think so.",
+     "key": "I don't think",
+     "note": "Correct, but a bit direct."
+    },
+    "b": {
+     "text": "I'm not sure I agree with that.",
+     "key": "not sure I agree",
+     "note": "Polite and careful."
+    },
+    "c": {
+     "text": "I hear you, but I'm not convinced.",
+     "key": "I hear you",
+     "note": "Shows you listened first."
+    }
+   },
+   "in": {
+    "id": "disagree-politely"
+   }
+  },
+  {
+   "id": "t2l3_askhelp",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 32,
+   "area": "phrases",
+   "point": "levels3:ask-help",
+   "hash": "5ade349ebcd1",
+   "heads": [
+    "lv3:ask-help"
+   ],
+   "taught": [
+    "a",
+    "sec"
+   ],
+   "facts": {
+    "id": "ask-help",
+    "title": "Ask for help",
+    "em": "🆘",
+    "chip": "Everyday",
+    "reg": "polite",
+    "a": {
+     "text": "Help me, please.",
+     "key": "Help me",
+     "note": "Clear, but sounds urgent."
+    },
+    "b": {
+     "text": "Excuse me, could you help me?",
+     "key": "could you help me",
+     "note": "Polite and standard."
+    },
+    "c": {
+     "text": "Sorry, do you have a sec?",
+     "key": "a sec",
+     "note": "Very natural, informal."
+    }
+   },
+   "in": {
+    "id": "ask-help"
+   }
+  },
+  {
+   "id": "t2l3_askwait",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 33,
+   "area": "phrases",
+   "point": "levels3:ask-wait",
+   "hash": "2e0b67a69170",
+   "heads": [
+    "lv3:ask-wait"
+   ],
+   "taught": [
+    "Hang",
+    "on"
+   ],
+   "facts": {
+    "id": "ask-wait",
+    "title": "Ask to wait",
+    "em": "⏳",
+    "chip": "At work",
+    "reg": "polite",
+    "a": {
+     "text": "Wait, please. One minute.",
+     "key": "One minute",
+     "note": "Clear, but a bit stiff."
+    },
+    "b": {
+     "text": "Could you give me a minute, please?",
+     "key": "give me a minute",
+     "note": "Polite and clear."
+    },
+    "c": {
+     "text": "Hang on, I'll be right with you.",
+     "key": "Hang on",
+     "note": "Casual and friendly."
+    }
+   },
+   "in": {
+    "id": "ask-wait"
+   }
+  },
+  {
+   "id": "t2l3_smalltalk",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 34,
+   "area": "phrases",
+   "point": "levels3:small-talk",
+   "hash": "1c0af672df34",
+   "heads": [
+    "lv3:small-talk"
+   ],
+   "taught": [
+    "Lovely",
+    "day"
+   ],
+   "facts": {
+    "id": "small-talk",
+    "title": "Small talk",
+    "em": "💬",
+    "chip": "In a queue",
+    "reg": "casual",
+    "a": {
+     "text": "It's a nice day.",
+     "key": "nice day",
+     "note": "Clear, but simple."
+    },
+    "b": {
+     "text": "The weather is lovely today, isn't it?",
+     "key": "isn't it",
+     "note": "Classic small talk."
+    },
+    "c": {
+     "text": "Lovely day, isn't it?",
+     "key": "Lovely day",
+     "note": "Natives cut the start."
+    }
+   },
+   "in": {
+    "id": "small-talk"
+   }
+  },
+  {
+   "id": "t2l3_weekendplans",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 35,
+   "area": "phrases",
+   "point": "levels3:weekend-plans",
+   "hash": "b64048dda5ac",
+   "heads": [
+    "lv3:weekend-plans"
+   ],
+   "taught": [
+    "any",
+    "plans"
+   ],
+   "facts": {
+    "id": "weekend-plans",
+    "title": "Weekend plans",
+    "em": "📅",
+    "chip": "With a friend",
+    "reg": "casual",
+    "a": {
+     "text": "What do you do on Sunday?",
+     "key": "What do you do",
+     "note": "Correct, but a bit flat."
+    },
+    "b": {
+     "text": "What are you doing this weekend?",
+     "key": "doing this weekend",
+     "note": "Natural and standard."
+    },
+    "c": {
+     "text": "Got any plans for the weekend?",
+     "key": "any plans",
+     "note": "Natives drop the start."
+    }
+   },
+   "in": {
+    "id": "weekend-plans"
+   }
+  },
+  {
+   "id": "t2l3_asktime",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 36,
+   "area": "phrases",
+   "point": "levels3:ask-time",
+   "hash": "00836e6cc79e",
+   "heads": [
+    "lv3:ask-time"
+   ],
+   "taught": [
+    "happen",
+    "to",
+    "have"
+   ],
+   "facts": {
+    "id": "ask-time",
+    "title": "Ask the time",
+    "em": "🕒",
+    "chip": "On the street",
+    "reg": "polite",
+    "a": {
+     "text": "What time is it?",
+     "key": "What time",
+     "note": "Simple and correct."
+    },
+    "b": {
+     "text": "Excuse me, do you know the time?",
+     "key": "do you know",
+     "note": "Polite and standard."
+    },
+    "c": {
+     "text": "Sorry, do you happen to have the time?",
+     "key": "happen to have",
+     "note": "A soft, polite opening."
+    }
+   },
+   "in": {
+    "id": "ask-time"
+   }
+  },
+  {
+   "id": "t2l3_getonline",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 37,
+   "area": "phrases",
+   "point": "levels3:get-online",
+   "hash": "31d374e57d71",
+   "heads": [
+    "lv3:get-online"
+   ],
+   "taught": [
+    "by",
+    "the",
+    "way"
+   ],
+   "facts": {
+    "id": "get-online",
+    "title": "Get online",
+    "em": "📶",
+    "chip": "At a café",
+    "reg": "casual",
+    "a": {
+     "text": "Do you have internet here?",
+     "key": "internet",
+     "note": "Clear and simple."
+    },
+    "b": {
+     "text": "Could I have the Wi-Fi code, please?",
+     "key": "the Wi-Fi code",
+     "note": "Polite and exact."
+    },
+    "c": {
+     "text": "What's the Wi-Fi password, by the way?",
+     "key": "by the way",
+     "note": "Casual, easy tone."
+    }
+   },
+   "in": {
+    "id": "get-online"
+   }
+  },
+  {
+   "id": "t2l3_lostbag",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 38,
+   "area": "phrases",
+   "point": "levels3:lost-bag",
+   "hash": "208fc29a97f9",
+   "heads": [
+    "lv3:lost-bag"
+   ],
+   "taught": [
+    "showed",
+    "up"
+   ],
+   "facts": {
+    "id": "lost-bag",
+    "title": "Lost luggage",
+    "em": "🧳",
+    "chip": "At the airport",
+    "reg": "neutral",
+    "a": {
+     "text": "My bag is not here.",
+     "key": "not here",
+     "note": "Clear, but basic."
+    },
+    "b": {
+     "text": "Excuse me, my bag didn't arrive.",
+     "key": "didn't arrive",
+     "note": "Clear and polite."
+    },
+    "c": {
+     "text": "Hi, my bag never showed up on the flight.",
+     "key": "showed up",
+     "note": "Natural for \"it did not arrive\"."
+    }
+   },
+   "in": {
+    "id": "lost-bag"
+   }
+  },
+  {
+   "id": "t2l3_arrivelate",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 39,
+   "area": "phrases",
+   "point": "levels3:arrive-late",
+   "hash": "f61bb7930dcc",
+   "heads": [
+    "lv3:arrive-late"
+   ],
+   "taught": [
+    "held",
+    "up"
+   ],
+   "facts": {
+    "id": "arrive-late",
+    "title": "Arrive late",
+    "em": "⏰",
+    "chip": "At work",
+    "reg": "casual",
+    "a": {
+     "text": "I am late. Sorry.",
+     "key": "I am late",
+     "note": "Clear, but blunt."
+    },
+    "b": {
+     "text": "Sorry I'm late. The traffic was bad.",
+     "key": "The traffic was bad",
+     "note": "Gives a reason."
+    },
+    "c": {
+     "text": "Sorry I'm late, I got held up.",
+     "key": "held up",
+     "note": "A natural reason, no detail."
+    }
+   },
+   "in": {
+    "id": "arrive-late"
+   }
+  },
+  {
+   "id": "t2l3_movemeeting",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 40,
+   "area": "phrases",
+   "point": "levels3:move-meeting",
+   "hash": "d45f8cb90b60",
+   "heads": [
+    "lv3:move-meeting"
+   ],
+   "taught": [
+    "push",
+    "it",
+    "to"
+   ],
+   "facts": {
+    "id": "move-meeting",
+    "title": "Move a meeting",
+    "em": "📆",
+    "chip": "At work",
+    "reg": "neutral",
+    "a": {
+     "text": "Can we meet on Monday?",
+     "key": "Can we meet",
+     "note": "Clear and simple."
+    },
+    "b": {
+     "text": "Could we move the meeting to Monday?",
+     "key": "move the meeting",
+     "note": "Polite and specific."
+    },
+    "c": {
+     "text": "Could we push it to Monday?",
+     "key": "push it to",
+     "note": "Flexible and natural."
+    }
+   },
+   "in": {
+    "id": "move-meeting"
+   }
+  },
+  {
+   "id": "t2l3_needtime",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 41,
+   "area": "phrases",
+   "point": "levels3:need-time",
+   "hash": "581342f17fb3",
+   "heads": [
+    "lv3:need-time"
+   ],
+   "taught": [
+    "an",
+    "extension"
+   ],
+   "facts": {
+    "id": "need-time",
+    "title": "Need more time",
+    "em": "⌛",
+    "chip": "At work",
+    "reg": "polite",
+    "a": {
+     "text": "More time, please.",
+     "key": "More time",
+     "note": "Clear, a bit direct."
+    },
+    "b": {
+     "text": "Could I have a bit more time?",
+     "key": "a bit more time",
+     "note": "Polite and formal."
+    },
+    "c": {
+     "text": "Could I get a bit of an extension?",
+     "key": "an extension",
+     "note": "Natural work language."
+    }
+   },
+   "in": {
+    "id": "need-time"
+   }
+  },
+  {
+   "id": "t2l3_postoffice",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 42,
+   "area": "phrases",
+   "point": "levels3:post-office",
+   "hash": "aa1fb1fe00a0",
+   "heads": [
+    "lv3:post-office"
+   ],
+   "taught": [
+    "send",
+    "it",
+    "to"
+   ],
+   "facts": {
+    "id": "post-office",
+    "title": "Post office",
+    "em": "📮",
+    "chip": "At the post office",
+    "reg": "neutral",
+    "a": {
+     "text": "I want to send this.",
+     "key": "I want",
+     "note": "Clear, a little blunt."
+    },
+    "b": {
+     "text": "Could I post this parcel to Spain?",
+     "key": "post this parcel",
+     "note": "Polite and specific."
+    },
+    "c": {
+     "text": "Hi, I need to send it to Spain.",
+     "key": "send it to",
+     "note": "Short and everyday."
+    }
+   },
+   "in": {
+    "id": "post-office"
+   }
+  },
+  {
+   "id": "t2l3_borrowbook",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 43,
+   "area": "phrases",
+   "point": "levels3:borrow-book",
+   "hash": "2846ac21ca91",
+   "heads": [
+    "lv3:borrow-book"
+   ],
+   "taught": [
+    "check",
+    "out"
+   ],
+   "facts": {
+    "id": "borrow-book",
+    "title": "Borrow a book",
+    "em": "📚",
+    "chip": "At the library",
+    "reg": "neutral",
+    "a": {
+     "text": "I want this book, please.",
+     "key": "this book",
+     "note": "Clear, but not natural."
+    },
+    "b": {
+     "text": "Could I borrow this book, please?",
+     "key": "borrow this book",
+     "note": "Polite and natural."
+    },
+    "c": {
+     "text": "Can I check out this book?",
+     "key": "check out",
+     "note": "\"Check out\" means borrow."
+    }
+   },
+   "in": {
+    "id": "borrow-book"
+   }
+  },
+  {
+   "id": "t2l3_rainyday",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 44,
+   "area": "phrases",
+   "point": "levels3:rainy-day",
+   "hash": "aed8e7162601",
+   "heads": [
+    "lv3:rainy-day"
+   ],
+   "taught": [
+    "cats",
+    "and",
+    "dogs"
+   ],
+   "facts": {
+    "id": "rainy-day",
+    "title": "Talk about rain",
+    "em": "☔",
+    "chip": "Small talk",
+    "reg": "casual",
+    "a": {
+     "text": "It is raining.",
+     "key": "is raining",
+     "note": "Correct, but very plain."
+    },
+    "b": {
+     "text": "It's raining really hard today.",
+     "key": "really hard",
+     "note": "Natural and clear."
+    },
+    "c": {
+     "text": "It's raining cats and dogs!",
+     "key": "cats and dogs",
+     "note": "A fun idiom for heavy rain."
+    }
+   },
+   "in": {
+    "id": "rainy-day"
+   }
+  },
+  {
+   "id": "t2l3_sayhungry",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 45,
+   "area": "phrases",
+   "point": "levels3:say-hungry",
+   "hash": "7f119a5d8727",
+   "heads": [
+    "lv3:say-hungry"
+   ],
+   "taught": [
+    "grab",
+    "a",
+    "bite"
+   ],
+   "facts": {
+    "id": "say-hungry",
+    "title": "Say you're hungry",
+    "em": "🍽️",
+    "chip": "With a friend",
+    "reg": "casual",
+    "a": {
+     "text": "I am hungry.",
+     "key": "I am hungry",
+     "note": "Clear and correct."
+    },
+    "b": {
+     "text": "I'm really hungry. Let's eat.",
+     "key": "Let's eat",
+     "note": "Clear and friendly."
+    },
+    "c": {
+     "text": "I'm starving! Let's grab a bite.",
+     "key": "grab a bite",
+     "note": "Natural and very common."
+    }
+   },
+   "in": {
+    "id": "say-hungry"
+   }
+  },
+  {
+   "id": "t2l3_saytired",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 46,
+   "area": "phrases",
+   "point": "levels3:say-tired",
+   "hash": "8cabd9beb936",
+   "heads": [
+    "lv3:say-tired"
+   ],
+   "taught": [
+    "call",
+    "it",
+    "a",
+    "night"
+   ],
+   "facts": {
+    "id": "say-tired",
+    "title": "Say you're tired",
+    "em": "😴",
+    "chip": "With a friend",
+    "reg": "casual",
+    "a": {
+     "text": "I want to sleep.",
+     "key": "want to sleep",
+     "note": "Clear and correct."
+    },
+    "b": {
+     "text": "I'm very tired today. I need a rest.",
+     "key": "need a rest",
+     "note": "Clear, a bit formal."
+    },
+    "c": {
+     "text": "I'm exhausted. Let's call it a night.",
+     "key": "call it a night",
+     "note": "A natural way to stop."
+    }
+   },
+   "in": {
+    "id": "say-tired"
+   }
+  },
+  {
+   "id": "t2l3_getdiscount",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 47,
+   "area": "phrases",
+   "point": "levels3:get-discount",
+   "hash": "20618c0bf044",
+   "heads": [
+    "lv3:get-discount"
+   ],
+   "taught": [
+    "best",
+    "price"
+   ],
+   "facts": {
+    "id": "get-discount",
+    "title": "Get a discount",
+    "em": "🏷️",
+    "chip": "In a shop",
+    "reg": "casual",
+    "a": {
+     "text": "Can it be cheaper, please?",
+     "key": "cheaper",
+     "note": "Clear, a bit direct."
+    },
+    "b": {
+     "text": "Could you give me a discount, please?",
+     "key": "a discount",
+     "note": "Polite and direct."
+    },
+    "c": {
+     "text": "Is that your best price?",
+     "key": "best price",
+     "note": "A natural way to bargain."
+    }
+   },
+   "in": {
+    "id": "get-discount"
+   }
+  },
+  {
+   "id": "t2l3_splitbill",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 48,
+   "area": "phrases",
+   "point": "levels3:split-bill",
+   "hash": "9c54f3be6f8b",
+   "heads": [
+    "lv3:split-bill"
+   ],
+   "taught": [
+    "split",
+    "it"
+   ],
+   "facts": {
+    "id": "split-bill",
+    "title": "Split the bill",
+    "em": "🧾",
+    "chip": "At a restaurant",
+    "reg": "casual",
+    "a": {
+     "text": "Two bills, please.",
+     "key": "Two bills",
+     "note": "Understood, but not natural."
+    },
+    "b": {
+     "text": "Can we each pay for our own food?",
+     "key": "each pay for",
+     "note": "Clear and polite."
+    },
+    "c": {
+     "text": "Shall we just split it?",
+     "key": "split it",
+     "note": "Short and friendly."
+    }
+   },
+   "in": {
+    "id": "split-bill"
+   }
+  },
+  {
+   "id": "t2l3_offerhelp",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 49,
+   "area": "phrases",
+   "point": "levels3:offer-help",
+   "hash": "9d2105134d73",
+   "heads": [
+    "lv3:offer-help"
+   ],
+   "taught": [
+    "Need",
+    "a",
+    "hand"
+   ],
+   "facts": {
+    "id": "offer-help",
+    "title": "Offer to help",
+    "em": "🤝",
+    "chip": "Everyday",
+    "reg": "casual",
+    "a": {
+     "text": "Can I help you?",
+     "key": "Can I help",
+     "note": "Simple, always polite."
+    },
+    "b": {
+     "text": "Would you like some help with that?",
+     "key": "Would you like",
+     "note": "Polite and friendly."
+    },
+    "c": {
+     "text": "Need a hand with that?",
+     "key": "Need a hand",
+     "note": "Natural and friendly."
+    }
+   },
+   "in": {
+    "id": "offer-help"
+   }
+  },
+  {
+   "id": "t2l3_findseat",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 50,
+   "area": "phrases",
+   "point": "levels3:find-seat",
+   "hash": "69e2c1edc229",
+   "heads": [
+    "lv3:find-seat"
+   ],
+   "taught": [
+    "seat",
+    "taken"
+   ],
+   "facts": {
+    "id": "find-seat",
+    "title": "Find a seat",
+    "em": "💺",
+    "chip": "On the train",
+    "reg": "polite",
+    "a": {
+     "text": "Is this chair free?",
+     "key": "Is this chair",
+     "note": "Clear and correct."
+    },
+    "b": {
+     "text": "Excuse me, is anyone sitting here?",
+     "key": "is anyone sitting",
+     "note": "Polite and natural."
+    },
+    "c": {
+     "text": "Is this seat taken?",
+     "key": "seat taken",
+     "note": "\"Taken\" means someone has it."
+    }
+   },
+   "in": {
+    "id": "find-seat"
+   }
+  },
+  {
+   "id": "t2l3_askhowlong",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 51,
+   "area": "phrases",
+   "point": "levels3:ask-how-long",
+   "hash": "f3d0b6551538",
+   "heads": [
+    "lv3:ask-how-long"
+   ],
+   "taught": [
+    "Roughly",
+    "how",
+    "long"
+   ],
+   "facts": {
+    "id": "ask-how-long",
+    "title": "Ask how long",
+    "em": "⏱️",
+    "chip": "At the clinic",
+    "reg": "neutral",
+    "a": {
+     "text": "How long is it?",
+     "key": "How long",
+     "note": "Simple, but vague."
+    },
+    "b": {
+     "text": "How long will it take to arrive?",
+     "key": "How long will",
+     "note": "Clear and polite."
+    },
+    "c": {
+     "text": "Roughly how long is the wait?",
+     "key": "Roughly how long",
+     "note": "\"Roughly\" softens the question."
+    }
+   },
+   "in": {
+    "id": "ask-how-long"
+   }
+  },
+  {
+   "id": "t2l3_changeorder",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 52,
+   "area": "phrases",
+   "point": "levels3:change-order",
+   "hash": "78142caf9091",
+   "heads": [
+    "lv3:change-order"
+   ],
+   "taught": [
+    "swap"
+   ],
+   "facts": {
+    "id": "change-order",
+    "title": "Change your order",
+    "em": "🔄",
+    "chip": "At a restaurant",
+    "reg": "neutral",
+    "a": {
+     "text": "Sorry, I want tea, not coffee.",
+     "key": "I want tea",
+     "note": "Clear, but no polite frame."
+    },
+    "b": {
+     "text": "Sorry, could I change my order?",
+     "key": "change my order",
+     "note": "Polite and clear."
+    },
+    "c": {
+     "text": "Actually, could I swap that for tea?",
+     "key": "swap",
+     "note": "A natural fix."
+    }
+   },
+   "in": {
+    "id": "change-order"
+   }
+  },
+  {
+   "id": "t2l3_specialrequest",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 53,
+   "area": "phrases",
+   "point": "levels3:special-request",
+   "hash": "0d90758d2690",
+   "heads": [
+    "lv3:special-request"
+   ],
+   "taught": [
+    "hold",
+    "the"
+   ],
+   "facts": {
+    "id": "special-request",
+    "title": "Special request",
+    "em": "🥗",
+    "chip": "At a restaurant",
+    "reg": "polite",
+    "a": {
+     "text": "No meat, please.",
+     "key": "No meat",
+     "note": "Clear, but very short."
+    },
+    "b": {
+     "text": "Could I have it without meat, please?",
+     "key": "without meat",
+     "note": "Polite and exact."
+    },
+    "c": {
+     "text": "Could you hold the meat, please?",
+     "key": "hold the",
+     "note": "\"Hold the\" means leave out."
+    }
+   },
+   "in": {
+    "id": "special-request"
+   }
+  },
+  {
+   "id": "t2l3_praisefood",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 54,
+   "area": "phrases",
+   "point": "levels3:praise-food",
+   "hash": "a71ad8263536",
+   "heads": [
+    "lv3:praise-food"
+   ],
+   "taught": [
+    "hits",
+    "the",
+    "spot"
+   ],
+   "facts": {
+    "id": "praise-food",
+    "title": "Praise the food",
+    "em": "😋",
+    "chip": "At a restaurant",
+    "reg": "casual",
+    "a": {
+     "text": "The food is good.",
+     "key": "is good",
+     "note": "Correct, but plain."
+    },
+    "b": {
+     "text": "This is delicious, thank you.",
+     "key": "delicious",
+     "note": "Stronger and polite."
+    },
+    "c": {
+     "text": "This hits the spot!",
+     "key": "hits the spot",
+     "note": "Exactly what you wanted."
+    }
+   },
+   "in": {
+    "id": "praise-food"
+   }
+  },
+  {
+   "id": "t2l3_takephoto",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 55,
+   "area": "phrases",
+   "point": "levels3:take-photo",
+   "hash": "5b40d5f7d88f",
+   "heads": [
+    "lv3:take-photo"
+   ],
+   "taught": [
+    "Would",
+    "you",
+    "mind"
+   ],
+   "facts": {
+    "id": "take-photo",
+    "title": "Take a photo",
+    "em": "📸",
+    "chip": "On holiday",
+    "reg": "polite",
+    "a": {
+     "text": "Can you take a photo?",
+     "key": "take a photo",
+     "note": "Clear and correct."
+    },
+    "b": {
+     "text": "Could you take a photo of us?",
+     "key": "Could you take",
+     "note": "Polite and complete."
+    },
+    "c": {
+     "text": "Would you mind taking a quick pic?",
+     "key": "Would you mind",
+     "note": "Polite and relaxed."
+    }
+   },
+   "in": {
+    "id": "take-photo"
+   }
+  },
+  {
+   "id": "t2l3_getpast",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 56,
+   "area": "phrases",
+   "point": "levels3:get-past",
+   "hash": "2d6ed1451632",
+   "heads": [
+    "lv3:get-past"
+   ],
+   "taught": [
+    "squeezing"
+   ],
+   "facts": {
+    "id": "get-past",
+    "title": "Get past someone",
+    "em": "🚶",
+    "chip": "On the train",
+    "reg": "polite",
+    "a": {
+     "text": "Sorry, I want to go.",
+     "key": "I want to go",
+     "note": "Clear, but not polite enough."
+    },
+    "b": {
+     "text": "Excuse me, could I get past?",
+     "key": "get past",
+     "note": "Polite and clear."
+    },
+    "c": {
+     "text": "Sorry, just squeezing past!",
+     "key": "squeezing",
+     "note": "Light and friendly."
+    }
+   },
+   "in": {
+    "id": "get-past"
+   }
+  },
+  {
+   "id": "t2l3_saygoodbye",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 57,
+   "area": "phrases",
+   "point": "levels3:say-goodbye",
+   "hash": "66e440d479ef",
+   "heads": [
+    "lv3:say-goodbye"
+   ],
+   "taught": [
+    "get",
+    "going"
+   ],
+   "facts": {
+    "id": "say-goodbye",
+    "title": "Say goodbye",
+    "em": "👋",
+    "chip": "Everyday",
+    "reg": "casual",
+    "a": {
+     "text": "Goodbye. See you tomorrow.",
+     "key": "See you",
+     "note": "Clear and polite."
+    },
+    "b": {
+     "text": "It was nice talking to you. Goodbye.",
+     "key": "nice talking to you",
+     "note": "Warm and polite."
+    },
+    "c": {
+     "text": "Right, I'd better get going. See you!",
+     "key": "get going",
+     "note": "A natural way to leave."
+    }
+   },
+   "in": {
+    "id": "say-goodbye"
+   }
+  },
+  {
+   "id": "t2l3_saybusy",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 58,
+   "area": "phrases",
+   "point": "levels3:say-busy",
+   "hash": "03f7d67656c6",
+   "heads": [
+    "lv3:say-busy"
+   ],
+   "taught": [
+    "swamped"
+   ],
+   "facts": {
+    "id": "say-busy",
+    "title": "Say you're busy",
+    "em": "📵",
+    "chip": "At work",
+    "reg": "polite",
+    "a": {
+     "text": "I am busy now.",
+     "key": "I am busy",
+     "note": "Clear, but blunt."
+    },
+    "b": {
+     "text": "I'm afraid I'm busy right now.",
+     "key": "I'm afraid",
+     "note": "Polite and soft."
+    },
+    "c": {
+     "text": "I'm swamped at the moment.",
+     "key": "swamped",
+     "note": "A natural way to say very busy."
+    }
+   },
+   "in": {
+    "id": "say-busy"
+   }
+  },
+  {
+   "id": "t2l3_requestleave",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 59,
+   "area": "phrases",
+   "point": "levels3:request-leave",
+   "hash": "bdf301e1a7a4",
+   "heads": [
+    "lv3:request-leave"
+   ],
+   "taught": [
+    "Is",
+    "it",
+    "okay",
+    "if"
+   ],
+   "facts": {
+    "id": "request-leave",
+    "title": "Request time off",
+    "em": "🏖️",
+    "chip": "At work",
+    "reg": "polite",
+    "a": {
+     "text": "I want one day off.",
+     "key": "day off",
+     "note": "Clear, a bit direct."
+    },
+    "b": {
+     "text": "Could I take Friday off, please?",
+     "key": "take Friday off",
+     "note": "Polite and specific."
+    },
+    "c": {
+     "text": "Is it okay if I take Friday off?",
+     "key": "Is it okay if",
+     "note": "Friendly and natural."
+    }
+   },
+   "in": {
+    "id": "request-leave"
+   }
+  },
+  {
+   "id": "t2l3_sayhello",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 60,
+   "area": "phrases",
+   "point": "levels3:say-hello",
+   "hash": "d15bbc59adbf",
+   "heads": [
+    "lv3:say-hello"
+   ],
+   "taught": [
+    "how's",
+    "it",
+    "going"
+   ],
+   "facts": {
+    "id": "say-hello",
+    "title": "Say hello",
+    "em": "👋",
+    "chip": "With a friend",
+    "reg": "casual",
+    "a": {
+     "text": "Hello. How are you?",
+     "key": "How are you",
+     "note": "Correct and polite."
+    },
+    "b": {
+     "text": "Hi, how are you doing today?",
+     "key": "how are you doing",
+     "note": "Warm and natural."
+    },
+    "c": {
+     "text": "Hey, how's it going?",
+     "key": "how's it going",
+     "note": "What natives really say."
+    }
+   },
+   "in": {
+    "id": "say-hello"
+   }
+  },
+  {
+   "id": "t2l3_paybycard",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 61,
+   "area": "phrases",
+   "point": "levels3:pay-by-card",
+   "hash": "20b52d320c45",
+   "heads": [
+    "lv3:pay-by-card"
+   ],
+   "taught": [
+    "just",
+    "tap"
+   ],
+   "facts": {
+    "id": "pay-by-card",
+    "title": "Pay by card",
+    "em": "💳",
+    "chip": "At the till",
+    "reg": "neutral",
+    "a": {
+     "text": "Can I pay by card?",
+     "key": "pay by card",
+     "note": "Clear and correct."
+    },
+    "b": {
+     "text": "Do you accept credit cards?",
+     "key": "accept credit cards",
+     "note": "Polite, shop language."
+    },
+    "c": {
+     "text": "Can I just tap?",
+     "key": "just tap",
+     "note": "\"Tap\" means pay by contactless."
+    }
+   },
+   "in": {
+    "id": "pay-by-card"
+   }
+  },
+  {
+   "id": "t2l3_openinghours",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 62,
+   "area": "phrases",
+   "point": "levels3:opening-hours",
+   "hash": "f10c96067a30",
+   "heads": [
+    "lv3:opening-hours"
+   ],
+   "taught": [
+    "open",
+    "till"
+   ],
+   "facts": {
+    "id": "opening-hours",
+    "title": "Opening hours",
+    "em": "🕘",
+    "chip": "In a shop",
+    "reg": "neutral",
+    "a": {
+     "text": "What time do you open?",
+     "key": "What time",
+     "note": "Clear and correct."
+    },
+    "b": {
+     "text": "Could you tell me your opening hours?",
+     "key": "opening hours",
+     "note": "Polite and standard."
+    },
+    "c": {
+     "text": "What time are you open till?",
+     "key": "open till",
+     "note": "Short and casual."
+    }
+   },
+   "in": {
+    "id": "opening-hours"
+   }
+  },
+  {
+   "id": "t2l3_getlift",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 63,
+   "area": "phrases",
+   "point": "levels3:get-lift",
+   "hash": "bb84033ec9ba",
+   "heads": [
+    "lv3:get-lift"
+   ],
+   "taught": [
+    "trouble",
+    "you",
+    "for"
+   ],
+   "facts": {
+    "id": "get-lift",
+    "title": "Get a lift",
+    "em": "🚗",
+    "chip": "With a friend",
+    "reg": "polite",
+    "a": {
+     "text": "Can you take me home?",
+     "key": "take me home",
+     "note": "Clear, but direct."
+    },
+    "b": {
+     "text": "Could you give me a lift home?",
+     "key": "give me a lift",
+     "note": "Polite and natural."
+    },
+    "c": {
+     "text": "Could I trouble you for a lift?",
+     "key": "trouble you for",
+     "note": "Very polite, very native."
+    }
+   },
+   "in": {
+    "id": "get-lift"
+   }
+  },
+  {
+   "id": "t2l3_asksize",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 60,
+   "area": "phrases",
+   "point": "levels3:ask-size",
+   "hash": "22aca35c5913",
+   "heads": [
+    "lv3:ask-size"
+   ],
+   "taught": [
+    "Any",
+    "chance"
+   ],
+   "facts": {
+    "id": "ask-size",
+    "title": "Ask for size",
+    "em": "👕",
+    "chip": "In a shop",
+    "reg": "neutral",
+    "a": {
+     "text": "Is there a bigger one?",
+     "key": "bigger one",
+     "note": "Clear and simple."
+    },
+    "b": {
+     "text": "Do you have a larger size?",
+     "key": "a larger size",
+     "note": "Shop language."
+    },
+    "c": {
+     "text": "Any chance you've got a large?",
+     "key": "Any chance",
+     "note": "Soft and very natural."
+    }
+   },
+   "in": {
+    "id": "ask-size"
+   }
+  },
+  {
+   "id": "t2l3_meetneighbour",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 61,
+   "area": "phrases",
+   "point": "levels3:meet-neighbour",
+   "hash": "1413c490c7fe",
+   "heads": [
+    "lv3:meet-neighbour"
+   ],
+   "taught": [
+    "just",
+    "moved",
+    "in"
+   ],
+   "facts": {
+    "id": "meet-neighbour",
+    "title": "Meet a neighbour",
+    "em": "🏠",
+    "chip": "In the building",
+    "reg": "casual",
+    "a": {
+     "text": "Hello. I live here.",
+     "key": "I live here",
+     "note": "Clear, a little stiff."
+    },
+    "b": {
+     "text": "Hello, I live in the flat next door.",
+     "key": "next door",
+     "note": "Friendly and clear."
+    },
+    "c": {
+     "text": "Hi, I just moved in next door.",
+     "key": "just moved in",
+     "note": "Short and natural."
+    }
+   },
+   "in": {
+    "id": "meet-neighbour"
+   }
+  },
+  {
+   "id": "t2l3_noisyneighbours",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 62,
+   "area": "phrases",
+   "point": "levels3:noisy-neighbours",
+   "hash": "e1051db010ab",
+   "heads": [
+    "lv3:noisy-neighbours"
+   ],
+   "taught": [
+    "keep",
+    "the",
+    "noise",
+    "down"
+   ],
+   "facts": {
+    "id": "noisy-neighbours",
+    "title": "Noisy neighbours",
+    "em": "🔊",
+    "chip": "At the door",
+    "reg": "polite",
+    "a": {
+     "text": "Please be quiet. It's late.",
+     "key": "be quiet",
+     "note": "Clear, but quite strong."
+    },
+    "b": {
+     "text": "Could you be a bit quieter, please?",
+     "key": "a bit quieter",
+     "note": "Polite and soft."
+    },
+    "c": {
+     "text": "Sorry, could you keep the noise down?",
+     "key": "keep the noise down",
+     "note": "A real, everyday phrase."
+    }
+   },
+   "in": {
+    "id": "noisy-neighbours"
+   }
+  },
+  {
+   "id": "t2l3_atpharmacy",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 63,
+   "area": "phrases",
+   "point": "levels3:at-pharmacy",
+   "hash": "59bf60a61f5d",
+   "heads": [
+    "lv3:at-pharmacy"
+   ],
+   "taught": [
+    "come",
+    "down",
+    "with"
+   ],
+   "facts": {
+    "id": "at-pharmacy",
+    "title": "At the pharmacy",
+    "em": "💊",
+    "chip": "At the pharmacy",
+    "reg": "neutral",
+    "a": {
+     "text": "I have a cold.",
+     "key": "I have",
+     "note": "Clear, but very basic."
+    },
+    "b": {
+     "text": "Do you have anything for a cold?",
+     "key": "anything for",
+     "note": "Polite and natural."
+    },
+    "c": {
+     "text": "I've come down with a cold. Any suggestions?",
+     "key": "come down with",
+     "note": "A real phrasal verb for illness."
+    }
+   },
+   "in": {
+    "id": "at-pharmacy"
+   }
+  },
+  {
+   "id": "t2l3_askadvice",
+   "template": "levels3",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 64,
+   "area": "phrases",
+   "point": "levels3:ask-advice",
+   "hash": "b3ef02339034",
+   "heads": [
+    "lv3:ask-advice"
+   ],
+   "taught": [
+    "go",
+    "for"
+   ],
+   "facts": {
+    "id": "ask-advice",
+    "title": "Ask for advice",
+    "em": "💡",
+    "chip": "At a restaurant",
+    "reg": "casual",
+    "a": {
+     "text": "What is good here?",
+     "key": "What is good",
+     "note": "Clear, a bit basic."
+    },
+    "b": {
+     "text": "What would you recommend here?",
+     "key": "recommend",
+     "note": "Polite and standard."
+    },
+    "c": {
+     "text": "What do you usually go for here?",
+     "key": "go for",
+     "note": "\"Go for\" means choose."
+    }
+   },
+   "in": {
+    "id": "ask-advice"
+   }
   }
  ]
 }

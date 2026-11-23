@@ -57,14 +57,14 @@
     "note": "Basic but correct."
    },
    "b": {
-    "text": "Excuse me, how do I get to the station?",
-    "key": "how do I get to",
+    "text": "How do I get to the station, please?",
+    "key": "How do I get",
     "note": "Polite and natural."
    },
    "c": {
-    "text": "Sorry, any idea how to get to the station?",
-    "key": "any idea how",
-    "note": "Casual, sounds local."
+    "text": "Sorry, I'm trying to get to the station.",
+    "key": "trying to get to",
+    "note": "Says your goal, not a question."
    }
   },
   {
@@ -106,7 +106,7 @@
     "note": "Polite and natural."
    },
    "c": {
-    "text": "Hi, have you got a table for two?",
+    "text": "Hi, have you got a table?",
     "key": "have you got",
     "note": "Common in British English."
    }
@@ -150,8 +150,8 @@
     "note": "Polite and standard."
    },
    "c": {
-    "text": "Can we get the bill when you're ready?",
-    "key": "when you're ready",
+    "text": "Could we get the bill? No rush.",
+    "key": "No rush",
     "note": "Friendly, no pressure."
    }
   },
@@ -162,17 +162,17 @@
    "chip": "In a shop",
    "reg": "neutral",
    "a": {
-    "text": "Do you have a bigger one?",
+    "text": "Is there a bigger one?",
     "key": "bigger one",
     "note": "Clear and simple."
    },
    "b": {
-    "text": "Do you have this in a larger size?",
-    "key": "in a larger size",
+    "text": "Do you have a larger size?",
+    "key": "a larger size",
     "note": "Shop language."
    },
    "c": {
-    "text": "Any chance you've got this in a large?",
+    "text": "Any chance you've got a large?",
     "key": "Any chance",
     "note": "Soft and very natural."
    }
@@ -194,8 +194,8 @@
     "note": "Polite and standard."
    },
    "c": {
-    "text": "Hi, I need to take this back.",
-    "key": "take this back",
+    "text": "Hi, I need to bring this back.",
+    "key": "bring this back",
     "note": "Everyday phrasal verb."
    }
   },
@@ -211,12 +211,12 @@
     "note": "Clear, but very basic."
    },
    "b": {
-    "text": "Hi, I'd like to make an appointment.",
+    "text": "I'd like to make an appointment.",
     "key": "make an appointment",
     "note": "Polite and standard."
    },
    "c": {
-    "text": "Hi, I was hoping to get an appointment.",
+    "text": "I was hoping to book an appointment.",
     "key": "was hoping to",
     "note": "Softer and very natural."
    }
@@ -228,17 +228,17 @@
    "chip": "On the phone",
    "reg": "polite",
    "a": {
-    "text": "Hello. Is the manager there?",
-    "key": "Is the manager",
+    "text": "Hello. Is Ana there?",
+    "key": "Is Ana",
     "note": "Clear, a little direct."
    },
    "b": {
-    "text": "Hello, could I speak to the manager?",
+    "text": "Hello, could I speak to Ana?",
     "key": "Could I speak to",
     "note": "Standard phone English."
    },
    "c": {
-    "text": "Hi, could I have a quick word with the manager?",
+    "text": "Hi, could I have a quick word with Ana?",
     "key": "a quick word",
     "note": "Polite and relaxed."
    }
@@ -260,8 +260,8 @@
     "note": "Clear and professional."
    },
    "c": {
-    "text": "I've spent the last three years working in sales.",
-    "key": "the last three years",
+    "text": "I've been in sales for three years.",
+    "key": "for three years",
     "note": "Smooth, like a story."
    }
   },
@@ -272,7 +272,7 @@
    "chip": "In the building",
    "reg": "casual",
    "a": {
-    "text": "Hello. I live here too.",
+    "text": "Hello. I live here.",
     "key": "I live here",
     "note": "Clear, a little stiff."
    },
@@ -299,14 +299,14 @@
     "note": "Clear, but quite strong."
    },
    "b": {
-    "text": "Could you turn the music down, please?",
-    "key": "turn the music down",
-    "note": "Polite, clear request."
+    "text": "Could you be a bit quieter, please?",
+    "key": "a bit quieter",
+    "note": "Polite and soft."
    },
    "c": {
-    "text": "Sorry to bother you, but could you keep it down?",
-    "key": "keep it down",
-    "note": "A soft opening, then a real phrase."
+    "text": "Sorry, could you keep the noise down?",
+    "key": "keep the noise down",
+    "note": "A real, everyday phrase."
    }
   },
   {
@@ -321,13 +321,13 @@
     "note": "Short and polite."
    },
    "b": {
-    "text": "Could you take me to the airport, please?",
+    "text": "Could you take me to the airport?",
     "key": "take me to",
     "note": "Polite, full sentence."
    },
    "c": {
-    "text": "Hi, could you drop me at the airport?",
-    "key": "drop me at",
+    "text": "Could you drop me off at the airport?",
+    "key": "drop me off",
     "note": "What locals really say."
    }
   },
@@ -348,7 +348,7 @@
     "note": "Polite and specific."
    },
    "c": {
-    "text": "Can I get a return to the city, please?",
+    "text": "Can I get a return to the city?",
     "key": "a return",
     "note": "British for round trip."
    }
@@ -365,9 +365,9 @@
     "note": "Simple, but clear."
    },
    "b": {
-    "text": "Excuse me, is the train delayed?",
-    "key": "delayed",
-    "note": "Polite and precise."
+    "text": "Do you know why the train is late?",
+    "key": "Do you know why",
+    "note": "Polite and clear."
    },
    "c": {
     "text": "Any idea why the train's running late?",
@@ -377,7 +377,7 @@
   },
   {
    "id": "ask-bag",
-   "title": "Ask for a bag",
+   "title": "Get a bag",
    "em": "🛍️",
    "chip": "At the till",
    "reg": "neutral",
@@ -524,8 +524,8 @@
     "note": "Polite, with a reason."
    },
    "c": {
-    "text": "Thanks, but I'll have to pass this time.",
-    "key": "have to pass",
+    "text": "Thanks, but I'll pass this time.",
+    "key": "pass this time",
     "note": "A soft, friendly no."
    }
   },
@@ -558,8 +558,8 @@
    "chip": "In a chat",
    "reg": "polite",
    "a": {
-    "text": "Slowly, please.",
-    "key": "Slowly",
+    "text": "Not so fast, please.",
+    "key": "Not so fast",
     "note": "Understood, but not natural."
    },
    "b": {
@@ -569,7 +569,7 @@
    },
    "c": {
     "text": "Sorry, could you slow down a bit?",
-    "key": "slow down a bit",
+    "key": "slow down",
     "note": "Natural and friendly."
    }
   },
@@ -590,9 +590,9 @@
     "note": "Warmer and polite."
    },
    "c": {
-    "text": "Thanks, you've been a lifesaver.",
-    "key": "a lifesaver",
-    "note": "Big thanks, very natural."
+    "text": "Thanks a million, I owe you one.",
+    "key": "I owe you one",
+    "note": "You promise to help back."
    }
   },
   {
@@ -647,7 +647,7 @@
    "reg": "casual",
    "a": {
     "text": "Yes, I think so too.",
-    "key": "I think so too",
+    "key": "I think so",
     "note": "Clear and simple."
    },
    "b": {
@@ -722,7 +722,7 @@
     "note": "Polite and clear."
    },
    "c": {
-    "text": "Hang on a second, I'll be right with you.",
+    "text": "Hang on, I'll be right with you.",
     "key": "Hang on",
     "note": "Casual and friendly."
    }
@@ -767,7 +767,7 @@
    },
    "c": {
     "text": "Got any plans for the weekend?",
-    "key": "Got any plans",
+    "key": "any plans",
     "note": "Natives drop the start."
    }
   },
@@ -805,8 +805,8 @@
     "note": "Clear and simple."
    },
    "b": {
-    "text": "Could I have the Wi-Fi password, please?",
-    "key": "the Wi-Fi password",
+    "text": "Could I have the Wi-Fi code, please?",
+    "key": "the Wi-Fi code",
     "note": "Polite and exact."
    },
    "c": {
@@ -832,8 +832,8 @@
     "note": "Clear and polite."
    },
    "c": {
-    "text": "Hi, my bag didn't make it on the flight.",
-    "key": "didn't make it",
+    "text": "Hi, my bag never showed up on the flight.",
+    "key": "showed up",
     "note": "Natural for \"it did not arrive\"."
    }
   },
@@ -855,7 +855,7 @@
    },
    "c": {
     "text": "Sorry I'm late, I got held up.",
-    "key": "got held up",
+    "key": "held up",
     "note": "A natural reason, no detail."
    }
   },
@@ -876,7 +876,7 @@
     "note": "Polite and specific."
    },
    "c": {
-    "text": "Any chance we could push it to Monday?",
+    "text": "Could we push it to Monday?",
     "key": "push it to",
     "note": "Flexible and natural."
    }
@@ -888,13 +888,13 @@
    "chip": "At work",
    "reg": "polite",
    "a": {
-    "text": "I need more time, please.",
-    "key": "more time",
+    "text": "More time, please.",
+    "key": "More time",
     "note": "Clear, a bit direct."
    },
    "b": {
-    "text": "Would it be possible to have more time?",
-    "key": "Would it be possible",
+    "text": "Could I have a bit more time?",
+    "key": "a bit more time",
     "note": "Polite and formal."
    },
    "c": {
@@ -911,18 +911,18 @@
    "reg": "neutral",
    "a": {
     "text": "I want to send this.",
-    "key": "send this",
+    "key": "I want",
     "note": "Clear, a little blunt."
    },
    "b": {
-    "text": "Could I send this parcel to Spain, please?",
-    "key": "send this parcel",
+    "text": "Could I post this parcel to Spain?",
+    "key": "post this parcel",
     "note": "Polite and specific."
    },
    "c": {
-    "text": "Hi, I need to get this off to Spain.",
-    "key": "get this off",
-    "note": "A natural way to say send."
+    "text": "Hi, I need to send it to Spain.",
+    "key": "send it to",
+    "note": "Short and everyday."
    }
   },
   {
@@ -942,31 +942,9 @@
     "note": "Polite and natural."
    },
    "c": {
-    "text": "Can I take this out?",
-    "key": "take this out",
-    "note": "\"Take out\" means borrow."
-   }
-  },
-  {
-   "id": "charge-phone",
-   "title": "Charge my phone",
-   "em": "🔋",
-   "chip": "At a café",
-   "reg": "casual",
-   "a": {
-    "text": "Can I use your charger?",
-    "key": "your charger",
-    "note": "Clear and correct."
-   },
-   "b": {
-    "text": "Could I borrow your charger, please?",
-    "key": "borrow your charger",
-    "note": "Polite and clear."
-   },
-   "c": {
-    "text": "Mind if I plug my phone in?",
-    "key": "Mind if I",
-    "note": "Short for \"Do you mind if I\"."
+    "text": "Can I check out this book?",
+    "key": "check out",
+    "note": "\"Check out\" means borrow."
    }
   },
   {
@@ -986,9 +964,9 @@
     "note": "Natural and clear."
    },
    "c": {
-    "text": "It's pouring out there!",
-    "key": "pouring",
-    "note": "\"Pouring\" means raining hard."
+    "text": "It's raining cats and dogs!",
+    "key": "cats and dogs",
+    "note": "A fun idiom for heavy rain."
    }
   },
   {
@@ -1020,8 +998,8 @@
    "chip": "With a friend",
    "reg": "casual",
    "a": {
-    "text": "I am tired.",
-    "key": "I am tired",
+    "text": "I want to sleep.",
+    "key": "want to sleep",
     "note": "Clear and correct."
    },
    "b": {
@@ -1030,8 +1008,8 @@
     "note": "Clear, a bit formal."
    },
    "c": {
-    "text": "I'm exhausted. I'm calling it a night.",
-    "key": "calling it a night",
+    "text": "I'm exhausted. Let's call it a night.",
+    "key": "call it a night",
     "note": "A natural way to stop."
    }
   },
@@ -1069,8 +1047,8 @@
     "note": "Understood, but not natural."
    },
    "b": {
-    "text": "Could we pay separately, please?",
-    "key": "pay separately",
+    "text": "Can we each pay for our own food?",
+    "key": "each pay for",
     "note": "Clear and polite."
    },
    "c": {
@@ -1108,8 +1086,8 @@
    "chip": "On the train",
    "reg": "polite",
    "a": {
-    "text": "Is this seat free?",
-    "key": "Is this seat",
+    "text": "Is this chair free?",
+    "key": "Is this chair",
     "note": "Clear and correct."
    },
    "b": {
@@ -1118,31 +1096,9 @@
     "note": "Polite and natural."
    },
    "c": {
-    "text": "Is this taken?",
-    "key": "taken",
+    "text": "Is this seat taken?",
+    "key": "seat taken",
     "note": "\"Taken\" means someone has it."
-   }
-  },
-  {
-   "id": "find-toilet",
-   "title": "Find the toilet",
-   "em": "🚻",
-   "chip": "In a shop",
-   "reg": "polite",
-   "a": {
-    "text": "Where is the toilet?",
-    "key": "Where is",
-    "note": "Clear and correct."
-   },
-   "b": {
-    "text": "Excuse me, where can I find the toilet?",
-    "key": "where can I find",
-    "note": "Polite and full."
-   },
-   "c": {
-    "text": "Sorry, where's the loo?",
-    "key": "the loo",
-    "note": "\"Loo\" is a British word."
    }
   },
   {
@@ -1180,7 +1136,7 @@
    },
    "b": {
     "text": "What would you recommend here?",
-    "key": "would you recommend",
+    "key": "recommend",
     "note": "Polite and standard."
    },
    "c": {
@@ -1206,8 +1162,8 @@
     "note": "Polite and clear."
    },
    "c": {
-    "text": "Actually, could I swap that for a tea?",
-    "key": "swap that for",
+    "text": "Actually, could I swap that for tea?",
+    "key": "swap",
     "note": "A natural fix."
    }
   },
@@ -1229,7 +1185,7 @@
    },
    "c": {
     "text": "Could you hold the meat, please?",
-    "key": "hold the meat",
+    "key": "hold the",
     "note": "\"Hold the\" means leave out."
    }
   },
@@ -1267,7 +1223,7 @@
     "note": "Clear and correct."
    },
    "b": {
-    "text": "Could you take a photo of us, please?",
+    "text": "Could you take a photo of us?",
     "key": "Could you take",
     "note": "Polite and complete."
    },
@@ -1284,9 +1240,9 @@
    "chip": "On the train",
    "reg": "polite",
    "a": {
-    "text": "Excuse me, please.",
-    "key": "Excuse me",
-    "note": "Short and polite."
+    "text": "Sorry, I want to go.",
+    "key": "I want to go",
+    "note": "Clear, but not polite enough."
    },
    "b": {
     "text": "Excuse me, could I get past?",
@@ -1295,7 +1251,7 @@
    },
    "c": {
     "text": "Sorry, just squeezing past!",
-    "key": "squeezing past",
+    "key": "squeezing",
     "note": "Light and friendly."
    }
   },
@@ -1360,8 +1316,8 @@
     "note": "Polite and specific."
    },
    "c": {
-    "text": "Is it alright if I take Friday off?",
-    "key": "alright if I",
+    "text": "Is it okay if I take Friday off?",
+    "key": "Is it okay if",
     "note": "Friendly and natural."
    }
   },

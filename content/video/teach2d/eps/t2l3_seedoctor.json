@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_seedoctor",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 10,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.2,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "See a doctor: three levels!",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "I need a doctor, please.",
+   "pause": 0.3
+  },
+  {
+   "id": "b",
+   "text": "I'd like to make an appointment.",
+   "pause": 0.3
+  },
+  {
+   "id": "n",
+   "text": "I was hoping to book an appointment.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "see-doctor",
+  "title": "See a doctor",
+  "em": "🩺",
+  "chip": "At the clinic",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "I need a doctor, please.",
+    "key": "I need",
+    "note": "Clear, but very basic."
+   },
+   "b": {
+    "text": "I'd like to make an appointment.",
+    "key": "make an appointment",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "I was hoping to book an appointment.",
+    "key": "was hoping to",
+    "note": "Softer and very natural."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Make an appointment",
+    "Was hoping to"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "See a doctor: three levels!"
+ },
+ "src": {
+  "levels3": "see-doctor"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.7,
+  "wpm": 128
+ },
+ "publish": {
+  "title": "See a doctor: A1, B1 or C1?",
+  "keyword": "see a doctor",
+  "value": "See a doctor, three ways. A1: \"I need a doctor, please.\" B1: \"I'd like to make an appointment.\" C1: \"I was hoping to book an appointment.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "See a doctor: A1, B1 or C1?",
+    "description": "See a doctor, three ways. A1: \"I need a doctor, please.\" B1: \"I'd like to make an appointment.\" C1: \"I was hoping to book an appointment.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "see a doctor",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "See a doctor: A1, B1 or C1?\n\nSee a doctor, three ways. A1: \"I need a doctor, please.\" B1: \"I'd like to make an appointment.\" C1: \"I was hoping to book an appointment.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "See a doctor: A1, B1 or C1?\n\nSee a doctor, three ways. A1: \"I need a doctor, please.\" B1: \"I'd like to make an appointment.\" C1: \"I was hoping to book an appointment.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "See a doctor: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Was hoping to. Native line: \"I was hoping to book an appointment.\" Which level are you? More real English, free: {link}"
+ }
+}

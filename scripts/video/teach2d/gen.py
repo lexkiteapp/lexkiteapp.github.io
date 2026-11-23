@@ -543,6 +543,37 @@ def guess3(p):   # Guess in 3 Seconds: hook + picture with the word hidden (blan
 T['guess3'] = guess3; SERIES['guess3'] = 'Guess in 3 Seconds'
 
 
+# ---------------- levels3: "One situation, 3 levels" 10-13 s reels (growth series #3, docs/GROWTH-1M.md §2): the same sentence at A1, B1 and C1 (content/video/teach2d/levels3.json) ----------------
+LV3_F, LV3_SPEED, LV3_SECS, LV3_WORDS, LV3_RING = f'{ROOT}/content/video/teach2d/levels3.json', 1.2, (9.0, 12.4), (12, 26), 2.2   # est. seconds (+ ~0.9 s end-card tail = the 10-13 s reel), words incl. hook + CTA, quiz countdown
+LV3_EXPR = dict(a='shrug', b='smirk', n='smug')   # TeacherRig EXPR faces (drawn, no pose image): plain -> confident -> smug, one per level line, held while it is spoken (rig_plan 'exprs')
+LV3_OK = {'ana', 'tom', 'sam', 'lee', 'mia', 'ben', 'wi-fi', 'latte', 'spain', 'monday', 'friday', 'sunday', 'neighbour', 'neighbours', 'pharmacy'}   # names / proper words the bank has no row for (levels3.mjs A1_FN)
+_LV3 = None
+
+
+def levels3_src():
+    global _LV3
+    if _LV3 is None: _LV3 = {i['id']: i for i in json.load(open(LV3_F))['items']}
+    return _LV3
+
+
+def levels3_hook(it): return f"{it['title']}: three levels!"
+def lv3_label(k): return k[:1].upper() + k[1:]
+
+
+def levels3(p):   # hook -> A1 line -> B1 line -> C1 line (silent quick quiz in its pause: which key phrase would a native say?) -> CTA; each level line has its own TeacherRig face
+    it = levels3_src()[p['id']]; h = int(hashlib.sha1(it['id'].encode()).hexdigest(), 16); wrong = 'ab'[h % 2]
+    opts = [lv3_label(it['c']['key']), lv3_label(it[wrong]['key'])]; ans = int(hashlib.sha1((it['id'] + 'q').encode()).hexdigest(), 16) % 2
+    if ans: opts.reverse()
+    assert all(text_w(o, 56) <= 640 for o in opts), ('quiz option too wide', opts)   # pill: one line at 56 px inside the card
+    lines = [L('h', levels3_hook(it), 0.35), L('a', it['a']['text'], 0.3), L('b', it['b']['text'], 0.3), L('n', it['c']['text'], LV3_RING, quiz=True), L('c', 'lexkite.com', 0.4)]
+    return dict(lines=lines, exprs=LV3_EXPR,
+                data=dict(id=it['id'], title=it['title'], em=it['em'], chip=it['chip'], reg=it['reg'], levels={k: it[k] for k in 'abc'}, quiz=dict(ask='Which would a native say?', options=opts, answer=ans)),
+                cta=cta('phrases', '#/phrases', 'Level up your English free'), hook=dict(line='h', text=lines[0]['text']), src=dict(levels3=it['id']))
+
+
+T['levels3'] = levels3; SERIES['levels3'] = 'One Situation, 3 Levels'
+
+
 def words(s): return re.findall(r"[A-Za-z0-9'’-]+", s)
 
 
@@ -553,17 +584,17 @@ def make(row):
     if 'teacher' in sp:   # react: the series' own teacher (Ama = female voice, Carlos = male voice) + a pose from that teacher's registry clips
         assert sp.pop('teacher') == who and sp['pose']['clip'] in REG['people'][who]['clips'], ('react: series teacher / pose mismatch', who, sp['pose'])
     ep = dict(id=row['id'], template=t, series=SERIES[t], part=row.get('part', 1), theme=row['theme'], teacher=who,
-              voice=REG['people'][who]['voice']['video'], speed=row.get('speed', SLANG_SPEED if t == 'slang' else G3_SPEED if t == 'guess3' else 0.8), area=sp['cta']['area'], **sp)
+              voice=REG['people'][who]['voice']['video'], speed=row.get('speed', SLANG_SPEED if t == 'slang' else G3_SPEED if t == 'guess3' else LV3_SPEED if t == 'levels3' else 0.8), area=sp['cta']['area'], **sp)
     # self-checks (the CI gates re-check on the real audio): hook <= 6 words, one point, 55-95 words, est. <= 150 wpm
     n = sum(len(words(l['text'])) for l in ep['lines']); est = n / (2.55 * ep['speed']) + sum(l['pause'] for l in ep['lines'])
     hk = ep['lines'][0]['text']
     assert len(words(hk)) <= 7, ('hook too long', hk)
-    lo, hi = SLANG_WORDS if t in SHORT_T else (30, 70)   # slang / guess3 reels are 7-12 s (owner 22/11); every other template 18-28 s
+    lo, hi = LV3_WORDS if t == 'levels3' else SLANG_WORDS if t in SHORT_T else (30, 70)   # slang / guess3 reels are 7-12 s (owner 22/11); every other template 18-28 s
     assert lo <= n <= hi, ('word count', n)
     assert 60 * n / est <= 150, ('pace', 60 * n / est)
     if row.get('lang'): ep['lang'] = row['lang']   # L1 clip: routed only to pages whose cfg.lang == lang (functions/api/_distribution.js blockOf)
     ep['est'] = dict(words=n, seconds=round(est, 1), wpm=round(60 * n / est))
-    if t in SHORT_T: assert SLANG_SECS[0] <= est <= SLANG_SECS[1], ('short reel length', round(est, 1), SLANG_SECS)
+    if t in SHORT_T + ('levels3',): assert (LV3_SECS if t == 'levels3' else SLANG_SECS)[0] <= est <= (LV3_SECS if t == 'levels3' else SLANG_SECS)[1], ('short reel length', round(est, 1))
     ep['publish'] = PUBLISH.build(ep)   # posting metadata written at production from this script (publish.py, docs/specs/video-production-v2.md §2)
     return ep
 
@@ -832,6 +863,10 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
         it = slang_src()[0].get(p['key'].lower())
         if not it: bad.append('slang key gone from slang.json')
         elif slang_facts(it) != row.get('facts'): bad.append('slang card changed in slang.json (re-plan + review)')
+    elif t == 'levels3':   # the row froze the situation it was planned with; the live bank (levels3.json, levels3.mjs gates) must still say the same
+        it = levels3_src().get(p['id'])
+        if not it: bad.append('situation gone from levels3.json')
+        elif it != row.get('facts'): bad.append('levels3 situation changed in levels3.json (re-plan + review)')
     elif t in ('mistake', 'phrasal'):   # hand-written rows (hand.json): the gold-bank row is the audited fact
         g = GOLD.get(p['gold']) or {}
         if not g: bad.append('gold row gone')
@@ -863,6 +898,7 @@ def hook_gate(row, ep):   # the on-screen hook is a true claim about these facts
     if t == 'band': ok = ok and hk == 'Band five to nine'
     if t == 'rule': ok = ok and hk == f"The {' '.join(p_letter(row))} is silent"
     if t == 'usuk': ok = ok and p['us'] != p['uk'] and p['ipa_us'] != p['ipa_uk']
+    if t == 'levels3': ok = ok and hk == levels3_hook(levels3_src()[p['id']])   # the title of the situation + the fixed claim: the clip really says it three times
     if t == 'guess3': ok = ok and hk in G3_HOOKS   # fixed true claims: the ring counts 3-2-1 after the hook
     if t == 'slang': ok = ok and hk == slang_src()[0][p['key'].lower()]['hook'] and hk[-1:] in '?!'   # a situation question/shout from the reviewed card, never a definition
     return ok
@@ -1283,6 +1319,41 @@ def plan_guess3(n):   # one episode per picture word; teachers alternate; machin
     for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
 
 
+LV3_REVIEWER = 'gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)'
+
+
+def plan_levels3(n, ids=None):   # one episode per situation (teachers alternate); --ids = hand-picked pilots first
+    if subprocess.run(['node', f'{ROOT}/scripts/say-native/levels3.mjs', '--check'], capture_output=True, text=True, cwd=ROOT).returncode: sys.exit('levels3.mjs --check is red: fix content/video/teach2d/levels3.json first')
+    F = facts(); A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; why = {}; have = {r['id'] for r in rows}; used_h = {r['hash'] for r in rows}; ok = []
+    def skip(k, r): why.setdefault(k, []).append(r)
+    order = list(levels3_src().values())
+    if ids: order = sorted([x for x in order if x['id'] in ids], key=lambda x: ids.index(x['id']))
+    k0 = sum(1 for r in rows if r['template'] == 'levels3')
+    for it in order:
+        if len(ok) >= n: break
+        rid = 't2l3_' + re.sub('[^a-z0-9]', '', it['id'])[:24]
+        if rid in have: continue
+        row = dict(id=rid, template='levels3', teacher='ama' if (k0 + len(ok)) % 2 == 0 else 'carlos', theme='dusk', part=k0 + len(ok) + 1, area='phrases', point=f"levels3:{it['id']}", hash=chash('levels3', it['id']),
+                   heads=[f"lv3:{it['id']}"], taught=re.findall(r"[A-Za-z']+", it['c']['key']), facts=it, **{'in': dict(id=it['id'])})
+        if row['hash'] in used_h: skip('dup', rid); continue
+        if data_gate(row, F): skip('data:' + ','.join(data_gate(row, F)), rid); continue
+        try: ep = make(row)
+        except AssertionError as e: skip('shape:' + str(e.args[0][0] if isinstance(e.args[0], tuple) else e.args[0]), rid); continue
+        if not hook_gate(row, ep): skip('hook', rid); continue
+        ok.append([row, ep, ' '.join(l['text'] for l in ep['lines'] if l['id'] in ('h', 'a', 'b'))])   # the C1 line may use native words; the hook + the A1 / B1 lines must stay <= B1
+    for x, un in zip(ok, unknown([x[2] for x in ok])): x[2] = [u for u in un if u.lower() not in FRAME | LV3_OK and not lvl_ok(G3_FORMS.get(u.lower(), u), F)]
+    new = []
+    for row, ep, un in ok:
+        if un: skip('level:' + ','.join(un), row['id']); continue
+        rows.append(row); new.append(row)
+        R_['verdicts'][row['id']] = dict(template='levels3', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=LV3_REVIEWER, machine=True,
+                                         gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    print(f"levels3: +{len(new)} rows, total {sum(1 for r in rows if r['template'] == 'levels3')}")
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
+
+
 def pilot_point(r):
     p = r['in']; return dict(usuk=lambda: f"{p.get('us')}/{p.get('uk')}", verbs=lambda: p.get('base'), stress=lambda: f"{p['a']['word']}/{p['b']['word']}" if 'a' in p else '',
                              guess=lambda: p.get('word'), guess3=lambda: p.get('word'), review=lambda: p.get('word')).get(r['template'], lambda: r['id'])()
@@ -1320,6 +1391,7 @@ if __name__ == '__main__':
     if '--hand' in A_: plan_hand(); sys.exit(0)
     if '--roots' in A_: plan_roots(); sys.exit(0)
     if '--slang-eps' in A_: plan_slang(int(A_[A_.index('--slang-eps') + 1]), A_[A_.index('--keys') + 1].split('|') if '--keys' in A_ else None); sys.exit(0)
+    if '--levels3-eps' in A_: plan_levels3(int(A_[A_.index('--levels3-eps') + 1]), A_[A_.index('--ids') + 1].split('|') if '--ids' in A_ else None); sys.exit(0)
     if '--guess3-eps' in A_: plan_guess3(int(A_[A_.index('--guess3-eps') + 1])); sys.exit(0)
     if '--band-eps' in A_: plan_bands(int(A_[A_.index('--band-eps') + 1])); sys.exit(0)
     if '--rule-eps' in A_: plan_rules(int(A_[A_.index('--rule-eps') + 1])); sys.exit(0)

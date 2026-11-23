@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_atpharmacy",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 63,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.2,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "At the pharmacy: three levels!",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "I have a cold.",
+   "pause": 0.3
+  },
+  {
+   "id": "b",
+   "text": "Do you have anything for a cold?",
+   "pause": 0.3
+  },
+  {
+   "id": "n",
+   "text": "I've come down with a cold. Any suggestions?",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "at-pharmacy",
+  "title": "At the pharmacy",
+  "em": "💊",
+  "chip": "At the pharmacy",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "I have a cold.",
+    "key": "I have",
+    "note": "Clear, but very basic."
+   },
+   "b": {
+    "text": "Do you have anything for a cold?",
+    "key": "anything for",
+    "note": "Polite and natural."
+   },
+   "c": {
+    "text": "I've come down with a cold. Any suggestions?",
+    "key": "come down with",
+    "note": "A real phrasal verb for illness."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Come down with",
+    "I have"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "At the pharmacy: three levels!"
+ },
+ "src": {
+  "levels3": "at-pharmacy"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 12.0,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "At the pharmacy: A1, B1 or C1?",
+  "keyword": "at the pharmacy",
+  "value": "At the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold. Any suggestions?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "At the pharmacy: A1, B1 or C1?",
+    "description": "At the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold. Any suggestions?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "at the pharmacy",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "At the pharmacy: A1, B1 or C1?\n\nAt the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold. Any suggestions?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "At the pharmacy: A1, B1 or C1?\n\nAt the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold. Any suggestions?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "At the pharmacy: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Come down with. Native line: \"I've come down with a cold. Any suggestions?\" Which level are you? More real English, free: {link}"
+ }
+}

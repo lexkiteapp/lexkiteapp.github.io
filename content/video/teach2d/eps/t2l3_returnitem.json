@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_returnitem",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 9,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.2,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Return something: three levels!",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "I want my money back.",
+   "pause": 0.3
+  },
+  {
+   "id": "b",
+   "text": "I'd like to return this, please.",
+   "pause": 0.3
+  },
+  {
+   "id": "n",
+   "text": "Hi, I need to bring this back.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "return-item",
+  "title": "Return something",
+  "em": "📦",
+  "chip": "In a shop",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "I want my money back.",
+    "key": "money back",
+    "note": "Clear, but quite strong."
+   },
+   "b": {
+    "text": "I'd like to return this, please.",
+    "key": "return this",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "Hi, I need to bring this back.",
+    "key": "bring this back",
+    "note": "Everyday phrasal verb."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Bring this back",
+    "Return this"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Return something: three levels!"
+ },
+ "src": {
+  "levels3": "return-item"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.4,
+  "wpm": 126
+ },
+ "publish": {
+  "title": "Return something: A1, B1 or C1?",
+  "keyword": "return something",
+  "value": "Return something, three ways. A1: \"I want my money back.\" B1: \"I'd like to return this, please.\" C1: \"Hi, I need to bring this back.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "Return something: A1, B1 or C1?",
+    "description": "Return something, three ways. A1: \"I want my money back.\" B1: \"I'd like to return this, please.\" C1: \"Hi, I need to bring this back.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "return something",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Return something: A1, B1 or C1?\n\nReturn something, three ways. A1: \"I want my money back.\" B1: \"I'd like to return this, please.\" C1: \"Hi, I need to bring this back.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Return something: A1, B1 or C1?\n\nReturn something, three ways. A1: \"I want my money back.\" B1: \"I'd like to return this, please.\" C1: \"Hi, I need to bring this back.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Return something: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Bring this back. Native line: \"Hi, I need to bring this back.\" Which level are you? More real English, free: {link}"
+ }
+}

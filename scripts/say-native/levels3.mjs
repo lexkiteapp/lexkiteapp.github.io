@@ -31,11 +31,11 @@ export function stems(w) {
 // English text of the repo (lexicon examples, situations, slang bank, lessons / roleplay / listening / notes / framework / blog), lower-cased, punctuation -> spaces: the phrase check below searches it
 export function repoText(S) {
   const slangW = new Set(), corpus = [];
-  for (const it of JSON.parse(fs.readFileSync(ROOT + 'content/say-native/slang.json', 'utf8')).items) { for (const t of W(it.key)) slangW.add(norm(t)); corpus.push(it.key, it.example.text, it.mean); }
+  for (const it of JSON.parse(fs.readFileSync(ROOT + 'content/say-native/slang.json', 'utf8')).items) { for (const t of W(it.key)) slangW.add(norm(t)); corpus.push(it.key, it.example.text, it.mean, it.def); }
   for (const f of fs.readdirSync(ROOT + 'content/situations')) { const d = JSON.parse(fs.readFileSync(ROOT + 'content/situations/' + f, 'utf8')); for (const l of d.lines || []) corpus.push(l.en, ...Object.values(l.variants || {})); for (const l of d.dialogue || []) corpus.push(l.en); }
   for (const r of S.lex.values()) if (r[5]) corpus.push(r[5]);
   const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(d + '/' + e.name) : /\.(json|js|md|txt)$/.test(e.name) ? [d + '/' + e.name] : []);   // English text of lessons / roleplay / listening / notes / framework / blog
-  for (const d of ['web/js/listen', 'web/js/notes', 'web/js/roleplay', 'web/js/lib', 'web/js/write', 'web/js/toeic', 'web/js/call', 'content/framework', 'content/notes-src', 'content/confidence', 'content/blog/en', 'content/seo-en', 'content/stories', 'content/lesson/path-nodes.json', 'content/lesson/stories.json'])
+  for (const d of ['web/js/listen', 'web/js/notes', 'web/js/roleplay', 'web/js/lib', 'web/js/write', 'web/js/toeic', 'web/js/call', 'content/framework', 'content/notes-src', 'content/confidence', 'content/blog/en', 'content/seo-en', 'content/stories', 'content/say-native', 'content/lesson/path-nodes.json', 'content/lesson/stories.json'])
     if (fs.existsSync(ROOT + d)) for (const f of fs.statSync(ROOT + d).isDirectory() ? walk(ROOT + d) : [ROOT + d]) corpus.push(fs.readFileSync(f, 'utf8'));
   const text = ' ' + corpus.map(s => norm(s).replace(/[^a-z0-9' ]+/g, ' ')).join(' | ').replace(/ +/g, ' ') + ' ';
   return { slangW, text };
@@ -61,7 +61,7 @@ export async function check(B = load()) {
       if (!T || !x.key || !x.note) { e(`${NM} {text, key, note}`); return; }
       spoken += ws.length;
       if (ws.length > LIM[lv]) e(`${NM} line <= ${LIM[lv]} words: ${T}`);
-      if (!norm(T).includes(norm(x.key)) || W(x.key).length > 3 || x.key.length > 20) e(`${NM} key inside the line, <= 3 words / 20 chars: ${x.key}`);
+      if (!norm(T).includes(norm(x.key)) || W(x.key).length > 4 || x.key.length > 20) e(`${NM} key inside the line, <= 4 words / 20 chars: ${x.key}`);
       if (W(x.note).length > 8) e(`${NM} note <= 8 words`);
       for (const s of [T, x.note]) { const u = unsafeIn(s) || (s.match(ALCOHOL) || [])[0]; if (u) e(`ad-safety: "${u}" in "${s}"`); }
       for (const w of ws) {

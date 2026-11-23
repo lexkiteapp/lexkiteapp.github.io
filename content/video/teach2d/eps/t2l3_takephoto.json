@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_takephoto",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 55,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.2,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Take a photo: three levels!",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "Can you take a photo?",
+   "pause": 0.3
+  },
+  {
+   "id": "b",
+   "text": "Could you take a photo of us?",
+   "pause": 0.3
+  },
+  {
+   "id": "n",
+   "text": "Would you mind taking a quick pic?",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "take-photo",
+  "title": "Take a photo",
+  "em": "📸",
+  "chip": "On holiday",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "Can you take a photo?",
+    "key": "take a photo",
+    "note": "Clear and correct."
+   },
+   "b": {
+    "text": "Could you take a photo of us?",
+    "key": "Could you take",
+    "note": "Polite and complete."
+   },
+   "c": {
+    "text": "Would you mind taking a quick pic?",
+    "key": "Would you mind",
+    "note": "Polite and relaxed."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Would you mind",
+    "Take a photo"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Take a photo: three levels!"
+ },
+ "src": {
+  "levels3": "take-photo"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 12.0,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Take a photo: A1, B1 or C1?",
+  "keyword": "take a photo",
+  "value": "Take a photo, three ways. A1: \"Can you take a photo?\" B1: \"Could you take a photo of us?\" C1: \"Would you mind taking a quick pic?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 18,
+  "platforms": {
+   "youtube": {
+    "title": "Take a photo: A1, B1 or C1?",
+    "description": "Take a photo, three ways. A1: \"Can you take a photo?\" B1: \"Could you take a photo of us?\" C1: \"Would you mind taking a quick pic?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "take a photo",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Take a photo: A1, B1 or C1?\n\nTake a photo, three ways. A1: \"Can you take a photo?\" B1: \"Could you take a photo of us?\" C1: \"Would you mind taking a quick pic?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Take a photo: A1, B1 or C1?\n\nTake a photo, three ways. A1: \"Can you take a photo?\" B1: \"Could you take a photo of us?\" C1: \"Would you mind taking a quick pic?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Take a photo: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Would you mind. Native line: \"Would you mind taking a quick pic?\" Which level are you? More real English, free: {link}"
+ }
+}

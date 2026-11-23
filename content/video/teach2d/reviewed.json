@@ -45034,6 +45034,1414 @@
     "e": "Use a ruler to draw a straight line.",
     "c": "lexkite.com"
    }
+  },
+  "t2l3_ordercoffee": {
+   "template": "levels3",
+   "hook": "Order coffee: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "603df50da968",
+   "script": {
+    "h": "Order coffee: three levels!",
+    "a": "I want a coffee, please.",
+    "b": "Could I have a large latte, please?",
+    "n": "Can I grab a flat white to go?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_airportcheckin": {
+   "template": "levels3",
+   "hook": "Airport check-in: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2f300def2c55",
+   "script": {
+    "h": "Airport check-in: three levels!",
+    "a": "Here is my passport.",
+    "b": "I'd like to check in, please.",
+    "n": "Hi, I'm just checking in for my flight.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_hotelcheckin": {
+   "template": "levels3",
+   "hook": "Hotel check-in: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a27f7e0e5c89",
+   "script": {
+    "h": "Hotel check-in: three levels!",
+    "a": "Hello. I have a room.",
+    "b": "I have a reservation for tonight.",
+    "n": "Hi there, I've got a booking for tonight.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askdirections": {
+   "template": "levels3",
+   "hook": "Ask directions: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "015c44cbb5a4",
+   "script": {
+    "h": "Ask directions: three levels!",
+    "a": "Where is the station?",
+    "b": "How do I get to the station, please?",
+    "n": "Sorry, I'm trying to get to the station.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_booktable": {
+   "template": "levels3",
+   "hook": "Book a table: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d2cafd44abf6",
+   "script": {
+    "h": "Book a table: three levels!",
+    "a": "A table for two, please.",
+    "b": "Could we have a table for two?",
+    "n": "Hi, have you got a table?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_orderfood": {
+   "template": "levels3",
+   "hook": "Order food: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e8c01a0f3435",
+   "script": {
+    "h": "Order food: three levels!",
+    "a": "I want a pizza, please.",
+    "b": "I'd like the chicken pasta, please.",
+    "n": "I'll go for the chicken pasta.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_paybill": {
+   "template": "levels3",
+   "hook": "Pay the bill: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f0ef07259056",
+   "script": {
+    "h": "Pay the bill: three levels!",
+    "a": "The bill, please.",
+    "b": "Could we have the bill, please?",
+    "n": "Could we get the bill? No rush.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_returnitem": {
+   "template": "levels3",
+   "hook": "Return something: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f9624107677e",
+   "script": {
+    "h": "Return something: three levels!",
+    "a": "I want my money back.",
+    "b": "I'd like to return this, please.",
+    "n": "Hi, I need to bring this back.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_seedoctor": {
+   "template": "levels3",
+   "hook": "See a doctor: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bb8bd6129bdd",
+   "script": {
+    "h": "See a doctor: three levels!",
+    "a": "I need a doctor, please.",
+    "b": "I'd like to make an appointment.",
+    "n": "I was hoping to book an appointment.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askforsomeone": {
+   "template": "levels3",
+   "hook": "Ask for someone: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d381f1444f24",
+   "script": {
+    "h": "Ask for someone: three levels!",
+    "a": "Hello. Is Ana there?",
+    "b": "Hello, could I speak to Ana?",
+    "n": "Hi, could I have a quick word with Ana?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_jobintro": {
+   "template": "levels3",
+   "hook": "Job interview: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "68362a23e07c",
+   "script": {
+    "h": "Job interview: three levels!",
+    "a": "I work in a shop.",
+    "b": "I have three years of experience in sales.",
+    "n": "I've been in sales for three years.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_taketaxi": {
+   "template": "levels3",
+   "hook": "Take a taxi: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "413a8debb437",
+   "script": {
+    "h": "Take a taxi: three levels!",
+    "a": "To the airport, please.",
+    "b": "Could you take me to the airport?",
+    "n": "Could you drop me off at the airport?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_buyticket": {
+   "template": "levels3",
+   "hook": "Buy a ticket: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9ef295c87452",
+   "script": {
+    "h": "Buy a ticket: three levels!",
+    "a": "One ticket, please.",
+    "b": "Could I have a ticket to the city?",
+    "n": "Can I get a return to the city?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_trainlate": {
+   "template": "levels3",
+   "hook": "Train is late: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e97344bbb0c7",
+   "script": {
+    "h": "Train is late: three levels!",
+    "a": "The train is late.",
+    "b": "Do you know why the train is late?",
+    "n": "Any idea why the train's running late?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askbag": {
+   "template": "levels3",
+   "hook": "Get a bag: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f02a73501d93",
+   "script": {
+    "h": "Get a bag: three levels!",
+    "a": "A bag, please.",
+    "b": "Could I have a bag, please?",
+    "n": "Could I get a bag with that?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_joingym": {
+   "template": "levels3",
+   "hook": "Join a gym: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ed1761ef351c",
+   "script": {
+    "h": "Join a gym: three levels!",
+    "a": "I want to join.",
+    "b": "Hi, I'd like to sign up, please.",
+    "n": "Hi, I'm thinking of signing up.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_cinematickets": {
+   "template": "levels3",
+   "hook": "Buy cinema tickets: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "83cbb187eb0d",
+   "script": {
+    "h": "Buy cinema tickets: three levels!",
+    "a": "Two tickets, please.",
+    "b": "Could I get two tickets for the next film?",
+    "n": "Two for the eight o'clock, please.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_gethaircut": {
+   "template": "levels3",
+   "hook": "Get a haircut: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cf5667f0346d",
+   "script": {
+    "h": "Get a haircut: three levels!",
+    "a": "I want short hair.",
+    "b": "Could you cut it a little shorter, please?",
+    "n": "Just a trim, please, nothing drastic.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_acceptinvite": {
+   "template": "levels3",
+   "hook": "Accept an invite: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fbf3994e2e7c",
+   "script": {
+    "h": "Accept an invite: three levels!",
+    "a": "Yes, I can come.",
+    "b": "Thanks for inviting me, I'd love to come.",
+    "n": "Count me in! What time works?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saynopolitely": {
+   "template": "levels3",
+   "hook": "Say no politely: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "66073b9ac55a",
+   "script": {
+    "h": "Say no politely: three levels!",
+    "a": "I can't come. Sorry.",
+    "b": "Thank you, but I'm busy that day.",
+    "n": "Thanks, but I'll pass this time.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askrepeat": {
+   "template": "levels3",
+   "hook": "Ask to repeat: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ad722e773a69",
+   "script": {
+    "h": "Ask to repeat: three levels!",
+    "a": "Again, please.",
+    "b": "Could you say that again, please?",
+    "n": "Sorry, I didn't catch that.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_slowdown": {
+   "template": "levels3",
+   "hook": "Slow it down: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3da756b6983b",
+   "script": {
+    "h": "Slow it down: three levels!",
+    "a": "Not so fast, please.",
+    "b": "Could you speak more slowly, please?",
+    "n": "Sorry, could you slow down a bit?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saythanks": {
+   "template": "levels3",
+   "hook": "Say thanks: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "be61fa1b971f",
+   "script": {
+    "h": "Say thanks: three levels!",
+    "a": "Thank you.",
+    "b": "Thank you so much for your help.",
+    "n": "Thanks a million, I owe you one.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saysorry": {
+   "template": "levels3",
+   "hook": "Say sorry: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "66ee61994ed5",
+   "script": {
+    "h": "Say sorry: three levels!",
+    "a": "I am sorry.",
+    "b": "I'm so sorry. I didn't mean to.",
+    "n": "Oops, my bad, I wasn't looking.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_givecompliment": {
+   "template": "levels3",
+   "hook": "Give a compliment: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cbb2ebec0a73",
+   "script": {
+    "h": "Give a compliment: three levels!",
+    "a": "Your shirt is nice.",
+    "b": "I really like your shirt.",
+    "n": "Love your shirt, where did you get it?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_agreewith": {
+   "template": "levels3",
+   "hook": "Agree with someone: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "65576e271004",
+   "script": {
+    "h": "Agree with someone: three levels!",
+    "a": "Yes, I think so too.",
+    "b": "I totally agree with you.",
+    "n": "You can say that again!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_disagreepolitely": {
+   "template": "levels3",
+   "hook": "Disagree politely: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cb9cf45c5ed2",
+   "script": {
+    "h": "Disagree politely: three levels!",
+    "a": "No, I don't think so.",
+    "b": "I'm not sure I agree with that.",
+    "n": "I hear you, but I'm not convinced.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askhelp": {
+   "template": "levels3",
+   "hook": "Ask for help: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5ade349ebcd1",
+   "script": {
+    "h": "Ask for help: three levels!",
+    "a": "Help me, please.",
+    "b": "Excuse me, could you help me?",
+    "n": "Sorry, do you have a sec?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askwait": {
+   "template": "levels3",
+   "hook": "Ask to wait: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2e0b67a69170",
+   "script": {
+    "h": "Ask to wait: three levels!",
+    "a": "Wait, please. One minute.",
+    "b": "Could you give me a minute, please?",
+    "n": "Hang on, I'll be right with you.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_smalltalk": {
+   "template": "levels3",
+   "hook": "Small talk: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1c0af672df34",
+   "script": {
+    "h": "Small talk: three levels!",
+    "a": "It's a nice day.",
+    "b": "The weather is lovely today, isn't it?",
+    "n": "Lovely day, isn't it?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_weekendplans": {
+   "template": "levels3",
+   "hook": "Weekend plans: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b64048dda5ac",
+   "script": {
+    "h": "Weekend plans: three levels!",
+    "a": "What do you do on Sunday?",
+    "b": "What are you doing this weekend?",
+    "n": "Got any plans for the weekend?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_asktime": {
+   "template": "levels3",
+   "hook": "Ask the time: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "00836e6cc79e",
+   "script": {
+    "h": "Ask the time: three levels!",
+    "a": "What time is it?",
+    "b": "Excuse me, do you know the time?",
+    "n": "Sorry, do you happen to have the time?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_getonline": {
+   "template": "levels3",
+   "hook": "Get online: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "31d374e57d71",
+   "script": {
+    "h": "Get online: three levels!",
+    "a": "Do you have internet here?",
+    "b": "Could I have the Wi-Fi code, please?",
+    "n": "What's the Wi-Fi password, by the way?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_lostbag": {
+   "template": "levels3",
+   "hook": "Lost luggage: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "208fc29a97f9",
+   "script": {
+    "h": "Lost luggage: three levels!",
+    "a": "My bag is not here.",
+    "b": "Excuse me, my bag didn't arrive.",
+    "n": "Hi, my bag never showed up on the flight.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_arrivelate": {
+   "template": "levels3",
+   "hook": "Arrive late: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f61bb7930dcc",
+   "script": {
+    "h": "Arrive late: three levels!",
+    "a": "I am late. Sorry.",
+    "b": "Sorry I'm late. The traffic was bad.",
+    "n": "Sorry I'm late, I got held up.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_movemeeting": {
+   "template": "levels3",
+   "hook": "Move a meeting: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d45f8cb90b60",
+   "script": {
+    "h": "Move a meeting: three levels!",
+    "a": "Can we meet on Monday?",
+    "b": "Could we move the meeting to Monday?",
+    "n": "Could we push it to Monday?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_needtime": {
+   "template": "levels3",
+   "hook": "Need more time: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "581342f17fb3",
+   "script": {
+    "h": "Need more time: three levels!",
+    "a": "More time, please.",
+    "b": "Could I have a bit more time?",
+    "n": "Could I get a bit of an extension?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_postoffice": {
+   "template": "levels3",
+   "hook": "Post office: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "aa1fb1fe00a0",
+   "script": {
+    "h": "Post office: three levels!",
+    "a": "I want to send this.",
+    "b": "Could I post this parcel to Spain?",
+    "n": "Hi, I need to send it to Spain.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_borrowbook": {
+   "template": "levels3",
+   "hook": "Borrow a book: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2846ac21ca91",
+   "script": {
+    "h": "Borrow a book: three levels!",
+    "a": "I want this book, please.",
+    "b": "Could I borrow this book, please?",
+    "n": "Can I check out this book?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_rainyday": {
+   "template": "levels3",
+   "hook": "Talk about rain: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "aed8e7162601",
+   "script": {
+    "h": "Talk about rain: three levels!",
+    "a": "It is raining.",
+    "b": "It's raining really hard today.",
+    "n": "It's raining cats and dogs!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_sayhungry": {
+   "template": "levels3",
+   "hook": "Say you're hungry: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7f119a5d8727",
+   "script": {
+    "h": "Say you're hungry: three levels!",
+    "a": "I am hungry.",
+    "b": "I'm really hungry. Let's eat.",
+    "n": "I'm starving! Let's grab a bite.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saytired": {
+   "template": "levels3",
+   "hook": "Say you're tired: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8cabd9beb936",
+   "script": {
+    "h": "Say you're tired: three levels!",
+    "a": "I want to sleep.",
+    "b": "I'm very tired today. I need a rest.",
+    "n": "I'm exhausted. Let's call it a night.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_getdiscount": {
+   "template": "levels3",
+   "hook": "Get a discount: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "20618c0bf044",
+   "script": {
+    "h": "Get a discount: three levels!",
+    "a": "Can it be cheaper, please?",
+    "b": "Could you give me a discount, please?",
+    "n": "Is that your best price?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_splitbill": {
+   "template": "levels3",
+   "hook": "Split the bill: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9c54f3be6f8b",
+   "script": {
+    "h": "Split the bill: three levels!",
+    "a": "Two bills, please.",
+    "b": "Can we each pay for our own food?",
+    "n": "Shall we just split it?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_offerhelp": {
+   "template": "levels3",
+   "hook": "Offer to help: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9d2105134d73",
+   "script": {
+    "h": "Offer to help: three levels!",
+    "a": "Can I help you?",
+    "b": "Would you like some help with that?",
+    "n": "Need a hand with that?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_findseat": {
+   "template": "levels3",
+   "hook": "Find a seat: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "69e2c1edc229",
+   "script": {
+    "h": "Find a seat: three levels!",
+    "a": "Is this chair free?",
+    "b": "Excuse me, is anyone sitting here?",
+    "n": "Is this seat taken?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askhowlong": {
+   "template": "levels3",
+   "hook": "Ask how long: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f3d0b6551538",
+   "script": {
+    "h": "Ask how long: three levels!",
+    "a": "How long is it?",
+    "b": "How long will it take to arrive?",
+    "n": "Roughly how long is the wait?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_changeorder": {
+   "template": "levels3",
+   "hook": "Change your order: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "78142caf9091",
+   "script": {
+    "h": "Change your order: three levels!",
+    "a": "Sorry, I want tea, not coffee.",
+    "b": "Sorry, could I change my order?",
+    "n": "Actually, could I swap that for tea?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_specialrequest": {
+   "template": "levels3",
+   "hook": "Special request: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0d90758d2690",
+   "script": {
+    "h": "Special request: three levels!",
+    "a": "No meat, please.",
+    "b": "Could I have it without meat, please?",
+    "n": "Could you hold the meat, please?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_praisefood": {
+   "template": "levels3",
+   "hook": "Praise the food: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a71ad8263536",
+   "script": {
+    "h": "Praise the food: three levels!",
+    "a": "The food is good.",
+    "b": "This is delicious, thank you.",
+    "n": "This hits the spot!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_takephoto": {
+   "template": "levels3",
+   "hook": "Take a photo: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5b40d5f7d88f",
+   "script": {
+    "h": "Take a photo: three levels!",
+    "a": "Can you take a photo?",
+    "b": "Could you take a photo of us?",
+    "n": "Would you mind taking a quick pic?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_getpast": {
+   "template": "levels3",
+   "hook": "Get past someone: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2d6ed1451632",
+   "script": {
+    "h": "Get past someone: three levels!",
+    "a": "Sorry, I want to go.",
+    "b": "Excuse me, could I get past?",
+    "n": "Sorry, just squeezing past!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saygoodbye": {
+   "template": "levels3",
+   "hook": "Say goodbye: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "66e440d479ef",
+   "script": {
+    "h": "Say goodbye: three levels!",
+    "a": "Goodbye. See you tomorrow.",
+    "b": "It was nice talking to you. Goodbye.",
+    "n": "Right, I'd better get going. See you!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saybusy": {
+   "template": "levels3",
+   "hook": "Say you're busy: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "03f7d67656c6",
+   "script": {
+    "h": "Say you're busy: three levels!",
+    "a": "I am busy now.",
+    "b": "I'm afraid I'm busy right now.",
+    "n": "I'm swamped at the moment.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_requestleave": {
+   "template": "levels3",
+   "hook": "Request time off: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bdf301e1a7a4",
+   "script": {
+    "h": "Request time off: three levels!",
+    "a": "I want one day off.",
+    "b": "Could I take Friday off, please?",
+    "n": "Is it okay if I take Friday off?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_sayhello": {
+   "template": "levels3",
+   "hook": "Say hello: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d15bbc59adbf",
+   "script": {
+    "h": "Say hello: three levels!",
+    "a": "Hello. How are you?",
+    "b": "Hi, how are you doing today?",
+    "n": "Hey, how's it going?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_paybycard": {
+   "template": "levels3",
+   "hook": "Pay by card: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "20b52d320c45",
+   "script": {
+    "h": "Pay by card: three levels!",
+    "a": "Can I pay by card?",
+    "b": "Do you accept credit cards?",
+    "n": "Can I just tap?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_openinghours": {
+   "template": "levels3",
+   "hook": "Opening hours: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f10c96067a30",
+   "script": {
+    "h": "Opening hours: three levels!",
+    "a": "What time do you open?",
+    "b": "Could you tell me your opening hours?",
+    "n": "What time are you open till?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_getlift": {
+   "template": "levels3",
+   "hook": "Get a lift: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bb84033ec9ba",
+   "script": {
+    "h": "Get a lift: three levels!",
+    "a": "Can you take me home?",
+    "b": "Could you give me a lift home?",
+    "n": "Could I trouble you for a lift?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_asksize": {
+   "template": "levels3",
+   "hook": "Ask for size: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "22aca35c5913",
+   "script": {
+    "h": "Ask for size: three levels!",
+    "a": "Is there a bigger one?",
+    "b": "Do you have a larger size?",
+    "n": "Any chance you've got a large?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_meetneighbour": {
+   "template": "levels3",
+   "hook": "Meet a neighbour: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1413c490c7fe",
+   "script": {
+    "h": "Meet a neighbour: three levels!",
+    "a": "Hello. I live here.",
+    "b": "Hello, I live in the flat next door.",
+    "n": "Hi, I just moved in next door.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_noisyneighbours": {
+   "template": "levels3",
+   "hook": "Noisy neighbours: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e1051db010ab",
+   "script": {
+    "h": "Noisy neighbours: three levels!",
+    "a": "Please be quiet. It's late.",
+    "b": "Could you be a bit quieter, please?",
+    "n": "Sorry, could you keep the noise down?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_atpharmacy": {
+   "template": "levels3",
+   "hook": "At the pharmacy: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "59bf60a61f5d",
+   "script": {
+    "h": "At the pharmacy: three levels!",
+    "a": "I have a cold.",
+    "b": "Do you have anything for a cold?",
+    "n": "I've come down with a cold. Any suggestions?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askadvice": {
+   "template": "levels3",
+   "hook": "Ask for advice: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b3ef02339034",
+   "script": {
+    "h": "Ask for advice: three levels!",
+    "a": "What is good here?",
+    "b": "What would you recommend here?",
+    "n": "What do you usually go for here?",
+    "c": "lexkite.com"
+   }
   }
  }
 }
