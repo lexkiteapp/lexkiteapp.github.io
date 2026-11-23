@@ -240,7 +240,7 @@ for (const vp of VPS) {
 // byte đã tải trước LCP – dưới mạng 4G chậm + CPU 4× thật (CDP). In cả lần nhanh lẫn lần chậm để so (thủ phạm lộ ở lần chậm). Không đổi ngưỡng/đỏ-xanh.
 const probe = [];
 if (LH) { const prate = (await rateFor(browser, 4)).rate;
-  for (const [route, i, fast] of [['path', 0, 0], ['path', 1, 1], ['path', 2, 0], ['review', 0, 0], ['review', 1, 1], ['dict/hello', 0, 0]]) {
+  for (const [route, i, fast] of [['placement', 0, 0], ['lesson/go', 0, 0], ['grammar/tenses', 0, 0], ['style', 0, 0], ['welcome', 0, 0]]) {
     const c = await browser.newContext({ bypassCSP: true, viewport: { width: 412, height: 915 }, deviceScaleFactor: 2.625, isMobile: true, hasTouch: true, userAgent: UA, locale: 'en' });
     try {
       await noProd(c); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
@@ -262,7 +262,7 @@ await browser.close();
 const lh = [], lhRuns = [];
 // 16/11: TBT 202 > 200 ms đỏ #552/#362/#1427 (PR không đụng trang) – Lighthouse giả lập CPU 4× trên số đo THẬT của runner; runner EPYC chậm gấp ~2,2× nên TBT phình. Hiệu chuẩn như INP (ngưỡng KHÔNG đổi)
 const cpuLh = LH ? (await rateFor(browser, 4)).rate : 4;
-if (LH) for (const route of ['home', 'path', 'review', 'dict/hello', 'me', 'practice/mcq?src=topic:education']) {
+if (LH) for (const route of ['placement', 'lesson/go', 'grammar/tenses', 'style', 'practice/mcq?src=topic:education', 'welcome']) {
   const f = `${OUT}/lh-${route.replace(/[^a-z]+/g, '_')}.json`;
   const runs = [];
   for (let i = 0; i < 3; i++) {
