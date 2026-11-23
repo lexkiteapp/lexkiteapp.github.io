@@ -397,7 +397,7 @@
   let games = null;
   const lazyGame = k => (...a) => { const h = location.hash; return App.lazy('pgames').then(() => { if (location.hash !== h || !window.StudyGames) return; games = games || StudyGames({ accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName }); games[k](...a); }).catch(() => toast(t('Không tải được – thử lại sau'))); };
   const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak'), runBlitz = lazyGame('runBlitz'), runRhythm = lazyGame('runRhythm');
-  const runPicmatch = lazyGame('runPicmatch'), runCrossword = lazyGame('runCrossword'); // 🧩 Ô chữ mỗi ngày (cpack/play-app/play-crossword.js, gói pxw)
+  const runPicmatch = lazyGame('runPicmatch'), runCrossword = lazyGame('runCrossword');
 
   // ================= TRUNG TÂM LUYỆN TẬP =================
   const MODES = {
