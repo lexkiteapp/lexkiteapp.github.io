@@ -1,0 +1,522 @@
+{
+ "fixed": [
+  {
+   "word": "mando",
+   "field": "gl.en",
+   "from": "command, control (remote)",
+   "to": "command, control",
+   "why": "Ở es-419 'remote' là control remoto, không phải mando"
+  },
+  {
+   "word": "mando",
+   "field": "gl.vi",
+   "from": "sự chỉ huy, điều khiển",
+   "to": "quyền chỉ huy, sự điều khiển",
+   "why": "bỏ 'điều khiển' (động từ/remote); khớp danh từ"
+  },
+  {
+   "word": "mando",
+   "field": "gl.de",
+   "from": "Kommando, Fernbedienung",
+   "to": "Kommando, Führung",
+   "why": "bỏ nghĩa Fernbedienung cho khớp gl.en"
+  },
+  {
+   "word": "mando",
+   "field": "gl.ja",
+   "from": "指揮、リモコン",
+   "to": "指揮、制御",
+   "why": "bỏ リモコン cho khớp gl.en"
+  },
+  {
+   "word": "mando",
+   "field": "gl.ru",
+   "from": "командование, пульт",
+   "to": "командование, управление",
+   "why": "bỏ пульт cho khớp gl.en"
+  },
+  {
+   "word": "mando",
+   "field": "gl.tr",
+   "from": "komuta, kumanda",
+   "to": "komuta, kontrol",
+   "why": "khớp gl.en"
+  },
+  {
+   "word": "asesinar",
+   "field": "gl.vi",
+   "from": "ám sát",
+   "to": "giết người, sát hại",
+   "why": "'ám sát' chỉ là ám sát chính trị; nghĩa thường gặp là giết người"
+  },
+  {
+   "word": "limpio",
+   "field": "gl.vi",
+   "from": "sạch sẻ",
+   "to": "sạch sẽ",
+   "why": "lỗi chính tả 'sẻ'"
+  },
+  {
+   "word": "levantar",
+   "field": "ex.es",
+   "from": "Levántate, ya es muy tarde.",
+   "to": "Voy a levantar la caja con cuidado.",
+   "why": "ví dụ dùng 'levántate' (= dậy) không khớp nghĩa 'lift'"
+  },
+  {
+   "word": "levantar",
+   "field": "ex.en",
+   "from": "Get up, it's already very late.",
+   "to": "I am going to lift the box carefully.",
+   "why": "khớp ex.es mới"
+  },
+  {
+   "word": "levantar",
+   "field": "exForm",
+   "from": "levántate",
+   "to": null,
+   "why": "ví dụ mới dùng đúng nguyên mẫu"
+  },
+  {
+   "word": "alcohol",
+   "field": "gl.vi",
+   "from": "rượu cồn",
+   "to": "rượu, cồn",
+   "why": "'rượu cồn' không tự nhiên"
+  },
+  {
+   "word": "alcohol",
+   "field": "gl.hi",
+   "from": "शराब",
+   "to": "अल्कोहल",
+   "why": "'शराब' = rượu mạnh, hẹp hơn 'alcohol'"
+  },
+  {
+   "word": "antiguo",
+   "field": "gl.vi",
+   "from": "cổ kính",
+   "to": "cổ, xưa",
+   "why": "'cổ kính' chỉ dùng cho công trình; nghĩa chung là cổ/xưa"
+  },
+  {
+   "word": "lengua",
+   "field": "gl.en",
+   "from": "tongue / language",
+   "to": "tongue, language",
+   "why": "dùng dấu phẩy thống nhất; hai nghĩa chính"
+  },
+  {
+   "word": "lengua",
+   "field": "gl.vi",
+   "from": "lưỡi",
+   "to": "lưỡi, ngôn ngữ",
+   "why": "thiếu nghĩa 'ngôn ngữ' trong khi gl.en có"
+  },
+  {
+   "word": "libra",
+   "field": "gl.vi",
+   "from": "pound",
+   "to": "pao",
+   "why": "dùng tên đơn vị tiếng Việt thay vì giữ 'pound'"
+  },
+  {
+   "word": "artista",
+   "field": "gl.vi",
+   "from": "nGHệ sĩ",
+   "to": "nghệ sĩ",
+   "why": "lỗi chính tả 'nGHệ sĩ'"
+  },
+  {
+   "word": "camioneta",
+   "field": "gl.en",
+   "from": "truck",
+   "to": "pickup truck, van",
+   "why": "'truck' trùng camión; es-419 camioneta = pickup/van"
+  },
+  {
+   "word": "camioneta",
+   "field": "ex.en",
+   "from": "My dad bought a red truck.",
+   "to": "My dad bought a red pickup truck.",
+   "why": "khớp gl.en"
+  },
+  {
+   "word": "camioneta",
+   "field": "gl.ko",
+   "from": "트럭",
+   "to": "픽업트럭",
+   "why": "'트럭' chung chung, trùng camión"
+  },
+  {
+   "word": "tumba",
+   "field": "gl.en",
+   "from": "tomb",
+   "to": "grave, tomb",
+   "why": "ex.en dùng 'grave'"
+  },
+  {
+   "word": "precioso",
+   "field": "gl.vi",
+   "from": "đẹp đẽ",
+   "to": "tuyệt đẹp",
+   "why": "'đẹp đẽ' yếu hơn nghĩa 'gorgeous'"
+  },
+  {
+   "word": "quieto",
+   "field": "gl.vi",
+   "from": "im lìm",
+   "to": "yên, đứng yên",
+   "why": "'im lìm' không hợp nghĩa 'still' của người/vật"
+  },
+  {
+   "word": "quieto",
+   "field": "ex.es",
+   "from": "El perro se quedó quieto durante el examen.",
+   "to": "El perro se quedó quieto cuando oyó el ruido.",
+   "why": "ví dụ 'quieto durante el examen' vô lý với con chó"
+  },
+  {
+   "word": "quieto",
+   "field": "ex.en",
+   "from": "The dog stayed still during the exam.",
+   "to": "The dog stayed still when it heard the noise.",
+   "why": "khớp ex.es mới"
+  },
+  {
+   "word": "clave",
+   "field": "gl.en",
+   "from": "key",
+   "to": "key, code, password",
+   "why": "nghĩa phổ biến của 'clave' là mật mã/mật khẩu; 'key' đơn thuần dễ nhầm với llave"
+  },
+  {
+   "word": "clave",
+   "field": "gl.vi",
+   "from": "khóa",
+   "to": "mật khẩu, mật mã",
+   "why": "'khóa' sai nghĩa (là llave/cerradura)"
+  },
+  {
+   "word": "clave",
+   "field": "ex.es",
+   "from": "La clave del examen es fácil.",
+   "to": "Olvidé la clave de mi correo.",
+   "why": "'clave del examen es fácil' không tự nhiên"
+  },
+  {
+   "word": "clave",
+   "field": "ex.en",
+   "from": "The exam key is easy.",
+   "to": "I forgot the password for my email.",
+   "why": "khớp ex.es mới"
+  },
+  {
+   "word": "clave",
+   "field": "gl.pt",
+   "from": "chave",
+   "to": "senha, código",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.fr",
+   "from": "clé",
+   "to": "code, mot de passe",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.de",
+   "from": "Schlüssel",
+   "to": "Passwort, Code",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.id",
+   "from": "kunci",
+   "to": "kata sandi, kode",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.th",
+   "from": "กุญแจ",
+   "to": "รหัส, รหัสผ่าน",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.zh",
+   "from": "钥匙",
+   "to": "密码，代码",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.ja",
+   "from": "鍵",
+   "to": "暗証番号、パスワード",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.ko",
+   "from": "열쇠",
+   "to": "비밀번호, 암호",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.hi",
+   "from": "कुंजी",
+   "to": "पासवर्ड, कोड",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.ar",
+   "from": "مفتاح",
+   "to": "رمز، كلمة مرور",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.ru",
+   "from": "ключ",
+   "to": "пароль, код",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "clave",
+   "field": "gl.tr",
+   "from": "anahtar",
+   "to": "şifre, kod",
+   "why": "gloss 'key' vật lý (chìa khóa) sai nghĩa; đổi thành mật mã/mã"
+  },
+  {
+   "word": "socio",
+   "field": "gl.en",
+   "from": "member",
+   "to": "member, partner",
+   "why": "'member' trùng miembro; socio cũng là đối tác"
+  },
+  {
+   "word": "socio",
+   "field": "gl.vi",
+   "from": "thành viên",
+   "to": "hội viên, đối tác",
+   "why": "khác 'thành viên' của miembro, thêm nghĩa đối tác"
+  },
+  {
+   "word": "socio",
+   "field": "gl.fr",
+   "from": "membre",
+   "to": "associé, membre",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "socio",
+   "field": "gl.de",
+   "from": "Mitglied",
+   "to": "Mitglied, Partner",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "socio",
+   "field": "gl.id",
+   "from": "anggota",
+   "to": "anggota, mitra",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "socio",
+   "field": "gl.th",
+   "from": "สมาชิก",
+   "to": "สมาชิก, หุ้นส่วน",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "socio",
+   "field": "gl.zh",
+   "from": "会员",
+   "to": "会员，合伙人",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "socio",
+   "field": "gl.ja",
+   "from": "会員",
+   "to": "会員、パートナー",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "socio",
+   "field": "gl.ko",
+   "from": "회원",
+   "to": "회원, 파트너",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "socio",
+   "field": "gl.hi",
+   "from": "सदस्य",
+   "to": "सदस्य, साझेदार",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "socio",
+   "field": "gl.ar",
+   "from": "عضو",
+   "to": "عضو، شريك",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "socio",
+   "field": "gl.ru",
+   "from": "член",
+   "to": "член, партнёр",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "socio",
+   "field": "gl.tr",
+   "from": "üye",
+   "to": "üye, ortak",
+   "why": "khớp gl.en mới (member, partner)"
+  },
+  {
+   "word": "alcalde",
+   "field": "gl.ja",
+   "from": "町長",
+   "to": "市長",
+   "why": "'町長' = trưởng thị trấn, hẹp hơn alcalde"
+  },
+  {
+   "word": "enamorado",
+   "field": "gl.vi",
+   "from": "si tình",
+   "to": "đang yêu",
+   "why": "'si tình' là từ cổ/đa tình, không đúng 'in love'"
+  },
+  {
+   "word": "enamorado",
+   "field": "ex.en",
+   "from": "She is very in love with her boyfriend.",
+   "to": "She is very much in love with her boyfriend.",
+   "why": "'very in love' không tự nhiên"
+  },
+  {
+   "word": "junta",
+   "field": "ex.es",
+   "from": "Tengo una junta importante a las tres de la tarde.",
+   "to": "La junta de vecinos se reúne el lunes.",
+   "why": "ex cũ 'junta' = họp, nhưng ex.en dịch 'board meeting' không khớp"
+  },
+  {
+   "word": "junta",
+   "field": "ex.en",
+   "from": "I have an important board meeting at three in the afternoon.",
+   "to": "The neighborhood council meets on Monday.",
+   "why": "khớp ex.es mới"
+  },
+  {
+   "word": "junta",
+   "field": "gl.en",
+   "from": "board",
+   "to": "board, council",
+   "why": "khớp ví dụ"
+  },
+  {
+   "word": "cuán",
+   "field": "gl.vi",
+   "from": "bao nhiêu",
+   "to": "biết bao, đến mức nào",
+   "why": "'bao nhiêu' sai nghĩa (cuánto)"
+  },
+  {
+   "word": "guardar",
+   "field": "gl.en",
+   "from": "to save",
+   "to": "to keep, to save",
+   "why": "nghĩa phổ biến nhất là giữ/cất"
+  },
+  {
+   "word": "guardar",
+   "field": "gl.vi",
+   "from": "cất",
+   "to": "cất giữ, lưu",
+   "why": "'cất' đơn thuần thiếu nghĩa lưu (save)"
+  },
+  {
+   "word": "kilo",
+   "field": "gl.vi",
+   "from": "ki-lô",
+   "to": "ki-lô-gam",
+   "why": "'ki-lô' không phải từ đầy đủ"
+  },
+  {
+   "word": "rata",
+   "field": "gl.vi",
+   "from": "con chuột lớn",
+   "to": "chuột cống",
+   "why": "'con chuột lớn' không tự nhiên"
+  },
+  {
+   "word": "discusión",
+   "field": "gl.vi",
+   "from": "cuộc tranh luận",
+   "to": "cuộc tranh cãi",
+   "why": "ví dụ nói về cãi nhau về tiền; 'tranh luận' quá trang trọng"
+  },
+  {
+   "word": "lobo",
+   "field": "gl.vi",
+   "from": "con sói",
+   "to": "sói",
+   "why": "bỏ 'con' cho dạng từ điển"
+  },
+  {
+   "word": "tensión",
+   "field": "gl.en",
+   "from": "tension",
+   "to": "tension, voltage",
+   "why": "bao hàm cả nghĩa điện áp"
+  },
+  {
+   "word": "tensión",
+   "field": "ex.es",
+   "from": "La tensión eléctrica está alta.",
+   "to": "Hay mucha tensión entre los dos equipos.",
+   "why": "'tensión eléctrica' là nghĩa hiếm, ex.en 'electric tension' sai tiếng Anh"
+  },
+  {
+   "word": "tensión",
+   "field": "ex.en",
+   "from": "The electric tension is high.",
+   "to": "There is a lot of tension between the two teams.",
+   "why": "khớp ex.es mới"
+  },
+  {
+   "word": "pasado",
+   "field": "gl.vi",
+   "from": "trước",
+   "to": "vừa qua, đã qua",
+   "why": "'trước' là giới từ/trạng từ, không phải tính từ"
+  }
+ ],
+ "dropped": [
+  {
+   "word": "desgraciado",
+   "why": "nghĩa thường gặp nhất là lời xúc phạm (đồ khốn)"
+  },
+  {
+   "word": "cristo",
+   "why": "danh từ riêng/tôn giáo, không phải từ vựng học viên"
+  },
+  {
+   "word": "okay",
+   "why": "anh ngữ, không phải lemma chuẩn (RAE: okey/ok) – không dạy chủ động"
+  }
+ ]
+}
