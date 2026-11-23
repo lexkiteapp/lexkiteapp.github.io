@@ -1,0 +1,262 @@
+{
+ "scheme": {
+  "n": "scheme は名詞で、政府や組織が行う「公式な計画・制度」を指します。a pension scheme（年金制度）、a pilot scheme（試験的な計画）、a government scheme のように、助成や支援の仕組みを表すときによく使います。イギリス英語で特に一般的で、アメリカ英語では program や plan が好まれます。「ずる賢いたくらみ」の意味もあり、a scheme to cheat people のように悪い文脈では否定的に響きます。",
+  "x": [
+   [
+    "The council launched a scheme to help first-time buyers afford a home.",
+    "市議会は、初めて住宅を買う人を支援する制度を始めました。"
+   ],
+   [
+    "Under the new scheme, farmers receive payment for protecting local wildlife.",
+    "この新しい制度では、農家は地域の野生生物を守ると報酬を受け取れます。"
+   ]
+  ]
+ },
+ "trace": {
+  "n": "trace は動詞で、「起源や経緯をたどって突き止める」という意味です。trace A to B（AのもとをBまでたどる）、trace back to ~（~にさかのぼる）の形でよく使われ、病気の感染源、家系、お金の流れの調査などに登場します。「行方を探し出す」意味でも使い、police traced the caller のように言います。受け身の be traced to ~ も頻出です。track は現在の動きを追う点で少し違います。",
+  "x": [
+   [
+    "Genealogists traced her family back to a village in southern Italy.",
+    "系図の研究者たちは、彼女の家系をイタリア南部の村までたどりました。"
+   ],
+   [
+    "Police traced the stolen car to a warehouse on the edge of town.",
+    "警察は盗難車の足取りをたどり、町はずれの倉庫に行き着きました。"
+   ]
+  ]
+ },
+ "bureaucracy": {
+  "n": "bureaucracy は名詞で、複雑な規則や遅い手続きが多い「官僚制、お役所仕事」を指します。red tape とほぼ同じ感覚で、cut bureaucracy（手続きを減らす）や government bureaucracy のように使い、たいてい不満や批判のニュアンスを含みます。数えられない名詞として使うのが普通です。形容詞は bureaucratic で、a bureaucratic process は「煩雑な手続き」の意味です。",
+  "x": [
+   [
+    "Getting a building permit means wading through months of bureaucracy.",
+    "建築許可を取るには、何か月もお役所仕事をくぐり抜けなければなりません。"
+   ],
+   [
+    "The minister promised to reduce bureaucracy for small businesses.",
+    "大臣は、小規模事業者のための手続きを減らすと約束しました。"
+   ]
+  ]
+ },
+ "bustling city": {
+  "n": "bustling city は「人や活気にあふれたにぎやかな街」を表す表現です。bustling は人が忙しく動き回る様子を示す形容詞で、a bustling market や a bustling street にも使います。良い意味の語で、活気や魅力を伝える文脈によく合います。旅行記や都市紹介で多く見られ、騒音の不満には noisy を使います。a bustling city centre のように場所を限定する形も自然です。",
+  "x": [
+   [
+    "Tokyo is a bustling city where millions of commuters pass through every day.",
+    "東京は、毎日何百万人もの通勤客が行き交う活気あふれる街です。"
+   ],
+   [
+    "After years in a quiet village, she moved to a bustling city for work.",
+    "彼女は静かな村で何年も暮らした後、仕事のためににぎやかな街へ引っ越しました。"
+   ]
+  ]
+ },
+ "debunk": {
+  "n": "debunk は動詞で、広く信じられている説や主張が「誤りだと示す」という意味です。debunk a myth（神話を覆す）、debunk a theory のように、証拠を挙げて否定する場面で使います。disprove とほぼ同じですが、debunk は迷信や誤情報のような「もっともらしい話」の化けの皮をはがす響きがあります。ニュースや科学記事でよく見られます。",
+  "x": [
+   [
+    "Scientists have debunked the claim that sugar makes children hyperactive.",
+    "科学者たちは、砂糖が子どもを興奮させるという主張が誤りだと明らかにしました。"
+   ],
+   [
+    "The documentary sets out to debunk several popular conspiracy theories.",
+    "そのドキュメンタリーは、よく知られた陰謀論をいくつか論破することを目指しています。"
+   ]
+  ]
+ },
+ "disproportionate": {
+  "n": "disproportionate は形容詞で、「他との釣り合いが取れず、大きすぎる、または小さすぎる」という意味です。a disproportionate effect（不釣り合いに大きな影響）、a disproportionate amount of ~ の形でよく使い、多すぎる場合に使われることが多いです。be disproportionate to ~ で「~に見合わない」と言えます。反対は proportionate です。社会問題や統計の話題によく出ます。",
+  "x": [
+   [
+    "The punishment seemed disproportionate to such a minor offence.",
+    "そのような軽い違反に対して、罰は重すぎるように思えました。"
+   ],
+   [
+    "Young people suffered a disproportionate share of the job losses.",
+    "仕事の喪失のうち、若者が不釣り合いに大きな割合の打撃を受けました。"
+   ]
+  ]
+ },
+ "mutual": {
+  "n": "mutual は形容詞で、「双方が同じように持つ、お互いの」という意味です。mutual respect（お互いへの敬意）、mutual benefit（相互の利益）、mutual trust のように使います。a mutual friend は「共通の友人」で、これも便利な言い方です。「mutual+名詞」の形が基本で、be mutual（互いに同じ）と叙述的にも使えます。the feeling is mutual は「私も同じ気持ちです」という決まり文句です。",
+  "x": [
+   [
+    "They ended the partnership by mutual agreement.",
+    "二人は、双方の合意によって提携を解消しました。"
+   ],
+   [
+    "I don't like him, and I suspect the feeling is mutual.",
+    "私は彼が好きではありませんし、彼も同じ気持ちだと思います。"
+   ]
+  ]
+ },
+ "random": {
+  "n": "random は形容詞で、「規則や計画がなく、無作為の、手当たり次第の」という意味です。a random sample（無作為抽出）や random selection のように統計や抽選で使います。日常会話では「脈絡のない、突拍子もない」の意味でも使い、a random question と言えば「唐突な質問」です。at random は「無作為に」という副詞句で、choose at random のように使います。",
+  "x": [
+   [
+    "Winners will be chosen at random from all the correct entries.",
+    "当選者は、正解の応募者全員の中から無作為に選ばれます。"
+   ],
+   [
+    "A random stranger stopped me in the street to ask for directions.",
+    "見知らぬ人が突然、道で私を呼び止めて行き方を尋ねました。"
+   ]
+  ]
+ },
+ "reluctance": {
+  "n": "reluctance は名詞で、「気が進まないこと、したがらない気持ち」を表します。reluctance to do ~（~することへの気の進まなさ）、with reluctance（しぶしぶ）、show reluctance の形でよく使います。形容詞は reluctant、副詞は reluctantly です。unwillingness より自然で、ためらいや迷いが少し感じられます。公的な文章でも日常でも使えます。",
+  "x": [
+   [
+    "Her reluctance to speak in public held back her career.",
+    "人前で話すのが苦手だったため、彼女のキャリアは伸び悩みました。"
+   ],
+   [
+    "He agreed, with some reluctance, to join the trip.",
+    "彼は少しためらいながらも、その旅行に参加することに同意しました。"
+   ]
+  ]
+ },
+ "tension": {
+  "n": "tension は名詞で、「不安や緊張した気持ち」と「対立や緊迫した状況」の両方を表します。tension between A and B（AとBの間の緊張）、ease the tension（緊張を和らげる）、racial tension のように使います。日本語の「テンション」は気分の高さを指しますが、英語の tension は緊張・緊迫の意味で、気分の高さの意味はありません。物理では「張力」、筋肉では「張り」の意味もあります。形容詞は tense です。",
+  "x": [
+   [
+    "Tension rose in the room as the two managers began to argue.",
+    "二人の部長が言い争い始めると、部屋の空気は張りつめました。"
+   ],
+   [
+    "A joke from the host helped ease the tension.",
+    "司会者の冗談が、場の緊張を和らげました。"
+   ]
+  ]
+ },
+ "via": {
+  "n": "via は前置詞で、「~を経由して」「~を通じて、~によって」の二つの意味があります。経路では fly to London via Dubai（ドバイ経由でロンドンへ行く）、手段では via email や via the website のように使います。by way of とほぼ同じですが、via のほうが短く、メールや案内文によく出ます。前置詞なので、後ろに名詞や名詞句が続きます。",
+  "x": [
+   [
+    "We flew to Sydney via Singapore to save money.",
+    "私たちは費用を抑えるため、シンガポール経由でシドニーへ飛びました。"
+   ],
+   [
+    "You can submit your application via the company website.",
+    "応募書類は、会社のウェブサイトから提出できます。"
+   ]
+  ]
+ },
+ "artefact": {
+  "n": "artefact は名詞で、遺跡などから出土する「人が作った古い物、遺物」を指し、歴史や考古学の文脈でよく使います。a Roman artefact（ローマ時代の遺物）、museum artefacts のように言います。つづりはイギリス英語で、アメリカ英語では artifact と書き、意味は同じです。広い意味では、人が作った物や、データ処理で生じる不自然な結果を指すこともあります。",
+  "x": [
+   [
+    "The museum displays artefacts that were found in a Viking grave.",
+    "その博物館では、ヴァイキングの墓から見つかった遺物を展示しています。"
+   ],
+   [
+    "Each artefact is carefully catalogued before it goes on display.",
+    "どの遺物も、展示される前に丁寧に目録へ登録されます。"
+   ]
+  ]
+ },
+ "cast doubt on": {
+  "n": "cast doubt on ~ は「~が本当かどうか疑わしくさせる」という意味の表現です。主語には、新しい証拠、研究、報道などが来て、cast doubt on the results（結果に疑問を投げかける）のように使います。cast は不規則動詞で、過去形も過去分詞も cast です。raise doubts about や call into question に近い意味ですが、cast doubt on は改まった文章やニュースでよく見かけます。",
+  "x": [
+   [
+    "New evidence cast doubt on the witness's version of events.",
+    "新たな証拠が、目撃者の話した出来事の内容に疑問を投げかけました。"
+   ],
+   [
+    "Several errors in the data cast doubt on the whole study.",
+    "データに誤りがいくつもあり、研究全体の信頼性が疑われました。"
+   ]
+  ]
+ },
+ "combat": {
+  "n": "combat は動詞で、「悪いことを防ぐために積極的に闘う、対処する」という意味です。combat crime（犯罪と闘う）、combat climate change、combat poverty のように、社会問題や病気を目的語に取ります。fight より改まった印象で、報道や政策の文章に向いています。名詞の combat は「戦闘」で、hand-to-hand combat（白兵戦）や combat sports（格闘技）のように使います。combat troops のように、軍事の文脈でも使われます。",
+  "x": [
+   [
+    "The city is introducing new measures to combat air pollution.",
+    "その市は、大気汚染と闘うための新しい対策を導入しています。"
+   ],
+   [
+    "Regular exercise can help combat stress and improve sleep.",
+    "定期的な運動は、ストレスを和らげ、睡眠の質を高めるのに役立ちます。"
+   ]
+  ]
+ },
+ "cosmos": {
+  "n": "cosmos は名詞で、秩序ある一つの体系として見た「宇宙」を表します。universe とほぼ同じですが、cosmos は哲学的、詩的で、科学の読み物でも好まれます。the cosmos と冠詞 the を付けて使うのが基本です。形容詞は cosmic で、cosmic rays（宇宙線）のように言います。花のコスモスも同じつづりですが、こちらは数えられる名詞で cosmoses と書きます。",
+  "x": [
+   [
+    "Astronomers use powerful telescopes to study the origins of the cosmos.",
+    "天文学者たちは、高性能の望遠鏡を使って宇宙の起源を研究しています。"
+   ],
+   [
+    "Ancient philosophers believed that the cosmos was governed by order.",
+    "古代の哲学者たちは、宇宙は秩序に支配されていると信じていました。"
+   ]
+  ]
+ },
+ "definite": {
+  "n": "definite は形容詞で、「はっきりしていて、まず変わらない、確かな」という意味です。a definite answer（確かな答え）、a definite improvement、definite plans のように、曖昧さのないものを表します。反対は indefinite です。the definite article は冠詞 the のことです。definitely は「間違いなく」の意味で、会話で返事にも使えます。",
+  "x": [
+   [
+    "We have no definite plans for the summer yet.",
+    "夏の予定はまだはっきり決まっていません。"
+   ],
+   [
+    "There has been a definite improvement in her health since March.",
+    "3月以来、彼女の健康は確かに良くなっています。"
+   ]
+  ]
+ },
+ "doping": {
+  "n": "doping は名詞で、「スポーツ選手が成績を上げるために禁止薬物を使うこと」を指します。数えられない名詞で、a doping scandal（ドーピング疑惑）、doping control（ドーピング検査）、a doping ban のように使います。動詞は dope で、日常では別の意味もありますが、スポーツ報道ではほぼ上の意味です。drug use は一般的な薬物使用で、doping は競技の不正に限ります。",
+  "x": [
+   [
+    "The cyclist received a four-year ban for doping.",
+    "その自転車選手は、ドーピングで4年間の出場停止処分を受けました。"
+   ],
+   [
+    "Strict doping tests are carried out at every major competition.",
+    "大きな大会では、必ず厳しいドーピング検査が行われます。"
+   ]
+  ]
+ },
+ "endurance": {
+  "n": "endurance は名詞で、「困難や苦痛を長く耐え抜く力、持久力」を表します。physical endurance（体力的な持久力）、mental endurance、endurance training のように使います。数えられない名詞です。マラソンや登山などの話でよく出ます。stamina は体力に近く、endurance は精神面の我慢強さも含みます。beyond endurance は「耐えられないほど」という言い方です。",
+  "x": [
+   [
+    "Long-distance swimming requires great endurance.",
+    "長距離の水泳には、大きな持久力が必要です。"
+   ],
+   [
+    "The heat was beyond endurance, so we turned back.",
+    "暑さは耐えられないほどだったので、私たちは引き返しました。"
+   ]
+  ]
+ },
+ "expenditure": {
+  "n": "expenditure は名詞で、個人、会社、政府などが使った「支出の総額」を指す、やや改まった語です。government expenditure（政府支出）、public expenditure、expenditure on ~（~への支出）の形でよく使います。spending と近い意味ですが、expenditure は経済や会計の文章に向いています。反対は income（収入）で、income and expenditure でセットになります。",
+  "x": [
+   [
+    "Total expenditure on healthcare rose sharply last year.",
+    "昨年、医療費の総支出は大きく増えました。"
+   ],
+   [
+    "We need to cut expenditure if we want to balance the budget.",
+    "予算の収支を合わせたいなら、支出を減らす必要があります。"
+   ]
+  ]
+ },
+ "famine": {
+  "n": "famine は名詞で、一つの地域に起きる「深刻な食料不足で、多くの人が亡くなる状態、飢饉」を指します。a severe famine、famine relief（飢饉への救援）、die of famine のように使い、干ばつや戦争が原因として語られます。hunger は個人の空腹、starvation は飢えによる死亡や衰弱を指し、famine は地域全体の危機に使います。",
+  "x": [
+   [
+    "Thousands died during the famine of the 1840s.",
+    "1840年代の飢饉では、数千人が亡くなりました。"
+   ],
+   [
+    "Aid agencies are working to prevent famine in the drought-hit region.",
+    "援助団体は、干ばつに見舞われた地域で飢饉を防ごうと活動しています。"
+   ]
+  ]
+ }
+}

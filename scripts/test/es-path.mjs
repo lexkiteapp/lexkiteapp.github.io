@@ -24,7 +24,8 @@ for (const l of buildPx().GX_LANGS) {
 }
 ok(!bad.length, 'nhãn lộ trình: 15 ngôn ngữ đủ khóa, giữ chỗ {n}{d}{t}{p}, đã dịch' + (bad.length ? ': ' + bad.slice(0, 8).join(' | ') : ''));
 // (c) gói
-for (const [f, s] of Object.entries(P.files)) if (!fs.existsSync('web/cpack/es/' + f) || fs.readFileSync('web/cpack/es/' + f, 'utf8') !== s) { ok(false, `web/cpack/es/${f} cũ so với nguồn – chạy node scripts/target/drill-pack.mjs`); break; }
+const fp = f => f.startsWith('@packs/') ? 'web/packs/es/' + f.slice(7) : 'web/cpack/es/' + f; // từ lộ trình ở web/packs/es (path-lib)
+for (const [f, s] of Object.entries(P.files)) if (!fs.existsSync(fp(f)) || fs.readFileSync(fp(f), 'utf8') !== s) { ok(false, `${fp(f)} cũ so với nguồn – chạy node scripts/target/drill-pack.mjs`); break; }
 try { execFileSync('node', ['scripts/target/calls-check.mjs'], { stdio: 'pipe' }); ok(true, 'calls-check: 24 cuộc gọi es-419 + cấu trúc'); } catch (e) { ok(false, 'calls-check: ' + String(e.stderr).slice(0, 300)); }
 
 // (d) jsdom
@@ -32,7 +33,8 @@ const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8'), scrip
 const vc = new jsdom.VirtualConsole(), errors = []; vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) errors.push(e.message); });
 const dom = new jsdom.JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/#/practice', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
 const w = dom.window; w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} }); w.CSS = { escape: s => s };
-w.fetch = async () => ({ ok: false, status: 404, json: async () => ({}), text: async () => '' });
+const fetched = []; // từ lộ trình ở web/packs/es/*.json (path-lib) – phục vụ từ đĩa; mọi đường khác 404 như cũ
+w.fetch = async u => { const m = /^(?:https:\/\/lexkite\.com\/)?(packs\/es\/[\w-]+\.json)\?v=\w+$/.exec(String(u)); if (m) { fetched.push(String(u)); const t = fs.readFileSync(path.join(WEB, m[1]), 'utf8'); return { ok: true, status: 200, json: async () => JSON.parse(t), text: async () => t }; } return { ok: false, status: 404, json: async () => ({}), text: async () => '' }; };
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
 require('./lazyfix.js')(w, fs, path, WEB, errors);
 const tick = (ms = 20) => new Promise(r => setTimeout(r, ms)); for (let k = 0; k < 100 && !w.document.querySelector('#modeGrid'); k++) await tick(100); // chờ route khởi động (#/practice) vẽ xong, tránh nó vẽ đè lên màn đang thử
@@ -41,6 +43,7 @@ const { App, UI } = w, $ = x => w.document.querySelector(x), $$ = x => [...w.doc
 App.loadScript = async src => { w.eval(fs.readFileSync(path.join(WEB, src), 'utf8')); };
 UI.tts = () => {}; w.localStorage.clear(); w.sessionStorage.clear();
 await App.esday(); await tick(60);
+ok(fetched.some(u => /packs\/es\/wd\.json\?v=/.test(u)) && fetched.some(u => /wd-en\.json/.test(u)) && !Object.keys(P.files).some(f => /^wd/.test(f)), 'từ lộ trình tải từ packs/es/*.json kèm ?v=băm (ngoài web/cpack)');
 ok($$('a.chip[href*="esd?d="]').length === P.days.length && $('a.btn.primary[href="#/practice/esd?d=1"]'), 'hub: mọi ngày có ô, nút Bắt đầu ngày 1');
 await App.esday('1'); await tick(60);
 ok($$('section.card').length === 3 && $$('[data-sp]').length >= 6 && $('a[href^="#/practice/es?lv=A1&p=ser-identity"]') && $('a[href^="#/practice/esp?tp="]'), 'ngày 1: từ mới + ngữ pháp (đúng điểm) + phát âm, có nút nghe');
