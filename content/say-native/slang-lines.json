@@ -737,50 +737,26 @@
   "tr": "Üç saat boyunca aptal videolar! 'brain rot'!",
   "zh": "三小时的傻视频！简直是 \"brain rot\"。"
  },
- "break the bank|ex": {
-  "ar": "لا تقلق، وجبة الغداء هذه لن تكلف ثروة (\"break the bank\")."
- },
- "break the bank|hook": {
-  "ar": "هل الغداء مكلف للغاية بحيث ينطبق عليه عبارة \"break the bank\"؟"
- },
  "bro|ex": {
-  "ar": "شكرًا، \"bro\"، أنقذتني!"
+  "ar": "شكرًا يا \"bro\"، أنقذتني!"
  },
  "bro|hook": {
-  "ar": "شكرًا لإنقاذك واجبي! \"bro\""
+  "ar": "شكرًا لإنقاذك واجبي!"
  },
  "bruh|ex": {
-  "ar": "\"Bruh\"، هل نسيت واجبك المدرسي مجدداً؟"
- },
- "bruh|hook": {
-  "ar": "نسيت واجبك المنزلي مجدداً؟ \"bruh\"!"
- },
- "buddy|ex": {
-  "ar": "إنه الـ \"buddy\" الخاص بي في الدراسة."
- },
- "buddy|hook": {
-  "ar": "من يدرس معك كل ليلة؟"
+  "ar": "\"Bruh\"، هل نسيت واجبك المدرسي مجددًا؟"
  },
  "bummed out|ex": {
   "ar": "أنا \"bummed out\" بشأن الرحلة."
  },
  "bummed out|hook": {
-  "ar": "تم إلغاء الرحلة. الجميع \"bummed out\"."
- },
- "bummer|ex": {
-  "ar": "هل أُلغيت الرحلة؟ يا له من أمر \"bummer\"."
- },
- "bummer|hook": {
-  "ar": "تم إلغاء الرحلة. يا للإحباط! إنه أمر \"bummer\"."
+  "ar": "تم إلغاء الرحلة. الجميع حزين!"
  },
  "bundle up|ex": {
   "ar": "\"Bundle up\"، الجو بارد جدًا في الخارج!"
  },
- "bundle up|hook": {
-  "ar": "الجو شديد البرودة في الخارج. هل أنت مستعد للقيام بـ \"bundle up\"؟"
- },
  "burn the midnight oil|ex": {
-  "ar": "لقد قمنا بـ \"burn the midnight oil\" الليلة الماضية."
+  "ar": "قمنا بـ \"burn the midnight oil\" الليلة الماضية."
  },
  "burned out|ex": {
   "ar": "بعد الامتحانات، شعرت بأني \"burned out\" تماماً.",
@@ -902,7 +878,7 @@
   "zh": "哦，\"by the way\"，还有件事！"
  },
  "call it a day|ex": {
-  "ar": "لقد تعبنا، فلنقُم بـ \"call it a day\"."
+  "ar": "نحن متعبون، فلنقم بـ \"call it a day\"."
  },
  "call out|ex": {
   "ar": "لقد \"called me out\" بسبب تأخري.",
@@ -930,23 +906,8 @@
   "th": "เธอ 'call out' ความผิดของฉันต่อทุกคน!",
   "tr": "O, hatamı herkese 'call out' etti!"
  },
- "carry|ex": {
-  "ar": "لقد قامت ميا بـ \"carry\" الفريق في الجولة الأخيرة."
- },
  "carry|hook": {
-  "ar": "فازت بالمباراة وحدها! \"carry\""
- },
- "catch some zs|ex": {
-  "ar": "سأذهب لـ \"catch some Zs\"."
- },
- "catch some zs|hook": {
-  "ar": "الوقت متأخر وأنا نعسان!"
- },
- "catch you later|ex": {
-  "ar": "\"Catch you later\"، يجب أن أذهب!"
- },
- "catch you later|hook": {
-  "ar": "يجب أن أذهب، الدرس يبدأ الآن! \"catch you later\"!"
+  "ar": "فازت بالمباراة بمفردها!"
  },
  "cheap|ex": {
   "ar": "إنه \"cheap\" جداً لدرجة أنه لا يشتري الغداء.",
@@ -1008,83 +969,32 @@
   "tr": "Cumartesi. Diyet mi? Hangi diyet? \"cheat day\".",
   "zh": "周六了。节食？什么节食？今天是“cheat day”（放纵日/放纵饮食日）。"
  },
- "cheers|ex": {
-  "ar": "\"Cheers\" على التوصيلة!"
- },
- "cheers|hook": {
-  "ar": "لقد فتح الباب لك. قل \"cheers\"!"
- },
  "cheesy|ex": {
-  "ar": "ذلك الفيلم كان \"cheesy\" جدًا."
+  "ar": "ذلك الفيلم كان \"cheesy\"."
  },
  "chef's kiss|ex": {
-  "ar": "كانت الشوربة \"chef's kiss\"."
+  "ar": "الحساء كان \"chef's kiss\"."
  },
  "chef's kiss|hook": {
-  "ar": "تذوق هذا وأخبرني! \"chef's kiss\""
- },
- "chin up|ex": {
-  "ar": "\"Chin up\"، غداً سيكون أفضل."
- },
- "chin up|hook": {
-  "ar": "يوم صعب، لكن الغد قادم!"
- },
- "chip in|ex": {
-  "ar": "فلنقم جميعاً بـ \"chip in\" لشراء هديتها."
- },
- "chip in|hook": {
-  "ar": "هدية لها؟ أي أحد يريد أن \"chip in\"؟"
+  "ar": "تذوق هذا وأخبرني!"
  },
  "circle back|ex": {
-  "ar": "دعنا \"circle back\" إلى ذلك بعد الغداء."
- },
- "circle back|hook": {
-  "ar": "لا يوجد وقت الآن. هل نـ \"circle back\" لاحقاً؟"
- },
- "clap back|ex": {
-  "ar": "لقد قامت بـ \"clap back\" برد رائع."
- },
- "clap back|hook": {
-  "ar": "لقد سخر منها، لكنها قامت بـ \"clap back\" قاسي!"
+  "ar": "\"Let's circle back\" إلى ذلك بعد الغداء."
  },
  "class act|ex": {
-  "ar": "مدربنا هو \"class act\" حقيقي."
+  "ar": "مدربنا \"class act\" حقيقي."
  },
  "class act|hook": {
   "ar": "شكر الجميع، حتى الخصوم!"
  },
  "clickbait|ex": {
-  "ar": "هذا العنوان هو مجرد \"clickbait\"."
- },
- "clickbait|hook": {
-  "ar": "\"لن تصدق ما حدث!\" حقاً؟ مجرد \"clickbait\"!"
- },
- "clutch|ex": {
-  "ar": "هدف الدقيقة الأخيرة كان \"clutch\" بحق."
- },
- "clutch|hook": {
-  "ar": "هدف في الثانية الأخيرة يحسم الفوز!"
- },
- "come again|ex": {
-  "ar": "\"come again\"؟ المكان صاخب جداً هنا."
- },
- "come again|hook": {
-  "ar": "عذراً، الموسيقى صاخبة جداً! هل يمكنك أن \"come again\"؟"
- },
- "come down with|ex": {
-  "ar": "أعتقد أنني أبدأ بـ \"come down with\" زكام."
- },
- "comfort food|ex": {
-  "ar": "الحساء الدافئ هو الـ \"comfort food\" بالنسبة لي."
- },
- "comfort food|hook": {
-  "ar": "يوم حزين؟ حساء دافئ!"
+  "ar": "هذا العنوان هو \"clickbait\" خالص."
  },
  "cooked|ex": {
-  "ar": "نسيت ملاحظاتي. \"I'm cooked\"."
+  "ar": "نسيت ملاحظاتي. \"cooked\""
  },
  "cooked|hook": {
-  "ar": "نسيت ملاحظاتي. أوه!"
+  "ar": "نسيت ملاحظاتي. آه أوه!"
  },
  "cool|ex": {
   "ar": "\"Cool\"، أراك في السادسة!",
@@ -1117,7 +1027,7 @@
   "zh": "今晚六点看电影，\"cool\"？"
  },
  "corny|ex": {
-  "ar": "مزحات أبي \"corny\" للغاية."
+  "ar": "نكات أبي مبتذلة جداً (corny)."
  },
  "count me in|ex": {
   "ar": "ليلة الألعاب؟ \"count me in\"!",
@@ -1155,50 +1065,8 @@
  "count me out|hook": {
   "ar": "هل تريد الذهاب إلى العرض المتأخر؟"
  },
- "cracking up|ex": {
-  "ar": "كنا \"cracking up\" من نكتته."
- },
- "cracking up|hook": {
-  "ar": "كانت نكتته مضحكة للغاية!"
- },
- "cram|ex": {
-  "ar": "يجب أن أقوم بـ \"cram\" لمادة الرياضيات."
- },
- "cram|hook": {
-  "ar": "الامتحان غداً. لم أدرس بعد!"
- },
- "cranky|ex": {
-  "ar": "أكون \"cranky\" قبل تناول الإفطار."
- },
- "cranky|hook": {
-  "ar": "لا تتحدث معي الآن!"
- },
- "crushing it|ex": {
-  "ar": "أنت تبدع حقاً (\"crushing it\") في عملك الجديد!"
- },
- "crushing it|hook": {
-  "ar": "الأسبوع الأول وأنت بالفعل الأفضل مبيعاً! أنت بحق \"crushing it\"!"
- },
- "cut me some slack|ex": {
-  "ar": "تساهل معي (\"Cut me some slack\")، فأنا ما زلت جديداً."
- },
- "dig in|ex": {
-  "ar": "العشاء جاهز، لذا \"dig in\"!"
- },
- "dog tired|ex": {
-  "ar": "أنا \"dog tired\" بعد تلك النزهة الطويلة."
- },
- "dog tired|hook": {
-  "ar": "كانت تلك النزهة تبدو بلا نهاية!"
- },
- "doomscroll|ex": {
-  "ar": "توقف عن الـ \"doomscrolling\" واذهب للنوم."
- },
- "doomscroll|hook": {
-  "ar": "منتصف الليل. وما زلت أتصفح الأخبار السيئة!"
- },
  "drama|ex": {
-  "ar": "لا أريد أي \"drama\" هذا العام."
+  "ar": "لا أريد أي مشاكل و\"دراما\" (drama) هذا العام."
  },
  "dressed to impress|ex": {
   "ar": "إنه \"dressed to impress\" من أجل المقابلة.",
@@ -1233,133 +1101,19 @@
   "ar": "سترة جميلة، لديك \"drip\" اليوم."
  },
  "drip|hook": {
-  "ar": "سترة جديدة، أحذية جديدة، وثقة جديدة! \"drip\""
- },
- "drop by|ex": {
-  "ar": "لا تتردد في أن تمر علينا (\"drop by\") في أي وقت."
- },
- "drop by|hook": {
-  "ar": "تعال في أي وقت هذا الأسبوع! يمكنك استخدام \"drop by\"."
- },
- "early bird|ex": {
-  "ar": "أبي شخص \"early bird\"."
- },
- "early bird|hook": {
-  "ar": "أبي يستيقظ في الخامسة صباحًا!"
- },
- "epic fail|ex": {
-  "ar": "هبطت كعكتي تماماً. هذا \"epic fail\" كلي!"
- },
- "epic fail|hook": {
-  "ar": "لقد انهارت كعكتي، وشاهدني الجميع! هذا \"epic fail\"."
- },
- "epic win|ex": {
-  "ar": "سجلنا هدفاً في الثانية الأخيرة. هذا \"epic win\"!"
- },
- "epic win|hook": {
-  "ar": "هدف في الثواني الأخيرة، لقد فزنا! هذا هو الـ \"epic win\" الحقيقي!"
- },
- "facepalm|ex": {
-  "ar": "كان هاتفي في يدي. \"Facepalm\"!"
- },
- "facepalm|hook": {
-  "ar": "كان يبحث عن هاتفه وهو في يده! موقف يدعو لـ \"facepalm\"."
+  "ar": "سترة جديدة، أحذية جديدة، وثقة جديدة!"
  },
  "fair enough|ex": {
   "ar": "\"Fair enough\"، لنجرّب فكرتك."
  },
- "fair enough|hook": {
-  "ar": "انتظر، اسمع مبرراتي أولاً لتقول \"fair enough\"!"
- },
- "fandom|ex": {
-  "ar": "يحب الـ \"fandom\" هذه الفرقة."
- },
  "fine by me|ex": {
-  "ar": "بيتزا أم تاكو؟ \"Fine by me\" (لا مانع لدي)."
- },
- "fire|ex": {
-  "ar": "هذا الحذاء الرياضي \"fire\" حقاً!"
- },
- "fire|hook": {
-  "ar": "انظر إلى حذائي الرياضي الجديد! إنه \"fire\"!"
+  "ar": "بيتزا أم تاكو؟ لا مانع لدي (Fine by me)."
  },
  "fit check|ex": {
-  "ar": "\"Fit check\" سريع قبل المدرسة!"
- },
- "flat broke|ex": {
-  "ar": "أنا \"flat broke\" حتى يوم الجمعة."
- },
- "flex|ex": {
-  "ar": "إنه يستمر في الـ \"flex\" بحذائه الرياضي الجديد على الإنترنت."
- },
- "flex|hook": {
-  "ar": "إنه يستمر في استعراض حذائه الرياضي!"
- },
- "foodie|ex": {
-  "ar": "أختي \"foodie\" بكل ما للكلمة من معنى."
- },
- "foodie|hook": {
-  "ar": "إنها تقيم كل مطعم في المدينة!"
- },
- "for sure|ex": {
-  "ar": "بيتزا الليلة؟ \"For sure\"!"
- },
- "for sure|hook": {
-  "ar": "هل يمكنني الاعتماد عليك؟"
- },
- "frenemy|ex": {
-  "ar": "إنها \"frenemy\" بالنسبة لي، وتتنافس معي دائماً."
- },
- "frenemy|hook": {
-  "ar": "نبتسم، لكننا نتنافس!"
+  "ar": "استعراض سريع للملابس (fit check) قبل المدرسة!"
  },
  "fyi|ex": {
-  "ar": "\"FYI\"، المتجر يغلق في الخامسة."
- },
- "game plan|ex": {
-  "ar": "إذن، ما هي الـ \"game plan\"؟"
- },
- "game plan|hook": {
-  "ar": "الامتحان غداً. ما هي الـ \"game plan\" لدينا؟"
- },
- "get the ball rolling|ex": {
-  "ar": "فلنقم بـ \"get the ball rolling\" بطرح الأفكار."
- },
- "get the ball rolling|hook": {
-  "ar": "يبدأ الاجتماع. من يبدأ أولاً؟"
- },
- "gg|ex": {
-  "ar": "\"GG\"، كانت مباراة ممتعة!"
- },
- "glow-up|ex": {
-  "ar": "واو، الـ \"glow-up\" الخاص بك هذا العام مذهل."
- },
- "glow-up|hook": {
-  "ar": "العام الماضي مقابل هذا العام!"
- },
- "good as new|ex": {
-  "ar": "بعد القيلولة، أشعر أنني \"good as new\"."
- },
- "good as new|hook": {
-  "ar": "قيلولة واحدة، وأصبحت أفضل!"
- },
- "heads up|ex": {
-  "ar": "مجرد \"heads up\"، سيبدأ الاجتماع مبكراً."
- },
- "heads up|hook": {
-  "ar": "تحذير سريع: المدير قادم!"
- },
- "hit me up|ex": {
-  "ar": "\"Hit me up\" إذا كنت بحاجة إلى المساعدة."
- },
- "hit me up|hook": {
-  "ar": "هل تحتاج إلى مساعدة؟ أنا موجود، تواصل معي (\"hit me up\")!"
- },
- "hit the books|ex": {
-  "ar": "يجب عليّ أن \"hit the books\" الليلة."
- },
- "hit the books|hook": {
-  "ar": "الامتحانات النهائية الأسبوع القادم. حان الوقت لـ \"hit the books\"!"
+  "ar": "للعلم (FYI)، المتجر يغلق في الخامسة."
  },
  "hot take|ex": {
   "ar": "إليك الـ \"hot take\" الخاص بي: الأناناس مكانه على البيتزا.",
@@ -1421,71 +1175,11 @@
   "tr": "Kedi kutuya atladı! \"I'm dead\".",
   "zh": "猫跳进盒子里！\\\"I'm dead\\\"。"
  },
- "i'm down|hook": {
-  "ar": "البولينج الليلة، من سيأتي؟"
- },
- "i'm good|ex": {
-  "ar": "لا شكراً، \"I'm good\"."
- },
- "i'm good|hook": {
-  "ar": "هل تريد المزيد من الكعك؟ قبل أن تتعلم تعبير \"I'm good\""
- },
- "in the loop|ex": {
-  "ar": "أبقني \"in the loop\" بشأن الرحلة."
- },
- "in the loop|hook": {
-  "ar": "لم يخبرني أحد بالأنباء! قبل أن تتعلم تعبير \"in the loop\""
- },
- "it's all greek to me|ex": {
-  "ar": "هذا الواجب بالنسبة لي \"it's all Greek to me\"."
- },
- "it's all greek to me|hook": {
-  "ar": "واجب الرياضيات؟ أنا تائه تمامًا!"
- },
- "it's giving|ex": {
-  "ar": "هذا المعطف \"it's giving\" طابع نجم سينمائي قديم."
- },
- "it's giving|hook": {
-  "ar": "ذاك المعطف يبدو وكأنه من الأفلام القديمة!"
- },
  "just kidding|ex": {
-  "ar": "أكلت كعكتك! \"Just kidding\"."
+  "ar": "أكلت كعكتك. \"just kidding\""
  },
  "just kidding|hook": {
   "ar": "أكلت كعكتك!"
- },
- "lame|ex": {
-  "ar": "تلك الحفلة كانت نوعاً ما \"lame\"."
- },
- "lame|hook": {
-  "ar": "انتهت الحفلة في الثامنة. أحقاً؟"
- },
- "legit|ex": {
-  "ar": "هذا المتجر \"legit\"، فقد اشترت أختي حذاءً منه."
- },
- "legit|hook": {
-  "ar": "هل هذا المتجر حقيقي؟"
- },
- "low blow|ex": {
-  "ar": "تلك المزحة كانت \"low blow\"."
- },
- "low blow|hook": {
-  "ar": "لقد ذكر خطأها القديم!"
- },
- "makes no sense|ex": {
-  "ar": "قاعدة اللعبة هذه \"makes no sense\"."
- },
- "makes no sense|hook": {
-  "ar": "تغيرت القواعد مجدداً. لماذا؟"
- },
- "meh|ex": {
-  "ar": "الفيلم؟ \"Meh\"."
- },
- "meh|hook": {
-  "ar": "كيف كان الفيلم؟ قبل أن تتعلم تعبير \"meh\""
- },
- "ngl|ex": {
-  "ar": "\"Ngl\"، لقد أحببت ذلك الفيلم."
  },
  "no cap|ex": {
   "ar": "هذه البيتزا هي الأفضل في المدينة، 'no cap'.",
@@ -1517,12 +1211,6 @@
   "tr": "Şehrin en iyi pizzası. İnan bana, \"no cap\".",
   "zh": "全城最好的披萨，真的，\\\"no cap\\\"。"
  },
- "petty|ex": {
-  "ar": "عدّ كل كعكة أمر \"petty\"، ألا تعتقد ذلك؟"
- },
- "petty|hook": {
-  "ar": "يريد استعادة كعكته؟ قبل أن تتعلم صفة \"petty\""
- },
  "pig out|ex": {
   "ar": "لقد قمنا بـ 'pig out' على البيتزا ليلة أمس.",
   "de": "Wir haben gestern Abend bei Pizza „pigged out“.",
@@ -1549,18 +1237,6 @@
   "th": "พิซซ่าทั้งหมดหายไปแล้ว \"pig out\"",
   "tr": "Bütün pizza bitti! \"pig out\".",
   "zh": "整张披萨都没了！\\\"pig out\\\"。"
- },
- "pull off|ex": {
-  "ar": "ليس كل شخص يمكنه \"pull off\" هذا اللون."
- },
- "pull off|hook": {
-  "ar": "من غيرها يرتدي ذلك؟"
- },
- "raining cats and dogs|ex": {
-  "ar": "إنها \"raining cats and dogs\"!"
- },
- "raining cats and dogs|hook": {
-  "ar": "انظر إلى الخارج! خذ مظلة!"
  },
  "salty|ex": {
   "ar": "إنه 'salty' لأنني فزت في لعبة الورق.",
@@ -1591,11 +1267,5 @@
   "th": "เขาแพ้แล้วก็ \"salty\"!",
   "tr": "Kaybetti, sonra somurtmaya başladı, \"salty\".",
   "zh": "他输了，然后闹别扭，\\\"salty\\\"。"
- },
- "scorcher|ex": {
-  "ar": "اليوم يوم حار جداً، إنه حقاً \"scorcher\"!"
- },
- "scorcher|hook": {
-  "ar": "الشمس حارقة. حتى الظل حار! قبل أن تتعلم تعبير \"scorcher\""
  }
 }
