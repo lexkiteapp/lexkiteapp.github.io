@@ -381,6 +381,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "main-red-retry",
+   "workflow": "main-red-retry.yml",
+   "cron": [
+    "13,43 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "zombie-sweep",
    "workflow": "zombie-sweep.yml",
    "cron": [
