@@ -1491,3 +1491,7 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
   .st-fl[data-fl=active], .st-fl[data-fl=milestone] { transform-origin: 50% 100%; animation: stFlAll 1.6s ease-in-out infinite alternate; will-change: transform; }
   @keyframes stFlAll { from { transform: scale(1, 1); } to { transform: scale(.97, 1.04); } }
 }
+
+/* Luyện tập (Stitch v2): tên ô ~22/30 px màu chữ chính (liên kết bao thẻ không san hô) – đúng mẫu practice */
+.v2s-practice .skill-card h4 { font-size: var(--fs-lg); line-height: 1.43; color: var(--heading); }
+.v2s-practice .skill-card h4 > a { color: inherit; text-decoration: none; }
