@@ -8,7 +8,7 @@ Tiêu chí & nguồn nghiên cứu: `docs/specs/learnability.md` · kế hoạch
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Ngữ pháp | 102 | **96.9** | 99.5 | 96.1 | 99.8 | 96.2 | 100 | 99.5 | 91.3 | 100 | 97.1 | 100 | 100 | 75.8 |
 | Bài lộ trình | 5 | **100** | 100 | – | 100 | 100 | – | 100 | 100 | – | 100 | 100 | – | 100 |
-| Bộ từ | 117 | **74.1** | – | – | – | 96.6 | 55.9 | 80.5 | – | – | 99.3 | – | 4.9 | – |
+| Bộ từ | 117 | **74** | – | – | – | 96.6 | 55.7 | 80.3 | – | – | 99.3 | – | 4.9 | – |
 | Kỹ năng | 451 | **96.1** | 86.8 | – | 98.8 | 99.6 | 99.4 | 96 | 99 | – | 100 | 85.8 | – | 100 |
 
 a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận thức · d = i+1 (từ không vượt cấp) · e = Ví dụ + cặp ✗/✓ · f = Mã hoá kép (audio + hình) · g = Phản hồi "vì sao" · h = Xen kẽ luật cũ · i = Ngữ cảnh (câu gốc) · j = Đầu ra nói/viết · k = Mẹo nhớ · l = Thời lượng vừa vòng 30′
@@ -26,9 +26,9 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 7 | Bộ từ | ngsl2 | A2 | 61 | mẹo nhớ cho từ dễ nhầm (gold "why"): 27% · ví dụ: thiếu collocation/đồng nghĩa |
 | 8 | Bộ từ | ngsl7 | B1 | 61 | mẹo nhớ cho từ dễ nhầm (gold "why"): 3% · ví dụ: thiếu collocation/đồng nghĩa |
 | 9 | Bộ từ | ngsl8 | B1 | 61.1 | mẹo nhớ cho từ dễ nhầm (gold "why"): 6% · ví dụ: thiếu collocation/đồng nghĩa |
-| 10 | Bộ từ | ngsl4 | A2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 16% · ví dụ: thiếu collocation/đồng nghĩa |
-| 11 | Bộ từ | ngsl10 | B2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
-| 12 | Bộ từ | bsl3 | B2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 10 | Bộ từ | ngsl10 | B2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
+| 11 | Bộ từ | bsl3 | B2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 12 | Bộ từ | ngsl4 | A2 | 61.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 17% · ví dụ: thiếu collocation/đồng nghĩa |
 | 13 | Bộ từ | ngsl6 | B1 | 61.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 7% · ví dụ: thiếu collocation/đồng nghĩa |
 | 14 | Bộ từ | ngsl9 | B2 | 61.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 3% · ví dụ: thiếu collocation/đồng nghĩa |
 | 15 | Bộ từ | bsl5 | B2 | 61.4 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
@@ -37,16 +37,16 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 18 | Bộ từ | nawl1 | C1 | 62.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
 | 19 | Bộ từ | office-meeting | B2 | 62.2 | mã hoá kép 56% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 20 | Bộ từ | nawl3 | C1 | 62.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 5% · ví dụ: thiếu collocation/đồng nghĩa |
-| 21 | Bộ từ | nawl2 | C1 | 63.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 9% · ví dụ: thiếu collocation/đồng nghĩa |
-| 22 | Bộ từ | xw-military | C1 | 63.4 | mã hoá kép 56% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 23 | Bộ từ | xw-religion-history | C1 | 64.1 | mã hoá kép 62% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 24 | Bộ từ | xw-actions | B2 | 64.3 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 25 | Bộ từ | nawl4 | C1 | 64.4 | mẹo nhớ cho từ dễ nhầm (gold "why"): 20% · ví dụ: thiếu collocation/đồng nghĩa |
-| 26 | Bộ từ | science | C2 | 64.5 | mã hoá kép 67% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 27 | Bộ từ | xw-people | B2 | 64.5 | mã hoá kép 62% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 28 | Bộ từ | xw-everyday | B2 | 64.7 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 29 | Bộ từ | office-email | B1 | 64.8 | mã hoá kép 54% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 30 | Bộ từ | bộ lẻ (< 10 từ) | C1 | 65.1 | mã hoá kép 62% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 20% · ví dụ: thiếu collocation/đồng nghĩa |
+| 21 | Bộ từ | science | C2 | 63.2 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 22 | Bộ từ | xw-religion-history | C1 | 63.2 | mã hoá kép 60% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 23 | Bộ từ | xw-military | C1 | 63.2 | mã hoá kép 55% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 24 | Bộ từ | nawl2 | C1 | 63.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 9% · ví dụ: thiếu collocation/đồng nghĩa |
+| 25 | Bộ từ | xw-people | B2 | 63.8 | mã hoá kép 60% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 26 | Bộ từ | nawl4 | C1 | 64.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 19% · ví dụ: thiếu collocation/đồng nghĩa |
+| 27 | Bộ từ | xw-everyday | B2 | 64.3 | mã hoá kép 62% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 28 | Bộ từ | xw-actions | B2 | 64.3 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 29 | Bộ từ | health | C1 | 64.4 | mã hoá kép 64% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 30 | Bộ từ | office-email | B1 | 64.8 | mã hoá kép 54% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 
 ## Lỗi theo tiêu chí (số đơn vị < 60 điểm ở tiêu chí đó)
 

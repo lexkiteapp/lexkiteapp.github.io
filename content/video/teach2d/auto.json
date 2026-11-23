@@ -13784,6 +13784,188 @@
    "in": {
     "topic": "traffic"
    }
+  },
+  {
+   "id": "t2s_nocap",
+   "template": "slang",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 1,
+   "area": "phrases",
+   "point": "slang:no cap",
+   "hash": "7de6f3358d00",
+   "heads": [
+    "slang:no cap"
+   ],
+   "taught": [
+    "no cap"
+   ],
+   "facts": {
+    "key": "no cap",
+    "ipa": "/ˌnoʊ ˈkæp/",
+    "mean": "I'm not lying.",
+    "def": "Used to say that you are being completely honest.",
+    "hook": "Best pizza in town. Believe me?",
+    "example": {
+     "ctx": "Texting a friend about lunch",
+     "text": "This pizza is the best in town, no cap."
+    },
+    "quiz": {
+     "ask": "\"No cap\" means…",
+     "options": [
+      "I lost my hat",
+      "I'm telling the truth"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't say 'no cap' about a baseball hat.",
+     "why": "It means 'no lie' in slang."
+    },
+    "expr": "smug",
+    "reg": "very-casual",
+    "region": "US"
+   },
+   "in": {
+    "key": "no cap"
+   }
+  },
+  {
+   "id": "t2s_salty",
+   "template": "slang",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 2,
+   "area": "phrases",
+   "point": "slang:salty",
+   "hash": "bc6ccec7b6e2",
+   "heads": [
+    "slang:salty"
+   ],
+   "taught": [
+    "salty"
+   ],
+   "facts": {
+    "key": "salty",
+    "ipa": "/ˈsɔːlti/",
+    "mean": "Annoyed and a bit bitter.",
+    "def": "Used when someone is upset or bitter, often after losing.",
+    "hook": "He lost, then sulked!",
+    "example": {
+     "ctx": "After a game with friends",
+     "text": "He's salty because I won the card game."
+    },
+    "quiz": {
+     "ask": "If you're \"salty\", you feel…",
+     "options": [
+      "annoyed",
+      "very hungry"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't call your teacher 'salty' for giving homework.",
+     "why": "It sounds disrespectful."
+    },
+    "expr": "furious",
+    "reg": "very-casual",
+    "region": "US"
+   },
+   "in": {
+    "key": "salty"
+   }
+  },
+  {
+   "id": "t2s_imdead",
+   "template": "slang",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 3,
+   "area": "phrases",
+   "point": "slang:i'm dead",
+   "hash": "b1ec3dc53c71",
+   "heads": [
+    "slang:i'm dead"
+   ],
+   "taught": [
+    "I'm dead",
+    "dead"
+   ],
+   "facts": {
+    "key": "I'm dead",
+    "ipa": "/aɪm ˈded/",
+    "mean": "That is so funny!",
+    "def": "Used when something is so funny that you can't stop laughing.",
+    "hook": "The cat jumped in the box!",
+    "example": {
+     "ctx": "Watching a funny video",
+     "text": "The cat jumped in the box. I'm dead!"
+    },
+    "quiz": {
+     "ask": "\"I'm dead\" here means…",
+     "options": [
+      "that's hilarious",
+      "I'm very hungry"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say 'I'm dead' about a sad story.",
+     "why": "It means laughing hard."
+    },
+    "expr": "laugh",
+    "reg": "very-casual",
+    "region": "US"
+   },
+   "in": {
+    "key": "I'm dead"
+   }
+  },
+  {
+   "id": "t2s_pigout",
+   "template": "slang",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 4,
+   "area": "phrases",
+   "point": "slang:pig out",
+   "hash": "6859cf859c75",
+   "heads": [
+    "slang:pig out"
+   ],
+   "taught": [
+    "pig out",
+    "pigged out"
+   ],
+   "facts": {
+    "key": "pig out",
+    "ipa": "/ˈpɪɡ ˈaʊt/",
+    "mean": "Eat way too much.",
+    "def": "To eat a very large amount of food happily.",
+    "hook": "The whole pizza is gone!",
+    "example": {
+     "ctx": "After a party",
+     "text": "We pigged out on pizza last night."
+    },
+    "quiz": {
+     "ask": "To \"pig out\" is to…",
+     "options": [
+      "eat too much",
+      "go to a farm"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't tell your host she made you 'pig out'.",
+     "why": "It sounds like an insult."
+    },
+    "expr": "laugh",
+    "reg": "casual",
+    "region": "US"
+   },
+   "in": {
+    "key": "pig out"
+   }
   }
  ]
 }

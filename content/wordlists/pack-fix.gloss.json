@@ -13,7 +13,9 @@
 "deterrent": "elemento disuasorio",
 "well-being": "bienestar",
 "bond over": "conectar por algo en común",
-"bulk": "la mayor parte"
+"bulk": "la mayor parte",
+"trace": "rastrear, localizar",
+"scheme": "plan, programa"
 },
 "pt": {
 "pregnant": "grávida",
@@ -30,7 +32,9 @@
 "well-being": "bem-estar",
 "consequent": "consequente, lógico",
 "bond over": "criar laços por algo em comum",
-"restrict": "restringir, limitar"
+"restrict": "restringir, limitar",
+"levy": "taxa, imposto",
+"subsequent": "subsequente, posterior"
 },
 "fr": {
 "pregnant": "enceinte",
@@ -48,7 +52,8 @@
 "coherent": "cohérent, logique",
 "eventual": "final, qui survient à terme",
 "bond over": "se rapprocher grâce à",
-"scheme": "plan, dispositif"
+"scheme": "plan, dispositif",
+"instruct": "donner l’ordre, charger de"
 },
 "de": {
 "pregnant": "schwanger",
@@ -65,7 +70,10 @@
 "well-being": "Wohlbefinden",
 "bond over": "sich über etwas näherkommen",
 "scheme": "Programm, Plan",
-"trace": "zurückverfolgen"
+"trace": "zurückverfolgen",
+"reluctance": "Widerwille, Zögern",
+"famine": "Hungersnot",
+"disproportionate": "unverhältnismäßig"
 },
 "id": {
 "pregnant": "hamil",
@@ -81,7 +89,11 @@
 "deterrent": "penangkal, efek jera",
 "well-being": "kesejahteraan",
 "bond over": "menjadi akrab karena minat yang sama",
-"estate": "properti, harta warisan"
+"estate": "properti, harta warisan",
+"input": "masukan",
+"extract": "mengekstrak, mengeluarkan",
+"entity": "entitas, badan",
+"levy": "pungutan"
 },
 "th": {
 "pregnant": "ตั้งครรภ์",
@@ -104,7 +116,13 @@
 "levy": "ภาษี, ค่าธรรมเนียมพิเศษ",
 "entity": "หน่วยงาน, นิติบุคคล",
 "reside": "พำนัก",
-"dynamic": "คึกคัก, มีพลัง"
+"dynamic": "คึกคัก, มีพลัง",
+"presume": "สันนิษฐาน",
+"scenario": "สถานการณ์สมมุติ",
+"random": "สุ่ม",
+"via": "ผ่าน, ทาง",
+"commence": "เริ่ม",
+"incorporate": "รวมเข้าไว้"
 },
 "zh": {
 "pregnant": "怀孕的",
@@ -120,7 +138,12 @@
 "deterrent": "威慑因素",
 "well-being": "幸福、健康",
 "want": "想要",
-"sector": "部门、领域"
+"sector": "部门、领域",
+"supplement": "补充",
+"bulk": "大部分",
+"prime": "主要的",
+"subsequent": "随后的",
+"incline": "倾向于"
 },
 "ja": {
 "pregnant": "妊娠している",
@@ -258,7 +281,11 @@
 "extract": "取り出す、抽出する",
 "sum": "金額、合計",
 "effective immediately": "ただちに有効",
-"visible": "目に見える"
+"visible": "目に見える",
+"scheme": "計画、制度",
+"bureaucracy": "官僚制、お役所仕事",
+"definite": "明確な、確かな",
+"tension": "緊張、対立"
 },
 "ko": {
 "pregnant": "임신한",
@@ -275,7 +302,8 @@
 "well-being": "웰빙, 행복",
 "sum": "금액, 합계",
 "restrict": "제한하다",
-"inevitable": "불가피한, 피할 수 없는"
+"inevitable": "불가피한, 피할 수 없는",
+"via": "경유, ~을 통해"
 },
 "hi": {
 "pregnant": "गर्भवती",
@@ -292,7 +320,16 @@
 "well-being": "कल्याण, सुख-स्वास्थ्य",
 "found": "स्थापना करना",
 "visible": "दिखाई देने वाला",
-"bulk": "अधिकांश हिस्सा"
+"bulk": "अधिकांश हिस्सा",
+"sphere": "क्षेत्र, गोला",
+"simulate": "अनुकरण करना",
+"input": "इनपुट, योगदान",
+"subsequent": "बाद का, परवर्ती",
+"extract": "निकालना",
+"transmit": "भेजना, प्रसारित करना",
+"invoke": "हवाला देना, सहारा लेना",
+"entity": "इकाई",
+"incline": "झुकाव रखना"
 },
 "ar": {
 "pregnant": "حامل",
@@ -308,7 +345,9 @@
 "deterrent": "رادع",
 "well-being": "الرفاهية",
 "bond over": "تقوية العلاقة بفضل اهتمام مشترك",
-"incline": "يميل إلى"
+"incline": "يميل إلى",
+"effective immediately": "سارٍ فورًا، بأثر فوري",
+"invoke": "احتجّ بـ، استند إلى"
 },
 "ru": {
 "pregnant": "беременная",
@@ -323,7 +362,8 @@
 "diet": "рацион, диета",
 "deterrent": "сдерживающий фактор",
 "well-being": "благополучие",
-"want": "хотеть"
+"want": "хотеть",
+"conceive": "задумать, вообразить"
 },
 "tr": {
 "pregnant": "hamile",
@@ -337,6 +377,9 @@
 "respectively": "sırasıyla",
 "diet": "beslenme, diyet",
 "deterrent": "caydırıcı",
-"well-being": "refah, iyi oluş"
+"well-being": "refah, iyi oluş",
+"levy": "harç, ek vergi",
+"conceive": "tasarlamak",
+"input": "girdi, katkı"
 }
 }
