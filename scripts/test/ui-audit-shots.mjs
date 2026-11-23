@@ -76,6 +76,7 @@ for (const [vn, vp] of Object.entries(VPS)) for (const scheme of ['light', 'dark
   // chụp từng bước Welcome rồi hoàn tất
   for (let i = 0; i < 8; i++) {
     const f = `${OUT}/shots/${vn}-${scheme}-welcome_step${i}.jpg`; await page.addStyleTag({ content: still }).catch(() => {});
+    await page.evaluate(() => { const t = document.getElementById('toast'); if (t) { t.classList.remove('show'); t._msg = null; } }).catch(() => {}); // toast 'Chế độ thử nghiệm' của ?sandbox=1 không che bước Welcome
     await page.screenshot({ path: f, type: 'jpeg', quality: 70 }).catch(() => {}); shots.push({ vn, scheme, name: 'welcome step ' + i, f });
     const mm = await measure(page);
     // chữ bị nút dính (CTA) che khi đã cuộn tới đáy: mỗi bước Welcome không được có chữ bị che
@@ -89,6 +90,7 @@ for (const [vn, vp] of Object.entries(VPS)) for (const scheme of ['light', 'dark
     errs.length = 0;
     try {
       await page.keyboard.press('Shift').catch(() => {});
+      await page.evaluate(() => { try { window.UI && UI.closeModal && UI.closeModal(); const t = document.getElementById('toast'); if (t) { t.classList.remove('show'); t._msg = null; } } catch (e) { /* bỏ qua */ } }); // rà soát 23/11: modal/toast của trạng thái trước không rò sang ảnh sau (me_signed hiện 'Locked day' giả; toast thử nghiệm che welcome)
       await page.evaluate(h => { location.hash = h; scrollTo(0, 0); }, '#/' + r); await page.waitForTimeout(1100);
       await page.addStyleTag({ content: still }).catch(() => {});
       if (st) await page.evaluate(async k => { const U = window.UI || {}; if (k === 'examsheet' && window.App) window.App.examPicker(); if (k === 'langsheet' && window.TLPick) window.TLPick.open(); if (k === 'toast' && U.toast) U.toast('Saved to your deck — a longer notification text to check wrapping', 15000); if (k === 'modal' && U.modal) U.modal('<h3>Locked day</h3><p>Complete the previous day first to unlock this day.</p><button class="btn primary">OK</button>'); if (k === 'signed' && window.Sync) { window.Sync.user = window.Sync.user || { uid: 'ua', displayName: 'Audit Learner', email: 'audit@example.com' }; const h = location.hash; location.hash = '#/home'; await new Promise(q => setTimeout(q, 300)); location.hash = h; await new Promise(q => setTimeout(q, 1000)); } }, st).catch(() => {});
@@ -114,7 +116,7 @@ for (const vn of ['m', 'd']) for (const scheme of ['light', 'dark']) {
   for (const area of [...new Set(arr.map(s => areaOf(s.name)))]) {
     const inArea = arr.filter(s => areaOf(s.name) === area);
     for (let i = 0, k = 1; i < inArea.length; i += 12, k++) {
-      const chunk = inArea.slice(i, i + 12), cols = vn === 'm' ? 6 : 4;
+      const chunk = inArea.slice(i, i + 12), cols = VPS[vn].width < 700 ? 6 : 4;
       const cells = chunk.map(s => { const m = cellOf.get(s.f) || {}, sev = rank(m.issues || []), col = sev === 'high' || sev === 'medium' ? '#e11' : sev === 'low' ? '#e90' : '#444';
         return `<figure style="margin:0;background:#fff;outline:${sev === 'high' || sev === 'medium' ? 5 : 2}px solid ${col};outline-offset:-1px"><figcaption style="background:${col};color:#fff;padding:3px 5px;font-weight:600">${s.name} · ${vp.width}×${vp.height} · ${scheme}${(m.issues || []).length ? ` · ⚠${m.issues.length}` : ''}</figcaption><img style="width:100%;display:block" src="data:image/jpeg;base64,${fs.readFileSync(s.f).toString('base64')}"></figure>`; });
       const html = `<body style="margin:0;background:#777;font:13px sans-serif"><div style="display:grid;grid-template-columns:repeat(${cols},1fr);gap:6px;padding:6px">${cells.join('')}</div>`;
@@ -130,7 +132,7 @@ for (const vn of ['m', 'd']) for (const scheme of ['light', 'dark']) {
 await browser.close();
 // ── report.md: lỗi xếp theo mức, mỗi dòng chỉ tờ chứa ô ──
 const sheetOf = new Map(); for (const sh of sheetsOut) for (const n of sh.names) sheetOf.set(sh.file.split('-').slice(0, 2).join('-') + '|' + n, sh.file);
-const rows = []; for (const m of metrics) for (const i of m.issues) rows.push({ ...i, route: m.route, vp: m.vn === 'm' ? '375' : '1440', scheme: m.scheme, sheet: sheetOf.get(`${m.vn}-${m.scheme}|${m.route}`) || '' });
+const rows = []; for (const m of metrics) for (const i of m.issues) rows.push({ ...i, route: m.route, vp: String(VPS[m.vn].width), scheme: m.scheme, sheet: sheetOf.get(`${m.vn}-${m.scheme}|${m.route}`) || '' });
 rows.sort((a, b) => SEV_ORDER.indexOf(a.sev) - SEV_ORDER.indexOf(b.sev));
 const cnt = s => rows.filter(r => r.sev === s).length, cells = metrics.length, badCells = metrics.filter(m => m.issues.some(i => i.sev !== 'low')).length;
 const md = [`# UI audit – ${new Date().toISOString().slice(0, 10)} (${LANG})`, '', `${cells} ô · ${badCells} ô có lỗi cao/trung · 🔴 cao ${cnt('high')} · 🟠 trung ${cnt('medium')} · 🟡 thấp ${cnt('low')} · tờ có ô đỏ: ${flaggedSheets.length}/${sheetsOut.length}`, '',
