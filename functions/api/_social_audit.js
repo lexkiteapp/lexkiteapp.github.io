@@ -1,6 +1,6 @@
 /* Máy gác ĐÚNG page · ĐÚNG ngôn ngữ · ĐÚNG giờ cao điểm (chủ 23/11: lịch đăng loạn, sai page/kênh, sai giờ). Hàm thuần `auditPosts` (test: scripts/test/social-audit.mjs) + op 'audit' của /api/social-auto (chỉ ĐỌC D1,
  * 0 lượt GrabCast) + CI social-coverage.yml (đỏ khi còn lệch) + cổng trước khi xếp/đẩy bài (`postViolation`). Một nguồn giờ cao điểm: PEAK_WINDOWS (_distribution.js). */
-import { localDate, localHM, normCfg, langOfChannel, LANG_TZ, foreignAccount, isMainLang, MAIN_DAY, PEAK_WINDOWS, peakOk } from './_distribution.js';
+import { localDate, localHM, normCfg, capCfg, langOfChannel, LANG_TZ, foreignAccount, isMainLang, MAIN_DAY, PEAK_WINDOWS, peakOk } from './_distribution.js';
 
 const norm = t => String(t || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 /** ngôn ngữ của clip: trường lang của manifest, không có thì suy từ id t2_l1_<lang>_… (clip bản ngữ), còn lại 'en'. */
@@ -15,12 +15,12 @@ export function postViolation(chan, clip, atMs) {
 /** posts: [{platform, channel_id, clip, ms, state}], chans: Map(channel_id → {title, platform, cfg}), clips: Map(id → {lang,title}). */
 export function auditPosts({ posts, chans, clips, now = Date.now(), days = 14 }) {
   const bad = [], add = (p, code, detail, ch) => bad.push({ platform: ch.platform, channel_id: p.channel_id, title: ch.title, clip: p.clip, at: new Date(p.ms).toISOString(), code, detail }), lim = now + days * 864e5;
-  const info = new Map(); for (const [id, c] of chans) { const cfg = normCfg(c.cfg || {}), lang = cfg.lang || langOfChannel(c.title) || 'en'; info.set(id, { ...c, lang, tz: (c.cfg && c.cfg.tz && cfg.tz) || LANG_TZ[lang] || cfg.tz, declared: cfg.lang, titleLang: langOfChannel(c.title) }); }
+  const info = new Map(); for (const [id, c] of chans) { const cfg = normCfg(c.cfg || {}), lang = cfg.lang || langOfChannel(c.title) || 'en'; info.set(id, { ...c, lang, tz: capCfg({ ...cfg, lang }).tz, rawTz: c.cfg && c.cfg.tz, declared: cfg.lang, titleLang: langOfChannel(c.title) }); }
   const per = new Map(), seenClip = new Set(), seenTitle = new Set();
   for (const [id, ch] of info) {
     const p0 = { channel_id: id, clip: '', ms: now };
     if (ch.declared && ch.titleLang && ch.declared !== ch.titleLang) add(p0, 'map-lang', `cấu hình ${ch.declared} ≠ tên kênh ${ch.titleLang}`, ch);
-    if (ch.tz !== (LANG_TZ[ch.lang] || ch.tz)) add(p0, 'map-tz', `múi giờ ${ch.tz} ≠ thị trường ${LANG_TZ[ch.lang]}`, ch);
+    if (ch.rawTz !== LANG_TZ[ch.lang]) add(p0, 'map-tz', `múi giờ cấu hình ${ch.rawTz || '(trống → mặc định NY)'} ≠ thị trường ${LANG_TZ[ch.lang]}`, ch);
   }
   for (const p of posts) {
     if (p.ms < now || p.ms > lim) continue; const ch = info.get(p.channel_id); if (!ch) continue;

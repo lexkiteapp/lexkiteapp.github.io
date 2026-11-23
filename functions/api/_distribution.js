@@ -7,11 +7,12 @@ export const SOCIAL_DAY_MAX = 3; // trần tuyệt đối (kênh CHÍNH); kênh 
 /** Chủ 18/11: kênh CHÍNH (tiếng Anh: Lexkite English FB/IG/TikTok/YouTube) 2–3 bài/ngày, giãn ≥ 4 giờ; kênh bản ngữ 1 bài/ngày. MỘT nguồn cho planner, bước gửi và dời bài. */
 export const MAIN_DAY = { min: 2, max: 3, gap_min: 240 }, NATIVE_DAY = 1;
 /** Giờ cao điểm theo giờ ĐỊA PHƯƠNG của thị trường (chủ 23/11: đăng đúng giờ người học online – nghỉ trưa + tối). MỘT nguồn: planner YouTube, schedule() social, máy gác _social_audit.js. Dung sai ±30 phút (jitter ±20). */
-export const PEAK_WINDOWS = [['11:30', '14:00'], ['18:00', '22:30']];
+export const PEAK_WINDOWS = [['11:30', '14:00'], ['17:30', '22:30']];
 export const peakOk = (ms, tz, tol = 30) => { const [h, m] = localHM(ms, tz).split(':').map(Number), t = h * 60 + m, mm = x => +x.slice(0, 2) * 60 + +x.slice(3); return PEAK_WINDOWS.some(([f, e]) => t >= mm(f) - tol && t <= mm(e) + tol); };
 export const isMainLang = lang => !lang || lang === 'en';
 export const dayCapOf = (lang, cap) => isMainLang(lang) ? Math.min(MAIN_DAY.max, Math.max(MAIN_DAY.min, Math.floor(+cap) || 0)) : NATIVE_DAY;
-export const capCfg = c => c.role === 'embed' ? c : { ...c, daily_cap: dayCapOf(c.lang, c.daily_cap), min_gap_min: gapOf(c.lang, c.min_gap_min) };
+/** Kênh social: trần bài/ngày + giãn theo loại kênh; 23/11 thêm GIỜ CAO ĐIỂM (PEAK_WINDOWS) và MÚI GIỜ THỊ TRƯỜNG của ngôn ngữ kênh (LANG_TZ) – cấu hình cũ lệch (09–21 h, múi NY mặc định cho page tiếng Việt…) không còn đẻ ra bài sai giờ. */
+export const capCfg = c => c.role === 'embed' ? c : { ...c, daily_cap: dayCapOf(c.lang, c.daily_cap), min_gap_min: gapOf(c.lang, c.min_gap_min), windows: PEAK_WINDOWS.map(([from, to]) => ({ from, to })), tz: LANG_TZ[c.lang || 'en'] || c.tz };
 export const gapOf = (lang, gap) => isMainLang(lang) ? Math.max(MAIN_DAY.gap_min, Math.floor(+gap) || 0) : Math.max(0, Math.floor(+gap) || 0);
 export const DEFAULT_CFG = { role: 'social', types: [], topics: [], skills: [], cefr: [], regions: [], lang: '', daily_cap: 2, min_gap_min: 240, windows: [{ from: '09:00', to: '21:00' }], tz: 'America/New_York', active: 1 };
 const list = v => (Array.isArray(v) ? v : typeof v === 'string' ? v.split(/[,\s]+/) : []).map(x => String(x).trim()).filter(Boolean);

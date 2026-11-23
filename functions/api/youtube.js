@@ -18,7 +18,7 @@
  *   matches the description marker "lk:<clip>", checks unlisted/public + processing done + duration → status 'done' → op ids → web manifest
  *   embeds YouTube exactly like an API upload. 'api': the resumable upload path above (needs youtube.upload). Never browser bots / cookies. */
 import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
-import { healthVerdict, localDate, localHM, normCfg, capCfg, pickEmbed, validTz } from './_distribution.js';
+import { healthVerdict, localDate, localHM, normCfg, capCfg, pickEmbed, validTz, LANG_TZ, zonedToMs } from './_distribution.js';
 import { guardBg } from './_d1guard.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
@@ -432,13 +432,16 @@ const ADMIN_OPS = {
   },
 };
 
-/** Local publish slots per day (stagger, 09–21 h local like the social schedule); UTC offsets are fixed means (no DST drift needed for a daily slot). */
-export const YT_TZ = { en: -5, vi: 7, pt: -3, es: -5, de: 1, fr: 1, ja: 9, ko: 9, zh: 8, hi: 5.5, ar: 3, tr: 3, ru: 3 };
-export const YT_SLOTS = [[10, 0], [14, 20], [18, 40], [12, 10], [16, 30], [20, 0]];
-/** i-th clip of a channel → ISO publishAt: perDay clips a day, day d = 1.. (never in the past), slot offset rotates per channel so channels do not post at the same minute. */
+/** Giờ đăng YouTube trực tiếp = GIỜ ĐỊA PHƯƠNG THẬT của thị trường (LANG_TZ, có DST, đủ 15 ngôn ngữ – trước 23/11: bảng chênh lệch cố định thiếu id/th, es lệch 1 giờ, de/fr không theo mùa hè) và LUÔN trong giờ cao điểm (PEAK_WINDOWS, máy gác _social_audit.js).
+ * Kênh bản ngữ 1 bài/ngày: mỗi kênh một giờ cố định trong YT_SLOTS (xoay theo id để các kênh không trùng phút). Kênh chính ≥ 2 bài/ngày: MAIN_SLOTS cách nhau ≥ 4 giờ (MAIN_DAY.gap_min). */
+export const YT_SLOTS = [[12, 10], [19, 40], [20, 30], [18, 10], [13, 20], [21, 10]];
+export const MAIN_SLOTS = [[12, 0], [17, 40], [21, 50]];
+export const ytTz = lang => LANG_TZ[lang] || LANG_TZ.en;
+/** i-th clip of a channel → ISO publishAt: perDay clips a day, day d = 1.. (never in the past, theo NGÀY địa phương của kênh), slot rotates per channel so channels do not post at the same minute. */
 export function slotAt(i, perDay, lang, now = Date.now(), rot = 0) {
-  const n = Math.max(1, Math.min(YT_SLOTS.length, perDay | 0)), d = Math.floor(i / n) + 1, [h, m] = YT_SLOTS[(i % n + rot) % YT_SLOTS.length], off = YT_TZ[lang] ?? 0;
-  const base = new Date(now + d * 864e5); return new Date(Date.UTC(base.getUTCFullYear(), base.getUTCMonth(), base.getUTCDate(), h, m) - off * 36e5).toISOString();
+  const n = Math.max(1, Math.min(MAIN_SLOTS.length, perDay | 0)), d = Math.floor(i / n) + 1, tz = ytTz(lang), pad = x => String(x).padStart(2, '0');
+  const [h, m0] = n > 1 ? MAIN_SLOTS[i % n] : YT_SLOTS[((i % n) + rot) % YT_SLOTS.length], t = h * 60 + m0 + (n > 1 ? (rot % 6) * 3 : 0);   // kênh chính: lệch phút theo kênh (≤ 15') để không trùng phút
+  return new Date(zonedToMs(localDate(now + d * 864e5, tz), pad(Math.floor(t / 60)) + ':' + pad(t % 60), tz)).toISOString();
 }
 /** The connected channel for a clip language: the channel whose yt_chan_cfg.cfg.lang matches; English falls back to the default channel; other languages without a channel → null (never post a clip on a channel of another language). */
 export async function chanForLang(db, lang) {
@@ -490,7 +493,7 @@ const CLI_OPS = {
     const held = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review')).map(r => [r.clip, r])), byId = new Map(items.map(it => [it.id, it]));
     for (const ch of await channelsOk(db)) {
       const x = await chanCfg(db, ch.channel_id); if (!x.explicit_lang || x.cfg.active === 0) continue;
-      const lang = x.cfg.lang, off = YT_TZ[lang] ?? 0, rot = (ch.id || 0) % YT_SLOTS.length, key = ms => new Date(ms + off * 36e5).toISOString().slice(0, 10);
+      const lang = x.cfg.lang, tz = ytTz(lang), rot = (ch.id || 0) % YT_SLOTS.length, key = ms => localDate(ms, tz);
       // Lịch theo NGÀY thật trong cửa sổ `days` (không đếm số hàng: hàng hẹn quá cửa sổ / trùng ngày làm 30 ngày đầu vẫn trống – 21/11): ngày trống = ngày mục tiêu chưa có hàng queued/uploading/done.
       const targets = Array.from({ length: days }, (_, i) => { const pa = slotAt(i, 1, lang, now, rot); return { pa, k: key(Date.parse(pa)) }; }), tkeys = new Set(targets.map(t => t.k));
       const rows = await all(db, "SELECT clip, status, publish_at FROM yt_queue WHERE channel_id = ? AND status IN ('queued', 'uploading', 'done') AND publish_at > ? ORDER BY publish_at", ch.channel_id, iso), covered = new Set(), movable = [];
