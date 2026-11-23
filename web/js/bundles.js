@@ -107,7 +107,7 @@
     lsw: ['js/lang-menu.js'],
     tlpick: ['js/i18n/en/tlui.js', 'cpack/tl-app/tl-pick.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
-    gend: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-complete.js', 'js/game-end.js'], // 🏁 màn kết mini-game chung (khung Stitch lesson-complete, docs/specs/game-system.md P3)
+    gend: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-complete.js', 'cpack/game/game-end.js'], // 🏁 màn kết mini-game chung (khung Stitch lesson-complete, docs/specs/game-system.md P3)
     pxw: ['js/i18n/en/rhythm.js', 'js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'cpack/game/game-crossword.js', 'cpack/play-app/xw-core.js', 'cpack/play-app/play-crossword.js'], // 🧩 Ô chữ mỗi ngày (game-system P5; khung Stitch game-crossword)
     ppm: ['js/i18n/en/rhythm.js', 'js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'cpack/game/game-picmatch.js', 'cpack/play-app/play-picmatch.js'], // 🖼️ Ghép tranh (game-system P5b; khung Stitch game-picmatch, ảnh = gói vimg)
     pgames: ['js/i18n/en/rhythm.js', 'js/study-games.js', 'js/pron/coach.js', 'cpack/play-app/play-blitz.js', 'cpack/play-app/play-rhythm.js'], // ⚡ Thử thách 60 giây (docs/specs/play-learn.md)
