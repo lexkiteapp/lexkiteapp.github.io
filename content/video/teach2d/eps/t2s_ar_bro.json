@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ar_bro",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 49,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thanks for saving my homework!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bro!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A friendly word for a friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Thanks, bro, you saved me!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "bro",
+  "forms": [],
+  "ipa": "/ˈbroʊ/",
+  "mean": "A friendly word for a friend.",
+  "define": "Casual slang used for a friend or buddy.",
+  "vi": "Ông bạn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "A2",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Thanks, bro, you saved me!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bro\" means…",
+   "options": [
+    "a brother only",
+    "a friend"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your grandma 'bro'.",
+   "why": "It sounds disrespectful and odd."
+  },
+  "l1": "أخ",
+  "l1_hook": "شكرًا لإنقاذك واجبي! \"bro\"",
+  "l1_ex": "شكرًا، \"bro\"، أنقذتني!",
+  "right": "bro",
+  "native": {
+   "hook": "ما معنى “bro”؟",
+   "tip": "“bro” = أخ. مثال: “Thanks, bro, you saved me!”",
+   "caption": "ما معنى “bro”؟\n“bro” = أخ.\nمثال: “Thanks, bro, you saved me!” (شكرًا، \"bro\"، أنقذتني!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “bro” = أخ. “Thanks, bro, you saved me!” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Thanks for saving my homework!"
+ },
+ "src": {
+  "slang": "bro"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "ما معنى “bro”؟",
+  "keyword": "bro",
+  "value": "“bro” = أخ. مثال: “Thanks, bro, you saved me!”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “bro”؟",
+    "description": "“bro” = أخ. مثال: “Thanks, bro, you saved me!”\n\nما معنى “bro”؟\n“bro” = أخ.\nمثال: “Thanks, bro, you saved me!” (شكرًا، \"bro\"، أنقذتني!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "bro",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “bro”؟\n“bro” = أخ.\nمثال: “Thanks, bro, you saved me!” (شكرًا، \"bro\"، أنقذتني!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “bro”؟\n\n“bro” = أخ. مثال: “Thanks, bro, you saved me!”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “bro”؟ “bro” = أخ. مثال: “Thanks, bro, you saved me!” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “bro” = أخ. “Thanks, bro, you saved me!” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

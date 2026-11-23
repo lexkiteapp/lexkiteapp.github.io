@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_earlybird",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 115,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My dad's up at five!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Early bird!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A person who wakes up early.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My dad is an early bird.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "early bird",
+  "forms": [
+   "early birds"
+  ],
+  "ipa": "/ˈɜːrli ˈbɜːrd/",
+  "mean": "A person who wakes up early.",
+  "define": "Someone who likes to get up and start early.",
+  "vi": "Người dậy sớm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about habits",
+   "text": "My dad is an early bird."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "An \"early bird\" is…",
+   "options": [
+    "a bird",
+    "an early riser"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a late sleeper an 'early bird'.",
+   "why": "It means someone who wakes early."
+  },
+  "l1": "sabah kuşu",
+  "l1_hook": "Babam beşte kalkıyor! \"early bird\"",
+  "l1_ex": "Babam bir \"early bird\".",
+  "right": "early bird",
+  "native": {
+   "hook": "“early bird” ne demek?",
+   "tip": "“early bird” = sabah kuşu. Örnek: “My dad is an early bird.”",
+   "caption": "“early bird” ne demek?\n“early bird” = sabah kuşu.\nÖrnek: “My dad is an early bird.” (Babam bir \"early bird\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “early bird” = sabah kuşu. “My dad is an early bird.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My dad's up at five!"
+ },
+ "src": {
+  "slang": "early bird"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“early bird” ne demek?",
+  "keyword": "early bird",
+  "value": "“early bird” = sabah kuşu. Örnek: “My dad is an early bird.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“early bird” ne demek?",
+    "description": "“early bird” = sabah kuşu. Örnek: “My dad is an early bird.”\n\n“early bird” ne demek?\n“early bird” = sabah kuşu.\nÖrnek: “My dad is an early bird.” (Babam bir \"early bird\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "early bird",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“early bird” ne demek?\n“early bird” = sabah kuşu.\nÖrnek: “My dad is an early bird.” (Babam bir \"early bird\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“early bird” ne demek?\n\n“early bird” = sabah kuşu. Örnek: “My dad is an early bird.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“early bird” ne demek? “early bird” = sabah kuşu. Örnek: “My dad is an early bird.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “early bird” = sabah kuşu. “My dad is an early bird.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

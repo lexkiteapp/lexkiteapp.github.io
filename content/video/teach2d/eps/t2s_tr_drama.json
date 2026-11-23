@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_drama",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 64,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Group chat exploded over nothing!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Drama!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fuss and arguments about small things.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I don't want any drama this year.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "drama",
+  "forms": [
+   "dramatic"
+  ],
+  "ipa": "/ˈdrɑːmə/",
+  "mean": "Fuss and arguments about small things.",
+  "define": "Needless trouble or arguments between people.",
+  "vi": "Drama nổ trời",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about school",
+   "text": "I don't want any drama this year."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Drama\" here means…",
+   "options": [
+    "fuss and arguments",
+    "a theater play"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your friend's real problem 'drama'.",
+   "why": "It makes serious feelings sound silly."
+  },
+  "l1": "drama",
+  "l1_hook": "Grup sohbeti hiçbir şey yüzünden patladı! \"drama\"",
+  "l1_ex": "Bu yıl hiçbir \"drama\" istemiyorum.",
+  "right": "drama",
+  "native": {
+   "hook": "“drama” ne demek?",
+   "tip": "“drama” = drama. Örnek: “I don't want any drama this year.”",
+   "caption": "“drama” ne demek?\n“drama” = drama.\nÖrnek: “I don't want any drama this year.” (Bu yıl hiçbir \"drama\" istemiyorum.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “drama” = drama. “I don't want any drama this year.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Group chat exploded over nothing!"
+ },
+ "src": {
+  "slang": "drama"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "“drama” ne demek?",
+  "keyword": "drama",
+  "value": "“drama” = drama. Örnek: “I don't want any drama this year.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“drama” ne demek?",
+    "description": "“drama” = drama. Örnek: “I don't want any drama this year.”\n\n“drama” ne demek?\n“drama” = drama.\nÖrnek: “I don't want any drama this year.” (Bu yıl hiçbir \"drama\" istemiyorum.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "drama",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“drama” ne demek?\n“drama” = drama.\nÖrnek: “I don't want any drama this year.” (Bu yıl hiçbir \"drama\" istemiyorum.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“drama” ne demek?\n\n“drama” = drama. Örnek: “I don't want any drama this year.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“drama” ne demek? “drama” = drama. Örnek: “I don't want any drama this year.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “drama” = drama. “I don't want any drama this year.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_es_epicfail",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 90,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My cake collapsed. Everyone watched!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Epic fail!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A big, funny failure.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My cake fell flat. Total epic fail!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "epic fail",
+  "forms": [],
+  "ipa": "/ˌepɪk ˈfeɪl/",
+  "mean": "A big, funny failure.",
+  "define": "A mistake or failure that is so big it is almost funny.",
+  "vi": "Thất bại hoành tráng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Looking at a kitchen mess",
+   "text": "My cake fell flat. Total epic fail!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "An \"epic fail\" is a…",
+   "options": [
+    "great success",
+    "big failure"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's loss an 'epic fail'.",
+   "why": "It sounds like mocking them."
+  },
+  "l1": "fracaso épico",
+  "l1_hook": "¡Mi pastel se derrumbó! Todos lo vieron.",
+  "l1_ex": "Mi pastel quedó plano. ¡Total \"epic fail\"!",
+  "right": "epic fail",
+  "native": {
+   "hook": "¿Qué significa “epic fail”?",
+   "tip": "“epic fail” = fracaso épico. Ejemplo: “My cake fell flat. Total epic fail!”",
+   "caption": "¿Qué significa “epic fail”?\n“epic fail” = fracaso épico.\nEjemplo: “My cake fell flat. Total epic fail!” (Mi pastel quedó plano. ¡Total \"epic fail\"!)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “epic fail” = fracaso épico. “My cake fell flat. Total epic fail!” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My cake collapsed. Everyone watched!"
+ },
+ "src": {
+  "slang": "epic fail"
+ },
+ "lang": "es",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "¿Qué significa “epic fail”?",
+  "keyword": "epic fail",
+  "value": "“epic fail” = fracaso épico. Ejemplo: “My cake fell flat. Total epic fail!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “epic fail”?",
+    "description": "“epic fail” = fracaso épico. Ejemplo: “My cake fell flat. Total epic fail!”\n\n¿Qué significa “epic fail”?\n“epic fail” = fracaso épico.\nEjemplo: “My cake fell flat. Total epic fail!” (Mi pastel quedó plano. ¡Total \"epic fail\"!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "epic fail",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “epic fail”?\n“epic fail” = fracaso épico.\nEjemplo: “My cake fell flat. Total epic fail!” (Mi pastel quedó plano. ¡Total \"epic fail\"!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “epic fail”?\n\n“epic fail” = fracaso épico. Ejemplo: “My cake fell flat. Total epic fail!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “epic fail”? “epic fail” = fracaso épico. Ejemplo: “My cake fell flat. Total epic fail!” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “epic fail” = fracaso épico. “My cake fell flat. Total epic fail!” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

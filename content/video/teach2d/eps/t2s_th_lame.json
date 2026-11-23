@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_lame",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 82,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Party ended at eight. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Lame!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Boring or disappointing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That party was kind of lame.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "lame",
+  "forms": [],
+  "ipa": "/ˈleɪm/",
+  "mean": "Boring or disappointing.",
+  "define": "Used for things that are dull or not cool.",
+  "vi": "Nhạt, dở ẹc",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Leaving a party",
+   "text": "That party was kind of lame."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Lame\" means…",
+   "options": [
+    "exciting",
+    "dull"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's idea 'lame' in front of everyone.",
+   "why": "It sounds hurtful."
+  },
+  "l1": "น่าเบื่อ",
+  "l1_hook": "งานเลี้ยงจบตอนแปดโมงแล้ว จริงเหรอ?",
+  "l1_ex": "งานปาร์ตี้นั้น \"lame\" ครับ.",
+  "right": "lame",
+  "native": {
+   "hook": "“lame” แปลว่าอะไร?",
+   "tip": "“lame” = น่าเบื่อ. ตัวอย่าง: “That party was kind of lame.”",
+   "caption": "“lame” แปลว่าอะไร?\n“lame” = น่าเบื่อ.\nตัวอย่าง: “That party was kind of lame.” (งานปาร์ตี้นั้น \"lame\" ครับ.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “lame” = น่าเบื่อ. “That party was kind of lame.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Party ended at eight. Seriously?"
+ },
+ "src": {
+  "slang": "lame"
+ },
+ "lang": "th",
+ "est": {
+  "words": 17,
+  "seconds": 10.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“lame” แปลว่าอะไร?",
+  "keyword": "lame",
+  "value": "“lame” = น่าเบื่อ. ตัวอย่าง: “That party was kind of lame.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“lame” แปลว่าอะไร?",
+    "description": "“lame” = น่าเบื่อ. ตัวอย่าง: “That party was kind of lame.”\n\n“lame” แปลว่าอะไร?\n“lame” = น่าเบื่อ.\nตัวอย่าง: “That party was kind of lame.” (งานปาร์ตี้นั้น \"lame\" ครับ.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "lame",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“lame” แปลว่าอะไร?\n“lame” = น่าเบื่อ.\nตัวอย่าง: “That party was kind of lame.” (งานปาร์ตี้นั้น \"lame\" ครับ.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“lame” แปลว่าอะไร?\n\n“lame” = น่าเบื่อ. ตัวอย่าง: “That party was kind of lame.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“lame” แปลว่าอะไร? “lame” = น่าเบื่อ. ตัวอย่าง: “That party was kind of lame.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “lame” = น่าเบื่อ. “That party was kind of lame.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

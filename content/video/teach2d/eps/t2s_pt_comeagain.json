@@ -1,0 +1,150 @@
+{
+ "id": "t2s_pt_comeagain",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 94,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry, the music's too loud!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Come again!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Please say that again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Come again? It's too loud here.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "come again",
+  "forms": [],
+  "ipa": "/ˈkʌm əˈɡen/",
+  "mean": "Please say that again.",
+  "define": "A casual way to ask someone to repeat.",
+  "vi": "Nói lại đi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Talking in a noisy café",
+   "text": "Come again? It's too loud here."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "visit again",
+    "say it again"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'come again' when you heard clearly.",
+   "why": "It sounds like a challenge."
+  },
+  "l1": "Pode repetir?",
+  "l1_hook": "Desculpa, a música está muito alta! \"come again\"",
+  "l1_ex": "\"come again\"? Está muito barulhento aqui.",
+  "right": "come again",
+  "native": {
+   "hook": "O que significa “come again”?",
+   "tip": "“come again” = Pode repetir?. Exemplo: “Come again? It's too loud here.”",
+   "caption": "O que significa “come again”?\n“come again” = Pode repetir?.\nExemplo: “Come again? It's too loud here.” (\"come again\"? Está muito barulhento aqui.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “come again” = Pode repetir?. “Come again? It's too loud here.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sorry, the music's too loud!"
+ },
+ "src": {
+  "slang": "come again"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "O que significa “come again”?",
+  "keyword": "come again",
+  "value": "“come again” = Pode repetir?. Exemplo: “Come again? It's too loud here.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “come again”?",
+    "description": "“come again” = Pode repetir?. Exemplo: “Come again? It's too loud here.”\n\nO que significa “come again”?\n“come again” = Pode repetir?.\nExemplo: “Come again? It's too loud here.” (\"come again\"? Está muito barulhento aqui.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "come again",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “come again”?\n“come again” = Pode repetir?.\nExemplo: “Come again? It's too loud here.” (\"come again\"? Está muito barulhento aqui.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “come again”?\n\n“come again” = Pode repetir?. Exemplo: “Come again? It's too loud here.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “come again”? “come again” = Pode repetir?. Exemplo: “Come again? It's too loud here.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “come again” = Pode repetir?. “Come again? It's too loud here.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

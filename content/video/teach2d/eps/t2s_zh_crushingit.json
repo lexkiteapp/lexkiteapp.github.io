@@ -1,0 +1,152 @@
+{
+ "id": "t2s_zh_crushingit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 74,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "First week, already top seller!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Crushing it!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "You're doing great.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You're crushing it at your new job!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "crushing it",
+  "forms": [
+   "crush it"
+  ],
+  "ipa": "/ˈkrʌʃɪŋ ɪt/",
+  "mean": "You're doing great.",
+  "define": "Used when someone is doing really well at something.",
+  "vi": "Làm đỉnh quá",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "praise",
+  "example": {
+   "ctx": "Praising a friend",
+   "text": "You're crushing it at your new job!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Crushing it\" means…",
+   "options": [
+    "doing great",
+    "breaking it"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell a struggling friend 'crushing it' sarcastically.",
+   "why": "It sounds mocking."
+  },
+  "l1": "干得好",
+  "l1_hook": "第一周就已经是 top seller，真是 crushing it！",
+  "l1_ex": "你在新工作上真是 crushing it！",
+  "right": "crushing it",
+  "native": {
+   "hook": "“crushing it”是什么意思？",
+   "tip": "“crushing it” = 干得好. 例句: “You're crushing it at your new job!”",
+   "caption": "“crushing it”是什么意思？\n“crushing it” = 干得好.\n例句: “You're crushing it at your new job!” (你在新工作上真是 crushing it！)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “crushing it” = 干得好. “You're crushing it at your new job!” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "First week, already top seller!"
+ },
+ "src": {
+  "slang": "crushing it"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“crushing it”是什么意思？",
+  "keyword": "crushing it",
+  "value": "“crushing it” = 干得好. 例句: “You're crushing it at your new job!”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“crushing it”是什么意思？",
+    "description": "“crushing it” = 干得好. 例句: “You're crushing it at your new job!”\n\n“crushing it”是什么意思？\n“crushing it” = 干得好.\n例句: “You're crushing it at your new job!” (你在新工作上真是 crushing it！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "crushing it",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“crushing it”是什么意思？\n“crushing it” = 干得好.\n例句: “You're crushing it at your new job!” (你在新工作上真是 crushing it！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“crushing it”是什么意思？\n\n“crushing it” = 干得好. 例句: “You're crushing it at your new job!”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“crushing it”是什么意思？ “crushing it” = 干得好. 例句: “You're crushing it at your new job!” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “crushing it” = 干得好. “You're crushing it at your new job!” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

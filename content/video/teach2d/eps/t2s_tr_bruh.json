@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_bruh",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 56,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You forgot your homework again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bruh!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I can't believe it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Bruh, you forgot your homework again?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "bruh",
+  "forms": [
+   "bro"
+  ],
+  "ipa": "/ˈbrʌ/",
+  "mean": "I can't believe it.",
+  "define": "A short reaction to something silly or unbelievable.",
+  "vi": "Trời ơi, thiệt hả bro",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Reacting to a mistake",
+   "text": "Bruh, you forgot your homework again?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bruh\" shows…",
+   "options": [
+    "joy",
+    "disbelief"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'bruh' to your boss.",
+   "why": "It sounds disrespectful."
+  },
+  "l1": "ya",
+  "l1_hook": "\\\"Bruh\\\", ödevini yine unuttun mu?",
+  "l1_ex": "\\\"Bruh\\\", ödevini yine unuttun mu?",
+  "right": "bruh",
+  "native": {
+   "hook": "“bruh” ne demek?",
+   "tip": "“bruh” = ya. Örnek: “Bruh, you forgot your homework again?”",
+   "caption": "“bruh” ne demek?\n“bruh” = ya.\nÖrnek: “Bruh, you forgot your homework again?” (\\\"Bruh\\\", ödevini yine unuttun mu?)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “bruh” = ya. “Bruh, you forgot your homework again?” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You forgot your homework again?"
+ },
+ "src": {
+  "slang": "bruh"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“bruh” ne demek?",
+  "keyword": "bruh",
+  "value": "“bruh” = ya. Örnek: “Bruh, you forgot your homework again?”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“bruh” ne demek?",
+    "description": "“bruh” = ya. Örnek: “Bruh, you forgot your homework again?”\n\n“bruh” ne demek?\n“bruh” = ya.\nÖrnek: “Bruh, you forgot your homework again?” (\\\"Bruh\\\", ödevini yine unuttun mu?)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "bruh",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“bruh” ne demek?\n“bruh” = ya.\nÖrnek: “Bruh, you forgot your homework again?” (\\\"Bruh\\\", ödevini yine unuttun mu?)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bruh” ne demek?\n\n“bruh” = ya. Örnek: “Bruh, you forgot your homework again?”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bruh” ne demek? “bruh” = ya. Örnek: “Bruh, you forgot your homework again?” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “bruh” = ya. “Bruh, you forgot your homework again?” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

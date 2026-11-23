@@ -1,0 +1,150 @@
+{
+ "id": "t2s_tr_epicfail",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 90,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My cake collapsed. Everyone watched!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Epic fail!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A big, funny failure.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My cake fell flat. Total epic fail!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "epic fail",
+  "forms": [],
+  "ipa": "/ˌepɪk ˈfeɪl/",
+  "mean": "A big, funny failure.",
+  "define": "A mistake or failure that is so big it is almost funny.",
+  "vi": "Thất bại hoành tráng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Looking at a kitchen mess",
+   "text": "My cake fell flat. Total epic fail!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "An \"epic fail\" is a…",
+   "options": [
+    "great success",
+    "big failure"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's loss an 'epic fail'.",
+   "why": "It sounds like mocking them."
+  },
+  "l1": "büyük başarısızlık",
+  "l1_hook": "Kekim çöktü. Herkes izledi!",
+  "l1_ex": "Kekim düştü. Tam bir \"epic fail!\"",
+  "right": "epic fail",
+  "native": {
+   "hook": "“epic fail” ne demek?",
+   "tip": "“epic fail” = büyük başarısızlık. Örnek: “My cake fell flat. Total epic fail!”",
+   "caption": "“epic fail” ne demek?\n“epic fail” = büyük başarısızlık.\nÖrnek: “My cake fell flat. Total epic fail!” (Kekim düştü. Tam bir \"epic fail!\")\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “epic fail” = büyük başarısızlık. “My cake fell flat. Total epic fail!” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My cake collapsed. Everyone watched!"
+ },
+ "src": {
+  "slang": "epic fail"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“epic fail” ne demek?",
+  "keyword": "epic fail",
+  "value": "“epic fail” = büyük başarısızlık. Örnek: “My cake fell flat. Total epic fail!”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“epic fail” ne demek?",
+    "description": "“epic fail” = büyük başarısızlık. Örnek: “My cake fell flat. Total epic fail!”\n\n“epic fail” ne demek?\n“epic fail” = büyük başarısızlık.\nÖrnek: “My cake fell flat. Total epic fail!” (Kekim düştü. Tam bir \"epic fail!\")\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "epic fail",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“epic fail” ne demek?\n“epic fail” = büyük başarısızlık.\nÖrnek: “My cake fell flat. Total epic fail!” (Kekim düştü. Tam bir \"epic fail!\")\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“epic fail” ne demek?\n\n“epic fail” = büyük başarısızlık. Örnek: “My cake fell flat. Total epic fail!”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“epic fail” ne demek? “epic fail” = büyük başarısızlık. Örnek: “My cake fell flat. Total epic fail!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “epic fail” = büyük başarısızlık. “My cake fell flat. Total epic fail!” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

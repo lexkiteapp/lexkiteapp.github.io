@@ -1,0 +1,150 @@
+{
+ "id": "t2s_id_ace",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 19,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Test day. How did you do?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Ace!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Do really well on a test.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I aced my history test today!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "ace",
+  "forms": [],
+  "ipa": "/ˈeɪs/",
+  "mean": "Do really well on a test.",
+  "define": "To get a top result on a test or task.",
+  "vi": "Đạt điểm tuyệt đối",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Getting a test back",
+   "text": "I aced my history test today!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"ace\" a test is to…",
+   "options": [
+    "do great",
+    "miss it"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say you 'aced' a test you failed.",
+   "why": "It means doing very well."
+  },
+  "l1": "mendapat nilai A",
+  "l1_hook": "Hari ujian. Bagaimana hasilmu?",
+  "l1_ex": "Aku 'ace' tes sejarahku hari ini!",
+  "right": "ace",
+  "native": {
+   "hook": "Apa arti “ace”?",
+   "tip": "“ace” = mendapat nilai A. Contoh: “I aced my history test today!”",
+   "caption": "Apa arti “ace”?\n“ace” = mendapat nilai A.\nContoh: “I aced my history test today!” (Aku 'ace' tes sejarahku hari ini!)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “ace” = mendapat nilai A. “I aced my history test today!” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Test day. How did you do?"
+ },
+ "src": {
+  "slang": "ace"
+ },
+ "lang": "id",
+ "est": {
+  "words": 21,
+  "seconds": 11.9,
+  "wpm": 106
+ },
+ "publish": {
+  "title": "Apa arti “ace”?",
+  "keyword": "ace",
+  "value": "“ace” = mendapat nilai A. Contoh: “I aced my history test today!”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “ace”?",
+    "description": "“ace” = mendapat nilai A. Contoh: “I aced my history test today!”\n\nApa arti “ace”?\n“ace” = mendapat nilai A.\nContoh: “I aced my history test today!” (Aku 'ace' tes sejarahku hari ini!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "ace",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “ace”?\n“ace” = mendapat nilai A.\nContoh: “I aced my history test today!” (Aku 'ace' tes sejarahku hari ini!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “ace”?\n\n“ace” = mendapat nilai A. Contoh: “I aced my history test today!”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “ace”? “ace” = mendapat nilai A. Contoh: “I aced my history test today!” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “ace” = mendapat nilai A. “I aced my history test today!” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

@@ -1,0 +1,153 @@
+{
+ "id": "t2s_tr_carry",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 50,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She won the match alone!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Carry!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Help the team win.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Mia carried us in the final round.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "carry",
+  "forms": [
+   "carried",
+   "carrying"
+  ],
+  "ipa": "/ˈkæri/",
+  "mean": "Help the team win.",
+  "define": "To lead a team to victory with great skill.",
+  "vi": "Gánh team",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Playing a team game",
+   "text": "Mia carried us in the final round."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"carry\" a team is to…",
+   "options": [
+    "help it win",
+    "lift it up"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'she carried us' about a lazy teammate.",
+   "why": "It praises someone who did the work."
+  },
+  "l1": "takımı sırtlamak",
+  "l1_hook": "Maçı tek başına kazandı! \"carry\"",
+  "l1_ex": "Mia final turda bizi \"carry\" etti.",
+  "right": "carry",
+  "native": {
+   "hook": "“carry” ne demek?",
+   "tip": "“carry” = takımı sırtlamak. Örnek: “Mia carried us in the final round.”",
+   "caption": "“carry” ne demek?\n“carry” = takımı sırtlamak.\nÖrnek: “Mia carried us in the final round.” (Mia final turda bizi \"carry\" etti.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “carry” = takımı sırtlamak. “Mia carried us in the final round.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She won the match alone!"
+ },
+ "src": {
+  "slang": "carry"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“carry” ne demek?",
+  "keyword": "carry",
+  "value": "“carry” = takımı sırtlamak. Örnek: “Mia carried us in the final round.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“carry” ne demek?",
+    "description": "“carry” = takımı sırtlamak. Örnek: “Mia carried us in the final round.”\n\n“carry” ne demek?\n“carry” = takımı sırtlamak.\nÖrnek: “Mia carried us in the final round.” (Mia final turda bizi \"carry\" etti.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "carry",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“carry” ne demek?\n“carry” = takımı sırtlamak.\nÖrnek: “Mia carried us in the final round.” (Mia final turda bizi \"carry\" etti.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“carry” ne demek?\n\n“carry” = takımı sırtlamak. Örnek: “Mia carried us in the final round.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“carry” ne demek? “carry” = takımı sırtlamak. Örnek: “Mia carried us in the final round.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “carry” = takımı sırtlamak. “Mia carried us in the final round.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

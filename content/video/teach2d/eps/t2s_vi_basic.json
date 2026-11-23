@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_basic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 6,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza and a movie again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Basic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too ordinary, like everyone else.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My weekend plan is basic: pizza and a movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "basic",
+  "forms": [],
+  "ipa": "/ˈbeɪsɪk/",
+  "mean": "Too ordinary, like everyone else.",
+  "define": "Describes things that are very ordinary and popular. It can sound a bit mean.",
+  "vi": "Quá bình thường, đại trà",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Planning a weekend with friends",
+   "text": "My weekend plan is basic: pizza and a movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Basic\" in slang means…",
+   "options": [
+    "easy to learn",
+    "too ordinary"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your friend's gift 'basic' to her.",
+   "why": "It sounds like an insult."
+  },
+  "l1": "Quá bình thường, đại trà",
+  "l1_hook": "Lại pizza với phim nữa hả?",
+  "l1_ex": "Kế hoạch cuối tuần của tui basic lắm: pizza với phim.",
+  "right": "basic",
+  "native": {
+   "hook": "“basic” nghĩa là gì?",
+   "tip": "“basic” = Quá bình thường, đại trà. Ví dụ: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "“basic” nghĩa là gì?\n“basic” = Quá bình thường, đại trà.\nVí dụ: “My weekend plan is basic: pizza and a movie.” (Kế hoạch cuối tuần của tui basic lắm: pizza với phim.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “basic” = Quá bình thường, đại trà. “My weekend plan is basic: pizza and a movie.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza and a movie again?"
+ },
+ "src": {
+  "slang": "basic"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“basic” nghĩa là gì?",
+  "keyword": "basic",
+  "value": "“basic” = Quá bình thường, đại trà. Ví dụ: “My weekend plan is basic: pizza and a movie.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“basic” nghĩa là gì?",
+    "description": "“basic” = Quá bình thường, đại trà. Ví dụ: “My weekend plan is basic: pizza and a movie.”\n\n“basic” nghĩa là gì?\n“basic” = Quá bình thường, đại trà.\nVí dụ: “My weekend plan is basic: pizza and a movie.” (Kế hoạch cuối tuần của tui basic lắm: pizza với phim.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "basic",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“basic” nghĩa là gì?\n“basic” = Quá bình thường, đại trà.\nVí dụ: “My weekend plan is basic: pizza and a movie.” (Kế hoạch cuối tuần của tui basic lắm: pizza với phim.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“basic” nghĩa là gì?\n\n“basic” = Quá bình thường, đại trà. Ví dụ: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“basic” nghĩa là gì? “basic” = Quá bình thường, đại trà. Ví dụ: “My weekend plan is basic: pizza and a movi… #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “basic” = Quá bình thường, đại trà. “My weekend plan is basic: pizza and a movie.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

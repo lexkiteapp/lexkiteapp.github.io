@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ko_bestie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 30,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who knows all your secrets?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bestie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A very close friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My bestie and I love tacos.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "bestie",
+  "forms": [
+   "besties"
+  ],
+  "ipa": "/ˈbesti/",
+  "mean": "A very close friend.",
+  "define": "A short, friendly word for a best friend.",
+  "vi": "Bạn thân",
+  "reg": "very-casual",
+  "region": "global",
+  "level": "A2",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "Talking about friends",
+   "text": "My bestie and I love tacos."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"bestie\" is…",
+   "options": [
+    "a best friend",
+    "a kind of pet"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your new boss your 'bestie'.",
+   "why": "It's too close and casual."
+  },
+  "l1": "절친",
+  "l1_hook": "누가 네 모든 비밀을 알까? 'bestie'!",
+  "l1_ex": "내 'bestie'와 나는 타코를 좋아해.",
+  "right": "bestie",
+  "native": {
+   "hook": "“bestie” 무슨 뜻일까요?",
+   "tip": "“bestie” = 절친. 예문: “My bestie and I love tacos.”",
+   "caption": "“bestie” 무슨 뜻일까요?\n“bestie” = 절친.\n예문: “My bestie and I love tacos.” (내 'bestie'와 나는 타코를 좋아해.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “bestie” = 절친. “My bestie and I love tacos.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who knows all your secrets?"
+ },
+ "src": {
+  "slang": "bestie"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“bestie” 무슨 뜻일까요?",
+  "keyword": "bestie",
+  "value": "“bestie” = 절친. 예문: “My bestie and I love tacos.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“bestie” 무슨 뜻일까요?",
+    "description": "“bestie” = 절친. 예문: “My bestie and I love tacos.”\n\n“bestie” 무슨 뜻일까요?\n“bestie” = 절친.\n예문: “My bestie and I love tacos.” (내 'bestie'와 나는 타코를 좋아해.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "bestie",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“bestie” 무슨 뜻일까요?\n“bestie” = 절친.\n예문: “My bestie and I love tacos.” (내 'bestie'와 나는 타코를 좋아해.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bestie” 무슨 뜻일까요?\n\n“bestie” = 절친. 예문: “My bestie and I love tacos.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bestie” 무슨 뜻일까요? “bestie” = 절친. 예문: “My bestie and I love tacos.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “bestie” = 절친. “My bestie and I love tacos.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}
