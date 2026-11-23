@@ -694,6 +694,7 @@
  },
  "bored stiff|hook": {
   "ar": "ساعتان من الشرائح نفسها، \"bored stiff\"",
+  "de": "Zwei Stunden dieselben Folien – ich bin „bored stiff“.",
   "es": "Dos horas de las mismas diapositivas, estoy \"bored stiff\".",
   "fr": "Deux heures des mêmes diapositives ! \"bored stiff\"",
   "hi": "दो घंटे एक ही स्लाइड्स, मैं \"bored stiff\" हूँ!",
@@ -801,7 +802,8 @@
   "de": "Er ist mein Lern-buddy.",
   "es": "Él es mi \"buddy\" de estudio.",
   "fr": "C’est mon \"buddy\" d’études.",
-  "hi": "वह मेरा पढ़ाई का \"buddy\" है।"
+  "hi": "वह मेरा पढ़ाई का \"buddy\" है।",
+  "id": "Dia itu teman belajar (\"buddy\") aku."
  },
  "buddy|hook": {
   "ar": "من يدرس معك كل ليلة؟",
@@ -1138,7 +1140,8 @@
   "de": "\"Cheer up\", wir essen Pizza!",
   "es": "¡\"Cheer up\", vamos a comer pizza!",
   "fr": "\"Cheer up\", on mange de la pizza !",
-  "hi": "Cheer up, हम पिज़्ज़ा खा रहे हैं!"
+  "hi": "Cheer up, हम पिज़्ज़ा खा रहे हैं!",
+  "id": "\"Cheer up\", kita mau makan pizza nih!"
  },
  "cheer up|hook": {
   "ar": "تبدو حزينة. ماذا الآن؟ كيف نجعلها \"cheer up\"؟",
@@ -1314,7 +1317,8 @@
  "come down with|ex": {
   "ar": "أعتقد أنني بدأت \"come down with\" زكام.",
   "de": "Ich glaube, ich bekomme eine Erkältung. (\"come down with\")",
-  "fr": "Je pense que je suis en train de « come down with » un rhume."
+  "fr": "Je pense que je suis en train de « come down with » un rhume.",
+  "id": "Kurasa aku sedang \"come down with\" flu."
  },
  "come down with|hook": {
   "ar": "حلقي يؤلمني. أووه! يبدو أنني على وشك أن \"come down with\" مرضا ما!",
@@ -1328,7 +1332,8 @@
   "de": "Warme Suppe ist mein \"comfort food\".",
   "es": "La sopa caliente es mi \"comfort food\".",
   "fr": "La soupe chaude est mon \"comfort food\".",
-  "hi": "गरम सूप मेरा \"comfort food\" है।"
+  "hi": "गरम सूप मेरा \"comfort food\" है।",
+  "id": "Sup hangat adalah \"comfort food\"-ku."
  },
  "comfort food|hook": {
   "ar": "يوم حزين؟ حساء دافئ!",
@@ -1387,7 +1392,8 @@
   "de": "Vaters Witze sind so \"corny\".",
   "es": "Los chistes de papá son tan \"corny\".",
   "fr": "Les blagues de papa sont tellement \"corny\".",
-  "hi": "पिता के चुटकुले बहुत \"corny\" हैं।"
+  "hi": "पिता के चुटकुले बहुत \"corny\" हैं।",
+  "id": "Lelucon ayah sangat corny."
  },
  "corny|hook": {
   "ar": "دعابة أبي التافهة مجدداً. هل هي \"corny\" حقاً؟",
@@ -1558,7 +1564,8 @@
   "de": "Ich will dieses Jahr kein \"Drama\".",
   "es": "No quiero \"drama\" este año.",
   "fr": "Je ne veux pas de \"drama\" cette année.",
-  "hi": "मैं इस साल कोई \"drama\" नहीं चाहता।"
+  "hi": "मैं इस साल कोई \"drama\" नहीं चाहता।",
+  "id": "Aku nggak mau ada \"drama\" tahun ini."
  },
  "drama|hook": {
   "ar": "انفجرت محادثة المجموعة على لا شيء! الكثير من الـ \"drama\".",
@@ -1716,7 +1723,8 @@
   "de": "Pizza oder Tacos? \"Fine by me\".",
   "es": "¿Pizza o tacos? \"fine by me\".",
   "fr": "Pizza ou tacos ? \"fine by me\".",
-  "hi": "पिज़्ज़ा या टैकोस? \"fine by me\"।"
+  "hi": "पिज़्ज़ा या टैकोस? \"fine by me\"।",
+  "id": "Pizza atau taco? Fine by me."
  },
  "fine by me|hook": {
   "ar": "بيتزا أم تاكو، اختر أنت، الأمر \"fine by me\".",
@@ -1744,7 +1752,8 @@
   "de": "Schneller \"fit check\" vor der Schule!",
   "es": "¡Rápido \"fit check\" antes de la escuela!",
   "fr": "Vérification rapide de \"fit check\" avant l'école !",
-  "hi": "जल्दी \"fit check\" स्कूल से पहले!"
+  "hi": "जल्दी \"fit check\" स्कूल से पहले!",
+  "id": "\"Fit check\" sebentar sebelum berangkat sekolah!"
  },
  "fit check|hook": {
   "ar": "الملابس جاهزة. ما رأيكم قبل المدرسة؟",
@@ -1828,7 +1837,8 @@
   "de": "\"FYI\", das Geschäft schließt um fünf Uhr.",
   "es": "FYI, la tienda cierra a las cinco.",
   "fr": "\"FYI\", le magasin ferme à cinq heures.",
-  "hi": "FYI, दुकान पाँच बजे बंद हो जाती है।"
+  "hi": "FYI, दुकान पाँच बजे बंद हो जाती है।",
+  "id": "FYI, toko tutup jam lima."
  },
  "fyi|hook": {
   "ar": "FYI: مجرد خبر بسيط!",
@@ -2082,7 +2092,8 @@
   "de": "Ich habe deinen Kuchen gegessen! \"just kidding\".",
   "es": "¡Me comí tu pastel! \"just kidding\".",
   "fr": "J'ai mangé ton gâteau ! Just kidding.",
-  "hi": "मैंने तुम्हारा केक खा लिया। Just kidding."
+  "hi": "मैंने तुम्हारा केक खा लिया। Just kidding.",
+  "id": "Aku makan kuemu! Just kidding."
  },
  "just kidding|hook": {
   "ar": "أكلت كعكتك!",
