@@ -5,6 +5,10 @@ import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath }
 const ti = process.argv.indexOf('--tl'), TL = ti > 0 ? process.argv[ti + 1] : 'es', CK = {
   es: { name: 'es-419', extra: [/(^|[^\p{L}])(tío|tía|molar|guay|chaval|móvil|coche|patata|gilipollas)(?=$|[^\p{L}])/iu] },
   fr: { name: 'fr', extra: [] },
+  // ja (japanese-course.md W4): không có LanguageTool → câu mẫu của người học PHẢI ở thể lịch sự (end), từ đếm bằng Intl.Segmenter (cùng engine web), nhánh regex theo kana đã chuẩn hoá (engine foldRe)
+  ja: { name: 'ja', extra: [], sub: true, end: /(です|ます|ました|ません|でした|ましょう|ください|ませ|でしょう|ございます|ありません|お願いします|お願いいたします)(ね|よ|か|ょうか|が|から)?[。？！]$/u,
+    words: t => { try { return [...new Intl.Segmenter('ja', { granularity: 'word' }).segment(String(t).normalize('NFKC'))].filter(x => x.isWordLike).length; } catch { return 0; } },
+    re: s => String(s).normalize('NFKC').replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).toLowerCase() },
 }[TL];
 if (!CK) { console.error(`✗ tl "${TL}" chưa có dòng CK (calls-check.mjs)`); process.exit(2); }
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), DIR = path.join(ROOT, `content/target/${TL}/calls`);
@@ -28,8 +32,9 @@ for (const c of all) {
   for (const [k, n] of Object.entries(N)) {
     if (!n.m) e(k + ': thiếu m'); if (!n.re) e(k + ': thiếu re'); if (!(n.o || []).length || n.o.length < 3) e(k + ': <3 câu mẫu');
     if (n.next && !N[n.next] && n.next !== 'end') e(k + ': next lạ ' + n.next);
-    for (const b of n.br || []) { if (b[2] && !N[b[2]] && b[2] !== 'end') e(k + ': nhánh lạ ' + b[2]); try { new RegExp(b[0]); } catch { e(k + ': regex hỏng'); } texts.push(b[1]); }
-    const W = t => (fold(t).match(/[a-z]+/g) || []).length; for (const o of n.o || []) if (n.min && W(o) < n.min) e(k + ': câu mẫu ngắn hơn min ' + n.min + ': ' + o);
+    for (const b of n.br || []) { if (b[2] && !N[b[2]] && b[2] !== 'end') e(k + ': nhánh lạ ' + b[2]); try { new RegExp(CK.re ? CK.re(b[0]) : b[0]); } catch { e(k + ': regex hỏng'); } texts.push(b[1]); }
+    if (CK.end) for (const o of n.o || []) if (!CK.end.test(o)) e(k + ': câu mẫu không ở thể lịch sự です/ます: ' + o);
+    const W = t => (CK.words ? CK.words(t) : (fold(t).match(/[a-z]+/g) || []).length); for (const o of n.o || []) if (n.min && W(o) < n.min) e(k + ': câu mẫu ngắn hơn min ' + n.min + ': ' + o);
     texts.push(n.m, n.re, ...(n.o || []));
   }
   for (const t of texts) { if (typeof t !== 'string') continue; if (lint.some(r => r.test(t)) || extra.some(r => r.test(t))) e(`lệch ${CK.name}: ` + t); if (/\p{Script=Latin}/u.test(t) && /\b(the|and|you|is)\b/i.test(t)) e('lẫn tiếng Anh: ' + t); }

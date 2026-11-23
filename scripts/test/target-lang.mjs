@@ -403,6 +403,26 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   try { execFileSync(process.execPath, ['scripts/target/px-pack.mjs', 'ja', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/packs/tl/ja/px* lệch nguồn: ' + String(e.stderr)); }
   ok(!/px\.js|JAX/.test(rd('web/cpack/tl-app/tl-pick.js')) && /--pron/.test(rd('.github/workflows/target-content.yml')), 'gói px ja ngoài cpack; CI đối chiếu OpenJTalk'); }
 
+// W4 ja: 24 cuộc gọi – engine THẬT (web/js/call/engine.js, bảng TLX.ja): đi hết từng cuộc bằng câu mẫu, nhánh đúng chữ/kana/katakana/bán độ rộng, câu mẫu đạt min từ, gói khớp nguồn
+{ const evm = vm.createContext({ self: {} }); evm.self = evm; vm.runInContext(rd('web/js/call/engine.js'), evm); const E = evm.CallEngine;
+  const calls = fs.readdirSync('content/target/ja/calls').filter(f => /^calls-\d+\.json$/.test(f)).sort().flatMap(f => readJSON('content/target/ja/calls/' + f).map(c => ({ ...c, tl: 'ja' })));
+  ok(calls.length === 24 && new Set(calls.map(c => c.id)).size === 24 && ['A1', 'A2', 'B1', 'B2', 'C1'].every(l => calls.some(c => c.lv === l)), 'ja calls: 24 cuộc, id duy nhất, đủ A1–C1');
+  ok(calls.some(c => c.who === 'ama') && calls.some(c => c.who === 'carlos') && calls.filter(c => c.kind === 'role').length >= 10, 'ja calls: cả Ama và Carlos, ≥ 10 cuộc nhập vai (keigo theo vai ở B2/C1)');
+  let bad = [];
+  for (const c of calls) { E.prep(c); let id = c.start, hops = 0, seen = new Set();
+    while (id && hops++ < 30 && !seen.has(id)) { seen.add(id); const n = c.nodes[id]; if (!n) { bad.push(c.id + ' nút ' + id); break; }
+      for (const o of n.o) { const f = E.fluency(o, n, 0, 'ja'); if (f.short) bad.push(`${c.id}/${id}: câu mẫu ngắn (min ${n.min}, ${f.words} từ): ${o}`); }
+      const r = E.step(c, id, n.o[0]); id = r.next; }
+    if (seen.size !== Object.keys(c.nodes).length) bad.push(c.id + ': đi hết bằng câu mẫu không tới mọi nút (' + seen.size + '/' + Object.keys(c.nodes).length + ')'); }
+  ok(!bad.length, 'ja calls: đi hết từng cuộc bằng engine, câu mẫu đạt min' + (bad.length ? ': ' + bad.slice(0, 4).join(' | ') : ''));
+  const t = { id: 'ja-t', tl: 'ja', start: 'a', nodes: { a: { m: 'x。', o: ['あ。', 'い。', 'う。'], br: [['ねこ|犬|いぬ', '猫か犬', 'b'], ['ジュース', 'ジュース分岐', 'b']], re: '既定', next: 'b' }, b: { m: 'y。', o: ['あ。', 'い。', 'う。'], re: 'z' } } };
+  ok(E.step(t, 'a', 'わたしはネコが好きです').react === '猫か犬' && E.step(t, 'a', 'ｲﾇが すき').react === '猫か犬' && E.step(t, 'a', 'じゅーす').react === 'ジュース分岐' && E.step(t, 'a', 'ｼﾞｭｰｽ').react === 'ジュース分岐' && E.step(t, 'a', 'おちゃ').react === '既定', 'engine ja: nhánh khớp bất kể katakana/bán độ rộng/khoảng trắng; ー giữ nguyên');
+  ok(E.fluency('えーと、わたしは毎朝コーヒーを飲みます。', { min: 3 }, 0, 'ja').fillers === 1 && E.fluency('あ。', { min: 3 }, 0, 'ja').short === true && E.fluency('毎日、日本語を勉強していますから、少しだけ上手です。', {}, 0, 'ja').link === true, 'engine ja: từ đệm, quá ngắn, từ nối');
+  ok(E.recap({ ...t, words: ['ねこ', '犬'] }, [{ id: 'a', text: 'わたしは猫と犬がすきです' }]).used.includes('犬'), 'engine ja: từ mục tiêu đã dùng (so theo chuỗi)');
+  ok(/callja: \['packs\/tl\/ja\/cl\.js'\]/.test(rd('web/js/bundles.js')) && /ja: 'callja'/.test(rd('web/js/call.js')) && /ja: '楽しく/.test(rd('web/js/call.js')), 'call.js/bundles.js: gói cuộc gọi ja nối vào (ngoài cpack)');
+  try { execFileSync(process.execPath, ['scripts/target/calls-pack.mjs', 'ja', '--check'], { stdio: 'pipe' }); execFileSync(process.execPath, ['scripts/target/calls-check.mjs', '--tl', 'ja'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'calls ja: ' + String(e.stderr || e.stdout)); }
+  ok(/calls-check\.mjs --tl \$\{\{ matrix\.tl \}\}|calls-check\.mjs --tl ja/.test(rd('.github/workflows/target-content.yml')), 'target-content: cổng cuộc gọi chạy cho ja'); }
+
 // ---------- 5) nối dây: shell nạp target.js trước core.js; package test ----------
 {
   const html = rd('web/app/index.html'), a = html.indexOf('js/target.js'), b = html.indexOf('js/core.js');

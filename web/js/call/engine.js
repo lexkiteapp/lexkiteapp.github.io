@@ -8,7 +8,14 @@
   // Ngôn ngữ đích ≠ en (c.tl = 'es'…): so khớp/đếm từ trên chữ đã bỏ dấu + hạ chữ thường (regex nhánh viết không dấu, `\b` của JS chỉ hiểu ASCII);
   // sửa ngữ pháp / nhầm cặp âm là luật riêng của tiếng Anh nên bỏ qua; độ trôi chảy dùng bảng đệm/liên từ của ngôn ngữ đó.
   const fold = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  const TLX = { es: { fill: /\b(e+h+|e+m+|m{2,}|o sea)\b/g, link: /\b(porque|pero|entonces|aunque|ademas|tambien|por ejemplo|cuando|mientras|sin embargo|por eso|ya que|asi que|ademas)\b/ }, fr: { fill: /\b(e+u+h+|heu+|m{2,}|bah|ben)\b/g, link: /\b(parce que|puisque|car|mais|donc|alors|pourtant|cependant|quand|lorsque|pendant que|par exemple|aussi|ensuite|ainsi|d'abord|en effet|d'ailleurs|par contre|c'est pourquoi|bien que|meme si)\b/ } };
+  const foldT = (s, tl) => (TLX[tl] && TLX[tl].fold ? TLX[tl].fold(s) : fold(s)), foldRe = (s, tl) => (TLX[tl] && TLX[tl].foldRe ? TLX[tl].foldRe(s) : fold(s)); // tl chưa khai fold → như cũ từng byte
+  const TLX = { es: { fill: /\b(e+h+|e+m+|m{2,}|o sea)\b/g, link: /\b(porque|pero|entonces|aunque|ademas|tambien|por ejemplo|cuando|mientras|sin embargo|por eso|ya que|asi que|ademas)\b/ }, fr: { fill: /\b(e+u+h+|heu+|m{2,}|bah|ben)\b/g, link: /\b(parce que|puisque|car|mais|donc|alors|pourtant|cependant|quand|lorsque|pendant que|par exemple|aussi|ensuite|ainsi|d'abord|en effet|d'ailleurs|par contre|c'est pourquoi|bien que|meme si)\b/ },
+    // ja (japanese-course.md W4): chữ không cách từ (sub: không dùng \b), fold = NFKC + katakana→hiragana (+ bỏ khoảng trắng/dấu câu khi so; foldRe giữ ký tự regex), từ = Intl.Segmenter (dự phòng: cụm chữ), has = chứa chuỗi
+    ja: { sub: true, fill: /(えーと|ええと|えっと|あのー?|うーん|まあ|そのー)/g, link: /(から|ので|けど|が、|でも|しかし|それから|そして|たとえば|ながら|ために|ですから|また|それに|もし)/,
+      fold: s => String(s || '').normalize('NFKC').replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/[\s\p{P}\p{S}]/gu, '').toLowerCase(),
+      foldRe: s => String(s || '').normalize('NFKC').replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).toLowerCase(),
+      words: s => { const t = String(s || '').normalize('NFKC'); try { return [...new Intl.Segmenter('ja', { granularity: 'word' }).segment(t)].filter(x => x.isWordLike).map(x => x.segment); } catch (e) { return t.match(/[\p{Script=Han}]+|[\p{Script=Hiragana}]{1,3}|[\p{Script=Katakana}ー]+|[A-Za-z0-9]+/gu) || []; } },
+      has: (text, w) => TLX.ja.fold(text).includes(TLX.ja.fold(w)) } };
 
   // ---------- Đồ thị ----------
   function prep(c) {
@@ -29,11 +36,11 @@
   /** step → { react, next (id|null), br (chỉ số nhánh, -1 = mặc định) } */
   function step(c, id, text) {
     prep(c); const n = c.nodes[id]; if (!n) return { react: '', next: null, br: -1 };
-    const s = c.tl ? fold(text) : String(text || '');
+    const s = c.tl ? foldT(text, c.tl) : String(text || ''), sub = !!(TLX[c.tl] && TLX[c.tl].sub); // sub (ja): không có \b – so theo chuỗi
     const brs = n.br || [];
     for (let k = 0; k < brs.length; k++) {
       const [re, line, to] = brs[k];
-      try { if (new RegExp('\\b(' + (c.tl ? fold(re) : re) + ')', 'i').test(s)) return { react: line, next: to !== undefined ? to : (n.next || null), br: k }; } catch (e) { /* regex hỏng → bỏ nhánh */ }
+      try { if (new RegExp((sub ? '' : '\\b') + '(' + (c.tl ? foldRe(re, c.tl) : re) + ')', 'i').test(sub ? s : s)) return { react: line, next: to !== undefined ? to : (n.next || null), br: k }; } catch (e) { /* regex hỏng → bỏ nhánh */ }
     }
     return { react: n.re || '', next: n.next || null, br: -1 };
   }
@@ -93,7 +100,7 @@
   const STOP = new Set('this that there their they them then than with have from what when were will would your yours some like just very much make made'.split(' '));
   // id đối lập → bài phát âm để luyện (#/pron/<bài>): bài đầu tiên của đối lập trong pairs.js
   const skillOf = id => { const c = g.PronPairs && g.PronPairs.CONTRASTS && g.PronPairs.CONTRASTS.find(x => x.id === id); return (c && c.skills && c.skills[0]) || 'final-consonants'; };
-  const words = (s, tl) => tl ? (fold(s).match(/[a-z]+/g) || []) : (String(s || '').toLowerCase().replace(/[’']/g, "'").match(/[a-z][a-z']*/g) || []);
+  const words = (s, tl) => tl && TLX[tl] && TLX[tl].words ? TLX[tl].words(s) : tl ? (fold(s).match(/[a-z]+/g) || []) : (String(s || '').toLowerCase().replace(/[’']/g, "'").match(/[a-z][a-z']*/g) || []);
   function slips(text, c, n) {
     const heard = new Set(words(text)), idx = pairIndex(), out = [];
     // Từ "cần nói": từ khóa của lượt + từ chủ đề + từ nội dung (≥ 4 chữ) trong câu gợi ý – từ ngắn (see/she, live/life…) dễ báo nhầm nên bỏ
@@ -109,9 +116,9 @@
   const FILL = /\b(um+|uh+|er+m?|hmm+|you know)\b/gi;
   const LINK = /\b(because|so|but|although|though|however|for example|for instance|actually|also|then|which|when|if|while|instead|especially)\b/i;
   function fluency(text, n = {}, secs = 0, tl) {
-    const X = tl && TLX[tl], ws = words(text, tl), fillers = (X ? fold(text).match(X.fill) || [] : String(text || '').match(FILL) || []).length, real = ws.length - fillers;
+    const X = tl && TLX[tl], ws = words(text, tl), fillers = (X ? foldT(text, tl).match(X.fill) || [] : String(text || '').match(FILL) || []).length, real = ws.length - fillers;
     const min = n.min || 0;
-    return { words: real, fillers, short: !!min && real < min, link: (X ? X.link : LINK).test(X ? fold(text) : text || ''), wpm: secs > 1 ? Math.round(real / secs * 60) : 0 };
+    return { words: real, fillers, short: !!min && real < min, link: (X ? X.link : LINK).test(X ? foldT(text, tl) : text || ''), wpm: secs > 1 ? Math.round(real / secs * 60) : 0 };
   }
 
   // ---------- Tổng kết ----------
@@ -130,7 +137,7 @@
     const spoken = turns.filter(x => !x.picked);
     const said = new Set(spoken.flatMap(x => words(x.text, c.tl)).map(stem));
     const target = [...new Set((c.words || []).map(w => w.toLowerCase()))];
-    const used = target.filter(w => (c.tl ? fold(w) : w).split(/\s+/).every(p => said.has(stem(p))));
+    const XJ = c.tl && TLX[c.tl] && TLX[c.tl].has, used = XJ ? target.filter(w => spoken.some(x => XJ(x.text, w))) : target.filter(w => (c.tl ? fold(w) : w).split(/\s+/).every(p => said.has(stem(p))));
     const allWords = spoken.reduce((s, x) => s + x.fl.words, 0), fillers = spoken.reduce((s, x) => s + x.fl.fillers, 0);
     const uniq = new Set(spoken.flatMap(x => words(x.text, c.tl))).size;
     const notes = [];
