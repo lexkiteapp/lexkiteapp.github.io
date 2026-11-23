@@ -69,14 +69,14 @@
     "cefr": "B1"
    },
    {
-    "stem": "I'm considering ___ a new phone.",
+    "stem": "I'll ___ you the address.",
     "options": [
-     "buying",
-     "to buy"
+     "message send",
+     "text"
     ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
    },
    {
     "stem": "Can you help me ___ the box?",
@@ -109,7 +109,7 @@
    "sb_3486e4c7",
    "sb_f940bc04",
    "sb_dfe2abf2",
-   "sb_068cf065",
+   "sb_e34dea6c",
    "sb_1dff6fb4"
   ]
  },

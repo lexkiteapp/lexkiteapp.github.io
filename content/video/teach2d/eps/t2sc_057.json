@@ -39,53 +39,53 @@
  "data": {
   "items": [
    {
-    "stem": "She is nervous ___ the test.",
+    "stem": "She took advantage ___ the sale.",
     "options": [
-     "with",
-     "about"
+     "from",
+     "of"
     ],
     "answer": 1,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "He has ___ experience in sales.",
+    "stem": "We arrived ___ Hanoi at noon.",
     "options": [
-     "many",
-     "a lot of"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Is there a bank ___ here?",
-    "options": [
-     "near",
-     "near to"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A1"
-   },
-   {
-    "stem": "My phone is different ___ yours.",
-    "options": [
-     "with",
-     "from"
+     "to",
+     "in"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "I walk ___ after class.",
+    "stem": "We arranged ___ at the station.",
     "options": [
-     "to home",
-     "home"
+     "to meet",
+     "meeting"
     ],
-    "answer": 1,
-    "pick": 1,
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I am grateful ___ your help.",
+    "options": [
+     "for",
+     "to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "Please ___ me outside.",
+    "options": [
+     "wait for",
+     "wait"
+    ],
+    "answer": 0,
+    "pick": 0,
     "cefr": "A2"
    }
   ],
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_2bf49caa",
-   "sb_6dbf5c1a",
-   "sb_00f4553a",
-   "sb_85b49008",
-   "sb_46f96315"
+   "sb_a6a08261",
+   "sb_9762bb80",
+   "sb_237d4691",
+   "sb_6d557cd2",
+   "sb_49256b98"
   ]
  },
  "est": {

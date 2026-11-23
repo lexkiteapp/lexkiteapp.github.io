@@ -39,26 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "I have too ___ baggage.",
-    "options": [
-     "much",
-     "many"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "The market was very ___.",
-    "options": [
-     "crowded",
-     "crowd"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
     "stem": "I dislike ___ in lines.",
     "options": [
      "waiting",
@@ -77,6 +57,26 @@
     "answer": 1,
     "pick": 0,
     "cefr": "A2"
+   },
+   {
+    "stem": "Don't waste time ___.",
+    "options": [
+     "to worry",
+     "worrying"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I have a habit ___ up early.",
+    "options": [
+     "to wake",
+     "of waking"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
    },
    {
     "stem": "The number of tourists ___ rising.",
@@ -106,10 +106,10 @@
  },
  "src": {
   "gold": [
-   "sb_32557b14",
-   "sb_5c7bba0d",
    "sb_643721d5",
    "sb_e84afaab",
+   "sb_cb15e32f",
+   "sb_060aa8e2",
    "sb_18d9514a"
   ]
  },

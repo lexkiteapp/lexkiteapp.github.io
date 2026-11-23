@@ -39,36 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "I have too much ___ today.",
-    "options": [
-     "work",
-     "works"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Your idea ___ interesting.",
-    "options": [
-     "sounds",
-     "sounds like"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "The train arrived ___.",
-    "options": [
-     "late",
-     "lately"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
     "stem": "He is scared ___ the dark.",
     "options": [
      "of",
@@ -79,13 +49,43 @@
     "cefr": "A2"
    },
    {
+    "stem": "My name ___ Minh.",
+    "options": [
+     "is",
+     "is called"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I listen to ___ every day.",
+    "options": [
+     "music",
+     "musics"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I'm pleased ___ you.",
+    "options": [
+     "to meet",
+     "meeting"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
     "stem": "The kids lost ___ keys.",
     "options": [
      "their",
      "there"
     ],
     "answer": 0,
-    "pick": 0,
+    "pick": 1,
     "cefr": "B1"
    }
   ],
@@ -106,10 +106,10 @@
  },
  "src": {
   "gold": [
-   "sb_67e92c87",
-   "sb_0b8263d3",
-   "sb_78d1e10c",
    "sb_df97e077",
+   "sb_aa063c4b",
+   "sb_059c364d",
+   "sb_9be78c2b",
    "sb_40706a40"
   ]
  },

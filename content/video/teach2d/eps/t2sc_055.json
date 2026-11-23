@@ -39,53 +39,53 @@
  "data": {
   "items": [
    {
-    "stem": "___ the flight is late.",
+    "stem": "She wears ___ every day.",
     "options": [
-     "I'm scared",
-     "I'm afraid"
+     "a glasses",
+     "glasses"
     ],
     "answer": 1,
-    "pick": 1,
+    "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "It ___ on the weather.",
+    "stem": "I studied ___ three hours.",
     "options": [
-     "depends",
-     "depend of"
+     "for",
+     "during"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "He admitted ___ the last cookie.",
+    "options": [
+     "eating",
+     "to eat"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "Can you explain this rule ___?",
+    "stem": "I have too much ___.",
     "options": [
-     "to me",
-     "me"
+     "luggage",
+     "luggages"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "Can you ___ me to buy milk?",
+    "stem": "The truck collided ___ a tree.",
     "options": [
-     "remember",
-     "remind"
+     "with",
+     "to"
     ],
-    "answer": 1,
+    "answer": 0,
     "pick": 0,
-    "cefr": "A1"
-   },
-   {
-    "stem": "My flight ___ canceled.",
-    "options": [
-     "is",
-     "was"
-    ],
-    "answer": 1,
-    "pick": 1,
     "cefr": "B1"
    }
   ],
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_0d57e20a",
-   "sb_99bdb159",
-   "sb_d2fd585c",
-   "sb_1740b6df",
-   "sb_14311c65"
+   "sb_ff076731",
+   "sb_f3392adc",
+   "sb_097145e5",
+   "sb_682c8238",
+   "sb_017d1a81"
   ]
  },
  "est": {

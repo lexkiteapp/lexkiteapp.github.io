@@ -43,46 +43,6 @@
  "data": {
   "items": [
    {
-    "stem": "I ___ spicy food.",
-    "options": [
-     "like",
-     "am like"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "He fell in love ___ her.",
-    "options": [
-     "with",
-     "to"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I'm listening ___ a podcast.",
-    "options": [
-     "(nothing)",
-     "to"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A1"
-   },
-   {
-    "stem": "Today I'll present our app ___ you.",
-    "options": [
-     "for",
-     "to"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
     "stem": "I live ___, but I'm not lonely.",
     "options": [
      "alone",
@@ -91,6 +51,46 @@
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
+   },
+   {
+    "stem": "___ people like music.",
+    "options": [
+     "Most",
+     "Almost"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Doctors save ___.",
+    "options": [
+     "lifes",
+     "lives"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "The hotel ___ offers massages.",
+    "options": [
+     "spa",
+     "pool"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "The ___ here is beautiful.",
+    "options": [
+     "sceneries",
+     "scenery"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_77020772",
-   "sb_fa69f2b5",
-   "sb_0f8cdbf0",
-   "sb_c03dbf46",
-   "sb_0ad85c2e"
+   "sb_0ad85c2e",
+   "sb_a0d8398b",
+   "sb_ae8a3381",
+   "sb_0d6dc593",
+   "sb_6935ba91"
   ]
  },
  "est": {

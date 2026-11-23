@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "Everyone can ___ a mistake.",
+    "stem": "___ the flight is late.",
     "options": [
-     "do",
-     "make"
+     "I'm scared",
+     "I'm afraid"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "Good luck ___ your test!",
+    "stem": "It ___ on the weather.",
     "options": [
-     "with",
-     "for"
+     "depends",
+     "depend of"
     ],
     "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "She ___ me the news.",
-    "options": [
-     "said",
-     "told"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A1"
-   },
-   {
-    "stem": "There's a high risk ___ rain today.",
-    "options": [
-     "to",
-     "of"
-    ],
-    "answer": 1,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "The MRI scan uses ___.",
+    "stem": "Can you explain this rule ___?",
     "options": [
-     "magnets",
-     "X-rays"
+     "to me",
+     "me"
     ],
     "answer": 0,
     "pick": 1,
-    "cefr": "C1"
+    "cefr": "B1"
+   },
+   {
+    "stem": "Can you ___ me to buy milk?",
+    "options": [
+     "remember",
+     "remind"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A1"
+   },
+   {
+    "stem": "My flight ___ canceled.",
+    "options": [
+     "is",
+     "was"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_ded82381",
-   "sb_d6acb235",
-   "sb_136af047",
-   "sb_014af894",
-   "sb_03afa19f"
+   "sb_0d57e20a",
+   "sb_99bdb159",
+   "sb_d2fd585c",
+   "sb_1740b6df",
+   "sb_14311c65"
   ]
  },
  "est": {

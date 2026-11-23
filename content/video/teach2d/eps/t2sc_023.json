@@ -59,26 +59,6 @@
     "cefr": "B2"
    },
    {
-    "stem": "___ it will rain tomorrow.",
-    "options": [
-     "Maybe",
-     "May be"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I ___ with you.",
-    "options": [
-     "agree",
-     "am agree"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
     "stem": "Guests must ___ by noon.",
     "options": [
      "check off",
@@ -86,6 +66,26 @@
     ],
     "answer": 1,
     "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "Please ___ the door first.",
+    "options": [
+     "knock on",
+     "knock"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "See you ___ Monday.",
+    "options": [
+     "next",
+     "the next"
+    ],
+    "answer": 0,
+    "pick": 0,
     "cefr": "A2"
    }
   ],
@@ -108,9 +108,9 @@
   "gold": [
    "sb_02cd8fd2",
    "sb_36b7cec3",
-   "sb_45aa51fc",
-   "sb_88ab7735",
-   "sb_3311f3c9"
+   "sb_3311f3c9",
+   "sb_a8d53d5c",
+   "sb_d91b406f"
   ]
  },
  "est": {

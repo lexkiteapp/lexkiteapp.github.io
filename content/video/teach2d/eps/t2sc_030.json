@@ -39,46 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "The museum forbids ___ photos.",
-    "options": [
-     "to take",
-     "taking"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "A bill that lists every item is ___.",
-    "options": [
-     "detailed",
-     "itemized"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "C1"
-   },
-   {
-    "stem": "I ___ housework every weekend.",
-    "options": [
-     "make",
-     "do"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "He is interested ___ history.",
-    "options": [
-     "in",
-     "for"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
     "stem": "A degree is a ___.",
     "options": [
      "qualification",
@@ -87,6 +47,46 @@
     "answer": 0,
     "pick": 0,
     "cefr": "B1"
+   },
+   {
+    "stem": "I'm saving ___ for a new phone.",
+    "options": [
+     "up",
+     "on"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "___ coffee, I also like tea.",
+    "options": [
+     "Besides",
+     "Beside"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "We are proud ___ you.",
+    "options": [
+     "about",
+     "of"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "My house is close ___ the school.",
+    "options": [
+     "to",
+     "with"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "A2"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_03e3ffac",
-   "sb_01260417",
-   "sb_c62fa795",
-   "sb_4afeafcc",
-   "sb_0179d25f"
+   "sb_0179d25f",
+   "sb_23878717",
+   "sb_2ed92c40",
+   "sb_a3e0f657",
+   "sb_ac56922e"
   ]
  },
  "est": {

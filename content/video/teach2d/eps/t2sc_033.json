@@ -39,36 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "I'm really ___ in this role.",
-    "options": [
-     "interesting",
-     "interested"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I applied ___ a job at the bank.",
-    "options": [
-     "for",
-     "to"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "___ car is outside?",
-    "options": [
-     "Whose",
-     "Who's"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
     "stem": "My son is afraid ___ spiders.",
     "options": [
      "with",
@@ -87,6 +57,36 @@
     "answer": 0,
     "pick": 0,
     "cefr": "B1"
+   },
+   {
+    "stem": "I have too much ___ today.",
+    "options": [
+     "work",
+     "works"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "Your idea ___ interesting.",
+    "options": [
+     "sounds",
+     "sounds like"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "The train arrived ___.",
+    "options": [
+     "late",
+     "lately"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_9f45e757",
-   "sb_bc68bba4",
-   "sb_52a6bffb",
    "sb_2bcb2bbd",
-   "sb_4ca5d171"
+   "sb_4ca5d171",
+   "sb_67e92c87",
+   "sb_0b8263d3",
+   "sb_78d1e10c"
   ]
  },
  "est": {

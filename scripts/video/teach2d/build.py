@@ -862,7 +862,7 @@ def T_scorecard():
     D = EP['data']; series_chip(); s, n = D['score'], D['right']; hw = EP['hook']['text'].split()
     title([[' '.join(hw[:-2]) + ' ', 'ink'], [' '.join(hw[-2:]), 'primary']], 96, RY0 + 120, None, start('k') - 0.2, hook=True)
     t_k, t_ch, t_c = start('k'), start('ch'), start('c'); t_sc = at('k', 2); step = (t_sc - t_k - 0.1) / len(D['items'])
-    c = Card(RY0); chip(c, 'SAMPLE ANSWERS', t_k); c.lp = PAD + 66   # rows leave the left column to the check / cross
+    c = Card(RY0); chip(c, 'SAMPLE ANSWERS', t_k); c.lp = PAD + 62   # rows leave the left column to the check / cross
     for i, it in enumerate(D['items']):
         t_i = t_k + 0.1 + i * step; right = it['pick'] == it['answer']; a, b = it['stem'].split('___'); pk = it['options'][it['pick']] + re.match(r'\S*', b)[0]
         y0 = c.y; nn = c.text([[a, 'ink'], [pk, 'good' if right else 'bad'], [b[len(re.match(r'\S*', b)[0]):], 'ink']], 40, t_i, gap=14); by = y0 + (nn[0]['box'][3] - nn[0]['box'][1] - 56) / 2

@@ -39,26 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "Don't waste time ___.",
-    "options": [
-     "to worry",
-     "worrying"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I have a habit ___ up early.",
-    "options": [
-     "to wake",
-     "of waking"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
     "stem": "He is ___ in a school project.",
     "options": [
      "involve",
@@ -75,7 +55,17 @@
      "recycling"
     ],
     "answer": 1,
-    "pick": 0,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "The news ___ true.",
+    "options": [
+     "are",
+     "is"
+    ],
+    "answer": 1,
+    "pick": 1,
     "cefr": "A2"
    },
    {
@@ -83,6 +73,16 @@
     "options": [
      "excited",
      "exciting"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Please ___ me by email.",
+    "options": [
+     "contact with",
+     "contact"
     ],
     "answer": 1,
     "pick": 0,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_cb15e32f",
-   "sb_060aa8e2",
    "sb_7ede0d14",
    "sb_1795a1f5",
-   "sb_13a16c00"
+   "sb_14821351",
+   "sb_13a16c00",
+   "sb_22b003a8"
   ]
  },
  "est": {

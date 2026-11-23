@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "Every day I ___ to school by bike.",
+    "stem": "Everyone can ___ a mistake.",
     "options": [
-     "go",
-     "travel"
+     "do",
+     "make"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "Good luck ___ your test!",
+    "options": [
+     "with",
+     "for"
     ],
     "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "She ___ me the news.",
+    "options": [
+     "said",
+     "told"
+    ],
+    "answer": 1,
     "pick": 0,
     "cefr": "A1"
    },
    {
-    "stem": "He can't cope ___ the noise.",
+    "stem": "There's a high risk ___ rain today.",
     "options": [
-     "with",
-     "(nothing)"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "I'm afraid that ___ work for me.",
-    "options": [
-     "not",
-     "doesn't"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "I can't afford ___ a new phone.",
-    "options": [
-     "buying",
-     "to buy"
+     "to",
+     "of"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "Can you ___ me your pen?",
+    "stem": "The MRI scan uses ___.",
     "options": [
-     "lend",
-     "borrow"
+     "magnets",
+     "X-rays"
     ],
     "answer": 0,
     "pick": 1,
-    "cefr": "A2"
+    "cefr": "C1"
    }
   ],
   "right": 2,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_00ac2cbe",
-   "sb_00b3d3f4",
-   "sb_fc42e435",
-   "sb_03473678",
-   "sb_389e26ad"
+   "sb_ded82381",
+   "sb_d6acb235",
+   "sb_136af047",
+   "sb_014af894",
+   "sb_03afa19f"
   ]
  },
  "est": {

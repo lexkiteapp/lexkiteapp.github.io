@@ -39,36 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "I'm saving ___ for a new phone.",
-    "options": [
-     "up",
-     "on"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "___ coffee, I also like tea.",
-    "options": [
-     "Besides",
-     "Beside"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "We are proud ___ you.",
-    "options": [
-     "about",
-     "of"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
     "stem": "I drank tea ___ coffee.",
     "options": [
      "instead of",
@@ -79,10 +49,40 @@
     "cefr": "B1"
    },
    {
-    "stem": "My house is close ___ the school.",
+    "stem": "The bus will ___ Hue at six.",
     "options": [
-     "to",
-     "with"
+     "reach",
+     "reach to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I ___ you have a great trip!",
+    "options": [
+     "wish",
+     "hope"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "C1"
+   },
+   {
+    "stem": "Great talk yesterday, ___?",
+    "options": [
+     "isn't",
+     "wasn't it"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Let's ___ a break for ten minutes.",
+    "options": [
+     "take",
+     "do"
     ],
     "answer": 0,
     "pick": 0,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_23878717",
-   "sb_2ed92c40",
-   "sb_a3e0f657",
    "sb_e847b5c6",
-   "sb_ac56922e"
+   "sb_4c9858e0",
+   "sb_6e178745",
+   "sb_8401e4b0",
+   "sb_290c5183"
   ]
  },
  "est": {

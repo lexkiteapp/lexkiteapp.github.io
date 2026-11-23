@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "The sun ___ at six.",
+    "stem": "The flood ___ many houses.",
     "options": [
-     "raises",
-     "rises"
+     "damaged",
+     "harmed"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "She found a new ___.",
+    "options": [
+     "job",
+     "work"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A1"
+   },
+   {
+    "stem": "Don't put off ___ the doctor.",
+    "options": [
+     "seeing",
+     "to see"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "We ___ to finish by Friday.",
+    "options": [
+     "suppose",
+     "are supposed"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "Sorry for the late ___.",
+    "stem": "___ the other hand, it is cheaper.",
     "options": [
-     "reply",
-     "answering"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Carbon dioxide is a ___ gas.",
-    "options": [
-     "greenhouse",
-     "green"
+     "On",
+     "In"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B2"
-   },
-   {
-    "stem": "Please ___ the room.",
-    "options": [
-     "enter to",
-     "enter"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "She is angry ___ her brother.",
-    "options": [
-     "with",
-     "on"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_3e77d39c",
-   "sb_02938065",
-   "sb_03ae3a7b",
-   "sb_5a3afafa",
-   "sb_c1d23040"
+   "sb_1798babe",
+   "sb_00e987d4",
+   "sb_01002079",
+   "sb_0a4a65be",
+   "sb_4bc6cc80"
   ]
  },
  "est": {

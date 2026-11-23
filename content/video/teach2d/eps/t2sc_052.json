@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "The flood ___ many houses.",
+    "stem": "Every day I ___ to school by bike.",
     "options": [
-     "damaged",
-     "harmed"
+     "go",
+     "travel"
     ],
     "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "She found a new ___.",
-    "options": [
-     "job",
-     "work"
-    ],
-    "answer": 0,
-    "pick": 0,
+    "pick": 1,
     "cefr": "A1"
    },
    {
-    "stem": "Don't put off ___ the doctor.",
+    "stem": "He can't cope ___ the noise.",
     "options": [
-     "seeing",
-     "to see"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "We ___ to finish by Friday.",
-    "options": [
-     "suppose",
-     "are supposed"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "___ the other hand, it is cheaper.",
-    "options": [
-     "On",
-     "In"
+     "with",
+     "(nothing)"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B2"
+   },
+   {
+    "stem": "I'm afraid that ___ work for me.",
+    "options": [
+     "not",
+     "doesn't"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I can't afford ___ a new phone.",
+    "options": [
+     "buying",
+     "to buy"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Can you ___ me your pen?",
+    "options": [
+     "lend",
+     "borrow"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_1798babe",
-   "sb_00e987d4",
-   "sb_01002079",
-   "sb_0a4a65be",
-   "sb_4bc6cc80"
+   "sb_00ac2cbe",
+   "sb_00b3d3f4",
+   "sb_fc42e435",
+   "sb_03473678",
+   "sb_389e26ad"
   ]
  },
  "est": {

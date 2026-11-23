@@ -43,43 +43,23 @@
  "data": {
   "items": [
    {
-    "stem": "My name ___ Minh.",
+    "stem": "I enjoy ___ on Sundays.",
     "options": [
-     "is",
-     "is called"
+     "swimming",
+     "to swim"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "We must ___ the problem now.",
+    "stem": "He is used to ___ alone.",
     "options": [
-     "deal",
-     "deal with"
+     "live",
+     "living"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I listen to ___ every day.",
-    "options": [
-     "music",
-     "musics"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I'm pleased ___ you.",
-    "options": [
-     "to meet",
-     "meeting"
-    ],
-    "answer": 0,
-    "pick": 0,
     "cefr": "B1"
    },
    {
@@ -91,6 +71,26 @@
     "answer": 1,
     "pick": 1,
     "cefr": "C1"
+   },
+   {
+    "stem": "I see it a bit ___.",
+    "options": [
+     "differently",
+     "different"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "The map is very ___.",
+    "options": [
+     "confusing",
+     "confused"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_aa063c4b",
-   "sb_e10eb8a3",
-   "sb_059c364d",
-   "sb_9be78c2b",
-   "sb_42fa0282"
+   "sb_bc8b2f12",
+   "sb_1aec9c5d",
+   "sb_42fa0282",
+   "sb_2b4d86ec",
+   "sb_191cddf2"
   ]
  },
  "est": {

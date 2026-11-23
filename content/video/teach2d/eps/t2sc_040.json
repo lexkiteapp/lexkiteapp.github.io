@@ -43,46 +43,6 @@
  "data": {
   "items": [
    {
-    "stem": "He ___ a bike to school.",
-    "options": [
-     "rides",
-     "drives"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "So how ___ know Emma?",
-    "options": [
-     "you",
-     "do you"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Are utilities ___ in the rent?",
-    "options": [
-     "included",
-     "include"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "She didn't ___ the price.",
-    "options": [
-     "mention about",
-     "mention"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
     "stem": "I ___ up in Hue.",
     "options": [
      "grew",
@@ -91,6 +51,46 @@
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
+   },
+   {
+    "stem": "Can you ___ me your pen?",
+    "options": [
+     "lend",
+     "borrow"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "She is in charge ___ the project.",
+    "options": [
+     "of",
+     "for"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I will ___ an exam tomorrow.",
+    "options": [
+     "take",
+     "pass"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I started this job two years ___.",
+    "options": [
+     "before",
+     "ago"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_c864b070",
-   "sb_7281e267",
-   "sb_836058ef",
-   "sb_5d41ed6c",
-   "sb_699b0f58"
+   "sb_699b0f58",
+   "sb_a958a159",
+   "sb_f0648eea",
+   "sb_c1d18a88",
+   "sb_0ce10d3a"
   ]
  },
  "est": {

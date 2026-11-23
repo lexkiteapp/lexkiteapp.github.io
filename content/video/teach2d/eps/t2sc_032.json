@@ -43,36 +43,6 @@
  "data": {
   "items": [
    {
-    "stem": "The bus will ___ Hue at six.",
-    "options": [
-     "reach",
-     "reach to"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I ___ you have a great trip!",
-    "options": [
-     "wish",
-     "hope"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "C1"
-   },
-   {
-    "stem": "Great talk yesterday, ___?",
-    "options": [
-     "isn't",
-     "wasn't it"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
     "stem": "I bought an ___ car.",
     "options": [
      "economical",
@@ -83,14 +53,44 @@
     "cefr": "B2"
    },
    {
-    "stem": "Let's ___ a break for ten minutes.",
+    "stem": "I'm really ___ in this role.",
     "options": [
-     "take",
-     "do"
+     "interesting",
+     "interested"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I applied ___ a job at the bank.",
+    "options": [
+     "for",
+     "to"
     ],
     "answer": 0,
     "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "No cashier? Use the ___.",
+    "options": [
+     "self-cashier",
+     "self-checkout"
+    ],
+    "answer": 1,
+    "pick": 1,
     "cefr": "A2"
+   },
+   {
+    "stem": "___ car is outside?",
+    "options": [
+     "Whose",
+     "Who's"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_4c9858e0",
-   "sb_6e178745",
-   "sb_8401e4b0",
    "sb_054c669e",
-   "sb_290c5183"
+   "sb_9f45e757",
+   "sb_bc68bba4",
+   "sb_92b16d01",
+   "sb_52a6bffb"
   ]
  },
  "est": {

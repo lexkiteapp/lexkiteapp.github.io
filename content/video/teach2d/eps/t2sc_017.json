@@ -59,23 +59,23 @@
     "cefr": "B2"
    },
    {
-    "stem": "He ___ a crime last year.",
+    "stem": "This book ___ to me.",
     "options": [
-     "did",
-     "committed"
+     "is belonged",
+     "belongs"
     ],
     "answer": 1,
-    "pick": 0,
+    "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "This soup lacks ___.",
+    "stem": "Let's keep in ___!",
     "options": [
-     "salt",
-     "of salt"
+     "touch",
+     "contact"
     ],
     "answer": 0,
-    "pick": 0,
+    "pick": 1,
     "cefr": "B1"
    },
    {
@@ -108,8 +108,8 @@
   "gold": [
    "sb_024874ec",
    "sb_14b91513",
-   "sb_16707e4b",
-   "sb_43b7bd40",
+   "sb_9d10327c",
+   "sb_25206a92",
    "sb_0c045175"
   ]
  },

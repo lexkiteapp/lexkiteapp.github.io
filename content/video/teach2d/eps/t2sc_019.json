@@ -63,23 +63,13 @@
     "cefr": "B2"
    },
    {
-    "stem": "Don't risk ___ your phone.",
+    "stem": "Is the rent with ___ included?",
     "options": [
-     "to break",
-     "breaking"
+     "tools",
+     "utilities"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Do you have ___ to enter?",
-    "options": [
-     "permission",
-     "a permission"
-    ],
-    "answer": 0,
-    "pick": 0,
     "cefr": "B1"
    },
    {
@@ -87,6 +77,16 @@
     "options": [
      "tell",
      "say"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "___ students here are young.",
+    "options": [
+     "Most",
+     "Most of"
     ],
     "answer": 0,
     "pick": 0,
@@ -112,9 +112,9 @@
   "gold": [
    "sb_17b6d916",
    "sb_8df64e9f",
-   "sb_2dbe96b7",
-   "sb_4b65ca0f",
-   "sb_7dc78d29"
+   "sb_5e4a563f",
+   "sb_7dc78d29",
+   "sb_a8dac88f"
   ]
  },
  "est": {

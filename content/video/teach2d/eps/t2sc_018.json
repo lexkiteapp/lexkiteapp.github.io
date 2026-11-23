@@ -59,20 +59,20 @@
     "cefr": "B2"
    },
    {
-    "stem": "This book ___ to me.",
+    "stem": "Don't risk ___ your phone.",
     "options": [
-     "is belonged",
-     "belongs"
+     "to break",
+     "breaking"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "Let's keep in ___!",
+    "stem": "Do you have ___ to enter?",
     "options": [
-     "touch",
-     "contact"
+     "permission",
+     "a permission"
     ],
     "answer": 0,
     "pick": 1,
@@ -108,8 +108,8 @@
   "gold": [
    "sb_5af5827b",
    "sb_813c80f1",
-   "sb_9d10327c",
-   "sb_25206a92",
+   "sb_2dbe96b7",
+   "sb_4b65ca0f",
    "sb_116f3374"
   ]
  },

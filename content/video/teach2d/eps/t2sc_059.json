@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "We want to ___ a flat for a year.",
+    "stem": "He is very ___.",
     "options": [
-     "hire",
-     "rent"
+     "high",
+     "tall"
     ],
     "answer": 1,
     "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "Please don't ___ me.",
+    "options": [
+     "laugh",
+     "laugh at"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "It all depends ___ you.",
+    "options": [
+     "on",
+     "of"
+    ],
+    "answer": 0,
+    "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "I finished ___ the report.",
+    "stem": "I would rather ___ at home.",
     "options": [
-     "to write",
-     "writing"
+     "to stay",
+     "stay"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "___ me an hour to cook dinner.",
-    "options": [
-     "It takes",
-     "I take"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A1"
-   },
-   {
-    "stem": "Please pay attention ___ the board.",
-    "options": [
-     "to",
-     "on"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "My talk is divided ___ three parts.",
-    "options": [
-     "into",
-     "in"
-    ],
-    "answer": 0,
-    "pick": 0,
     "cefr": "B2"
+   },
+   {
+    "stem": "This cake tastes ___.",
+    "options": [
+     "good",
+     "well"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_e4fb5276",
-   "sb_51a55050",
-   "sb_14cf6349",
-   "sb_b02a45a5",
-   "sb_816745d7"
+   "sb_6ce1a133",
+   "sb_6e4b5fa0",
+   "sb_f6d438d7",
+   "sb_7c67f786",
+   "sb_cad1c068"
   ]
  },
  "est": {

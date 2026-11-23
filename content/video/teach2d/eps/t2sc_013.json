@@ -45,7 +45,7 @@
      "with"
     ],
     "answer": 0,
-    "pick": 1,
+    "pick": 0,
     "cefr": "B2"
    },
    {
@@ -59,14 +59,14 @@
     "cefr": "B2"
    },
    {
-    "stem": "Sleep has a big effect ___ your mood.",
+    "stem": "Could you ___ a second?",
     "options": [
-     "to",
-     "on"
+     "wait me",
+     "hold on"
     ],
     "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
+    "pick": 0,
+    "cefr": "B1"
    },
    {
     "stem": "Three ___ were playing outside.",
@@ -108,7 +108,7 @@
   "gold": [
    "sb_f7fada2b",
    "sb_803a54ea",
-   "sb_14363e18",
+   "sb_14cb88e7",
    "sb_a5326200",
    "sb_0343c80d"
   ]

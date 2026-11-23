@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "Pay attention ___ the teacher.",
-    "options": [
-     "on",
-     "to"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I disagree ___ you about this.",
-    "options": [
-     "with",
-     "to"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Can you ___ a photo of us?",
-    "options": [
-     "take",
-     "make"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
     "stem": "What is the ___ of that tower?",
     "options": [
      "high",
      "height"
     ],
     "answer": 1,
-    "pick": 1,
+    "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "I love tacos! ___",
+    "stem": "I ___ spicy food.",
     "options": [
-     "Me also!",
-     "Me too!"
+     "like",
+     "am like"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "He fell in love ___ her.",
+    "options": [
+     "with",
+     "to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I'm listening ___ a podcast.",
+    "options": [
+     "(nothing)",
+     "to"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A1"
+   },
+   {
+    "stem": "Today I'll present our app ___ you.",
+    "options": [
+     "for",
+     "to"
     ],
     "answer": 1,
     "pick": 0,
-    "cefr": "B1"
+    "cefr": "B2"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_49f8754d",
-   "sb_d8f735d9",
-   "sb_5ae0c1c8",
    "sb_d7bb9b73",
-   "sb_8449414e"
+   "sb_77020772",
+   "sb_fa69f2b5",
+   "sb_0f8cdbf0",
+   "sb_c03dbf46"
   ]
  },
  "est": {

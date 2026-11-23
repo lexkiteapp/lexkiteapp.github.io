@@ -59,26 +59,6 @@
     "cefr": "B2"
    },
    {
-    "stem": "I ___ the exam last week.",
-    "options": [
-     "failed",
-     "failed in"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "___ going to love this!",
-    "options": [
-     "You're",
-     "Your"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
     "stem": "My ___ didn't arrive.",
     "options": [
      "luggages",
@@ -87,6 +67,26 @@
     "answer": 1,
     "pick": 0,
     "cefr": "B1"
+   },
+   {
+    "stem": "___ it will rain tomorrow.",
+    "options": [
+     "Maybe",
+     "May be"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I ___ with you.",
+    "options": [
+     "agree",
+     "am agree"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 3,
@@ -108,9 +108,9 @@
   "gold": [
    "sb_904eea31",
    "sb_abcf714c",
-   "sb_6e59e923",
-   "sb_3aca1292",
-   "sb_9172f8df"
+   "sb_9172f8df",
+   "sb_45aa51fc",
+   "sb_88ab7735"
   ]
  },
  "est": {

@@ -59,16 +59,6 @@
     "cefr": "B2"
    },
    {
-    "stem": "He was absent ___ class yesterday.",
-    "options": [
-     "in",
-     "from"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
     "stem": "The child ___ at the dog.",
     "options": [
      "pointed",
@@ -87,6 +77,16 @@
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
+   },
+   {
+    "stem": "Sleep has a big effect ___ your mood.",
+    "options": [
+     "to",
+     "on"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 4,
@@ -108,9 +108,9 @@
   "gold": [
    "sb_13bcedda",
    "sb_57e42a5c",
-   "sb_878144b4",
    "sb_403980fc",
-   "sb_cb81b434"
+   "sb_cb81b434",
+   "sb_14363e18"
   ]
  },
  "est": {

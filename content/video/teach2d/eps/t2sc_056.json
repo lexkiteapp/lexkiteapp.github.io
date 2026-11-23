@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "She wears ___ every day.",
+    "stem": "She is nervous ___ the test.",
     "options": [
-     "a glasses",
-     "glasses"
+     "with",
+     "about"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "He has ___ experience in sales.",
+    "options": [
+     "many",
+     "a lot of"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Is there a bank ___ here?",
+    "options": [
+     "near",
+     "near to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A1"
+   },
+   {
+    "stem": "My phone is different ___ yours.",
+    "options": [
+     "with",
+     "from"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "I studied ___ three hours.",
+    "stem": "I walk ___ after class.",
     "options": [
-     "for",
-     "during"
+     "to home",
+     "home"
     ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "A2"
-   },
-   {
-    "stem": "He admitted ___ the last cookie.",
-    "options": [
-     "eating",
-     "to eat"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I have too much ___.",
-    "options": [
-     "luggage",
-     "luggages"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "The truck collided ___ a tree.",
-    "options": [
-     "with",
-     "to"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_ff076731",
-   "sb_f3392adc",
-   "sb_097145e5",
-   "sb_682c8238",
-   "sb_017d1a81"
+   "sb_2bf49caa",
+   "sb_6dbf5c1a",
+   "sb_00f4553a",
+   "sb_85b49008",
+   "sb_46f96315"
   ]
  },
  "est": {

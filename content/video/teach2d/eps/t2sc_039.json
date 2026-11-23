@@ -39,46 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "The gym is very busy at ___ times.",
-    "options": [
-     "peak",
-     "full"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "Thank you all for ___.",
-    "options": [
-     "your listening",
-     "listening"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "I ___ a bath after work.",
-    "options": [
-     "made",
-     "took"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "He avoided ___ to me.",
-    "options": [
-     "talking",
-     "to talk"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
     "stem": "Bad sleep can lead ___ stress.",
     "options": [
      "for",
@@ -87,6 +47,46 @@
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
+   },
+   {
+    "stem": "He ___ a bike to school.",
+    "options": [
+     "rides",
+     "drives"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "So how ___ know Emma?",
+    "options": [
+     "you",
+     "do you"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Are utilities ___ in the rent?",
+    "options": [
+     "included",
+     "include"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "She didn't ___ the price.",
+    "options": [
+     "mention about",
+     "mention"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B2"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_01d0269f",
-   "sb_30c60846",
-   "sb_155a64a8",
-   "sb_d8d52cb2",
-   "sb_03f6978d"
+   "sb_03f6978d",
+   "sb_c864b070",
+   "sb_7281e267",
+   "sb_836058ef",
+   "sb_5d41ed6c"
   ]
  },
  "est": {

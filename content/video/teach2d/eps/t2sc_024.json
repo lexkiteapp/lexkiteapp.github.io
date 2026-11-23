@@ -53,16 +53,6 @@
     "cefr": "B2"
    },
    {
-    "stem": "Please ___ the door first.",
-    "options": [
-     "knock on",
-     "knock"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
     "stem": "You should ___ an effort to learn.",
     "options": [
      "make",
@@ -73,10 +63,20 @@
     "cefr": "B2"
    },
    {
-    "stem": "See you ___ Monday.",
+    "stem": "I have too ___ baggage.",
     "options": [
-     "next",
-     "the next"
+     "much",
+     "many"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "The market was very ___.",
+    "options": [
+     "crowded",
+     "crowd"
     ],
     "answer": 0,
     "pick": 0,
@@ -111,9 +111,9 @@
  "src": {
   "gold": [
    "sb_1b09af9d",
-   "sb_a8d53d5c",
    "sb_7c00a5f9",
-   "sb_d91b406f",
+   "sb_32557b14",
+   "sb_5c7bba0d",
    "sb_5c2deea7"
   ]
  },

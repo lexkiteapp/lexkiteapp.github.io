@@ -39,44 +39,14 @@
  "data": {
   "items": [
    {
-    "stem": "I wasn't aware ___ the problem.",
+    "stem": "She pretended ___ asleep.",
     "options": [
-     "of",
-     "about"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "The boy denied ___ the cake.",
-    "options": [
-     "to eat",
-     "eating"
+     "being",
+     "to be"
     ],
     "answer": 1,
     "pick": 0,
     "cefr": "B2"
-   },
-   {
-    "stem": "He advised me ___ more exercise.",
-    "options": [
-     "do",
-     "to do"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I bought ___ new jeans.",
-    "options": [
-     "a",
-     "a pair of"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "A2"
    },
    {
     "stem": "I ___ a mistake on the test.",
@@ -87,6 +57,36 @@
     "answer": 0,
     "pick": 0,
     "cefr": "A1"
+   },
+   {
+    "stem": "I ___ with you.",
+    "options": [
+     "am agree",
+     "agree"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "We bought some new ___.",
+    "options": [
+     "furnitures",
+     "furniture"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "She ___ my question.",
+    "options": [
+     "answered",
+     "answered to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 2,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_1785ef90",
-   "sb_01c4ef56",
-   "sb_d9414771",
-   "sb_33c9b363",
-   "sb_37234b0e"
+   "sb_344dfdad",
+   "sb_37234b0e",
+   "sb_4f5a34f3",
+   "sb_74c70f2e",
+   "sb_f82b0a44"
   ]
  },
  "est": {
