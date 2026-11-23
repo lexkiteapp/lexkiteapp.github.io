@@ -3,8 +3,8 @@ export const SEV_ORDER = ['high', 'medium', 'low'];
 const T = { overflow: 8, contrast: 4.5, contrastBig: 3, tap: 44 };
 // Chữ bị che có tính lỗi không? Thanh dính che chữ đang trượt qua mà cuộn tới được → không; che lúc nghỉ (đầu trang dưới thanh trên, cuối trang dưới thanh dưới, trang ngắn không cuộn) → lỗi; không phải thanh dính → lỗi.
 export const coverReal = (c, fits) => !c.side || (c.side === 'top' ? c.pos === 'top' : c.pos === 'bottom' || !!fits);
-// Che giả (không mất chữ với người dùng): twin = phần tử che đã tự hiển thị đúng chữ đó; wrap = chữ inline xuống dòng, hộp chữ kia chồng lên; closed = chữ trong <details> đóng; iconCtl = icon ligature nằm dưới nút/link (icon trang trí của chính nút).
-export const coverNoise = c => !!(c.twin || c.wrap || c.closed || c.iconCtl);
+// Che giả (không mất chữ với người dùng): twin = phần tử che đã tự hiển thị đúng chữ đó; wrap = chữ inline xuống dòng, hộp chữ kia chồng lên; closed = chữ trong <details> đóng; iconCtl = icon ligature nằm dưới nút/link (icon trang trí của chính nút); overlay = chữ pointer-events:none phủ TRÊN nút (elementFromPoint bỏ qua nên thấy nút bên dưới).
+export const coverNoise = c => !!(c.twin || c.wrap || c.closed || c.iconCtl || c.overlay);
 export function audit(m) {
   const out = [], add = (sev, rule, msg) => out.push({ sev, rule, msg });
   if (m.measureFail) return [{ sev: 'high', rule: 'js', msg: 'không đo được: ' + m.measureFail }];
