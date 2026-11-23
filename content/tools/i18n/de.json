@@ -2,7 +2,8 @@
   "nav": {
     "tools": "Kostenlose Englisch-Tools",
     "levelTest": "Englisch-Einstufungstest",
-    "toeic": "TOEIC Part 5 üben"
+    "toeic": "TOEIC Part 5 üben",
+    "band": "IELTS Band Rechner"
   },
   "test": {
     "title": "Englisch-Einstufungstest kostenlos (CEFR A1–C2) – 15 Min., sofort",
@@ -111,5 +112,49 @@
     "full": "Die Lexkite-App enthält alle 7 Teile, 7 komplette Probetests mit geschätztem Ergebnis von 10–990 und 1.250 TOEIC-Wörter.",
     "openApp": "TOEIC in der App üben",
     "otherTool": "Unsicher bei deinem Niveau? Mach den kostenlosen Englisch-Einstufungstest."
+  },
+  "band": {
+    "title": "IELTS Band Rechner – kostenlos, Listening, Reading, Gesamt",
+    "desc": "IELTS Band Rechner: Gib deine Rohpunkte in Listening und Reading (von 40) sowie Writing und Speaking ein und erhalte alle Bands und deinen Gesamtscore.",
+    "h1": "IELTS Band Rechner",
+    "lead": "Rechne deine Übungstest-Ergebnisse in IELTS Bands um. Trage die Rohpunkte für Listening und Reading ein, wähle Academic oder General Training, ergänze deine Writing- und Speaking-Bands und sieh deinen Gesamtscore.",
+    "facts": [
+      "Listening und Reading von 40 Punkten",
+      "Academic und General Training",
+      "Gesamtscore nach IELTS-Regel gerundet",
+      "Kostenlos · ohne Anmeldung"
+    ],
+    "formH": "Deine Ergebnisse",
+    "listenH": "Listening",
+    "listenHint": "Richtige Antworten, 0–40",
+    "readH": "Reading",
+    "readHint": "Richtige Antworten, 0–40",
+    "typeH": "Reading-Testtyp",
+    "typeA": "Academic",
+    "typeG": "General Training",
+    "writeH": "Writing",
+    "speakH": "Speaking",
+    "bandHint": "Band, 0–9 in 0,5er-Schritten",
+    "calc": "Mein Band berechnen",
+    "resultH": "Dein Gesamtscore",
+    "need": "Bitte fülle alle vier Werte aus.",
+    "approx": "Nur eine Schätzung: Die Umrechnungstabellen unten sind weit verbreitete Näherungswerte, und jeder echte Test kann um etwa eine Frage abweichen.",
+    "openApp": "Trainiere deine schwächste Fähigkeit in Lexkite",
+    "howH": "So wird der Gesamtscore berechnet",
+    "how": [
+      "Der Gesamtscore ist der Durchschnitt deiner vier Einzel-Bands, gerundet auf das nächste halbe Band.",
+      "Ein Durchschnitt mit .25 wird auf das nächste halbe Band aufgerundet, einer mit .75 auf das nächste ganze Band. Beispiel: 6,25 wird zu 6,5 und 6,75 zu 7,0, während 6,125 bei 6,0 bleibt.",
+      "Die Bands für Listening und Reading ergeben sich aus deinen richtigen Antworten von 40. Writing und Speaking bewerten Prüfer, nimm also das Band deiner Lehrkraft oder aus einem bewerteten Probetest."
+    ],
+    "tableH": "Rohpunkte in Band umrechnen (ungefähr)",
+    "tableNote": "Jede Zeile zeigt die niedrigste Zahl richtiger Antworten für dieses Band. IELTS veröffentlicht keine einheitliche Tabelle, sieh die Werte daher als Orientierung.",
+    "colRaw": "Richtige Antworten (ab)",
+    "colBand": "Band",
+    "tblL": "Listening",
+    "tblA": "Academic Reading",
+    "tblG": "General Training Reading",
+    "honestH": "Was dieser Rechner kann und was nicht",
+    "honest": "Er zeigt, wo ein Übungsergebnis wahrscheinlich liegt, ist aber kein offizieller Score. Writing- und Speaking-Bands brauchen eine Prüferin oder eine erfahrene Lehrkraft. Nutze das Ergebnis, um zu entscheiden, was du als Nächstes übst, und prüfe dein Niveau dann mit einem vollständigen Probetest unter Zeitdruck.",
+    "otherTool": "Finde dein Englischniveau (A1–C2) mit dem kostenlosen Einstufungstest"
   }
 }

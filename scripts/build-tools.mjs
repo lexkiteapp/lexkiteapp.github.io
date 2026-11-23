@@ -8,6 +8,7 @@ import { fitTitle } from './lib/title-fit.mjs';
 import { CSS, SEO_CSS, UI_JS, esc, ld, themePage, siteHeader, siteFooter, crumbsHtml, landingHref, appHref } from './lib/site-layout.mjs';
 import { S } from './lib/seo-pages-i18n.mjs';
 import { TOOL_LANGS as LANGS, toolPath, toolStrings } from './lib/tools-links.mjs';
+import { BAND_DATA } from './lib/ielts-band.mjs';
 
 if (process.env.TOOLS_PAGES === '0') { console.log('· Công cụ: tắt (TOOLS_PAGES=0)'); process.exit(0); }
 const SITE = 'https://lexkite.com', D = process.env.TOOLS_DIST || 'dist';
@@ -60,7 +61,7 @@ const TOOL_CSS = `.tool .lead{font-size:1.1rem;max-width:62ch}.facts{display:fle
 const page = ({ lang, kind, lv, title, desc, crumbs, body, jsonld = [], og, script = '', data = null }) => {
   const p = toolPath(lang, kind, lv), alts = altsOf(l => toolPath(l, kind, lv));
   const t = S[lang], s = toolStrings(lang), dir = RTL.has(lang) ? ' dir="rtl"' : '';
-  const nav = [[`/${lang}/blog/`, 'Blog', ''], [toolPath(lang, 'test'), esc(s.nav.levelTest), kind === 'test' ? ' aria-current="page"' : ''], [toolPath(lang, 'toeic'), esc(s.nav.toeic), kind === 'toeic' ? ' aria-current="page"' : '']];
+  const nav = [[`/${lang}/blog/`, 'Blog', ''], [toolPath(lang, 'test'), esc(s.nav.levelTest), kind === 'test' ? ' aria-current="page"' : ''], [toolPath(lang, 'toeic'), esc(s.nav.toeic), kind === 'toeic' ? ' aria-current="page"' : ''], [toolPath(lang, 'band'), esc(s.nav.band), kind === 'band' ? ' aria-current="page"' : '']];
   const head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(fitTitle(title))}</title><meta name="description" content="${esc(desc)}"><meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${url(p)}">${alts.map(([l, u]) => `<link rel="alternate" hreflang="${l}" href="${url(u)}">`).join('')}<meta property="og:type" content="website"><meta property="og:site_name" content="Lexkite"><meta property="og:locale" content="${lang}"><meta property="og:url" content="${url(p)}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${SITE}${og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(title)}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">${[...jsonld, crumbsLd(crumbs)].map(ld).join('')}`;
   urls.push([p, lastmod, alts]);
   return `<!doctype html><html lang="${lang}"${dir}><head>${head}<style>${CSS}\n${SEO_CSS}\n${TOOL_CSS}</style></head><body><a class="skip" href="#nd">${esc(t.skip)}</a>
@@ -101,6 +102,7 @@ export function build() {
   fs.mkdirSync(path.join(D, 'data/tools'), { recursive: true });
   fs.writeFileSync(path.join(D, 'data/tools/cefr-bank.json'), JSON.stringify({ v: 1, items: bank }));
   const lmTest = gitDate('content/tools', 'scripts/build-tools.mjs', 'web/js/tools'), lmToeic = gitDate('web/js/toeic', 'web/cpack/toeic', 'web/i18n/explain', 'content/tools/i18n', 'scripts/build-tools.mjs');
+  const lmBand = gitDate('content/tools/ielts-band.json', 'content/tools/i18n', 'scripts/build-tools.mjs', 'web/js/tools/ielts-band.js');
   let n = 0;
   for (const lang of LANGS) {
     const t = S[lang], s = toolStrings(lang), T = s.test, home = [t.home, landingHref(lang)], pT = toolPath(lang, 'test');
@@ -131,6 +133,19 @@ ${lvSample(bank, lv, P, o)}${lvWords(lang, lv, P, o)}<section><h2>${esc(nx ? fil
 <section><h2>${esc(P.otherLevels)}</h2>${levelList(lang, lv)}</section>`, script: '/js/tools/level-test.js' }));
       n++;
     }
+    // Máy tính band IELTS (docs/specs/ielts-band-calculator.md): trang tĩnh + bảng quy đổi HTML; JS lười chỉ ở trang này
+    lastmod = lmBand;
+    const B = s.band, pB = toolPath(lang, 'band'), num = x => Number(x).toFixed(1), fld = (n, h, hint, ex) => `<p><label for="b-${n}"><b>${esc(h)}</b></label><br><input id="b-${n}" name="${n}" ${ex} inputmode="decimal" required> <small>${esc(hint)}</small></p>`;
+    const tbl = (h, rows) => `<table class="ex"><caption>${esc(h)}</caption><thead><tr><th scope="col">${esc(B.colRaw)}</th><th scope="col">${esc(B.colBand)}</th></tr></thead><tbody>${rows.map(([m, b]) => `<tr><td>${m}</td><td>${num(b)}</td></tr>`).join('')}</tbody></table>`;
+    write(pB, page({ lang, kind: 'band', title: B.title, desc: B.desc, og: '/img/tools/og-cefr.png', crumbs: [home, [s.nav.band, pB]], script: '/js/tools/ielts-band.js',
+      data: { tables: { listening: BAND_DATA.listening, reading_academic: BAND_DATA.reading_academic, reading_general: BAND_DATA.reading_general }, need: B.need, resultH: B.resultH, listenH: B.listenH, readH: B.readH, writeH: B.writeH, speakH: B.speakH, approx: B.approx, openApp: B.openApp, app: app(lang, 'tests') },
+      jsonld: [{ '@context': 'https://schema.org', '@type': 'WebApplication', name: B.h1, url: url(pB), applicationCategory: 'EducationalApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: lang, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, provider: ORG }],
+      body: `<h1>${esc(B.h1)}</h1><p class="lead">${esc(B.lead)}</p><ul class="facts">${B.facts.map(f => `<li>${esc(f)}</li>`).join('')}</ul>
+<section class="qz"><h2>${esc(B.formH)}</h2><noscript><p>${esc(T.noJs)}</p></noscript><form id="band-form" autocomplete="off">${fld('l', B.listenH, B.listenHint, 'type="number" min="0" max="40" step="1"')}${fld('r', B.readH, B.readHint, 'type="number" min="0" max="40" step="1"')}<p><label for="b-type"><b>${esc(B.typeH)}</b></label><br><select id="b-type" name="type"><option value="a">${esc(B.typeA)}</option><option value="g">${esc(B.typeG)}</option></select></p>${fld('w', B.writeH, B.bandHint, 'type="number" min="0" max="9" step="0.5"')}${fld('s', B.speakH, B.bandHint, 'type="number" min="0" max="9" step="0.5"')}<p><button type="submit" class="btn">${esc(B.calc)}</button></p></form><div id="band-out" tabindex="-1" aria-live="polite"></div></section>
+<section><h2>${esc(B.howH)}</h2>${B.how.map(x => `<p>${esc(x)}</p>`).join('')}</section>
+<section><h2>${esc(B.tableH)}</h2><p class="hint">${esc(B.tableNote)}</p>${tbl(B.tblL, BAND_DATA.listening)}${tbl(B.tblA, BAND_DATA.reading_academic)}${tbl(B.tblG, BAND_DATA.reading_general)}</section>
+<section><h2>${esc(B.honestH)}</h2><p>${esc(B.honest)}</p><p><a href="${pT}">${esc(B.otherTool)}</a></p></section>` }));
+    n++;
     // Quiz TOEIC Part 5
     lastmod = lmToeic;
     const X = s.toeic, items = toeicFor(lang, t5), pQ = toolPath(lang, 'toeic'), N = items.length;
@@ -152,7 +167,7 @@ ${lvSample(bank, lv, P, o)}${lvWords(lang, lv, P, o)}<section><h2>${esc(nx ? fil
   }
   // Sitemap riêng (đo index theo loại trong GSC) – build-sitemap-index.mjs tự gom mọi dist/sitemap-*.xml
   fs.writeFileSync(path.join(D, 'sitemap-tools.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.map(([p, lm, alts]) => `<url><loc>${url(p)}</loc><lastmod>${lm}</lastmod>${alts.map(([l, u]) => `<xhtml:link rel="alternate" hreflang="${l}" href="${url(u)}"/>`).join('')}</url>`).join('\n')}\n</urlset>\n`);
-  console.log(`✓ Công cụ: ${n} trang (${LANGS.length} ngôn ngữ × 8), ${bank.length} câu CEFR, ${t5.length} câu TOEIC Part 5 → sitemap-tools.xml`);
+  console.log(`✓ Công cụ: ${n} trang (${LANGS.length} ngôn ngữ × 9), ${bank.length} câu CEFR, ${t5.length} câu TOEIC Part 5 → sitemap-tools.xml`);
   return { n, urls };
 }
 if (/build-tools\.mjs$/.test(process.argv[1] || '')) build();
