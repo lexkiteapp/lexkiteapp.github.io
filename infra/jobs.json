@@ -161,6 +161,24 @@
    "_note": "Dọn artifact Actions video rác (failed-run / superseded / gone-episode); lịch chỉ dry-run + manifest, xoá thật chỉ khi chạy tay apply=true (docs/VIDEO-STORAGE.md)"
   },
   {
+   "id": "voice-misses",
+   "workflow": "voice-misses.yml",
+   "cron": [
+    "30 18 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "d1_main",
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {
+    "d1_main_reads": 20000
+   },
+   "lease": false,
+   "_note": "Câu tiếng Anh hay rơi giọng máy (khóa băm từ /api/vmiss) → web/audio/l/misses.tsv → audio.yml 02:00 render (docs/specs/kokoro-on-device.md §Số đo)"
+  },
+  {
    "id": "capacity-watch",
    "workflow": "capacity-watch.yml",
    "cron": [
