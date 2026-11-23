@@ -219,6 +219,11 @@ const diskA = {}, diskA2 = {};
   ok((await driveSnap('ann')).cards.tok1, 'sau gia hạn thủ công: đã lên Drive');
   await A.edit('tok2', 1_996_000_000_000); await A.hide();
   ok(A.stat.popups.length === 1 && (await driveSnap('ann')).cards.tok2, 'có token lại → nền về Drive, không popup thêm');
+  // chỉ "cũ" (không thay đổi chưa gửi, okAt > 12 giờ, hết token) → D1 tối đa 1 lần/giờ
+  const stale = await A.st(); stale.okAt = Date.now() - 13 * 3600e3; delete stale.d1At; A.disk.store.driveSync.ann = stale; A.w.localStorage.removeItem('lk.dt');
+  const online = async () => { A.w.dispatchEvent(new A.w.Event('online')); await A.idle(); };
+  const c1 = d1Calls; await online(); const c2 = d1Calls; await online(); await online();
+  ok(c2 > c1 && d1Calls === c2 && A.stat.popups.length === 1, 'chỉ cũ: lượt D1 đầu chạy, các lượt sau trong 1 giờ không gọi D1 (' + (c2 - c1) + ' rồi +' + (d1Calls - c2) + ')');
   A.close();
 }
 

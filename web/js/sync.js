@@ -346,7 +346,8 @@
     if (r === 'newer') { Sync.mode = 'd1'; return pullMerge(); } // tệp do bản app MỚI hơn ghi → không ghi đè, dùng D1 tới khi app cập nhật
     if (r === 'no-token' && why !== 'manual') { // token Drive hết hạn: KHÔNG popup nền – có gì cần gửi/kéo thì đi đường D1 im lặng, có token lại thì về Drive
       const st = await D.load(Sync.user.uid);
-      if (dctx().due(st)) { Sync.mode = 'd1'; try { await pullMerge({ quiet: true }); } finally { Sync.mode = 'drive'; } }
+      // chỉ "cũ" (không có thay đổi chưa gửi) → tối đa 1 lần/giờ để không tốn hạn mức D1
+      if (dctx().due(st) && (dirty || Date.now() - (st.d1At || 0) > 3600e3)) { if (!dirty) { st.d1At = Date.now(); await D.save(Sync.user.uid, st); } Sync.mode = 'd1'; try { await pullMerge({ quiet: true }); } finally { Sync.mode = 'drive'; } }
       else setStatus('ok');
       return r;
     }
