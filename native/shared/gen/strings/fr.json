@@ -3537,5 +3537,13 @@
   "interpret.worth": "Phrases à retenir",
   "interpret.noCards": "Cette conversation ne contient pas encore de phrases en langue étrangère à apprendre.",
   "interpret.saveN": "Enregistrer {n} phrases dans ma liste",
-  "interpret.newConv": "Nouvelle conversation"
+  "interpret.newConv": "Nouvelle conversation",
+  "interp.replay": "Réécouter",
+  "interp.listen": "Écouter",
+  "interp.slow": "Écouter lentement",
+  "interp.keywords": "Mots-clés",
+  "interp.speak": "Expression orale",
+  "interp.recogErr": "Erreur de reconnaissance : {err}",
+  "interp.delete": "Supprimer",
+  "interp.cancel": "Annuler"
 }

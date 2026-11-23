@@ -3538,5 +3538,13 @@
   "interpret.worth": "Câu đáng nhớ",
   "interpret.noCards": "Cuộc này chưa có câu ngoại ngữ để học.",
   "interpret.saveN": "Lưu {n} câu vào Sổ từ",
-  "interpret.newConv": "Cuộc mới"
+  "interpret.newConv": "Cuộc mới",
+  "interp.replay": "Nghe lại",
+  "interp.listen": "Nghe",
+  "interp.slow": "Nghe chậm",
+  "interp.keywords": "Từ khóa",
+  "interp.speak": "Nói",
+  "interp.recogErr": "Lỗi nhận dạng: {err}",
+  "interp.delete": "Xóa",
+  "interp.cancel": "Hủy"
 }

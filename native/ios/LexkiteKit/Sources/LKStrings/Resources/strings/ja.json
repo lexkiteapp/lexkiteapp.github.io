@@ -3537,5 +3537,13 @@
   "interpret.worth": "覚えておきたいフレーズ",
   "interpret.noCards": "この会話には学べる外国語のフレーズがまだありません。",
   "interpret.saveN": "{n} 件のフレーズを単語帳に保存",
-  "interpret.newConv": "新しい会話"
+  "interpret.newConv": "新しい会話",
+  "interp.replay": "もう一度聞く",
+  "interp.listen": "聞く",
+  "interp.slow": "ゆっくり聞く",
+  "interp.keywords": "キーワード",
+  "interp.speak": "スピーキング",
+  "interp.recogErr": "認識エラー: {err}",
+  "interp.delete": "削除",
+  "interp.cancel": "キャンセル"
 }

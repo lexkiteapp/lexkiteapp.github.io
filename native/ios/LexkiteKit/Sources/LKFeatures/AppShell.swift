@@ -122,6 +122,7 @@ struct InnerScreen: View {
         else if DictRoutes.handlesInner(route.name) { DictInnerScreen(route: route) }
         else if SkillsRoutes.handlesInner(route.name) { SkillsInnerScreen(route: route) }   // M4 P06: listening · listen · reading · read
         else if SpeakRoutes.handlesInner(route.name) { SpeakInnerScreen(route: route) }   // M4 P07: speak · speaking · pron · rtype · roleplay
+        else if InterpretRoutes.handlesInner(route.name) { InterpretInnerScreen(route: route) }   // Phiên dịch: interpret (face to face · phrasebook · history · recap)
         else if WriteRoutes.handlesInner(route.name) { WriteInnerScreen(route: route) }   // M4 P09: write · task1 · qstats · criteria · fix · grammar · method · style · confidence
         else { placeholder }
     }

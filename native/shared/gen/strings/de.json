@@ -3537,5 +3537,13 @@
   "interpret.worth": "Merkenswerte Sätze",
   "interpret.noCards": "In diesem Gespräch gibt es noch keine fremdsprachigen Sätze zum Lernen.",
   "interpret.saveN": "{n} Sätze in Wortliste speichern",
-  "interpret.newConv": "Neues Gespräch"
+  "interpret.newConv": "Neues Gespräch",
+  "interp.replay": "Erneut hören",
+  "interp.listen": "Anhören",
+  "interp.slow": "Langsam anhören",
+  "interp.keywords": "Schlüsselwörter",
+  "interp.speak": "Sprechen",
+  "interp.recogErr": "Erkennungsfehler: {err}",
+  "interp.delete": "Löschen",
+  "interp.cancel": "Abbrechen"
 }

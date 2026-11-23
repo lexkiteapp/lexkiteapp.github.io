@@ -3537,5 +3537,13 @@
   "interpret.worth": "Kaydetmeye değer cümleler",
   "interpret.noCards": "Bu konuşmada henüz öğrenilecek yabancı dilde cümle yok.",
   "interpret.saveN": "{n} cümleyi kelime listesine kaydet",
-  "interpret.newConv": "Yeni konuşma"
+  "interpret.newConv": "Yeni konuşma",
+  "interp.replay": "Tekrar dinle",
+  "interp.listen": "Dinle",
+  "interp.slow": "Yavaş dinle",
+  "interp.keywords": "Anahtar kelimeler",
+  "interp.speak": "Konuşma",
+  "interp.recogErr": "Tanıma hatası: {err}",
+  "interp.delete": "Sil",
+  "interp.cancel": "İptal"
 }

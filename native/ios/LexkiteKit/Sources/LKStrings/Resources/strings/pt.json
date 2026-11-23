@@ -3537,5 +3537,13 @@
   "interpret.worth": "Frases que valem a pena guardar",
   "interpret.noCards": "Esta conversa ainda não tem frases em outro idioma para aprender.",
   "interpret.saveN": "Salvar {n} frases na minha lista",
-  "interpret.newConv": "Nova conversa"
+  "interpret.newConv": "Nova conversa",
+  "interp.replay": "Ouvir de novo",
+  "interp.listen": "Ouvir",
+  "interp.slow": "Ouvir devagar",
+  "interp.keywords": "Palavras-chave",
+  "interp.speak": "Fala",
+  "interp.recogErr": "Erro de reconhecimento: {err}",
+  "interp.delete": "Excluir",
+  "interp.cancel": "Cancelar"
 }

@@ -3537,5 +3537,13 @@
   "interpret.worth": "기억해 둘 문장",
   "interpret.noCards": "이 대화에는 아직 배울 외국어 문장이 없어요.",
   "interpret.saveN": "{n}개 문장을 단어장에 저장",
-  "interpret.newConv": "새 대화"
+  "interpret.newConv": "새 대화",
+  "interp.replay": "다시 듣기",
+  "interp.listen": "듣기",
+  "interp.slow": "천천히 듣기",
+  "interp.keywords": "핵심어",
+  "interp.speak": "말하기",
+  "interp.recogErr": "인식 오류: {err}",
+  "interp.delete": "삭제",
+  "interp.cancel": "취소"
 }

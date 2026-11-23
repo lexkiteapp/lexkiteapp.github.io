@@ -3537,5 +3537,13 @@
   "interpret.worth": "Фразы, которые стоит запомнить",
   "interpret.noCards": "В этом разговоре пока нет фраз на иностранном языке для изучения.",
   "interpret.saveN": "Сохранить фразы ({n}) в словарь",
-  "interpret.newConv": "Новый разговор"
+  "interpret.newConv": "Новый разговор",
+  "interp.replay": "Повторить",
+  "interp.listen": "Слушать",
+  "interp.slow": "Медленно",
+  "interp.keywords": "Ключевые слова",
+  "interp.speak": "Говорение",
+  "interp.recogErr": "Ошибка распознавания: {err}",
+  "interp.delete": "Удалить",
+  "interp.cancel": "Отмена"
 }
