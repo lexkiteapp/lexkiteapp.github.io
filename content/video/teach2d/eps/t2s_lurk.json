@@ -1,0 +1,134 @@
+{
+ "id": "t2s_lurk",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 215,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I read everything but never post!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Lurk!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Read online without posting.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I just lurk in that group chat.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "lurk",
+  "forms": [
+   "lurking",
+   "lurker"
+  ],
+  "ipa": "/ˈlɝːk/",
+  "mean": "Read online without posting.",
+  "define": "To read posts in a group without joining in.",
+  "vi": "Lướt xem không bình luận",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Talking about a group chat",
+   "text": "I just lurk in that group chat."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"lurk\" online is to…",
+   "options": [
+    "post often",
+    "read without posting"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your friend 'I lurk on your profile'.",
+   "why": "It sounds creepy, not casual."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I read everything but never post!"
+ },
+ "src": {
+  "slang": "lurk"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "What does \"lurk\" mean?",
+  "keyword": "lurk",
+  "value": "Lurk = Read online without posting. Example: \"I just lurk in that group chat.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lurk\" mean?",
+    "description": "Lurk = Read online without posting. Example: \"I just lurk in that group chat.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "lurk",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lurk\" mean?\n\nLurk = Read online without posting. Example: \"I just lurk in that group chat.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"lurk\" mean?\n\nLurk = Read online without posting. Example: \"I just lurk in that group chat.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lurk\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell your friend 'I lurk on your profile'. It sounds creepy, not casual. Real example: \"I just lurk in that group chat.\" More real English slang, free: {link}"
+ }
+}

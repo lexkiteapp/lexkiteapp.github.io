@@ -1,0 +1,133 @@
+{
+ "id": "t2s_breakthebank",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 72,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is lunch too expensive?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Break the bank!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Cost way too much money.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Don't worry, this lunch won't break the bank.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "break the bank",
+  "forms": [
+   "broke the bank"
+  ],
+  "ipa": "/ˈbreɪk ðə ˈbæŋk/",
+  "mean": "Cost way too much money.",
+  "define": "To cost so much that you can't afford it.",
+  "vi": "Tốn cả gia tài",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "Don't worry, this lunch won't break the bank."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It usually means to…",
+   "options": [
+    "rob a bank",
+    "cost too much"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'break the bank' at a bank.",
+   "why": "It only means costing too much."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is lunch too expensive?"
+ },
+ "src": {
+  "slang": "break the bank"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"break the bank\" mean?",
+  "keyword": "break the bank",
+  "value": "Break the bank = Cost way too much money. Example: \"Don't worry, this lunch won't break the bank.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"break the bank\" mean?",
+    "description": "Break the bank = Cost way too much money. Example: \"Don't worry, this lunch won't break the bank.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "break the bank",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"break the bank\" mean?\n\nBreak the bank = Cost way too much money. Example: \"Don't worry, this lunch won't break the bank.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"break the bank\" mean?\n\nBreak the bank = Cost way too much money. Example: \"Don't worry, this lunch won't break the bank.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"break the bank\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'break the bank' at a bank. It only means costing too much. Real example: \"Don't worry, this lunch won't break the bank.\" More real English slang, free: {link}"
+ }
+}

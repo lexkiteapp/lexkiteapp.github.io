@@ -53,6 +53,7 @@ D.en = Object.assign(D.en || {}, {
 'Từ bạn đã tra': "Your lookup",
 'Ghép cặp': "Match the pairs",
 'Ghép từ, ảnh': "Match words to pictures",
+'Tìm từ sai': "Find the wrong word",
 'Chọn từ đúng': "Pick the right word",
 'Nói tên hình': "Say what you see",
 'Đây là gì?': "What is this?",

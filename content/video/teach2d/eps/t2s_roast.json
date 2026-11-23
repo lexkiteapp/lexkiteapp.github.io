@@ -1,0 +1,137 @@
+{
+ "id": "t2s_roast",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 271,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My friends mocked my hat. Lovingly!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Roast!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Tease someone in a funny way.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My friends roasted my hat.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "roast",
+  "forms": [
+   "roasting"
+  ],
+  "ipa": "/ˈroʊst/",
+  "mean": "Tease someone in a funny way.",
+  "define": "To joke about someone's flaws, often as a game.",
+  "vi": "Chọc cho vui",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "At a party",
+   "text": "My friends roasted my hat."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"roast\" someone is to…",
+   "options": [
+    "cook them",
+    "joke at them"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'roast' your boss in a meeting.",
+   "why": "Jokes at work can backfire."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My friends mocked my hat. Lovingly!"
+ },
+ "src": {
+  "slang": "roast"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"roast\" mean?",
+  "keyword": "roast",
+  "value": "Roast = Tease someone in a funny way. Example: \"My friends roasted my hat.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"roast\" mean?",
+    "description": "Roast = Tease someone in a funny way. Example: \"My friends roasted my hat.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "roast",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"roast\" mean?\n\nRoast = Tease someone in a funny way. Example: \"My friends roasted my hat.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"roast\" mean?\n\nRoast = Tease someone in a funny way. Example: \"My friends roasted my hat.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"roast\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't 'roast' your boss in a meeting. Jokes at work can backfire. Real example: \"My friends roasted my hat.\" More real English slang, free: {link}"
+ }
+}

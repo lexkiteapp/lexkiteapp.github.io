@@ -1,0 +1,131 @@
+{
+ "id": "t2s_easypeasy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 150,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How hard is making toast?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Easy peasy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's super easy.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Making toast is easy peasy.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "easy peasy",
+  "forms": [],
+  "ipa": "/ˈiːzi ˈpiːzi/",
+  "mean": "That's super easy.",
+  "define": "A playful way to say something is very simple.",
+  "vi": "Dễ ợt",
+  "reg": "casual",
+  "region": "UK",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Helping a young kid",
+   "text": "Making toast is easy peasy."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Easy peasy\" means…",
+   "options": [
+    "very simple",
+    "very soft"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'easy peasy' about a friend's hard task.",
+   "why": "It makes their struggle look small."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "How hard is making toast?"
+ },
+ "src": {
+  "slang": "easy peasy"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 9.8,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "What does \"easy peasy\" mean?",
+  "keyword": "easy peasy",
+  "value": "Easy peasy = That's super easy. Example: \"Making toast is easy peasy.\" (casual English, UK).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"easy peasy\" mean?",
+    "description": "Easy peasy = That's super easy. Example: \"Making toast is easy peasy.\" (casual English, UK).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "easy peasy",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"easy peasy\" mean?\n\nEasy peasy = That's super easy. Example: \"Making toast is easy peasy.\" (casual English, UK).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"easy peasy\" mean?\n\nEasy peasy = That's super easy. Example: \"Making toast is easy peasy.\" (casual English, UK).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"easy peasy\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: very simple. \"Making toast is easy peasy.\" More real English slang, free: {link}"
+ }
+}
