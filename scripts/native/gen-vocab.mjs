@@ -411,7 +411,7 @@ async function deckLibraryTopic(decks) {
     const { E, A } = await open('B', '#/topic/' + tid);
     let libCalled = 0; A.routes.library = () => { libCalled++; };
     E.dom.resolveList('#lvTabs button', () => { const h = E.dom.view.innerHTML; if (E.__h !== h) { E.__h = h; E.__t = attrs(h, /data-lv="(\w*)"/g).map(v => { const b = E.dom.mkEl('b'); b.dataset.lv = v; return b; }); } return E.__t; });
-    vm.runInContext(appFn(E, A, /routes\.topic = function \(id, query\) \{/), E.sb)(A.routes, A.app, {}, null);
+    vm.runInContext(appFn(E, A, /routes\.topic = function \(id, query(?:, noX)?\) \{/), E.sb)(A.routes, A.app, {}, null);
     await A.routes.topic(tid, new URLSearchParams(qs)); await settle(3);
     const snap = () => { const h = E.dom.$('#wordList').innerHTML; return { count: E.dom.$('#tCount').textContent, addAll: { label: E.dom.$('#addAll').textContent, disabled: E.dom.$('#addAll').disabled }, words: h.split('class="word-row"').slice(1).map(r => ({ word: decodeURIComponent((/class="w" href="#\/dict\/([^"]+)"/.exec(r) || [])[1]), inDeck: !/data-add-seed/.test(r) })) }; };
     const pre = libCalled ? { fallbackToLibrary: true } : { title: (/<h1[^>]*>(.*?)<\/h1>/.exec(E.dom.view.innerHTML) || [])[1], back: (/<a href="(#\/library\?g=\w+)"/.exec(E.dom.view.innerHTML) || [])[1], levels: attrs(E.dom.view.innerHTML, /data-lv="(\w*)"/g), links: attrs(E.dom.view.innerHTML, /<a class="btn" href="([^"]+)"/g), ...snap() };
