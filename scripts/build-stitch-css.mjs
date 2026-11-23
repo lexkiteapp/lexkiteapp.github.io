@@ -145,13 +145,17 @@ function twDir() { if (process.env.TAILWIND_DIR) return process.env.TAILWIND_DIR
 
 // RTL (ar): Stitch viết text-left/text-right (vật lý) → ở RTL chữ dính lề trái (visual-qa rtl-text-left). Đổi sang logical start/end: LTR y hệt, RTL tự lật.
 export const logical = css => snapCss(css, TKN).replace(/text-align:left/g, 'text-align:start').replace(/text-align:right/g, 'text-align:end');
+// Luật chung của app cũ ép mọi `.grid` về 1 cột trên điện thoại (style.css) → màn Stitch phải bật lại đúng số cột của lớp grid-cols-N. PRE có sẵn 2–7;
+// lưới nhiều cột hơn (bàn cờ 8, ô chữ 9, irregular 10, welcome-desk 12) trước đây vỡ thành 1 cột → sinh thêm N ≥ 8 theo lớp THỰC DÙNG trong file.
+const gridPre = css => { const more = [...new Set([...css.matchAll(/\.grid-cols-(\d+)\b/g)].map(m => +m[1]))].filter(n => n >= 8 && n <= 12).sort((a, b) => a - b);
+  return more.length ? PRE.replace('.st .grid.grid-cols-7{grid-template-columns:repeat(7,minmax(0,1fr))!important}', m => m + more.map(n => `.st .grid.grid-cols-${n}{grid-template-columns:repeat(${n},minmax(0,1fr))!important}`).join('')) : PRE; };
 // Một bảng màu: lớp lt:/dk: có màu trung tính → biến vai trò --st-* (scripts/lib/st-theme-snap.mjs, nguồn brand/tokens.json)
 function build(g) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'st-')), cfg = path.join(tmp, 'tw.config.cjs'), inp = path.join(tmp, 'in.css'), out = path.join(tmp, 'out.css');
   fs.writeFileSync(cfg, (/^(v2|w)-/.test(g) ? configV2 : config)(GROUPS[g], g)); fs.writeFileSync(inp, '@tailwind base;\n@tailwind utilities;\n'); // base (preflight tắt) = chỉ biến mặc định --tw-* cho gradient/bóng/vòng
   execFileSync(process.execPath, [path.join(twDir(), 'lib/cli.js'), '-c', cfg, '-i', inp, '-o', out, '--minify'], { stdio: ['ignore', 'ignore', 'pipe'] });
   const wc = g.startsWith('w-') ? ['home', g.slice(2)].filter((x, i, a) => a.indexOf(x) === i).map(x => `brand/stitch/web/gen/${x}.css`).filter(f => fs.existsSync(f)).map(f => fs.readFileSync(f, 'utf8').replace(/^\/\*[^\n]*\*\/\n/, '').replace(/:W /g, `.v2s-web-${g.slice(2)} `)).join('') : ''; // CSS thành phần Stitch (nút 3D/thẻ) của vỏ chung (home) + trang
-  return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${g.startsWith('w-') ? WPRE : NOPRE.has(g) ? `/* tiền tố chung: css/st-${Object.keys(SHARED).find(k => SHARED[k].includes(g))}.css */` : PRE}\n${logical(fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, ''))}\n${logical(wc)}`;
+  return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${g.startsWith('w-') ? WPRE : NOPRE.has(g) ? `/* tiền tố chung: css/st-${Object.keys(SHARED).find(k => SHARED[k].includes(g))}.css */` : gridPre(fs.readFileSync(out, 'utf8'))}\n${logical(fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, ''))}\n${logical(wc)}`;
 }
 
 // ---- font tự host (chạy khi đổi danh sách icon): Google Fonts CSS2 API, UA Chrome để nhận WOFF2 ----

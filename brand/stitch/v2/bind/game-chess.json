@@ -107,8 +107,5 @@
   ":scope > div > main > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)",
   ":scope > div > main > div > div:nth-child(1)"
  ],
- "out": "web/cpack/game/game-chess.js",
- "swap": {
-  "grid-cols-8": "![grid-template-columns:repeat(8,minmax(0,1fr))]"
- }
+ "out": "web/cpack/game/game-chess.js"
 }

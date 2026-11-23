@@ -522,3 +522,4 @@ node scripts/test/play-crossword.mjs
 node scripts/test/play-picmatch.mjs
 node scripts/test/play-chess-core.mjs
 node scripts/test/play-chess.mjs
+node scripts/test/stitch-grid-cols.mjs
