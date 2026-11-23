@@ -1,0 +1,131 @@
+{
+ "fixed": [
+  {
+   "word": "forzar",
+   "field": "ex.es",
+   "from": "No puedes forzar la puerta.",
+   "to": "No puedes forzar a nadie a hacerlo.",
+   "why": "ví dụ cửa lệch với 15 gloss (ép buộc)"
+  },
+  {
+   "word": "forzar",
+   "field": "ex.en",
+   "from": "You can't force the door.",
+   "to": "You can't force anyone to do it.",
+   "why": "khớp ex.es mới"
+  },
+  {
+   "word": "robo",
+   "field": "gl.vi",
+   "from": "trộm cắp",
+   "to": "vụ trộm",
+   "why": "\"trộm cắp\" là động từ/hành vi chung; từ là danh từ sự việc"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.en",
+   "from": "offer",
+   "to": "sale, special offer",
+   "why": "ví dụ là hàng giảm giá; en \"offer\" lệch"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.vi",
+   "from": "ưu đãi",
+   "to": "khuyến mãi",
+   "why": "khớp nghĩa giảm giá"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.pt",
+   "from": "oferta",
+   "to": "promoção",
+   "why": "khớp nghĩa"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.fr",
+   "from": "offre",
+   "to": "promotion",
+   "why": "khớp nghĩa"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.de",
+   "from": "Angebot",
+   "to": "Sonderangebot",
+   "why": "khớp nghĩa"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.id",
+   "from": "penawaran",
+   "to": "promo",
+   "why": "khớp nghĩa"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.th",
+   "from": "ข้อเสนอ",
+   "to": "โปรโมชัน",
+   "why": "khớp nghĩa"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.ko",
+   "from": "제안",
+   "to": "할인",
+   "why": "khớp nghĩa"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.hi",
+   "from": "प्रस्ताव",
+   "to": "छूट",
+   "why": "khớp nghĩa"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.ru",
+   "from": "предложение",
+   "to": "акция",
+   "why": "khớp nghĩa"
+  },
+  {
+   "word": "oferta",
+   "field": "gl.tr",
+   "from": "teklif",
+   "to": "indirim",
+   "why": "khớp nghĩa"
+  },
+  {
+   "word": "local",
+   "field": "gl.vi",
+   "from": "tienda",
+   "to": "cửa hàng",
+   "why": "\"tienda\" là tiếng Tây Ban Nha, không phải tiếng Việt"
+  },
+  {
+   "word": "merecer",
+   "field": "gl.vi",
+   "from": "đáng",
+   "to": "xứng đáng",
+   "why": "\"đáng\" thiếu tự nhiên là động từ"
+  },
+  {
+   "word": "comienzo",
+   "field": "gl.vi",
+   "from": "bắt đầu",
+   "to": "sự bắt đầu",
+   "why": "\"bắt đầu\" là động từ; từ là danh từ"
+  },
+  {
+   "word": "descansar",
+   "field": "gl.vi",
+   "from": "nghỉ",
+   "to": "nghỉ ngơi",
+   "why": "\"nghỉ\" quá chung"
+  }
+ ],
+ "dropped": []
+}
