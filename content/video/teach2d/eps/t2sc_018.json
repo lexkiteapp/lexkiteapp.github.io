@@ -39,36 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "He was ___ a crime.",
-    "options": [
-     "guilty for",
-     "guilty of"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "As you can see ___ this slide…",
-    "options": [
-     "in",
-     "on"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "He ___ a crime last year.",
-    "options": [
-     "did",
-     "committed"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
     "stem": "This soup lacks ___.",
     "options": [
      "salt",
@@ -79,14 +49,44 @@
     "cefr": "B1"
    },
    {
-    "stem": "I am bad ___ maths.",
+    "stem": "This book ___ to me.",
     "options": [
-     "in",
-     "at"
+     "is belonged",
+     "belongs"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Let's keep in ___!",
+    "options": [
+     "touch",
+     "contact"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Don't risk ___ your phone.",
+    "options": [
+     "to break",
+     "breaking"
     ],
     "answer": 1,
     "pick": 0,
-    "cefr": "A2"
+    "cefr": "B1"
+   },
+   {
+    "stem": "I hate ___ in traffic.",
+    "options": [
+     "sit",
+     "sitting"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A1"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_813c80f1",
-   "sb_8df64e9f",
-   "sb_16707e4b",
    "sb_43b7bd40",
-   "sb_0c045175"
+   "sb_9d10327c",
+   "sb_25206a92",
+   "sb_2dbe96b7",
+   "sb_116f3374"
   ]
  },
  "est": {

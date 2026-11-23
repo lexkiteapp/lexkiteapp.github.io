@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "___ going to love this!",
+    "stem": "Please ___ the door first.",
     "options": [
-     "You're",
-     "Your"
+     "knock on",
+     "knock"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B1"
+    "cefr": "A2"
    },
    {
-    "stem": "My ___ didn't arrive.",
+    "stem": "You should ___ an effort to learn.",
     "options": [
-     "luggages",
-     "luggage"
+     "make",
+     "do"
     ],
-    "answer": 1,
+    "answer": 0,
     "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "See you ___ Monday.",
+    "options": [
+     "next",
+     "the next"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I have too ___ baggage.",
+    "options": [
+     "much",
+     "many"
+    ],
+    "answer": 0,
+    "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "___ it will rain tomorrow.",
+    "stem": "So, what ___ you here today?",
     "options": [
-     "Maybe",
-     "May be"
+     "brings",
+     "bring"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I ___ with you.",
-    "options": [
-     "agree",
-     "am agree"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Guests must ___ by noon.",
-    "options": [
-     "check off",
-     "check out"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "A2"
+    "cefr": "B1"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_3aca1292",
-   "sb_9172f8df",
-   "sb_45aa51fc",
-   "sb_88ab7735",
-   "sb_3311f3c9"
+   "sb_a8d53d5c",
+   "sb_7c00a5f9",
+   "sb_d91b406f",
+   "sb_32557b14",
+   "sb_5c2deea7"
   ]
  },
  "est": {

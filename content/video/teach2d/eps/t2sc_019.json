@@ -43,36 +43,6 @@
  "data": {
   "items": [
    {
-    "stem": "This book ___ to me.",
-    "options": [
-     "is belonged",
-     "belongs"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Let's keep in ___!",
-    "options": [
-     "touch",
-     "contact"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Don't risk ___ your phone.",
-    "options": [
-     "to break",
-     "breaking"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
     "stem": "Do you have ___ to enter?",
     "options": [
      "permission",
@@ -83,14 +53,44 @@
     "cefr": "B1"
    },
    {
-    "stem": "I hate ___ in traffic.",
+    "stem": "Beethoven wrote ___ music.",
     "options": [
-     "sit",
-     "sitting"
+     "classical",
+     "classic"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "Is the rent with ___ included?",
+    "options": [
+     "tools",
+     "utilities"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "A1"
+    "cefr": "B1"
+   },
+   {
+    "stem": "Can you ___ us a joke?",
+    "options": [
+     "tell",
+     "say"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I am ___ this city.",
+    "options": [
+     "familiar with",
+     "familiar to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_9d10327c",
-   "sb_25206a92",
-   "sb_2dbe96b7",
    "sb_4b65ca0f",
-   "sb_116f3374"
+   "sb_34ccb489",
+   "sb_5e4a563f",
+   "sb_7dc78d29",
+   "sb_904eea31"
   ]
  },
  "est": {

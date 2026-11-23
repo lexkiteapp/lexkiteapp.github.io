@@ -43,50 +43,50 @@
  "data": {
   "items": [
    {
-    "stem": "I want to lose weight, so I'm ___ a diet.",
+    "stem": "The coffee machine ___.",
     "options": [
-     "in",
-     "on"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A1"
-   },
-   {
-    "stem": "Can you ___ a photo of us?",
-    "options": [
-     "take",
-     "make"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "What is the ___ of that tower?",
-    "options": [
-     "high",
-     "height"
+     "is not work",
+     "isn't working"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "I ___ spicy food.",
+    "stem": "The library is very ___.",
     "options": [
-     "like",
-     "am like"
+     "quiet",
+     "quite"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "He fell in love ___ her.",
+    "stem": "The taxi ___ the hotel.",
     "options": [
-     "with",
-     "to"
+     "approached",
+     "approached to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "How ___ transfer money?",
+    "options": [
+     "do I",
+     "I can"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I was surprised ___ the price.",
+    "options": [
+     "at",
+     "for"
     ],
     "answer": 0,
     "pick": 0,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_0d55586c",
-   "sb_5ae0c1c8",
-   "sb_d7bb9b73",
-   "sb_77020772",
-   "sb_fa69f2b5"
+   "sb_7c1c35bd",
+   "sb_556966c7",
+   "sb_dc881ba7",
+   "sb_d11da4f4",
+   "sb_6d62d506"
   ]
  },
  "est": {

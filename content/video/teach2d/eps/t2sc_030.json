@@ -39,53 +39,53 @@
  "data": {
   "items": [
    {
-    "stem": "I ___ housework every weekend.",
+    "stem": "The bus will ___ Hue at six.",
     "options": [
-     "make",
-     "do"
+     "reach",
+     "reach to"
     ],
-    "answer": 1,
+    "answer": 0,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "A degree is a ___.",
+    "stem": "Great talk yesterday, ___?",
     "options": [
-     "qualification",
-     "quality"
+     "isn't",
+     "wasn't it"
     ],
-    "answer": 0,
+    "answer": 1,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "I'm saving ___ for a new phone.",
+    "stem": "I bought an ___ car.",
     "options": [
-     "up",
-     "on"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I'll buy lunch to make up ___ the delay.",
-    "options": [
-     "for",
-     "to"
+     "economical",
+     "economic"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B2"
    },
    {
-    "stem": "My house is close ___ the school.",
+    "stem": "I'm really ___ in this role.",
     "options": [
-     "to",
-     "with"
+     "interesting",
+     "interested"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Let's ___ a break for ten minutes.",
+    "options": [
+     "take",
+     "do"
     ],
     "answer": 0,
-    "pick": 1,
+    "pick": 0,
     "cefr": "A2"
    }
   ],
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_c62fa795",
-   "sb_0179d25f",
-   "sb_23878717",
-   "sb_17a4e51a",
-   "sb_ac56922e"
+   "sb_4c9858e0",
+   "sb_8401e4b0",
+   "sb_054c669e",
+   "sb_9f45e757",
+   "sb_290c5183"
   ]
  },
  "est": {

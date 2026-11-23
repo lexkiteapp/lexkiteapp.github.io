@@ -39,16 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "It is ___ to take an umbrella.",
-    "options": [
-     "sensitive",
-     "sensible"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
     "stem": "Are we all on the same ___?",
     "options": [
      "line",
@@ -87,6 +77,16 @@
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
+   },
+   {
+    "stem": "We can't go. The show is ___.",
+    "options": [
+     "finished",
+     "sold out"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_2b55aead",
    "sb_e42d6eb4",
    "sb_06a943c5",
    "sb_2a063eef",
-   "sb_2b1a6bf9"
+   "sb_2b1a6bf9",
+   "sb_001209da"
   ]
  },
  "est": {

@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "Don't put off ___ the doctor.",
+    "stem": "My flight ___ canceled.",
     "options": [
-     "seeing",
-     "to see"
+     "is",
+     "was"
     ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "We ___ to finish by Friday.",
+    "stem": "She wears ___ every day.",
     "options": [
-     "suppose",
-     "are supposed"
+     "a glasses",
+     "glasses"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "___ the other hand, it is cheaper.",
+    "stem": "I studied ___ three hours.",
     "options": [
-     "On",
-     "In"
+     "for",
+     "during"
     ],
     "answer": 0,
     "pick": 1,
-    "cefr": "B2"
+    "cefr": "A2"
    },
    {
-    "stem": "Every day I ___ to school by bike.",
+    "stem": "He admitted ___ the last cookie.",
     "options": [
-     "go",
-     "travel"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "A1"
-   },
-   {
-    "stem": "He can't cope ___ the noise.",
-    "options": [
-     "with",
-     "(nothing)"
+     "eating",
+     "to eat"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B2"
+    "cefr": "B1"
+   },
+   {
+    "stem": "I have too much ___.",
+    "options": [
+     "luggage",
+     "luggages"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "B1"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_01002079",
-   "sb_0a4a65be",
-   "sb_4bc6cc80",
-   "sb_00ac2cbe",
-   "sb_00b3d3f4"
+   "sb_14311c65",
+   "sb_ff076731",
+   "sb_f3392adc",
+   "sb_097145e5",
+   "sb_682c8238"
   ]
  },
  "est": {

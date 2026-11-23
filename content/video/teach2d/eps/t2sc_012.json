@@ -39,22 +39,22 @@
  "data": {
   "items": [
    {
-    "stem": "It rained. ___, we played.",
+    "stem": "He is addicted ___ video games.",
     "options": [
-     "Because",
-     "Nevertheless"
+     "to",
+     "with"
     ],
-    "answer": 1,
-    "pick": 1,
+    "answer": 0,
+    "pick": 0,
     "cefr": "B2"
    },
    {
-    "stem": "___, Lee will send the report.",
+    "stem": "I'm happy to ___ the offer.",
     "options": [
-     "To wrap up",
-     "For finish"
+     "agree",
+     "accept"
     ],
-    "answer": 0,
+    "answer": 1,
     "pick": 0,
     "cefr": "B2"
    },
@@ -65,7 +65,7 @@
      "from"
     ],
     "answer": 1,
-    "pick": 0,
+    "pick": 1,
     "cefr": "B1"
    },
    {
@@ -106,8 +106,8 @@
  },
  "src": {
   "gold": [
-   "sb_13bcedda",
-   "sb_57e42a5c",
+   "sb_f7fada2b",
+   "sb_803a54ea",
    "sb_878144b4",
    "sb_403980fc",
    "sb_cb81b434"

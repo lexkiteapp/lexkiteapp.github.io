@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "Please ___ me by email.",
+    "stem": "This old car isn't fit ___ long trips.",
     "options": [
-     "contact with",
-     "contact"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Someone ___ my wallet!",
-    "options": [
-     "stole",
-     "robbed"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I bought two ___ eggs.",
-    "options": [
-     "dozen",
-     "dozens of"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "She has too ___ money.",
-    "options": [
-     "many",
-     "much"
+     "to",
+     "for"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "Please ___ this form.",
+    "stem": "She married ___ a doctor.",
     "options": [
-     "write",
-     "fill out"
+     "(nothing)",
+     "with"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I prefer cats ___ dogs.",
+    "options": [
+     "than",
+     "to"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "A2"
+    "cefr": "B1"
+   },
+   {
+    "stem": "He is satisfied ___ his new phone.",
+    "options": [
+     "of",
+     "with"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "The country has two ___ people.",
+    "options": [
+     "billions",
+     "billion"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_22b003a8",
-   "sb_47b3e9e9",
-   "sb_8c80b46f",
-   "sb_a0e24cbd",
-   "sb_8580f675"
+   "sb_05671f6f",
+   "sb_19bde506",
+   "sb_02a04869",
+   "sb_62da8cc9",
+   "sb_16e7bf04"
   ]
  },
  "est": {

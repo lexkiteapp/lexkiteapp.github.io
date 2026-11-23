@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "We must ___ the problem now.",
+    "stem": "I wasn't aware ___ the problem.",
     "options": [
-     "deal",
-     "deal with"
+     "of",
+     "about"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "The boy denied ___ the cake.",
+    "options": [
+     "to eat",
+     "eating"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "He advised me ___ more exercise.",
+    "options": [
+     "do",
+     "to do"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "I listen to ___ every day.",
+    "stem": "I bought ___ new jeans.",
     "options": [
-     "music",
-     "musics"
+     "a",
+     "a pair of"
     ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "I'm pleased ___ you.",
+    "stem": "I ___ a mistake on the test.",
     "options": [
-     "to meet",
-     "meeting"
+     "made",
+     "did"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I enjoy ___ on Sundays.",
-    "options": [
-     "swimming",
-     "to swim"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I see it a bit ___.",
-    "options": [
-     "differently",
-     "different"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
+    "cefr": "A1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_e10eb8a3",
-   "sb_059c364d",
-   "sb_9be78c2b",
-   "sb_bc8b2f12",
-   "sb_2b4d86ec"
+   "sb_1785ef90",
+   "sb_01c4ef56",
+   "sb_d9414771",
+   "sb_33c9b363",
+   "sb_37234b0e"
   ]
  },
  "est": {

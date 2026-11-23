@@ -43,34 +43,24 @@
  "data": {
   "items": [
    {
-    "stem": "Please don't hesitate ___ us.",
+    "stem": "It's late. I need to head ___.",
     "options": [
-     "to call",
-     "calling"
+     "away of",
+     "off"
     ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "B2"
    },
    {
-    "stem": "I took the ___ to plan the event.",
+    "stem": "When ___ call me?",
     "options": [
-     "initiative",
-     "start"
+     "you will",
+     "will you"
     ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "B2"
-   },
-   {
-    "stem": "I'm considering ___ a new phone.",
-    "options": [
-     "buying",
-     "to buy"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
    },
    {
     "stem": "I'm really ___ hiking.",
@@ -91,6 +81,16 @@
     "answer": 1,
     "pick": 1,
     "cefr": "A1"
+   },
+   {
+    "stem": "The ___ is cold today.",
+    "options": [
+     "weather",
+     "weathers"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_29c61515",
-   "sb_024874ec",
-   "sb_068cf065",
+   "sb_14b91513",
+   "sb_5af5827b",
    "sb_851ba94f",
-   "sb_1dff6fb4"
+   "sb_1dff6fb4",
+   "sb_aab92e69"
   ]
  },
  "est": {

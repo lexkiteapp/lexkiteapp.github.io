@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "No cashier? Use the ___.",
+    "stem": "My name ___ Minh.",
     "options": [
-     "self-cashier",
-     "self-checkout"
+     "is",
+     "is called"
     ],
-    "answer": 1,
+    "answer": 0,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "___ car is outside?",
+    "stem": "We must ___ the problem now.",
     "options": [
-     "Whose",
-     "Who's"
+     "deal",
+     "deal with"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I listen to ___ every day.",
+    "options": [
+     "music",
+     "musics"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I'm pleased ___ you.",
+    "options": [
+     "to meet",
+     "meeting"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "My son is afraid ___ spiders.",
+    "stem": "I see it a bit ___.",
     "options": [
-     "with",
-     "of"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A1"
-   },
-   {
-    "stem": "I voted ___ the green party.",
-    "options": [
-     "for",
-     "to"
+     "differently",
+     "different"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I have too much ___ today.",
-    "options": [
-     "work",
-     "works"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "A2"
+    "cefr": "B2"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_92b16d01",
-   "sb_52a6bffb",
-   "sb_2bcb2bbd",
-   "sb_4ca5d171",
-   "sb_67e92c87"
+   "sb_aa063c4b",
+   "sb_e10eb8a3",
+   "sb_059c364d",
+   "sb_9be78c2b",
+   "sb_2b4d86ec"
   ]
  },
  "est": {

@@ -43,50 +43,50 @@
  "data": {
   "items": [
    {
-    "stem": "The most important ___ is speed.",
+    "stem": "What ___ a typical day look like?",
     "options": [
-     "thing",
-     "is"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "I saw him ___ month.",
-    "options": [
-     "the last",
-     "last"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Let's look ___ the numbers.",
-    "options": [
-     "on",
-     "at"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "Can you imagine ___ in space?",
-    "options": [
-     "to live",
-     "living"
+     "is",
+     "does"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "He stopped ___ last year.",
+    "stem": "There was ___ rain last night.",
     "options": [
-     "to smoke",
-     "smoking"
+     "heavy",
+     "strong"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Tie the bag with some ___.",
+    "options": [
+     "rope string",
+     "string"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "He refused ___ the money.",
+    "options": [
+     "to take",
+     "taking"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "This room is ___ for us.",
+    "options": [
+     "enough big",
+     "big enough"
     ],
     "answer": 1,
     "pick": 1,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_27e08c50",
-   "sb_a09e7d2a",
-   "sb_ec31bdce",
-   "sb_a451cd93",
-   "sb_ef399b2d"
+   "sb_55270c0b",
+   "sb_bb463289",
+   "sb_27ef7399",
+   "sb_324a7590",
+   "sb_4650f9b0"
   ]
  },
  "est": {

@@ -39,16 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "We can't go. The show is ___.",
-    "options": [
-     "finished",
-     "sold out"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
     "stem": "My suitcase is ___.",
     "options": [
      "too much heavy",
@@ -69,13 +59,23 @@
     "cefr": "B1"
    },
    {
-    "stem": "The teacher ___ speaking.",
+    "stem": "Did you ___ his new hair?",
     "options": [
-     "emphasized on",
-     "emphasized"
+     "notice about",
+     "notice"
     ],
     "answer": 1,
     "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "We delayed ___ the tickets.",
+    "options": [
+     "to book",
+     "booking"
+    ],
+    "answer": 1,
+    "pick": 1,
     "cefr": "B2"
    },
    {
@@ -106,10 +106,10 @@
  },
  "src": {
   "gold": [
-   "sb_001209da",
    "sb_5b373a0c",
    "sb_07301877",
-   "sb_f1d764c9",
+   "sb_651d1d1d",
+   "sb_767d1933",
    "sb_79a7a746"
   ]
  },

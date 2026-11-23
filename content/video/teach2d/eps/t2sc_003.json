@@ -73,16 +73,6 @@
     "cefr": "A2"
    },
    {
-    "stem": "Many people get a flu ___ every fall.",
-    "options": [
-     "shoot",
-     "shot"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
     "stem": "The police found a lot of ___.",
     "options": [
      "evidence",
@@ -91,6 +81,16 @@
     "answer": 0,
     "pick": 0,
     "cefr": "B2"
+   },
+   {
+    "stem": "It is ___ to take an umbrella.",
+    "options": [
+     "sensitive",
+     "sensible"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
    }
   ],
   "right": 5,
@@ -113,8 +113,8 @@
    "sb_4e852243",
    "sb_d259f5a3",
    "sb_9de70f65",
-   "sb_612771f1",
-   "sb_ec0af44c"
+   "sb_ec0af44c",
+   "sb_2b55aead"
   ]
  },
  "est": {

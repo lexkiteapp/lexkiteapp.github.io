@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "Great talk yesterday, ___?",
+    "stem": "I have too much ___ today.",
     "options": [
-     "isn't",
-     "wasn't it"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I bought an ___ car.",
-    "options": [
-     "economical",
-     "economic"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "I'm really ___ in this role.",
-    "options": [
-     "interesting",
-     "interested"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I applied ___ a job at the bank.",
-    "options": [
-     "for",
-     "to"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Let's ___ a break for ten minutes.",
-    "options": [
-     "take",
-     "do"
+     "work",
+     "works"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
+   },
+   {
+    "stem": "Your idea ___ interesting.",
+    "options": [
+     "sounds",
+     "sounds like"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "The train arrived ___.",
+    "options": [
+     "late",
+     "lately"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "He is scared ___ the dark.",
+    "options": [
+     "of",
+     "from"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "The kids lost ___ keys.",
+    "options": [
+     "their",
+     "there"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_8401e4b0",
-   "sb_054c669e",
-   "sb_9f45e757",
-   "sb_bc68bba4",
-   "sb_290c5183"
+   "sb_67e92c87",
+   "sb_0b8263d3",
+   "sb_78d1e10c",
+   "sb_df97e077",
+   "sb_40706a40"
   ]
  },
  "est": {

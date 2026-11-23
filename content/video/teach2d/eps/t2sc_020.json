@@ -39,43 +39,13 @@
  "data": {
   "items": [
    {
-    "stem": "Beethoven wrote ___ music.",
+    "stem": "That town is worth ___.",
     "options": [
-     "classical",
-     "classic"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "Is the rent with ___ included?",
-    "options": [
-     "tools",
-     "utilities"
+     "to visit",
+     "visiting"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "Can you ___ us a joke?",
-    "options": [
-     "tell",
-     "say"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I am ___ this city.",
-    "options": [
-     "familiar with",
-     "familiar to"
-    ],
-    "answer": 0,
-    "pick": 0,
     "cefr": "B2"
    },
    {
@@ -87,6 +57,36 @@
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
+   },
+   {
+    "stem": "He is tired ___ the noise.",
+    "options": [
+     "of",
+     "for"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "She works ___ every day.",
+    "options": [
+     "hardly",
+     "hard"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I'm moving out ___ the end of June.",
+    "options": [
+     "in",
+     "at"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B1"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_34ccb489",
-   "sb_5e4a563f",
-   "sb_7dc78d29",
-   "sb_904eea31",
-   "sb_a8dac88f"
+   "sb_abcf714c",
+   "sb_a8dac88f",
+   "sb_287f44f3",
+   "sb_02cd8fd2",
+   "sb_bf3fc815"
   ]
  },
  "est": {

@@ -39,52 +39,52 @@
  "data": {
   "items": [
    {
-    "stem": "That town is worth ___.",
-    "options": [
-     "to visit",
-     "visiting"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "He is tired ___ the noise.",
-    "options": [
-     "of",
-     "for"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "How much ___ the security deposit?",
-    "options": [
-     "I give",
-     "is"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "She works ___ every day.",
-    "options": [
-     "hardly",
-     "hard"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
     "stem": "Your clothes ___ dirty.",
     "options": [
      "is",
      "are"
     ],
     "answer": 1,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "The windows need ___.",
+    "options": [
+     "cleaning",
+     "to clean"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "Thanks, everyone, for ___.",
+    "options": [
+     "your coming",
+     "coming"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I was impressed ___ her speech.",
+    "options": [
+     "by",
+     "about"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I ___ the exam last week.",
+    "options": [
+     "failed",
+     "failed in"
+    ],
+    "answer": 0,
     "pick": 1,
     "cefr": "A2"
    }
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_abcf714c",
-   "sb_287f44f3",
-   "sb_cc4c2bf0",
-   "sb_02cd8fd2",
-   "sb_9a0040a5"
+   "sb_9a0040a5",
+   "sb_75ec2b91",
+   "sb_36b7cec3",
+   "sb_1b09af9d",
+   "sb_6e59e923"
   ]
  },
  "est": {

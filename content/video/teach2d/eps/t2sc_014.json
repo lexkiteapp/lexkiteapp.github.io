@@ -39,34 +39,34 @@
  "data": {
   "items": [
    {
-    "stem": "You ___ see a doctor.",
+    "stem": "She managed ___ the door.",
     "options": [
-     "ought to",
-     "ought"
+     "to open",
+     "opening"
     ],
     "answer": 0,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I'm really ___ about this offer.",
+    "options": [
+     "exciting",
+     "excited"
+    ],
+    "answer": 1,
     "pick": 0,
     "cefr": "B2"
    },
    {
-    "stem": "He tends ___ late.",
+    "stem": "Three ___ were playing outside.",
     "options": [
-     "to be",
-     "being"
+     "children",
+     "childs"
     ],
     "answer": 0,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "Could you ___ a second?",
-    "options": [
-     "wait me",
-     "hold on"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
+    "pick": 0,
+    "cefr": "A2"
    },
    {
     "stem": "I go to school by ___.",
@@ -85,7 +85,7 @@
      "write"
     ],
     "answer": 1,
-    "pick": 0,
+    "pick": 1,
     "cefr": "B1"
    }
   ],
@@ -106,9 +106,9 @@
  },
  "src": {
   "gold": [
-   "sb_1c160466",
-   "sb_e5f5579b",
-   "sb_14cb88e7",
+   "sb_3486e4c7",
+   "sb_f940bc04",
+   "sb_a5326200",
    "sb_0343c80d",
    "sb_95d90309"
   ]

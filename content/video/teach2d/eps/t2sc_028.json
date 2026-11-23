@@ -39,53 +39,53 @@
  "data": {
   "items": [
    {
-    "stem": "The teacher smiled ___ the students.",
+    "stem": "She loves walking in ___.",
     "options": [
-     "at",
-     "to"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "This old car isn't fit ___ long trips.",
-    "options": [
-     "to",
-     "for"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "She married ___ a doctor.",
-    "options": [
-     "(nothing)",
-     "with"
+     "nature",
+     "the nature"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "She is capable ___ the problem.",
+    "stem": "The museum forbids ___ photos.",
     "options": [
-     "of solving",
-     "to solve"
+     "to take",
+     "taking"
     ],
-    "answer": 0,
+    "answer": 1,
     "pick": 0,
     "cefr": "B2"
    },
    {
-    "stem": "I prefer cats ___ dogs.",
+    "stem": "I ___ housework every weekend.",
     "options": [
-     "than",
-     "to"
+     "make",
+     "do"
     ],
     "answer": 1,
     "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "He is interested ___ history.",
+    "options": [
+     "in",
+     "for"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "A degree is a ___.",
+    "options": [
+     "qualification",
+     "quality"
+    ],
+    "answer": 0,
+    "pick": 0,
     "cefr": "B1"
    }
   ],
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_011d162f",
-   "sb_05671f6f",
-   "sb_19bde506",
-   "sb_4154ed74",
-   "sb_02a04869"
+   "sb_19a2c1a8",
+   "sb_03e3ffac",
+   "sb_c62fa795",
+   "sb_4afeafcc",
+   "sb_0179d25f"
   ]
  },
  "est": {

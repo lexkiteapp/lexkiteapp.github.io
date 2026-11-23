@@ -43,53 +43,53 @@
  "data": {
   "items": [
    {
-    "stem": "Please ___ the door first.",
+    "stem": "The market was very ___.",
     "options": [
-     "knock on",
-     "knock"
+     "crowded",
+     "crowd"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "Dinner was great. Let's ___ the bill.",
+    "stem": "I dislike ___ in lines.",
     "options": [
-     "divide",
-     "split"
+     "waiting",
+     "to wait"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "I will ___ your email tonight.",
+    "options": [
+     "reply",
+     "reply to"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "You should ___ an effort to learn.",
+    "stem": "Don't waste time ___.",
     "options": [
-     "make",
-     "do"
+     "to worry",
+     "worrying"
     ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
    },
    {
-    "stem": "See you ___ Monday.",
+    "stem": "The movie was so ___!",
     "options": [
-     "next",
-     "the next"
+     "excited",
+     "exciting"
     ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I have too ___ baggage.",
-    "options": [
-     "much",
-     "many"
-    ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "B1"
    }
   ],
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_a8d53d5c",
-   "sb_0a35f2ef",
-   "sb_7c00a5f9",
-   "sb_d91b406f",
-   "sb_32557b14"
+   "sb_5c7bba0d",
+   "sb_643721d5",
+   "sb_e84afaab",
+   "sb_cb15e32f",
+   "sb_13a16c00"
   ]
  },
  "est": {

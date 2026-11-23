@@ -43,53 +43,53 @@
  "data": {
   "items": [
    {
-    "stem": "I need some ___.",
+    "stem": "We ___ to finish by Friday.",
     "options": [
-     "informations",
-     "information"
+     "suppose",
+     "are supposed"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "What ___ a typical day look like?",
+    "stem": "___ the other hand, it is cheaper.",
     "options": [
-     "is",
-     "does"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "There was ___ rain last night.",
-    "options": [
-     "heavy",
-     "strong"
+     "On",
+     "In"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B1"
+    "cefr": "B2"
    },
    {
-    "stem": "Tie the bag with some ___.",
+    "stem": "Every day I ___ to school by bike.",
     "options": [
-     "rope string",
-     "string"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "He refused ___ the money.",
-    "options": [
-     "to take",
-     "taking"
+     "go",
+     "travel"
     ],
     "answer": 0,
     "pick": 0,
+    "cefr": "A1"
+   },
+   {
+    "stem": "He can't cope ___ the noise.",
+    "options": [
+     "with",
+     "(nothing)"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I can't afford ___ a new phone.",
+    "options": [
+     "buying",
+     "to buy"
+    ],
+    "answer": 1,
+    "pick": 1,
     "cefr": "B1"
    }
   ],
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_af50243a",
-   "sb_55270c0b",
-   "sb_bb463289",
-   "sb_27ef7399",
-   "sb_324a7590"
+   "sb_0a4a65be",
+   "sb_4bc6cc80",
+   "sb_00ac2cbe",
+   "sb_00b3d3f4",
+   "sb_03473678"
   ]
  },
  "est": {

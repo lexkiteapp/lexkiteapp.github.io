@@ -39,53 +39,53 @@
  "data": {
   "items": [
    {
-    "stem": "The coffee machine ___.",
+    "stem": "The shop ___ me a discount.",
     "options": [
-     "is not work",
-     "isn't working"
+     "made",
+     "gave"
     ],
     "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
+    "pick": 0,
+    "cefr": "B2"
    },
    {
-    "stem": "The library is very ___.",
+    "stem": "The price is very ___.",
     "options": [
-     "quiet",
-     "quite"
+     "low",
+     "cheap"
     ],
     "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "My uncle ___ me to drive.",
+    "options": [
+     "taught",
+     "learned"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "Thanks for your help! ___",
+    "options": [
+     "Sometime!",
+     "Anytime!"
+    ],
+    "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "The taxi ___ the hotel.",
+    "stem": "I ___ in Hue. I was born here.",
     "options": [
-     "approached",
-     "approached to"
+     "live",
+     "stay"
     ],
     "answer": 0,
     "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "How ___ transfer money?",
-    "options": [
-     "do I",
-     "I can"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I was surprised ___ the price.",
-    "options": [
-     "at",
-     "for"
-    ],
-    "answer": 0,
-    "pick": 0,
     "cefr": "A2"
    }
   ],
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_7c1c35bd",
-   "sb_556966c7",
-   "sb_dc881ba7",
-   "sb_d11da4f4",
-   "sb_6d62d506"
+   "sb_e526a4e3",
+   "sb_78a5eb43",
+   "sb_325da830",
+   "sb_01728393",
+   "sb_99be1ee6"
   ]
  },
  "est": {

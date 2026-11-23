@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "He is used to ___ alone.",
+    "stem": "She pretended ___ asleep.",
     "options": [
-     "live",
-     "living"
+     "being",
+     "to be"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "B1"
+    "cefr": "B2"
    },
    {
-    "stem": "Can you ___ your village?",
+    "stem": "I ___ with you.",
     "options": [
-     "describe about",
-     "describe"
+     "am agree",
+     "agree"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "B1"
+    "cefr": "B2"
    },
    {
-    "stem": "The map is very ___.",
+    "stem": "We bought some new ___.",
     "options": [
-     "confusing",
-     "confused"
+     "furnitures",
+     "furniture"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "She ___ my question.",
+    "options": [
+     "answered",
+     "answered to"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B1"
+    "cefr": "A2"
    },
    {
-    "stem": "I went to the store ___ milk.",
+    "stem": "He dreams ___ a pilot.",
     "options": [
-     "for buy",
-     "to buy"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A1"
-   },
-   {
-    "stem": "I wasn't aware ___ the problem.",
-    "options": [
-     "of",
-     "about"
+     "of becoming",
+     "to become"
     ],
     "answer": 0,
-    "pick": 1,
-    "cefr": "B2"
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_1aec9c5d",
-   "sb_d6f13678",
-   "sb_191cddf2",
-   "sb_1257a097",
-   "sb_1785ef90"
+   "sb_344dfdad",
+   "sb_4f5a34f3",
+   "sb_74c70f2e",
+   "sb_f82b0a44",
+   "sb_0e092805"
   ]
  },
  "est": {

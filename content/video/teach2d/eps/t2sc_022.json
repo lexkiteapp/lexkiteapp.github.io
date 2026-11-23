@@ -39,53 +39,53 @@
  "data": {
   "items": [
    {
-    "stem": "The windows need ___.",
+    "stem": "___ going to love this!",
     "options": [
-     "cleaning",
-     "to clean"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Thanks, everyone, for ___.",
-    "options": [
-     "your coming",
-     "coming"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "I was impressed ___ her speech.",
-    "options": [
-     "by",
-     "about"
+     "You're",
+     "Your"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B2"
+    "cefr": "B1"
    },
    {
-    "stem": "I'm moving out ___ the end of June.",
+    "stem": "My ___ didn't arrive.",
     "options": [
-     "in",
-     "at"
+     "luggages",
+     "luggage"
     ],
     "answer": 1,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "I ___ the exam last week.",
+    "stem": "___ it will rain tomorrow.",
     "options": [
-     "failed",
-     "failed in"
+     "Maybe",
+     "May be"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I ___ with you.",
+    "options": [
+     "agree",
+     "am agree"
     ],
     "answer": 0,
     "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "Guests must ___ by noon.",
+    "options": [
+     "check off",
+     "check out"
+    ],
+    "answer": 1,
+    "pick": 1,
     "cefr": "A2"
    }
   ],
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_75ec2b91",
-   "sb_36b7cec3",
-   "sb_1b09af9d",
-   "sb_bf3fc815",
-   "sb_6e59e923"
+   "sb_3aca1292",
+   "sb_9172f8df",
+   "sb_45aa51fc",
+   "sb_88ab7735",
+   "sb_3311f3c9"
   ]
  },
  "est": {

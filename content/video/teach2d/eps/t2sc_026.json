@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "I have a habit ___ up early.",
+    "stem": "Please ___ me by email.",
     "options": [
-     "to wake",
-     "of waking"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "He is ___ in a school project.",
-    "options": [
-     "involve",
-     "involved"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B2"
-   },
-   {
-    "stem": "Put the cans in the ___ bin.",
-    "options": [
-     "recycle",
-     "recycling"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "The news ___ true.",
-    "options": [
-     "are",
-     "is"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "The movie was so ___!",
-    "options": [
-     "excited",
-     "exciting"
+     "contact with",
+     "contact"
     ],
     "answer": 1,
     "pick": 0,
     "cefr": "B1"
+   },
+   {
+    "stem": "I bought two ___ eggs.",
+    "options": [
+     "dozen",
+     "dozens of"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "She has too ___ money.",
+    "options": [
+     "many",
+     "much"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "Please ___ this form.",
+    "options": [
+     "write",
+     "fill out"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "The teacher smiled ___ the students.",
+    "options": [
+     "at",
+     "to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
    }
   ],
   "right": 3,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_060aa8e2",
-   "sb_7ede0d14",
-   "sb_1795a1f5",
-   "sb_14821351",
-   "sb_13a16c00"
+   "sb_22b003a8",
+   "sb_8c80b46f",
+   "sb_a0e24cbd",
+   "sb_8580f675",
+   "sb_011d162f"
   ]
  },
  "est": {

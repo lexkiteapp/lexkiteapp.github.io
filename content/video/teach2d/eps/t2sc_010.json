@@ -39,23 +39,13 @@
  "data": {
   "items": [
    {
-    "stem": "I'm sick. Can you cover ___ me?",
+    "stem": "He didn't dare ___ his boss.",
     "options": [
-     "for",
-     "to"
+     "calling",
+     "call"
     ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
-    "stem": "The team ___ of five people.",
-    "options": [
-     "consists",
-     "is consisted"
-    ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "B2"
    },
    {
@@ -67,6 +57,16 @@
     "answer": 0,
     "pick": 1,
     "cefr": "A2"
+   },
+   {
+    "stem": "Small shops rely ___ local customers.",
+    "options": [
+     "in",
+     "on"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
    },
    {
     "stem": "The bus is ___ people.",
@@ -106,9 +106,9 @@
  },
  "src": {
   "gold": [
-   "sb_1f332c48",
-   "sb_57885755",
+   "sb_16c56ea4",
    "sb_5c008136",
+   "sb_04105eed",
    "sb_3495dbab",
    "sb_e4fee30e"
   ]

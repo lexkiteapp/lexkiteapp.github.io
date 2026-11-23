@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "I love tacos! ___",
+    "stem": "She wants to ___ the race.",
     "options": [
-     "Me also!",
-     "Me too!"
+     "participate in",
+     "participate"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "Do you want ___ us?",
+    "options": [
+     "join",
+     "to join"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "I'm listening ___ a podcast.",
+    "stem": "I ___ an accident on my way home.",
     "options": [
-     "(nothing)",
-     "to"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A1"
-   },
-   {
-    "stem": "I live ___, but I'm not lonely.",
-    "options": [
-     "alone",
-     "lonely"
+     "had",
+     "made"
     ],
     "answer": 0,
     "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "___ people like music.",
+    "stem": "The price of the room is very ___.",
     "options": [
-     "Most",
-     "Almost"
+     "low",
+     "cheap"
     ],
     "answer": 0,
-    "pick": 1,
-    "cefr": "B1"
+    "pick": 0,
+    "cefr": "A2"
    },
    {
-    "stem": "Doctors save ___.",
+    "stem": "I'd prefer ___ refund.",
     "options": [
-     "lifes",
-     "lives"
+     "the",
+     "a"
     ],
     "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
+    "pick": 0,
+    "cefr": "B1"
    }
   ],
   "right": 4,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_8449414e",
-   "sb_0f8cdbf0",
-   "sb_0ad85c2e",
-   "sb_a0d8398b",
-   "sb_ae8a3381"
+   "sb_372b694c",
+   "sb_b56e5263",
+   "sb_b430e6a3",
+   "sb_3051e94c",
+   "sb_847a8b03"
   ]
  },
  "est": {

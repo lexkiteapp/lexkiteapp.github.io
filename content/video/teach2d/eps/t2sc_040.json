@@ -43,53 +43,53 @@
  "data": {
   "items": [
    {
-    "stem": "With ___, you get money back.",
+    "stem": "I can't go because I am ___.",
     "options": [
-     "cashback",
-     "cash out"
+     "illness",
+     "ill"
     ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A2"
    },
    {
-    "stem": "Bad sleep can lead ___ stress.",
+    "stem": "Pay attention ___ the teacher.",
     "options": [
-     "for",
+     "on",
      "to"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "He ___ a bike to school.",
-    "options": [
-     "rides",
-     "drives"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "So how ___ know Emma?",
-    "options": [
-     "you",
-     "do you"
-    ],
-    "answer": 1,
-    "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "Are utilities ___ in the rent?",
+    "stem": "I disagree ___ you about this.",
     "options": [
-     "included",
-     "include"
+     "with",
+     "to"
     ],
     "answer": 0,
     "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "Can you ___ a photo of us?",
+    "options": [
+     "take",
+     "make"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I love tacos! ___",
+    "options": [
+     "Me also!",
+     "Me too!"
+    ],
+    "answer": 1,
+    "pick": 1,
     "cefr": "B1"
    }
   ],
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_28a25c23",
-   "sb_03f6978d",
-   "sb_c864b070",
-   "sb_7281e267",
-   "sb_836058ef"
+   "sb_057c6ae7",
+   "sb_49f8754d",
+   "sb_d8f735d9",
+   "sb_5ae0c1c8",
+   "sb_8449414e"
   ]
  },
  "est": {

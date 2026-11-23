@@ -39,26 +39,6 @@
  "data": {
   "items": [
    {
-    "stem": "Did you ___ his new hair?",
-    "options": [
-     "notice about",
-     "notice"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "We delayed ___ the tickets.",
-    "options": [
-     "to book",
-     "booking"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B2"
-   },
-   {
     "stem": "How was your ___ to Japan?",
     "options": [
      "travel",
@@ -75,7 +55,7 @@
      "make"
     ],
     "answer": 0,
-    "pick": 0,
+    "pick": 1,
     "cefr": "B1"
    },
    {
@@ -83,6 +63,26 @@
     "options": [
      "has",
      "is"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   },
+   {
+    "stem": "It's a good idea ___ early.",
+    "options": [
+     "to leave",
+     "leave"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "A2"
+   },
+   {
+    "stem": "I ___ my keys at the office.",
+    "options": [
+     "left",
+     "forgot"
     ],
     "answer": 0,
     "pick": 0,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_651d1d1d",
-   "sb_767d1933",
    "sb_5bd6385f",
    "sb_57fd10a9",
-   "sb_cc6fbe77"
+   "sb_cc6fbe77",
+   "sb_7a1cccd5",
+   "sb_dbc8cb18"
   ]
  },
  "est": {

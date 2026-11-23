@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "Please ___ the room.",
+    "stem": "There's a high risk ___ rain today.",
     "options": [
-     "enter to",
-     "enter"
+     "to",
+     "of"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "___ the flight is late.",
+    "options": [
+     "I'm scared",
+     "I'm afraid"
     ],
     "answer": 1,
     "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "She is angry ___ her brother.",
+    "stem": "It ___ on the weather.",
     "options": [
-     "with",
-     "on"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "The flood ___ many houses.",
-    "options": [
-     "damaged",
-     "harmed"
+     "depends",
+     "depend of"
     ],
     "answer": 0,
     "pick": 1,
     "cefr": "B1"
    },
    {
-    "stem": "She found a new ___.",
+    "stem": "Can you explain this rule ___?",
     "options": [
-     "job",
-     "work"
+     "to me",
+     "me"
     ],
     "answer": 0,
-    "pick": 0,
-    "cefr": "A1"
+    "pick": 1,
+    "cefr": "B1"
    },
    {
-    "stem": "She wants to go ___ next year.",
+    "stem": "Can you ___ me to buy milk?",
     "options": [
-     "to abroad",
-     "abroad"
+     "remember",
+     "remind"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "A2"
+    "cefr": "A1"
    }
   ],
   "right": 2,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_5a3afafa",
-   "sb_c1d23040",
-   "sb_1798babe",
-   "sb_00e987d4",
-   "sb_6c82a344"
+   "sb_014af894",
+   "sb_0d57e20a",
+   "sb_99bdb159",
+   "sb_d2fd585c",
+   "sb_1740b6df"
   ]
  },
  "est": {

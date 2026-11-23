@@ -39,53 +39,53 @@
  "data": {
   "items": [
    {
-    "stem": "The market was very ___.",
+    "stem": "I have a habit ___ up early.",
     "options": [
-     "crowded",
-     "crowd"
+     "to wake",
+     "of waking"
     ],
-    "answer": 0,
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "He is ___ in a school project.",
+    "options": [
+     "involve",
+     "involved"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B2"
+   },
+   {
+    "stem": "Put the cans in the ___ bin.",
+    "options": [
+     "recycle",
+     "recycling"
+    ],
+    "answer": 1,
     "pick": 0,
     "cefr": "A2"
    },
    {
-    "stem": "I dislike ___ in lines.",
+    "stem": "The news ___ true.",
     "options": [
-     "waiting",
-     "to wait"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I will ___ your email tonight.",
-    "options": [
-     "reply",
-     "reply to"
+     "are",
+     "is"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "Don't waste time ___.",
+    "stem": "Someone ___ my wallet!",
     "options": [
-     "to worry",
-     "worrying"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "So, what ___ you here today?",
-    "options": [
-     "brings",
-     "bring"
+     "stole",
+     "robbed"
     ],
     "answer": 0,
-    "pick": 1,
+    "pick": 0,
     "cefr": "B1"
    }
   ],
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_5c7bba0d",
-   "sb_643721d5",
-   "sb_e84afaab",
-   "sb_cb15e32f",
-   "sb_5c2deea7"
+   "sb_060aa8e2",
+   "sb_7ede0d14",
+   "sb_1795a1f5",
+   "sb_14821351",
+   "sb_47b3e9e9"
   ]
  },
  "est": {

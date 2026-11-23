@@ -39,54 +39,54 @@
  "data": {
   "items": [
    {
-    "stem": "The boy denied ___ the cake.",
+    "stem": "The gym is very busy at ___ times.",
     "options": [
-     "to eat",
-     "eating"
+     "peak",
+     "full"
     ],
-    "answer": 1,
+    "answer": 0,
     "pick": 1,
     "cefr": "B2"
    },
    {
-    "stem": "After a long winter, I long ___ summer.",
+    "stem": "Thank you all for ___.",
     "options": [
-     "to",
-     "for"
-    ],
-    "answer": 1,
-    "pick": 0,
-    "cefr": "B1"
-   },
-   {
-    "stem": "She pretended ___ asleep.",
-    "options": [
-     "being",
-     "to be"
+     "your listening",
+     "listening"
     ],
     "answer": 1,
     "pick": 0,
     "cefr": "B2"
    },
    {
-    "stem": "He advised me ___ more exercise.",
+    "stem": "I ___ a bath after work.",
     "options": [
-     "do",
-     "to do"
+     "made",
+     "took"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "I bought ___ new jeans.",
-    "options": [
-     "a",
-     "a pair of"
-    ],
-    "answer": 1,
-    "pick": 0,
     "cefr": "A2"
+   },
+   {
+    "stem": "He avoided ___ to me.",
+    "options": [
+     "talking",
+     "to talk"
+    ],
+    "answer": 0,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "With ___, you get money back.",
+    "options": [
+     "cashback",
+     "cash out"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
    }
   ],
   "right": 2,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_01c4ef56",
-   "sb_05c6285e",
-   "sb_344dfdad",
-   "sb_d9414771",
-   "sb_33c9b363"
+   "sb_01d0269f",
+   "sb_30c60846",
+   "sb_155a64a8",
+   "sb_d8d52cb2",
+   "sb_28a25c23"
   ]
  },
  "est": {

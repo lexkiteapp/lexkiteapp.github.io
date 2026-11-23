@@ -43,54 +43,54 @@
  "data": {
   "items": [
    {
-    "stem": "He has ___ experience in sales.",
+    "stem": "I would rather ___ at home.",
     "options": [
-     "many",
-     "a lot of"
+     "to stay",
+     "stay"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "B1"
+    "cefr": "B2"
    },
    {
-    "stem": "He ___ to Hanoi yesterday.",
+    "stem": "This cake tastes ___.",
     "options": [
-     "returned back",
-     "returned"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "B1"
-   },
-   {
-    "stem": "My phone is different ___ yours.",
-    "options": [
-     "with",
-     "from"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "I walk ___ after class.",
-    "options": [
-     "to home",
-     "home"
-    ],
-    "answer": 1,
-    "pick": 1,
-    "cefr": "A2"
-   },
-   {
-    "stem": "We arranged ___ at the station.",
-    "options": [
-     "to meet",
-     "meeting"
+     "good",
+     "well"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "A2"
+    "cefr": "B1"
+   },
+   {
+    "stem": "She blamed me ___ the mistake.",
+    "options": [
+     "for",
+     "about"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "The soup is too hot ___.",
+    "options": [
+     "to not eat",
+     "to eat"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "A1"
+   },
+   {
+    "stem": "I'll ___ to you tomorrow.",
+    "options": [
+     "answer back",
+     "get back"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_6dbf5c1a",
-   "sb_e70c4df1",
-   "sb_85b49008",
-   "sb_46f96315",
-   "sb_237d4691"
+   "sb_7c67f786",
+   "sb_cad1c068",
+   "sb_6486fb27",
+   "sb_2b414c2b",
+   "sb_8ce033f9"
   ]
  },
  "est": {

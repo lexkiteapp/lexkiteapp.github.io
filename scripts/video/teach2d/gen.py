@@ -531,7 +531,7 @@ SC_EXPR = {100: 'hype', 80: 'smug', 60: 'shrug', 40: 'cringe'}   # score band ->
 SC_NUM, SC_COUNT = {40: 'forty', 60: 'sixty', 80: 'eighty'}, ['No', 'One', 'Two', 'Three', 'Four', 'All five']
 SC_REACT = {100: 'Perfect. Tough to match.', 80: 'Pretty good, right?', 60: 'Okay. You can beat that.', 40: 'Oops. Easy to beat!'}
 SC_CYCLE = [80, 60, 100, 80, 40, 60, 80, 100]   # bands in plan order: smug / shrug / hype alternate, so no two neighbours look alike
-SC_W, SC_ROW, SC_REGION = 736, 40, 820   # row text column (card 900 - badge column 116 - pad 40, 8 px margin), row font (= the 40 px min-text floor), card height room (card region 826)
+SC_W, SC_ROW, SC_REGION = 720, 40, 820   # row text column (card 900 - badge column 116 - pad 40 = 744; 24 px margin: CI's pillow measures a few px differently from a local one), row font (= the 40 px min-text floor), card height room (card region 826)
 SC_WORDS, SC_SECS = (16, 28), (9.0, 12.0)   # word / seconds range of the score challenge reel (speed = SLANG_SPEED)
 
 

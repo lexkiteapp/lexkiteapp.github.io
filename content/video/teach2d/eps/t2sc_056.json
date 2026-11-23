@@ -43,29 +43,19 @@
  "data": {
   "items": [
    {
-    "stem": "Good luck ___ your test!",
+    "stem": "I walk ___ after class.",
     "options": [
-     "with",
-     "for"
-    ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "She ___ me the news.",
-    "options": [
-     "said",
-     "told"
+     "to home",
+     "home"
     ],
     "answer": 1,
     "pick": 1,
-    "cefr": "A1"
+    "cefr": "A2"
    },
    {
-    "stem": "There's a high risk ___ rain today.",
+    "stem": "She took advantage ___ the sale.",
     "options": [
-     "to",
+     "from",
      "of"
     ],
     "answer": 1,
@@ -73,24 +63,34 @@
     "cefr": "B1"
    },
    {
-    "stem": "___ the flight is late.",
+    "stem": "We arrived ___ Hanoi at noon.",
     "options": [
-     "I'm scared",
-     "I'm afraid"
+     "to",
+     "in"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "A2"
    },
    {
-    "stem": "It ___ on the weather.",
+    "stem": "We arranged ___ at the station.",
     "options": [
-     "depends",
-     "depend of"
+     "to meet",
+     "meeting"
     ],
     "answer": 0,
     "pick": 0,
-    "cefr": "B1"
+    "cefr": "A2"
+   },
+   {
+    "stem": "I am grateful ___ your help.",
+    "options": [
+     "for",
+     "to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
    }
   ],
   "right": 5,
@@ -110,11 +110,11 @@
  },
  "src": {
   "gold": [
-   "sb_d6acb235",
-   "sb_136af047",
-   "sb_014af894",
-   "sb_0d57e20a",
-   "sb_99bdb159"
+   "sb_46f96315",
+   "sb_a6a08261",
+   "sb_9762bb80",
+   "sb_237d4691",
+   "sb_6d557cd2"
   ]
  },
  "est": {

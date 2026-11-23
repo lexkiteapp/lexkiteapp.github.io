@@ -39,20 +39,20 @@
  "data": {
   "items": [
    {
-    "stem": "It's late. I need to head ___.",
+    "stem": "He was ___ a crime.",
     "options": [
-     "away of",
-     "off"
+     "guilty for",
+     "guilty of"
     ],
     "answer": 1,
     "pick": 1,
     "cefr": "B2"
    },
    {
-    "stem": "When ___ call me?",
+    "stem": "As you can see ___ this slide…",
     "options": [
-     "you will",
-     "will you"
+     "in",
+     "on"
     ],
     "answer": 1,
     "pick": 1,
@@ -65,27 +65,27 @@
      "text"
     ],
     "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "He ___ a crime last year.",
+    "options": [
+     "did",
+     "committed"
+    ],
+    "answer": 1,
     "pick": 0,
     "cefr": "B1"
    },
    {
-    "stem": "The ___ is cold today.",
+    "stem": "I am bad ___ maths.",
     "options": [
-     "weather",
-     "weathers"
+     "in",
+     "at"
     ],
-    "answer": 0,
-    "pick": 0,
-    "cefr": "A2"
-   },
-   {
-    "stem": "Traffic is a ___ problem in big cities.",
-    "options": [
-     "major",
-     "main"
-    ],
-    "answer": 0,
-    "pick": 0,
+    "answer": 1,
+    "pick": 1,
     "cefr": "A2"
    }
   ],
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_14b91513",
-   "sb_5af5827b",
+   "sb_813c80f1",
+   "sb_8df64e9f",
    "sb_e34dea6c",
-   "sb_aab92e69",
-   "sb_01bac66e"
+   "sb_16707e4b",
+   "sb_0c045175"
   ]
  },
  "est": {

@@ -39,23 +39,23 @@
  "data": {
   "items": [
    {
-    "stem": "He is addicted ___ video games.",
+    "stem": "You ___ see a doctor.",
     "options": [
-     "to",
-     "with"
+     "ought to",
+     "ought"
     ],
     "answer": 0,
-    "pick": 1,
+    "pick": 0,
     "cefr": "B2"
    },
    {
-    "stem": "I'm happy to ___ the offer.",
+    "stem": "He tends ___ late.",
     "options": [
-     "agree",
-     "accept"
+     "to be",
+     "being"
     ],
-    "answer": 1,
-    "pick": 1,
+    "answer": 0,
+    "pick": 0,
     "cefr": "B2"
    },
    {
@@ -65,8 +65,18 @@
      "on"
     ],
     "answer": 1,
-    "pick": 1,
+    "pick": 0,
     "cefr": "A2"
+   },
+   {
+    "stem": "Could you ___ a second?",
+    "options": [
+     "wait me",
+     "hold on"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B1"
    },
    {
     "stem": "I ___ the meeting yesterday.",
@@ -77,16 +87,6 @@
     "answer": 1,
     "pick": 0,
     "cefr": "B1"
-   },
-   {
-    "stem": "Three ___ were playing outside.",
-    "options": [
-     "children",
-     "childs"
-    ],
-    "answer": 0,
-    "pick": 1,
-    "cefr": "A2"
    }
   ],
   "right": 2,
@@ -106,11 +106,11 @@
  },
  "src": {
   "gold": [
-   "sb_f7fada2b",
-   "sb_803a54ea",
+   "sb_1c160466",
+   "sb_e5f5579b",
    "sb_14363e18",
-   "sb_df31e3c5",
-   "sb_a5326200"
+   "sb_14cb88e7",
+   "sb_df31e3c5"
   ]
  },
  "est": {
