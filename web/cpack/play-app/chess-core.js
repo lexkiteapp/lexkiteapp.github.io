@@ -1,4 +1,4 @@
-/* ♟️ Cờ câu đố – lõi luật cờ thuần (game-system P5c): FEN, nước hợp lệ (nhập thành, bắt tốt qua đường, phong cấp), chiếu hết/hết nước/hòa. Test: scripts/test/play-chess-core.mjs (perft + từng luật) */
+/* ♟️ Lõi luật cờ (P5c): FEN, nước hợp lệ, nhập thành, bắt tốt qua đường, phong cấp, chiếu hết/hòa. Test: play-chess-core.mjs */
 (function (g) {
   const N = [[1, 2], [2, 1], [-1, 2], [-2, 1], [1, -2], [2, -1], [-1, -2], [-2, -1]], K = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]];
   const RK = K.slice(0, 4), BS = K.slice(4), ON = (r, c) => r >= 0 && c >= 0 && r < 8 && c < 8, white = p => !!p && p === p.toUpperCase();
@@ -52,17 +52,14 @@
     if (x.every(p => p === 'b')) { const col = new Set(); b.forEach((row, r) => row.forEach((p, c) => p && p.toLowerCase() === 'b' && col.add((r + c) % 2))); return col.size === 1; }
     return false;
   }
-  /** Nước hợp lệ của bên đang đi: [{from,to,promo?,mate,check}] (phong cấp: hậu trước) */
   function moves(fen) {
     const s = parse(fen), w = s.turn === 'w';
     return legal(s).map(m => { const n = make(s, m), chk = inCheck(n.b, !w); return { from: sq(...m.f), to: sq(...m.t), promo: m.promo, castle: m.castle, ep: !!m.ep, check: chk, mate: chk && !legal(n).length }; });
   }
-  /** Đi một nước: trả FEN mới, hoặc null nếu không hợp lệ (promo mặc định hậu). */
   function play(fen, from, to, promo) {
     const s = parse(fen), m = legal(s).find(x => sq(...x.f) === from && sq(...x.t) === to && (!x.promo || x.promo === (promo || 'q')));
     return m ? toFen(make(s, m)) : null;
   }
-  /** Trạng thái thế cờ: {check, mate, stalemate, draw: ''|'insufficient'|'fifty'} */
   function status(fen) {
     const s = parse(fen), n = legal(s).length, chk = inCheck(s.b, s.turn === 'w');
     return { check: chk, mate: chk && !n, stalemate: !chk && !n, draw: insufficient(s.b) ? 'insufficient' : s.half >= 100 ? 'fifty' : '' };

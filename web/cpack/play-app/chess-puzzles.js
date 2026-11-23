@@ -1,4 +1,4 @@
-/* ♟️ Cờ câu đố – kho thế cờ chiếu hết 1 nước (game-system P5c): [FEN, thuật ngữ tiếng Anh]. Đi bên nào cũng được; đúng = nước chiếu hết bất kỳ (ChessCore kiểm). */
+/* ♟️ Kho thế chiếu hết 1 nước (P5c): [FEN, thuật ngữ] */
 (function (g) {
   g.ChessPuzzles = [
     ['6k1/5ppp/8/8/8/8/8/R3K3 w', 'back-rank mate'], ['6k1/5ppp/8/8/8/8/5PPP/1R2R1K1 w', 'doubled rooks'],

@@ -1,4 +1,4 @@
-/* ♟️ Cờ câu đố (game-system P5c, gói lười pch): chiếu hết trong 1 nước, mỗi thế dạy 1 thuật ngữ cờ tiếng Anh; khung Stitch game-chess, luật ChessCore, kết quả = GameEnd. Test: scripts/test/play-chess.mjs */
+/* ♟️ Cờ câu đố (P5c, gói pch): 5 thế chiếu hết 1 nước + thuật ngữ; test play-chess.mjs */
 (function (g) {
   const R = 5, GL = { K: '♔', Q: '♕', R: '♖', B: '♗', N: '♘', P: '♙', k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟︎' };
   const NAME = { k: 'king', q: 'queen', r: 'rook', b: 'bishop', n: 'knight', p: 'pawn' };
