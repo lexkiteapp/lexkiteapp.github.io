@@ -40,6 +40,8 @@ def install(G):
                  L('b', it['day30'], 0.4),
                  L('w', 'Same sentence. Just a little practice every day.', 0.3),
                  L('c', 'Save this. Free on lexkite.com.')]
+        est = G['short_secs']({'lines': lines}) + 0.9   # short tail: the day-1 silence grows so every short lands >= 18 s for real (pilot: estimate 19.6 rendered 16.9)
+        lines[1]['pause'] = round(lines[1]['pause'] + max(0.0, min(2.4, 20.6 - est)), 2)
         return dict(lines=lines, data=dict(id=it['id'], day1=it['day1'], day30=it['day30'], marks=it['marks'], s1=it['s1'], s30=it['s30'], sample=True),
                     cta=cta('voice-diary', '#/diary', 'Start your voice diary'), hook=dict(line='h', text=HOOK), src=dict(progress=it['id']))
 

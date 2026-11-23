@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "I hab tu cat... and wan smol dog.",
-   "pause": 0.7
+   "pause": 2.01
   },
   {
    "id": "k",
@@ -70,8 +70,8 @@
  },
  "est": {
   "words": 37,
-  "seconds": 20.7,
-  "wpm": 107
+  "seconds": 22.0,
+  "wpm": 101
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"I have two cats and one small dog\"",

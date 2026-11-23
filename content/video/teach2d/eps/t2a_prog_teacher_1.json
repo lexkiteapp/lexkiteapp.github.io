@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "Our teacha gab us... tree nyu wods... todai.",
-   "pause": 0.7
+   "pause": 0.87
   },
   {
    "id": "k",
@@ -69,7 +69,7 @@
  },
  "est": {
   "words": 37,
-  "seconds": 20.7,
+  "seconds": 20.8,
   "wpm": 107
  },
  "publish": {

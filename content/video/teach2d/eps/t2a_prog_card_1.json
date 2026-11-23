@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "Can I pai... wit my cledit car?",
-   "pause": 0.7
+   "pause": 2.01
   },
   {
    "id": "k",
@@ -69,8 +69,8 @@
  },
  "est": {
   "words": 35,
-  "seconds": 19.7,
-  "wpm": 107
+  "seconds": 21.0,
+  "wpm": 100
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"Can I pay with my credit card\"",

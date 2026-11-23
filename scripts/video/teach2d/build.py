@@ -780,7 +780,7 @@ def T_progress():
     c.text([['Score ', 'muted'], [str(D['s1']), 'coral'], ['/100', 'muted']], S['sub'], at('a', 3))
     c.place(t_a, t_k - 0.2, 'a')
     c = Card(RY0, tone='bubble_good', badge='check', t_badge=t_b); badge_chip(c, 'DAY 30 \u00b7 SAMPLE', t_k, 'chip')   # the card arrives on "Thirty days later!", the sentence is written as it is said
-    c.text([[D['day30'], 'ongood']], S['body'], t_b); c.text([['Score ', 'ongood'], [str(D['s30']), 'onhl'], ['/100', 'ongood']], S['sub'], at('b', 3))
+    c.text([[D['day30'], 'ongood']], S['body'], t_b); c.text([['Score ', 'ongood'], [str(D['s30']), 'ongood'], ['/100', 'ongood']], S['sub'], at('b', 3))
     c.place(t_k, t_w - 0.2, 'a')
     c = Card(RY0, tone='card'); chip(c, 'THIRTY DAYS OF PRACTICE', t_w)
     c.text([['+' + str(D['s30'] - D['s1']), 'accent']], S['big'], t_w, align='c'); c.text([[str(D['s1']) + '  \u2192  ' + str(D['s30']), 'ink']], S['body'], t_w, align='c')

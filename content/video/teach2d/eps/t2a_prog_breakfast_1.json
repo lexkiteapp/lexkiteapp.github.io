@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "We hat brekfas... togeder at seben.",
-   "pause": 0.7
+   "pause": 0.87
   },
   {
    "id": "k",
@@ -69,8 +69,8 @@
  },
  "est": {
   "words": 33,
-  "seconds": 18.7,
-  "wpm": 106
+  "seconds": 18.9,
+  "wpm": 105
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"We had breakfast together at seven\"",

@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "Pleas spik... slowli... becos I am lerning.",
-   "pause": 0.7
+   "pause": 0.87
   },
   {
    "id": "k",
@@ -69,8 +69,8 @@
  },
  "est": {
   "words": 35,
-  "seconds": 19.7,
-  "wpm": 107
+  "seconds": 19.8,
+  "wpm": 106
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"Please speak slowly because I am learning\"",

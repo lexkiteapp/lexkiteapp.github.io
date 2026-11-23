@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "Tree of my frens... um... live in de nort.",
-   "pause": 0.7
+   "pause": 1.73
   },
   {
    "id": "k",
@@ -69,8 +69,8 @@
  },
  "est": {
   "words": 38,
-  "seconds": 21.1,
-  "wpm": 108
+  "seconds": 22.2,
+  "wpm": 103
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"Three of my friends live in the north\"",
