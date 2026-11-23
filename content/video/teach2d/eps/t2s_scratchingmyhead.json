@@ -1,0 +1,133 @@
+{
+ "id": "t2s_scratchingmyhead",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 283,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "This puzzle makes no sense!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Scratching my head!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm confused and thinking hard.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm scratching my head over this puzzle.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "key": "scratching my head",
+  "forms": [
+   "scratch my head"
+  ],
+  "ipa": "/ˈskrætʃɪŋ maɪ ˈhed/",
+  "mean": "I'm confused and thinking hard.",
+  "define": "Used when you can't figure something out.",
+  "vi": "Vò đầu bứt tai",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Trying to solve a puzzle",
+   "text": "I'm scratching my head over this puzzle."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means you're…",
+   "options": [
+    "confused",
+    "itchy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'scratching my head' about an itchy scalp.",
+   "why": "It means confused, not itchy."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "This puzzle makes no sense!"
+ },
+ "src": {
+  "slang": "scratching my head"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "What does \"scratching my head\" mean?",
+  "keyword": "scratching my head",
+  "value": "Scratching my head = I'm confused and thinking hard. Example: \"I'm scratching my head over this puzzle.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"scratching my head\" mean?",
+    "description": "Scratching my head = I'm confused and thinking hard. Example: \"I'm scratching my head over this puzzle.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "scratching my head",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"scratching my head\" mean?\n\nScratching my head = I'm confused and thinking hard. Example: \"I'm scratching my head over this puzzle.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"scratching my head\" mean?\n\nScratching my head = I'm confused and thinking hard. Example: \"I'm scratching my head over this puzzle.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"scratching my head\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: confused. \"I'm scratching my head over this puzzle.\" More real English slang, free: {link}"
+ }
+}

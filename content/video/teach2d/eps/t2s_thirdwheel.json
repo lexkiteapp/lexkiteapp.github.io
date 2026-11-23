@@ -1,0 +1,133 @@
+{
+ "id": "t2s_thirdwheel",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 285,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two friends date. I'm there!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Third wheel!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The extra person in a pair.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I felt like a third wheel.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "third wheel",
+  "forms": [
+   "third-wheel"
+  ],
+  "ipa": "/ˈθɜːrd ˈwiːl/",
+  "mean": "The extra person in a pair.",
+  "define": "A person who feels left out when two others are together.",
+  "vi": "Người thừa",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Hanging out with a pair",
+   "text": "I felt like a third wheel."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"third wheel\" is…",
+   "options": [
+    "an extra person",
+    "a car part"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'third wheel' about a car.",
+   "why": "It means an extra person in a pair."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Two friends date. I'm there!"
+ },
+ "src": {
+  "slang": "third wheel"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "What does \"third wheel\" mean?",
+  "keyword": "third wheel",
+  "value": "Third wheel = The extra person in a pair. Example: \"I felt like a third wheel.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"third wheel\" mean?",
+    "description": "Third wheel = The extra person in a pair. Example: \"I felt like a third wheel.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "third wheel",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"third wheel\" mean?\n\nThird wheel = The extra person in a pair. Example: \"I felt like a third wheel.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"third wheel\" mean?\n\nThird wheel = The extra person in a pair. Example: \"I felt like a third wheel.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"third wheel\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: an extra person. \"I felt like a third wheel.\" More real English slang, free: {link}"
+ }
+}

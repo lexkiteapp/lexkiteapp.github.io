@@ -1,0 +1,133 @@
+{
+ "id": "t2s_gettheballrolling",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 80,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Meeting starts. Who goes first?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Get the ball rolling!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start the activity now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's get the ball rolling with ideas.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "key": "get the ball rolling",
+  "forms": [
+   "get the ball rolling"
+  ],
+  "ipa": "/ɡet ðə ˈbɔːl ˈroʊlɪŋ/",
+  "mean": "Start the activity now.",
+  "define": "To begin a project or process.",
+  "vi": "Bắt đầu thôi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Starting a group project",
+   "text": "Let's get the ball rolling with ideas."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "play soccer",
+    "begin"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'get the ball rolling' about finishing.",
+   "why": "It means starting something."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Meeting starts. Who goes first?"
+ },
+ "src": {
+  "slang": "get the ball rolling"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"get the ball rolling\" mean?",
+  "keyword": "get the ball rolling",
+  "value": "Get the ball rolling = Start the activity now. Example: \"Let's get the ball rolling with ideas.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"get the ball rolling\" mean?",
+    "description": "Get the ball rolling = Start the activity now. Example: \"Let's get the ball rolling with ideas.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "get the ball rolling",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"get the ball rolling\" mean?\n\nGet the ball rolling = Start the activity now. Example: \"Let's get the ball rolling with ideas.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"get the ball rolling\" mean?\n\nGet the ball rolling = Start the activity now. Example: \"Let's get the ball rolling with ideas.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"get the ball rolling\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'get the ball rolling' about finishing. It means starting something. Real example: \"Let's get the ball rolling with ideas.\" More real English slang, free: {link}"
+ }
+}
