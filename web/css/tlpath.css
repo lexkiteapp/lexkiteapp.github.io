@@ -54,7 +54,7 @@
 .tp-d.today .tp-n{background:rgb(var(--st-primary-container));border-color:rgb(var(--st-primary-container));color:rgb(var(--st-on-primary))}
 .tp-d.today .tp-st{color:rgb(var(--st-primary))}
 .tp-d.part .tp-n{border-color:rgb(var(--st-secondary-container));color:rgb(var(--st-secondary))}
-.tp-d.lock{opacity:.62}
+.tp-d.lock{opacity:.8}
 .tp-d:focus-visible,.tp-w>summary:focus-visible,.tp-go:focus-visible,.tp-btn:focus-visible{outline:3px solid rgb(var(--st-secondary-container));outline-offset:-3px}
 /* Thưởng tuần + Từ mở rộng */
 .tp-rw{display:flex;align-items:center;gap:var(--sp-3);padding:var(--sp-3) var(--sp-4);border-top:1px dashed rgb(var(--st-outline-variant));background:rgb(var(--st-star) / .08)}
