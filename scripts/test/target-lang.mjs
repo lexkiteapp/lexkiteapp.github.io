@@ -362,7 +362,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   const tc = rd('.github/workflows/target-content.yml'); ok(/tl_ja_fill\.py --self/.test(tc) && tc.includes(`'.[$t].ipaCheck // ""' scripts/word-audio/tl-voices.json)" = "reading" ] && exit 0`), 'target-content: OpenJTalk cao độ/cách đọc cho ja, espeak không ghi đè IPA ja');
   ok(J.longFold('たいよう') === J.longFold('タイヨー') && J.longFold('がっこう') === J.longFold('ガッコー') && J.longFold('おもう') === 'おもー' && J.longFold('ちいさい') === 'ちーさい', 'longFold: trường âm viết kiểu nào cũng so được');
   const P = await import('../target/tl-pack.mjs'), b = P.build('ja');
-  ok(!b.err.length && b.n === 30 && Object.keys(b.out).length === 15, 'tl-pack ja: seed (lô đã duyệt) × 15 ngôn ngữ');
+  ok(!b.err.length && b.n >= 30 && Object.keys(b.out).length === 15, 'tl-pack ja: seed (lô đã duyệt) × 15 ngôn ngữ');
   const vi = JSON.parse(b.out.vi), col = k => vi.cols.indexOf(k), w0 = vi.words.find(r => r[0] === '食べる');
   ok(!vi.cols.includes('gender') && w0[col('kana')] === 'たべる' && w0[col('gl')] === 'ăn' && w0[col('vclass')] === 'ichidan' && w0[col('exForm')] === '食べます', 'gói ja: cột theo dữ liệu (không gender), nghĩa đúng ngôn ngữ');
   try { execFileSync(process.execPath, ['scripts/target/tl-pack.mjs', 'ja', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/packs/tl/ja lệch nguồn: ' + String(e.stderr)); } }

@@ -1,0 +1,313 @@
+{
+ "at": "2026-11-23T12:43:22.752Z",
+ "accepted": 23,
+ "rejected": [
+  {
+   "form": "朝",
+   "word": "朝",
+   "why": [
+    "giám khảo A: pitch accent wrong (should be 0)",
+    "sau sửa: giám khảo A: pitch accent incorrect (should be heiban)"
+   ]
+  },
+  {
+   "form": "朝御飯",
+   "word": "朝御飯",
+   "why": [
+    "giám khảo A: pitch accent wrong and uncommon kanji usage",
+    "giám khảo B: The word '朝御飯' (asagohan) is archaic or overly formal; standard modern Japanese uses '朝食' (choushoku) or '朝ご飯' (asagohan). The example sentence is unnatural for a learner deck.",
+    "sau sửa: giám khảo A: pitch accent incorrect (should be heiban) / giám khảo B: The 'word' field contains the kanji '御' (go), which is not the standard modern spelling for 'breakfast' (朝ご飯). The key '朝御飯' is also non-standard; the standard term is 朝ご飯 or 朝食. The example uses 朝ご飯, creating a mismatch with the headword."
+   ]
+  },
+  {
+   "form": "明後日",
+   "word": "明後日",
+   "why": [
+    "giám khảo A: example missing particle and pitch accent wrong",
+    "dịch ngược lệch: vi",
+    "sau sửa: giám khảo A: pitch accent incorrect (should be heiban)"
+   ]
+  },
+  {
+   "form": "明日",
+   "word": "明日",
+   "why": [
+    "giám khảo A: pitch accent wrong (should be 0)",
+    "sau sửa: giám khảo A: pitch accent incorrect (should be heiban) / dịch ngược lệch: es,de,hi"
+   ]
+  },
+  {
+   "form": "暖かい",
+   "word": "暖かい",
+   "why": [
+    "giám khảo A: pitch accent wrong (should be 0)",
+    "dịch ngược lệch: pt,fr,hi",
+    "sau sửa: giám khảo A: pitch accent incorrect and adjective class should be i-adj / dịch ngược lệch: pt,fr,hi,tr"
+   ]
+  },
+  {
+   "form": "頭",
+   "word": "頭",
+   "why": [
+    "giám khảo A: pitch accent wrong (should be 0)",
+    "sau sửa: giám khảo A: pitch accent incorrect (should be heiban)"
+   ]
+  },
+  {
+   "form": "新しい",
+   "word": "新しい",
+   "why": [
+    "giám khảo A: pitch accent wrong (should be 0)",
+    "sau sửa: giám khảo A: pitch accent incorrect and adjective class should be i-adj"
+   ]
+  },
+  {
+   "form": "いいえ",
+   "word": "いいえ",
+   "why": [
+    "giám khảo A: pitch accent should be 0 (heiban)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "いくつ",
+   "word": "いくつ",
+   "why": [
+    "giám khảo A: pitch accent should be 0 (heiban)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "いくら",
+   "word": "いくら",
+   "why": [
+    "giám khảo A: part of speech should be adv and pitch accent should be 0",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "池",
+   "word": "池",
+   "why": [
+    "giám khảo A: pitch accent should be 0 (heiban)",
+    "dịch ngược lệch: pt",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "忙しい",
+   "word": "忙しい",
+   "why": [
+    "giám khảo A: pitch accent should be 2, not 4",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "痛い",
+   "word": "痛い",
+   "why": [
+    "giám khảo A: pitch accent incorrect (should be heiban 0)",
+    "dịch ngược lệch: ru",
+    "sau sửa: giám khảo A: pitch accent should be 0 (heiban), not 2 / dịch ngược lệch: vi"
+   ]
+  },
+  {
+   "form": "一",
+   "word": "一",
+   "why": [
+    "giám khảo A: pitch accent incorrect (should be heiban 0)",
+    "sau sửa: giám khảo A: pitch accent wrong and example uses 一つ instead of the entry 一"
+   ]
+  },
+  {
+   "form": "一日",
+   "word": "一日",
+   "why": [
+    "giám khảo A: pitch accent incorrect (should be heiban 0)",
+    "sau sửa: giám khảo A: pitch accent wrong and example uses 一日中 rather than the bare entry"
+   ]
+  },
+  {
+   "form": "一番",
+   "word": "一番",
+   "why": [
+    "giám khảo A: pitch accent incorrect (should be heiban 0)",
+    "sau sửa: giám khảo A: pitch accent should be 0 (heiban), not 2"
+   ]
+  },
+  {
+   "form": "いつ",
+   "word": "いつ",
+   "why": [
+    "giám khảo A: pitch wrong and example sentence does not contain いつ",
+    "giám khảo B: Example sentence is missing the question word 'いつ' (When). The Japanese text '日本へ行きますか。' translates to 'Are you going to Japan?', not 'When are you going to Japan?'. The example does not use the target word.",
+    "cổng: いつ: câu ví dụ không chứa \"いつ\"",
+    "sau sửa: giám khảo A: pitch accent should be 0 (heiban), not 1"
+   ]
+  },
+  {
+   "form": "五つ",
+   "word": "五つ",
+   "why": [
+    "giám khảo A: pitch accent incorrect (should be heiban 0)",
+    "sau sửa: giám khảo A: pitch accent should be 0 (heiban), not 2"
+   ]
+  },
+  {
+   "form": "いつも",
+   "word": "いつも",
+   "why": [
+    "giám khảo A: pitch accent incorrect (should be heiban 0)",
+    "sau sửa: giám khảo A: pitch accent should be 0 (heiban), not 1"
+   ]
+  },
+  {
+   "form": "今",
+   "word": "今",
+   "why": [
+    "giám khảo A: pitch accent incorrect (should be heiban 0)",
+    "sau sửa: giám khảo A: pitch accent should be 0 (heiban), not 1"
+   ]
+  }
+ ],
+ "tried": [
+  "明るい",
+  "開く",
+  "開ける",
+  "上げる",
+  "朝",
+  "朝御飯",
+  "明後日",
+  "明日",
+  "あそこ",
+  "遊ぶ",
+  "暖かい",
+  "頭",
+  "新しい",
+  "あちら",
+  "暑い",
+  "熱い",
+  "厚い",
+  "あっち",
+  "後",
+  "あなた",
+  "兄",
+  "姉",
+  "アパート",
+  "いいえ",
+  "言う",
+  "いかが",
+  "行く",
+  "いくつ",
+  "いくら",
+  "池",
+  "医者",
+  "椅子",
+  "忙しい",
+  "痛い",
+  "一",
+  "一日",
+  "一番",
+  "いつ",
+  "五日",
+  "一緒",
+  "五つ",
+  "いつも",
+  "今",
+  "意味",
+  "妹",
+  "嫌",
+  "入口",
+  "居る",
+  "要る",
+  "入れる",
+  "色",
+  "色々",
+  "上",
+  "後ろ",
+  "薄い"
+ ],
+ "spot": [
+  "明るい",
+  "開く"
+ ],
+ "fixed": 1,
+ "skipped": {
+  "dup": 0,
+  "name": 0
+ },
+ "stats": {
+  "used": {
+   "lexai": 0,
+   "gc": 0,
+   "cf2": 0,
+   "cfLeak": 0,
+   "cf2Dead": [],
+   "gem": 10,
+   "groq": 34
+  },
+  "budget": {
+   "lexai": 0,
+   "gc": 10000,
+   "cf2": 0
+  },
+  "by": {
+   "gem|gemini-3.8-flash": {
+    "ok": 0,
+    "fail": 10,
+    "bad": 0
+   },
+   "gem|gemini-3.6-flash": {
+    "ok": 10,
+    "fail": 3,
+    "bad": 0
+   },
+   "groq|openai/gpt-oss-120b": {
+    "ok": 19,
+    "fail": 0,
+    "bad": 0
+   },
+   "groq|qwen/qwen3.8-27b": {
+    "ok": 13,
+    "fail": 0,
+    "bad": 0
+   },
+   "lexai|gemma-3-27b-it": {
+    "ok": 0,
+    "fail": 5,
+    "bad": 0
+   },
+   "gem|gemini-3.7-flash": {
+    "ok": 0,
+    "fail": 7,
+    "bad": 0
+   },
+   "lexai|gemini-3.5-flash": {
+    "ok": 0,
+    "fail": 2,
+    "bad": 0
+   }
+  },
+  "keys": {
+   "gem": {
+    "size": 85,
+    "live": 83,
+    "parked": {
+     "auth": 2
+    }
+   },
+   "groq": {
+    "size": 109,
+    "live": 109,
+    "parked": {}
+   }
+  }
+ },
+ "wiktFlags": [
+  "上げる: từ loại v ↔ soft-redirect",
+  "厚い: từ loại adj ↔ soft-redirect",
+  "あっち: từ loại adv ↔ pron",
+  "いかが: từ loại adv ↔ soft-redirect",
+  "一緒: từ loại adv ↔ adj/noun"
+ ]
+}

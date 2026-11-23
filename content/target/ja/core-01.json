@@ -1,0 +1,1059 @@
+{
+ "v": 1,
+ "tl": "ja",
+ "variant": "ja-JP",
+ "status": "reviewed",
+ "source": {
+  "name": "open-anki-jlpt-decks (jamsinclair) – danh sách từ JLPT N5–N1 của Jonathan Waller (tanos.co.uk)",
+  "url": "https://raw.githubusercontent.com/jamsinclair/open-anki-jlpt-decks/main/src/",
+  "license": "MIT (bộ thẻ) / CC BY (danh sách tanos) – ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "明るい",
+   "pos": "adj",
+   "kana": "あかるい",
+   "romaji": "akarui",
+   "pitch": 0,
+   "jlpt": 5,
+   "aclass": "i",
+   "ipa": "akaɾɯi",
+   "gl": {
+    "vi": "sáng, vui vẻ",
+    "en": "bright, cheerful",
+    "es": "brillante, alegre",
+    "pt": "claro, alegre",
+    "fr": "lumineux, joyeux",
+    "de": "hell, heiter",
+    "id": "terang, ceria",
+    "th": "สว่าง, ร่าเริง",
+    "zh": "明亮的、欢快的",
+    "ja": "明るい",
+    "ko": "밝다",
+    "hi": "उजला, हंसमुख",
+    "ar": "مشرق، مبهج",
+    "ru": "светлый, жизнерадостный",
+    "tr": "aydınlık, neşeli"
+   },
+   "ex": {
+    "ja": "この部屋は明るいです。",
+    "en": "This room is bright."
+   },
+   "rank": 7,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true,
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "開く",
+   "pos": "v",
+   "kana": "あく",
+   "romaji": "aku",
+   "pitch": 2,
+   "jlpt": 5,
+   "vclass": "godan",
+   "ipa": "akɯ",
+   "gl": {
+    "vi": "mở (tự động từ)",
+    "en": "to open, to become open",
+    "es": "abrirse",
+    "pt": "abrir-se",
+    "fr": "s'ouvrir",
+    "de": "sich öffnen",
+    "id": "terbuka",
+    "th": "เปิด (กริยาอกรรม)",
+    "zh": "打开",
+    "ja": "開く",
+    "ko": "열리다",
+    "hi": "खुलना",
+    "ar": "ينفتح",
+    "ru": "открываться",
+    "tr": "açılmak"
+   },
+   "ex": {
+    "ja": "ドアが開きます。",
+    "en": "The door opens."
+   },
+   "exForm": "開きます",
+   "rank": 9,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true,
+    "readOjt": "ヒラク",
+    "pitchAi": 0,
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "開ける",
+   "pos": "v",
+   "kana": "あける",
+   "romaji": "akeru",
+   "pitch": 0,
+   "jlpt": 5,
+   "vclass": "ichidan",
+   "ipa": "akeɾɯ",
+   "gl": {
+    "vi": "mở (tha động từ)",
+    "en": "to open",
+    "es": "abrir",
+    "pt": "abrir",
+    "fr": "ouvrir",
+    "de": "öffnen",
+    "id": "membuka",
+    "th": "เปิด (กริยาสกรรม)",
+    "zh": "打开",
+    "ja": "開ける",
+    "ko": "열다",
+    "hi": "खोलना",
+    "ar": "يفتح",
+    "ru": "открывать",
+    "tr": "açmak"
+   },
+   "ex": {
+    "ja": "窓を開けます。",
+    "en": "I will open the window."
+   },
+   "exForm": "開けます",
+   "rank": 10,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "上げる",
+   "pos": "v",
+   "kana": "あげる",
+   "romaji": "ageru",
+   "pitch": 0,
+   "jlpt": 5,
+   "vclass": "ichidan",
+   "ipa": "ageɾɯ",
+   "gl": {
+    "vi": "nâng lên, giơ lên",
+    "en": "to raise, to lift",
+    "es": "levantar, subir",
+    "pt": "levantar, erguer",
+    "fr": "lever, monter",
+    "de": "heben, erhöhen",
+    "id": "menaikkan, mengangkat",
+    "th": "ยก, ทำให้สูงขึ้น",
+    "zh": "举起、抬起",
+    "ja": "上げる",
+    "ko": "올리다",
+    "hi": "उठाना",
+    "ar": "يرفع",
+    "ru": "поднимать",
+    "tr": "kaldırmak, yükseltmek"
+   },
+   "ex": {
+    "ja": "手を上げてください。",
+    "en": "Please raise your hand."
+   },
+   "exForm": "上げて",
+   "rank": 11,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt",
+    "wikt": "từ loại v ↔ soft-redirect"
+   }
+  },
+  {
+   "word": "あそこ",
+   "pos": "pron",
+   "kana": "あそこ",
+   "romaji": "asoko",
+   "pitch": 0,
+   "jlpt": 5,
+   "ipa": "asoko",
+   "gl": {
+    "vi": "chỗ kia",
+    "en": "over there",
+    "es": "allá",
+    "pt": "lá",
+    "fr": "là-bas",
+    "de": "dort drüben",
+    "id": "di sana",
+    "th": "ตรงนั้น",
+    "zh": "那里",
+    "ja": "あそこ",
+    "ko": "저기",
+    "hi": "वहाँ",
+    "ar": "هناك",
+    "ru": "ввон там",
+    "tr": "orası"
+   },
+   "ex": {
+    "ja": "あそこに交番があります。",
+    "en": "There is a police box over there."
+   },
+   "rank": 16,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "遊ぶ",
+   "pos": "v",
+   "kana": "あそぶ",
+   "romaji": "asobu",
+   "pitch": 0,
+   "jlpt": 5,
+   "vclass": "godan",
+   "ipa": "asobɯ",
+   "gl": {
+    "vi": "chơi",
+    "en": "to play",
+    "es": "jugar",
+    "pt": "brincar",
+    "fr": "jouer",
+    "de": "spielen",
+    "id": "bermain",
+    "th": "เล่น",
+    "zh": "玩",
+    "ja": "遊ぶ",
+    "ko": "놀다",
+    "hi": "खेलना",
+    "ar": "يلعب",
+    "ru": "играть",
+    "tr": "oynamak"
+   },
+   "ex": {
+    "ja": "公園で友達と遊びました。",
+    "en": "I played with my friends in the park."
+   },
+   "exForm": "遊びました",
+   "rank": 17,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "あちら",
+   "pos": "pron",
+   "kana": "あちら",
+   "romaji": "achira",
+   "pitch": 0,
+   "jlpt": 5,
+   "ipa": "atɕiɾa",
+   "gl": {
+    "vi": "phía kia",
+    "en": "that way",
+    "es": "por allá",
+    "pt": "por ali",
+    "fr": "par là",
+    "de": "dort drüben",
+    "id": "sebelah sana",
+    "th": "ทางโน้น",
+    "zh": "那里",
+    "ja": "あちら",
+    "ko": "저쪽",
+    "hi": "उधर",
+    "ar": "تلك الناحية",
+    "ru": "та сторона",
+    "tr": "şu taraf"
+   },
+   "ex": {
+    "ja": "トイレはあちらです。",
+    "en": "The restroom is that way."
+   },
+   "rank": 21,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "暑い",
+   "pos": "adj",
+   "kana": "あつい",
+   "romaji": "atsui",
+   "pitch": 2,
+   "jlpt": 5,
+   "aclass": "i",
+   "ipa": "atsɯi",
+   "gl": {
+    "vi": "nóng (thời tiết)",
+    "en": "hot (weather)",
+    "es": "calor (clima)",
+    "pt": "quente (clima)",
+    "fr": "chaud (temps)",
+    "de": "heiß (Wetter)",
+    "id": "panas (cuaca)",
+    "th": "ร้อน (อากาศ)",
+    "zh": "热 (天气)",
+    "ja": "暑い",
+    "ko": "덥다",
+    "hi": "गरम (मौसम)",
+    "ar": "حار (الطقس)",
+    "ru": "жарко (погода)",
+    "tr": "sıcak (hava)"
+   },
+   "ex": {
+    "ja": "今日は暑いです。",
+    "en": "It is hot today."
+   },
+   "rank": 22,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchAi": 0,
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "熱い",
+   "pos": "adj",
+   "kana": "あつい",
+   "romaji": "atsui",
+   "pitch": 2,
+   "jlpt": 5,
+   "aclass": "i",
+   "ipa": "atsɯi",
+   "gl": {
+    "vi": "nóng (vật)",
+    "en": "hot (objects)",
+    "es": "caliente (objeto)",
+    "pt": "quente (objeto)",
+    "fr": "chaud (objet)",
+    "de": "heiß (Gegenstand)",
+    "id": "panas (benda)",
+    "th": "ร้อน (ของ)",
+    "zh": "热 (物体)",
+    "ja": "熱い",
+    "ko": "뜨겁다",
+    "hi": "गरम (वस्तु)",
+    "ar": "حار (شيء)",
+    "ru": "жарко (вещь)",
+    "tr": "sıcak (nesne)"
+   },
+   "ex": {
+    "ja": "お茶が熱いです。",
+    "en": "The tea is hot."
+   },
+   "rank": 23,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchAi": 0,
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "厚い",
+   "pos": "adj",
+   "kana": "あつい",
+   "romaji": "atsui",
+   "pitch": 0,
+   "jlpt": 5,
+   "aclass": "i",
+   "ipa": "atsɯi",
+   "gl": {
+    "vi": "dày",
+    "en": "thick",
+    "es": "grueso",
+    "pt": "grosso",
+    "fr": "épais",
+    "de": "dick",
+    "id": "tebal",
+    "th": "หนา",
+    "zh": "厚",
+    "ja": "厚い",
+    "ko": "두껍다",
+    "hi": "मोटा",
+    "ar": "سميك",
+    "ru": "толстый",
+    "tr": "kalın"
+   },
+   "ex": {
+    "ja": "この本は厚いです。",
+    "en": "This book is thick."
+   },
+   "rank": 24,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt",
+    "wikt": "từ loại adj ↔ soft-redirect"
+   }
+  },
+  {
+   "word": "あっち",
+   "pos": "adv",
+   "kana": "あっち",
+   "romaji": "atchi",
+   "pitch": 3,
+   "jlpt": 5,
+   "ipa": "attɕi",
+   "gl": {
+    "vi": "đằng kia",
+    "en": "over there",
+    "es": "allá",
+    "pt": "lá",
+    "fr": "là‑bas",
+    "de": "da drüben",
+    "id": "di sana",
+    "th": "ที่นั่น",
+    "zh": "那边",
+    "ja": "あっち",
+    "ko": "저쪽",
+    "hi": "वहां",
+    "ar": "هناك",
+    "ru": "там",
+    "tr": "orası"
+   },
+   "ex": {
+    "ja": "あっちに行きましょう。",
+    "en": "Let's go over there."
+   },
+   "rank": 25,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchAi": 0,
+    "pitchSrc": "ojt",
+    "wikt": "từ loại adv ↔ pron"
+   }
+  },
+  {
+   "word": "後",
+   "pos": "n",
+   "kana": "あと",
+   "romaji": "ato",
+   "pitch": 1,
+   "jlpt": 5,
+   "ipa": "ato",
+   "gl": {
+    "vi": "sau",
+    "en": "later; after",
+    "es": "después",
+    "pt": "depois",
+    "fr": "après",
+    "de": "nach",
+    "id": "setelah",
+    "th": "ต่อมา",
+    "zh": "之后",
+    "ja": "あと",
+    "ko": "후에",
+    "hi": "बाद में",
+    "ar": "بعد",
+    "ru": "после",
+    "tr": "sonra"
+   },
+   "ex": {
+    "ja": "後で電話します。",
+    "en": "I will call later."
+   },
+   "rank": 26,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchAi": 0,
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "あなた",
+   "pos": "pron",
+   "kana": "あなた",
+   "romaji": "anata",
+   "pitch": 2,
+   "jlpt": 5,
+   "ipa": "anata",
+   "gl": {
+    "vi": "bạn",
+    "en": "you",
+    "es": "tú",
+    "pt": "você",
+    "fr": "vous",
+    "de": "du/Sie",
+    "id": "kamu",
+    "th": "คุณ",
+    "zh": "你",
+    "ja": "あなた",
+    "ko": "당신",
+    "hi": "आप",
+    "ar": "أنت",
+    "ru": "ты/вы",
+    "tr": "sen"
+   },
+   "ex": {
+    "ja": "あなたは学生ですか。",
+    "en": "Are you a student?"
+   },
+   "rank": 27,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchAi": 0,
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "兄",
+   "pos": "n",
+   "kana": "あに",
+   "romaji": "ani",
+   "pitch": 1,
+   "jlpt": 5,
+   "ipa": "aɲi",
+   "gl": {
+    "vi": "anh trai",
+    "en": "older brother",
+    "es": "hermano mayor",
+    "pt": "irmão mais velho",
+    "fr": "grand frère",
+    "de": "älterer Bruder",
+    "id": "kakak laki‑laki",
+    "th": "พี่ชาย",
+    "zh": "哥哥",
+    "ja": "兄",
+    "ko": "형",
+    "hi": "बड़ा भाई",
+    "ar": "الأخ الأكبر",
+    "ru": "старший брат",
+    "tr": "büyük erkek kardeş"
+   },
+   "ex": {
+    "ja": "兄は大学生です。",
+    "en": "My older brother is a university student."
+   },
+   "rank": 28,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchAi": 0,
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "姉",
+   "pos": "n",
+   "kana": "あね",
+   "romaji": "ane",
+   "pitch": 0,
+   "jlpt": 5,
+   "ipa": "ane",
+   "gl": {
+    "vi": "chị gái",
+    "en": "older sister",
+    "es": "hermana mayor",
+    "pt": "irmã mais velha",
+    "fr": "grande sœur",
+    "de": "ältere Schwester",
+    "id": "kakak perempuan",
+    "th": "พี่สาว",
+    "zh": "姐姐",
+    "ja": "姉",
+    "ko": "누나",
+    "hi": "बड़ी बहन",
+    "ar": "الأخت الكبرى",
+    "ru": "старшая сестра",
+    "tr": "büyük kız kardeş"
+   },
+   "ex": {
+    "ja": "姉は医者です。",
+    "en": "My older sister is a doctor."
+   },
+   "rank": 29,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "アパート",
+   "pos": "n",
+   "kana": "アパート",
+   "romaji": "apaato",
+   "pitch": 2,
+   "jlpt": 5,
+   "ipa": "apaːto",
+   "gl": {
+    "vi": "căn hộ",
+    "en": "apartment",
+    "es": "apartamento",
+    "pt": "apartamento",
+    "fr": "appartement",
+    "de": "Wohnung",
+    "id": "apartemen",
+    "th": "อพาร์ทเมนท์",
+    "zh": "公寓",
+    "ja": "アパート",
+    "ko": "아파트",
+    "hi": "अपार्टमेंट",
+    "ar": "شقة",
+    "ru": "квартира",
+    "tr": "apartman"
+   },
+   "ex": {
+    "ja": "このアパートは安いです。",
+    "en": "This apartment is cheap."
+   },
+   "rank": 30,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchAi": 0,
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "言う",
+   "pos": "v",
+   "kana": "いう",
+   "romaji": "iu",
+   "pitch": 0,
+   "jlpt": 5,
+   "vclass": "godan",
+   "ipa": "iɯ",
+   "gl": {
+    "vi": "nói",
+    "en": "to say",
+    "es": "decir",
+    "pt": "dizer",
+    "fr": "dire",
+    "de": "sagen",
+    "id": "berkata",
+    "th": "พูด",
+    "zh": "说",
+    "ja": "言う",
+    "ko": "말하다",
+    "hi": "कहना",
+    "ar": "قال",
+    "ru": "говорить",
+    "tr": "söylemek"
+   },
+   "ex": {
+    "ja": "田中さんはありがとうと言いました。",
+    "en": "Mr. Tanaka said thank you."
+   },
+   "exForm": "言いました",
+   "rank": 44,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "いかが",
+   "pos": "adv",
+   "kana": "いかが",
+   "romaji": "ikaga",
+   "pitch": 2,
+   "jlpt": 5,
+   "ipa": "ikaga",
+   "gl": {
+    "vi": "thế nào",
+    "en": "how",
+    "es": "cómo",
+    "pt": "como",
+    "fr": "comment",
+    "de": "wie",
+    "id": "bagaimana",
+    "th": "อย่างไร",
+    "zh": "如何",
+    "ja": "いかが",
+    "ko": "어떻게",
+    "hi": "कैसा",
+    "ar": "كيف",
+    "ru": "как",
+    "tr": "nasıl"
+   },
+   "ex": {
+    "ja": "お茶はいかがですか。",
+    "en": "Would you like some tea?"
+   },
+   "rank": 46,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchAi": 0,
+    "pitchSrc": "ojt",
+    "wikt": "từ loại adv ↔ soft-redirect"
+   }
+  },
+  {
+   "word": "行く",
+   "pos": "v",
+   "kana": "いく",
+   "romaji": "iku",
+   "pitch": 0,
+   "jlpt": 5,
+   "vclass": "godan",
+   "ipa": "ikɯ",
+   "gl": {
+    "vi": "đi",
+    "en": "to go",
+    "es": "ir",
+    "pt": "ir",
+    "fr": "aller",
+    "de": "gehen",
+    "id": "pergi",
+    "th": "ไป",
+    "zh": "去",
+    "ja": "行く",
+    "ko": "가다",
+    "hi": "जाना",
+    "ar": "ذهب",
+    "ru": "идти",
+    "tr": "gitmek"
+   },
+   "ex": {
+    "ja": "明日学校へ行きます。",
+    "en": "I will go to school tomorrow."
+   },
+   "exForm": "行きます",
+   "rank": 47,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "医者",
+   "pos": "n",
+   "kana": "いしゃ",
+   "romaji": "isha",
+   "pitch": 0,
+   "jlpt": 5,
+   "ipa": "iɕa",
+   "gl": {
+    "vi": "bác sĩ",
+    "en": "doctor",
+    "es": "médico",
+    "pt": "médico",
+    "fr": "médecin",
+    "de": "Arzt",
+    "id": "dokter",
+    "th": "หมอ",
+    "zh": "医生",
+    "ja": "医者",
+    "ko": "의사",
+    "hi": "डॉक्टर",
+    "ar": "طبيب",
+    "ru": "врач",
+    "tr": "doktor"
+   },
+   "ex": {
+    "ja": "父は医者です。",
+    "en": "My father is a doctor."
+   },
+   "rank": 51,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "椅子",
+   "pos": "n",
+   "kana": "いす",
+   "romaji": "isu",
+   "pitch": 0,
+   "jlpt": 5,
+   "ipa": "isɯ",
+   "gl": {
+    "vi": "ghế",
+    "en": "chair",
+    "es": "silla",
+    "pt": "cadeira",
+    "fr": "chaise",
+    "de": "Stuhl",
+    "id": "kursi",
+    "th": "เก้าอี้",
+    "zh": "椅子",
+    "ja": "椅子",
+    "ko": "의자",
+    "hi": "कुर्सी",
+    "ar": "كرسي",
+    "ru": "стул",
+    "tr": "sandalye"
+   },
+   "ex": {
+    "ja": "椅子に座ってください。",
+    "en": "Please sit on the chair."
+   },
+   "rank": 52,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "pitchSrc": "ojt"
+   }
+  },
+  {
+   "word": "一緒",
+   "pos": "adv",
+   "kana": "いっしょ",
+   "romaji": "issho",
+   "pitch": 0,
+   "jlpt": 5,
+   "ipa": "iɕɕo",
+   "gl": {
+    "vi": "cùng nhau",
+    "en": "together",
+    "es": "juntos",
+    "pt": "juntos",
+    "fr": "ensemble",
+    "de": "zusammen",
+    "id": "bersama",
+    "th": "ด้วยกัน",
+    "zh": "一起",
+    "ja": "一緒",
+    "ko": "함께",
+    "hi": "साथ में",
+    "ar": "معاً",
+    "ru": "вместе",
+    "tr": "birlikte"
+   },
+   "ex": {
+    "ja": "一緒に行きましょう。",
+    "en": "Let's go together."
+   },
+   "rank": 60,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     4,
+     5
+    ],
+    "pitchSrc": "ojt",
+    "wikt": "từ loại adv ↔ adj/noun"
+   }
+  },
+  {
+   "word": "五日",
+   "pos": "n",
+   "kana": "いつか",
+   "romaji": "itsuka",
+   "pitch": 0,
+   "jlpt": 5,
+   "ipa": "itsɯka",
+   "gl": {
+    "vi": "mồng 5 / 5 ngày",
+    "en": "five days / fifth day of the month",
+    "es": "cinco días / quinto día del mes",
+    "pt": "cinco dias / quinto dia do mês",
+    "fr": "cinq jours / le cinq du mois",
+    "de": "fünf Tage / fünfter Tag des Monats",
+    "id": "lima hari / tanggal lima",
+    "th": "วันที่ห้า / ห้าวัน",
+    "zh": "五日 / 五天",
+    "ja": "五日",
+    "ko": "5일 / 닷새",
+    "hi": "पाँच दिन / महीने का पाँचवाँ दिन",
+    "ar": "خمسة أيام / اليوم الخامس من الشهر",
+    "ru": "пять дней / пятое число месяца",
+    "tr": "beş gün / ayın beşi"
+   },
+   "ex": {
+    "ja": "五日休みたいです。",
+    "en": "I want to take five days off."
+   },
+   "rank": 59,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     4,
+     5
+    ],
+    "fixed": "gemini-3.6-flash",
+    "pitchSrc": "ojt"
+   }
+  }
+ ]
+}
