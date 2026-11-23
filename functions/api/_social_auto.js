@@ -87,12 +87,12 @@ export async function rebalanceDays(db, now, capOver = 0, horizonDays = 120, sto
       const d = day(r.slot_ms), clash = ms => times.some(t => Math.abs(t - ms) < gap);
       if ((cnt[d] || 0) < cap && !clash(r.slot_ms)) {
         let ms = r.slot_ms;
-        if (!peakOk(ms, tz)) { const np = peakSlot(d, tz, ch, times, gap); if (np != null && np > now + 15 * 6e4) { await run(db, "UPDATE dist_social SET slot_ms = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'planned'", np, now, r.clip, r.channel_id); ms = np; moved++; } } // 23/11: bài đã xếp lệch giờ → dời vào giờ cao điểm địa phương CÙNG ngày
+        if (!capOver && !peakOk(ms, tz)) { const np = peakSlot(d, tz, ch, times, gap); if (np != null && np > now + 15 * 6e4) { await run(db, "UPDATE dist_social SET slot_ms = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'planned'", np, now, r.clip, r.channel_id); ms = np; moved++; } } // 23/11: bài đã xếp lệch giờ → dời vào giờ cao điểm địa phương CÙNG ngày
         cnt[d] = (cnt[d] || 0) + 1; times.push(ms); continue;
       }
       let ms = r.slot_ms, k = 0; do { ms += 864e5; k++; } while (k <= horizonDays && ((cnt[day(ms)] || 0) >= cap || clash(ms)));
       if (k > horizonDays) continue;
-      if (!peakOk(ms, tz)) { const np = peakSlot(day(ms), tz, ch, times, gap); if (np != null) ms = np; }
+      if (!capOver && !peakOk(ms, tz)) { const np = peakSlot(day(ms), tz, ch, times, gap); if (np != null) ms = np; }
       await run(db, "UPDATE dist_social SET slot_ms = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'planned'", ms, now, r.clip, r.channel_id);
       times.push(ms); cnt[day(ms)] = (cnt[day(ms)] || 0) + 1; moved++;
     }
