@@ -5,6 +5,7 @@
 // DOMContentLoaded (app.js khởi động lúc đó) và — nếu sự kiện load thật đã qua — phát lại load (heal.js, native.js, ads.js).
 // Dùng: node scripts/app-loader.mjs [dist/app/index.html]   ·   --check: chỉ kiểm tra bản đã biến đổi
 import fs from 'fs';
+import path from 'path';
 const f = process.argv.slice(2).find(a => !a.startsWith('--')) || 'dist/app/index.html';
 let html = fs.readFileSync(f, 'utf8');
 const TAG = /^[ \t]*<script(?: defer)? src="([^"]+)"><\/script>\n/gm;
@@ -41,4 +42,8 @@ if(!fcp&&w.requestAnimationFrame)requestAnimationFrame(function(){setTimeout(go,
 if (!html.includes('</body>')) { console.error('✗ app-loader: thiếu </body>'); process.exit(1); }
 html = html.replace(/(<noscript><nav[\s\S]*?<\/noscript>\n)?<\/body>/, m => boot + m);
 fs.writeFileSync(f, html);
+{ // khung tĩnh #/path (scripts/lib/path-skel.mjs): sinh lúc dựng bản phát hành, ghi cạnh js/ của bản dựng – KHÔNG nằm trong web/js (ngân sách byte người học)
+  const { buildSkeletons } = await import('./lib/path-skel.mjs'), d = path.join(path.dirname(f), '..', 'js', 'path-skel'); fs.mkdirSync(d, { recursive: true });
+  for (const [n, c] of Object.entries(buildSkeletons())) fs.writeFileSync(path.join(d, n), c);
+}
 console.log('✓ app-loader: ' + order.length + ' file JS (+ font) nạp sau lần vẽ đầu → ' + f);
