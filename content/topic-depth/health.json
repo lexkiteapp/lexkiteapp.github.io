@@ -1,0 +1,2484 @@
+{
+ "topic": "health",
+ "sub": [
+  {
+   "id": "body",
+   "name": {
+    "en": "Body & pain",
+    "vi": "Cơ thể & cơn đau"
+   },
+   "scene": "A doctor points at a simple body chart while a patient touches their sore shoulder, in a bright exam room.",
+   "emoji": "🫀"
+  },
+  {
+   "id": "illness",
+   "name": {
+    "en": "Common illness & symptoms",
+    "vi": "Bệnh thường gặp & triệu chứng"
+   },
+   "scene": "A tired person in pajamas sits on a sofa with a blanket, a tissue box and a thermometer on the table.",
+   "emoji": "🤒"
+  },
+  {
+   "id": "doctor",
+   "name": {
+    "en": "Doctor, pharmacy & treatment",
+    "vi": "Đi khám & mua thuốc"
+   },
+   "scene": "A doctor writes a prescription at a desk while a nurse hands a small paper bag of medicine to a patient.",
+   "emoji": "🩺"
+  },
+  {
+   "id": "emergency",
+   "name": {
+    "en": "Emergencies & injuries",
+    "vi": "Cấp cứu & chấn thương"
+   },
+   "scene": "Two paramedics lift a stretcher into an ambulance while a bystander holds a first aid kit nearby.",
+   "emoji": "🚑"
+  },
+  {
+   "id": "lifestyle",
+   "name": {
+    "en": "Healthy lifestyle & fitness",
+    "vi": "Lối sống lành mạnh & thể dục"
+   },
+   "scene": "A person jogs in a park past a table with fruit, vegetables and a water bottle at sunrise.",
+   "emoji": "🏃"
+  },
+  {
+   "id": "mind-cover",
+   "name": {
+    "en": "Mental wellbeing & insurance",
+    "vi": "Sức khỏe tinh thần & bảo hiểm"
+   },
+   "scene": "A person sits cross-legged and calm on a mat beside a desk with a folder and a small insurance card.",
+   "emoji": "🧘"
+  }
+ ],
+ "words": [
+  {
+   "word": "head",
+   "pos": "n",
+   "sub": "body",
+   "level": "A1",
+   "ex": "My head hurts after the long meeting.",
+   "col": [
+    "have a headache",
+    "shake your head"
+   ],
+   "tip": "Đầu — \"head\" đọc như \"hét\" nhẹ."
+  },
+  {
+   "word": "stomach",
+   "pos": "n",
+   "sub": "body",
+   "level": "A1",
+   "ex": "My stomach hurts when I skip breakfast.",
+   "col": [
+    "stomach ache",
+    "an upset stomach"
+   ],
+   "tip": "Dạ dày; \"stomach ache\" là đau bụng."
+  },
+  {
+   "word": "back",
+   "pos": "n",
+   "sub": "body",
+   "level": "A1",
+   "ex": "I have a pain in my lower back.",
+   "col": [
+    "back pain",
+    "lower back"
+   ],
+   "tip": "Lưng — cùng chữ với \"quay lại\"."
+  },
+  {
+   "word": "throat",
+   "pos": "n",
+   "sub": "body",
+   "level": "A1",
+   "ex": "My throat feels dry and sore today.",
+   "col": [
+    "sore throat",
+    "clear your throat"
+   ],
+   "tip": "Cổ họng; \"sore throat\" là viêm họng."
+  },
+  {
+   "word": "chest",
+   "pos": "n",
+   "sub": "body",
+   "level": "A2",
+   "ex": "He felt a tight pain in his chest.",
+   "col": [
+    "chest pain",
+    "tight chest"
+   ],
+   "tip": "Ngực; đau ngực cần đi khám ngay."
+  },
+  {
+   "word": "shoulder",
+   "pos": "n",
+   "sub": "body",
+   "level": "A2",
+   "ex": "She carries a heavy bag on one shoulder.",
+   "col": [
+    "shoulder pain",
+    "sore shoulder"
+   ],
+   "tip": "Vai — nghĩ \"sô-đờ\"."
+  },
+  {
+   "word": "knee",
+   "pos": "n",
+   "sub": "body",
+   "level": "A2",
+   "ex": "I hurt my knee while running.",
+   "col": [
+    "knee pain",
+    "bend your knee"
+   ],
+   "tip": "Đầu gối; chữ k câm: \"ni\"."
+  },
+  {
+   "word": "elbow",
+   "pos": "n",
+   "sub": "body",
+   "level": "A2",
+   "ex": "He rested his elbow on the table.",
+   "col": [
+    "bend your elbow",
+    "tennis elbow"
+   ],
+   "tip": "Khuỷu tay; \"tennis elbow\" là viêm lồi cầu."
+  },
+  {
+   "word": "wrist",
+   "pos": "n",
+   "sub": "body",
+   "level": "B1",
+   "ex": "My wrist hurts when I type all day.",
+   "col": [
+    "sprained wrist",
+    "wrist pain"
+   ],
+   "tip": "Cổ tay; w câm: \"rist\"."
+  },
+  {
+   "word": "ankle",
+   "pos": "n",
+   "sub": "body",
+   "level": "B1",
+   "ex": "She twisted her ankle on the stairs.",
+   "col": [
+    "twist your ankle",
+    "swollen ankle"
+   ],
+   "tip": "Mắt cá chân — hay bị trật."
+  },
+  {
+   "word": "skin",
+   "pos": "n",
+   "sub": "body",
+   "level": "A2",
+   "ex": "The sun can dry out your skin.",
+   "col": [
+    "dry skin",
+    "sensitive skin"
+   ],
+   "tip": "Da; \"sensitive skin\" là da nhạy cảm."
+  },
+  {
+   "word": "bone",
+   "pos": "n",
+   "sub": "body",
+   "level": "A2",
+   "ex": "He broke a bone in his arm.",
+   "col": [
+    "broken bone",
+    "bone density"
+   ],
+   "tip": "Xương; \"bone density\" là mật độ xương."
+  },
+  {
+   "word": "muscle",
+   "pos": "n",
+   "sub": "body",
+   "level": "A2",
+   "ex": "I pulled a muscle at the gym.",
+   "col": [
+    "pull a muscle",
+    "build muscle"
+   ],
+   "tip": "Cơ bắp; c trong \"muscle\" câm: \"mớ-sồ\"."
+  },
+  {
+   "word": "joint",
+   "pos": "n",
+   "sub": "body",
+   "level": "B1",
+   "ex": "My joints feel stiff in cold weather.",
+   "col": [
+    "joint pain",
+    "stiff joints"
+   ],
+   "tip": "Khớp; đừng nhầm với nghĩa \"chung\"."
+  },
+  {
+   "word": "heart",
+   "pos": "n",
+   "sub": "body",
+   "level": "A1",
+   "ex": "Regular exercise is good for your heart.",
+   "col": [
+    "heart rate",
+    "heart attack"
+   ],
+   "tip": "Tim — \"heart\" đọc \"hát\"."
+  },
+  {
+   "word": "lung",
+   "pos": "n",
+   "sub": "body",
+   "level": "B1",
+   "ex": "Smoking damages your lungs over time.",
+   "col": [
+    "healthy lungs",
+    "lung cancer"
+   ],
+   "tip": "Phổi; thường dùng số nhiều \"lungs\"."
+  },
+  {
+   "word": "blood",
+   "pos": "n",
+   "sub": "body",
+   "level": "A2",
+   "ex": "The nurse took a sample of my blood.",
+   "col": [
+    "blood test",
+    "blood pressure"
+   ],
+   "tip": "Máu — \"blood\" đọc \"blật\"."
+  },
+  {
+   "word": "pain",
+   "pos": "n",
+   "sub": "body",
+   "level": "A2",
+   "ex": "I felt a sharp pain in my side.",
+   "col": [
+    "sharp pain",
+    "in pain"
+   ],
+   "tip": "Đau; \"in pain\" = đang đau."
+  },
+  {
+   "word": "ache",
+   "pos": "n",
+   "sub": "body",
+   "level": "B1",
+   "ex": "I have a dull ache in my neck.",
+   "col": [
+    "dull ache",
+    "muscle aches"
+   ],
+   "tip": "Cơn đau âm ỉ, khác \"pain\" nhói."
+  },
+  {
+   "word": "neck",
+   "pos": "n",
+   "sub": "body",
+   "level": "A1",
+   "ex": "My neck is stiff from sitting too long.",
+   "col": [
+    "stiff neck",
+    "neck pain"
+   ],
+   "tip": "Cổ (bên ngoài), khác \"throat\" là họng."
+  },
+  {
+   "word": "spine",
+   "pos": "n",
+   "sub": "body",
+   "level": "B2",
+   "ex": "Good posture protects your spine.",
+   "col": [
+    "curved spine",
+    "spine surgery"
+   ],
+   "tip": "Cột sống — nghĩ \"sờ-pai-n\".",
+   "ipa": "/spaɪn/",
+   "vi": "cột sống",
+   "def": "the line of bones down the middle of your back"
+  },
+  {
+   "word": "stiff",
+   "pos": "adj",
+   "sub": "body",
+   "level": "B1",
+   "ex": "My legs feel stiff after the flight.",
+   "col": [
+    "feel stiff",
+    "stiff neck"
+   ],
+   "tip": "Cứng đờ, khó cử động.",
+   "ipa": "/stɪf/",
+   "vi": "cứng đờ",
+   "def": "hard to bend or move easily",
+   "syn": [
+    "rigid"
+   ]
+  },
+  {
+   "word": "cold",
+   "pos": "n",
+   "sub": "illness",
+   "level": "A1",
+   "ex": "I caught a cold after the rain.",
+   "col": [
+    "catch a cold",
+    "common cold"
+   ],
+   "tip": "Cảm lạnh; \"catch a cold\" là bị cảm."
+  },
+  {
+   "word": "cough",
+   "pos": "n",
+   "sub": "illness",
+   "level": "A2",
+   "ex": "I've had a dry cough for three days.",
+   "col": [
+    "dry cough",
+    "cough syrup"
+   ],
+   "tip": "Ho — đọc \"cóf\", gh = f."
+  },
+  {
+   "word": "fever",
+   "pos": "n",
+   "sub": "illness",
+   "level": "A2",
+   "ex": "The child has a high fever tonight.",
+   "col": [
+    "have a fever",
+    "high fever"
+   ],
+   "tip": "Sốt; nghĩ \"phi-vờ\"."
+  },
+  {
+   "word": "flu",
+   "pos": "n",
+   "sub": "illness",
+   "level": "A2",
+   "ex": "Half of my class has the flu.",
+   "col": [
+    "catch the flu",
+    "flu shot"
+   ],
+   "tip": "Cúm; \"flu shot\" là tiêm vắc-xin cúm."
+  },
+  {
+   "word": "headache",
+   "pos": "n",
+   "sub": "illness",
+   "level": "A2",
+   "ex": "I get a headache when I skip lunch.",
+   "col": [
+    "a splitting headache",
+    "get a headache"
+   ],
+   "tip": "Head + ache = đau đầu."
+  },
+  {
+   "word": "sore",
+   "pos": "adj",
+   "sub": "illness",
+   "level": "A2",
+   "ex": "My legs are sore after the long hike.",
+   "col": [
+    "sore throat",
+    "feel sore"
+   ],
+   "tip": "Đau nhức, ê ẩm (không phải vết thương hở).",
+   "ipa": "/sɔː/",
+   "vi": "đau nhức",
+   "def": "painful, especially when touched or used",
+   "syn": [
+    "achy"
+   ]
+  },
+  {
+   "word": "sick",
+   "pos": "adj",
+   "sub": "illness",
+   "level": "A1",
+   "ex": "I stayed home because I felt sick.",
+   "col": [
+    "feel sick",
+    "call in sick"
+   ],
+   "tip": "Ốm; \"call in sick\" là gọi xin nghỉ ốm."
+  },
+  {
+   "word": "ill",
+   "pos": "adj",
+   "sub": "illness",
+   "level": "A2",
+   "ex": "He looked pale and ill this morning.",
+   "col": [
+    "seriously ill",
+    "fall ill"
+   ],
+   "tip": "Ốm (bệnh nặng hơn \"sick\" kiểu Anh)."
+  },
+  {
+   "word": "tired",
+   "pos": "adj",
+   "sub": "illness",
+   "level": "A1",
+   "ex": "I feel tired even after eight hours of sleep.",
+   "col": [
+    "feel tired",
+    "tired out"
+   ],
+   "tip": "Mệt mỏi.",
+   "ipa": "/ˈtaɪəd/",
+   "vi": "mệt mỏi",
+   "def": "needing rest or sleep",
+   "syn": [
+    "sleepy"
+   ]
+  },
+  {
+   "word": "dizzy",
+   "pos": "adj",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "I felt dizzy when I stood up too fast.",
+   "col": [
+    "feel dizzy",
+    "a dizzy spell"
+   ],
+   "tip": "Chóng mặt — \"dí-di\"."
+  },
+  {
+   "word": "nausea",
+   "pos": "n",
+   "sub": "illness",
+   "level": "B2",
+   "ex": "The medicine caused mild nausea.",
+   "col": [
+    "feel nausea",
+    "mild nausea"
+   ],
+   "tip": "Buồn nôn; \"nau-\" như \"nó-zi-a\"."
+  },
+  {
+   "word": "vomit",
+   "pos": "v",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "The baby vomited twice during the night.",
+   "col": [
+    "vomit blood",
+    "feel like vomiting"
+   ],
+   "tip": "Nôn mửa."
+  },
+  {
+   "word": "diarrhea",
+   "pos": "n",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "Drink plenty of water if you have diarrhea.",
+   "col": [
+    "severe diarrhea",
+    "get diarrhea"
+   ],
+   "tip": "Tiêu chảy, nhớ uống bù nước.",
+   "ipa": "/ˌdaɪəˈrɪə/",
+   "vi": "tiêu chảy",
+   "def": "an illness with frequent, watery bowel movements"
+  },
+  {
+   "word": "rash",
+   "pos": "n",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "A red rash spread across his arm.",
+   "col": [
+    "skin rash",
+    "develop a rash"
+   ],
+   "tip": "Phát ban, nổi mẩn đỏ.",
+   "ipa": "/ræʃ/",
+   "vi": "phát ban",
+   "def": "an area of red spots on the skin"
+  },
+  {
+   "word": "allergy",
+   "pos": "n",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "I have an allergy to peanuts.",
+   "col": [
+    "food allergy",
+    "allergy to pollen"
+   ],
+   "tip": "Dị ứng; \"allergic to\" là tính từ đi kèm."
+  },
+  {
+   "word": "allergic",
+   "pos": "adj",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "She is allergic to cats and dust.",
+   "col": [
+    "allergic to",
+    "allergic reaction"
+   ],
+   "tip": "Dị ứng với (dùng \"to\").",
+   "ipa": "/əˈlɜːdʒɪk/",
+   "vi": "dị ứng",
+   "def": "having a bad reaction to something such as food or dust"
+  },
+  {
+   "word": "infection",
+   "pos": "n",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "The cut got an infection after two days.",
+   "col": [
+    "get an infection",
+    "ear infection"
+   ],
+   "tip": "Nhiễm trùng."
+  },
+  {
+   "word": "virus",
+   "pos": "n",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "A new virus is spreading in our town.",
+   "col": [
+    "catch a virus",
+    "spread a virus"
+   ],
+   "tip": "Vi-rút; nghĩ \"vai-rợt\"."
+  },
+  {
+   "word": "swollen",
+   "pos": "adj",
+   "sub": "illness",
+   "level": "B2",
+   "ex": "His left foot was red and swollen.",
+   "col": [
+    "swollen ankle",
+    "swollen glands"
+   ],
+   "tip": "Sưng; quá khứ phân từ của \"swell\".",
+   "ipa": "/ˈswəʊlən/",
+   "vi": "sưng",
+   "def": "larger than normal because of injury or illness"
+  },
+  {
+   "word": "itchy",
+   "pos": "adj",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "My eyes are itchy in spring.",
+   "col": [
+    "itchy eyes",
+    "itchy skin"
+   ],
+   "tip": "Ngứa — \"itch\" + y.",
+   "ipa": "/ˈɪtʃi/",
+   "vi": "ngứa",
+   "def": "making you want to scratch your skin"
+  },
+  {
+   "word": "runny nose",
+   "pos": "n",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "The kids all have a runny nose this week.",
+   "col": [
+    "have a runny nose",
+    "a runny nose"
+   ],
+   "tip": "Chảy mũi, nghĩa đen \"mũi chạy\".",
+   "ipa": "/ˌrʌni ˈnəʊz/",
+   "vi": "chảy nước mũi",
+   "def": "a nose that is producing a lot of liquid"
+  },
+  {
+   "word": "symptom",
+   "pos": "n",
+   "sub": "illness",
+   "level": "B1",
+   "ex": "Fever is a common symptom of the flu.",
+   "col": [
+    "common symptom",
+    "show symptoms"
+   ],
+   "tip": "Triệu chứng; \"sim-tum\"."
+  },
+  {
+   "word": "chronic",
+   "pos": "adj",
+   "sub": "illness",
+   "level": "B2",
+   "ex": "He lives with chronic back pain.",
+   "col": [
+    "chronic pain",
+    "chronic illness"
+   ],
+   "tip": "Mạn tính, kéo dài lâu."
+  },
+  {
+   "word": "contagious",
+   "pos": "adj",
+   "sub": "illness",
+   "level": "B2",
+   "ex": "Chickenpox is highly contagious.",
+   "col": [
+    "highly contagious",
+    "contagious disease"
+   ],
+   "tip": "Dễ lây; \"lây\" = contagious."
+  },
+  {
+   "word": "asthma",
+   "pos": "n",
+   "sub": "illness",
+   "level": "B2",
+   "ex": "She uses an inhaler to control her asthma.",
+   "col": [
+    "asthma attack",
+    "suffer from asthma"
+   ],
+   "tip": "Hen suyễn; đọc \"át-mờ\"."
+  },
+  {
+   "word": "migraine",
+   "pos": "n",
+   "sub": "illness",
+   "level": "B2",
+   "ex": "A migraine kept her in bed all day.",
+   "col": [
+    "suffer from migraines",
+    "a severe migraine"
+   ],
+   "tip": "Đau nửa đầu, nặng hơn đau đầu thường."
+  },
+  {
+   "word": "fatigue",
+   "pos": "n",
+   "sub": "illness",
+   "level": "C1",
+   "ex": "Constant fatigue made it hard to work.",
+   "col": [
+    "chronic fatigue",
+    "suffer from fatigue"
+   ],
+   "tip": "Kiệt sức kéo dài; trang trọng hơn \"tired\"."
+  },
+  {
+   "word": "doctor",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A1",
+   "ex": "I have an appointment with the doctor at ten.",
+   "col": [
+    "see a doctor",
+    "family doctor"
+   ],
+   "tip": "Bác sĩ — từ cơ bản nhất."
+  },
+  {
+   "word": "nurse",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A1",
+   "ex": "The nurse checked my temperature first.",
+   "col": [
+    "a night nurse",
+    "ask a nurse"
+   ],
+   "tip": "Y tá."
+  },
+  {
+   "word": "hospital",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A1",
+   "ex": "He spent two nights in the hospital.",
+   "col": [
+    "go to hospital",
+    "hospital bed"
+   ],
+   "tip": "Bệnh viện."
+  },
+  {
+   "word": "clinic",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A2",
+   "ex": "The clinic opens at eight every morning.",
+   "col": [
+    "visit a clinic",
+    "health clinic"
+   ],
+   "tip": "Phòng khám, nhỏ hơn bệnh viện."
+  },
+  {
+   "word": "pharmacy",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A2",
+   "ex": "I picked up my medicine at the pharmacy.",
+   "col": [
+    "go to the pharmacy",
+    "local pharmacy"
+   ],
+   "tip": "Hiệu thuốc; Mỹ hay nói \"drugstore\"."
+  },
+  {
+   "word": "pharmacist",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B1",
+   "ex": "The pharmacist explained how to take the pills.",
+   "col": [
+    "ask the pharmacist",
+    "a local pharmacist"
+   ],
+   "tip": "Dược sĩ, người bán thuốc ở hiệu thuốc."
+  },
+  {
+   "word": "medicine",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A2",
+   "ex": "Take this medicine twice a day.",
+   "col": [
+    "take medicine",
+    "cough medicine"
+   ],
+   "tip": "Thuốc (uống); không đếm được."
+  },
+  {
+   "word": "pill",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A2",
+   "ex": "Take one pill after dinner.",
+   "col": [
+    "take a pill",
+    "sleeping pill"
+   ],
+   "tip": "Viên thuốc nhỏ."
+  },
+  {
+   "word": "tablet",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B1",
+   "ex": "One tablet in the morning is enough.",
+   "col": [
+    "take a tablet",
+    "a headache tablet"
+   ],
+   "tip": "Viên nén; Anh-Anh dùng nhiều hơn \"pill\"."
+  },
+  {
+   "word": "prescription",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B1",
+   "ex": "The doctor wrote me a prescription.",
+   "col": [
+    "write a prescription",
+    "on prescription"
+   ],
+   "tip": "Đơn thuốc; chỉ mua được khi có đơn."
+  },
+  {
+   "word": "appointment",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A2",
+   "ex": "I made an appointment for Monday morning.",
+   "col": [
+    "make an appointment",
+    "book an appointment"
+   ],
+   "tip": "Lịch hẹn khám."
+  },
+  {
+   "word": "check-up",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B1",
+   "ex": "I go for a check-up once a year.",
+   "col": [
+    "have a check-up",
+    "annual check-up"
+   ],
+   "tip": "Khám sức khỏe định kỳ."
+  },
+  {
+   "word": "temperature",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A2",
+   "ex": "The nurse took my temperature.",
+   "col": [
+    "take your temperature",
+    "high temperature"
+   ],
+   "tip": "Nhiệt độ cơ thể; \"take\" = đo."
+  },
+  {
+   "word": "thermometer",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B1",
+   "ex": "Put the thermometer under your arm.",
+   "col": [
+    "use a thermometer",
+    "digital thermometer"
+   ],
+   "tip": "Nhiệt kế."
+  },
+  {
+   "word": "test",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A2",
+   "ex": "The doctor ordered a blood test.",
+   "col": [
+    "blood test",
+    "take a test"
+   ],
+   "tip": "Xét nghiệm."
+  },
+  {
+   "word": "X-ray",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B1",
+   "ex": "They took an X-ray of my chest.",
+   "col": [
+    "take an X-ray",
+    "chest X-ray"
+   ],
+   "tip": "Chụp X-quang; đọc \"ét-rây\"."
+  },
+  {
+   "word": "diagnosis",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B2",
+   "ex": "The diagnosis was a mild stomach infection.",
+   "col": [
+    "make a diagnosis",
+    "get a diagnosis"
+   ],
+   "tip": "Chẩn đoán; số nhiều \"diagnoses\"."
+  },
+  {
+   "word": "treatment",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B1",
+   "ex": "The treatment lasts about two weeks.",
+   "col": [
+    "receive treatment",
+    "medical treatment"
+   ],
+   "tip": "Điều trị."
+  },
+  {
+   "word": "dose",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B2",
+   "ex": "Do not take more than one dose a day.",
+   "col": [
+    "a daily dose",
+    "the right dose"
+   ],
+   "tip": "Liều dùng."
+  },
+  {
+   "word": "side effect",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B2",
+   "ex": "A common side effect is feeling sleepy.",
+   "col": [
+    "have a side effect",
+    "possible side effects"
+   ],
+   "tip": "Tác dụng phụ."
+  },
+  {
+   "word": "ointment",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B2",
+   "ex": "Rub the ointment gently on the rash.",
+   "col": [
+    "apply ointment",
+    "skin ointment"
+   ],
+   "tip": "Thuốc mỡ bôi ngoài da."
+  },
+  {
+   "word": "bandage",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B1",
+   "ex": "She put a bandage on his finger.",
+   "col": [
+    "wrap a bandage",
+    "apply a bandage"
+   ],
+   "tip": "Băng gạc; cuộn quanh vết thương."
+  },
+  {
+   "word": "injection",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B2",
+   "ex": "The nurse gave me an injection in the arm.",
+   "col": [
+    "give an injection",
+    "have an injection"
+   ],
+   "tip": "Mũi tiêm."
+  },
+  {
+   "word": "vaccine",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B2",
+   "ex": "Children get this vaccine at the age of two.",
+   "col": [
+    "get a vaccine",
+    "flu vaccine"
+   ],
+   "tip": "Vắc-xin; \"vac-seen\"."
+  },
+  {
+   "word": "surgery",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B2",
+   "ex": "He needs surgery on his knee.",
+   "col": [
+    "have surgery",
+    "undergo surgery"
+   ],
+   "tip": "Phẫu thuật; còn nghĩa \"phòng khám\" ở Anh."
+  },
+  {
+   "word": "recover",
+   "pos": "v",
+   "sub": "doctor",
+   "level": "B1",
+   "ex": "It took her a week to recover from the flu.",
+   "col": [
+    "recover from",
+    "fully recover"
+   ],
+   "tip": "Hồi phục; \"re\" + cover."
+  },
+  {
+   "word": "specialist",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "B2",
+   "ex": "My doctor sent me to a heart specialist.",
+   "col": [
+    "see a specialist",
+    "refer to a specialist"
+   ],
+   "tip": "Bác sĩ chuyên khoa."
+  },
+  {
+   "word": "over-the-counter",
+   "pos": "adj",
+   "sub": "doctor",
+   "level": "C1",
+   "ex": "You can buy this over-the-counter without a prescription.",
+   "col": [
+    "over-the-counter medicine",
+    "over-the-counter drug"
+   ],
+   "tip": "Thuốc không kê đơn, mua ngay quầy."
+  },
+  {
+   "word": "waiting room",
+   "pos": "n",
+   "sub": "doctor",
+   "level": "A2",
+   "ex": "We sat in the waiting room for an hour.",
+   "col": [
+    "in the waiting room",
+    "a busy waiting room"
+   ],
+   "tip": "Phòng chờ khám.",
+   "ipa": "/ˈweɪtɪŋ ruːm/",
+   "vi": "phòng chờ",
+   "def": "a room where people sit before seeing a doctor"
+  },
+  {
+   "word": "emergency",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "A2",
+   "ex": "Call 115 in an emergency.",
+   "col": [
+    "in an emergency",
+    "emergency room"
+   ],
+   "tip": "Khẩn cấp; \"emergency room\" là phòng cấp cứu."
+  },
+  {
+   "word": "ambulance",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "A2",
+   "ex": "Someone called an ambulance right away.",
+   "col": [
+    "call an ambulance",
+    "ambulance driver"
+   ],
+   "tip": "Xe cứu thương."
+  },
+  {
+   "word": "accident",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "A1",
+   "ex": "There was a bad accident on the highway.",
+   "col": [
+    "have an accident",
+    "car accident"
+   ],
+   "tip": "Tai nạn."
+  },
+  {
+   "word": "injury",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "B1",
+   "ex": "He missed the match because of a knee injury.",
+   "col": [
+    "a serious injury",
+    "suffer an injury"
+   ],
+   "tip": "Chấn thương; động từ \"injure\"."
+  },
+  {
+   "word": "injured",
+   "pos": "adj",
+   "sub": "emergency",
+   "level": "B1",
+   "ex": "Two people were injured in the crash.",
+   "col": [
+    "badly injured",
+    "get injured"
+   ],
+   "tip": "Bị thương.",
+   "ipa": "/ˈɪndʒəd/",
+   "vi": "bị thương",
+   "def": "hurt in an accident or attack",
+   "syn": [
+    "hurt"
+   ]
+  },
+  {
+   "word": "wound",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "B1",
+   "ex": "Clean the wound with warm water.",
+   "col": [
+    "clean a wound",
+    "a deep wound"
+   ],
+   "tip": "Vết thương hở; \"wound\" đọc \"wun-d\"."
+  },
+  {
+   "word": "bleed",
+   "pos": "v",
+   "sub": "emergency",
+   "level": "B1",
+   "ex": "The cut kept bleeding for a few minutes.",
+   "col": [
+    "bleed heavily",
+    "stop bleeding"
+   ],
+   "tip": "Chảy máu; từ \"blood\" mà ra."
+  },
+  {
+   "word": "burn",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "B1",
+   "ex": "She got a burn on her hand from the stove.",
+   "col": [
+    "a minor burn",
+    "burn your hand"
+   ],
+   "tip": "Bỏng."
+  },
+  {
+   "word": "cut",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "A2",
+   "ex": "I got a small cut on my finger.",
+   "col": [
+    "a deep cut",
+    "get a cut"
+   ],
+   "tip": "Vết cắt."
+  },
+  {
+   "word": "broken",
+   "pos": "adj",
+   "sub": "emergency",
+   "level": "A2",
+   "ex": "He has a broken leg and cannot walk.",
+   "col": [
+    "broken leg",
+    "broken bone"
+   ],
+   "tip": "Gãy (xương).",
+   "ipa": "/ˈbrəʊkən/",
+   "vi": "gãy",
+   "def": "having a bone that has cracked or split"
+  },
+  {
+   "word": "fracture",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "C1",
+   "ex": "The scan showed a small fracture in his wrist.",
+   "col": [
+    "a hairline fracture",
+    "suffer a fracture"
+   ],
+   "tip": "Gãy xương (thuật ngữ y khoa)."
+  },
+  {
+   "word": "sprain",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "B2",
+   "ex": "She has a sprain in her left ankle.",
+   "col": [
+    "a bad sprain",
+    "ankle sprain"
+   ],
+   "tip": "Bong gân, trật khớp nhẹ.",
+   "ipa": "/spreɪn/",
+   "vi": "bong gân",
+   "def": "an injury to a joint caused by twisting it"
+  },
+  {
+   "word": "bruise",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "B2",
+   "ex": "The fall left a big bruise on my arm.",
+   "col": [
+    "a nasty bruise",
+    "get a bruise"
+   ],
+   "tip": "Vết bầm tím; \"bru-z\".",
+   "ipa": "/bruːz/",
+   "vi": "vết bầm",
+   "def": "a dark mark on the skin after a hit"
+  },
+  {
+   "word": "faint",
+   "pos": "v",
+   "sub": "emergency",
+   "level": "B2",
+   "ex": "He fainted in the heat and fell down.",
+   "col": [
+    "nearly faint",
+    "feel faint"
+   ],
+   "tip": "Ngất xỉu."
+  },
+  {
+   "word": "unconscious",
+   "pos": "adj",
+   "sub": "emergency",
+   "level": "B2",
+   "ex": "The driver was unconscious when help arrived.",
+   "col": [
+    "become unconscious",
+    "knocked unconscious"
+   ],
+   "tip": "Bất tỉnh, mất ý thức."
+  },
+  {
+   "word": "choke",
+   "pos": "v",
+   "sub": "emergency",
+   "level": "B2",
+   "ex": "The baby began to choke on a grape.",
+   "col": [
+    "choke on",
+    "start to choke"
+   ],
+   "tip": "Bị nghẹn, hóc.",
+   "ipa": "/tʃəʊk/",
+   "vi": "bị nghẹn",
+   "def": "to be unable to breathe because something blocks your throat"
+  },
+  {
+   "word": "breathe",
+   "pos": "v",
+   "sub": "emergency",
+   "level": "A2",
+   "ex": "Take a deep breath and breathe slowly.",
+   "col": [
+    "breathe in",
+    "breathe out"
+   ],
+   "tip": "Thở; động từ, danh từ là \"breath\"."
+  },
+  {
+   "word": "first aid",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "B1",
+   "ex": "Everyone should learn basic first aid.",
+   "col": [
+    "first aid kit",
+    "give first aid"
+   ],
+   "tip": "Sơ cứu."
+  },
+  {
+   "word": "heart attack",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "B2",
+   "ex": "He had a heart attack at the age of sixty.",
+   "col": [
+    "have a heart attack",
+    "suffer a heart attack"
+   ],
+   "tip": "Nhồi máu cơ tim; gọi cấp cứu ngay."
+  },
+  {
+   "word": "paramedic",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "C1",
+   "ex": "The paramedics reached the scene in six minutes.",
+   "col": [
+    "call a paramedic",
+    "trained paramedic"
+   ],
+   "tip": "Nhân viên cấp cứu y tế.",
+   "ipa": "/ˌpærəˈmedɪk/",
+   "vi": "nhân viên cấp cứu",
+   "def": "a trained person who gives emergency medical help"
+  },
+  {
+   "word": "urgent",
+   "pos": "adj",
+   "sub": "emergency",
+   "level": "B1",
+   "ex": "This is urgent, please come quickly.",
+   "col": [
+    "urgent care",
+    "an urgent matter"
+   ],
+   "tip": "Khẩn, cần xử lý ngay."
+  },
+  {
+   "word": "poison",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "B2",
+   "ex": "Keep poison away from small children.",
+   "col": [
+    "swallow poison",
+    "rat poison"
+   ],
+   "tip": "Chất độc; \"poisoning\" là ngộ độc."
+  },
+  {
+   "word": "overdose",
+   "pos": "n",
+   "sub": "emergency",
+   "level": "C1",
+   "ex": "An overdose of painkillers can be dangerous.",
+   "col": [
+    "take an overdose",
+    "a drug overdose"
+   ],
+   "tip": "Quá liều thuốc.",
+   "ipa": "/ˈəʊvədəʊs/",
+   "vi": "quá liều",
+   "def": "too much of a drug taken at one time"
+  },
+  {
+   "word": "exercise",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "A1",
+   "ex": "Daily exercise keeps me healthy.",
+   "col": [
+    "do exercise",
+    "get enough exercise"
+   ],
+   "tip": "Tập thể dục; không đếm được khi nói chung."
+  },
+  {
+   "word": "healthy",
+   "pos": "adj",
+   "sub": "lifestyle",
+   "level": "A1",
+   "ex": "She eats a healthy lunch every day.",
+   "col": [
+    "healthy diet",
+    "stay healthy"
+   ],
+   "tip": "Khỏe mạnh, lành mạnh."
+  },
+  {
+   "word": "diet",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "A2",
+   "ex": "He changed his diet to lose weight.",
+   "col": [
+    "a balanced diet",
+    "go on a diet"
+   ],
+   "tip": "Chế độ ăn; \"on a diet\" là đang ăn kiêng."
+  },
+  {
+   "word": "sleep",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "A1",
+   "ex": "I need eight hours of sleep.",
+   "col": [
+    "get enough sleep",
+    "a good night's sleep"
+   ],
+   "tip": "Giấc ngủ."
+  },
+  {
+   "word": "vegetable",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "A2",
+   "ex": "Eat more vegetables with every meal.",
+   "col": [
+    "fresh vegetables",
+    "eat vegetables"
+   ],
+   "tip": "Rau củ."
+  },
+  {
+   "word": "fruit",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "A1",
+   "ex": "An apple is a healthy fruit snack.",
+   "col": [
+    "fresh fruit",
+    "eat fruit"
+   ],
+   "tip": "Trái cây, không đếm được."
+  },
+  {
+   "word": "sugar",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "A2",
+   "ex": "Too much sugar is bad for your teeth.",
+   "col": [
+    "cut down on sugar",
+    "added sugar"
+   ],
+   "tip": "Đường; \"sugar\" đọc \"shu-gờ\"."
+  },
+  {
+   "word": "junk food",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "B1",
+   "ex": "I try not to eat much junk food.",
+   "col": [
+    "eat junk food",
+    "junk food diet"
+   ],
+   "tip": "Đồ ăn vặt nhiều dầu mỡ, ít dinh dưỡng.",
+   "ipa": "/ˈdʒʌŋk fuːd/",
+   "vi": "đồ ăn vặt kém dinh dưỡng",
+   "def": "food that is quick to eat but not healthy"
+  },
+  {
+   "word": "vitamin",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "B1",
+   "ex": "Oranges are full of vitamin C.",
+   "col": [
+    "take vitamins",
+    "vitamin C"
+   ],
+   "tip": "Vitamin; Anh-Mỹ đọc \"vai-tờ-min\"."
+  },
+  {
+   "word": "protein",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "B1",
+   "ex": "Eggs are a good source of protein.",
+   "col": [
+    "rich in protein",
+    "protein shake"
+   ],
+   "tip": "Chất đạm."
+  },
+  {
+   "word": "calorie",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "B1",
+   "ex": "One slice of cake has many calories.",
+   "col": [
+    "count calories",
+    "burn calories"
+   ],
+   "tip": "Ca-lo.",
+   "ipa": "/ˈkæləri/",
+   "vi": "ca-lo",
+   "def": "a unit for measuring the energy in food"
+  },
+  {
+   "word": "weight",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "A2",
+   "ex": "He lost some weight last year.",
+   "col": [
+    "lose weight",
+    "gain weight"
+   ],
+   "tip": "Cân nặng; \"lose weight\" là giảm cân."
+  },
+  {
+   "word": "gym",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "A2",
+   "ex": "I go to the gym three times a week.",
+   "col": [
+    "go to the gym",
+    "gym membership"
+   ],
+   "tip": "Phòng tập thể hình."
+  },
+  {
+   "word": "workout",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "B1",
+   "ex": "My morning workout takes thirty minutes.",
+   "col": [
+    "a quick workout",
+    "do a workout"
+   ],
+   "tip": "Buổi tập luyện.",
+   "ipa": "/ˈwɜːkaʊt/",
+   "vi": "buổi tập luyện",
+   "def": "a session of physical exercise",
+   "syn": [
+    "training"
+   ]
+  },
+  {
+   "word": "jog",
+   "pos": "v",
+   "sub": "lifestyle",
+   "level": "B1",
+   "ex": "I jog around the park before work.",
+   "col": [
+    "go jogging",
+    "jog every morning"
+   ],
+   "tip": "Chạy bộ nhẹ nhàng."
+  },
+  {
+   "word": "stretch",
+   "pos": "v",
+   "sub": "lifestyle",
+   "level": "B1",
+   "ex": "Stretch your legs before you run.",
+   "col": [
+    "stretch your legs",
+    "stretch out"
+   ],
+   "tip": "Giãn cơ, duỗi người."
+  },
+  {
+   "word": "fit",
+   "pos": "adj",
+   "sub": "lifestyle",
+   "level": "B1",
+   "ex": "He stays fit by cycling to work.",
+   "col": [
+    "keep fit",
+    "get fit"
+   ],
+   "tip": "Cân đối, khỏe; \"keep fit\" = giữ dáng."
+  },
+  {
+   "word": "quit",
+   "pos": "v",
+   "sub": "lifestyle",
+   "level": "B1",
+   "ex": "My uncle quit smoking last year.",
+   "col": [
+    "quit smoking",
+    "quit a habit"
+   ],
+   "tip": "Bỏ (thói quen); bỏ thuốc lá."
+  },
+  {
+   "word": "smoke",
+   "pos": "v",
+   "sub": "lifestyle",
+   "level": "A2",
+   "ex": "He doesn't smoke or drink.",
+   "col": [
+    "smoke a cigarette",
+    "stop smoking"
+   ],
+   "tip": "Hút thuốc."
+  },
+  {
+   "word": "habit",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "B1",
+   "ex": "Drinking water in the morning is a good habit.",
+   "col": [
+    "a healthy habit",
+    "break a habit"
+   ],
+   "tip": "Thói quen."
+  },
+  {
+   "word": "hydrated",
+   "pos": "adj",
+   "sub": "lifestyle",
+   "level": "C1",
+   "ex": "Stay hydrated during long runs.",
+   "col": [
+    "stay hydrated",
+    "keep hydrated"
+   ],
+   "tip": "Đủ nước; \"hydro\" = nước.",
+   "ipa": "/ˈhaɪdreɪtɪd/",
+   "vi": "đủ nước",
+   "def": "having enough water in your body"
+  },
+  {
+   "word": "balanced",
+   "pos": "adj",
+   "sub": "lifestyle",
+   "level": "B2",
+   "ex": "A balanced meal has protein and vegetables.",
+   "col": [
+    "balanced diet",
+    "a balanced meal"
+   ],
+   "tip": "Cân bằng, đủ chất.",
+   "ipa": "/ˈbælənst/",
+   "vi": "cân bằng",
+   "def": "containing the right amounts of different things"
+  },
+  {
+   "word": "nutrition",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "C1",
+   "ex": "Good nutrition helps children learn better.",
+   "col": [
+    "healthy nutrition",
+    "poor nutrition"
+   ],
+   "tip": "Dinh dưỡng; từ \"nutrient\"."
+  },
+  {
+   "word": "endurance",
+   "pos": "n",
+   "sub": "lifestyle",
+   "level": "C1",
+   "ex": "Running builds endurance over time.",
+   "col": [
+    "build endurance",
+    "physical endurance"
+   ],
+   "tip": "Sức bền, độ dẻo dai."
+  },
+  {
+   "word": "stress",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "B1",
+   "ex": "Work stress keeps me awake at night.",
+   "col": [
+    "under stress",
+    "reduce stress"
+   ],
+   "tip": "Căng thẳng; \"under stress\" là đang bị áp lực."
+  },
+  {
+   "word": "stressed",
+   "pos": "adj",
+   "sub": "mind-cover",
+   "level": "B1",
+   "ex": "I feel stressed before exams.",
+   "col": [
+    "feel stressed",
+    "stressed out"
+   ],
+   "tip": "Bị căng thẳng.",
+   "ipa": "/strest/",
+   "vi": "căng thẳng",
+   "def": "feeling worried and under pressure",
+   "syn": [
+    "tense"
+   ]
+  },
+  {
+   "word": "anxious",
+   "pos": "adj",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "She felt anxious before the interview.",
+   "col": [
+    "feel anxious",
+    "anxious about"
+   ],
+   "tip": "Lo âu, bồn chồn."
+  },
+  {
+   "word": "anxiety",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "He sees a therapist for his anxiety.",
+   "col": [
+    "suffer from anxiety",
+    "anxiety attack"
+   ],
+   "tip": "Chứng lo âu."
+  },
+  {
+   "word": "depressed",
+   "pos": "adj",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "He felt depressed after losing his job.",
+   "col": [
+    "feel depressed",
+    "deeply depressed"
+   ],
+   "tip": "Buồn chán, trầm cảm.",
+   "ipa": "/dɪˈprest/",
+   "vi": "buồn chán, trầm cảm",
+   "def": "feeling very sad and without hope"
+  },
+  {
+   "word": "depression",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "Depression is an illness, not weakness.",
+   "col": [
+    "suffer from depression",
+    "treat depression"
+   ],
+   "tip": "Bệnh trầm cảm; khác với \"buồn\" nhất thời."
+  },
+  {
+   "word": "mood",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "B1",
+   "ex": "My mood improves after a walk.",
+   "col": [
+    "in a good mood",
+    "mood swings"
+   ],
+   "tip": "Tâm trạng."
+  },
+  {
+   "word": "relax",
+   "pos": "v",
+   "sub": "mind-cover",
+   "level": "A2",
+   "ex": "I relax by listening to quiet music.",
+   "col": [
+    "relax at home",
+    "try to relax"
+   ],
+   "tip": "Thư giãn."
+  },
+  {
+   "word": "worry",
+   "pos": "v",
+   "sub": "mind-cover",
+   "level": "A2",
+   "ex": "Don't worry, it's just a small cold.",
+   "col": [
+    "worry about",
+    "stop worrying"
+   ],
+   "tip": "Lo lắng."
+  },
+  {
+   "word": "calm",
+   "pos": "adj",
+   "sub": "mind-cover",
+   "level": "B1",
+   "ex": "Stay calm and breathe slowly.",
+   "col": [
+    "stay calm",
+    "keep calm"
+   ],
+   "tip": "Bình tĩnh."
+  },
+  {
+   "word": "exhausted",
+   "pos": "adj",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "I was exhausted after the night shift.",
+   "col": [
+    "feel exhausted",
+    "completely exhausted"
+   ],
+   "tip": "Kiệt sức, mạnh hơn \"tired\".",
+   "ipa": "/ɪɡˈzɔːstɪd/",
+   "vi": "kiệt sức",
+   "def": "extremely tired",
+   "syn": [
+    "worn out"
+   ]
+  },
+  {
+   "word": "burnout",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "C1",
+   "ex": "Long hours can lead to burnout.",
+   "col": [
+    "suffer from burnout",
+    "avoid burnout"
+   ],
+   "tip": "Kiệt sức vì công việc, \"cháy\" hết.",
+   "ipa": "/ˈbɜːnaʊt/",
+   "vi": "kiệt sức vì công việc",
+   "def": "extreme tiredness caused by too much work or stress"
+  },
+  {
+   "word": "insomnia",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "C1",
+   "ex": "He has had insomnia for months.",
+   "col": [
+    "suffer from insomnia",
+    "chronic insomnia"
+   ],
+   "tip": "Mất ngủ kéo dài."
+  },
+  {
+   "word": "therapy",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "She started therapy to deal with stress.",
+   "col": [
+    "go to therapy",
+    "speech therapy"
+   ],
+   "tip": "Liệu pháp, trị liệu tâm lý."
+  },
+  {
+   "word": "therapist",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "C1",
+   "ex": "My therapist teaches me to manage stress.",
+   "col": [
+    "see a therapist",
+    "a trained therapist"
+   ],
+   "tip": "Nhà trị liệu tâm lý."
+  },
+  {
+   "word": "mental health",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "Mental health is as important as physical health.",
+   "col": [
+    "mental health problems",
+    "look after your mental health"
+   ],
+   "tip": "Sức khỏe tinh thần."
+  },
+  {
+   "word": "meditate",
+   "pos": "v",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "I meditate for ten minutes each morning.",
+   "col": [
+    "meditate daily",
+    "learn to meditate"
+   ],
+   "tip": "Thiền; từ \"meditation\".",
+   "ipa": "/ˈmedɪteɪt/",
+   "vi": "thiền",
+   "def": "to sit quietly and clear your mind"
+  },
+  {
+   "word": "insurance",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "B1",
+   "ex": "My insurance pays for most doctor visits.",
+   "col": [
+    "health insurance",
+    "insurance card"
+   ],
+   "tip": "Bảo hiểm."
+  },
+  {
+   "word": "cover",
+   "pos": "v",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "Does your insurance cover dental work?",
+   "col": [
+    "cover the cost",
+    "fully covered"
+   ],
+   "tip": "Chi trả (bảo hiểm); nghĩa gốc \"che phủ\"."
+  },
+  {
+   "word": "claim",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "I filed a claim for my hospital bill.",
+   "col": [
+    "file a claim",
+    "insurance claim"
+   ],
+   "tip": "Yêu cầu bồi thường bảo hiểm."
+  },
+  {
+   "word": "premium",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "C1",
+   "ex": "My monthly premium went up this year.",
+   "col": [
+    "monthly premium",
+    "pay a premium"
+   ],
+   "tip": "Phí bảo hiểm định kỳ."
+  },
+  {
+   "word": "policy",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "This policy covers family members too.",
+   "col": [
+    "insurance policy",
+    "take out a policy"
+   ],
+   "tip": "Hợp đồng bảo hiểm."
+  },
+  {
+   "word": "deductible",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "C1",
+   "ex": "I pay the first 200 dollars as my deductible.",
+   "col": [
+    "pay the deductible",
+    "high deductible"
+   ],
+   "tip": "Mức tự chi trả trước khi bảo hiểm trả."
+  },
+  {
+   "word": "coverage",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "C1",
+   "ex": "Her coverage includes dental and eye care.",
+   "col": [
+    "health coverage",
+    "full coverage"
+   ],
+   "tip": "Phạm vi bảo hiểm."
+  },
+  {
+   "word": "well-being",
+   "pos": "n",
+   "sub": "mind-cover",
+   "level": "B2",
+   "ex": "Sleep is important for your well-being.",
+   "col": [
+    "mental well-being",
+    "emotional well-being"
+   ],
+   "tip": "Sức khỏe tổng thể, trạng thái tốt."
+  }
+ ],
+ "phrases": [
+  {
+   "en": "Where does it hurt?",
+   "vi": "Bạn đau ở đâu?",
+   "lv": "A1",
+   "sub": "body"
+  },
+  {
+   "en": "It hurts when I move my arm.",
+   "vi": "Tôi đau khi cử động cánh tay.",
+   "lv": "A2",
+   "sub": "body"
+  },
+  {
+   "en": "I have a pain in my lower back.",
+   "vi": "Tôi bị đau ở phần lưng dưới.",
+   "lv": "A2",
+   "sub": "body"
+  },
+  {
+   "en": "My knee has been sore since Monday.",
+   "vi": "Đầu gối tôi bị đau từ hôm thứ Hai.",
+   "lv": "B1",
+   "sub": "body"
+  },
+  {
+   "en": "I don't feel well.",
+   "vi": "Tôi thấy không khỏe.",
+   "lv": "A1",
+   "sub": "illness"
+  },
+  {
+   "en": "I think I have a fever.",
+   "vi": "Tôi nghĩ là mình bị sốt.",
+   "lv": "A2",
+   "sub": "illness"
+  },
+  {
+   "en": "I've had a cough for three days.",
+   "vi": "Tôi bị ho ba ngày rồi.",
+   "lv": "A2",
+   "sub": "illness"
+  },
+  {
+   "en": "I feel dizzy and a bit sick.",
+   "vi": "Tôi thấy chóng mặt và hơi buồn nôn.",
+   "lv": "B1",
+   "sub": "illness"
+  },
+  {
+   "en": "I'm allergic to penicillin.",
+   "vi": "Tôi dị ứng với penicillin.",
+   "lv": "B1",
+   "sub": "illness"
+  },
+  {
+   "en": "I'd like to make an appointment.",
+   "vi": "Tôi muốn đặt lịch hẹn khám.",
+   "lv": "A2",
+   "sub": "doctor"
+  },
+  {
+   "en": "What seems to be the problem?",
+   "vi": "Bạn thấy không ổn ở chỗ nào?",
+   "lv": "B1",
+   "sub": "doctor"
+  },
+  {
+   "en": "How often should I take this medicine?",
+   "vi": "Tôi nên uống thuốc này mấy lần một ngày?",
+   "lv": "B1",
+   "sub": "doctor"
+  },
+  {
+   "en": "Do I need a prescription for this?",
+   "vi": "Mua thuốc này có cần đơn không?",
+   "lv": "B1",
+   "sub": "doctor"
+  },
+  {
+   "en": "Take two tablets after meals.",
+   "vi": "Uống hai viên sau bữa ăn.",
+   "lv": "B1",
+   "sub": "doctor"
+  },
+  {
+   "en": "Are there any side effects?",
+   "vi": "Thuốc có tác dụng phụ nào không?",
+   "lv": "B2",
+   "sub": "doctor"
+  },
+  {
+   "en": "Please call an ambulance!",
+   "vi": "Làm ơn gọi xe cứu thương!",
+   "lv": "A2",
+   "sub": "emergency"
+  },
+  {
+   "en": "He can't breathe!",
+   "vi": "Anh ấy không thở được!",
+   "lv": "A2",
+   "sub": "emergency"
+  },
+  {
+   "en": "She fell and hit her head.",
+   "vi": "Cô ấy ngã và đập đầu.",
+   "lv": "B1",
+   "sub": "emergency"
+  },
+  {
+   "en": "I think I've broken my wrist.",
+   "vi": "Tôi nghĩ mình bị gãy cổ tay.",
+   "lv": "B1",
+   "sub": "emergency"
+  },
+  {
+   "en": "Is there a first aid kit nearby?",
+   "vi": "Gần đây có hộp sơ cứu không?",
+   "lv": "B1",
+   "sub": "emergency"
+  },
+  {
+   "en": "I'm trying to eat more vegetables.",
+   "vi": "Tôi đang cố ăn nhiều rau hơn.",
+   "lv": "A2",
+   "sub": "lifestyle"
+  },
+  {
+   "en": "I go jogging three times a week.",
+   "vi": "Tôi chạy bộ ba lần một tuần.",
+   "lv": "A2",
+   "sub": "lifestyle"
+  },
+  {
+   "en": "I'm trying to cut down on sugar.",
+   "vi": "Tôi đang cố giảm đường.",
+   "lv": "B1",
+   "sub": "lifestyle"
+  },
+  {
+   "en": "I need to get more sleep.",
+   "vi": "Tôi cần ngủ nhiều hơn.",
+   "lv": "A2",
+   "sub": "lifestyle"
+  },
+  {
+   "en": "I quit smoking last year.",
+   "vi": "Tôi đã bỏ thuốc lá từ năm ngoái.",
+   "lv": "B1",
+   "sub": "lifestyle"
+  },
+  {
+   "en": "I've been feeling really stressed lately.",
+   "vi": "Dạo này tôi thấy rất căng thẳng.",
+   "lv": "B1",
+   "sub": "mind-cover"
+  },
+  {
+   "en": "I can't sleep because I keep worrying.",
+   "vi": "Tôi không ngủ được vì cứ lo nghĩ.",
+   "lv": "B1",
+   "sub": "mind-cover"
+  },
+  {
+   "en": "Talking to someone really helps me.",
+   "vi": "Nói chuyện với ai đó giúp tôi nhiều lắm.",
+   "lv": "B1",
+   "sub": "mind-cover"
+  },
+  {
+   "en": "Does my insurance cover this treatment?",
+   "vi": "Bảo hiểm của tôi có chi trả cho điều trị này không?",
+   "lv": "B2",
+   "sub": "mind-cover"
+  },
+  {
+   "en": "I'd like to file an insurance claim.",
+   "vi": "Tôi muốn nộp yêu cầu bồi thường bảo hiểm.",
+   "lv": "B2",
+   "sub": "mind-cover"
+  }
+ ],
+ "dialogs": [
+  {
+   "id": "h-1",
+   "sub": "body",
+   "lines": [
+    [
+     "A",
+     "What's the matter? You look uncomfortable.",
+     "Có chuyện gì vậy? Trông bạn không thoải mái."
+    ],
+    [
+     "B",
+     "My back is really stiff. I think it's from sitting all day.",
+     "Lưng tôi cứng đờ. Chắc do ngồi cả ngày."
+    ],
+    [
+     "A",
+     "Try some stretching. It always helps my neck too.",
+     "Thử giãn cơ đi. Cách này cũng luôn giúp cổ tôi."
+    ]
+   ],
+   "key": [
+    "stiff",
+    "back"
+   ]
+  },
+  {
+   "id": "h-2",
+   "sub": "body",
+   "lines": [
+    [
+     "Doctor",
+     "How did you hurt your knee?",
+     "Bạn bị đau đầu gối thế nào?"
+    ],
+    [
+     "Patient",
+     "I fell while running. My ankle is swollen too.",
+     "Tôi ngã khi chạy bộ. Mắt cá chân cũng bị sưng."
+    ],
+    [
+     "Doctor",
+     "Let me take a look. Does it hurt when I press here?",
+     "Để tôi xem. Tôi ấn vào đây bạn có đau không?"
+    ],
+    [
+     "Patient",
+     "Yes, a sharp pain. Is it serious?",
+     "Có, đau nhói. Có nghiêm trọng không?"
+    ]
+   ],
+   "key": [
+    "knee",
+    "ankle",
+    "swollen"
+   ]
+  },
+  {
+   "id": "h-3",
+   "sub": "illness",
+   "lines": [
+    [
+     "A",
+     "You don't look well. Are you sick?",
+     "Trông bạn không khỏe. Bạn ốm à?"
+    ],
+    [
+     "B",
+     "I have a fever and a bad cough since yesterday.",
+     "Tôi bị sốt và ho nhiều từ hôm qua."
+    ],
+    [
+     "A",
+     "It might be the flu. Stay home and drink plenty of water.",
+     "Có thể là cúm. Hãy ở nhà và uống thật nhiều nước."
+    ]
+   ],
+   "key": [
+    "fever",
+    "cough",
+    "flu"
+   ]
+  },
+  {
+   "id": "h-4",
+   "sub": "illness",
+   "lines": [
+    [
+     "Nurse",
+     "Are you allergic to any food or medicine?",
+     "Bạn có dị ứng với thức ăn hay thuốc nào không?"
+    ],
+    [
+     "Patient",
+     "I'm allergic to peanuts. I get a rash and itchy eyes.",
+     "Tôi dị ứng với đậu phộng. Tôi bị nổi mẩn và ngứa mắt."
+    ],
+    [
+     "Nurse",
+     "Thank you. I'll write that in your notes.",
+     "Cảm ơn bạn. Tôi sẽ ghi vào hồ sơ."
+    ]
+   ],
+   "key": [
+    "allergic",
+    "rash",
+    "itchy"
+   ]
+  },
+  {
+   "id": "h-5",
+   "sub": "doctor",
+   "lines": [
+    [
+     "A",
+     "Hello, I'd like to make an appointment, please.",
+     "Xin chào, tôi muốn đặt lịch hẹn."
+    ],
+    [
+     "B",
+     "Is it for a check-up or a problem?",
+     "Là khám định kỳ hay có vấn đề cụ thể?"
+    ],
+    [
+     "A",
+     "Just a check-up. Do you have anything on Friday?",
+     "Chỉ khám định kỳ. Thứ Sáu còn lịch không?"
+    ],
+    [
+     "B",
+     "Yes, 10 a.m. Please wait in the waiting room when you arrive.",
+     "Có, 10 giờ sáng. Khi đến bạn vui lòng chờ ở phòng chờ."
+    ]
+   ],
+   "key": [
+    "appointment",
+    "check-up",
+    "waiting room"
+   ]
+  },
+  {
+   "id": "h-6",
+   "sub": "doctor",
+   "lines": [
+    [
+     "Pharmacist",
+     "Here is your medicine. Take one tablet after dinner.",
+     "Thuốc của bạn đây. Uống một viên sau bữa tối."
+    ],
+    [
+     "Patient",
+     "Are there any side effects?",
+     "Thuốc có tác dụng phụ nào không?"
+    ],
+    [
+     "Pharmacist",
+     "You may feel sleepy, so don't drive afterwards.",
+     "Bạn có thể buồn ngủ, nên đừng lái xe sau đó."
+    ]
+   ],
+   "key": [
+    "side effects",
+    "medicine",
+    "tablet",
+    "side effect"
+   ]
+  },
+  {
+   "id": "h-7",
+   "sub": "emergency",
+   "lines": [
+    [
+     "A",
+     "Help! My father can't breathe!",
+     "Cứu với! Bố tôi không thở được!"
+    ],
+    [
+     "B",
+     "Stay calm. I'm calling an ambulance now.",
+     "Bình tĩnh. Tôi gọi xe cứu thương ngay đây."
+    ],
+    [
+     "A",
+     "Please hurry, he's very pale.",
+     "Làm ơn nhanh lên, ông tái nhợt lắm."
+    ]
+   ],
+   "key": [
+    "ambulance",
+    "breathe"
+   ]
+  },
+  {
+   "id": "h-8",
+   "sub": "emergency",
+   "lines": [
+    [
+     "A",
+     "Ouch! I cut my finger and it's bleeding a lot.",
+     "Ối! Tôi cắt vào ngón tay và chảy nhiều máu."
+    ],
+    [
+     "B",
+     "Press on it. I'll get the first aid kit.",
+     "Ấn chặt vào. Tôi đi lấy hộp sơ cứu."
+    ],
+    [
+     "A",
+     "Thanks. Can you put a bandage on it?",
+     "Cảm ơn. Bạn băng vết thương giúp tôi nhé?"
+    ]
+   ],
+   "key": [
+    "cut",
+    "bleed",
+    "bandage",
+    "first aid"
+   ]
+  },
+  {
+   "id": "h-9",
+   "sub": "lifestyle",
+   "lines": [
+    [
+     "A",
+     "Your lunch looks really healthy today.",
+     "Bữa trưa của bạn hôm nay trông rất lành mạnh."
+    ],
+    [
+     "B",
+     "I'm trying a balanced diet with more vegetables.",
+     "Tôi đang thử chế độ ăn cân bằng với nhiều rau hơn."
+    ],
+    [
+     "A",
+     "Good idea. I should cut down on sugar too.",
+     "Ý hay đấy. Tôi cũng nên giảm đường."
+    ]
+   ],
+   "key": [
+    "healthy",
+    "diet",
+    "vegetable"
+   ]
+  },
+  {
+   "id": "h-10",
+   "sub": "lifestyle",
+   "lines": [
+    [
+     "A",
+     "Do you go to the gym often?",
+     "Bạn có hay đến phòng tập không?"
+    ],
+    [
+     "B",
+     "Three times a week. A short workout keeps me fit.",
+     "Ba lần một tuần. Buổi tập ngắn giúp tôi giữ dáng."
+    ],
+    [
+     "A",
+     "I should start. Where do you stretch afterwards?",
+     "Tôi nên bắt đầu thôi. Sau đó bạn giãn cơ ở đâu?"
+    ],
+    [
+     "B",
+     "Right there on the mat. It only takes five minutes.",
+     "Ngay trên tấm thảm kia. Chỉ mất năm phút."
+    ]
+   ],
+   "key": [
+    "gym",
+    "workout",
+    "stretch",
+    "fit"
+   ]
+  },
+  {
+   "id": "h-11",
+   "sub": "mind-cover",
+   "lines": [
+    [
+     "A",
+     "You seem stressed lately. Are you sleeping well?",
+     "Dạo này bạn có vẻ căng thẳng. Bạn ngủ ngon không?"
+    ],
+    [
+     "B",
+     "Not really. I keep worrying about work.",
+     "Không hẳn. Tôi cứ lo chuyện công việc."
+    ],
+    [
+     "A",
+     "Try a short walk to relax. It helps me a lot.",
+     "Thử đi bộ một chút để thư giãn. Cách này giúp tôi nhiều lắm."
+    ]
+   ],
+   "key": [
+    "stress",
+    "stressed",
+    "relax",
+    "sleep"
+   ]
+  },
+  {
+   "id": "h-12",
+   "sub": "mind-cover",
+   "lines": [
+    [
+     "A",
+     "Does my insurance cover this treatment?",
+     "Bảo hiểm của tôi có chi trả điều trị này không?"
+    ],
+    [
+     "B",
+     "Yes, but you must file a claim within thirty days.",
+     "Có, nhưng bạn phải nộp yêu cầu bồi thường trong vòng ba mươi ngày."
+    ],
+    [
+     "A",
+     "Do I pay anything first?",
+     "Tôi có phải trả trước khoản nào không?"
+    ],
+    [
+     "B",
+     "Only the deductible. The rest is covered.",
+     "Chỉ khoản tự chi trả ban đầu. Phần còn lại được chi trả."
+    ]
+   ],
+   "key": [
+    "insurance",
+    "cover",
+    "claim"
+   ]
+  }
+ ]
+}
