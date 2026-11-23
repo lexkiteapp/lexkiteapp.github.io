@@ -47,6 +47,8 @@
 "Mục tiêu {s}":"Meta {s}",
 "Nghe chậm hơn":"Mais devagar",
 "Nghe, chọn ảnh":"Ouça e escolha a imagem",
+"Ngày mai ôn {n} từ để nhớ lâu":"Para revisar amanhã: {n} palavras",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"Amanhã: sua próxima lição estará pronta",
 "Những từ bạn hay quên":"Palavras que você costuma esquecer",
 "Nói câu này":"Diga isto",
 "Nói hay hơn":"Melhor assim",
@@ -75,7 +77,5 @@
 "Định nghĩa:":"Definição:",
 "Đối thoại":"Diálogo",
 "Ảnh minh họa":"Imagem",
-"Ngày mai ôn {n} từ để nhớ lâu":"Para revisar amanhã: {n} palavras",
-"Ngày mai: bài tiếp theo đã sẵn sàng":"Amanhã: sua próxima lição estará pronta",
 });
 })(typeof self !== 'undefined' ? self : this);

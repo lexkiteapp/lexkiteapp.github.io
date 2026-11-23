@@ -47,6 +47,8 @@
 "Mục tiêu {s}":"Ziel {s}",
 "Nghe chậm hơn":"Langsamer",
 "Nghe, chọn ảnh":"Hör zu, wähle das Bild",
+"Ngày mai ôn {n} từ để nhớ lâu":"Morgen zu wiederholen: {n} Wörter",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"Morgen: Ihre nächste Lektion ist bereit",
 "Những từ bạn hay quên":"Wörter, die Sie oft vergessen",
 "Nói câu này":"Sag das",
 "Nói hay hơn":"Besser gesagt",
@@ -75,7 +77,5 @@
 "Định nghĩa:":"Definition:",
 "Đối thoại":"Dialog",
 "Ảnh minh họa":"Bild",
-"Ngày mai ôn {n} từ để nhớ lâu":"Morgen zu wiederholen: {n} Wörter",
-"Ngày mai: bài tiếp theo đã sẵn sàng":"Morgen: Deine nächste Lektion ist bereit",
 });
 })(typeof self !== 'undefined' ? self : this);

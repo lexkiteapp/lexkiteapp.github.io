@@ -47,6 +47,8 @@
 "Mục tiêu {s}":"Hedef {s}",
 "Nghe chậm hơn":"Daha yavaş",
 "Nghe, chọn ảnh":"Dinle, resmi seç",
+"Ngày mai ôn {n} từ để nhớ lâu":"Yarın tekrar edilecek kelimeler: {n}",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"Yarın: sıradaki dersin hazır",
 "Những từ bạn hay quên":"Sık unuttuğun kelimeler",
 "Nói câu này":"Bunu söyle",
 "Nói hay hơn":"Daha iyi ifade",
@@ -75,7 +77,5 @@
 "Định nghĩa:":"Tanım:",
 "Đối thoại":"Diyalog",
 "Ảnh minh họa":"Görsel",
-"Ngày mai ôn {n} từ để nhớ lâu":"Yarın tekrar edilecek kelimeler: {n}",
-"Ngày mai: bài tiếp theo đã sẵn sàng":"Yarın: sıradaki dersin hazır",
 });
 })(typeof self !== 'undefined' ? self : this);

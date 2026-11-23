@@ -47,6 +47,8 @@
 "Mục tiêu {s}":"목표 {s}",
 "Nghe chậm hơn":"천천히 듣기",
 "Nghe, chọn ảnh":"듣고 그림 고르기",
+"Ngày mai ôn {n} từ để nhớ lâu":"내일 복습할 단어: {n}개",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"내일: 다음 레슨이 준비되어 있어요",
 "Những từ bạn hay quên":"자주 잊는 단어",
 "Nói câu này":"말해 보세요",
 "Nói hay hơn":"더 좋은 표현",
@@ -75,7 +77,5 @@
 "Định nghĩa:":"정의:",
 "Đối thoại":"대화",
 "Ảnh minh họa":"그림",
-"Ngày mai ôn {n} từ để nhớ lâu":"내일 복습할 단어: {n}개",
-"Ngày mai: bài tiếp theo đã sẵn sàng":"내일: 다음 레슨이 준비되어 있어요",
 });
 })(typeof self !== 'undefined' ? self : this);
