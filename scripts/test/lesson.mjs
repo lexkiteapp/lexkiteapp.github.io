@@ -367,7 +367,7 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
   const seen = new Set(); let g2 = 0;
   while (st() && st().sess && !st().sess.done && g2++ < 40) {
     const it = st().sess.cur; seen.add(it.type);
-    const listens = !it.noAudio && ['gap', 'build', 'say', 'type'].includes(it.type), speaks = it.type === 'say' || (it.type === 'pic' && !it.choice);
+    const listens = !it.noAudio && ['gap', 'build', 'say', 'type', 'dict'].includes(it.type), speaks = it.type === 'say' || (it.type === 'pic' && !it.choice);
     ok(!!$('#lsnPlay').hidden === !listens && (!speaks || $('#lsnNoS')) && (!listens || $('#lsnNoL')) && $('#lsnRep'), `v2: nút nghe/bỏ qua đúng dạng (${it.type})`);
     if (['q', 'gap', 'mean', 'pic'].includes(it.type) && (it.options || []).length) { const og = $('#lsnBody.lsn-opts'); ok(og && og.querySelectorAll('.lsn-opt[data-o]').length === it.options.length && !D.querySelector('#card-A, #card-B'), `v2: lưới đáp án A–D (${it.type})`); }
     await solve(true);
@@ -619,7 +619,7 @@ for (const v2 of [true, false]) {
   App.ux1On = () => v2;
   w.LESSON_GOLD = new Proxy({}, { get: (_, k) => (typeof k === 'string' ? [{ w: 'She go to school every day.', r: 'She goes to school every day.', why: 'Add -es after she.' }] : undefined) });
   let F1 = null;
-  for (let pos = 0; pos < 8 && !F1; pos++) {
+  for (let pos = 0; pos < 24 && !F1; pos++) {
     w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
     if (st() && st().items.some(i => i.type === 'fix')) F1 = st();
   }
@@ -644,7 +644,7 @@ for (const v2 of [true, false]) {
 {
   // dict UI: nghe + gõ cả câu; sai → tấm đỏ có câu đúng + câu đã gõ (từ sai gạch ngang)
   let D1 = null;
-  for (let pos = 0; pos < 8 && !D1; pos++) {
+  for (let pos = 0; pos < 24 && !D1; pos++) {
     w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
     if (st() && st().items.some(i => i.type === 'dict')) D1 = st();
   }

@@ -105,7 +105,7 @@
     return shuffle(ch.concat(shuffle(ABC, r).slice(0, 3)), r);
   }
 
-  /** So từng từ câu gõ với câu đúng (chính tả): → [{ w: từ đã gõ, ok }] – LCS theo từ chuẩn hoá, từ gõ thừa/sai = ok:false */
+  /** So từng từ câu gõ với câu đúng (chính tả): → [{ w: từ đã gõ, ok }] – LCS theo từ chuẩn hóa, từ gõ thừa/sai = ok:false */
   function diffWords(typed, answer) {
     const a = norm(typed).split(' ').filter(Boolean), b = norm(answer).split(' ').filter(Boolean), raw = String(typed || '').trim().split(/\s+/).filter(x => norm(x));
     const m = a.length, n = b.length, d = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
