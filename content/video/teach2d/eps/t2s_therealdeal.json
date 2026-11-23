@@ -1,0 +1,135 @@
+{
+ "id": "t2s_therealdeal",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 221,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is this shop actually good?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "The real deal!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Truly genuine and great.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This shop is the real deal.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "the real deal",
+  "forms": [],
+  "ipa": "/ðə ˈriːl ˈdiːl/",
+  "mean": "Truly genuine and great.",
+  "define": "Used for something that is authentic and good.",
+  "vi": "Hàng thật, xịn thật",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Looking at a product",
+   "text": "This shop is the real deal."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "fake",
+    "genuine"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a cheap copy 'the real deal'.",
+   "why": "It means genuine and truly great."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is this shop actually good?"
+ },
+ "src": {
+  "slang": "the real deal"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"the real deal\" mean?",
+  "keyword": "the real deal",
+  "value": "The real deal = Truly genuine and great. Example: \"This shop is the real deal.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"the real deal\" mean?",
+    "description": "The real deal = Truly genuine and great. Example: \"This shop is the real deal.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "the real deal",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"the real deal\" mean?\n\nThe real deal = Truly genuine and great. Example: \"This shop is the real deal.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"the real deal\" mean?\n\nThe real deal = Truly genuine and great. Example: \"This shop is the real deal.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"the real deal\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a cheap copy 'the real deal'. It means genuine and truly great. Real example: \"This shop is the real deal.\" More real English slang, free: {link}"
+ }
+}

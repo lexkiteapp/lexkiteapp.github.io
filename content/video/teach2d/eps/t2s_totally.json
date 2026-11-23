@@ -1,0 +1,135 @@
+{
+ "id": "t2s_totally",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 229,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Was the pizza worth it?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Totally!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Completely, one hundred percent.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That pizza was totally worth it.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "totally",
+  "forms": [],
+  "ipa": "/ˈtoʊtəli/",
+  "mean": "Completely, one hundred percent.",
+  "define": "Used to agree or strongly say something.",
+  "vi": "Hoàn toàn đúng",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Chatting about food",
+   "text": "That pizza was totally worth it."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Totally\" means…",
+   "options": [
+    "slowly",
+    "completely"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'totally' if you partly disagree.",
+   "why": "It means complete agreement."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Was the pizza worth it?"
+ },
+ "src": {
+  "slang": "totally"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"totally\" mean?",
+  "keyword": "totally",
+  "value": "Totally = Completely, one hundred percent. Example: \"That pizza was totally worth it.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"totally\" mean?",
+    "description": "Totally = Completely, one hundred percent. Example: \"That pizza was totally worth it.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "totally",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"totally\" mean?\n\nTotally = Completely, one hundred percent. Example: \"That pizza was totally worth it.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"totally\" mean?\n\nTotally = Completely, one hundred percent. Example: \"That pizza was totally worth it.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"totally\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'totally' if you partly disagree. It means complete agreement. Real example: \"That pizza was totally worth it.\" More real English slang, free: {link}"
+ }
+}

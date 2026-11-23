@@ -1,0 +1,135 @@
+{
+ "id": "t2s_stoked",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 299,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Road trip with my friends tomorrow!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Stoked!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very happy and excited.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm stoked about the trip!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "stoked",
+  "forms": [],
+  "ipa": "/ˈstoʊkt/",
+  "mean": "Very happy and excited.",
+  "define": "Used when you're thrilled about something.",
+  "vi": "Phấn khích lắm",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Hearing good news",
+   "text": "I'm stoked about the trip!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Stoked\" means…",
+   "options": [
+    "very tired",
+    "very excited"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'stoked' in a formal speech.",
+   "why": "It's very casual slang."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Road trip with my friends tomorrow!"
+ },
+ "src": {
+  "slang": "stoked"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"stoked\" mean?",
+  "keyword": "stoked",
+  "value": "Stoked = Very happy and excited. Example: \"I'm stoked about the trip!\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"stoked\" mean?",
+    "description": "Stoked = Very happy and excited. Example: \"I'm stoked about the trip!\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "stoked",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"stoked\" mean?\n\nStoked = Very happy and excited. Example: \"I'm stoked about the trip!\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"stoked\" mean?\n\nStoked = Very happy and excited. Example: \"I'm stoked about the trip!\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"stoked\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'stoked' in a formal speech. It's very casual slang. Real example: \"I'm stoked about the trip!\" More real English slang, free: {link}"
+ }
+}

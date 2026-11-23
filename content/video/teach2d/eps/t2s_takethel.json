@@ -1,0 +1,133 @@
+{
+ "id": "t2s_takethel",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 241,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I lost. Time to accept?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Take the L!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Accept that you lost.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You lost, so just take the L.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "take the L",
+  "forms": [
+   "L"
+  ],
+  "ipa": "/ˈteɪk ðə ˈel/",
+  "mean": "Accept that you lost.",
+  "define": "To admit a loss or defeat.",
+  "vi": "Chấp nhận thua",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "gaming",
+  "example": {
+   "ctx": "After a game",
+   "text": "You lost, so just take the L."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Take the L\" means…",
+   "options": [
+    "accept a loss",
+    "get a letter"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell a sad friend to 'take the L'.",
+   "why": "It sounds like you mock them."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I lost. Time to accept?"
+ },
+ "src": {
+  "slang": "take the L"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "What does \"take the L\" mean?",
+  "keyword": "take the L",
+  "value": "Take the L = Accept that you lost. Example: \"You lost, so just take the L.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"take the L\" mean?",
+    "description": "Take the L = Accept that you lost. Example: \"You lost, so just take the L.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "take the L",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"take the L\" mean?\n\nTake the L = Accept that you lost. Example: \"You lost, so just take the L.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"take the L\" mean?\n\nTake the L = Accept that you lost. Example: \"You lost, so just take the L.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"take the L\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: accept a loss. \"You lost, so just take the L.\" More real English slang, free: {link}"
+ }
+}

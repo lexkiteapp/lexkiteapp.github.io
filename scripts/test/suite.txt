@@ -362,6 +362,7 @@ node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/sitemap-lastmod.mjs
 node scripts/test/indexnow-wait.mjs
+node scripts/test/serp-overrides.mjs
 node scripts/test/outcomes.mjs
 node scripts/test/today-debt.mjs
 node scripts/test/ci-shards-busy.mjs
@@ -519,3 +520,4 @@ node scripts/stitch-v2-convert.mjs --check
 node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
+node scripts/test/lesson-lip-late.mjs
