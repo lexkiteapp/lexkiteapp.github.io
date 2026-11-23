@@ -73,7 +73,7 @@
 .mstrand .progress { margin: var(--sp-1) 0; }
 .mplan { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--sp-2); margin-top: var(--sp-3); }
 .mpi { min-height: 44px; display: flex; align-items: center; gap: var(--sp-2); border: 1px solid var(--line); border-radius: var(--r-sm); padding: var(--sp-2) var(--sp-3); color: var(--text); text-decoration: none; }
-.mpi:hover { border-color: var(--primary); }
+.mpi:hover { background: var(--surface-3); }
 .mpi b { font-size: var(--fs-md); color: var(--primary); min-width: 2.4rem; }
 .mprin { display: flex; flex-direction: column; min-width: 0; }
 .mprin .mpic { font-size: var(--fs-xl); line-height: 1; color: var(--primary); display: grid; place-items: center; flex: none; }

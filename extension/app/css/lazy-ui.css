@@ -72,7 +72,7 @@ body.cbt-mode .view { max-width: none; padding: 0; }
 .fpick { border: 0; cursor: pointer; font-size: 1rem; padding: .45rem .8rem; transition: transform .1s; }
 .fpick:hover { transform: translateY(-2px); }
 .use-card { width: 100%; border: 2px solid var(--line); background: var(--surface); border-radius: 14px; padding: .8rem; cursor: pointer; font: inherit; color: inherit; }
-.use-card:hover { border-color: var(--primary); }
+.use-card:hover { background: var(--surface-3); }
 .phr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .6rem; margin-top: .6rem; }
 .cw-text { font-size: 1.02rem; line-height: 2.7; }
 .cw-slot { position: relative; white-space: nowrap; cursor: text; }
@@ -184,12 +184,12 @@ body.cbt-mode .view { max-width: none; padding: 0; }
 .goal-mini { display: block; }
 .goal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .6rem; margin-top: .8rem; }
 .goal-it { border: 1px solid var(--line); border-radius: 12px; padding: .6rem .75rem; color: var(--text); text-decoration: none; display: grid; gap: .4rem; }
-.goal-it:hover { border-color: var(--primary); }
+.goal-it:hover { background: var(--surface-3); }
 .goal-it .good { color: var(--good-text); font-weight: 700; }
 .idea-it { padding: .6rem 0; border-bottom: 1px dashed var(--line); }
 .idea-it:last-child { border-bottom: 0; }
 .idea-ch { cursor: pointer; border: 1px solid var(--line); }
-.idea-ch:hover { border-color: var(--primary); color: var(--primary); }
+.idea-ch:hover { background: var(--surface-3); }
 .no-vi .gap-vi { display: none; }
 .err-miss { min-width: 3rem; border-style: dashed !important; }
 .slot-wrap { line-height: 2.6; font-size: 1rem; }

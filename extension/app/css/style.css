@@ -117,7 +117,7 @@ p { margin: .4rem 0; }
 /* ---------- Building blocks ---------- */
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--elev-1); padding: var(--sp-5); }
 .card.hover { transition: transform var(--dur-2) var(--ease-std), box-shadow var(--dur-2) var(--ease-std), border-color var(--dur-2) var(--ease-std); cursor: pointer; }
-@media (hover: hover) { .card.hover:hover { transform: translateY(-3px); box-shadow: var(--elev-2); border-color: color-mix(in srgb, var(--primary) 40%, var(--line)); } }
+@media (hover: hover) { .card.hover:hover { transform: translateY(-3px); box-shadow: var(--elev-2); } }
 .grid { display: grid; gap: 1rem; }
 /* Thẻ cùng hàng cao bằng nhau: hàng nút ghim đáy thẻ để nút các thẻ thẳng hàng (gate: scripts/test/card-actions.mjs) */
 .grid > .card > :is(.row, .card-acts):last-child:has(.btn), .grid > .card > .btn:last-child { margin-top: auto !important; } /* !important: nhiều màn đặt margin-top nội tuyến */
@@ -200,6 +200,7 @@ label.field > span { display: block; font-weight: 600; margin-bottom: .35rem; fo
 .tabs :is(button, a) { border: 0; text-decoration: none; background: transparent; padding: .5rem .95rem; border-radius: 10px; font-weight: 700; color: var(--muted); cursor: pointer; white-space: nowrap; flex: none; display: inline-flex; align-items: center; gap: var(--sp-1); } /* flex: none → tab không co nhỏ hơn chữ (chữ đè tab bên cạnh @360); hàng tab cuộn ngang */
 /* CHỌN – MỘT kiểu (docs/specs/chon-cta-khu-b.md): .on = vòng teal 2px (inset → không xê dịch bố cục, thấy rõ ở tối) + nền accent-soft; hover chỉ đổi NỀN; focus-visible = vòng riêng */
 :is(.tabs > :is(button, a), .chip):is(.on, [aria-pressed="true"], [aria-selected="true"]) { background: var(--accent-soft); color: var(--text); box-shadow: inset 0 0 0 2px var(--done); }
+button.chip[aria-pressed] { cursor: pointer; font-weight: 700; min-height: 2.25rem; min-width: 2.25rem; justify-content: center; }
 .chip.on::before, .chip[aria-pressed="true"]::before { content: "✓"; font-weight: 800; color: var(--done); margin-inline-end: var(--sp-1); }
 @media (hover: hover) { :is(.tabs > :is(button, a), button.chip, a.chip):not(.on, [aria-pressed="true"], [aria-selected="true"]):hover { background: var(--surface-3); } }
 :is(.tabs > :is(button, a), button.chip, a.chip):focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
@@ -239,7 +240,7 @@ mark { background: color-mix(in srgb, var(--gold) 32%, transparent); color: inhe
 .week i.today { outline: 2px solid var(--primary); outline-offset: 2px; }
 .modes { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .8rem; }
 .mode { display: flex; flex-direction: column; gap: .3rem; padding: 1rem; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); cursor: pointer; transition: transform .15s, box-shadow .15s, border-color .15s; color: var(--text); }
-@media (hover: hover) { .mode:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--primary); } }
+@media (hover: hover) { .mode:hover { transform: translateY(-3px); box-shadow: var(--shadow); } }
 .mode .em { font-size: 1.7rem; width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; }
 .mode b { font-size: .98rem; }
 
@@ -387,7 +388,7 @@ html[data-has-grade] { scroll-padding-bottom: 6.5rem; }
 .q-item { padding: 1rem 0; border-top: 1px solid var(--line); }
 .q-item .opts { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
 .q-item .opts button { border: 2px solid var(--line); border-bottom-width: 3.5px; background: var(--surface); padding: .45rem .85rem; border-radius: 10px; cursor: pointer; font-weight: 600; box-shadow: 0 2px 0 color-mix(in srgb, var(--line) 75%, #000); transition: border-color .12s cubic-bezier(.2,.8,.4,1), background .12s cubic-bezier(.2,.8,.4,1), transform .12s cubic-bezier(.2,.8,.4,1), box-shadow .12s cubic-bezier(.2,.8,.4,1); }
-@media (hover: hover) { .q-item .opts button:hover { border-color: var(--primary); } }
+@media (hover: hover) { .q-item .opts button:hover { background: var(--surface-3); } }
 .q-item .opts button:active { transform: translateY(2px); border-bottom-width: 2px; box-shadow: 0 1px 0 color-mix(in srgb, var(--line) 75%, #000); }
 .q-item .opts button.sel { border-color: var(--primary); background: var(--primary-soft); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); box-shadow: 0 2px 0 color-mix(in srgb, var(--primary) 70%, #000); }
 .q-item .opts button.right { border-color: var(--good); background: var(--good-soft); border-bottom-color: color-mix(in srgb, var(--good) 70%, #000); box-shadow: 0 2px 0 color-mix(in srgb, var(--good) 70%, #000); animation: popBounce .32s cubic-bezier(.34, 1.56, .64, 1); }
@@ -564,7 +565,7 @@ body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolut
 /* Kế hoạch hôm nay */
 .plan { display: grid; gap: .5rem; margin-top: .8rem; }
 .plan-item { display: flex; align-items: center; gap: .7rem; padding: .7rem .8rem; border-radius: 14px; background: var(--surface-2); color: var(--text); border: 2px solid transparent; transition: border-color .15s, transform .1s; }
-@media (hover: hover) { .plan-item:hover { border-color: var(--primary); transform: translateX(2px); } }
+@media (hover: hover) { .plan-item:hover { background: var(--surface-3); transform: translateX(2px); } }
 .plan-item.done { opacity: .6; } .plan-item.done b { text-decoration: line-through; }
 .pi-num { width: 26px; height: 26px; border-radius: 50%; background: var(--primary); color: var(--primary-ink); display: grid; place-items: center; font-weight: 800; font-size: .8rem; flex: none; }
 .plan-item.done .pi-num { background: var(--done); color: var(--on-done); }
@@ -632,7 +633,7 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 /* ===== Phương pháp ===== */
 .mplan { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .5rem; margin-top: .7rem; }
 .mpi { min-height: 44px; display: flex; align-items: center; gap: .6rem; border: 1px solid var(--line); border-radius: 12px; padding: .6rem .7rem; color: var(--text); text-decoration: none; }
-@media (hover: hover) { .mpi:hover { border-color: var(--primary); } }
+@media (hover: hover) { .mpi:hover { background: var(--surface-3); } }
 .mpi b { font-size: 1.15rem; color: var(--primary); min-width: 2.4rem; }
 
 /* ===== Thi thử 4 kỹ năng ===== */
@@ -987,7 +988,7 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .set-nav { position: sticky; top: 64px; z-index: 6; display: flex; flex-wrap: wrap; gap: .4rem; margin: -.25rem -.25rem 1rem; padding: .45rem .25rem; background: var(--bg); box-shadow: 0 1px 0 var(--line); max-width: 100%; } /* nền đặc: nội dung cuộn bên dưới không lộ qua thanh tab */
 .set-nav::-webkit-scrollbar { display: none; }
 .set-nav button { flex: none; display: inline-flex; align-items: center; gap: .35em; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: inherit; font-size: .88rem; font-weight: 600; padding: .42rem .85rem; border-radius: 999px; cursor: pointer; transition: background .15s, border-color .15s, transform .1s; }
-@media (hover: hover) { .set-nav button:hover { border-color: var(--primary); } }
+@media (hover: hover) { .set-nav button:hover { background: var(--surface-3); } }
 .set-nav button:active { transform: scale(.96); }
 .set-sec { scroll-margin-top: 124px; margin-bottom: 1.5rem; }
 .set-h { display: flex; align-items: center; gap: var(--sp-2); margin: 0 0 var(--sp-2) var(--sp-1); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
@@ -1050,7 +1051,7 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .exam-chip .chev { font-size: .7rem; color: var(--muted); }
 .exam-list { display: grid; gap: .5rem; margin-top: .8rem; }
 .exam-opt { display: flex; align-items: center; gap: .8rem; width: 100%; text-align: start; padding: .8rem 1rem; border: 1.5px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--text); font: inherit; cursor: pointer; transition: border-color .15s, background .15s; }
-@media (hover: hover) { .exam-opt:hover { border-color: var(--primary); } }
+@media (hover: hover) { .exam-opt:hover { background: var(--surface-3); } }
 .exam-opt.on { border-color: var(--primary); background: var(--primary-soft); }
 .exam-opt .em { font-size: 1.5rem; }
 .exam-opt small { display: block; color: var(--muted); font-size: .82rem; margin-top: .1rem; }

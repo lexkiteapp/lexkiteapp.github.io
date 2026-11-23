@@ -60,7 +60,7 @@
       const p = P[k], sm = done ? summary(rows) : null, working = !!phase;
       box.innerHTML = `<div class="row between"><h3 style="margin:0">${ic('repeat')} ${t('Nói đuổi liên tục')}</h3><span class="chip">${noMic ? t('Không dùng mic') : dev() ? t('Chấm từng âm trên máy') : t('Chấm theo từng từ')}</span></div>
         <p class="small muted">${t('Nghe câu rồi nói theo ngay, máy tự sang câu kế – không cần bấm giữa chừng. Cuối đoạn, các từ sai được đánh dấu.')}</p>
-        <div class="shd-bar" role="group" aria-label="${t('Chọn đoạn')}">${P.map((x, i) => `<button type="button" class="btn sm ${i === k ? 'primary' : ''}" data-k="${i}" aria-pressed="${i === k}" ${working ? 'disabled' : ''}>${load()[i] >= 85 ? '✓' : i + 1}</button>`).join('')}</div>
+        <div class="shd-bar" role="group" aria-label="${t('Chọn đoạn')}">${P.map((x, i) => `<button type="button" class="chip ${i === k ? 'on' : ''}" data-k="${i}" aria-pressed="${i === k}" ${working ? 'disabled' : ''}>${load()[i] >= 85 ? '✓' : i + 1}</button>`).join('')}</div>
         <div id="shdList" aria-live="polite">${p.sents.map((s, i) => `<div class="shd-s" ${i === cur ? 'aria-current="true"' : ''}>${rows[i] ? line(rows[i]) : `<div class="shd-line" lang="en" translate="no">${esc(s)}</div>`}</div>`).join('')}</div>
         <div id="shdMsg" role="status" aria-live="polite" class="small" style="margin:.4rem 0">${msg(sm)}</div>
         <div class="shd-bar">${working ? `<button type="button" class="btn" id="shdStop">${ic('x')} ${t('Dừng')}</button>`
