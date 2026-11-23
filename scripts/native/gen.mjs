@@ -12,6 +12,7 @@
  *   teacher  scripts/native/gen-teach.mjs: web TeacherRig core + call/{face,mouths,lipsync,paint}.js + cues.js → teach/rig.json (rig definition) + vectors/rig.json (frames, lip sync ±33 ms, face paint ops, mood);
  *            web/teach/<ama|carlos>/{head-bare-2x,still-<pose>}.webp → bundled offline art (Android assets / iOS LKDesign resources)
  *   lesson   scripts/native/gen-lesson.mjs: web/js/lesson/engine.js (pickWords/build/adapt/check/Session/results/storyItems/plans…) → vectors/lesson.json
+ *   watch    scripts/native/gen-watch.mjs: web/js/{watch-topics,watch}.js → content-pack/watch-topics.json + vectors/watch.json (P12 #/watch)
  *   vimg     scripts/native/gen-vimg.mjs: web/js/vocab-img.js (VImg v3 head + shards) → vectors/vimg.json (lesson pic images)
  *   audio    scripts/native/gen-audio.mjs: web/js/audio.js + CDN/word-key/ttsClean lines of web/js/ui.js + listen/kvoice.js → vectors/audio.json
  *   skills   scripts/native/gen-skills.mjs: web/js/{listening,reading,qengine,qtips,lexis,listen/kvoice,plan}.js + listen/readings data → vectors/skills.json (M4: parity P06 listening & reading screens; P07/P09 extend)
@@ -309,6 +310,7 @@ put(`${SHARED}/vectors/skills.json`, await (await import('./gen-skills.mjs')).sk
 { const LN = await import('./gen-learn.mjs'); put(`${SHARED}/vectors/learn.json`, await LN.learnVectors()); const lc = await LN.learnContent(); put(LN.LEARN_CONTENT_PATH, lc); put(`${IOS}/Sources/LKStore/Resources/learn-content.json`, lc);
   put(LN.GRAMMAR_PACK_PATH, await LN.grammarPack()); const gst = await LN.grammarStarter(); put(LN.GRAMMAR_STARTER_PATH, gst); put(`${IOS}/Sources/LKStore/Resources/grammar-content.json`, gst); }   // M4 P09 part 2: #/fix #/grammar #/method #/quick #/style #/confidence – vectors (learn.json), bundled content (rules, style quiz, confidence units, method texts), grammar download pack https://lexkite.com/data/grammar-pack.json + offline starter
 put(`${SHARED}/vectors/vocab.json`, await vocabVectors());   // M3 vocabulary screens (review/practice/mistakes/deck/dict/library/topic/letters/verb/phrases/model/models/usage/ideas/paraphrase)
+{ const WT = await import('./gen-watch.mjs'); put(`${SHARED}/vectors/watch.json`, WT.watchVectors()); const tp = WT.watchTopics(); put(WT.TOPICS_PATH, tp); put(`${IOS}/Sources/LKStore/Resources/watch-topics.json`, tp); const pl = fs.readFileSync(R('native/shared/content/watch-player.html'), 'utf8'); put(`${SHARED}/content-pack/watch-player.html`, pl); put(`${IOS}/Sources/LKStore/Resources/watch-player.html`, pl); }   // M6 P12 learn from YouTube: topics (bundled) + vectors (ytParse, fmt, buildQ, forYou)
 const { vimgVectors } = await import('./gen-vimg.mjs'); // lesson "pic" images: VImg v3 lookup (exact word#pos, shard by FNV) on the lesson + starter words
 {
   const lp = JSON.parse(fs.readFileSync(R('native/shared/gen/content-pack/lesson-ngsl1.1.json'), 'utf8')), sp = JSON.parse(fs.readFileSync(R('native/shared/gen/content-pack/starter.json'), 'utf8'));
