@@ -11,7 +11,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `functions/` (115 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
 - `scripts/` (1657 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
-- `.github/workflows/` (254 file): CI/CD + việc nền theo lịch (xem mục Workflows)
+- `.github/workflows/` (255 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (15 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1920 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
 - `content/` (8097 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
@@ -109,9 +109,9 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `watch.js`: watch
 - `write.js`: write
 
-## Workflows (254) theo trigger – tên + mô tả đủ: json `workflows`
+## Workflows (255) theo trigger – tên + mô tả đủ: json `workflows`
 Tra: `node -e "const g=require('./docs/codemap.json');console.log(g.workflows.filter(w=>/regex/.test(w.file)).map(w=>w.file+' ['+w.triggers+'] '+w.desc).join('\n'))"`
-[cron,manual] 56 · [push:main,pr,manual] 52 · [manual] 51 · [push:main,manual] 20 · [push:main,cron,manual] 17 · [pr,manual] 13 · [push,manual] 10 · [pr,cron,manual] 7 · [push:main,pr,cron,manual] 5 · [cron,manual,after-wf] 3 · [?] 2 · [call] 2 · [manual,call] 2 · [pr] 2 · [push] 2 · [after-wf] 1 · [manual,after-wf] 1 · [manual,after-wf,call] 1 · [pr,call] 1 · [pr,cron,manual,after-wf] 1 · [push,cron,manual] 1 · [push:main,cron,manual,after-wf] 1 · [push:main,pr] 1 · [push:main,pr,manual,after-wf,call] 1 · [push:main,pr,manual,call] 1
+[cron,manual] 56 · [manual] 52 · [push:main,pr,manual] 52 · [push:main,manual] 20 · [push:main,cron,manual] 17 · [pr,manual] 13 · [push,manual] 10 · [pr,cron,manual] 7 · [push:main,pr,cron,manual] 5 · [cron,manual,after-wf] 3 · [?] 2 · [call] 2 · [manual,call] 2 · [pr] 2 · [push] 2 · [after-wf] 1 · [manual,after-wf] 1 · [manual,after-wf,call] 1 · [pr,call] 1 · [pr,cron,manual,after-wf] 1 · [push,cron,manual] 1 · [push:main,cron,manual,after-wf] 1 · [push:main,pr] 1 · [push:main,pr,manual,after-wf,call] 1 · [push:main,pr,manual,call] 1
 
 ## Test (618) → vùng phủ – tên + file đích đủ: json `tests`
 Tra: `node -e "const g=require('./docs/codemap.json');console.log(g.tests.filter(t=>/regex|vùng/.test(t.test+t.area)).map(t=>t.file+' → '+t.targets).join('\n'))"`
