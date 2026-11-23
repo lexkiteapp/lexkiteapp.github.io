@@ -1,1 +1,0 @@
-self.FRX=self.FRX||{};(FRX.wdl=FRX.wdl||{})["id"]=["rumah","air","langit","sepatu","anjing","kucing","buku","meja","makan","minum","besar","kecil","kota","apel","anak","matahari","berbicara","bahagia","kereta","dapur","susu","roti","sekolah","teman","merah","berjalan","hari ini","jus","pria","kacang"];

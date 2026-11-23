@@ -16,6 +16,7 @@
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'cpack/readings/hl.js', 'js/choice-kit.js', 'js/exam-clock.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
     l1: ['cpack/grammar-l1/ar.js', 'cpack/grammar-l1/de.js', 'cpack/grammar-l1/es.js', 'cpack/grammar-l1/fr.js', 'cpack/grammar-l1/hi.js', 'cpack/grammar-l1/id.js', 'cpack/grammar-l1/ja.js', 'cpack/grammar-l1/ko.js', 'cpack/grammar-l1/pt.js', 'cpack/grammar-l1/ru.js', 'cpack/grammar-l1/th.js', 'cpack/grammar-l1/tr.js', 'cpack/grammar-l1/vi.js', 'cpack/grammar-l1/zh.js'], // ghi chú "vì sao sai" theo tiếng mẹ đẻ – grammar.js nạp đúng 1 gói theo ngôn ngữ giao diện (L1_PACK), KHÔNG prefetch cả 14
+    micdiag: ['cpack/lesson/micdiag.js'], // chẩn đoán lỗi micro (micro câm / nhận dạng hỏng) – chỉ nạp khi nhận dạng kết thúc không kết quả
     klocal: ['js/klocal.js'], // Kokoro trên máy cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md) – tự quyết có nạp mô hình hay không
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
     handsfree: ['js/handsfree.js'],
@@ -93,8 +94,8 @@
     calles: ['cpack/es/cl.js'],
     callfr: ['cpack/fr/cl.js'], // 24 cuộc gọi AI tiếng Pháp A1–C1 (french-course.md W4; js/call.js chọn theo tl)
     esx: ['cpack/es-app/exam-ui.js'],
-    esday: ['cpack/es/dy.js', 'cpack/es/wd.js', 'cpack/es-app/day-ui.js'],
-    frday: ['cpack/fr/dy.js', 'cpack/fr/wd.js', 'cpack/es-app/day-ui.js'], // lộ trình ngày tiếng Pháp: CÙNG day-ui.js (bảng TLD theo tl)
+    esday: ['cpack/es/dy.js', 'cpack/es-app/day-ui.js'], // từ lộ trình: web/packs/<tl>/*.json (day-ui tự tải)
+    frday: ['cpack/fr/dy.js', 'cpack/es-app/day-ui.js'], // lộ trình ngày tiếng Pháp: CÙNG day-ui.js (bảng TLD theo tl)
     lvideo: ['js/i18n/en/lvideo.js', 'js/lib/video-rank.js', 'js/lesson-video.js'], // 🎬 Video bài học (thẻ từ, ngữ pháp, ngày học) – docs/VIDEO-SCALE-PLAN.md §10
     vimg: ['js/vocab-img.js'], // 🖼️ Ảnh minh họa theo nghĩa – CHỈ tải khi cờ vocab_img bật (App.vimgReady), khung app +0
     wordcard: ['js/wordcard.js'], // 🧠 Khối "Hiểu sâu" của thẻ từ (mẹo nhớ · lỗi sai/đúng · dùng khi thi · họ từ)
@@ -107,7 +108,7 @@
     lsw: ['js/lang-menu.js'],
     tlpick: ['js/i18n/en/tlui.js', 'cpack/tl-app/tl-pick.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
-    gend: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-complete.js', 'js/game-end.js'], // 🏁 màn kết mini-game chung (khung Stitch lesson-complete, docs/specs/game-system.md P3)
+    gend: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-complete.js', 'cpack/game/game-end.js'], // 🏁 màn kết mini-game chung (khung Stitch lesson-complete, docs/specs/game-system.md P3)
     pgames: ['js/i18n/en/rhythm.js', 'js/study-games.js', 'js/pron/coach.js', 'cpack/play-app/play-blitz.js', 'cpack/play-app/play-rhythm.js'], // ⚡ Thử thách 60 giây (docs/specs/play-learn.md)
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
     swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
