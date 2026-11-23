@@ -257,7 +257,6 @@
  "big mood": {
   "ar": "شعور يمثلني جداً; ينطبق علي تماماً",
   "de": "passt genau; voll mein Mood",
-  "es": "es mi rollo; es mi vibe; es mi estado de ánimo",
   "fr": "c'est trop moi; c'est le mood; c'est exactement mon feeling",
   "hi": "बिल्कुल दिल की बात; पूरी तरह सहमत",
   "id": "bener banget; relate banget",
@@ -296,7 +295,7 @@
   "pt": "que mico; que vergonha",
   "ru": "ой-ой; ужас",
   "th": "แย่มาก; น่าอายมาก",
-  "tr": "ağır sıkıntı; tam bir felaket; çok garip",
+  "tr": "tam rezalet; çok garip",
   "zh": "尴尬至极; 太尴尬了"
  },
  "binge-watch": {
@@ -326,6 +325,7 @@
   "pt": "ficar em branco; esquecer tudo",
   "ru": "забыть всё; выпасть из головы",
   "th": "นึกไม่ออกกะทันหัน; สมองว่างเปล่า; ลืมไปหมด",
+  "tr": "beyazlamak; aklım boşaldı",
   "zh": "脑子空白; 瞬间忘记"
  },
  "blooper": {
@@ -392,6 +392,7 @@
   "ar": "تفاهات الإنترنت; محتوى مفسد للذهن",
   "de": "Hirnschrott; Gehirnmüll",
   "es": "basura mental; contenido basura",
+  "fr": "cervelle en compote; déchet cérébral",
   "hi": "दिमाग ख़राब करने वाला कंटेंट; व्यर्थ सामग्री",
   "id": "pembusukan otak; tontonan tidak berguna",
   "ja": "脳みそが腐るようなコンテンツ; 脳腐れ",
@@ -894,7 +895,7 @@
   "pt": "grudento; pegajoso; carente",
   "ru": "прилипчивый; навязчивый",
   "th": "เกาะติด; อยากอยู่ใกล้ตลอด; อยากได้ความสนใจ",
-  "tr": "çok yapışkan; sürekli yapışık; fazla bağımlı",
+  "tr": "çok ilgi isteyen; yapışkan",
   "zh": "黏人; 粘人"
  },
  "clutch": {
@@ -2377,6 +2378,7 @@
   "pt": "influenciador; influenciador digital",
   "ru": "инфлюенсер; влиятельный блогер; онлайн‑инфлюенсер",
   "th": "อินฟลูเอนเซอร์; ผู้มีอิทธิพลบนสื่อโซเชียล",
+  "tr": "sosyal medya fenomeni; influencer",
   "zh": "网红; 网络红人"
  },
  "irl": {
@@ -3657,6 +3659,7 @@
   "de": "ratio bekommen; mehr Antworten als Likes erhalten",
   "es": "ratioeado; recibir más respuestas que likes",
   "fr": "être ratio; subir un ratio",
+  "id": "di‑ratio; di‑balas lebih banyak daripada disukai",
   "ja": "リプが多くなる; 比率が逆転する; 逆比率になる",
   "ko": "리플 폭탄을 맞다; 비난 댓글이 좋아요를 압도하다",
   "pt": "ratioar; receber mais respostas que curtidas",
@@ -4571,6 +4574,7 @@
   "hi": "ज़हरीला; मानसिक रूप से हानिकारक; अस्वास्थ्यकर",
   "id": "toksik; beracun",
   "ja": "有害な; 毒性のある; 毒舌な",
+  "ko": "독성의; 독성적인; 독한",
   "pt": "tóxico; venenoso",
   "ru": "токсичный; ядовитый",
   "th": "เป็นพิษ; ทำให้เครียด",
