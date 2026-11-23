@@ -3,9 +3,14 @@
 # → dùng đúng bộ G2P chính thức của Kokoro (misaki EspeakG2P + espeak-ng đầy đủ, espeakng-loader), cùng mô hình; giọng theo bảng.
 # Vào: JSON mảng chữ (stdin) · Ra: JSON {chữ: âm vị | null} (stdout). Lỗi nạp → thoát 3 (tl-sample.mjs ghi probe, đổi Piper theo spec).
 import json, os, sys
+# TL_G2P = trường g2p của bảng: mặc định espeak; "misaki-ja" = G2P tiếng Nhật chính thức của Kokoro (misaki JAG2P – cutlet/fugashi + UniDic), giọng jf_*/jm_* học trên bộ âm vị này
 try:
-    from misaki import espeak
-    g2p = espeak.EspeakG2P(language=os.environ.get('TL_ESPEAK', 'pt-br'))
+    if os.environ.get('TL_G2P') == 'misaki-ja':
+        from misaki import ja
+        g2p = ja.JAG2P()
+    else:
+        from misaki import espeak
+        g2p = espeak.EspeakG2P(language=os.environ.get('TL_ESPEAK', 'pt-br'))
 except Exception as e:
     print(json.dumps({'__err': 'misaki: ' + str(e)[:200]})); sys.exit(3)
 out = {}

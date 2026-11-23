@@ -66,7 +66,7 @@
               const sim = Math.max(0, ...(alts && alts.length ? alts : [heard]).map(a => g.UI.similarity(a, it.s)));
               const d = C().diff(heard, it.s, WEAK), sc = C().score(sim, d), b = C().band(sc), st = load();
               st[k] = Math.max(st[k] || 0, sc); save(st);
-              if (g.App && App.reward && sc >= 65) App.reward({ spoken: 1, pron: 1, xp: sc >= 85 ? 4 : 2 });
+              if (g.App && App.reward && sc >= 65) App.reward({ spoken: 1, pron: 1, xp: Game.xpFor('say', { score: sc }) });
               const tips = [];
               if (d.missingContent.length) tips.push(t('Nhấn rõ hơn các từ chính: {w}', { w: d.missingContent.join(', ') }));
               else if (d.missingWeak.length) tips.push(t('Máy nghe sót từ nhỏ: {w} – vẫn đọc nhẹ nhưng đừng bỏ hẳn.', { w: d.missingWeak.join(', ') }));

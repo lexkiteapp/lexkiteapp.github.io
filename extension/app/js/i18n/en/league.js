@@ -72,7 +72,7 @@
 'Chúc mừng! Bạn đã thăng hạng!': 'Congratulations! You’ve been promoted!',
 'Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và đã thăng hạng lên {tier}!': 'Last week you finished #{rank}/{of} with {xp} XP and were promoted to {tier}!',
 'Kết quả tuần trước': 'Last week’s result',
-'Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và chuyển xuống {tier}. Tuần này hãy cố gắng hơn nhé!': 'Last week you finished #{rank}/{of} with {xp} XP and moved down to {tier}. Give it your best this week!',
+'Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và chuyển xuống {tier}. Tuần mới, khởi đầu mới – học đều mỗi ngày là đủ.': 'Last week you finished #{rank}/{of} with {xp} XP and moved to {tier}. New week, fresh start – a little every day is enough.',
 'Giữ vững thứ hạng!': 'Maintained your tier!',
 'Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và tiếp tục giữ vững {tier}.': 'Last week you finished #{rank}/{of} with {xp} XP and maintained your place in {tier}.',
 
@@ -104,7 +104,7 @@
 'Tích lũy XP qua mọi hoạt động: ôn thẻ từ vựng FSRS (+10–15 XP), đọc bài (+10–20 XP), làm trắc nghiệm, luyện thi.': 'Earn XP through all activities: reviewing FSRS vocabulary cards (+10–15 XP), reading articles (+10–20 XP), doing quizzes, and taking mock tests.',
 'Quyền riêng tư:': 'Privacy:',
 'Chỉ hiển thị biệt danh và XP tuần. Bạn có thể đổi biệt danh bất kỳ lúc nào hoặc rời giải đấu trong mục Cài đặt.': 'Only nickname and weekly XP are displayed. You can change your nickname anytime or leave the league in Settings.',
-'Nguy cơ': 'At risk',
+'Cần thêm XP': 'Needs more XP',
 'An toàn': 'Safe',
 'Còn {n} XP để thăng hạng': '{n} XP to promotion',
 'Kiếm +{n} XP để leo hạng': 'Earn +{n} XP to climb',
