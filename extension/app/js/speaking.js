@@ -124,7 +124,7 @@
     function shadow(sents, box) {
       let k = 0, total = 0;
       const step = () => {
-        if (k >= sents.length) { box.innerHTML = `<div class="feedback ok" style="position:static;margin-top:.6rem"><b>${t('Hoàn thành shadowing · trung bình {pct}% giống mẫu', { pct: Math.round(total / sents.length) })}</b></div>`; App.reward({ spoken: 3, xp: 10 }); return; }
+        if (k >= sents.length) { box.innerHTML = `<div class="feedback ok" style="position:static;margin-top:.6rem"><b>${t('Hoàn thành shadowing · trung bình {pct}% giống mẫu', { pct: Math.round(total / sents.length) })}</b></div>`; App.reward({ spoken: 3, xp: Game.xpFor('say', { score: Math.round(total / sents.length) }) * 2 }); return; }
         const s2 = sents[k];
         box.innerHTML = `<div class="card" style="margin-top:.6rem;box-shadow:none;border:1px solid var(--line)"><div class="tiny muted">${t('Câu {i}/{n} – nghe rồi nói lặp lại, bắt chước nhịp và ngữ điệu', { i: k + 1, n: sents.length })}</div>
           <div style="font-size:1.1rem;margin:.4rem 0">${esc(s2)}</div><label class="md-sw small" style="margin:.2rem 0 .5rem"><input type="checkbox" data-whisper ${state.settings.whisperMode ? 'checked' : ''}><span></span>🤫 ${t('Thì thầm')}</label><div class="row"><button class="btn sm" id="shL">🔊 ${t('Nghe')}</button><button class="btn sm" id="shS">🐢</button><button class="btn sm primary" id="shR">🎙️ ${t('Nói lại')}</button><button class="btn sm ghost" id="shN">${t('Bỏ qua')} →</button></div><div id="shRes" class="small" style="margin-top:.4rem"></div></div>`;
@@ -219,7 +219,7 @@
         <div class="tiny muted">${t('Phân tích tự động để luyện tập, không thay thế giám khảo.')}</div>
         <a class="btn sm" href="#/score">🎤 ${t('Thử thách nói 30 giây')}</a>
       </div>`;
-      if (words.length >= 10) { App.reward({ spoken: Math.min(10, Math.round(words.length / 10)), quizzes: 1, xp: 15 }, $('#recBtn')); Sfx.win(); }
+      if (words.length >= 10) { App.reward({ spoken: Math.min(10, Math.round(words.length / 10)), quizzes: 1, xp: Game.xpFor('talk', { right: Math.min(10, Math.round(words.length / 10)) }) }, $('#recBtn')); Sfx.win(); }
       if (window.AI && text) AI.attach($('#result'), () => ({ kind: 'speaking', task: askText(), text: `Q (${part.toUpperCase()}): ${askText()}\nA (${Math.round(secs)}s): ${text}` }));
       $('#result').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }

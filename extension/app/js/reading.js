@@ -191,11 +191,11 @@
       $('#check').disabled = true;
       const pct = Math.round(score / r.questions.length * 100);
       const first = !(state.game.readDone || {})[r.id];
-      await App.reward({ readings: first ? 1 : 0, quizzes: 1, perfect: pct === 100 ? 1 : 0, xp: 10 + score * 4 }, $('#check'));
+      await App.reward({ readings: first ? 1 : 0, quizzes: 1, perfect: pct === 100 ? 1 : 0, xp: Game.xpFor('set', { right: score, total: r.questions.length }), src: 'rd:' + r.id }, $('#check'));
       state.game = await Game.mutate(gs => { gs.readDone = { ...(gs.readDone || {}), [r.id]: `${score}/${r.questions.length}` }; });
-      $('#qResult').innerHTML = `<div class="feedback ${pct >= 60 ? 'ok' : 'no'}" style="position:static"><b>${t('Kết quả: {score}/{n} ({pct}%)', { score, n: r.questions.length, pct })}</b> · +${10 + score * 4} XP
+      $('#qResult').innerHTML = `<div class="feedback ${pct >= 60 ? 'ok' : 'no'}" style="position:static"><b>${t('Kết quả: {score}/{n} ({pct}%)', { score, n: r.questions.length, pct })}</b> · +${Game.xpFor('set', { right: score, total: r.questions.length })} XP
         <div class="row" style="margin-top:.6rem"><a class="btn sm" href="#/reading">${t('Bài đọc khác')}</a><a class="btn sm primary" href="#/practice/learn?src=deck">🧠 ${t('Học các từ vừa lưu')}</a></div></div>`;
-      Sfx.finish({ pct, xp: 10 + score * 4, el: $('#qResult') });
+      Sfx.finish({ pct, xp: Game.xpFor('set', { right: score, total: r.questions.length }), el: $('#qResult') });
       App.lazy('nxs').then(() => NextStep.render($('#qResult .feedback'), 'read', r.id)).catch(() => {});
     };
   };

@@ -262,6 +262,6 @@
       <div><h3>📝 ${t('Bài viết được tô sáng')}</h3><div class="passage hl-awl hl-link hl-mine" style="font-size:1rem">${Lexis.markText(text, { mine: w => App.inDeck(w) })}</div></div></div>`;
     if (window.AI) { const { overview: _ov, ...data } = d; AI.attach($('#t1Res'), () => ({ kind: 'task1', task: d.title, text, extra: JSON.stringify(data) })); }
     $('#t1Res').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    App.reward({ quizzes: 1, writes: 1, xp: 20 }, $('#go')); Sfx.win();
+    App.reward({ quizzes: 1, writes: 1, xp: Game.xpFor('essay') }, $('#go')); Sfx.win();
   }
 })();

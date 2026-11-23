@@ -11,6 +11,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.unit.dp
 import com.github.takahirom.roborazzi.captureRoboImage
+import com.lexkite.app.core.lesson.LItem
 import com.lexkite.app.core.lesson.LessonEngine
 import com.lexkite.app.core.lesson.Off
 import com.lexkite.app.design.LKTheme
@@ -38,7 +39,7 @@ import org.robolectric.annotation.GraphicsMode
 import java.io.File
 
 /**
- * P03 + C05 snapshot gate at 390 dp: question (gap · build · match · type), feedback right / wrong, completion and a story line, light/dark x en/vi/ar(RTL)/de(+40 %)
+ * P03 + C05 snapshot gate at 390 dp: question (gap · build · match · type · pic · lpic · mpic), feedback right / wrong, completion and a story line, light/dark x en/vi/ar(RTL)/de(+40 %)
  * = 72 images (src/test/snapshots/lesson-*) + the live teacher (teacher-*). Fixed inputs from the shared lesson vectors (no network, no DB); CI records new images on the first run, then verifies.
  */
 @RunWith(RobolectricTestRunner::class)
@@ -54,18 +55,21 @@ class LessonSnapshotTest {
 
     private val imgWords = v.getValue("inputs").jsonObject.getValue("imgWords").jsonArray.map { it.jsonPrimitive.content }.toSet()
     private val imgFn: (String, String) -> Boolean = { w, _ -> w in imgWords }
-    private fun lesson(seed: Long, img: Boolean = false): LessonController {
+    /** [pics] = lpic + mpic on with a picture for every word (the web lesson's flags) */
+    private fun lesson(seed: Long, img: Boolean = false, pics: Boolean = false): LessonController {
         val picks = LessonEngine.pickWords(cards, 6, now, null, starter)
-        val items = LessonEngine.build(picks, LessonEngine.BuildOpts(seed, cards + starter, Off(), null, hasImg = imgFn.takeIf { img }, mean = { c -> (c["vi"] as? JsonPrimitive)?.content.orEmpty() }, gloss = { _, en -> (v.getValue("inputs").jsonObject.getValue("gloss").jsonObject[en] as? JsonPrimitive)?.content.orEmpty() }), now)
+        val items = LessonEngine.build(picks, LessonEngine.BuildOpts(seed, cards + starter, Off(), null, lpic = pics, mpic = pics, hasImg = if (pics) ({ _, _ -> true }) else imgFn.takeIf { img }, mean = { c -> (c["vi"] as? JsonPrimitive)?.content.orEmpty() }, gloss = { _, en -> (v.getValue("inputs").jsonObject.getValue("gloss").jsonObject[en] as? JsonPrimitive)?.content.orEmpty() }), now)
         return LessonController(items, picks, cards, seed = 1, now = { now })
     }
     /** First lesson (by seed) whose current exercise has [type], played on with right answers until it comes up (the engine puts the rarest kind of the first word first, so
      *  gap / build / match are never exercise #1). */
     private fun at(type: String): LessonController {
+        val pics = type == "lpic" || type == "mpic"
+        val hit = { it: LItem -> if (type == "mpic") it.type == "match" && it.pics == true else it.type == type }
         for (s in 1L..300L) {
-            val c = lesson(s, img = type == "pic"); var guard = 0
-            while (c.finish == null && c.sess.cur!!.type != type && guard++ < 80) { c.pickRight(); if (c.feedback != null) c.next() }
-            if (c.finish == null && c.sess.cur!!.type == type) return c
+            val c = lesson(s, img = type == "pic", pics = pics); var guard = 0
+            while (c.finish == null && !hit(c.sess.cur!!) && guard++ < 80) { c.pickRight(); if (c.feedback != null) c.next() }
+            if (c.finish == null && hit(c.sess.cur!!)) return c
         }
         error("no lesson with $type")
     }
@@ -88,6 +92,9 @@ class LessonSnapshotTest {
             "question-build" -> { val c = at("build"); val it = c.sess.cur!!; val w = it.answer.split(" "); repeat(minOf(2, w.size)) { k -> c.placeTile(it.tiles!!.indices.first { i -> i !in c.st.tiles && LessonEngine.same(it.tiles!![i], w[k]) }) }; return c.ui() }
             "question-match" -> { val c = at("match"); c.matchTap(true, 0); c.matchTap(false, 0); c.matchTap(true, 1); return c.ui() }
             "question-pic" -> { val c = at("pic"); c.pick(c.sess.cur!!.options!!.first { it != c.sess.cur!!.answer }); return c.ui() }
+            "question-lpic" -> { val c = at("lpic"); c.pick(c.sess.cur!!.options!!.first { it != c.sess.cur!!.answer }); return c.ui() }
+            "question-mpic" -> { val c = at("mpic"); c.matchTap(true, 0); c.matchTap(false, 0); c.matchTap(true, 1); return c.ui() }
+            "feedback-lpic" -> { val c = at("lpic"); c.pick(c.sess.cur!!.answer); c.check(); return c.ui() }
             "question-type" -> { val c = at("type"); c.type(c.sess.cur!!.answer.take(2)); return c.ui() }
             "feedback-correct" -> { val c = at("gap"); c.pick(c.sess.cur!!.answer); c.check(); return c.ui() }
             "feedback-wrong" -> { val c = at("gap"); c.pick(c.sess.cur!!.options!!.first { it != c.sess.cur!!.answer }); c.check(); return c.ui() }
@@ -186,6 +193,25 @@ class LessonSnapshotTest {
     @Test fun storyLineArDark() = shot("story-line", "ar", true)
     @Test fun storyLineDeLight() = shot("story-line", "de", false)
     @Test fun storyLineDeDark() = shot("story-line", "de", true)
+
+    @Test fun questionLpicEnLight() = shot("question-lpic", "en", false)
+    @Test fun questionLpicEnDark() = shot("question-lpic", "en", true)
+    @Test fun questionLpicViLight() = shot("question-lpic", "vi", false)
+    @Test fun questionLpicViDark() = shot("question-lpic", "vi", true)
+    @Test fun questionLpicArLight() = shot("question-lpic", "ar", false)
+    @Test fun questionLpicArDark() = shot("question-lpic", "ar", true)
+    @Test fun questionLpicDeLight() = shot("question-lpic", "de", false)
+    @Test fun questionLpicDeDark() = shot("question-lpic", "de", true)
+    @Test fun feedbackLpicEnLight() = shot("feedback-lpic", "en", false)
+    @Test fun feedbackLpicEnDark() = shot("feedback-lpic", "en", true)
+    @Test fun questionMpicEnLight() = shot("question-mpic", "en", false)
+    @Test fun questionMpicEnDark() = shot("question-mpic", "en", true)
+    @Test fun questionMpicViLight() = shot("question-mpic", "vi", false)
+    @Test fun questionMpicViDark() = shot("question-mpic", "vi", true)
+    @Test fun questionMpicArLight() = shot("question-mpic", "ar", false)
+    @Test fun questionMpicArDark() = shot("question-mpic", "ar", true)
+    @Test fun questionMpicDeLight() = shot("question-mpic", "de", false)
+    @Test fun questionMpicDeDark() = shot("question-mpic", "de", true)
 
     @Test fun questionPicEnLight() = shot("question-pic", "en", false)
     @Test fun questionPicEnDark() = shot("question-pic", "en", true)

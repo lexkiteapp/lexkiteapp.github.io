@@ -1,0 +1,210 @@
+{
+ "id": "20261120-r260",
+ "source": "lexicon-expand",
+ "n": 103,
+ "checked": [
+  {
+   "id": "undependable#adj",
+   "ok": true
+  },
+  {
+   "id": "amenorrhea#n",
+   "ok": true
+  },
+  {
+   "id": "trebuchet#n",
+   "ok": true
+  },
+  {
+   "id": "monocyte#n",
+   "ok": true
+  },
+  {
+   "id": "repast#n",
+   "ok": true
+  },
+  {
+   "id": "lacquerware#n",
+   "ok": true
+  },
+  {
+   "id": "eavesdropper#n",
+   "ok": true
+  },
+  {
+   "id": "toxicant#n",
+   "ok": true
+  },
+  {
+   "id": "esophagitis#n",
+   "ok": true
+  },
+  {
+   "id": "hypokalemia#n",
+   "ok": true
+  },
+  {
+   "id": "contiguity#n",
+   "ok": true
+  },
+  {
+   "id": "foreleg#n",
+   "ok": true
+  },
+  {
+   "id": "neologism#n",
+   "ok": true
+  },
+  {
+   "id": "systematize#v",
+   "ok": true
+  },
+  {
+   "id": "dysmenorrhea#n",
+   "ok": true
+  },
+  {
+   "id": "photochemistry#n",
+   "ok": true
+  },
+  {
+   "id": "subsume#v",
+   "ok": true
+  },
+  {
+   "id": "sociobiology#n",
+   "ok": true
+  },
+  {
+   "id": "macromolecule#n",
+   "ok": true
+  },
+  {
+   "id": "acupressure#n",
+   "ok": true
+  },
+  {
+   "id": "centrosome#n",
+   "ok": true
+  },
+  {
+   "id": "satrap#n",
+   "ok": true
+  },
+  {
+   "id": "exponentiation#n",
+   "ok": true
+  },
+  {
+   "id": "spermicide#n",
+   "ok": true
+  },
+  {
+   "id": "unclassifiable#adj",
+   "ok": true
+  },
+  {
+   "id": "untranslatable#adj",
+   "ok": true
+  },
+  {
+   "id": "polychaete#n",
+   "ok": true
+  },
+  {
+   "id": "juristic#adj",
+   "ok": true
+  },
+  {
+   "id": "imprecision#n",
+   "ok": true
+  },
+  {
+   "id": "pointlessness#n",
+   "ok": true
+  },
+  {
+   "id": "eucalypt#n",
+   "ok": true
+  },
+  {
+   "id": "autodidact#n",
+   "ok": true
+  },
+  {
+   "id": "fascicle#n",
+   "ok": true
+  },
+  {
+   "id": "surmountable#adj",
+   "ok": true
+  },
+  {
+   "id": "osteoblast#n",
+   "ok": true
+  },
+  {
+   "id": "artilleryman#n",
+   "ok": true
+  },
+  {
+   "id": "unprovable#adj",
+   "ok": true
+  },
+  {
+   "id": "cholecystitis#n",
+   "ok": true
+  },
+  {
+   "id": "nucleolus#n",
+   "ok": true
+  },
+  {
+   "id": "geometer#n",
+   "ok": true
+  },
+  {
+   "id": "simultaneity#n",
+   "ok": true
+  },
+  {
+   "id": "consanguinity#n",
+   "ok": true
+  },
+  {
+   "id": "meristem#n",
+   "ok": true
+  },
+  {
+   "id": "precipitate#n",
+   "ok": true
+  },
+  {
+   "id": "sonography#n",
+   "ok": true
+  },
+  {
+   "id": "fossilization#n",
+   "ok": true
+  },
+  {
+   "id": "myocarditis#n",
+   "ok": true
+  },
+  {
+   "id": "amphoteric#adj",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): ex: Ammonia is not an amphoteric substance in the standard chemical sense (it is a base); using it as a 'common example' is factually misleading for a dictionary entry."
+  },
+  {
+   "id": "anosmia#n",
+   "ok": true
+  },
+  {
+   "id": "neocolonialism#n",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-22",
+ "status": "published"
+}
