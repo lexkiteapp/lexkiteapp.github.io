@@ -1,5 +1,5 @@
 // Phễu lần đầu + hỏi nhắc mềm sau màn kết BÀI HỌC (docs/specs/retention-1211.md §22/11).
-// 22/11: cờ ux1 bật 100 % → đường học chính là lesson engine (#/lesson, màn kết .lsn-end) nhưng nó không phát 'lexkite:practice-done',
+// 22/11: cờ ux1 bật 100 % → đường học chính là lesson engine (#/lesson) nhưng nó không phát 'lexkite:practice-done' (23/11: nay phát 'lexkite:lesson-done'),
 // nên remind.js không bao giờ hỏi bật nhắc sau bài đầu (chỉ ôn thẻ .rev-done mới hỏi). Test khóa: màn kết bài học → first_win + hỏi mềm,
 // máy cũ không tính first_win, quay lại đúng ngày +1/+7 → fw_d1/fw_d7 một lần, công tắc khẩn rem_lsn = '0', bài thử ?demo= không tính.
 // Chạy: node scripts/test/retention-funnel.mjs
@@ -47,36 +47,34 @@ async function boot({ hash = '#/lesson', cfg = null, store = {}, gameDays = {}, 
 }
 const tick = () => new Promise(r => setTimeout(r, 30));
 
-{ // máy mới: màn kết bài học kiểu mới (Stitch, root .lsn-end gắn thẳng vào #view)
-  const { w, view, sent } = await boot();
-  const root = w.document.createElement('div'); root.id = 'lsn'; root.className = 'lsn-v2 lsn-end st-end'; view.replaceChildren(root);
-  await tick();
-  ok(sent.includes('first_win'), 'màn kết bài học → first_win – ' + sent);
+const done = w => w.dispatchEvent(new w.CustomEvent('lexkite:lesson-done', { detail: { acc: 90 } }));
+{ // máy mới: lesson engine phát lexkite:lesson-done khi xong bài
+  const { w, sent } = await boot();
+  done(w); await tick();
+  ok(sent.includes('first_win'), 'lesson-done → first_win – ' + sent);
   ok(/^\d{4}-\d\d-\d\d$/.test(JSON.parse(w.localStorage.getItem('lk.fw'))), 'lk.fw = ngày bài đầu');
-  view.replaceChildren(root.cloneNode()); await tick();
+  done(w); await tick();
   ok(sent.filter(e => e === 'first_win').length === 1, 'first_win chỉ 1 lần');
   w.close();
 }
-{ // màn kết bài cũ: .lsn-end chèn vào #lsnBody bên trong #lsn (cần subtree)
-  const { w, view, sent } = await boot();
-  view.innerHTML = '<div id="lsn" class="lsn"><div id="lsnBody"></div></div>'; await tick();
-  ok(!sent.includes('first_win'), 'đang làm bài: chưa tính');
-  view.querySelector('#lsnBody').innerHTML = '<div class="lsn-end">xong</div>'; await tick();
-  ok(sent.includes('first_win'), 'màn kết bài cũ (lồng trong #lsnBody) cũng tính');
+{ // màn kết ôn thẻ .rev-done vẫn tính (đường cũ)
+  const { w, view, sent } = await boot(); w.App.state.stats.days[w.Core.todayKey()] = 3;
+  view.innerHTML = '<div class="rev-done"></div>'; await tick();
+  ok(sent.includes('first_win'), 'màn kết ôn thẻ → first_win');
   w.close();
 }
 { // máy đã học từ trước bản này: không tính first_win
-  const { w, view, sent } = await boot({ gameDays: { [dayAgo(3)]: { xp: 20 } } });
-  view.innerHTML = '<div class="lsn-end"></div>'; await tick();
+  const { w, sent } = await boot({ gameDays: { [dayAgo(3)]: { xp: 20 } } });
+  done(w); await tick();
   ok(!sent.includes('first_win') && JSON.parse(w.localStorage.getItem('lk.fw')) === 'old', 'máy cũ → lk.fw = old, không first_win');
   w.close();
 }
-{ // công tắc khẩn + bài thử
-  const a = await boot({ cfg: { rem_lsn: '0' } }); a.view.innerHTML = '<div class="lsn-end"></div>'; await tick();
-  ok(!a.sent.includes('first_win'), "rem_lsn = '0' → không phản ứng màn kết bài học"); a.w.close();
-  const b = await boot({ hash: '#/lesson?demo=1' }); b.view.innerHTML = '<div class="lsn-end"></div>'; await tick();
-  ok(!b.sent.includes('first_win'), 'bài thử ?demo= không tính'); b.w.close();
-}
+// Nguồn sự kiện + người nghe: lesson/ui.js phát (bỏ bài thử, công tắc khẩn rem_lsn), remind/install-sheet/retention nghe; KHÔNG phát practice-done (quảng cáo toàn màn/lớp học không đọc nhầm)
+{ const u = rd('web/js/lesson/ui.js');
+  ok(/if \(!L\.demo && !\/"rem_lsn":"0"\/\.test\(ls\.get\('lk\.cfg'\) \|\| ''\)\) setTimeout\(\(\) => dispatchEvent\(new CustomEvent\('lexkite:lesson-done'/.test(u), 'lesson/ui.js phát lesson-done (bỏ bài thử, công tắc rem_lsn)');
+  ok(!/lexkite:practice-done/.test(u), 'lesson/ui.js không phát practice-done');
+  for (const f of ['web/js/remind.js', 'web/js/install-sheet.js', 'web/js/retention.js']) ok(/'lesson-done'/.test(rd(f)), f + ' nghe lesson-done');
+  ok(!/'lesson-done'/.test(rd('web/js/ads/run.js')) && !/'lesson-done'/.test(rd('web/js/classroom.js')), 'quảng cáo/lớp học không nghe lesson-done'); }
 { // quay lại sau bài đầu
   const a = await boot({ store: { 'lk.fw': dayAgo(1) }, start: true }); await tick();
   ok(a.sent.includes('fw_d1') && !a.sent.includes('fw_d7'), 'mở lại ngày +1 → fw_d1 – ' + a.sent);

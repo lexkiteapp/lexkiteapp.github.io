@@ -744,6 +744,8 @@
       }
       try { await App.reward({ quizzes: 1, spoken: L.spoken, perfect: s.wrong.size ? 0 : 1, xp }); } catch (e) { /* bỏ qua */ }
     }
+    // Xong bài thật → 'lexkite:lesson-done' (nhắc học mềm, mời cài app, mốc chuỗi nghe; không dùng practice-done để quảng cáo/lớp học không đọc nhầm). Tắt khẩn config rem_lsn='0'
+    if (!L.demo && !/"rem_lsn":"0"/.test(ls.get('lk.cfg') || '')) setTimeout(() => dispatchEvent(new CustomEvent('lexkite:lesson-done', { detail: { acc: s.accuracy } })), 0);
     const weak = weak0(s);
     if (CV) return finishV2(s, xp, weak0(s), cheer);
     view.querySelector('#lsnBody').innerHTML = ''; if (L.v2) view.querySelector('#lsnBody').className = FLOW;
