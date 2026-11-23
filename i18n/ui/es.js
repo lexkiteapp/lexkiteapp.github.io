@@ -818,7 +818,7 @@
 "Nội động từ":"Intransitivo",
 "Part 1–3, ghi âm, chấm từ vựng":"Partes 1 a 3, grábate, puntuación de vocabulario",
 "Part 1–4, có transcript và giải thích":"Partes 1 a 4 con transcripciones y explicaciones.",
-"Phiên dịch":"Interpreter",
+"Phiên dịch":"Intérprete",
 "Phiên âm":"AFI",
 "Phiên ôn xuất sắc!":"¡Repaso perfecto!",
 "Phrasal verb, thành ngữ, cách diễn đạt tự nhiên":"Verbos compuestos, modismos, expresiones naturales.",

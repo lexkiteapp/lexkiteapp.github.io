@@ -818,7 +818,7 @@
 "Nội động từ":"Intransitif",
 "Part 1–3, ghi âm, chấm từ vựng":"Bagian 1–3, catat diri Anda, penilaian kosakata",
 "Part 1–4, có transcript và giải thích":"Bagian 1–4 dengan transkrip dan penjelasan",
-"Phiên dịch":"Interpreter",
+"Phiên dịch":"Penerjemah",
 "Phiên âm":"IPA",
 "Phiên ôn xuất sắc!":"Sesi ulasan sempurna!",
 "Phrasal verb, thành ngữ, cách diễn đạt tự nhiên":"Kata kerja phrasal, idiom, ekspresi alami",
