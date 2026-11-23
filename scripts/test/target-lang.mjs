@@ -337,6 +337,13 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(!rb.length, 'bài đọc Hangul: pron/RR/IPA = máy sinh: ' + rb.map(r => r.w).join(' '));
   const seenJ = new Set(); let order = true; for (const u of H.units) { for (const r of u.read) for (const ch of r.w) { const x = K.split(ch); for (const j of [x.l, x.v]) if (j !== 'ㅇ' && !seenJ.has(j) && !(u.jamo || []).includes(j)) order = false; } (u.jamo || []).forEach(j => seenJ.add(j)); }
   ok(order, 'bài đọc chỉ dùng jamo đã học ở bài đó hoặc trước'); }
+// W2 ko: bảng chia đủ dạng (conjAll) – mẫu offline; CI đối chiếu Wiktionary 100 % (conj-check --tl ko)
+{ const K = await import('../target/ko-hangul.mjs'), F = (w, k) => K.conjAll(w, ...K.KNOWN[w])[k];
+  const S = [['살다', 'plain', '산다'], ['살다', 'detPres', '사는'], ['살다', 'eum', '삶'], ['살다', 'myeon', '살면'], ['살다', 'nikka', '사니까'], ['춥다', 'detPres', '추운'], ['춥다', 'myeon', '추우면'], ['듣다', 'detPast', '들은'], ['듣다', 'go', '듣고'],
+    ['낫다', 'myeon', '나으면'], ['파랗다', 'detPres', '파란'], ['파랗다', 'neunde', '파란데'], ['모르다', 'seo', '몰라서'], ['크다', 'detPres', '큰'], ['먹다', 'plain', '먹는다'], ['가다', 'plain', '간다'], ['만들다', 'eum', '만듦'], ['길다', 'neunde', '긴데'], ['먹다', 'seyo', '드세요'], ['가다', 'seyo', '가세요'], ['공부하다', 'ryeogo', '공부하려고']];
+  const bad = S.filter(([w, k, f]) => F(w, k) !== f); ok(!bad.length, 'conjAll 21 dạng mẫu (ㄹ rơi/giữ, ㅂ→우, ㄷ→ㄹ, ㅅ rơi, ㅎ rơi, 르, 으, định ngữ động/tính từ, kính ngữ theo từ): ' + bad.map(x => x.join('→') + '≠' + F(x[0], x[1])).join(' '));
+  ok(Object.values(K.KNOWN).every(([c]) => K.CONJ.includes(c)) && Object.entries(K.KNOWN).every(([w, [c]]) => K.conjShape(w, c)) && new Set(Object.values(K.KNOWN).map(x => x[0])).size === 11, 'KNOWN: 57 vị từ mẫu đủ 11 lớp, khớp hình thức gốc');
+  ok(/conj-check\.mjs --tl ko/.test(rd('.github/workflows/target-content.yml')) && /주다:past/.test(rd('scripts/target/conj-check.mjs')), 'CI: chia ko ↔ Wiktionary; ngoại lệ có lý do'); }
 // ko-hangul.mjs: chữ Hangul (ghép/tách, IME), phát âm chuẩn, RR, IPA, tiểu từ, số + từ đếm, chia vị từ, chấm IME
 { const K = await import('../target/ko-hangul.mjs');
   ok(JSON.stringify(K.split('한')) === '{"l":"ㅎ","v":"ㅏ","t":"ㄴ"}' && K.join({ l: 'ㄱ', v: 'ㅘ', t: 'ㄴ' }) === '관' && K.split('a') === null, 'tách/ghép âm tiết');
