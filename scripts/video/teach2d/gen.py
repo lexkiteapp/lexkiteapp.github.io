@@ -498,6 +498,30 @@ def slang_src():   # (bank by lowercase key, TeacherRig EXPR + GESTURES) – the
     return _SX
 
 
+SL_M_F, SL_L_F, SL_FR_F = f'{ROOT}/content/say-native/meanings.json', f'{ROOT}/content/say-native/slang-lines.json', f'{ROOT}/content/say-native/slang-l1-frames.json'
+SL_LANGS = ['vi', 'ar', 'de', 'es', 'fr', 'hi', 'id', 'ja', 'ko', 'pt', 'ru', 'th', 'tr', 'zh']   # = scripts/say-native/build.mjs LANGS (pages with their own language)
+
+
+def slang_l1_src(it, lang):   # the card's page-language texts (None when one is missing: the row is not planned / not rendered)
+    J = lambda f: json.load(open(f)) if os.path.exists(f) else {}
+    k = it['key'].lower(); m = it['vi'] if lang == 'vi' else (J(SL_M_F).get(k) or {}).get(lang); LN = J(SL_L_F)
+    if m and lang != 'vi':   # ONE sense: the first that is really in the page language (fr 'bet' = "OK; Ça marche" → Ça marche); a judged gloss can also list a literal sense (ar 'salty' … ; حامض = sour)
+        S_ = [x.strip() for x in re.split(r'\s*[;；]\s*', m) if x.strip()]; m = next((x for x in S_ if not re.fullmatch(r"[A-Za-z' .!-]+", x)), S_[0] if S_ else m)
+    h, e = (LN.get(f'{k}|hook') or {}).get(lang), (LN.get(f'{k}|ex') or {}).get(lang)
+    if lang == 'vi': h, e = it.get('vi_hook'), it.get('vi_ex')   # vi = hand-written on the card (lexai 'translate' has no vi), like the vi gloss
+    return dict(m=m, hook=h, ex=e) if m and h and e else None
+
+
+def slang_native(it, lang, T):   # post copy in the page language from the hand-written frames (slang-l1-frames.json) + the judged translations
+    F = json.load(open(SL_FR_F))['langs'][lang]; k = it['key']; hook = F['hook'].replace('{k}', k)
+    if len(hook) > 34: hook = F['hook'].replace('{k}', k.split()[0] + '…')   # the frame-0 hook stays <= 34 characters (native-qa lengths)
+    ex = it['example']['text']   # the English example rides along in the tip + first comment: useful for the learner, and an acronym slang (ASAP, AFK) never makes the post 'all caps'
+    tip = f'“{k}” = {T["m"]}. {F["eg"]}: “{ex}”'
+    if len(tip) > 140: tip = f'“{k}” = {T["m"]}'   # native-qa: the tip stays <= 140 characters (the example is still in the caption + first comment)
+    return dict(hook=hook, tip=tip, caption=f'{hook}\n“{k}” = {T["m"]}.\n{F["eg"]}: “{it["example"]["text"]}” ({T["ex"]})\n{F["cta"]}',
+                comment=f'{F["ans"]}: “{k}” = {T["m"]}. “{ex}” {F["more"]}: {{link}}', hashtags=F['hashtags'])
+
+
 def slang_variant(key): return 'quiz' if int(hashlib.sha1(key.lower().encode()).hexdigest(), 16) % 2 == 0 else 'misuse'
 
 
@@ -515,10 +539,14 @@ def slang(p):   # Slang Card: hook + STRONG expression (drawn face or approved p
              L('c', 'lexkite.com', 0.5)]
         if secs(lines) <= SLANG_SECS[1]: break
     pose = dict(clip=X['g'][g]['pose'], after='h') if g and pose_ok else None
-    return dict(lines=lines, expr=it['expr'], **({'pose': pose} if pose else {}),
+    out = dict(lines=lines, expr=it['expr'], **({'pose': pose} if pose else {}),
                 data=dict(key=it['key'], forms=it.get('forms') or [], ipa=it['ipa'], mean=it['mean'], define=it['def'], vi=it['vi'], reg=it['reg'], region=it['region'], level=it['level'],
                           era=it['era'], theme=it['theme'], example=ex, variant=var, quiz=it['quiz'], misuse=it['misuse']),
                 cta=cta('phrases', '#/phrases', 'Learn real slang free'), hook=dict(line='h', text=it['hook']), src=dict(slang=it['key']))
+    if p.get('lang'):   # L1 page: same English lesson; the meaning, the hook and the example also in the page language (shown under the English), post copy in that language
+        T_ = slang_l1_src(it, p['lang']); assert T_, ('slang L1 texts missing', it['key'], p['lang'])
+        out['data'].update(l1=T_['m'], l1_hook=T_['hook'], l1_ex=T_['ex'], right=it['key'], native=slang_native(it, p['lang'], T_))
+    return out
 
 
 T['slang'] = slang; SERIES['slang'] = 'Slang Card'
@@ -532,7 +560,7 @@ SC_NUM, SC_COUNT = {40: 'forty', 60: 'sixty', 80: 'eighty'}, ['No', 'One', 'Two'
 SC_REACT = {100: 'Perfect. Tough to match.', 80: 'Pretty good, right?', 60: 'Okay. You can beat that.', 40: 'Oops. Easy to beat!'}
 SC_CYCLE = [80, 60, 100, 80, 40, 60, 80, 100]   # bands in plan order: smug / shrug / hype alternate, so no two neighbours look alike
 SC_W, SC_ROW, SC_REGION = 708, 40, 820   # row text: measured here (basic layout) <= 708 px; the card column is 758 px (900 - badge column 102 - pad 40), a 7 % margin for CI's raqm / hinted advances, row font (= the 40 px min-text floor), card height room (card region 826)
-SC_WORDS, SC_SECS = (16, 28), (9.0, 12.0)   # word / seconds range of the score challenge reel (speed = SLANG_SPEED)
+SC_WORDS, SC_SECS = (16, 28), (7.2, 10.8)   # word range / est. seconds (syllable clock, make()) of the score challenge reel: real total = est + ~2 s end-card tail -> qc.py 9-13 s; speed = SLANG_SPEED (3.1 syllables / s, <= 5)
 
 
 def sc_ok(g):   # a gold quiz item the card can show: one gap, 2 short options, learner level, audited (qc.gold), BOTH fillings fit one 40 px row
@@ -560,7 +588,7 @@ def scorecard(p):
     F = [sc_fact(i, k) for i, k in zip(p['items'], p['picks'])]; assert len(F) == SC_N and all(k in (0, 1) for k in p['picks']), ('scorecard: 5 items, picks 0/1', p)
     s, n = sc_score(F), sc_right(F); assert s in SC_EXPR, ('scorecard: score band', s); XP = slang_src()[1]['x'][SC_EXPR[s]]; g = XP.get('gesture'); X_ = slang_src()[1]
     hs = 'Perfect score. Match me?' if s == 100 else f'Score {SC_NUM[s]}. Beat me?'
-    def secs(ls): return sum(len(words(l['text'])) for l in ls) / (2.55 * SLANG_SPEED) + sum(l['pause'] for l in ls)
+    def secs(ls): return sum(syllables(l['text']) for l in ls) / (G3_SYL_S * SLANG_SPEED / 1.25) + sum(l['pause'] for l in ls)   # = make()'s syllable clock
     for pose_ok in ((True, False) if g else (False,)):   # same rule as slang: the approved pose image needs a >= 1.2 s voiced gap, else the drawn face carries the expression
         lines = [L('h', hs, 1.25 if pose_ok else 0.55), L('k', f'Five questions. {SC_COUNT[n]} right.', 0.25), L('r', SC_REACT[s], 0.3),
                  L('ch', f'Can you {sc_verb(s)} that? Take the free test.', 0.4), L('c', 'lexkite.com', 0.5)]
@@ -575,17 +603,18 @@ T['scorecard'] = scorecard; SERIES['scorecard'] = 'Score Challenge'
 
 
 # ---------------- guess3: "Guess in 3 Seconds" 7-12 s reels (growth series #2, docs/GROWTH-1M.md §2): picture + hidden word, 3-2-1 ring, reveal ----------------
-G3_HOOKS = ('Guess in three seconds!', 'Three seconds. What is it?', 'Quick! Guess in three seconds!')   # each <= 6 words and TRUE: the ring counts 3-2-1 right after it
+G3_HOOKS = ('Guess in three seconds!', 'Three seconds. Go!', 'Name it in three seconds!')   # each <= 6 words and TRUE: the ring counts 3-2-1 right after it
 G3_EXPR = ('confused', 'smirk', 'hype')   # TeacherRig EXPR faces held through the hook + countdown (drawn face: the ring is the focus, no pose image over it)
-G3_RING = 2.6   # L() caps a pause at 2.6 s: the silence after the hook IS the 3-2-1 countdown
-G3_SPEED = 1.25   # 1.25x Kokoro: the 2.6 s countdown leaves ~8 s of speech in a 12 s reel (still <= 150 wpm with the pauses)
+G3_RING = 1.5   # the silence after the hook; the 3-2-1 ring runs over the hook + this silence (~3 s)
+G3_SYL_S = 3.5   # syllables per second of Kokoro at G3_SPEED (calibrated on CI renders)
+G3_SPEED = 1.33   # Kokoro 1.33x: the highest speed under the qc pace gate (<= 5 syllables / s per line; 1.25x measured 4.5) – a 12 s reel holds ~9 s of speech
 SHORT_T = ('slang', 'guess3')   # 7-12 s vertical reels: same pace / word / length gates
 
 
 def guess3(p):   # Guess in 3 Seconds: hook + picture with the word hidden (blank tiles) + 3-2-1 ring (viewer guesses in the comments) -> answer + IPA -> meaning -> one example -> CTA
     w = p['word']; ipa, dfn, ex = frozen(p); assert ipa and dfn and ex, ('word not in the audited bank', w)
     h = int(hashlib.sha1(w.encode()).hexdigest(), 16); hook = G3_HOOKS[h % 3]  ; expr = G3_EXPR[h // 3 % 3]; mean = dfn[0].upper() + dfn[1:].rstrip('.') + '.'
-    lines = [L('h', hook, G3_RING), L('a', f'Answer: {w}!', 0.15), L('m', mean, 0.1), L('e', ex, 0.2), L('c', 'lexkite.com', 0.4)]
+    lines = [L('h', hook, G3_RING), L('a', f'Answer: {w}!', 0.15), L('m', mean, 0.1), L('e', ex, 0.15), L('c', 'lexkite.com', 0.3)]
     return dict(lines=lines, expr=expr, data=dict(word=w, ipa=ipa, mean=dfn, ex=ex, img=p['img'], n=len(w)),
                 cta=cta('dictionary', f'#/dict/{w}', 'Look up any word'), hook=dict(line='h', text=hook), src=dict(word=w, img=p['img']))
 
@@ -594,7 +623,7 @@ T['guess3'] = guess3; SERIES['guess3'] = 'Guess in 3 Seconds'
 
 
 # ---------------- levels3: "One situation, 3 levels" 10-13 s reels (growth series #3, docs/GROWTH-1M.md §2): the same sentence at A1, B1 and C1 (content/video/teach2d/levels3.json) ----------------
-LV3_F, LV3_SPEED, LV3_SECS, LV3_WORDS, LV3_RING = f'{ROOT}/content/video/teach2d/levels3.json', 1.2, (9.0, 12.4), (12, 26), 2.2   # est. seconds (+ ~0.9 s end-card tail = the 10-13 s reel), words incl. hook + CTA, quiz countdown
+LV3_F, LV3_SPEED, LV3_SECS, LV3_WORDS, LV3_RING = f'{ROOT}/content/video/teach2d/levels3.json', G3_SPEED, (8.5, 11.2), (12, 26), 2.0   # est. seconds (CI pilots 45268414372: real total = est + 1.8-2.2 s with the end-card tail -> <= 13.4 s), words incl. hook + CTA, quiz countdown
 LV3_EXPR = dict(a='shrug', b='smirk', n='smug')   # TeacherRig EXPR faces (drawn, no pose image): plain -> confident -> smug, one per level line, held while it is spoken (rig_plan 'exprs')
 LV3_OK = {'ana', 'tom', 'sam', 'lee', 'mia', 'ben', 'wi-fi', 'latte', 'spain', 'monday', 'friday', 'sunday', 'neighbour', 'neighbours', 'pharmacy'}   # names / proper words the bank has no row for (levels3.mjs A1_FN)
 _LV3 = None
@@ -614,14 +643,18 @@ def levels3(p):   # hook -> A1 line -> B1 line -> C1 line (silent quick quiz in 
     it = levels3_src()[p['id']]; h = int(hashlib.sha1(it['id'].encode()).hexdigest(), 16); wrong = 'ab'[h % 2]
     opts = [lv3_label(it['c']['key']), lv3_label(it[wrong]['key'])]; ans = int(hashlib.sha1((it['id'] + 'q').encode()).hexdigest(), 16) % 2
     if ans: opts.reverse()
-    assert all(text_w(o, 56) <= 640 for o in opts), ('quiz option too wide', opts)   # pill: one line at 56 px inside the card
-    lines = [L('h', levels3_hook(it), 0.35), L('a', it['a']['text'], 0.3), L('b', it['b']['text'], 0.3), L('n', it['c']['text'], LV3_RING, quiz=True), L('c', 'lexkite.com', 0.4)]
+    try: assert all(text_w(o, 56) <= 640 for o in opts), ('quiz option too wide', opts)   # pill: one line at 56 px inside the card (checked where PIL exists: the planner, render jobs; preqc regen has no PIL and replays rows that already passed)
+    except ImportError: pass
+    lines = [L('h', levels3_hook(it), 0.25), L('a', it['a']['text'], 0.15), L('b', it['b']['text'], 0.15), L('n', it['c']['text'], LV3_RING, quiz=True), L('c', 'lexkite.com', 0.25)]
     return dict(lines=lines, exprs=LV3_EXPR,
                 data=dict(id=it['id'], title=it['title'], em=it['em'], chip=it['chip'], reg=it['reg'], levels={k: it[k] for k in 'abc'}, quiz=dict(ask='Which would a native say?', options=opts, answer=ans)),
                 cta=cta('phrases', '#/phrases', 'Level up your English free'), hook=dict(line='h', text=lines[0]['text']), src=dict(levels3=it['id']))
 
 
 T['levels3'] = levels3; SERIES['levels3'] = 'One Situation, 3 Levels'
+
+
+def syllables(s): return sum(max(1, len(re.findall(r'[aeiouy]+', w.lower())) - (1 if w.lower().endswith('e') and not w.lower().endswith(('le', 'ee')) and len(re.findall(r'[aeiouy]+', w.lower())) > 1 else 0)) for w in re.findall(r"[A-Za-z']+", s))
 
 
 def words(s): return re.findall(r"[A-Za-z0-9'’-]+", s)
@@ -637,6 +670,7 @@ def make(row):
               voice=REG['people'][who]['voice']['video'], speed=row.get('speed', SLANG_SPEED if t in ('slang', 'scorecard') else G3_SPEED if t == 'guess3' else LV3_SPEED if t == 'levels3' else 0.8), area=sp['cta']['area'], **sp)
     # self-checks (the CI gates re-check on the real audio): hook <= 6 words, one point, 55-95 words, est. <= 150 wpm
     n = sum(len(words(l['text'])) for l in ep['lines']); est = n / (2.55 * ep['speed']) + sum(l['pause'] for l in ep['lines'])
+    if t in ('guess3', 'levels3', 'scorecard'): est = sum(syllables(l['text']) for l in ep['lines']) / (G3_SYL_S * ep['speed'] / 1.25) + sum(l['pause'] for l in ep['lines'])   # levels3 uses the same syllable clock (guess3 lesson 24/11: words / 2.55 under-counts by ~25 %)   # measured on the CI pilots (run 45197149417): ~3.5 syllables / s at 1.25x (words / 2.55 under-counted by 25 %: violin 14.6 s, crane 13.8 s)
     hk = ep['lines'][0]['text']
     assert len(words(hk)) <= 7, ('hook too long', hk)
     lo, hi = LV3_WORDS if t == 'levels3' else SC_WORDS if t == 'scorecard' else SLANG_WORDS if t in SHORT_T else (30, 70)   # slang / guess3 reels are 7-12 s (owner 22/11); every other template 18-28 s
@@ -645,7 +679,7 @@ def make(row):
     if row.get('lang'): ep['lang'] = row['lang']   # L1 clip: routed only to pages whose cfg.lang == lang (functions/api/_distribution.js blockOf)
     ep['est'] = dict(words=n, seconds=round(est, 1), wpm=round(60 * n / est))
     if t in SHORT_T + ('levels3',): assert (LV3_SECS if t == 'levels3' else SLANG_SECS)[0] <= est <= (LV3_SECS if t == 'levels3' else SLANG_SECS)[1], ('short reel length', round(est, 1))
-    if t == 'scorecard': assert SC_SECS[0] <= est <= SC_SECS[1], ('scorecard clip length', round(est, 1))
+    if t == 'scorecard': assert SC_SECS[0] <= est <= SC_SECS[1] and G3_SYL_S * ep['speed'] / 1.25 <= 5.0, ('scorecard clip length (syllable clock; real total = est + ~2 s end card) / syllables per second', round(est, 1))
     ep['publish'] = PUBLISH.build(ep)   # posting metadata written at production from this script (publish.py, docs/specs/video-production-v2.md §2)
     return ep
 
@@ -913,7 +947,7 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
     elif t == 'slang':   # Slang Card: the row froze the bank card it was planned with; the live bank (slang.json, slang.mjs gates) must still say the same
         it = slang_src()[0].get(p['key'].lower())
         if not it: bad.append('slang key gone from slang.json')
-        elif slang_facts(it) != row.get('facts'): bad.append('slang card changed in slang.json (re-plan + review)')
+        elif slang_facts(it, row.get('lang')) != row.get('facts'): bad.append('slang card or its page-language texts changed (re-plan + review)')
     elif t == 'scorecard':   # Score Challenge: the row froze 5 gold quiz items + the sample picks; the live audited bank must still say the same, and the score is recomputed from the ticks
         ids, pk = p['items'], p['picks']; pool = sc_pool()
         if len(set(ids)) != SC_N or len(ids) != SC_N or len(pk) != SC_N: bad.append('scorecard needs 5 distinct items and 5 picks')
@@ -1263,7 +1297,7 @@ def plan_bands(n):   # one episode per bands.json topic, writing and speaking al
 SLANG_REVIEWER = 'gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths)'
 
 
-def slang_facts(it): return {k: it[k] for k in ('key', 'ipa', 'mean', 'def', 'hook', 'example', 'quiz', 'misuse', 'expr', 'reg', 'region')}
+def slang_facts(it, lang=None): return dict({k: it[k] for k in ('key', 'ipa', 'mean', 'def', 'hook', 'example', 'quiz', 'misuse', 'expr', 'reg', 'region')}, **({'l1': slang_l1_src(it, lang)} if lang else {}))
 
 
 def plan_slang(n, keys=None):   # one episode per slang card (English channels; L1 variants follow the same rows), themes interleaved so no two neighbours share a theme
@@ -1417,7 +1451,7 @@ def plan_guess3(n):   # one episode per picture word; teachers alternate; machin
     for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
 
 
-LV3_REVIEWER = 'gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)'
+LV3_REVIEWER = 'gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)'
 
 
 def plan_levels3(n, ids=None):   # one episode per situation (teachers alternate); --ids = hand-picked pilots first
@@ -1450,6 +1484,34 @@ def plan_levels3(n, ids=None):   # one episode per situation (teachers alternate
     json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
     print(f"levels3: +{len(new)} rows, total {sum(1 for r in rows if r['template'] == 'levels3')}")
     for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
+
+
+def plan_slang_l1(n):   # L1 pages: the first n slang episodes of the batch (auto.json order) per page language, when the meaning + hook + example exist in that language
+    A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; have = {r['id'] for r in rows}; used_h = {r['hash'] for r in rows}; B = slang_src()[0]; why = {}; new = []
+    EN = [r for r in rows if r['template'] == 'slang' and not r.get('lang')]
+    for lang in SL_LANGS:
+        k_ = 0
+        for r in EN:
+            if k_ >= n: break
+            it = B.get(r['in']['key'].lower())
+            if not it: continue
+            rid = f"t2s_{lang}_{r['id'][4:]}"[:40]
+            if rid in have: k_ += 1; continue
+            if not slang_l1_src(it, lang): why.setdefault(f'{lang}:texts-missing', []).append(it['key']); continue
+            row = dict(id=rid, template='slang', lang=lang, teacher=r['teacher'], theme='dusk', part=r.get('part', 1), area='phrases', point=f"slang:{lang}:{it['key'].lower()}",
+                       hash=chash('slang', f"{lang}:{it['key']}"), heads=[f"slang:{lang}:{it['key'].lower()}"], taught=r['taught'], facts=slang_facts(it, lang), **{'in': dict(key=it['key'], lang=lang)})
+            if row['hash'] in used_h or data_gate(row): why.setdefault('dup-or-data', []).append(rid); continue
+            try: ep = make(row)
+            except AssertionError as e: why.setdefault('shape:' + str(e.args[0]), []).append(rid); continue
+            if not hook_gate(row, ep): why.setdefault('hook', []).append(rid); continue
+            rows.append(row); new.append(row); k_ += 1
+            R_['verdicts'][rid] = dict(template='slang', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=SLANG_REVIEWER + ' · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs',
+                                        machine=True, gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    cnt = {L: sum(1 for x in new if x['lang'] == L) for L in SL_LANGS}
+    print(f'slang L1: +{len(new)} rows {cnt}')
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:5]}')
 
 
 def pilot_point(r):
@@ -1488,6 +1550,7 @@ if __name__ == '__main__':
     if '--plan' in A_: plan(int(A_[A_.index('--plan') + 1])); sys.exit(0)
     if '--hand' in A_: plan_hand(); sys.exit(0)
     if '--roots' in A_: plan_roots(); sys.exit(0)
+    if '--slang-l1' in A_: plan_slang_l1(int(A_[A_.index('--slang-l1') + 1])); sys.exit(0)
     if '--slang-eps' in A_: plan_slang(int(A_[A_.index('--slang-eps') + 1]), A_[A_.index('--keys') + 1].split('|') if '--keys' in A_ else None); sys.exit(0)
     if '--scorecard-eps' in A_: plan_scorecard(int(A_[A_.index('--scorecard-eps') + 1])); sys.exit(0)
     if '--levels3-eps' in A_: plan_levels3(int(A_[A_.index('--levels3-eps') + 1]), A_[A_.index('--ids') + 1].split('|') if '--ids' in A_ else None); sys.exit(0)

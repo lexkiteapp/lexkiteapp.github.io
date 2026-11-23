@@ -1,0 +1,146 @@
+{
+ "id": "t2s_fr_bigmood",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 18,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sleepy cat. Exactly my feelings!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Big mood!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's exactly how I feel.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That sleepy cat is a big mood.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "data": {
+  "key": "big mood",
+  "forms": [],
+  "ipa": "/ˈbɪɡ ˈmuːd/",
+  "mean": "That's exactly how I feel.",
+  "define": "Used when something matches your feeling perfectly.",
+  "vi": "Đúng tâm trạng luôn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Seeing a funny meme",
+   "text": "That sleepy cat is a big mood."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Big mood\" means…",
+   "options": [
+    "a large room",
+    "I relate"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'big mood' about someone's real tragedy.",
+   "why": "It sounds careless and dismissive."
+  },
+  "l1": "c'est trop moi",
+  "l1_hook": "Chat endormi. Exactement mon « big mood » !",
+  "l1_ex": "Ce chat endormi est un « big mood ».",
+  "right": "big mood",
+  "native": {
+   "hook": "Que veut dire « big mood » ?",
+   "tip": "“big mood” = c'est trop moi. Exemple: “That sleepy cat is a big mood.”",
+   "caption": "Que veut dire « big mood » ?\n“big mood” = c'est trop moi.\nExemple: “That sleepy cat is a big mood.” (Ce chat endormi est un « big mood ».)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “big mood” = c'est trop moi. “That sleepy cat is a big mood.” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sleepy cat. Exactly my feelings!"
+ },
+ "src": {
+  "slang": "big mood"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Que veut dire « big mood » ?",
+  "keyword": "big mood",
+  "value": "“big mood” = c'est trop moi. Exemple: “That sleepy cat is a big mood.”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « big mood » ?",
+    "description": "“big mood” = c'est trop moi. Exemple: “That sleepy cat is a big mood.”\n\nQue veut dire « big mood » ?\n“big mood” = c'est trop moi.\nExemple: “That sleepy cat is a big mood.” (Ce chat endormi est un « big mood ».)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "big mood",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « big mood » ?\n“big mood” = c'est trop moi.\nExemple: “That sleepy cat is a big mood.” (Ce chat endormi est un « big mood ».)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « big mood » ?\n\n“big mood” = c'est trop moi. Exemple: “That sleepy cat is a big mood.”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « big mood » ? “big mood” = c'est trop moi. Exemple: “That sleepy cat is a big mood.” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “big mood” = c'est trop moi. “That sleepy cat is a big mood.” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

@@ -2,38 +2,38 @@
  "id": "t2l3_requestleave",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 59,
+ "part": 60,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
- "speed": 1.2,
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Request time off: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "I want one day off.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
-   "text": "Could I take Friday off, please?",
-   "pause": 0.3
+   "text": "Could I take Friday off?",
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Is it okay if I take Friday off?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -54,7 +54,7 @@
     "note": "Clear, a bit direct."
    },
    "b": {
-    "text": "Could I take Friday off, please?",
+    "text": "Could I take Friday off?",
     "key": "take Friday off",
     "note": "Polite and specific."
    },
@@ -87,14 +87,14 @@
   "levels3": "request-leave"
  },
  "est": {
-  "words": 26,
-  "seconds": 12.0,
-  "wpm": 129
+  "words": 25,
+  "seconds": 11.1,
+  "wpm": 135
  },
  "publish": {
   "title": "Request time off: A1, B1 or C1?",
   "keyword": "request time off",
-  "value": "Request time off, three ways. A1: \"I want one day off.\" B1: \"Could I take Friday off, please?\" C1: \"Is it okay if I take Friday off?\"",
+  "value": "Request time off, three ways. A1: \"I want one day off.\" B1: \"Could I take Friday off?\" C1: \"Is it okay if I take Friday off?\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 17,
+  "script_words": 16,
   "platforms": {
    "youtube": {
     "title": "Request time off: A1, B1 or C1?",
-    "description": "Request time off, three ways. A1: \"I want one day off.\" B1: \"Could I take Friday off, please?\" C1: \"Is it okay if I take Friday off?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Request time off, three ways. A1: \"I want one day off.\" B1: \"Could I take Friday off?\" C1: \"Is it okay if I take Friday off?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "request time off",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Request time off: A1, B1 or C1?\n\nRequest time off, three ways. A1: \"I want one day off.\" B1: \"Could I take Friday off, please?\" C1: \"Is it okay if I take Friday off?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Request time off: A1, B1 or C1?\n\nRequest time off, three ways. A1: \"I want one day off.\" B1: \"Could I take Friday off?\" C1: \"Is it okay if I take Friday off?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Request time off: A1, B1 or C1?\n\nRequest time off, three ways. A1: \"I want one day off.\" B1: \"Could I take Friday off, please?\" C1: \"Is it okay if I take Friday off?\"\n\nLevel up your English free: link in bio.",
+    "caption": "Request time off: A1, B1 or C1?\n\nRequest time off, three ways. A1: \"I want one day off.\" B1: \"Could I take Friday off?\" C1: \"Is it okay if I take Friday off?\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",

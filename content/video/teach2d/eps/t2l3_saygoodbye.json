@@ -2,38 +2,38 @@
  "id": "t2l3_saygoodbye",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 57,
+ "part": 58,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
- "speed": 1.2,
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Say goodbye: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "Goodbye. See you tomorrow.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "It was nice talking to you. Goodbye.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Right, I'd better get going. See you!",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 24,
-  "seconds": 11.4,
-  "wpm": 126
+  "seconds": 10.9,
+  "wpm": 133
  },
  "publish": {
   "title": "Say goodbye: A1, B1 or C1?",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "Say goodbye: A1, B1 or C1?",
-    "description": "Say goodbye, three ways. A1: \"Goodbye. See you tomorrow.\" B1: \"It was nice talking to you. Goodbye.\" C1: \"Right, I'd better get going. See you!\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Say goodbye, three ways. A1: \"Goodbye. See you tomorrow.\" B1: \"It was nice talking to you. Goodbye.\" C1: \"Right, I'd better get going. See you!\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "say goodbye",
      "One Situation, 3 Levels",

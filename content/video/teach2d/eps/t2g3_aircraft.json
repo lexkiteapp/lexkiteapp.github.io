@@ -2,17 +2,17 @@
  "id": "t2g3_aircraft",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 56,
+ "part": 45,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
- "speed": 1.25,
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Quick! Guess in three seconds!",
-   "pause": 2.6
+   "text": "Name it in three seconds!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "The airport can handle large aircraft.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "confused",
@@ -52,7 +52,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Quick! Guess in three seconds!"
+  "text": "Name it in three seconds!"
  },
  "src": {
   "word": "aircraft",
@@ -79,7 +79,7 @@
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: A + 7 letters",
-    "description": "Aircraft /ˈerkræft/ = a machine that can fly. Example: \"The airport can handle large aircraft.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/aircraft\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "description": "Aircraft /ˈerkræft/ = a machine that can fly. Example: \"The airport can handle large aircraft.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/aircraft\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
     "tags": [
      "aircraft",
      "Guess in 3 Seconds",

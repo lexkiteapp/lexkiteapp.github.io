@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Get online: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
-   "text": "Do you have internet here?",
-   "pause": 0.3
+   "text": "Do you have internet?",
+   "pause": 0.15
   },
   {
    "id": "b",
-   "text": "Could I have the Wi-Fi code, please?",
-   "pause": 0.3
+   "text": "Could I have the Wi-Fi code?",
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "What's the Wi-Fi password, by the way?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -49,12 +49,12 @@
   "reg": "casual",
   "levels": {
    "a": {
-    "text": "Do you have internet here?",
+    "text": "Do you have internet?",
     "key": "internet",
     "note": "Clear and simple."
    },
    "b": {
-    "text": "Could I have the Wi-Fi code, please?",
+    "text": "Could I have the Wi-Fi code?",
     "key": "the Wi-Fi code",
     "note": "Polite and exact."
    },
@@ -87,14 +87,14 @@
   "levels3": "get-online"
  },
  "est": {
-  "words": 25,
-  "seconds": 11.7,
-  "wpm": 128
+  "words": 23,
+  "seconds": 11.1,
+  "wpm": 124
  },
  "publish": {
   "title": "Get online: A1, B1 or C1?",
   "keyword": "get online",
-  "value": "Get online, three ways. A1: \"Do you have internet here?\" B1: \"Could I have the Wi-Fi code, please?\" C1: \"What's the Wi-Fi password, by the way?\"",
+  "value": "Get online, three ways. A1: \"Do you have internet?\" B1: \"Could I have the Wi-Fi code?\" C1: \"What's the Wi-Fi password, by the way?\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 17,
+  "script_words": 15,
   "platforms": {
    "youtube": {
     "title": "Get online: A1, B1 or C1?",
-    "description": "Get online, three ways. A1: \"Do you have internet here?\" B1: \"Could I have the Wi-Fi code, please?\" C1: \"What's the Wi-Fi password, by the way?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Get online, three ways. A1: \"Do you have internet?\" B1: \"Could I have the Wi-Fi code?\" C1: \"What's the Wi-Fi password, by the way?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "get online",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Get online: A1, B1 or C1?\n\nGet online, three ways. A1: \"Do you have internet here?\" B1: \"Could I have the Wi-Fi code, please?\" C1: \"What's the Wi-Fi password, by the way?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Get online: A1, B1 or C1?\n\nGet online, three ways. A1: \"Do you have internet?\" B1: \"Could I have the Wi-Fi code?\" C1: \"What's the Wi-Fi password, by the way?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Get online: A1, B1 or C1?\n\nGet online, three ways. A1: \"Do you have internet here?\" B1: \"Could I have the Wi-Fi code, please?\" C1: \"What's the Wi-Fi password, by the way?\"\n\nLevel up your English free: link in bio.",
+    "caption": "Get online: A1, B1 or C1?\n\nGet online, three ways. A1: \"Do you have internet?\" B1: \"Could I have the Wi-Fi code?\" C1: \"What's the Wi-Fi password, by the way?\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",

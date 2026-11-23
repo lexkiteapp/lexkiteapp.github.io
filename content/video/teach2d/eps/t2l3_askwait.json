@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Ask to wait: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "Wait, please. One minute.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Could you give me a minute, please?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Hang on, I'll be right with you.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 25,
-  "seconds": 11.7,
-  "wpm": 128
+  "seconds": 10.6,
+  "wpm": 142
  },
  "publish": {
   "title": "Ask to wait: A1, B1 or C1?",

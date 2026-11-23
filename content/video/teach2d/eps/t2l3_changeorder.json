@@ -2,38 +2,38 @@
  "id": "t2l3_changeorder",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 52,
+ "part": 53,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
- "speed": 1.2,
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Change your order: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
-   "text": "Sorry, I want tea, not coffee.",
-   "pause": 0.3
+   "text": "I want tea, not coffee.",
+   "pause": 0.15
   },
   {
    "id": "b",
-   "text": "Sorry, could I change my order?",
-   "pause": 0.3
+   "text": "Could I change my order?",
+   "pause": 0.15
   },
   {
    "id": "n",
-   "text": "Actually, could I swap that for tea?",
-   "pause": 2.2,
+   "text": "Can I swap that for tea?",
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -49,17 +49,17 @@
   "reg": "neutral",
   "levels": {
    "a": {
-    "text": "Sorry, I want tea, not coffee.",
+    "text": "I want tea, not coffee.",
     "key": "I want tea",
     "note": "Clear, but no polite frame."
    },
    "b": {
-    "text": "Sorry, could I change my order?",
+    "text": "Could I change my order?",
     "key": "change my order",
     "note": "Polite and clear."
    },
    "c": {
-    "text": "Actually, could I swap that for tea?",
+    "text": "Can I swap that for tea?",
     "key": "swap",
     "note": "A natural fix."
    }
@@ -87,14 +87,14 @@
   "levels3": "change-order"
  },
  "est": {
-  "words": 26,
-  "seconds": 12.0,
-  "wpm": 129
+  "words": 23,
+  "seconds": 10.3,
+  "wpm": 134
  },
  "publish": {
   "title": "Change your order: A1, B1 or C1?",
   "keyword": "change your order",
-  "value": "Change your order, three ways. A1: \"Sorry, I want tea, not coffee.\" B1: \"Sorry, could I change my order?\" C1: \"Actually, could I swap that for tea?\"",
+  "value": "Change your order, three ways. A1: \"I want tea, not coffee.\" B1: \"Could I change my order?\" C1: \"Can I swap that for tea?\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 18,
+  "script_words": 16,
   "platforms": {
    "youtube": {
     "title": "Change your order: A1, B1 or C1?",
-    "description": "Change your order, three ways. A1: \"Sorry, I want tea, not coffee.\" B1: \"Sorry, could I change my order?\" C1: \"Actually, could I swap that for tea?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Change your order, three ways. A1: \"I want tea, not coffee.\" B1: \"Could I change my order?\" C1: \"Can I swap that for tea?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "change your order",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Change your order: A1, B1 or C1?\n\nChange your order, three ways. A1: \"Sorry, I want tea, not coffee.\" B1: \"Sorry, could I change my order?\" C1: \"Actually, could I swap that for tea?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Change your order: A1, B1 or C1?\n\nChange your order, three ways. A1: \"I want tea, not coffee.\" B1: \"Could I change my order?\" C1: \"Can I swap that for tea?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Change your order: A1, B1 or C1?\n\nChange your order, three ways. A1: \"Sorry, I want tea, not coffee.\" B1: \"Sorry, could I change my order?\" C1: \"Actually, could I swap that for tea?\"\n\nLevel up your English free: link in bio.",
+    "caption": "Change your order: A1, B1 or C1?\n\nChange your order, three ways. A1: \"I want tea, not coffee.\" B1: \"Could I change my order?\" C1: \"Can I swap that for tea?\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",
@@ -132,6 +132,6 @@
     "caption": "Change your order: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
    }
   },
-  "first_comment": "Quiz answer: Swap. Native line: \"Actually, could I swap that for tea?\" Which level are you? More real English, free: {link}"
+  "first_comment": "Quiz answer: Swap. Native line: \"Can I swap that for tea?\" Which level are you? More real English, free: {link}"
  }
 }

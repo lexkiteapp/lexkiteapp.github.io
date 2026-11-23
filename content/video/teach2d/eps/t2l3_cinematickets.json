@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Buy cinema tickets: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "Two tickets, please.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
-   "text": "Could I get two tickets for the next film?",
-   "pause": 0.3
+   "text": "Could I get two tickets, please?",
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Two for the eight o'clock, please.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -54,8 +54,8 @@
     "note": "Short and clear."
    },
    "b": {
-    "text": "Could I get two tickets for the next film?",
-    "key": "the next film",
+    "text": "Could I get two tickets, please?",
+    "key": "Could I get",
     "note": "Polite and specific."
    },
    "c": {
@@ -87,14 +87,14 @@
   "levels3": "cinema-tickets"
  },
  "est": {
-  "words": 25,
-  "seconds": 11.7,
-  "wpm": 128
+  "words": 22,
+  "seconds": 10.9,
+  "wpm": 122
  },
  "publish": {
   "title": "Buy cinema tickets: A1, B1 or C1?",
   "keyword": "buy cinema tickets",
-  "value": "Buy cinema tickets, three ways. A1: \"Two tickets, please.\" B1: \"Could I get two tickets for the next film?\" C1: \"Two for the eight o'clock, please.\"",
+  "value": "Buy cinema tickets, three ways. A1: \"Two tickets, please.\" B1: \"Could I get two tickets, please?\" C1: \"Two for the eight o'clock, please.\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 18,
+  "script_words": 15,
   "platforms": {
    "youtube": {
     "title": "Buy cinema tickets: A1, B1 or C1?",
-    "description": "Buy cinema tickets, three ways. A1: \"Two tickets, please.\" B1: \"Could I get two tickets for the next film?\" C1: \"Two for the eight o'clock, please.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Buy cinema tickets, three ways. A1: \"Two tickets, please.\" B1: \"Could I get two tickets, please?\" C1: \"Two for the eight o'clock, please.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "buy cinema tickets",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Buy cinema tickets: A1, B1 or C1?\n\nBuy cinema tickets, three ways. A1: \"Two tickets, please.\" B1: \"Could I get two tickets for the next film?\" C1: \"Two for the eight o'clock, please.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Buy cinema tickets: A1, B1 or C1?\n\nBuy cinema tickets, three ways. A1: \"Two tickets, please.\" B1: \"Could I get two tickets, please?\" C1: \"Two for the eight o'clock, please.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Buy cinema tickets: A1, B1 or C1?\n\nBuy cinema tickets, three ways. A1: \"Two tickets, please.\" B1: \"Could I get two tickets for the next film?\" C1: \"Two for the eight o'clock, please.\"\n\nLevel up your English free: link in bio.",
+    "caption": "Buy cinema tickets: A1, B1 or C1?\n\nBuy cinema tickets, three ways. A1: \"Two tickets, please.\" B1: \"Could I get two tickets, please?\" C1: \"Two for the eight o'clock, please.\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",

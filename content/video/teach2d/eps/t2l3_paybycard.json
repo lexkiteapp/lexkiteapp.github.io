@@ -2,38 +2,38 @@
  "id": "t2l3_paybycard",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 61,
+ "part": 62,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
- "speed": 1.2,
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Pay by card: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "Can I pay by card?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Do you accept credit cards?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Can I just tap?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 21,
-  "seconds": 10.4,
-  "wpm": 121
+  "seconds": 9.5,
+  "wpm": 132
  },
  "publish": {
   "title": "Pay by card: A1, B1 or C1?",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "Pay by card: A1, B1 or C1?",
-    "description": "Pay by card, three ways. A1: \"Can I pay by card?\" B1: \"Do you accept credit cards?\" C1: \"Can I just tap?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Pay by card, three ways. A1: \"Can I pay by card?\" B1: \"Do you accept credit cards?\" C1: \"Can I just tap?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "pay by card",
      "One Situation, 3 Levels",

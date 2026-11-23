@@ -2,17 +2,17 @@
  "id": "t2g3_hotel",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 13,
+ "part": 10,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
- "speed": 1.25,
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
    "text": "Guess in three seconds!",
-   "pause": 2.6
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "We stayed at a hotel near the beach.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "smirk",
@@ -60,8 +60,8 @@
  },
  "est": {
   "words": 24,
-  "seconds": 11.0,
-  "wpm": 131
+  "seconds": 10.8,
+  "wpm": 133
  },
  "publish": {
   "title": "Guess in 3 seconds: H + 4 letters",
@@ -79,7 +79,7 @@
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: H + 4 letters",
-    "description": "Hotel /hoʊˈtel/ = a place where people can stay when traveling. Example: \"We stayed at a hotel near the beach.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/hotel\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "description": "Hotel /hoʊˈtel/ = a place where people can stay when traveling. Example: \"We stayed at a hotel near the beach.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/hotel\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
     "tags": [
      "hotel",
      "Guess in 3 Seconds",

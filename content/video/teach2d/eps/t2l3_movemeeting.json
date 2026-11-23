@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Move a meeting: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "Can we meet on Monday?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
-   "text": "Could we move the meeting to Monday?",
-   "pause": 0.3
+   "text": "Could we move the meeting?",
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Could we push it to Monday?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -54,7 +54,7 @@
     "note": "Clear and simple."
    },
    "b": {
-    "text": "Could we move the meeting to Monday?",
+    "text": "Could we move the meeting?",
     "key": "move the meeting",
     "note": "Polite and specific."
    },
@@ -87,14 +87,14 @@
   "levels3": "move-meeting"
  },
  "est": {
-  "words": 25,
-  "seconds": 11.7,
-  "wpm": 128
+  "words": 23,
+  "seconds": 10.6,
+  "wpm": 130
  },
  "publish": {
   "title": "Move a meeting: A1, B1 or C1?",
   "keyword": "move a meeting",
-  "value": "Move a meeting, three ways. A1: \"Can we meet on Monday?\" B1: \"Could we move the meeting to Monday?\" C1: \"Could we push it to Monday?\"",
+  "value": "Move a meeting, three ways. A1: \"Can we meet on Monday?\" B1: \"Could we move the meeting?\" C1: \"Could we push it to Monday?\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 18,
+  "script_words": 16,
   "platforms": {
    "youtube": {
     "title": "Move a meeting: A1, B1 or C1?",
-    "description": "Move a meeting, three ways. A1: \"Can we meet on Monday?\" B1: \"Could we move the meeting to Monday?\" C1: \"Could we push it to Monday?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Move a meeting, three ways. A1: \"Can we meet on Monday?\" B1: \"Could we move the meeting?\" C1: \"Could we push it to Monday?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "move a meeting",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Move a meeting: A1, B1 or C1?\n\nMove a meeting, three ways. A1: \"Can we meet on Monday?\" B1: \"Could we move the meeting to Monday?\" C1: \"Could we push it to Monday?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Move a meeting: A1, B1 or C1?\n\nMove a meeting, three ways. A1: \"Can we meet on Monday?\" B1: \"Could we move the meeting?\" C1: \"Could we push it to Monday?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Move a meeting: A1, B1 or C1?\n\nMove a meeting, three ways. A1: \"Can we meet on Monday?\" B1: \"Could we move the meeting to Monday?\" C1: \"Could we push it to Monday?\"\n\nLevel up your English free: link in bio.",
+    "caption": "Move a meeting: A1, B1 or C1?\n\nMove a meeting, three ways. A1: \"Can we meet on Monday?\" B1: \"Could we move the meeting?\" C1: \"Could we push it to Monday?\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",

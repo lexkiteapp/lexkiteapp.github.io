@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Buy a ticket: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "One ticket, please.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
-   "text": "Could I have a ticket to the city?",
-   "pause": 0.3
+   "text": "A ticket to the city, please.",
+   "pause": 0.15
   },
   {
    "id": "n",
-   "text": "Can I get a return to the city?",
-   "pause": 2.2,
+   "text": "Can I get a return, please?",
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -54,12 +54,12 @@
     "note": "Short and clear."
    },
    "b": {
-    "text": "Could I have a ticket to the city?",
-    "key": "a ticket to",
+    "text": "A ticket to the city, please.",
+    "key": "A ticket to",
     "note": "Polite and specific."
    },
    "c": {
-    "text": "Can I get a return to the city?",
+    "text": "Can I get a return, please?",
     "key": "a return",
     "note": "British for round trip."
    }
@@ -87,14 +87,14 @@
   "levels3": "buy-ticket"
  },
  "est": {
-  "words": 26,
-  "seconds": 12.0,
-  "wpm": 129
+  "words": 22,
+  "seconds": 10.6,
+  "wpm": 125
  },
  "publish": {
   "title": "Buy a ticket: A1, B1 or C1?",
   "keyword": "buy a ticket",
-  "value": "Buy a ticket, three ways. A1: \"One ticket, please.\" B1: \"Could I have a ticket to the city?\" C1: \"Can I get a return to the city?\"",
+  "value": "Buy a ticket, three ways. A1: \"One ticket, please.\" B1: \"A ticket to the city, please.\" C1: \"Can I get a return, please?\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 17,
+  "script_words": 15,
   "platforms": {
    "youtube": {
     "title": "Buy a ticket: A1, B1 or C1?",
-    "description": "Buy a ticket, three ways. A1: \"One ticket, please.\" B1: \"Could I have a ticket to the city?\" C1: \"Can I get a return to the city?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Buy a ticket, three ways. A1: \"One ticket, please.\" B1: \"A ticket to the city, please.\" C1: \"Can I get a return, please?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "buy a ticket",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Buy a ticket: A1, B1 or C1?\n\nBuy a ticket, three ways. A1: \"One ticket, please.\" B1: \"Could I have a ticket to the city?\" C1: \"Can I get a return to the city?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Buy a ticket: A1, B1 or C1?\n\nBuy a ticket, three ways. A1: \"One ticket, please.\" B1: \"A ticket to the city, please.\" C1: \"Can I get a return, please?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Buy a ticket: A1, B1 or C1?\n\nBuy a ticket, three ways. A1: \"One ticket, please.\" B1: \"Could I have a ticket to the city?\" C1: \"Can I get a return to the city?\"\n\nLevel up your English free: link in bio.",
+    "caption": "Buy a ticket: A1, B1 or C1?\n\nBuy a ticket, three ways. A1: \"One ticket, please.\" B1: \"A ticket to the city, please.\" C1: \"Can I get a return, please?\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",
@@ -132,6 +132,6 @@
     "caption": "Buy a ticket: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
    }
   },
-  "first_comment": "Quiz answer: A return. Native line: \"Can I get a return to the city?\" Which level are you? More real English, free: {link}"
+  "first_comment": "Quiz answer: A return. Native line: \"Can I get a return, please?\" Which level are you? More real English, free: {link}"
  }
 }

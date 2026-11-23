@@ -2,17 +2,17 @@
  "id": "t2g3_trumpet",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 54,
+ "part": 43,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
- "speed": 1.25,
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
    "text": "Guess in three seconds!",
-   "pause": 2.6
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "I got a new trumpet.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "confused",
@@ -60,8 +60,8 @@
  },
  "est": {
   "words": 25,
-  "seconds": 11.3,
-  "wpm": 133
+  "seconds": 11.9,
+  "wpm": 126
  },
  "publish": {
   "title": "Guess in 3 seconds: T + 6 letters",
@@ -79,7 +79,7 @@
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: T + 6 letters",
-    "description": "Trumpet /ˈtrʌmpət/ = a brass instrument that produces sound when the player vibrates their lips. Example: \"I got a new trumpet.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/trumpet\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "description": "Trumpet /ˈtrʌmpət/ = a brass instrument that produces sound when the player vibrates their lips. Example: \"I got a new trumpet.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/trumpet\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
     "tags": [
      "trumpet",
      "Guess in 3 Seconds",

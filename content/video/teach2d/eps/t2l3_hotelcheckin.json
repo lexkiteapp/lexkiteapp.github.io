@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Hotel check-in: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
-   "text": "Hello. I have a room.",
-   "pause": 0.3
+   "text": "I have a room.",
+   "pause": 0.15
   },
   {
    "id": "b",
-   "text": "I have a reservation for tonight.",
-   "pause": 0.3
+   "text": "I have a reservation.",
+   "pause": 0.15
   },
   {
    "id": "n",
-   "text": "Hi there, I've got a booking for tonight.",
-   "pause": 2.2,
+   "text": "Hi, I've got a booking.",
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -49,17 +49,17 @@
   "reg": "polite",
   "levels": {
    "a": {
-    "text": "Hello. I have a room.",
+    "text": "I have a room.",
     "key": "I have",
     "note": "Understood, but very basic."
    },
    "b": {
-    "text": "I have a reservation for tonight.",
+    "text": "I have a reservation.",
     "key": "a reservation",
     "note": "Standard hotel English."
    },
    "c": {
-    "text": "Hi there, I've got a booking for tonight.",
+    "text": "Hi, I've got a booking.",
     "key": "I've got a",
     "note": "Relaxed and friendly."
    }
@@ -87,14 +87,14 @@
   "levels3": "hotel-checkin"
  },
  "est": {
-  "words": 25,
-  "seconds": 11.7,
-  "wpm": 128
+  "words": 19,
+  "seconds": 10.1,
+  "wpm": 113
  },
  "publish": {
   "title": "Hotel check-in: A1, B1 or C1?",
   "keyword": "hotel check-in",
-  "value": "Hotel check-in, three ways. A1: \"Hello. I have a room.\" B1: \"I have a reservation for tonight.\" C1: \"Hi there, I've got a booking for tonight.\"",
+  "value": "Hotel check-in, three ways. A1: \"I have a room.\" B1: \"I have a reservation.\" C1: \"Hi, I've got a booking.\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 16,
+  "script_words": 13,
   "platforms": {
    "youtube": {
     "title": "Hotel check-in: A1, B1 or C1?",
-    "description": "Hotel check-in, three ways. A1: \"Hello. I have a room.\" B1: \"I have a reservation for tonight.\" C1: \"Hi there, I've got a booking for tonight.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Hotel check-in, three ways. A1: \"I have a room.\" B1: \"I have a reservation.\" C1: \"Hi, I've got a booking.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "hotel check-in",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Hotel check-in: A1, B1 or C1?\n\nHotel check-in, three ways. A1: \"Hello. I have a room.\" B1: \"I have a reservation for tonight.\" C1: \"Hi there, I've got a booking for tonight.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Hotel check-in: A1, B1 or C1?\n\nHotel check-in, three ways. A1: \"I have a room.\" B1: \"I have a reservation.\" C1: \"Hi, I've got a booking.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Hotel check-in: A1, B1 or C1?\n\nHotel check-in, three ways. A1: \"Hello. I have a room.\" B1: \"I have a reservation for tonight.\" C1: \"Hi there, I've got a booking for tonight.\"\n\nLevel up your English free: link in bio.",
+    "caption": "Hotel check-in: A1, B1 or C1?\n\nHotel check-in, three ways. A1: \"I have a room.\" B1: \"I have a reservation.\" C1: \"Hi, I've got a booking.\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",
@@ -132,6 +132,6 @@
     "caption": "Hotel check-in: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
    }
   },
-  "first_comment": "Quiz answer: I've got a. Native line: \"Hi there, I've got a booking for tonight.\" Which level are you? More real English, free: {link}"
+  "first_comment": "Quiz answer: I've got a. Native line: \"Hi, I've got a booking.\" Which level are you? More real English, free: {link}"
  }
 }

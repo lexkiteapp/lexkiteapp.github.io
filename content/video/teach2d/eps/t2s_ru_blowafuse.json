@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ru_blowafuse",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 9,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dad saw the messy room!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Blow a fuse!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly become very angry.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He blew a fuse over the messy room.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "blow a fuse",
+  "forms": [
+   "blew a fuse"
+  ],
+  "ipa": "/ˈbloʊ ə ˈfjuːz/",
+  "mean": "Suddenly become very angry.",
+  "define": "To lose your temper quickly.",
+  "vi": "Nổi nóng bất chợt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Telling a story",
+   "text": "He blew a fuse over the messy room."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "get angry",
+    "fix electricity"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'blow a fuse' about mild annoyance.",
+   "why": "It means sudden, big anger."
+  },
+  "l1": "взбеситься",
+  "l1_hook": "Папа увидел беспорядок в комнате!",
+  "l1_ex": "Он «blow a fuse» из‑за беспорядка в комнате.",
+  "right": "blow a fuse",
+  "native": {
+   "hook": "Что значит «blow a fuse»?",
+   "tip": "“blow a fuse” = взбеситься. Пример: “He blew a fuse over the messy room.”",
+   "caption": "Что значит «blow a fuse»?\n“blow a fuse” = взбеситься.\nПример: “He blew a fuse over the messy room.” (Он «blow a fuse» из‑за беспорядка в комнате.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “blow a fuse” = взбеситься. “He blew a fuse over the messy room.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dad saw the messy room!"
+ },
+ "src": {
+  "slang": "blow a fuse"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "Что значит «blow a fuse»?",
+  "keyword": "blow a fuse",
+  "value": "“blow a fuse” = взбеситься. Пример: “He blew a fuse over the messy room.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «blow a fuse»?",
+    "description": "“blow a fuse” = взбеситься. Пример: “He blew a fuse over the messy room.”\n\nЧто значит «blow a fuse»?\n“blow a fuse” = взбеситься.\nПример: “He blew a fuse over the messy room.” (Он «blow a fuse» из‑за беспорядка в комнате.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "blow a fuse",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «blow a fuse»?\n“blow a fuse” = взбеситься.\nПример: “He blew a fuse over the messy room.” (Он «blow a fuse» из‑за беспорядка в комнате.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «blow a fuse»?\n\n“blow a fuse” = взбеситься. Пример: “He blew a fuse over the messy room.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «blow a fuse»? “blow a fuse” = взбеситься. Пример: “He blew a fuse over the messy room.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “blow a fuse” = взбеситься. “He blew a fuse over the messy room.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

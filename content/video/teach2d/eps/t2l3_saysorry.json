@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Say sorry: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "I am sorry.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "I'm so sorry. I didn't mean to.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Oops, my bad, I wasn't looking.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 22,
-  "seconds": 10.7,
-  "wpm": 123
+  "seconds": 10.3,
+  "wpm": 128
  },
  "publish": {
   "title": "Say sorry: A1, B1 or C1?",

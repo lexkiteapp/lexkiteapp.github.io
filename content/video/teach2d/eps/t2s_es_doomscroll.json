@@ -1,0 +1,149 @@
+{
+ "id": "t2s_es_doomscroll",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 77,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Midnight. Still scrolling bad news!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Doomscroll!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Scroll bad news for too long.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Stop doomscrolling and go to sleep.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "doomscroll",
+  "forms": [
+   "doomscrolling",
+   "doomscrolled"
+  ],
+  "ipa": "/ˈduːmˌskroʊl/",
+  "mean": "Scroll bad news for too long.",
+  "define": "To keep reading sad online news without stopping.",
+  "vi": "Lướt tin xấu mãi",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Talking about bedtime",
+   "text": "Stop doomscrolling and go to sleep."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"doomscroll\" is to…",
+   "options": [
+    "keep reading bad news",
+    "scroll a book"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'doomscroll' about reading a recipe.",
+   "why": "It means endless bad news."
+  },
+  "l1": "desplazarse sin cesar por noticias deprimentes",
+  "l1_hook": "Medianoche. Sigo haciendo doomscroll con noticias malas.",
+  "l1_ex": "Deja de \"doomscrolling\" y ve a dormir.",
+  "right": "doomscroll",
+  "native": {
+   "hook": "¿Qué significa “doomscroll”?",
+   "tip": "“doomscroll” = desplazarse sin cesar por noticias deprimentes. Ejemplo: “Stop doomscrolling and go to sleep.”",
+   "caption": "¿Qué significa “doomscroll”?\n“doomscroll” = desplazarse sin cesar por noticias deprimentes.\nEjemplo: “Stop doomscrolling and go to sleep.” (Deja de \"doomscrolling\" y ve a dormir.)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “doomscroll” = desplazarse sin cesar por noticias deprimentes. “Stop doomscrolling and go to sleep.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Midnight. Still scrolling bad news!"
+ },
+ "src": {
+  "slang": "doomscroll"
+ },
+ "lang": "es",
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "¿Qué significa “doomscroll”?",
+  "keyword": "doomscroll",
+  "value": "“doomscroll” = desplazarse sin cesar por noticias deprimentes. Ejemplo: “Stop doomscrolling and go to sleep.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “doomscroll”?",
+    "description": "“doomscroll” = desplazarse sin cesar por noticias deprimentes. Ejemplo: “Stop doomscrolling and go to sleep.”\n\n¿Qué significa “doomscroll”?\n“doomscroll” = desplazarse sin cesar por noticias deprimentes.\nEjemplo: “Stop doomscrolling and go to sleep.” (Deja de \"doomscrolling\" y ve a dormir.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "doomscroll",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “doomscroll”?\n“doomscroll” = desplazarse sin cesar por noticias deprimentes.\nEjemplo: “Stop doomscrolling and go to sleep.” (Deja de \"doomscrolling\" y ve a dormir.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “doomscroll”?\n\n“doomscroll” = desplazarse sin cesar por noticias deprimentes. Ejemplo: “Stop doomscrolling and go to sleep.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “doomscroll”? “doomscroll” = desplazarse sin cesar por noticias deprimentes. Ejemplo: “Stop… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “doomscroll” = desplazarse sin cesar por noticias deprimentes. “Stop doomscrolling and go to sleep.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Say no politely: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "I can't come. Sorry.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Thank you, but I'm busy that day.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Thanks, but I'll pass this time.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 24,
-  "seconds": 11.4,
-  "wpm": 126
+  "seconds": 11.1,
+  "wpm": 129
  },
  "publish": {
   "title": "Say no politely: A1, B1 or C1?",

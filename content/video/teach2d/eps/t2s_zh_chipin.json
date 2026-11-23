@@ -1,0 +1,148 @@
+{
+ "id": "t2s_zh_chipin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 91,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gift for her? Anyone?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Chip in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Give a bit of money to share.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's all chip in for her gift.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "chip in",
+  "forms": [
+   "chipped in"
+  ],
+  "ipa": "/ˈtʃɪp ɪn/",
+  "mean": "Give a bit of money to share.",
+  "define": "To give some money so a group can buy something.",
+  "vi": "Góp tiền chung",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Planning a gift",
+   "text": "Let's all chip in for her gift."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"chip in\" is to…",
+   "options": [
+    "eat chips",
+    "share the cost"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chip in' about potato chips.",
+   "why": "It means sharing the cost."
+  },
+  "l1": "凑钱",
+  "l1_hook": "给她的礼物？有人想\"chip in\"吗？",
+  "l1_ex": "我们大家一起\"chip in\"买她的礼物吧。",
+  "right": "chip in",
+  "native": {
+   "hook": "“chip in”是什么意思？",
+   "tip": "“chip in” = 凑钱. 例句: “Let's all chip in for her gift.”",
+   "caption": "“chip in”是什么意思？\n“chip in” = 凑钱.\n例句: “Let's all chip in for her gift.” (我们大家一起\"chip in\"买她的礼物吧。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “chip in” = 凑钱. “Let's all chip in for her gift.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gift for her? Anyone?"
+ },
+ "src": {
+  "slang": "chip in"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“chip in”是什么意思？",
+  "keyword": "chip in",
+  "value": "“chip in” = 凑钱. 例句: “Let's all chip in for her gift.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“chip in”是什么意思？",
+    "description": "“chip in” = 凑钱. 例句: “Let's all chip in for her gift.”\n\n“chip in”是什么意思？\n“chip in” = 凑钱.\n例句: “Let's all chip in for her gift.” (我们大家一起\"chip in\"买她的礼物吧。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "chip in",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“chip in”是什么意思？\n“chip in” = 凑钱.\n例句: “Let's all chip in for her gift.” (我们大家一起\"chip in\"买她的礼物吧。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“chip in”是什么意思？\n\n“chip in” = 凑钱. 例句: “Let's all chip in for her gift.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“chip in”是什么意思？ “chip in” = 凑钱. 例句: “Let's all chip in for her gift.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “chip in” = 凑钱. “Let's all chip in for her gift.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

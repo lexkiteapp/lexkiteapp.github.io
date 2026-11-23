@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Order food: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "I want a pizza, please.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "I'd like the chicken pasta, please.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "I'll go for the chicken pasta.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -89,7 +89,7 @@
  "est": {
   "words": 23,
   "seconds": 11.1,
-  "wpm": 125
+  "wpm": 124
  },
  "publish": {
   "title": "Order food: A1, B1 or C1?",

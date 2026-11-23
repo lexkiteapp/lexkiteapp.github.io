@@ -1,0 +1,146 @@
+{
+ "id": "t2s_es_cooked",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 52,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I forgot my notes. Uh-oh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cooked!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm in trouble or out of luck.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I forgot my notes. I'm cooked.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "cooked",
+  "forms": [],
+  "ipa": "/ˈkʊkt/",
+  "mean": "I'm in trouble or out of luck.",
+  "define": "Used jokingly when a situation looks bad for you.",
+  "vi": "Toang rồi",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Before a test",
+   "text": "I forgot my notes. I'm cooked."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"I'm cooked\" here means…",
+   "options": [
+    "I'm dinner",
+    "I'm in trouble"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'I'm cooked' when you merely feel sleepy.",
+   "why": "It means you're in real trouble."
+  },
+  "l1": "estar jodido",
+  "l1_hook": "Se me olvidaron los apuntes. ¡Estoy 'cooked'!",
+  "l1_ex": "Olvidé mis apuntes. Estoy \"cooked\".",
+  "right": "cooked",
+  "native": {
+   "hook": "¿Qué significa “cooked”?",
+   "tip": "“cooked” = estar jodido. Ejemplo: “I forgot my notes. I'm cooked.”",
+   "caption": "¿Qué significa “cooked”?\n“cooked” = estar jodido.\nEjemplo: “I forgot my notes. I'm cooked.” (Olvidé mis apuntes. Estoy \"cooked\".)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “cooked” = estar jodido. “I forgot my notes. I'm cooked.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I forgot my notes. Uh-oh!"
+ },
+ "src": {
+  "slang": "cooked"
+ },
+ "lang": "es",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "¿Qué significa “cooked”?",
+  "keyword": "cooked",
+  "value": "“cooked” = estar jodido. Ejemplo: “I forgot my notes. I'm cooked.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “cooked”?",
+    "description": "“cooked” = estar jodido. Ejemplo: “I forgot my notes. I'm cooked.”\n\n¿Qué significa “cooked”?\n“cooked” = estar jodido.\nEjemplo: “I forgot my notes. I'm cooked.” (Olvidé mis apuntes. Estoy \"cooked\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "cooked",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “cooked”?\n“cooked” = estar jodido.\nEjemplo: “I forgot my notes. I'm cooked.” (Olvidé mis apuntes. Estoy \"cooked\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “cooked”?\n\n“cooked” = estar jodido. Ejemplo: “I forgot my notes. I'm cooked.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “cooked”? “cooked” = estar jodido. Ejemplo: “I forgot my notes. I'm cooked.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “cooked” = estar jodido. “I forgot my notes. I'm cooked.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

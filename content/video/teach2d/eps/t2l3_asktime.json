@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Ask the time: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "What time is it?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Excuse me, do you know the time?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Sorry, do you happen to have the time?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 26,
-  "seconds": 12.0,
-  "wpm": 129
+  "seconds": 11.1,
+  "wpm": 140
  },
  "publish": {
   "title": "Ask the time: A1, B1 or C1?",

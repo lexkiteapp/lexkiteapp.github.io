@@ -1,0 +1,148 @@
+{
+ "id": "t2s_id_imdead",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 3,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The cat jumped in the box!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "I'm dead!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That is so funny!",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The cat jumped in the box. I'm dead!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "data": {
+  "key": "I'm dead",
+  "forms": [
+   "dead"
+  ],
+  "ipa": "/aɪm ˈded/",
+  "mean": "That is so funny!",
+  "define": "Used when something is so funny that you can't stop laughing.",
+  "vi": "Cười chết mất",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Watching a funny video",
+   "text": "The cat jumped in the box. I'm dead!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"I'm dead\" here means…",
+   "options": [
+    "that's hilarious",
+    "I'm very hungry"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'I'm dead' about a sad story.",
+   "why": "It means laughing hard."
+  },
+  "l1": "aku mati",
+  "l1_hook": "Kucing melompat ke dalam kotak! \"I'm dead\".",
+  "l1_ex": "Kucing melompat ke dalam kotak. \"I'm dead\"!",
+  "right": "I'm dead",
+  "native": {
+   "hook": "Apa arti “I'm dead”?",
+   "tip": "“I'm dead” = aku mati. Contoh: “The cat jumped in the box. I'm dead!”",
+   "caption": "Apa arti “I'm dead”?\n“I'm dead” = aku mati.\nContoh: “The cat jumped in the box. I'm dead!” (Kucing melompat ke dalam kotak. \"I'm dead\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “I'm dead” = aku mati. “The cat jumped in the box. I'm dead!” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The cat jumped in the box!"
+ },
+ "src": {
+  "slang": "I'm dead"
+ },
+ "lang": "id",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "Apa arti “I'm dead”?",
+  "keyword": "I'm dead",
+  "value": "“I'm dead” = aku mati. Contoh: “The cat jumped in the box. I'm dead!”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “I'm dead”?",
+    "description": "“I'm dead” = aku mati. Contoh: “The cat jumped in the box. I'm dead!”\n\nApa arti “I'm dead”?\n“I'm dead” = aku mati.\nContoh: “The cat jumped in the box. I'm dead!” (Kucing melompat ke dalam kotak. \"I'm dead\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "I'm dead",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “I'm dead”?\n“I'm dead” = aku mati.\nContoh: “The cat jumped in the box. I'm dead!” (Kucing melompat ke dalam kotak. \"I'm dead\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “I'm dead”?\n\n“I'm dead” = aku mati. Contoh: “The cat jumped in the box. I'm dead!”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “I'm dead”? “I'm dead” = aku mati. Contoh: “The cat jumped in the box. I'm dead!” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “I'm dead” = aku mati. “The cat jumped in the box. I'm dead!” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

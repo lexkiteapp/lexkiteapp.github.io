@@ -57,12 +57,12 @@
     "note": "Basic but correct."
    },
    "b": {
-    "text": "How do I get to the station, please?",
+    "text": "How do I get to the station?",
     "key": "How do I get",
     "note": "Polite and natural."
    },
    "c": {
-    "text": "Sorry, I'm trying to get to the station.",
+    "text": "I'm trying to get to the station.",
     "key": "trying to get to",
     "note": "Says your goal, not a question."
    }
@@ -74,17 +74,17 @@
    "chip": "At the hotel",
    "reg": "polite",
    "a": {
-    "text": "Hello. I have a room.",
+    "text": "I have a room.",
     "key": "I have",
     "note": "Understood, but very basic."
    },
    "b": {
-    "text": "I have a reservation for tonight.",
+    "text": "I have a reservation.",
     "key": "a reservation",
     "note": "Standard hotel English."
    },
    "c": {
-    "text": "Hi there, I've got a booking for tonight.",
+    "text": "Hi, I've got a booking.",
     "key": "I've got a",
     "note": "Relaxed and friendly."
    }
@@ -206,17 +206,17 @@
    "chip": "At the clinic",
    "reg": "neutral",
    "a": {
-    "text": "I need a doctor, please.",
+    "text": "I need a doctor.",
     "key": "I need",
     "note": "Clear, but very basic."
    },
    "b": {
-    "text": "I'd like to make an appointment.",
-    "key": "make an appointment",
+    "text": "I'd like an appointment, please.",
+    "key": "an appointment",
     "note": "Polite and standard."
    },
    "c": {
-    "text": "I was hoping to book an appointment.",
+    "text": "I was hoping to get seen today.",
     "key": "was hoping to",
     "note": "Softer and very natural."
    }
@@ -228,7 +228,7 @@
    "chip": "On the phone",
    "reg": "polite",
    "a": {
-    "text": "Hello. Is Ana there?",
+    "text": "Is Ana there?",
     "key": "Is Ana",
     "note": "Clear, a little direct."
    },
@@ -238,7 +238,7 @@
     "note": "Standard phone English."
    },
    "c": {
-    "text": "Hi, could I have a quick word with Ana?",
+    "text": "Hi, is Ana free for a quick word?",
     "key": "a quick word",
     "note": "Polite and relaxed."
    }
@@ -255,7 +255,7 @@
     "note": "Simple, but very short."
    },
    "b": {
-    "text": "I have three years of experience in sales.",
+    "text": "I have three years of experience.",
     "key": "years of experience",
     "note": "Clear and professional."
    },
@@ -277,7 +277,7 @@
     "note": "Clear, a little stiff."
    },
    "b": {
-    "text": "Hello, I live in the flat next door.",
+    "text": "Hi, I live next door.",
     "key": "next door",
     "note": "Friendly and clear."
    },
@@ -326,7 +326,7 @@
     "note": "Polite, full sentence."
    },
    "c": {
-    "text": "Could you drop me off at the airport?",
+    "text": "Could you drop me off there?",
     "key": "drop me off",
     "note": "What locals really say."
    }
@@ -343,12 +343,12 @@
     "note": "Short and clear."
    },
    "b": {
-    "text": "Could I have a ticket to the city?",
-    "key": "a ticket to",
+    "text": "A ticket to the city, please.",
+    "key": "A ticket to",
     "note": "Polite and specific."
    },
    "c": {
-    "text": "Can I get a return to the city?",
+    "text": "Can I get a return, please?",
     "key": "a return",
     "note": "British for round trip."
    }
@@ -414,7 +414,7 @@
     "note": "Polite and natural."
    },
    "c": {
-    "text": "I've come down with a cold. Any suggestions?",
+    "text": "I've come down with a cold.",
     "key": "come down with",
     "note": "A real phrasal verb for illness."
    }
@@ -453,8 +453,8 @@
     "note": "Short and clear."
    },
    "b": {
-    "text": "Could I get two tickets for the next film?",
-    "key": "the next film",
+    "text": "Could I get two tickets, please?",
+    "key": "Could I get",
     "note": "Polite and specific."
    },
    "c": {
@@ -475,12 +475,12 @@
     "note": "Clear, but very basic."
    },
    "b": {
-    "text": "Could you cut it a little shorter, please?",
-    "key": "a little shorter",
+    "text": "Could you cut it a bit shorter, please?",
+    "key": "a bit shorter",
     "note": "Polite and specific."
    },
    "c": {
-    "text": "Just a trim, please, nothing drastic.",
+    "text": "Just a trim, please, nothing fancy.",
     "key": "a trim",
     "note": "Short and natural."
    }
@@ -668,17 +668,17 @@
    "chip": "In a chat",
    "reg": "polite",
    "a": {
-    "text": "No, I don't think so.",
+    "text": "I don't think so.",
     "key": "I don't think",
     "note": "Correct, but a bit direct."
    },
    "b": {
-    "text": "I'm not sure I agree with that.",
+    "text": "I'm not sure I agree.",
     "key": "not sure I agree",
     "note": "Polite and careful."
    },
    "c": {
-    "text": "I hear you, but I'm not convinced.",
+    "text": "I hear you, but I doubt it.",
     "key": "I hear you",
     "note": "Shows you listened first."
    }
@@ -800,12 +800,12 @@
    "chip": "At a café",
    "reg": "casual",
    "a": {
-    "text": "Do you have internet here?",
+    "text": "Do you have internet?",
     "key": "internet",
     "note": "Clear and simple."
    },
    "b": {
-    "text": "Could I have the Wi-Fi code, please?",
+    "text": "Could I have the Wi-Fi code?",
     "key": "the Wi-Fi code",
     "note": "Polite and exact."
    },
@@ -832,7 +832,7 @@
     "note": "Clear and polite."
    },
    "c": {
-    "text": "Hi, my bag never showed up on the flight.",
+    "text": "Hi, my bag never showed up.",
     "key": "showed up",
     "note": "Natural for \"it did not arrive\"."
    }
@@ -871,7 +871,7 @@
     "note": "Clear and simple."
    },
    "b": {
-    "text": "Could we move the meeting to Monday?",
+    "text": "Could we move the meeting?",
     "key": "move the meeting",
     "note": "Polite and specific."
    },
@@ -1003,12 +1003,12 @@
     "note": "Clear and correct."
    },
    "b": {
-    "text": "I'm very tired today. I need a rest.",
+    "text": "I'm very tired. I need a rest.",
     "key": "need a rest",
     "note": "Clear, a bit formal."
    },
    "c": {
-    "text": "I'm exhausted. Let's call it a night.",
+    "text": "Let's call it a night.",
     "key": "call it a night",
     "note": "A natural way to stop."
    }
@@ -1152,17 +1152,17 @@
    "chip": "At a restaurant",
    "reg": "neutral",
    "a": {
-    "text": "Sorry, I want tea, not coffee.",
+    "text": "I want tea, not coffee.",
     "key": "I want tea",
     "note": "Clear, but no polite frame."
    },
    "b": {
-    "text": "Sorry, could I change my order?",
+    "text": "Could I change my order?",
     "key": "change my order",
     "note": "Polite and clear."
    },
    "c": {
-    "text": "Actually, could I swap that for tea?",
+    "text": "Can I swap that for tea?",
     "key": "swap",
     "note": "A natural fix."
    }
@@ -1228,7 +1228,7 @@
     "note": "Polite and complete."
    },
    "c": {
-    "text": "Would you mind taking a quick pic?",
+    "text": "Would you mind taking a pic?",
     "key": "Would you mind",
     "note": "Polite and relaxed."
    }
@@ -1311,7 +1311,7 @@
     "note": "Clear, a bit direct."
    },
    "b": {
-    "text": "Could I take Friday off, please?",
+    "text": "Could I take Friday off?",
     "key": "take Friday off",
     "note": "Polite and specific."
    },
@@ -1377,8 +1377,8 @@
     "note": "Clear and correct."
    },
    "b": {
-    "text": "Could you tell me your opening hours?",
-    "key": "opening hours",
+    "text": "Could you tell me your hours?",
+    "key": "your hours",
     "note": "Polite and standard."
    },
    "c": {

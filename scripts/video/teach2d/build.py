@@ -826,6 +826,7 @@ def T_slang():
     D = EP['data']; series_chip(); RG = {'very-casual': 'VERY CASUAL', 'casual': 'CASUAL', 'neutral': 'EVERYDAY'}
     hw = EP['hook']['text'].split(); n2 = min(2, len(hw) - 1)
     title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 96, RY0 + 120, None, start('k') - 0.2, hook=True)
+    if D.get('l1_hook'): title([[D['l1_hook'], 'accent']], S['body'], RY0 + 400, None, start('k') - 0.2, rtl=EP.get('lang') == 'ar')   # L1 page: the situation in the page language under the English hook
     t_k, t_m, t_e, t_c = start('k'), start('m'), start('e'), start('c')
     c = Card(RY0); b = chip(c, RG[D['reg']], t_k, tone='chip')
     if D['region'] != 'global':   # US / UK flag chip right of the register chip
@@ -843,7 +844,9 @@ def T_slang():
     forms = sorted([D['key']] + [f for f in (D.get('forms') or [])], key=len, reverse=True)
     hl = next((f for f in forms if f.lower() in ex['text'].lower()), D['key'])
     t_q = end('e') + 0.12   # the silent card takes the region the moment the example is said (one card at a time – the region holds one)
-    c.text(runs_hl(ex['text'], hl, col='onhl', base='ongood'), S['body'], t_e); c.place(t_e, t_q - 0.3, 'a')
+    c.text(runs_hl(ex['text'], hl, col='onhl', base='ongood'), S['body'], t_e)
+    if D.get('l1_ex'): c.text([[D['l1_ex'], 'ongood']], S['sub'], t_e, extra={'rtl': True} if EP.get('lang') == 'ar' else None)   # L1 page: the example's translation (the English slang kept inside it)
+    c.place(t_e, t_q - 0.3, 'a')
     if D['variant'] == 'quiz':
         q = D['quiz']; t_r1 = end('e') + LINES['e']['pause'] - 0.75   # 3-2-1 ring, then the answer lights (ding) and stays ~0.55 s before the CTA card
         c = Card(RY0); chip(c, 'QUICK QUIZ', t_q); c.text([[q['ask'], 'ink']], S['body'], t_q); pills(c, q['options'], t_q, t_r1 + 0.05, q['answer'])
@@ -860,7 +863,7 @@ def T_scorecard():
     items filled with the sample pick (each its own check / cross as the voice counts them) + the score computed from those ticks, then the challenge card and the CTA
     to the app's level test (#/placement). Nothing here is a user claim: the chip says SAMPLE ANSWERS and the points line shows the sum."""
     D = EP['data']; series_chip(); s, n = D['score'], D['right']; hw = EP['hook']['text'].split()
-    title([[' '.join(hw[:-2]) + ' ', 'ink'], [' '.join(hw[-2:]), 'primary']], 96, RY0 + 120, None, start('k') - 0.2, hook=True)
+    title([[' '.join(hw[:-2]) + ' ', 'ink'], [' '.join(hw[-2:]), 'primary']], 96, RY0 + 120, None, start('k') - 0.3, hook=True)   # every card / title leaves 0.3 s before the next one's word (the soft entrance starts 0.12 s before it)
     t_k, t_ch, t_c = start('k'), start('ch'), start('c'); t_sc = at('k', 2); step = (t_sc - t_k - 0.1) / len(D['items'])
     c = Card(RY0); chip(c, 'SAMPLE ANSWERS', t_k); c.lp = PAD + 62   # rows leave the left column to the check / cross
     for i, it in enumerate(D['items']):
@@ -868,24 +871,24 @@ def T_scorecard():
         y0 = c.y; nn = c.text([[a, 'ink'], [pk, 'good' if right else 'bad'], [b[len(re.match(r'\S*', b)[0]):], 'ink']], 40, t_i, gap=14); by = y0 + (nn[0]['box'][3] - nn[0]['box'][1] - 56) / 2
         c.rows.append(dict(id=nid('b'), type='check' if right else 'cross', box=[PAD, by, PAD + 56, by + 56], **{'in': cue(t_i, 'pop' if right else 'soft')}))
     c.lp = PAD; c.text([[str(s), 'coral'], ['/100', 'ink']], S['big'], t_sc, align='c'); c.text([[f"{n} right × {D['pts']} points", 'muted']], S['sub'], at('k', 3), align='c')
-    c.place(t_k, t_ch - 0.2, 'a')
+    c.place(t_k, t_ch - 0.3, 'a')
     c = Card(RY0); chip(c, 'YOUR TURN', t_ch); c.text([[('Match ' if s == 100 else 'Beat '), 'ink'], [f'{s}/100', 'coral'], ['?', 'ink']], S['big'], t_ch, align='c')
-    c.text([['Take the free level test', 'muted']], S['sub'], at('ch', 'Take'), align='c'); c.place(t_ch, t_c - 0.2, 'a')
+    c.text([['Take the free level test', 'muted']], S['sub'], at('ch', 'Take'), align='c'); c.place(t_ch, t_c - 0.3, 'a')
 
 
 def T_guess3():
     """Guess in 3 Seconds (growth series #2): from frame 0 the hook headline, the picture, blank letter tiles (the word is hidden) and the 3-2-1 ring (the viewer guesses in the comments);
     reveal: the tiles fill, the word big + IPA pill take the headline slot, then the meaning card, the example bubble (word highlighted), CTA."""
-    D = EP['data']; series_chip(); w = D['word']; n = D['n']; t_rev, t_m, t_e, t_c = start('a'), start('m'), start('e'), start('c'); t_out = t_c - 0.2; t_h = t_rev - 0.12
+    D = EP['data']; series_chip(); w = D['word']; n = D['n']; t_rev, t_m, t_e, t_c = start('a'), start('m'), start('e'), start('c'); t_out = t_c - 0.2; t_h = t_rev - 0.3   # every card / title leaves 0.3 s before the next one's word (slang: t_q - 0.3): the soft entrance starts 0.12 s before its word, so nothing overlaps
     hw = EP['hook']['text'].split(); n2 = min(2, len(hw) - 1)
     title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 88, RY0, None, t_h, hook=True)
     P = 240 if D.get('l1') else 300; px = RX0 + (RW - P) / 2; py = RY0 + 215   # the headline slot (2 lines) = 215 px; the same slot holds the revealed word + IPA
     top('pic', [px, py, px + P, py + P], None, out=t_out, src='pic.png', sharp=True)
-    t0, t1 = end('h') + 0.05, end('h') + LINES['h']['pause'] - 0.1
+    t0, t1 = start('h') + 0.1, t_rev - 0.1   # the 3-2-1 ring runs from the hook's first word to the answer: the hook + its silence ~ 3 s
     top('ring', [px + P + 16, py + 10, px + P + 126, py + 120], t0, out=t1 + 0.3, ring=dict(t0=round(t0, 3), t1=round(t1, 3)), size=54)
     y = py + P + 22; lw = min(90, (RW - 12 * (n - 1)) / n); x = RX0 + (RW - (lw * n + 12 * (n - 1))) / 2
     for ch in w.upper():
-        top('letter', [x, y, x + lw, y + lw * 1.2], None, out=t_m - 0.1, ch=ch, size=int(lw * 0.7), st=[dict(t=round(t_rev, 4), s='show')], pairs=[['#382600', '#FFC524', int(lw * 0.7)]]); x += lw + 12
+        top('letter', [x, y, x + lw, y + lw * 1.2], None, out=t_m - 0.3, ch=ch, size=int(lw * 0.7), st=[dict(t=round(t_rev, 4), s='show')], pairs=[['#382600', '#FFC524', int(lw * 0.7)]]); x += lw + 12
     ww = tw(w, 104); top('text', [RX0 + (RW - ww) / 2, RY0, RX0 + (RW + ww) / 2, RY0 + 127], t_rev, out=t_out, runs=[[w, 'coral']], size=104, ipa=False)
     iw = min(RW, tw(D['ipa'], 48, True) + 80)
     nip = top('ipapill', [RX0 + (RW - iw) / 2, RY0 + 132, RX0 + (RW + iw) / 2, RY0 + 212], t_rev, out=t_out, text=D['ipa'], size=48, pairs=[[TH['ink'], TH['card'], 48]])
@@ -893,7 +896,7 @@ def T_guess3():
     y0 = py + P + 14; mean = D['mean'][0].upper() + D['mean'][1:].rstrip('.') + '.'
     c = Card(y0); c.text([[mean, 'ink']], S['body'], t_m, align='c')
     if D.get('l1'): c.text([[D['l1'], 'accent']], S['body'], t_m, align='c', extra={'rtl': True} if EP.get('lang') == 'ar' else None)   # the page's language (L1 channels only)
-    c.place(t_m, t_e - 0.2, 'a')
+    c.place(t_m, t_e - 0.3, 'a')
     hl = (re.search(rf'\b{re.escape(w)}(?:s|es)?\b', D['ex'], re.I) or re.search(re.escape(w), D['ex'], re.I)); hl = hl.group(0) if hl else w
     runs = runs_hl(D['ex'], hl, col='onhl', base='ongood'); c = Card(y0, tone='bubble_good'); c.tail = 'l'
     c.text(runs, S['body'] if len(c.wrap(runs, S['body'])) <= 2 else S['sub'], t_e); c.place(t_e, t_out, 'a')
@@ -902,21 +905,21 @@ def T_guess3():
 
 def T_levels3():
     """One Situation, 3 Levels (growth series #3): hook headline + the situation chip from frame 0, then ONE Kit card per level (A1 -> B1 -> C1: level badge, the line with its key phrase highlighted, a short note)
-    over a 3-step track, each spoken with its own teacher face; the C1 pause holds a silent quick quiz (which key phrase would a native say?, the answer lights on the CTA), CTA."""
+    over a 3-step track, each spoken with its own teacher face; every card / title leaves 0.3 s before the next one's word (guess3 lesson 24/11: no overlap at the scene change); the C1 pause holds a silent quick quiz (which key phrase would a native say?, the answer lights on the CTA), CTA."""
     D = EP['data']; LV = D['levels']; series_chip(); t_a, t_b, t_n, t_c = start('a'), start('b'), start('n'), start('c'); t_q = end('n') + 0.12
     hw = EP['hook']['text'].split(); n2 = min(2, len(hw) - 1)
-    y = title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 96, RY0 + 120, None, t_a - 0.2, hook=True)
-    ct = f"{D['em']} {D['chip'].upper()}"; cw = chip_w(ct, tw, S['chip']); top('chip', [RX0 + (RW - cw) / 2, y + 24, RX0 + (RW + cw) / 2, y + 24 + S['chip'] + 28], None, out=t_a - 0.2, text=ct, tone='chip', size=S['chip'])
-    ts = [t_a, t_b, t_n]; top('track', [RX0 + 20, RY0, RX1 - 20, RY0 + 70], t_a, out=t_q - 0.05, steps=3, st=[dict(t=round(t_, 4), s=f'cur{i}') for i, t_ in enumerate(ts, 1)])
+    y = title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 96, RY0 + 120, None, t_a - 0.3, hook=True)
+    ct = f"{D['em']} {D['chip'].upper()}"; cw = chip_w(ct, tw, S['chip']); top('chip', [RX0 + (RW - cw) / 2, y + 24, RX0 + (RW + cw) / 2, y + 24 + S['chip'] + 28], None, out=t_a - 0.3, text=ct, tone='chip', size=S['chip'])
+    ts = [t_a, t_b, t_n]; top('track', [RX0 + 20, RY0, RX1 - 20, RY0 + 70], t_a, out=t_q - 0.3, steps=3, st=[dict(t=round(t_, 4), s=f'cur{i}') for i, t_ in enumerate(ts, 1)])
     NAME = dict(a=('A1', 'BEGINNER'), b=('B1', 'EVERYDAY'), c=('C1', 'LIKE A NATIVE'))
     for i, k in enumerate('abc'):
-        x = LV[k]; t0 = ts[i]; t_o = (ts[i + 1] if i < 2 else t_q) - (0.2 if i < 2 else 0.3); nat = k == 'c'
+        x = LV[k]; t0 = ts[i]; t_o = (ts[i + 1] if i < 2 else t_q) - 0.3; nat = k == 'c'
         c = Card(RY0 + 100, tone='bubble_good' if nat else 'card'); chip(c, f'{NAME[k][0]} \u00b7 {NAME[k][1]}', t0, **({'tone': 'good'} if nat else {}))
         runs = runs_hl(x['text'], x['key'], 'onhl' if nat else 'accent', 'ongood' if nat else 'ink'); sz = next((z for z in (84, 72, 64) if len(c.wrap(runs, z)) <= 3), 60)
         c.text(runs, sz, t0); c.text([[x['note'], 'ongood' if nat else 'muted']], S['sub'], t0); c.place(t0, t_o, 'a')
     q = D['quiz']; t_r1 = end('n') + LINES['n']['pause'] - 0.75
     c = Card(RY0); chip(c, 'QUICK QUIZ', t_q); c.text([[q['ask'], 'ink']], S['body'], t_q); pills(c, q['options'], t_q, t_r1 + 0.05, q['answer'])
-    b = c.place(t_q, t_c - 0.2, 'b'); ring(b, t_q + 0.05, t_r1)
+    b = c.place(t_q, t_c - 0.3, 'b'); ring(b, t_q + 0.05, t_r1)
     end_card()
 
 

@@ -1,0 +1,153 @@
+{
+ "id": "t2s_tr_cram",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 76,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Exam tomorrow. I haven't studied!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cram!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Study at the last minute.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I must cram for math.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "cram",
+  "forms": [
+   "cramming",
+   "crammed"
+  ],
+  "ipa": "/ˈkræm/",
+  "mean": "Study at the last minute.",
+  "define": "To study many things quickly just before a test.",
+  "vi": "Học nhồi nhét",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Waiting outside class",
+   "text": "I must cram for math."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"cram\" is to…",
+   "options": [
+    "sleep in class",
+    "study at the last minute"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'cram' for a three-year course.",
+   "why": "Cramming only works for short tests."
+  },
+  "l1": "son anda çalışmak",
+  "l1_hook": "Yarın sınav. Henüz çalışmadım, cram yapmam gerekiyor!",
+  "l1_ex": "Matematik için \"cram\" yapmalıyım.",
+  "right": "cram",
+  "native": {
+   "hook": "“cram” ne demek?",
+   "tip": "“cram” = son anda çalışmak. Örnek: “I must cram for math.”",
+   "caption": "“cram” ne demek?\n“cram” = son anda çalışmak.\nÖrnek: “I must cram for math.” (Matematik için \"cram\" yapmalıyım.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “cram” = son anda çalışmak. “I must cram for math.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Exam tomorrow. I haven't studied!"
+ },
+ "src": {
+  "slang": "cram"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“cram” ne demek?",
+  "keyword": "cram",
+  "value": "“cram” = son anda çalışmak. Örnek: “I must cram for math.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“cram” ne demek?",
+    "description": "“cram” = son anda çalışmak. Örnek: “I must cram for math.”\n\n“cram” ne demek?\n“cram” = son anda çalışmak.\nÖrnek: “I must cram for math.” (Matematik için \"cram\" yapmalıyım.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "cram",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“cram” ne demek?\n“cram” = son anda çalışmak.\nÖrnek: “I must cram for math.” (Matematik için \"cram\" yapmalıyım.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cram” ne demek?\n\n“cram” = son anda çalışmak. Örnek: “I must cram for math.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cram” ne demek? “cram” = son anda çalışmak. Örnek: “I must cram for math.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “cram” = son anda çalışmak. “I must cram for math.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

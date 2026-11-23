@@ -2,17 +2,17 @@
  "id": "t2g3_comet",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 60,
+ "part": 48,
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.25,
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Three seconds. What is it?",
-   "pause": 2.6
+   "text": "Three seconds. Go!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "The comet's tail always points away from the sun.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "hype",
@@ -52,16 +52,16 @@
  },
  "hook": {
   "line": "h",
-  "text": "Three seconds. What is it?"
+  "text": "Three seconds. Go!"
  },
  "src": {
   "word": "comet",
   "img": "comet#n"
  },
  "est": {
-  "words": 27,
-  "seconds": 11.9,
-  "wpm": 136
+  "words": 25,
+  "seconds": 11.3,
+  "wpm": 132
  },
  "publish": {
   "title": "Guess in 3 seconds: C + 4 letters",
@@ -75,7 +75,7 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/dict/comet",
-  "script_words": 26,
+  "script_words": 24,
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: C + 4 letters",

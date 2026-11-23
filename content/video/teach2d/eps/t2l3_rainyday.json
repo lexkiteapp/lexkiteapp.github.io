@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Talk about rain: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "It is raining.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "It's raining really hard today.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "It's raining cats and dogs!",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 20,
-  "seconds": 10.1,
-  "wpm": 119
+  "seconds": 10.3,
+  "wpm": 116
  },
  "publish": {
   "title": "Talk about rain: A1, B1 or C1?",

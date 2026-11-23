@@ -20,7 +20,30 @@ N = 1080; PAD = 64; GATES = dict(overflow=[], contrast=[], teacher=None)
 os.makedirs(o.out, exist_ok=True)
 
 
-def font(sz, ipa=False):
+import glob
+from PIL import features
+# L1 pages: page-language lines need Noto for their script (render job installs fonts-noto-core + fonts-noto-cjk; Cyrillic = the repo Noto Sans).
+# Arabic / Devanagari / Thai need text shaping (Pillow + libraqm); without it the card is NOT written (gate 'shaping') instead of a broken image.
+SCRIPTS = [('cjk', r'[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\uff00-\uffef]', ['/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc', '/usr/share/fonts/opentype/noto/NotoSansCJK*.ttc']),
+           ('ara', r'[\u0600-\u06ff]', [f'{ROOT}/scripts/cine/fonts/NotoSansArabic.ttf', '/usr/share/fonts/truetype/noto/NotoSansArabic-Bold.ttf', '/usr/share/fonts/truetype/noto/NotoSansArabic-*.ttf']),
+           ('dev', r'[\u0900-\u097f]', ['/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf', '/usr/share/fonts/truetype/noto/NotoSansDevanagari*.ttf']),
+           ('tha', r'[\u0e00-\u0e7f]', ['/usr/share/fonts/truetype/noto/NotoSansThai-Bold.ttf', '/usr/share/fonts/truetype/noto/NotoSansThai*.ttf']),
+           ('cyr', r'[\u0400-\u04ff]', [FN])]
+COMPLEX, RAQM = {'ara', 'dev', 'tha'}, features.check_feature('raqm')
+
+
+def script_of(s):
+    import re as _re
+    return next((k for k, rx, _ in SCRIPTS if _re.search(rx, s or '')), None)
+
+
+def font(sz, ipa=False, text=''):
+    k = script_of(text)
+    if k:
+        path = next((g for _, rx, pats in SCRIPTS if _ == k for p_ in pats for g in sorted(glob.glob(p_))), None)
+        if not path: GATES['overflow'].append(dict(tag='font', why=f'no Noto font for {k}')); path = FN
+        if k in COMPLEX and not RAQM: GATES['overflow'].append(dict(tag='shaping', why=f'{k} needs libraqm (Pillow raqm feature)'))
+        return ImageFont.truetype(path, sz)
     f = ImageFont.truetype(FN if ipa else FJ, sz)
     if not ipa:
         try: f.set_variation_by_axes([800])
@@ -44,11 +67,41 @@ def lum(c):
 def cr(a, b): la, lb = sorted([lum(a), lum(b)], reverse=True); return (la + 0.05) / (lb + 0.05)
 
 
+import re as _re
+NOLATIN = {'dev', 'tha'}   # Noto Devanagari / Thai carry no Latin glyphs: a mixed line ("… 'salty' …") is drawn run by run (Latin runs in the brand font)
+
+
+def _runs(s, k):   # [(text, is_script)] – script letters (+ the spaces/punctuation between them) vs Latin runs
+    rx = [r for kk, r, _ in SCRIPTS if kk == k][0]
+    out, cur, cs = [], '', None
+    for ch in s:
+        isk = bool(_re.match(rx, ch)) or (ch in ' ,.!?:;-–()' and cs)
+        if cs is None or isk == cs: cur += ch; cs = isk if cs is None else cs
+        else: out.append((cur, cs)); cur, cs = ch, isk
+    if cur: out.append((cur, cs))
+    return out
+
+
+def tlen(d, s, f):   # text width, run by run when the font has no Latin
+    k = script_of(s)
+    if k not in NOLATIN: return d.textlength(s, font=f)
+    lat = font(f.size)
+    return sum(d.textlength(t, font=f if isk else lat) for t, isk in _runs(s, k))
+
+
+def draw(d, xy, s, f, fill, **kw):
+    k = script_of(s)
+    if k not in NOLATIN: d.text(xy, s, font=f, fill=fill, **kw); return
+    x, y, lat = xy[0], xy[1], font(f.size)
+    for t, isk in _runs(s, k):
+        ff = f if isk else lat; d.text((x, y), t, font=ff, fill=fill); x += d.textlength(t, font=ff)
+
+
 def wrap(d, text, f, width):
     out, cur = [], ''
     for w in text.split():
         t = (cur + ' ' + w).strip()
-        if d.textlength(t, font=f) <= width or not cur: cur = t
+        if tlen(d, t, f) <= width or not cur: cur = t
         else: out.append(cur); cur = w
     if cur: out.append(cur)
     return out
@@ -58,16 +111,16 @@ def text(d, xy, s, sz, fg, bg, width, align='c', ipa=False, max_lines=3, tag='')
     """centred/left text block, shrinks (down to 70 %) until it fits max_lines; records overflow + contrast gates."""
     x, y = xy; size = sz
     while True:
-        f = font(size, ipa); ls = wrap(d, s, f, width)
-        if len(ls) <= max_lines and all(d.textlength(l, font=f) <= width for l in ls): break
+        f = font(size, ipa, s); ls = wrap(d, s, f, width)
+        if len(ls) <= max_lines and all(tlen(d, l, f) <= width for l in ls): break
         if size <= sz * 0.7: GATES['overflow'].append(dict(tag=tag, text=s)); break
         size -= 4
     lim = 3.0 if size >= 56 else 4.5; c_ = cr(rgb(fg), rgb(bg))
     if c_ < lim: GATES['contrast'].append(dict(tag=tag, fg=fg, bg=bg, ratio=round(c_, 2), need=lim))
     lh = round(size * 1.2)
     for i, l in enumerate(ls):
-        lw = d.textlength(l, font=f); xx = x + (width - lw) / 2 if align == 'c' else x
-        d.text((xx, y + i * lh), l, font=f, fill=fg)
+        lw = tlen(d, l, f); xx = x + (width - lw) / 2 if align == 'c' else x
+        draw(d, (xx, y + i * lh), l, f, fg, **({'direction': 'rtl'} if RAQM and script_of(l) == 'ara' else {}))
     return y + len(ls) * lh
 
 
@@ -186,7 +239,7 @@ else:
     # cover (slang: hook + expression + the slang + IPA + meaning) / answer (guess3: the same layout with the word)
     im = canvas(); d = ImageDraw.Draw(im); chip(d, PAD, PAD, 'THE ANSWER' if GUESS3 else 'SLANG CARD'); brand(d, im)
     y = text(d, (PAD, 140), 'Did you guess it?' if GUESS3 else EP['hook']['text'], 60, C['ink'], C['bg'], N - 2 * PAD, max_lines=2, tag='hook')
-    ml = len(wrap(d, L1 or D['mean'], font(52), N - 2 * PAD - 80)); need = 134 + 53 + 18 + ml * 62 + 60   # key + IPA + meaning lines + card padding
+    ml = len(wrap(d, L1 or D['mean'], font(52, text=L1 or D['mean']), N - 2 * PAD - 80)); need = 134 + 53 + 18 + ml * 62 + 60   # key + IPA + meaning lines + card padding
     fig = cutout(int(max(320, min(520, N - PAD - 8 - (y + 10) - need + 30)))); fx = (N - fig.width) // 2; fy = y + 10
     card(d, [PAD, fy + fig.height - 30, N - PAD, N - PAD - 8], C['card'], C['edge'], C['ledge'])
     im.alpha_composite(fig, (fx, fy)); d = ImageDraw.Draw(im)
@@ -200,9 +253,10 @@ else:
     y = text(d, (PAD, 170), 'THE WORD IN USE' if GUESS3 else 'IN REAL LIFE', 44, C['accent'], C['bg'], N - 2 * PAD, max_lines=1, tag='label')
     if not GUESS3: y = text(d, (PAD, y + 6), D['example']['ctx'], 42, C['muted'], C['bg'], N - 2 * PAD, max_lines=2, tag='ctx')
     EX = D['ex'] if GUESS3 else D['example']['text']
-    b0 = y + 24; nl = len(wrap(d, f'\u201c{EX}\u201d', font(64), N - 2 * PAD - 96)); bh = 100 + nl * 77
+    b0 = y + 24; nl = len(wrap(d, f'\u201c{EX}\u201d', font(64), N - 2 * PAD - 96)); bh = 100 + nl * 77 + (len(wrap(d, D['l1_ex'], font(44, text=D['l1_ex']), N - 2 * PAD - 96)) * 53 + 10 if D.get('l1_ex') else 0)
     card(d, [PAD, b0, N - PAD, b0 + bh], C['bubble_good'], C['bubble_good_edge'], C['ledge'])
-    text(d, (PAD + 48, b0 + 50), f'\u201c{EX}\u201d', 64, C['ongood'], C['bubble_good'], N - 2 * PAD - 96, max_lines=4, tag='example')
+    ye = text(d, (PAD + 48, b0 + 50), f'\u201c{EX}\u201d', 64, C['ongood'], C['bubble_good'], N - 2 * PAD - 96, max_lines=4, tag='example')
+    if D.get('l1_ex'): text(d, (PAD + 48, ye + 10), D['l1_ex'], 44, C['ongood'], C['bubble_good'], N - 2 * PAD - 96, max_lines=2, tag='l1_example')
     if GUESS3: tiles(d, b0 + bh + 70, letters=True); cta_block(d)
     else:
         m0 = b0 + bh + 56; card(d, [PAD, m0, N - PAD, m0 + 270], C['bad_bg'], C['bad_edge'], C['ledge'])

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_cranky",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 104,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't talk to me yet!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cranky!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Grumpy and in a bad mood.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm cranky before breakfast.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "cranky",
+  "forms": [],
+  "ipa": "/ˈkræŋki/",
+  "mean": "Grumpy and in a bad mood.",
+  "define": "Describes someone tired or annoyed.",
+  "vi": "Cáu kỉnh",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about a child",
+   "text": "I'm cranky before breakfast."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cranky\" means…",
+   "options": [
+    "happy",
+    "grumpy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your boss 'cranky' in an email.",
+   "why": "It's too casual and insulting."
+  },
+  "l1": "อารมณ์เสีย",
+  "l1_hook": "อย่าพูดกับฉันตอนนี้! ฉันกำลัง \"cranky\"",
+  "l1_ex": "ฉัน \"cranky\" ก่อนอาหารเช้า.",
+  "right": "cranky",
+  "native": {
+   "hook": "“cranky” แปลว่าอะไร?",
+   "tip": "“cranky” = อารมณ์เสีย. ตัวอย่าง: “I'm cranky before breakfast.”",
+   "caption": "“cranky” แปลว่าอะไร?\n“cranky” = อารมณ์เสีย.\nตัวอย่าง: “I'm cranky before breakfast.” (ฉัน \"cranky\" ก่อนอาหารเช้า.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “cranky” = อารมณ์เสีย. “I'm cranky before breakfast.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Don't talk to me yet!"
+ },
+ "src": {
+  "slang": "cranky"
+ },
+ "lang": "th",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“cranky” แปลว่าอะไร?",
+  "keyword": "cranky",
+  "value": "“cranky” = อารมณ์เสีย. ตัวอย่าง: “I'm cranky before breakfast.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“cranky” แปลว่าอะไร?",
+    "description": "“cranky” = อารมณ์เสีย. ตัวอย่าง: “I'm cranky before breakfast.”\n\n“cranky” แปลว่าอะไร?\n“cranky” = อารมณ์เสีย.\nตัวอย่าง: “I'm cranky before breakfast.” (ฉัน \"cranky\" ก่อนอาหารเช้า.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "cranky",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“cranky” แปลว่าอะไร?\n“cranky” = อารมณ์เสีย.\nตัวอย่าง: “I'm cranky before breakfast.” (ฉัน \"cranky\" ก่อนอาหารเช้า.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cranky” แปลว่าอะไร?\n\n“cranky” = อารมณ์เสีย. ตัวอย่าง: “I'm cranky before breakfast.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cranky” แปลว่าอะไร? “cranky” = อารมณ์เสีย. ตัวอย่าง: “I'm cranky before breakfast.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “cranky” = อารมณ์เสีย. “I'm cranky before breakfast.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

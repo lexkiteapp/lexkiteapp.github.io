@@ -6,34 +6,34 @@
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Ask for someone: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
-   "text": "Hello. Is Ana there?",
-   "pause": 0.3
+   "text": "Is Ana there?",
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Hello, could I speak to Ana?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
-   "text": "Hi, could I have a quick word with Ana?",
-   "pause": 2.2,
+   "text": "Hi, is Ana free for a quick word?",
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -49,7 +49,7 @@
   "reg": "polite",
   "levels": {
    "a": {
-    "text": "Hello. Is Ana there?",
+    "text": "Is Ana there?",
     "key": "Is Ana",
     "note": "Clear, a little direct."
    },
@@ -59,7 +59,7 @@
     "note": "Standard phone English."
    },
    "c": {
-    "text": "Hi, could I have a quick word with Ana?",
+    "text": "Hi, is Ana free for a quick word?",
     "key": "a quick word",
     "note": "Polite and relaxed."
    }
@@ -87,14 +87,14 @@
   "levels3": "ask-for-someone"
  },
  "est": {
-  "words": 26,
-  "seconds": 12.0,
+  "words": 24,
+  "seconds": 11.1,
   "wpm": 129
  },
  "publish": {
   "title": "Ask for someone: A1, B1 or C1?",
   "keyword": "ask for someone",
-  "value": "Ask for someone, three ways. A1: \"Hello. Is Ana there?\" B1: \"Hello, could I speak to Ana?\" C1: \"Hi, could I have a quick word with Ana?\"",
+  "value": "Ask for someone, three ways. A1: \"Is Ana there?\" B1: \"Hello, could I speak to Ana?\" C1: \"Hi, is Ana free for a quick word?\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 16,
+  "script_words": 15,
   "platforms": {
    "youtube": {
     "title": "Ask for someone: A1, B1 or C1?",
-    "description": "Ask for someone, three ways. A1: \"Hello. Is Ana there?\" B1: \"Hello, could I speak to Ana?\" C1: \"Hi, could I have a quick word with Ana?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Ask for someone, three ways. A1: \"Is Ana there?\" B1: \"Hello, could I speak to Ana?\" C1: \"Hi, is Ana free for a quick word?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "ask for someone",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Ask for someone: A1, B1 or C1?\n\nAsk for someone, three ways. A1: \"Hello. Is Ana there?\" B1: \"Hello, could I speak to Ana?\" C1: \"Hi, could I have a quick word with Ana?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Ask for someone: A1, B1 or C1?\n\nAsk for someone, three ways. A1: \"Is Ana there?\" B1: \"Hello, could I speak to Ana?\" C1: \"Hi, is Ana free for a quick word?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Ask for someone: A1, B1 or C1?\n\nAsk for someone, three ways. A1: \"Hello. Is Ana there?\" B1: \"Hello, could I speak to Ana?\" C1: \"Hi, could I have a quick word with Ana?\"\n\nLevel up your English free: link in bio.",
+    "caption": "Ask for someone: A1, B1 or C1?\n\nAsk for someone, three ways. A1: \"Is Ana there?\" B1: \"Hello, could I speak to Ana?\" C1: \"Hi, is Ana free for a quick word?\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",
@@ -132,6 +132,6 @@
     "caption": "Ask for someone: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
    }
   },
-  "first_comment": "Quiz answer: A quick word. Native line: \"Hi, could I have a quick word with Ana?\" Which level are you? More real English, free: {link}"
+  "first_comment": "Quiz answer: A quick word. Native line: \"Hi, is Ana free for a quick word?\" Which level are you? More real English, free: {link}"
  }
 }
