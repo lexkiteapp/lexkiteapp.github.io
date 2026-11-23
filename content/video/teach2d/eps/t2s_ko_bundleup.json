@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ko_bundleup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 41,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "It's freezing outside. Ready?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bundle up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Put on warm clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Bundle up, it's freezing outside!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "bundle up",
+  "forms": [],
+  "ipa": "/ˈbʌndl ˈʌp/",
+  "mean": "Put on warm clothes.",
+  "define": "To wear many layers because it's cold.",
+  "vi": "Mặc thật ấm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Before going out",
+   "text": "Bundle up, it's freezing outside!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bundle up\" means…",
+   "options": [
+    "dress warmly",
+    "tie a box"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell a friend to 'bundle up' in summer.",
+   "why": "It means put on warm clothes."
+  },
+  "l1": "따뜻하게 입다",
+  "l1_hook": "밖이 너무 추워. \"bundle up\" 할 준비됐어?",
+  "l1_ex": "따뜻하게 입어('Bundle up'), 밖이 엄청 추워!",
+  "right": "bundle up",
+  "native": {
+   "hook": "“bundle up” 무슨 뜻일까요?",
+   "tip": "“bundle up” = 따뜻하게 입다. 예문: “Bundle up, it's freezing outside!”",
+   "caption": "“bundle up” 무슨 뜻일까요?\n“bundle up” = 따뜻하게 입다.\n예문: “Bundle up, it's freezing outside!” (따뜻하게 입어('Bundle up'), 밖이 엄청 추워!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “bundle up” = 따뜻하게 입다. “Bundle up, it's freezing outside!” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "It's freezing outside. Ready?"
+ },
+ "src": {
+  "slang": "bundle up"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 17,
+  "seconds": 10.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“bundle up” 무슨 뜻일까요?",
+  "keyword": "bundle up",
+  "value": "“bundle up” = 따뜻하게 입다. 예문: “Bundle up, it's freezing outside!”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“bundle up” 무슨 뜻일까요?",
+    "description": "“bundle up” = 따뜻하게 입다. 예문: “Bundle up, it's freezing outside!”\n\n“bundle up” 무슨 뜻일까요?\n“bundle up” = 따뜻하게 입다.\n예문: “Bundle up, it's freezing outside!” (따뜻하게 입어('Bundle up'), 밖이 엄청 추워!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "bundle up",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“bundle up” 무슨 뜻일까요?\n“bundle up” = 따뜻하게 입다.\n예문: “Bundle up, it's freezing outside!” (따뜻하게 입어('Bundle up'), 밖이 엄청 추워!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bundle up” 무슨 뜻일까요?\n\n“bundle up” = 따뜻하게 입다. 예문: “Bundle up, it's freezing outside!”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bundle up” 무슨 뜻일까요? “bundle up” = 따뜻하게 입다. 예문: “Bundle up, it's freezing outside!” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “bundle up” = 따뜻하게 입다. “Bundle up, it's freezing outside!” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

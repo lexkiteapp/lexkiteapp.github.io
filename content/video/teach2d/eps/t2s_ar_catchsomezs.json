@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ar_catchsomezs",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 78,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "It's late and I'm sleepy!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Catch some Zs!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Get some sleep.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm going to catch some Zs.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "catch some Zs",
+  "forms": [
+   "catch Zs"
+  ],
+  "ipa": "/ˈkætʃ sʌm ˈziːz/",
+  "mean": "Get some sleep.",
+  "define": "A casual way to say you will sleep.",
+  "vi": "Chợp mắt chút",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Before bed",
+   "text": "I'm going to catch some Zs."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "sleep",
+    "play games"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell your boss you'll 'catch some Zs'.",
+   "why": "It sounds like napping on work time."
+  },
+  "l1": "ينام",
+  "l1_hook": "الوقت متأخر وأنا نعسان!",
+  "l1_ex": "سأذهب لـ \"catch some Zs\".",
+  "right": "catch some Zs",
+  "native": {
+   "hook": "ما معنى “catch some Zs”؟",
+   "tip": "“catch some Zs” = ينام. مثال: “I'm going to catch some Zs.”",
+   "caption": "ما معنى “catch some Zs”؟\n“catch some Zs” = ينام.\nمثال: “I'm going to catch some Zs.” (سأذهب لـ \"catch some Zs\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “catch some Zs” = ينام. “I'm going to catch some Zs.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "It's late and I'm sleepy!"
+ },
+ "src": {
+  "slang": "catch some Zs"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 19,
+  "seconds": 10.5,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "ما معنى “catch some Zs”؟",
+  "keyword": "catch some Zs",
+  "value": "“catch some Zs” = ينام. مثال: “I'm going to catch some Zs.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “catch some Zs”؟",
+    "description": "“catch some Zs” = ينام. مثال: “I'm going to catch some Zs.”\n\nما معنى “catch some Zs”؟\n“catch some Zs” = ينام.\nمثال: “I'm going to catch some Zs.” (سأذهب لـ \"catch some Zs\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "catch some Zs",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “catch some Zs”؟\n“catch some Zs” = ينام.\nمثال: “I'm going to catch some Zs.” (سأذهب لـ \"catch some Zs\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “catch some Zs”؟\n\n“catch some Zs” = ينام. مثال: “I'm going to catch some Zs.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “catch some Zs”؟ “catch some Zs” = ينام. مثال: “I'm going to catch some Zs.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “catch some Zs” = ينام. “I'm going to catch some Zs.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

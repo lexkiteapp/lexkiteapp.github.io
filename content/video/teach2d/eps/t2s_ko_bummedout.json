@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ko_bummedout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 47,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Trip canceled. Everyone is sad!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bummed out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Sad and a little disappointed.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm bummed out about the trip.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "bummed out",
+  "forms": [
+   "bummed"
+  ],
+  "ipa": "/ˈbʌmd ˈaʊt/",
+  "mean": "Sad and a little disappointed.",
+  "define": "Used when something small has let you down.",
+  "vi": "Buồn buồn, hụt hẫng",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "After a cancellation",
+   "text": "I'm bummed out about the trip."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bummed out\" means…",
+   "options": [
+    "a bit sad",
+    "very happy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'bummed out' about serious loss.",
+   "why": "It's too light for deep grief."
+  },
+  "l1": "우울한",
+  "l1_hook": "여행이 취소됐어. 모두 \"bummed out\" 했어.",
+  "l1_ex": "나 이번 여행 취소되어서 완전히 'bummed out' 상태야.",
+  "right": "bummed out",
+  "native": {
+   "hook": "“bummed out” 무슨 뜻일까요?",
+   "tip": "“bummed out” = 우울한. 예문: “I'm bummed out about the trip.”",
+   "caption": "“bummed out” 무슨 뜻일까요?\n“bummed out” = 우울한.\n예문: “I'm bummed out about the trip.” (나 이번 여행 취소되어서 완전히 'bummed out' 상태야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “bummed out” = 우울한. “I'm bummed out about the trip.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Trip canceled. Everyone is sad!"
+ },
+ "src": {
+  "slang": "bummed out"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 20,
+  "seconds": 11.5,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "“bummed out” 무슨 뜻일까요?",
+  "keyword": "bummed out",
+  "value": "“bummed out” = 우울한. 예문: “I'm bummed out about the trip.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“bummed out” 무슨 뜻일까요?",
+    "description": "“bummed out” = 우울한. 예문: “I'm bummed out about the trip.”\n\n“bummed out” 무슨 뜻일까요?\n“bummed out” = 우울한.\n예문: “I'm bummed out about the trip.” (나 이번 여행 취소되어서 완전히 'bummed out' 상태야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "bummed out",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“bummed out” 무슨 뜻일까요?\n“bummed out” = 우울한.\n예문: “I'm bummed out about the trip.” (나 이번 여행 취소되어서 완전히 'bummed out' 상태야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bummed out” 무슨 뜻일까요?\n\n“bummed out” = 우울한. 예문: “I'm bummed out about the trip.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bummed out” 무슨 뜻일까요? “bummed out” = 우울한. 예문: “I'm bummed out about the trip.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “bummed out” = 우울한. “I'm bummed out about the trip.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

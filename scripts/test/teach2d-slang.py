@@ -23,3 +23,22 @@ assert min(var.values()) >= 0.3 * ok, var
 for r in gen.load_auto()['rows']:
     if r['template'] == 'slang': assert not gen.data_gate(r), (r['id'], gen.data_gate(r))
 print('✓ teach2d-slang')
+
+# L1 pages: with page-language texts present, every language builds a valid clip whose post copy is in that language (publish_meta + build_l1)
+SAMPLE = dict(vi=('Nói thật đó', 'Ngon nhất phố, tin không?', 'Pizza này ngon nhất phố, no cap.'), ar=('أنا لا أكذب', 'أفضل بيتزا؟ صدقني!', 'هذه البيتزا الأفضل، no cap.'),
+              de=('Ich lüge nicht', 'Beste Pizza der Stadt?', 'Diese Pizza ist die beste, no cap.'), es=('No miento', '¿La mejor pizza?', 'Esta pizza es la mejor, no cap.'),
+              fr=('Je ne mens pas', 'La meilleure pizza ?', 'Cette pizza est la meilleure, no cap.'), hi=('मैं झूठ नहीं बोल रहा', 'शहर का सबसे अच्छा पिज़्ज़ा?', 'यह पिज़्ज़ा सबसे अच्छा है, no cap.'),
+              id=('Aku tidak bohong', 'Pizza terenak di kota?', 'Pizza ini paling enak, no cap.'), ja=('嘘じゃない', '街一番のピザ？', 'このピザは街一番、no cap。'),
+              ko=('거짓말 아니야', '동네 최고 피자?', '이 피자 진짜 최고야, no cap.'), pt=('Não estou mentindo', 'Melhor pizza da cidade?', 'Essa pizza é a melhor, no cap.'),
+              ru=('Я не вру', 'Лучшая пицца в городе?', 'Эта пицца лучшая, no cap.'), th=('ไม่ได้โกหกนะ', 'พิซซ่าที่ดีที่สุด?', 'พิซซ่านี้อร่อยที่สุด no cap'),
+              tr=('Yalan söylemiyorum', 'Şehrin en iyi pizzası?', 'Bu pizza en iyisi, no cap.'), zh=('我没说谎', '全城最好的披萨？', '这个披萨是最好的，no cap。'))
+real = gen.slang_l1_src
+gen.slang_l1_src = lambda it, lang: dict(zip(('m', 'hook', 'ex'), SAMPLE[lang])) if it['key'] == 'no cap' else real(it, lang)
+for L in gen.SL_LANGS:
+    ep = gen.make(dict(id=f't2s_{L}_nocap', template='slang', lang=L, teacher='ama', theme='dusk', **{'in': dict(key='no cap', lang=L)}))
+    N = ep['data']['native']; assert ep['lang'] == L and N and ep['data']['l1'] and ep['data']['l1_ex'], L
+    assert len(N['hook']) <= 34 and N['comment'].count('{link}') == 1 and '#lexkite' in N['hashtags'], (L, N)
+    assert not publish.check(ep), (L, publish.check(ep))
+    assert ep['publish']['lang'] == L and ep['publish']['title'] == publish._fit(N['hook'], N['hook'] + '!'), L
+gen.slang_l1_src = real
+print(f'✓ teach2d-slang L1: {len(gen.SL_LANGS)} page languages build a clip + native post copy')

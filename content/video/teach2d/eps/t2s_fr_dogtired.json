@@ -1,0 +1,152 @@
+{
+ "id": "t2s_fr_dogtired",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 97,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "That hike felt endless!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dog tired!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Totally exhausted.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm dog tired after that long hike.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "dog tired",
+  "forms": [
+   "dog-tired"
+  ],
+  "ipa": "/ˈdɔːɡ ˈtaɪɚd/",
+  "mean": "Totally exhausted.",
+  "define": "Used when you are so tired you can barely move.",
+  "vi": "Mệt rã rời",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "After a school sports day",
+   "text": "I'm dog tired after that long hike."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dog tired\" means…",
+   "options": [
+    "tired of dogs",
+    "very tired"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your pet 'dog tired' literally.",
+   "why": "It's an idiom for exhaustion."
+  },
+  "l1": "crevé",
+  "l1_hook": "Cette randonnée était interminable ! Je suis \"dog tired\".",
+  "l1_ex": "Je suis \"dog tired\" après cette longue randonnée.",
+  "right": "dog tired",
+  "native": {
+   "hook": "Que veut dire « dog tired » ?",
+   "tip": "“dog tired” = crevé. Exemple: “I'm dog tired after that long hike.”",
+   "caption": "Que veut dire « dog tired » ?\n“dog tired” = crevé.\nExemple: “I'm dog tired after that long hike.” (Je suis \"dog tired\" après cette longue randonnée.)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “dog tired” = crevé. “I'm dog tired after that long hike.” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "That hike felt endless!"
+ },
+ "src": {
+  "slang": "dog tired"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Que veut dire « dog tired » ?",
+  "keyword": "dog tired",
+  "value": "“dog tired” = crevé. Exemple: “I'm dog tired after that long hike.”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « dog tired » ?",
+    "description": "“dog tired” = crevé. Exemple: “I'm dog tired after that long hike.”\n\nQue veut dire « dog tired » ?\n“dog tired” = crevé.\nExemple: “I'm dog tired after that long hike.” (Je suis \"dog tired\" après cette longue randonnée.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "dog tired",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « dog tired » ?\n“dog tired” = crevé.\nExemple: “I'm dog tired after that long hike.” (Je suis \"dog tired\" après cette longue randonnée.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « dog tired » ?\n\n“dog tired” = crevé. Exemple: “I'm dog tired after that long hike.”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « dog tired » ? “dog tired” = crevé. Exemple: “I'm dog tired after that long hike.” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “dog tired” = crevé. “I'm dog tired after that long hike.” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

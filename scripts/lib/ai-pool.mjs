@@ -17,6 +17,7 @@
 import fs from 'fs';
 import { poolAccounts } from './cf-pool.mjs';
 import { parseKeys, keyRing } from './key-pool.mjs';
+import { runCap, loadReg, createBreaker } from './ai-share.mjs';
 
 // ---------- mô hình: họ + hạng (chất lượng) ----------
 // L = soạn + chấm · M = CHỈ chấm · S = cấm (quá nhỏ). Mô hình lạ = S (phải thêm vào đây sau khi đo).
@@ -235,10 +236,10 @@ export function createPool(opts = {}) {
   // ---------- tuyến ----------
   const R = {};
   R.lexai = {
-    ok: () => true, models: role => LEXAI_MODELS[role === 'gen' ? 'gen' : 'judge'],
+    ok: () => !shareStop('gem'), models: role => LEXAI_MODELS[role === 'gen' ? 'gen' : 'judge'],
     async call(model, req) {
       if (used.lexai >= budget.lexai) throw new PoolErr('budget', 'lexai budget'); used.lexai++;
-      const r = await lexaiPost({ mode: req.mode, lang: req.lang, items: req.items, model });
+      const r = await lexaiPost({ mode: req.mode, lang: req.lang, items: req.items, model }); brk.gem.record(r.status === 429);
       if (r.ok) { const j = await r.json(); return { out: j.out || {}, model: j.model || model }; }
       const t = (await r.text().catch(() => '')).replace(/\s+/g, ' ');
       if (/keys=0\b/.test(t)) throw new PoolErr('route', 'kho Gemini rỗng (keys=0)', 30 * 60e3);
@@ -300,7 +301,7 @@ export function createPool(opts = {}) {
       const out = parseJSON(j.text); if (!out) throw new PoolErr('bad', `không phải JSON (${String(j.text).length} ký tự: …${String(j.text).slice(-40).replace(/\s+/g, ' ')})`);
       return { out, model: j.model || model || provider, via: j.provider, fellBack: (!!j.provider && j.provider !== provider) || (!!model && !!j.model && j.model !== model) };
     }
-    return { ok: () => !!env.GRABCAST_AI_KEY && (provider !== 'cloudflare' || CF_TEXT), models: (role, slot) => (role !== 'gen' && slot === 'B' && GC_MODELS[provider].judgeB) || GC_MODELS[provider][role === 'gen' ? 'gen' : 'judge'], call: (m, req) => one(req, m) };
+    return { ok: () => !!env.GRABCAST_AI_KEY && (provider !== 'cloudflare' || CF_TEXT) && !(provider === 'gemini' && shareStop('gem')) && !(provider === 'groq' && shareStop('groq')), models: (role, slot) => (role !== 'gen' && slot === 'B' && GC_MODELS[provider].judgeB) || GC_MODELS[provider][role === 'gen' ? 'gen' : 'judge'], call: (m, req) => one(req, m) };
   };
   R['gc-cf'] = gcRoute('cloudflare'); R['gc-gemini'] = gcRoute('gemini'); R['gc-groq'] = gcRoute('groq');
   // cf2 = kho tài khoản Workers AI (secret CF_POOL, scripts/lib/cf-pool.mjs) + tài khoản 2 cuối; KHÔNG BAO GIỜ tài khoản chính.
@@ -346,12 +347,19 @@ export function createPool(opts = {}) {
   // (Gemini đặt lại 00:00 giờ Thái Bình Dương ≈ 07:00–08:00 UTC: thêm 8 giờ), 401/403 → bỏ 6 giờ. Không bao giờ ghi khoá vào nhật ký (chỉ nhãn k<i>).
   const GEM = keyRing(parseKeys(env.GEMINI_POOL, 'gemini'), { now }), GROQ = keyRing(parseKeys(env.GROQ_POOL, 'groq'), { now });
   used.gem = 0; used.groq = 0;
+  // người dùng ưu tiên quota (scripts/lib/ai-share.mjs): trần lượt gọi mỗi lượt chạy (theo est trong infra/jobs.json) + cầu dao 429 mỗi nhà cung cấp
+  const reg = opts.reg || loadReg(), cap = { gem: +(opts.budget?.gem ?? env.AI_POOL_GEM_MAX ?? runCap(reg, env.GITHUB_WORKFLOW_REF, 'gem')), groq: +(opts.budget?.groq ?? env.AI_POOL_GROQ_MAX ?? runCap(reg, env.GITHUB_WORKFLOW_REF, 'groq')) };
+  const brk = { gem: createBreaker({ now }), groq: createBreaker({ now }) };
+  const shareStop = name => { const d = brk[name].tripped(); if (d) return `cầu dao 429 ${name} (${Math.ceil(d / 60e3)} phút)`; return (name === 'gem' ? used.gem + used.lexai : used[name]) >= cap[name] ? `trần ${cap[name]} lượt ${name} của việc này (để dành cho người dùng)` : ''; };
   const redact = t => t.replace(/AIza[\w-]{10,}|AQ\.[\w.-]{10,}|gsk_\w{10,}/g, '[khoá]');
   async function keyed(ring, name, doFetch) {
+    { const why = shareStop(name); if (why) throw new PoolErr('route', why, Math.max(brk[name].tripped(), 30 * 60e3)); }
     let busy = 0; // 503 "model overloaded" (Gemini 30/10: phần lớn lượt) = tạm thời phía máy chủ → chờ 8 s / 24 s rồi thử khoá kế, không rơi ngay sang giám khảo yếu hơn
     for (let t = 0; t < Math.min(ring.size, 16) + busy; t++) {
       const k = ring.next(); if (!k) throw new PoolErr('route', `${name}: mọi khoá đang nghỉ (${ring.size})`, ring.soonest());
       const r = await doFetch(k.key).catch(() => null); if (!r) throw new PoolErr('net', name + ' net');
+      brk[name].record(r.status === 429);
+      { const d = brk[name].tripped(); if (d && r.status === 429) { ring.park(k.id, 65e3, 'minute'); throw new PoolErr('route', `cầu dao 429 ${name}: > 20 % lượt bị 429 trong 10 phút → việc nền lùi lại`, d); } }
       if (r.status === 401 || r.status === 403) { ring.park(k.id, 6 * 3600e3, 'auth'); continue; }
       if (r.status === 429) { const b = await r.text().catch(() => ''), day = /per ?day|PerDay|daily|\bRPD\b|\bTPD\b/i.test(b) && !/per ?minute|PerMinute|\bRPM\b|\bTPM\b/i.test(b);
         ring.park(k.id, day ? untilUtcMidnight(now()) + (name === 'gem' ? 8 * 3600e3 : 0) : retryAfter(r), day ? 'day' : 'minute'); continue; }
@@ -382,7 +390,7 @@ export function createPool(opts = {}) {
   // tối đa GEM_PAR lượt Gemini cùng lúc (30/10: pmap 6–8 lô × nhiều bước dồn 429 theo phút lên cả 85 khoá) – xếp hàng thay vì đốt khoá
   const GEM_PAR = 4; let gemIn = 0; const gemQ = [];
   const gemSlot = async fn => { while (gemIn >= GEM_PAR) await new Promise(r => gemQ.push(r)); gemIn++; try { return await fn(); } finally { gemIn--; const n = gemQ.shift(); if (n) n(); } };
-  R.gem = { ok: () => GEM.size > 0, models: role => GEM_MODELS[role === 'gen' ? 'gen' : 'judge'],
+  R.gem = { ok: () => GEM.size > 0 && !shareStop('gem'), models: role => GEM_MODELS[role === 'gen' ? 'gen' : 'judge'],
     async call(model, req) {
       await discover('gem'); if (!GEM_MODELS.gen.includes(model) && !GEM_MODELS.judge.includes(model)) throw new PoolErr('model', 'gem: không còn ' + model, 6 * 3600e3);
       const one = async r => { const p = await promptFor(r);
@@ -392,7 +400,7 @@ export function createPool(opts = {}) {
       const out = await gemSlot(() => splitGo(one)(req, 0)); if (!out) throw new PoolErr('bad', 'gem: không phải JSON'); return { out, model };
     } };
   const GROQ_MODELS = { gen: ['openai/gpt-oss-120b'], judge: ['openai/gpt-oss-120b'], C: ['meta-llama/llama-4-maverick-17b-128e-instruct', 'moonshotai/kimi-k2-instruct'] }; // C: mặc định, discover() thay bằng danh sách thật
-  R.groq = { ok: () => GROQ.size > 0, models: (role, slot) => (slot === 'C' ? GROQ_MODELS.C : GROQ_MODELS[role === 'gen' ? 'gen' : 'judge']),
+  R.groq = { ok: () => GROQ.size > 0 && !shareStop('groq'), models: (role, slot) => (slot === 'C' ? GROQ_MODELS.C : GROQ_MODELS[role === 'gen' ? 'gen' : 'judge']),
     async call(model, req) {
       await discover('groq'); if (![...GROQ_MODELS.gen, ...GROQ_MODELS.judge, ...GROQ_MODELS.C].includes(model)) throw new PoolErr('model', 'groq: không còn ' + model, 6 * 3600e3);
       const one = async r => { const p = await promptFor(r);

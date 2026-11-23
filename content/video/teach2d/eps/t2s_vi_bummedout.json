@@ -1,0 +1,152 @@
+{
+ "id": "t2s_vi_bummedout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 47,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Trip canceled. Everyone is sad!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bummed out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Sad and a little disappointed.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm bummed out about the trip.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "bummed out",
+  "forms": [
+   "bummed"
+  ],
+  "ipa": "/ˈbʌmd ˈaʊt/",
+  "mean": "Sad and a little disappointed.",
+  "define": "Used when something small has let you down.",
+  "vi": "Buồn buồn, hụt hẫng",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "After a cancellation",
+   "text": "I'm bummed out about the trip."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bummed out\" means…",
+   "options": [
+    "a bit sad",
+    "very happy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'bummed out' about serious loss.",
+   "why": "It's too light for deep grief."
+  },
+  "l1": "Buồn buồn, hụt hẫng",
+  "l1_hook": "Chuyến đi bị hủy. Ai cũng buồn!",
+  "l1_ex": "Tui bummed out vì chuyến đi bị hủy.",
+  "right": "bummed out",
+  "native": {
+   "hook": "“bummed out” nghĩa là gì?",
+   "tip": "“bummed out” = Buồn buồn, hụt hẫng. Ví dụ: “I'm bummed out about the trip.”",
+   "caption": "“bummed out” nghĩa là gì?\n“bummed out” = Buồn buồn, hụt hẫng.\nVí dụ: “I'm bummed out about the trip.” (Tui bummed out vì chuyến đi bị hủy.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “bummed out” = Buồn buồn, hụt hẫng. “I'm bummed out about the trip.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Trip canceled. Everyone is sad!"
+ },
+ "src": {
+  "slang": "bummed out"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 20,
+  "seconds": 11.5,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "“bummed out” nghĩa là gì?",
+  "keyword": "bummed out",
+  "value": "“bummed out” = Buồn buồn, hụt hẫng. Ví dụ: “I'm bummed out about the trip.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“bummed out” nghĩa là gì?",
+    "description": "“bummed out” = Buồn buồn, hụt hẫng. Ví dụ: “I'm bummed out about the trip.”\n\n“bummed out” nghĩa là gì?\n“bummed out” = Buồn buồn, hụt hẫng.\nVí dụ: “I'm bummed out about the trip.” (Tui bummed out vì chuyến đi bị hủy.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "bummed out",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“bummed out” nghĩa là gì?\n“bummed out” = Buồn buồn, hụt hẫng.\nVí dụ: “I'm bummed out about the trip.” (Tui bummed out vì chuyến đi bị hủy.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bummed out” nghĩa là gì?\n\n“bummed out” = Buồn buồn, hụt hẫng. Ví dụ: “I'm bummed out about the trip.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bummed out” nghĩa là gì? “bummed out” = Buồn buồn, hụt hẫng. Ví dụ: “I'm bummed out about the trip.” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “bummed out” = Buồn buồn, hụt hẫng. “I'm bummed out about the trip.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

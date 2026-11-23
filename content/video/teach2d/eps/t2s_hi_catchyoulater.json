@@ -1,0 +1,150 @@
+{
+ "id": "t2s_hi_catchyoulater",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 87,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gotta go. Class starts now!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Catch you later!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "See you later.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Catch you later, I have to go!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "catch you later",
+  "forms": [],
+  "ipa": "/ˈkætʃ ju ˈleɪtɚ/",
+  "mean": "See you later.",
+  "define": "A friendly, casual goodbye.",
+  "vi": "Gặp lại sau nhé",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Leaving a friend",
+   "text": "Catch you later, I have to go!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It's a way to say…",
+   "options": [
+    "stop that thief",
+    "goodbye"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't end a formal interview with 'catch you later'.",
+   "why": "It's too casual for formal talks."
+  },
+  "l1": "बाद में मिलते हैं",
+  "l1_hook": "चलना पड़ेगा। क्लास अभी शुरू हो रही है! \"catch you later\"",
+  "l1_ex": "\"catch you later\", मुझे जाना है!",
+  "right": "catch you later",
+  "native": {
+   "hook": "“catch you later” का मतलब क्या है?",
+   "tip": "“catch you later” = बाद में मिलते हैं. उदाहरण: “Catch you later, I have to go!”",
+   "caption": "“catch you later” का मतलब क्या है?\n“catch you later” = बाद में मिलते हैं.\nउदाहरण: “Catch you later, I have to go!” (\"catch you later\", मुझे जाना है!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “catch you later” = बाद में मिलते हैं. “Catch you later, I have to go!” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gotta go. Class starts now!"
+ },
+ "src": {
+  "slang": "catch you later"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“catch you later” का मतलब क्या है?",
+  "keyword": "catch you later",
+  "value": "“catch you later” = बाद में मिलते हैं. उदाहरण: “Catch you later, I have to go!”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“catch you later” का मतलब क्या है?",
+    "description": "“catch you later” = बाद में मिलते हैं. उदाहरण: “Catch you later, I have to go!”\n\n“catch you later” का मतलब क्या है?\n“catch you later” = बाद में मिलते हैं.\nउदाहरण: “Catch you later, I have to go!” (\"catch you later\", मुझे जाना है!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "catch you later",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“catch you later” का मतलब क्या है?\n“catch you later” = बाद में मिलते हैं.\nउदाहरण: “Catch you later, I have to go!” (\"catch you later\", मुझे जाना है!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“catch you later” का मतलब क्या है?\n\n“catch you later” = बाद में मिलते हैं. उदाहरण: “Catch you later, I have to go!”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“catch you later” का मतलब क्या है? “catch you later” = बाद में मिलते हैं. उदाहरण: “Catch you later, I h… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “catch you later” = बाद में मिलते हैं. “Catch you later, I have to go!” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_zh_fire",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 93,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at my new sneakers!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Fire!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's really cool.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Those sneakers are fire!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "fire",
+  "forms": [],
+  "ipa": "/ˈfaɪɚ/",
+  "mean": "That's really cool.",
+  "define": "Slang for something excellent or stylish.",
+  "vi": "Quá đỉnh",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "praise",
+  "example": {
+   "ctx": "Seeing a friend's shoes",
+   "text": "Those sneakers are fire!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Fire\" means…",
+   "options": [
+    "dangerous",
+    "excellent"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't yell 'fire' in a crowded room.",
+   "why": "People will panic, not praise."
+  },
+  "l1": "很酷",
+  "l1_hook": "看看我的新运动鞋，真是\"fire\"！",
+  "l1_ex": "那双运动鞋真是fire！",
+  "right": "fire",
+  "native": {
+   "hook": "“fire”是什么意思？",
+   "tip": "“fire” = 很酷. 例句: “Those sneakers are fire!”",
+   "caption": "“fire”是什么意思？\n“fire” = 很酷.\n例句: “Those sneakers are fire!” (那双运动鞋真是fire！)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “fire” = 很酷. “Those sneakers are fire!” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at my new sneakers!"
+ },
+ "src": {
+  "slang": "fire"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 15,
+  "seconds": 9.9,
+  "wpm": 90
+ },
+ "publish": {
+  "title": "“fire”是什么意思？",
+  "keyword": "fire",
+  "value": "“fire” = 很酷. 例句: “Those sneakers are fire!”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“fire”是什么意思？",
+    "description": "“fire” = 很酷. 例句: “Those sneakers are fire!”\n\n“fire”是什么意思？\n“fire” = 很酷.\n例句: “Those sneakers are fire!” (那双运动鞋真是fire！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "fire",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“fire”是什么意思？\n“fire” = 很酷.\n例句: “Those sneakers are fire!” (那双运动鞋真是fire！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“fire”是什么意思？\n\n“fire” = 很酷. 例句: “Those sneakers are fire!”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“fire”是什么意思？ “fire” = 很酷. 例句: “Those sneakers are fire!” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “fire” = 很酷. “Those sneakers are fire!” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

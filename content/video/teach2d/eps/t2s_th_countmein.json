@@ -1,0 +1,150 @@
+{
+ "id": "t2s_th_countmein",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 35,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Game night at my place!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Count me in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I want to join.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Game night? Count me in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "count me in",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈɪn/",
+  "mean": "I want to join.",
+  "define": "Used to say you will take part in a plan.",
+  "vi": "Tính tui vào nhé",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Replying to an invite",
+   "text": "Game night? Count me in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'll count",
+    "I'll join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me in' before checking the date.",
+   "why": "People will count on you."
+  },
+  "l1": "นับฉันด้วย",
+  "l1_hook": "คืนเกมที่บ้านฉัน! \"count me in\"",
+  "l1_ex": "คืนเกม? Count me in!",
+  "right": "count me in",
+  "native": {
+   "hook": "“count me in” แปลว่าอะไร?",
+   "tip": "“count me in” = นับฉันด้วย. ตัวอย่าง: “Game night? Count me in!”",
+   "caption": "“count me in” แปลว่าอะไร?\n“count me in” = นับฉันด้วย.\nตัวอย่าง: “Game night? Count me in!” (คืนเกม? Count me in!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “count me in” = นับฉันด้วย. “Game night? Count me in!” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Game night at my place!"
+ },
+ "src": {
+  "slang": "count me in"
+ },
+ "lang": "th",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“count me in” แปลว่าอะไร?",
+  "keyword": "count me in",
+  "value": "“count me in” = นับฉันด้วย. ตัวอย่าง: “Game night? Count me in!”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“count me in” แปลว่าอะไร?",
+    "description": "“count me in” = นับฉันด้วย. ตัวอย่าง: “Game night? Count me in!”\n\n“count me in” แปลว่าอะไร?\n“count me in” = นับฉันด้วย.\nตัวอย่าง: “Game night? Count me in!” (คืนเกม? Count me in!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "count me in",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“count me in” แปลว่าอะไร?\n“count me in” = นับฉันด้วย.\nตัวอย่าง: “Game night? Count me in!” (คืนเกม? Count me in!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“count me in” แปลว่าอะไร?\n\n“count me in” = นับฉันด้วย. ตัวอย่าง: “Game night? Count me in!”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“count me in” แปลว่าอะไร? “count me in” = นับฉันด้วย. ตัวอย่าง: “Game night? Count me in!” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “count me in” = นับฉันด้วย. “Game night? Count me in!” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

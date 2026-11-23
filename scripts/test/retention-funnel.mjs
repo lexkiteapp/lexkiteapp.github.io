@@ -20,6 +20,15 @@ ok(/setTimeout\(\(\) => document\.visibilityState === 'visible' && on\(\), 5e3\)
 ok(['onb_welcome', 'onb_done', 'first_win', 'fw_d1', 'fw_d7'].every(e => ONB.includes(e)), 'đủ mốc phễu');
 ok(rd('functions/api/config.js').includes("'rem_lsn'") && rd('functions/api/admin.js').includes("'rem_lsn'"), 'rem_lsn có trong PUBLIC_KEYS + CONFIG_KEYS');
 
+// 1b) Dòng "Ngày mai" ở màn kết bài học (lesson/ui.js finishV2): có công tắc khẩn ret_tmr, không hiện ở bài thử, đủ 15 ngôn ngữ
+const lu = rd('web/js/lesson/ui.js');
+ok(/more: more \+ tmr/.test(lu) && lu.includes('"ret_tmr":"0"') && /!L\.demo/.test(lu), 'màn kết bài học có dòng Ngày mai + công tắc khẩn + bỏ bài thử');
+ok(rd('functions/api/config.js').includes("'ret_tmr'") && rd('functions/api/admin.js').includes("'ret_tmr'"), 'ret_tmr có trong PUBLIC_KEYS + CONFIG_KEYS');
+for (const k of ['Ngày mai ôn {n} từ để nhớ lâu', 'Ngày mai: bài tiếp theo đã sẵn sàng']) {
+  ok(rd('web/js/i18n/en/lesson.js').includes(`'${k}'`), 'en có ' + k);
+  for (const l of rd('scripts/i18n-langs.txt').split('\n').map(x => x.trim()).filter(x => x && !x.startsWith('#'))) { const f = rd(`i18n/ui/${l}/lesson.js`), m2 = f.match(new RegExp(JSON.stringify(k).replace(/[{}]/g, '\\$&') + ':"([^"]*)"')); ok(m2 && (!k.includes('{n}') || m2[1].includes('{n}')), `${l} dịch "${k}" (giữ {n})`); }
+}
+
 // 2) remind.js trong DOM giả
 const pad = n => String(n).padStart(2, '0'), key = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 const dayAgo = n => { const d = new Date(); d.setDate(d.getDate() - n); return key(d); };
