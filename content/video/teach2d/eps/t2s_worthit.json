@@ -1,0 +1,135 @@
+{
+ "id": "t2s_worthit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 222,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two hours in line. Still good?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Worth it!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Good for the price or effort.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Long line, but worth it.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "worth it",
+  "forms": [],
+  "ipa": "/ˈwɜːrθ ɪt/",
+  "mean": "Good for the price or effort.",
+  "define": "Used when something deserves its cost or hard work.",
+  "vi": "Đáng đồng tiền",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Leaving a bakery",
+   "text": "Long line, but worth it."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Worth it\" means…",
+   "options": [
+    "good value",
+    "too costly"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'worth it' about a terrible trip.",
+   "why": "It means the result was good."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Two hours in line. Still good?"
+ },
+ "src": {
+  "slang": "worth it"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.9,
+  "wpm": 106
+ },
+ "publish": {
+  "title": "What does \"worth it\" mean?",
+  "keyword": "worth it",
+  "value": "Worth it = Good for the price or effort. Example: \"Long line, but worth it.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"worth it\" mean?",
+    "description": "Worth it = Good for the price or effort. Example: \"Long line, but worth it.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "worth it",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"worth it\" mean?\n\nWorth it = Good for the price or effort. Example: \"Long line, but worth it.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"worth it\" mean?\n\nWorth it = Good for the price or effort. Example: \"Long line, but worth it.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"worth it\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: good value. \"Long line, but worth it.\" More real English slang, free: {link}"
+ }
+}

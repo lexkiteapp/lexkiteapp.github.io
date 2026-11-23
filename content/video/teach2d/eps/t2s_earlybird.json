@@ -1,0 +1,133 @@
+{
+ "id": "t2s_earlybird",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 115,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My dad's up at five!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Early bird!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A person who wakes up early.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My dad is an early bird.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "early bird",
+  "forms": [
+   "early birds"
+  ],
+  "ipa": "/ˈɜːrli ˈbɜːrd/",
+  "mean": "A person who wakes up early.",
+  "define": "Someone who likes to get up and start early.",
+  "vi": "Người dậy sớm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about habits",
+   "text": "My dad is an early bird."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "An \"early bird\" is…",
+   "options": [
+    "a bird",
+    "an early riser"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a late sleeper an 'early bird'.",
+   "why": "It means someone who wakes early."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My dad's up at five!"
+ },
+ "src": {
+  "slang": "early bird"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"early bird\" mean?",
+  "keyword": "early bird",
+  "value": "Early bird = A person who wakes up early. Example: \"My dad is an early bird.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"early bird\" mean?",
+    "description": "Early bird = A person who wakes up early. Example: \"My dad is an early bird.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "early bird",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"early bird\" mean?\n\nEarly bird = A person who wakes up early. Example: \"My dad is an early bird.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"early bird\" mean?\n\nEarly bird = A person who wakes up early. Example: \"My dad is an early bird.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"early bird\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a late sleeper an 'early bird'. It means someone who wakes early. Real example: \"My dad is an early bird.\" More real English slang, free: {link}"
+ }
+}

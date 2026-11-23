@@ -1,0 +1,133 @@
+{
+ "id": "t2s_lag",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 144,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My game freezes every second!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Lag!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Slow and delayed connection.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "There's too much lag, I can't play.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "lag",
+  "forms": [
+   "laggy"
+  ],
+  "ipa": "/ˈlæɡ/",
+  "mean": "Slow and delayed connection.",
+  "define": "A delay between what you do and what happens on screen.",
+  "vi": "Bị giật, trễ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Playing online",
+   "text": "There's too much lag, I can't play."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Lag\" is a…",
+   "options": [
+    "fast speed",
+    "slow connection"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'lag' about a person's slow walking.",
+   "why": "It describes slow connections, not people."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My game freezes every second!"
+ },
+ "src": {
+  "slang": "lag"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"lag\" mean?",
+  "keyword": "lag",
+  "value": "Lag = Slow and delayed connection. Example: \"There's too much lag, I can't play.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lag\" mean?",
+    "description": "Lag = Slow and delayed connection. Example: \"There's too much lag, I can't play.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "lag",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lag\" mean?\n\nLag = Slow and delayed connection. Example: \"There's too much lag, I can't play.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"lag\" mean?\n\nLag = Slow and delayed connection. Example: \"There's too much lag, I can't play.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lag\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'lag' about a person's slow walking. It describes slow connections, not people. Real example: \"There's too much lag, I can't play.\" More real English slang, free: {link}"
+ }
+}
