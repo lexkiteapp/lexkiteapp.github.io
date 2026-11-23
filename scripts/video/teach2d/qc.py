@@ -108,7 +108,7 @@ seen = set(); prob = [p for p in prob if not (json.dumps({k: v for k, v in p.ite
 gate('layout', not prob, 3, problems=prob[:8])
 # platform UI zones (Spell->Sound, docs/specs/spell-sound.md): the 9:16 short keeps every element out of the top 12 % (back / search icons), the bottom 22 % (caption + sound row) and the right 14 % (like / comment rail),
 # and shows at most 6 text rows at once. Defects seen in the reference reel (title under the icons, meaning chips under the rail, last row over the caption) must never ship.
-if T['template'] in ('rule', 'band') and T['format'] == 'short':
+if T['template'] in ('rule', 'band', 'progress') and T['format'] == 'short':
     ZW, ZH = 1080, 1920; zx, zy0, zy1 = ZW * 0.86, ZH * 0.12, ZH * 0.78; zp = []; ROWS = ('text', 'chip', 'ipapill', 'pill', 'cta')
     for n in T['nodes']:
         if n['type'] in ('confetti', 'backdrop') or n.get('hidden'): continue
@@ -156,7 +156,7 @@ for x in T['ipa']:
     if 'stress' in x and stress_index(x['ipa']) != x['stress']: ib.append(dict(token=x['token'], why='stress dot != IPA stress mark', ipa=x['ipa'], dot=x['stress']))
 gate('ipa', not ib, 3, checked=len(T['ipa']), bad=ib)
 # CTA deep link into the matching app feature
-cta = T['cta']; ROUTES = ('#/dict/', '#/verb/', '#/pron/', '#/fix', '#/phrases', '#/usage', '#/grammar', '#/lesson', '#/call', '#/confidence', '#/placement', '#/toeic', '#/reading', '#/review', '#/dictation', '#/write', '#/speaking')
+cta = T['cta']; ROUTES = ('#/dict/', '#/verb/', '#/pron/', '#/fix', '#/phrases', '#/usage', '#/grammar', '#/lesson', '#/call', '#/confidence', '#/placement', '#/toeic', '#/reading', '#/review', '#/dictation', '#/write', '#/speaking', '#/diary')
 gate('cta', cta['link'].startswith('https://lexkite.com/app/') and cta['route'].startswith(ROUTES) and cta['link'].endswith(cta['route']), 2, **cta)
 if T.get('template') == 'slang': gate('duration', 7 <= T['total'] <= 13, 2, seconds=T['total'], want='7-13 s slang reel (owner 22/11: 7-12 s + end-card tail)')
 else: gate('duration', (18 <= T['total'] <= 28) if T['format'] == 'short' else (15 <= T['total'] <= 42), 2, seconds=T['total'], want='18-28 s social short (owner 29/10)' if T['format'] == 'short' else '15-42 s lesson embed')

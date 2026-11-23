@@ -1,0 +1,118 @@
+{
+ "id": "t2a_prog_love_1",
+ "template": "progress",
+ "series": "Day 1 vs Day 30",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "voice-diary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Day one. Day thirty.",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "I rilly lob... um... lerning Inglis... eveli day.",
+   "pause": 0.7
+  },
+  {
+   "id": "k",
+   "text": "Thirty days later!",
+   "pause": 0.35
+  },
+  {
+   "id": "b",
+   "text": "I really love learning English every day.",
+   "pause": 0.4
+  },
+  {
+   "id": "w",
+   "text": "Same sentence. Just a little practice every day.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "id": "love",
+  "day1": "I rilly lob... um... lerning Inglis... eveli day.",
+  "day30": "I really love learning English every day.",
+  "marks": [
+   "really",
+   "love",
+   "learning",
+   "English",
+   "every"
+  ],
+  "s1": 58,
+  "s30": 83,
+  "sample": true
+ },
+ "cta": {
+  "area": "voice-diary",
+  "route": "#/diary",
+  "link": "https://lexkite.com/app/#/diary",
+  "say": "Start your voice diary"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Day one. Day thirty."
+ },
+ "src": {
+  "progress": "love"
+ },
+ "est": {
+  "words": 36,
+  "seconds": 20.2,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "Day 1 vs Day 30: \"I really love learning English every day\"",
+  "keyword": "Day 1 vs Day 30",
+  "value": "Day 30: \"I really love learning English every day.\" Day 1 slipped on: really, love, learning, english, every. Sample progress, same sentence.",
+  "hashtags": [
+   "#englishspeaking",
+   "#pronunciation",
+   "#learnenglish",
+   "#voicediary",
+   "#progress"
+  ],
+  "link": "https://lexkite.com/app/#/diary",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Day 1 vs Day 30: \"I really love learning English every day\"",
+    "description": "Day 30: \"I really love learning English every day.\" Day 1 slipped on: really, love, learning, english, every. Sample progress, same sentence.\n\nStart your voice diary, free: https://lexkite.com/app/#/diary\n\nSeries: Day 1 vs Day 30 · Teacher: Carlos\n\n#englishspeaking #pronunciation #learnenglish #voicediary #progress",
+    "tags": [
+     "Day 1 vs Day 30",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Day 1 vs Day 30: \"I really love learning English every day\"\n\nDay 30: \"I really love learning English every day.\" Day 1 slipped on: really, love, learning, english, every. Sample progress, same sentence.\n\nStart your voice diary, free: https://lexkite.com/app/#/diary"
+   },
+   "instagram": {
+    "caption": "Day 1 vs Day 30: \"I really love learning English every day\"\n\nDay 30: \"I really love learning English every day.\" Day 1 slipped on: really, love, learning, english, every. Sample progress, same sentence.\n\nStart your voice diary: link in bio.",
+    "hashtags": [
+     "#englishspeaking",
+     "#pronunciation",
+     "#learnenglish",
+     "#voicediary",
+     "#progress"
+    ]
+   },
+   "tiktok": {
+    "caption": "Day 1 vs Day 30: \"I really love learning English every day\" #englishspeaking #pronunciation #learnenglish"
+   }
+  },
+  "first_comment": "Say it: \"I really love learning English every day.\" Record yourself today and again in 30 days to hear your own progress (free): {link}"
+ }
+}

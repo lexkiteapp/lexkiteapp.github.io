@@ -13966,6 +13966,716 @@
    "in": {
     "key": "pig out"
    }
+  },
+  {
+   "id": "t2a_prog_weather_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:weather",
+   "hash": "bcb12f71321f",
+   "heads": [
+    "progress:weather"
+   ],
+   "taught": [
+    "um",
+    "tink",
+    "de",
+    "wedder",
+    "rilly",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "weather"
+   }
+  },
+  {
+   "id": "t2a_prog_friends_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:friends",
+   "hash": "de0a95bd36d6",
+   "heads": [
+    "progress:friends"
+   ],
+   "taught": [
+    "tree",
+    "frens",
+    "um",
+    "de",
+    "nort",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "friends"
+   }
+  },
+  {
+   "id": "t2a_prog_coffee_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:coffee",
+   "hash": "6366ab6091f8",
+   "heads": [
+    "progress:coffee"
+   ],
+   "taught": [
+    "uh",
+    "wood",
+    "cofi",
+    "pleas",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "coffee"
+   }
+  },
+  {
+   "id": "t2a_prog_village_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:village",
+   "hash": "94fadaa6bd39",
+   "heads": [
+    "progress:village"
+   ],
+   "taught": [
+    "wery",
+    "um",
+    "wisit",
+    "dis",
+    "wilage",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "village"
+   }
+  },
+  {
+   "id": "t2a_prog_hospital_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:hospital",
+   "hash": "53eb0f0b7ad0",
+   "heads": [
+    "progress:hospital"
+   ],
+   "taught": [
+    "wok",
+    "hospito",
+    "de",
+    "liba",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "hospital"
+   }
+  },
+  {
+   "id": "t2a_prog_love_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:love",
+   "hash": "cf60475b949c",
+   "heads": [
+    "progress:love"
+   ],
+   "taught": [
+    "rilly",
+    "lob",
+    "um",
+    "lerning",
+    "inglis",
+    "eveli",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "love"
+   }
+  },
+  {
+   "id": "t2a_prog_phone_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:phone",
+   "hash": "10dfdf3184d2",
+   "heads": [
+    "progress:phone"
+   ],
+   "taught": [
+    "broder",
+    "wan",
+    "fone",
+    "birday",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "phone"
+   }
+  },
+  {
+   "id": "t2a_prog_station_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:station",
+   "hash": "a3e4401523ff",
+   "heads": [
+    "progress:station"
+   ],
+   "taught": [
+    "elp",
+    "fine",
+    "de",
+    "tren",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "station"
+   }
+  },
+  {
+   "id": "t2a_prog_school_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:school",
+   "hash": "fc67e1068235",
+   "heads": [
+    "progress:school"
+   ],
+   "taught": [
+    "usualy",
+    "wok",
+    "skool",
+    "wit",
+    "sista",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "school"
+   }
+  },
+  {
+   "id": "t2a_prog_cold_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:cold",
+   "hash": "236ae71c7a73",
+   "heads": [
+    "progress:cold"
+   ],
+   "taught": [
+    "de",
+    "wedder",
+    "col",
+    "stay",
+    "hom",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "cold"
+   }
+  },
+  {
+   "id": "t2a_prog_slowly_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:slowly",
+   "hash": "4cebcdbed4ea",
+   "heads": [
+    "progress:slowly"
+   ],
+   "taught": [
+    "pleas",
+    "spik",
+    "slowli",
+    "becos",
+    "lerning",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "slowly"
+   }
+  },
+  {
+   "id": "t2a_prog_pets_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:pets",
+   "hash": "2d116d780d14",
+   "heads": [
+    "progress:pets"
+   ],
+   "taught": [
+    "hab",
+    "tu",
+    "cat",
+    "wan",
+    "smol",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "pets"
+   }
+  },
+  {
+   "id": "t2a_prog_weekend_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:weekend",
+   "hash": "16eb1379e8d3",
+   "heads": [
+    "progress:weekend"
+   ],
+   "taught": [
+    "las",
+    "weeken",
+    "wisit",
+    "grandmoder",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "weekend"
+   }
+  },
+  {
+   "id": "t2a_prog_bus_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:bus",
+   "hash": "21e5844375d1",
+   "heads": [
+    "progress:bus"
+   ],
+   "taught": [
+    "wat",
+    "tim",
+    "de",
+    "nex",
+    "bos",
+    "leb",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "bus"
+   }
+  },
+  {
+   "id": "t2a_prog_sorry_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:sorry",
+   "hash": "f59d507a4a75",
+   "heads": [
+    "progress:sorry"
+   ],
+   "taught": [
+    "din",
+    "understan",
+    "de",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "sorry"
+   }
+  },
+  {
+   "id": "t2a_prog_grammar_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:grammar",
+   "hash": "63b288138641",
+   "heads": [
+    "progress:grammar"
+   ],
+   "taught": [
+    "tinks",
+    "inglis",
+    "grama",
+    "dificul",
+    "usful",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "grammar"
+   }
+  },
+  {
+   "id": "t2a_prog_email_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:email",
+   "hash": "8d523e9e2ea4",
+   "heads": [
+    "progress:email"
+   ],
+   "taught": [
+    "cood",
+    "sen",
+    "de",
+    "adres",
+    "imeil",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "email"
+   }
+  },
+  {
+   "id": "t2a_prog_food_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:food",
+   "hash": "aafaa923778f",
+   "heads": [
+    "progress:food"
+   ],
+   "taught": [
+    "fevrit",
+    "wit",
+    "lice",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "food"
+   }
+  },
+  {
+   "id": "t2a_prog_trip_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:trip",
+   "hash": "e02a02709a53",
+   "heads": [
+    "progress:trip"
+   ],
+   "taught": [
+    "planin",
+    "shot",
+    "de",
+    "mountin",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "trip"
+   }
+  },
+  {
+   "id": "t2a_prog_thanks_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:thanks",
+   "hash": "1b8039e98a74",
+   "heads": [
+    "progress:thanks"
+   ],
+   "taught": [
+    "tank",
+    "elp",
+    "dis",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "thanks"
+   }
+  },
+  {
+   "id": "t2a_prog_shopping_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:shopping",
+   "hash": "19bc4e1b3b15",
+   "heads": [
+    "progress:shopping"
+   ],
+   "taught": [
+    "nid",
+    "bai",
+    "som",
+    "bred",
+    "wegtabols",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "shopping"
+   }
+  },
+  {
+   "id": "t2a_prog_garden_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:garden",
+   "hash": "fbbcf8b97201",
+   "heads": [
+    "progress:garden"
+   ],
+   "taught": [
+    "de",
+    "childen",
+    "plaing",
+    "de",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "garden"
+   }
+  },
+  {
+   "id": "t2a_prog_card_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:card",
+   "hash": "8677c9114e06",
+   "heads": [
+    "progress:card"
+   ],
+   "taught": [
+    "pai",
+    "wit",
+    "cledit",
+    "car",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "card"
+   }
+  },
+  {
+   "id": "t2a_prog_repeat_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:repeat",
+   "hash": "89718fca75ba",
+   "heads": [
+    "progress:repeat"
+   ],
+   "taught": [
+    "ask",
+    "ripit",
+    "de",
+    "hol",
+    "sentens",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "repeat"
+   }
+  },
+  {
+   "id": "t2a_prog_journey_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:journey",
+   "hash": "da4638f8bfaa",
+   "heads": [
+    "progress:journey"
+   ],
+   "taught": [
+    "lon",
+    "jurni",
+    "aribed",
+    "safli",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "journey"
+   }
+  },
+  {
+   "id": "t2a_prog_morning_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:morning",
+   "hash": "c4b7a223ce4a",
+   "heads": [
+    "progress:morning"
+   ],
+   "taught": [
+    "wood",
+    "lik",
+    "practis",
+    "spikin",
+    "eveli",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "morning"
+   }
+  },
+  {
+   "id": "t2a_prog_teacher_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:teacher",
+   "hash": "a01631ffbf6d",
+   "heads": [
+    "progress:teacher"
+   ],
+   "taught": [
+    "teacha",
+    "gab",
+    "tree",
+    "nyu",
+    "wods",
+    "todai",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "teacher"
+   }
+  },
+  {
+   "id": "t2a_prog_confidence_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:confidence",
+   "hash": "b823eb129d80",
+   "heads": [
+    "progress:confidence"
+   ],
+   "taught": [
+    "afta",
+    "tirty",
+    "dais",
+    "spik",
+    "wit",
+    "mo",
+    "confidens",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "confidence"
+   }
+  },
+  {
+   "id": "t2a_prog_breakfast_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:breakfast",
+   "hash": "cb3e55ec5047",
+   "heads": [
+    "progress:breakfast"
+   ],
+   "taught": [
+    "hat",
+    "brekfas",
+    "togeder",
+    "seben",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "breakfast"
+   }
+  },
+  {
+   "id": "t2a_prog_friday_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:friday",
+   "hash": "26ca6b03672a",
+   "heads": [
+    "progress:friday"
+   ],
+   "taught": [
+    "de",
+    "restaran",
+    "wery",
+    "bizi",
+    "eveli",
+    "nai",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "friday"
+   }
   }
  ]
 }

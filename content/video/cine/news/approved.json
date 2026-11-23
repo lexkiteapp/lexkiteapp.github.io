@@ -1005,6 +1005,13 @@
    "status": "retired",
    "spec": "scripts/video/tpl/render_v5.py",
    "note": "render_v5/render_tpl engine for content/video/templates; replaced by tpl2motion (Motion)"
+  },
+  {
+   "id": "progress",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "Day 1 vs Day 30 (docs/specs/voice-diary-video.md, 23/11): written sample sentences (progress.json), never a real learner recording; flips to approved (sync-bank) when a short + wide pass every qc.py gate at QC>=90"
   }
  ],
  "_templates_note": "ONE approval book (owner 15/11). status approved|draft|retired; only approved may enter the posting queue (scripts/video/approved_templates.py, scripts/test/template-approval.py, autopub_gate). Never delete: move to retired with a note."

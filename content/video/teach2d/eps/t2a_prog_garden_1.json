@@ -1,0 +1,116 @@
+{
+ "id": "t2a_prog_garden_1",
+ "template": "progress",
+ "series": "Day 1 vs Day 30",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "voice-diary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Day one. Day thirty.",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "De childen... are plaing in de garden.",
+   "pause": 0.7
+  },
+  {
+   "id": "k",
+   "text": "Thirty days later!",
+   "pause": 0.35
+  },
+  {
+   "id": "b",
+   "text": "The children are playing in the garden.",
+   "pause": 0.4
+  },
+  {
+   "id": "w",
+   "text": "Same sentence. Just a little practice every day.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "id": "garden",
+  "day1": "De childen... are plaing in de garden.",
+  "day30": "The children are playing in the garden.",
+  "marks": [
+   "The",
+   "children",
+   "playing"
+  ],
+  "s1": 58,
+  "s30": 89,
+  "sample": true
+ },
+ "cta": {
+  "area": "voice-diary",
+  "route": "#/diary",
+  "link": "https://lexkite.com/app/#/diary",
+  "say": "Start your voice diary"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Day one. Day thirty."
+ },
+ "src": {
+  "progress": "garden"
+ },
+ "est": {
+  "words": 35,
+  "seconds": 19.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "Day 1 vs Day 30: \"The children are playing in the garden\"",
+  "keyword": "Day 1 vs Day 30",
+  "value": "Day 30: \"The children are playing in the garden.\" Day 1 slipped on: the, children, playing. Sample progress, same sentence.",
+  "hashtags": [
+   "#englishspeaking",
+   "#pronunciation",
+   "#learnenglish",
+   "#voicediary",
+   "#progress"
+  ],
+  "link": "https://lexkite.com/app/#/diary",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "Day 1 vs Day 30: \"The children are playing in the garden\"",
+    "description": "Day 30: \"The children are playing in the garden.\" Day 1 slipped on: the, children, playing. Sample progress, same sentence.\n\nStart your voice diary, free: https://lexkite.com/app/#/diary\n\nSeries: Day 1 vs Day 30 · Teacher: Carlos\n\n#englishspeaking #pronunciation #learnenglish #voicediary #progress",
+    "tags": [
+     "Day 1 vs Day 30",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Day 1 vs Day 30: \"The children are playing in the garden\"\n\nDay 30: \"The children are playing in the garden.\" Day 1 slipped on: the, children, playing. Sample progress, same sentence.\n\nStart your voice diary, free: https://lexkite.com/app/#/diary"
+   },
+   "instagram": {
+    "caption": "Day 1 vs Day 30: \"The children are playing in the garden\"\n\nDay 30: \"The children are playing in the garden.\" Day 1 slipped on: the, children, playing. Sample progress, same sentence.\n\nStart your voice diary: link in bio.",
+    "hashtags": [
+     "#englishspeaking",
+     "#pronunciation",
+     "#learnenglish",
+     "#voicediary",
+     "#progress"
+    ]
+   },
+   "tiktok": {
+    "caption": "Day 1 vs Day 30: \"The children are playing in the garden\" #englishspeaking #pronunciation #learnenglish"
+   }
+  },
+  "first_comment": "Say it: \"The children are playing in the garden.\" Record yourself today and again in 30 days to hear your own progress (free): {link}"
+ }
+}
