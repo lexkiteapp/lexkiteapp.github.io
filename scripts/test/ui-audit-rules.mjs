@@ -18,6 +18,13 @@ ok(cv('bottom', 'top', { docH: 700 }), 'trang ngắn không cuộn: bị thanh d
 ok(cv(null, 'top'), 'bị phần tử không dính che → cao');
 ok(rules({ contrast: [{ ratio: 3.2, big: false, text: 'x' }] }).includes('contrast:medium'), 'tương phản 3.2 chữ thường → trung');
 ok(!rules({ contrast: [{ ratio: 3.2, big: true, text: 'x' }] }).some(r => r.startsWith('contrast')), 'chữ lớn 3.2 đạt (ngưỡng 3)');
+ok(!rules({ covered: [{ text: 'Tôi', el: 'bdi', by: 'nav#nav', twin: true }] }).includes('covered:high'), 'chữ bị che bởi phần tử tự hiển thị đúng chữ đó (twin) → không báo');
+ok(!rules({ covered: [{ text: '/ipa/', el: 'span.ipa', by: 'b', wrap: true }] }).includes('covered:high'), 'chữ inline xuống dòng chồng hộp (wrap) → không báo');
+ok(!rules({ covered: [{ text: 'mẫu', el: 'span', by: 'div', closed: true }] }).includes('covered:high'), 'chữ trong <details> đóng → không báo');
+ok(!rules({ covered: [{ text: 'star', el: 'span.material-symbols-outlined', by: 'button.row', iconCtl: true }] }).includes('covered:high'), 'icon ligature dưới nút → không báo');
+ok(rules({ covered: [{ text: 'Free', el: 'p', by: 'button.cta', twin: false, wrap: false }] }).includes('covered:high'), 'che thật vẫn báo cao (hồi quy)');
+ok(!rules({ contrast: [{ ratio: 3.2, big: false, icon: true, text: 'star' }] }).some(r => r.startsWith('contrast')), 'icon 3.2 đạt (phi-văn-bản ngưỡng 3)');
+ok(rules({ contrast: [{ ratio: 2.9, big: false, icon: true, text: 'star' }] }).includes('contrast:medium'), 'icon 2.9 vẫn trung');
 ok(rules({ primaryInFold: false }).includes('cta-fold:medium'), 'nút chính ngoài màn đầu → trung');
 ok(!rules({ primary: 0, primaryInFold: null }).some(r => r.startsWith('cta-fold')), 'không có nút chính → không báo');
 ok(rules({ placeholders: ['undefined'] }).includes('placeholder:medium'), 'undefined lọt giao diện → trung');
