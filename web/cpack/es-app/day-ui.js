@@ -91,15 +91,15 @@
     const s = stOf(k, d, cur), part = doneOf(k, d).length + '/' + steps(d).length;
     const st = s === 'done' ? '↺ ' + u('rv') : s === 'today' ? '▶ ' + u('td') : s === 'part' ? part : '🔒 ' + u('lk');
     return `<a class="tp-d ${s}" href="${home()}?d=${k + 1}"${s === 'today' ? ' aria-current="step"' : ''} aria-label="${esc(fmt(u('dy'), { n: k + 1 }) + ' · ' + gxOf(d[2]) + ' · ' + (s === 'done' ? u('ok') : st))}">
-      <span class="n" aria-hidden="true">${s === 'done' ? '✓' : k + 1}</span><span class="tx"><b>${esc(gxOf(d[2]))}</b><small>${esc(d[3])} · ${esc(fmt(u('mn'), { n: minOf(d) }))}</small></span><span class="st" aria-hidden="true">${esc(st)}</span></a>`;
+      <span class="tp-n" aria-hidden="true">${s === 'done' ? '✓' : k + 1}</span><span class="tp-tx"><b>${esc(gxOf(d[2]))}</b><small>${esc(d[3])} · ${esc(fmt(u('mn'), { n: minOf(d) }))}</small></span><span class="tp-st" aria-hidden="true">${esc(st)}</span></a>`;
   }
   function weekBody(wi, D, cur) {
     const a = wi * WK_N, days = D.slice(a, a + WK_N), all = days.every((d, j) => full(a + j, d)), got = claimed()[wi];
-    return days.map((d, j) => dayRow(a + j, d, cur)).join('') + `<div class="tp-rw"><span class="em" aria-hidden="true">🏅</span><b>${esc(fmt(u('rw'), { n: wi + 1 }))} · +${XP} XP</b>${all ? `<button type="button" class="tp-btn ${got ? '' : 'p'}" data-claim="${wi}"${got ? ' disabled' : ''}>${esc(got ? u('cd') : fmt(u('cl'), { n: XP }))}</button>` : ''}</div>`;
+    return days.map((d, j) => dayRow(a + j, d, cur)).join('') + `<div class="tp-rw"><span class="tp-em" aria-hidden="true">🏅</span><b>${esc(fmt(u('rw'), { n: wi + 1 }))} · +${XP} XP</b>${all ? `<button type="button" class="tp-btn ${got ? '' : 'p'}" data-claim="${wi}"${got ? ' disabled' : ''}>${esc(got ? u('cd') : fmt(u('cl'), { n: XP }))}</button>` : ''}</div>`;
   }
   function weekHtml(wi, D, cur) {
     const a = wi * WK_N, days = D.slice(a, a + WK_N), dn = days.filter((d, j) => full(a + j, d)).length, open = cur >= a && cur < a + WK_N, lv = [...new Set([days[0][3], days.at(-1)[3]])].join('→');
-    return `<details class="tp-w${dn === days.length ? ' done' : ''}" data-w="${wi}"${open ? ' open' : ''}><summary><span class="wn">${esc(fmt(u('wk'), { n: wi + 1 }))}</span><span class="wl">${esc(lv)}</span><span class="wc">${esc(fmt(u('wt'), { a: dn, b: days.length }))}</span><i class="ch" aria-hidden="true"></i></summary><div class="tp-days">${open ? weekBody(wi, D, cur) : ''}</div></details>`;
+    return `<details class="tp-w${dn === days.length ? ' done' : ''}" data-w="${wi}"${open ? ' open' : ''}><summary><span class="tp-wn">${esc(fmt(u('wk'), { n: wi + 1 }))}</span><span class="tp-wl">${esc(lv)}</span><span class="tp-wc">${esc(fmt(u('wt'), { a: dn, b: days.length }))}</span><i class="tp-ch" aria-hidden="true"></i></summary><div class="tp-days">${open ? weekBody(wi, D, cur) : ''}</div></details>`;
   }
   // Từ sau ngày cuối (kho > ngày × 8): thêm 8 từ/lần theo thứ hạng vào Ôn tập – mọi từ đã duyệt đều tới SRS
   let MORE = null; // { added, next } – tính lúc vào hub (đọc Sổ từ)
@@ -116,12 +116,12 @@
   function hub(D) {
     const cur = firstOpen(), d = D[cur], done = D.filter((x, n) => full(n, x)).length, pct = Math.round(done / D.length * 100), all = done === D.length, sk = App.streak ? App.streak() : 0;
     const call = d[6] && (window.CALLS || []).find(c => c.id === d[6]);
-    const row = (s, label, det) => { const ok = doneOf(cur, d).includes(s); return `<li${ok ? ' class="ok"' : ''}><span class="ic" aria-hidden="true">${ok ? '✓' : ICON[s]}</span><span class="t">${esc(label)}</span><em>${esc(det)}</em></li>`; };
+    const row = (s, label, det) => { const ok = doneOf(cur, d).includes(s); return `<li${ok ? ' class="ok"' : ''}><span class="tp-ic" aria-hidden="true">${ok ? '✓' : ICON[s]}</span><span class="tp-t">${esc(label)}</span><em>${esc(det)}</em></li>`; };
     const list = steps(d).split('').map(s => s === 'w' ? row('w', fmt(u('nw'), { n: d[1] - d[0] }), fmt(u('mn'), { n: MIN.w })) : s === 'g' ? row('g', u('g') + ' · ' + gxOf(d[2]), fmt(u('mn'), { n: MIN.g })) : s === 'p' ? row('p', u('p') + ' · ' + pxOf(d[4]), fmt(u('mn'), { n: MIN.p })) : row('c', u('c') + (call ? ' · ' + call.title : ''), fmt(u('mn'), { n: MIN.c }))).join('');
     view.innerHTML = `<div class="tp">${window.Target ? Target.chip(TL) : ''}
       <section class="tp-card tp-hero"><div class="tp-ring" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(fmt(u('pr'), { d: cur + 1, t: D.length, p: doneOf(cur, d).length }))}"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="42"/><circle class="fg" cx="50" cy="50" r="42" stroke-dasharray="${RING.toFixed(1)}" stroke-dashoffset="${(RING * (1 - done / D.length)).toFixed(1)}"/></svg><b>${all ? '✓' : cur + 1}<small>/ ${D.length}</small></b></div>
         <div><h1>${esc(u('ti'))}</h1><div class="tp-meta"><span class="tp-pill">${esc(d[3])}</span><span class="tp-pill">${esc(fmt(u('mn'), { n: minOf(d) }))}</span>${sk ? `<span class="tp-pill warm">🔥 ${esc(fmt(u('sk'), { n: sk }))}</span>` : ''}</div><p class="tp-sub">${esc(u('sub'))}</p></div></section>
-      <section class="tp-card tp-today" aria-labelledby="tpTd"><div class="k"><span id="tpTd">${esc(u('td'))} · ${esc(fmt(u('dy'), { n: cur + 1 }))}</span><span>${esc(fmt(u('wt'), { a: doneOf(cur, d).length, b: steps(d).length }).replace(/ .*$/, ''))}</span></div><ul>${list}</ul><a class="tp-go" href="${home()}?d=${cur + 1}">${esc(all ? u('fin') : u('go'))}</a></section>
+      <section class="tp-card tp-today" aria-labelledby="tpTd"><div class="tp-k"><span id="tpTd">${esc(u('td'))} · ${esc(fmt(u('dy'), { n: cur + 1 }))}</span><span>${esc(fmt(u('wt'), { a: doneOf(cur, d).length, b: steps(d).length }).replace(/ .*$/, ''))}</span></div><ul>${list}</ul><a class="tp-go" href="${home()}?d=${cur + 1}">${esc(all ? u('fin') : u('go'))}</a></section>
       <div class="tp-weeks">${Array.from({ length: Math.ceil(D.length / WK_N) }, (_, wi) => weekHtml(wi, D, cur)).join('')}</div>
       ${moreHtml(D)}</div>`;
     const root = view.querySelector('.tp');
