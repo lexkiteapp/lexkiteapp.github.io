@@ -315,6 +315,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     listen: ['listening', 'toeic'],
     'listen-test': 'listening',
     listening: 'listening',
+    interpret: 'interpret',
     mediate: 'mediate',
     method: 'readings',
     mock: ['listening', 'writing', 'speak', 'mock'],
@@ -390,6 +391,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
   // CSS riêng của gói (ngoài khung app): nạp song song với JS, chờ xong (tối đa 1,5 s) → không nháy bố cục
   const BCSS = {
+    interpret: ['css/interpret.css'],
     call: ['css/st-v2-teacher-call.css'],
     cambridge: 'css/exam.css',
     dayv2: 'css/st-v2-day.css',
