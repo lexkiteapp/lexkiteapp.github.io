@@ -92,6 +92,7 @@
 "Thẻ sẵn sàng":"Tarjetas listas",
 "Thẻ tiếp":"Siguiente tarjeta",
 "Thử ngay":"Pruébalo ahora",
+"Tra từ…":"Busca una palabra...",
 "Truyện & âm thanh":"Cuentos y audio",
 "Truyện ngắn":"Cuentos",
 "Trọng tâm hôm nay":"Enfoque de hoy",
