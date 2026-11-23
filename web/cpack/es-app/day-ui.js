@@ -85,7 +85,7 @@
   const WK_N = 7, XP = 50, MIN = { w: 3, g: 4, p: 3, c: 5 }, ICON = { w: '🔤', g: '📘', p: '🎧', c: '📞' }, RING = 2 * Math.PI * 42;
   const wkKey = () => 'lk.' + TL + '.wk';
   const claimed = () => { try { return JSON.parse(ls(wkKey()) || '{}') || {}; } catch (e) { return {}; } };
-  const stOf = (k, d, cur) => full(k, d) ? 'done' : k === cur ? 'today' : doneOf(k, d).length ? 'part' : 'lock'; // lock = "chưa tới": mờ + ổ khoá nhưng vẫn bấm được (ai muốn học vượt vẫn vào)
+  const stOf = (k, d, cur) => full(k, d) ? 'done' : k === cur ? 'today' : doneOf(k, d).length ? 'part' : 'lock'; // lock = "chưa tới": mờ + ổ khóa nhưng vẫn bấm được (ai muốn học vượt vẫn vào)
   const minOf = d => steps(d).split('').reduce((n, k) => n + MIN[k], 0);
   function dayRow(k, d, cur) {
     const s = stOf(k, d, cur), part = doneOf(k, d).length + '/' + steps(d).length;
