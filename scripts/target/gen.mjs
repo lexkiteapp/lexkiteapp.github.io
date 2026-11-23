@@ -69,14 +69,18 @@ const SYS = {
 // lexai: 0 – /api/lexai có chế độ CÙNG TÊN (lxgen/lxjudge/lxaudit) với lời nhắc kho tiếng Anh ở máy chủ → không bao giờ đi tuyến đó (như scripts/factory/lib.mjs)
 const AI = createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: (req.sys || SYS[req.mode]) + '\nReply with ONE valid JSON object only, no markdown.', user: JSON.stringify(req.items), temp: 0.1 }) });
 const accepted = [...prev], rejected = [], seen = new Set(have); let fixedN = 0;
+// Hạn mức miễn phí theo PHÚT (Gemini 429 cả 16 khoá khi nhiều shard cùng chạy – run 44982384784: shard dừng sau 40/300) → chờ rồi thử lại
+// thay vì bỏ cả lượt; vẫn không tuyến nào sau ~15 phút = hết hạn mức ngày → dừng, lượt sau nối tiếp. Không đổi cổng/ngưỡng.
+const WAITS = (process.env.GEN_WAITS || '60,120,240,480').split(',').map(Number);
+async function patient(fn, what) { for (let t = 0; ; t++) { const r = await fn(); if (r || t >= WAITS.length) return r; console.log(`ai-pool: thiếu tuyến ${what} → chờ ${WAITS[t]} s rồi thử lại (${t + 1}/${WAITS.length})`); await new Promise(z => setTimeout(z, WAITS[t] * 1000)); } }
 const pick = (e, hint) => { const o = { word: e.word, pos: e.pos, ...(e.pos === 'n' && !R.noGender ? { gender: e.gender, ...(e.plural ? { plural: e.plural } : {}) } : {}), ...(e.h ? { h: e.h } : {}),
   ...(R.kana ? { kana: e.kana, romaji: e.romaji, pitch: e.pitch, jlpt: e.jlpt, ...(e.pos === 'v' ? { vclass: e.vclass } : {}), ...(e.pos === 'adj' ? { aclass: e.aclass } : {}) } : {}), ipa: e.ipa, gl: e.gl, ex: e.ex, ...(e.exForm ? { exForm: e.exForm } : {}) };
   return R.derive ? R.derive(o, hint) : o; };
-const T0 = Date.now(), MAX_MS = (+process.env.GEN_MAX_MIN || 125) * 60e3; // hạn giờ: step CI có timeout 150 phút – hết giờ thì XUẤT phần đã nhận (ja lô 1 23/11: 186/300 bị mất vì timeout, không có artifact)
+const T0 = Date.now(), MAX_MS = (+process.env.GEN_MAX_MIN || 110) * 60e3; // job 150 phút: ghi lô trước khi hết giờ (hết giờ giữa chừng = mất cả lô)
 for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
-  if (Date.now() - T0 > MAX_MS) { console.log(`hết giờ (${Math.round(MAX_MS / 6e4)} phút) → xuất ${accepted.length - prev.length}/${N} mục đã qua cổng (lượt sau làm tiếp)`); break; }
+  if (Date.now() - T0 > MAX_MS) { console.log('hết giờ lượt → ghi lô đã nhận (lượt sau nối tiếp)'); break; }
   const items = await fillQ(BATCH); if (!items.length) { console.log('hết ứng viên'); break; }
-  const g = await AI.gen({ mode: 'lxgen', items }); if (!g) { console.log('ai-pool: hết tuyến soạn → dừng (lượt sau làm tiếp)'); break; }
+  const g = await patient(() => AI.gen({ mode: 'lxgen', items }), 'soạn'); if (!g) { console.log('ai-pool: hết tuyến soạn sau khi chờ → dừng (lượt sau làm tiếp)'); break; }
   const draft = items.map(it => ({ it, e: g.out[it.k] })).filter(({ it, e }) => { if (!e || e.skip) { rejected.push({ form: it.form, why: e ? 'skip: ' + e.skip : 'không trả' }); return false; } return true; })
     .map(({ it, e }) => ({ k: it.k, hint: it.hint, e: { ...pick(e, it.hint), rank: it.rank } }));
   for (const it of items) tried.add(it.form.toLowerCase());
@@ -107,7 +111,7 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
     return { ok, bad };
   }
   const take = (list, qa) => { for (const { d, qa: q } of list) { const key = String(d.e.word || '').toLowerCase(); if (seen.has(key)) continue; seen.add(key); accepted.push({ ...d.e, qa: { gen: g.model, ...q, ...qa } }); } };
-  const r1 = await grade(draft);
+  const r1 = await patient(() => grade([...draft]), 'giám khảo');
   if (!r1) { console.log('ai-pool: thiếu giám khảo khác họ → không xuất lô này (lượt sau chấm lại)'); break; }
   take(r1.ok);
   // Một vòng SỬA có lý do (như người biên tập đọc phiếu chấm): mục trượt vì nghĩa/IPA/ví dụ/LanguageTool → người soạn sửa đúng chỗ bị chê → chấm LẠI ĐỦ cổng
@@ -118,7 +122,7 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
     const f = await AI.gen({ mode: 'lxgen', sys: SYS.lxfix, items: fixable.map(x => ({ k: x.d.k, entry: x.d.e, problems: x.why, ...(x.bt ? { backTranslations: x.bt } : {}) })) });
     const fixed = f ? fixable.map(x => { const e = f.out[x.d.k]; return e && !e.skip && e.word ? { k: x.d.k, e: { ...pick(e, x.d.hint), rank: x.d.e.rank } } : null; }).filter(Boolean) : [];
     if (f) fams.push(f.fam);
-    const r2 = fixed.length ? await grade(fixed.map(x => ({ k: x.k, e: x.e, hint: fixable.find(y => y.d.k === x.k).d.hint }))) : { ok: [], bad: [] };
+    const r2 = fixed.length ? await patient(() => grade(fixed.map(x => ({ k: x.k, e: x.e, hint: fixable.find(y => y.d.k === x.k).d.hint }))), 'giám khảo bản sửa') : { ok: [], bad: [] };
     take((r2 || { ok: [] }).ok, { fixed: f && f.model });
     const okK = new Set(((r2 || { ok: [] }).ok).map(o => o.d.k));
     if (fixed.length && !r2) { for (const x of fixable) tried.delete(x.d.k.toLowerCase()); } // thiếu giám khảo khác họ cho bản sửa = chưa chấm → lượt sau làm lại
