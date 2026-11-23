@@ -186,9 +186,9 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     const next = () => {
       if (i >= qs.length) {
         const pct = Math.round(right / qs.length * 100);
-        App.reward({ quizzes: 1, grammar: 1, perfect: pct === 100 ? 1 : 0, xp: 10 + right * 2 });
+        App.reward({ quizzes: 1, grammar: 1, perfect: pct === 100 ? 1 : 0, xp: Game.xpFor('set', { right, total: qs.length }) });
         view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty"><div class="em">${UI.icon('shuffle')}</div><h2>${t('{right}/{total} câu đúng ({pct}%)', { right, total: qs.length, pct })}</h2><p class="muted">${t('Câu sai đã được ghi vào <a href="#/mistakes">Sổ lỗi sai</a>.')}</p><div class="row center"><a class="btn primary" href="#/grammar/mix">${t('Luyện lượt mới')}</a><a class="btn" href="#/grammar">${t('Về danh sách bài')}</a></div></div></div>`;
-        Sfx.finish({ pct, xp: 10 + right * 2, el: $('.celebrate', view) }); // âm thắng + pháo giấy ≥ 80% + thẻ số liệu
+        Sfx.finish({ pct, xp: Game.xpFor('set', { right, total: qs.length }), el: $('.celebrate', view) }); // âm thắng + pháo giấy ≥ 80% + thẻ số liệu
         return;
       }
       const { q, x, d } = qs[i];
@@ -256,12 +256,12 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       const nextItem = item.nextElementSibling; if (nextItem && nextItem.classList.contains('q-item')) setTimeout(() => nextItem.scrollIntoView({ behavior: 'smooth', block: 'center' }), 500);
       if (answered === x.quiz.length) {
         const pct = Math.round(right / x.quiz.length * 100);
-        await App.reward({ quizzes: 1, grammar: 1, perfect: pct === 100 ? 1 : 0, xp: 10 + right * 3 }, $('#gRes'));
+        await App.reward({ quizzes: 1, grammar: 1, perfect: pct === 100 ? 1 : 0, xp: Game.xpFor('set', { right, total: x.quiz.length, mode: 'type' }), src: 'gg:' + x.id }, $('#gRes'));
         state.game = await Game.mutate(gs => { gs.grammarDone = { ...(gs.grammarDone || {}), [x.id]: Math.max(pct, (gs.grammarDone || {})[x.id] || 0) }; });
-        $('#gRes').innerHTML = `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static"><b>${t('{right}/{total} câu đúng ({pct}%)', { right, total: x.quiz.length, pct })}</b> · +${10 + right * 3} XP
+        $('#gRes').innerHTML = `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static"><b>${t('{right}/{total} câu đúng ({pct}%)', { right, total: x.quiz.length, pct })}</b> · +${Game.xpFor('set', { right, total: x.quiz.length, mode: 'type' })} XP
           ${pct < 80 ? `<div class="small">${t('Xem lại phần công thức và lỗi hay gặp rồi làm lại nhé. Câu sai đã vào Sổ lỗi sai.')}</div>` : ''}
           <div class="row" style="margin-top:.6rem"><button class="btn sm" id="gAgain">↺ ${t('Làm lại')}</button>${right < x.quiz.length ? `<a class="btn sm" href="#/mistakes">${UI.icon('notebook')} ${t('Sổ lỗi sai')}</a>` : ''}${next ? `<a class="btn sm primary" href="#/grammar/${next.id}">${t('Bài tiếp theo')} →</a>` : ''}</div></div>${recapHtml(x)}`;
-        Sfx.finish({ pct, xp: 10 + right * 3, el: $('#gRes') });
+        Sfx.finish({ pct, xp: Game.xpFor('set', { right, total: x.quiz.length, mode: 'type' }), el: $('#gRes') });
         $('#gRes').scrollIntoView({ behavior: 'smooth', block: 'center' });
         $('#gAgain').onclick = again;
       }
@@ -357,9 +357,9 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       if (!r.ok && App.logMistake) App.logMistake({ kind: 'grammar', q: r.q, answer: r.answer, given: r.given, explain: r.ex || '', ref: x.id });
       if (answered === ds.length) {
         const pct = Math.round(right / ds.length * 100);
-        await App.reward({ quizzes: 1, grammar: 1, writes: 1, perfect: pct === 100 ? 1 : 0, xp: 10 + right * 4 }, $('#dRes'));
-        $('#dRes').innerHTML = `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static"><b>${t('{right}/{total} câu đúng ({pct}%)', { right, total: ds.length, pct })}</b> · +${10 + right * 4} XP${onDone ? '' : ''}</div>`;
-        Sfx.finish({ pct, xp: 10 + right * 4, el: $('#dRes') });
+        await App.reward({ quizzes: 1, grammar: 1, writes: 1, perfect: pct === 100 ? 1 : 0, xp: Game.xpFor('set', { right, total: ds.length, mode: 'write' }), src: 'gd:' + x.id }, $('#dRes'));
+        $('#dRes').innerHTML = `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static"><b>${t('{right}/{total} câu đúng ({pct}%)', { right, total: ds.length, pct })}</b> · +${Game.xpFor('set', { right, total: ds.length, mode: 'write' })} XP${onDone ? '' : ''}</div>`;
+        Sfx.finish({ pct, xp: Game.xpFor('set', { right, total: ds.length, mode: 'write' }), el: $('#dRes') });
         if (onDone) onDone(pct);
       }
     };
@@ -388,7 +388,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   }
 
   // ---------- Chế độ xem toàn bài ----------
-  // ✍️ Thử thách tự đặt câu: nhận diện cấu trúc mục tiêu trên máy (grammar/check.js + structures.js), đúng → tô xanh, +15 XP, lưu câu
+  // ✍️ Thử thách tự đặt câu: nhận diện cấu trúc mục tiêu trên máy (grammar/check.js + structures.js), đúng → tô xanh, +XP theo luật chung (Game.xpFor), lưu câu
   const challengeHtml = x => (window.GRAMMAR_CHECK || {})[x.id] ? `<div class="g-block g-chal" id="gChal"><h3>${UI.icon('pen-line')} ${t('Thử thách tự đặt câu')}</h3>
       <p class="small muted">${t('Đặt một câu hoàn chỉnh sử dụng cấu trúc bạn vừa học')} · <b translate="no">${esc(GRAMMAR_CHECK[x.id][1])}</b></p>
       <textarea class="input" id="gcIn" rows="2" spellcheck="true" lang="en" placeholder="${t('Gõ câu tiếng Anh của bạn…')}"></textarea>
@@ -404,7 +404,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       if (hit) {
         const i = sen.toLowerCase().indexOf(hit.toLowerCase()), marked = i >= 0 ? esc(sen.slice(0, i)) + `<mark class="g-ok">${esc(sen.slice(i, i + hit.length))}</mark>` + esc(sen.slice(i + hit.length)) : esc(sen);
         const first = !(state.game && state.game.gch && state.game.gch[x.id + '|' + sen.toLowerCase()]);
-        if (first) { App.reward({ xp: 15 }); Game.mutate(gs => { gs.gch = gs.gch || {}; gs.gch[x.id + '|' + sen.toLowerCase()] = 1; }).then(g2 => { state.game = g2; }); }
+        if (first) { App.reward({ xp: Game.xpFor('answer', { mode: 'write', hard: 1 }) }); Game.mutate(gs => { gs.gch = gs.gch || {}; gs.gch[x.id + '|' + sen.toLowerCase()] = 1; }).then(g2 => { state.game = g2; }); }
         Sfx.answer(true, { el: out });
         out.innerHTML = `<div class="feedback ok" style="position:static;margin-top:.6rem;display:flex;gap:.8rem;align-items:center">${window.Kit ? Kit.svg('cheer', 56) : '🎉'}<div><div>${marked}</div><b>${t('Tuyệt! Bạn đã dùng đúng cấu trúc của bài.')}</b>${first ? ' +15 XP' : ''}<div style="margin-top:.4rem"><button class="btn sm" id="gcSave">＋ ${t('Lưu câu này vào Sổ tay ôn tập')}</button></div></div></div>`;
         const sv = $('#gcSave', out); if (sv) sv.onclick = () => App.savePhraseDialog ? App.savePhraseDialog({ phrase: x.en, vi: I18N.lang() === 'vi' ? x.title : '', sentence: sen, title: t('Ngữ pháp') }) : null;

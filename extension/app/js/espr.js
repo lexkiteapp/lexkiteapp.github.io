@@ -131,7 +131,7 @@
   async function end(o) {
     const ot = TLC[o.tl] ? o.tl : 'es', oc = TLC[ot]; // o.tl: phiên espr truyền; pron-ui/exam-ui es không truyền → es
     try { if (oc.day && sessionStorage.getItem('lk.' + ot + '.dayctx')) App.need(oc.day).then(() => App.esDayMark('gp', ot)); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: bài ngữ pháp/phát âm xong → đánh dấu bước (cpack/es-app/day-ui.js)
-    const n = o.n, acc = Math.round(o.ok / n * 100), xp = 10 + o.ok * 2 + (o.ok === n ? 5 : 0);
+    const n = o.n, acc = Math.round(o.ok / n * 100), xp = Game.xpFor('set', { right: o.ok, total: n });
     try { await App.reward({ quizzes: 1, perfect: o.ok === n ? 1 : 0, xp }); } catch (e) { /* bỏ qua */ }
     const run = App.streak ? App.streak() : 0;
     const d = { close: '#/practice', mapL: t('Làm lại'), title: o.title || oc.title, chip: o.chip, acc: acc + '%', xpL: '+' + xp + ' XP', combo: String(o.best), first: o.first + '/' + n, mins: '', nwords: '', streakT: t('Chuỗi hiện tại') + ': ' + run, weekN: '', streak: String(run),

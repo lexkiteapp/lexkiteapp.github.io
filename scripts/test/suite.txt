@@ -515,4 +515,6 @@ node scripts/test/workflow-startup.mjs
 node scripts/test/score-card.mjs
 node scripts/test/voice-diary.mjs
 node scripts/stitch-v2-convert.mjs --check
+node scripts/test/reward-rules.mjs
+node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check

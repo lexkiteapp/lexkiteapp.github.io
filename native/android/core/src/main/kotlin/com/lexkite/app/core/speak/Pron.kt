@@ -1,5 +1,6 @@
 package com.lexkite.app.core.speak
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.lesson.Speaking
 import com.lexkite.app.core.skills.Reward
 import com.lexkite.app.core.skills.SkillsGame
@@ -138,7 +139,7 @@ class PronCoach(private val pack: SpeakPack) {
         val d = diff(heard, sentence); val sc = score(sim, d)
         val tip = if (d.missingContent.isNotEmpty()) Tr("Nhấn rõ hơn các từ chính: {w}", mapOf("w" to d.missingContent.joinToString(", ")))
             else if (d.missingWeak.isNotEmpty()) Tr("Máy nghe sót từ nhỏ: {w} – vẫn đọc nhẹ nhưng đừng bỏ hẳn.", mapOf("w" to d.missingWeak.joinToString(", "))) else null
-        return Attempt(sc, band(sc), tip, if (sc >= 65) Reward(mapOf("spoken" to 1, "pron" to 1), if (sc >= 85) 4 else 2) else null, heard)
+        return Attempt(sc, band(sc), tip, if (sc >= 65) Reward(mapOf("spoken" to 1, "pron" to 1), RewardRules.xp("say", score = sc.toDouble())) else null, heard)
     }
 }
 
@@ -181,8 +182,8 @@ object PronPage {
     fun scoreColor(score: Int) = if (score >= WORD_GOOD) "good" else if (score >= WORD_MEDIUM) "medium" else "again"
     /** Text sent to the recogniser: arrows, linking marks and slashes removed. */
     fun cleanSentence(s: String) = s.replace(Regex("[↗↘‿]|\\s/\\s"), " ").replace(Regex("\\s+"), " ").trim()
-    fun wordReward(score: Int): Reward? = if (score >= WORD_MEDIUM) Reward(mapOf("spoken" to 1), 2) else null
-    fun sentenceReward(score: Int): Reward? = if (score >= SENTENCE_PASS) Reward(mapOf("spoken" to 2), 4) else null
+    fun wordReward(score: Int): Reward? = if (score >= WORD_MEDIUM) Reward(mapOf("spoken" to 1), RewardRules.xp("say", score = score.toDouble())) else null
+    fun sentenceReward(score: Int): Reward? = if (score >= SENTENCE_PASS) Reward(mapOf("spoken" to 2), RewardRules.xp("say", score = score.toDouble())) else null
     /** The lesson best: saved once ≥ min(5, words) words are scored; the mean of the best score per word, never lowering an old best. */
     fun lessonBest(scores: Map<Int, Int>, wordCount: Int): Int? = if (scores.size < minOf(5, wordCount)) null else jsRound(scores.values.sum().toDouble() / scores.size)
     fun saveBest(game: JsonElement?, id: String, pct: Int): JsonElement = SkillsGame.put(game, "pronDone") { it[id] = Js.number(maxOf(pct.toDouble(), Js.num(it[id]).let { x -> if (x.isNaN()) 0.0 else x })) }
@@ -197,10 +198,10 @@ object PronPage {
         return a.map { Round(it, if (rnd() < 0.5) 0 else 1) }
     }
     class PairEnd(val ok: Int, val n: Int, val pct: Int, val good: Boolean, val reward: Reward) { val final = listOf(Tr("Nghe đúng {ok}/{n}", mapOf("ok" to ok, "n" to n)), if (good) Tr("tai bạn đã phân biệt tốt!") else Tr("nghe chậm lại từng cặp và thử lần nữa.")) }
-    fun pairEnd(ok: Int, n: Int): PairEnd { val pct = jsRound(ok.toDouble() / n * 100); return PairEnd(ok, n, pct, pct >= 75, Reward(mapOf("quizzes" to 1, "pron" to 1), 5 + ok * 2)) }
+    fun pairEnd(ok: Int, n: Int): PairEnd { val pct = jsRound(ok.toDouble() / n * 100); return PairEnd(ok, n, pct, pct >= 75, Reward(mapOf("quizzes" to 1, "pron" to 1), RewardRules.xp("set", right = ok, total = n))) }
     /** The quick quiz: after the last question the percent right is saved and the reward paid. */
     class QuizEnd(val pct: Int, val reward: Reward)
-    fun quizEnd(right: Int, total: Int): QuizEnd { val pct = jsRound(right.toDouble() / total * 100); return QuizEnd(pct, Reward(mapOf("quizzes" to 1, "pron" to 1, "perfect" to (if (pct == 100) 1 else 0)), 8 + right * 3)) }
+    fun quizEnd(right: Int, total: Int): QuizEnd { val pct = jsRound(right.toDouble() / total * 100); return QuizEnd(pct, Reward(mapOf("quizzes" to 1, "pron" to 1, "perfect" to (if (pct == 100) 1 else 0)), RewardRules.xp("set", right = right, total = total, mode = "type"))) }
 }
 
 /** The "Nói thử" session of a lesson (web pron/sayit.js): 10 words, hear the model, speak, decide, adapt; the results are written once at the end. */
@@ -235,6 +236,6 @@ class PairSession(private val P: PronPairs, private val contrasts: List<Contrast
     class Final(val pct: Int, val chips: List<Triple<Contrast, Int, Int>>, val reward: Reward, val score: Tr)
     fun finish(): Final { P.endSession(stats, sess, day)
         val chips = sess.map { (id, v) -> Triple(contrasts.first { it.id == id }, v.first, v.second) }
-        return Final(if (scored != 0) jsRound(ok.toDouble() / scored * 100) else 0, chips, Reward(mapOf("spoken" to ok, "pron" to 1), 5 + ok * 2), Tr("Nói đúng {ok}/{n} từ", mapOf("ok" to ok, "n" to scored))) }
+        return Final(if (scored != 0) jsRound(ok.toDouble() / scored * 100) else 0, chips, Reward(mapOf("spoken" to ok, "pron" to 1), RewardRules.xp("set", right = ok, total = scored, mode = "say")), Tr("Nói đúng {ok}/{n} từ", mapOf("ok" to ok, "n" to scored))) }
     companion object { const val N = 10; const val MAX_RETRY = 2 }
 }

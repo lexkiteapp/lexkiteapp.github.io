@@ -46,8 +46,11 @@ public enum PracticeVerdict: Equatable, Sendable {
 
 public enum PracticeRun {
     public static let quizSize = 10, testSize = 20, learnSize = 8, matchSize = 6
-    /// XP: right answer 3 (hard mode 6) · quiz end 5 / perfect 15 · learn step 2 / end 20 · speak ≥ 85 → 5 else 3, end 5 · match 10 (+10 < 25 s, +5 < 40 s)
-    public static let xpCorrect = 3, xpCorrectHard = 6, xpLearnStep = 2, xpLearnDone = 20, xpQuizDone = 5, xpQuizPerfect = 15, xpSpeakDone = 5, xpMatchBase = 10
+    /// XP = the one reward rule (RewardRules ← Game.xpFor): typed answer 3 (hard 6) · quiz end = set(paid) 10 (+5 perfect) · learn step 2 / end 20 · speak word by score · speak end = set(paid, say) · match = game(pairs − misses), no speed bonus
+    public static let xpCorrect = RewardRules.xp("answer", mode: "type"), xpCorrectHard = RewardRules.xp("answer", mode: "type", hard: true)
+    public static let xpLearnStep = RewardRules.xp("step"), xpLearnDone = RewardRules.xp("learn")
+    public static func quizBaseXP(score: Int, total: Int) -> Int { RewardRules.xp("set", right: score, total: total, paid: true) }
+    public static func speakDoneXP(good: Int, total: Int) -> Int { RewardRules.xp("set", right: good, total: total, mode: "say", paid: true) }
     public static let speakGood = 65, speakGreat = 85
 
     public static func shuffled<T>(_ a: [T], _ rng: inout SplitMix64) -> [T] { a.shuffled(using: &rng) }
@@ -168,7 +171,7 @@ public enum PracticeRun {
     public static func quizResult(mode: String, score: Int, total: Int, answerXP: Int) -> QuizResult {
         let pct = Vocab.round(Double(score) / Double(max(1, total)) * 100)
         let perfect = pct == 100
-        return QuizResult(score: score, total: total, percent: pct, perfect: perfect, xp: answerXP + (perfect ? xpQuizPerfect : xpQuizDone), band: mode == "test" ? PracticeEngine.band(percent: pct) : nil)
+        return QuizResult(score: score, total: total, percent: pct, perfect: perfect, xp: answerXP + quizBaseXP(score: score, total: total), band: mode == "test" ? PracticeEngine.band(percent: pct) : nil)
     }
 
     // MARK: learn
@@ -224,10 +227,11 @@ public enum PracticeRun {
         let raw = items.map { (key: $0.s("word"), label: $0.s("word"), en: true) } + items.map { (key: $0.s("word"), label: $0.s("vi"), en: false) }
         return (items, shuffled(raw, &rng).enumerated().map { MatchTile(id: $0.offset, key: $0.element.key, label: $0.element.label, isEnglish: $0.element.en) })
     }
-    public static func matchXP(time: Double) -> Int { xpMatchBase + (time < 25 ? 10 : time < 40 ? 5 : 0) }
+    /// game(right: pairs − min(misses, pairs), total: pairs) – no speed bonus (the time record still earns the badge)
+    public static func matchXP(pairs: Int, misses: Int) -> Int { RewardRules.xp("game", right: pairs - Swift.min(misses, pairs), total: pairs) }
     /// shown time = elapsed seconds + 1 s per wrong pair, one decimal
     public static func matchTime(elapsed: Double, misses: Int) -> Double { ((elapsed + Double(misses)) * 10).rounded() / 10 }
 
     // MARK: speak
-    public static func speakXP(score: Int) -> Int { score >= speakGreat ? 5 : 3 }
+    public static func speakXP(score: Int) -> Int { RewardRules.xp("say", score: Double(score)) }
 }

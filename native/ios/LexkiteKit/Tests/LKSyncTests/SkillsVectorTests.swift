@@ -313,7 +313,7 @@ final class SkillsVectorTests: XCTestCase {
             r.eq(["#/dictation/\(p.s("id"))"], strs(res["links"]), "\(id) links")
             let vocab = p.list("vocab")
             r.eq(vocab.map { $0.s("w") + "|" + $0.s("vi") + "|+ " + vi(.vocabSave) }, res.list("vocab").map { $0.s("w") + "|" + $0.s("vi") + "|" + $0.s("button") }, "\(id) vocab rows")
-            r.diff(.array([.object(out.reward.mapValues { JSON.int($0) })]), o["rewards"], "\(id) rewards")
+            r.diff(.array([.object(out.reward.mapValues { JSON.int($0) }.merging(out.src.map { ["src": JSON.string($0)] } ?? [:]) { a, _ in a })]), o["rewards"], "\(id) rewards")
             r.diff(out.game["listenDone"], o["game"]?["listenDone"], "\(id) game.listenDone"); r.diff(out.game["qstat"], o["game"]?["qstat"], "\(id) game.qstat")
             r.diff(.array(out.mistakes.map(mistakeRow)), o["mistakes"], "\(id) mistakes")
             var after = st; after.submitted = true; after.ended = false; if !exam { after.playing = false }
@@ -651,7 +651,7 @@ final class SkillsVectorTests: XCTestCase {
                 r.eq(classes, strs(w["classes"]), "\(id) #\(k + 1) option marks")
                 r.eq((item.ok ? "" : "❌ ") + item.explain, w.s("explain"), "\(id) #\(k + 1) explanation")
             }
-            r.diff(.array([.object(g.reward.mapValues { JSON.int($0) })]), o["rewards"], "\(id) rewards"); r.diff(g.game["readDone"], o["game"]?["readDone"], "\(id) game.readDone")
+            r.diff(.array([.object(g.reward.mapValues { JSON.int($0) }.merging(g.src.map { ["src": JSON.string($0)] } ?? [:]) { a, _ in a })]), o["rewards"], "\(id) rewards"); r.diff(g.game["readDone"], o["game"]?["readDone"], "\(id) game.readDone")
             r.diff(.array(g.mistakes.map(mistakeRow)), o["mistakes"], "\(id) mistakes")
         }
         for c in R_.list("actions") {

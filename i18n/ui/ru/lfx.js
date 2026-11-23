@@ -1,6 +1,6 @@
 /* UI ru – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {
-"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Похоже, это для вас слишком легко. Попробовать задания сложнее (вводить, а не выбирать) за бонусный XP?",
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhớ lâu hơn nhé?":"Похоже, это для вас слишком легко. Попробуете задания посложнее (вводить, а не выбирать), чтобы запоминать надолго?",
 "Bật lại":"Включить снова",
 "Chuỗi dài nhất":"Лучшая серия",
 "Câu khó · +{n} XP":"Сложное задание · +{n} XP",

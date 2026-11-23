@@ -1,0 +1,137 @@
+{
+ "id": "t2s_pigout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 4,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The whole pizza is gone!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Pig out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Eat way too much.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We pigged out on pizza last night.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "pig out",
+  "forms": [
+   "pigged out"
+  ],
+  "ipa": "/ˈpɪɡ ˈaʊt/",
+  "mean": "Eat way too much.",
+  "define": "To eat a very large amount of food happily.",
+  "vi": "Ăn quên trời đất",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "After a party",
+   "text": "We pigged out on pizza last night."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"pig out\" is to…",
+   "options": [
+    "eat too much",
+    "go to a farm"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell your host she made you 'pig out'.",
+   "why": "It sounds like an insult."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The whole pizza is gone!"
+ },
+ "src": {
+  "slang": "pig out"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.5,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "What does \"pig out\" mean?",
+  "keyword": "pig out",
+  "value": "Pig out = Eat way too much. Example: \"We pigged out on pizza last night.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"pig out\" mean?",
+    "description": "Pig out = Eat way too much. Example: \"We pigged out on pizza last night.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "pig out",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"pig out\" mean?\n\nPig out = Eat way too much. Example: \"We pigged out on pizza last night.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"pig out\" mean?\n\nPig out = Eat way too much. Example: \"We pigged out on pizza last night.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"pig out\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: eat too much. \"We pigged out on pizza last night.\" More real English slang, free: {link}"
+ }
+}

@@ -77,7 +77,7 @@
     const record = (sc, extra) => { const id = order[S.i], cur = p.lines[id] || {}; p.lines[id] = { best: Math.max(cur.best || 0, sc.text || 0), stars: Math.max(cur.stars || 0, sc.stars || 0) };
       for (const k of s.mission.tasks) if (k.intents.includes(id) && sc.pass) p.tasks[k.id] = true;
       const w = wk(); st.week = { [w]: ((st.week || {})[w] || 0) + 1 }; save(st);
-      if (extra !== 'nomic' && App.reward) App.reward({ spoken: 1, xp: 2 * (sc.stars || 0) }); }; // nhiệm vụ 'spoken' + XP sẵn có (F4 tính vào streak/league)
+      if (extra !== 'nomic' && App.reward) App.reward({ spoken: 1, xp: (sc.stars || 0) ? Game.xpFor('say', { score: sc.stars >= 2 ? Game.XPR.great : Game.XPR.pass }) : 0 }); }; // nói thuộc lòng (≥ 2 sao) = đạt tốt · // nhiệm vụ 'spoken' + XP sẵn có (F4 tính vào streak/league)
     const result = (sc, free) => {
       const pass = free || Speak.pass(sc), limit = (words().length * 0.6 + 3) * 1000, quick = S.t0 && Date.now() - S.t0 <= limit;
       const stars = S.noMic ? (pass ? 1 : 0) : !pass ? 0 : S.b < 2 ? 1 : quick ? 3 : 2, score = Math.round((sc.text || 0) * 100);
