@@ -1,6 +1,6 @@
 /* 🇪🇸🇫🇷 Lộ trình ngày ngôn ngữ đích (#/practice/esd · #/practice/frd, spanish-course.md / french-course.md W4; MỘT engine, bảng TLD theo tl): mỗi ngày = từ mới + 1 điểm ngữ pháp + 1 chủ đề phát âm (nếu tl có) (+ cuộc gọi AI mỗi 5 ngày).
  * Chỉ ĐIỀU HƯỚNG tới màn có sẵn (Target.table(tl).routes: luyện · phát âm · #/call/<id>) + bước "từ mới" tại chỗ; không khung/CSS mới (lớp card/chip/btn sẵn có).
- * Dữ liệu tải lười dựng bởi scripts/target/path-lib.mjs: cpack/<tl>/{dy,wd}.js + dy-<ngôn ngữ>.js (nhãn) + wd-<ngôn ngữ>.js (nghĩa). Tiến độ: lk.<tl>.day = { "<ngày>": "wgpc" }.
+ * Dữ liệu tải lười dựng bởi scripts/target/path-lib.mjs: cpack/<tl>/dy.js + dy-<ngôn ngữ>.js (nhãn); từ = packs/<tl>/wd.json + wd-<ngôn ngữ>.json (nghĩa) – tải như App.loadPack. Tiến độ: lk.<tl>.day = { "<ngày>": "wgpc" }.
  * Làm xong bước ở màn khác: nút bắt đầu ghi lk.<tl>.dayctx (sessionStorage); màn kết của luyện/phát âm/cuộc gọi gọi App.esDayMark(bước, tl) → đánh dấu bước. Tệp này nằm ở cả gói esday và frday: nạp lần hai bỏ qua. */
 (function () {
   const { $, esc } = UI, App = window.App, view = App.view; if (App.tlday) return;
@@ -10,11 +10,9 @@
   const FR_ART = w => (w[1] !== 'n' || !w[4] ? '' : /^[aeiouyàâäéèêëîïôöùûüœæh]/i.test(w[0]) && w[6] !== 'a' ? "l'" : (w[4] === 'mf' ? 'le/la' : w[4] === 'm' ? 'le' : 'la') + ' '); // l' trước nguyên âm/h câm; h aspiré (haricot) giữ le/la
   const TLD = {
     es: { G: 'ESX', call: 'calles', acc: 'es-419', art: ES_ART, gx: () => App.esGx, px: () => ({ pxl: App.esPx, base: 'cpack/es/px.js' }),
-      dy: { en: 'cpack/es/dy-en.js', vi: 'cpack/es/dy-vi.js', es: 'cpack/es/dy-es.js', pt: 'cpack/es/dy-pt.js', fr: 'cpack/es/dy-fr.js', de: 'cpack/es/dy-de.js', id: 'cpack/es/dy-id.js', th: 'cpack/es/dy-th.js', zh: 'cpack/es/dy-zh.js', ja: 'cpack/es/dy-ja.js', ko: 'cpack/es/dy-ko.js', hi: 'cpack/es/dy-hi.js', ar: 'cpack/es/dy-ar.js', ru: 'cpack/es/dy-ru.js', tr: 'cpack/es/dy-tr.js' },
-      wd: { en: 'cpack/es/wd-en.js', vi: 'cpack/es/wd-vi.js', es: 'cpack/es/wd-es.js', pt: 'cpack/es/wd-pt.js', fr: 'cpack/es/wd-fr.js', de: 'cpack/es/wd-de.js', id: 'cpack/es/wd-id.js', th: 'cpack/es/wd-th.js', zh: 'cpack/es/wd-zh.js', ja: 'cpack/es/wd-ja.js', ko: 'cpack/es/wd-ko.js', hi: 'cpack/es/wd-hi.js', ar: 'cpack/es/wd-ar.js', ru: 'cpack/es/wd-ru.js', tr: 'cpack/es/wd-tr.js' } },
+      dy: { en: 'cpack/es/dy-en.js', vi: 'cpack/es/dy-vi.js', es: 'cpack/es/dy-es.js', pt: 'cpack/es/dy-pt.js', fr: 'cpack/es/dy-fr.js', de: 'cpack/es/dy-de.js', id: 'cpack/es/dy-id.js', th: 'cpack/es/dy-th.js', zh: 'cpack/es/dy-zh.js', ja: 'cpack/es/dy-ja.js', ko: 'cpack/es/dy-ko.js', hi: 'cpack/es/dy-hi.js', ar: 'cpack/es/dy-ar.js', ru: 'cpack/es/dy-ru.js', tr: 'cpack/es/dy-tr.js' } },
     fr: { G: 'FRX', call: 'callfr', acc: 'fr-FR', art: FR_ART, gx: () => App.frGx, px: () => (App.frPx ? { pxl: App.frPx, base: 'cpack/fr/px.js' } : null), // App.frPx do nhánh phát âm fr (W3) khai khi vào main
-      dy: { en: 'cpack/fr/dy-en.js', vi: 'cpack/fr/dy-vi.js', es: 'cpack/fr/dy-es.js', pt: 'cpack/fr/dy-pt.js', fr: 'cpack/fr/dy-fr.js', de: 'cpack/fr/dy-de.js', id: 'cpack/fr/dy-id.js', th: 'cpack/fr/dy-th.js', zh: 'cpack/fr/dy-zh.js', ja: 'cpack/fr/dy-ja.js', ko: 'cpack/fr/dy-ko.js', hi: 'cpack/fr/dy-hi.js', ar: 'cpack/fr/dy-ar.js', ru: 'cpack/fr/dy-ru.js', tr: 'cpack/fr/dy-tr.js' },
-      wd: { en: 'cpack/fr/wd-en.js', vi: 'cpack/fr/wd-vi.js', es: 'cpack/fr/wd-es.js', pt: 'cpack/fr/wd-pt.js', fr: 'cpack/fr/wd-fr.js', de: 'cpack/fr/wd-de.js', id: 'cpack/fr/wd-id.js', th: 'cpack/fr/wd-th.js', zh: 'cpack/fr/wd-zh.js', ja: 'cpack/fr/wd-ja.js', ko: 'cpack/fr/wd-ko.js', hi: 'cpack/fr/wd-hi.js', ar: 'cpack/fr/wd-ar.js', ru: 'cpack/fr/wd-ru.js', tr: 'cpack/fr/wd-tr.js' } },
+      dy: { en: 'cpack/fr/dy-en.js', vi: 'cpack/fr/dy-vi.js', es: 'cpack/fr/dy-es.js', pt: 'cpack/fr/dy-pt.js', fr: 'cpack/fr/dy-fr.js', de: 'cpack/fr/dy-de.js', id: 'cpack/fr/dy-id.js', th: 'cpack/fr/dy-th.js', zh: 'cpack/fr/dy-zh.js', ja: 'cpack/fr/dy-ja.js', ko: 'cpack/fr/dy-ko.js', hi: 'cpack/fr/dy-hi.js', ar: 'cpack/fr/dy-ar.js', ru: 'cpack/fr/dy-ru.js', tr: 'cpack/fr/dy-tr.js' } },
   };
   let TL = 'es'; const C = () => TLD[TL], KEY = () => 'lk.' + TL + '.day', CTX = () => 'lk.' + TL + '.dayctx';
   const LABEL = 'ti sub dy w g p c go pr mk fin td sv'.split(' '); // thứ tự khớp path-lib.DAY_UI
@@ -59,8 +57,14 @@
   };
 
   const load = async () => {
-    const l = lang(), c = C(), tl = [App.need(TL + 'day', c.call), App.loadScript(c.dy[l]), App.loadScript(c.wd[l])];
-    if (l !== 'en') tl.push(App.loadScript(c.dy.en), App.loadScript(c.wd.en)); // dự phòng nhãn/nghĩa tiếng Anh
+    const l = lang(), c = C(), tl = [App.need(TL + 'day', c.call), App.loadScript(c.dy[l])];
+    if (l !== 'en') tl.push(App.loadScript(c.dy.en)); // dự phòng nhãn tiếng Anh
+    await Promise.all(tl); tl.length = 0;
+    // Từ + nghĩa: web/packs/<tl>/*.json – cùng tên miền trên lexkite.com, https://lexkite.com ở add-on/app gốc (mẫu App.loadPack); ?v = băm nội dung (dy.js) → không dùng bản cũ
+    const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com/', v = '?v=' + (X().wdv || '0');
+    const get = f => fetch(base + 'packs/' + TL + '/' + f + '.json' + v).then(r => { if (!r.ok) throw new Error(f + ' ' + r.status); return r.json(); });
+    if (!X().wd) tl.push(get('wd').then(j => { X().wd = j; }));
+    for (const k of l !== 'en' ? [l, 'en'] : ['en']) if (!(X().wdl || {})[k]) tl.push(get('wd-' + k).then(j => { (X().wdl = X().wdl || {})[k] = j; }));
     tl.push(App.loadScript(c.gx()[l])); // tên điểm ngữ pháp
     const px = c.px(); if (px) tl.push(App.loadScript(px.pxl[l]), App.loadScript(px.base)); // tên chủ đề phát âm
     await Promise.all(tl);
