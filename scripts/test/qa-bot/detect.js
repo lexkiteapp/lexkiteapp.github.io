@@ -130,9 +130,13 @@
       // vùng chạm: link chữ nằm giữa đoạn văn được miễn (WCAG 2.5.8 ngoại lệ "inline")
       const inline = e.tagName === 'A' && getComputedStyle(e).display === 'inline' && e.parentElement && /^(p|li|span|small|label|td|figcaption|blockquote)$/i.test(e.parentElement.tagName) && e.parentElement.textContent.trim().length > txt(e).length + 8;
       // vùng chạm THẬT gồm ::after mở rộng (cơ chế Stitch port: after:absolute + -inset-* / min 44 – cú chạm vào ::after kích hoạt chính phần tử)
+      // <tapbox> hộp vùng chạm từ ::after tuyệt đối: đo theo KHỐI CHỨA (cb). Link tĩnh (position:static) có ::after absolute → ::after bám tổ tiên gần nhất có position≠static (thẻ "stretched link": a.after:absolute.after:inset-0 trong h4 → cả thẻ là vùng chạm thật); cb=null → chính phần tử
+      const tapBox = (r, a, cb) => { const px = v => parseFloat(v) || 0, b = cb || r; return { width: Math.max(r.width, b.width - px(a.left) - px(a.right), px(a.minWidth)), height: Math.max(r.height, b.height - px(a.top) - px(a.bottom), px(a.minHeight)) }; };
+      // </tapbox>
       const hb = (() => { const a = getComputedStyle(e, '::after'); const clear = c => /^(transparent|rgba\(0, 0, 0, 0\))$/.test(c); // chỉ ::after TRONG SUỐT (vùng chạm mở rộng) – chấm huy hiệu/trang trí có nền/viền/bóng không tính
-        if (!a || a.content === 'none' || a.position !== 'absolute' || a.pointerEvents === 'none' || getComputedStyle(e).position === 'static' || !clear(a.backgroundColor) || a.backgroundImage !== 'none' || parseFloat(a.borderTopWidth) || parseFloat(a.borderLeftWidth) || (a.boxShadow && a.boxShadow !== 'none')) return r;
-        const px = v => parseFloat(v) || 0; return { width: Math.max(r.width, r.width - px(a.left) - px(a.right), px(a.minWidth)), height: Math.max(r.height, r.height - px(a.top) - px(a.bottom), px(a.minHeight)) }; })();
+        if (!a || a.content === 'none' || a.position !== 'absolute' || a.pointerEvents === 'none' || !clear(a.backgroundColor) || a.backgroundImage !== 'none' || parseFloat(a.borderTopWidth) || parseFloat(a.borderLeftWidth) || (a.boxShadow && a.boxShadow !== 'none')) return r;
+        let cb = null; if (getComputedStyle(e).position === 'static') { for (let p = e.parentElement; p && p !== D.body && p !== D.documentElement; p = p.parentElement) if (getComputedStyle(p).position !== 'static') { cb = p.getBoundingClientRect(); break; } if (!cb) return r; }
+        return tapBox(r, a, cb); })();
       const small = /^input$/i.test(e.tagName) ? !/checkbox|radio|range/.test(e.type) && r.height < TAP - 0.5 : hb.width < TAP - 0.5 || hb.height < TAP - 0.5;
       if (!inline && small && !e.closest('[aria-hidden="true"]')) add('tap', 'fail', e, `"${txt(e)}" vùng chạm ${Math.round(hb.width)}×${Math.round(hb.height)} < ${TAP}px`);
     }
