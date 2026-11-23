@@ -227,6 +227,7 @@ async function ui(w, theme) {
         const pf = await page.evaluate(() => QAB.perf()); rec.cls = pf.cls;
         if (pf.cls > BUDGET.cls) rec.issues.push({ k: 'cls', sev: 'fail', sig: 'cls|' + name, msg: `CLS ${pf.cls} > ${BUDGET.cls} (${pf.clsSrc.join(', ')})` });
         if (AXE) {
+          await page.evaluate(() => Promise.race([Promise.all(document.getAnimations().filter(a => { const T = a.effect && a.effect.getTiming(); return T && T.iterations !== Infinity && T.iterations * (T.duration || 0) < 3000 && a.playState === 'running'; }).map(a => a.finished.catch(() => {}))), new Promise(r => setTimeout(r, 1500))]).then(() => 0)).catch(() => {}); // axe đo màu chữ: chờ hiệu ứng mờ-trồi/chuyển màu hữu hạn xong (đo giữa chừng ra #909391 giả = chữ mờ 45 %)
           const cc = await page.evaluate(async () => { const r = await axe.run(document, { runOnly: ['color-contrast'], resultTypes: ['violations'] }); return r.violations.flatMap(v => v.nodes.map(n => ({ t: n.target.join(' '), m: (n.any[0] || {}).message || '' }))); }).catch(e => { rec.errors.push('axe không chạy được: ' + String(e.message).slice(0, 120)); return []; });
           for (const c of cc.slice(0, 20)) rec.issues.push({ k: 'contrast', sev: 'fail', sig: 'contrast|' + c.t.replace(/:nth-child\(\d+\)/g, '').slice(0, 120), msg: `${c.t} – ${c.m.slice(0, 140)}` });
         }
