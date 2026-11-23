@@ -3,6 +3,8 @@
 # Lấy về: bash scripts/ci/bot-output.sh teach-refine, rồi tự commit.
 name: Teach refine
 on:
+  push:
+    branches: ['teach-refine*']   # như teach-build: đẩy nhánh teach-refine* (hoặc chạy tay) – lượt trên nhánh chỉ để lấy artifact, không đẩy lại vào nhánh
   workflow_dispatch:
     inputs:
       clips: { description: 'chỉ các clip này (vd. carlos/explain ama/point-hd), trống = mọi clip vượt cổng', required: false, default: '' }
@@ -26,7 +28,7 @@ jobs:
       - name: Hồi quy cổng đo
         run: python3 scripts/test/motion-smear-selftest.py
       - name: Làm sạch
-        env: { CLIPS: '${{ inputs.clips }}' }
+        env: { CLIPS: "${{ inputs.clips || '' }}" }
         run: python3 scripts/teach/refine_clips.py web/teach $CLIPS
       - name: Cổng khung vung tay
         run: python3 scripts/teach/motion_smear.py web/teach
