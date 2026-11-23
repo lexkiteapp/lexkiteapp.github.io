@@ -810,7 +810,7 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
                 if x.get('mark', '\0') not in x['text']: bad.append(f"band {x['band']}: the mark is not in the sentence")
                 if x.get('why') not in B['reasons']: bad.append(f"band {x['band']}: unknown reason")
             if not all(len(x['text'].split()) <= 14 for x in st): bad.append('a sentence is longer than 14 words')
-    elif t == 'progress': bad += progress_data_gate(row)   # Day 1 vs Day 30: the written sample in progress.json (marks inside the sentence, scores, lengths)
+    elif t == 'progress': bad += PROG.FN['data_gate'](row)   # Day 1 vs Day 30: the written sample in progress.json (marks inside the sentence, scores, lengths)
     elif t == 'slang':   # Slang Card: the row froze the bank card it was planned with; the live bank (slang.json, slang.mjs gates) must still say the same
         it = slang_src()[0].get(p['key'].lower())
         if not it: bad.append('slang key gone from slang.json')
@@ -1222,7 +1222,7 @@ if __name__ == '__main__':
     if '--hand' in A_: plan_hand(); sys.exit(0)
     if '--roots' in A_: plan_roots(); sys.exit(0)
     if '--slang-eps' in A_: plan_slang(int(A_[A_.index('--slang-eps') + 1]), A_[A_.index('--keys') + 1].split('|') if '--keys' in A_ else None); sys.exit(0)
-    if '--progress-eps' in A_: plan_progress(int(A_[A_.index('--progress-eps') + 1])); sys.exit(0)
+    if '--progress-eps' in A_: PROG.FN['plan'](int(A_[A_.index('--progress-eps') + 1])); sys.exit(0)
     if '--band-eps' in A_: plan_bands(int(A_[A_.index('--band-eps') + 1])); sys.exit(0)
     if '--rule-eps' in A_: plan_rules(int(A_[A_.index('--rule-eps') + 1])); sys.exit(0)
     if '--rules' in A_:   # Spell->Sound word mining (rules.py): rules-words.json regenerates identically (--check) or is rewritten

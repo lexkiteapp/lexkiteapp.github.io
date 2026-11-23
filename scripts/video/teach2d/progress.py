@@ -12,6 +12,7 @@ REVIEWER = ('gen.py --progress-eps gates v1 (progress.json row == the episode ·
             'spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = "Day one. Day thirty." · no duplicate sentence · short 18-27 s)')
 PROG_MAX = 27.0   # QC short ceiling 28 s (same calibration as band)
 _PJ = None
+FN = {}   # filled by install(): gen.py calls PROG.FN['data_gate'] / ['plan'] (static checkers cannot see names injected into globals)
 
 
 def bank():
@@ -88,4 +89,4 @@ def install(G):
         print(f"progress: +{len(new)} rows, total {len(rows)}")
         for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
 
-    G['progress_data_gate'] = data_gate; G['plan_progress'] = plan_progress; G['progress_secs'] = progress_secs; G['PROGRESS_MAX'] = PROG_MAX
+    G['progress_data_gate'] = data_gate; G['plan_progress'] = plan_progress; FN.update(data_gate=data_gate, plan=plan_progress); G['progress_secs'] = progress_secs; G['PROGRESS_MAX'] = PROG_MAX
