@@ -6,6 +6,8 @@ let total = 0, fails = 0;
 const ok = (c, m) => { total++; if (!c) { fails++; console.error('✗', m); } else console.log('✓', m); };
 const ctx = { self: {} }; ctx.globalThis = ctx.self; vm.createContext(ctx);
 vm.runInContext(fs.readFileSync('web/js/lesson/engine.js', 'utf8'), ctx);
+ctx.self.Core = { Store: {}, todayKey: () => '' }; vm.runInContext(fs.readFileSync('web/js/game.js', 'utf8'), ctx); // chấm tuần/chuỗi = luật chung Game (dùng cả màn kết bài học lẫn game-end.js)
+const G = ctx.self.Game;
 const E = ctx.self.LessonEngine, UI = fs.readFileSync('web/js/lesson/ui.js', 'utf8');
 const mk = (word, pos, extra = {}) => Object.assign({ word, pos, vi: word, def: 'x ' + word }, extra);
 
@@ -49,10 +51,10 @@ ok(/level: lvlS/.test(UI) && /lvlS = E\.sentLevel\(/.test(UI), 'ui.js truyền l
 const key = x => x.getFullYear() + '-' + x.getMonth() + '-' + x.getDate();
 const wed = new Date(2026, 10, 18, 10), k = x => key(new Date(2026, 10, x));
 const act = new Set([k(16), k(18)]); // T2 + T4 (không liền)
-const wk = E.weekDots(act, wed, key);
+const wk = G.weekDots(act, wed, key);
 ok(wk.n === 2 && wk.on[0] && !wk.on[1] && wk.on[2] && wk.today === 2, 'weekDots: 2 ngày học trong tuần, không liền nhau');
-ok(E.runOf(act, wed, key) === 1, 'runOf: chuỗi liền tới hôm nay = 1 (không phải 2) – hai số tách nhãn');
-ok(E.runOf(new Set([k(16), k(17), k(18)]), wed, key) === 3 && E.runOf(new Set(), wed, key) === 1, 'runOf: 3 ngày liền = 3; chưa có ngày nào = 1 (hôm nay)');
+ok(G.runOf(act, wed, key) === 1, 'runOf: chuỗi liền tới hôm nay = 1 (không phải 2) – hai số tách nhãn');
+ok(G.runOf(new Set([k(16), k(17), k(18)]), wed, key) === 3 && G.runOf(new Set(), wed, key) === 1, 'runOf: 3 ngày liền = 3; chưa có ngày nào = 1 (hôm nay)');
 ok(/weekDots\(/.test(UI) && /Tuần này/.test(UI) && /Chuỗi hiện tại/.test(UI), 'finishV2 dùng weekDots + nhãn "Chuỗi hiện tại" / "Tuần này"');
 
 // 6. Hai giọng giống nhau → một loa

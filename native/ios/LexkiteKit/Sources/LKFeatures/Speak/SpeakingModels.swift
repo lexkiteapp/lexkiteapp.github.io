@@ -195,7 +195,7 @@ final class SpeakingModel {
     func shadowSkip() async { guard var sh = shadow else { return }; sh.skip(); advance(&sh); await finishShadow(sh) }
     private func advance(_ sh: inout Speaking.Shadow) { shadow = sh; shadowLast = nil; shadowError = nil }
     private func finishShadow(_ sh: Speaking.Shadow) async {
-        if sh.finished { shadowDone = sh.average; await ctx.commit(reward: Speaking.Shadow.reward) } else { saySentence() }
+        if sh.finished { shadowDone = sh.average; await ctx.commit(reward: sh.reward) } else { saySentence() }
     }
 
     // MARK: fixtures

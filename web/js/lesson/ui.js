@@ -35,7 +35,7 @@
 .lsn-combo{visibility:hidden}.lsn-combo.on{visibility:visible}
 /* 🧩 Stitch v2.1 lesson-question (khung tự sinh: brand/stitch/v2/bind/lesson-question.json) – Ama đứng SAU thẻ đề bài đục; không vòng/hào quang/khung/mặt nạ */
 .lsn-v2 [hidden]{display:none}.lsn-v2 .lsn-qcard #lsnSlow{right:auto;inset-inline-end:1.25rem}.lsn-v2 .lsn-qcard #lsnPlay{width:calc(100% - 4.75rem)}.lsn-v2 .lsn-fv2{margin:0 0 1rem}.lsn-v2 .tch-rig.posed img.tch-still{visibility:visible}.lsn-v2 .tch-rig.posed canvas,.lsn-v2 .tch-rig.posed img.tch-poster{visibility:hidden}.lsn-v2 .tch,.lsn-v2 .tch-rig{position:absolute;inset:0}.lsn-v2 .tch-rig img,.lsn-v2 .tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.lsn-v2 .tch-rig.live img{visibility:hidden}
-.lsn-v2.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);pointer-events:none}.lsn-v2.st-end .lsn-tchw,.lsn-v2.st-end .lsn-qcard,.lsn-v2.st-end .lsn-qfoot,.lsn-v2.st-end .lsn-qchips{display:none}.lsn-v2.lsn-end .lsn-tchw.lsn-endt{display:flex}.lsn-v2 .lsn-endt #lsnTch{position:relative;inset:auto;margin-inline:auto}.lsn-end.lsn-ptr :focus{outline:none}[dir=rtl] .lsn-end #lsnAgain>.material-symbols-outlined:last-child{scale:-1 1}
+.lsn-tbox{position:relative;width:5.5rem!important;height:6.75rem!important;margin-bottom:-.75rem;overflow:hidden}.lsn-tbox .lsn-pod{position:absolute;left:0;right:0;bottom:0;height:2.2rem;background:var(--lsn-c);border-radius:999px 999px 0 0;z-index:9;pointer-events:none}.lsn-v2.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);pointer-events:none}.lsn-v2.st-end .lsn-tchw,.lsn-v2.st-end .lsn-qcard,.lsn-v2.st-end .lsn-qfoot,.lsn-v2.st-end .lsn-qchips{display:none}.lsn-v2.lsn-end .lsn-tchw.lsn-endt{display:flex}.lsn-v2 .lsn-endt #lsnTch{position:relative;inset:auto;margin-inline:auto}.lsn-end.lsn-ptr :focus{outline:none}[dir=rtl] .lsn-end #lsnAgain>.material-symbols-outlined:last-child{scale:-1 1}
 .lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:112px;height:138px;position:relative;margin-bottom:-6px;z-index:1}
 .tch-rig{position:absolute;inset:0;filter:drop-shadow(0 4px 5px rgb(0 0 0 / .22))}.tch::after{content:"";position:absolute;left:18%;right:18%;bottom:-3px;height:8px;border-radius:50%;background:radial-gradient(rgb(0 0 0 / .18),transparent 70%);z-index:-1}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
 /* bán thân: đầu + vai + áo tươi (áo gánh độ nổi trên nền tối như Duolingo, tóc giữ đen); eo mờ dần (không khung, không ô) – docs/CHARACTERS.md */
@@ -517,7 +517,7 @@
   const OK_LINES = ['Nice!', 'Great!', 'Yes!', 'Perfect!', 'Well done!'], NO_LINES = ['Almost!', 'Not quite.', "Let's try again."];
   function react(ok, combo) {
     L.pose = MOOD('answer', { ok }, ok ? 'cheer' : 'concern');
-    try { if (navigator.vibrate && (state.settings || {}).sfx !== false && !matchMedia('(prefers-reduced-motion: reduce)').matches) navigator.vibrate(ok ? 12 : [18, 40, 18]); } catch (e) { /* bỏ qua */ }
+    try { if (window.Sfx && Sfx.haptic) Sfx.haptic(ok ? 'soft' : 'wrong'); } catch (e) { /* bỏ qua */ } // một cổng rung (công tắc Rung, tắt âm, giảm chuyển động)
     try { if (window.Sfx) { if (ok && combo >= 3 && combo % 3 === 0 && Sfx.combo) Sfx.combo(combo); else (ok ? Sfx.correct : Sfx.wrong)(); } } catch (e) { /* bỏ qua */ }
     const el = $('#lsnTch'), pop = $('#lsnEmo');
     if (el) { el.classList.remove('nod', 'shake'); requestAnimationFrame(() => el.classList.add(ok ? 'nod' : 'shake')); } // khởi động lại animation ở khung kế, không ép layout ngay trong lượt chạm
@@ -668,8 +668,8 @@
     const ic = n => `<span class="material-symbols-outlined text-[16px]" aria-hidden="true">${n}</span>`, ROW = 'flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-1 text-[15px] leading-5 font-bold lt:text-[#0F3D3E] dk:text-[#EEF6F7]';
     const bad = new Set(weak.map(x => E.norm(x))), got = w.filter(p => !bad.has(E.norm(p.card.word))).length; // từ nhớ ngay: không sai lần nào trong cả bài
     const more = (weak.length ? `<span class="${ROW} font-medium"><span class="inline-flex items-start gap-1">${ic('edit_note')}<span>${esc(t('Cần ôn lại:'))} <span lang="en">${esc(weak.join(', '))}</span></span></span></span>` : '');
-    const lang = document.documentElement.lang || 'en', W = E.weekDots(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey), wk = { on: W.on, n: W.n, lt: W.days.map(x => { try { return new Intl.DateTimeFormat(lang, { weekday: 'narrow' }).format(x); } catch (e) { return ''; } }) }; // 7 chấm tuần này (thứ 2 → CN): sáng = ngày đã học (hôm nay tính luôn)
-    const run = Math.max(streak, E.runOf(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey)); // chuỗi LIỀN tới hôm nay – KHÁC số ngày học trong tuần (hai nhãn riêng, không mâu thuẫn)
+    const lang = document.documentElement.lang || 'en', W = Game.weekDots(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey), wk = { on: W.on, n: W.n, lt: W.days.map(x => { try { return new Intl.DateTimeFormat(lang, { weekday: 'narrow' }).format(x); } catch (e) { return ''; } }) }; // 7 chấm tuần này (thứ 2 → CN): sáng = ngày đã học (hôm nay tính luôn)
+    const run = Math.max(streak, Game.runOf(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey)); // chuỗi LIỀN tới hôm nay – KHÁC số ngày học trong tuần (hai nhãn riêng, không mâu thuẫn)
     let minsS = String(mins); try { minsS = new Intl.NumberFormat(lang, { style: 'unit', unit: 'minute', unitDisplay: 'narrow' }).format(mins); } catch (e) { /* bỏ qua */ }
     const d = {
       close: `#/lesson${q}`,
@@ -704,6 +704,7 @@
     if (!w.length) { const t4 = root.querySelector('.lsn-tiles > div:nth-child(2)'); if (t4) t4.hidden = true; const t5 = root.querySelector('.lsn-tiles > div:nth-child(4)'); if (t5) t5.hidden = true; const r2 = root.querySelector('.lsn-ring svg > circle:nth-child(3), .lsn-ring svg > circle:nth-child(4)'); if (r2) r2.parentNode.querySelectorAll('circle:nth-child(n+3)').forEach(c => { c.style.display = 'none'; }); const lb = root.querySelector('.lsn-sub > div:nth-child(2) > div:first-child > span:nth-child(2)'); if (lb) lb.hidden = true; } // truyện/radio không có từ học: bỏ ô "nhớ ngay" + "từ mới" + vòng trong + dòng "đã học"
     root.querySelectorAll('.lsn-sub [data-say]').forEach(b => { b.onclick = () => say(b.dataset.say, false, 'ama'); });
     { const ag = $('#lsnAgain'); if (ag && ag.parentElement) { ag.parentElement.classList.add('lsn-cta'); } }
+    { const cd = root.querySelector('.lsn-sub'), bx = cd && cd.firstElementChild; if (bx) { bx.style.setProperty('--lsn-c', getComputedStyle(cd).backgroundColor); bx.classList.add('lsn-tbox'); if (!bx.querySelector('.lsn-pod')) { const pd = document.createElement('i'); pd.className = 'lsn-pod'; pd.setAttribute('aria-hidden', 'true'); bx.appendChild(pd); } } } // Ama đứng SAU mặt thẻ (bệ cùng màu thẻ che đường hông) + cao ≥ 12 % màn
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), 'ama') : null; if (L.teacher) { if (L.teacher.pose) L.teacher.pose(App.streak && App.streak() > L.s0 ? MOOD('streak', {}, 'cheer') : 'cheer'); L.teacher.say(cheer, { rate: 1, voice: VOICE('ama') }); } } catch (e) { L.teacher = null; }
     if (window.Feel && Feel.on) { const x = root.querySelector('.lsn-xp > span'); if (x && Feel.count) Feel.count(x, xp, { prefix: '+', suffix: ' XP', from: 0 }); const b = root.querySelector('[role=progressbar]'); if (b && Feel.fill) Feel.fill(b, 100); }
     if (s.accuracy >= 80 && !navigator.webdriver && typeof window.confetti === 'function') try { window.confetti(90); } catch (e) { /* bỏ qua */ } // ăn mừng 1 lần khi vào màn: pháo giấy dùng chung (game.js; reduced-motion → Kit đứng yên, không chặn chạm)
@@ -724,7 +725,7 @@
     if (L.story && L.story.id) { const a = sDone(L.demo); if (!a.includes(L.story.id)) ls.set(SDKEY(L.demo), JSON.stringify(a.concat(L.story.id))); }
     if (L.story && !L.xs) ls.set(L.SK, String((parseInt(ls.get(L.SK) || '0', 10) || 0) + 1)); // truyện/radio kế tiếp lần sau // nút bản đồ xong (demo: khóa riêng)
     try { if (window.Sfx) Sfx.win(); /* không pháo giấy: chuyển động tiết chế (chủ 28/10) */ } catch (e) { /* bỏ qua */ }
-    let added = 0; const xp = Math.max(5, 10 + s.ok1 * 2 + (s.wrong.size ? 0 : 5) - (L.hints || 0)); // XP hiện cả ở bài thử (không ghi)
+    let added = 0; const xp = Game.xpFor('set', { right: s.ok1, total: s.total, hints: L.hints || 0 }); // XP hiện cả ở bài thử (không ghi)
     if (!L.demo) {
       for (const r of res) {
         try {

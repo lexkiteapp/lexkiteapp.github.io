@@ -1,0 +1,262 @@
+{
+ "presume": {
+  "n": "presume เป็นคำกริยา แปลว่า “สันนิษฐาน, คิดเอาว่าเป็นจริงโดยที่ยังไม่แน่ใจ” ใช้เมื่อเรามีเหตุผลพอสมควรให้เชื่อ แต่ยังไม่มีหลักฐานยืนยัน เช่น I presume you are tired ฉันคิดว่าคุณคงเหนื่อย มักใช้ในรูปถูกกระทำ it is presumed that... ใกล้เคียงกับ assume แต่เป็นทางการกว่า",
+  "x": [
+   [
+    "I presume you have already read the instructions before starting.",
+    "ฉันคิดว่าคุณคงอ่านคำแนะนำมาแล้วก่อนเริ่มทำ"
+   ],
+   [
+    "Until proven guilty, a suspect is presumed innocent by the court.",
+    "จนกว่าจะพิสูจน์ได้ว่าผิด ศาลถือว่าผู้ต้องสงสัยบริสุทธิ์"
+   ]
+  ]
+ },
+ "rational": {
+  "n": "rational เป็นคำคุณศัพท์ แปลว่า “มีเหตุผล, อาศัยหลักเหตุผลมากกว่าอารมณ์” ใช้กับความคิด การตัดสินใจ หรือคนที่คิดอย่างมีสติ เช่น a rational decision การตัดสินใจอย่างมีเหตุผล และ a rational explanation คำอธิบายที่สมเหตุสมผล คำตรงข้ามคือ irrational และคำนามคือ rationality",
+  "x": [
+   [
+    "There must be a rational explanation for the strange noise upstairs.",
+    "ต้องมีคำอธิบายที่สมเหตุสมผลสำหรับเสียงประหลาดข้างบนนั้น"
+   ],
+   [
+    "When you are angry, it is hard to make a rational choice.",
+    "เวลาโกรธ มันยากที่จะเลือกอย่างมีเหตุผล"
+   ]
+  ]
+ },
+ "scenario": {
+  "n": "scenario เป็นคำนาม แปลว่า “สถานการณ์ที่จินตนาการไว้, ภาพเหตุการณ์ที่อาจเกิดขึ้น” ใช้ในการวางแผน การวิเคราะห์ความเสี่ยง และการเล่าเหตุการณ์สมมุติ คำที่พบบ่อยคือ worst-case scenario กรณีเลวร้ายที่สุด และ best-case scenario กรณีดีที่สุด และ a likely scenario คือสถานการณ์ที่น่าจะเกิด",
+  "x": [
+   [
+    "In the best-case scenario, the project will finish a month early.",
+    "ในกรณีที่ดีที่สุด โครงการจะเสร็จเร็วกว่ากำหนดหนึ่งเดือน"
+   ],
+   [
+    "Engineers tested several scenarios before choosing the final design.",
+    "วิศวกรทดสอบสถานการณ์สมมุติหลายแบบก่อนเลือกแบบสุดท้าย"
+   ]
+  ]
+ },
+ "sole": {
+  "n": "sole เป็นคำคุณศัพท์ แปลว่า “เดียว, เพียงหนึ่งเดียว, ไม่มีผู้อื่นร่วมด้วย” ใช้วางหน้านามเท่านั้น เช่น the sole survivor ผู้รอดชีวิตเพียงคนเดียว the sole purpose จุดประสงค์เดียว และ the sole responsibility ความรับผิดชอบเพียงผู้เดียว เป็นทางการกว่า only",
+  "x": [
+   [
+    "She was the sole survivor of the accident on the mountain road.",
+    "เธอเป็นผู้รอดชีวิตเพียงคนเดียวจากอุบัติเหตุบนถนนบนภูเขา"
+   ],
+   [
+    "My sole concern is that the children are safe and well.",
+    "สิ่งเดียวที่ฉันกังวลคือเด็กๆ ปลอดภัยและสบายดี"
+   ]
+  ]
+ },
+ "exploit": {
+  "n": "exploit เป็นคำกริยาที่มีสองความหมาย ความหมายแรกคือ “ใช้ประโยชน์อย่างเต็มที่” เช่น exploit natural resources ใช้ทรัพยากรธรรมชาติ และ exploit a weakness คือใช้ประโยชน์จากจุดอ่อน เป็นกลางหรือเชิงบวก ความหมายที่สองคือ “เอาเปรียบ” เช่น exploit workers คือเอาเปรียบคน ซึ่งเป็นเชิงลบ คำนามคือ exploitation",
+  "x": [
+   [
+    "The company plans to exploit new markets in Southeast Asia.",
+    "บริษัทวางแผนจะใช้ประโยชน์จากตลาดใหม่ในเอเชียตะวันออกเฉียงใต้"
+   ],
+   [
+    "Criminals often exploit elderly people who live alone.",
+    "อาชญากรมักเอาเปรียบผู้สูงอายุที่อยู่คนเดียว"
+   ]
+  ]
+ },
+ "precise": {
+  "n": "precise เป็นคำคุณศัพท์ แปลว่า “ชัดเจนและถูกต้องจนถึงรายละเอียด” ใช้กับตัวเลข เวลา การวัด และคำอธิบาย เช่น the precise time เวลาที่แน่นอน และ precise instructions คำสั่งที่ละเอียดชัดเจน ใกล้เคียงกับ exact แต่ precise เน้นความละเอียดไม่คลาดเคลื่อน ใช้ในสำนวน at that precise moment ได้",
+  "x": [
+   [
+    "Scientists need precise measurements to test their theories properly.",
+    "นักวิทยาศาสตร์ต้องการการวัดที่แม่นยำเพื่อทดสอบทฤษฎีให้ถูกต้อง"
+   ],
+   [
+    "Please give me precise directions to the hotel from the station.",
+    "ช่วยบอกทางไปโรงแรมจากสถานีให้ละเอียดชัดเจนหน่อย"
+   ]
+  ]
+ },
+ "prospect": {
+  "n": "prospect เป็นคำนาม แปลว่า “ความเป็นไปได้ที่บางอย่างจะเกิดขึ้นในอนาคต” ใช้ได้ทั้งดีและไม่ดี เช่น the prospect of winning โอกาสที่จะชนะ โดยมักตามด้วย of และคำกริยาที่เติม ing รูปพหูพจน์ prospects หมายถึง “แนวโน้ม, อนาคตของงานหรือชีวิต” เช่น career prospects และ job prospects",
+  "x": [
+   [
+    "The prospect of moving abroad both excites and frightens her.",
+    "ความเป็นไปได้ที่จะย้ายไปต่างประเทศทำให้เธอทั้งตื่นเต้นและกลัว"
+   ],
+   [
+    "Young graduates are worried about their career prospects this year.",
+    "บัณฑิตจบใหม่กังวลเรื่องโอกาสทางอาชีพของตนในปีนี้"
+   ]
+  ]
+ },
+ "pursue": {
+  "n": "pursue เป็นคำกริยา แปลว่า “พยายามทำให้บรรลุสิ่งใดตลอดช่วงเวลาหนึ่ง” เช่น pursue a career ประกอบอาชีพ pursue a goal มุ่งสู่เป้าหมาย และ pursue a degree เรียนต่อให้ได้ปริญญา เน้นความต่อเนื่องและความตั้งใจ นอกจากนี้ยังแปลว่า “ไล่ตาม” เช่น ตำรวจไล่ตามผู้ต้องสงสัย",
+  "x": [
+   [
+    "He decided to pursue a degree in marine biology after school.",
+    "เขาตัดสินใจเรียนต่อปริญญาด้านชีววิทยาทางทะเลหลังจบมัธยม"
+   ],
+   [
+    "The two companies pursue very different strategies in the market.",
+    "สองบริษัทดำเนินกลยุทธ์ที่ต่างกันมากในตลาด"
+   ]
+  ]
+ },
+ "compute": {
+  "n": "compute เป็นคำกริยา แปลว่า “คำนวณหาจำนวนหรือค่า” มักใช้ในบริบททางคณิตศาสตร์ สถิติ และคอมพิวเตอร์ เช่น compute the average คำนวณค่าเฉลี่ย และ compute the cost คำนวณต้นทุน เป็นคำที่ทางการกว่า calculate เล็กน้อย คำนามคือ computation",
+  "x": [
+   [
+    "The program can compute the total cost of the trip in seconds.",
+    "โปรแกรมนี้คำนวณต้นทุนรวมของการเดินทางได้ในไม่กี่วินาที"
+   ],
+   [
+    "It is easy to compute the area of a rectangle.",
+    "การคำนวณพื้นที่ของสี่เหลี่ยมผืนผ้าเป็นเรื่องง่าย"
+   ]
+  ]
+ },
+ "mutual": {
+  "n": "mutual เป็นคำคุณศัพท์ แปลว่า “ซึ่งกันและกัน, ร่วมกันทั้งสองฝ่าย” เช่น mutual respect ความเคารพซึ่งกันและกัน mutual benefit ประโยชน์ร่วมกัน และ mutual trust ความไว้วางใจต่อกัน นอกจากนี้ a mutual friend คือเพื่อนที่ทั้งสองคนรู้จักร่วมกัน ประโยค the feeling is mutual แปลว่า “ฉันก็รู้สึกเหมือนกัน”",
+  "x": [
+   [
+    "Their friendship is based on mutual respect and honesty.",
+    "มิตรภาพของพวกเขาตั้งอยู่บนความเคารพซึ่งกันและกันและความซื่อสัตย์"
+   ],
+   [
+    "We met through a mutual friend at a party last year.",
+    "เราได้พบกันผ่านเพื่อนที่รู้จักร่วมกันในงานปาร์ตี้เมื่อปีก่อน"
+   ]
+  ]
+ },
+ "random": {
+  "n": "random เป็นคำคุณศัพท์ แปลว่า “สุ่ม, ไม่มีรูปแบบหรือแผนล่วงหน้า” ใช้ในงานวิจัยและสถิติ เช่น a random sample กลุ่มตัวอย่างที่สุ่ม และใช้ในชีวิตประจำวัน เช่น a random question คำถามที่โผล่มาแบบไม่มีที่มา สำนวน at random แปลว่า “แบบสุ่ม”",
+  "x": [
+   [
+    "The winners were chosen at random from thousands of entries.",
+    "ผู้โชคดีถูกเลือกแบบสุ่มจากผู้ร่วมรายการหลายพันคน"
+   ],
+   [
+    "Researchers interviewed a random group of shoppers outside the mall.",
+    "นักวิจัยสัมภาษณ์กลุ่มผู้ซื้อของที่สุ่มมานอกห้างสรรพสินค้า"
+   ]
+  ]
+ },
+ "via": {
+  "n": "via เป็นคำบุพบท มีสองความหมายหลัก คือ “ผ่าน, โดยแวะที่” ใช้กับเส้นทาง เช่น fly to London via Dubai บินไปลอนดอนโดยผ่านดูไบ และ “ทาง, ผ่านช่องทาง” ใช้กับวิธีการ เช่น via email ทางอีเมล และ via the website ผ่านเว็บไซต์ ใกล้เคียงกับ by way of แต่สั้นกว่า จึงพบบ่อยในประกาศและอีเมล",
+  "x": [
+   [
+    "Our train to Rome goes via Florence and takes about four hours.",
+    "รถไฟของเราไปโรมโดยผ่านฟลอเรนซ์ และใช้เวลาประมาณสี่ชั่วโมง"
+   ],
+   [
+    "Tickets can be booked via phone or through the official app.",
+    "สามารถจองตั๋วทางโทรศัพท์หรือผ่านแอปทางการได้"
+   ]
+  ]
+ },
+ "artefact": {
+  "n": "artefact เป็นคำนาม แปลว่า “วัตถุโบราณที่มนุษย์สร้าง” มักขุดพบจากแหล่งโบราณคดี และมีคุณค่าทางประวัติศาสตร์ เช่น Roman artefacts โบราณวัตถุสมัยโรมัน และ museum artefacts ในพิพิธภัณฑ์ สะกดแบบอังกฤษ ส่วนแบบอเมริกันสะกดเป็น artifact ความหมายเหมือนกัน",
+  "x": [
+   [
+    "Divers found ancient artefacts at the bottom of the harbour.",
+    "นักดำน้ำพบโบราณวัตถุที่ก้นท่าเรือ"
+   ],
+   [
+    "Each artefact in the exhibition comes with a short explanation.",
+    "โบราณวัตถุแต่ละชิ้นในนิทรรศการมีคำอธิบายสั้นๆ ประกอบ"
+   ]
+  ]
+ },
+ "commence": {
+  "n": "commence เป็นคำกริยา แปลว่า “เริ่ม” ใช้ในโอกาสที่เป็นทางการ เช่น กำหนดการ ประกาศ และเอกสารกฎหมาย เช่น The meeting will commence at nine การประชุมจะเริ่มเวลาเก้านาฬิกา ตามด้วยนามหรือรูป to/ing ก็ได้ ในการสนทนาทั่วไปมักใช้ start หรือ begin มากกว่า คำนามคือ commencement",
+  "x": [
+   [
+    "The ceremony will commence at ten o'clock in the main hall.",
+    "พิธีจะเริ่มเวลาสิบนาฬิกาในห้องโถงใหญ่"
+   ],
+   [
+    "Work on the new bridge is due to commence in January.",
+    "งานสร้างสะพานใหม่มีกำหนดจะเริ่มในเดือนมกราคม"
+   ]
+  ]
+ },
+ "authentic": {
+  "n": "authentic เป็นคำคุณศัพท์ แปลว่า “แท้, ของจริง, ไม่ใช่ของเลียนแบบ” ใช้กับวัตถุ เอกสาร อาหาร และประสบการณ์ เช่น authentic Thai food อาหารไทยต้นตำรับ และ an authentic signature ลายเซ็นของจริง บางครั้งใช้กับคนที่จริงใจ ไม่เสแสร้ง คำตรงข้ามคือ fake หรือ counterfeit คำนามคือ authenticity",
+  "x": [
+   [
+    "We ate at a small restaurant that serves authentic Sichuan dishes.",
+    "เรากินที่ร้านเล็กๆ ที่เสิร์ฟอาหารซื่อชวนแท้ๆ"
+   ],
+   [
+    "Experts confirmed that the painting is an authentic work by the artist.",
+    "ผู้เชี่ยวชาญยืนยันว่าภาพวาดนี้เป็นผลงานของจริงของศิลปินคนนั้น"
+   ]
+  ]
+ },
+ "incorporate": {
+  "n": "incorporate เป็นคำกริยา แปลว่า “รวมเข้าไว้เป็นส่วนหนึ่ง” เช่น incorporate feedback นำข้อเสนอแนะมารวมไว้ และ incorporate new ideas into a plan รวมความคิดใหม่เข้าในแผน โครงสร้างที่พบบ่อยคือ incorporate A into B หรือ incorporate A in B ใช้พูดถึงการออกแบบ งานเขียน และกฎหมาย",
+  "x": [
+   [
+    "The architect incorporated recycled wood into the design of the café.",
+    "สถาปนิกนำไม้รีไซเคิลมารวมไว้ในการออกแบบร้านกาแฟ"
+   ],
+   [
+    "Please incorporate the teacher's comments into your final essay.",
+    "โปรดนำความเห็นของครูมารวมไว้ในเรียงความฉบับสุดท้ายของคุณ"
+   ]
+  ]
+ },
+ "induce": {
+  "n": "induce เป็นคำกริยา แปลว่า “ทำให้เกิดขึ้น” หรือ “ชักจูงให้ใครทำบางอย่าง” เช่น induce sleep ทำให้ง่วงนอน induce labour กระตุ้นการคลอด และ induce someone to do something โน้มน้าวให้ทำ มักใช้ในงานเขียนทางวิชาการและการแพทย์ มีน้ำเสียงทางการกว่า cause คำนามคือ induction",
+  "x": [
+   [
+    "Some medicines can induce drowsiness, so avoid driving after taking them.",
+    "ยาบางชนิดทำให้ง่วงซึม จึงควรหลีกเลี่ยงการขับรถหลังกินยา"
+   ],
+   [
+    "Nothing could induce him to sell the old family house.",
+    "ไม่มีอะไรจะโน้มน้าวให้เขาขายบ้านเก่าของครอบครัวได้"
+   ]
+  ]
+ },
+ "inherent": {
+  "n": "inherent เป็นคำคุณศัพท์ แปลว่า “ที่มีอยู่ในตัวสิ่งนั้นอย่างถาวร, โดยธรรมชาติ” ใช้บอกลักษณะที่แยกออกจากสิ่งนั้นไม่ได้ เช่น inherent risks ความเสี่ยงที่มีอยู่ในตัว inherent value คุณค่าโดยธรรมชาติ และ an inherent weakness จุดอ่อนที่มีมาแต่ต้น มักตามด้วย in เช่น inherent in the system",
+  "x": [
+   [
+    "Every investment has some inherent risk, even the safest ones.",
+    "การลงทุนทุกชนิดมีความเสี่ยงอยู่ในตัวบ้าง แม้แต่แบบที่ปลอดภัยที่สุด"
+   ],
+   [
+    "There is an inherent weakness in the way the system was designed.",
+    "มีจุดอ่อนที่ฝังอยู่ในวิธีที่ระบบนี้ถูกออกแบบ"
+   ]
+  ]
+ },
+ "inhibit": {
+  "n": "inhibit เป็นคำกริยา แปลว่า “ยับยั้ง, ทำให้ช้าลงหรือขัดขวางไม่ให้เกิดขึ้น” เช่น inhibit growth ขัดขวางการเจริญเติบโต และ inhibit competition ลดการแข่งขัน ใช้ในงานเขียนทางวิทยาศาสตร์ เศรษฐกิจ และจิตวิทยา ยังใช้กับคนที่ไม่กล้าทำบางอย่างเพราะอาย คำนามคือ inhibition",
+  "x": [
+   [
+    "Cold weather can inhibit the growth of many tropical plants.",
+    "อากาศหนาวอาจยับยั้งการเจริญเติบโตของพืชเขตร้อนหลายชนิด"
+   ],
+   [
+    "Fear of failure may inhibit students from asking questions in class.",
+    "ความกลัวที่จะล้มเหลวอาจทำให้นักเรียนไม่กล้าถามคำถามในห้องเรียน"
+   ]
+  ]
+ },
+ "insert": {
+  "n": "insert เป็นคำกริยา แปลว่า “ใส่เข้าไป, สอดเข้าไปในสิ่งอื่น” เช่น insert a coin ใส่เหรียญ insert a key สอดกุญแจ และ insert a paragraph แทรกย่อหน้า โครงสร้างคือ insert A into B ในโปรแกรมคอมพิวเตอร์ก็ใช้ เช่น insert a picture แทรกรูปภาพ คำนามคือ insertion",
+  "x": [
+   [
+    "Insert your card into the machine and enter the four-digit code.",
+    "สอดบัตรเข้าไปในเครื่องแล้วกดรหัสสี่หลัก"
+   ],
+   [
+    "The editor decided to insert a new section near the end of the report.",
+    "บรรณาธิการตัดสินใจแทรกหัวข้อใหม่ไว้ใกล้ท้ายรายงาน"
+   ]
+  ]
+ }
+}

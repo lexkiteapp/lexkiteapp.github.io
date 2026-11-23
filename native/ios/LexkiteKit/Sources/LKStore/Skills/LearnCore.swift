@@ -56,7 +56,7 @@ public enum Quick {
     public struct Result: Equatable, Sendable { public var pct: Int, xp: Int, secs: Int, good: Bool, timedOut: Bool, right: Int, total: Int }
     public static func result(right: Int, total: Int, timedOut: Bool, elapsed: Double) -> Result {
         let pct = total == 0 ? 0 : Vocab.round(Double(right) / Double(total) * 100)
-        return Result(pct: pct, xp: right * 2, secs: min(limit, max(1, Vocab.round(elapsed))), good: pct >= goodPct, timedOut: timedOut, right: right, total: total)
+        return Result(pct: pct, xp: RewardRules.xp("answer") * right, secs: min(limit, max(1, Vocab.round(elapsed))), good: pct >= goodPct, timedOut: timedOut, right: right, total: total)
     }
 }
 
@@ -228,10 +228,10 @@ public enum GrammarCore {
         guard let m = re.firstMatch(in: sentence, range: NSRange(location: 0, length: ns.length)) else { return "" }
         return ns.substring(with: m.range)
     }
-    /// the reward of a graded set (quiz: 10 + 3 per right, drills: 10 + 4, mix test: 10 + 2)
-    public static func quizXP(_ right: Int) -> Int { 10 + right * 3 }
-    public static func drillXP(_ right: Int) -> Int { 10 + right * 4 }
-    public static func mixXP(_ right: Int) -> Int { 10 + right * 2 }
+    /// the reward of a graded set = set(right, total, mode): lesson quiz → type (src gg:<id>), drills → write (src gd:<id>), mixed test → pick
+    public static func quizXP(_ right: Int, of total: Int) -> Int { RewardRules.xp("set", right: right, total: total, mode: "type") }
+    public static func drillXP(_ right: Int, of total: Int) -> Int { RewardRules.xp("set", right: right, total: total, mode: "write") }
+    public static func mixXP(_ right: Int, of total: Int) -> Int { RewardRules.xp("set", right: right, total: total) }
     public static func pct(_ right: Int, _ total: Int) -> Int { total == 0 ? 0 : Vocab.round(Double(right) / Double(total) * 100) }
 }
 

@@ -99,14 +99,14 @@
     if (!r.s.includes(k)) r.s.push(k);
     save(); return true;
   }
-  // Mọi hoạt động xong → ngày xong (+15 XP thưởng, 1 lần)
+  // Mọi hoạt động xong → ngày xong (+XP 'day' của luật chung, 1 lần)
   async function finishIf(d) {
     const st = plan(d);
     // chỉ tính các bước làm thật trong buổi (bản ghi), không thưởng lại cho ngày cũ được tính xong từ tiến độ trước đây
     if (d.rec.done || !(d.rec.s || []).length || !st.every(s => s.k === 'test' ? s.ok : (d.rec.s || []).includes(s.k))) return false;
     REC[d.key] = { ...d.rec, ...REC[d.key], done: Date.now() }; await save();
     ls('daySess', null);
-    try { await App.reward({ xp: 15 }); } catch (e) { /* bỏ qua */ }
+    try { await App.reward({ xp: Game.xpFor('day') }); } catch (e) { /* bỏ qua */ }
     return true;
   }
   const find = id => id && days().find(d => d.id === id);
@@ -117,7 +117,7 @@
     s.textContent = `.dp-unit{margin:1.2rem auto .4rem;max-width:520px;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .6rem}.dp-unit h3{margin:0;font-size:1rem;flex:1;min-width:0}
 .dp-unit .progress{width:84px;flex:none}.dp-stage>summary{list-style:none}.dp-stage>summary::-webkit-details-marker{display:none}.dp-unit .btn{min-height:40px}
 .node.skip span{background:var(--surface-2)}.node .dn{font-weight:800;font-size:1.15rem;color:var(--text)}.node.current .dn{color:#fff}.node.done .dn{color:#5b3a00}
-/* sao XP bước (Stitch dark: #10302f trên chip #1d2f33 → tương phản 1,0, icon tàng hình – visual-qa icon-invisible) → teal accent #2ba39a của chính bản tối */:root[data-theme=dark] .dayv2-steps [class~="dk:text-[#10302f]"]{color:#2ba39a}@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .dayv2-steps [class~="dk:text-[#10302f]"]{color:#2ba39a}}
+/* sao XP bước (Stitch dark: #10302f trên chip #1d2f33 → tương phản 1,0, icon tàng hình – visual-qa icon-invisible) → teal accent #2ba39a của chính bản tối */:root[data-theme=dark] .dayv2-steps span[class~="dk:text-[#10302f]"]{color:#2ba39a}@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .dayv2-steps span[class~="dk:text-[#10302f]"]{color:#2ba39a}}
 .day-bar{display:flex;align-items:center;gap:.6rem;padding:.45rem .8rem;margin:0 0 .8rem;border-radius:999px;background:var(--surface-2);color:var(--text);text-decoration:none;font-weight:700;font-size:.9rem;min-height:44px}
 .day-bar .progress{flex:1;height:8px}.day-steps{list-style:none;margin:1rem 0;padding:0;display:grid;gap:.5rem}
 .day-steps a{display:flex;gap:.7rem;align-items:center;min-height:56px;padding:.6rem .8rem;border:1px solid var(--line);border-radius:14px;color:var(--text);text-decoration:none;background:var(--surface)}

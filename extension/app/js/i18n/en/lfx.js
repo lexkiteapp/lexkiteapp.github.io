@@ -4,7 +4,7 @@
 "Tỉ lệ đúng": "Accuracy",
 "{n} câu đúng liền!": "{n} right in a row!",
 "Câu khó · +{n} XP": "Tough item · +{n} XP",
-"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?": "This looks too easy for you. Want tougher items (type instead of pick) for bonus XP?",
+'Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhớ lâu hơn nhé?': 'This looks too easy for you. Want tougher items (type instead of pick) so the words stick longer?',
 "Thử mức khó": "Go harder",
 "Giữ mức này": "Keep this level",
 "Đúng rồi – chỉ sai chính tả nhỏ": "Correct – just a small typo",

@@ -4,6 +4,45 @@
  "db": "lexkite-sync",
  "items": [
   {
+   "name": "lexkite-d1-main-20261123.bak.ndjson",
+   "week": "2026-W48",
+   "at": "2026-11-23T07:28:39.755Z",
+   "sha256": "9d021104231681f9f29cb5f366c3c99485c0275e1cbf55d223564a8138573b7e",
+   "size": 2991134,
+   "rows": 1145,
+   "counts": {
+    "users": 197,
+    "docs": 336,
+    "league_member": 18,
+    "league_week": 35,
+    "classes": 0,
+    "class_member": 0,
+    "class_task": 0,
+    "class_progress": 0,
+    "notices": 0,
+    "notice_reads": 0,
+    "vid_uid": 289,
+    "reports": 13,
+    "report_events": 40,
+    "config": 21,
+    "quota_config": 0,
+    "quota_allow": 0,
+    "quota_block": 0,
+    "quota_flag": 0,
+    "api_keys": 196
+   },
+   "copies": [
+    {
+     "driveId": 48,
+     "fileId": "1xe5RFOK3neSTmPZydQp52hn0zBnVd46v"
+    },
+    {
+     "driveId": 40,
+     "fileId": "1oGPCKQ1C0LcOR4NBy4EYcd0AGttYF3tM"
+    }
+   ]
+  },
+  {
    "name": "lexkite-d1-main-20261116.bak.ndjson",
    "week": "2026-W47",
    "at": "2026-11-16T06:32:19.801Z",
@@ -160,5 +199,5 @@
    ]
   }
  ],
- "updated": "2026-11-16T06:32:19.801Z"
+ "updated": "2026-11-23T07:28:39.755Z"
 }

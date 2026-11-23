@@ -291,6 +291,9 @@
     if (LA()) { // đếm lý do giọng máy; 'off' kèm nhãn con (máy/cờ nào) + 'part' = một phần câu ĐÃ có file Kokoro (LX-1004: đo trước khi dựng file/phát từng phần)
       const K = g.KLocal, part = !!(g.KVoice && g.LISTEN_AUDIO && /^en-/.test(accent) && splitSentences(text).some(p => g.LISTEN_AUDIO.has(g.KVoice.lineKey(kvoice, p))));
       LA().src('s', why, why === 'off' && K && K.offWhy ? K.offWhy() : '', part);
+      // khóa câu chưa có file (băm, không văn bản) + trang → CI dựng sẵn file Kokoro cho câu hay rơi nhất (scripts/sentence-audio/misses.mjs)
+      if (LA().miss && g.KVoice && /^en-/.test(accent) && why !== 'pref') { const rt = (/^#\/([a-z][a-z0-9-]*)/.exec(location.hash || '') || [])[1] || (g.Store && g.Store.isExtension ? 'ext' : 'home');
+        for (const p of splitSentences(text)) { const k = g.KVoice.lineKey(kvoice, p); if (!g.LISTEN_AUDIO || !g.LISTEN_AUDIO.has(k)) LA().miss(k, rt); } }
     }
     const NT = nativeTTS();
     if (NT) {
