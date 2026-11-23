@@ -1,0 +1,135 @@
+{
+ "id": "t2s_takeiteasy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 282,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Long week. Any weekend plans?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Take it easy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Relax, don't rush.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Take it easy this weekend.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "take it easy",
+  "forms": [],
+  "ipa": "/ˈteɪk ɪt ˈiːzi/",
+  "mean": "Relax, don't rush.",
+  "define": "Used to tell someone to relax.",
+  "vi": "Thong thả thôi",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Saying goodbye",
+   "text": "Take it easy this weekend."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "do it easily",
+    "relax"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell a panicking friend to 'take it easy'.",
+   "why": "It sounds like you ignore the urgency."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Long week. Any weekend plans?"
+ },
+ "src": {
+  "slang": "take it easy"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"take it easy\" mean?",
+  "keyword": "take it easy",
+  "value": "Take it easy = Relax, don't rush. Example: \"Take it easy this weekend.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"take it easy\" mean?",
+    "description": "Take it easy = Relax, don't rush. Example: \"Take it easy this weekend.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "take it easy",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"take it easy\" mean?\n\nTake it easy = Relax, don't rush. Example: \"Take it easy this weekend.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"take it easy\" mean?\n\nTake it easy = Relax, don't rush. Example: \"Take it easy this weekend.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"take it easy\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell a panicking friend to 'take it easy'. It sounds like you ignore the urgency. Real example: \"Take it easy this weekend.\" More real English slang, free: {link}"
+ }
+}
