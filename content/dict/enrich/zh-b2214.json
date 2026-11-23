@@ -1,0 +1,262 @@
+{
+ "dynamic": {
+  "n": "dynamic 作形容词，意思是“充满活力的、不断变化发展的”。常见搭配有 a dynamic economy（充满活力的经济）、highly dynamic（变化极快的），也可形容人，如 a dynamic leader（精力充沛、有魄力的领导者）。它带有褒义，强调积极、有冲劲。在科学和计算机领域还指“动态的”，与 static（静态的）相对，例如 dynamic pricing（动态定价）。",
+  "x": [
+   [
+    "She is a dynamic young manager who inspires her whole team.",
+    "她是一位充满活力的年轻经理，鼓舞着整个团队。"
+   ],
+   [
+    "The city has a dynamic economy driven by technology and tourism.",
+    "这座城市拥有由科技和旅游推动的活跃经济。"
+   ]
+  ]
+ },
+ "entity": {
+  "n": "entity 是名词，指“独立存在的事物或机构”，尤其是在法律、商业语境中。legal entity（法人实体）、separate entity（独立的实体）是最常见的搭配。它比 organisation 更抽象，可以指公司、政府部门，也可以指任何自成一体的存在。汉语里常译为“实体”，但在哲学中也可指“存在物”。正式、书面的语体居多。",
+  "x": [
+   [
+    "The charity is a separate legal entity from the company that founded it.",
+    "这家慈善机构是与创办它的公司相互独立的法律实体。"
+   ],
+   [
+    "Each province was treated as an independent political entity.",
+    "每个省都被视为一个独立的政治实体。"
+   ]
+  ]
+ },
+ "exhibit": {
+  "n": "exhibit 作动词，有两个常用意思：一是“公开展出”，如 exhibit paintings（展出画作）；二是“表现出某种特征或情绪”，如 exhibit signs of stress（表现出压力的迹象）。后一种用法多见于医学、心理学等正式文体，比 show 更书面。常见搭配有 exhibit symptoms、exhibit behaviour。同形名词 exhibit 指“展品”。",
+  "x": [
+   [
+    "The gallery will exhibit works by young local artists this summer.",
+    "这家画廊今年夏天将展出当地年轻艺术家的作品。"
+   ],
+   [
+    "Some animals exhibit unusual behaviour before an earthquake.",
+    "一些动物在地震前会表现出异常的行为。"
+   ]
+  ]
+ },
+ "reside": {
+  "n": "reside 是动词，意思是“居住、定居于某地”，比 live 更正式，多用于法律文件、官方表格和新闻报道。固定搭配是 reside in + 地点，如 reside in London；permanently reside 表示“长期居住”。日常对话里一般用 live。相关词有名词 resident（居民）和 residence（住所）。reside 后不能直接跟地点，必须加介词。",
+  "x": [
+   [
+    "Applicants must reside in the country for at least two years.",
+    "申请人必须在该国居住至少两年。"
+   ],
+   [
+    "The family has resided in this village for generations.",
+    "这个家族世代居住在这个村子里。"
+   ]
+  ]
+ },
+ "sum": {
+  "n": "sum 作名词，常指“一笔钱”，如 a large sum of money（一大笔钱）；也指“总和”，即几个数相加的结果，如 the sum of 3 and 4 is 7。表示金额时多用于正式场合，后面常接 of money。固定短语 sum total 指“总和”，in sum 相当于“总之”。在英式英语里，do sums 还可指“做算术题”。",
+  "x": [
+   [
+    "The museum paid a huge sum for the rare painting.",
+    "博物馆为这幅稀有的画作花了一大笔钱。"
+   ],
+   [
+    "The sum of the angles in a triangle is 180 degrees.",
+    "三角形内角之和是180度。"
+   ]
+  ]
+ },
+ "invoke": {
+  "n": "invoke 作动词，意思是“援引、诉诸（法律、原则、权威等）来支持论点或行动”。invoke a law（援引法律）、invoke the principle（引用某个原则）是典型搭配。它也可以表示“唤起（某种情感或形象）”，如 invoke memories。语体较为正式，常见于政治、法律和新闻中。与 cite 相比，invoke 更强调把它当作依据来使用。",
+  "x": [
+   [
+    "The company invoked a clause in the contract to cancel the deal.",
+    "公司援引合同中的一项条款取消了这笔交易。"
+   ],
+   [
+    "The speech invoked memories of the country's long struggle for freedom.",
+    "这篇演讲唤起了人们对国家长期争取自由的记忆。"
+   ]
+  ]
+ },
+ "thereby": {
+  "n": "thereby 是副词，意思是“因此、从而”，表示前面所说的行为带来了后面的结果。最常见的结构是“动作 + thereby + 现在分词”，如 thereby reducing costs（从而降低了成本）。它比 so 或 thus 更书面，常出现在学术论文和报告里。注意 thereby 通常引导的是结果，且后面多接 -ing 形式，而不是一个完整的从句。",
+  "x": [
+   [
+    "The firm cut its prices, thereby attracting thousands of new customers.",
+    "这家公司降低了价格，从而吸引了成千上万的新客户。"
+   ],
+   [
+    "Exercise strengthens the heart, thereby lowering the risk of disease.",
+    "运动能增强心脏功能，从而降低患病的风险。"
+   ]
+  ]
+ },
+ "abstract": {
+  "n": "abstract 作形容词，意思是“抽象的”，指基于一般概念而不是具体事物或事件，与 concrete（具体的）相对。abstract concept（抽象概念）、abstract art（抽象艺术）是常见搭配。如 freedom、justice 都是抽象名词。注意同形名词 abstract 还指论文的“摘要”，读音也不同：形容词重音在第一音节，动词 abstract 重音在第二音节。",
+  "x": [
+   [
+    "Love and justice are abstract ideas that are hard to define.",
+    "爱和正义都是很难下定义的抽象概念。"
+   ],
+   [
+    "The painter is famous for her bold abstract landscapes.",
+    "这位画家因大胆的抽象风景画而闻名。"
+   ]
+  ]
+ },
+ "exceed": {
+  "n": "exceed 是动词，意思是“超过、超出（数量、限度或期望）”。常见搭配有 exceed the limit（超过限度）、exceed expectations（超出预期）、exceed the speed limit（超速）。它是及物动词，后面直接跟宾语，不加 than。比 be more than 更书面，多用于规则、报告和新闻中。形容词是 excessive（过度的），名词是 excess。",
+  "x": [
+   [
+    "Drivers who exceed the speed limit may be fined.",
+    "超速行驶的司机可能会被罚款。"
+   ],
+   [
+    "The new phone's sales exceeded all expectations in its first month.",
+    "这款新手机第一个月的销量超出了所有人的预期。"
+   ]
+  ]
+ },
+ "extract": {
+  "n": "extract 作动词，意思是“（费力地）取出、提取”。extract oil（开采石油）、extract information（获取信息）、extract a tooth（拔牙）都是常见用法。它既可指从物体中提炼出物质，也可指从文件或人那里取得信息，有时带有需要费力的含义。注意同形名词 extract 指“提取物”或“节选”，重音位置不同：动词重音在第二音节。",
+  "x": [
+   [
+    "The dentist had to extract two of his back teeth.",
+    "牙医不得不拔掉他的两颗后牙。"
+   ],
+   [
+    "Researchers extracted useful data from thousands of old records.",
+    "研究人员从数千份旧记录中提取出了有用的数据。"
+   ]
+  ]
+ },
+ "transmit": {
+  "n": "transmit 是动词，意思是“传送、传输、传播”。transmit data（传输数据）、transmit a disease（传播疾病）、transmit a signal（发送信号）是常见搭配。它既可指电子信号和广播的发送，也可指疾病通过某种途径传染，还可指把知识、价值观传给下一代。比 send 更正式、更技术化。名词是 transmission，日常说法有 pass on。",
+  "x": [
+   [
+    "Mosquitoes can transmit the virus from one person to another.",
+    "蚊子可以把病毒从一个人传给另一个人。"
+   ],
+   [
+    "The satellite transmits images back to Earth every few minutes.",
+    "这颗卫星每隔几分钟就会把图像传回地球。"
+   ]
+  ]
+ },
+ "labour": {
+  "n": "labour 是名词，指“劳动，尤其是体力劳动”，也可指“劳动力、工人群体”。labour market（劳动力市场）、manual labour（体力劳动）、cheap labour（廉价劳动力）是常见搭配。这是英式拼写，美式拼写为 labor。作为不可数名词时不加 a。大写的 Labour 在英国还指“工党”。分娩的“产程”也叫 labour。",
+  "x": [
+   [
+    "The factory relies on cheap labour from neighbouring regions.",
+    "这家工厂依靠来自邻近地区的廉价劳动力。"
+   ],
+   [
+    "Years of hard physical labour had damaged his back.",
+    "多年繁重的体力劳动损伤了他的背部。"
+   ]
+  ]
+ },
+ "motive": {
+  "n": "motive 是名词，指“做某件事的动机、原因”，多用于说明一个人为何如此行事，尤其在调查和法律语境中。profit motive（逐利动机）、ulterior motive（不可告人的动机）是常见搭配。police are looking for a motive（警方正在查找作案动机）。与 reason 相比，motive 更强调内心的驱动力。注意它与 motivation（积极性）侧重点不同。",
+  "x": [
+   [
+    "Police still do not know the motive for the robbery.",
+    "警方至今仍不清楚这起抢劫案的动机。"
+   ],
+   [
+    "He denied having any ulterior motive in offering to help.",
+    "他否认自己主动提供帮助有任何不可告人的动机。"
+   ]
+  ]
+ },
+ "presume": {
+  "n": "presume 是动词，意思是“（在没有确切证据时）推测、假定”。常见结构有 presume that ...（假定……）和被动句 It is presumed that ...。presumed innocent（被推定无罪）是法律中的重要说法。与 assume 相近，但 presume 更强调根据可能性作出的合理推断。它还有“冒昧地做”的意思，如 I wouldn't presume to tell you what to do（我不敢指点你该怎么做）。",
+  "x": [
+   [
+    "I presume you have already read the report.",
+    "我想你已经读过这份报告了。"
+   ],
+   [
+    "Every defendant is presumed innocent until proven guilty.",
+    "在被证明有罪之前，每名被告都被推定为无罪。"
+   ]
+  ]
+ },
+ "rational": {
+  "n": "rational 是形容词，意思是“理性的、基于理智而非情感的”。rational decision（理性的决定）、rational explanation（合理的解释）是典型搭配。它既可形容人，也可形容想法或行为，与 emotional 和 irrational（非理性的）相对。注意 rational 强调的是依靠逻辑思考，不等于 reasonable，后者更侧重“通情达理、适度”。",
+  "x": [
+   [
+    "There must be a rational explanation for what happened.",
+    "对所发生的事情一定有合理的解释。"
+   ],
+   [
+    "In a crisis, it is hard to stay calm and make rational choices.",
+    "在危机中，很难保持冷静并作出理性的选择。"
+   ]
+  ]
+ },
+ "scenario": {
+  "n": "scenario 是名词，指对未来可能发生的情形的设想或描述。worst-case scenario（最坏的情况）、likely scenario（可能的情形）、best-case scenario（最好的情况）是最常见搭配。它常用于商业、气候、政策等需要预测和规划的话题。注意它一般不指电影的“剧本”，那个意思在英语里通常用 script 或 screenplay 表示。",
+  "x": [
+   [
+    "In the best-case scenario, the project will finish before the deadline.",
+    "在最理想的情况下，这个项目会在截止日期前完成。"
+   ],
+   [
+    "Engineers tested several scenarios to see how the bridge would cope.",
+    "工程师们模拟了几种情形，来检验这座桥的承受能力。"
+   ]
+  ]
+ },
+ "sole": {
+  "n": "sole 是形容词，意思是“唯一的、独自的”，只放在名词前，不能说 is sole。sole purpose（唯一目的）、sole responsibility（全部责任）、sole survivor（唯一的幸存者）是常见搭配。它比 only 更正式，强调“不与他人分享”。the sole reason 等于 the only reason。同形名词 sole 指“鞋底”或一种比目鱼，意思完全不同。",
+  "x": [
+   [
+    "She was the sole survivor of the plane crash.",
+    "她是这次空难的唯一幸存者。"
+   ],
+   [
+    "The manager has sole responsibility for hiring new staff.",
+    "经理全权负责招聘新员工。"
+   ]
+  ]
+ },
+ "successor": {
+  "n": "successor 是名词，指“接替者、继任者”，也可指某物的后续版本。the successor to the throne（王位继承人）、a natural successor（理所当然的接班人）、successor to ...（……的继任者）是常见用法。它常用于职位、王位和产品更新换代，如手机的新一代型号。反义词是 predecessor（前任）。动词是 succeed，名词还有 succession。",
+  "x": [
+   [
+    "The president has not yet named a successor.",
+    "总统尚未指定继任者。"
+   ],
+   [
+    "The new model is a faster successor to last year's phone.",
+    "这款新机型是去年那款手机速度更快的后继产品。"
+   ]
+  ]
+ },
+ "exploit": {
+  "n": "exploit 作动词有两层意思：一是“充分利用”，如 exploit resources（开发资源）；二是带贬义的“剥削、利用他人谋利”，如 exploit workers（剥削工人）。要靠语境区分褒贬：用于资源或机会时中性，用于人时几乎都是负面的。名词 exploitation 表示“开发”或“剥削”。同形名词 exploit 指“英勇的事迹”，重音在第一音节。",
+  "x": [
+   [
+    "The country plans to exploit its large reserves of natural gas.",
+    "该国计划开发其丰富的天然气储备。"
+   ],
+   [
+    "Criminals often exploit vulnerable people who are living alone.",
+    "罪犯常常利用独自生活的弱势人群。"
+   ]
+  ]
+ },
+ "precise": {
+  "n": "precise 是形容词，意思是“精确的、准确的”，强调在细节上毫厘不差。precise details（精确的细节）、precise measurement（精确的测量）是常见搭配，to be precise 表示“确切地说”，用来补充更准确的信息。它比 exact 更强调细致程度，也可形容人做事一丝不苟。名词是 precision，副词是 precisely。",
+  "x": [
+   [
+    "The police asked her to give a precise description of the man.",
+    "警方要求她准确描述那名男子的外貌。"
+   ],
+   [
+    "The bridge was built in the 1990s, in 1994 to be precise.",
+    "这座桥建于上世纪90年代，确切地说，是1994年。"
+   ]
+  ]
+ }
+}

@@ -1,0 +1,138 @@
+{
+ "id": "t2s_slay",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 224,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She just gave the best speech!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Slay!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "You did that really well.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You slayed that speech!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "slay",
+  "forms": [
+   "slayed",
+   "slaying"
+  ],
+  "ipa": "/ˈsleɪ/",
+  "mean": "You did that really well.",
+  "define": "To do something extremely well or look amazing doing it.",
+  "vi": "Cân hết, đỉnh luôn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "praise",
+  "example": {
+   "ctx": "After a school talk",
+   "text": "You slayed that speech!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Slay\" here means to…",
+   "options": [
+    "do great",
+    "cut the grass"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'slay' in a serious meeting.",
+   "why": "It's playful slang."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She just gave the best speech!"
+ },
+ "src": {
+  "slang": "slay"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"slay\" mean?",
+  "keyword": "slay",
+  "value": "Slay = You did that really well. Example: \"You slayed that speech!\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"slay\" mean?",
+    "description": "Slay = You did that really well. Example: \"You slayed that speech!\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "slay",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"slay\" mean?\n\nSlay = You did that really well. Example: \"You slayed that speech!\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"slay\" mean?\n\nSlay = You did that really well. Example: \"You slayed that speech!\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"slay\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: do great. \"You slayed that speech!\" More real English slang, free: {link}"
+ }
+}

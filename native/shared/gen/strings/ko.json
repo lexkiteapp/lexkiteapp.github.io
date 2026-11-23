@@ -190,6 +190,7 @@
   "lesson.q.type": "영어 단어를 입력하세요",
   "lesson.q.match": "짝 맞추기",
   "lesson.q.mpic": "단어와 그림 짝짓기",
+  "lesson.q.fix": "틀린 단어 찾기",
   "lesson.q.q": "질문에 답하세요",
   "lesson.qn": "{a}/{b}번 문제",
   "lesson.combo": "COMBO ×{n}",
