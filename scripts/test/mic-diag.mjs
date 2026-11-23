@@ -19,8 +19,8 @@ function env({ ua = DESKTOP, touch = 0, gumErr = '', level = null } = {}) {
   w.speechSynthesis = { cancel() {}, getVoices: () => [], speak() {}, addEventListener() {} };
   w.webkitSpeechRecognition = class { constructor() { log.srs.push(this); } start() {} stop() { if (this.onend) this.onend(); } abort() { if (this.onend) this.onend(); } };
   w.I18N = { t: s => s, lang: () => 'vi', apply() {} }; w.t = s => s;
-  w.eval(fs.readFileSync('web/js/audio.js', 'utf8')); w.eval(fs.readFileSync('web/js/ui.js', 'utf8'));
-  if (level !== undefined) w.UI.setMicLevel(async () => level);
+  w.eval(fs.readFileSync('web/js/audio.js', 'utf8')); w.eval(fs.readFileSync('web/js/ui.js', 'utf8')); w.eval(fs.readFileSync('web/cpack/lesson/micdiag.js', 'utf8'));
+  if (level !== undefined) w.MicDiag.setLevel(async () => level);
   return { w, log, UI: w.UI, A: w.LKAudio };
 }
 const run = async (opts, ev) => { // bấm micro → SR kết thúc theo ev → trả danh sách tín hiệu cb
@@ -32,8 +32,8 @@ const END = r => r.onend(), NOSP = r => { r.onerror({ error: 'no-speech' }); r.o
 const LOUD = { peak: 0.4, loud: 9 }, SILENT = { peak: 0.001, loud: 0 }, QUIET = { peak: 0.05, loud: 1 };
 
 // micVerdict thuần
-const { UI: U0 } = env();
-assert.deepEqual([U0.micVerdict(SILENT), U0.micVerdict(LOUD), U0.micVerdict(QUIET), U0.micVerdict(null)], ['silent', 'sr-fail', 'no-speech', 'no-speech'], 'micVerdict'); n++;
+const { w: W0 } = env();
+assert.deepEqual([W0.MicDiag.verdict(SILENT), W0.MicDiag.verdict(LOUD), W0.MicDiag.verdict(QUIET), W0.MicDiag.verdict(null)], ['silent', 'sr-fail', 'no-speech', 'no-speech'], 'micVerdict'); n++;
 
 { // quyền micro bị chặn: ghi âm song song bị từ chối → báo not-allowed (trước: nuốt lỗi → "không nghe thấy gì")
   const r = await run({ gumErr: 'NotAllowedError' }, END);
@@ -80,6 +80,8 @@ assert.deepEqual([U0.micVerdict(SILENT), U0.micVerdict(LOUD), U0.micVerdict(QUIE
 // máy chủ nhận đủ khóa mic_*
 const { VO_KEYS } = await import('../../functions/api/hit.js'), A0 = (await import('node:module')).createRequire(import.meta.url)('../../web/js/audio.js');
 ok(A0.MK.every(k => VO_KEYS.includes('mic_' + k)), 'hit.js nhận mọi nhóm mic_*');
+// gói lười: ui.js không mang mã chẩn đoán, bundles.js đăng ký micdiag
+ok(!/audioLevel|micVerdict/.test(fs.readFileSync('web/js/ui.js', 'utf8')) && /micdiag: \['cpack\/lesson\/micdiag\.js'\]/.test(fs.readFileSync('web/js/bundles.js', 'utf8')), 'chẩn đoán nằm ở gói lười micdiag, không vào ui.js');
 // lời nhắn mới có bản tiếng Anh (i18n)
 const en = fs.readFileSync('web/js/i18n/en/core.js', 'utf8');
 for (const k of ['Micro không thu được tiếng – kiểm tra đã chọn đúng micro và không bị tắt tiếng.', 'Máy thu được giọng bạn nhưng dịch vụ nhận dạng của trình duyệt không trả lời – bấm micro lần nữa để dùng nhận dạng trên máy.']) ok(en.includes(`'${k}'`), 'thiếu tiếng Anh: ' + k.slice(0, 30));

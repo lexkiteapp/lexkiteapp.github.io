@@ -400,12 +400,10 @@
     network: () => '📶 ' + t('Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).'),
     unsupported: () => t('Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.'),
     busy: () => t('Micro đang bận – thử lại sau 1 giây.'),
-    silent: () => '🔇 ' + t('Micro không thu được tiếng – kiểm tra đã chọn đúng micro và không bị tắt tiếng.'),
-    'sr-fail': () => '🔁 ' + t('Máy thu được giọng bạn nhưng dịch vụ nhận dạng của trình duyệt không trả lời – bấm micro lần nữa để dùng nhận dạng trên máy.'),
     'language-not-supported': () => '📶 ' + t('Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).'),
     whisper: () => '⚠️ ' + t('Chưa chạy được nhận dạng giọng nói trên máy – kiểm tra Internet rồi bấm micro thử lại.'),
   };
-  const recErrorText = err => Object.prototype.hasOwnProperty.call(REC_ERR, err) ? REC_ERR[err]() : t('Lỗi nhận dạng: {err}', { err });
+  const recErrorText = err => Object.prototype.hasOwnProperty.call(REC_ERR, err) ? REC_ERR[err]() : (g.MicDiag && g.MicDiag.text(err)) || t('Lỗi nhận dạng: {err}', { err });
   /* recognize(target, accent, { start, result({heard, score, audio, alts}), error(code), end }) → { stop } */
   // Bản ghi giọng nói: chỉ giữ tạm trong RAM (không lưu ổ đĩa, không gửi lên cloud).
   // Mỗi "ô" chỉ giữ bản mới nhất – bản cũ được giải phóng ngay; rời trang thì xóa hết.
@@ -458,20 +456,9 @@
   // Dịch vụ nhận dạng của trình duyệt có API nhưng không dùng được (Edge/Chromium không tới máy chủ giọng nói, chính sách chặn…)
   // → cả phiên chuyển sang Whisper trên máy (ghi âm MediaRecorder, chấm cục bộ) thay vì để nút micro báo lỗi mãi.
   const SR_DOWN = { network: 1, 'service-not-allowed': 1, 'language-not-supported': 1 };
-  // Chẩn đoán "không nghe thấy gì" theo bản ghi song song: peak < 0,004 = micro câm · ≥ 4 khung 100 ms RMS > 0,02 = có giọng mà nhận dạng không trả kết quả
-  const micVerdict = lv => (!lv ? 'no-speech' : lv.peak < 0.004 ? 'silent' : lv.loud >= 4 ? 'sr-fail' : 'no-speech');
-  async function audioLevel(blob) {
-    try {
-      const ac = new (g.AudioContext || g.webkitAudioContext)(), buf = await ac.decodeAudioData(await blob.arrayBuffer()); ac.close && ac.close();
-      const d = buf.getChannelData(0), w = Math.max(1, Math.round(buf.sampleRate * 0.1)); let peak = 0, loud = 0;
-      for (let i = 0; i < d.length; i += w) { let q = 0, c = 0; for (let j = i; j < Math.min(d.length, i + w); j++) { const v = d[j]; q += v * v; c++; if (Math.abs(v) > peak) peak = Math.abs(v); } if (Math.sqrt(q / c) > 0.02) loud++; }
-      return { peak, loud };
-    } catch (e) { return null; }
-  }
-  let levelFn = audioLevel; // test thay được
-  // Đếm lỗi thật: LKAudio.src('m', mã) → beacon vo mic_<mã>; chi tiết kèm note()
-  const MIC_K = { 'not-allowed': 'notallowed', 'audio-capture': 'audiocapture', 'service-not-allowed': 'svcblocked', 'sr-fail': 'srfail', 'no-speech': 'nospeech', ok: 'ok', network: 'network', silent: 'silent', nospeech: 'nospeech' };
-  const micStat = (code, info) => { const A = g.LKAudio; if (!A) return; if (A.src) A.src('m', MIC_K[code] || 'other'); if (A.note && code !== 'ok') A.note('mic', code + (info ? ' ' + info : '')); };
+  // Chẩn đoán "không nghe thấy gì" (micro câm / nhận dạng hỏng / chưa nói) nằm ở gói lười micdiag (cpack/lesson/micdiag.js): chỉ nạp khi nhận dạng kết thúc không kết quả
+  const micDiag = (e, bp) => (g.MicDiag ? Promise.resolve() : g.App && App.need ? App.need('micdiag') : Promise.reject()).then(() => g.MicDiag.diag(e, bp)).catch(() => 'no-speech');
+  const micStat = (c, i) => { const A = g.LKAudio; if (A && A.src) { A.src('m', c); if (c !== 'ok') A.note('mic', c + (i ? ' ' + i : '')); } }; // đếm lỗi thật → beacon vo mic_*
   let srDown = false;
   function recognize(target, accent, cb = {}) {
     const SR = g.SpeechRecognition || g.webkitSpeechRecognition, en = !g.Target || g.Target.isEn(accent), tl = whisperTl(accent), wl = en || !!WLANG[tl]; // Whisper trên máy: tiếng Anh (tiny.en) hoặc ngôn ngữ đích có trong WLANG (mô hình đa ngôn ngữ)
@@ -524,9 +511,7 @@
       if (!r._fin) { // không result/error: chẩn đoán đúng nguyên nhân
         r._fin = true;
         (async () => {
-          let code = 'no-speech';
-          if (gumErr) code = gumErr === 'NotAllowedError' || gumErr === 'SecurityError' ? 'not-allowed' : /^(NotFoundError|OverconstrainedError|NotReadableError|AbortError)$/.test(gumErr) ? 'audio-capture' : 'no-speech';
-          else if (par) { const url = await finishAudio(), blob = url && chunks.length ? new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' }) : null; code = blob ? micVerdict(await levelFn(blob)) : 'no-speech'; }
+          let code = gumErr || par ? await micDiag(gumErr, par && chunks.length ? finishAudio().then(() => new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' })) : null) : 'no-speech';
           if (code === 'sr-fail') { if (canWhisper) srDown = true; else code = 'no-speech'; } // lần sau sang Whisper trên máy
           micStat(code, gumErr);
           cb.error && cb.error(code);
@@ -725,5 +710,5 @@
     return h;
   }
 
-  g.UI = { confirm: (m, o) => g.LXDialog.confirm(m, o), prompt: (m, d, o) => g.LXDialog.prompt(m, d, o), alert: (m, o) => g.LXDialog.alert(m, o), whisperModel, micVerdict, setMicLevel: f => { levelFn = f || audioLevel; }, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, human, humanHdr, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, micParallel, MIC, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, posLabel, masteryDots, ring, download };
+  g.UI = { confirm: (m, o) => g.LXDialog.confirm(m, o), prompt: (m, d, o) => g.LXDialog.prompt(m, d, o), alert: (m, o) => g.LXDialog.alert(m, o), whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, human, humanHdr, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, micParallel, MIC, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, posLabel, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

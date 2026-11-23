@@ -45,9 +45,9 @@
   // w = lý do; sub = nhãn con của 'off' (máy/cờ nào); part = true khi một PHẦN câu đã có file Kokoro nhưng cả đoạn vẫn rơi về giọng máy
   // 'p' = một lượt đo thử Kokoro trên máy, w = nhóm RTF (klocal.js P.rtfBucket) – chỉ đếm phân bố, không vào f/k/s
   // 'm' = một lượt bấm micro nhận dạng: kết quả/lỗi THẬT (ok, nospeech, silent, srfail, notallowed, audiocapture, svcblocked, network, other) – P0 23/11
-  const MK = ['ok', 'nospeech', 'silent', 'srfail', 'notallowed', 'audiocapture', 'svcblocked', 'network', 'other'];
+  const MKM = { 'not-allowed': 'notallowed', 'audio-capture': 'audiocapture', 'service-not-allowed': 'svcblocked', 'sr-fail': 'srfail', 'no-speech': 'nospeech' }, MK = ['ok', 'nospeech', 'silent', 'srfail', 'notallowed', 'audiocapture', 'svcblocked', 'network', 'other'];
   const KP = ['r06', 'r10', 'r15', 'r25', 'rhi', 'to'];
-  const src = (k, w, sub, part) => { if (k === 'm') { if (MK.includes(w)) inc('mic_' + w); return; } if (k === 'p') { if (KP.includes(w)) inc('kp_' + w); return; } if (!/^[fks]$/.test(k)) return; inc(k); stats['src_' + k] = vo[k]; if (k !== 's') return; if (VO_WHY.includes(w)) inc('s_' + w); if (w === 'off' && VO_SUB.includes(sub)) inc('s_off_' + sub); if (part) inc('s_part'); };
+  const src = (k, w, sub, part) => { if (k === 'm') { w = MKM[w] || w; inc('mic_' + (MK.includes(w) ? w : 'other')); return; } if (k === 'p') { if (KP.includes(w)) inc('kp_' + w); return; } if (!/^[fks]$/.test(k)) return; inc(k); stats['src_' + k] = vo[k]; if (k !== 's') return; if (VO_WHY.includes(w)) inc('s_' + w); if (w === 'off' && VO_SUB.includes(sub)) inc('s_off_' + sub); if (part) inc('s_part'); };
   // Câu rơi về giọng máy: chỉ KHÓA băm KVoice.lineKey (giọng|câu → FNV 32-bit base36, không văn bản) + trang (#/route) → CI ghép khóa với
   // nội dung tĩnh trong repo và dựng sẵn file Kokoro cho câu hay rơi nhất (scripts/sentence-audio/misses.mjs). Trần 300 khóa/phiên.
   const vm = {}, vr = {}, KEY_RE = /^[0-9a-z]{1,8}$/, RT_RE = /^[a-z][a-z0-9-]{0,23}$/;
