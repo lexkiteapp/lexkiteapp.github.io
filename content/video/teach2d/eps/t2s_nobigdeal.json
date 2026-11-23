@@ -1,0 +1,131 @@
+{
+ "id": "t2s_nobigdeal",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 164,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I'm sorry I'm late!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "No big deal!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "It's not a problem.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "It's no big deal, really.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "no big deal",
+  "forms": [],
+  "ipa": "/noʊ ˈbɪɡ ˈdiːl/",
+  "mean": "It's not a problem.",
+  "define": "Used to say that something is not serious.",
+  "vi": "Chuyện nhỏ thôi",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Reassuring a friend",
+   "text": "It's no big deal, really."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "a great deal",
+    "not a problem"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'no big deal' when it hurt you.",
+   "why": "They'll think nothing needs fixing."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I'm sorry I'm late!"
+ },
+ "src": {
+  "slang": "no big deal"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "What does \"no big deal\" mean?",
+  "keyword": "no big deal",
+  "value": "No big deal = It's not a problem. Example: \"It's no big deal, really.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"no big deal\" mean?",
+    "description": "No big deal = It's not a problem. Example: \"It's no big deal, really.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "no big deal",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"no big deal\" mean?\n\nNo big deal = It's not a problem. Example: \"It's no big deal, really.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"no big deal\" mean?\n\nNo big deal = It's not a problem. Example: \"It's no big deal, really.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"no big deal\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'no big deal' when it hurt you. They'll think nothing needs fixing. Real example: \"It's no big deal, really.\" More real English slang, free: {link}"
+ }
+}

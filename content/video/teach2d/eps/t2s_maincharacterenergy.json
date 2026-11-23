@@ -1,0 +1,131 @@
+{
+ "id": "t2s_maincharacterenergy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 184,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She walks in like a star!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Main character energy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Acting like the movie's star.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She entered with main character energy.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "main character energy",
+  "forms": [],
+  "ipa": "/ˌmeɪn ˈkærəktɚ ˈenɚdʒi/",
+  "mean": "Acting like the movie's star.",
+  "define": "The confident feeling of someone who acts like the hero of their own story.",
+  "vi": "Tự tin như nhân vật chính",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "praise",
+  "example": {
+   "ctx": "Walking into a party",
+   "text": "She entered with main character energy."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Main character energy\" is…",
+   "options": [
+    "big confidence",
+    "fear of movies"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'main character energy' about yourself at work.",
+   "why": "It sounds boastful."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She walks in like a star!"
+ },
+ "src": {
+  "slang": "main character energy"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "What does \"main character energy\" mean?",
+  "keyword": "main character energy",
+  "value": "Main character energy = Acting like the movie's star. Example: \"She entered with main character energy.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"main character energy\" mean?",
+    "description": "Main character energy = Acting like the movie's star. Example: \"She entered with main character energy.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "main character energy",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"main character energy\" mean?\n\nMain character energy = Acting like the movie's star. Example: \"She entered with main character energy.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"main character energy\" mean?\n\nMain character energy = Acting like the movie's star. Example: \"She entered with main character energy.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"main character energy\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: big confidence. \"She entered with main character energy.\" More real English slang, free: {link}"
+ }
+}

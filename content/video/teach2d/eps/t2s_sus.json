@@ -1,0 +1,131 @@
+{
+ "id": "t2s_sus",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 232,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You were near the cookies!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Sus!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That seems suspicious.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You were near the cookies. Kind of sus.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "sus",
+  "forms": [],
+  "ipa": "/ˈsʌs/",
+  "mean": "That seems suspicious.",
+  "define": "Short for suspicious; used when something or someone seems odd.",
+  "vi": "Có gì đó đáng ngờ",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Playing a game with friends",
+   "text": "You were near the cookies. Kind of sus."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Sus\" is short for…",
+   "options": [
+    "super",
+    "suspicious"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your teacher 'sus' in class.",
+   "why": "It sounds like an accusation."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You were near the cookies!"
+ },
+ "src": {
+  "slang": "sus"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"sus\" mean?",
+  "keyword": "sus",
+  "value": "Sus = That seems suspicious. Example: \"You were near the cookies. Kind of sus.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"sus\" mean?",
+    "description": "Sus = That seems suspicious. Example: \"You were near the cookies. Kind of sus.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "sus",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"sus\" mean?\n\nSus = That seems suspicious. Example: \"You were near the cookies. Kind of sus.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"sus\" mean?\n\nSus = That seems suspicious. Example: \"You were near the cookies. Kind of sus.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"sus\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call your teacher 'sus' in class. It sounds like an accusation. Real example: \"You were near the cookies. Kind of sus.\" More real English slang, free: {link}"
+ }
+}
