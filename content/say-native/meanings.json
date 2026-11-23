@@ -257,7 +257,6 @@
  "big mood": {
   "ar": "شعور يمثلني جداً; ينطبق علي تماماً",
   "de": "passt genau; voll mein Mood",
-  "es": "totalmente identificado; súper de acuerdo; tal cual",
   "fr": "c'est trop moi; c'est le mood; c'est exactement mon feeling",
   "hi": "बिल्कुल दिल की बात; पूरी तरह सहमत",
   "id": "bener banget; relate banget",
@@ -296,7 +295,6 @@
   "pt": "que mico; que vergonha",
   "ru": "ой-ой; ужас",
   "th": "แย่มาก; น่าอายมาก",
-  "tr": "tam bir rezalet; çok utanç verici",
   "zh": "尴尬至极; 太尴尬了"
  },
  "binge-watch": {
@@ -392,7 +390,6 @@
   "ar": "تفاهات الإنترنت; محتوى مفسد للذهن",
   "de": "Hirnschrott; Gehirnmüll",
   "es": "basura mental; contenido basura",
-  "fr": "cervelle en compote; déchet cérébral",
   "hi": "दिमाग ख़राब करने वाला कंटेंट; व्यर्थ सामग्री",
   "id": "pembusukan otak; tontonan tidak berguna",
   "ja": "脳みそが腐るようなコンテンツ; 脳腐れ",
@@ -2377,6 +2374,7 @@
   "pt": "influenciador; influenciador digital",
   "ru": "инфлюенсер; влиятельный блогер; онлайн‑инфлюенсер",
   "th": "อินฟลูเอนเซอร์; ผู้มีอิทธิพลบนสื่อโซเชียล",
+  "tr": "sosyal medya fenomeni; influencer",
   "zh": "网红; 网络红人"
  },
  "irl": {
@@ -3633,6 +3631,7 @@
   "ja": "また今度; 次の機会に; 後日改めて",
   "ko": "다음 기회",
   "pt": "adiamento; marcar para outro dia; pedido de adiamento",
+  "ru": "отсрочка; перенос",
   "th": "การขอเลื่อนไปครั้งหน้า; การขอติดไว้ก่อน",
   "tr": "başka bir zaman; daha sonra",
   "zh": "改天再约; 改天吧"
@@ -3657,7 +3656,7 @@
   "de": "ratio bekommen; mehr Antworten als Likes erhalten",
   "es": "ratioeado; recibir más respuestas que likes",
   "fr": "être ratio; subir un ratio",
-  "id": "di-ratio; mendapat balasan lebih banyak daripada suka",
+  "id": "di‑ratio; di‑balas lebih banyak daripada disukai",
   "ja": "リプが多くなる; 比率が逆転する; 逆比率になる",
   "ko": "리플 폭탄을 맞다; 비난 댓글이 좋아요를 압도하다",
   "pt": "ratioar; receber mais respostas que curtidas",
@@ -3842,6 +3841,7 @@
   "ko": "통쾌한; 거침없는; 팩폭의",
   "pt": "brutal; sinistro",
   "ru": "жёсткий; крутой",
+  "th": "คม; โหด",
   "tr": "sert; acımasız; çılgınca dürüst",
   "zh": "犀利; 狠; 毒舌"
  },
@@ -4049,6 +4049,7 @@
   "id": "geleng kepala; menggelengkan kepala",
   "ja": "呆れる; 頭を振る; がっかり",
   "ko": "한심하다; 고개를 젓다",
+  "pt": "balançando a cabeça; sacudindo a cabeça",
   "ru": "качая голову; качаю головой",
   "th": "ส่ายหัวเลย; เอือมระอา",
   "tr": "başımı sallıyorum; hayret ediyorum",
@@ -4571,6 +4572,7 @@
   "hi": "ज़हरीला; मानसिक रूप से हानिकारक; अस्वास्थ्यकर",
   "id": "toksik; beracun",
   "ja": "有害な; 毒性のある; 毒舌な",
+  "ko": "독성 있는; 독성적인; 독한",
   "pt": "tóxico; venenoso",
   "ru": "токсичный; ядовитый",
   "th": "เป็นพิษ; ทำให้เครียด",
