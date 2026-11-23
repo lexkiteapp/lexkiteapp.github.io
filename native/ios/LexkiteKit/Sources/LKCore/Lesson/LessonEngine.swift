@@ -150,6 +150,8 @@ public enum LessonEngine {
     // MARK: build
     public struct BuildOptions {
         public var seed: Double, pool: [LessonCard], off: LessonOff, perWord: Int, only: [String]?, calm: Bool, match: Bool
+        /// lpic = listen → pick 1 of 4 images · mpic = match words ↔ images (web lesson/ui.js turns both on; vectors cover on + off)
+        public var lpic = false, mpic = false
         public var hasImg: ((String, String) -> Bool)?, gloss: ((LessonCard, String) -> String)?, mean: ((LessonCard) -> String)?
         public init(seed: Double, pool: [LessonCard] = [], off: LessonOff = LessonOff(), perWord: Int = 2, only: [String]? = nil, calm: Bool = false, match: Bool = true,
                     hasImg: ((String, String) -> Bool)? = nil, gloss: ((LessonCard, String) -> String)? = nil, mean: ((LessonCard) -> String)? = nil) {
@@ -179,7 +181,7 @@ public enum LessonEngine {
     /// Sentence-pattern card (result card saved by the learner, docs/specs/learn-card.md): word = "Can I have …, please?", practice sentence = ex.
     static func isPat(_ c: LessonCard) -> Bool { c.word.contains("…") }
 
-    private struct Planned { var pick: LessonPick, s: LessonSentenceHit?, pair: LessonSentenceHit?, types: [String], order: [String] = [] }
+    private struct Planned { var pick: LessonPick, s: LessonSentenceHit?, pair: LessonSentenceHit?, ims: [String], types: [String], order: [String] = [] }
 
     public static func build(_ picks: [LessonPick], _ o: BuildOptions) -> [LessonItem] {
         var r = RNG(seed: o.seed)
@@ -203,12 +205,19 @@ public enum LessonEngine {
             let mn = o.mean?(c) ?? ""
             let w = c.word.trimmingCharacters(in: .whitespacesAndNewlines)
             if !w.contains(where: { $0.isWhitespace }) && c.word.utf16.count >= 3 && (!off.listen || !mn.isEmpty || !c.def.isEmpty) { types.append("type") }
+            // listen → pick 1 of 4 images: the word AND 3 distractors need an image; own RNG so the other types' shuffle order is unchanged
+            var ims: [String] = []
+            if o.lpic, !off.listen, let h = o.hasImg, h(c.word, c.pos) {
+                var ri = RNG(seed: o.seed + Double(c.word.utf16.count))
+                ims = distract(c.word, c.pos, pool.filter { !$0.word.isEmpty && h($0.word, $0.pos) }, 3, &ri)
+            }
+            if ims.count >= 3 { types.append("lpic") }
             types.append("say")
             if let only = o.only { let f = types.filter { only.contains($0) }; if !f.isEmpty { types = f } }
-            return Planned(pick: p, s: s, pair: pair, types: types)
+            return Planned(pick: p, s: s, pair: pair, ims: ims, types: types)
         }
-        var cnt: [String: Double] = ["gap": 0, "build": 0, "pic": 0, "tr": 0, "type": 0, "say": 0]
-        let rare: [String: Double] = ["pic": 0, "tr": 0.1, "build": 0.2, "type": 0.25, "gap": 0.3, "say": 0.4]
+        var cnt: [String: Double] = ["gap": 0, "build": 0, "pic": 0, "tr": 0, "type": 0, "say": 0, "lpic": 0]
+        let rare: [String: Double] = ["pic": 0, "lpic": 0.05, "tr": 0.1, "build": 0.2, "type": 0.25, "gap": 0.3, "say": 0.4]
         for _ in 0..<per {
             for wi in byWord.indices {
                 let left = byWord[wi].types.filter { !byWord[wi].order.contains($0) }
@@ -249,6 +258,12 @@ public enum LessonEngine {
                 b.len = wd.utf16.filter { $0 != 32 && $0 != 39 && $0 != 45 && !(($0 >= 9 && $0 <= 13) || $0 == 160) }.count
                 b.first = wd.utf16.first.map { String(utf16CodeUnits: [$0], count: 1) } ?? ""
                 b.bank = letterBank(wd.lowercased(), &rr)
+            case "lpic":
+                let opts = shuffle([c.word] + w.ims, &r)
+                b.hints = ["fifty"]; b.answer = c.word; b.options = opts
+                var ip: [String: String] = [:]
+                for x in opts { if let pc = pool.first(where: { same($0.word, x) }) { ip[x] = pc.pos } }
+                b.ipos = ip
             case "pic":
                 b.answer = c.word; b.options = shuffle([c.word] + distract(c.word, c.pos, pool, 3, &r), &r)
             default:   // say
@@ -283,6 +298,19 @@ public enum LessonEngine {
             m.pairs = shuffle(mp, &r).prefix(4).map { LessonPair(card: $0.card, word: nil, mean: nil) }
             items.insert(m, at: Int((Double(items.count) / 2).rounded(.up)))
         }
+        // match words ↔ images (mpic): same grading as match, ≥ 4 words with images, ~40 % of lessons; own RNGs
+        if o.mpic, o.only == nil, let h = o.hasImg {
+            let mi = picks.filter { !isPat($0.card) && h($0.card.word, $0.card.pos) }
+            var gate = RNG(seed: o.seed + 97)
+            if mi.count >= 4 && gate.next() < 0.4 {
+                var rp = RNG(seed: o.seed + 98)
+                id += 1
+                var m = LessonItem(id: id, type: "match", word: "#mpic", card: nil, hints: hints["match"] ?? [])
+                m.answer = ""; m.pics = true
+                m.pairs = shuffle(mi, &rp).prefix(4).map { LessonPair(card: $0.card, word: nil, mean: nil) }
+                items.insert(m, at: Int((Double(items.count) * 0.75).rounded(.up)))
+            }
+        }
         let out = items.map { adapt($0, o.off) }
         return o.calm ? calm(out) : out
     }
@@ -291,6 +319,7 @@ public enum LessonEngine {
     public static func adapt(_ it: LessonItem, _ off: LessonOff) -> LessonItem {
         var o = it
         o.noAudio = off.listen
+        if off.listen && it.type == "lpic" { o.type = "pic"; o.choice = true; o.hints = hints["pic"] ?? [] }   // can't listen → see the image, pick the word
         if off.speak && (it.type == "say" || it.type == "pic") {
             if it.type == "pic" { o.choice = true }
             else if let a = it.alt {

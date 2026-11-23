@@ -72,15 +72,16 @@ def plan():
     for eid in order():
         E = json.load(open(f'{ROOT}/content/video/teach2d/eps/{eid}.json')); who = E['teacher']
         gl, gp = gestures_for(who, G_LINE), gestures_for(who, G_PRAISE)
+        ax = dict(AX, layout=['corner', 'side']) if E['template'] == 'slang' else AX   # Slang Card: the teacher's strong face IS the hook – never shrunk into the bubble call window
         R = random.Random(int(hashlib.sha256(eid.encode()).hexdigest()[:16], 16)); best = None
         for _ in range(CANDS):
-            c = {k: R.choice(v) for k, v in AX.items()}; c['g_line'] = R.choice(gl); c['g_praise'] = R.choice(gp)
+            c = {k: R.choice(v) for k, v in ax.items()}; c['g_line'] = R.choice(gl); c['g_praise'] = R.choice(gp)
             if not ok(c, hist): continue
             sc = min([dist(c, h) for h in hist[-(WINDOW - 1):]] or [1.0]) + sum(dist(c, h) for h in hist[-(WINDOW - 1):]) / 100
             if best is None or sc > best[0]: best = (sc, c)
         if best is None:   # rare: the seeded sample missed every legal combination -> walk them all (deterministic order)
-            for t in itertools.product(*AX.values(), gl, gp):
-                c = dict(zip(list(AX) + ['g_line', 'g_praise'], t))
+            for t in itertools.product(*ax.values(), gl, gp):
+                c = dict(zip(list(ax) + ['g_line', 'g_praise'], t))
                 if ok(c, hist): best = (0, c); break
         assert best, ('no candidate passes the anti-repeat rule', eid)
         c = best[1]; c['seed'] = hashlib.sha256(eid.encode()).hexdigest()[:12]; hist.append(c); out[eid] = c

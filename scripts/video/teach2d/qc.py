@@ -149,6 +149,8 @@ fl = 40 if T['format'] == 'short' else 34; small = [n['id'] for n in T['nodes'] 
 gate('min_text', not small, 2, floor=fl, small=small)
 # IPA == audited bank; stress dot == IPA stress
 bk = bank_ipa({x['token'].lower() for x in T['ipa']}, ROOT); ib = []
+if T.get('template') == 'slang':   # slang keys are not lexicon words: the audited source is content/say-native/slang.json (slang.mjs gate: lexicon IPA of every content word)
+    bk.update({i['key'].lower(): i['ipa'] for i in json.load(open(f'{ROOT}/content/say-native/slang.json'))['items'] if i['key'].lower() in bk})
 for x in T['ipa']:
     if bk.get(x['token'].lower()) != x['ipa']: ib.append(dict(token=x['token'], shown=x['ipa'], bank=bk.get(x['token'].lower())))
     if 'stress' in x and stress_index(x['ipa']) != x['stress']: ib.append(dict(token=x['token'], why='stress dot != IPA stress mark', ipa=x['ipa'], dot=x['stress']))
@@ -156,7 +158,8 @@ gate('ipa', not ib, 3, checked=len(T['ipa']), bad=ib)
 # CTA deep link into the matching app feature
 cta = T['cta']; ROUTES = ('#/dict/', '#/verb/', '#/pron/', '#/fix', '#/phrases', '#/usage', '#/grammar', '#/lesson', '#/call', '#/confidence', '#/placement', '#/toeic', '#/reading', '#/review', '#/dictation', '#/write', '#/speaking')
 gate('cta', cta['link'].startswith('https://lexkite.com/app/') and cta['route'].startswith(ROUTES) and cta['link'].endswith(cta['route']), 2, **cta)
-gate('duration', (18 <= T['total'] <= 28) if T['format'] == 'short' else (15 <= T['total'] <= 42), 2, seconds=T['total'], want='18-28 s social short (owner 29/10)' if T['format'] == 'short' else '15-42 s lesson embed')
+if T.get('template') == 'slang': gate('duration', 7 <= T['total'] <= 13, 2, seconds=T['total'], want='7-13 s slang reel (owner 22/11: 7-12 s + end-card tail)')
+else: gate('duration', (18 <= T['total'] <= 28) if T['format'] == 'short' else (15 <= T['total'] <= 42), 2, seconds=T['total'], want='18-28 s social short (owner 29/10)' if T['format'] == 'short' else '15-42 s lesson embed')
 # rendered file
 if o.video:
     pr = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'stream=codec_type,codec_name,width,height,r_frame_rate:format=duration', '-of', 'json', o.video]))

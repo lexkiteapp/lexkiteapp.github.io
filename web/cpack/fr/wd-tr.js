@@ -1,1 +1,0 @@
-self.FRX=self.FRX||{};(FRX.wdl=FRX.wdl||{})["tr"]=["ev","su","gökyüzü","ayakkabı","köpek","kedi","kitap","masa","yemek","içmek","büyük","küçük","şehir","elma","çocuk","güneş","konuşmak","mutlu","tren","mutfak","süt","ekmek","okul","arkadaş","kırmızı","yürümek","bugün","meyve suyu","adam","fasulye"];
