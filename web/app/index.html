@@ -146,7 +146,7 @@ document.getElementById('view').innerHTML='<div id="lkHero" data-hero-lang="'+L+
   <script defer src="js/dialog.js"></script>
   <script defer src="js/ui.js"></script>
   <script defer src="js/exit-guard.js"></script>
-  <link rel="preload" as="script" href="js/bundles.js"><!-- đăng ký gói tải lười (ngoài khung): tải song song với app.js, gói đầu tiên không chờ thêm một vòng mạng -->
+  <!--lkpre--><link rel="preload" as="script" href="/js/bundles.js"><!--/lkpre--><!-- đăng ký gói tải lười (ngoài khung): tải song song với app.js, gói đầu tiên không chờ thêm một vòng mạng. Đường dẫn TUYỆT ĐỐI: preload trong thân trang bị trình duyệt tính theo /app/ thay vì <base href="/"> → /app/h/js/bundles.<băm>.js 404 (post-deploy-check 23/11). Chỉ bản web (add-on/di động bỏ khối lkpre: gốc khác) -->
   <script defer src="js/app.js"></script>
   <script defer src="js/study.js"></script>
   <script defer src="js/path.js"></script>
