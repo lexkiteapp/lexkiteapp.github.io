@@ -137,6 +137,7 @@ node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
 node scripts/test/tl-picker.mjs
+node scripts/test/exam-sheet.mjs
 node scripts/test/es-conjugate.mjs
 node scripts/test/fr-conjugate.mjs
 node scripts/test/sync-ctx.mjs
