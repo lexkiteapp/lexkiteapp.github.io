@@ -393,6 +393,7 @@
   "ar": "تفاهات الإنترنت; محتوى مفسد للذهن",
   "de": "Hirnschrott; Gehirnmüll",
   "es": "basura mental; contenido basura",
+  "fr": "cervelle pourrie; déchet cérébral",
   "hi": "दिमाग ख़राब करने वाला कंटेंट; व्यर्थ सामग्री",
   "id": "pembusukan otak; tontonan tidak berguna",
   "ja": "脳みそが腐るようなコンテンツ; 脳腐れ",
@@ -1980,6 +1981,7 @@
   "ar": "يُحسّس بشعور مختلف; يُعطي إحساسًا مختلفًا",
   "de": "ist etwas Besonderes; fühlt sich besonders an; kommt anders rüber",
   "es": "se siente diferente; te llega de otra manera",
+  "fr": "ça fait un truc en plus; ça a un effet spécial",
   "hi": "अलग ही मज़ा देना; अलग ही अहसास होना",
   "id": "terasa berbeda; terasa lebih spesial",
   "ja": "格別に感じる; 特別に響く; 違う感じがする",
@@ -2556,6 +2558,7 @@
   "ko": "마지막 순간의; 임박해서 하는",
   "pt": "de última hora; de última hora",
   "ru": "в последний момент; в последнюю минуту",
+  "th": "ในนาทีสุดท้าย; นาทีสุดท้าย",
   "tr": "son dakika",
   "zh": "临时的; 最后时刻的"
  },
