@@ -28,6 +28,7 @@
 - [specs/sentence-builder.md](specs/sentence-builder.md) — Xếp câu + Vì sao? theo câu (why.js, #336)
 - [specs/exam-mini-test-srs.md](specs/exam-mini-test-srs.md) — mini-test 10 phút + dải tuần + thẻ dạng yếu của #/qstats (đã duyệt 14/11); đọc khi: làm qstats/ôn dạng yếu/mini-test
 - [specs/lesson-types-more.md](specs/lesson-types-more.md) — thêm dạng bài (nghe→chọn tranh, ghép cặp ảnh, sửa lỗi câu, chính tả câu) vào khung lesson + bật speak_pack (đề xuất 21/11); đọc khi: làm dạng bài mới trong #/lesson
+- [specs/topic-depth.md](specs/topic-depth.md) — chủ đề/thư viện từ vựng 80–150 từ, tiểu chủ đề, hội thoại, quiz; đọc khi làm trang chủ đề
 - [specs/learnability.md](specs/learnability.md) — Spec P0-H Dễ học – dễ nhớ: 12 tiêu chí sư phạm → luật máy đo tầng 0, trọng số, điểm sàn; đọc khi: sửa bộ chấm learnability.mjs hoặc nội dung bài để tăng điểm
 - [specs/spell-sound.md](specs/spell-sound.md) — series "Spell→Sound": template rule (chữ câm → âm), ngân hàng luật JSON, hook L1, cổng vùng nền tảng; đọc khi: thêm luật phát âm / sửa mẫu rule
 - [specs/band-upgrade.md](specs/band-upgrade.md) — series "Band 5→7→9": template band (một ý nâng 3 bậc IELTS, lý do + tiêu chí mỗi bậc), bands.json, hook L1 14 ngôn ngữ; đọc khi: thêm chủ đề band / sửa mẫu band
