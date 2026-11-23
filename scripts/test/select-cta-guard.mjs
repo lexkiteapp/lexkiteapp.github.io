@@ -8,7 +8,7 @@ const css = rd('web/css/style.css');
 ok(/:is\(\.tabs > :is\(button, a\), \.chip\):is\(\.on, \[aria-pressed="true"\], \[aria-selected="true"\]\)\s*\{[^}]*box-shadow: inset 0 0 0 2px var\(--done\)/.test(css), 'style.css: một khối .on (vòng teal 2px inset) cho tab/chip');
 const hov = [...css.matchAll(/([^{}]*):hover\s*\{([^}]*)\}/g)].filter(m => /chip|\.tabs/.test(m[1]));
 ok(hov.length > 0 && hov.every(m => !/border|outline/.test(m[2])), `hover của chip/tab chỉ đổi nền (không đổi viền): ${hov.filter(m => /border|outline/.test(m[2])).map(m => m[1].trim().slice(-40)).join(' · ') || 'đạt'}`);
-const DONE = ['web/js/listening.js', 'web/js/criteria.js', 'web/js/tracks.js', 'web/js/phrases-model.js'];
+const DONE = ['web/js/listening.js', 'web/js/criteria.js', 'web/js/tracks.js', 'web/js/phrases-model.js', 'web/js/toeic.js', 'web/js/toefl.js', 'web/js/cambridge.js', 'web/js/mock.js'];
 const TOGGLE = /\?\s*'(?: )?primary'\s*:\s*(?:'ghost'|'')/g;
 for (const f of DONE) ok(!new RegExp(TOGGLE.source).test(rd(f)), `${f}: không dùng .primary làm trạng thái chọn`);
 const walk = d => fs.readdirSync(path.join(ROOT, d), { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : /\.js$/.test(e.name) && !/^admin/.test(e.name) ? [path.join(d, e.name)] : []);

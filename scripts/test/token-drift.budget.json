@@ -18,10 +18,10 @@
   "font": 5
  },
  "web/css/lazy-ui.css": {
-  "color": 55,
-  "space": 173,
-  "radius": 47,
-  "font": 59
+  "color": 54,
+  "space": 170,
+  "radius": 46,
+  "font": 58
  },
  "web/css/league.css": {
   "color": 0,

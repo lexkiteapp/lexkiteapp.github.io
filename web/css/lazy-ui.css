@@ -121,10 +121,6 @@ body.cbt-mode .view { max-width: none; padding: 0; }
 .mprin > .row:last-child { flex-wrap: wrap; min-width: 0; }
 .mprin .btn.sm { min-height: 44px; white-space: normal; text-align: center; }
 .mprin .chip { max-width: 100%; white-space: normal; }
-.mk-skills { display: grid; gap: .5rem; }
-.mk-skill { display: flex; align-items: center; gap: .7rem; border: 1px solid var(--line); border-radius: 12px; padding: .55rem .8rem; cursor: pointer; }
-.mk-skill:has(input:checked) { border-color: var(--primary); background: rgba(229, 80, 47, .06); }
-.mk-skill .em { font-size: 1.5rem; }
 .mk-hist > div { padding: .45rem 0; border-bottom: 1px dashed var(--line); }
 .mk-ov { font-size: 1.2rem; color: var(--primary); min-width: 2.2rem; text-align: right; }
 .mk-bar { display: flex; justify-content: space-between; align-items: center; gap: .6rem; flex-wrap: wrap; padding: .6rem .9rem; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; position: sticky; top: .5rem; z-index: 6; }
