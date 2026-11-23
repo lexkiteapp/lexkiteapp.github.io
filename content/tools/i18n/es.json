@@ -2,7 +2,8 @@
   "nav": {
     "tools": "Herramientas gratis de inglés",
     "levelTest": "Test de nivel de inglés",
-    "toeic": "Práctica TOEIC Part 5"
+    "toeic": "Práctica TOEIC Part 5",
+    "band": "Calculadora de nota IELTS"
   },
   "test": {
     "title": "Test de nivel de inglés gratis (CEFR A1–C2) – 15 min, al instante",
@@ -111,5 +112,49 @@
     "full": "La app de Lexkite incluye las 7 partes, 7 simulacros completos con una puntuación estimada de 10–990 y 1.250 palabras de TOEIC.",
     "openApp": "Practica TOEIC en la app",
     "otherTool": "¿No sabes cuál es tu nivel? Haz el test de nivel de inglés gratis."
+  },
+  "band": {
+    "title": "Calculadora de nota IELTS gratis: Listening, Reading, global",
+    "desc": "Calculadora de nota IELTS gratis: introduce tus aciertos de Listening y Reading (sobre 40) y tus bandas de Writing y Speaking para ver tu nota global.",
+    "h1": "Calculadora de nota IELTS",
+    "lead": "Convierte los resultados de tus simulacros en bandas IELTS. Introduce tus aciertos de Listening y Reading, elige Academic o General Training, añade tus bandas de Writing y Speaking y descubre tu nota global.",
+    "facts": [
+      "Listening y Reading sobre 40",
+      "Academic y General Training",
+      "Nota global redondeada como en el IELTS",
+      "Gratis · sin registro"
+    ],
+    "formH": "Tus puntuaciones",
+    "listenH": "Listening",
+    "listenHint": "Respuestas correctas, 0–40",
+    "readH": "Reading",
+    "readHint": "Respuestas correctas, 0–40",
+    "typeH": "Tipo de prueba de Reading",
+    "typeA": "Academic",
+    "typeG": "General Training",
+    "writeH": "Writing",
+    "speakH": "Speaking",
+    "bandHint": "Banda de 0 a 9, de 0,5 en 0,5",
+    "calc": "Calcular mi nota",
+    "resultH": "Tu nota global",
+    "need": "Por favor, rellena las cuatro puntuaciones.",
+    "approx": "Es una estimación: las tablas de conversión de abajo son las aproximadas más usadas y cada examen real puede variar en torno a una pregunta.",
+    "openApp": "Practica tu habilidad más débil en Lexkite",
+    "howH": "Cómo se calcula la nota global",
+    "how": [
+      "La nota global es la media de las bandas de tus cuatro destrezas, redondeada a la media banda más cercana.",
+      "Una media que termina en .25 se redondea hacia arriba a la siguiente media banda, y una que termina en .75, a la siguiente banda entera. Por ejemplo, 6.25 pasa a 6.5 y 6.75 pasa a 7.0, mientras que 6.125 se queda en 6.0.",
+      "Las bandas de Listening y Reading salen de tu número de aciertos sobre 40. Las de Writing y Speaking las ponen los examinadores, así que usa la banda de tu profesor o de un simulacro corregido."
+    ],
+    "tableH": "Conversión de aciertos a banda (aproximada)",
+    "tableNote": "Cada fila indica el mínimo de aciertos para esa banda. IELTS no publica una tabla fija única, así que tómala como orientación.",
+    "colRaw": "Aciertos (desde)",
+    "colBand": "Banda",
+    "tblL": "Listening",
+    "tblA": "Reading Academic",
+    "tblG": "Reading General Training",
+    "honestH": "Qué puede y qué no puede decirte esta calculadora",
+    "honest": "Te muestra dónde caería probablemente un resultado de práctica, no es una nota oficial. Las bandas de Writing y Speaking necesitan un examinador o un profesor con experiencia. Usa el resultado para decidir qué practicar y confirma tu nivel con un simulacro completo con tiempo.",
+    "otherTool": "Descubre tu nivel de inglés (A1–C2) con el test de nivel gratuito"
   }
 }

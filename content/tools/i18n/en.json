@@ -3,7 +3,8 @@
   "nav": {
     "tools": "Free English tools",
     "levelTest": "English level test",
-    "toeic": "TOEIC Part 5 practice"
+    "toeic": "TOEIC Part 5 practice",
+    "band": "IELTS band calculator"
   },
   "test": {
     "title": "Free English Level Test (CEFR A1–C2) – 15 minutes, instant result",
@@ -112,5 +113,49 @@
     "full": "The Lexkite app has all 7 parts, 7 full mock tests with an estimated 10–990 score and 1,250 TOEIC words.",
     "openApp": "Practise TOEIC in the app",
     "otherTool": "Not sure about your level? Take the free English level test."
+  },
+  "band": {
+      "title": "IELTS band score calculator – free, Listening, Reading, overall",
+      "desc": "Free IELTS band calculator: enter your Listening and Reading raw scores (out of 40) plus Writing and Speaking bands to get each band and your overall score.",
+      "h1": "IELTS band score calculator",
+      "lead": "Turn your practice-test results into IELTS bands. Enter your raw scores for Listening and Reading, choose Academic or General Training, add your Writing and Speaking bands, and see your overall band.",
+      "facts": [
+          "Listening and Reading out of 40",
+          "Academic and General Training",
+          "Overall band rounded the IELTS way",
+          "Free · no sign-up"
+      ],
+      "formH": "Your scores",
+      "listenH": "Listening",
+      "listenHint": "Correct answers, 0–40",
+      "readH": "Reading",
+      "readHint": "Correct answers, 0–40",
+      "typeH": "Reading test type",
+      "typeA": "Academic",
+      "typeG": "General Training",
+      "writeH": "Writing",
+      "speakH": "Speaking",
+      "bandHint": "Band, 0–9 in steps of 0.5",
+      "calc": "Calculate my band",
+      "resultH": "Your overall band",
+      "need": "Please fill in all four scores.",
+      "approx": "An estimate: the raw-score tables below are the widely used approximate ones, and each real test can differ by about one question.",
+      "openApp": "Practise your weakest skill in Lexkite",
+      "howH": "How the overall band is calculated",
+      "how": [
+          "The overall band is the average of your four skill bands, rounded to the nearest half band.",
+          "An average ending in .25 is rounded up to the next half band, and one ending in .75 is rounded up to the next whole band. For example, 6.25 becomes 6.5 and 6.75 becomes 7.0, while 6.125 stays 6.0.",
+          "Listening and Reading bands come from your number of correct answers out of 40. Writing and Speaking bands are given by examiners, so use the band from your teacher or a scored practice."
+      ],
+      "tableH": "Raw score to band conversion (approximate)",
+      "tableNote": "Each row shows the lowest number of correct answers for that band. IELTS does not publish one fixed table, so treat these as a guide.",
+      "colRaw": "Correct answers (from)",
+      "colBand": "Band",
+      "tblL": "Listening",
+      "tblA": "Academic Reading",
+      "tblG": "General Training Reading",
+      "honestH": "What this calculator can and cannot tell you",
+      "honest": "It shows where a practice result would likely fall, not an official score. Writing and Speaking bands need an examiner or an experienced teacher. Use the result to decide what to practise next, then confirm your level with a full timed mock test.",
+      "otherTool": "Find your English level (A1–C2) with the free level test"
   }
 }

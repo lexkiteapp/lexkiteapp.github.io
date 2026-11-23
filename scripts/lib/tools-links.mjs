@@ -6,8 +6,9 @@ export const TOOL_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh',
 export const TOOL_SLUGS = {
   test: { vi: 'kiem-tra-trinh-do-tieng-anh', en: 'english-level-test', es: 'test-de-nivel-de-ingles', pt: 'teste-de-nivel-de-ingles', fr: 'test-de-niveau-anglais', de: 'englisch-einstufungstest', id: 'tes-level-bahasa-inggris', tr: 'ingilizce-seviye-testi', ru: 'test-na-uroven-angliyskogo' },
   toeic: { vi: 'luyen-toeic-part-5', en: 'toeic-part-5-practice', es: 'practica-toeic-part-5', pt: 'simulado-toeic-part-5', fr: 'entrainement-toeic-part-5', de: 'toeic-part-5-uebungen', id: 'latihan-toeic-part-5', tr: 'toeic-part-5-alistirmalari', ru: 'toeic-part-5-praktika' },
+  band: { vi: 'tinh-diem-ielts', en: 'ielts-band-score-calculator', es: 'calculadora-nota-ielts', pt: 'calculadora-nota-ielts', fr: 'calculateur-score-ielts', de: 'ielts-band-rechner', id: 'kalkulator-skor-ielts', tr: 'ielts-puan-hesaplama', ru: 'kalkulyator-ielts', th: 'ielts-band-calculator', zh: 'ielts-band-calculator', ja: 'ielts-band-calculator', ko: 'ielts-band-calculator', hi: 'ielts-band-calculator', ar: 'ielts-band-calculator' },
 };
-const DEF = { test: 'english-level-test', toeic: 'toeic-part-5-practice' };
+const DEF = { test: 'english-level-test', toeic: 'toeic-part-5-practice', band: 'ielts-band-score-calculator' };
 export const toolPath = (lang, kind, lv) => `/${lang}/${TOOL_SLUGS[kind][lang] || DEF[kind]}/${lv ? lv.toLowerCase() + '/' : ''}`;
 const cache = {};
 export const toolStrings = lang => {
@@ -28,6 +29,7 @@ export const blogToolBox = p => {
   const out = [];
   if (RE_TOEIC.test(hay)) out.push([toolPath(l, 'toeic'), s.nav.toeic, s.toeic.desc.replace('{n}', '210')]);
   if (RE_TOEIC.test(hay) || RE_LEVEL.test(hay)) out.push([toolPath(l, 'test'), s.nav.levelTest, s.test.desc]);
+  if (s.band && /ielts|band/i.test(hay)) out.push([toolPath(l, 'band'), s.nav.band, s.band.desc]);
   if (!out.length) return '';
   return `<aside class="tool-links" aria-label="${esc(s.nav.tools)}"><p class="tl-h">${esc(s.nav.tools)}</p><ul>${out.map(([u, n, d]) => `<li><a href="${u}">${esc(n)}</a><br><small>${esc(d)}</small></li>`).join('')}</ul></aside>`;
 };

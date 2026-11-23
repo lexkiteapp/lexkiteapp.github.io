@@ -2,7 +2,8 @@
   "nav": {
     "tools": "Outils d'anglais gratuits",
     "levelTest": "Test de niveau d'anglais",
-    "toeic": "Entraînement TOEIC Part 5"
+    "toeic": "Entraînement TOEIC Part 5",
+    "band": "Calculateur de note IELTS"
   },
   "test": {
     "title": "Test de niveau d'anglais gratuit (CEFR A1–C2) – 15 min, résultat immédiat",
@@ -111,5 +112,49 @@
     "full": "L'application Lexkite propose les 7 parties, 7 tests blancs complets avec un score estimé de 10–990 et 1 250 mots du TOEIC.",
     "openApp": "S'entraîner au TOEIC dans l'application",
     "otherTool": "Vous hésitez sur votre niveau ? Faites le test de niveau d'anglais gratuit."
+  },
+  "band": {
+    "title": "Calculateur de note IELTS gratuit : Listening, Reading",
+    "desc": "Calculateur de note IELTS gratuit : saisissez vos bonnes réponses en Listening et Reading (sur 40) et vos bandes Writing et Speaking pour la note globale.",
+    "h1": "Calculateur de note IELTS",
+    "lead": "Transformez vos résultats d'entraînement en bandes IELTS. Saisissez vos bonnes réponses en Listening et Reading, choisissez Academic ou General Training, ajoutez vos bandes Writing et Speaking et découvrez votre note globale.",
+    "facts": [
+      "Listening et Reading sur 40",
+      "Academic et General Training",
+      "Note globale arrondie comme à l'IELTS",
+      "Gratuit · sans inscription"
+    ],
+    "formH": "Vos scores",
+    "listenH": "Listening",
+    "listenHint": "Bonnes réponses, 0–40",
+    "readH": "Reading",
+    "readHint": "Bonnes réponses, 0–40",
+    "typeH": "Type d'épreuve de Reading",
+    "typeA": "Academic",
+    "typeG": "General Training",
+    "writeH": "Writing",
+    "speakH": "Speaking",
+    "bandHint": "Bande de 0 à 9, par pas de 0,5",
+    "calc": "Calculer ma note",
+    "resultH": "Votre note globale",
+    "need": "Veuillez renseigner les quatre scores.",
+    "approx": "Il s'agit d'une estimation : les tables de conversion ci-dessous sont les tables approximatives les plus utilisées, et chaque vrai test peut varier d'environ une question.",
+    "openApp": "Travaillez votre compétence la plus faible dans Lexkite",
+    "howH": "Comment la note globale est calculée",
+    "how": [
+      "La note globale est la moyenne des bandes de vos quatre compétences, arrondie à la demi-bande la plus proche.",
+      "Une moyenne finissant par .25 est arrondie à la demi-bande supérieure, et une moyenne finissant par .75 à la bande entière supérieure. Par exemple, 6.25 devient 6.5 et 6.75 devient 7.0, tandis que 6.125 reste 6.0.",
+      "Les bandes de Listening et Reading viennent de votre nombre de bonnes réponses sur 40. Celles de Writing et Speaking sont attribuées par des examinateurs : utilisez la bande donnée par votre professeur ou par un test blanc corrigé."
+    ],
+    "tableH": "Conversion des bonnes réponses en bande (approximative)",
+    "tableNote": "Chaque ligne indique le nombre minimal de bonnes réponses pour cette bande. L'IELTS ne publie pas de table fixe unique, considérez donc ceci comme un repère.",
+    "colRaw": "Bonnes réponses (à partir de)",
+    "colBand": "Bande",
+    "tblL": "Listening",
+    "tblA": "Reading Academic",
+    "tblG": "Reading General Training",
+    "honestH": "Ce que ce calculateur peut et ne peut pas vous dire",
+    "honest": "Il montre où se situerait probablement un résultat d'entraînement, pas une note officielle. Les bandes de Writing et Speaking demandent un examinateur ou un professeur expérimenté. Servez-vous du résultat pour choisir quoi travailler, puis confirmez votre niveau avec un test blanc complet chronométré.",
+    "otherTool": "Trouvez votre niveau d'anglais (A1–C2) avec le test de niveau gratuit"
   }
 }
