@@ -818,7 +818,7 @@
 "Nội động từ":"Geçişsiz",
 "Part 1–3, ghi âm, chấm từ vựng":"Bölüm 1-3, kendinizi kaydedin, sözcük puanlaması",
 "Part 1–4, có transcript và giải thích":"Transkriptler ve açıklamalarla birlikte Bölüm 1-4",
-"Phiên dịch":"Interpreter",
+"Phiên dịch":"Çevirmen",
 "Phiên âm":"IPA",
 "Phiên ôn xuất sắc!":"Kusursuz tekrar seansı!",
 "Phrasal verb, thành ngữ, cách diễn đạt tự nhiên":"Deyimsel fiiller, deyimler, doğal ifadeler",

@@ -98,7 +98,7 @@ struct InterpretView: View {
             ForEach([(InterpretHubModel.Section.talk, L10nKey.interpretFaceToFace), (.phrases, .interpretPhrasebook), (.history, .interpretHistory)], id: \.0) { s, k in
                 let on = model.section == s
                 Button { model.select(s) } label: {
-                    Text(verbatim: t(k)).lkTextSafe(LKType.labelBadge).multilineTextAlignment(.center)
+                    Text(verbatim: t(k)).lkTextSafe(LKType.labelBadge).lineLimit(1).minimumScaleFactor(0.75).multilineTextAlignment(.center)
                         .foregroundStyle((on ? LKColor.onSecondary : LKColor.onSurface).resolve(scheme))
                         .frame(maxWidth: .infinity, minHeight: 44).padding(.horizontal, 6)
                         .background(Capsule().fill((on ? LKColor.secondary : LKColor.surfaceContainerHighest).resolve(scheme)))

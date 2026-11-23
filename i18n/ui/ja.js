@@ -818,7 +818,7 @@
 "Nội động từ":"自動詞",
 "Part 1–3, ghi âm, chấm từ vựng":"パート 1 ～ 3、自分自身の記録、語彙の採点",
 "Part 1–4, có transcript và giải thích":"パート 1 ～ 4 (トランスクリプトと説明付き)",
-"Phiên dịch":"Interpreter",
+"Phiên dịch":"通訳",
 "Phiên âm":"IPA",
 "Phiên ôn xuất sắc!":"完璧な復習セッション！",
 "Phrasal verb, thành ngữ, cách diễn đạt tự nhiên":"句動詞、イディオム、自然な表現",
