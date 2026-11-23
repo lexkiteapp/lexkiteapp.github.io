@@ -1,6 +1,6 @@
 /* ♟️ Cờ câu đố (P5c, gói pch): 5 thế chiếu hết 1 nước + thuật ngữ; test play-chess.mjs */
 (function (g) {
-  const R = 5, GL = { K: '♔', Q: '♕', R: '♖', B: '♗', N: '♘', P: '♙', k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟︎' };
+  const R = 5, F = { k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟\uFE0E' }, GL = { K: F.k, Q: F.q, R: F.r, B: F.b, N: F.n, P: F.p, ...F };
   const NAME = { k: 'king', q: 'queen', r: 'rook', b: 'bishop', n: 'knight', p: 'pawn' };
   async function run(H, src) {
     const App = g.App, view = App.view, { esc, speak, shuffle } = g.UI, t = g.t, C = g.ChessCore, hash0 = location.hash;

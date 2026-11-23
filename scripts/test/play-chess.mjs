@@ -43,7 +43,7 @@ const before = $('#chBoard').innerHTML; cell('h7').click(); assert.equal($('#chB
 $('#chGo').click(); assert.match($('header').textContent, /2 \/ 5/, 'sang thế 2/5');
 $('#chSkip').click(); assert.match($('header').textContent, /2 \/ 5/, 'Thế khác không đổi tiến độ'); assert.equal($$('#chBoard [data-s]').length, 64);
 // giải hết các thế còn lại: nhận ra thế đang hiện từ bàn cờ (kể cả thế của Đen: bàn cờ lật)
-const GL = { K: '♔', Q: '♕', R: '♖', B: '♗', N: '♘', P: '♙', k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟' };
+const F = { k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟' }, GL = { K: F.k, Q: F.q, R: F.r, B: F.b, N: F.n, P: F.p, ...F }; // hai bên cùng bộ quân đặc (trắng = chữ trắng viền tối)
 const shown = () => P.find(p => C.parse(p[0]).b.every((row, r) => row.every((pc, c) => { const el = cell(C.sq(r, c)); return el && el.textContent.replace(/[\uFE0E✕]/g, '').trim() === (pc ? GL[pc] : ''); })));
 for (let k = 1; k < 5; k++) {
   const cur = shown(); assert.ok(cur, 'nhận ra thế đang hiện'); const m = C.moves(cur[0]).find(x => x.mate);
