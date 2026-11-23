@@ -41,7 +41,9 @@
     qstats: ['js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'cpack/qstats/week.js'],
     pbook: ['cpack/framework/functions.js', 'cpack/framework/phrase-book.js'], // 🗣️ Sổ mẫu câu theo chức năng: nạp khi mở mục trong #/phrases lần đầu (scripts/framework/build-functions.mjs)
     mediate: ['js/i18n/en/mediate.js', 'js/characters.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/mediate-core.js', 'cpack/mediation/index.js', 'js/mediate.js'], // 🤝 Trung gian (docs/specs/mediation.md §2): bài mở thêm cpack/mediation/<id>.js lúc vào
-    topicx: ['cpack/topic/ui.js'], 'topicx-work': ['cpack/topic/work.js'], // chủ đề sâu (docs/specs/topic-depth.md): giao diện + 1 gói dữ liệu/chủ đề (scripts/build-topic-depth.mjs)
+    // chủ đề sâu (docs/specs/topic-depth.md): giao diện + 1 gói dữ liệu/chủ đề (scripts/build-topic-depth.mjs)
+    topicx: ['cpack/topic/ui.js'],
+    'topicx-work': ['cpack/topic/work.js'],
     retcards: ['cpack/ret-app/cards.js'], // thẻ quay lại + tuần qua của trang chủ (retention.js Ret.home)
     cambridge: ['js/i18n/en/cambridge.js', 'js/choice-kit.js', 'js/qengine.js', 'cpack/cambridge/rubric.js', 'cpack/cambridge/a2/t1.js', 'cpack/cambridge/a2/t2.js', 'cpack/cambridge/a2/t3.js', 'cpack/cambridge/b1/t1.js', 'cpack/cambridge/b1/t2.js', 'cpack/cambridge/b1/t3.js', 'cpack/cambridge/b2/t1.js', 'cpack/cambridge/b2/t2.js', 'cpack/cambridge/b2/t3.js', 'cpack/cambridge/c1/t1.js', 'cpack/cambridge/c1/t2.js', 'cpack/cambridge/c2/t1.js', 'cpack/cambridge/c2/t2.js', 'js/cambridge.js'], // Cambridge A2–C2 (docs/specs/cambridge.md): thêm đề mới = thêm 1 đường dẫn ở đây
     toefl: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'cpack/toefl/data1.js', 'cpack/toefl/data2.js', 'cpack/toefl/data3.js', 'cpack/toefl/data4.js', 'cpack/toefl/data5.js', 'cpack/toefl/data6.js', 'cpack/toefl/data7.js', 'cpack/toefl/data8.js', 'cpack/toefl/data9.js', 'cpack/toefl/data10.js', 'cpack/toefl/data11.js', 'js/toefl.js'],
