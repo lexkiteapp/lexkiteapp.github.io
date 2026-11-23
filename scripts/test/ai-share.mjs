@@ -58,4 +58,14 @@ const cj = byWf['ai-canary.yml']; ok(cj && cj.cron[0] === '23 */3 * * *' && /iss
 // ---- 5) content-factory: không đốt quota khi không còn chỗ gộp
 const cf = fs.readFileSync('.github/workflows/content-factory.yml', 'utf8');
 ok(/size-budget\.mjs > sb\.log/.test(cf) && /\{"include":\[\],"parallel":1\}/.test(cf) && /\[ "\$free" -lt 50 \]/.test(cf), 'content-factory: size-budget đỏ/< 50 KB chỗ → plan rỗng, gen không chạy (quota giữ cho người dùng)');
+
+// ---- 6) workflow dùng kho khoá AI trên push nhánh ≠ main phải có cổng phạm vi (merge main vào nhánh làm `paths` khớp oan → PR nào cũng đốt quota – 23/11 say-native #1945/#1953)
+for (const f of fs.readdirSync('.github/workflows').filter(f => f.endsWith('.yml'))) {
+  const y = fs.readFileSync(path.join('.github/workflows', f), 'utf8');
+  if (!/GEMINI_POOL|GROQ_POOL/.test(y) || !/^  push:\s*\n(?:\s+.*\n)*?\s+branches-ignore:\s*\[?\s*main/m.test(y)) continue;
+  ok(/needs:\s*scope/.test(y) && /merge-base/.test(y) && /needs\.scope\.outputs\.run\s*==\s*'1'/.test(y), `${f}: dùng kho khoá AI trên push nhánh ≠ main → phải có job \`scope\` (đổi file của nó so với merge-base với main) – không thì mọi PR đốt quota`);
+}
+{ const sn = fs.readFileSync('.github/workflows/say-native.yml', 'utf8');
+  ok(/PIPESTATUS\[0\]/.test(sn) && /khoá liên tiếp 429/.test(sn) && /hết quota AI/.test(sn) && /exit 0/.test(sn), 'say-native: hết quota AI (429 hàng loạt, 0 nghĩa giữ được) → kết thúc trung tính, không đỏ PR');
+  ok(/^\s*schedule:/m.test(sn) && byWf['say-native.yml'] && (byWf['say-native.yml'].resources || []).includes('gemini'), 'say-native có lịch bù trên main + khai tài nguyên gemini trong sổ'); }
 console.log(`✓ ai-share: ${n} kiểm tra đạt (việc nền ≤ 60 % quota, cầu dao 429, canary AI, content-factory không đốt quota)`);

@@ -1,0 +1,36 @@
+# ci-policy: fast-lane – chạy tay: ảnh bảng chọn kỳ thi trước (main) / sau (nhánh), 390 & 768 × sáng/tối × en/de/ar. Artifact 5 ngày.
+name: Exam sheet shots
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['scripts/test/exam-sheet-shots.mjs', '.github/workflows/exam-sheet-shots.yml', 'web/cpack/tl-app/tl-pick.js', 'web/css/tl-pick.css']
+permissions:
+  contents: read
+concurrency:
+  group: exam-sheet-shots-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  shots:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { ref: main, path: before }
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
+      - name: Chụp
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          (cd before/web && python3 -m http.server 8081 >/dev/null 2>&1 &)
+          (cd web && python3 -m http.server 8082 >/dev/null 2>&1 &)
+          sleep 1
+          node scripts/test/exam-sheet-shots.mjs http://localhost:8082 out/after
+          node scripts/test/exam-sheet-shots.mjs http://localhost:8081 out/before
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: exam-sheet-shots, path: out, retention-days: 5 }

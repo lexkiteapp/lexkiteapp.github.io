@@ -12,6 +12,9 @@ const rd = f => fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8');
 const hit = rd('functions/api/hit.js'), m = /const ONB_EV = (\[.*\]);/.exec(hit);
 const ONB = m ? vm.runInNewContext(m[1]) : [];
 ok(/const HAB_EV = \[[^\]]*\.\.\.ONB_EV\]/.test(hit), 'HAB_EV gồm ONB_EV');
+// Mọi hab('…') máy khách gửi (kể cả thẻ chào quay lại / tổng kết tuần ở web/cpack/ret-app) phải nằm trong HAB_EV, không thì máy chủ bỏ im lặng (23/11: back_*/recap_* bị bỏ → ô quản trị luôn 0)
+{ const hm = /const HAB_EV = (\[[^;]*\]);/.exec(hit), HAB = hm ? vm.runInNewContext(hm[1].replace('...ONB_EV', ONB.map(e => `'${e}'`).join(','))) : [];
+  for (const f of ['web/js/plan.js', 'web/js/app.js', 'web/cpack/ret-app/cards.js']) for (const x of rd(f).matchAll(/\bhab\('([a-z0-9_]+)'\)/g)) ok(HAB.includes(x[1]), `${f}: hab('${x[1]}') có trong HAB_EV`); }
 const used = new Set();
 for (const f of ['web/js/welcome.js', 'web/js/onboard.js', 'web/js/remind.js']) for (const x of rd(f).matchAll(/hab(?:Track)?\('([a-z0-9_]+)'\)/g)) used.add(x[1]);
 for (const e of used) if (!['plan_seen', 'plan_start', 'plan_done', 'resume_seen', 'resume_click'].includes(e)) ok(ONB.includes(e), `sự kiện ${e} có trong ONB_EV`);
