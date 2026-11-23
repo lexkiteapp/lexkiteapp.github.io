@@ -561,7 +561,29 @@
   let humanP; const human = () => humanP || (humanP = window.Human ? Promise.resolve(window.Human) : new Promise(r => { const s = document.createElement('script'); s.src = 'js/human.js'; const fin = () => { clearTimeout(to); if (!window.Human) humanP = null; r(window.Human || null); }, to = setTimeout(fin, 4000); s.onload = s.onerror = fin; document.head.appendChild(s); }));
   const quotaText = (j = {}) => { const r = j.resetAt, at = r && new Date(r).toLocaleString([], r - Date.now() > 864e5 ? { dateStyle: 'short', timeStyle: 'short' } : { timeStyle: 'short' }); return (j.msg === 'quota.daily' && at ? t('Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.', { time: at }) : t('Máy chủ đang bận – thử lại sau ít phút.')) + (j.signIn ? ' ' + t('Đăng nhập để có thêm lượt.') : ''); };
   // Icon UI: 1 bộ Lucide, sprite #lk-sprite (docs/DESIGN-SYSTEM.md)
-  const icon = (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+  // Icon có hướng theo chiều đọc (mũi tên/chevron/quay lại…) tự có .i-dir → style.css lật scaleX(-1) trong RTL (ar); icon không hướng giữ nguyên
+  const DIRI = /^(arrow-(left|right|big-left|big-right)|chevrons?-(left|right)|move-(left|right)|skip-(back|forward)|step-(back|forward)|undo-?2?|redo-?2?|reply|forward|corner-(up|down)-(left|right)|log-(in|out))$/;
+  const icon = (n, cls) => { if (DIRI.test(n) && !/\bi-dir\b/.test(cls || '')) cls = ((cls || '') + ' i-dir').trim(); return `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`; };
+  // RTL: ligature Material Symbols có hướng (chevron_right, arrow_back…) → .i-dir; "→" cuối nhãn → "←" (chỉ khi <html dir=rtl>)
+  const MDIR = /^(chevron_(left|right)|arrow_(back|forward)(_ios)?|navigate_(next|before)|keyboard_arrow_(left|right)|arrow_(left|right)|first_page|last_page|undo|redo|reply|send|logout|login)$/;
+  const RTL_SKIP = '[dir=ltr], bdi, svg, script, style, textarea, input, select, pre, code, kbd, [contenteditable], [data-noicon], .material-symbols-outlined, .i, .ipa, .ex, .entry-word, .ctx, .lq-item';
+  const LAT = /[“"‘']?[+\-−]?[A-Za-z0-9\u00C0-\u024F][A-Za-z0-9\u00C0-\u024F+\-–−.,:;\/%()&·!?~=×…'’“” ]*[A-Za-z0-9\u00C0-\u024F%)?!.\-”"’']/g;
+  const rtlFix = root => {
+    if (document.documentElement.dir !== 'rtl') return;
+    root.querySelectorAll('.material-symbols-outlined:not(.i-dir)').forEach(e => { if (MDIR.test(e.textContent.trim())) e.classList.add('i-dir'); });
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), hits = []; let n;
+    while ((n = w.nextNode())) if (/[A-Za-z0-9]/.test(n.nodeValue)) hits.push(n);
+    for (const x of hits) {
+      const p = x.parentElement; if (!p || p.closest(RTL_SKIP)) continue;
+      let v = x.nodeValue;
+      if (v.length < 60 && /\s→\s*$/.test(v)) x.nodeValue = v = v.replace(/→(\s*)$/, '←$1');
+      // cụm Latin/số ("+50 XP", "Band 7.5", câu Anh có dấu ? .) → <bdi dir=ltr>: dấu đầu/cuối không nhảy sang đầu dòng trong ar. Nút văn bản gốc được giữ (splitText) để mã khác còn cập nhật nodeValue
+      LAT.lastIndex = 0; const m = LAT.exec(v); if (!m) continue;
+      let node = x; if (m.index > 0) node = x.splitText(m.index); if (m[0].length < node.nodeValue.length) node.splitText(m[0].length);
+      const b = document.createElement('bdi'); b.dir = 'ltr'; node.parentNode.insertBefore(b, node); b.appendChild(node);
+      if (b.nextSibling && b.nextSibling.nodeType === 3 && /[A-Za-z0-9]/.test(b.nextSibling.nodeValue)) hits.push(b.nextSibling);
+    }
+  };
   // Dữ liệu còn lưu emoji (nhiệm vụ, kế hoạch, thẻ chế độ…) → vẽ bằng icon Lucide; emoji lạ giữ nguyên. CHỈ dùng trong HTML (không dùng cho toast/title/thuộc tính).
   const EMI = { '🎧': 'headphones', '📰': 'newspaper', '✍': 'pen-line', '🗣': 'message-circle', '💬': 'message-circle', '🎙': 'mic', '⚡': 'zap', '🧠': 'brain', '🧩': 'puzzle', '📝': 'file-pen', '🎯': 'target', '🔥': 'flame', '✨': 'sparkles', '🔁': 'repeat', '📅': 'calendar', '📚': 'library', '📖': 'book-open', '🏅': 'medal', '🏆': 'trophy', '⏰': 'alarm-clock', '⏳': 'hourglass', '⏱': 'timer', '🌱': 'sprout', '📶': 'signal', '✅': 'circle-check', '📈': 'trending-up', '✉': 'mail', '📐': 'ruler', '🏛': 'landmark', '💼': 'briefcase', '📄': 'file-text', '🔤': 'a-large-small', '🖥': 'monitor', '💡': 'lightbulb', '🃏': 'layers', '⭐': 'star', '🔊': 'volume-2', '🎓': 'graduation-cap', '🧳': 'luggage', '📢': 'megaphone', '📌': 'pin', '🔑': 'key-round', '🧬': 'dna', '🧷': 'paperclip', '📴': 'wifi-off', '⬇': 'download', '❌': 'circle-x', '🔒': 'lock', '🔔': 'bell', '⚙': 'settings', '🌍': 'globe', '📊': 'chart-column', '🗺': 'map', '🏁': 'flag', '🎮': 'puzzle', '🐣': 'egg', '📗': 'book-marked', '🌋': 'mountain', '💎': 'gem', '🚀': 'rocket', '💯': 'badge-check', '🦉': 'moon', '🐦': 'bird', '🏹': 'crosshair', '🎖': 'medal', '👑': 'crown', '🔎': 'search', '🧰': 'briefcase', '🧭': 'compass', '📕': 'book-x', '✏': 'pencil', '🎭': 'smile', '🚩': 'flag' };
   const glyph = (e, cls) => { e = String(e == null ? '' : e); const n = /^[a-z][a-z0-9-]*$/.test(e) ? e : EMI[e.replace(/\uFE0F/g, '')]; return n ? icon(n, cls) : e; };
@@ -591,6 +613,7 @@
   };
   const paint = root => {
     if (!root || root.nodeType !== 1 || !document.getElementById('lk-sprite')) return;
+    rtlFix(root);
     if (root.matches(PAINT)) paintEl(root);
     root.querySelectorAll(PAINT).forEach(paintEl);
   };
