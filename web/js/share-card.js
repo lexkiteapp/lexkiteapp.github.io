@@ -144,6 +144,7 @@
   // ===== Vòng giới thiệu (docs/specs/referral.md): link mời /go/<lang>/?utm_source=ref&c=<mã> → bạn mới học xong bài đầu → cả hai nhận XP + 1 lượt đóng băng ($0, chỉ trong app) =====
   const LS = (() => { try { return localStorage; } catch (e) { return null; } })(), BASE = typeof location !== 'undefined' && /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : URL_;
   const code = () => { let c = LS && LS.getItem('lk.rc'); if (!c || !/^[a-z0-9]{8}$/.test(c)) { c = Array.from(crypto.getRandomValues(new Uint8Array(8)), x => 'abcdefghijklmnopqrstuvwxyz0123456789'[x % 36]).join(''); try { LS.setItem('lk.rc', c); } catch (e) { /* bỏ qua */ } } return c; };
+  const refQuery = m => `utm_source=ref&utm_medium=${m}&c=${code()}`; // cùng mã mời cho link thách đấu (play-blitz.js): bạn mở link → vid_attr nguồn 'ref' → thưởng + đo K như link mời
   const inviteLink = () => `${URL_}/go/${(g.I18N && I18N.lang && I18N.lang()) || 'en'}/?utm_source=ref&utm_medium=invite&c=${code()}`;
   async function invite() {
     const url = inviteLink(), text = T('Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}', { url });
@@ -168,5 +169,5 @@
     } catch (e) { /* bỏ qua */ }
   }
 
-  g.ShareCard = { open, render, stats, link, kindOf, refSync, inviteLink };
+  g.ShareCard = { open, render, stats, link, kindOf, refSync, inviteLink, refQuery };
 })(typeof self !== 'undefined' ? self : this);

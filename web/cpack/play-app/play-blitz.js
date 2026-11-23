@@ -148,11 +148,12 @@
       const gf = G ? G.score : 0, gbeat = G ? (S.score > gf ? t('Bạn đã thắng bóng ma! 🎉') : S.score === gf ? t('Hòa! Thử lại để vượt lên') : t('Còn thiếu {n} điểm – thử lại nhé', { n: gf - S.score })) : '';
       const beat = gbeat || (ch ? (S.score > ch.s ? t('Bạn đã thắng thách đấu! 🎉') : S.score === ch.s ? t('Hòa! Thử lại để vượt lên') : t('Còn thiếu {n} điểm – thử lại nhé', { n: ch.s - S.score })) : '');
       const again = () => run(H, src, query), challenge = async () => {
-        const url = location.origin + location.pathname + '#/practice/blitz?ch=' + encodeCh(items.map(w => w.word), S.score), text = t('Mình được {n} điểm trong Thử thách 60 giây trên Lexkite – bạn vượt được không?', { n: S.score });
+        const rq = g.ShareCard ? '?' + g.ShareCard.refQuery('challenge') : ''; // link mang mã mời: bạn thắng/thua thách đấu và học xong bài đầu → người thách được thưởng + tính vào hệ số K
+        const url = location.origin + location.pathname + rq + '#/practice/blitz?ch=' + encodeCh(items.map(w => w.word), S.score), text = t('Mình được {n} điểm trong Thử thách 60 giây trên Lexkite – bạn vượt được không?', { n: S.score });
         if (navigator.share) { try { await navigator.share({ title: 'Lexkite', text, url }); return; } catch (e) { /* hủy → chép link */ } }
         try { await navigator.clipboard.writeText(text + ' ' + url); toast(t('Đã chép link thách đấu')); } catch (e) { toast(url, 6000); }
       };
-      await App.need('gend').catch(() => {});
+      await App.need('gend').catch(() => {}); App.need('share').catch(() => {}); // gói share nạp sẵn: nút Thách đấu không phải chờ mạng (giữ thao tác người dùng cho navigator.share)
       if (location.hash === h0 && g.GameEnd) g.GameEnd.show(view, { icon: '⚡', chip: t('Thử thách 60 giây'), head: beat || (S.score > prev ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}', { best: prev })), acc: pct, xp,
         tiles: [[S.score, t('Điểm')], [S.right + '/' + S.n, t('Đúng')], [S.best, t('Combo tốt nhất')], [Math.max(prev, S.score), t('Kỷ lục')]],
         words: missed.map(w => w.word), more: missed.length ? g.GameEnd.row('edit_note', t('Từ cần ôn lại') + ':', missed.map(w => `<span lang="en">${esc(w.word)}</span> = ${esc(mean(w))}`).join(' · ')) : '',

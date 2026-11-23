@@ -67,5 +67,13 @@ a = app({ rc: 'qqqq1111', fetchN: 3, fetchFail: true }); await a.SC.refSync(); o
 const ls1 = { 'lk.rc': 'qqqq1111' }; const t1 = app({ ls: ls1, fetchN: 2 }), t2 = app({ ls: ls1, fetchN: 2 }); await Promise.all([t1.SC.refSync(), t2.SC.refSync()]);
 ok(t1.game.xp + t2.game.xp === 200 && ls1['lk.refPaid'] === '2', 'hai tab mở cùng lúc: thưởng đúng 1 lần (' + (t1.game.xp + t2.game.xp) + ' XP)');
 
+// 5) Link thách đấu (play-blitz.js) mang mã mời: refQuery khớp phép bắt UTM của app.js (utm_source=ref, c=<8 ký tự>), không lộ gì khác
+{ const q = new URLSearchParams(app({}).SC.refQuery('challenge'));
+  ok(q.get('utm_source') === 'ref' && q.get('utm_medium') === 'challenge' && /^[a-z0-9]{8}$/.test(q.get('c')) && [...q.keys()].length === 3, 'refQuery: chỉ utm_source=ref, utm_medium, mã 8 ký tự');
+  const blitz = fs.readFileSync('web/cpack/play-app/play-blitz.js', 'utf8');
+  ok(/g\.ShareCard \? '\?' \+ g\.ShareCard\.refQuery\('challenge'\)/.test(blitz) && /location\.pathname \+ rq \+ '#\/practice\/blitz\?ch='/.test(blitz), 'link thách đấu = origin + path + ?mã mời + #/practice/blitz?ch=…');
+  ok(/App\.need\('share'\)\.catch/.test(blitz) && !/await App\.need\('share'\)/.test(blitz), 'gói share nạp sẵn ở màn kết, KHÔNG await trong nút (giữ thao tác người dùng cho navigator.share)');
+  const ap = fs.readFileSync('web/js/app.js', 'utf8'); ok(/g\('utm_source', 's'\); g\('utm_medium', 'm'\)[^\n]*g\('c', 'k'\)/.test(ap), 'app.js bắt utm_source/medium + c từ location.search ở mọi trang (không chỉ /go)'); }
+
 if (errs.length) { console.error('✗ referral:\n' + errs.map(e => ' - ' + e).join('\n')); process.exit(1); }
 console.log(`✓ referral: ${n} kiểm, 0 lỗi`);
