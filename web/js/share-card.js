@@ -9,6 +9,7 @@
   const C = { teal: '#0F3D3E', teal2: '#17595A', coral: '#E5502F', orange: '#FFB054', gold: '#FFC94A', cream: '#FFF7EA', green: '#2FBF71' };
   const T = (k, v) => g.t(k, v);
   const ev = (a, k) => { try { navigator.sendBeacon('/api/hit', JSON.stringify({ t: 'q', ev: 'share_' + a + '_' + k })); } catch (e) { /* bỏ qua */ } }; // đếm ẩn danh: mở · gửi · tải · mời theo loại thẻ
+  const Game_B = () => (g.Game && g.Game.BADGES) || [];
   const XP_IN = 50, XP_OUT = 100; // thưởng: người được mời / người mời (mỗi bạn)
   // Liên kết đo được (docs/specs/funnel.md): trang đích /go/<ngôn ngữ>/ + UTM (nguồn share · phương tiện qr|link · chiến dịch = loại thẻ); không dữ liệu cá nhân
   const kindOf = S => (S.streak >= 3 ? 'streak' : S.acc ? 'result' : S.today >= S.goal ? 'goal' : 'day');
@@ -150,7 +151,9 @@
     try { await navigator.clipboard.writeText(text); g.UI.toast(T('Link mời đã được chép – dán gửi bạn nhé')); } catch (e) { g.UI.toast(url); }
   }
   // Thưởng trong app: XP + 1 lượt đóng băng (tối đa 2 – như chuỗi 7 ngày, js/core.js freezeInfo). Gọi 1 lần ~20 giây sau khi mở app, nếu máy có mã mời hoặc đến từ link mời; không thông báo đẩy.
-  const reward = (xp, fz) => g.Game.mutate(gs => { gs.xp = (gs.xp || 0) + xp; if (fz) gs.freezes = Math.min(2, (gs.freezes || 0) + 1); });
+  // Huy hiệu vòng mời: đăng ký lười ở đây (không vào game.js của khung đầu) – gói share nạp trên máy đã có mã mời (app.js) nên trang Huy hiệu thấy được
+  if (g.Game && Game_B().every(b => b.id !== 'friend1')) g.Game.BADGES.push({ id: 'friend1', icon: '🤝', get name() { return T('Người dẫn đường'); }, get desc() { return T('Mời được bạn học xong bài đầu'); }, test: s => (s.refs || 0) >= 1 });
+  const reward = (xp, fz, refs) => g.Game.mutate(gs => { gs.xp = (gs.xp || 0) + xp; if (fz) gs.freezes = Math.min(2, (gs.freezes || 0) + 1); if (refs) { gs.refs = (gs.refs || 0) + refs; (gs.badges = gs.badges || {}).friend1 = gs.badges.friend1 || Date.now(); } });
   async function refSync() {
     if (!LS || !g.Game || !g.UI) return;
     try { // người được mời: 1 lần/máy, không tự thưởng bằng link của chính mình
@@ -161,7 +164,7 @@
     try {
       const r = await fetch(BASE + '/api/ref?c=' + c); if (!r.ok) return;
       const n = Math.min(10, +(await r.json()).n || 0), paid = +LS.getItem('lk.refPaid') || 0;
-      if (n > paid) { LS.setItem('lk.refPaid', String(n)); await reward((n - paid) * XP_OUT, 1); g.UI.toast(T('🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi', { n: n - paid, xp: (n - paid) * XP_OUT })); }
+      if (n > paid) { LS.setItem('lk.refPaid', String(n)); await reward((n - paid) * XP_OUT, 1, n - paid); g.UI.toast(T('🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi', { n: n - paid, xp: (n - paid) * XP_OUT })); }
     } catch (e) { /* bỏ qua */ }
   }
 

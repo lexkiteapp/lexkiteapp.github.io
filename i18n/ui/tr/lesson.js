@@ -44,6 +44,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"Bir Lexkite dersini az önce bitirdim: %{a} doğru, +{x} XP",
 "Mẫu âm thanh":"Ses örneği",
 "Mẹo nhớ:":"Hatırlatma ipucu:",
+"Mời bạn học cùng – cả hai nhận quà":"Bir arkadaşını davet et – ikiniz de ödül kazanırsınız",
 "Mục tiêu {s}":"Hedef {s}",
 "Nghe chậm hơn":"Daha yavaş",
 "Nghe, chọn ảnh":"Dinle, resmi seç",

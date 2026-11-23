@@ -28,4 +28,15 @@ ok(r.spw > 0, 'phiên/người/tuần có số');
 ok(!/vid|uid|email/i.test(Object.keys(r).join()), 'không trả định danh');
 const sh = shape([{ plat: 'web', country: 'AA', n: 1, eng: 0, n1: 1, r1: 0, n7: 0, r7: 0, n30: 0, r30: 0 }, { plat: 'web', country: 'BB', n: 2, eng: 0, n1: 2, r1: 1, n7: 0, r7: 0, n30: 0, r30: 0 }], []);
 ok(sh.countries.length === 1 && sh.countries[0].k === 'other' && sh.countries[0].n === 3, 'nước < 5 người gộp vào other');
+// Hệ số K: 4 tuần trượt. Tuần 0 (7 ngày vừa qua): thêm 10 người mới thật, 2 trong số đó đến từ lời mời & xong bài đầu; 6 lượt bấm Mời.
+sql.exec("CREATE TABLE vid_attr (vid TEXT PRIMARY KEY, day TEXT NOT NULL, src TEXT, med TEXT, camp TEXT, code TEXT, lang TEXT, plat TEXT, fl TEXT, d1 TEXT, d7 TEXT)");
+for (let n = 0; n < 10; n++) { const v = 'knew' + String(n).padStart(8, '0'); S(v, VN(2), { p: 'web' }); if (n < 2) sql.prepare("INSERT INTO vid_attr (vid, day, src, code, fl) VALUES (?, ?, 'ref', 'abcd1234', ?)").run(v, VN(2), VN(1)); }
+S('botbotbot2', VN(2), { bot: 'ua' }); sql.prepare("INSERT INTO vid_attr (vid, day, src, fl) VALUES ('botbotbot2', ?, 'ref', ?)").run(VN(2), VN(2)); // bot trong cửa sổ: không tính
+sql.prepare("INSERT INTO ext_events VALUES (?, 'cta:share_inv_streak', 4), (?, 'cta:share_inv_day', 2), (?, 'cta:share_open_day', 9)").run(VN(3), VN(3), VN(3));
+const r2 = await retentionData(DB, 90, ['adminvid01'], NOW), k0 = r2.k && r2.k[0];
+ok(r2.k && r2.k.length === 4 && k0.w === 0, 'k: 4 tuần – ' + JSON.stringify(r2.k));
+ok(k0.newReal === 15 && k0.refDone === 2 && k0.invites === 6, 'k tuần 0: người mới thật, bạn được mời xong bài đầu (bot loại), lượt Mời (không đếm lượt mở) – ' + JSON.stringify(k0));
+ok(Math.abs(k0.k - 2 / (k0.newReal - 2)) < 0.001, 'K = refDone ÷ (người mới − refDone) – ' + k0.k);
+ok(r2.k[3].newReal === 0 && r2.k[3].k === null, 'tuần không có ai: K null, không chia 0');
+
 console.log(fails ? `FAIL ${fails}` : 'OK retention-admin'); process.exit(fails ? 1 : 0);

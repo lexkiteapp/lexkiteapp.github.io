@@ -29,7 +29,7 @@ import { landKey, normRef } from './_cpm.js';
 import { DDL as FUN_DDL, attrStmts, funStmt } from './_funnel.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 // Phễu lần đầu (docs/specs/retention-1211.md §22/11): Welcome → từng bước thiết lập → xong thiết lập → xong bài đầu → quay lại D1/D7 sau bài đầu (welcome.js, onboard.js, remind.js qua App.habTrack, 1 lượt/máy/ngày)
-const ONB_EV = ['onb_welcome', ...['lang', 'goal', 'level', 'target', 'pace', 'ready'].map(k => 'onb_s_' + k), 'onb_done', 'first_win', 'fw_d1', 'fw_d7'];
+const ONB_EV = ['onb_welcome', ...['lang', 'goal', 'level', 'target', 'pace', 'ready'].map(k => 'onb_s_' + k), 'onb_done', 'first_win', 'fw_s90', 'fw_s300', 'fw_slow', 'fw_d1', 'fw_d7'];
 const RET_EV = ['ret_on_seen', 'ret_off_seen', 'ret_on_d7', 'ret_off_d7']; // thử nghiệm cờ ret (web/js/app.js retTrack): nhóm bật/đối chứng – đã thấy / chuỗi chạm 7 → kind 'ret:<ev>' (D7 = d7/seen)
 const UX1_EV = ['on', 'off'].flatMap(a => ['seen', 'd1', 'd7'].map(e => `ux1_${a}_${e}`)); // thử nghiệm cờ ux1 (web/js/app.js ux1Track) → kind 'ux1:<ev>' (D1 = d1/seen, D7 = d7/seen)
 const HAB_EV = ['plan_seen', 'plan_start', 'plan_done', 'resume_seen', 'resume_click', ...ONB_EV]; // vòng thói quen trang chủ (web/js/plan.js App.habTrack, 1 lượt/máy/ngày/sự kiện) → kind 'hab:<ev>' – chỉ số đếm, không định danh

@@ -44,6 +44,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"لقد انتهيت للتو من درس Lexkite: {a}% صحيح، +{x} XP",
 "Mẫu âm thanh":"نموذج صوتي",
 "Mẹo nhớ:":"حيلة للتذكر:",
+"Mời bạn học cùng – cả hai nhận quà":"ادعُ صديقًا – ويحصل كلاكما على مكافأة",
 "Mục tiêu {s}":"الهدف {s}",
 "Nghe chậm hơn":"أبطأ",
 "Nghe, chọn ảnh":"استمع واختر الصورة",

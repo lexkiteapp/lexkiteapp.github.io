@@ -17,7 +17,7 @@ for (const f of ['web/js/welcome.js', 'web/js/onboard.js', 'web/js/remind.js']) 
 for (const e of used) if (!['plan_seen', 'plan_start', 'plan_done', 'resume_seen', 'resume_click'].includes(e)) ok(ONB.includes(e), `sự kiện ${e} có trong ONB_EV`);
 ok(/'onb_s_' \+ STEPS\[n\]/.test(rd('web/js/onboard.js')) && ['lang', 'goal', 'level', 'target', 'pace', 'ready'].every(k => ONB.includes('onb_s_' + k)), 'mọi bước thiết lập có sự kiện');
 ok(/setTimeout\(\(\) => document\.visibilityState === 'visible' && on\(\), 5e3\)/.test(rd('web/js/welcome.js')) && /'pointerdown', 'keydown', 'scroll'/.test(rd('web/js/welcome.js')), 'onb_welcome chỉ đếm khi có tương tác hoặc hiện ≥ 5 s');
-ok(['onb_welcome', 'onb_done', 'first_win', 'fw_d1', 'fw_d7'].every(e => ONB.includes(e)), 'đủ mốc phễu');
+ok(['onb_welcome', 'onb_done', 'first_win', 'fw_s90', 'fw_s300', 'fw_slow', 'fw_d1', 'fw_d7'].every(e => ONB.includes(e)), 'đủ mốc phễu');
 ok(rd('functions/api/config.js').includes("'rem_lsn'") && rd('functions/api/admin.js').includes("'rem_lsn'"), 'rem_lsn có trong PUBLIC_KEYS + CONFIG_KEYS');
 
 // 1b) Dòng "Ngày mai" ở màn kết bài học (lesson/ui.js finishV2): có công tắc khẩn ret_tmr, không hiện ở bài thử, đủ 15 ngôn ngữ
@@ -29,6 +29,12 @@ for (const k of ['Ngày mai ôn {n} từ để nhớ lâu', 'Ngày mai: bài ti�
   for (const l of rd('scripts/i18n-langs.txt').split('\n').map(x => x.trim()).filter(x => x && !x.startsWith('#'))) { const f = rd(`i18n/ui/${l}/lesson.js`), m2 = f.match(new RegExp(JSON.stringify(k).replace(/[{}]/g, '\\$&') + ':"([^"]*)"')); ok(m2 && (!k.includes('{n}') || m2[1].includes('{n}')), `${l} dịch "${k}" (giữ {n})`); }
 }
 
+// 1c) Vòng mời bạn ngay lúc thành công: dòng Mời ở màn kết bài (≥ 80 %, bỏ bài thử, công tắc inv_lsn) + huy hiệu Người dẫn đường khi bạn xong bài đầu
+{ const u = rd('web/js/lesson/ui.js'), sc = rd('web/js/share-card.js'), gm = rd('web/js/game.js');
+  ok(/!L\.demo && s\.accuracy >= 80 && !\/"inv_lsn":"0"\//.test(u) && /more: more \+ tmr \+ inv/.test(u), 'màn kết bài: dòng Mời chỉ khi ≥ 80 %, không bài thử, có công tắc inv_lsn');
+  ok(/data-share="\$\{s\.accuracy\}"/.test(u), 'dòng Mời dùng cơ chế data-share có sẵn (mở thẻ chia sẻ)');
+  ok(rd('functions/api/config.js').includes("'inv_lsn'") && rd('functions/api/admin.js').includes("'inv_lsn'"), 'inv_lsn có trong PUBLIC_KEYS + CONFIG_KEYS');
+  ok(!/friend1/.test(gm) && /id: 'friend1'[^\n]*\(s\.refs \|\| 0\) >= 1/.test(sc) && /gs\.refs = \(gs\.refs \|\| 0\) \+ refs/.test(sc), 'huy hiệu friend1 đăng ký lười ở share-card.js (0 byte vào game.js của khung đầu), refSync tặng khi bạn xong bài đầu (không thưởng tiền)'); }
 // 2) remind.js trong DOM giả
 const pad = n => String(n).padStart(2, '0'), key = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 const dayAgo = n => { const d = new Date(); d.setDate(d.getDate() - n); return key(d); };
@@ -62,6 +68,14 @@ const done = w => w.dispatchEvent(new w.CustomEvent('lexkite:lesson-done', { det
   view.innerHTML = '<div class="rev-done"></div>'; await tick();
   ok(sent.includes('first_win'), 'màn kết ôn thẻ → first_win');
   w.close();
+}
+{ // thời gian tới bài đầu: ≤ 90 s / ≤ 5 phút / chậm hơn; không có mốc Welcome (vào thẳng) → không gửi
+  for (const [ago, want] of [[60e3, 'fw_s90'], [200e3, 'fw_s300'], [900e3, 'fw_slow'], [0, '']]) {
+    const { w, sent } = await boot({ store: ago ? { 'lk.t0': Date.now() - ago } : {} });
+    done(w); await tick();
+    ok(want ? sent.includes(want) && sent.filter(e => /^fw_s/.test(e)).length === 1 : !sent.some(e => /^fw_s/.test(e)), `bài đầu sau ${ago / 1e3} s → ${want || 'không gửi mốc giây'} – ${sent}`);
+    w.close();
+  }
 }
 { // máy đã học từ trước bản này: không tính first_win
   const { w, sent } = await boot({ gameDays: { [dayAgo(3)]: { xp: 20 } } });

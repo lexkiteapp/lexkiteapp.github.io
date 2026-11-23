@@ -55,7 +55,7 @@
       mq.addEventListener('change', on); App.onCleanup(() => mq.removeEventListener('change', on)); }
     render();
     // phễu (hit.js ONB_EV): chỉ người thật – chạm/phím/cuộn hoặc trang hiện ≥ 5 s (lọc máy mở rồi đóng ngay)
-    if (App.habTrack) { const E = ['pointerdown', 'keydown', 'scroll'], on = () => { off(); App.habTrack('onb_welcome'); }, off = () => { clearTimeout(tm); E.forEach(e => removeEventListener(e, on, true)); }, tm = setTimeout(() => document.visibilityState === 'visible' && on(), 5e3);
+    if (App.habTrack) { const E = ['pointerdown', 'keydown', 'scroll'], on = () => { off(); App.habTrack('onb_welcome'); try { localStorage.getItem('lk.t0') || localStorage.setItem('lk.t0', Date.now()); } catch (e) { /**/ } }, off = () => { clearTimeout(tm); E.forEach(e => removeEventListener(e, on, true)); }, tm = setTimeout(() => document.visibilityState === 'visible' && on(), 5e3);
       E.forEach(e => addEventListener(e, on, { capture: true, passive: true })); App.onCleanup(off); }
   }
   g.Welcome = { draw };

@@ -10,6 +10,8 @@
 "Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"Lexkite로 영어를 무료로 배우고 있어요. 1분 수업을 해 보면 우리 둘 다 선물을 받아요! {url}",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Lexkite로 매일 영어 공부 중 🔥 무료로 배우기: {url}",
 "Mời bạn học cùng":"친구 초대하기",
+"Mời được bạn học xong bài đầu":"초대한 친구가 첫 레슨을 마쳤어요",
+"Người dẫn đường":"길잡이",
 "Não bạn đang ở chế độ nghỉ dưỡng":"뇌가 휴가 모드예요",
 "Story 9:16":"스토리 9:16",
 "Thẻ thành tích":"성과 카드",

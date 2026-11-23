@@ -33,14 +33,14 @@ ok((await call('?c=nope')).j.n === 0 && (await call('')).j.n === 0 && (await cal
 ok(!/(\bvid\b|v\d+)/.test(JSON.stringify(r1.j)), 'không lộ mã máy');
 
 // 3) App: refSync trong vm
-function app({ at, rc, paid, refIn, fetchN }) {
-  const ls = {}; if (at) ls['lk.at'] = JSON.stringify(at); if (rc) ls['lk.rc'] = rc; if (paid) ls['lk.refPaid'] = String(paid); if (refIn) ls['lk.refIn'] = '1';
+function app({ at, rc, paid, refIn, fetchN, fetchFail, ls: shared, badges }) {
+  const ls = shared || {}; if (at) ls['lk.at'] = JSON.stringify(at); if (rc) ls['lk.rc'] = rc; if (paid) ls['lk.refPaid'] = String(paid); if (refIn) ls['lk.refIn'] = '1';
   const game = { xp: 0, freezes: 0 }, toasts = [], fetched = [];
   const g = { document: { getElementById() {}, head: {}, body: {}, documentElement: {} }, location: { hostname: 'lexkite.com' }, I18N: { lang: () => 'en' }, t: (k, v) => k.replace(/\{(\w+)\}/g, (m, x) => v && v[x] != null ? v[x] : m),
-    Game: { ...gameRules(), mutate: async fn => { fn(game); } }, UI: { toast: m => toasts.push(m) }, navigator: {}, crypto: { getRandomValues: a => a.fill(7) },
-    localStorage: { getItem: k => (k in ls ? ls[k] : null), setItem: (k, x) => { ls[k] = String(x); } }, fetch: async u => { fetched.push(u); return { ok: true, json: async () => ({ n: fetchN || 0 }) }; } };
+    Game: { ...gameRules(), BADGES: badges || [], mutate: async fn => { fn(game); } }, UI: { toast: m => toasts.push(m) }, navigator: {}, crypto: { getRandomValues: a => a.fill(7) },
+    localStorage: { getItem: k => (k in ls ? ls[k] : null), setItem: (k, x) => { ls[k] = String(x); } }, fetch: async u => { fetched.push(u); if (fetchFail) throw new Error('offline'); return { ok: true, json: async () => ({ n: fetchN || 0 }) }; } };
   g.self = g; vm.createContext(g); vm.runInContext(fs.readFileSync('web/js/share-card.js', 'utf8'), g);
-  return { SC: g.ShareCard, ls, game, toasts, fetched };
+  return { SC: g.ShareCard, ls, game, toasts, fetched, G: g.Game };
 }
 let a = app({ at: { s: 'ref', k: 'abcd1234' } }); await a.SC.refSync();
 ok(a.game.xp === 50 && a.game.freezes === 1 && a.ls['lk.refIn'] === '1' && a.toasts.length === 1, 'người được mời nhận 50 XP + 1 đóng băng, 1 toast');
@@ -55,6 +55,17 @@ a = app({ rc: 'qqqq1111', fetchN: 99 }); await a.SC.refSync(); ok(a.game.xp === 
 a = app({ rc: 'qqqq1111' }); a.game.freezes = 2; await a.SC.refSync(); ok(a.game.freezes === 2 && a.fetched.length === 1 && a.game.xp === 0, 'đóng băng tối đa 2; n=0 → im lặng');
 const il = app({}).SC.inviteLink(); const u = new URL(il);
 ok(u.pathname === '/go/en/' && u.searchParams.get('utm_source') === 'ref' && /^[a-z0-9]{8}$/.test(u.searchParams.get('c')), 'link mời sai: ' + il);
+
+// 4) Huy hiệu "Người dẫn đường" (đăng ký lười trong share-card.js – không có trong game.js của khung đầu) + các trường hợp biên
+a = app({ rc: 'qqqq1111', fetchN: 2 }); await a.SC.refSync();
+ok(a.game.refs === 2 && a.game.badges && a.game.badges.friend1 > 0, 'người mời có bạn xong bài đầu → refs + huy hiệu friend1');
+const fb = a.G.BADGES.filter(b => b.id === 'friend1'); ok(fb.length === 1 && fb[0].test({ refs: 1 }) && !fb[0].test({ refs: 0 }) && !fb[0].test({}), 'friend1 đăng ký đúng 1 lần, test refs ≥ 1');
+const shared = []; a = app({ rc: 'qqqq1111', fetchN: 1, badges: shared }); vm.runInContext(fs.readFileSync('web/js/share-card.js', 'utf8'), vm.createContext(Object.assign({}, { Game: a.G, document: { getElementById() {}, head: {}, body: {}, documentElement: {} }, location: { hostname: 'lexkite.com' }, I18N: { lang: () => 'en' }, t: k => k, UI: {}, navigator: {}, localStorage: { getItem: () => null, setItem() {} }, crypto: { getRandomValues: x => x }, fetch: async () => ({ ok: false }) , self: {} })));
+ok(shared.filter(b => b.id === 'friend1').length === 1, 'nạp share-card.js hai lần (hai tab/gói) → huy hiệu vẫn 1 mục');
+a = app({ at: { s: 'ref', k: 'abcd1234' } }); await a.SC.refSync(); ok(!a.game.badges && !a.game.refs, 'người được mời không nhận huy hiệu người mời');
+a = app({ rc: 'qqqq1111', fetchN: 3, fetchFail: true }); await a.SC.refSync(); ok(a.game.xp === 0 && !a.game.badges && !a.ls['lk.refPaid'], 'offline: không thưởng, không ghi refPaid, không ném lỗi (thử lại lần mở sau)');
+const ls1 = { 'lk.rc': 'qqqq1111' }; const t1 = app({ ls: ls1, fetchN: 2 }), t2 = app({ ls: ls1, fetchN: 2 }); await Promise.all([t1.SC.refSync(), t2.SC.refSync()]);
+ok(t1.game.xp + t2.game.xp === 200 && ls1['lk.refPaid'] === '2', 'hai tab mở cùng lúc: thưởng đúng 1 lần (' + (t1.game.xp + t2.game.xp) + ' XP)');
 
 if (errs.length) { console.error('✗ referral:\n' + errs.map(e => ' - ' + e).join('\n')); process.exit(1); }
 console.log(`✓ referral: ${n} kiểm, 0 lỗi`);

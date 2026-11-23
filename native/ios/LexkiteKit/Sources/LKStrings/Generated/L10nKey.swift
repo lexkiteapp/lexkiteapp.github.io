@@ -214,6 +214,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case lessonTapToListen = "lesson.tapToListen"
     case lessonStreakNow = "lesson.streakNow"
     case lessonThisWeek = "lesson.thisWeek"
+    case lessonInviteFriend = "lesson.inviteFriend"
     case lessonTomorrowDue = "lesson.tomorrowDue"
     case lessonTomorrowNext = "lesson.tomorrowNext"
     case lessonBestCombo = "lesson.bestCombo"

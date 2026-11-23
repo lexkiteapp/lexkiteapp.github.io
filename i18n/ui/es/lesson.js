@@ -44,6 +44,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"Acabo de terminar una lección de Lexkite: {a}% correcto, +{x} XP",
 "Mẫu âm thanh":"Audio de ejemplo",
 "Mẹo nhớ:":"Truco para recordar:",
+"Mời bạn học cùng – cả hai nhận quà":"Invita a un amigo: los dos reciben un premio",
 "Mục tiêu {s}":"Meta {s}",
 "Nghe chậm hơn":"Más despacio",
 "Nghe, chọn ảnh":"Escucha y elige la imagen",

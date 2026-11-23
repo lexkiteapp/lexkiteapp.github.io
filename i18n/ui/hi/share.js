@@ -10,6 +10,8 @@
 "Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"मैं Lexkite पर मुफ़्त अंग्रेज़ी सीख रहा/रही हूँ। 1 मिनट का पाठ आज़माओ – हम दोनों को तोहफ़ा मिलेगा! {url}",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"मैं Lexkite के साथ रोज़ अंग्रेज़ी सीख रहा हूँ 🔥 मुफ़्त में सीखें: {url}",
 "Mời bạn học cùng":"दोस्त को बुलाएँ",
+"Mời được bạn học xong bài đầu":"आपके बुलाए दोस्त ने पहला पाठ पूरा कर लिया",
+"Người dẫn đường":"मार्गदर्शक",
 "Não bạn đang ở chế độ nghỉ dưỡng":"आपका दिमाग छुट्टी मोड में है",
 "Story 9:16":"स्टोरी 9:16",
 "Thẻ thành tích":"उपलब्धि कार्ड",

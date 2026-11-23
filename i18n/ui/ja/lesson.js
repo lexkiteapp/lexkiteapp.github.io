@@ -44,6 +44,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"Lexkite レッスンを終了しました: {a}% 正解、+{x} XP",
 "Mẫu âm thanh":"音声サンプル",
 "Mẹo nhớ:":"覚え方：",
+"Mời bạn học cùng – cả hai nhận quà":"友だちを招待：二人ともごほうびがもらえます",
 "Mục tiêu {s}":"目標 {s}",
 "Nghe chậm hơn":"ゆっくり再生",
 "Nghe, chọn ảnh":"聞いて絵を選ぼう",

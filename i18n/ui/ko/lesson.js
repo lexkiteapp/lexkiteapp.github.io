@@ -44,6 +44,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"방금 Lexkite 수업을 마쳤습니다: {a}% 정답, +{x} XP",
 "Mẫu âm thanh":"오디오 샘플",
 "Mẹo nhớ:":"기억 팁:",
+"Mời bạn học cùng – cả hai nhận quà":"친구 초대 – 둘 다 보상을 받아요",
 "Mục tiêu {s}":"목표 {s}",
 "Nghe chậm hơn":"천천히 듣기",
 "Nghe, chọn ảnh":"듣고 그림 고르기",

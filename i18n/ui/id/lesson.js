@@ -44,6 +44,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"Saya baru saja menyelesaikan pelajaran Lexkite: {a}% benar, +{x} XP",
 "Mẫu âm thanh":"Contoh audio",
 "Mẹo nhớ:":"Tips mengingat:",
+"Mời bạn học cùng – cả hai nhận quà":"Ajak teman – kalian berdua dapat hadiah",
 "Mục tiêu {s}":"Target {s}",
 "Nghe chậm hơn":"Lebih pelan",
 "Nghe, chọn ảnh":"Dengar, pilih gambar",

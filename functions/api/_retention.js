@@ -30,6 +30,18 @@ export function shape(rows, weekly) {
   return { total, plats: group('plat').map(x => ({ ...x, spw: wk[x.k] && wk[x.k].uw ? Math.round(wk[x.k].s / wk[x.k].uw * 100) / 100 : null })), countries: group('country'), spw: wAll.uw ? Math.round(wAll.s / wAll.uw * 100) / 100 : null };
 }
 
+/** Hệ số lan truyền K theo tuần trượt (4 tuần gần nhất, w0 = 7 ngày vừa qua; docs/GROWTH-1M.md §4):
+ *  K = bạn được mời xong bài đầu ÷ người mới KHÔNG đến từ lời mời (cùng tuần) – mỗi người mới "đẻ" ra bao nhiêu người mới nhờ mời bạn.
+ *  newReal = máy mới thật (phiên đầu ret = 0, bot/quản trị loại); refDone = vid_attr nguồn 'ref' có fl (xong bài đầu) trong tuần; invites = lượt bấm Mời (ext_events 'cta:share_inv_*'). Chỉ số đếm, không định danh. */
+export async function kData(db, H, d, now) {
+  const wk = col => `CAST((julianday(?1) - julianday(${col})) / 7 AS INT)`, from = d(27), by = {};
+  const put = (r, f) => { for (const x of r) if (x.w >= 0 && x.w < 4) (by[x.w] || (by[x.w] = { w: x.w, newReal: 0, refDone: 0, invites: 0 }))[f] = x.n || 0; };
+  put(await all(db, `SELECT ${wk('day')} AS w, COUNT(*) AS n FROM (SELECT vid, MIN(day) AS day FROM sessions WHERE ${H} AND ret = 0 AND day >= ?2 GROUP BY vid) GROUP BY w`, dayStr(now), from), 'newReal');
+  put(await all(db, `SELECT ${wk('fl')} AS w, COUNT(*) AS n FROM vid_attr WHERE src = 'ref' AND fl >= ?2 AND vid NOT IN (SELECT vid FROM sessions WHERE bot IS NOT NULL AND day >= ?2) GROUP BY w`, dayStr(now), from).catch(() => []), 'refDone');
+  put(await all(db, `SELECT ${wk('day')} AS w, SUM(n) AS n FROM ext_events WHERE kind LIKE 'cta:share_inv_%' AND day >= ?2 GROUP BY w`, dayStr(now), from).catch(() => []), 'invites');
+  return [0, 1, 2, 3].map(w => { const x = by[w] || { w, newReal: 0, refDone: 0, invites: 0 }, base = x.newReal - x.refDone; return { ...x, k: base > 0 ? Math.round(x.refDone / base * 1000) / 1000 : null }; });
+}
+
 /** P = số ngày nhóm bắt đầu cần nhìn lại (30/90) */
 export async function retentionData(db, P, adminVids = [], now = Date.now()) {
   const today = dayStr(now), d = k => dayStr(now - k * DAY), from = d(P - 1), wk0 = d(27);
@@ -46,5 +58,5 @@ export async function retentionData(db, P, adminVids = [], now = Date.now()) {
   const weekly = await all(db, `SELECT COALESCE(NULLIF(plat, ''), 'web') AS plat, COUNT(*) AS s, COUNT(DISTINCT vid || '|' || strftime('%Y-%W', day)) AS uw FROM sessions WHERE ${H} AND day >= ?1 GROUP BY 1`, wk0);
   // Vòng thói quen trang chủ 7 ngày (máy·ngày): thấy kế hoạch → bấm bắt đầu → xong; thấy/bấm "tiếp tục" (hit.js HAB_EV)
   const hab = {}; for (const r of await all(db, "SELECT kind, SUM(n) AS n FROM ext_events WHERE day >= ?1 AND kind >= 'hab:' AND kind < 'hab;' GROUP BY kind", d(6)).catch(() => [])) hab[String(r.kind).slice(4)] = r.n || 0;
-  return { at: now, today, days: P, hab, ...shape(rows, weekly) };
+  return { at: now, today, days: P, hab, k: await kData(db, H, d, now), ...shape(rows, weekly) };
 }

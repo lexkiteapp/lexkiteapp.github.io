@@ -10,6 +10,8 @@
 "Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"أتعلّم الإنجليزية مجانًا مع Lexkite. جرّب درسًا مدته دقيقة – وكلانا يحصل على هدية! {url}",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"أتعلم الإنجليزية كل يوم مع Lexkite 🔥 تعلّم مجانًا على {url}",
 "Mời bạn học cùng":"ادعُ صديقًا",
+"Mời được bạn học xong bài đầu":"أنهى صديق دعوته درسه الأول",
+"Người dẫn đường":"الدليل",
 "Não bạn đang ở chế độ nghỉ dưỡng":"عقلك في وضع الإجازة",
 "Story 9:16":"قصة 9:16",
 "Thẻ thành tích":"بطاقة الإنجاز",

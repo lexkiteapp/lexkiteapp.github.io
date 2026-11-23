@@ -17,6 +17,8 @@
 "Tải ảnh": "Save image",
 "Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé": "Image saved – link copied, paste it into your post",
   'Mời bạn học cùng': 'Invite a friend',
+  'Người dẫn đường': 'Trailblazer',
+  'Mời được bạn học xong bài đầu': 'A friend you invited finished their first lesson',
   'Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu': 'You and your friend both get +{xp} XP and 1 streak freeze when they finish their first lesson',
   'Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}': 'I\'m learning English for free with Lexkite. Try a 1-minute lesson – we both get a gift! {url}',
   'Link mời đã được chép – dán gửi bạn nhé': 'Invite link copied – paste it to a friend',

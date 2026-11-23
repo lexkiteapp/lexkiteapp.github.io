@@ -10,6 +10,8 @@
 "Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"Aku belajar bahasa Inggris gratis dengan Lexkite. Coba pelajaran 1 menit – kita sama-sama dapat hadiah! {url}",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Aku belajar bahasa Inggris setiap hari dengan Lexkite 🔥 Belajar gratis di {url}",
 "Mời bạn học cùng":"Undang teman",
+"Mời được bạn học xong bài đầu":"Teman yang Anda ajak menyelesaikan pelajaran pertamanya",
+"Người dẫn đường":"Perintis",
 "Não bạn đang ở chế độ nghỉ dưỡng":"Otakmu sedang mode liburan",
 "Story 9:16":"Story 9:16",
 "Thẻ thành tích":"Kartu pencapaian",
