@@ -672,6 +672,13 @@
    "note": "Band 5 to 9 (docs/specs/band-upgrade.md), 20/11: no banked clip with QC>=90 yet (bank.json) - the coordinator flips this to approved when the first short + wide pass every qc.py gate"
   },
   {
+   "id": "slang",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "Slang Card 7-12 s (docs/SAY-NATIVE.md, owner 22/11), bank content/say-native/slang.json: no banked clip with QC>=90 yet - flips to approved when the 3 pilots (short + wide) pass every qc.py gate"
+  },
+  {
    "id": "rule",
    "engine": "teach2d",
    "status": "approved",

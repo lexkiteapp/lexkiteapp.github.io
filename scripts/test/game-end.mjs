@@ -1,4 +1,4 @@
-// 🏁 Màn kết mini-game chung (web/js/game-end.js, docs/specs/game-system.md P3) trên khung Stitch lesson-complete thật:
+// 🏁 Màn kết mini-game chung (web/cpack/game/game-end.js, docs/specs/game-system.md P3) trên khung Stitch lesson-complete thật:
 // ô số chỉ hiện số thật, nút Chơi lại / Chế độ khác / chia sẻ (chỉ khi có), chấm tuần 7 ngày, khe .celebrate cho path-reward,
 // Sfx.finish gọi một lần đúng ngưỡng; 4 màn (blitz, nhịp, ghép thẻ, nói từ) đều dùng GameEnd – không còn thẻ .celebrate cũ.
 import fs from 'node:fs';

@@ -819,6 +819,8 @@
 "Đã thêm {n} cụm vào sổ":"Adicionadas {n} frases ao seu livro",
 "Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.":"Adicionamos {n} palavras do seu nível {cefr} ao seu baralho.",
 "Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ":"{n} palavras em português adicionadas à sua lista de palavras",
+"Đã thêm {n} từ tiếng Hàn vào Sổ từ":"{n} palavras em coreano adicionadas à sua lista de palavras",
+"Đã thêm {n} từ tiếng Nhật vào Sổ từ":"{n} palavras em japonês adicionadas à sua lista de palavras",
 "Đã thêm {n} từ tiếng Pháp vào Sổ từ":"{n} palavras em francês adicionadas à sua lista de palavras",
 "Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ":"{n} palavras em espanhol adicionadas à sua lista de palavras",
 "Đã tạo bộ “{d}” với {n} thẻ":"Criou o baralho “{d}” com {n} cartas",
