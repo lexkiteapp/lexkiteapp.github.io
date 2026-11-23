@@ -46,6 +46,7 @@
     const teacher = self.Chars ? Chars.slot('ama', { pose: 'point', size: 'm', lazy: false, hip: true }) : '';
     ST2.mount(App.view, 'skills', { title: t('Kỹ năng'), exam: `${X.short} · ${t('Đổi')}`, examAria: t('Đổi kỳ thi: {x}', { x: X.short }), teacher, offHtml, offText: '', rows, more,
       next: { name, why, cta: t('Bắt đầu'), href: itemsFor(nx.k, ex)[0][0], aria: t('Bắt đầu luyện {x}', { x: name }) } }, 'skills');
+    { const ts = App.view.querySelector('.tslot'); if (ts && ts.parentElement) ts.parentElement.style.overflow = 'visible'; } // khung 116px không cắt tay giáo viên (tslot-fig lố ±0,25h); hông vẫn che bởi bệ của tslot
   };
   if (typeof self !== 'undefined') Object.assign(self.SkillsHub = self.SkillsHub || {}, { pickNext, rowOf, noteOf, whyOf });
 })();
