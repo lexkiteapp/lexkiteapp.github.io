@@ -13,6 +13,8 @@ import { fileURLToPath } from 'node:url';
 import { isZombie } from './zombie.mjs';
 import { retry5xx } from '../lib/retry5xx.mjs';
 import { workflowMatches, readsAny, skipsOnPr } from './gate-relevance.mjs';
+import { dispatchOnce } from './dispatch-once.mjs';
+import { CONTEXT as RECHECK_CONTEXT, recheckVerdict } from './cheap.mjs';
 import { retestPlan, verdict as retestVerdict, tagOf, CONTEXT as RETEST_CONTEXT, WORKFLOW as RETEST_WORKFLOW } from './gate-retest.mjs';
 
 export const CONTEXT = 'required-gate';            // tên commit status (thứ ruleset sẽ yêu cầu)
@@ -63,7 +65,7 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   // commit status: mới nhất theo context, bỏ chính mình
   const st = new Map();
   for (const s of statuses) {
-    if (s.context === CONTEXT || s.context === RETEST_CONTEXT) continue;   // gate-retest (kết quả chạy lại test cổng) do phần drift xử lý, không phải check của PR
+    if (s.context === CONTEXT || s.context === RETEST_CONTEXT || s.context === RECHECK_CONTEXT) continue;   // gate-retest (kết quả chạy lại test cổng) do phần drift xử lý, không phải check của PR
     const prev = st.get(s.context);
     if (!prev || String(s.updated_at || s.created_at || '') > String(prev.updated_at || prev.created_at || '') || (!s.updated_at && (s.id || 0) > (prev.id || 0))) st.set(s.context, s);
   }
@@ -281,12 +283,29 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
       }
       return { wait: true, note };
     },
+    // merge-recheck (máy gác 2/4): trả {} = đạt/không áp dụng · { wait, note } = đang đo · { fail, note } = ghép main làm đỏ check rẻ. Chỉ PR cùng repo.
+    recheck: async sha => {
+      const prs = await call(`/commits/${sha}/pulls`); if (!(prs || []).some(p => p.head && p.head.sha === sha && p.head.repo && p.head.repo.full_name === repo)) return {};
+      const main = (await call('/branches/main')).commit.sha, st = ((await call(`/commits/${sha}/status?per_page=100`)).statuses || []).find(x => x.context === RECHECK_CONTEXT);
+      const m = st && /main@([0-9a-f]{8})/.exec(st.description || ''), ahead = m ? ((await call(`/compare/${m[1]}...${main}`).catch(() => null)) || {}).ahead_by ?? null : null;
+      const v = recheckVerdict(st, ahead);
+      if (v === 'clear') return {};
+      if (v === 'fail') return { fail: true, note: st.description };
+      const note = `Chờ kiểm check rẻ trên PR ghép main@${tagOf(main)} (merge-recheck)`;
+      const runs = ((await call('/actions/workflows/merge-recheck.yml/runs?per_page=30')).workflow_runs || []).filter(r => String(r.display_title || '').includes(sha));
+      if (!(runs.some(r => r.status !== 'completed' || Date.now() - new Date(r.created_at) < 15 * 60e3))) {
+        await call('/actions/workflows/merge-recheck.yml/dispatches', { method: 'POST', body: JSON.stringify({ ref: 'main', inputs: { sha, main } }) });
+        await call(`/statuses/${sha}`, { method: 'POST', body: JSON.stringify({ state: 'pending', context: RECHECK_CONTEXT, description: `main@${tagOf(main)}: đang đo check rẻ khi ghép main` }) });
+      }
+      return { wait: true, note };
+    },
     pr: n => call(`/pulls/${n}`),
     openPrs: () => pages('/pulls?state=open&sort=updated&direction=desc', null, 2),
     // tự nối (3/11): cron GitHub có lúc bỏ lượt hàng giờ (02/11: ci-triage + free-tier-guard 13 giờ) → bộ canh tự xếp lượt kế tiếp
     dispatchRuns: async () => (await call(`/actions/workflows/${path.basename(SELF_PATH)}/runs?event=workflow_dispatch&per_page=5`)).workflow_runs || [],
     lastRun: async file => ((await call(`/actions/workflows/${file}/runs?per_page=1`)).workflow_runs || [])[0] || null,
-    dispatchFile: async (file, ref) => call(`/actions/workflows/${file}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
+    // 23/11: nhịp PACED không dispatch khi cùng workflow + ref đang chờ/chạy (dispatch-once.mjs)
+    dispatchFile: async (file, ref) => dispatchOnce({ runs: async f => (await Promise.all(['queued', 'in_progress'].map(async s => (await call(`/actions/workflows/${f}/runs?status=${s}&per_page=20`)).workflow_runs || []))).flat(), dispatch: (f, r) => call(`/actions/workflows/${f}/dispatches`, { method: 'POST', body: JSON.stringify({ ref: r }) }) }, file, ref),
     dispatchSelf: async ref => call(`/actions/workflows/${path.basename(SELF_PATH)}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
     // thăm dò nhẹ cho sha đang pending: 1 trang check-runs (ETag → 304 không trừ hạn mức)
     probe: async sha => probeOf((await call(`/commits/${sha}/check-runs?filter=latest&per_page=100`)).check_runs || []),
@@ -299,7 +318,7 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
 export const CHAIN_CHECK_MS = 90e3, CHAIN_RETRIES = 2;
 /** Lượt nối dispatch từ `since` đã sống chưa (thuần). */
 export const chainAlive = (runs, since) => runs.some(r => Date.parse(r.created_at) >= since - 30e3 && r.status !== 'queued');
-export const PACED = { 'ci-filler.yml': 10, 'd1-usage-watch.yml': 20 };
+export const PACED = { 'ci-filler.yml': 10, 'd1-usage-watch.yml': 20, 'main-red-retry.yml': 10 };
 /** Tới nhịp chưa (thuần): không có lượt đang chờ/chạy thật và lượt cuối đã quá khoảng lịch. */
 export const paceDue = (last, gapMin, now) => !last || (last.status === 'completed' || isZombie(last, now)) && now - Date.parse(last.created_at) >= gapMin * 6e4;
 /** Chạy lại các lượt workflow bị huỷ (res.cancelled); mỗi runId:attempt chỉ 1 lần mỗi lượt canh. */
@@ -314,7 +333,15 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
   const dry = argv.includes('--dry'), url = env.RUN_URL || '';
   A = A || api(env.GITHUB_TOKEN, env.GITHUB_REPOSITORY);
   const reran = new Set();
-  const withDrift = async (res, sha) => {
+  // máy gác 2/4 (23/11): gate xanh còn phải qua check rẻ (size/docs/content-qa/fmt) trên PR GHÉP với main hiện tại (merge-recheck.yml) – hai PR riêng xanh, ghép vượt ngân sách.
+  const withRecheck = async (res, sha) => {
+    if (res.state !== 'success' || !A.recheck) return res;
+    try { const k = await A.recheck(sha); if (k.wait) return { ...res, state: 'pending', description: String(k.note).slice(0, 140) }; if (k.fail) return { ...res, state: 'failure', description: String(k.note).slice(0, 140) }; }
+    catch (e) { log('::warning::merge-recheck lỗi (mở cổng, kiểm lại khi gộp): ' + e.message); }
+    return res;
+  };
+  const withDrift = async (res, sha) => withRecheck(await withDrift0(res, sha), sha);
+  const withDrift0 = async (res, sha) => {
     if (res.state !== 'success') return res;
     if (A.prGateFiles && !inMergeWindow(clock.now())) { try { const w = applyWindow(res, await A.prGateFiles(sha), clock.now(), A.prLabels ? await A.prLabels(sha).catch(() => []) : []); if (w.window) return w; } catch (e) { log('::warning::đo tệp cổng của PR lỗi (mở cổng): ' + e.message); } }
     if (!A.drift) return res;

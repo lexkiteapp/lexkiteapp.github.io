@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import { execSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { isZombie } from './zombie.mjs';
+import { dispatchOnce, fillerAllowed, yieldsToPr, queueAlert, YIELD_LABELS } from './dispatch-once.mjs';
 import { retry5xx } from '../lib/retry5xx.mjs';
 
 export const SAMPLE_MIN = 10, LOG_BRANCH = 'ci-stats', LOG_FILE = 'util.tsv', KEEP_LINES = 288;
@@ -100,7 +101,8 @@ export async function measure() {
   const jobsByRun = [];
   for (const r of uniq.filter(r => r.status === 'in_progress' || r.status === 'queued')) jobsByRun.push({ event: r.event, jobs: ((await gh(`/actions/runs/${r.id}/jobs?filter=latest&per_page=100`)) || {}).jobs || [] });
   const now = Date.now();
-  return { ...countJobs(jobsByRun), queuedRuns: uniq.filter(r => r.status === 'queued' && !isZombie(r, now)).length, active: activeWorkflows(uniq) };
+  const nums = new Set(); for (const l of YIELD_LABELS) for (const i of ((await gh(`/issues?state=open&labels=${l}&per_page=50`)) || [])) if (i.pull_request) nums.add(i.number);
+  return { ...countJobs(jobsByRun), queuedRuns: uniq.filter(r => r.status === 'queued' && !isZombie(r, now)).length, active: activeWorkflows(uniq), yielding: nums.size > 0 && yieldsToPr(uniq, nums) };
 }
 /** Cùng sha main và lượt gần nhất đã xanh → chạy lại chỉ tốn runner (thuần). */
 export const sameShaDone = (run, sha) => !!run && !!sha && run.head_sha === sha && run.conclusion === 'success';
@@ -135,9 +137,10 @@ const output = (k, v) => { if (process.env.GITHUB_OUTPUT) fs.appendFileSync(proc
 async function main(mode) {
   const reg = loadRegistry(), lim = { total: reg.total_runners, reserve: reg.reserve };
   if (mode === 'report') return summary(report(await readLog()).md);
-  const m = await measure(), free = capacity(m, lim), ts = new Date().toISOString().slice(0, 16) + 'Z';
+  const m = await measure(), free = fillerAllowed(m.busy) && !m.yielding ? capacity(m, lim) : 0,   /* 23/11: chỉ chạy khi < 24 job đang chạy; nhường PR nhãn main-red-fix/ui */ ts = new Date().toISOString().slice(0, 16) + 'Z';
+  const alert = queueAlert({ running: m.busy, queued: m.queued }); if (alert) console.log('::warning::ci-filler: ' + alert);
   const entries = reg.entries.filter(eligible), running = entries.filter(e => isActive(e, m.active)).length;
-  const head = `busy ${m.busy}/${lim.total} · queued ${m.queued} (lượt chờ ${m.queuedRuns}, đói ${m.starved}, check PR chờ ${m.prQueued}) · chỗ cho việc nền ${free} · mục đang chạy ${running}`;
+  const head = `${alert ? '⚠ ' + alert + '\n' : ''}${m.yielding ? 'nhường PR main-red-fix/ui · ' : ''}busy ${m.busy}/${lim.total} · queued ${m.queued} (lượt chờ ${m.queuedRuns}, đói ${m.starved}, check PR chờ ${m.prQueued}) · chỗ cho việc nền ${free} · mục đang chạy ${running}`;
   const stale = {}; // dò stale bằng API (không cần checkout)
   for (const e of entries.filter(e => e.probe.stale_hours && !isActive(e, m.active))) stale[e.id] = await staleLeft(e).catch(() => null);
   const needCmd = entries.some(e => e.probe.cmd && !isActive(e, m.active));
@@ -151,7 +154,10 @@ async function main(mode) {
   let dispatched = 0;
   for (const s of steps.filter(s => s.act === 'dispatch')) {
     const e = reg.entries.find(x => x.id === s.id);
-    try { await gh(`/actions/workflows/${e.workflow}/dispatches`, { method: 'POST', body: { ref: 'main', inputs: s.inputs } }); dispatched += s.n; }
+    try {
+      const r = await dispatchOnce({ runs: async f => [...(((await gh(`/actions/workflows/${f}/runs?status=queued&per_page=20`)) || {}).workflow_runs || []), ...(((await gh(`/actions/workflows/${f}/runs?status=in_progress&per_page=20`)) || {}).workflow_runs || [])], dispatch: (f, ref, inputs) => gh(`/actions/workflows/${f}/dispatches`, { method: 'POST', body: { ref, inputs } }) }, e.workflow, 'main', s.inputs);
+      if (r.sent) dispatched += s.n; else { s.act = 'skip'; s.why = r.why; }
+    }
     catch (err) { s.act = 'error'; s.why = err.message.slice(0, 160); }
   }
   await appendLog(logLine({ ts, busy: m.busy, queued: m.queued, dispatched, backlog: steps.filter(s => s.backlog).length }, lim)).catch(e => console.log(`::warning::log: ${e.message}`));
