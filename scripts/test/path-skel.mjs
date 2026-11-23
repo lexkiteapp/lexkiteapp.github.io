@@ -23,6 +23,8 @@ for (const l of LANGS) { const d = run(l), ds = d.querySelectorAll('#lkPath deta
     if (!d.querySelector('#lkPath .pl-h')?.textContent.trim() || !go || !d.querySelector('#lkPath p b') || !d.getElementById('lkPlCss')) bad.push(`pl-${l}: thiếu tiêu đề/nút/đoạn mô tả/style`);
     if (l !== 'vi' && /Kiểm tra|Bắt đầu/.test(d.getElementById('view').textContent)) bad.push(`pl-${l}: chữ chưa dịch`);
     if (go) { go.click(); if (!w.__lkPlGo || !go.disabled) bad.push(`pl-${l}: bấm Bắt đầu phải đặt __lkPlGo + khoá nút`); } }
+  { const w = new jsdom.JSDOM('<body><main id="view"><div class="study-top lk-exitbar" data-lkph>x</div></main></body>', { url: 'http://localhost/app/#/placement', runScripts: 'outside-only', pretendToBeVisual: true }).window; w.eval(SK['pl-en.js']); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    if (!w.document.getElementById('lkPath') || w.document.querySelector('[data-lkph]')) bad.push('placement: khung phải thay khung chờ thoát (data-lkph) của script đầu trang (#/placement là màn tập trung)'); }
   if (!/__lkPlGo\) \{ window\.__lkPlGo = 0; \$\('#go'\)\.click\(\)/.test(src)) bad.push('placement.js phải tự bấm Bắt đầu khi __lkPlGo'); }
 const html = rd('web/app/index.html'), m = html.match(/<script>\/\* #\/path \(và #\/placement\) mở thẳng[\s\S]*?<\/script>/);
 if (!m) bad.push('index.html thiếu script nạp khung #/path'); else {
