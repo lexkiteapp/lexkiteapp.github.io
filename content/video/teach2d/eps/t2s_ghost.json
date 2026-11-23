@@ -1,0 +1,138 @@
+{
+ "id": "t2s_ghost",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 194,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three texts. No answer. Why?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Ghost!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly stop replying to someone.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He ghosted our group chat last week.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "ghost",
+  "forms": [
+   "ghosted",
+   "ghosting"
+  ],
+  "ipa": "/ɡoʊst/",
+  "mean": "Suddenly stop replying to someone.",
+  "define": "To end contact with a person without any explanation.",
+  "vi": "Biến mất, bơ tin nhắn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "Talking about a friend's chat",
+   "text": "He ghosted our group chat last week."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Ghost\" someone means to…",
+   "options": [
+    "scare them",
+    "stop replying"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'ghosted' about a friend who's sick.",
+   "why": "It blames them for silence."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three texts. No answer. Why?"
+ },
+ "src": {
+  "slang": "ghost"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"ghost\" mean?",
+  "keyword": "ghost",
+  "value": "Ghost = Suddenly stop replying to someone. Example: \"He ghosted our group chat last week.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"ghost\" mean?",
+    "description": "Ghost = Suddenly stop replying to someone. Example: \"He ghosted our group chat last week.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "ghost",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"ghost\" mean?\n\nGhost = Suddenly stop replying to someone. Example: \"He ghosted our group chat last week.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"ghost\" mean?\n\nGhost = Suddenly stop replying to someone. Example: \"He ghosted our group chat last week.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"ghost\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'ghosted' about a friend who's sick. It blames them for silence. Real example: \"He ghosted our group chat last week.\" More real English slang, free: {link}"
+ }
+}

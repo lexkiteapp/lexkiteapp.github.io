@@ -1,0 +1,137 @@
+{
+ "id": "t2s_vibing",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 291,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Music on, no plans, happy!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Vibing!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Enjoying the moment.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We're just vibing to music today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "vibing",
+  "forms": [
+   "vibe"
+  ],
+  "ipa": "/ˈvaɪbɪŋ/",
+  "mean": "Enjoying the moment.",
+  "define": "Relaxing and enjoying the mood or music.",
+  "vi": "Đang thả hồn",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "Chatting about weekend",
+   "text": "We're just vibing to music today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Vibing\" means…",
+   "options": [
+    "fighting",
+    "enjoying the mood"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'vibing' about a vibrating phone.",
+   "why": "It means enjoying a relaxed mood."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Music on, no plans, happy!"
+ },
+ "src": {
+  "slang": "vibing"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"vibing\" mean?",
+  "keyword": "vibing",
+  "value": "Vibing = Enjoying the moment. Example: \"We're just vibing to music today.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"vibing\" mean?",
+    "description": "Vibing = Enjoying the moment. Example: \"We're just vibing to music today.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "vibing",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"vibing\" mean?\n\nVibing = Enjoying the moment. Example: \"We're just vibing to music today.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"vibing\" mean?\n\nVibing = Enjoying the moment. Example: \"We're just vibing to music today.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"vibing\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'vibing' about a vibrating phone. It means enjoying a relaxed mood. Real example: \"We're just vibing to music today.\" More real English slang, free: {link}"
+ }
+}

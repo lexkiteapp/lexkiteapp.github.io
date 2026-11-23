@@ -140,6 +140,7 @@ ok(!$$('.pl-wrap .option').some(b => /picked|right|wrong/.test(b.className) || b
 const prog = () => ($('.study-top .small') || {}).textContent;
 ok(prog() === '1/20', 'bộ đếm 1/20');
 ok(w.App.routeHeld(), 'đang làm bài → giữ phiên: lần vẽ lại lúc khởi động xong (boot) không xóa tiến độ');
+await tick(300); // câu 1 vẽ sau khi gói words+grammar về (nút Bắt đầu chờ nạp) → đợi hết khoảng chống chạm đúp 250 ms của câu 1
 const first = $('.pl-wrap .opt-idk'); click(first); click(first); await tick(320);
 ok(prog() === '2/20', 'chạm đúp chỉ tính 1 câu (bộ đếm 2/20, không nhảy 3/20)');
 click($('.pl-wrap .opt-idk')); await tick(320);

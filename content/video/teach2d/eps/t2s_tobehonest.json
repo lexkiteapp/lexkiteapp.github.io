@@ -1,0 +1,133 @@
+{
+ "id": "t2s_tobehonest",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 233,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which did you prefer?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "To be honest!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'll tell you the truth.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "To be honest, I liked the first one.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "to be honest",
+  "forms": [
+   "TBH"
+  ],
+  "ipa": "/tə bi ˈɑːnəst/",
+  "mean": "I'll tell you the truth.",
+  "define": "Used before saying your real opinion.",
+  "vi": "Nói thật nhé",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Giving an opinion",
+   "text": "To be honest, I liked the first one."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It introduces…",
+   "options": [
+    "a lie",
+    "your real opinion"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'to be honest' before every sentence.",
+   "why": "It makes other sentences sound untrue."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Which did you prefer?"
+ },
+ "src": {
+  "slang": "to be honest"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"to be honest\" mean?",
+  "keyword": "to be honest",
+  "value": "To be honest = I'll tell you the truth. Example: \"To be honest, I liked the first one.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"to be honest\" mean?",
+    "description": "To be honest = I'll tell you the truth. Example: \"To be honest, I liked the first one.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "to be honest",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"to be honest\" mean?\n\nTo be honest = I'll tell you the truth. Example: \"To be honest, I liked the first one.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"to be honest\" mean?\n\nTo be honest = I'll tell you the truth. Example: \"To be honest, I liked the first one.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"to be honest\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'to be honest' before every sentence. It makes other sentences sound untrue. Real example: \"To be honest, I liked the first one.\" More real English slang, free: {link}"
+ }
+}
