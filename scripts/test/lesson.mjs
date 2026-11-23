@@ -619,6 +619,7 @@ for (const v2 of [true, false]) {
   App.ux1On = () => v2;
   w.LESSON_GOLD = new Proxy({}, { get: (_, k) => (typeof k === 'string' ? [{ w: 'She go to school every day.', r: 'She goes to school every day.', why: 'Add -es after she.' }] : undefined) });
   let F1 = null;
+  w.localStorage.setItem('lk.lsn.off', JSON.stringify({ listen: Date.now() + 36e5 })); // đang không nghe được → không sinh dict (nó tranh chỗ dạng fix trong bài demo cố định hạt giống)
   for (let pos = 0; pos < 24 && !F1; pos++) {
     w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
     if (st() && st().items.some(i => i.type === 'fix')) F1 = st();
@@ -639,7 +640,7 @@ for (const v2 of [true, false]) {
     }
     let g3 = 0; while (st() && st().sess && !st().sess.done && g3++ < 40) { const c = st().sess.cur; await solve(true); if (c.type === 'fix') ok(!!$('#lsnFoot.ok'), 'fix UI: chọn đúng từ sai → đúng'); if (c.type !== 'line') { $('#lsnNext').click(); await tick(); } }
   }
-  delete w.LESSON_GOLD; w.localStorage.removeItem('lk.lsn.path.demo');
+  delete w.LESSON_GOLD; w.localStorage.removeItem('lk.lsn.path.demo'); w.localStorage.removeItem('lk.lsn.off');
 }
 {
   // dict UI: nghe + gõ cả câu; sai → tấm đỏ có câu đúng + câu đã gõ (từ sai gạch ngang)
