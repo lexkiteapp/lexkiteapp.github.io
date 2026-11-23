@@ -622,7 +622,7 @@
    "forms": [],
    "pos": "adj",
    "ipa": "/ˈtʃiːzi/",
-   "mean": "Overly sentimental and cliché.",
+   "mean": "Too sweet and silly.",
    "def": "Describes things that are corny or too sweet.",
    "vi": "Sến súa",
    "hook": "His love note rhymed. Ugh!",
@@ -846,13 +846,13 @@
    "forms": [],
    "pos": "adj",
    "ipa": "/ˈtæki/",
-   "mean": "Cheap-looking and tasteless.",
+   "mean": "Cheap-looking and in bad style.",
    "def": "Describes things that look cheap or show poor taste.",
    "vi": "Lòe loẹt, thiếu tinh tế",
    "hook": "She wore flashing earrings. Why?",
    "example": {
     "ctx": "Looking at decor",
-    "text": "That decoration looks a bit tacky."
+    "text": "That sign looks a bit tacky."
    },
    "quiz": {
     "ask": "\"Tacky\" means…",
@@ -1220,7 +1220,7 @@
    ],
    "pos": "phrase",
    "ipa": "/ˈθroʊ ˈʃeɪd/",
-   "mean": "Say something subtly rude.",
+   "mean": "Say something a little rude.",
    "def": "To insult someone in a sneaky, indirect way.",
    "vi": "Nói xéo, mỉa mai",
    "hook": "She smiled, then insulted my hat!",
@@ -2711,13 +2711,13 @@
    ],
    "pos": "noun",
    "ipa": "/ˈkʌmfɚt ˈfuːd/",
-   "mean": "Food that makes you feel cozy.",
+   "mean": "Food that makes you feel better.",
    "def": "Simple food that makes you feel better and at home.",
    "vi": "Món ăn an ủi",
-   "hook": "Sad day? Mac and cheese!",
+   "hook": "Sad day? Warm soup!",
    "example": {
     "ctx": "Talking about a bad day",
-    "text": "Mac and cheese is my comfort food."
+    "text": "Warm soup is my comfort food."
    },
    "quiz": {
     "ask": "\"Comfort food\" makes you feel…",
@@ -4405,7 +4405,7 @@
    ],
    "pos": "noun",
    "ipa": "/ˈhɑːt ˈteɪk/",
-   "mean": "A bold, surprising opinion.",
+   "mean": "A strong, surprising opinion.",
    "def": "An opinion that is strong and often unpopular.",
    "vi": "Quan điểm gây tranh cãi",
    "hook": "Pineapple pizza is the best!",
@@ -4697,7 +4697,7 @@
    "forms": [],
    "pos": "adj",
    "ipa": "/ˈsketʃi/",
-   "mean": "Looking unsafe or untrustworthy.",
+   "mean": "Looks like you can't trust it.",
    "def": "Used for people, places or websites that seem a bit unsafe or fake.",
    "vi": "Đáng nghi, không an toàn",
    "hook": "Weird link, free phone, hmm?",
@@ -4905,7 +4905,7 @@
    "hook": "He tripped in the school play!",
    "example": {
     "ctx": "Watching a video",
-    "text": "The blooper reel is hilarious."
+    "text": "That blooper made the whole class laugh."
    },
    "quiz": {
     "ask": "A \"blooper\" is…",
@@ -5294,13 +5294,13 @@
    "forms": [],
    "pos": "adj",
    "ipa": "/ˈbuːʒi/",
-   "mean": "Fancy, and a bit snobby.",
+   "mean": "Fancy, and a bit too proud.",
    "def": "Liking expensive or fancy things, sometimes in a showy way.",
    "vi": "Sang chảnh, làm màu",
    "hook": "She only drinks fancy tea!",
    "example": {
     "ctx": "Visiting a new café",
-    "text": "This café is so bougie."
+    "text": "This coffee shop is so bougie."
    },
    "quiz": {
     "ask": "\"Bougie\" means…",
@@ -6583,13 +6583,13 @@
    ],
    "pos": "verb",
    "ipa": "/ˈsleɪ/",
-   "mean": "You did that amazingly well.",
+   "mean": "You did that really well.",
    "def": "To do something extremely well or look amazing doing it.",
    "vi": "Cân hết, đỉnh luôn",
    "hook": "She just gave the best speech!",
    "example": {
     "ctx": "After a school talk",
-    "text": "You slayed that speech, Mia!"
+    "text": "You slayed that speech!"
    },
    "quiz": {
     "ask": "\"Slay\" here means to…",
@@ -6747,13 +6747,13 @@
    ],
    "pos": "phrase",
    "ipa": "/ˌʌndɚˈstʊd ði əˈsaɪnmənt/",
-   "mean": "Perfectly done.",
+   "mean": "Did it perfectly.",
    "def": "Used to praise someone who did exactly what was needed, with style.",
    "vi": "Làm quá chuẩn, hiểu bài",
-   "hook": "She wore a pirate hat!",
+   "hook": "Movie party. Full pirate costume!",
    "example": {
     "ctx": "After a themed party",
-    "text": "Pirate hat? She understood the assignment."
+    "text": "Pirate costume? She understood the assignment."
    },
    "quiz": {
     "ask": "It praises someone who…",
@@ -6816,10 +6816,10 @@
    "mean": "That's really awkward or bad.",
    "def": "Used to react when something is awkward, embarrassing or a bad idea.",
    "vi": "Ngại quá, tệ thật",
-   "hook": "He wore socks with sandals!",
+   "hook": "Socks with sandals? Really?",
    "example": {
     "ctx": "Reacting to an awkward moment",
-    "text": "He wore socks with sandals? Big yikes."
+    "text": "Socks with sandals? Big yikes."
    },
    "quiz": {
     "ask": "\"Big yikes\" is a reaction to…",
@@ -6978,7 +6978,7 @@
    "forms": [],
    "pos": "adj",
    "ipa": "/ˈkrɪndʒ/",
-   "mean": "So awkward it makes you wince.",
+   "mean": "So bad it feels uncomfortable.",
    "def": "Used for something so awkward or embarrassing it's hard to watch.",
    "vi": "Ngượng chín người",
    "hook": "My old school photos. Help!",
@@ -7462,7 +7462,7 @@
    "forms": [],
    "pos": "adj",
    "ipa": "/ˈsævɪdʒ/",
-   "mean": "Bold and brutally honest.",
+   "mean": "Very honest, in a cool way.",
    "def": "Used for a reply or action that is fearless and a bit harsh.",
    "vi": "Phũ phàng nhưng ngầu",
    "hook": "That reply was wild!",
@@ -7594,7 +7594,7 @@
    ],
    "pos": "noun",
    "ipa": "/ˈsaɪd aɪ/",
-   "mean": "A suspicious sideways look.",
+   "mean": "A look that says you are not sure.",
    "def": "A look from the corner of your eye showing doubt.",
    "vi": "Liếc xéo nghi ngờ",
    "hook": "She looked at me sideways. Why?",

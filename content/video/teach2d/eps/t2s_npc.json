@@ -1,0 +1,133 @@
+{
+ "id": "t2s_npc",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 195,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She repeats the same line daily!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "NPC!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Someone acting like a robot.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I feel like an NPC doing chores.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "NPC",
+  "forms": [
+   "npc"
+  ],
+  "ipa": "/ˌen piː ˈsiː/",
+  "mean": "Someone acting like a robot.",
+  "define": "A person who seems to follow a routine with no thought.",
+  "vi": "Sống như NPC",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Joking about a routine",
+   "text": "I feel like an NPC doing chores."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "An \"NPC\" in slang is…",
+   "options": [
+    "a famous player",
+    "a robotic person"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your real friend an 'NPC'.",
+   "why": "It says they have no personality."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She repeats the same line daily!"
+ },
+ "src": {
+  "slang": "NPC"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"NPC\" mean?",
+  "keyword": "NPC",
+  "value": "NPC = Someone acting like a robot. Example: \"I feel like an NPC doing chores.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"NPC\" mean?",
+    "description": "NPC = Someone acting like a robot. Example: \"I feel like an NPC doing chores.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "NPC",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"NPC\" mean?\n\nNPC = Someone acting like a robot. Example: \"I feel like an NPC doing chores.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"NPC\" mean?\n\nNPC = Someone acting like a robot. Example: \"I feel like an NPC doing chores.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"NPC\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call your real friend an 'NPC'. It says they have no personality. Real example: \"I feel like an NPC doing chores.\" More real English slang, free: {link}"
+ }
+}
