@@ -673,6 +673,9 @@
     const ic = n => `<span class="material-symbols-outlined text-[16px]" aria-hidden="true">${n}</span>`, ROW = 'flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-1 text-[15px] leading-5 font-bold lt:text-[#0F3D3E] dk:text-[#EEF6F7]';
     const bad = new Set(weak.map(x => E.norm(x))), got = w.filter(p => !bad.has(E.norm(p.card.word))).length; // từ nhớ ngay: không sai lần nào trong cả bài
     const more = (weak.length ? `<span class="${ROW} font-medium"><span class="inline-flex items-start gap-1">${ic('edit_note')}<span>${esc(t('Cần ôn lại:'))} <span lang="en">${esc(weak.join(', '))}</span></span></span></span>` : '');
+    // Ngày mai: từ đến hạn tới hết mai; tắt khẩn config ret_tmr='0'
+    let tmr = ''; try { if (!L.demo && !/"ret_tmr":"0"/.test(ls.get('lk.cfg') || '')) { const e = new Date(); e.setDate(e.getDate() + 1); e.setHours(23, 59, 59); const n = Object.values(state.cards).filter(c => c.srs && (c.srs.reps || c.srs.last) && c.srs.due <= +e).length;
+      tmr = `<span class="${ROW} font-medium lsn-tmr"><span class="inline-flex items-start gap-1">${ic('event')}<span>${esc(n ? t('Ngày mai ôn {n} từ để nhớ lâu', { n }) : t('Ngày mai: bài tiếp theo đã sẵn sàng'))}</span></span></span>`; } } catch (x) { /**/ }
     const lang = document.documentElement.lang || 'en', W = Game.weekDots(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey), wk = { on: W.on, n: W.n, lt: W.days.map(x => { try { return new Intl.DateTimeFormat(lang, { weekday: 'narrow' }).format(x); } catch (e) { return ''; } }) }; // 7 chấm tuần này (thứ 2 → CN): sáng = ngày đã học (hôm nay tính luôn)
     const run = Math.max(streak, Game.runOf(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey)); // chuỗi LIỀN tới hôm nay – KHÁC số ngày học trong tuần (hai nhãn riêng, không mâu thuẫn)
     let minsS = String(mins); try { minsS = new Intl.NumberFormat(lang, { style: 'unit', unit: 'minute', unitDisplay: 'narrow' }).format(mins); } catch (e) { /* bỏ qua */ }
@@ -694,7 +697,7 @@
       off2: Math.round(144.51 * (1 - (w.length ? got / w.length : 1)) * 100) / 100,
       sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'),
       learned: ' ',
-      more,
+      more: more + tmr,
       wl: w,
       rev: weak.length ? t('Sổ lỗi sai') : t('Bản đồ bài học'),
       revIcon: weak.length ? 'edit_note' : 'map',
