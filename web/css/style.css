@@ -1491,3 +1491,6 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
   .st-fl[data-fl=active], .st-fl[data-fl=milestone] { transform-origin: 50% 100%; animation: stFlAll 1.6s ease-in-out infinite alternate; will-change: transform; }
   @keyframes stFlAll { from { transform: scale(1, 1); } to { transform: scale(.97, 1.04); } }
 }
+/* rà soát 23/11 (P0): khung Stitch dùng `fixed bottom-0 w-full` KHÔNG kèm left-0 → ở khổ > 390 px (768) thanh tab đứng ở vị trí tĩnh (lệch phải 189 px, mất tab "Tôi"); neo cả hai mép như #bnav. Nút "Học tiếp" của Phát âm chạm sát hai mép + dính thanh tab: lề 16 px, bo, chừa chỗ cuối trang */
+@media (max-width: 1023px) { body.v2on nav.fixed.bottom-0.w-full, body.v2on header.fixed.top-0.w-full { left: 0; right: 0; } }
+@media (max-width: 1023px) { .v2s-pron-hub { padding-bottom: calc(168px + env(safe-area-inset-bottom, 0px)); } .v2s-pron-hub div.fixed > div { padding-inline: var(--sp-4, 16px); padding-bottom: var(--sp-3, 12px); } .v2s-pron-hub button[data-href] { border-radius: var(--r-card, 18px); } }
