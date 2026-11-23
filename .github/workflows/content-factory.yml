@@ -27,6 +27,7 @@ jobs:
     outputs: { matrix: '${{ steps.p.outputs.matrix }}', parallel: '${{ steps.p.outputs.parallel }}', count: '${{ steps.p.outputs.count }}' }
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: p
@@ -36,7 +37,14 @@ jobs:
           LX_IN2: ${{ inputs.max || '4' }}
           LX_IN3: ${{ inputs.n || '25' }}
         run: |
+          # 21–23/11 đỏ 3 đêm liền: gen đốt quota Gemini/Groq rồi collect đỏ ở size-budget (người học 8,49/8,48 MB, nội dung mới không còn chỗ) → không gộp được gì, quota mất trắng.
+          # Ngân sách byte ĐÃ đỏ trên main → không soạn (người dùng giữ quota AI; lượt đêm sau thử lại khi dữ liệu được rà gọn). Ngưỡng không đổi.
+          node scripts/test/size-budget.mjs > sb.log 2>&1 && ok=1 || ok=0
+          free=$(grep -o 'nền+hi, còn -\?[0-9]* KB' sb.log | grep -o '\-\?[0-9]*' | head -1); free=${free:-999}   # chỗ còn lại của gói người học (KB)
+          if [ "$ok" != 1 ] || [ "$free" -lt 50 ]; then echo "::warning title=ngân sách byte đỏ/gần hết (còn ${free} KB)::nội dung mới không có chỗ – bỏ lượt, không đốt quota Gemini/Groq: $(grep -m1 '^✗' sb.log | cut -c1-200)"; echo '{"include":[],"parallel":1}' > plan.json
+          else
           node scripts/factory/run.mjs --plan --area "$LX_IN1" --max "$LX_IN2" --n "$LX_IN3" ${{ github.event_name == 'pull_request' && '--pilot' || '' }} > plan.json
+          fi
           echo "matrix=$(node -e "console.log(JSON.stringify({include:require('./plan.json').include}))")" >> "$GITHUB_OUTPUT"
           echo "parallel=$(node -p "require('./plan.json').parallel")" >> "$GITHUB_OUTPUT"
           echo "count=$(node -p "require('./plan.json').include.length")" >> "$GITHUB_OUTPUT"
