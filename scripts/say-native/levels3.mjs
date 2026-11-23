@@ -20,6 +20,8 @@ const A1_FN = new Set(('my your me us him her them our their his its this that t
 const CHUNK_OK = ['excuse me'];   // A1 in every learner syllabus; the bank only lists the verb sense (B2)
 const ALCOHOL = /\b(wine|beer|cocktail|whisky|whiskey|champagne|pub|bar tab|drinks? up|cheers)\b/i;
 export function load() { return JSON.parse(fs.readFileSync(F, 'utf8')); }
+// PIL-free width estimate (px at 56 px Jakarta 800) of a quiz pill label: conservative per-class widths; the quiz pill is one line inside the card, so <= 640 (gen.py levels3 + teach2d-levels3.py re-check with the real font where PIL exists)
+export const pillW = s => [...s].reduce((a, c) => a + ('MWmw'.includes(c) ? 46 : /[A-Z]/.test(c) ? 38 : c === ' ' ? 16 : /[ilj.,'!?:;]/.test(c) ? 16 : 31), 0);
 export const hookOf = it => `${it.title}: three levels!`;
 export const norm = s => String(s).toLowerCase().replace(/[’]/g, "'");
 // every spelling a bank row could carry for this token: itself, its contraction stem, inflections (same candidates as gen.py lvl_ok)
@@ -80,6 +82,7 @@ export async function check(B = load()) {
       if (!single && !inRepo && !c.vouch) e(`C1 key "${c.key}" not found in any repo English text (add vouch:true only for a standard phrase the repo lacks)`);
       if (single && !realW(c.key)) e(`C1 key "${c.key}" is not a bank / repo word`);
     }
+    for (const x of [a, b, c]) if (x.key && pillW(x.key[0].toUpperCase() + x.key.slice(1)) > 640) e(`quiz label too wide for the pill: ${x.key}`);
     if (new Set([a.text, b.text, c.text].map(x => norm(x || '').replace(/[^a-z]/g, ''))).size < 3) e('three different lines');
     if (new Set([a.key, b.key, c.key].map(x => norm(x || ''))).size < 3) e('three different keys');
     if (spoken > SPOKEN_MAX) e(`clip budget: hook + 3 lines = ${spoken} words > ${SPOKEN_MAX}`);

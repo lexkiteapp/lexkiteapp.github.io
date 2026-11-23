@@ -16,6 +16,9 @@ for i, it in enumerate(B.values()):
     assert all(v in X for v in ep['exprs'].values()) and len(set(ep['exprs'].values())) == 3 and 'pose' not in ep, it['id']   # drawn faces only, three different ones
     q = ep['data']['quiz']; assert q['options'][q['answer']] == gen.lv3_label(it['c']['key']) and q['options'][1 - q['answer']] in (gen.lv3_label(it['a']['key']), gen.lv3_label(it['b']['key'])), it['id']
     ans[q['answer']] += 1; ok += 1
+try: import PIL  # noqa: F401 – the real-font width of every quiz label (preqc has no PIL: levels3.mjs pillW is the PIL-free guard there)
+except ImportError: pass
+else: assert all(gen.text_w(gen.lv3_label(x[k]['key']), 56) <= 640 for x in B.values() for k in 'abc'), 'a quiz label is wider than the pill'
 print(f'levels3: {ok}/{len(B)} situations build a 9-12.4 s episode; answers A/B {ans}; skipped {[(k, len(v), v[:4]) for k, v in bad.items()]}')
 assert ok / len(B) >= 0.9, 'too many situations do not fit the clip - shorten them in levels3.json'
 assert min(ans) >= 0.3 * ok, ans
