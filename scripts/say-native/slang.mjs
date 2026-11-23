@@ -60,6 +60,8 @@ export async function check(B = load(), lex = null) {
       const spoken = W(it.hook).length + W(k).length + W(it.mean).length + W(ex.text).length;   // the 7-12 s clip speaks hook + key + mean + example (≤ 150 wpm with the silences)
       if (spoken > SPOKEN_MAX) e(`clip budget: hook + key + mean + example = ${spoken} words > ${SPOKEN_MAX}`);
     }
+    if (it.vi_hook != null && (!VI.test(it.vi_hook) || it.vi_hook.length > 60 || !/[?!…]$/.test(it.vi_hook))) e(`vi_hook: Vietnamese, <= 60 chars, ends ?/!: ${it.vi_hook}`);   // Vietnamese page lines (hand)
+    if (it.vi_ex != null && (it.vi_ex.length > 90 || !forms.some(f => it.vi_ex.toLowerCase().replace(/’/g, "'").includes(f)))) e(`vi_ex: <= 90 chars, keeps the English slang: ${it.vi_ex}`);
     const q = it.quiz;
     if (!q || !q.ask || !Array.isArray(q.options) || q.options.length !== 2 || !(q.answer === 0 || q.answer === 1)) e('quiz {ask, options[2], answer 0|1}');
     else { if (W(q.ask).length > 12) e('quiz ask <= 12 words'); if (q.options.some(o => !o || W(o).length > 7)) e('quiz options <= 7 words'); if (q.options[0] === q.options[1]) e('quiz options identical'); }

@@ -1,0 +1,148 @@
+{
+ "id": "t2s_vi_callitaday",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 59,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We're tired. What now?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Call it a day!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stop for today.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We're tired, let's call it a day.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "call it a day",
+  "forms": [
+   "calling it a day"
+  ],
+  "ipa": "/ˈkɔːl ɪt ə ˈdeɪ/",
+  "mean": "Stop for today.",
+  "define": "To decide to finish work or an activity for now.",
+  "vi": "Hôm nay nghỉ ở đây",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Finishing a group project",
+   "text": "We're tired, let's call it a day."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Call it a day\" means…",
+   "options": [
+    "stop for today",
+    "make a phone call"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't 'call it a day' before the deadline.",
+   "why": "It means stop for today."
+  },
+  "l1": "Hôm nay nghỉ ở đây",
+  "l1_hook": "Tụi mình mệt rồi. Giờ sao?",
+  "l1_ex": "Tụi mình mệt rồi, call it a day đi.",
+  "right": "call it a day",
+  "native": {
+   "hook": "“call it a day” nghĩa là gì?",
+   "tip": "“call it a day” = Hôm nay nghỉ ở đây. Ví dụ: “We're tired, let's call it a day.”",
+   "caption": "“call it a day” nghĩa là gì?\n“call it a day” = Hôm nay nghỉ ở đây.\nVí dụ: “We're tired, let's call it a day.” (Tụi mình mệt rồi, call it a day đi.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “call it a day” = Hôm nay nghỉ ở đây. “We're tired, let's call it a day.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "We're tired. What now?"
+ },
+ "src": {
+  "slang": "call it a day"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“call it a day” nghĩa là gì?",
+  "keyword": "call it a day",
+  "value": "“call it a day” = Hôm nay nghỉ ở đây. Ví dụ: “We're tired, let's call it a day.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“call it a day” nghĩa là gì?",
+    "description": "“call it a day” = Hôm nay nghỉ ở đây. Ví dụ: “We're tired, let's call it a day.”\n\n“call it a day” nghĩa là gì?\n“call it a day” = Hôm nay nghỉ ở đây.\nVí dụ: “We're tired, let's call it a day.” (Tụi mình mệt rồi, call it a day đi.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "call it a day",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“call it a day” nghĩa là gì?\n“call it a day” = Hôm nay nghỉ ở đây.\nVí dụ: “We're tired, let's call it a day.” (Tụi mình mệt rồi, call it a day đi.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“call it a day” nghĩa là gì?\n\n“call it a day” = Hôm nay nghỉ ở đây. Ví dụ: “We're tired, let's call it a day.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“call it a day” nghĩa là gì? “call it a day” = Hôm nay nghỉ ở đây. Ví dụ: “We're tired, let's call it a day… #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “call it a day” = Hôm nay nghỉ ở đây. “We're tired, let's call it a day.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

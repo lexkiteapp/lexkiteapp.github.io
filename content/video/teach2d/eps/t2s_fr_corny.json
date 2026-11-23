@@ -1,0 +1,146 @@
+{
+ "id": "t2s_fr_corny",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 63,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dad's pun again. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Corny!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Old-fashioned and silly.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dad's jokes are so corny.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "corny",
+  "forms": [],
+  "ipa": "/ˈkɔːrni/",
+  "mean": "Old-fashioned and silly.",
+  "define": "Describes jokes that are so silly they're embarrassing.",
+  "vi": "Nhạt nhẽo, sến",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Listening to a joke",
+   "text": "Dad's jokes are so corny."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Corny\" means…",
+   "options": [
+    "silly",
+    "crunchy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your teacher's joke 'corny' out loud.",
+   "why": "It sounds rude, not playful."
+  },
+  "l1": "cliché",
+  "l1_hook": "Le jeu de mots de papa encore. Sérieusement ? \"corny\".",
+  "l1_ex": "Les blagues de papa sont tellement \"corny\".",
+  "right": "corny",
+  "native": {
+   "hook": "Que veut dire « corny » ?",
+   "tip": "“corny” = cliché. Exemple: “Dad's jokes are so corny.”",
+   "caption": "Que veut dire « corny » ?\n“corny” = cliché.\nExemple: “Dad's jokes are so corny.” (Les blagues de papa sont tellement \"corny\".)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “corny” = cliché. “Dad's jokes are so corny.” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dad's pun again. Seriously?"
+ },
+ "src": {
+  "slang": "corny"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 15,
+  "seconds": 9.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Que veut dire « corny » ?",
+  "keyword": "corny",
+  "value": "“corny” = cliché. Exemple: “Dad's jokes are so corny.”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « corny » ?",
+    "description": "“corny” = cliché. Exemple: “Dad's jokes are so corny.”\n\nQue veut dire « corny » ?\n“corny” = cliché.\nExemple: “Dad's jokes are so corny.” (Les blagues de papa sont tellement \"corny\".)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "corny",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « corny » ?\n“corny” = cliché.\nExemple: “Dad's jokes are so corny.” (Les blagues de papa sont tellement \"corny\".)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « corny » ?\n\n“corny” = cliché. Exemple: “Dad's jokes are so corny.”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « corny » ? “corny” = cliché. Exemple: “Dad's jokes are so corny.” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “corny” = cliché. “Dad's jokes are so corny.” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

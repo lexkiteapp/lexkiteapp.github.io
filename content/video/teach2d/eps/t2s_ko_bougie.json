@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_bougie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 53,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She only drinks fancy tea!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bougie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fancy, and a bit too proud.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coffee shop is so bougie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "bougie",
+  "forms": [],
+  "ipa": "/ˈbuːʒi/",
+  "mean": "Fancy, and a bit too proud.",
+  "define": "Liking expensive or fancy things, sometimes in a showy way.",
+  "vi": "Sang chảnh, làm màu",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "money",
+  "example": {
+   "ctx": "Visiting a new café",
+   "text": "This coffee shop is so bougie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bougie\" means…",
+   "options": [
+    "very cheap",
+    "fancy and showy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your host 'bougie' at dinner.",
+   "why": "It can sound snobbish and rude."
+  },
+  "l1": "고급스러운 척하는",
+  "l1_hook": "얘는 고급 차만 마셔!",
+  "l1_ex": "이 카페 진짜 너무 \"bougie\"하다.",
+  "right": "bougie",
+  "native": {
+   "hook": "“bougie” 무슨 뜻일까요?",
+   "tip": "“bougie” = 고급스러운 척하는. 예문: “This coffee shop is so bougie.”",
+   "caption": "“bougie” 무슨 뜻일까요?\n“bougie” = 고급스러운 척하는.\n예문: “This coffee shop is so bougie.” (이 카페 진짜 너무 \"bougie\"하다.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “bougie” = 고급스러운 척하는. “This coffee shop is so bougie.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She only drinks fancy tea!"
+ },
+ "src": {
+  "slang": "bougie"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“bougie” 무슨 뜻일까요?",
+  "keyword": "bougie",
+  "value": "“bougie” = 고급스러운 척하는. 예문: “This coffee shop is so bougie.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“bougie” 무슨 뜻일까요?",
+    "description": "“bougie” = 고급스러운 척하는. 예문: “This coffee shop is so bougie.”\n\n“bougie” 무슨 뜻일까요?\n“bougie” = 고급스러운 척하는.\n예문: “This coffee shop is so bougie.” (이 카페 진짜 너무 \"bougie\"하다.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "bougie",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“bougie” 무슨 뜻일까요?\n“bougie” = 고급스러운 척하는.\n예문: “This coffee shop is so bougie.” (이 카페 진짜 너무 \"bougie\"하다.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bougie” 무슨 뜻일까요?\n\n“bougie” = 고급스러운 척하는. 예문: “This coffee shop is so bougie.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bougie” 무슨 뜻일까요? “bougie” = 고급스러운 척하는. 예문: “This coffee shop is so bougie.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “bougie” = 고급스러운 척하는. “This coffee shop is so bougie.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_hi_beatsme",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 13,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where did the key go?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Beats me!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I have no idea.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Where's the key? Beats me.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "beats me",
+  "forms": [],
+  "ipa": "/ˈbiːts ˈmiː/",
+  "mean": "I have no idea.",
+  "define": "Used when you don't know the answer.",
+  "vi": "Chịu, không biết",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Looking for something",
+   "text": "Where's the key? Beats me."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I hit it",
+    "I don't know"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'beats me' to a client's question.",
+   "why": "It sounds careless and unprofessional."
+  },
+  "l1": "मुझे नहीं पता",
+  "l1_hook": "चाबी कहाँ गई? \"beats me\"",
+  "l1_ex": "चाबी कहाँ है? \"beats me\"",
+  "right": "beats me",
+  "native": {
+   "hook": "“beats me” का मतलब क्या है?",
+   "tip": "“beats me” = मुझे नहीं पता. उदाहरण: “Where's the key? Beats me.”",
+   "caption": "“beats me” का मतलब क्या है?\n“beats me” = मुझे नहीं पता.\nउदाहरण: “Where's the key? Beats me.” (चाबी कहाँ है? \"beats me\")\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “beats me” = मुझे नहीं पता. “Where's the key? Beats me.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where did the key go?"
+ },
+ "src": {
+  "slang": "beats me"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“beats me” का मतलब क्या है?",
+  "keyword": "beats me",
+  "value": "“beats me” = मुझे नहीं पता. उदाहरण: “Where's the key? Beats me.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“beats me” का मतलब क्या है?",
+    "description": "“beats me” = मुझे नहीं पता. उदाहरण: “Where's the key? Beats me.”\n\n“beats me” का मतलब क्या है?\n“beats me” = मुझे नहीं पता.\nउदाहरण: “Where's the key? Beats me.” (चाबी कहाँ है? \"beats me\")\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "beats me",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“beats me” का मतलब क्या है?\n“beats me” = मुझे नहीं पता.\nउदाहरण: “Where's the key? Beats me.” (चाबी कहाँ है? \"beats me\")\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“beats me” का मतलब क्या है?\n\n“beats me” = मुझे नहीं पता. उदाहरण: “Where's the key? Beats me.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“beats me” का मतलब क्या है? “beats me” = मुझे नहीं पता. उदाहरण: “Where's the key? Beats me.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “beats me” = मुझे नहीं पता. “Where's the key? Beats me.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

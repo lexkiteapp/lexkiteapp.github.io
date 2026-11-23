@@ -1,0 +1,146 @@
+{
+ "id": "t2s_id_beatsme",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 13,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where did the key go?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Beats me!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I have no idea.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Where's the key? Beats me.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "beats me",
+  "forms": [],
+  "ipa": "/ˈbiːts ˈmiː/",
+  "mean": "I have no idea.",
+  "define": "Used when you don't know the answer.",
+  "vi": "Chịu, không biết",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Looking for something",
+   "text": "Where's the key? Beats me."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I hit it",
+    "I don't know"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'beats me' to a client's question.",
+   "why": "It sounds careless and unprofessional."
+  },
+  "l1": "saya tidak tahu",
+  "l1_hook": "Di mana kunci itu pergi? \"beats me\".",
+  "l1_ex": "Di mana kuncinya? \"beats me\".",
+  "right": "beats me",
+  "native": {
+   "hook": "Apa arti “beats me”?",
+   "tip": "“beats me” = saya tidak tahu. Contoh: “Where's the key? Beats me.”",
+   "caption": "Apa arti “beats me”?\n“beats me” = saya tidak tahu.\nContoh: “Where's the key? Beats me.” (Di mana kuncinya? \"beats me\".)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “beats me” = saya tidak tahu. “Where's the key? Beats me.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where did the key go?"
+ },
+ "src": {
+  "slang": "beats me"
+ },
+ "lang": "id",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "Apa arti “beats me”?",
+  "keyword": "beats me",
+  "value": "“beats me” = saya tidak tahu. Contoh: “Where's the key? Beats me.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “beats me”?",
+    "description": "“beats me” = saya tidak tahu. Contoh: “Where's the key? Beats me.”\n\nApa arti “beats me”?\n“beats me” = saya tidak tahu.\nContoh: “Where's the key? Beats me.” (Di mana kuncinya? \"beats me\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "beats me",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “beats me”?\n“beats me” = saya tidak tahu.\nContoh: “Where's the key? Beats me.” (Di mana kuncinya? \"beats me\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “beats me”?\n\n“beats me” = saya tidak tahu. Contoh: “Where's the key? Beats me.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “beats me”? “beats me” = saya tidak tahu. Contoh: “Where's the key? Beats me.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “beats me” = saya tidak tahu. “Where's the key? Beats me.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

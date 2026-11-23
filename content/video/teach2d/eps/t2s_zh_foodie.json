@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_foodie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 105,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She reviews every restaurant in town!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Foodie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A person who loves good food.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My sister is a total foodie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "foodie",
+  "forms": [],
+  "ipa": "/ˈfuːdi/",
+  "mean": "A person who loves good food.",
+  "define": "Someone who enjoys trying and talking about food.",
+  "vi": "Người mê ẩm thực",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "food",
+  "example": {
+   "ctx": "Talking about a new spot",
+   "text": "My sister is a total foodie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"foodie\" is…",
+   "options": [
+    "a food bag",
+    "someone who loves food"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a chef a 'foodie'.",
+   "why": "A chef cooks; a foodie loves eating."
+  },
+  "l1": "美食家",
+  "l1_hook": "她点评镇上所有餐馆，简直是个 \"foodie\"。",
+  "l1_ex": "我姐姐是个彻底的 \"foodie\"。",
+  "right": "foodie",
+  "native": {
+   "hook": "“foodie”是什么意思？",
+   "tip": "“foodie” = 美食家. 例句: “My sister is a total foodie.”",
+   "caption": "“foodie”是什么意思？\n“foodie” = 美食家.\n例句: “My sister is a total foodie.” (我姐姐是个彻底的 \"foodie\"。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “foodie” = 美食家. “My sister is a total foodie.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She reviews every restaurant in town!"
+ },
+ "src": {
+  "slang": "foodie"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“foodie”是什么意思？",
+  "keyword": "foodie",
+  "value": "“foodie” = 美食家. 例句: “My sister is a total foodie.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“foodie”是什么意思？",
+    "description": "“foodie” = 美食家. 例句: “My sister is a total foodie.”\n\n“foodie”是什么意思？\n“foodie” = 美食家.\n例句: “My sister is a total foodie.” (我姐姐是个彻底的 \"foodie\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "foodie",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“foodie”是什么意思？\n“foodie” = 美食家.\n例句: “My sister is a total foodie.” (我姐姐是个彻底的 \"foodie\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“foodie”是什么意思？\n\n“foodie” = 美食家. 例句: “My sister is a total foodie.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“foodie”是什么意思？ “foodie” = 美食家. 例句: “My sister is a total foodie.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “foodie” = 美食家. “My sister is a total foodie.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}
