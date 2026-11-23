@@ -312,19 +312,9 @@
   // Dạng bài theo loại nút
   const KIND = { lesson: null, review: null, listen: ['gap', 'build', 'type', 'match'], speak: ['say', 'pic', 'gap'] };
 
-  /** Tuần này (thứ 2 → CN) cho thẻ chuỗi ngày: `on[i]` = đã học ngày i (hôm nay tính luôn vì bài vừa xong), `today` = chỉ số hôm nay, `n` = số ngày học trong tuần,
-   *  `days` = Date từng ngày (ui gắn nhãn thứ). Khác `streak` (chuỗi LIỀN tới hôm nay): 2/7 ngày học trong tuần có thể là chuỗi 1 – hai số tách nhãn, không mâu thuẫn. */
-  function weekDots(act, now, keyOf) {
-    const d0 = new Date(now), mon = new Date(d0); mon.setDate(d0.getDate() - ((d0.getDay() + 6) % 7));
-    const days = [], on = [];
-    for (let i = 0; i < 7; i++) { const x = new Date(mon); x.setDate(mon.getDate() + i); days.push(x); on.push(keyOf(x) === keyOf(d0) || !!(act && act.has(keyOf(x)))); }
-    return { on, days, today: (d0.getDay() + 6) % 7, n: on.filter(Boolean).length };
-  }
-  /** Chuỗi liền kết thúc hôm nay (hôm nay tính nếu vừa học) trong tập ngày học – dùng khi App.streak() chưa cập nhật */
-  const runOf = (act, now, keyOf) => { let n = 0; const d = new Date(now); while (n < 4000 && (n === 0 || (act && act.has(keyOf(d))))) { n++; d.setDate(d.getDate() - 1); if (!(act && act.has(keyOf(d)))) break; } return n; };
   /** Bong bóng giáo viên chỉ hiện khi có lời thật: rỗng / chỉ "🔊 · · ·" / chỉ dấu chấm → ẩn (không bao giờ bong bóng trống) */
   const hasLine = s => /[\p{L}\p{N}]/u.test(String(s == null ? '' : s));
   /** Hai giọng đọc giống hệt (IPA UK = US, hoặc cùng file âm) → chỉ một loa + một IPA */
   const sameVoice = (a, b) => !!a && !!b && String(a).replace(/\s/g, '') === String(b).replace(/\s/g, '');
-  g.LessonEngine = { isPat, weekDots, runOf, hasLine, sameVoice, sentLevel, inflect, formKind, distract, HINTS, letterBank, pathPlan, unitPlan, nextKind, calm, HARD, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
+  g.LessonEngine = { isPat, hasLine, sameVoice, sentLevel, inflect, formKind, distract, HINTS, letterBank, pathPlan, unitPlan, nextKind, calm, HARD, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
 })(typeof self !== 'undefined' ? self : globalThis);

@@ -6,6 +6,7 @@ import { sqliteD1 } from '../capacity/meter.mjs';
 import { setup } from '../../functions/api/hit.js';
 import { attrStmts, refCount, REF_PER_DAY, REF_TOTAL } from '../../functions/api/_funnel.js';
 import { onRequestGet } from '../../functions/api/ref.js';
+import { gameRules } from '../lib/game-rules.mjs';
 
 const errs = []; let n = 0;
 const ok = (c, m) => { n++; if (!c) errs.push(m); };
@@ -36,7 +37,7 @@ function app({ at, rc, paid, refIn, fetchN }) {
   const ls = {}; if (at) ls['lk.at'] = JSON.stringify(at); if (rc) ls['lk.rc'] = rc; if (paid) ls['lk.refPaid'] = String(paid); if (refIn) ls['lk.refIn'] = '1';
   const game = { xp: 0, freezes: 0 }, toasts = [], fetched = [];
   const g = { document: { getElementById() {}, head: {}, body: {}, documentElement: {} }, location: { hostname: 'lexkite.com' }, I18N: { lang: () => 'en' }, t: (k, v) => k.replace(/\{(\w+)\}/g, (m, x) => v && v[x] != null ? v[x] : m),
-    Game: { mutate: async fn => { fn(game); } }, UI: { toast: m => toasts.push(m) }, navigator: {}, crypto: { getRandomValues: a => a.fill(7) },
+    Game: { ...gameRules(), mutate: async fn => { fn(game); } }, UI: { toast: m => toasts.push(m) }, navigator: {}, crypto: { getRandomValues: a => a.fill(7) },
     localStorage: { getItem: k => (k in ls ? ls[k] : null), setItem: (k, x) => { ls[k] = String(x); } }, fetch: async u => { fetched.push(u); return { ok: true, json: async () => ({ n: fetchN || 0 }) }; } };
   g.self = g; vm.createContext(g); vm.runInContext(fs.readFileSync('web/js/share-card.js', 'utf8'), g);
   return { SC: g.ShareCard, ls, game, toasts, fetched };

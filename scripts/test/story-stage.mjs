@@ -39,7 +39,7 @@ ok(!/\.lsn-fx \.lsn-ans/.test(css) && /\.lsn-fx div\.lsn-ans\{/.test(css) && !/\
 const en = fs.readdirSync('web/js/i18n/en').map(f => rd('web/js/i18n/en/' + f)).join('\n');
 for (const m of js.matchAll(/\bT\('([^']+)'/g)) ok(en.includes(`'${m[1]}'`), `khóa dịch thiếu trong web/js/i18n/en: ${m[1]}`);
 // bàn phím + rung + chip
-ok(/e\.key === 'Enter'/.test(ui) && /navigator\.vibrate/.test(ui), 'Enter = Kiểm tra / rung phản hồi thiếu');
+ok(/e\.key === 'Enter'/.test(ui) && /navigator\.vibrate|Sfx\.haptic\(/.test(ui), 'Enter = Kiểm tra / rung phản hồi thiếu');
 ok(/chip: sh\.chip/.test(ui), 'chip mục tiêu ở khung bài tập phải theo mẫu Stitch (sh.chip, ẩn khi không có mục tiêu)');
 ok(/L\.vids/.test(ui) && /ctx\.vids\(\)/.test(js), 'dừng video người im (park) thiếu'); ok(!/park\(on\)/.test(tj), 'teacher.js thuộc PR #760 – không sửa ở đây');
 // ---------- 2) trình duyệt ----------

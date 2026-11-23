@@ -1,5 +1,6 @@
 package com.lexkite.app.core.write
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.SRSParams
 import com.lexkite.app.core.vocab.CardMath
 import com.lexkite.app.core.vocab.LessonFx
@@ -50,7 +51,7 @@ object Quick {
     class Result(val pct: Int, val xp: Int, val secs: Int, val good: Boolean, val timedOut: Boolean, val right: Int, val total: Int)
     fun result(right: Int, total: Int, timedOut: Boolean, elapsed: Double): Result {
         val pct = if (total == 0) 0 else jsRound(right.toDouble() / total * 100)
-        return Result(pct, right * 2, min(LIMIT, max(1, jsRound(elapsed))), pct >= GOOD_PCT, timedOut, right, total)
+        return Result(pct, RewardRules.xp("answer") * right, min(LIMIT, max(1, jsRound(elapsed))), pct >= GOOD_PCT, timedOut, right, total)
     }
 }
 
@@ -183,9 +184,12 @@ object GrammarCore {
     }
     /** "Thu thach tu dat cau": the first match of the lesson's structure regex in the sentence ("" = none) */
     fun ownHit(sentence: String, pattern: String): String = runCatching { Regex(pattern, RegexOption.IGNORE_CASE).find(sentence)?.value ?: "" }.getOrDefault("")
-    fun quizXp(right: Int) = 10 + right * 3
-    fun drillXp(right: Int) = 10 + right * 4
-    fun mixXp(right: Int) = 10 + right * 2
+    /** graded-set reward = set(right, total, mode): lesson quiz -> type (src gg:<id>), drills -> write (src gd:<id>), mixed test -> pick */
+    fun quizXp(right: Int, total: Int) = RewardRules.xp("set", right = right, total = total, mode = "type")
+    fun drillXp(right: Int, total: Int) = RewardRules.xp("set", right = right, total = total, mode = "write")
+    fun mixXp(right: Int, total: Int) = RewardRules.xp("set", right = right, total = total)
+    /** the own-sentence challenge, first hit = answer(write, hard) */
+    val OWN_XP get() = RewardRules.xp("answer", mode = "write", hard = true)
     fun pct(right: Int, total: Int): Int = if (total == 0) 0 else jsRound(right.toDouble() / total * 100)
     fun plain(s: String): String = s.replace("[[", "").replace("]]", "")
     fun tokens(s: String): List<String> = s.replace("“", "").replace("”", "").replace("\"", "").split(WS_RUN).filter { it.isNotEmpty() }

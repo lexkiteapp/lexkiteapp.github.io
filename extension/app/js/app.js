@@ -395,6 +395,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     dayv2: 'css/st-v2-day.css',
     dictp: 'css/st-v2-dict.css',
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
+    gend: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
     irregular: 'css/st-v2-irregular.css',

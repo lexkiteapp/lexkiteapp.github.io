@@ -165,7 +165,7 @@ class MainActivity : ComponentActivity() {
         me = { MeRoute() },
         lesson = { story, onExit ->
             val dark = com.lexkite.app.design.LocalLKColors.current.dark
-            val env = remember(lang, dark) { LessonEnv(app.store, app.audio, UrlHttp, cacheDir, app.starter, lang, RigAssets.def(this@MainActivity).poseEmo, imageUrl = { w, p -> app.vimg.urlFor(w, p, dark) }, prepareImages = { app.vimg.prepare(it) }) }
+            val env = remember(lang, dark) { LessonEnv(app.store, app.audio, UrlHttp, cacheDir, app.starter, lang, RigAssets.def(this@MainActivity).poseEmo, imageUrl = { w, p -> app.vimg.urlFor(w, p, dark) }, prepareImages = { w, x -> app.vimg.prepare(w, x) }) }
             LessonRoute(env, LessonRequest(story = story), lessonSlots, onExit)
         },
         vocab = { route, arg, query, onExit, open, replace -> VocabRoute(vocabEnv(lang), route, arg, query, vocabSlots, open, replace, onExit) },

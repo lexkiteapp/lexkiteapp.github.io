@@ -258,7 +258,7 @@ final class ReaderModel {
         guard grade == nil else { return }
         let g = ReadingGrade.grade(reading, picks: picks, game: ctx.game, mistakes: ctx.bundle.mistakes, now: ctx.now)
         grade = g
-        await ctx.commit(game: g.game, mistakes: g.mistakes, reward: g.reward)
+        await ctx.commit(game: g.game, mistakes: g.mistakes, reward: g.reward, src: g.src)
     }
     /// fixture state: graded with fixed picks, no write
     func fixtureGrade(_ p: [String?]) {
