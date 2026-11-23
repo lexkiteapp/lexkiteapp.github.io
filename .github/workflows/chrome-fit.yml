@@ -23,6 +23,7 @@ jobs:
       - uses: ./.github/actions/playwright-cache
         with: { browsers: '--with-deps chromium' }
       - name: Kiểm
+        shell: bash
         env: { W: "${{ github.event.inputs.write }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
