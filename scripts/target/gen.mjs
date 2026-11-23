@@ -72,7 +72,9 @@ const accepted = [...prev], rejected = [], seen = new Set(have); let fixedN = 0;
 const pick = (e, hint) => { const o = { word: e.word, pos: e.pos, ...(e.pos === 'n' && !R.noGender ? { gender: e.gender, ...(e.plural ? { plural: e.plural } : {}) } : {}), ...(e.h ? { h: e.h } : {}),
   ...(R.kana ? { kana: e.kana, romaji: e.romaji, pitch: e.pitch, jlpt: e.jlpt, ...(e.pos === 'v' ? { vclass: e.vclass } : {}), ...(e.pos === 'adj' ? { aclass: e.aclass } : {}) } : {}), ipa: e.ipa, gl: e.gl, ex: e.ex, ...(e.exForm ? { exForm: e.exForm } : {}) };
   return R.derive ? R.derive(o, hint) : o; };
+const T0 = Date.now(), MAX_MS = (+process.env.GEN_MAX_MIN || 125) * 60e3; // hạn giờ: step CI có timeout 150 phút – hết giờ thì XUẤT phần đã nhận (ja lô 1 23/11: 186/300 bị mất vì timeout, không có artifact)
 for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
+  if (Date.now() - T0 > MAX_MS) { console.log(`hết giờ (${Math.round(MAX_MS / 6e4)} phút) → xuất ${accepted.length - prev.length}/${N} mục đã qua cổng (lượt sau làm tiếp)`); break; }
   const items = await fillQ(BATCH); if (!items.length) { console.log('hết ứng viên'); break; }
   const g = await AI.gen({ mode: 'lxgen', items }); if (!g) { console.log('ai-pool: hết tuyến soạn → dừng (lượt sau làm tiếp)'); break; }
   const draft = items.map(it => ({ it, e: g.out[it.k] })).filter(({ it, e }) => { if (!e || e.skip) { rejected.push({ form: it.form, why: e ? 'skip: ' + e.skip : 'không trả' }); return false; } return true; })
