@@ -89,7 +89,6 @@
 "Thẻ sẵn sàng":"Cartes prêtes",
 "Thẻ tiếp":"Carte suivante",
 "Thử ngay":"Essayez maintenant",
-"Tra từ…":"Recherchez un mot…",
 "Truyện & âm thanh":"Histoires et audio",
 "Truyện ngắn":"Histoires",
 "Trọng tâm hôm nay":"Priorité du jour",

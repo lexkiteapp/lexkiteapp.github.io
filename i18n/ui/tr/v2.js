@@ -89,7 +89,6 @@
 "Thẻ sẵn sàng":"Hazır kartlar",
 "Thẻ tiếp":"Sonraki kart",
 "Thử ngay":"Hemen dene",
-"Tra từ…":"Bir kelimeye bakın…",
 "Truyện & âm thanh":"Hikâyeler ve ses",
 "Truyện ngắn":"Hikâyeler",
 "Trọng tâm hôm nay":"Bugünün odağı",

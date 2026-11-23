@@ -89,7 +89,6 @@
 "Thẻ sẵn sàng":"準備できたカード",
 "Thẻ tiếp":"次のカード",
 "Thử ngay":"今すぐ試す",
-"Tra từ…":"単語を調べて…",
 "Truyện & âm thanh":"ストーリーと音声",
 "Truyện ngắn":"ストーリー",
 "Trọng tâm hôm nay":"今日の重点",

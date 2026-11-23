@@ -89,7 +89,6 @@
 "Thẻ sẵn sàng":"Karten bereit",
 "Thẻ tiếp":"Nächste Karte",
 "Thử ngay":"Jetzt ausprobieren",
-"Tra từ…":"Wort nachschlagen …",
 "Truyện & âm thanh":"Geschichten & Audio",
 "Truyện ngắn":"Geschichten",
 "Trọng tâm hôm nay":"Fokus heute",
