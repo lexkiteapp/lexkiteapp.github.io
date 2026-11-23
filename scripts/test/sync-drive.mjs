@@ -1,7 +1,7 @@
 // Đồng bộ local-first qua Google Drive appDataFolder (docs/SYNC-DRIVE.md) – chạy MÃ THẬT web/js/sync.js + web/js/sync-drive.js trong jsdom
 // (nhiều "máy", kho cục bộ bền qua khởi động lại) ↔ Drive GIẢ trong bộ nhớ (đếm đơn vị quota như Google) + máy chủ D1 thật (functions/api/sync.js trên node:sqlite).
 // Không dùng tài khoản thật. Kiểm: gộp xác định (giao hoán/lũy đẳng, dấu xóa) · người mới không tạo dòng D1 · 2 máy hội tụ · mở lại không đổi = 1 lượt get (5 đv)
-// · ngoại tuyến → lùi cấp số nhân rồi tự gửi · token hết hạn → không popup khi không chạm; chạm 1 lần → gia hạn (prompt=none), giới hạn 1 lần/45 phút
+// · ngoại tuyến → lùi cấp số nhân rồi tự gửi · token hết hạn → nền không popup, đi D1 im lặng; chỉ "Đồng bộ ngay" gia hạn (prompt=none)
 // · ngân sách ngày không bao giờ vượt · bỏ ô Drive → quay về D1 + nút bật · di chuyển D1 → Drive giữ đủ dữ liệu, máy chưa cập nhật vẫn thấy · xóa tài khoản xóa tệp Drive
 // · tệp hỏng/SHA sai → khôi phục từ bản sao lưu, giữ tệp hỏng · ghi dở · 5xx kéo dài → bản sao D1 · schema mới hơn không bị ghi đè · lệch đồng hồ
 // · di chuyển 5.000 thẻ + dry-run · khách đăng nhập = gộp · fuzz thuần 200 chuỗi + fuzz đầu-cuối 3 máy.
@@ -202,17 +202,23 @@ const diskA = {}, diskA2 = {};
   A.close();
 }
 
-// ---------- 5) Token hết hạn → không popup khi không chạm; 1 chạm → gia hạn prompt=none; giới hạn tần suất ----------
+// ---------- 5) Token hết hạn → nền KHÔNG BAO GIỜ popup, dữ liệu vẫn đi đường D1; chỉ "Đồng bộ ngay" mới gia hạn (prompt=none) ----------
 {
   delete diskA.ls['lk.dt'];
   const A = await device('ann', diskA); await A.resume();
-  await A.edit('tok1', 1_995_000_000_000); await A.hide();
-  ok(A.stat.popups.length === 0, 'không có token → không popup tự phát');
-  await A.tap();
-  ok(A.stat.popups.length === 1 && A.stat.popups[0].prompt === 'none', 'chạm đầu tiên → 1 popup gia hạn prompt=none');
-  ok((await driveSnap('ann')).cards.tok1, 'sau gia hạn đã gửi thay đổi chờ');
-  A.disk.ls = {}; A.w.localStorage.removeItem('lk.dt'); await A.edit('tok2', 1_996_000_000_000); await A.hide(); await A.tap(); await A.tap();
-  ok(A.stat.popups.length === 1, 'gia hạn tối đa 1 lần/45 phút dù chạm nhiều: ' + A.stat.popups.length);
+  const c0 = d1Calls;
+  await A.edit('tok1', 1_995_000_000_000); await A.hide(); await A.tap(); await A.tap();
+  ok(A.stat.popups.length === 0, 'không có token → nền + chạm/gõ: không popup nào: ' + A.stat.popups.length);
+  ok(d1Calls > c0 && !(await driveSnap('ann')).cards.tok1, 'không token → dữ liệu đi qua D1, chưa lên Drive');
+  ok(A.w.Sync.mode === 'drive' && A.w.Sync.status === 'ok', 'vẫn ở chế độ Drive, trạng thái bình thường');
+  const B = await device('ann', {}, { drive: false }); await B.signIn();
+  ok(B.disk.cards.tok1, 'máy khác (D1) nhận được thay đổi gửi khi hết token');
+  B.close();
+  await A.w.Sync.now(); await A.idle();
+  ok(A.stat.popups.length === 1 && A.stat.popups[0].prompt === 'none', '"Đồng bộ ngay" → 1 popup gia hạn prompt=none (trong cú bấm)');
+  ok((await driveSnap('ann')).cards.tok1, 'sau gia hạn thủ công: đã lên Drive');
+  await A.edit('tok2', 1_996_000_000_000); await A.hide();
+  ok(A.stat.popups.length === 1 && (await driveSnap('ann')).cards.tok2, 'có token lại → nền về Drive, không popup thêm');
   A.close();
 }
 

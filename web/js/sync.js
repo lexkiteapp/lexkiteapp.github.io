@@ -323,7 +323,7 @@
     return { token: res && res.credential && res.credential.accessToken };
   }
   const dctx = () => ({
-    uid: Sync.user.uid, build: snapLocal, hash: snapHash, renew: renewTok,
+    uid: Sync.user.uid, build: snapLocal, hash: snapHash,
     apply: async remote => { const rc = {}; for (const [w, v] of Object.entries(remote.cards || {})) rc[w] = fat(v); await mergeIn(remote, rc); },
     // Gia hạn token chỉ khi cần: còn thay đổi chưa gửi, hoặc lâu chưa kéo
     due: st => dirty || !st.okAt || Date.now() - st.okAt > window.SyncDrive.cfg().stale,
@@ -344,6 +344,12 @@
     }
     if (r === 'no-scope') { Sync.mode = 'd1'; Sync.driveOffer = true; return pullMerge(); } // bỏ ô Drive ở màn đồng ý → đường D1 cũ
     if (r === 'newer') { Sync.mode = 'd1'; return pullMerge(); } // tệp do bản app MỚI hơn ghi → không ghi đè, dùng D1 tới khi app cập nhật
+    if (r === 'no-token' && why !== 'manual') { // token Drive hết hạn: KHÔNG popup nền – có gì cần gửi/kéo thì đi đường D1 im lặng, có token lại thì về Drive
+      const st = await D.load(Sync.user.uid);
+      if (dctx().due(st)) { Sync.mode = 'd1'; try { await pullMerge({ quiet: true }); } finally { Sync.mode = 'drive'; } }
+      else setStatus('ok');
+      return r;
+    }
     setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); // hết ngân sách ngày / mất mạng / chờ token: dữ liệu an toàn trên máy
     if (r === 'retry') {
       clearTimeout(retryT); const st = await D.load(Sync.user.uid); retryT = setTimeout(() => driveRun('retry'), Math.max(30e3, (st.nextAt || 0) - Date.now()));
