@@ -24,7 +24,7 @@ jobs:
       - uses: ./.github/actions/setup-ffmpeg
       - name: Cài công cụ
         timeout-minutes: 10
-        run: pip install -q numpy opencv-python-headless
+        run: pip install -q numpy pillow opencv-python-headless
       - name: Hồi quy cổng đo
         run: python3 scripts/test/motion-smear-selftest.py
       - name: Làm sạch
@@ -32,10 +32,11 @@ jobs:
         run: python3 scripts/teach/refine_clips.py web/teach $CLIPS
       - name: Cổng khung vung tay
         run: python3 scripts/teach/motion_smear.py web/teach
-      - name: Kiểm bộ nhân vật
+      - name: Vòng nghỉ dựng lại từ clip vừa làm sạch (sha nguồn đổi) + kiểm bộ nhân vật
         run: |
-          node scripts/test/characters-gate.mjs
+          python3 scripts/teach/idle.py web/teach
           python3 scripts/teach/idle.py --check web/teach
+          node scripts/test/characters-gate.mjs
       - name: Artifact + summary (không đẩy vào nhánh)
         if: always()
         uses: ./.github/actions/bot-output
