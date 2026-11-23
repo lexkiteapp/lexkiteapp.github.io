@@ -23,6 +23,7 @@ await w.PlayChess.run(H, 'deck');
 const $ = s => view.querySelector(s), $$ = s => [...view.querySelectorAll(s)], cell = s => $(`#chBoard [data-s="${s}"]`);
 assert.ok($('#ch') && $('#chBoard') && $('#chX').getAttribute('href') === '#/practice', 'khung Stitch game-chess + nút thoát về Luyện tập');
 assert.equal($$('#chBoard [data-s]').length, 64, 'bàn cờ 8×8');
+assert.ok($('#chBoard').closest('[dir=ltr]'), 'bàn cờ luôn LTR (cả khi UI là RTL: a1 ở góc dưới trái)');
 assert.ok($$('#chBoard [data-s]').every(c => c.className && !/undefined/.test(c.className)), 'mọi ô mang class mẫu Stitch');
 assert.ok($('#chFb').hidden && $('#chTerm').hidden && $('#chGo').disabled, 'chưa giải: ẩn thẻ phản hồi + thuật ngữ, nút Tiếp khóa');
 assert.match($('#chTurn').textContent, /Trắng/, 'thế đầu: Trắng đi');

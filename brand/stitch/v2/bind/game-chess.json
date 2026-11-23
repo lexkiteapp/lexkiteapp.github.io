@@ -82,6 +82,9 @@
   },
   ":scope > div > main > div > div:nth-child(6) > p": {
    "id": "'chFbB'"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > div": {
+   "dir": "'ltr'"
   }
  },
  "tag": {
@@ -91,7 +94,8 @@
  },
  "addClass": {
   ":scope > div > header > div > button": "no-underline",
-  ":scope > div > main > div > div:nth-child(7) > button": "disabled:opacity-50 disabled:cursor-not-allowed"
+  ":scope > div > main > div > div:nth-child(7) > button": "disabled:opacity-50 disabled:cursor-not-allowed",
+  ":scope > div > main > div": "pt-3"
  },
  "html": {
   ":scope > div > main > div > div:nth-child(6) > p": "''"
