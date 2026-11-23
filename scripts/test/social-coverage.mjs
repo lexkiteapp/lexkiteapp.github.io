@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { gapsOf, coverage } from '../../functions/api/_social_cover.js';
-import { report, near, NEAR_DAYS } from '../social/coverage.mjs';
+import { report, near, NEAR_DAYS, runway, WARN_DAYS } from '../social/coverage.mjs';
 import { langOfChannel, LANG_TZ, SOCIAL_LANGS, validTz } from '../../functions/api/_distribution.js';
 
 const D = 864e5, NOW = Date.UTC(2026, 10, 16, 5, 0, 0); // 16/11/2026 05:00 UTC
@@ -55,5 +55,8 @@ ok(jobs.some(j => j.id === 'social-coverage' && j.workflow === 'social-coverage.
 { const at = Date.UTC(2026, 10, 17), d = k => new Date(at + k * 864e5).toISOString().slice(0, 10);
   const j = { at, days: 30, rows: [{ title: 'A', platform: 'youtube', missing: [d(2)] }, { title: 'B', platform: 'facebook_page', missing: [d(NEAR_DAYS + 3)] }, { title: 'C', platform: 'tiktok', missing: [] }] };
   const nr = near(j); ok(NEAR_DAYS === 7 && nr.length === 1 && nr[0].title === 'A', 'trống ≤ 7 ngày → đỏ; trống xa hơn chỉ cảnh báo; đủ lịch → xanh'); }
+{ const at = Date.parse('2026-11-23T10:00:00Z'), j = { days: 30, at, rows: [{ title: 'A', platform: 'youtube', missing: ['2026-12-03'] }, { title: 'B', platform: 'youtube', missing: ['2026-12-20'] }, { title: 'C', platform: 'youtube', missing: [] }, { title: 'D', platform: 'facebook_page', missing: ['2026-11-25', '2026-12-01'] }] };
+  const rw = runway(j); ok(WARN_DAYS === 14 && rw.map(r => r.title + r.left).join() === 'D2,A10', 'runway: kênh còn lịch ≤ 14 ngày được cảnh báo sớm (D còn 2, A còn 10), B/C chưa'); }
+ok(/runway\(jj\)/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')) && /coverage-runway/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'coverage.mjs mở issue cảnh báo sớm 14 ngày')
 ok(/near\(j\)/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')) && /coverage-near/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'coverage.mjs thoát 1 + mở issue khi gần trống');
 console.log(`✓ social-coverage: ${n} kiểm`);

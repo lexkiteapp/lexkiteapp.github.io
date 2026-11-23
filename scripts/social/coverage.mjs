@@ -10,6 +10,9 @@ const weekly = j => ['| nền tảng | kênh nối/cần | trang-ngày có lịc
 export const NEAR_DAYS = 7;
 /** Ngày trống GẦN (≤ NEAR_DAYS ngày kể từ hôm nay UTC) theo từng kênh – đây là điều làm máy gác đỏ. */
 export const near = (j, now = j.at || Date.now()) => { const lim = new Date(now + NEAR_DAYS * 864e5).toISOString().slice(0, 10); return (j.rows || []).map(r => ({ ...r, gap: r.missing.filter(d => d <= lim) })).filter(r => r.gap.length); };
+export const WARN_DAYS = 14;   // cảnh báo SỚM: kênh nào hết lịch trong ≤ 14 ngày tới (còn ≥ 7 ngày trước khi thành ngày trống đỏ) → báo ngay để dựng clip kịp (23/11)
+/** Số ngày lịch còn phủ liên tục từ hôm nay (ngày trống đầu tiên); kênh còn ≤ WARN_DAYS ngày → cần dựng thêm clip trước khi thành đỏ. */
+export const runway = (j, now = j.at || Date.now()) => (j.rows || []).map(r => { const first = [...r.missing].sort()[0]; return { ...r, left: first ? Math.max(0, Math.floor((Date.parse(first) - Date.parse(new Date(now).toISOString().slice(0, 10))) / 864e5)) : j.days || 30 }; }).filter(r => r.left <= WARN_DAYS).sort((a, b) => a.left - b.left);
 const matrix = (j, nr) => ['| kênh | nền | trống ' + NEAR_DAYS + ' ngày tới |', '|---|---|---|', ...nr.map(r => `| ${r.title} | ${r.platform} | ${ranges(r.gap).join(', ')} |`)].join('\n');
 export const report = j => {
   const bad = (j.rows || []).filter(r => r.missing.length), lines = [`Lịch ${j.days} ngày tới: ${j.channels - bad.length}/${j.channels} kênh đủ mỗi ngày 1 bài; ${bad.length} kênh còn trống.`];
@@ -37,6 +40,8 @@ if (process.argv[1] && /(^|[\\/])coverage\.mjs$/.test(process.argv[1])) {
   if (process.env.WEEKLY === '1' || new Date().getUTCDay() === 1) await alert({ k: 'coverage-weekly', text: 'Bảng phủ lịch theo trang (mỗi tuần):\n\n' + table, at: Date.now() });
   if (idle.length) await alert({ k: 'channel-idle-24h', text: `${idle.length} kênh không có bài nào trong 24 giờ qua (đẩy/đăng): ` + idle.map(r => `${r.platform} · ${r.title}`).join('; ') + '\n\nKiểm: Quản trị › Video & Social › Hàng đợi (bài nháp chờ duyệt?), autopub từng nền tảng, kênh GrabCast/Meta đã nối?', at: Date.now() });
   if (bad.length || miss.length) await alert({ k: 'coverage-gap', text: out + '\n\nLấp: plan_run từ kho clip (Quản trị › Video & Social › Phân phối) hoặc thêm clip bản ngữ cho trang ngôn ngữ.', at: Date.now() });
+  const rw = runway(jj);
+  if (rw.length) { const m = ['| kênh | nền | lịch còn phủ (ngày) |', '|---|---|---|', ...rw.map(r => `| ${r.title} | ${r.platform} | ${r.left} |`)].join('\n'); console.log(`⚠ ${rw.length} kênh sắp hết lịch (≤ ${WARN_DAYS} ngày):\n` + m); await alert({ k: 'coverage-runway', text: `⚠ ${rw.length} kênh chỉ còn lịch ≤ ${WARN_DAYS} ngày – dựng thêm clip bản ngữ NGAY (còn ≥ ${WARN_DAYS - NEAR_DAYS} ngày trước khi thành ngày trống):\n\n` + m, at: Date.now() }); }
   const nr = near(jj);
   if (nr.length) { const m = matrix(jj, nr); console.error(`✗ ${nr.length} kênh có ngày TRỐNG trong ${NEAR_DAYS} ngày tới (luật 1 video/kênh/ngày):\n` + m); if (process.env.GITHUB_STEP_SUMMARY) (await import('node:fs')).appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### ✗ Ngày trống ${NEAR_DAYS} ngày tới\n` + m + '\n'); await alert({ k: 'coverage-near', text: `✗ ${nr.length} kênh có ngày trống trong ${NEAR_DAYS} ngày tới SAU khi tự lấp (${JSON.stringify(fillNote && fillNote.skipped || {})}) – kho clip bản ngữ không đủ, cần dựng thêm:\n\n` + m, at: Date.now() }); }
   if (idle.length) console.error(`✗ ${idle.length} kênh không có bài trong 24 giờ qua`);
