@@ -2,6 +2,17 @@
 (function (g) {
 const D = g.I18N_DICT = g.I18N_DICT || {};
 D.en = Object.assign(D.en || {}, {
+'Cụm dùng ngay': "Useful phrases",
+'Không có mục nào khớp': "No matches",
+'Kết quả: {a}/{b}': "Result: {a}/{b}",
+'Quiz nhanh': "Quick quiz",
+'Tìm từ…': "Search words…",
+'{n} cụm': "{n} phrases",
+'{n} hội thoại': "{n} dialogues",
+'{n}/{m} đã thêm': "{n}/{m} added",
+'Câu {a}/{b}': "Question {a}/{b}",
+'Nghe rảnh tay': "Hands-free listening",
+'Từ': "Words",
 'Không nghe được': "Can't listen",
 'Không nói được': "Can't speak",
 'Còn {n} từ': '{n} words left',
