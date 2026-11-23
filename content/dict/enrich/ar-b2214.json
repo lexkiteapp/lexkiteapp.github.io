@@ -1,0 +1,342 @@
+{
+  "presume": {
+    "n": "في المحاكم تسمع أن المتهم presumed innocent، أي يُعامل كبريء إلى أن تثبت إدانته، وهذا أشهر استعمال للفعل presume. يعني أن تأخذ أمرًا على أنه صحيح دون يقين كامل، ويأتي غالبًا مع that، وفي المبني للمجهول it is presumed that. قريب من assume لكنه أرسمي أكثر، وعبارة I presume تُقال للتأكد بأدب من شيء تتوقعه.",
+    "x": [
+      [
+        "I presume you have already read the report.",
+        "أفترض أنك قرأت التقرير بالفعل."
+      ],
+      [
+        "Everyone is presumed innocent until proven guilty.",
+        "يُفترض أن كل إنسان بريء حتى تثبت إدانته."
+      ],
+      [
+        "The missing hikers are presumed dead after the storm.",
+        "يُفترض أن المتنزهين المفقودين قد ماتوا بعد العاصفة."
+      ]
+    ]
+  },
+  "sole": {
+    "n": "لا يمكنك أن تقول the house is sole، فهذه الصفة تقع قبل الاسم دائمًا تقريبًا. تعني sole وحيد لا يشاركه أحد، كما في sole purpose أي الغرض الوحيد، وsole responsibility أي المسؤولية الكاملة، وsole owner وsole survivor. وهي أرسمي من only، لذلك تكثر في النصوص القانونية وعقود الشركات.",
+    "x": [
+      [
+        "She was the sole survivor of the accident.",
+        "كانت الناجية الوحيدة من الحادث."
+      ],
+      [
+        "The sole purpose of the meeting is to choose a new manager.",
+        "الغرض الوحيد من الاجتماع هو اختيار مدير جديد."
+      ],
+      [
+        "He accepted sole responsibility for the mistake.",
+        "تحمّل وحده المسؤولية الكاملة عن الخطأ."
+      ]
+    ]
+  },
+  "successor": {
+    "n": "عندما يتقاعد مدير أو يتنحى ملك، يُسأل فورًا عن خليفته، وهذه هي الكلمة: successor. يُقال successor to the throne لوريث العرش، وnatural successor للشخص الأنسب لخلافته. وليست مقصورة على الأشخاص، فالإصدار الأحدث من هاتف أو برنامج هو successor للقديم. وضدها predecessor أي السلف، وتُستعمل الكلمتان معًا كثيرًا في الأخبار السياسية والاقتصادية وأخبار التقنية.",
+    "x": [
+      [
+        "The prime minister has not yet chosen a successor.",
+        "لم يختر رئيس الوزراء خليفته بعد."
+      ],
+      [
+        "This phone is the successor to last year's model.",
+        "هذا الهاتف هو خليفة طراز العام الماضي."
+      ],
+      [
+        "Everyone saw her as the natural successor to the director.",
+        "رأى الجميع أنها الخليفة الطبيعي للمدير."
+      ]
+    ]
+  },
+  "precise": {
+    "n": "to be precise عبارة تقولها حين تريد تصحيح كلامك بدقة أكبر، كأن تقول: كانت الساعة نحو الظهر، أو الثانية عشرة وعشر دقائق to be precise. أما الصفة precise فتصف ما هو دقيق في تفاصيله بلا غموض، مثل precise measurements. تقترب من exact وaccurate، غير أنها تركز على دقة التفصيل بينما تركز accurate على الصحة. ومنها precision وprecisely.",
+    "x": [
+      [
+        "Can you give me the precise date of the meeting?",
+        "هل تستطيع أن تعطيني التاريخ الدقيق للاجتماع؟"
+      ],
+      [
+        "It was about noon, or 12:10 to be precise.",
+        "كانت الساعة نحو الظهر، أو الثانية عشرة وعشر دقائق to be precise."
+      ],
+      [
+        "The recipe requires precise measurements.",
+        "تتطلب الوصفة مقادير دقيقة."
+      ]
+    ]
+  },
+  "trace": {
+    "n": "حين يبحث محققون عن مصدر عطل أو تسريب يقولون إنهم trace it to its source. الفعل trace يعني تتبّع أصل شيء أو تاريخه حتى الوصول إلى مصدره، ويأتي مع back to، وفي المبني للمجهول it was traced to a fault. ويعني أيضًا العثور على شخص مفقود. وكاسم تعني أثرًا ضئيلًا جدًا، كما في a trace of sugar.",
+    "x": [
+      [
+        "Scientists traced the virus back to a small village.",
+        "تتبع العلماء أصل الفيروس إلى قرية صغيرة."
+      ],
+      [
+        "She traced her family history back to the 1800s.",
+        "تتبعت تاريخ عائلتها حتى القرن التاسع عشر."
+      ],
+      [
+        "Police could not trace the owner of the car.",
+        "لم تتمكن الشرطة من الوصول إلى مالك السيارة."
+      ]
+    ]
+  },
+  "bureaucracy": {
+    "n": "من يشتكي من كثرة الأوراق والأختام والانتظار أمام الشبابيك يشتكي في الواقع من bureaucracy. هذه الكلمة تصف نظامًا إداريًا مليئًا بإجراءات رسمية معقدة تبطئ العمل، وغالبًا بنبرة سلبية، كما في cut bureaucracy. المرادف red tape أكثر عامية. والصفة bureaucratic، وتُعدّ الكلمة غير معدودة في الغالب.",
+    "x": [
+      [
+        "Starting a business here involves a lot of bureaucracy.",
+        "يتطلب إنشاء مشروع هنا قدرًا كبيرًا من البيروقراطية."
+      ],
+      [
+        "The new minister promised to cut bureaucracy in the health system.",
+        "وعد الوزير الجديد بتقليل البيروقراطية في النظام الصحي."
+      ],
+      [
+        "Getting a permit meant dealing with a slow bureaucracy.",
+        "كان الحصول على التصريح يعني التعامل مع جهاز إداري بطيء."
+      ]
+    ]
+  },
+  "bustling city": {
+    "n": "قارن بين crowded city وbustling city: الأولى قد تعني زحامًا مزعجًا، أما الثانية فتصور مدينة مليئة بالحركة والحياة، فيها أسواق وشوارع تعج بالناس. لهذا تأتي bustling عادة بمعنى إيجابي في الوصف السياحي والأدبي، مثل a bustling market أو a bustling street. ويمكن القول live in a bustling city.",
+    "x": [
+      [
+        "She grew up in a bustling city near the coast.",
+        "نشأت في مدينة نابضة بالحياة قرب الساحل."
+      ],
+      [
+        "Cairo is a bustling city full of markets and cafes.",
+        "القاهرة مدينة نابضة بالحركة مليئة بالأسواق والمقاهي."
+      ],
+      [
+        "After years in a bustling city, he moved to a quiet village.",
+        "بعد سنوات في مدينة مزدحمة، انتقل إلى قرية هادئة."
+      ]
+    ]
+  },
+  "debunk": {
+    "n": "عندما تنتشر خرافة مثل أن السكر يجعل الأطفال مفرطي النشاط، يأتي من يفنّدها: debunk a myth. الفعل يعني كشف زيف فكرة أو اعتقاد شائع بإثبات خطئه، وهو شائع في العلوم والإعلام وتدقيق الأخبار. هو أخف من disprove لأنه يركز على الخرافة المنتشرة. مفعوله فكرة أو ادعاء لا شخص، والاسم debunker.",
+    "x": [
+      [
+        "Scientists have debunked the claim that sugar makes children hyperactive.",
+        "فنّد العلماء الادعاء بأن السكر يجعل الأطفال مفرطي النشاط."
+      ],
+      [
+        "The video aims to debunk common myths about sleep.",
+        "يهدف الفيديو إلى تفنيد خرافات شائعة عن النوم."
+      ],
+      [
+        "Fact-checkers quickly debunked the false story.",
+        "فنّد مدققو الأخبار القصة الكاذبة بسرعة."
+      ]
+    ]
+  },
+  "disproportionate": {
+    "n": "إذا بدت العقوبة أكبر بكثير من الذنب فهي disproportionate، أي غير متناسبة. تقع الصفة قبل الاسم في disproportionate response، أو بعد الفعل مع to كما في disproportionate to the risk. تختلف عن excessive التي تدل على الزيادة فقط، فdisproportionate تصلح للزيادة والنقص. وضدها proportionate، وتكثر في الاقتصاد والقانون.",
+    "x": [
+      [
+        "The punishment seemed disproportionate to the crime.",
+        "بدت العقوبة غير متناسبة مع الجريمة."
+      ],
+      [
+        "The salary gap between the two jobs is disproportionate to their workload.",
+        "الفجوة في الراتب بين الوظيفتين غير متناسبة مع حجم العمل فيهما."
+      ],
+      [
+        "The city spends a disproportionate amount on roads.",
+        "تنفق المدينة مبلغًا غير متناسب على الطرق."
+      ]
+    ]
+  },
+  "prospect": {
+    "n": "قبل أن تسافر للدراسة أو تبدأ وظيفة جديدة، تشعر بما يسميه الإنجليزي the prospect of ...، أي احتمال أمر مقبل، مرغوب أو مخيف، ويتبعه of وصيغة الفعل. وبالجمع prospects تعني الفرص المستقبلية، كما في job prospects وcareer prospects، ويقال bright prospects أو poor prospects. المفرد لحدث محدد، والجمع لآفاق عامة.",
+    "x": [
+      [
+        "She is excited by the prospect of studying abroad.",
+        "هي متحمسة لاحتمال الدراسة في الخارج."
+      ],
+      [
+        "Job prospects for engineers are excellent this year.",
+        "فرص العمل للمهندسين ممتازة هذا العام."
+      ],
+      [
+        "The prospect of another long winter worried them.",
+        "أقلقهم احتمال شتاء طويل آخر."
+      ]
+    ]
+  },
+  "pursue": {
+    "n": "الطالب الذي يقول إنه يريد pursue a degree أو pursue a career يعني أنه سيسعى إليه بجهد منظم ومستمر. الفعل يغطي الهدف والمهنة والاهتمام، كما في pursue a goal وpursue an interest، وهو أقوى من seek. وله معنى آخر هو مطاردة شخص أو سيارة، ومنه الاسم pursuit.",
+    "x": [
+      [
+        "He decided to pursue a degree in medicine.",
+        "قرر أن يسعى للحصول على شهادة في الطب."
+      ],
+      [
+        "She wants to pursue her dream of becoming a pilot.",
+        "تريد أن تسعى وراء حلمها في أن تصبح طيارة."
+      ],
+      [
+        "The police pursued the car through the city.",
+        "طاردت الشرطة السيارة في أنحاء المدينة."
+      ]
+    ]
+  },
+  "terminate": {
+    "n": "في العقود تقرأ شرطًا يتيح لك terminate the agreement، أي إنهاءه، والفعل هنا أرسمي أكثر من end. يُستعمل مع terminate a contract وterminate employment وterminate a service، وفي البرمجة أيضًا. وقد يأتي لازمًا: the train terminates at this station أي ينتهي مساره عند المحطة. والاسم termination.",
+    "x": [
+      [
+        "The company terminated his contract without warning.",
+        "أنهت الشركة عقده دون إنذار."
+      ],
+      [
+        "You may terminate this agreement at any time.",
+        "يجوز لك إنهاء هذه الاتفاقية في أي وقت."
+      ],
+      [
+        "This train terminates at the central station.",
+        "ينتهي مسار هذا القطار في المحطة المركزية."
+      ]
+    ]
+  },
+  "compute": {
+    "n": "في حصة الإحصاء يُطلب منك compute the average، أي احسب المتوسط بعملية رياضية. هذا الفعل أكثر تقنية ورسمية من calculate وwork out، ويكثر في الرياضيات والحاسوب والأبحاث، وغالبًا مفعوله رقم أو نتيجة. ومن مشتقاته computer وcomputation. ويظهر مع كلمات مثل compute a value وcompute the sum وcompute the probability، كما يستعمله المبرمجون حين يقول أحدهم إن الحاسوب سيحسب النتيجة تلقائيًا من البيانات المدخلة.",
+    "x": [
+      [
+        "The program can compute the total cost in seconds.",
+        "يستطيع البرنامج حساب التكلفة الإجمالية في ثوانٍ."
+      ],
+      [
+        "Students were asked to compute the average speed of the car.",
+        "طُلب من الطلاب حساب السرعة المتوسطة للسيارة."
+      ],
+      [
+        "It is hard to compute the exact number of visitors.",
+        "من الصعب حساب العدد الدقيق للزوار."
+      ]
+    ]
+  },
+  "mutual": {
+    "n": "إذا قلت لك شكرًا على لطفك فقلت لي The feeling is mutual، فمعناه أنني أبادلك الشعور نفسه. صفة mutual تعني متبادل أو مشترك بين طرفين أو أكثر: mutual respect وmutual benefit وmutual trust، وa mutual friend أي صديق مشترك. تقترب من shared وreciprocal، وتناسب الحديث عن العلاقات والاتفاقات.",
+    "x": [
+      [
+        "They ended the meeting by mutual agreement.",
+        "أنهوا الاجتماع باتفاق متبادل."
+      ],
+      [
+        "Good teamwork depends on mutual respect.",
+        "يعتمد العمل الجماعي الجيد على الاحترام المتبادل."
+      ],
+      [
+        "We met through a mutual friend.",
+        "تعارفنا عن طريق صديق مشترك."
+      ]
+    ]
+  },
+  "tension": {
+    "n": "تنتشر tension في الأخبار السياسية مع ethnic tension وrising tension، وتعني توترًا بين أطراف أو قلقًا نفسيًا، ويأتي ease tension بمعنى يخفف التوتر. وللكلمة وجه جسدي: tension in the neck أي شد في الرقبة. وهي غالبًا غير معدودة، لكن الجمع tensions يظهر عند ذكر توترات سياسية متعددة.",
+    "x": [
+      [
+        "There was a lot of tension in the room before the results.",
+        "كان هناك الكثير من التوتر في الغرفة قبل النتائج."
+      ],
+      [
+        "The talks helped ease tension between the two countries.",
+        "ساعدت المحادثات على تخفيف التوتر بين البلدين."
+      ],
+      [
+        "Stress can cause tension in your shoulders.",
+        "قد يسبب الضغط النفسي شدًا في الكتفين."
+      ]
+    ]
+  },
+  "artefact": {
+    "n": "عندما يعرض المتحف قطعة صنعها إنسان قديم، مثل إناء أو أداة، يسميها artefact: قطعة أثرية لها قيمة تاريخية أو ثقافية، مثل ancient artefact وcultural artefact. تُكتشف في الحفريات وتُعرض في المتاحف. الإملاء الأمريكي artifact. وتختلف عن relic التي تعني غالبًا بقايا قديمة يُحتفظ بها لقيمتها.",
+    "x": [
+      [
+        "The museum displays artefacts from ancient Egypt.",
+        "يعرض المتحف قطعًا أثرية من مصر القديمة."
+      ],
+      [
+        "Workers found an old artefact while digging the road.",
+        "عثر العمال على قطعة أثرية قديمة أثناء حفر الطريق."
+      ],
+      [
+        "Each artefact tells us something about daily life long ago.",
+        "تخبرنا كل قطعة أثرية شيئًا عن الحياة اليومية قديمًا."
+      ]
+    ]
+  },
+  "cast doubt on": {
+    "n": "عندما يظهر دليل جديد يزعزع رواية ما، تقول الأخبار إنه cast doubt on it، أي جعلها أقل يقينًا. يأتي بعد التعبير اسم أو ضمير دائمًا، مثل cast doubt on a claim أو cast serious doubt on the results. والفعل cast غير منتظم: cast في الماضي والتصريف الثالث. هو أرسمي من question وأقرب إلى undermine.",
+    "x": [
+      [
+        "New evidence may cast doubt on the witness's story.",
+        "قد تلقي أدلة جديدة ظلالًا من الشك على رواية الشاهد."
+      ],
+      [
+        "The leaked emails cast doubt on the minister's explanation.",
+        "ألقت الرسائل المسربة الشك على تفسير الوزير."
+      ],
+      [
+        "Several errors cast doubt on the whole study.",
+        "ألقت عدة أخطاء الشك على الدراسة كلها."
+      ]
+    ]
+  },
+  "combat": {
+    "n": "تقرأ في الأخبار أن الحكومة تطلق حملة to combat obesity أو combat crime أو combat climate change، أي لمكافحة شيء سيئ ومنع انتشاره. الفعل متعدٍّ بنفسه، فلا نقول combat against. هو أرسمي من fight وقريب من tackle. وكاسم تعني قتالًا مسلحًا، مثل combat troops أي قوات قتالية.",
+    "x": [
+      [
+        "The government has launched a campaign to combat obesity.",
+        "أطلقت الحكومة حملة لمكافحة السمنة."
+      ],
+      [
+        "Doctors are working to combat the spread of the disease.",
+        "يعمل الأطباء على مكافحة انتشار المرض."
+      ],
+      [
+        "New laws were introduced to combat online fraud.",
+        "سُنّت قوانين جديدة لمكافحة الاحتيال عبر الإنترنت."
+      ]
+    ]
+  },
+  "cosmos": {
+    "n": "الشاعر والفلكي كلاهما قد يقول cosmos بدل universe، لكن الكلمة الأولى أدبية وفلسفية أكثر، وأصلها اليوناني يعني النظام، فهي تصف الكون منظمًا ومتكاملًا. تأتي غالبًا مع the، كما في explore the cosmos وthe vastness of the cosmos. ومنها الصفة cosmic كما في cosmic rays، وهي أقل شيوعًا في الحديث اليومي من universe، لذا تناسب الكتابة الأدبية والعلمية المبسطة أكثر.",
+    "x": [
+      [
+        "Astronomers study the origin of the cosmos.",
+        "يدرس الفلكيون أصل الكون."
+      ],
+      [
+        "He felt tiny when he looked at the stars and the vast cosmos.",
+        "شعر بصغره حين نظر إلى النجوم والكون الواسع."
+      ],
+      [
+        "Ancient thinkers saw the cosmos as a harmonious whole.",
+        "رأى المفكرون القدماء الكون كلًا منسجمًا."
+      ]
+    ]
+  },
+  "definite": {
+    "n": "في جملة we have no definite plans فالمقصود أن الخطط لم تُحسم بعد؛ إذ إن definite صفة بمعنى واضح ومحدد ومؤكد ولا يُرجح أن يتغير. تقول a definite answer وa definite improvement، وغالبًا تأتي في جمل منفية. والظرف definitely يعني بالتأكيد. لا تخلطها بـ definitive التي تعني نهائيًا وحاسمًا.",
+    "x": [
+      [
+        "We have no definite plans for the weekend.",
+        "ليست لدينا خطط محددة لعطلة نهاية الأسبوع."
+      ],
+      [
+        "There has been a definite improvement in her health.",
+        "طرأ تحسن واضح على صحتها."
+      ],
+      [
+        "Please give me a definite answer by Friday.",
+        "من فضلك أعطني إجابة واضحة بحلول يوم الجمعة."
+      ]
+    ]
+  }
+}
