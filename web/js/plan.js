@@ -96,7 +96,7 @@
         const all = await Store.get('mistakes', []); const it = all.find(x => x.key === key);
         if (it) { if (ok) it.fixed = true; else it.n = (it.n || 1) + 1; }
         await Store.set('mistakes', all);
-        if (ok) { App.reward({ xp: 3 }, card); Sfx.correct(); card.style.opacity = '.5'; setTimeout(() => card.remove(), 600); } else Sfx.wrong();
+        if (ok) { App.reward({ xp: Game.xpFor('answer', { mode: 'type' }) }, card); Sfx.correct(); card.style.opacity = '.5'; setTimeout(() => card.remove(), 600); } else Sfx.wrong();
       };
       $$('[data-rt]').forEach(box => {
         const card = box.closest('.card'), key = box.dataset.rt, ans = $('[data-ans]', card), it = rows.find(x => x.key === key);
@@ -110,7 +110,7 @@
       });
       $$('[data-fix]').forEach(b => b.onclick = async () => {
         const all = await Store.get('mistakes', []); const it = all.find(x => x.key === b.dataset.fix); if (it) it.fixed = true;
-        await Store.set('mistakes', all); App.reward({ xp: 2 }, b); b.closest('.card').remove();
+        await Store.set('mistakes', all); App.reward({ xp: Game.xpFor('step') }, b); b.closest('.card').remove();
       });
     };
     draw('');

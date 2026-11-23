@@ -311,7 +311,7 @@
       await Store.set('mocks', hist.slice(0, 30));
       const L = M.detail.listening, R = M.detail.reading, W = M.detail.writing, S = M.detail.speaking;
       [L, R].forEach((x, j) => x && Object.entries(x.res).filter(([, r]) => !r.ok).forEach(([n, r]) => App.logMistake && App.logMistake({ kind: j ? 'reading' : 'listening', q: I18N.tk('Thi thử – câu {n}: {q}', { n, q: r.q }), answer: r.answer, given: r.given || I18N.tk('(bỏ trống)'), explain: r.cue ? I18N.tk('Tham khảo: “…{cue}…”', { cue: r.cue }) : '', ref: j ? '' : r.ref })));
-      await App.reward({ quizzes: M.order.length, listens: L ? 4 : 0, readings: R ? 3 : 0, writes: W ? 2 : 0, xp: 40 + got.length * 30 });
+      await App.reward({ quizzes: M.order.length, listens: L ? 4 : 0, readings: R ? 3 : 0, writes: W ? 2 : 0, xp: Game.xpFor('exam', { sections: got.length }) });
       if (overall >= 6.5) { Sfx.win(); confetti(160); }
       const sheet = res => `<div class="lsheet">${Object.keys(res).map(Number).sort((a, b) => a - b).map(n => `<div class="${res[n].ok ? 'ok' : 'no'}"><b>${n}</b> ${res[n].ok ? '✓' : '✗'} <span>${esc(res[n].answer)}</span>${!res[n].ok && res[n].given ? `<span class="tiny muted">${t('(bạn: {a})', { a: esc(res[n].given) })}</span>` : ''}</div>`).join('')}</div>`;
       const crit = c => `<div class="mk-crit">${Object.entries(c || {}).map(([k, v]) => `<div><span class="tiny muted">${esc(k)}</span><b>${v}</b></div>`).join('')}</div>`;

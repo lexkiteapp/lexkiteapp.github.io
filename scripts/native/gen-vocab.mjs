@@ -11,6 +11,8 @@ import { fileURLToPath } from 'node:url';
 import { memStorage } from './fake-idb.mjs';
 import { LEX_FILES } from './web-ref.mjs';
 import { rigVectorText } from './gen-teach.mjs';
+import { gameRules } from '../lib/game-rules.mjs';
+const xpLog = []; const GR = () => ({ ...gameRules(), xpFor: (k, a = {}) => (xpLog.push(a), gameRules().xpFor(k, a)) }); // ghi tham số luật thưởng (right của bài) cho vectors
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const R = p => path.join(ROOT, p);
@@ -93,7 +95,7 @@ export function mkEnv(o = {}) {
   const sb = { console, JSON, Promise, Object, Array, Map, Set, Error, RegExp, URL, URLSearchParams, structuredClone, Date: CD, Math: M, parseInt, parseFloat, isNaN, Number, String, Boolean, Symbol, encodeURIComponent, decodeURIComponent,
     localStorage: ls, sessionStorage: memStorage(), navigator: { onLine: true, language: 'vi' }, location: { hash: o.hash || '#/home', hostname: 'lexkite.com', protocol: 'https:', search: '', pathname: '/app/', href: 'https://lexkite.com/app/', origin: 'https://lexkite.com' },
     t, I18N, Sfx: sfx, document: doc, addEventListener() {}, removeEventListener() {}, dispatchEvent() {}, CustomEvent: class { constructor(n, d) { this.type = n; this.detail = d && d.detail; } }, history: { replaceState() {} }, scrollTo() {}, scrollBy() {}, matchMedia: () => ({ matches: false }), requestAnimationFrame: f => f(), requestIdleCallback: f => f(),
-    setTimeout: (f, ms) => { if (typeof f === 'function') setImmediate(f); return 0; }, clearTimeout() {}, setInterval: () => 0, clearInterval() {}, confirm: () => true, LXDialog: { confirm: async () => true, prompt: async () => null, alert() {} }, confetti() {}, fetch: async () => ({ ok: false, status: 404, json: async () => null, text: async () => '' }), AbortSignal: { timeout: () => undefined },  performance: { now: () => 0 }, IELTS_DATA: data, UI: null, App: null, Game: null };
+    setTimeout: (f, ms) => { if (typeof f === 'function') setImmediate(f); return 0; }, clearTimeout() {}, setInterval: () => 0, clearInterval() {}, confirm: () => true, LXDialog: { confirm: async () => true, prompt: async () => null, alert() {} }, confetti() {}, fetch: async () => ({ ok: false, status: 404, json: async () => null, text: async () => '' }), AbortSignal: { timeout: () => undefined },  performance: { now: () => 0 }, IELTS_DATA: data, UI: null, App: null, Game: GR() };
   sb.self = sb; sb.window = sb; sb.globalThis = sb; sb._clock = clock; sb._dom = dom;
   const base = { $: dom.$, $$: dom.$$, esc, shuffle: a => a.slice(), toast: m => { (sb._toasts ||= []).push(m); }, closeModal() {}, modal: () => dom.mkEl('modal'), masteryDots: () => '', pic: () => '', speak() {}, tts() {}, similarity: () => 0, cloze: s => s, clozeAnswer: s => s, highlight: s => s, wordRegex: w => new RegExp('\\b' + String(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\w*', 'i'), xpFloat() {}, ...(o.ui || {}) };
   sb.UI = new Proxy(base, { get: (a, k) => (k in a ? a[k] : () => '') });
@@ -166,7 +168,7 @@ async function reviewCases(decks) {
   const base = (extra = {}) => ({ settings: { dailyNew: 10, sessionCap: 50, ...(extra.settings || {}) }, stats: extra.stats || { days: {}, newToday: { day: '', n: 0 } }, seen: extra.seen || {}, query: extra.query || '', deck: extra.deck || 'A' });
   async function open(inp, script) {
     const E = mkEnv({ hash: '#/review', ls: Object.keys(inp.seen).length ? { 'lk.newSeen': JSON.stringify(inp.seen) } : {} });
-    E.sb.Game = { mutate: async fn => { const gs = { xp: 100, days: {}, total: {} }; fn(gs); return gs; } };
+    E.sb.Game = { ...GR(), mutate: async fn => { const gs = { xp: 100, days: {}, total: {} }; fn(gs); return gs; } };
     const dk = decks(E)[inp.deck], map = keyed(E, dk);
     await E.Core.Store.set('cards', map);
     const { app, state, routes } = mkApp(E, { cards: await E.Core.Cards.all(), settings: inp.settings, stats: clone(inp.stats) });
@@ -671,7 +673,7 @@ async function writingCases() {
     };
     Object.defineProperty(box, '_lists', { get: lists }); box.querySelectorAll = sel => lists()[sel] || []; box.querySelector = sel => (lists()[sel] || [])[0] || null; box.firstElementChild = D.mkEl('first');
     P.A.routes.model(m.id); await settle(3); btn.onclick(); await settle(3);
-    const html = box.innerHTML, right = () => (rewards.length ? (rewards[rewards.length - 1].xp - 5) / 2 : null), res = {};
+    const html = box.innerHTML, right = () => (rewards.length && xpLog.length ? xpLog[xpLog.length - 1].right : null), res = {};
     if (mode === 'gram' && /class="gap gsel"/.test(html)) { // fewer than 5 plantable errors → the "choose the right form" exercise
       res.kind = 'select'; const sel = lists()['.gsel']; res.options = [...html.matchAll(/<select class="gap gsel"[^>]*>(.*?)<\/select>/g)].map(x => attrs(x[1], /<option>(.*?)<\/option>/g).map(unesc).filter(o => o !== '…'));
       box._q('#chk').onclick(); res.answers = sel.map(g => g.title.replace(/^Đáp án: /, '')); // nothing chosen → every title is "Đáp án: <word>"

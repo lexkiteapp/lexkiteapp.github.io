@@ -99,14 +99,14 @@
     if (!r.s.includes(k)) r.s.push(k);
     save(); return true;
   }
-  // Mọi hoạt động xong → ngày xong (+15 XP thưởng, 1 lần)
+  // Mọi hoạt động xong → ngày xong (+XP 'day' của luật chung, 1 lần)
   async function finishIf(d) {
     const st = plan(d);
     // chỉ tính các bước làm thật trong buổi (bản ghi), không thưởng lại cho ngày cũ được tính xong từ tiến độ trước đây
     if (d.rec.done || !(d.rec.s || []).length || !st.every(s => s.k === 'test' ? s.ok : (d.rec.s || []).includes(s.k))) return false;
     REC[d.key] = { ...d.rec, ...REC[d.key], done: Date.now() }; await save();
     ls('daySess', null);
-    try { await App.reward({ xp: 15 }); } catch (e) { /* bỏ qua */ }
+    try { await App.reward({ xp: Game.xpFor('day') }); } catch (e) { /* bỏ qua */ }
     return true;
   }
   const find = id => id && days().find(d => d.id === id);

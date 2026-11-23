@@ -1,6 +1,6 @@
 /* UI de – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {
-"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Das scheint dir zu leicht zu sein. Schwerere Aufgaben (tippen statt wählen) für Bonus-XP ausprobieren?",
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhớ lâu hơn nhé?":"Das scheint Ihnen zu leicht zu sein. Möchten Sie schwierigere Aufgaben (tippen statt wählen), damit Sie sich die Wörter länger merken?",
 "Bật lại":"Wieder an",
 "Chuỗi dài nhất":"Beste Serie",
 "Câu khó · +{n} XP":"Schwere Aufgabe · +{n} XP",
