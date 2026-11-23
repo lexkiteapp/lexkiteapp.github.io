@@ -43,5 +43,7 @@ if (!m) bad.push('index.html thiếu script nạp khung #/path'); else {
 }
 if (!html.includes('window.__lkSk=1;') || !/__lkSk\)\{try\{new P\(function\(q,o2\)/.test(rd('scripts/app-loader.mjs'))) bad.push('JS khung #/path phải chờ LCP rơi vào #lkPath – app-loader + script nạp + khung');
 if (!/!document\.getElementById\('lkHero'\) && !document\.getElementById\('lkPath'\)\) skel/.test(rd('web/js/app.js'))) bad.push('route() phải không thay khung #lkPath bằng khung chờ');
+if (!SK['dict-en.js'].includes('lkDictCss') || !/\.v2s-dict[^{]*\{/.test(SK['dict-en.js'])) bad.push('khung dict phải mang CSS lược từ st-v2-dict.css (không dùng <link> chặn vẽ)');
+if (/st-v2-dict\.css/.test(rd('web/app/index.html'))) bad.push('index.html không được nạp st-v2-dict.css (đã nhúng bản lược trong khung)');
 if (bad.length) { console.error('✗ path-skel:\n- ' + bad.join('\n- ')); process.exit(1); }
 console.log(`✓ path-skel: ${LANGS.length} ngôn ngữ · DOM khớp path-day.js · script nạp đúng điều kiện`);
