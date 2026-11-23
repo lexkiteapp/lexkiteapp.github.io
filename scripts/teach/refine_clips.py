@@ -64,7 +64,10 @@ def inpaint_olive(f, sc):
     m = cv2.dilate(m, np.ones((3, 3), np.uint8)) * 255; o = f.copy(); o[..., :3] = cv2.inpaint(np.ascontiguousarray(f[..., :3]), m, max(2, int(3 * sc)), cv2.INPAINT_TELEA); return o
 
 
-def bad(m): return m['warp'] > M.MAX_WARP or m['lines'] > M.MAX_LINES or m['olive'] > M.MAX_OLIVE
+def bad(m, k=1.0): return m['warp'] > M.MAX_WARP * k or m['lines'] > M.MAX_LINES * k or m['olive'] > M.MAX_OLIVE * k
+
+
+def tight(m): return bad(m, 0.7)   # nén H.264 lại thêm nhiễu (ama/wave 39 → 42 sau khi nén): làm cho tới khi dưới 70 % ngưỡng để còn chỗ
 
 
 errs = []
@@ -78,7 +81,7 @@ for who in R['people']:
         if not ONLY and not bad(before): continue
         res, info = M.smear([M.clean_hands(M.despill(x), sc) for x in fr], sc); after = measure(res, sc)
         for _ in range(3):   # còn dư (đốm phông xanh, nét đen ở HD, vung): vá đốm bằng inpaint rồi lại lấp nét + nhoè thêm, tối đa 3 vòng
-            if not bad(after): break
+            if not tight(after): break
             res, info2 = M.smear([M.clean_hands(inpaint_olive(x, sc), sc) for x in res], sc); after = measure(res, sc); info['smeared'] = max(info['smeared'], info2['smeared'])
         cap = (900 if p.endswith('-hd.mp4') else 240) * 1024; tmp = f + '.new.mp4'; done = False
         for q in range(CRF, CRF + 6):
