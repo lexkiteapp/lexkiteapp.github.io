@@ -155,7 +155,7 @@
   async function summary(x, ci, r, t0) {
     const first = !mine().done[x.id + '#' + ci], pod = x.kind === 'podcast';
     await save(s => S.chapterDone(s, x.id, ci, r.score + '/' + r.n));
-    if (first) await App.reward({ [pod ? 'listens' : 'readings']: 1, quizzes: 1, perfect: r.score === r.n ? 1 : 0, xp: 10 + 5 * r.score });
+    if (first) await App.reward({ [pod ? 'listens' : 'readings']: 1, quizzes: 1, perfect: r.score === r.n ? 1 : 0, xp: Game.xpFor('set', { right: r.score, total: r.n }) });
     const gl = goalNow(), cn = S.counter(mine(), t0), nxt = ci + 1 < x.chapters.length;
     view.innerHTML = `<div class="st-reader" id="stSum"><div class="st-top"><a class="icon-btn" href="#/stories" aria-label="${t('Thư viện truyện')}">${UI.icon('x')}</a><div class="st-ttl"><b>${t('Hoàn thành chương')}</b><span class="tiny muted">${esc(x.title)} · ${esc(chTitle(x, ci))}</span></div></div>
       <div class="card st-res"><div class="st-score" dir="ltr">${r.score}/${r.n}</div><p>${r.score === r.n ? t('Tuyệt vời! Bạn hiểu toàn bộ chương.') : t('Làm tốt lắm! Đọc lại chương để nắm chắc hơn.')}</p></div>
