@@ -2819,7 +2819,7 @@
   "learn.fix.sauCanCouldShould": "Setelah can/could/should/must/may/might/will/would, gunakan kata kerja dasar TANPA “to”: You should study (bukan should to study).",
   "learn.fix.couldOfCouldHave": "“could of” → “could have”",
   "learn.fix.couldVeShouldVe": "“could’ve / should’ve” terdengar seperti “of”, tetapi tertulis HAVE: could have + past participle (could have done).",
-  "learn.fix.thiHoanThanhHave": "Perfect tense: have + past participle",
+  "learn.fix.thiHoanThanhHave": "Bentuk perfect: have + past participle",
   "learn.fix.thiHoanThanhDung": "Perfect tenses menggunakan have/has/had + PAST PARTICIPLE, bukan bentuk past simple: have gone, has eaten, had written.",
   "learn.fix.troDongTuDo": "do/does/did + kata kerja dasar",
   "learn.fix.sauDoDoesDid": "Setelah do/does/did (dalam bentuk negatif dan pertanyaan juga) kata kerja utama tetap dalam BENTUK DASAR: didn’t go, does she like (bukan didn’t went, does she likes).",
@@ -3494,5 +3494,5 @@
   "speak.spk.lamViecNhom": "Kerja sama tim",
   "speak.spk.duHocSongONuoc": "Belajar dan tinggal di luar negeri",
   "speak.spk.mayTinhInternetHangNgay": "Komputer dan internet sehari-hari",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "Tantangan bicara 30 detik"
 }

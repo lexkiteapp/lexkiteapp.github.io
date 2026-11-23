@@ -567,6 +567,7 @@
   // RTL: ligature Material Symbols có hướng (chevron_right, arrow_back…) → .i-dir; "→" cuối nhãn → "←" (chỉ khi <html dir=rtl>)
   const MDIR = /^(chevron_(left|right)|arrow_(back|forward)(_ios)?|navigate_(next|before)|keyboard_arrow_(left|right)|arrow_(left|right)|first_page|last_page|undo|redo|reply|send|logout|login)$/;
   const RTL_SKIP = '[dir=ltr], bdi, svg, script, style, textarea, input, select, pre, code, kbd, [contenteditable], [data-noicon], .material-symbols-outlined, .i, .ipa, .ex, .entry-word, .ctx, .lq-item';
+  const VIL = /[ăâđêôơưĂÂĐÊÔƠƯ\u1EA0-\u1EF9]/;
   const LAT = /[“"‘']?[+\-−]?[A-Za-z0-9\u00C0-\u024F][A-Za-z0-9\u00C0-\u024F+\-–−.,:;\/%()&·!?~=×…'’“” ]*[A-Za-z0-9\u00C0-\u024F%)?!.\-”"’']/g;
   const rtlFix = root => {
     if (document.documentElement.dir !== 'rtl') return;
@@ -576,6 +577,7 @@
     for (const x of hits) {
       const p = x.parentElement; if (!p || p.closest(RTL_SKIP)) continue;
       let v = x.nodeValue;
+      if (VIL.test(v)) continue; // còn chữ Việt chưa dịch: tách nút văn bản sẽ làm bộ dịch DOM không khớp câu gốc → để nguyên
       if (v.length < 60 && /\s→\s*$/.test(v)) x.nodeValue = v = v.replace(/→(\s*)$/, '←$1');
       // cụm Latin/số ("+50 XP", "Band 7.5", câu Anh có dấu ? .) → <bdi dir=ltr>: dấu đầu/cuối không nhảy sang đầu dòng trong ar. Nút văn bản gốc được giữ (splitText) để mã khác còn cập nhật nodeValue
       LAT.lastIndex = 0; const m = LAT.exec(v); if (!m) continue;
