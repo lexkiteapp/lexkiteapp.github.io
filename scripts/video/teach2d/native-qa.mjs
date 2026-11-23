@@ -29,7 +29,8 @@ async function back(L, lines) {   // dịch ngược miễn phí (gtx)
   return null;
 }
 const words = s => String(s).toLowerCase().replace(/[^a-z0-9' ]+/g, ' ').split(/\s+/).filter(w => w.length > 2).map(w => w.replace(/(ing|ed|es|s)$/, ''));
-const sim = (a, b) => { const X = new Set(words(a)), Y = new Set(words(b)); if (!X.size || !Y.size) return 1; let k = 0; for (const w of X) if (Y.has(w)) k++; return k / Math.max(X.size, Y.size); };
+const sim = (a, b) => { const X = new Set(words(a)), Y = new Set(words(b)); if (!X.size || !Y.size) return String(a).trim().toLowerCase() === String(b).trim().toLowerCase() ? 1 : 0;   // no word > 2 letters (tr "ya", ko "헐"): only an identical line counts as the English one
+  let k = 0; for (const w of X) if (Y.has(w)) k++; return k / Math.max(X.size, Y.size); };
 const okGloss = (w, bt) => { const b = ` ${String(bt).toLowerCase().replace(/[^a-z' ]+/g, ' ')} `, syn = Object.values(WN[w] || {}).flatMap(x => x.syn || []); return [w, ...syn].some(x => b.includes(` ${x.toLowerCase()} `) || b.includes(` ${x.toLowerCase()}s `)); };
 
 const out = {}; let red = 0;
