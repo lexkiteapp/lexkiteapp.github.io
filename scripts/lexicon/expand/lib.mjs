@@ -2,10 +2,12 @@
 // Mọi giao diện/việc hạ nguồn đọc mục mở rộng QUA ĐÂY (loadExpand / expandRows) – test scripts/test/lexicon-consumers.mjs chặn việc bỏ sót.
 import fs from 'fs';
 import { ROOT, rd, loadAll } from '../lib.mjs';
+import { readQueue, writeQueue } from '../../lib/review-queue.mjs';
 import { badChars, ukStyleBad } from '../ipa.mjs';
 import { agree, trIssues, VI, CE, SCRIPT } from '../../content-qa/lib.mjs';
 export const LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
-export const QUEUE = 'content/qa/review-queue.json';
+export const QUEUE = 'content/qa/review-queue';   // thư mục tách theo lô – đọc/ghi qua readQ/writeQ (scripts/lib/review-queue.mjs)
+export const readQ = () => readQueue(ROOT), writeQ = q => writeQueue(ROOT, q);
 const DIR = 'content/lexicon/expand/';
 // chủ đề sẵn có (bộ theo chủ đề) + bộ mới cho từ mở rộng (xw-*)
 export const TOPIC_CHOICES = ['education', 'environment', 'technology', 'health', 'work', 'society', 'crime', 'media', 'urban', 'travel', 'culture', 'sport', 'science', 'government', 'economy', 'energy', 'wildlife', 'architecture', 'consumerism', 'space', 'language', 'food',
@@ -231,7 +233,7 @@ export const OTHER_POS = /^keep: từ đã có trong kho với từ loại khác
 export function doneWords({ queue = true } = {}) {
   const s = new Set();
   for (const f of [...files(''), ...files('pending/')]) for (const k of Object.keys(J(f).items || {})) s.add(k);
-  if (queue && ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] }) && !OTHER_POS.test((q.why || [])[0] || '')) s.add(String(q.id));
+  if (queue) for (const q of readQ().items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] }) && !OTHER_POS.test((q.why || [])[0] || '')) s.add(String(q.id));
   return s;
 }
 // Mục ĐÃ XUẤT: lô ở content/lexicon/expand/<lô>.json có tệp kiểm mẫu content/qa/batches/lx-<lô>.json đạt (status published)
