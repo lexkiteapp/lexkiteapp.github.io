@@ -7,6 +7,7 @@
 // Lỗi CŨ (nội dung soạn tay trước cổng): đếm theo nguồn × loại kiểm → content/qa/baseline.json, chỉ được giảm (sửa theo LOẠI, METHODS "Làm đúng 1 lần").
 import fs from 'node:fs';
 import { SCAN_ROOTS } from '../lib/scan-roots.mjs';
+import { readQueue } from '../lib/review-queue.mjs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
@@ -130,7 +131,7 @@ for (const f of fs.readdirSync(P('content/confidence/units')).filter(f => f.ends
       if (!q.explain || !String(q.explain).trim()) H('blog', `${at}: thiếu lời giải`); }); } }
 
 // ---------- Lời giải sinh tự động (content/explain/<bộ>.json): 2 giám khảo + dịch – lỗi CỨNG ----------
-const queue = ex('content/qa/review-queue.json') ? J('content/qa/review-queue.json') : { items: [] };
+const queue = readQueue(ROOT);
 const queued = new Set([...(queue.items || []).map(x => x.src + '|' + x.id + '|' + (x.lang || '')), ...(ex('content/explain/review.json') ? J('content/explain/review.json') : []).map(x => 'explain|' + x.id + '|' + x.lang)]);
 const XDB = {}; for (const f of fs.readdirSync(P('content/explain')).filter(f => f.endsWith('.json') && f !== 'review.json')) Object.assign(XDB, J('content/explain/' + f));
 for (const sub of ex('web/js/explain') ? fs.readdirSync(P('web/js/explain'), { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name) : []) {
