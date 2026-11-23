@@ -95,6 +95,7 @@ for who, P in R['people'].items():
         raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', cf, '-i', cm, '-filter_complex',
                               f'[1:v]trim=start_frame={a}:end_frame={z},setpts=N/({F["fps"]}*TB),format=gray,crop={crop},{SC},{FA}[a];[0:v]trim=start_frame={a}:end_frame={z},setpts=N/({F["fps"]}*TB),crop={crop},{SC}[c];[c][a]alphamerge',
                               '-fps_mode', 'passthrough', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], capture_output=True, check=True).stdout
+        print('DBG', len(raw), W, H, crop, SC, probe(cf, 'width,height,nb_read_frames'), probe(cm, 'width,height,nb_read_frames'), len(raw) / (W * H * 4), flush=True)
         fr = np.frombuffer(raw, np.uint8).reshape(-1, H, W, 4)
         n = min(int(probe(x, 'nb_read_frames')) for x in (cf, cm)); want_n = min(z, n) - a
         if len(fr) != want_n: errs.append(f'{cf}: đo mắt {len(fr)} khung ≠ {want_n} – chỉ số khung lệch (fps/pts), không chọn ảnh được'); return [0.0] * want_n
