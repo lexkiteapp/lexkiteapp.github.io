@@ -261,6 +261,7 @@ node scripts/test/grammar-hub.mjs
 node scripts/test/pron-hub.mjs
 node scripts/test/dict-hub.mjs
 node scripts/test/inline-box.mjs
+node scripts/test/qa-bot-tapbox.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
 node scripts/test/mobile-guards.mjs
