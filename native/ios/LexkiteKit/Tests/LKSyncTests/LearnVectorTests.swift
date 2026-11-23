@@ -161,7 +161,7 @@ final class LearnVectorTests: XCTestCase {
         let starter = try XCTUnwrap(GrammarPack.bundled(), "grammar-content.json is bundled")
         r.eq(starter.index.count, pack.index.count, "starter lists every lesson"); r.eq(starter.lessons.count, 3, "starter has three lessons")
         // the quiz / drill rewards
-        r.eq(GrammarCore.quizXP(4), 22, "quiz xp"); r.eq(GrammarCore.drillXP(4), 26, "drill xp"); r.eq(GrammarCore.mixXP(4), 18, "mix xp")
+        r.eq(GrammarCore.quizXP(4, of: 5), 22, "quiz xp"); r.eq(GrammarCore.drillXP(4, of: 5), 26, "drill xp"); r.eq(GrammarCore.mixXP(4, of: 5), 18, "mix xp")
         finish(r, "grammar")
     }
 }

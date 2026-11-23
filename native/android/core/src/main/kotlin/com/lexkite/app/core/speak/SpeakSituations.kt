@@ -1,5 +1,6 @@
 package com.lexkite.app.core.speak
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.vocab.je
 import com.lexkite.app.core.vocab.jo
 import kotlinx.serialization.json.Json
@@ -169,7 +170,7 @@ class SpeakDrill(val s: Situation, progress: JsonObject?, stage: String?, noMic0
         val sc = jsRound(text * 100)
         res = Res(sc, pass, free, if (free) 0 else stars, words, if (pass) Tr("Nói rất tốt!") else Tr("Gần đúng rồi!"),
             if (free) Tr("Chưa nghe rõ – cho qua, không tính sao.") else if (pass) Tr("{n} từ/phút", mapOf("n" to wpm)) else Tr("Thử lại các từ tô đỏ nhé."))
-        if (pass || free) { progress = SpkProgress.record(progress, s, order[i], text, res!!.stars, pass, now); paid = if (noMic) null else Paid(1, 2 * res!!.stars) }
+        if (pass || free) { progress = SpkProgress.record(progress, s, order[i], text, res!!.stars, pass, now); paid = if (noMic) null else Paid(1, if (res!!.stars > 0) RewardRules.xp("say", score = (if (res!!.stars >= 2) RewardRules.GREAT else RewardRules.PASS).toDouble()) else 0) }
     }
     /** The result of one mic try (heard text, error or nothing heard). Returns false when the mic cannot be used and the drill switched to tap-in-order. */
     fun onMic(o: MicOutcome, now: Long): Boolean {

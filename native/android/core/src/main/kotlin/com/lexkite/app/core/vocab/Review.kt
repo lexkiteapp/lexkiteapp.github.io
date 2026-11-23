@@ -1,5 +1,6 @@
 package com.lexkite.app.core.vocab
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.SRS
 import com.lexkite.app.core.sync.Js
 import kotlinx.serialization.json.JsonNull
@@ -71,7 +72,7 @@ object Review {
             val c = cards[key] ?: return null
             val s = c.go("srs")
             val wasNew = CardMath.srsOf(c).let { it.gn("reps") == 0.0 && !it.gt("last") }
-            val gained = if (grade == 0) 2 else if (wasNew) 8 else 5
+            val gained = RewardRules.xp("card", isNew = wasNew, again = grade == 0)
             val snap = Snap(key, s, queue.toList(), done, again, missed.toList(), wasNew, grade, gained)
             val ns = CardMath.srsJson(s, engine.review(CardMath.srsCard(s, now), grade, now))
             cards[key] = c.cp("srs" to ns, "mod" to now)

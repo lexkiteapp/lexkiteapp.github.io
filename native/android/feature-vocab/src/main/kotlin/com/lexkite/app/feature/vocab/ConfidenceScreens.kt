@@ -133,7 +133,7 @@ fun ConfidenceRoute(env: WordEnv, arg: String, onExit: () -> Unit, open: (String
                     JsonObject(mapOf("text" to JsonPrimitive(p.lStr("say")), "title" to JsonPrimitive("Speak with confidence: " + u.lStr("titleEn")))), silent = true); n++
             }
             savedCards = n
-            if (first) env.reward(mapOf("spoken" to shadow.size), 15)
+            if (first) env.reward(mapOf("spoken" to shadow.size), com.lexkite.app.core.RewardRules.xp("talk", right = shadow.size))
         }
     }
     fun stopDaily() {
@@ -191,7 +191,7 @@ fun ConfidenceRoute(env: WordEnv, arg: String, onExit: () -> Unit, open: (String
                 val cut = list.takeLast(30)
                 save(JsonObject(mapOf("done" to progress.lObj("done"), "daily" to JsonArray(cut))))
                 dailyScore = score; newRecord = cut.size > 1 && score > best
-                if (at < 0) scope.launch { env.reward(mapOf("spoken" to 1), 10) }
+                if (at < 0) scope.launch { env.reward(mapOf("spoken" to 1), com.lexkite.app.core.RewardRules.xp("talk")) }
             }
         },
     )

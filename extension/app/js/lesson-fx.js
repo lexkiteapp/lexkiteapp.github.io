@@ -90,7 +90,7 @@
     el.setAttribute('role', 'status');
     if (on) el.innerHTML = `<span>${perfect ? '✨ ' + esc(T('Hoàn hảo')) + ' · ' : '🔥 '}${esc(T('{n} đúng liền', { n: c.cur }))}</span>`;
     top.before(el);
-    if (q && q.hard) { const qc = d.querySelector('#qbox .q-card'); if (qc) qc.insertAdjacentHTML('afterbegin', `<div class="lfx-hard">💪 ${esc(T('Câu khó · +{n} XP', { n: 6 }))}</div>`); }
+    if (q && q.hard) { const qc = d.querySelector('#qbox .q-card'); if (qc) qc.insertAdjacentHTML('afterbegin', `<div class="lfx-hard">💪 ${esc(T('Câu khó · +{n} XP', { n: Game.xpFor('answer', { mode: 'type', hard: 1 }) }))}</div>`); }
   }
 
   // ---------- (f) Mời chế độ khó ----------
@@ -101,7 +101,7 @@
     box.innerHTML = `<div class="card empty celebrate lfx-hardin" role="dialog" aria-labelledby="lfxHardH">
       <div class="em kit-cele">${g.Kit ? g.Kit.svg('cheer', 110) : '💪'}</div>
       <h2 id="lfxHardH">${esc(T('{n} câu đúng liền!', { n: c.cur }))}</h2>
-      <p class="muted">${esc(T('Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?'))}</p>
+      <p class="muted">${esc(T('Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhớ lâu hơn nhé?'))}</p>
       <div class="row center"><button class="btn primary lg" id="lfxHardYes">💪 ${esc(T('Thử mức khó'))}</button><button class="btn lg" id="lfxHardNo">${esc(T('Giữ mức này'))}</button></div></div>`;
     const yes = box.querySelector('#lfxHardYes'), no = box.querySelector('#lfxHardNo');
     yes.onclick = () => { c.hard = true; cb(true); };

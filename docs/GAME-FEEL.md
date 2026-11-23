@@ -37,3 +37,15 @@ Reduced-motion: nhảy thẳng giá trị cuối, chỉ mờ ≤ 120 ms. Trình 
 1. Chủ nghe/xem trang mẫu (Artifact "Lexkite game feel") → OK/sửa.
 2. Sau khi PR #212 (Stitch v2) gộp: nối màn phản hồi bài học (`web/js/st/lesson.js`): `Feel.count` XP, `Feel.fill` thanh, `Feel.combo` chuỗi, nhân vật phản ứng – vẫn sau cờ, kèm ảnh CI trước/sau.
 3. Bật mặc định + công tắc trong Cài đặt (chuỗi 15 ngôn ngữ theo `docs/I18N-PIPELINE.md`) chỉ khi chủ OK.
+
+## 6. Luật thưởng một nguồn (22/11)
+Mọi XP (web, add-on dùng chung `game.js`, mini-game cpack, native) tính bằng **`Game.xpFor(kind, {right,total,mode,hard,hints,score,paid,words,sections})`** trong `web/js/game.js` – bảng `Game.XPR`. Không màn nào tự đặt số (`scripts/test/reward-rules.mjs` chặn; danh sách chờ chỉ được giảm). Native đọc `native/shared/gen/vectors/rewards.json` (`node scripts/native/gen-rewards.mjs`).
+| kind | XP | Dùng cho |
+|---|---|---|
+| `answer` | chọn 2 · gõ 3 · viết câu 4 · nói 3; câu khó +3 | trả lời từng câu |
+| `set` | 10 + (XP/câu × số đúng) + 5 nếu đúng hết (≥ 3 câu) − gợi ý (≤ phần đúng); `paid` = câu đã trả riêng | bài luyện, mini-game (ghép thẻ, blitz, nhịp), bài nghe/đọc |
+| `exam` | 40 + XP/câu × đúng + 30/phần + hoàn hảo | đề thi đủ, thi thử |
+| `say` | máy nghe ≥ 85 % → 5 · ≥ 65 → 3 · < 65 → 0 · không chấm được → 3 | nói 1 câu/từ |
+| `talk` | 10 + 3 × lượt nói − gợi ý, tối thiểu 5 | hội thoại, gọi, phản xạ, shadowing |
+| `essay` 20 · `learn` 20 · `card` 2/5/8 (quên/ôn/mới) · `output` số từ ÷ 5 (≤ 60) · `step` 2 | | bài viết, học từ mới, thẻ, thẻ kết quả, bước nhỏ |
+Nguyên tắc: chỉ câu ĐÚNG ăn điểm; tự tạo ra (gõ/viết/nói) > chọn; không thưởng tốc độ (ghép thẻ trước đây +10 nếu < 25 s → nay theo số cặp đúng; kỷ lục giờ vẫn có huy hiệu); trần 150/lần. **Chống cày:** `reward({…, src})` – cùng bài trong ngày lần 3–4 nửa XP, từ lần 5 ≤ 2 (khóa `xprep`, chỉ trên máy, không đồng bộ).

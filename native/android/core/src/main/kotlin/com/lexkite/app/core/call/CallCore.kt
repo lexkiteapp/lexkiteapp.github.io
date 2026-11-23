@@ -1,5 +1,6 @@
 package com.lexkite.app.core.call
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.skills.Reward
 import com.lexkite.app.core.speak.Tr
 import com.lexkite.app.core.speak.jsRegex
@@ -245,8 +246,9 @@ class CallEngine(consts: JsonObject?, private val contrasts: List<JsonObject>) {
     }
     /** `progress = min(pctMax, round(logged / depth · 100))`, 100 once the call has ended. */
     fun progress(depth: Int, logged: Int, ended: Boolean): Int = if (ended) 100 else minOf(pctMax, jsRound(logged.toDouble() / maxOf(1, depth) * 100))
-    /** `App.reward({ spoken: voiced, xp })`: base + turns·perTurn + voiced·perVoiced + (a topic word was used ? usedWords : 0). */
-    fun reward(turns: Int, voiced: Int, usedWords: Int): Reward = Reward(mapOf("spoken" to voiced), (xp.gn("base") + turns * xp.gn("perTurn") + voiced * xp.gn("perVoiced") + (if (usedWords > 0) xp.gn("usedWords") else 0.0)).toInt())
+    /** `App.reward({ spoken: voiced, xp })`: xp = the one reward rule talk(right: voiced) (turns / used words no longer count). */
+    @Suppress("UNUSED_PARAMETER")
+    fun reward(turns: Int, voiced: Int, usedWords: Int): Reward = Reward(mapOf("spoken" to voiced), RewardRules.xp("talk", right = voiced))
     /** The summary note as a UI text. */
     fun noteText(n: Note): Tr = when (n.id) {
         "short" -> Tr("Có {n} câu trả lời hơi ngắn – hãy trả lời đầy đủ hơn: thêm một lý do (because…) hoặc một ví dụ (for example…).", mapOf("n" to n.n))

@@ -150,7 +150,7 @@
       P = new YT.Player('wtP', { host: 'https://www.youtube-nocookie.com', videoId: id, width: '100%', height: '100%', playerVars: { playsinline: 1, rel: 0, modestbranding: 1, cc_load_policy: 1, cc_lang_pref: 'en', start, hl: (g.I18N && I18N.lang && I18N.lang()) || 'en' },
         events: {
           onReady: () => { if (dead) return; $('#wtBar').hidden = false; try { len = P.getDuration() || 0; } catch (e) { /* bỏ qua */ } },
-          onStateChange: e => { if (dead) return; const playing = e.data === 1; $('#wtPlay').textContent = playing ? '❚❚' : '▶'; tickOn(playing); clearInterval(saveT); if (playing) saveT = setInterval(remember, 5000); else remember(); if (e.data === 0 && App.reward) App.reward({ xp: 3 }); },
+          onStateChange: e => { if (dead) return; const playing = e.data === 1; $('#wtPlay').textContent = playing ? '❚❚' : '▶'; tickOn(playing); clearInterval(saveT); if (playing) saveT = setInterval(remember, 5000); else remember(); if (e.data === 0 && App.reward) App.reward({ xp: Game.xpFor('step') }); },
           onError: () => { if (dead) return; toast(t('Video này không phát được ở đây – hãy mở trên YouTube.'), 6000); },
         } });
       $('#wtBack').onclick = () => P.seekTo(Math.max(0, now() - 5), true);
