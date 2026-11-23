@@ -10,7 +10,12 @@ const run = l => { const w = new jsdom.JSDOM('<body><main id="view"></main></bod
 for (const l of LANGS) { const d = run(l), ds = d.querySelectorAll('#lkPath details.dp-stage'); if (ds.length !== 5 || !ds[0].open || ds[1].open) bad.push(`${l}: khung phải có 5 chặng, chặng 0 mở`); if (!d.querySelector('#lkPath h1')?.textContent.trim() || [...d.querySelectorAll('.stage-cando')].some(x => x.textContent.length < 8)) bad.push(`${l}: thiếu chữ`); if (l !== 'vi' && d.querySelector('h2').textContent.includes('Chặng')) bad.push(`${l}: chữ chưa dịch`); if (!d.getElementById('lkPathCss')) bad.push(`${l}: thiếu style`); }
 { const w = new jsdom.JSDOM('<body><main id="view"><p>x</p></main></body>', { url: 'http://localhost/app/#/path', runScripts: 'outside-only', pretendToBeVisual: true }).window; w.eval(rd('web/js/path-skel/en.js')); w.document.dispatchEvent(new w.Event('DOMContentLoaded')); if (w.document.getElementById('lkPath')) bad.push('không được đè #view đã có nội dung'); }
 { const w = new jsdom.JSDOM('<body><main id="view"></main></body>', { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true }).window; w.eval(rd('web/js/path-skel/en.js')); w.document.dispatchEvent(new w.Event('DOMContentLoaded')); if (w.document.getElementById('lkPath')) bad.push('chỉ vẽ ở #/path'); }
-const html = rd('web/app/index.html'), m = html.match(/<script>\/\* #\/path mở thẳng[\s\S]*?<\/script>/);
+// #/dict/<từ>: đầu trang từ điển (mẫu Stitch chạy lúc build) – 15 ngôn ngữ, ô tìm điền sẵn từ trên URL (đã thoát HTML), đoạn mô tả có mặt
+for (const l of LANGS) { const w = new jsdom.JSDOM('<body><main id="view"></main></body>', { url: 'http://localhost/app/#/dict/he%22%3Cllo', runScripts: 'outside-only', pretendToBeVisual: true }).window;
+  w.eval(rd(`web/js/path-skel/dict-${l}.js`)); w.document.dispatchEvent(new w.Event('DOMContentLoaded')); const d = w.document, q = d.querySelector('#lkPath #q'), p = d.querySelector('#lkPath p.px-4');
+  if (!q || q.value !== 'he"<llo') bad.push(`dict-${l}: ô tìm phải điền sẵn từ trên URL (${q && q.value})`); if (!p || p.textContent.length < 20) bad.push(`dict-${l}: thiếu đoạn mô tả`); if (!d.querySelector('#lkPath h1')?.textContent.trim()) bad.push(`dict-${l}: thiếu tiêu đề`); if (l !== 'vi' && /Quay lại|Tra từ/.test(d.getElementById('view').innerHTML.replace(/Tra từ điển/g, ''))) bad.push(`dict-${l}: chữ chưa dịch`); }
+{ const w = new jsdom.JSDOM('<body><main id="view"></main></body>', { url: 'http://localhost/app/#/dict', runScripts: 'outside-only', pretendToBeVisual: true }).window; w.eval(rd('web/js/path-skel/dict-en.js')); w.document.dispatchEvent(new w.Event('DOMContentLoaded')); if (w.document.getElementById('lkPath')) bad.push('dict: chỉ #/dict/<từ>, không vẽ ở #/dict'); }
+const html = rd('web/app/index.html'), m = html.match(/<script>\/\* #\/path \(và #\/dict[\s\S]*?<\/script>/);
 if (!m) bad.push('index.html thiếu script nạp khung #/path'); else {
   const loads = (url, store, lang = 'en-US') => { const dom = new jsdom.JSDOM('<head></head><body><main id="view"></main></body>', { url, runScripts: 'outside-only', pretendToBeVisual: true }), w = dom.window; Object.defineProperty(w.navigator, 'languages', { value: [lang] });
     for (const [k, v] of Object.entries(store)) w.localStorage.setItem(k, v); const wr = []; w.document.write = x => wr.push(x); w.eval(m[0].replace(/^<script>/, '').replace(/<\/script>$/, '')); return wr.map(x => (x.match(/src=([^>\s]+)/) || [])[1]).filter(Boolean); };
@@ -23,6 +28,11 @@ if (!m) bad.push('index.html thiếu script nạp khung #/path'); else {
   eq(loads('http://localhost/app/#/path', { 'ielts.settings': JSON.stringify({ tracks: { cur: 'comm' } }) }), [], 'track comm → không nạp');
   eq(loads('http://localhost/app/#/path', { 'ielts.settings': JSON.stringify({ tracks: { cur: 'ielts' } }) }), ['js/path-skel/en.js'], 'track ielts → nạp');
   eq(loads('http://localhost/app/?sandbox=1#/path', { 'sbx.settings': JSON.stringify({ exam: 'general' }) }), [], 'sandbox đọc sbx.settings');
+  eq(loads('http://localhost/app/#/dict/hello', {}), ['js/path-skel/dict-en.js'], 'dict người mới → dict-en');
+  eq(loads('http://localhost/app/#/dict/hello', {}, 'vi-VN'), ['js/path-skel/dict-vi.js'], 'dict vi');
+  eq(loads('http://localhost/app/#/dict/hello', { 'ielts.settings': '{}' }), [], 'dict người dùng cũ → không nạp');
+  eq(loads('http://localhost/app/#/dict/hello', { 'vb.meanLang': 'vi' }), [], 'dict đã chọn ngôn ngữ giải nghĩa → không nạp');
+  eq(loads('http://localhost/app/#/dict', {}), [], 'chỉ #/dict/<từ>');
   eq(loads('http://localhost/app/#/home', {}), [], 'chỉ #/path');
   eq(loads('http://localhost/app/#/path?x=1', {}), ['js/path-skel/en.js'], '#/path?query');
 }

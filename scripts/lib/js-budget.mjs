@@ -69,7 +69,7 @@ export function langPacks(root = '.') {
   if (fs.existsSync(S)) for (const e of fs.readdirSync(S)) { const m = e.match(/^[\w-]+\.([a-z]{2})\.js$/); if (m && m[1] !== 'en') packs[m[1]] = (packs[m[1]] || 0) + fs.statSync(path.join(S, e)).size; }
   // 22/11: khung #/path tĩnh theo ngôn ngữ (web/js/path-skel/<lang>.js, sinh bởi scripts/build-path-skel.mjs): mỗi người học chỉ tải tệp của MÌNH → thuộc gói ngôn ngữ đó
   const K = path.join(root, 'web/js/path-skel');
-  if (fs.existsSync(K)) for (const e of fs.readdirSync(K)) { const m = e.match(/^([a-z]{2})\.js$/); if (m && m[1] !== 'en') packs[m[1]] = (packs[m[1]] || 0) + fs.statSync(path.join(K, e)).size; }
+  if (fs.existsSync(K)) for (const e of fs.readdirSync(K)) { const m = e.match(/^(?:dict-)?([a-z]{2})\.js$/); if (m && m[1] !== 'en') packs[m[1]] = (packs[m[1]] || 0) + fs.statSync(path.join(K, e)).size; }
   return packs;
 }
 /** Thước mới: total (đã trừ admin + nguồn dựng) − Σ gói ngôn ngữ + gói LỚN NHẤT (người học xấu nhất, không phải trung bình). */
