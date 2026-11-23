@@ -103756,6 +103756,5466 @@
    "in": {
     "id": "get-lift"
    }
+  },
+  {
+   "id": "t2sc_001",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 1,
+   "area": "placement",
+   "point": "scorecard:t2sc_001",
+   "hash": "88dd1a3c036a",
+   "heads": [
+    "scorecard:sb_022772ea",
+    "scorecard:sb_538d91da",
+    "scorecard:sb_f61282a1",
+    "scorecard:sb_8c98629f",
+    "scorecard:sb_3899b628"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_022772ea",
+     "q": "What's the reason ___ the change?",
+     "options": [
+      "for",
+      "of"
+     ],
+     "answer": 0,
+     "cefr": "A1",
+     "pick": 0
+    },
+    {
+     "id": "sb_538d91da",
+     "q": "She lives ___ Da Nang.",
+     "options": [
+      "at",
+      "in"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_f61282a1",
+     "q": "Please ___ us for dinner.",
+     "options": [
+      "join to",
+      "join"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_8c98629f",
+     "q": "A vegetarian doesn't eat ___.",
+     "options": [
+      "rice",
+      "chicken"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_3899b628",
+     "q": "I was responsible ___ the budget.",
+     "options": [
+      "of",
+      "for"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_022772ea",
+     "sb_538d91da",
+     "sb_f61282a1",
+     "sb_8c98629f",
+     "sb_3899b628"
+    ],
+    "picks": [
+     0,
+     0,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_002",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 2,
+   "area": "placement",
+   "point": "scorecard:t2sc_002",
+   "hash": "fa2405bd6ef3",
+   "heads": [
+    "scorecard:sb_0af13b00",
+    "scorecard:sb_b9cabfc9",
+    "scorecard:sb_466c0a2d",
+    "scorecard:sb_0c46f8a4",
+    "scorecard:sb_08f69142"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_0af13b00",
+     "q": "This bag is useful ___ travel.",
+     "options": [
+      "to",
+      "for"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 1
+    },
+    {
+     "id": "sb_b9cabfc9",
+     "q": "I ___ his name.",
+     "options": [
+      "am knowing",
+      "know"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_466c0a2d",
+     "q": "The hotel doesn't allow ___.",
+     "options": [
+      "to smoke",
+      "smoking"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_0c46f8a4",
+     "q": "He's fond ___ spicy food.",
+     "options": [
+      "of",
+      "with"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_08f69142",
+     "q": "How much is it? It ___.",
+     "options": [
+      "depends",
+      "depend"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_0af13b00",
+     "sb_b9cabfc9",
+     "sb_466c0a2d",
+     "sb_0c46f8a4",
+     "sb_08f69142"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_003",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 3,
+   "area": "placement",
+   "point": "scorecard:t2sc_003",
+   "hash": "6a6b4f862263",
+   "heads": [
+    "scorecard:sb_4e852243",
+    "scorecard:sb_d259f5a3",
+    "scorecard:sb_9de70f65",
+    "scorecard:sb_ec0af44c",
+    "scorecard:sb_2b55aead"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_4e852243",
+     "q": "I don't feel like ___ today.",
+     "options": [
+      "to cook",
+      "cooking"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_d259f5a3",
+     "q": "I was very ___ at the view.",
+     "options": [
+      "amazing",
+      "amazed"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_9de70f65",
+     "q": "We ___ the museum.",
+     "options": [
+      "visited to",
+      "visited"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_ec0af44c",
+     "q": "The police found a lot of ___.",
+     "options": [
+      "evidence",
+      "evidences"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_2b55aead",
+     "q": "It is ___ to take an umbrella.",
+     "options": [
+      "sensitive",
+      "sensible"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_4e852243",
+     "sb_d259f5a3",
+     "sb_9de70f65",
+     "sb_ec0af44c",
+     "sb_2b55aead"
+    ],
+    "picks": [
+     1,
+     1,
+     1,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_004",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 4,
+   "area": "placement",
+   "point": "scorecard:t2sc_004",
+   "hash": "a3ef2883b04f",
+   "heads": [
+    "scorecard:sb_e42d6eb4",
+    "scorecard:sb_06a943c5",
+    "scorecard:sb_2a063eef",
+    "scorecard:sb_2b1a6bf9",
+    "scorecard:sb_001209da"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_e42d6eb4",
+     "q": "Are we all on the same ___?",
+     "options": [
+      "line",
+      "page"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_06a943c5",
+     "q": "I am ___ a new flat.",
+     "options": [
+      "searching for",
+      "searching"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_2a063eef",
+     "q": "She has ___ friends.",
+     "options": [
+      "a lots of",
+      "a lot of"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_2b1a6bf9",
+     "q": "The gym has a lot of ___.",
+     "options": [
+      "equipments",
+      "equipment"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_001209da",
+     "q": "We can't go. The show is ___.",
+     "options": [
+      "finished",
+      "sold out"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_e42d6eb4",
+     "sb_06a943c5",
+     "sb_2a063eef",
+     "sb_2b1a6bf9",
+     "sb_001209da"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_005",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 5,
+   "area": "placement",
+   "point": "scorecard:t2sc_005",
+   "hash": "0f024f5be04d",
+   "heads": [
+    "scorecard:sb_5b373a0c",
+    "scorecard:sb_07301877",
+    "scorecard:sb_651d1d1d",
+    "scorecard:sb_767d1933",
+    "scorecard:sb_79a7a746"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_5b373a0c",
+     "q": "My suitcase is ___.",
+     "options": [
+      "too much heavy",
+      "too heavy"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_07301877",
+     "q": "Please concentrate ___ the lesson.",
+     "options": [
+      "on",
+      "in"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_651d1d1d",
+     "q": "Did you ___ his new hair?",
+     "options": [
+      "notice about",
+      "notice"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_767d1933",
+     "q": "We delayed ___ the tickets.",
+     "options": [
+      "to book",
+      "booking"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_79a7a746",
+     "q": "Put the ___ on the table.",
+     "options": [
+      "knifes",
+      "knives"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_5b373a0c",
+     "sb_07301877",
+     "sb_651d1d1d",
+     "sb_767d1933",
+     "sb_79a7a746"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_006",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 6,
+   "area": "placement",
+   "point": "scorecard:t2sc_006",
+   "hash": "981726d47362",
+   "heads": [
+    "scorecard:sb_5bd6385f",
+    "scorecard:sb_9e149cb1",
+    "scorecard:sb_57fd10a9",
+    "scorecard:sb_cc6fbe77",
+    "scorecard:sb_7a1cccd5"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_5bd6385f",
+     "q": "How was your ___ to Japan?",
+     "options": [
+      "travel",
+      "trip"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 1
+    },
+    {
+     "id": "sb_9e149cb1",
+     "q": "She ___ her sister.",
+     "options": [
+      "resembles",
+      "resembles to"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 1
+    },
+    {
+     "id": "sb_57fd10a9",
+     "q": "I ___ a job interview on Monday.",
+     "options": [
+      "have",
+      "make"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_cc6fbe77",
+     "q": "Excuse me, ___ the gate changed?",
+     "options": [
+      "has",
+      "is"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_7a1cccd5",
+     "q": "It's a good idea ___ early.",
+     "options": [
+      "to leave",
+      "leave"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_5bd6385f",
+     "sb_9e149cb1",
+     "sb_57fd10a9",
+     "sb_cc6fbe77",
+     "sb_7a1cccd5"
+    ],
+    "picks": [
+     1,
+     1,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_007",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 7,
+   "area": "placement",
+   "point": "scorecard:t2sc_007",
+   "hash": "5406136b5896",
+   "heads": [
+    "scorecard:sb_dbc8cb18",
+    "scorecard:sb_d998ff3a",
+    "scorecard:sb_0101aedc",
+    "scorecard:sb_f50aa0c6",
+    "scorecard:sb_ad193784"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_dbc8cb18",
+     "q": "I ___ my keys at the office.",
+     "options": [
+      "left",
+      "forgot"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_d998ff3a",
+     "q": "He spends hours ___ games.",
+     "options": [
+      "to play",
+      "playing"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_0101aedc",
+     "q": "He got a ___ for driving too fast.",
+     "options": [
+      "fee",
+      "fine"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_f50aa0c6",
+     "q": "Can you ___ me a favour?",
+     "options": [
+      "make",
+      "do"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_ad193784",
+     "q": "You ___ wear a seat belt.",
+     "options": [
+      "must to",
+      "must"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_dbc8cb18",
+     "sb_d998ff3a",
+     "sb_0101aedc",
+     "sb_f50aa0c6",
+     "sb_ad193784"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_008",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 8,
+   "area": "placement",
+   "point": "scorecard:t2sc_008",
+   "hash": "514a06b3169b",
+   "heads": [
+    "scorecard:sb_864022e5",
+    "scorecard:sb_03115b51",
+    "scorecard:sb_20315a8f",
+    "scorecard:sb_07a07564",
+    "scorecard:sb_3040fca3"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_864022e5",
+     "q": "He insisted ___ paying.",
+     "options": [
+      "to",
+      "on"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_03115b51",
+     "q": "She's skilled ___ language teaching.",
+     "options": [
+      "on",
+      "in"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_20315a8f",
+     "q": "The bird hurt ___ wing.",
+     "options": [
+      "its",
+      "it's"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_07a07564",
+     "q": "Language is key to cultural ___.",
+     "options": [
+      "identity",
+      "face"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_3040fca3",
+     "q": "We ___ won the game.",
+     "options": [
+      "near",
+      "nearly"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_864022e5",
+     "sb_03115b51",
+     "sb_20315a8f",
+     "sb_07a07564",
+     "sb_3040fca3"
+    ],
+    "picks": [
+     1,
+     1,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_009",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 9,
+   "area": "placement",
+   "point": "scorecard:t2sc_009",
+   "hash": "9f23902f556a",
+   "heads": [
+    "scorecard:sb_1ec77f5c",
+    "scorecard:sb_0968a1c3",
+    "scorecard:sb_040ec72a",
+    "scorecard:sb_4e2ac59d",
+    "scorecard:sb_4404e98f"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_1ec77f5c",
+     "q": "Please send it ___ Friday.",
+     "options": [
+      "until",
+      "by"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_0968a1c3",
+     "q": "I'm suspicious ___ cheap deals online.",
+     "options": [
+      "of",
+      "to"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 0
+    },
+    {
+     "id": "sb_040ec72a",
+     "q": "She apologized ___ her friend.",
+     "options": [
+      "to",
+      "(nothing)"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_4e2ac59d",
+     "q": "My grandfather ___ last year.",
+     "options": [
+      "is died",
+      "died"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_4404e98f",
+     "q": "We need ___ details.",
+     "options": [
+      "farther",
+      "further"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_1ec77f5c",
+     "sb_0968a1c3",
+     "sb_040ec72a",
+     "sb_4e2ac59d",
+     "sb_4404e98f"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_010",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 10,
+   "area": "placement",
+   "point": "scorecard:t2sc_010",
+   "hash": "a21398b736b2",
+   "heads": [
+    "scorecard:sb_1f332c48",
+    "scorecard:sb_57885755",
+    "scorecard:sb_5c008136",
+    "scorecard:sb_3495dbab",
+    "scorecard:sb_e4fee30e"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_1f332c48",
+     "q": "I'm sick. Can you cover ___ me?",
+     "options": [
+      "for",
+      "to"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_57885755",
+     "q": "The team ___ of five people.",
+     "options": [
+      "consists",
+      "is consisted"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_5c008136",
+     "q": "I must ___ my homework tonight.",
+     "options": [
+      "do",
+      "make"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_3495dbab",
+     "q": "The bus is ___ people.",
+     "options": [
+      "full with",
+      "full of"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_e4fee30e",
+     "q": "Would you mind ___ the door?",
+     "options": [
+      "closing",
+      "to close"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_1f332c48",
+     "sb_57885755",
+     "sb_5c008136",
+     "sb_3495dbab",
+     "sb_e4fee30e"
+    ],
+    "picks": [
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_011",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 11,
+   "area": "placement",
+   "point": "scorecard:t2sc_011",
+   "hash": "2fc6eefabfdf",
+   "heads": [
+    "scorecard:sb_16c56ea4",
+    "scorecard:sb_04105eed",
+    "scorecard:sb_24aedfd4",
+    "scorecard:sb_52fcf41b",
+    "scorecard:sb_19a7dd81"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_16c56ea4",
+     "q": "He didn't dare ___ his boss.",
+     "options": [
+      "calling",
+      "call"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_04105eed",
+     "q": "Small shops rely ___ local customers.",
+     "options": [
+      "in",
+      "on"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_24aedfd4",
+     "q": "This coat protects me ___ the rain.",
+     "options": [
+      "of",
+      "from"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_52fcf41b",
+     "q": "The fire caused a lot of ___.",
+     "options": [
+      "damages",
+      "damage"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_19a7dd81",
+     "q": "I ___ home at seven.",
+     "options": [
+      "leave from",
+      "leave"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_16c56ea4",
+     "sb_04105eed",
+     "sb_24aedfd4",
+     "sb_52fcf41b",
+     "sb_19a7dd81"
+    ],
+    "picks": [
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_012",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 12,
+   "area": "placement",
+   "point": "scorecard:t2sc_012",
+   "hash": "5bd0dbaba437",
+   "heads": [
+    "scorecard:sb_13bcedda",
+    "scorecard:sb_57e42a5c",
+    "scorecard:sb_403980fc",
+    "scorecard:sb_cb81b434",
+    "scorecard:sb_14363e18"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_13bcedda",
+     "q": "It rained. ___, we played.",
+     "options": [
+      "Because",
+      "Nevertheless"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_57e42a5c",
+     "q": "___, Lee will send the report.",
+     "options": [
+      "To wrap up",
+      "For finish"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_403980fc",
+     "q": "The child ___ at the dog.",
+     "options": [
+      "pointed",
+      "showed"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_cb81b434",
+     "q": "Prices ___ every year.",
+     "options": [
+      "increase up",
+      "increase"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_14363e18",
+     "q": "Sleep has a big effect ___ your mood.",
+     "options": [
+      "to",
+      "on"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_13bcedda",
+     "sb_57e42a5c",
+     "sb_403980fc",
+     "sb_cb81b434",
+     "sb_14363e18"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_013",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 13,
+   "area": "placement",
+   "point": "scorecard:t2sc_013",
+   "hash": "f15d21f4e7fc",
+   "heads": [
+    "scorecard:sb_f7fada2b",
+    "scorecard:sb_803a54ea",
+    "scorecard:sb_14cb88e7",
+    "scorecard:sb_a5326200",
+    "scorecard:sb_0343c80d"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_f7fada2b",
+     "q": "He is addicted ___ video games.",
+     "options": [
+      "to",
+      "with"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_803a54ea",
+     "q": "I'm happy to ___ the offer.",
+     "options": [
+      "agree",
+      "accept"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_14cb88e7",
+     "q": "Could you ___ a second?",
+     "options": [
+      "wait me",
+      "hold on"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_a5326200",
+     "q": "Three ___ were playing outside.",
+     "options": [
+      "children",
+      "childs"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_0343c80d",
+     "q": "I go to school by ___.",
+     "options": [
+      "the bus",
+      "bus"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_f7fada2b",
+     "sb_803a54ea",
+     "sb_14cb88e7",
+     "sb_a5326200",
+     "sb_0343c80d"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_014",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 14,
+   "area": "placement",
+   "point": "scorecard:t2sc_014",
+   "hash": "10e4c592dbde",
+   "heads": [
+    "scorecard:sb_1c160466",
+    "scorecard:sb_e5f5579b",
+    "scorecard:sb_95d90309",
+    "scorecard:sb_b2fdab23",
+    "scorecard:sb_851ba94f"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_1c160466",
+     "q": "You ___ see a doctor.",
+     "options": [
+      "ought to",
+      "ought"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_e5f5579b",
+     "q": "He tends ___ late.",
+     "options": [
+      "to be",
+      "being"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_95d90309",
+     "q": "I need to ___ an essay tonight.",
+     "options": [
+      "make",
+      "write"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_b2fdab23",
+     "q": "Are you ready ___ the test?",
+     "options": [
+      "to",
+      "for"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_851ba94f",
+     "q": "I'm really ___ hiking.",
+     "options": [
+      "like",
+      "into"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_1c160466",
+     "sb_e5f5579b",
+     "sb_95d90309",
+     "sb_b2fdab23",
+     "sb_851ba94f"
+    ],
+    "picks": [
+     0,
+     1,
+     1,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_015",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 15,
+   "area": "placement",
+   "point": "scorecard:t2sc_015",
+   "hash": "1eebc1a4f66b",
+   "heads": [
+    "scorecard:sb_3486e4c7",
+    "scorecard:sb_f940bc04",
+    "scorecard:sb_dfe2abf2",
+    "scorecard:sb_e34dea6c",
+    "scorecard:sb_1dff6fb4"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_3486e4c7",
+     "q": "She managed ___ the door.",
+     "options": [
+      "to open",
+      "opening"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_f940bc04",
+     "q": "I'm really ___ about this offer.",
+     "options": [
+      "exciting",
+      "excited"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_dfe2abf2",
+     "q": "___ any fees for this?",
+     "options": [
+      "There is",
+      "Are there"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_e34dea6c",
+     "q": "I'll ___ you the address.",
+     "options": [
+      "message send",
+      "text"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_1dff6fb4",
+     "q": "Can you help me ___ the box?",
+     "options": [
+      "moving",
+      "move"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_3486e4c7",
+     "sb_f940bc04",
+     "sb_dfe2abf2",
+     "sb_e34dea6c",
+     "sb_1dff6fb4"
+    ],
+    "picks": [
+     0,
+     1,
+     1,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_016",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 16,
+   "area": "placement",
+   "point": "scorecard:t2sc_016",
+   "hash": "2aa23762def8",
+   "heads": [
+    "scorecard:sb_2ac8da2b",
+    "scorecard:sb_29c61515",
+    "scorecard:sb_aab92e69",
+    "scorecard:sb_16707e4b",
+    "scorecard:sb_43b7bd40"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_2ac8da2b",
+     "q": "I ___ you enjoy the party!",
+     "options": [
+      "hope",
+      "wish"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 0
+    },
+    {
+     "id": "sb_29c61515",
+     "q": "Please don't hesitate ___ us.",
+     "options": [
+      "to call",
+      "calling"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_aab92e69",
+     "q": "The ___ is cold today.",
+     "options": [
+      "weather",
+      "weathers"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_16707e4b",
+     "q": "He ___ a crime last year.",
+     "options": [
+      "did",
+      "committed"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_43b7bd40",
+     "q": "This soup lacks ___.",
+     "options": [
+      "salt",
+      "of salt"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_2ac8da2b",
+     "sb_29c61515",
+     "sb_aab92e69",
+     "sb_16707e4b",
+     "sb_43b7bd40"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_017",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 17,
+   "area": "placement",
+   "point": "scorecard:t2sc_017",
+   "hash": "5b3b497139de",
+   "heads": [
+    "scorecard:sb_024874ec",
+    "scorecard:sb_14b91513",
+    "scorecard:sb_9d10327c",
+    "scorecard:sb_25206a92",
+    "scorecard:sb_0c045175"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_024874ec",
+     "q": "I took the ___ to plan the event.",
+     "options": [
+      "initiative",
+      "start"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_14b91513",
+     "q": "It's late. I need to head ___.",
+     "options": [
+      "away of",
+      "off"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_9d10327c",
+     "q": "This book ___ to me.",
+     "options": [
+      "is belonged",
+      "belongs"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_25206a92",
+     "q": "Let's keep in ___!",
+     "options": [
+      "touch",
+      "contact"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_0c045175",
+     "q": "I am bad ___ maths.",
+     "options": [
+      "in",
+      "at"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_024874ec",
+     "sb_14b91513",
+     "sb_9d10327c",
+     "sb_25206a92",
+     "sb_0c045175"
+    ],
+    "picks": [
+     0,
+     1,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_018",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 18,
+   "area": "placement",
+   "point": "scorecard:t2sc_018",
+   "hash": "249d0eb14e20",
+   "heads": [
+    "scorecard:sb_5af5827b",
+    "scorecard:sb_813c80f1",
+    "scorecard:sb_2dbe96b7",
+    "scorecard:sb_4b65ca0f",
+    "scorecard:sb_116f3374"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_5af5827b",
+     "q": "When ___ call me?",
+     "options": [
+      "you will",
+      "will you"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_813c80f1",
+     "q": "He was ___ a crime.",
+     "options": [
+      "guilty for",
+      "guilty of"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_2dbe96b7",
+     "q": "Don't risk ___ your phone.",
+     "options": [
+      "to break",
+      "breaking"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_4b65ca0f",
+     "q": "Do you have ___ to enter?",
+     "options": [
+      "permission",
+      "a permission"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_116f3374",
+     "q": "I hate ___ in traffic.",
+     "options": [
+      "sit",
+      "sitting"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_5af5827b",
+     "sb_813c80f1",
+     "sb_2dbe96b7",
+     "sb_4b65ca0f",
+     "sb_116f3374"
+    ],
+    "picks": [
+     1,
+     0,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_019",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 19,
+   "area": "placement",
+   "point": "scorecard:t2sc_019",
+   "hash": "f981c0ff843d",
+   "heads": [
+    "scorecard:sb_17b6d916",
+    "scorecard:sb_8df64e9f",
+    "scorecard:sb_5e4a563f",
+    "scorecard:sb_7dc78d29",
+    "scorecard:sb_a8dac88f"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_17b6d916",
+     "q": "I had my brother ___ me.",
+     "options": [
+      "to help",
+      "help"
+     ],
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 1
+    },
+    {
+     "id": "sb_8df64e9f",
+     "q": "As you can see ___ this slide…",
+     "options": [
+      "in",
+      "on"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_5e4a563f",
+     "q": "Is the rent with ___ included?",
+     "options": [
+      "tools",
+      "utilities"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_7dc78d29",
+     "q": "Can you ___ us a joke?",
+     "options": [
+      "tell",
+      "say"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_a8dac88f",
+     "q": "___ students here are young.",
+     "options": [
+      "Most",
+      "Most of"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_17b6d916",
+     "sb_8df64e9f",
+     "sb_5e4a563f",
+     "sb_7dc78d29",
+     "sb_a8dac88f"
+    ],
+    "picks": [
+     1,
+     1,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_020",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 20,
+   "area": "placement",
+   "point": "scorecard:t2sc_020",
+   "hash": "24c3c38310cc",
+   "heads": [
+    "scorecard:sb_1c10aec1",
+    "scorecard:sb_112e385b",
+    "scorecard:sb_287f44f3",
+    "scorecard:sb_9a0040a5",
+    "scorecard:sb_75ec2b91"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_1c10aec1",
+     "q": "___ the price that I don't like.",
+     "options": [
+      "It's",
+      "There's"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 0
+    },
+    {
+     "id": "sb_112e385b",
+     "q": "She was made ___ the form again.",
+     "options": [
+      "to fill",
+      "fill"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 0
+    },
+    {
+     "id": "sb_287f44f3",
+     "q": "He is tired ___ the noise.",
+     "options": [
+      "of",
+      "for"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_9a0040a5",
+     "q": "Your clothes ___ dirty.",
+     "options": [
+      "is",
+      "are"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_75ec2b91",
+     "q": "The windows need ___.",
+     "options": [
+      "cleaning",
+      "to clean"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_1c10aec1",
+     "sb_112e385b",
+     "sb_287f44f3",
+     "sb_9a0040a5",
+     "sb_75ec2b91"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_021",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 21,
+   "area": "placement",
+   "point": "scorecard:t2sc_021",
+   "hash": "b368295385b4",
+   "heads": [
+    "scorecard:sb_91e27418",
+    "scorecard:sb_34ccb489",
+    "scorecard:sb_bf3fc815",
+    "scorecard:sb_6e59e923",
+    "scorecard:sb_3aca1292"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_91e27418",
+     "q": "I ___ drink coffee.",
+     "options": [
+      "don't rarely",
+      "rarely"
+     ],
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 0
+    },
+    {
+     "id": "sb_34ccb489",
+     "q": "Beethoven wrote ___ music.",
+     "options": [
+      "classical",
+      "classic"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_bf3fc815",
+     "q": "I'm moving out ___ the end of June.",
+     "options": [
+      "in",
+      "at"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_6e59e923",
+     "q": "I ___ the exam last week.",
+     "options": [
+      "failed",
+      "failed in"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_3aca1292",
+     "q": "___ going to love this!",
+     "options": [
+      "You're",
+      "Your"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_91e27418",
+     "sb_34ccb489",
+     "sb_bf3fc815",
+     "sb_6e59e923",
+     "sb_3aca1292"
+    ],
+    "picks": [
+     0,
+     1,
+     1,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_022",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 22,
+   "area": "placement",
+   "point": "scorecard:t2sc_022",
+   "hash": "375f6ab9a6f3",
+   "heads": [
+    "scorecard:sb_904eea31",
+    "scorecard:sb_abcf714c",
+    "scorecard:sb_9172f8df",
+    "scorecard:sb_45aa51fc",
+    "scorecard:sb_88ab7735"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_904eea31",
+     "q": "I am ___ this city.",
+     "options": [
+      "familiar with",
+      "familiar to"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_abcf714c",
+     "q": "That town is worth ___.",
+     "options": [
+      "to visit",
+      "visiting"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_9172f8df",
+     "q": "My ___ didn't arrive.",
+     "options": [
+      "luggages",
+      "luggage"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_45aa51fc",
+     "q": "___ it will rain tomorrow.",
+     "options": [
+      "Maybe",
+      "May be"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_88ab7735",
+     "q": "I ___ with you.",
+     "options": [
+      "agree",
+      "am agree"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_904eea31",
+     "sb_abcf714c",
+     "sb_9172f8df",
+     "sb_45aa51fc",
+     "sb_88ab7735"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_023",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 23,
+   "area": "placement",
+   "point": "scorecard:t2sc_023",
+   "hash": "609c97fda65c",
+   "heads": [
+    "scorecard:sb_02cd8fd2",
+    "scorecard:sb_36b7cec3",
+    "scorecard:sb_3311f3c9",
+    "scorecard:sb_a8d53d5c",
+    "scorecard:sb_d91b406f"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_02cd8fd2",
+     "q": "She works ___ every day.",
+     "options": [
+      "hardly",
+      "hard"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_36b7cec3",
+     "q": "Thanks, everyone, for ___.",
+     "options": [
+      "your coming",
+      "coming"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_3311f3c9",
+     "q": "Guests must ___ by noon.",
+     "options": [
+      "check off",
+      "check out"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_a8d53d5c",
+     "q": "Please ___ the door first.",
+     "options": [
+      "knock on",
+      "knock"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_d91b406f",
+     "q": "See you ___ Monday.",
+     "options": [
+      "next",
+      "the next"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_02cd8fd2",
+     "sb_36b7cec3",
+     "sb_3311f3c9",
+     "sb_a8d53d5c",
+     "sb_d91b406f"
+    ],
+    "picks": [
+     0,
+     1,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_024",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 24,
+   "area": "placement",
+   "point": "scorecard:t2sc_024",
+   "hash": "5a0c1804ee25",
+   "heads": [
+    "scorecard:sb_1b09af9d",
+    "scorecard:sb_7c00a5f9",
+    "scorecard:sb_32557b14",
+    "scorecard:sb_5c7bba0d",
+    "scorecard:sb_5c2deea7"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_1b09af9d",
+     "q": "I was impressed ___ her speech.",
+     "options": [
+      "by",
+      "about"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_7c00a5f9",
+     "q": "You should ___ an effort to learn.",
+     "options": [
+      "make",
+      "do"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_32557b14",
+     "q": "I have too ___ baggage.",
+     "options": [
+      "much",
+      "many"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_5c7bba0d",
+     "q": "The market was very ___.",
+     "options": [
+      "crowded",
+      "crowd"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_5c2deea7",
+     "q": "So, what ___ you here today?",
+     "options": [
+      "brings",
+      "bring"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_1b09af9d",
+     "sb_7c00a5f9",
+     "sb_32557b14",
+     "sb_5c7bba0d",
+     "sb_5c2deea7"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_025",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 25,
+   "area": "placement",
+   "point": "scorecard:t2sc_025",
+   "hash": "595df4b313c9",
+   "heads": [
+    "scorecard:sb_643721d5",
+    "scorecard:sb_e84afaab",
+    "scorecard:sb_cb15e32f",
+    "scorecard:sb_060aa8e2",
+    "scorecard:sb_18d9514a"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_643721d5",
+     "q": "I dislike ___ in lines.",
+     "options": [
+      "waiting",
+      "to wait"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_e84afaab",
+     "q": "I will ___ your email tonight.",
+     "options": [
+      "reply",
+      "reply to"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_cb15e32f",
+     "q": "Don't waste time ___.",
+     "options": [
+      "to worry",
+      "worrying"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_060aa8e2",
+     "q": "I have a habit ___ up early.",
+     "options": [
+      "to wake",
+      "of waking"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_18d9514a",
+     "q": "The number of tourists ___ rising.",
+     "options": [
+      "are",
+      "is"
+     ],
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_643721d5",
+     "sb_e84afaab",
+     "sb_cb15e32f",
+     "sb_060aa8e2",
+     "sb_18d9514a"
+    ],
+    "picks": [
+     0,
+     0,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_026",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 26,
+   "area": "placement",
+   "point": "scorecard:t2sc_026",
+   "hash": "8a6557c365d9",
+   "heads": [
+    "scorecard:sb_7ede0d14",
+    "scorecard:sb_1795a1f5",
+    "scorecard:sb_14821351",
+    "scorecard:sb_13a16c00",
+    "scorecard:sb_22b003a8"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_7ede0d14",
+     "q": "He is ___ in a school project.",
+     "options": [
+      "involve",
+      "involved"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_1795a1f5",
+     "q": "Put the cans in the ___ bin.",
+     "options": [
+      "recycle",
+      "recycling"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_14821351",
+     "q": "The news ___ true.",
+     "options": [
+      "are",
+      "is"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_13a16c00",
+     "q": "The movie was so ___!",
+     "options": [
+      "excited",
+      "exciting"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_22b003a8",
+     "q": "Please ___ me by email.",
+     "options": [
+      "contact with",
+      "contact"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_7ede0d14",
+     "sb_1795a1f5",
+     "sb_14821351",
+     "sb_13a16c00",
+     "sb_22b003a8"
+    ],
+    "picks": [
+     1,
+     1,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_027",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 27,
+   "area": "placement",
+   "point": "scorecard:t2sc_027",
+   "hash": "0141743347e6",
+   "heads": [
+    "scorecard:sb_90abd680",
+    "scorecard:sb_47b3e9e9",
+    "scorecard:sb_8c80b46f",
+    "scorecard:sb_a0e24cbd",
+    "scorecard:sb_8580f675"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_90abd680",
+     "q": "I wish I ___ swim.",
+     "options": [
+      "can",
+      "could"
+     ],
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 1
+    },
+    {
+     "id": "sb_47b3e9e9",
+     "q": "Someone ___ my wallet!",
+     "options": [
+      "stole",
+      "robbed"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_8c80b46f",
+     "q": "I bought two ___ eggs.",
+     "options": [
+      "dozen",
+      "dozens of"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_a0e24cbd",
+     "q": "She has too ___ money.",
+     "options": [
+      "many",
+      "much"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_8580f675",
+     "q": "Please ___ this form.",
+     "options": [
+      "write",
+      "fill out"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_90abd680",
+     "sb_47b3e9e9",
+     "sb_8c80b46f",
+     "sb_a0e24cbd",
+     "sb_8580f675"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_028",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 28,
+   "area": "placement",
+   "point": "scorecard:t2sc_028",
+   "hash": "f87115bc181f",
+   "heads": [
+    "scorecard:sb_011d162f",
+    "scorecard:sb_05671f6f",
+    "scorecard:sb_19bde506",
+    "scorecard:sb_02a04869",
+    "scorecard:sb_62da8cc9"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_011d162f",
+     "q": "The teacher smiled ___ the students.",
+     "options": [
+      "at",
+      "to"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_05671f6f",
+     "q": "This old car isn't fit ___ long trips.",
+     "options": [
+      "to",
+      "for"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_19bde506",
+     "q": "She married ___ a doctor.",
+     "options": [
+      "(nothing)",
+      "with"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_02a04869",
+     "q": "I prefer cats ___ dogs.",
+     "options": [
+      "than",
+      "to"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_62da8cc9",
+     "q": "He is satisfied ___ his new phone.",
+     "options": [
+      "of",
+      "with"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_011d162f",
+     "sb_05671f6f",
+     "sb_19bde506",
+     "sb_02a04869",
+     "sb_62da8cc9"
+    ],
+    "picks": [
+     1,
+     1,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_029",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 29,
+   "area": "placement",
+   "point": "scorecard:t2sc_029",
+   "hash": "0dc095890102",
+   "heads": [
+    "scorecard:sb_16e7bf04",
+    "scorecard:sb_19a2c1a8",
+    "scorecard:sb_03e3ffac",
+    "scorecard:sb_c62fa795",
+    "scorecard:sb_4afeafcc"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_16e7bf04",
+     "q": "The country has two ___ people.",
+     "options": [
+      "billions",
+      "billion"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_19a2c1a8",
+     "q": "She loves walking in ___.",
+     "options": [
+      "nature",
+      "the nature"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_03e3ffac",
+     "q": "The museum forbids ___ photos.",
+     "options": [
+      "to take",
+      "taking"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_c62fa795",
+     "q": "I ___ housework every weekend.",
+     "options": [
+      "make",
+      "do"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_4afeafcc",
+     "q": "He is interested ___ history.",
+     "options": [
+      "in",
+      "for"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_16e7bf04",
+     "sb_19a2c1a8",
+     "sb_03e3ffac",
+     "sb_c62fa795",
+     "sb_4afeafcc"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_030",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 30,
+   "area": "placement",
+   "point": "scorecard:t2sc_030",
+   "hash": "a778a63d55cb",
+   "heads": [
+    "scorecard:sb_0179d25f",
+    "scorecard:sb_23878717",
+    "scorecard:sb_2ed92c40",
+    "scorecard:sb_a3e0f657",
+    "scorecard:sb_ac56922e"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_0179d25f",
+     "q": "A degree is a ___.",
+     "options": [
+      "qualification",
+      "quality"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_23878717",
+     "q": "I'm saving ___ for a new phone.",
+     "options": [
+      "up",
+      "on"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_2ed92c40",
+     "q": "___ coffee, I also like tea.",
+     "options": [
+      "Besides",
+      "Beside"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_a3e0f657",
+     "q": "We are proud ___ you.",
+     "options": [
+      "about",
+      "of"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_ac56922e",
+     "q": "My house is close ___ the school.",
+     "options": [
+      "to",
+      "with"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_0179d25f",
+     "sb_23878717",
+     "sb_2ed92c40",
+     "sb_a3e0f657",
+     "sb_ac56922e"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_031",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 31,
+   "area": "placement",
+   "point": "scorecard:t2sc_031",
+   "hash": "f5632407bec6",
+   "heads": [
+    "scorecard:sb_e847b5c6",
+    "scorecard:sb_4c9858e0",
+    "scorecard:sb_6e178745",
+    "scorecard:sb_8401e4b0",
+    "scorecard:sb_290c5183"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_e847b5c6",
+     "q": "I drank tea ___ coffee.",
+     "options": [
+      "instead of",
+      "instead"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_4c9858e0",
+     "q": "The bus will ___ Hue at six.",
+     "options": [
+      "reach",
+      "reach to"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_6e178745",
+     "q": "I ___ you have a great trip!",
+     "options": [
+      "wish",
+      "hope"
+     ],
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 1
+    },
+    {
+     "id": "sb_8401e4b0",
+     "q": "Great talk yesterday, ___?",
+     "options": [
+      "isn't",
+      "wasn't it"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_290c5183",
+     "q": "Let's ___ a break for ten minutes.",
+     "options": [
+      "take",
+      "do"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_e847b5c6",
+     "sb_4c9858e0",
+     "sb_6e178745",
+     "sb_8401e4b0",
+     "sb_290c5183"
+    ],
+    "picks": [
+     0,
+     0,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_032",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 32,
+   "area": "placement",
+   "point": "scorecard:t2sc_032",
+   "hash": "497385928348",
+   "heads": [
+    "scorecard:sb_054c669e",
+    "scorecard:sb_9f45e757",
+    "scorecard:sb_bc68bba4",
+    "scorecard:sb_92b16d01",
+    "scorecard:sb_52a6bffb"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_054c669e",
+     "q": "I bought an ___ car.",
+     "options": [
+      "economical",
+      "economic"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_9f45e757",
+     "q": "I'm really ___ in this role.",
+     "options": [
+      "interesting",
+      "interested"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_bc68bba4",
+     "q": "I applied ___ a job at the bank.",
+     "options": [
+      "for",
+      "to"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_92b16d01",
+     "q": "No cashier? Use the ___.",
+     "options": [
+      "self-cashier",
+      "self-checkout"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_52a6bffb",
+     "q": "___ car is outside?",
+     "options": [
+      "Whose",
+      "Who's"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_054c669e",
+     "sb_9f45e757",
+     "sb_bc68bba4",
+     "sb_92b16d01",
+     "sb_52a6bffb"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_033",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 33,
+   "area": "placement",
+   "point": "scorecard:t2sc_033",
+   "hash": "d4fcb44c143e",
+   "heads": [
+    "scorecard:sb_2bcb2bbd",
+    "scorecard:sb_4ca5d171",
+    "scorecard:sb_67e92c87",
+    "scorecard:sb_0b8263d3",
+    "scorecard:sb_78d1e10c"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_2bcb2bbd",
+     "q": "My son is afraid ___ spiders.",
+     "options": [
+      "with",
+      "of"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 1
+    },
+    {
+     "id": "sb_4ca5d171",
+     "q": "I voted ___ the green party.",
+     "options": [
+      "for",
+      "to"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_67e92c87",
+     "q": "I have too much ___ today.",
+     "options": [
+      "work",
+      "works"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_0b8263d3",
+     "q": "Your idea ___ interesting.",
+     "options": [
+      "sounds",
+      "sounds like"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_78d1e10c",
+     "q": "The train arrived ___.",
+     "options": [
+      "late",
+      "lately"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_2bcb2bbd",
+     "sb_4ca5d171",
+     "sb_67e92c87",
+     "sb_0b8263d3",
+     "sb_78d1e10c"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_034",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 34,
+   "area": "placement",
+   "point": "scorecard:t2sc_034",
+   "hash": "d17992b54f29",
+   "heads": [
+    "scorecard:sb_df97e077",
+    "scorecard:sb_aa063c4b",
+    "scorecard:sb_059c364d",
+    "scorecard:sb_9be78c2b",
+    "scorecard:sb_40706a40"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_df97e077",
+     "q": "He is scared ___ the dark.",
+     "options": [
+      "of",
+      "from"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_aa063c4b",
+     "q": "My name ___ Minh.",
+     "options": [
+      "is",
+      "is called"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_059c364d",
+     "q": "I listen to ___ every day.",
+     "options": [
+      "music",
+      "musics"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_9be78c2b",
+     "q": "I'm pleased ___ you.",
+     "options": [
+      "to meet",
+      "meeting"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_40706a40",
+     "q": "The kids lost ___ keys.",
+     "options": [
+      "their",
+      "there"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_df97e077",
+     "sb_aa063c4b",
+     "sb_059c364d",
+     "sb_9be78c2b",
+     "sb_40706a40"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_035",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 35,
+   "area": "placement",
+   "point": "scorecard:t2sc_035",
+   "hash": "e1421a46db0c",
+   "heads": [
+    "scorecard:sb_bc8b2f12",
+    "scorecard:sb_1aec9c5d",
+    "scorecard:sb_42fa0282",
+    "scorecard:sb_2b4d86ec",
+    "scorecard:sb_191cddf2"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_bc8b2f12",
+     "q": "I enjoy ___ on Sundays.",
+     "options": [
+      "swimming",
+      "to swim"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_1aec9c5d",
+     "q": "He is used to ___ alone.",
+     "options": [
+      "live",
+      "living"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_42fa0282",
+     "q": "I suggest you ___ early.",
+     "options": [
+      "to leave",
+      "leave"
+     ],
+     "answer": 1,
+     "cefr": "C1",
+     "pick": 1
+    },
+    {
+     "id": "sb_2b4d86ec",
+     "q": "I see it a bit ___.",
+     "options": [
+      "differently",
+      "different"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_191cddf2",
+     "q": "The map is very ___.",
+     "options": [
+      "confusing",
+      "confused"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_bc8b2f12",
+     "sb_1aec9c5d",
+     "sb_42fa0282",
+     "sb_2b4d86ec",
+     "sb_191cddf2"
+    ],
+    "picks": [
+     0,
+     1,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_036",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 36,
+   "area": "placement",
+   "point": "scorecard:t2sc_036",
+   "hash": "53c5021ae796",
+   "heads": [
+    "scorecard:sb_1257a097",
+    "scorecard:sb_1785ef90",
+    "scorecard:sb_01c4ef56",
+    "scorecard:sb_d9414771",
+    "scorecard:sb_33c9b363"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_1257a097",
+     "q": "I went to the store ___ milk.",
+     "options": [
+      "for buy",
+      "to buy"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 1
+    },
+    {
+     "id": "sb_1785ef90",
+     "q": "I wasn't aware ___ the problem.",
+     "options": [
+      "of",
+      "about"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_01c4ef56",
+     "q": "The boy denied ___ the cake.",
+     "options": [
+      "to eat",
+      "eating"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_d9414771",
+     "q": "He advised me ___ more exercise.",
+     "options": [
+      "do",
+      "to do"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_33c9b363",
+     "q": "I bought ___ new jeans.",
+     "options": [
+      "a",
+      "a pair of"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_1257a097",
+     "sb_1785ef90",
+     "sb_01c4ef56",
+     "sb_d9414771",
+     "sb_33c9b363"
+    ],
+    "picks": [
+     1,
+     0,
+     1,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_037",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 37,
+   "area": "placement",
+   "point": "scorecard:t2sc_037",
+   "hash": "0308961e100a",
+   "heads": [
+    "scorecard:sb_344dfdad",
+    "scorecard:sb_37234b0e",
+    "scorecard:sb_4f5a34f3",
+    "scorecard:sb_74c70f2e",
+    "scorecard:sb_f82b0a44"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_344dfdad",
+     "q": "She pretended ___ asleep.",
+     "options": [
+      "being",
+      "to be"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_37234b0e",
+     "q": "I ___ a mistake on the test.",
+     "options": [
+      "made",
+      "did"
+     ],
+     "answer": 0,
+     "cefr": "A1",
+     "pick": 0
+    },
+    {
+     "id": "sb_4f5a34f3",
+     "q": "I ___ with you.",
+     "options": [
+      "am agree",
+      "agree"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_74c70f2e",
+     "q": "We bought some new ___.",
+     "options": [
+      "furnitures",
+      "furniture"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_f82b0a44",
+     "q": "She ___ my question.",
+     "options": [
+      "answered",
+      "answered to"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_344dfdad",
+     "sb_37234b0e",
+     "sb_4f5a34f3",
+     "sb_74c70f2e",
+     "sb_f82b0a44"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_038",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 38,
+   "area": "placement",
+   "point": "scorecard:t2sc_038",
+   "hash": "42b29145adb6",
+   "heads": [
+    "scorecard:sb_01d0269f",
+    "scorecard:sb_30c60846",
+    "scorecard:sb_0e092805",
+    "scorecard:sb_155a64a8",
+    "scorecard:sb_d8d52cb2"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_01d0269f",
+     "q": "The gym is very busy at ___ times.",
+     "options": [
+      "peak",
+      "full"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_30c60846",
+     "q": "Thank you all for ___.",
+     "options": [
+      "your listening",
+      "listening"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_0e092805",
+     "q": "He dreams ___ a pilot.",
+     "options": [
+      "of becoming",
+      "to become"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_155a64a8",
+     "q": "I ___ a bath after work.",
+     "options": [
+      "made",
+      "took"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_d8d52cb2",
+     "q": "He avoided ___ to me.",
+     "options": [
+      "talking",
+      "to talk"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_01d0269f",
+     "sb_30c60846",
+     "sb_0e092805",
+     "sb_155a64a8",
+     "sb_d8d52cb2"
+    ],
+    "picks": [
+     1,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_039",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 39,
+   "area": "placement",
+   "point": "scorecard:t2sc_039",
+   "hash": "6138a3b5a975",
+   "heads": [
+    "scorecard:sb_03f6978d",
+    "scorecard:sb_c864b070",
+    "scorecard:sb_7281e267",
+    "scorecard:sb_836058ef",
+    "scorecard:sb_5d41ed6c"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_03f6978d",
+     "q": "Bad sleep can lead ___ stress.",
+     "options": [
+      "for",
+      "to"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_c864b070",
+     "q": "He ___ a bike to school.",
+     "options": [
+      "rides",
+      "drives"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_7281e267",
+     "q": "So how ___ know Emma?",
+     "options": [
+      "you",
+      "do you"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_836058ef",
+     "q": "Are utilities ___ in the rent?",
+     "options": [
+      "included",
+      "include"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_5d41ed6c",
+     "q": "She didn't ___ the price.",
+     "options": [
+      "mention about",
+      "mention"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_03f6978d",
+     "sb_c864b070",
+     "sb_7281e267",
+     "sb_836058ef",
+     "sb_5d41ed6c"
+    ],
+    "picks": [
+     1,
+     0,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_040",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 40,
+   "area": "placement",
+   "point": "scorecard:t2sc_040",
+   "hash": "93083a704fe2",
+   "heads": [
+    "scorecard:sb_699b0f58",
+    "scorecard:sb_a958a159",
+    "scorecard:sb_f0648eea",
+    "scorecard:sb_c1d18a88",
+    "scorecard:sb_0ce10d3a"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_699b0f58",
+     "q": "I ___ up in Hue.",
+     "options": [
+      "grew",
+      "was grown"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_a958a159",
+     "q": "Can you ___ me your pen?",
+     "options": [
+      "lend",
+      "borrow"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_f0648eea",
+     "q": "She is in charge ___ the project.",
+     "options": [
+      "of",
+      "for"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_c1d18a88",
+     "q": "I will ___ an exam tomorrow.",
+     "options": [
+      "take",
+      "pass"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_0ce10d3a",
+     "q": "I started this job two years ___.",
+     "options": [
+      "before",
+      "ago"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_699b0f58",
+     "sb_a958a159",
+     "sb_f0648eea",
+     "sb_c1d18a88",
+     "sb_0ce10d3a"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_041",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 41,
+   "area": "placement",
+   "point": "scorecard:t2sc_041",
+   "hash": "4e4ccff4b3d4",
+   "heads": [
+    "scorecard:sb_057c6ae7",
+    "scorecard:sb_49f8754d",
+    "scorecard:sb_d8f735d9",
+    "scorecard:sb_5ae0c1c8",
+    "scorecard:sb_8449414e"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_057c6ae7",
+     "q": "I can't go because I am ___.",
+     "options": [
+      "illness",
+      "ill"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_49f8754d",
+     "q": "Pay attention ___ the teacher.",
+     "options": [
+      "on",
+      "to"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_d8f735d9",
+     "q": "I disagree ___ you about this.",
+     "options": [
+      "with",
+      "to"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_5ae0c1c8",
+     "q": "Can you ___ a photo of us?",
+     "options": [
+      "take",
+      "make"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_8449414e",
+     "q": "I love tacos! ___",
+     "options": [
+      "Me also!",
+      "Me too!"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_057c6ae7",
+     "sb_49f8754d",
+     "sb_d8f735d9",
+     "sb_5ae0c1c8",
+     "sb_8449414e"
+    ],
+    "picks": [
+     1,
+     1,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_042",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 42,
+   "area": "placement",
+   "point": "scorecard:t2sc_042",
+   "hash": "da714285212a",
+   "heads": [
+    "scorecard:sb_d7bb9b73",
+    "scorecard:sb_77020772",
+    "scorecard:sb_fa69f2b5",
+    "scorecard:sb_0f8cdbf0",
+    "scorecard:sb_c03dbf46"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_d7bb9b73",
+     "q": "What is the ___ of that tower?",
+     "options": [
+      "high",
+      "height"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_77020772",
+     "q": "I ___ spicy food.",
+     "options": [
+      "like",
+      "am like"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_fa69f2b5",
+     "q": "He fell in love ___ her.",
+     "options": [
+      "with",
+      "to"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_0f8cdbf0",
+     "q": "I'm listening ___ a podcast.",
+     "options": [
+      "(nothing)",
+      "to"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 1
+    },
+    {
+     "id": "sb_c03dbf46",
+     "q": "Today I'll present our app ___ you.",
+     "options": [
+      "for",
+      "to"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_d7bb9b73",
+     "sb_77020772",
+     "sb_fa69f2b5",
+     "sb_0f8cdbf0",
+     "sb_c03dbf46"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_043",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 43,
+   "area": "placement",
+   "point": "scorecard:t2sc_043",
+   "hash": "efb69f8b1549",
+   "heads": [
+    "scorecard:sb_0ad85c2e",
+    "scorecard:sb_a0d8398b",
+    "scorecard:sb_ae8a3381",
+    "scorecard:sb_0d6dc593",
+    "scorecard:sb_6935ba91"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_0ad85c2e",
+     "q": "I live ___, but I'm not lonely.",
+     "options": [
+      "alone",
+      "lonely"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_a0d8398b",
+     "q": "___ people like music.",
+     "options": [
+      "Most",
+      "Almost"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_ae8a3381",
+     "q": "Doctors save ___.",
+     "options": [
+      "lifes",
+      "lives"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_0d6dc593",
+     "q": "The hotel ___ offers massages.",
+     "options": [
+      "spa",
+      "pool"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_6935ba91",
+     "q": "The ___ here is beautiful.",
+     "options": [
+      "sceneries",
+      "scenery"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_0ad85c2e",
+     "sb_a0d8398b",
+     "sb_ae8a3381",
+     "sb_0d6dc593",
+     "sb_6935ba91"
+    ],
+    "picks": [
+     0,
+     0,
+     1,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_044",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 44,
+   "area": "placement",
+   "point": "scorecard:t2sc_044",
+   "hash": "e25c203887f1",
+   "heads": [
+    "scorecard:sb_7c1c35bd",
+    "scorecard:sb_556966c7",
+    "scorecard:sb_dc881ba7",
+    "scorecard:sb_d11da4f4",
+    "scorecard:sb_6d62d506"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_7c1c35bd",
+     "q": "The coffee machine ___.",
+     "options": [
+      "is not work",
+      "isn't working"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_556966c7",
+     "q": "The library is very ___.",
+     "options": [
+      "quiet",
+      "quite"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_dc881ba7",
+     "q": "The taxi ___ the hotel.",
+     "options": [
+      "approached",
+      "approached to"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_d11da4f4",
+     "q": "How ___ transfer money?",
+     "options": [
+      "do I",
+      "I can"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_6d62d506",
+     "q": "I was surprised ___ the price.",
+     "options": [
+      "at",
+      "for"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_7c1c35bd",
+     "sb_556966c7",
+     "sb_dc881ba7",
+     "sb_d11da4f4",
+     "sb_6d62d506"
+    ],
+    "picks": [
+     1,
+     1,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_045",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 45,
+   "area": "placement",
+   "point": "scorecard:t2sc_045",
+   "hash": "52e61885bc2e",
+   "heads": [
+    "scorecard:sb_372b694c",
+    "scorecard:sb_b56e5263",
+    "scorecard:sb_3051e94c",
+    "scorecard:sb_847a8b03",
+    "scorecard:sb_27e08c50"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_372b694c",
+     "q": "She wants to ___ the race.",
+     "options": [
+      "participate in",
+      "participate"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_b56e5263",
+     "q": "Do you want ___ us?",
+     "options": [
+      "join",
+      "to join"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_3051e94c",
+     "q": "The price of the room is very ___.",
+     "options": [
+      "low",
+      "cheap"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_847a8b03",
+     "q": "I'd prefer ___ refund.",
+     "options": [
+      "the",
+      "a"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_27e08c50",
+     "q": "The most important ___ is speed.",
+     "options": [
+      "thing",
+      "is"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_372b694c",
+     "sb_b56e5263",
+     "sb_3051e94c",
+     "sb_847a8b03",
+     "sb_27e08c50"
+    ],
+    "picks": [
+     0,
+     0,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_046",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 46,
+   "area": "placement",
+   "point": "scorecard:t2sc_046",
+   "hash": "fe4626d639fb",
+   "heads": [
+    "scorecard:sb_a09e7d2a",
+    "scorecard:sb_ec31bdce",
+    "scorecard:sb_a451cd93",
+    "scorecard:sb_e526a4e3",
+    "scorecard:sb_01728393"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_a09e7d2a",
+     "q": "I saw him ___ month.",
+     "options": [
+      "the last",
+      "last"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_ec31bdce",
+     "q": "Let's look ___ the numbers.",
+     "options": [
+      "on",
+      "at"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_a451cd93",
+     "q": "Can you imagine ___ in space?",
+     "options": [
+      "to live",
+      "living"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_e526a4e3",
+     "q": "The shop ___ me a discount.",
+     "options": [
+      "made",
+      "gave"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_01728393",
+     "q": "Thanks for your help! ___",
+     "options": [
+      "Sometime!",
+      "Anytime!"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_a09e7d2a",
+     "sb_ec31bdce",
+     "sb_a451cd93",
+     "sb_e526a4e3",
+     "sb_01728393"
+    ],
+    "picks": [
+     0,
+     0,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_047",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 47,
+   "area": "placement",
+   "point": "scorecard:t2sc_047",
+   "hash": "8114ed9a0a58",
+   "heads": [
+    "scorecard:sb_ef399b2d",
+    "scorecard:sb_78a5eb43",
+    "scorecard:sb_325da830",
+    "scorecard:sb_99be1ee6",
+    "scorecard:sb_072f702a"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_ef399b2d",
+     "q": "He stopped ___ last year.",
+     "options": [
+      "to smoke",
+      "smoking"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_78a5eb43",
+     "q": "The price is very ___.",
+     "options": [
+      "low",
+      "cheap"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_325da830",
+     "q": "My uncle ___ me to drive.",
+     "options": [
+      "taught",
+      "learned"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_99be1ee6",
+     "q": "I ___ in Hue. I was born here.",
+     "options": [
+      "live",
+      "stay"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_072f702a",
+     "q": "In my opinion, ___ it's true.",
+     "options": [
+      "I think",
+      "(nothing)"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_ef399b2d",
+     "sb_78a5eb43",
+     "sb_325da830",
+     "sb_99be1ee6",
+     "sb_072f702a"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_048",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 48,
+   "area": "placement",
+   "point": "scorecard:t2sc_048",
+   "hash": "6053e0e39394",
+   "heads": [
+    "scorecard:sb_b8781c2a",
+    "scorecard:sb_d7a49df5",
+    "scorecard:sb_0ce8ec98",
+    "scorecard:sb_af50243a",
+    "scorecard:sb_55270c0b"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_b8781c2a",
+     "q": "Let's keep ___ after the course.",
+     "options": [
+      "contact",
+      "in touch"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_d7a49df5",
+     "q": "I've worked in sales ___ six years.",
+     "options": [
+      "since",
+      "for"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_0ce8ec98",
+     "q": "The book is ___ read.",
+     "options": [
+      "wide",
+      "widely"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_af50243a",
+     "q": "I need some ___.",
+     "options": [
+      "informations",
+      "information"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_55270c0b",
+     "q": "What ___ a typical day look like?",
+     "options": [
+      "is",
+      "does"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_b8781c2a",
+     "sb_d7a49df5",
+     "sb_0ce8ec98",
+     "sb_af50243a",
+     "sb_55270c0b"
+    ],
+    "picks": [
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_049",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 49,
+   "area": "placement",
+   "point": "scorecard:t2sc_049",
+   "hash": "36ea8184a9c7",
+   "heads": [
+    "scorecard:sb_bb463289",
+    "scorecard:sb_27ef7399",
+    "scorecard:sb_324a7590",
+    "scorecard:sb_9b0c41a0",
+    "scorecard:sb_4650f9b0"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_bb463289",
+     "q": "There was ___ rain last night.",
+     "options": [
+      "heavy",
+      "strong"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_27ef7399",
+     "q": "Tie the bag with some ___.",
+     "options": [
+      "rope string",
+      "string"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_324a7590",
+     "q": "He refused ___ the money.",
+     "options": [
+      "to take",
+      "taking"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_9b0c41a0",
+     "q": "Noise prevents me ___ sleeping.",
+     "options": [
+      "to",
+      "from"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_4650f9b0",
+     "q": "This room is ___ for us.",
+     "options": [
+      "enough big",
+      "big enough"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_bb463289",
+     "sb_27ef7399",
+     "sb_324a7590",
+     "sb_9b0c41a0",
+     "sb_4650f9b0"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_050",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 50,
+   "area": "placement",
+   "point": "scorecard:t2sc_050",
+   "hash": "c9191dc5c8ed",
+   "heads": [
+    "scorecard:sb_3e77d39c",
+    "scorecard:sb_02938065",
+    "scorecard:sb_03ae3a7b",
+    "scorecard:sb_5a3afafa",
+    "scorecard:sb_c1d23040"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_3e77d39c",
+     "q": "The sun ___ at six.",
+     "options": [
+      "raises",
+      "rises"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_02938065",
+     "q": "Sorry for the late ___.",
+     "options": [
+      "reply",
+      "answering"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_03ae3a7b",
+     "q": "Carbon dioxide is a ___ gas.",
+     "options": [
+      "greenhouse",
+      "green"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_5a3afafa",
+     "q": "Please ___ the room.",
+     "options": [
+      "enter to",
+      "enter"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_c1d23040",
+     "q": "She is angry ___ her brother.",
+     "options": [
+      "with",
+      "on"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_3e77d39c",
+     "sb_02938065",
+     "sb_03ae3a7b",
+     "sb_5a3afafa",
+     "sb_c1d23040"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_051",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 51,
+   "area": "placement",
+   "point": "scorecard:t2sc_051",
+   "hash": "6a1111c22bcb",
+   "heads": [
+    "scorecard:sb_1798babe",
+    "scorecard:sb_00e987d4",
+    "scorecard:sb_01002079",
+    "scorecard:sb_0a4a65be",
+    "scorecard:sb_4bc6cc80"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_1798babe",
+     "q": "The flood ___ many houses.",
+     "options": [
+      "damaged",
+      "harmed"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_00e987d4",
+     "q": "She found a new ___.",
+     "options": [
+      "job",
+      "work"
+     ],
+     "answer": 0,
+     "cefr": "A1",
+     "pick": 0
+    },
+    {
+     "id": "sb_01002079",
+     "q": "Don't put off ___ the doctor.",
+     "options": [
+      "seeing",
+      "to see"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_0a4a65be",
+     "q": "We ___ to finish by Friday.",
+     "options": [
+      "suppose",
+      "are supposed"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_4bc6cc80",
+     "q": "___ the other hand, it is cheaper.",
+     "options": [
+      "On",
+      "In"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_1798babe",
+     "sb_00e987d4",
+     "sb_01002079",
+     "sb_0a4a65be",
+     "sb_4bc6cc80"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_052",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 52,
+   "area": "placement",
+   "point": "scorecard:t2sc_052",
+   "hash": "892241bb8a3b",
+   "heads": [
+    "scorecard:sb_00ac2cbe",
+    "scorecard:sb_00b3d3f4",
+    "scorecard:sb_fc42e435",
+    "scorecard:sb_03473678",
+    "scorecard:sb_389e26ad"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_00ac2cbe",
+     "q": "Every day I ___ to school by bike.",
+     "options": [
+      "go",
+      "travel"
+     ],
+     "answer": 0,
+     "cefr": "A1",
+     "pick": 1
+    },
+    {
+     "id": "sb_00b3d3f4",
+     "q": "He can't cope ___ the noise.",
+     "options": [
+      "with",
+      "(nothing)"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_fc42e435",
+     "q": "I'm afraid that ___ work for me.",
+     "options": [
+      "not",
+      "doesn't"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_03473678",
+     "q": "I can't afford ___ a new phone.",
+     "options": [
+      "buying",
+      "to buy"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_389e26ad",
+     "q": "Can you ___ me your pen?",
+     "options": [
+      "lend",
+      "borrow"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_00ac2cbe",
+     "sb_00b3d3f4",
+     "sb_fc42e435",
+     "sb_03473678",
+     "sb_389e26ad"
+    ],
+    "picks": [
+     1,
+     0,
+     1,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_053",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 53,
+   "area": "placement",
+   "point": "scorecard:t2sc_053",
+   "hash": "b5be5bb3fe99",
+   "heads": [
+    "scorecard:sb_ded82381",
+    "scorecard:sb_d6acb235",
+    "scorecard:sb_136af047",
+    "scorecard:sb_014af894",
+    "scorecard:sb_03afa19f"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_ded82381",
+     "q": "Everyone can ___ a mistake.",
+     "options": [
+      "do",
+      "make"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_d6acb235",
+     "q": "Good luck ___ your test!",
+     "options": [
+      "with",
+      "for"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_136af047",
+     "q": "She ___ me the news.",
+     "options": [
+      "said",
+      "told"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 0
+    },
+    {
+     "id": "sb_014af894",
+     "q": "There's a high risk ___ rain today.",
+     "options": [
+      "to",
+      "of"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_03afa19f",
+     "q": "The MRI scan uses ___.",
+     "options": [
+      "magnets",
+      "X-rays"
+     ],
+     "answer": 0,
+     "cefr": "C1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_ded82381",
+     "sb_d6acb235",
+     "sb_136af047",
+     "sb_014af894",
+     "sb_03afa19f"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_054",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 54,
+   "area": "placement",
+   "point": "scorecard:t2sc_054",
+   "hash": "be5bb40330b3",
+   "heads": [
+    "scorecard:sb_0d57e20a",
+    "scorecard:sb_99bdb159",
+    "scorecard:sb_d2fd585c",
+    "scorecard:sb_1740b6df",
+    "scorecard:sb_14311c65"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_0d57e20a",
+     "q": "___ the flight is late.",
+     "options": [
+      "I'm scared",
+      "I'm afraid"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_99bdb159",
+     "q": "It ___ on the weather.",
+     "options": [
+      "depends",
+      "depend of"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_d2fd585c",
+     "q": "Can you explain this rule ___?",
+     "options": [
+      "to me",
+      "me"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_1740b6df",
+     "q": "Can you ___ me to buy milk?",
+     "options": [
+      "remember",
+      "remind"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 0
+    },
+    {
+     "id": "sb_14311c65",
+     "q": "My flight ___ canceled.",
+     "options": [
+      "is",
+      "was"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_0d57e20a",
+     "sb_99bdb159",
+     "sb_d2fd585c",
+     "sb_1740b6df",
+     "sb_14311c65"
+    ],
+    "picks": [
+     1,
+     0,
+     1,
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_055",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 55,
+   "area": "placement",
+   "point": "scorecard:t2sc_055",
+   "hash": "e0365d8d9da7",
+   "heads": [
+    "scorecard:sb_ff076731",
+    "scorecard:sb_f3392adc",
+    "scorecard:sb_097145e5",
+    "scorecard:sb_682c8238",
+    "scorecard:sb_017d1a81"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_ff076731",
+     "q": "She wears ___ every day.",
+     "options": [
+      "a glasses",
+      "glasses"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_f3392adc",
+     "q": "I studied ___ three hours.",
+     "options": [
+      "for",
+      "during"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_097145e5",
+     "q": "He admitted ___ the last cookie.",
+     "options": [
+      "eating",
+      "to eat"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_682c8238",
+     "q": "I have too much ___.",
+     "options": [
+      "luggage",
+      "luggages"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_017d1a81",
+     "q": "The truck collided ___ a tree.",
+     "options": [
+      "with",
+      "to"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_ff076731",
+     "sb_f3392adc",
+     "sb_097145e5",
+     "sb_682c8238",
+     "sb_017d1a81"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_056",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 56,
+   "area": "placement",
+   "point": "scorecard:t2sc_056",
+   "hash": "4931c786dc85",
+   "heads": [
+    "scorecard:sb_2bf49caa",
+    "scorecard:sb_6dbf5c1a",
+    "scorecard:sb_00f4553a",
+    "scorecard:sb_85b49008",
+    "scorecard:sb_46f96315"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_2bf49caa",
+     "q": "She is nervous ___ the test.",
+     "options": [
+      "with",
+      "about"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_6dbf5c1a",
+     "q": "He has ___ experience in sales.",
+     "options": [
+      "many",
+      "a lot of"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_00f4553a",
+     "q": "Is there a bank ___ here?",
+     "options": [
+      "near",
+      "near to"
+     ],
+     "answer": 0,
+     "cefr": "A1",
+     "pick": 0
+    },
+    {
+     "id": "sb_85b49008",
+     "q": "My phone is different ___ yours.",
+     "options": [
+      "with",
+      "from"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_46f96315",
+     "q": "I walk ___ after class.",
+     "options": [
+      "to home",
+      "home"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_2bf49caa",
+     "sb_6dbf5c1a",
+     "sb_00f4553a",
+     "sb_85b49008",
+     "sb_46f96315"
+    ],
+    "picks": [
+     1,
+     1,
+     0,
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "id": "t2sc_057",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 57,
+   "area": "placement",
+   "point": "scorecard:t2sc_057",
+   "hash": "14954242ea01",
+   "heads": [
+    "scorecard:sb_a6a08261",
+    "scorecard:sb_9762bb80",
+    "scorecard:sb_237d4691",
+    "scorecard:sb_6d557cd2",
+    "scorecard:sb_49256b98"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_a6a08261",
+     "q": "She took advantage ___ the sale.",
+     "options": [
+      "from",
+      "of"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_9762bb80",
+     "q": "We arrived ___ Hanoi at noon.",
+     "options": [
+      "to",
+      "in"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_237d4691",
+     "q": "We arranged ___ at the station.",
+     "options": [
+      "to meet",
+      "meeting"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_6d557cd2",
+     "q": "I am grateful ___ your help.",
+     "options": [
+      "for",
+      "to"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_49256b98",
+     "q": "Please ___ me outside.",
+     "options": [
+      "wait for",
+      "wait"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_a6a08261",
+     "sb_9762bb80",
+     "sb_237d4691",
+     "sb_6d557cd2",
+     "sb_49256b98"
+    ],
+    "picks": [
+     0,
+     1,
+     0,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_058",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 58,
+   "area": "placement",
+   "point": "scorecard:t2sc_058",
+   "hash": "21a811269382",
+   "heads": [
+    "scorecard:sb_e4fb5276",
+    "scorecard:sb_51a55050",
+    "scorecard:sb_14cf6349",
+    "scorecard:sb_b02a45a5",
+    "scorecard:sb_816745d7"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_e4fb5276",
+     "q": "We want to ___ a flat for a year.",
+     "options": [
+      "hire",
+      "rent"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_51a55050",
+     "q": "I finished ___ the report.",
+     "options": [
+      "to write",
+      "writing"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_14cf6349",
+     "q": "___ me an hour to cook dinner.",
+     "options": [
+      "It takes",
+      "I take"
+     ],
+     "answer": 0,
+     "cefr": "A1",
+     "pick": 1
+    },
+    {
+     "id": "sb_b02a45a5",
+     "q": "Please pay attention ___ the board.",
+     "options": [
+      "to",
+      "on"
+     ],
+     "answer": 0,
+     "cefr": "A2",
+     "pick": 0
+    },
+    {
+     "id": "sb_816745d7",
+     "q": "My talk is divided ___ three parts.",
+     "options": [
+      "into",
+      "in"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_e4fb5276",
+     "sb_51a55050",
+     "sb_14cf6349",
+     "sb_b02a45a5",
+     "sb_816745d7"
+    ],
+    "picks": [
+     0,
+     1,
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_059",
+   "template": "scorecard",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 59,
+   "area": "placement",
+   "point": "scorecard:t2sc_059",
+   "hash": "f23019ed0d31",
+   "heads": [
+    "scorecard:sb_6ce1a133",
+    "scorecard:sb_6e4b5fa0",
+    "scorecard:sb_f6d438d7",
+    "scorecard:sb_7c67f786",
+    "scorecard:sb_cad1c068"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_6ce1a133",
+     "q": "He is very ___.",
+     "options": [
+      "high",
+      "tall"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_6e4b5fa0",
+     "q": "Please don't ___ me.",
+     "options": [
+      "laugh",
+      "laugh at"
+     ],
+     "answer": 1,
+     "cefr": "A2",
+     "pick": 1
+    },
+    {
+     "id": "sb_f6d438d7",
+     "q": "It all depends ___ you.",
+     "options": [
+      "on",
+      "of"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    },
+    {
+     "id": "sb_7c67f786",
+     "q": "I would rather ___ at home.",
+     "options": [
+      "to stay",
+      "stay"
+     ],
+     "answer": 1,
+     "cefr": "B2",
+     "pick": 1
+    },
+    {
+     "id": "sb_cad1c068",
+     "q": "This cake tastes ___.",
+     "options": [
+      "good",
+      "well"
+     ],
+     "answer": 0,
+     "cefr": "B1",
+     "pick": 0
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_6ce1a133",
+     "sb_6e4b5fa0",
+     "sb_f6d438d7",
+     "sb_7c67f786",
+     "sb_cad1c068"
+    ],
+    "picks": [
+     1,
+     1,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  {
+   "id": "t2sc_060",
+   "template": "scorecard",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 60,
+   "area": "placement",
+   "point": "scorecard:t2sc_060",
+   "hash": "64ea709013f7",
+   "heads": [
+    "scorecard:sb_6486fb27",
+    "scorecard:sb_2b414c2b",
+    "scorecard:sb_8b6e2723",
+    "scorecard:sb_8ce033f9",
+    "scorecard:sb_2408f7fd"
+   ],
+   "taught": [],
+   "facts": [
+    {
+     "id": "sb_6486fb27",
+     "q": "She blamed me ___ the mistake.",
+     "options": [
+      "for",
+      "about"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_2b414c2b",
+     "q": "The soup is too hot ___.",
+     "options": [
+      "to not eat",
+      "to eat"
+     ],
+     "answer": 1,
+     "cefr": "A1",
+     "pick": 0
+    },
+    {
+     "id": "sb_8b6e2723",
+     "q": "Nobody ___ the fire.",
+     "options": [
+      "survived",
+      "survived from"
+     ],
+     "answer": 0,
+     "cefr": "B2",
+     "pick": 0
+    },
+    {
+     "id": "sb_8ce033f9",
+     "q": "I'll ___ to you tomorrow.",
+     "options": [
+      "answer back",
+      "get back"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    },
+    {
+     "id": "sb_2408f7fd",
+     "q": "Want to ___ after class?",
+     "options": [
+      "play together",
+      "hang out"
+     ],
+     "answer": 1,
+     "cefr": "B1",
+     "pick": 1
+    }
+   ],
+   "in": {
+    "items": [
+     "sb_6486fb27",
+     "sb_2b414c2b",
+     "sb_8b6e2723",
+     "sb_8ce033f9",
+     "sb_2408f7fd"
+    ],
+    "picks": [
+     0,
+     0,
+     0,
+     1,
+     1
+    ]
+   }
   }
  ]
 }

@@ -12,7 +12,7 @@
   {
    "id": "h",
    "text": "Perfect score. Match me?",
-   "pause": 1.25
+   "pause": 0.55
   },
   {
    "id": "k",
@@ -36,10 +36,6 @@
   }
  ],
  "expr": "hype",
- "pose": {
-  "clip": "cheer",
-  "after": "h"
- },
  "data": {
   "items": [
    {
@@ -119,8 +115,8 @@
  },
  "est": {
   "words": 23,
-  "seconds": 10.9,
-  "wpm": 127
+  "seconds": 10.8,
+  "wpm": 128
  },
  "publish": {
   "title": "Can you match 100/100 on this English quiz?",

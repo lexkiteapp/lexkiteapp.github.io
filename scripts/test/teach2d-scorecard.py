@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Score Challenge template (docs/VIDEO-TEACH2D.md, growth series #5): every planned row is honest and renderable –
 5 distinct audited gold quiz items, the score on screen is RECOMPUTED from the shown ticks (20 points each, labelled sample), hook == that number,
-the teacher's EXPR follows the score band, 9-12 s, publish metadata valid (+ answer key in the first comment), no item or item set reused across episodes,
+the teacher's EXPR follows the score band, est. 7.2-10.8 s (+ ~2 s end card = 9-13 s), publish metadata valid (+ answer key in the first comment), no item or item set reused across episodes,
 >= 60 rows with every band used, the data gate catches a changed item / pick, and the card fits the card region."""
 import copy, json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
@@ -20,7 +20,7 @@ for r in rows:
     assert ep['hook']['text'] == f'Score {s}/100. {gen.sc_verb(s).capitalize()} me?' and gen.hook_gate(r, ep), (r['id'], ep['hook'])
     assert ep['expr'] == gen.SC_EXPR[s] and ep['expr'] in X['x'] and (not ep.get('pose') or X['x'][ep['expr']].get('gesture')), r['id']
     assert ep['data']['sample'] is True and ep['data']['score'] == s and ep['data']['right'] == n and 'sample' in ep['publish']['value'].lower(), r['id']
-    assert 9.0 <= ep['est']['seconds'] <= 12.0 and ep['est']['wpm'] <= 150, (r['id'], ep['est'])
+    assert gen.SC_SECS[0] <= ep['est']['seconds'] <= gen.SC_SECS[1] and ep['est']['wpm'] <= 150, (r['id'], ep['est'])
     assert ep['cta']['route'] == '#/placement' and ep['cta']['link'] == 'https://lexkite.com/app/#/placement', r['id']
     assert not any(ch.isdigit() for l in ep['lines'] for ch in l['text']), ('numbers are spoken as words', r['id'])   # Kokoro would read "80/100" its own way
     bands[s] = bands.get(s, 0) + 1
