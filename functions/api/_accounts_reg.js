@@ -119,6 +119,20 @@ export const ROWS = [
   "note": ""
  },
  {
+  "id": "pages-meta-capi",
+  "service": "Meta Conversions API cho app (quảng cáo cài app)",
+  "account": "Meta · Lexkite",
+  "store": "pages",
+  "names": [
+   "META_APP_ID",
+   "META_CAPI_TOKEN"
+  ],
+  "scope": "Graph API /<app>/activities – INSTALL + ACTIVATE (docs/META-ADS.md); chỉ chạy khi cờ ads_meta_capi = 1",
+  "manage": "https://developers.facebook.com/apps/",
+  "expires": "",
+  "note": "Chủ tạo app Meta + token rồi đặt 2 bí mật bằng wrangler pages secret put"
+ },
+ {
   "id": "pages-meta",
   "service": "Meta (Facebook/Instagram)",
   "account": "Meta · Lexkite",
