@@ -46,7 +46,7 @@
     const teacher = self.Chars ? Chars.slot('ama', { pose: 'point', size: 'm', lazy: false, hip: true }) : '';
     ST2.mount(App.view, 'skills', { title: t('Kỹ năng'), exam: `${X.short} · ${t('Đổi')}`, examAria: t('Đổi kỳ thi: {x}', { x: X.short }), teacher, offHtml, offText: '', rows, more,
       next: { name, why, cta: t('Bắt đầu'), href: itemsFor(nx.k, ex)[0][0], aria: t('Bắt đầu luyện {x}', { x: name }) } }, 'skills');
-    { const ts = App.view.querySelector('.tslot'); if (ts && ts.parentElement) { const st = ts.parentElement.style; st.overflow = 'clip'; st.overflowClipMargin = '30px'; } } // khung 116px không cắt tay giáo viên (tslot-fig lố ±0,25h; clip+margin: hiện tay nhưng không tính là nội dung tràn ngang của shell); hông vẫn che bởi bệ của tslot
+    { const ts = App.view.querySelector('.tslot'); if (ts && ts.parentElement) ts.parentElement.style.overflow = 'visible'; const fg = ts.querySelector('.tslot-fig'); if (fg) { fg.style.left = fg.style.right = 'calc(var(--h)*-.2)'; } } // khung 116px không cắt tay giáo viên (tslot-fig lố ±0,25h; thu lề fig về ±0,2h để cả hai phía không tràn ngang shell; Safari không có overflow-clip-margin); hông vẫn che bởi bệ của tslot
   };
   if (typeof self !== 'undefined') Object.assign(self.SkillsHub = self.SkillsHub || {}, { pickNext, rowOf, noteOf, whyOf });
 })();
