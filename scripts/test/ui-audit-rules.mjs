@@ -9,6 +9,7 @@ ok(audit({ ...clean, docW: 380 }).length === 0, 'lệch ≤8px (thanh cuộn) kh
 ok(rules({ textLen: 5 }).includes('empty:high'), 'màn trống → cao');
 ok(rules({ errs: ['x is not defined'] }).includes('js:high'), 'lỗi JS → cao');
 ok(!rules({ covered: [{ text: 'Auto', el: 'span', by: 'button.text-start', overlay: true }] }).includes('covered:high'), 'chữ pointer-events:none phủ trên nút → không báo');
+ok(!rules({ covered: [{ text: 'Auto', el: 'span', by: 'button.text-start', stretch: true }] }).includes('covered:high'), 'nút stretched-link (::after trong suốt) phủ hàng → không báo');
 ok(rules({ covered: [{ text: 'Free', el: 'p', by: 'button.cta' }] }).includes('covered:high'), 'chữ bị che → cao');
 const cv = (side, pos, extra) => rules({ vh: 800, docH: 2400, ...extra, covered: [{ text: 'Buy', el: 'b', by: 'nav#bnav', side, pos }] }).includes('covered:high');
 ok(!cv('bottom', 'top'), 'chữ dưới thanh dưới lúc ở đầu trang (cuộn tới được) → không báo');
