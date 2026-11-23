@@ -1,0 +1,4895 @@
+{
+ "date": "2026-11-23",
+ "site": "sc-domain:lexkite.com",
+ "summary": {
+  "urls": 20733,
+  "sampled": 344,
+  "indexed": 1,
+  "estIndexed": 12,
+  "rate": 0.0029069767441860465,
+  "states": {
+   "URL is unknown to Google": 246,
+   "Crawled - currently not indexed": 72,
+   "Discovered - currently not indexed": 25,
+   "Submitted and indexed": 1
+  },
+  "groups": {
+   "authority": {
+    "urls": 105,
+    "sampled": 4,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 3,
+     "Crawled - currently not indexed": 1
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-ar": {
+    "urls": 36,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 3
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-de": {
+    "urls": 36,
+    "sampled": 2,
+    "indexed": 0,
+    "states": {
+     "Crawled - currently not indexed": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-en": {
+    "urls": 40,
+    "sampled": 4,
+    "indexed": 0,
+    "states": {
+     "Crawled - currently not indexed": 3,
+     "URL is unknown to Google": 1
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-es": {
+    "urls": 37,
+    "sampled": 4,
+    "indexed": 0,
+    "states": {
+     "Discovered - currently not indexed": 1,
+     "Crawled - currently not indexed": 1,
+     "URL is unknown to Google": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-fr": {
+    "urls": 36,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 2,
+     "Discovered - currently not indexed": 1
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-hi": {
+    "urls": 36,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 3
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-id": {
+    "urls": 36,
+    "sampled": 3,
+    "indexed": 1,
+    "states": {
+     "Submitted and indexed": 1,
+     "URL is unknown to Google": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0.3333333333333333,
+    "estIndexed": 12
+   },
+   "blog-ja": {
+    "urls": 37,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 3
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-ko": {
+    "urls": 36,
+    "sampled": 2,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-pt": {
+    "urls": 36,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 2,
+     "Crawled - currently not indexed": 1
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-ru": {
+    "urls": 36,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "Crawled - currently not indexed": 2,
+     "URL is unknown to Google": 1
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-th": {
+    "urls": 36,
+    "sampled": 2,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-tr": {
+    "urls": 36,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 3
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-vi": {
+    "urls": 46,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 2,
+     "Crawled - currently not indexed": 1
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "blog-zh": {
+    "urls": 37,
+    "sampled": 2,
+    "indexed": 0,
+    "states": {
+     "Discovered - currently not indexed": 1,
+     "Crawled - currently not indexed": 1
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "conversations": {
+    "urls": 375,
+    "sampled": 4,
+    "indexed": 0,
+    "states": {
+     "Crawled - currently not indexed": 4
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "grammar": {
+    "urls": 77,
+    "sampled": 4,
+    "indexed": 0,
+    "states": {
+     "Crawled - currently not indexed": 4
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "ielts-writing": {
+    "urls": 79,
+    "sampled": 2,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "irregular-verbs": {
+    "urls": 15,
+    "sampled": 2,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "pages": {
+    "urls": 708,
+    "sampled": 12,
+    "indexed": 0,
+    "states": {
+     "Discovered - currently not indexed": 2,
+     "Crawled - currently not indexed": 9,
+     "URL is unknown to Google": 1
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "pronunciation": {
+    "urls": 57,
+    "sampled": 4,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 4
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "tools": {
+    "urls": 120,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "Crawled - currently not indexed": 1,
+     "URL is unknown to Google": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-ar": {
+    "urls": 1035,
+    "sampled": 18,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 14,
+     "Crawled - currently not indexed": 4
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-de": {
+    "urls": 1148,
+    "sampled": 13,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 13
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-en": {
+    "urls": 1445,
+    "sampled": 24,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 20,
+     "Crawled - currently not indexed": 4
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-es": {
+    "urls": 1147,
+    "sampled": 16,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 2,
+     "Crawled - currently not indexed": 5,
+     "Discovered - currently not indexed": 9
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-fr": {
+    "urls": 1172,
+    "sampled": 20,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 18,
+     "Crawled - currently not indexed": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-hi": {
+    "urls": 1211,
+    "sampled": 15,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 12,
+     "Crawled - currently not indexed": 3
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-id": {
+    "urls": 1123,
+    "sampled": 18,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 16,
+     "Crawled - currently not indexed": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-ja": {
+    "urls": 1174,
+    "sampled": 18,
+    "indexed": 0,
+    "states": {
+     "Crawled - currently not indexed": 4,
+     "URL is unknown to Google": 14
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-ko": {
+    "urls": 1333,
+    "sampled": 14,
+    "indexed": 0,
+    "states": {
+     "Discovered - currently not indexed": 11,
+     "Crawled - currently not indexed": 1,
+     "URL is unknown to Google": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-pt": {
+    "urls": 1101,
+    "sampled": 10,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 8,
+     "Crawled - currently not indexed": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-ru": {
+    "urls": 1088,
+    "sampled": 14,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 11,
+     "Crawled - currently not indexed": 3
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-th": {
+    "urls": 1250,
+    "sampled": 19,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 18,
+     "Crawled - currently not indexed": 1
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-tr": {
+    "urls": 1067,
+    "sampled": 15,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 15
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-vi": {
+    "urls": 2274,
+    "sampled": 29,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 20,
+     "Crawled - currently not indexed": 9
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "words-zh": {
+    "urls": 992,
+    "sampled": 17,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 15,
+     "Crawled - currently not indexed": 2
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "dict-vi": {
+    "urls": 50,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 3
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   },
+   "dict-en": {
+    "urls": 30,
+    "sampled": 3,
+    "indexed": 0,
+    "states": {
+     "URL is unknown to Google": 3
+    },
+    "canonMismatch": 0,
+    "errors": 0,
+    "rate": 0,
+    "estIndexed": 0
+   }
+  }
+ },
+ "sitemaps": [
+  {
+   "path": "https://lexkite.com/sitemap.xml",
+   "lastDownloaded": "2026-11-21T03:45:14.117Z",
+   "errors": 0,
+   "warnings": 0,
+   "isPending": false,
+   "contents": [
+    {
+     "type": "web",
+     "submitted": "13165",
+     "indexed": "0"
+    }
+   ]
+  }
+ ],
+ "checked": [
+  {
+   "url": "https://lexkite.com/pt/blog/pronuncia-do-ed-em-ingles/",
+   "sitemap": "https://lexkite.com/sitemap-blog-pt.xml",
+   "group": "blog-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/advisor",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/irregular-verbs/",
+   "sitemap": "https://lexkite.com/sitemap-irregular-verbs.xml",
+   "group": "irregular-verbs",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/get-along-with",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/subscriber",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/outdated",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/inquire",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/resolve",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/zh/words/resolve",
+    "userCanonical": "https://lexkite.com/zh/words/resolve",
+    "lastCrawlTime": "2026-10-26T15:37:05Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/go/ko/",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/status",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/zh/words/status",
+    "userCanonical": "https://lexkite.com/zh/words/status",
+    "lastCrawlTime": "2026-10-24T06:11:53Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/neurology",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/economically",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/temporarily",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/leak",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/prior",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ja/words/prior",
+    "userCanonical": "https://lexkite.com/ja/words/prior",
+    "lastCrawlTime": "2026-10-25T14:35:35Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/blog/about/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ru.xml",
+   "group": "blog-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ru/blog/about/",
+    "userCanonical": "https://lexkite.com/ru/blog/about/",
+    "lastCrawlTime": "2026-10-23T08:43:15Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/words/strategic",
+   "sitemap": "https://lexkite.com/sitemap-words-pt.xml",
+   "group": "words-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/coworker",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/compiler",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/whereas",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/trademark",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/grammar/punctuation",
+   "sitemap": "https://lexkite.com/sitemap-grammar.xml",
+   "group": "grammar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/grammar/punctuation",
+    "userCanonical": "https://lexkite.com/en/grammar/punctuation",
+    "lastCrawlTime": "2026-10-24T07:56:07Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/blog/yds-soru-cozme-teknikleri/",
+   "sitemap": "https://lexkite.com/sitemap-blog-tr.xml",
+   "group": "blog-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/indoor",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/seeker",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/aisle",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/blog/tu-vung-toefl-ibt/",
+   "sitemap": "https://lexkite.com/sitemap-blog-vi.xml",
+   "group": "blog-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/projector",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/expertise",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/words/overview",
+   "sitemap": "https://lexkite.com/sitemap-words-pt.xml",
+   "group": "words-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/omit",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/come-down-with",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/availability",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/compensate",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/es/words/compensate",
+    "userCanonical": "https://lexkite.com/es/words/compensate",
+    "lastCrawlTime": "2026-10-24T06:43:16Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/ielts-writing/task-1/cinema",
+   "sitemap": "https://lexkite.com/sitemap-ielts-writing.xml",
+   "group": "ielts-writing",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/blog/about/",
+   "sitemap": "https://lexkite.com/sitemap-blog-en.xml",
+   "group": "blog-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/blog/about/",
+    "userCanonical": "https://lexkite.com/en/blog/about/",
+    "lastCrawlTime": "2026-10-24T16:52:28Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ar.xml",
+   "group": "blog-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/grammar/pronouns",
+   "sitemap": "https://lexkite.com/sitemap-grammar.xml",
+   "group": "grammar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/grammar/pronouns",
+    "userCanonical": "https://lexkite.com/en/grammar/pronouns",
+    "lastCrawlTime": "2026-10-24T07:41:12Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/blog/ingles-para-o-enem-dicas/",
+   "sitemap": "https://lexkite.com/sitemap-blog-pt.xml",
+   "group": "blog-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/donor",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/differentiate",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ru/words/differentiate",
+    "userCanonical": "https://lexkite.com/ru/words/differentiate",
+    "lastCrawlTime": "2026-10-24T07:34:00Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/enjoyable",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/expire",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/samples/p13",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/samples/p13",
+    "userCanonical": "https://lexkite.com/samples/p13",
+    "lastCrawlTime": "2026-10-22T19:04:22Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/guarantee",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ar/words/guarantee",
+    "userCanonical": "https://lexkite.com/ar/words/guarantee",
+    "lastCrawlTime": "2026-10-24T08:40:36Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/interval",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/id/words/interval",
+    "userCanonical": "https://lexkite.com/id/words/interval",
+    "lastCrawlTime": "2026-10-24T12:19:29Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/eager",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/lathe",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/dip",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/words/dip",
+    "userCanonical": "https://lexkite.com/en/words/dip",
+    "lastCrawlTime": "2026-10-24T08:58:52Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/overlook",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/enable",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/fr/words/enable",
+    "userCanonical": "https://lexkite.com/fr/words/enable",
+    "lastCrawlTime": "2026-10-28T03:59:11Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/put-through",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/vi/words/put-through",
+    "userCanonical": "https://lexkite.com/vi/words/put-through",
+    "lastCrawlTime": "2026-10-24T08:13:42Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/inquire",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/blog/present-perfect-i-past-simple/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ru.xml",
+   "group": "blog-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ru/blog/present-perfect-i-past-simple/",
+    "userCanonical": "https://lexkite.com/ru/blog/present-perfect-i-past-simple/",
+    "lastCrawlTime": "2026-10-25T07:40:34Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/notarize",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/tu-dien/effect/",
+   "sitemap": "https://lexkite.com/sitemap-dict-vi-1.xml",
+   "group": "dict-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/deluxe",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/pronunciation/schwa-sound",
+   "sitemap": "https://lexkite.com/sitemap-pronunciation.xml",
+   "group": "pronunciation",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/pastry",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/noon",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/fabric",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/blog/ielts-writing-task-2-hindi/",
+   "sitemap": "https://lexkite.com/sitemap-blog-hi.xml",
+   "group": "blog-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/samples/p5",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/samples/p5",
+    "userCanonical": "https://lexkite.com/samples/p5",
+    "lastCrawlTime": "2026-10-24T12:48:44Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/similarly",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/dialysis",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/inherent",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ja/words/inherent",
+    "userCanonical": "https://lexkite.com/ja/words/inherent",
+    "lastCrawlTime": "2026-10-24T07:12:14Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/officially",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/hotline",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/blog/ingilizce-baglaclar-ve-linking-words-tablosu/",
+   "sitemap": "https://lexkite.com/sitemap-blog-tr.xml",
+   "group": "blog-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/locally",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/blog/tips-listening-ielts/",
+   "sitemap": "https://lexkite.com/sitemap-blog-id.xml",
+   "group": "blog-id",
+   "result": {
+    "verdict": "PASS",
+    "coverageState": "Submitted and indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/id/blog/tips-listening-ielts/",
+    "userCanonical": "https://lexkite.com/id/blog/tips-listening-ielts/",
+    "lastCrawlTime": "2026-10-25T01:27:24Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/get-into",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/mild",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/subsidiary",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/overhaul",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/cybersecurity",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/constitution",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/luncheon",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/intake",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/vi/words/intake",
+    "userCanonical": "https://lexkite.com/vi/words/intake",
+    "lastCrawlTime": "2026-10-24T08:04:18Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/supernova",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/vi/words/supernova",
+    "userCanonical": "https://lexkite.com/vi/words/supernova",
+    "lastCrawlTime": "2026-10-24T08:32:02Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/ensure",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ar/words/ensure",
+    "userCanonical": "https://lexkite.com/ar/words/ensure",
+    "lastCrawlTime": "2026-10-24T12:33:06Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/authorization",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/discrepancy",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/dividend",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/transmit",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/conversations/new-friends",
+   "sitemap": "https://lexkite.com/sitemap-conversations.xml",
+   "group": "conversations",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ko/conversations/new-friends",
+    "userCanonical": "https://lexkite.com/ko/conversations/new-friends",
+    "lastCrawlTime": "2026-10-24T06:57:41Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/blog/theknik-toeic-listening/",
+   "sitemap": "https://lexkite.com/sitemap-blog-th.xml",
+   "group": "blog-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/blog/cau-truc-de-thi-toeic/",
+   "sitemap": "https://lexkite.com/sitemap-blog-vi.xml",
+   "group": "blog-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/vi/blog/cau-truc-de-thi-toeic/",
+    "userCanonical": "https://lexkite.com/vi/blog/cau-truc-de-thi-toeic/",
+    "lastCrawlTime": "2026-10-24T12:57:31Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/negate",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/pronunciation/intonation",
+   "sitemap": "https://lexkite.com/sitemap-pronunciation.xml",
+   "group": "pronunciation",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/medication",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/pharmacy",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/footwear",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/available",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/circulate",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/corroborate",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/compound",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/hi/words/compound",
+    "userCanonical": "https://lexkite.com/hi/words/compound",
+    "lastCrawlTime": "2026-10-24T13:36:32Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/binary",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/prospect",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/es/words/prospect",
+    "userCanonical": "https://lexkite.com/es/words/prospect",
+    "lastCrawlTime": "2026-10-24T09:46:51Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/postcode",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/inheritance",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/blog/guia-pronunciacion-ipa-ingles/",
+   "sitemap": "https://lexkite.com/sitemap-blog-es.xml",
+   "group": "blog-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/words/effectiveness",
+   "sitemap": "https://lexkite.com/sitemap-words-pt.xml",
+   "group": "words-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/personally",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/vi/words/personally",
+    "userCanonical": "https://lexkite.com/vi/words/personally",
+    "lastCrawlTime": "2026-10-24T10:00:57Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/blog/kak-sostavit-rezume-na-angliyskom-ats-cv/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ru.xml",
+   "group": "blog-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/apology",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/tu-dien/lend/",
+   "sitemap": "https://lexkite.com/sitemap-dict-vi-1.xml",
+   "group": "dict-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/anew",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/blog/como-aprender-vocabulario-en-ingles/",
+   "sitemap": "https://lexkite.com/sitemap-blog-es.xml",
+   "group": "blog-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/es/blog/como-aprender-vocabulario-en-ingles/",
+    "userCanonical": "https://lexkite.com/es/blog/como-aprender-vocabulario-en-ingles/",
+    "lastCrawlTime": "2026-10-24T13:26:50Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/visible",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ko/words/visible",
+    "userCanonical": "https://lexkite.com/ko/words/visible",
+    "lastCrawlTime": "2026-10-24T09:29:41Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/debug",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/personalize",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/coordinator",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/genre",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/healthcare",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/conditioner",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/samples/p8",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/samples/p8",
+    "userCanonical": "https://lexkite.com/samples/p8",
+    "lastCrawlTime": "2026-10-24T04:04:00Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/pole",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/backlog",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/about/editorial-policy/",
+   "sitemap": "https://lexkite.com/sitemap-authority.xml",
+   "group": "authority",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/relaxation",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/meanwhile",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/downtown",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/endpoint",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/defect",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/extraterrestrial",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/indicator",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/supervise",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/regression",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/vehicle",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/encounter",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/words/encounter",
+    "userCanonical": "https://lexkite.com/en/words/encounter",
+    "lastCrawlTime": "2026-10-24T09:28:50Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/assembly",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/blog/toefl-ibt-academic-discussion-writing-panduan/",
+   "sitemap": "https://lexkite.com/sitemap-blog-id.xml",
+   "group": "blog-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/prospect",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ru/words/prospect",
+    "userCanonical": "https://lexkite.com/ru/words/prospect",
+    "lastCrawlTime": "2026-10-25T02:43:18Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/notary",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/pronunciation/j-sound",
+   "sitemap": "https://lexkite.com/sitemap-pronunciation.xml",
+   "group": "pronunciation",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/shaft",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/credentials",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/words/credentials",
+    "userCanonical": "https://lexkite.com/en/words/credentials",
+    "lastCrawlTime": "2026-10-24T06:02:34Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/outage",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/interfere",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/beverage",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/discovery",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/revenue",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/cater",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/runtime",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/overhaul",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/ascribe",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/reliable",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/major",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/damages",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/samples/p21",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/samples/p21",
+    "userCanonical": "https://lexkite.com/en/samples/p21",
+    "lastCrawlTime": "2026-10-24T05:50:47Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/specially",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/morale",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/blog/ielts-collocations/",
+   "sitemap": "https://lexkite.com/sitemap-blog-en.xml",
+   "group": "blog-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/blog/ielts-collocations/",
+    "userCanonical": "https://lexkite.com/en/blog/ielts-collocations/",
+    "lastCrawlTime": "2026-10-24T13:26:34Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/inquire",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/conversations/directions",
+   "sitemap": "https://lexkite.com/sitemap-conversations.xml",
+   "group": "conversations",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ar/conversations/directions",
+    "userCanonical": "https://lexkite.com/ar/conversations/directions",
+    "lastCrawlTime": "2026-10-24T05:27:54Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/compartment",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/the-graph-shows",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/vi/words/the-graph-shows",
+    "userCanonical": "https://lexkite.com/vi/words/the-graph-shows",
+    "lastCrawlTime": "2026-10-24T12:13:53Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/capable",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/es/words/capable",
+    "userCanonical": "https://lexkite.com/es/words/capable",
+    "lastCrawlTime": "2026-10-24T13:11:47Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/ielts-writing/general-task-1/gt7",
+   "sitemap": "https://lexkite.com/sitemap-ielts-writing.xml",
+   "group": "ielts-writing",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/via",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/occupation",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/commissioning",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/reopen",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/blog/anglais-pour-voyager-phrases-essentielles/",
+   "sitemap": "https://lexkite.com/sitemap-blog-fr.xml",
+   "group": "blog-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/pad",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/performer",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/words/landline",
+   "sitemap": "https://lexkite.com/sitemap-words-pt.xml",
+   "group": "words-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/contractor",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/harmful",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/comply",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/tu-dien/good/",
+   "sitemap": "https://lexkite.com/sitemap-dict-vi-1.xml",
+   "group": "dict-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/minimize",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/respond",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/firefighter",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/english-level-test/c1/",
+   "sitemap": "https://lexkite.com/sitemap-tools.xml",
+   "group": "tools",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ja/english-level-test/c1/",
+    "userCanonical": "https://lexkite.com/ja/english-level-test/c1/",
+    "lastCrawlTime": "2026-10-26T12:11:19Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/hesitation",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/assume",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/th/words/assume",
+    "userCanonical": "https://lexkite.com/th/words/assume",
+    "lastCrawlTime": "2026-10-24T09:58:29Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/give-up",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/blog/dicas-ielts-listening/",
+   "sitemap": "https://lexkite.com/sitemap-blog-pt.xml",
+   "group": "blog-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/pt/blog/dicas-ielts-listening/",
+    "userCanonical": "https://lexkite.com/pt/blog/dicas-ielts-listening/",
+    "lastCrawlTime": "2026-10-25T23:47:52Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/exemption",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/compliance",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/welfare",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/packed",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/hazard",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/blog/ipa-guo-ji-yin-biao-ying-yu-fa-yin-biao/",
+   "sitemap": "https://lexkite.com/sitemap-blog-zh.xml",
+   "group": "blog-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/englisch-einstufungstest/c1/",
+   "sitemap": "https://lexkite.com/sitemap-tools.xml",
+   "group": "tools",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/blog/ielts-reading-skimming-scanning-istratijiyat/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ar.xml",
+   "group": "blog-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/depreciation",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/litigation",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/notion",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/es/words/notion",
+    "userCanonical": "https://lexkite.com/es/words/notion",
+    "lastCrawlTime": "2026-10-24T06:37:49Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/circulate",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/merit",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/eager",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/blog/ielts-writing-task-1-graph-description-hindi/",
+   "sitemap": "https://lexkite.com/sitemap-blog-hi.xml",
+   "group": "blog-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/converse",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/vocabulary/awl1",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/vocabulary/awl1",
+    "userCanonical": "https://lexkite.com/en/vocabulary/awl1",
+    "lastCrawlTime": "2026-10-15T21:15:28Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/elevate",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/processor",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/blog/yoku-tsukau-kudoushi/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ja.xml",
+   "group": "blog-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/downsize",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/broker",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/by-law",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/fraud",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/samples/p16",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/samples/p16",
+    "userCanonical": "https://lexkite.com/samples/p16",
+    "lastCrawlTime": "2026-10-24T13:14:28Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/blog/englisch-lernen-tipps/",
+   "sitemap": "https://lexkite.com/sitemap-blog-de.xml",
+   "group": "blog-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/de/blog/englisch-lernen-tipps/",
+    "userCanonical": "https://lexkite.com/de/blog/englisch-lernen-tipps/",
+    "lastCrawlTime": "2026-11-15T19:08:39Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/utility",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/schedule",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/grammar/adverbs-position",
+   "sitemap": "https://lexkite.com/sitemap-grammar.xml",
+   "group": "grammar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/grammar/adverbs-position",
+    "userCanonical": "https://lexkite.com/en/grammar/adverbs-position",
+    "lastCrawlTime": "2026-10-24T08:11:17Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/words/overpay",
+   "sitemap": "https://lexkite.com/sitemap-words-pt.xml",
+   "group": "words-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/samples/p59",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/samples/p59",
+    "userCanonical": "https://lexkite.com/en/samples/p59",
+    "lastCrawlTime": "2026-10-24T12:51:03Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/outfit",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/unused",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/compound",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ar/words/compound",
+    "userCanonical": "https://lexkite.com/ar/words/compound",
+    "lastCrawlTime": "2026-10-24T06:31:03Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/boiler",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/coincide",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ru/words/coincide",
+    "userCanonical": "https://lexkite.com/ru/words/coincide",
+    "lastCrawlTime": "2026-10-24T08:57:40Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/blog/the-domino-effect-in-ielts-speaking/",
+   "sitemap": "https://lexkite.com/sitemap-blog-en.xml",
+   "group": "blog-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/electronically",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/bankrupt",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/incorporate",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ja/words/incorporate",
+    "userCanonical": "https://lexkite.com/ja/words/incorporate",
+    "lastCrawlTime": "2026-10-24T07:13:59Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/penalize",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/vacate",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/irregular-verbs/",
+   "sitemap": "https://lexkite.com/sitemap-irregular-verbs.xml",
+   "group": "irregular-verbs",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/dictionary/bring/",
+   "sitemap": "https://lexkite.com/sitemap-dict-en-1.xml",
+   "group": "dict-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/dialysis",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/hesitation",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/subsequently",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/dehydration",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tu-vung/ngsl3",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/merchandise",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/blog/toeic-part7-jikan-haibun/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ja.xml",
+   "group": "blog-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/textbook",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/blog/ielts-reading-skimming-scanning/",
+   "sitemap": "https://lexkite.com/sitemap-blog-vi.xml",
+   "group": "blog-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/abundant",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/commonly",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/conversations/",
+   "sitemap": "https://lexkite.com/sitemap-conversations.xml",
+   "group": "conversations",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/es/conversations/",
+    "userCanonical": "https://lexkite.com/es/conversations/",
+    "lastCrawlTime": "2026-10-29T09:00:59Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/humidity",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/construct",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/hi/words/construct",
+    "userCanonical": "https://lexkite.com/hi/words/construct",
+    "lastCrawlTime": "2026-10-24T04:44:15Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/refresh",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/scope",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ar/words/scope",
+    "userCanonical": "https://lexkite.com/ar/words/scope",
+    "lastCrawlTime": "2026-10-24T08:08:11Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/reluctance",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/es/words/reluctance",
+    "userCanonical": "https://lexkite.com/es/words/reluctance",
+    "lastCrawlTime": "2026-10-24T07:36:59Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/reminder",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/pronunciation/connected-speech",
+   "sitemap": "https://lexkite.com/sitemap-pronunciation.xml",
+   "group": "pronunciation",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/samples/p1",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/samples/p1",
+    "userCanonical": "https://lexkite.com/samples/p1",
+    "lastCrawlTime": "2026-10-24T06:52:39Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/blog/como-mejorar-el-listening-en-ingles/",
+   "sitemap": "https://lexkite.com/sitemap-blog-es.xml",
+   "group": "blog-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/consistently",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/grammar/questions",
+   "sitemap": "https://lexkite.com/sitemap-grammar.xml",
+   "group": "grammar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/grammar/questions",
+    "userCanonical": "https://lexkite.com/en/grammar/questions",
+    "lastCrawlTime": "2026-10-24T07:46:36Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/under-fives",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/about/sources/",
+   "sitemap": "https://lexkite.com/sitemap-authority.xml",
+   "group": "authority",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/correspond",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/id/words/correspond",
+    "userCanonical": "https://lexkite.com/id/words/correspond",
+    "lastCrawlTime": "2026-10-24T12:17:50Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/prospect",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/vi/words/prospect",
+    "userCanonical": "https://lexkite.com/vi/words/prospect",
+    "lastCrawlTime": "2026-10-24T11:37:50Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/automotive",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/deciduous",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/archive",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/constant",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/familiarize",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/be-familiar-with",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/blog/ya-si-kou-yu-ji-qiao/",
+   "sitemap": "https://lexkite.com/sitemap-blog-zh.xml",
+   "group": "blog-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/zh/blog/ya-si-kou-yu-ji-qiao/",
+    "userCanonical": "https://lexkite.com/zh/blog/ya-si-kou-yu-ji-qiao/",
+    "lastCrawlTime": "2026-10-24T13:25:31Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/periodical",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/blog/ielts-speaking-part-2-template/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ja.xml",
+   "group": "blog-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/words/conflict",
+   "sitemap": "https://lexkite.com/sitemap-words-pt.xml",
+   "group": "words-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/pt/words/conflict",
+    "userCanonical": "https://lexkite.com/pt/words/conflict",
+    "lastCrawlTime": "2026-10-24T11:59:32Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/adjust",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/interrupt",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/clip",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/applicant",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/benchmark",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/dictionary/explain/",
+   "sitemap": "https://lexkite.com/sitemap-dict-en-1.xml",
+   "group": "dict-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/similarly",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/blog/toefl-academic-discussion-conseils/",
+   "sitemap": "https://lexkite.com/sitemap-blog-fr.xml",
+   "group": "blog-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/blog/toefl-complete-the-words-gongryak/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ko.xml",
+   "group": "blog-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/fixture",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/foster",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/generic",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/shaft",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/removal",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/samples/p25",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/samples/p25",
+    "userCanonical": "https://lexkite.com/samples/p25",
+    "lastCrawlTime": "2026-10-21T14:25:14Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/conversations/greetings",
+   "sitemap": "https://lexkite.com/sitemap-conversations.xml",
+   "group": "conversations",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/pt/conversations/greetings",
+    "userCanonical": "https://lexkite.com/pt/conversations/greetings",
+    "lastCrawlTime": "2026-10-24T08:08:49Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/ferry",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/pharmaceutical",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/blog/englische-zeiten-uebersicht/",
+   "sitemap": "https://lexkite.com/sitemap-blog-de.xml",
+   "group": "blog-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/de/blog/englische-zeiten-uebersicht/",
+    "userCanonical": "https://lexkite.com/de/blog/englische-zeiten-uebersicht/",
+    "lastCrawlTime": "2026-10-24T13:20:45Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/about/",
+   "sitemap": "https://lexkite.com/sitemap-authority.xml",
+   "group": "authority",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/troubleshooting",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ru/words/tolerance",
+   "sitemap": "https://lexkite.com/sitemap-words-ru.xml",
+   "group": "words-ru",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/assure",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/vi/words/assure",
+    "userCanonical": "https://lexkite.com/vi/words/assure",
+    "lastCrawlTime": "2026-11-20T09:09:08Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/superb",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/actively",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/enthusiastic",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/pottery",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/reimbursement",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/blog/ielts-reading-skimming-scanning-taktikleri/",
+   "sitemap": "https://lexkite.com/sitemap-blog-tr.xml",
+   "group": "blog-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/indicator",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/precipitate",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/placement",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/virtual",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/ja/words/virtual",
+    "userCanonical": "https://lexkite.com/ja/words/virtual",
+    "lastCrawlTime": "2026-10-24T07:17:19Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/principal",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/hi/words/principal",
+    "userCanonical": "https://lexkite.com/hi/words/principal",
+    "lastCrawlTime": "2026-10-24T13:46:32Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/dictionary/most/",
+   "sitemap": "https://lexkite.com/sitemap-dict-en-1.xml",
+   "group": "dict-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/decoration",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/run-down",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/vi/words/run-down",
+    "userCanonical": "https://lexkite.com/vi/words/run-down",
+    "lastCrawlTime": "2026-10-24T11:26:28Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/seasonal",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/duration",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/fr/words/duration",
+    "userCanonical": "https://lexkite.com/fr/words/duration",
+    "lastCrawlTime": "2026-10-25T10:15:22Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/customize",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/words/dependence",
+   "sitemap": "https://lexkite.com/sitemap-words-pt.xml",
+   "group": "words-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/words/principle",
+   "sitemap": "https://lexkite.com/sitemap-words-pt.xml",
+   "group": "words-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/pt/words/principle",
+    "userCanonical": "https://lexkite.com/pt/words/principle",
+    "lastCrawlTime": "2026-10-24T11:59:22Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/tes-level-bahasa-inggris/c1/",
+   "sitemap": "https://lexkite.com/sitemap-tools.xml",
+   "group": "tools",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/penalize",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/resemble",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/inflate",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/referral",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/pottery",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/words/unnecessary",
+   "sitemap": "https://lexkite.com/sitemap-words-pt.xml",
+   "group": "words-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/dividend",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/about/corrections/",
+   "sitemap": "https://lexkite.com/sitemap-authority.xml",
+   "group": "authority",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/tr/about/corrections/",
+    "userCanonical": "https://lexkite.com/tr/about/corrections/",
+    "lastCrawlTime": "2026-10-26T18:43:08Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/browse",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/blog/huruf-al-jarr-in-on-at-qawaid/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ar.xml",
+   "group": "blog-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/arise-from",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/vi/words/arise-from",
+    "userCanonical": "https://lexkite.com/vi/words/arise-from",
+    "lastCrawlTime": "2026-11-05T21:49:36Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/pt/words/exit",
+   "sitemap": "https://lexkite.com/sitemap-words-pt.xml",
+   "group": "words-pt",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/blog/reunion-en-anglais-expressions-utiles/",
+   "sitemap": "https://lexkite.com/sitemap-blog-fr.xml",
+   "group": "blog-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/blog/spaced-repetition-thong-sap-fsrs/",
+   "sitemap": "https://lexkite.com/sitemap-blog-th.xml",
+   "group": "blog-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/blog/fsrs-algorithm-explained/",
+   "sitemap": "https://lexkite.com/sitemap-blog-en.xml",
+   "group": "blog-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/blog/fsrs-algorithm-explained/",
+    "userCanonical": "https://lexkite.com/en/blog/fsrs-algorithm-explained/",
+    "lastCrawlTime": "2026-10-24T13:01:42Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/shorten",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/zh/words/overhead",
+   "sitemap": "https://lexkite.com/sitemap-words-zh.xml",
+   "group": "words-zh",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/warehouse",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/blog/ielts-speaking-parte-3-consejos/",
+   "sitemap": "https://lexkite.com/sitemap-blog-es.xml",
+   "group": "blog-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/words/hesitation",
+   "sitemap": "https://lexkite.com/sitemap-words-ko.xml",
+   "group": "words-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/luxury",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Crawled - currently not indexed",
+    "robotsTxtState": "ALLOWED",
+    "indexingState": "INDEXING_ALLOWED",
+    "pageFetchState": "SUCCESSFUL",
+    "googleCanonical": "https://lexkite.com/en/words/luxury",
+    "userCanonical": "https://lexkite.com/en/words/luxury",
+    "lastCrawlTime": "2026-10-24T10:59:06Z"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/wildlife",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/fraud",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/blog/modal-verbs-can-could-should-must-hindi/",
+   "sitemap": "https://lexkite.com/sitemap-blog-hi.xml",
+   "group": "blog-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/es/words/wireless",
+   "sitemap": "https://lexkite.com/sitemap-words-es.xml",
+   "group": "words-es",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "Discovered - currently not indexed",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/blog/belajar-ielts-otodidak/",
+   "sitemap": "https://lexkite.com/sitemap-blog-id.xml",
+   "group": "blog-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/id/words/disgust",
+   "sitemap": "https://lexkite.com/sitemap-words-id.xml",
+   "group": "words-id",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/fr/words/apprentice",
+   "sitemap": "https://lexkite.com/sitemap-words-fr.xml",
+   "group": "words-fr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/plug",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/en/words/discard",
+   "sitemap": "https://lexkite.com/sitemap-words-en.xml",
+   "group": "words-en",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/go/de/",
+   "sitemap": "https://lexkite.com/sitemap-pages.xml",
+   "group": "pages",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/hi/words/method",
+   "sitemap": "https://lexkite.com/sitemap-words-hi.xml",
+   "group": "words-hi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ja/words/withdrawal",
+   "sitemap": "https://lexkite.com/sitemap-words-ja.xml",
+   "group": "words-ja",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ko/blog/ielts-reading-matching-headings-gongryak/",
+   "sitemap": "https://lexkite.com/sitemap-blog-ko.xml",
+   "group": "blog-ko",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/th/words/convenience",
+   "sitemap": "https://lexkite.com/sitemap-words-th.xml",
+   "group": "words-th",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/tr/words/cancellation",
+   "sitemap": "https://lexkite.com/sitemap-words-tr.xml",
+   "group": "words-tr",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/compensate",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/vi/words/electrician",
+   "sitemap": "https://lexkite.com/sitemap-words-vi.xml",
+   "group": "words-vi",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/de/words/authorize",
+   "sitemap": "https://lexkite.com/sitemap-words-de.xml",
+   "group": "words-de",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  },
+  {
+   "url": "https://lexkite.com/ar/words/junk",
+   "sitemap": "https://lexkite.com/sitemap-words-ar.xml",
+   "group": "words-ar",
+   "result": {
+    "verdict": "NEUTRAL",
+    "coverageState": "URL is unknown to Google",
+    "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "indexingState": "INDEXING_STATE_UNSPECIFIED",
+    "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+   }
+  }
+ ],
+ "alerts": [
+  "Số trang index ước tính tụt 156 → 12 (index-2026-11-22.json)"
+ ]
+}

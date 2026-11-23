@@ -36652,6 +36652,94 @@
     "w9": "A linking word adds logic.",
     "c": "Save this. Free on lexkite.com."
    }
+  },
+  "t2s_nocap": {
+   "template": "slang",
+   "hook": "Best pizza in town. Believe me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7de6f3358d00",
+   "script": {
+    "h": "Best pizza in town. Believe me?",
+    "k": "No cap!",
+    "m": "I'm not lying.",
+    "e": "This pizza is the best in town, no cap.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_salty": {
+   "template": "slang",
+   "hook": "He lost, then sulked!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bc6ccec7b6e2",
+   "script": {
+    "h": "He lost, then sulked!",
+    "k": "Salty!",
+    "m": "Annoyed and a bit bitter.",
+    "e": "He's salty because I won the card game.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_imdead": {
+   "template": "slang",
+   "hook": "The cat jumped in the box!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b1ec3dc53c71",
+   "script": {
+    "h": "The cat jumped in the box!",
+    "k": "I'm dead!",
+    "m": "That is so funny!",
+    "e": "The cat jumped in the box. I'm dead!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_pigout": {
+   "template": "slang",
+   "hook": "The whole pizza is gone!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6859cf859c75",
+   "script": {
+    "h": "The whole pizza is gone!",
+    "k": "Pig out!",
+    "m": "Eat way too much.",
+    "e": "We pigged out on pizza last night.",
+    "c": "lexkite.com"
+   }
   }
  }
 }
