@@ -158,5 +158,10 @@ export function collect() {
     const s3 = new Map((fs.existsSync('web/audio/w/s3.tsv') ? fs.readFileSync('web/audio/w/s3.tsv', 'utf8') : '').split('\n').filter(Boolean).map(l => { const [w, ...x] = l.split('\t'); return [w, x]; }));
     for (const [w, st] of s3) ['bf_emma', 'af_heart'].forEach((v, i) => { if (st[i] !== 'ok') addOne(v, w); });
   }
+  // Câu hay rơi về giọng máy, đo trên người dùng thật (scripts/sentence-audio/misses.mjs: khóa băm từ /api/vmiss ghép với nội dung tĩnh) – khóa phải khớp giọng|câu
+  for (const l of (fs.existsSync('web/audio/l/misses.tsv') ? fs.readFileSync('web/audio/l/misses.tsv', 'utf8') : '').split('\n')) {
+    const [key, voice, text] = l.split('\t'); if (!text || l.startsWith('#') || c.KVoice.lineKey(voice, text) !== key) continue;
+    if (!jobs.has(key)) jobs.set(key, { voice, text }); tag('misses', key);
+  }
   return { jobs, parts, groups };
 }

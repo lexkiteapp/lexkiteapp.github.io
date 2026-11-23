@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_mansion",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 65,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: mansion!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A large, luxurious house built for wealthy people.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "It is not a real mansion.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "mansion",
+  "ipa": "/ˈmænʃn/",
+  "mean": "a large, luxurious house built for wealthy people",
+  "ex": "It is not a real mansion.",
+  "img": "mansion#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/mansion",
+  "link": "https://lexkite.com/app/#/dict/mansion",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "mansion",
+  "img": "mansion#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.7,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: M + 6 letters",
+  "keyword": "mansion",
+  "value": "Mansion /ˈmænʃn/ = a large, luxurious house built for wealthy people. Example: \"It is not a real mansion.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/mansion",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: M + 6 letters",
+    "description": "Mansion /ˈmænʃn/ = a large, luxurious house built for wealthy people. Example: \"It is not a real mansion.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/mansion\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "mansion",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: M + 6 letters\n\nMansion /ˈmænʃn/ = a large, luxurious house built for wealthy people. Example: \"It is not a real mansion.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/mansion"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: M + 6 letters\n\nMansion /ˈmænʃn/ = a large, luxurious house built for wealthy people. Example: \"It is not a real mansion.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: M + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: mansion. A large, luxurious house built for wealthy people. Example: \"It is not a real mansion.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

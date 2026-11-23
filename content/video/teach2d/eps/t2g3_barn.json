@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_barn",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 58,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. What is it?",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: barn!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A farm building used for storing grain, feed, or keeping animals.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I'm still in the barn.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "barn",
+  "ipa": "/bɑːrn/",
+  "mean": "a farm building used for storing grain, feed, or keeping animals",
+  "ex": "I'm still in the barn.",
+  "img": "barn#n",
+  "n": 4
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/barn",
+  "link": "https://lexkite.com/app/#/dict/barn",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. What is it?"
+ },
+ "src": {
+  "word": "barn",
+  "img": "barn#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.3,
+  "wpm": 133
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: B + 3 letters",
+  "keyword": "barn",
+  "value": "Barn /bɑːrn/ = a farm building used for storing grain, feed, or keeping animals. Example: \"I'm still in the barn.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/barn",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: B + 3 letters",
+    "description": "Barn /bɑːrn/ = a farm building used for storing grain, feed, or keeping animals. Example: \"I'm still in the barn.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/barn\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "barn",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: B + 3 letters\n\nBarn /bɑːrn/ = a farm building used for storing grain, feed, or keeping animals. Example: \"I'm still in the barn.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/barn"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: B + 3 letters\n\nBarn /bɑːrn/ = a farm building used for storing grain, feed, or keeping animals. Example: \"I'm still in the barn.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: B + 3 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: barn. A farm building used for storing grain, feed, or keeping animals. Example: \"I'm still in the barn.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_fish",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 10,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: fish!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "An animal that lives and swims in water.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "We had grilled fish for dinner.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "fish",
+  "ipa": "/fɪʃ/",
+  "mean": "an animal that lives and swims in water",
+  "ex": "We had grilled fish for dinner.",
+  "img": "fish#n",
+  "n": 4
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/fish",
+  "link": "https://lexkite.com/app/#/dict/fish",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "fish",
+  "img": "fish#n"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.4,
+  "wpm": 128
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: F + 3 letters",
+  "keyword": "fish",
+  "value": "Fish /fɪʃ/ = an animal that lives and swims in water. Example: \"We had grilled fish for dinner.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/fish",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: F + 3 letters",
+    "description": "Fish /fɪʃ/ = an animal that lives and swims in water. Example: \"We had grilled fish for dinner.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/fish\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "fish",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: F + 3 letters\n\nFish /fɪʃ/ = an animal that lives and swims in water. Example: \"We had grilled fish for dinner.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/fish"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: F + 3 letters\n\nFish /fɪʃ/ = an animal that lives and swims in water. Example: \"We had grilled fish for dinner.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: F + 3 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: fish. An animal that lives and swims in water. Example: \"We had grilled fish for dinner.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_television",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 24,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: television!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A piece of equipment with a screen that shows programmes.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "We don't watch much television at home.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "television",
+  "ipa": "/ˈteləvɪʒn/",
+  "mean": "a piece of equipment with a screen that shows programmes",
+  "ex": "We don't watch much television at home.",
+  "img": "television#n",
+  "n": 10
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/television",
+  "link": "https://lexkite.com/app/#/dict/television",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "television",
+  "img": "television#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.6,
+  "wpm": 134
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: T + 9 letters",
+  "keyword": "television",
+  "value": "Television /ˈteləvɪʒn/ = a piece of equipment with a screen that shows programmes. Example: \"We don't watch much television at home.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/television",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: T + 9 letters",
+    "description": "Television /ˈteləvɪʒn/ = a piece of equipment with a screen that shows programmes. Example: \"We don't watch much television at home.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/television\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "television",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: T + 9 letters\n\nTelevision /ˈteləvɪʒn/ = a piece of equipment with a screen that shows programmes. Example: \"We don't watch much television at home.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/television"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: T + 9 letters\n\nTelevision /ˈteləvɪʒn/ = a piece of equipment with a screen that shows programmes. Example: \"We don't watch much television at home.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: T + 9 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: television. A piece of equipment with a screen that shows programmes. Example: \"We don't watch much television at home.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

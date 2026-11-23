@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_violin",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 39,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: violin!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A musical instrument with four strings.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "A violin player performed at the opening ceremony.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "violin",
+  "ipa": "/vaɪəˈlɪn/",
+  "mean": "a musical instrument with four strings",
+  "ex": "A violin player performed at the opening ceremony.",
+  "img": "violin#n",
+  "n": 6
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/violin",
+  "link": "https://lexkite.com/app/#/dict/violin",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "violin",
+  "img": "violin#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.7,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: V + 5 letters",
+  "keyword": "violin",
+  "value": "Violin /vaɪəˈlɪn/ = a musical instrument with four strings. Example: \"A violin player performed at the opening ceremony.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/violin",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: V + 5 letters",
+    "description": "Violin /vaɪəˈlɪn/ = a musical instrument with four strings. Example: \"A violin player performed at the opening ceremony.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/violin\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "violin",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: V + 5 letters\n\nViolin /vaɪəˈlɪn/ = a musical instrument with four strings. Example: \"A violin player performed at the opening ceremony.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/violin"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: V + 5 letters\n\nViolin /vaɪəˈlɪn/ = a musical instrument with four strings. Example: \"A violin player performed at the opening ceremony.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: V + 5 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: violin. A musical instrument with four strings. Example: \"A violin player performed at the opening ceremony.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

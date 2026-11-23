@@ -56,7 +56,7 @@ jobs:
           # 15/11: các kiểm dưới đây độc lập nhau → chạy song song (mỗi nhóm giữ nguyên lệnh), đợi hết rồi đỏ nếu BẤT KỲ nhóm nào đỏ (không bỏ kiểm nào)
           pids=(); names=()
           run() { n="$1"; shift; ( "$@" ) >"/tmp/pq-$n.log" 2>&1 & pids+=($!); names+=("$n"); }
-          run gen   bash -c 'python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-roots.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py && python3 scripts/test/teach2d-rules.py && python3 scripts/test/teach2d-band.py && python3 scripts/test/teach2d-slang.py && python3 scripts/test/dead-band.py'   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
+          run gen   bash -c 'python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-roots.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py && python3 scripts/test/teach2d-rules.py && python3 scripts/test/teach2d-band.py && python3 scripts/test/teach2d-slang.py && python3 scripts/test/teach2d-guess3.py && python3 scripts/test/dead-band.py'   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
           run mix   bash -c 'python3 scripts/video/teach2d/mix.py --check && python3 scripts/test/teach2d-mix.py'   # 0-credit build bank: mix.json regenerates identically, 0 repeats in the window, diversity >= 70
           # 16/11: gtx (dịch ngược miễn phí) đổi bản dịch giữa các lần chạy → hàng sát ngưỡng lúc đạt lúc trượt, đỏ cả PR không đụng hàng đó (t2_l1_ja_hard). PR: dịch ngược online CHỈ hàng PR thêm/sửa (kiểm tĩnh vẫn mọi hàng); main/dispatch + lịch đêm (native-qa-nightly.yml) chạy đủ.
           QA_SCOPE=""; B="${BASE:-main}"; if { [ "$EV" = pull_request ] || [ "$EV" = workflow_dispatch ]; } && git fetch -q --depth=1 origin "$B"; then QA_SCOPE="--online-changed=origin/$B"; fi   # 19/11: dispatch dịch ngược cả ~1750 hàng = 19,6 phút > trần 20 phút (run 44445334700 bị huỷ) → cũng chỉ hàng đổi so với main; cổng tĩnh vẫn chạy mọi hàng; cron/schedule vẫn dịch ngược hết
@@ -206,8 +206,8 @@ jobs:
           V=$O/${{ matrix.ep }}-${{ matrix.fmt }}.mp4
           python3 scripts/video/teach2d/qc.py --timeline $O/props.json.timeline.json --video $V --sheet $O/${{ matrix.ep }}-${{ matrix.fmt }}.sheet.jpg --out $O/qc.json | tee $O/qc.log
           ffmpeg -nostdin -v error -y -ss 3 -i $V -frames:v 1 -q:v 3 $O/${{ matrix.ep }}-${{ matrix.fmt }}.poster.jpg
-          if [ ${{ matrix.fmt }} = short ] && [ "$(python3 -c "import json;print(json.load(open('$E'))['template'])")" = slang ]; then   # Slang Card: 3 square carousel images from the same episode + the reel's own rig frame (card.py gates)
-            python3 scripts/video/teach2d/card.py --ep $E --rig host/rig.webm --timeline $O/props.json.timeline.json --out $O; fi
+          if [ ${{ matrix.fmt }} = short ] && [ "$(python3 -c "import json;print(json.load(open('$E'))['template'] in ('slang','guess3'))")" = True ]; then   # Slang Card / Guess in 3 Seconds: 3 square carousel images from the same episode + the reel's own rig frame (card.py gates; guess3 also gets its picture)
+            python3 scripts/video/teach2d/card.py --ep $E --rig host/rig.webm --timeline $O/props.json.timeline.json --pic $O/pub/pic.png --out $O; fi
           if [ ${{ matrix.fmt }} = short ]; then mkdir -p $O/phone; ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 20 -maxrate 6500k -bufsize 13000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.ep }}.mp4; fi
           rm -rf $O/pub $O/pub_*
           { echo "### ${{ matrix.ep }} · ${{ matrix.fmt }}"; echo '```'; grep -E '^(PASS|FAIL)|score' $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"

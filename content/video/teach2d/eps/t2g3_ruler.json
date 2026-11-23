@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_ruler",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 77,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. What is it?",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: ruler!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A straight strip used for measuring and drawing lines.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "Use a ruler to draw a straight line.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "ruler",
+  "ipa": "/ˈruːlər/",
+  "mean": "a straight strip used for measuring and drawing lines",
+  "ex": "Use a ruler to draw a straight line.",
+  "img": "ruler#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/ruler",
+  "link": "https://lexkite.com/app/#/dict/ruler",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. What is it?"
+ },
+ "src": {
+  "word": "ruler",
+  "img": "ruler#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.6,
+  "wpm": 134
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: R + 4 letters",
+  "keyword": "ruler",
+  "value": "Ruler /ˈruːlər/ = a straight strip used for measuring and drawing lines. Example: \"Use a ruler to draw a straight line.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/ruler",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: R + 4 letters",
+    "description": "Ruler /ˈruːlər/ = a straight strip used for measuring and drawing lines. Example: \"Use a ruler to draw a straight line.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/ruler\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "ruler",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: R + 4 letters\n\nRuler /ˈruːlər/ = a straight strip used for measuring and drawing lines. Example: \"Use a ruler to draw a straight line.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/ruler"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: R + 4 letters\n\nRuler /ˈruːlər/ = a straight strip used for measuring and drawing lines. Example: \"Use a ruler to draw a straight line.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: R + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: ruler. A straight strip used for measuring and drawing lines. Example: \"Use a ruler to draw a straight line.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

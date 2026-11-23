@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_corridor",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 61,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: corridor!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A narrow hallway with rooms opening onto it.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "He's running quite fast through the corridor.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "corridor",
+  "ipa": "/ˈkɔːrədər/",
+  "mean": "a narrow hallway with rooms opening onto it",
+  "ex": "He's running quite fast through the corridor.",
+  "img": "corridor#n",
+  "n": 8
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/corridor",
+  "link": "https://lexkite.com/app/#/dict/corridor",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "corridor",
+  "img": "corridor#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.7,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: C + 7 letters",
+  "keyword": "corridor",
+  "value": "Corridor /ˈkɔːrədər/ = a narrow hallway with rooms opening onto it. Example: \"He's running quite fast through the corridor.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/corridor",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: C + 7 letters",
+    "description": "Corridor /ˈkɔːrədər/ = a narrow hallway with rooms opening onto it. Example: \"He's running quite fast through the corridor.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/corridor\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "corridor",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: C + 7 letters\n\nCorridor /ˈkɔːrədər/ = a narrow hallway with rooms opening onto it. Example: \"He's running quite fast through the corridor.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/corridor"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: C + 7 letters\n\nCorridor /ˈkɔːrədər/ = a narrow hallway with rooms opening onto it. Example: \"He's running quite fast through the corridor.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: C + 7 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: corridor. A narrow hallway with rooms opening onto it. Example: \"He's running quite fast through the corridor.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

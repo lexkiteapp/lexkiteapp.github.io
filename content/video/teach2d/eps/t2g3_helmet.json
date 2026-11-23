@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_helmet",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 63,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. What is it?",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: helmet!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A hard hat that protects the head.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "Visitors must wear a helmet on the construction site.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "helmet",
+  "ipa": "/ˈhelmət/",
+  "mean": "a hard hat that protects the head",
+  "ex": "Visitors must wear a helmet on the construction site.",
+  "img": "helmet#n",
+  "n": 6
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/helmet",
+  "link": "https://lexkite.com/app/#/dict/helmet",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. What is it?"
+ },
+ "src": {
+  "word": "helmet",
+  "img": "helmet#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.3,
+  "wpm": 133
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: H + 5 letters",
+  "keyword": "helmet",
+  "value": "Helmet /ˈhelmət/ = a hard hat that protects the head. Example: \"Visitors must wear a helmet on the construction site.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/helmet",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: H + 5 letters",
+    "description": "Helmet /ˈhelmət/ = a hard hat that protects the head. Example: \"Visitors must wear a helmet on the construction site.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/helmet\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "helmet",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: H + 5 letters\n\nHelmet /ˈhelmət/ = a hard hat that protects the head. Example: \"Visitors must wear a helmet on the construction site.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/helmet"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: H + 5 letters\n\nHelmet /ˈhelmət/ = a hard hat that protects the head. Example: \"Visitors must wear a helmet on the construction site.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: H + 5 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: helmet. A hard hat that protects the head. Example: \"Visitors must wear a helmet on the construction site.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_highway",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 64,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. What is it?",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: highway!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A main road between cities.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "Traffic on the highway was very heavy this morning.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "highway",
+  "ipa": "/ˈhaɪweɪ/",
+  "mean": "a main road between cities",
+  "ex": "Traffic on the highway was very heavy this morning.",
+  "img": "highway#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/highway",
+  "link": "https://lexkite.com/app/#/dict/highway",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. What is it?"
+ },
+ "src": {
+  "word": "highway",
+  "img": "highway#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.7,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: H + 6 letters",
+  "keyword": "highway",
+  "value": "Highway /ˈhaɪweɪ/ = a main road between cities. Example: \"Traffic on the highway was very heavy this morning.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/highway",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: H + 6 letters",
+    "description": "Highway /ˈhaɪweɪ/ = a main road between cities. Example: \"Traffic on the highway was very heavy this morning.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/highway\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "highway",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: H + 6 letters\n\nHighway /ˈhaɪweɪ/ = a main road between cities. Example: \"Traffic on the highway was very heavy this morning.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/highway"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: H + 6 letters\n\nHighway /ˈhaɪweɪ/ = a main road between cities. Example: \"Traffic on the highway was very heavy this morning.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: H + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: highway. A main road between cities. Example: \"Traffic on the highway was very heavy this morning.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_train",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 25,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick! Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: train!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A vehicle that carries people and runs on rails.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "We took the night train to Hue.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "train",
+  "ipa": "/treɪn/",
+  "mean": "a vehicle that carries people and runs on rails",
+  "ex": "We took the night train to Hue.",
+  "img": "train#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/train",
+  "link": "https://lexkite.com/app/#/dict/train",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick! Guess in three seconds!"
+ },
+ "src": {
+  "word": "train",
+  "img": "train#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.3,
+  "wpm": 133
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: T + 4 letters",
+  "keyword": "train",
+  "value": "Train /treɪn/ = a vehicle that carries people and runs on rails. Example: \"We took the night train to Hue.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/train",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: T + 4 letters",
+    "description": "Train /treɪn/ = a vehicle that carries people and runs on rails. Example: \"We took the night train to Hue.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/train\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "train",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: T + 4 letters\n\nTrain /treɪn/ = a vehicle that carries people and runs on rails. Example: \"We took the night train to Hue.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/train"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: T + 4 letters\n\nTrain /treɪn/ = a vehicle that carries people and runs on rails. Example: \"We took the night train to Hue.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: T + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: train. A vehicle that carries people and runs on rails. Example: \"We took the night train to Hue.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

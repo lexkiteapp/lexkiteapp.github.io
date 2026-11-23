@@ -27646,6 +27646,1887 @@
    "in": {
     "key": "yeet"
    }
+  },
+  {
+   "id": "t2g3_airplane",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 1,
+   "hash": "4db4928180f4",
+   "template": "guess3",
+   "point": "airplane",
+   "taught": [
+    "airplane"
+   ],
+   "in": {
+    "word": "airplane",
+    "img": "airplane#n",
+    "ipa": "/ˈerpleɪn/",
+    "def": "a vehicle with wings that flies",
+    "ex": "The airplane landed twenty minutes early despite the strong winds.",
+    "bank_def": "a vehicle with wings that flies"
+   },
+   "heads": [
+    "g3:airplane"
+   ]
+  },
+  {
+   "id": "t2g3_bed",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 2,
+   "hash": "112ef02f1d3f",
+   "template": "guess3",
+   "point": "bed",
+   "taught": [
+    "bed"
+   ],
+   "in": {
+    "word": "bed",
+    "img": "bed#n",
+    "ipa": "/bed/",
+    "def": "a piece of furniture that people sleep on",
+    "ex": "I usually go to bed before midnight.",
+    "bank_def": "a piece of furniture that people sleep on"
+   },
+   "heads": [
+    "g3:bed"
+   ]
+  },
+  {
+   "id": "t2g3_bird",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 3,
+   "hash": "76d68e785ffc",
+   "template": "guess3",
+   "point": "bird",
+   "taught": [
+    "bird"
+   ],
+   "in": {
+    "word": "bird",
+    "img": "bird#n",
+    "ipa": "/bɜːrd/",
+    "def": "an animal with feathers that uses wings to fly",
+    "ex": "A small bird built a nest on our balcony.",
+    "bank_def": "animal with feathers that uses wings to fly"
+   },
+   "heads": [
+    "g3:bird"
+   ]
+  },
+  {
+   "id": "t2g3_boy",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 4,
+   "hash": "4a193fb41e25",
+   "template": "guess3",
+   "point": "boy",
+   "taught": [
+    "boy"
+   ],
+   "in": {
+    "word": "boy",
+    "img": "boy#n",
+    "ipa": "/bɔɪ/",
+    "def": "a young male person",
+    "ex": "The boy next door plays the violin every evening.",
+    "bank_def": "a young male person"
+   },
+   "heads": [
+    "g3:boy"
+   ]
+  },
+  {
+   "id": "t2g3_bus",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 5,
+   "hash": "5c9d65edaeb6",
+   "template": "guess3",
+   "point": "bus",
+   "taught": [
+    "bus"
+   ],
+   "in": {
+    "word": "bus",
+    "img": "bus#n",
+    "ipa": "/bʌs/",
+    "def": "a large road vehicle used for carrying many people",
+    "ex": "I take the bus to work every day.",
+    "bank_def": "a large road vehicle used for carrying many people"
+   },
+   "heads": [
+    "g3:bus"
+   ]
+  },
+  {
+   "id": "t2g3_butter",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 6,
+   "hash": "a119c2dcd5b0",
+   "template": "guess3",
+   "point": "butter",
+   "taught": [
+    "butter"
+   ],
+   "in": {
+    "word": "butter",
+    "img": "butter#n",
+    "ipa": "/ˈbʌtər/",
+    "def": "a yellow food made from cream",
+    "ex": "The hotel breakfast includes bread, butter, jam, and fresh fruit.",
+    "bank_def": "a yellow food made from cream"
+   },
+   "heads": [
+    "g3:butter"
+   ]
+  },
+  {
+   "id": "t2g3_camera",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 7,
+   "hash": "a2338fe92466",
+   "template": "guess3",
+   "point": "camera",
+   "taught": [
+    "camera"
+   ],
+   "in": {
+    "word": "camera",
+    "img": "camera#n",
+    "ipa": "/ˈkæmərə/",
+    "def": "an object that takes pictures digitally, or on film",
+    "ex": "I bought a new camera for my trip.",
+    "bank_def": "object that takes pictures digitally, or on film"
+   },
+   "heads": [
+    "g3:camera"
+   ]
+  },
+  {
+   "id": "t2g3_dog",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 8,
+   "hash": "c446ad94e082",
+   "template": "guess3",
+   "point": "dog",
+   "taught": [
+    "dog"
+   ],
+   "in": {
+    "word": "dog",
+    "img": "dog#n",
+    "ipa": "/dɔːɡ/",
+    "def": "an animal with four legs that barks",
+    "ex": "Our dog loves running on the beach.",
+    "bank_def": "an animal with four legs that barks, often kept as a pet"
+   },
+   "heads": [
+    "g3:dog"
+   ]
+  },
+  {
+   "id": "t2g3_egg",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 9,
+   "hash": "1303c9286199",
+   "template": "guess3",
+   "point": "egg",
+   "taught": [
+    "egg"
+   ],
+   "in": {
+    "word": "egg",
+    "img": "egg#n",
+    "ipa": "/eɡ/",
+    "def": "an oval object with a shell that birds lay",
+    "ex": "I usually have an egg for breakfast.",
+    "bank_def": "an oval object with a shell that birds lay; eggs from chickens are eaten as food"
+   },
+   "heads": [
+    "g3:egg"
+   ]
+  },
+  {
+   "id": "t2g3_fish",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 10,
+   "hash": "27ca5e40bd0f",
+   "template": "guess3",
+   "point": "fish",
+   "taught": [
+    "fish"
+   ],
+   "in": {
+    "word": "fish",
+    "img": "fish#n",
+    "ipa": "/fɪʃ/",
+    "def": "an animal that lives and swims in water",
+    "ex": "We had grilled fish for dinner.",
+    "bank_def": "an animal that lives and swims in water; its flesh eaten as food"
+   },
+   "heads": [
+    "g3:fish"
+   ]
+  },
+  {
+   "id": "t2g3_girl",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 11,
+   "hash": "f45b5556e611",
+   "template": "guess3",
+   "point": "girl",
+   "taught": [
+    "girl"
+   ],
+   "in": {
+    "word": "girl",
+    "img": "girl#n",
+    "ipa": "/ɡɜːrl/",
+    "def": "a female child",
+    "ex": "The girl in the red coat is my cousin.",
+    "bank_def": "a female child"
+   },
+   "heads": [
+    "g3:girl"
+   ]
+  },
+  {
+   "id": "t2g3_hospital",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 12,
+   "hash": "74e5f398fbd5",
+   "template": "guess3",
+   "point": "hospital",
+   "taught": [
+    "hospital"
+   ],
+   "in": {
+    "word": "hospital",
+    "img": "hospital#n",
+    "ipa": "/ˈhɑːspɪtl/",
+    "def": "a building for sick people, with doctors and nurses",
+    "ex": "My grandfather is in hospital after an operation.",
+    "bank_def": "building for sick people, with doctors and nurses"
+   },
+   "heads": [
+    "g3:hospital"
+   ]
+  },
+  {
+   "id": "t2g3_hotel",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 13,
+   "hash": "ef8190611699",
+   "template": "guess3",
+   "point": "hotel",
+   "taught": [
+    "hotel"
+   ],
+   "in": {
+    "word": "hotel",
+    "img": "hotel#n",
+    "ipa": "/hoʊˈtel/",
+    "def": "a place where people can stay when traveling",
+    "ex": "We stayed at a hotel near the beach.",
+    "bank_def": "place where people can stay when traveling"
+   },
+   "heads": [
+    "g3:hotel"
+   ]
+  },
+  {
+   "id": "t2g3_house",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 14,
+   "hash": "3311314193e3",
+   "template": "guess3",
+   "point": "house",
+   "taught": [
+    "house"
+   ],
+   "in": {
+    "word": "house",
+    "img": "house#n",
+    "ipa": "/haʊs/",
+    "def": "a building in which a family, person lives",
+    "ex": "They live in a large house with a garden.",
+    "bank_def": "building in which a family, person lives"
+   },
+   "heads": [
+    "g3:house"
+   ]
+  },
+  {
+   "id": "t2g3_leg",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 15,
+   "hash": "930dca4fa286",
+   "template": "guess3",
+   "point": "leg",
+   "taught": [
+    "leg"
+   ],
+   "in": {
+    "word": "leg",
+    "img": "leg#n",
+    "ipa": "/leɡ/",
+    "def": "a part of the body from the thigh down",
+    "ex": "I hurt my leg playing football.",
+    "bank_def": "part of the body from the thigh down"
+   },
+   "heads": [
+    "g3:leg"
+   ]
+  },
+  {
+   "id": "t2g3_man",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 16,
+   "hash": "9b3a897d38ca",
+   "template": "guess3",
+   "point": "man",
+   "taught": [
+    "man"
+   ],
+   "in": {
+    "word": "man",
+    "img": "man#n",
+    "ipa": "/mæn/",
+    "def": "an adult male human being",
+    "ex": "The man at the reception desk gave us a map.",
+    "bank_def": "an adult male human being"
+   },
+   "heads": [
+    "g3:man"
+   ]
+  },
+  {
+   "id": "t2g3_mouse",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 17,
+   "hash": "7a4eba7dcac9",
+   "template": "guess3",
+   "point": "mouse",
+   "taught": [
+    "mouse"
+   ],
+   "in": {
+    "word": "mouse",
+    "img": "mouse#n",
+    "ipa": "/maʊs/",
+    "def": "a small animal with fur and a long tail",
+    "ex": "We found a mouse in the kitchen.",
+    "bank_def": "a small animal with fur and a long tail; a small device you move to control a computer"
+   },
+   "heads": [
+    "g3:mouse"
+   ]
+  },
+  {
+   "id": "t2g3_mouth",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 18,
+   "hash": "8d8f4f4197d7",
+   "template": "guess3",
+   "point": "mouth",
+   "taught": [
+    "mouth"
+   ],
+   "in": {
+    "word": "mouth",
+    "img": "mouth#n",
+    "ipa": "/maʊθ/",
+    "def": "a part of the face used for eating and talking",
+    "ex": "Don't talk with your mouth full.",
+    "bank_def": "part of the face used for eating and talking"
+   },
+   "heads": [
+    "g3:mouth"
+   ]
+  },
+  {
+   "id": "t2g3_nose",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 19,
+   "hash": "1845058f4a82",
+   "template": "guess3",
+   "point": "nose",
+   "taught": [
+    "nose"
+   ],
+   "in": {
+    "word": "nose",
+    "img": "nose#n",
+    "ipa": "/noʊz/",
+    "def": "a part of the face used for breathing and smelling",
+    "ex": "He has a cold and a runny nose.",
+    "bank_def": "part of the face used for breathing and smelling"
+   },
+   "heads": [
+    "g3:nose"
+   ]
+  },
+  {
+   "id": "t2g3_pizza",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 20,
+   "hash": "43a5889de512",
+   "template": "guess3",
+   "point": "pizza",
+   "taught": [
+    "pizza"
+   ],
+   "in": {
+    "word": "pizza",
+    "img": "pizza#n",
+    "ipa": "/ˈpiːtsə/",
+    "def": "a flat bread with cheese, tomato and toppings",
+    "ex": "We ordered pizza for everyone at the late team meeting.",
+    "bank_def": "a flat bread with cheese, tomato and toppings"
+   },
+   "heads": [
+    "g3:pizza"
+   ]
+  },
+  {
+   "id": "t2g3_school",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 21,
+   "hash": "ccd1f27ba51c",
+   "template": "guess3",
+   "point": "school",
+   "taught": [
+    "school"
+   ],
+   "in": {
+    "word": "school",
+    "img": "school#n",
+    "ipa": "/skuːl/",
+    "def": "a building where you learn in classes with a teacher",
+    "ex": "My younger brother started school this year.",
+    "bank_def": "building where you learn in classes with a teacher"
+   },
+   "heads": [
+    "g3:school"
+   ]
+  },
+  {
+   "id": "t2g3_shower",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 22,
+   "hash": "35865abe3d18",
+   "template": "guess3",
+   "point": "shower",
+   "taught": [
+    "shower"
+   ],
+   "in": {
+    "word": "shower",
+    "img": "shower#n",
+    "ipa": "/ˈʃaʊər/",
+    "def": "the cleaning of a body by standing under falling water",
+    "ex": "I usually have a shower in the morning.",
+    "bank_def": "the cleaning of a body by standing under falling water"
+   },
+   "heads": [
+    "g3:shower"
+   ]
+  },
+  {
+   "id": "t2g3_sun",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 23,
+   "hash": "f5fe320ed109",
+   "template": "guess3",
+   "point": "sun",
+   "taught": [
+    "sun"
+   ],
+   "in": {
+    "word": "sun",
+    "img": "sun#n",
+    "ipa": "/sʌn/",
+    "def": "the hot shining star the earth moves around",
+    "ex": "The sun rises at about six in summer.",
+    "bank_def": "the hot shining star the earth moves around"
+   },
+   "heads": [
+    "g3:sun"
+   ]
+  },
+  {
+   "id": "t2g3_television",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 24,
+   "hash": "08c902633465",
+   "template": "guess3",
+   "point": "television",
+   "taught": [
+    "television"
+   ],
+   "in": {
+    "word": "television",
+    "img": "television#n",
+    "ipa": "/ˈteləvɪʒn/",
+    "def": "a piece of equipment with a screen that shows programmes",
+    "ex": "We don't watch much television at home.",
+    "bank_def": "a piece of equipment with a screen that shows programmes; the programmes shown"
+   },
+   "heads": [
+    "g3:television"
+   ]
+  },
+  {
+   "id": "t2g3_train",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 25,
+   "hash": "8197dac58bdc",
+   "template": "guess3",
+   "point": "train",
+   "taught": [
+    "train"
+   ],
+   "in": {
+    "word": "train",
+    "img": "train#n",
+    "ipa": "/treɪn/",
+    "def": "a vehicle that carries people and runs on rails",
+    "ex": "We took the night train to Hue.",
+    "bank_def": "vehicle that carries people and runs on rails"
+   },
+   "heads": [
+    "g3:train"
+   ]
+  },
+  {
+   "id": "t2g3_baseball",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 26,
+   "hash": "0a74831e14fb",
+   "template": "guess3",
+   "point": "baseball",
+   "taught": [
+    "baseball"
+   ],
+   "in": {
+    "word": "baseball",
+    "img": "baseball#n",
+    "ipa": "/ˈbeɪsbɔːl/",
+    "def": "a bat-and-ball game played by two teams",
+    "ex": "The company bought baseball tickets for the team.",
+    "bank_def": "a bat-and-ball game played by two teams"
+   },
+   "heads": [
+    "g3:baseball"
+   ]
+  },
+  {
+   "id": "t2g3_brain",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 27,
+   "hash": "01bab2cb803c",
+   "template": "guess3",
+   "point": "brain",
+   "taught": [
+    "brain"
+   ],
+   "in": {
+    "word": "brain",
+    "img": "brain#n",
+    "ipa": "/breɪn/",
+    "def": "a part of the head that thinks and controls your body",
+    "ex": "Sleep is important for a healthy brain.",
+    "bank_def": "part of the head that thinks and controls your body"
+   },
+   "heads": [
+    "g3:brain"
+   ]
+  },
+  {
+   "id": "t2g3_elevator",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 28,
+   "hash": "52ab36b522d9",
+   "template": "guess3",
+   "point": "elevator",
+   "taught": [
+    "elevator"
+   ],
+   "in": {
+    "word": "elevator",
+    "img": "elevator#n",
+    "ipa": "/ˈeləveɪtər/",
+    "def": "a machine that carries people between floors",
+    "ex": "Take the elevator to the fifth floor and turn left.",
+    "bank_def": "a machine that carries people between floors"
+   },
+   "heads": [
+    "g3:elevator"
+   ]
+  },
+  {
+   "id": "t2g3_engine",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 29,
+   "hash": "29fa65f21d13",
+   "template": "guess3",
+   "point": "engine",
+   "taught": [
+    "engine"
+   ],
+   "ph": "ea89953e90e44fc6",
+   "in": {
+    "word": "engine",
+    "img": "engine#n",
+    "ipa": "/ˈendʒn/",
+    "def": "a machine that changes energy into motion",
+    "ex": "The car engine wouldn't start this morning.",
+    "bank_def": "a machine that changes energy into motion"
+   },
+   "heads": [
+    "g3:engine"
+   ]
+  },
+  {
+   "id": "t2g3_factory",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 30,
+   "hash": "49f435e8a5a7",
+   "template": "guess3",
+   "point": "factory",
+   "taught": [
+    "factory"
+   ],
+   "in": {
+    "word": "factory",
+    "img": "factory#n",
+    "ipa": "/ˈfæktəri/",
+    "def": "a building where things are made",
+    "ex": "My uncle works in a shoe factory.",
+    "bank_def": "building where things are made"
+   },
+   "heads": [
+    "g3:factory"
+   ]
+  },
+  {
+   "id": "t2g3_handbag",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 31,
+   "hash": "0a604855b9bb",
+   "template": "guess3",
+   "point": "handbag",
+   "taught": [
+    "handbag"
+   ],
+   "ph": "e4314e931b649bcb",
+   "in": {
+    "word": "handbag",
+    "img": "handbag#n",
+    "ipa": "/ˈhændbæɡ/",
+    "def": "a small bag women use to carry personal items",
+    "ex": "I really like your handbag.",
+    "bank_def": "A small bag women use to carry personal items, often as a fashion accessory."
+   },
+   "heads": [
+    "g3:handbag"
+   ]
+  },
+  {
+   "id": "t2g3_motorcycle",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 32,
+   "hash": "ea1bda6dc079",
+   "template": "guess3",
+   "point": "motorcycle",
+   "taught": [
+    "motorcycle"
+   ],
+   "in": {
+    "word": "motorcycle",
+    "img": "motorcycle#n",
+    "ipa": "/ˈmoʊtərsaɪkl/",
+    "def": "a two-wheeled vehicle with an engine",
+    "ex": "He rides a motorcycle to work to avoid the traffic.",
+    "bank_def": "a two-wheeled vehicle with an engine"
+   },
+   "heads": [
+    "g3:motorcycle"
+   ]
+  },
+  {
+   "id": "t2g3_pilot",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 33,
+   "hash": "691ebb62b8ef",
+   "template": "guess3",
+   "point": "pilot",
+   "taught": [
+    "pilot"
+   ],
+   "in": {
+    "word": "pilot",
+    "img": "pilot#n",
+    "ipa": "/ˈpaɪlət/",
+    "def": "a person who controls an airplane, spacecraft, or boat",
+    "ex": "The pilot announced that we would land soon.",
+    "bank_def": "a person who controls an airplane, spacecraft, or boat"
+   },
+   "heads": [
+    "g3:pilot"
+   ]
+  },
+  {
+   "id": "t2g3_printer",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 34,
+   "hash": "054f6e1f108a",
+   "template": "guess3",
+   "point": "printer",
+   "taught": [
+    "printer"
+   ],
+   "in": {
+    "word": "printer",
+    "img": "printer#n",
+    "ipa": "/ˈprɪntər/",
+    "def": "a machine that makes copies of papers and documents",
+    "ex": "The printer is out of paper.",
+    "bank_def": "machine that makes copies of papers and documents"
+   },
+   "heads": [
+    "g3:printer"
+   ]
+  },
+  {
+   "id": "t2g3_sausage",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 35,
+   "hash": "487f768e720d",
+   "template": "guess3",
+   "point": "sausage",
+   "taught": [
+    "sausage"
+   ],
+   "ph": "e4849b1b646c9be6",
+   "in": {
+    "word": "sausage",
+    "img": "sausage#n",
+    "ipa": "/ˈsɔːsədʒ/",
+    "def": "a food made of ground meat and seasoning packed in a tube",
+    "ex": "We have no more sausage.",
+    "bank_def": "a food made of ground meat and seasoning packed in a tube"
+   },
+   "heads": [
+    "g3:sausage"
+   ]
+  },
+  {
+   "id": "t2g3_scarf",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 36,
+   "hash": "51c83dbb6671",
+   "template": "guess3",
+   "point": "scarf",
+   "taught": [
+    "scarf"
+   ],
+   "in": {
+    "word": "scarf",
+    "img": "scarf#n",
+    "ipa": "/skɑːrf/",
+    "def": "a piece of cloth worn around the neck",
+    "ex": "She bought a silk scarf at the airport shop.",
+    "bank_def": "a piece of cloth worn around the neck"
+   },
+   "heads": [
+    "g3:scarf"
+   ]
+  },
+  {
+   "id": "t2g3_smartphone",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 37,
+   "hash": "647bfb126852",
+   "template": "guess3",
+   "point": "smartphone",
+   "taught": [
+    "smartphone"
+   ],
+   "ph": "bbe448e097879e34",
+   "in": {
+    "word": "smartphone",
+    "img": "smartphone#n",
+    "ipa": "/ˈsmɑːrtfoʊn/",
+    "def": "a mobile phone that works like a computer",
+    "ex": "Customers can now order food through our new smartphone app.",
+    "bank_def": "a mobile phone that works like a computer"
+   },
+   "heads": [
+    "g3:smartphone"
+   ]
+  },
+  {
+   "id": "t2g3_toothbrush",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 38,
+   "hash": "e48ab3bf190e",
+   "template": "guess3",
+   "point": "toothbrush",
+   "taught": [
+    "toothbrush"
+   ],
+   "ph": "e9e906863fc2b8d2",
+   "in": {
+    "word": "toothbrush",
+    "img": "toothbrush#n",
+    "ipa": "/ˈtuːθbrəʃ/",
+    "def": "a small brush with a long handle used to clean teeth",
+    "ex": "I need a new toothbrush.",
+    "bank_def": "A small brush with a long handle used to clean teeth."
+   },
+   "heads": [
+    "g3:toothbrush"
+   ]
+  },
+  {
+   "id": "t2g3_violin",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 39,
+   "hash": "d4275a15516f",
+   "template": "guess3",
+   "point": "violin",
+   "taught": [
+    "violin"
+   ],
+   "in": {
+    "word": "violin",
+    "img": "violin#n",
+    "ipa": "/vaɪəˈlɪn/",
+    "def": "a musical instrument with four strings",
+    "ex": "A violin player performed at the opening ceremony.",
+    "bank_def": "a musical instrument with four strings"
+   },
+   "heads": [
+    "g3:violin"
+   ]
+  },
+  {
+   "id": "t2g3_bandage",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 40,
+   "hash": "9c924effbc60",
+   "template": "guess3",
+   "point": "bandage",
+   "taught": [
+    "bandage"
+   ],
+   "ph": "b4e33d31cecc3033",
+   "in": {
+    "word": "bandage",
+    "img": "bandage#n",
+    "ipa": "/ˈbændɪdʒ/",
+    "def": "a strip of gauze used to protect a wound",
+    "ex": "I'll look for a bandage.",
+    "bank_def": "a strip of gauze used to protect a wound"
+   },
+   "heads": [
+    "g3:bandage"
+   ]
+  },
+  {
+   "id": "t2g3_battery",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 41,
+   "hash": "7a25c46b6462",
+   "template": "guess3",
+   "point": "battery",
+   "taught": [
+    "battery"
+   ],
+   "in": {
+    "word": "battery",
+    "img": "battery#n",
+    "ipa": "/ˈbætəri/",
+    "def": "a device that stores and supplies electricity",
+    "ex": "The battery in my laptop lasts eight hours.",
+    "bank_def": "a device that stores and supplies electricity"
+   },
+   "heads": [
+    "g3:battery"
+   ]
+  },
+  {
+   "id": "t2g3_camel",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 42,
+   "hash": "03482cfa9093",
+   "template": "guess3",
+   "point": "camel",
+   "taught": [
+    "camel"
+   ],
+   "ph": "eb9c96c3e1708566",
+   "in": {
+    "word": "camel",
+    "img": "camel#n",
+    "ipa": "/ˈkæml/",
+    "def": "a large desert animal used for carrying loads or riding",
+    "ex": "Every part of the camel is used.",
+    "bank_def": "a large desert animal used for carrying loads or riding"
+   },
+   "heads": [
+    "g3:camel"
+   ]
+  },
+  {
+   "id": "t2g3_coin",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 43,
+   "hash": "7a3eaa2ac205",
+   "template": "guess3",
+   "point": "coin",
+   "taught": [
+    "coin"
+   ],
+   "in": {
+    "word": "coin",
+    "img": "coin#n",
+    "ipa": "/kɔɪn/",
+    "def": "a small, flat piece of metal used as money",
+    "ex": "He found an old coin in the garden.",
+    "bank_def": "a small, flat piece of metal used as money"
+   },
+   "heads": [
+    "g3:coin"
+   ]
+  },
+  {
+   "id": "t2g3_crane",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 44,
+   "hash": "73133171f121",
+   "template": "guess3",
+   "point": "crane",
+   "taught": [
+    "crane"
+   ],
+   "ph": "bcd0339b642dd82e",
+   "in": {
+    "word": "crane",
+    "img": "crane#n",
+    "ipa": "/kreɪn/",
+    "def": "a tall machine for lifting heavy things",
+    "ex": "A crane is lifting containers onto the ship.",
+    "bank_def": "a tall machine for lifting heavy things"
+   },
+   "heads": [
+    "g3:crane"
+   ]
+  },
+  {
+   "id": "t2g3_elbow",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 45,
+   "hash": "992943d31632",
+   "template": "guess3",
+   "point": "elbow",
+   "taught": [
+    "elbow"
+   ],
+   "ph": "ad8e9e6d3606c3c4",
+   "in": {
+    "word": "elbow",
+    "img": "elbow#n",
+    "ipa": "/ˈelboʊ/",
+    "def": "the joint between the upper arm and the forearm",
+    "ex": "She hit her elbow during a fall.",
+    "bank_def": "the joint between the upper arm and the forearm"
+   },
+   "heads": [
+    "g3:elbow"
+   ]
+  },
+  {
+   "id": "t2g3_flute",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 46,
+   "hash": "a598c463a91f",
+   "template": "guess3",
+   "point": "flute",
+   "taught": [
+    "flute"
+   ],
+   "ph": "be80c34f3cb0c34f",
+   "in": {
+    "word": "flute",
+    "img": "flute#n",
+    "ipa": "/fluːt/",
+    "def": "a woodwind instrument with a tube and finger holes",
+    "ex": "I want my flute back.",
+    "bank_def": "a woodwind instrument with a tube and finger holes"
+   },
+   "heads": [
+    "g3:flute"
+   ]
+  },
+  {
+   "id": "t2g3_fountain",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 47,
+   "hash": "684a4463221e",
+   "template": "guess3",
+   "point": "fountain",
+   "taught": [
+    "fountain"
+   ],
+   "in": {
+    "word": "fountain",
+    "img": "fountain#n",
+    "ipa": "/ˈfaʊntn/",
+    "def": "a structure that sends water into the air",
+    "ex": "We met by the fountain in the plaza.",
+    "bank_def": "a structure that sends water into the air"
+   },
+   "heads": [
+    "g3:fountain"
+   ]
+  },
+  {
+   "id": "t2g3_hurricane",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 48,
+   "hash": "8395378dae76",
+   "template": "guess3",
+   "point": "hurricane",
+   "taught": [
+    "hurricane"
+   ],
+   "ph": "fe68e0808537df94",
+   "in": {
+    "word": "hurricane",
+    "img": "hurricane#n",
+    "ipa": "/ˈhɜːrəkeɪn/",
+    "def": "a violent storm with strong winds",
+    "ex": "The hurricane forced the airport to close for two days.",
+    "bank_def": "a violent storm with strong winds"
+   },
+   "heads": [
+    "g3:hurricane"
+   ]
+  },
+  {
+   "id": "t2g3_kettle",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 49,
+   "hash": "ad6fff5ea0ad",
+   "template": "guess3",
+   "point": "kettle",
+   "taught": [
+    "kettle"
+   ],
+   "ph": "ee879b381e63c11a",
+   "in": {
+    "word": "kettle",
+    "img": "kettle#n",
+    "ipa": "/ˈketl/",
+    "def": "a metal pot used for boiling liquids",
+    "ex": "Go and put the kettle on.",
+    "bank_def": "A metal pot used for boiling liquids, usually with a lid."
+   },
+   "heads": [
+    "g3:kettle"
+   ]
+  },
+  {
+   "id": "t2g3_microscope",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 50,
+   "hash": "349a48c3f4de",
+   "template": "guess3",
+   "point": "microscope",
+   "taught": [
+    "microscope"
+   ],
+   "in": {
+    "word": "microscope",
+    "img": "microscope#n",
+    "ipa": "/ˈmaɪkrəskoʊp/",
+    "def": "an instrument that makes very small things look bigger",
+    "ex": "The technician examined the sample under a microscope.",
+    "bank_def": "an instrument that makes very small things look bigger"
+   },
+   "heads": [
+    "g3:microscope"
+   ]
+  },
+  {
+   "id": "t2g3_purse",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 51,
+   "hash": "1a5563a9afe9",
+   "template": "guess3",
+   "point": "purse",
+   "taught": [
+    "purse"
+   ],
+   "in": {
+    "word": "purse",
+    "img": "purse#n",
+    "ipa": "/pɜːrs/",
+    "def": "a small bag for money or a handbag",
+    "ex": "She left her purse in the conference room.",
+    "bank_def": "a small bag for money or a handbag"
+   },
+   "heads": [
+    "g3:purse"
+   ]
+  },
+  {
+   "id": "t2g3_ring",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 52,
+   "hash": "443fecfa60ed",
+   "template": "guess3",
+   "point": "ring",
+   "taught": [
+    "ring"
+   ],
+   "in": {
+    "word": "ring",
+    "img": "ring#n",
+    "ipa": "/rɪŋ/",
+    "def": "a round piece of jewellery worn on a finger",
+    "ex": "He gave her a ring on her birthday.",
+    "bank_def": "a round piece of jewellery worn on a finger; the sound of a bell or phone"
+   },
+   "heads": [
+    "g3:ring"
+   ]
+  },
+  {
+   "id": "t2g3_stadium",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 53,
+   "hash": "2a58c9174605",
+   "template": "guess3",
+   "point": "stadium",
+   "taught": [
+    "stadium"
+   ],
+   "in": {
+    "word": "stadium",
+    "img": "stadium#n",
+    "ipa": "/ˈsteɪdiəm/",
+    "def": "a large sports field with seats around it",
+    "ex": "The concert will be held at the city stadium.",
+    "bank_def": "a large sports field with seats around it"
+   },
+   "heads": [
+    "g3:stadium"
+   ]
+  },
+  {
+   "id": "t2g3_trumpet",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 54,
+   "hash": "d088a1853da0",
+   "template": "guess3",
+   "point": "trumpet",
+   "taught": [
+    "trumpet"
+   ],
+   "ph": "b3cec4b12c33c33c",
+   "in": {
+    "word": "trumpet",
+    "img": "trumpet#n",
+    "ipa": "/ˈtrʌmpət/",
+    "def": "a brass instrument that produces sound when the player vibrates their lips",
+    "ex": "I got a new trumpet.",
+    "bank_def": "A brass instrument that produces sound when the player vibrates their lips."
+   },
+   "heads": [
+    "g3:trumpet"
+   ]
+  },
+  {
+   "id": "t2g3_wrist",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 55,
+   "hash": "7ee46c5c7522",
+   "template": "guess3",
+   "point": "wrist",
+   "taught": [
+    "wrist"
+   ],
+   "ph": "8aeee5193ad262e2",
+   "in": {
+    "word": "wrist",
+    "img": "wrist#n",
+    "ipa": "/rɪst/",
+    "def": "the joint that connects the hand to the forearm",
+    "ex": "I took him by the wrist.",
+    "bank_def": "the joint that connects the hand to the forearm"
+   },
+   "heads": [
+    "g3:wrist"
+   ]
+  },
+  {
+   "id": "t2g3_aircraft",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 56,
+   "hash": "6daa292861ca",
+   "template": "guess3",
+   "point": "aircraft",
+   "taught": [
+    "aircraft"
+   ],
+   "ph": "fadb852478db822c",
+   "in": {
+    "word": "aircraft",
+    "img": "aircraft#n",
+    "ipa": "/ˈerkræft/",
+    "def": "a machine that can fly",
+    "ex": "The airport can handle large aircraft.",
+    "bank_def": "a machine that can fly"
+   },
+   "heads": [
+    "g3:aircraft"
+   ]
+  },
+  {
+   "id": "t2g3_auditorium",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 57,
+   "hash": "fea3c0685dfb",
+   "template": "guess3",
+   "point": "auditorium",
+   "taught": [
+    "auditorium"
+   ],
+   "ph": "aefb81d493d4c491",
+   "in": {
+    "word": "auditorium",
+    "img": "auditorium#n",
+    "ipa": "/ˌɔːdəˈtɔːriəm/",
+    "def": "a large room for performances or speeches",
+    "ex": "The keynote speech will be in the main auditorium.",
+    "bank_def": "a large room for performances or speeches"
+   },
+   "heads": [
+    "g3:auditorium"
+   ]
+  },
+  {
+   "id": "t2g3_barn",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 58,
+   "hash": "4359739c2622",
+   "template": "guess3",
+   "point": "barn",
+   "taught": [
+    "barn"
+   ],
+   "ph": "fab18512c74f916c",
+   "in": {
+    "word": "barn",
+    "img": "barn#n",
+    "ipa": "/bɑːrn/",
+    "def": "a farm building used for storing grain, feed, or keeping animals",
+    "ex": "I'm still in the barn.",
+    "bank_def": "A farm building used for storing grain, feed, or keeping animals."
+   },
+   "heads": [
+    "g3:barn"
+   ]
+  },
+  {
+   "id": "t2g3_brewery",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 59,
+   "hash": "7bcb10926d62",
+   "template": "guess3",
+   "point": "brewery",
+   "taught": [
+    "brewery"
+   ],
+   "ph": "bbe0d493c51ecd0c",
+   "in": {
+    "word": "brewery",
+    "img": "brewery#n",
+    "ipa": "/ˈbruːəri/",
+    "def": "a factory or building where beer is made",
+    "ex": "The brewery produces three beers.",
+    "bank_def": "a factory or building where beer is made"
+   },
+   "heads": [
+    "g3:brewery"
+   ]
+  },
+  {
+   "id": "t2g3_comet",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 60,
+   "hash": "abf570e06b31",
+   "template": "guess3",
+   "point": "comet",
+   "taught": [
+    "comet"
+   ],
+   "in": {
+    "word": "comet",
+    "img": "comet#n",
+    "ipa": "/ˈkɑːmət/",
+    "def": "a ball of ice and dust orbiting the sun",
+    "ex": "The comet's tail always points away from the sun.",
+    "bank_def": "a ball of ice and dust orbiting the sun, often with a tail"
+   },
+   "heads": [
+    "g3:comet"
+   ]
+  },
+  {
+   "id": "t2g3_corridor",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 61,
+   "hash": "a099b228f6a3",
+   "template": "guess3",
+   "point": "corridor",
+   "taught": [
+    "corridor"
+   ],
+   "ph": "844cd34ed993ec93",
+   "in": {
+    "word": "corridor",
+    "img": "corridor#n",
+    "ipa": "/ˈkɔːrədər/",
+    "def": "a narrow hallway with rooms opening onto it",
+    "ex": "He's running quite fast through the corridor.",
+    "bank_def": "a narrow hallway with rooms opening onto it"
+   },
+   "heads": [
+    "g3:corridor"
+   ]
+  },
+  {
+   "id": "t2g3_freighter",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 62,
+   "hash": "2695acc2130c",
+   "template": "guess3",
+   "point": "freighter",
+   "taught": [
+    "freighter"
+   ],
+   "ph": "bfb3c04c6f978068",
+   "in": {
+    "word": "freighter",
+    "img": "freighter#n",
+    "ipa": "/ˈfreɪtər/",
+    "def": "a ship or plane that carries goods",
+    "ex": "The freighter arrived at the port two days late.",
+    "bank_def": "a ship or plane that carries goods"
+   },
+   "heads": [
+    "g3:freighter"
+   ]
+  },
+  {
+   "id": "t2g3_helmet",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 63,
+   "hash": "a63fc281c728",
+   "template": "guess3",
+   "point": "helmet",
+   "taught": [
+    "helmet"
+   ],
+   "ph": "bacd8531cdc58e34",
+   "in": {
+    "word": "helmet",
+    "img": "helmet#n",
+    "ipa": "/ˈhelmət/",
+    "def": "a hard hat that protects the head",
+    "ex": "Visitors must wear a helmet on the construction site.",
+    "bank_def": "a hard hat that protects the head"
+   },
+   "heads": [
+    "g3:helmet"
+   ]
+  },
+  {
+   "id": "t2g3_highway",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 64,
+   "hash": "acd306dd4d55",
+   "template": "guess3",
+   "point": "highway",
+   "taught": [
+    "highway"
+   ],
+   "ph": "9b1cd2e6e1030fbc",
+   "in": {
+    "word": "highway",
+    "img": "highway#n",
+    "ipa": "/ˈhaɪweɪ/",
+    "def": "a main road between cities",
+    "ex": "Traffic on the highway was very heavy this morning.",
+    "bank_def": "a main road between cities"
+   },
+   "heads": [
+    "g3:highway"
+   ]
+  },
+  {
+   "id": "t2g3_mansion",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 65,
+   "hash": "dba5c3fe8df8",
+   "template": "guess3",
+   "point": "mansion",
+   "taught": [
+    "mansion"
+   ],
+   "ph": "bbcc44b3c4b31b91",
+   "in": {
+    "word": "mansion",
+    "img": "mansion#n",
+    "ipa": "/ˈmænʃn/",
+    "def": "a large, luxurious house built for wealthy people",
+    "ex": "It is not a real mansion.",
+    "bank_def": "a large, luxurious house built for wealthy people"
+   },
+   "heads": [
+    "g3:mansion"
+   ]
+  },
+  {
+   "id": "t2g3_mechanic",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 66,
+   "hash": "99de85cfdd4c",
+   "template": "guess3",
+   "point": "mechanic",
+   "taught": [
+    "mechanic"
+   ],
+   "in": {
+    "word": "mechanic",
+    "img": "mechanic#n",
+    "ipa": "/məˈkænɪk/",
+    "def": "a person who repairs engines and vehicles",
+    "ex": "The mechanic said the van needs new brakes.",
+    "bank_def": "a person who repairs engines and vehicles"
+   },
+   "heads": [
+    "g3:mechanic"
+   ]
+  },
+  {
+   "id": "t2g3_pier",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 67,
+   "hash": "8226266cf18a",
+   "template": "guess3",
+   "point": "pier",
+   "taught": [
+    "pier"
+   ],
+   "ph": "e9cd1632eac417b2",
+   "in": {
+    "word": "pier",
+    "img": "pier#n",
+    "ipa": "/pɪr/",
+    "def": "a long platform built out over water",
+    "ex": "People are fishing from the end of the pier.",
+    "bank_def": "a long platform built out over water"
+   },
+   "heads": [
+    "g3:pier"
+   ]
+  },
+  {
+   "id": "t2g3_railing",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 68,
+   "hash": "b9f4f60b9e2c",
+   "template": "guess3",
+   "point": "railing",
+   "taught": [
+    "railing"
+   ],
+   "ph": "bcf34188678e62ce",
+   "in": {
+    "word": "railing",
+    "img": "railing#n",
+    "ipa": "/ˈreɪlɪŋ/",
+    "def": "a fence made of metal or wooden bars",
+    "ex": "Tourists are leaning on the railing to enjoy the view.",
+    "bank_def": "a fence made of metal or wooden bars"
+   },
+   "heads": [
+    "g3:railing"
+   ]
+  },
+  {
+   "id": "t2g3_rat",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 69,
+   "hash": "3ea4bfbb6a40",
+   "template": "guess3",
+   "point": "rat",
+   "taught": [
+    "rat"
+   ],
+   "in": {
+    "word": "rat",
+    "img": "rat#n",
+    "ipa": "/ræt/",
+    "def": "an animal that looks like a large mouse",
+    "ex": "A rat ran across the street.",
+    "bank_def": "an animal that looks like a large mouse"
+   },
+   "heads": [
+    "g3:rat"
+   ]
+  },
+  {
+   "id": "t2g3_sewer",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 70,
+   "hash": "ef44e437d461",
+   "template": "guess3",
+   "point": "sewer",
+   "taught": [
+    "sewer"
+   ],
+   "ph": "e5e416e79218ce9a",
+   "in": {
+    "word": "sewer",
+    "img": "sewer#n",
+    "ipa": "/ˈsuːər/",
+    "def": "an underground pipe for waste water",
+    "ex": "The city is repairing the sewer on Main Street.",
+    "bank_def": "an underground pipe for waste water"
+   },
+   "heads": [
+    "g3:sewer"
+   ]
+  },
+  {
+   "id": "t2g3_stool",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 71,
+   "hash": "172f6686c26c",
+   "template": "guess3",
+   "point": "stool",
+   "taught": [
+    "stool"
+   ],
+   "ph": "bb339229e45a31f8",
+   "in": {
+    "word": "stool",
+    "img": "stool#n",
+    "ipa": "/stuːl/",
+    "def": "a simple one‑person seat without a back or armrests",
+    "ex": "She got off her stool.",
+    "bank_def": "A simple one‑person seat without a back or armrests."
+   },
+   "heads": [
+    "g3:stool"
+   ]
+  },
+  {
+   "id": "t2g3_terrace",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 72,
+   "hash": "985255a792c9",
+   "template": "guess3",
+   "point": "terrace",
+   "taught": [
+    "terrace"
+   ],
+   "ph": "eee5d19c8cf0a129",
+   "in": {
+    "word": "terrace",
+    "img": "terrace#n",
+    "ipa": "/ˈterəs/",
+    "def": "a paved outdoor platform attached to a house",
+    "ex": "You can't smoke except on the terrace.",
+    "bank_def": "a paved outdoor platform attached to a house"
+   },
+   "heads": [
+    "g3:terrace"
+   ]
+  },
+  {
+   "id": "t2g3_thermometer",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 73,
+   "hash": "25247a3e4653",
+   "template": "guess3",
+   "point": "thermometer",
+   "taught": [
+    "thermometer"
+   ],
+   "ph": "e29949e69b6c8cc9",
+   "in": {
+    "word": "thermometer",
+    "img": "thermometer#n",
+    "ipa": "/θərˈmɑːmətər/",
+    "def": "an instrument used for measuring temperature",
+    "ex": "I don't have a thermometer.",
+    "bank_def": "an instrument used for measuring temperature"
+   },
+   "heads": [
+    "g3:thermometer"
+   ]
+  },
+  {
+   "id": "t2g3_trail",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 74,
+   "hash": "160a5ecb338e",
+   "template": "guess3",
+   "point": "trail",
+   "taught": [
+    "trail"
+   ],
+   "ph": "df7c18296431b2e6",
+   "in": {
+    "word": "trail",
+    "img": "trail#n",
+    "ipa": "/treɪl/",
+    "def": "a path through the countryside",
+    "ex": "We followed a trail through the forest.",
+    "bank_def": "a path through the countryside, often where people walk"
+   },
+   "heads": [
+    "g3:trail"
+   ]
+  },
+  {
+   "id": "t2g3_asteroid",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 75,
+   "hash": "d884bcbe3d18",
+   "template": "guess3",
+   "point": "asteroid",
+   "taught": [
+    "asteroid"
+   ],
+   "ph": "e1ee9e1159db6508",
+   "in": {
+    "word": "asteroid",
+    "img": "asteroid#n",
+    "ipa": "/ˈæstərɔɪd/",
+    "def": "a large rock that moves around the sun",
+    "ex": "An asteroid impact may have wiped out the dinosaurs.",
+    "bank_def": "a large rock that moves around the sun"
+   },
+   "heads": [
+    "g3:asteroid"
+   ]
+  },
+  {
+   "id": "t2g3_banquet",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 76,
+   "hash": "5a0db8851311",
+   "template": "guess3",
+   "point": "banquet",
+   "taught": [
+    "banquet"
+   ],
+   "ph": "fea883936868859f",
+   "in": {
+    "word": "banquet",
+    "img": "banquet#n",
+    "ipa": "/ˈbæŋkwət/",
+    "def": "a large formal meal for many people",
+    "ex": "The closing banquet will be held in the hotel ballroom.",
+    "bank_def": "a large formal meal for many people, often to celebrate something"
+   },
+   "heads": [
+    "g3:banquet"
+   ]
+  },
+  {
+   "id": "t2g3_ruler",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "part": 77,
+   "hash": "bb2ea973b11f",
+   "template": "guess3",
+   "point": "ruler",
+   "taught": [
+    "ruler"
+   ],
+   "ph": "ea4ad23635a5c93a",
+   "in": {
+    "word": "ruler",
+    "img": "ruler#n",
+    "ipa": "/ˈruːlər/",
+    "def": "a straight strip used for measuring and drawing lines",
+    "ex": "Use a ruler to draw a straight line.",
+    "bank_def": "a straight strip used for measuring and drawing lines"
+   },
+   "heads": [
+    "g3:ruler"
+   ]
   }
  ]
 }

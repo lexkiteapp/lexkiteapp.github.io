@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_toothbrush",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 38,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: toothbrush!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A small brush with a long handle used to clean teeth.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I need a new toothbrush.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "toothbrush",
+  "ipa": "/ˈtuːθbrəʃ/",
+  "mean": "a small brush with a long handle used to clean teeth",
+  "ex": "I need a new toothbrush.",
+  "img": "toothbrush#n",
+  "n": 10
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/toothbrush",
+  "link": "https://lexkite.com/app/#/dict/toothbrush",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "toothbrush",
+  "img": "toothbrush#n"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.0,
+  "wpm": 131
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: T + 9 letters",
+  "keyword": "toothbrush",
+  "value": "Toothbrush /ˈtuːθbrəʃ/ = a small brush with a long handle used to clean teeth. Example: \"I need a new toothbrush.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/toothbrush",
+  "script_words": 23,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: T + 9 letters",
+    "description": "Toothbrush /ˈtuːθbrəʃ/ = a small brush with a long handle used to clean teeth. Example: \"I need a new toothbrush.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/toothbrush\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "toothbrush",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: T + 9 letters\n\nToothbrush /ˈtuːθbrəʃ/ = a small brush with a long handle used to clean teeth. Example: \"I need a new toothbrush.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/toothbrush"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: T + 9 letters\n\nToothbrush /ˈtuːθbrəʃ/ = a small brush with a long handle used to clean teeth. Example: \"I need a new toothbrush.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: T + 9 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: toothbrush. A small brush with a long handle used to clean teeth. Example: \"I need a new toothbrush.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

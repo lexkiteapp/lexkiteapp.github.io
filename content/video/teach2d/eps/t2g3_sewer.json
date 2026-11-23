@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_sewer",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 70,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.25,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 2.6
+  },
+  {
+   "id": "a",
+   "text": "Answer: sewer!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "An underground pipe for waste water.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The city is repairing the sewer on Main Street.",
+   "pause": 0.2
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.4
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "sewer",
+  "ipa": "/ˈsuːər/",
+  "mean": "an underground pipe for waste water",
+  "ex": "The city is repairing the sewer on Main Street.",
+  "img": "sewer#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/sewer",
+  "link": "https://lexkite.com/app/#/dict/sewer",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "sewer",
+  "img": "sewer#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.7,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: S + 4 letters",
+  "keyword": "sewer",
+  "value": "Sewer /ˈsuːər/ = an underground pipe for waste water. Example: \"The city is repairing the sewer on Main Street.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/sewer",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: S + 4 letters",
+    "description": "Sewer /ˈsuːər/ = an underground pipe for waste water. Example: \"The city is repairing the sewer on Main Street.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/sewer\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "sewer",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: S + 4 letters\n\nSewer /ˈsuːər/ = an underground pipe for waste water. Example: \"The city is repairing the sewer on Main Street.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/sewer"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: S + 4 letters\n\nSewer /ˈsuːər/ = an underground pipe for waste water. Example: \"The city is repairing the sewer on Main Street.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: S + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: sewer. An underground pipe for waste water. Example: \"The city is repairing the sewer on Main Street.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}
