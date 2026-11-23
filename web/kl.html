@@ -5,7 +5,8 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Lexkite on-device voice frame for the browser add-on (not a page for visitors).">
-<meta name="color-scheme" content="dark light"><!-- CSP không có style-src → nền tối theo hệ thống bằng color-scheme (sweep theme: tối mà nền sáng = lỗi) -->
+<meta name="color-scheme" content="dark light"><!-- color-scheme: nền theo hệ thống (sweep theme) -->
+<style>html{background:Canvas;color:CanvasText}</style><!-- nền có màu tính được (Canvas = tối khi hệ thống tối): web-sweep đo nền từ body lên html, trang trống nền trong suốt bị tính trắng -->
 <title>Lexkite voice</title>
 <!-- Kokoro trên máy cho add-on (docs/specs/kokoro-on-device.md): CWS cấm mã tải từ xa trong gói add-on, nên trang add-on
      nhúng khung ẩn này (?o=<origin trang mẹ>) → chạy /js/klocal-worker.js trên lexkite.com và chuyển tiếp ĐÚNG giao thức worker
