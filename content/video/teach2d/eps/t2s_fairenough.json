@@ -1,0 +1,131 @@
+{
+ "id": "t2s_fairenough",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 43,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, hear my reasoning first!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Fair enough!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Okay, that makes sense.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Fair enough, let's try your idea.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "fair enough",
+  "forms": [],
+  "ipa": "/ˈfer ɪˈnʌf/",
+  "mean": "Okay, that makes sense.",
+  "define": "Used to accept someone's point.",
+  "vi": "Cũng đúng",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "In a friendly debate",
+   "text": "Fair enough, let's try your idea."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "that's a fair price",
+    "that's reasonable"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'fair enough' to a rude insult.",
+   "why": "It sounds like you agree with them."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wait, hear my reasoning first!"
+ },
+ "src": {
+  "slang": "fair enough"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"fair enough\" mean?",
+  "keyword": "fair enough",
+  "value": "Fair enough = Okay, that makes sense. Example: \"Fair enough, let's try your idea.\" (casual English, UK).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"fair enough\" mean?",
+    "description": "Fair enough = Okay, that makes sense. Example: \"Fair enough, let's try your idea.\" (casual English, UK).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "fair enough",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"fair enough\" mean?\n\nFair enough = Okay, that makes sense. Example: \"Fair enough, let's try your idea.\" (casual English, UK).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"fair enough\" mean?\n\nFair enough = Okay, that makes sense. Example: \"Fair enough, let's try your idea.\" (casual English, UK).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"fair enough\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'fair enough' to a rude insult. It sounds like you agree with them. Real example: \"Fair enough, let's try your idea.\" More real English slang, free: {link}"
+ }
+}

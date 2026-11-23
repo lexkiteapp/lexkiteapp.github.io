@@ -1,0 +1,133 @@
+{
+ "id": "t2s_sideeye",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 292,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She looked at me sideways. Why?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Side-eye!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A look that says you are not sure.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She gave me the side-eye.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "side-eye",
+  "forms": [
+   "side eye"
+  ],
+  "ipa": "/ˈsaɪd aɪ/",
+  "mean": "A look that says you are not sure.",
+  "define": "A look from the corner of your eye showing doubt.",
+  "vi": "Liếc xéo nghi ngờ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Hearing a silly claim",
+   "text": "She gave me the side-eye."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"side-eye\" shows…",
+   "options": [
+    "joy",
+    "doubt"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't give your boss the 'side-eye'.",
+   "why": "It looks rude and judging."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She looked at me sideways. Why?"
+ },
+ "src": {
+  "slang": "side-eye"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"side-eye\" mean?",
+  "keyword": "side-eye",
+  "value": "Side-eye = A look that says you are not sure. Example: \"She gave me the side-eye.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"side-eye\" mean?",
+    "description": "Side-eye = A look that says you are not sure. Example: \"She gave me the side-eye.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "side-eye",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"side-eye\" mean?\n\nSide-eye = A look that says you are not sure. Example: \"She gave me the side-eye.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"side-eye\" mean?\n\nSide-eye = A look that says you are not sure. Example: \"She gave me the side-eye.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"side-eye\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't give your boss the 'side-eye'. It looks rude and judging. Real example: \"She gave me the side-eye.\" More real English slang, free: {link}"
+ }
+}

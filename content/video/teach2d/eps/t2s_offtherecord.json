@@ -1,0 +1,131 @@
+{
+ "id": "t2s_offtherecord",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 180,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Promise you won't tell!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Off the record!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Private, not to be shared.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Off the record, I like the red one.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "off the record",
+  "forms": [],
+  "ipa": "/ˈɔːf ðə ˈrekɚd/",
+  "mean": "Private, not to be shared.",
+  "define": "Said when you share information that shouldn't be repeated.",
+  "vi": "Nói riêng thôi",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Sharing a secret",
+   "text": "Off the record, I like the red one."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "keep it private",
+    "it's on tape"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't repeat what was said 'off the record'.",
+   "why": "It was shared as a secret."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Promise you won't tell!"
+ },
+ "src": {
+  "slang": "off the record"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "What does \"off the record\" mean?",
+  "keyword": "off the record",
+  "value": "Off the record = Private, not to be shared. Example: \"Off the record, I like the red one.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"off the record\" mean?",
+    "description": "Off the record = Private, not to be shared. Example: \"Off the record, I like the red one.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "off the record",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"off the record\" mean?\n\nOff the record = Private, not to be shared. Example: \"Off the record, I like the red one.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"off the record\" mean?\n\nOff the record = Private, not to be shared. Example: \"Off the record, I like the red one.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"off the record\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: keep it private. \"Off the record, I like the red one.\" More real English slang, free: {link}"
+ }
+}

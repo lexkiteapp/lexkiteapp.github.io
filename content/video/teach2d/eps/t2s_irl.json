@@ -1,0 +1,137 @@
+{
+ "id": "t2s_irl",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 187,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We only chatted online before!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "IRL!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "In real life.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I met her IRL last week.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "IRL",
+  "forms": [
+   "irl"
+  ],
+  "ipa": "/ˌaɪ ˌɑːr ˈel/",
+  "mean": "In real life.",
+  "define": "Short for \"in real life\", used to compare with online.",
+  "vi": "Ngoài đời thật",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Chatting online",
+   "text": "I met her IRL last week."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "IRL means…",
+   "options": [
+    "in real love",
+    "in real life"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't use 'IRL' in a formal letter.",
+   "why": "It's online shorthand."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "We only chatted online before!"
+ },
+ "src": {
+  "slang": "IRL"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"IRL\" mean?",
+  "keyword": "IRL",
+  "value": "IRL = In real life. Example: \"I met her IRL last week.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"IRL\" mean?",
+    "description": "IRL = In real life. Example: \"I met her IRL last week.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "IRL",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"IRL\" mean?\n\nIRL = In real life. Example: \"I met her IRL last week.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"IRL\" mean?\n\nIRL = In real life. Example: \"I met her IRL last week.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"IRL\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't use 'IRL' in a formal letter. It's online shorthand. Real example: \"I met her IRL last week.\" More real English slang, free: {link}"
+ }
+}

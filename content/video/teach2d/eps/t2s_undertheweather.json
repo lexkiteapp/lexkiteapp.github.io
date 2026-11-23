@@ -1,0 +1,131 @@
+{
+ "id": "t2s_undertheweather",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 154,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Why do I feel off today?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Under the weather!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I feel a little sick.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm a bit under the weather.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "data": {
+  "key": "under the weather",
+  "forms": [],
+  "ipa": "/ˌʌndɚ ðə ˈweðɚ/",
+  "mean": "I feel a little sick.",
+  "define": "Used when you feel slightly ill or not well.",
+  "vi": "Hơi mệt, không khỏe",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Calling in sick",
+   "text": "I'm a bit under the weather."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Under the weather\" means…",
+   "options": [
+    "standing in rain",
+    "a little sick"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'under the weather' about a storm.",
+   "why": "It means feeling a little sick."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Why do I feel off today?"
+ },
+ "src": {
+  "slang": "under the weather"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"under the weather\" mean?",
+  "keyword": "under the weather",
+  "value": "Under the weather = I feel a little sick. Example: \"I'm a bit under the weather.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"under the weather\" mean?",
+    "description": "Under the weather = I feel a little sick. Example: \"I'm a bit under the weather.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "under the weather",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"under the weather\" mean?\n\nUnder the weather = I feel a little sick. Example: \"I'm a bit under the weather.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"under the weather\" mean?\n\nUnder the weather = I feel a little sick. Example: \"I'm a bit under the weather.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"under the weather\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'under the weather' about a storm. It means feeling a little sick. Real example: \"I'm a bit under the weather.\" More real English slang, free: {link}"
+ }
+}
