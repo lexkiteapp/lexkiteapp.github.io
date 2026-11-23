@@ -190,6 +190,7 @@
   const prefs = () => (g.App && g.App.state && g.App.state.settings) || {};
   // Micro: bật tự tăng âm + lọc ồn + khử vọng của trình duyệt (giọng nhỏ, văn phòng/xe bus vẫn thu rõ)
   const MIC = { audio: { autoGainControl: true, noiseSuppression: true, echoCancellation: true, channelCount: 1 } };
+  const MIC_RAW = { audio: { autoGainControl: false, noiseSuppression: false, echoCancellation: false, channelCount: 1 } };
   // 🤫 Chế độ thì thầm: chuẩn hóa âm lượng bản ghi trước khi nhận dạng (khuếch đại tới đỉnh 0,9 – tối đa 8×, không vỡ tiếng)
   const boost = ch => { let pk = 0; for (let i = 0; i < ch.length; i++) { const a = Math.abs(ch[i]); if (a > pk) pk = a; } const gain = pk > 0 ? Math.min(8, 0.9 / pk) : 1; if (gain > 1.05) for (let i = 0; i < ch.length; i++) ch[i] *= gain; return ch; };
   function pickVoice(accent, gender) {
@@ -399,6 +400,8 @@
     network: () => '📶 ' + t('Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).'),
     unsupported: () => t('Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.'),
     busy: () => t('Micro đang bận – thử lại sau 1 giây.'),
+    silent: () => '🔇 ' + t('Micro không thu được tiếng – kiểm tra đã chọn đúng micro và không bị tắt tiếng.'),
+    'sr-fail': () => '🔁 ' + t('Máy thu được giọng bạn nhưng dịch vụ nhận dạng của trình duyệt không trả lời – bấm micro lần nữa để dùng nhận dạng trên máy.'),
     'language-not-supported': () => '📶 ' + t('Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).'),
     whisper: () => '⚠️ ' + t('Chưa chạy được nhận dạng giọng nói trên máy – kiểm tra Internet rồi bấm micro thử lại.'),
   };
@@ -455,6 +458,20 @@
   // Dịch vụ nhận dạng của trình duyệt có API nhưng không dùng được (Edge/Chromium không tới máy chủ giọng nói, chính sách chặn…)
   // → cả phiên chuyển sang Whisper trên máy (ghi âm MediaRecorder, chấm cục bộ) thay vì để nút micro báo lỗi mãi.
   const SR_DOWN = { network: 1, 'service-not-allowed': 1, 'language-not-supported': 1 };
+  // Chẩn đoán "không nghe thấy gì" theo bản ghi song song: peak < 0,004 = micro câm · ≥ 4 khung 100 ms RMS > 0,02 = có giọng mà nhận dạng không trả kết quả
+  const micVerdict = lv => (!lv ? 'no-speech' : lv.peak < 0.004 ? 'silent' : lv.loud >= 4 ? 'sr-fail' : 'no-speech');
+  async function audioLevel(blob) {
+    try {
+      const ac = new (g.AudioContext || g.webkitAudioContext)(), buf = await ac.decodeAudioData(await blob.arrayBuffer()); ac.close && ac.close();
+      const d = buf.getChannelData(0), w = Math.max(1, Math.round(buf.sampleRate * 0.1)); let peak = 0, loud = 0;
+      for (let i = 0; i < d.length; i += w) { let q = 0, c = 0; for (let j = i; j < Math.min(d.length, i + w); j++) { const v = d[j]; q += v * v; c++; if (Math.abs(v) > peak) peak = Math.abs(v); } if (Math.sqrt(q / c) > 0.02) loud++; }
+      return { peak, loud };
+    } catch (e) { return null; }
+  }
+  let levelFn = audioLevel; // test thay được
+  // Đếm lỗi thật: LKAudio.src('m', mã) → beacon vo mic_<mã>; chi tiết kèm note()
+  const MIC_K = { 'not-allowed': 'notallowed', 'audio-capture': 'audiocapture', 'service-not-allowed': 'svcblocked', 'sr-fail': 'srfail', 'no-speech': 'nospeech', ok: 'ok', network: 'network', silent: 'silent', nospeech: 'nospeech' };
+  const micStat = (code, info) => { const A = g.LKAudio; if (!A) return; if (A.src) A.src('m', MIC_K[code] || 'other'); if (A.note && code !== 'ok') A.note('mic', code + (info ? ' ' + info : '')); };
   let srDown = false;
   function recognize(target, accent, cb = {}) {
     const SR = g.SpeechRecognition || g.webkitSpeechRecognition, en = !g.Target || g.Target.isEn(accent), tl = whisperTl(accent), wl = en || !!WLANG[tl]; // Whisper trên máy: tiếng Anh (tiny.en) hoặc ngôn ngữ đích có trong WLANG (mô hình đa ngôn ngữ)
@@ -470,13 +487,15 @@
     r.lang = g.Target ? g.Target.recLang(g.Target.tlOfAccent(accent), accent) : accent || 'en-GB'; r.maxAlternatives = 5; r.interimResults = false; r.continuous = false;
     if (cb.setup) try { cb.setup(r); } catch (e) { /* thuộc tính mới (processLocally, phrases) chưa có */ }
     // Ghi âm giọng người học song song để nghe lại so với giọng mẫu
-    let media = null, chunks = [], stream = null, audioP = null;
+    // Bản ghi song song dùng micro THÔ: khử ồn/echo của HĐH mở cùng lúc có thể làm nhận dạng Chrome nghe im lặng
+    let media = null, chunks = [], stream = null, audioP = null, gumErr = '', par = false;
     if (navigator.mediaDevices && g.MediaRecorder && micParallel(SR)) {
-      navigator.mediaDevices.getUserMedia(MIC).then(st => {
+      par = true;
+      navigator.mediaDevices.getUserMedia(MIC_RAW).then(st => {
         if (r._stale || r._ended) { st.getTracks().forEach(t => t.stop()); return; }
         stream = st;
-        try { media = new MediaRecorder(st); media.ondataavailable = e => e.data.size && chunks.push(e.data); media.start(); } catch (e) { media = null; }
-      }).catch(() => {});
+        try { media = new MediaRecorder(st); media.ondataavailable = e => e.data.size && chunks.push(e.data); media.start(); } catch (e) { media = null; gumErr = 'recorder'; }
+      }).catch(e => { gumErr = (e && e.name) || 'gum'; });
     }
     const finishAudio = () => audioP || (audioP = new Promise(res => {
       const done = () => { if (stream) stream.getTracks().forEach(t => t.stop()); res(chunks.length ? recUrl(new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' })) : ''); };
@@ -486,22 +505,35 @@
     const guard = r.continuous ? 0 : setTimeout(() => { try { r.abort(); } catch (e) { /* đã dừng */ } }, cb.maxMs || 20000);
     r.onresult = e => {
       if (r._stale) return;
-      r._fin = true;
+      r._fin = true; micStat('ok');
       const alts = [...e.results[0]].map(a => a.transcript.trim()).filter(Boolean);
       const best = alts.map(a => ({ a, s: similarity(a, target) })).sort((x, y) => y.s - x.s)[0] || { a: '', s: 0 };
       r._resP = finishAudio().then(audio => { cb.result && cb.result({ heard: best.a, score: Math.round(best.s * 100), audio, alts }); }); // end chờ result (thứ tự result → end)
     };
     r.onerror = e => {
       if (r._stale || e.error === 'aborted' || r._fin) return;
-      r._fin = true;
+      r._fin = true; if (e.error !== 'no-speech') micStat(e.error || 'other', e.message || '');
       if (SR_DOWN[e.error] && canWhisper) { srDown = true; r._fell = true; recognizeWhisper(target, cb, tl); return; } // Whisper tự gọi result/error/end
+      if (e.error === 'no-speech') { r._fin = false; return; } // onend chẩn đoán
       cb.error && cb.error(e.error);
     };
     r.onend = () => {
       r._ended = true; clearTimeout(guard); if (activeRec === r) activeRec = null; finishAudio();
       if (r._stale || r._fell) return;
-      if (!r._fin) { r._fin = true; cb.error && cb.error('no-speech'); }
-      const end = () => cb.end && cb.end(); if (r._resP) r._resP.then(end, end); else end();
+      const end = () => cb.end && cb.end();
+      if (!r._fin) { // không result/error: chẩn đoán đúng nguyên nhân
+        r._fin = true;
+        (async () => {
+          let code = 'no-speech';
+          if (gumErr) code = gumErr === 'NotAllowedError' || gumErr === 'SecurityError' ? 'not-allowed' : /^(NotFoundError|OverconstrainedError|NotReadableError|AbortError)$/.test(gumErr) ? 'audio-capture' : 'no-speech';
+          else if (par) { const url = await finishAudio(), blob = url && chunks.length ? new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' }) : null; code = blob ? micVerdict(await levelFn(blob)) : 'no-speech'; }
+          if (code === 'sr-fail') { if (canWhisper) srDown = true; else code = 'no-speech'; } // lần sau sang Whisper trên máy
+          micStat(code, gumErr);
+          cb.error && cb.error(code);
+        })().then(end, end);
+        return;
+      }
+      if (r._resP) r._resP.then(end, end); else end();
     };
     try { r.start(); } catch (e) { clearTimeout(guard); cb.error && cb.error('busy'); return null; }
     cb.start && cb.start();
@@ -693,5 +725,5 @@
     return h;
   }
 
-  g.UI = { confirm: (m, o) => g.LXDialog.confirm(m, o), prompt: (m, d, o) => g.LXDialog.prompt(m, d, o), alert: (m, o) => g.LXDialog.alert(m, o), whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, human, humanHdr, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, micParallel, MIC, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, posLabel, masteryDots, ring, download };
+  g.UI = { confirm: (m, o) => g.LXDialog.confirm(m, o), prompt: (m, d, o) => g.LXDialog.prompt(m, d, o), alert: (m, o) => g.LXDialog.alert(m, o), whisperModel, micVerdict, setMicLevel: f => { levelFn = f || audioLevel; }, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, human, humanHdr, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, micParallel, MIC, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, posLabel, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);
