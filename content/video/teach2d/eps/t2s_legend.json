@@ -1,0 +1,137 @@
+{
+ "id": "t2s_legend",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 167,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You brought snacks for everyone!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Legend!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "An amazing, admired person.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Thanks for the snacks, you're a legend!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "legend",
+  "forms": [
+   "legends"
+  ],
+  "ipa": "/ˈledʒənd/",
+  "mean": "An amazing, admired person.",
+  "define": "Used to praise someone who did something great.",
+  "vi": "Huyền thoại",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "praise",
+  "example": {
+   "ctx": "Thanking a friend",
+   "text": "Thanks for the snacks, you're a legend!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"legend\" is…",
+   "options": [
+    "an old story",
+    "an amazing person"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your boss a 'legend' sarcastically.",
+   "why": "People may not know it's a joke."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You brought snacks for everyone!"
+ },
+ "src": {
+  "slang": "legend"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"legend\" mean?",
+  "keyword": "legend",
+  "value": "Legend = An amazing, admired person. Example: \"Thanks for the snacks, you're a legend!\" (casual English, UK).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"legend\" mean?",
+    "description": "Legend = An amazing, admired person. Example: \"Thanks for the snacks, you're a legend!\" (casual English, UK).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "legend",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"legend\" mean?\n\nLegend = An amazing, admired person. Example: \"Thanks for the snacks, you're a legend!\" (casual English, UK).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"legend\" mean?\n\nLegend = An amazing, admired person. Example: \"Thanks for the snacks, you're a legend!\" (casual English, UK).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"legend\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call your boss a 'legend' sarcastically. People may not know it's a joke. Real example: \"Thanks for the snacks, you're a legend!\" More real English slang, free: {link}"
+ }
+}

@@ -40,9 +40,15 @@
   const lipOn = () => { try { const f = localStorage.getItem('lk.lipsync'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.lipsync; return !(v === false || v === '0' || v === 'false'); } catch (e) { return true; } };
   // nạp lười (chỉ khi cờ bật – khung app không đổi), tuần tự vì face.js đọc LipSync/LipMouth lúc nạp
   let lipP = null;
+  // 23/11 (LCP #/lesson/go): mặt vẽ + mốc (~100 KB nén, cues.js 62 KB) KHÔNG nạp trước khi ảnh poster (phần tử LCP) hiện – lipLoad(rig) chờ poster tải xong (+60 ms, tối đa 2,5 s) rồi mới nạp;
+  // câu đầu vẫn chờ tối đa 2 s cho cổng (gate) như cũ nên vẫn khớp miệng. Công tắc tắt khẩn (về nạp ngay như trước): localStorage lk.lipEarly=1 hoặc cfg công khai lip_early.
+  const lipEarly = () => { try { if (localStorage.getItem('lk.lipEarly') === '1') return true; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.lip_early; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
+  const posterReady = rig => new Promise(r => { const im = rig && rig.querySelector && rig.querySelector('img.tch-poster'); let t = setTimeout(r, 2500); const done = () => { clearTimeout(t); setTimeout(r, 60); };
+    if (!im || im.complete) done(); else { im.addEventListener('load', done, { once: true }); im.addEventListener('error', done, { once: true }); } });
   // tải SONG SONG, chạy ĐÚNG THỨ TỰ (async=false; teacher-rig.js cuối) – face.js đọc LipSync/LipMouth lúc nạp; nhanh hơn nạp nối tiếp để câu đầu kịp mốc CI (pre)
-  const lipLoad = () => lipP || (lipP = Promise.all(['call/lipsync', 'call/mouths', 'call/face', 'call/paint', 'call/cues', 'teacher-rig'].map(f => new Promise((ok, no) => { const s = D.createElement('script'); s.async = false; s.src = 'js/' + f + '.js'; s.onload = ok; s.onerror = no; D.head.appendChild(s); })))
-    .then(() => { if (g.LK_CUES && g.LK_CUES.dict) g.LipSync.setDict(g.LK_CUES.dict); }, e => { lipP = null; throw e; }));
+  const lipFetch = () => Promise.all(['call/lipsync', 'call/mouths', 'call/face', 'call/paint', 'call/cues', 'teacher-rig'].map(f => new Promise((ok, no) => { const s = D.createElement('script'); s.async = false; s.src = 'js/' + f + '.js'; s.onload = ok; s.onerror = no; D.head.appendChild(s); })))
+    .then(() => { if (g.LK_CUES && g.LK_CUES.dict) g.LipSync.setDict(g.LK_CUES.dict); }, e => { lipP = null; throw e; });
+  const lipLoad = (rig, force) => lipP || (lipP = ((force || lipEarly() || !rig) ? Promise.resolve() : posterReady(rig)).then(lipFetch));
   // Lớp mặt vẽ = TeacherRig (web/js/teacher-rig.js, MỘT lõi dùng chung Call/bài học/video; spec docs/specs/teacher-rive-rig.md): MỘT <canvas> phủ đúng khung poster
   // (contain, căn đáy – CSS .tch-face), đầu trơn + lớp vector, khớp xương cứng, 0 thay đổi DOM mỗi khung, chỉ vẽ khi trạng thái đổi. Mặt này chỉ là bộ chuyển (adapter): onFail → vòng clip.
   // Biểu cảm cũ (cheer/concern) → tên của rig (praise/sad)
@@ -102,7 +108,7 @@
     // mặt vẽ (cả khi giảm chuyển động: miệng + chớp mắt vẫn chạy, bỏ nghiêng/gật/liếc – face() calm); tiết kiệm dữ liệu → poster. Lỗi nạp/thiếu tài sản → vòng clip.
     // Câu nói trong lúc đang nạp chờ tối đa 2 s (để câu đầu cũng có mốc CI, đúng bản -ls.mp3)
     if (mo.lip !== false && lipOn() && !saveData()) {
-      gate = lipLoad().then(() => { if (dead) return; fc = face(rig, who, () => { fc = null; clips(); }); if (hq && hq.el && !hq.el.paused) fc.speak({ audio: hq.el, text: lastTxt }); }, clips).then(() => { gate = null; });
+      gate = lipLoad(rig).then(() => { if (dead) return; fc = face(rig, who, () => { fc = null; clips(); }); if (hq && hq.el && !hq.el.paused) fc.speak({ audio: hq.el, text: lastTxt }); }, clips).then(() => { gate = null; });
     } else clips();
     // 1 vòng vẽ: chỉ chạy khi đang hiện (IntersectionObserver không cần – rAF tự dừng ở tab ẩn); trộn nói/nghe 160 ms
     function tick(now = performance.now()) {
@@ -190,6 +196,7 @@
     return `<div class="tstage"><div id="${id}" class="tstage-tch"></div><p class="tstage-bub" aria-hidden="true" hidden><span class="tstage-txt"></span></p></div>`; };
   const VOICE = { ama: g.Chars.voice('ama'), carlos: g.Chars.voice('carlos') }; // giọng app của giáo viên – chỉ qua Chars (registry), cùng giọng scripts/gen-audio.mjs sinh cho truyện/radio
   /** prep(): nạp trước mặt vẽ + mốc ở màn ngay TRƯỚC khi giáo viên nói (đổ chuông Call, vào bài học) – Home/Today không gọi */
-  const prep = () => { try { if (lipOn() && !saveData()) lipLoad().catch(() => {}); } catch (e) { /* bỏ qua */ } };
+  // prep(force): Call (đổ chuông) gọi prep(true) → nạp ngay; bài học KHÔNG nạp sớm (mount() nạp sau khi poster hiện) trừ khi bật lk.lipEarly
+  const prep = force => { try { if (lipOn() && !saveData() && (force === true || lipEarly())) lipLoad(null, true).catch(() => {}); } catch (e) { /* bỏ qua */ } };
   g.LessonTeacher = { mount, lite, VOICE, prep, stage: stageHTML };
 })(self);
