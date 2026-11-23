@@ -48,6 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
+      - run: pip install -q pillow==11.0.0   # gen.py text_w (levels3 / scorecard card-fit gates) measures with the brand fonts
       - name: Specs regenerate identically + reviewed scripts
         env: { EV: '${{ github.event_name }}', BASE: '${{ github.base_ref }}' }
         run: |
