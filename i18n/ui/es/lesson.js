@@ -46,6 +46,7 @@
 "Mẹo nhớ:":"Truco para recordar:",
 "Mục tiêu {s}":"Meta {s}",
 "Nghe chậm hơn":"Más despacio",
+"Nghe và chép câu":"Escucha y copia la frase",
 "Nghe, chọn ảnh":"Escucha y elige la imagen",
 "Những từ bạn hay quên":"Palabras que sueles olvidar",
 "Nói câu này":"Di esto",

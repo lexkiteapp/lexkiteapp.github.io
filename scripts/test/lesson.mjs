@@ -78,6 +78,22 @@ const C = {
   ok(keys === base, 'mpic: không làm lệch thứ tự/loại của các dạng khác');
 }
 {
+  // dict: chép chính tả câu ngắn (opts.dict – web bật; mặc định không sinh → vectors native không đổi)
+  const P = E.pickWords(C, { now: NOW, n: 6 }), seeds = Array.from({ length: 30 }, (_, k) => k + 1), mk = (seed, o) => E.build(P, Object.assign({ seed, perWord: 2 }, o));
+  const hit = seeds.filter(sd => mk(sd, { dict: true }).some(i => i.type === 'dict')), it = mk(hit[0], { dict: true }).find(i => i.type === 'dict');
+  ok(hit.length >= 3, `dict: có xuất hiện (${hit.length}/${seeds.length} bài)`);
+  ok(seeds.every(sd => mk(sd, { dict: true }).filter(i => i.type === 'dict').length <= 1), 'dict: tối đa 1 bài/bài học');
+  const nw = E.toks(it.answer).length;
+  ok(it.card && nw >= 3 && nw <= 8 && it.hints.length === 0 && E.HARD(it) && E.check(it, it.answer) && E.check(it, it.answer.toUpperCase() + '.') && !E.check(it, it.answer + ' extra') && !E.check(it, ''), 'dict: câu 3–8 từ, chấm không phân biệt hoa/thường + dấu câu, thiếu/thừa từ = sai');
+  ok(!seeds.some(sd => mk(sd, {}).some(i => i.type === 'dict')) && !seeds.some(sd => mk(sd, { dict: true, off: { listen: true } }).some(i => i.type === 'dict')), 'dict: không bật opts.dict / tắt âm thanh → không sinh');
+  ok(!seeds.some(sd => mk(sd, { dict: true, only: E.KIND.speak }).some(i => i.type === 'dict')), 'dict: nút/làn có only[] không chứa → không sinh');
+  const ad = E.adapt(it, { listen: true });
+  ok(ad.type === 'build' && ad.tiles.length === nw && ad.prompt && E.check(ad, ad.tiles.slice().sort((x, y) => E.toks(it.answer).indexOf(x) - E.toks(it.answer).indexOf(y))), 'dict: không nghe được → thành xếp câu (đủ ô, có đề)');
+  const D = E.diffWords('She go to scool every day', 'She goes to school every day.');
+  ok(D.map(x => x.w).join(' ') === 'She go to scool every day' && D.filter(x => !x.ok).map(x => x.w).join() === 'go,scool' && E.diffWords('a b c', 'a c').filter(x => !x.ok).map(x => x.w).join() === 'b', 'dict: diffWords đánh dấu từ sai/thừa');
+  ok(E.HINTS.dict === undefined && E.KIND.listen.join() === 'gap,build,type,match', 'dict: HINTS/KIND xuất ra (đối chiếu native) không đổi');
+}
+{
   // fix: sửa lỗi câu (bật bằng opts.gold – mục lỗi có sẵn; mặc định không sinh → vectors native không đổi)
   const GE = [{ w: 'She go to school every day.', r: 'She goes to school every day.', why: 'Add -es after she.' }];
   const gold = w => (w === 'afraid' ? GE : []), P = E.pickWords(C, { now: NOW, n: 6 }), seeds = Array.from({ length: 30 }, (_, k) => k + 1), mk = (seed, o) => E.build(P, Object.assign({ seed, perWord: 2 }, o));
@@ -260,7 +276,7 @@ async function solve(right) {
     for (const a of B('w')) { if (a.disabled) continue; a.click(); B('m').find(x => x.dataset.m === a.dataset.m).click(); }
     await tick(300); return;
   }
-  if (it.type === 'type') { const inp = $('#lsnIn'); inp.value = right ? it.answer : 'nope'; inp.dispatchEvent(new w.Event('input')); $('#lsnCheck').click(); await tick(); return; }
+  if (it.type === 'type' || it.type === 'dict') { const inp = $('#lsnIn'); inp.value = right ? it.answer : 'nope'; inp.dispatchEvent(new w.Event('input')); $('#lsnCheck').click(); await tick(); return; }
   if (it.type === 'build' || it.type === 'tr') {
     const want = right ? it.answer.split(' ') : it.answer.split(' ').reverse();
     for (const word of want) { const b = [...w.document.querySelectorAll('#lsnBank .lsn-tile:not(.used)')].find(x => x.textContent === word); if (b) b.click(); }
@@ -624,6 +640,29 @@ for (const v2 of [true, false]) {
     let g3 = 0; while (st() && st().sess && !st().sess.done && g3++ < 40) { const c = st().sess.cur; await solve(true); if (c.type === 'fix') ok(!!$('#lsnFoot.ok'), 'fix UI: chọn đúng từ sai → đúng'); if (c.type !== 'line') { $('#lsnNext').click(); await tick(); } }
   }
   delete w.LESSON_GOLD; w.localStorage.removeItem('lk.lsn.path.demo');
+}
+{
+  // dict UI: nghe + gõ cả câu; sai → tấm đỏ có câu đúng + câu đã gõ (từ sai gạch ngang)
+  let D1 = null;
+  for (let pos = 0; pos < 8 && !D1; pos++) {
+    w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
+    if (st() && st().items.some(i => i.type === 'dict')) D1 = st();
+  }
+  ok(D1, 'dict UI: bài demo có dạng nghe và chép câu');
+  if (D1) {
+    let g = 0;
+    while (st() && st().sess && !st().sess.done && st().sess.cur.type !== 'dict' && g++ < 40) { const c0 = st().sess.cur; await solve(true); if (c0.type !== 'line') { $('#lsnNext').click(); await tick(); } }
+    const it = st().sess.cur, D = w.document;
+    if (it.type === 'dict') {
+      ok(!!$('#lsnIn') && !!$('#lsnPlay') && !D.querySelector('#lsnBub').textContent.includes(it.answer), 'dict UI: có ô gõ + nút nghe, đề không lộ câu');
+      const ws = it.answer.split(' '); ws[ws.length - 1] = 'zzzq';
+      const inp = $('#lsnIn'); inp.value = ws.join(' '); inp.dispatchEvent(new w.Event('input')); $('#lsnCheck').click(); await tick();
+      ok($('#lsnFoot.bad') && D.querySelector('#lsnFoot').textContent.includes(it.answer) && !!D.querySelector('#lsnFoot .lsn-ddiff s') && !errors.length, 'dict UI: gõ sai → tấm đỏ + câu đúng + từ sai gạch ngang');
+      $('#lsnNext').click(); await tick();
+    }
+    let g3 = 0; while (st() && st().sess && !st().sess.done && g3++ < 40) { const c = st().sess.cur; await solve(true); if (c.type === 'dict') ok(!!$('#lsnFoot.ok'), 'dict UI: gõ đúng câu → đúng'); if (c.type !== 'line') { $('#lsnNext').click(); await tick(); } }
+  }
+  w.localStorage.removeItem('lk.lsn.path.demo');
 }
 console.log(`\n${total - fails}/${total} lesson`);
 // Nội dung mọi từ × dạng × ngôn ngữ (docs/LESSON-UX-V2.md §4) – chạy kèm tại đây để package.json không đổi

@@ -46,6 +46,7 @@
 "Mẹo nhớ:":"Hatırlatma ipucu:",
 "Mục tiêu {s}":"Hedef {s}",
 "Nghe chậm hơn":"Daha yavaş",
+"Nghe và chép câu":"Dinle ve cümleyi yaz",
 "Nghe, chọn ảnh":"Dinle, resmi seç",
 "Những từ bạn hay quên":"Sık unuttuğun kelimeler",
 "Nói câu này":"Bunu söyle",

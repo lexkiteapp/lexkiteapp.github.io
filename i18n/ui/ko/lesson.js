@@ -46,6 +46,7 @@
 "Mẹo nhớ:":"기억 팁:",
 "Mục tiêu {s}":"목표 {s}",
 "Nghe chậm hơn":"천천히 듣기",
+"Nghe và chép câu":"듣고 문장 받아쓰기",
 "Nghe, chọn ảnh":"듣고 그림 고르기",
 "Những từ bạn hay quên":"자주 잊는 단어",
 "Nói câu này":"말해 보세요",
