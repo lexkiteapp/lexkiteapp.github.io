@@ -1,0 +1,131 @@
+{
+ "id": "t2s_cringe",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 131,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My old school photos. Help!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cringe!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "So bad it feels uncomfortable.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My old school photos are so cringe.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "cringe",
+  "forms": [],
+  "ipa": "/ˈkrɪndʒ/",
+  "mean": "So bad it feels uncomfortable.",
+  "define": "Used for something so awkward or embarrassing it's hard to watch.",
+  "vi": "Ngượng chín người",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Looking at old photos",
+   "text": "My old school photos are so cringe."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cringe\" is how you feel when…",
+   "options": [
+    "something is tasty",
+    "something is awkward"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's heartfelt gift 'cringe'.",
+   "why": "It makes them feel embarrassed."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My old school photos. Help!"
+ },
+ "src": {
+  "slang": "cringe"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "What does \"cringe\" mean?",
+  "keyword": "cringe",
+  "value": "Cringe = So bad it feels uncomfortable. Example: \"My old school photos are so cringe.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cringe\" mean?",
+    "description": "Cringe = So bad it feels uncomfortable. Example: \"My old school photos are so cringe.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "cringe",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cringe\" mean?\n\nCringe = So bad it feels uncomfortable. Example: \"My old school photos are so cringe.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"cringe\" mean?\n\nCringe = So bad it feels uncomfortable. Example: \"My old school photos are so cringe.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cringe\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a friend's heartfelt gift 'cringe'. It makes them feel embarrassed. Real example: \"My old school photos are so cringe.\" More real English slang, free: {link}"
+ }
+}

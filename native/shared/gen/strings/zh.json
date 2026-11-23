@@ -190,6 +190,7 @@
   "lesson.q.type": "输入英文单词",
   "lesson.q.match": "配对",
   "lesson.q.mpic": "单词配图片",
+  "lesson.q.fix": "找出错词",
   "lesson.q.q": "回答问题",
   "lesson.qn": "第 {a}/{b} 题",
   "lesson.combo": "COMBO ×{n}",

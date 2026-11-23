@@ -1,0 +1,133 @@
+{
+ "id": "t2s_losingit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 274,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Four kids, one phone, zero quiet!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Losing it!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I can't stay calm anymore.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm losing it with all this noise.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "losing it",
+  "forms": [
+   "lose it"
+  ],
+  "ipa": "/ˈluːzɪŋ ɪt/",
+  "mean": "I can't stay calm anymore.",
+  "define": "Used when you are losing control of your feelings.",
+  "vi": "Mất kiểm soát rồi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about stress",
+   "text": "I'm losing it with all this noise."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means you…",
+   "options": [
+    "can't stay calm",
+    "lost an item"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell your boss 'I'm losing it' casually.",
+   "why": "It sounds like a breakdown."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Four kids, one phone, zero quiet!"
+ },
+ "src": {
+  "slang": "losing it"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "What does \"losing it\" mean?",
+  "keyword": "losing it",
+  "value": "Losing it = I can't stay calm anymore. Example: \"I'm losing it with all this noise.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"losing it\" mean?",
+    "description": "Losing it = I can't stay calm anymore. Example: \"I'm losing it with all this noise.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "losing it",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"losing it\" mean?\n\nLosing it = I can't stay calm anymore. Example: \"I'm losing it with all this noise.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"losing it\" mean?\n\nLosing it = I can't stay calm anymore. Example: \"I'm losing it with all this noise.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"losing it\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: can't stay calm. \"I'm losing it with all this noise.\" More real English slang, free: {link}"
+ }
+}

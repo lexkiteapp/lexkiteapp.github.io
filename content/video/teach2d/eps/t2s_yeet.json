@@ -1,0 +1,133 @@
+{
+ "id": "t2s_yeet",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 304,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Throw it in the bin!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Yeet!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Throw something with a lot of energy.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I yeeted my paper into the bin.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "key": "yeet",
+  "forms": [
+   "yeeted"
+  ],
+  "ipa": "/ˈjiːt/",
+  "mean": "Throw something with a lot of energy.",
+  "define": "A playful word for throwing something away.",
+  "vi": "Ném cái vèo",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Throwing a paper ball",
+   "text": "I yeeted my paper into the bin."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"yeet\" is to…",
+   "options": [
+    "throw with energy",
+    "sit down"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't 'yeet' fragile glass across the room.",
+   "why": "It means throwing with energy."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Throw it in the bin!"
+ },
+ "src": {
+  "slang": "yeet"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "What does \"yeet\" mean?",
+  "keyword": "yeet",
+  "value": "Yeet = Throw something with a lot of energy. Example: \"I yeeted my paper into the bin.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"yeet\" mean?",
+    "description": "Yeet = Throw something with a lot of energy. Example: \"I yeeted my paper into the bin.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "yeet",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"yeet\" mean?\n\nYeet = Throw something with a lot of energy. Example: \"I yeeted my paper into the bin.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"yeet\" mean?\n\nYeet = Throw something with a lot of energy. Example: \"I yeeted my paper into the bin.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"yeet\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: throw with energy. \"I yeeted my paper into the bin.\" More real English slang, free: {link}"
+ }
+}

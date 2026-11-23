@@ -1,0 +1,81 @@
+{
+ "fixed": [
+  {
+   "word": "recoger",
+   "field": "gl.vi",
+   "from": "nhặt lên",
+   "to": "nhặt; đón",
+   "why": "\"nhặt lên\" thiếu nghĩa \"đón\" dùng ở ví dụ"
+  },
+  {
+   "word": "estudiante",
+   "field": "gl.vi",
+   "from": "sinh viên",
+   "to": "học sinh / sinh viên",
+   "why": "\"sinh viên\" chỉ đại học; es estudiante bao gồm cả học sinh"
+  },
+  {
+   "word": "granja",
+   "field": "gl.vi",
+   "from": "trại",
+   "to": "trang trại",
+   "why": "\"trại\" quá chung"
+  },
+  {
+   "word": "hueso",
+   "field": "ex.es",
+   "from": "El perro rompió un hueso.",
+   "to": "El perro mastica un hueso grande.",
+   "why": "\"El perro rompió un hueso\" không tự nhiên/mơ hồ"
+  },
+  {
+   "word": "hueso",
+   "field": "ex.en",
+   "from": "The dog broke a bone.",
+   "to": "The dog is chewing on a big bone.",
+   "why": "khớp ex.es mới"
+  },
+  {
+   "word": "gas",
+   "field": "gl.vi",
+   "from": "khí",
+   "to": "khí đốt",
+   "why": "ví dụ là gas bếp; \"khí\" quá chung"
+  },
+  {
+   "word": "discutir",
+   "field": "gl.vi",
+   "from": "tranh luận",
+   "to": "cãi nhau",
+   "why": "ví dụ \"to argue\" = cãi vã; \"tranh luận\" lệch sắc thái"
+  },
+  {
+   "word": "acceso",
+   "field": "gl.vi",
+   "from": "lối vào",
+   "to": "quyền truy cập",
+   "why": "ví dụ là truy cập internet; \"lối vào\" lệch nghĩa"
+  },
+  {
+   "word": "riesgo",
+   "field": "gl.hi",
+   "from": "जॉखिम",
+   "to": "जोखिम",
+   "why": "lỗi chính tả (जॉखिम)"
+  }
+ ],
+ "dropped": [
+  {
+   "word": "leído",
+   "why": "participio/adj. hiếm; ví dụ không tự nhiên, nghĩa \"đọc\" sai (well-read)"
+  },
+  {
+   "word": "casar",
+   "why": "chủ yếu dùng phản thân casarse; gloss 15 ngôn ngữ lẫn nghĩa \"marry off\" và \"marry\""
+  },
+  {
+   "word": "ruego",
+   "why": "văn chương/hiếm, không phải từ cho người học"
+  }
+ ]
+}
