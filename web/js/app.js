@@ -324,7 +324,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     paraphrase: 'paraphrase',
     path: ['words', 'pathx'],
     phrases: 'writing',
-    placement: ['words', 'grammar', 'placement'],
+    placement: ['placement'], // màn giới thiệu vẽ ngay; words + grammar nạp nền / khi bấm Bắt đầu (placement.js warm)
     practice: ['words', 'tsl', 'lfx'],
     pron: 'pron',
     qstats: 'qstats',

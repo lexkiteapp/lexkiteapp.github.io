@@ -1,0 +1,137 @@
+{
+ "id": "t2s_backtosquareone",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 14,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Plan failed. Now what?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Back to square one!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start over.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Plan failed. Back to square one.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "back to square one",
+  "forms": [
+   "square one"
+  ],
+  "ipa": "/ˈbæk tə ˈskwer ˈwʌn/",
+  "mean": "Start over.",
+  "define": "Used when your progress is lost and you must restart.",
+  "vi": "Về vạch xuất phát",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Fixing a school project",
+   "text": "Plan failed. Back to square one."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "start over",
+    "go forward"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'back to square one' after small progress.",
+   "why": "It means you lost all progress."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Plan failed. Now what?"
+ },
+ "src": {
+  "slang": "back to square one"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"back to square one\" mean?",
+  "keyword": "back to square one",
+  "value": "Back to square one = Start over. Example: \"Plan failed. Back to square one.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"back to square one\" mean?",
+    "description": "Back to square one = Start over. Example: \"Plan failed. Back to square one.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "back to square one",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"back to square one\" mean?\n\nBack to square one = Start over. Example: \"Plan failed. Back to square one.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"back to square one\" mean?\n\nBack to square one = Start over. Example: \"Plan failed. Back to square one.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"back to square one\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: start over. \"Plan failed. Back to square one.\" More real English slang, free: {link}"
+ }
+}

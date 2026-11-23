@@ -1,0 +1,131 @@
+{
+ "id": "t2s_lastminute",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 129,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The party starts in ten!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Last minute!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Done very late, close to the time.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "It was a last minute decision.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "last minute",
+  "forms": [],
+  "ipa": "/ˈlæst ˈmɪnət/",
+  "mean": "Done very late, close to the time.",
+  "define": "Describes something decided just before it happens.",
+  "vi": "Sát giờ mới biết",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Packing for a trip",
+   "text": "It was a last minute decision."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Last minute\" means…",
+   "options": [
+    "a final hour",
+    "very late"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't send a 'last minute' invite to your boss.",
+   "why": "It looks disorganized and rude."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The party starts in ten!"
+ },
+ "src": {
+  "slang": "last minute"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"last minute\" mean?",
+  "keyword": "last minute",
+  "value": "Last minute = Done very late, close to the time. Example: \"It was a last minute decision.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"last minute\" mean?",
+    "description": "Last minute = Done very late, close to the time. Example: \"It was a last minute decision.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "last minute",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"last minute\" mean?\n\nLast minute = Done very late, close to the time. Example: \"It was a last minute decision.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"last minute\" mean?\n\nLast minute = Done very late, close to the time. Example: \"It was a last minute decision.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"last minute\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't send a 'last minute' invite to your boss. It looks disorganized and rude. Real example: \"It was a last minute decision.\" More real English slang, free: {link}"
+ }
+}

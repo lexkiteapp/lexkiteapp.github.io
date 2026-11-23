@@ -1,0 +1,135 @@
+{
+ "id": "t2s_noclue",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 126,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What should we cook tonight?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "No clue!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I have no idea.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I have no clue what to cook.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "no clue",
+  "forms": [],
+  "ipa": "/noʊ ˈkluː/",
+  "mean": "I have no idea.",
+  "define": "Used when you don't know something at all.",
+  "vi": "Không biết gì cả",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Answering a question",
+   "text": "I have no clue what to cook."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you…",
+   "options": [
+    "know it",
+    "don't know"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'no clue' in a job interview.",
+   "why": "It sounds unprepared."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "What should we cook tonight?"
+ },
+ "src": {
+  "slang": "no clue"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"no clue\" mean?",
+  "keyword": "no clue",
+  "value": "No clue = I have no idea. Example: \"I have no clue what to cook.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"no clue\" mean?",
+    "description": "No clue = I have no idea. Example: \"I have no clue what to cook.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "no clue",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"no clue\" mean?\n\nNo clue = I have no idea. Example: \"I have no clue what to cook.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"no clue\" mean?\n\nNo clue = I have no idea. Example: \"I have no clue what to cook.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"no clue\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'no clue' in a job interview. It sounds unprepared. Real example: \"I have no clue what to cook.\" More real English slang, free: {link}"
+ }
+}

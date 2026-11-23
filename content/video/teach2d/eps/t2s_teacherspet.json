@@ -1,0 +1,131 @@
+{
+ "id": "t2s_teacherspet",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 226,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She always sits front, always smiles!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Teacher's pet!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The teacher's favorite student.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Sam is the teacher's pet.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "teacher's pet",
+  "forms": [],
+  "ipa": "/ˈtiːtʃɚz ˈpet/",
+  "mean": "The teacher's favorite student.",
+  "define": "A student who gets special favor from the teacher.",
+  "vi": "Học trò cưng của cô",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Joking in class",
+   "text": "Sam is the teacher's pet."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Teacher's pet\" means…",
+   "options": [
+    "a classroom animal",
+    "the favorite student"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a classmate 'teacher's pet' to her face.",
+   "why": "It sounds like teasing."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She always sits front, always smiles!"
+ },
+ "src": {
+  "slang": "teacher's pet"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"teacher's pet\" mean?",
+  "keyword": "teacher's pet",
+  "value": "Teacher's pet = The teacher's favorite student. Example: \"Sam is the teacher's pet.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"teacher's pet\" mean?",
+    "description": "Teacher's pet = The teacher's favorite student. Example: \"Sam is the teacher's pet.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "teacher's pet",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"teacher's pet\" mean?\n\nTeacher's pet = The teacher's favorite student. Example: \"Sam is the teacher's pet.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"teacher's pet\" mean?\n\nTeacher's pet = The teacher's favorite student. Example: \"Sam is the teacher's pet.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"teacher's pet\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a classmate 'teacher's pet' to her face. It sounds like teasing. Real example: \"Sam is the teacher's pet.\" More real English slang, free: {link}"
+ }
+}

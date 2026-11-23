@@ -1,0 +1,134 @@
+{
+ "id": "t2s_glowup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 111,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last year versus this year!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Glow-up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A big change for the better.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Wow, your glow-up this year is amazing.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "glow-up",
+  "forms": [
+   "glow up",
+   "glow-ups"
+  ],
+  "ipa": "/ˈɡloʊ ˌʌp/",
+  "mean": "A big change for the better.",
+  "define": "A big improvement in how someone looks, feels or lives.",
+  "vi": "Lột xác ngoạn mục",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "praise",
+  "example": {
+   "ctx": "Seeing a friend after summer",
+   "text": "Wow, your glow-up this year is amazing."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"glow-up\" is a change…",
+   "options": [
+    "that makes lights",
+    "for the better"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell someone their glow-up means they looked bad.",
+   "why": "It implies they looked bad before."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Last year versus this year!"
+ },
+ "src": {
+  "slang": "glow-up"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"glow-up\" mean?",
+  "keyword": "glow-up",
+  "value": "Glow-up = A big change for the better. Example: \"Wow, your glow-up this year is amazing.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"glow-up\" mean?",
+    "description": "Glow-up = A big change for the better. Example: \"Wow, your glow-up this year is amazing.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "glow-up",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"glow-up\" mean?\n\nGlow-up = A big change for the better. Example: \"Wow, your glow-up this year is amazing.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"glow-up\" mean?\n\nGlow-up = A big change for the better. Example: \"Wow, your glow-up this year is amazing.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"glow-up\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell someone their glow-up means they looked bad. It implies they looked bad before. Real example: \"Wow, your glow-up this year is amazing.\" More real English slang, free: {link}"
+ }
+}
