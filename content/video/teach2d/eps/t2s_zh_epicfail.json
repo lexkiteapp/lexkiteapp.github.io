@@ -1,0 +1,150 @@
+{
+ "id": "t2s_zh_epicfail",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 90,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My cake collapsed. Everyone watched!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Epic fail!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A big, funny failure.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My cake fell flat. Total epic fail!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "epic fail",
+  "forms": [],
+  "ipa": "/ˌepɪk ˈfeɪl/",
+  "mean": "A big, funny failure.",
+  "define": "A mistake or failure that is so big it is almost funny.",
+  "vi": "Thất bại hoành tráng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Looking at a kitchen mess",
+   "text": "My cake fell flat. Total epic fail!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "An \"epic fail\" is a…",
+   "options": [
+    "great success",
+    "big failure"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's loss an 'epic fail'.",
+   "why": "It sounds like mocking them."
+  },
+  "l1": "大失败",
+  "l1_hook": "我的蛋糕塌了，大家都在围观，这真是\"epic fail\"！",
+  "l1_ex": "我的蛋糕塌了，简直是\"epic fail\"！",
+  "right": "epic fail",
+  "native": {
+   "hook": "“epic fail”是什么意思？",
+   "tip": "“epic fail” = 大失败. 例句: “My cake fell flat. Total epic fail!”",
+   "caption": "“epic fail”是什么意思？\n“epic fail” = 大失败.\n例句: “My cake fell flat. Total epic fail!” (我的蛋糕塌了，简直是\"epic fail\"！)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “epic fail” = 大失败. “My cake fell flat. Total epic fail!” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My cake collapsed. Everyone watched!"
+ },
+ "src": {
+  "slang": "epic fail"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“epic fail”是什么意思？",
+  "keyword": "epic fail",
+  "value": "“epic fail” = 大失败. 例句: “My cake fell flat. Total epic fail!”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“epic fail”是什么意思？",
+    "description": "“epic fail” = 大失败. 例句: “My cake fell flat. Total epic fail!”\n\n“epic fail”是什么意思？\n“epic fail” = 大失败.\n例句: “My cake fell flat. Total epic fail!” (我的蛋糕塌了，简直是\"epic fail\"！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "epic fail",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“epic fail”是什么意思？\n“epic fail” = 大失败.\n例句: “My cake fell flat. Total epic fail!” (我的蛋糕塌了，简直是\"epic fail\"！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“epic fail”是什么意思？\n\n“epic fail” = 大失败. 例句: “My cake fell flat. Total epic fail!”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“epic fail”是什么意思？ “epic fail” = 大失败. 例句: “My cake fell flat. Total epic fail!” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “epic fail” = 大失败. “My cake fell flat. Total epic fail!” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

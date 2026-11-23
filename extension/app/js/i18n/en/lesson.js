@@ -9,6 +9,8 @@ D.en = Object.assign(D.en || {}, {
 'Kỷ lục': 'Best score', // ô số màn kết mini-game (game-end.js)
 'Lần sai': 'Mistakes',
 'Chuỗi hiện tại': 'Current streak',
+'Ngày mai ôn {n} từ để nhớ lâu': 'Words to review tomorrow: {n}',
+'Ngày mai: bài tiếp theo đã sẵn sàng': 'Tomorrow: your next lesson is ready',
 'Chạm để nghe': 'Tap to listen',
 'Bài học trộn đang thử nghiệm, sắp ra mắt.': 'Mixed lessons are in testing and coming soon.',
 'Quay về trang chủ': 'Back to home',
@@ -53,6 +55,7 @@ D.en = Object.assign(D.en || {}, {
 'Từ bạn đã tra': "Your lookup",
 'Ghép cặp': "Match the pairs",
 'Ghép từ, ảnh': "Match words to pictures",
+'Tìm từ sai': "Find the wrong word",
 'Chọn từ đúng': "Pick the right word",
 'Nói tên hình': "Say what you see",
 'Đây là gì?': "What is this?",

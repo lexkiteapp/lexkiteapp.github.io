@@ -1,0 +1,146 @@
+{
+ "id": "t2s_tr_corny",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 63,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dad's pun again. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Corny!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Old-fashioned and silly.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dad's jokes are so corny.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "corny",
+  "forms": [],
+  "ipa": "/ˈkɔːrni/",
+  "mean": "Old-fashioned and silly.",
+  "define": "Describes jokes that are so silly they're embarrassing.",
+  "vi": "Nhạt nhẽo, sến",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Listening to a joke",
+   "text": "Dad's jokes are so corny."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Corny\" means…",
+   "options": [
+    "silly",
+    "crunchy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your teacher's joke 'corny' out loud.",
+   "why": "It sounds rude, not playful."
+  },
+  "l1": "gıcık",
+  "l1_hook": "Babamın fıkrası yine. Cidden? \"corny\"",
+  "l1_ex": "Babamın esprileri çok \"corny\".",
+  "right": "corny",
+  "native": {
+   "hook": "“corny” ne demek?",
+   "tip": "“corny” = gıcık. Örnek: “Dad's jokes are so corny.”",
+   "caption": "“corny” ne demek?\n“corny” = gıcık.\nÖrnek: “Dad's jokes are so corny.” (Babamın esprileri çok \"corny\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “corny” = gıcık. “Dad's jokes are so corny.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dad's pun again. Seriously?"
+ },
+ "src": {
+  "slang": "corny"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 15,
+  "seconds": 9.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“corny” ne demek?",
+  "keyword": "corny",
+  "value": "“corny” = gıcık. Örnek: “Dad's jokes are so corny.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "“corny” ne demek?",
+    "description": "“corny” = gıcık. Örnek: “Dad's jokes are so corny.”\n\n“corny” ne demek?\n“corny” = gıcık.\nÖrnek: “Dad's jokes are so corny.” (Babamın esprileri çok \"corny\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "corny",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“corny” ne demek?\n“corny” = gıcık.\nÖrnek: “Dad's jokes are so corny.” (Babamın esprileri çok \"corny\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“corny” ne demek?\n\n“corny” = gıcık. Örnek: “Dad's jokes are so corny.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“corny” ne demek? “corny” = gıcık. Örnek: “Dad's jokes are so corny.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “corny” = gıcık. “Dad's jokes are so corny.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

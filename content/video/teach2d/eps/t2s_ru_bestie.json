@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ru_bestie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 30,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who knows all your secrets?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bestie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A very close friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My bestie and I love tacos.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "bestie",
+  "forms": [
+   "besties"
+  ],
+  "ipa": "/ˈbesti/",
+  "mean": "A very close friend.",
+  "define": "A short, friendly word for a best friend.",
+  "vi": "Bạn thân",
+  "reg": "very-casual",
+  "region": "global",
+  "level": "A2",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "Talking about friends",
+   "text": "My bestie and I love tacos."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"bestie\" is…",
+   "options": [
+    "a best friend",
+    "a kind of pet"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your new boss your 'bestie'.",
+   "why": "It's too close and casual."
+  },
+  "l1": "близкий друг",
+  "l1_hook": "Кто знает все твои секреты? — «bestie».",
+  "l1_ex": "Моя «bestie» и я любим тако.",
+  "right": "bestie",
+  "native": {
+   "hook": "Что значит «bestie»?",
+   "tip": "“bestie” = близкий друг. Пример: “My bestie and I love tacos.”",
+   "caption": "Что значит «bestie»?\n“bestie” = близкий друг.\nПример: “My bestie and I love tacos.” (Моя «bestie» и я любим тако.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “bestie” = близкий друг. “My bestie and I love tacos.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who knows all your secrets?"
+ },
+ "src": {
+  "slang": "bestie"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Что значит «bestie»?",
+  "keyword": "bestie",
+  "value": "“bestie” = близкий друг. Пример: “My bestie and I love tacos.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «bestie»?",
+    "description": "“bestie” = близкий друг. Пример: “My bestie and I love tacos.”\n\nЧто значит «bestie»?\n“bestie” = близкий друг.\nПример: “My bestie and I love tacos.” (Моя «bestie» и я любим тако.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "bestie",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «bestie»?\n“bestie” = близкий друг.\nПример: “My bestie and I love tacos.” (Моя «bestie» и я любим тако.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «bestie»?\n\n“bestie” = близкий друг. Пример: “My bestie and I love tacos.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «bestie»? “bestie” = близкий друг. Пример: “My bestie and I love tacos.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “bestie” = близкий друг. “My bestie and I love tacos.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

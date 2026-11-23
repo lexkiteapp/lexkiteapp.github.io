@@ -1,0 +1,148 @@
+{
+ "id": "t2s_vi_breakthebank",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 72,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is lunch too expensive?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Break the bank!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Cost way too much money.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Don't worry, this lunch won't break the bank.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "break the bank",
+  "forms": [
+   "broke the bank"
+  ],
+  "ipa": "/ˈbreɪk ðə ˈbæŋk/",
+  "mean": "Cost way too much money.",
+  "define": "To cost so much that you can't afford it.",
+  "vi": "Tốn cả gia tài",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "Don't worry, this lunch won't break the bank."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It usually means to…",
+   "options": [
+    "rob a bank",
+    "cost too much"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'break the bank' at a bank.",
+   "why": "It only means costing too much."
+  },
+  "l1": "Tốn cả gia tài",
+  "l1_hook": "Bữa trưa mắc quá hả?",
+  "l1_ex": "Đừng lo, bữa trưa này sẽ không break the bank đâu.",
+  "right": "break the bank",
+  "native": {
+   "hook": "“break the bank” nghĩa là gì?",
+   "tip": "“break the bank” = Tốn cả gia tài. Ví dụ: “Don't worry, this lunch won't break the bank.”",
+   "caption": "“break the bank” nghĩa là gì?\n“break the bank” = Tốn cả gia tài.\nVí dụ: “Don't worry, this lunch won't break the bank.” (Đừng lo, bữa trưa này sẽ không break the bank đâu.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “break the bank” = Tốn cả gia tài. “Don't worry, this lunch won't break the bank.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is lunch too expensive?"
+ },
+ "src": {
+  "slang": "break the bank"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“break the bank” nghĩa là gì?",
+  "keyword": "break the bank",
+  "value": "“break the bank” = Tốn cả gia tài. Ví dụ: “Don't worry, this lunch won't break the bank.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“break the bank” nghĩa là gì?",
+    "description": "“break the bank” = Tốn cả gia tài. Ví dụ: “Don't worry, this lunch won't break the bank.”\n\n“break the bank” nghĩa là gì?\n“break the bank” = Tốn cả gia tài.\nVí dụ: “Don't worry, this lunch won't break the bank.” (Đừng lo, bữa trưa này sẽ không break the bank đâu.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "break the bank",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“break the bank” nghĩa là gì?\n“break the bank” = Tốn cả gia tài.\nVí dụ: “Don't worry, this lunch won't break the bank.” (Đừng lo, bữa trưa này sẽ không break the bank đâu.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“break the bank” nghĩa là gì?\n\n“break the bank” = Tốn cả gia tài. Ví dụ: “Don't worry, this lunch won't break the bank.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“break the bank” nghĩa là gì? “break the bank” = Tốn cả gia tài. Ví dụ: “Don't worry, this lunch won't brea… #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “break the bank” = Tốn cả gia tài. “Don't worry, this lunch won't break the bank.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

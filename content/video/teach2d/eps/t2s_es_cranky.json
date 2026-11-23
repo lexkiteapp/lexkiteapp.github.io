@@ -1,0 +1,146 @@
+{
+ "id": "t2s_es_cranky",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 104,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't talk to me yet!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cranky!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Grumpy and in a bad mood.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm cranky before breakfast.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "cranky",
+  "forms": [],
+  "ipa": "/ˈkræŋki/",
+  "mean": "Grumpy and in a bad mood.",
+  "define": "Describes someone tired or annoyed.",
+  "vi": "Cáu kỉnh",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about a child",
+   "text": "I'm cranky before breakfast."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cranky\" means…",
+   "options": [
+    "happy",
+    "grumpy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your boss 'cranky' in an email.",
+   "why": "It's too casual and insulting."
+  },
+  "l1": "gruñón",
+  "l1_hook": "¡No me hables todavía! \"cranky\"",
+  "l1_ex": "Estoy \"cranky\" antes del desayuno.",
+  "right": "cranky",
+  "native": {
+   "hook": "¿Qué significa “cranky”?",
+   "tip": "“cranky” = gruñón. Ejemplo: “I'm cranky before breakfast.”",
+   "caption": "¿Qué significa “cranky”?\n“cranky” = gruñón.\nEjemplo: “I'm cranky before breakfast.” (Estoy \"cranky\" antes del desayuno.)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “cranky” = gruñón. “I'm cranky before breakfast.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Don't talk to me yet!"
+ },
+ "src": {
+  "slang": "cranky"
+ },
+ "lang": "es",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "¿Qué significa “cranky”?",
+  "keyword": "cranky",
+  "value": "“cranky” = gruñón. Ejemplo: “I'm cranky before breakfast.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “cranky”?",
+    "description": "“cranky” = gruñón. Ejemplo: “I'm cranky before breakfast.”\n\n¿Qué significa “cranky”?\n“cranky” = gruñón.\nEjemplo: “I'm cranky before breakfast.” (Estoy \"cranky\" antes del desayuno.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "cranky",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “cranky”?\n“cranky” = gruñón.\nEjemplo: “I'm cranky before breakfast.” (Estoy \"cranky\" antes del desayuno.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “cranky”?\n\n“cranky” = gruñón. Ejemplo: “I'm cranky before breakfast.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “cranky”? “cranky” = gruñón. Ejemplo: “I'm cranky before breakfast.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “cranky” = gruñón. “I'm cranky before breakfast.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

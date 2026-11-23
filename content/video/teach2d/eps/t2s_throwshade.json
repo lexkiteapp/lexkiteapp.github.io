@@ -1,0 +1,134 @@
+{
+ "id": "t2s_throwshade",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 175,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She smiled, then insulted my hat!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Throw shade!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Say something a little rude.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She threw shade at my new hat.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "throw shade",
+  "forms": [
+   "shade",
+   "throwing shade"
+  ],
+  "ipa": "/ˈθroʊ ˈʃeɪd/",
+  "mean": "Say something a little rude.",
+  "define": "To insult someone in a sneaky, indirect way.",
+  "vi": "Nói xéo, mỉa mai",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "C1",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "She threw shade at my new hat."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"throw shade\" is to…",
+   "options": [
+    "make shade",
+    "insult sneakily"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'throw shade' about a tree's shadow.",
+   "why": "It only means subtle insults."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She smiled, then insulted my hat!"
+ },
+ "src": {
+  "slang": "throw shade"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"throw shade\" mean?",
+  "keyword": "throw shade",
+  "value": "Throw shade = Say something a little rude. Example: \"She threw shade at my new hat.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"throw shade\" mean?",
+    "description": "Throw shade = Say something a little rude. Example: \"She threw shade at my new hat.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "throw shade",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"throw shade\" mean?\n\nThrow shade = Say something a little rude. Example: \"She threw shade at my new hat.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"throw shade\" mean?\n\nThrow shade = Say something a little rude. Example: \"She threw shade at my new hat.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"throw shade\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'throw shade' about a tree's shadow. It only means subtle insults. Real example: \"She threw shade at my new hat.\" More real English slang, free: {link}"
+ }
+}

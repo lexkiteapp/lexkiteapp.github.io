@@ -1,0 +1,152 @@
+{
+ "id": "t2s_id_rainingcatsanddogs",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 98,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look outside! Grab an umbrella!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Raining cats and dogs!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Raining very hard.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "It's raining cats and dogs!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "raining cats and dogs",
+  "forms": [
+   "rain cats and dogs"
+  ],
+  "ipa": "/ˈreɪnɪŋ ˈkæts ən ˈdɔːɡz/",
+  "mean": "Raining very hard.",
+  "define": "An idiom for very heavy rain.",
+  "vi": "Mưa như trút",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Looking out a window",
+   "text": "It's raining cats and dogs!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "very heavy rain",
+    "animals fall"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't look for real animals when it's 'raining cats and dogs'.",
+   "why": "It's an idiom for heavy rain."
+  },
+  "l1": "hujan deras",
+  "l1_hook": "Lihat ke luar! Ambil payung!",
+  "l1_ex": "\"It's raining cats and dogs\"!",
+  "right": "raining cats and dogs",
+  "native": {
+   "hook": "Apa arti “raining cats and dogs”?",
+   "tip": "“raining cats and dogs” = hujan deras. Contoh: “It's raining cats and dogs!”",
+   "caption": "Apa arti “raining cats and dogs”?\n“raining cats and dogs” = hujan deras.\nContoh: “It's raining cats and dogs!” (\"It's raining cats and dogs\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “raining cats and dogs” = hujan deras. “It's raining cats and dogs!” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look outside! Grab an umbrella!"
+ },
+ "src": {
+  "slang": "raining cats and dogs"
+ },
+ "lang": "id",
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Apa arti “raining cats and dogs”?",
+  "keyword": "raining cats and dogs",
+  "value": "“raining cats and dogs” = hujan deras. Contoh: “It's raining cats and dogs!”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “raining cats and dogs”?",
+    "description": "“raining cats and dogs” = hujan deras. Contoh: “It's raining cats and dogs!”\n\nApa arti “raining cats and dogs”?\n“raining cats and dogs” = hujan deras.\nContoh: “It's raining cats and dogs!” (\"It's raining cats and dogs\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "raining cats and dogs",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “raining cats and dogs”?\n“raining cats and dogs” = hujan deras.\nContoh: “It's raining cats and dogs!” (\"It's raining cats and dogs\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “raining cats and dogs”?\n\n“raining cats and dogs” = hujan deras. Contoh: “It's raining cats and dogs!”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “raining cats and dogs”? “raining cats and dogs” = hujan deras. Contoh: “It's raining cats an… #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “raining cats and dogs” = hujan deras. “It's raining cats and dogs!” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

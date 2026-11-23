@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_bro",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 49,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thanks for saving my homework!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bro!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A friendly word for a friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Thanks, bro, you saved me!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "bro",
+  "forms": [],
+  "ipa": "/ˈbroʊ/",
+  "mean": "A friendly word for a friend.",
+  "define": "Casual slang used for a friend or buddy.",
+  "vi": "Ông bạn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "A2",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Thanks, bro, you saved me!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bro\" means…",
+   "options": [
+    "a brother only",
+    "a friend"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your grandma 'bro'.",
+   "why": "It sounds disrespectful and odd."
+  },
+  "l1": "parça",
+  "l1_hook": "Valeu, 'bro', por salvar minha lição de casa!",
+  "l1_ex": "Obrigado, \"bro\", você me salvou!",
+  "right": "bro",
+  "native": {
+   "hook": "O que significa “bro”?",
+   "tip": "“bro” = parça. Exemplo: “Thanks, bro, you saved me!”",
+   "caption": "O que significa “bro”?\n“bro” = parça.\nExemplo: “Thanks, bro, you saved me!” (Obrigado, \"bro\", você me salvou!)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “bro” = parça. “Thanks, bro, you saved me!” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Thanks for saving my homework!"
+ },
+ "src": {
+  "slang": "bro"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "O que significa “bro”?",
+  "keyword": "bro",
+  "value": "“bro” = parça. Exemplo: “Thanks, bro, you saved me!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “bro”?",
+    "description": "“bro” = parça. Exemplo: “Thanks, bro, you saved me!”\n\nO que significa “bro”?\n“bro” = parça.\nExemplo: “Thanks, bro, you saved me!” (Obrigado, \"bro\", você me salvou!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "bro",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “bro”?\n“bro” = parça.\nExemplo: “Thanks, bro, you saved me!” (Obrigado, \"bro\", você me salvou!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “bro”?\n\n“bro” = parça. Exemplo: “Thanks, bro, you saved me!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “bro”? “bro” = parça. Exemplo: “Thanks, bro, you saved me!” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “bro” = parça. “Thanks, bro, you saved me!” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

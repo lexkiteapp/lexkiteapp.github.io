@@ -1,0 +1,135 @@
+{
+ "id": "t2s_youvegotthis",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 294,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Big exam tomorrow. I'm scared!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "You've got this!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "You can do it!",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Deep breath, you've got this!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "you've got this",
+  "forms": [],
+  "ipa": "/juv ˈɡɑːt ðɪs/",
+  "mean": "You can do it!",
+  "define": "A way to encourage someone.",
+  "vi": "Bạn làm được mà",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Cheering a friend",
+   "text": "Deep breath, you've got this!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "you have a ball",
+    "you can do it"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'you've got this' to someone failing badly.",
+   "why": "It can sound false or mocking."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Big exam tomorrow. I'm scared!"
+ },
+ "src": {
+  "slang": "you've got this"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"you've got this\" mean?",
+  "keyword": "you've got this",
+  "value": "You've got this = You can do it. Example: \"Deep breath, you've got this!\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"you've got this\" mean?",
+    "description": "You've got this = You can do it. Example: \"Deep breath, you've got this!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "you've got this",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"you've got this\" mean?\n\nYou've got this = You can do it. Example: \"Deep breath, you've got this!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"you've got this\" mean?\n\nYou've got this = You can do it. Example: \"Deep breath, you've got this!\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"you've got this\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'you've got this' to someone failing badly. It can sound false or mocking. Real example: \"Deep breath, you've got this!\" More real English slang, free: {link}"
+ }
+}
