@@ -92,6 +92,7 @@
 "Thẻ sẵn sàng":"준비된 카드",
 "Thẻ tiếp":"다음 카드",
 "Thử ngay":"지금 해 보기",
+"Tra từ…":"단어를 찾아보세요…",
 "Truyện & âm thanh":"이야기와 오디오",
 "Truyện ngắn":"이야기",
 "Trọng tâm hôm nay":"오늘의 집중",
