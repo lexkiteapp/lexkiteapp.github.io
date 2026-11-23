@@ -3,7 +3,8 @@
  "remove": [
   ":scope > header",
   ":scope > nav",
-  ":scope > footer"
+  ":scope > footer",
+  ":scope > main > .mock-pad"
  ],
  "i18n": {
   "Target Goal": "Mục tiêu nước rút",
