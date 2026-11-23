@@ -2,17 +2,17 @@
  "id": "t2g3_brain",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 27,
+ "part": 22,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
- "speed": 1.25,
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Three seconds. What is it?",
-   "pause": 2.6
+   "text": "Three seconds. Go!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "Sleep is important for a healthy brain.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "confused",
@@ -52,15 +52,15 @@
  },
  "hook": {
   "line": "h",
-  "text": "Three seconds. What is it?"
+  "text": "Three seconds. Go!"
  },
  "src": {
   "word": "brain",
   "img": "brain#n"
  },
  "est": {
-  "words": 27,
-  "seconds": 11.9,
+  "words": 25,
+  "seconds": 11.1,
   "wpm": 136
  },
  "publish": {
@@ -75,11 +75,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/dict/brain",
-  "script_words": 26,
+  "script_words": 24,
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: B + 4 letters",
-    "description": "Brain /breɪn/ = a part of the head that thinks and controls your body. Example: \"Sleep is important for a healthy brain.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/brain\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "description": "Brain /breɪn/ = a part of the head that thinks and controls your body. Example: \"Sleep is important for a healthy brain.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/brain\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
     "tags": [
      "brain",
      "Guess in 3 Seconds",

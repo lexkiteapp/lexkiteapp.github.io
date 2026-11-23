@@ -2,17 +2,17 @@
  "id": "t2g3_flute",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 46,
+ "part": 36,
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.25,
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Three seconds. What is it?",
-   "pause": 2.6
+   "text": "Three seconds. Go!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "I want my flute back.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "confused",
@@ -52,16 +52,16 @@
  },
  "hook": {
   "line": "h",
-  "text": "Three seconds. What is it?"
+  "text": "Three seconds. Go!"
  },
  "src": {
   "word": "flute",
   "img": "flute#n"
  },
  "est": {
-  "words": 23,
-  "seconds": 10.7,
-  "wpm": 129
+  "words": 21,
+  "seconds": 10.0,
+  "wpm": 126
  },
  "publish": {
   "title": "Guess in 3 seconds: F + 4 letters",
@@ -75,7 +75,7 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/dict/flute",
-  "script_words": 22,
+  "script_words": 20,
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: F + 4 letters",

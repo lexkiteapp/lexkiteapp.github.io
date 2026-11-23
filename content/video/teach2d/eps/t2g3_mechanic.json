@@ -2,17 +2,17 @@
  "id": "t2g3_mechanic",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 66,
+ "part": 54,
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.25,
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Three seconds. What is it?",
-   "pause": 2.6
+   "text": "Three seconds. Go!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "The mechanic said the van needs new brakes.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "confused",
@@ -52,16 +52,16 @@
  },
  "hook": {
   "line": "h",
-  "text": "Three seconds. What is it?"
+  "text": "Three seconds. Go!"
  },
  "src": {
   "word": "mechanic",
   "img": "mechanic#n"
  },
  "est": {
-  "words": 24,
-  "seconds": 11.0,
-  "wpm": 131
+  "words": 22,
+  "seconds": 11.9,
+  "wpm": 111
  },
  "publish": {
   "title": "Guess in 3 seconds: M + 7 letters",
@@ -75,7 +75,7 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/dict/mechanic",
-  "script_words": 23,
+  "script_words": 21,
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: M + 7 letters",

@@ -2,17 +2,17 @@
  "id": "t2g3_wrist",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 55,
+ "part": 44,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
- "speed": 1.25,
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
    "text": "Guess in three seconds!",
-   "pause": 2.6
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "I took him by the wrist.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "hype",
@@ -60,8 +60,8 @@
  },
  "est": {
   "words": 23,
-  "seconds": 10.7,
-  "wpm": 129
+  "seconds": 9.7,
+  "wpm": 142
  },
  "publish": {
   "title": "Guess in 3 seconds: W + 4 letters",
@@ -79,7 +79,7 @@
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: W + 4 letters",
-    "description": "Wrist /rɪst/ = the joint that connects the hand to the forearm. Example: \"I took him by the wrist.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/wrist\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "description": "Wrist /rɪst/ = the joint that connects the hand to the forearm. Example: \"I took him by the wrist.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/wrist\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
     "tags": [
      "wrist",
      "Guess in 3 Seconds",

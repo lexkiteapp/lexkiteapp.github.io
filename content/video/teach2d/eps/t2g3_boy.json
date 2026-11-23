@@ -6,13 +6,13 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.25,
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Three seconds. What is it?",
-   "pause": 2.6
+   "text": "Three seconds. Go!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "The boy next door plays the violin every evening.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "smirk",
@@ -52,16 +52,16 @@
  },
  "hook": {
   "line": "h",
-  "text": "Three seconds. What is it?"
+  "text": "Three seconds. Go!"
  },
  "src": {
   "word": "boy",
   "img": "boy#n"
  },
  "est": {
-  "words": 22,
-  "seconds": 10.4,
-  "wpm": 128
+  "words": 20,
+  "seconds": 10.3,
+  "wpm": 117
  },
  "publish": {
   "title": "Guess in 3 seconds: B + 2 letters",
@@ -75,7 +75,7 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/dict/boy",
-  "script_words": 21,
+  "script_words": 19,
   "platforms": {
    "youtube": {
     "title": "Guess in 3 seconds: B + 2 letters",

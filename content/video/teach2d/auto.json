@@ -27744,35 +27744,11 @@
    ]
   },
   {
-   "id": "t2g3_bus",
+   "id": "t2g3_butter",
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "part": 5,
-   "hash": "5c9d65edaeb6",
-   "template": "guess3",
-   "point": "bus",
-   "taught": [
-    "bus"
-   ],
-   "in": {
-    "word": "bus",
-    "img": "bus#n",
-    "ipa": "/bʌs/",
-    "def": "a large road vehicle used for carrying many people",
-    "ex": "I take the bus to work every day.",
-    "bank_def": "a large road vehicle used for carrying many people"
-   },
-   "heads": [
-    "g3:bus"
-   ]
-  },
-  {
-   "id": "t2g3_butter",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 6,
    "hash": "a119c2dcd5b0",
    "template": "guess3",
    "point": "butter",
@@ -27792,35 +27768,11 @@
    ]
   },
   {
-   "id": "t2g3_camera",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 7,
-   "hash": "a2338fe92466",
-   "template": "guess3",
-   "point": "camera",
-   "taught": [
-    "camera"
-   ],
-   "in": {
-    "word": "camera",
-    "img": "camera#n",
-    "ipa": "/ˈkæmərə/",
-    "def": "an object that takes pictures digitally, or on film",
-    "ex": "I bought a new camera for my trip.",
-    "bank_def": "object that takes pictures digitally, or on film"
-   },
-   "heads": [
-    "g3:camera"
-   ]
-  },
-  {
    "id": "t2g3_dog",
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 8,
+   "part": 6,
    "hash": "c446ad94e082",
    "template": "guess3",
    "point": "dog",
@@ -27844,7 +27796,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 9,
+   "part": 7,
    "hash": "1303c9286199",
    "template": "guess3",
    "point": "egg",
@@ -27868,7 +27820,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 10,
+   "part": 8,
    "hash": "27ca5e40bd0f",
    "template": "guess3",
    "point": "fish",
@@ -27892,7 +27844,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 11,
+   "part": 9,
    "hash": "f45b5556e611",
    "template": "guess3",
    "point": "girl",
@@ -27912,35 +27864,11 @@
    ]
   },
   {
-   "id": "t2g3_hospital",
+   "id": "t2g3_hotel",
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 12,
-   "hash": "74e5f398fbd5",
-   "template": "guess3",
-   "point": "hospital",
-   "taught": [
-    "hospital"
-   ],
-   "in": {
-    "word": "hospital",
-    "img": "hospital#n",
-    "ipa": "/ˈhɑːspɪtl/",
-    "def": "a building for sick people, with doctors and nurses",
-    "ex": "My grandfather is in hospital after an operation.",
-    "bank_def": "building for sick people, with doctors and nurses"
-   },
-   "heads": [
-    "g3:hospital"
-   ]
-  },
-  {
-   "id": "t2g3_hotel",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 13,
+   "part": 10,
    "hash": "ef8190611699",
    "template": "guess3",
    "point": "hotel",
@@ -27961,10 +27889,10 @@
   },
   {
    "id": "t2g3_house",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 14,
+   "part": 11,
    "hash": "3311314193e3",
    "template": "guess3",
    "point": "house",
@@ -27985,10 +27913,10 @@
   },
   {
    "id": "t2g3_leg",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 15,
+   "part": 12,
    "hash": "930dca4fa286",
    "template": "guess3",
    "point": "leg",
@@ -28009,10 +27937,10 @@
   },
   {
    "id": "t2g3_man",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 16,
+   "part": 13,
    "hash": "9b3a897d38ca",
    "template": "guess3",
    "point": "man",
@@ -28033,10 +27961,10 @@
   },
   {
    "id": "t2g3_mouse",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 17,
+   "part": 14,
    "hash": "7a4eba7dcac9",
    "template": "guess3",
    "point": "mouse",
@@ -28057,10 +27985,10 @@
   },
   {
    "id": "t2g3_mouth",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 18,
+   "part": 15,
    "hash": "8d8f4f4197d7",
    "template": "guess3",
    "point": "mouth",
@@ -28081,10 +28009,10 @@
   },
   {
    "id": "t2g3_nose",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 19,
+   "part": 16,
    "hash": "1845058f4a82",
    "template": "guess3",
    "point": "nose",
@@ -28104,35 +28032,11 @@
    ]
   },
   {
-   "id": "t2g3_pizza",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 20,
-   "hash": "43a5889de512",
-   "template": "guess3",
-   "point": "pizza",
-   "taught": [
-    "pizza"
-   ],
-   "in": {
-    "word": "pizza",
-    "img": "pizza#n",
-    "ipa": "/ˈpiːtsə/",
-    "def": "a flat bread with cheese, tomato and toppings",
-    "ex": "We ordered pizza for everyone at the late team meeting.",
-    "bank_def": "a flat bread with cheese, tomato and toppings"
-   },
-   "heads": [
-    "g3:pizza"
-   ]
-  },
-  {
    "id": "t2g3_school",
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 21,
+   "part": 17,
    "hash": "ccd1f27ba51c",
    "template": "guess3",
    "point": "school",
@@ -28152,27 +28056,27 @@
    ]
   },
   {
-   "id": "t2g3_shower",
+   "id": "t2g3_station",
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 22,
-   "hash": "35865abe3d18",
+   "part": 18,
+   "hash": "d62d610eeef5",
    "template": "guess3",
-   "point": "shower",
+   "point": "station",
    "taught": [
-    "shower"
+    "station"
    ],
    "in": {
-    "word": "shower",
-    "img": "shower#n",
-    "ipa": "/ˈʃaʊər/",
-    "def": "the cleaning of a body by standing under falling water",
-    "ex": "I usually have a shower in the morning.",
-    "bank_def": "the cleaning of a body by standing under falling water"
+    "word": "station",
+    "img": "station#n",
+    "ipa": "/ˈsteɪʃn/",
+    "def": "a place where you can catch a train or a bus",
+    "ex": "The station is a ten-minute walk from here.",
+    "bank_def": "place where you can catch a train or a bus"
    },
    "heads": [
-    "g3:shower"
+    "g3:station"
    ]
   },
   {
@@ -28180,7 +28084,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 23,
+   "part": 19,
    "hash": "f5fe320ed109",
    "template": "guess3",
    "point": "sun",
@@ -28200,35 +28104,11 @@
    ]
   },
   {
-   "id": "t2g3_television",
+   "id": "t2g3_train",
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 24,
-   "hash": "08c902633465",
-   "template": "guess3",
-   "point": "television",
-   "taught": [
-    "television"
-   ],
-   "in": {
-    "word": "television",
-    "img": "television#n",
-    "ipa": "/ˈteləvɪʒn/",
-    "def": "a piece of equipment with a screen that shows programmes",
-    "ex": "We don't watch much television at home.",
-    "bank_def": "a piece of equipment with a screen that shows programmes; the programmes shown"
-   },
-   "heads": [
-    "g3:television"
-   ]
-  },
-  {
-   "id": "t2g3_train",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 25,
+   "part": 20,
    "hash": "8197dac58bdc",
    "template": "guess3",
    "point": "train",
@@ -28249,10 +28129,10 @@
   },
   {
    "id": "t2g3_baseball",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 26,
+   "part": 21,
    "hash": "0a74831e14fb",
    "template": "guess3",
    "point": "baseball",
@@ -28273,10 +28153,10 @@
   },
   {
    "id": "t2g3_brain",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 27,
+   "part": 22,
    "hash": "01bab2cb803c",
    "template": "guess3",
    "point": "brain",
@@ -28296,35 +28176,35 @@
    ]
   },
   {
-   "id": "t2g3_elevator",
-   "teacher": "carlos",
+   "id": "t2g3_desert",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 28,
-   "hash": "52ab36b522d9",
+   "part": 23,
+   "hash": "96f6ed624f14",
    "template": "guess3",
-   "point": "elevator",
+   "point": "desert",
    "taught": [
-    "elevator"
+    "desert"
    ],
    "in": {
-    "word": "elevator",
-    "img": "elevator#n",
-    "ipa": "/ˈeləveɪtər/",
-    "def": "a machine that carries people between floors",
-    "ex": "Take the elevator to the fifth floor and turn left.",
-    "bank_def": "a machine that carries people between floors"
+    "word": "desert",
+    "img": "desert#n",
+    "ipa": "/ˈdezərt/",
+    "def": "an area of land that has very little water and few plants",
+    "ex": "Very few plants grow in the desert.",
+    "bank_def": "area of land that has very little water and few plants"
    },
    "heads": [
-    "g3:elevator"
+    "g3:desert"
    ]
   },
   {
    "id": "t2g3_engine",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 29,
+   "part": 24,
    "hash": "29fa65f21d13",
    "template": "guess3",
    "point": "engine",
@@ -28346,10 +28226,10 @@
   },
   {
    "id": "t2g3_factory",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 30,
+   "part": 25,
    "hash": "49f435e8a5a7",
    "template": "guess3",
    "point": "factory",
@@ -28370,10 +28250,10 @@
   },
   {
    "id": "t2g3_handbag",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 31,
+   "part": 26,
    "hash": "0a604855b9bb",
    "template": "guess3",
    "point": "handbag",
@@ -28394,51 +28274,28 @@
    ]
   },
   {
-   "id": "t2g3_motorcycle",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 32,
-   "hash": "ea1bda6dc079",
-   "template": "guess3",
-   "point": "motorcycle",
-   "taught": [
-    "motorcycle"
-   ],
-   "in": {
-    "word": "motorcycle",
-    "img": "motorcycle#n",
-    "ipa": "/ˈmoʊtərsaɪkl/",
-    "def": "a two-wheeled vehicle with an engine",
-    "ex": "He rides a motorcycle to work to avoid the traffic.",
-    "bank_def": "a two-wheeled vehicle with an engine"
-   },
-   "heads": [
-    "g3:motorcycle"
-   ]
-  },
-  {
-   "id": "t2g3_pilot",
+   "id": "t2g3_oak",
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 33,
-   "hash": "691ebb62b8ef",
+   "part": 27,
+   "hash": "85ef924a3cd3",
    "template": "guess3",
-   "point": "pilot",
+   "point": "oak",
    "taught": [
-    "pilot"
+    "oak"
    ],
+   "ph": "e65319bc82e1993b",
    "in": {
-    "word": "pilot",
-    "img": "pilot#n",
-    "ipa": "/ˈpaɪlət/",
-    "def": "a person who controls an airplane, spacecraft, or boat",
-    "ex": "The pilot announced that we would land soon.",
-    "bank_def": "a person who controls an airplane, spacecraft, or boat"
+    "word": "oak",
+    "img": "oak#n",
+    "ipa": "/oʊk/",
+    "def": "a large forest tree that produces acorns and hard, strong wood",
+    "ex": "I'm here to cut down the big oak.",
+    "bank_def": "a large forest tree that produces acorns and hard, strong wood"
    },
    "heads": [
-    "g3:pilot"
+    "g3:oak"
    ]
   },
   {
@@ -28446,7 +28303,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 34,
+   "part": 28,
    "hash": "054f6e1f108a",
    "template": "guess3",
    "point": "printer",
@@ -28470,7 +28327,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 35,
+   "part": 29,
    "hash": "487f768e720d",
    "template": "guess3",
    "point": "sausage",
@@ -28495,7 +28352,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 36,
+   "part": 30,
    "hash": "51c83dbb6671",
    "template": "guess3",
    "point": "scarf",
@@ -28515,36 +28372,11 @@
    ]
   },
   {
-   "id": "t2g3_smartphone",
+   "id": "t2g3_toothbrush",
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 37,
-   "hash": "647bfb126852",
-   "template": "guess3",
-   "point": "smartphone",
-   "taught": [
-    "smartphone"
-   ],
-   "ph": "bbe448e097879e34",
-   "in": {
-    "word": "smartphone",
-    "img": "smartphone#n",
-    "ipa": "/ˈsmɑːrtfoʊn/",
-    "def": "a mobile phone that works like a computer",
-    "ex": "Customers can now order food through our new smartphone app.",
-    "bank_def": "a mobile phone that works like a computer"
-   },
-   "heads": [
-    "g3:smartphone"
-   ]
-  },
-  {
-   "id": "t2g3_toothbrush",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 38,
+   "part": 31,
    "hash": "e48ab3bf190e",
    "template": "guess3",
    "point": "toothbrush",
@@ -28565,35 +28397,11 @@
    ]
   },
   {
-   "id": "t2g3_violin",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 39,
-   "hash": "d4275a15516f",
-   "template": "guess3",
-   "point": "violin",
-   "taught": [
-    "violin"
-   ],
-   "in": {
-    "word": "violin",
-    "img": "violin#n",
-    "ipa": "/vaɪəˈlɪn/",
-    "def": "a musical instrument with four strings",
-    "ex": "A violin player performed at the opening ceremony.",
-    "bank_def": "a musical instrument with four strings"
-   },
-   "heads": [
-    "g3:violin"
-   ]
-  },
-  {
    "id": "t2g3_bandage",
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 40,
+   "part": 32,
    "hash": "9c924effbc60",
    "template": "guess3",
    "point": "bandage",
@@ -28614,60 +28422,11 @@
    ]
   },
   {
-   "id": "t2g3_battery",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 41,
-   "hash": "7a25c46b6462",
-   "template": "guess3",
-   "point": "battery",
-   "taught": [
-    "battery"
-   ],
-   "in": {
-    "word": "battery",
-    "img": "battery#n",
-    "ipa": "/ˈbætəri/",
-    "def": "a device that stores and supplies electricity",
-    "ex": "The battery in my laptop lasts eight hours.",
-    "bank_def": "a device that stores and supplies electricity"
-   },
-   "heads": [
-    "g3:battery"
-   ]
-  },
-  {
-   "id": "t2g3_camel",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 42,
-   "hash": "03482cfa9093",
-   "template": "guess3",
-   "point": "camel",
-   "taught": [
-    "camel"
-   ],
-   "ph": "eb9c96c3e1708566",
-   "in": {
-    "word": "camel",
-    "img": "camel#n",
-    "ipa": "/ˈkæml/",
-    "def": "a large desert animal used for carrying loads or riding",
-    "ex": "Every part of the camel is used.",
-    "bank_def": "a large desert animal used for carrying loads or riding"
-   },
-   "heads": [
-    "g3:camel"
-   ]
-  },
-  {
    "id": "t2g3_coin",
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 43,
+   "part": 33,
    "hash": "7a3eaa2ac205",
    "template": "guess3",
    "point": "coin",
@@ -28691,7 +28450,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 44,
+   "part": 34,
    "hash": "73133171f121",
    "template": "guess3",
    "point": "crane",
@@ -28716,7 +28475,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 45,
+   "part": 35,
    "hash": "992943d31632",
    "template": "guess3",
    "point": "elbow",
@@ -28741,7 +28500,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 46,
+   "part": 36,
    "hash": "a598c463a91f",
    "template": "guess3",
    "point": "flute",
@@ -28766,7 +28525,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 47,
+   "part": 37,
    "hash": "684a4463221e",
    "template": "guess3",
    "point": "fountain",
@@ -28790,7 +28549,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 48,
+   "part": 38,
    "hash": "8395378dae76",
    "template": "guess3",
    "point": "hurricane",
@@ -28815,7 +28574,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 49,
+   "part": 39,
    "hash": "ad6fff5ea0ad",
    "template": "guess3",
    "point": "kettle",
@@ -28836,35 +28595,11 @@
    ]
   },
   {
-   "id": "t2g3_microscope",
+   "id": "t2g3_purse",
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 50,
-   "hash": "349a48c3f4de",
-   "template": "guess3",
-   "point": "microscope",
-   "taught": [
-    "microscope"
-   ],
-   "in": {
-    "word": "microscope",
-    "img": "microscope#n",
-    "ipa": "/ˈmaɪkrəskoʊp/",
-    "def": "an instrument that makes very small things look bigger",
-    "ex": "The technician examined the sample under a microscope.",
-    "bank_def": "an instrument that makes very small things look bigger"
-   },
-   "heads": [
-    "g3:microscope"
-   ]
-  },
-  {
-   "id": "t2g3_purse",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 51,
+   "part": 40,
    "hash": "1a5563a9afe9",
    "template": "guess3",
    "point": "purse",
@@ -28885,10 +28620,10 @@
   },
   {
    "id": "t2g3_ring",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 52,
+   "part": 41,
    "hash": "443fecfa60ed",
    "template": "guess3",
    "point": "ring",
@@ -28909,10 +28644,10 @@
   },
   {
    "id": "t2g3_stadium",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 53,
+   "part": 42,
    "hash": "2a58c9174605",
    "template": "guess3",
    "point": "stadium",
@@ -28933,10 +28668,10 @@
   },
   {
    "id": "t2g3_trumpet",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 54,
+   "part": 43,
    "hash": "d088a1853da0",
    "template": "guess3",
    "point": "trumpet",
@@ -28958,10 +28693,10 @@
   },
   {
    "id": "t2g3_wrist",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 55,
+   "part": 44,
    "hash": "7ee46c5c7522",
    "template": "guess3",
    "point": "wrist",
@@ -28983,10 +28718,10 @@
   },
   {
    "id": "t2g3_aircraft",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 56,
+   "part": 45,
    "hash": "6daa292861ca",
    "template": "guess3",
    "point": "aircraft",
@@ -29007,36 +28742,11 @@
    ]
   },
   {
-   "id": "t2g3_auditorium",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 57,
-   "hash": "fea3c0685dfb",
-   "template": "guess3",
-   "point": "auditorium",
-   "taught": [
-    "auditorium"
-   ],
-   "ph": "aefb81d493d4c491",
-   "in": {
-    "word": "auditorium",
-    "img": "auditorium#n",
-    "ipa": "/ˌɔːdəˈtɔːriəm/",
-    "def": "a large room for performances or speeches",
-    "ex": "The keynote speech will be in the main auditorium.",
-    "bank_def": "a large room for performances or speeches"
-   },
-   "heads": [
-    "g3:auditorium"
-   ]
-  },
-  {
    "id": "t2g3_barn",
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 58,
+   "part": 46,
    "hash": "4359739c2622",
    "template": "guess3",
    "point": "barn",
@@ -29061,7 +28771,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 59,
+   "part": 47,
    "hash": "7bcb10926d62",
    "template": "guess3",
    "point": "brewery",
@@ -29086,7 +28796,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 60,
+   "part": 48,
    "hash": "abf570e06b31",
    "template": "guess3",
    "point": "comet",
@@ -29110,7 +28820,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 61,
+   "part": 49,
    "hash": "a099b228f6a3",
    "template": "guess3",
    "point": "corridor",
@@ -29135,7 +28845,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 62,
+   "part": 50,
    "hash": "2695acc2130c",
    "template": "guess3",
    "point": "freighter",
@@ -29160,7 +28870,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 63,
+   "part": 51,
    "hash": "a63fc281c728",
    "template": "guess3",
    "point": "helmet",
@@ -29185,7 +28895,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 64,
+   "part": 52,
    "hash": "acd306dd4d55",
    "template": "guess3",
    "point": "highway",
@@ -29210,7 +28920,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 65,
+   "part": 53,
    "hash": "dba5c3fe8df8",
    "template": "guess3",
    "point": "mansion",
@@ -29235,7 +28945,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 66,
+   "part": 54,
    "hash": "99de85cfdd4c",
    "template": "guess3",
    "point": "mechanic",
@@ -29259,7 +28969,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 67,
+   "part": 55,
    "hash": "8226266cf18a",
    "template": "guess3",
    "point": "pier",
@@ -29284,7 +28994,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 68,
+   "part": 56,
    "hash": "b9f4f60b9e2c",
    "template": "guess3",
    "point": "railing",
@@ -29309,7 +29019,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 69,
+   "part": 57,
    "hash": "3ea4bfbb6a40",
    "template": "guess3",
    "point": "rat",
@@ -29333,7 +29043,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 70,
+   "part": 58,
    "hash": "ef44e437d461",
    "template": "guess3",
    "point": "sewer",
@@ -29358,7 +29068,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 71,
+   "part": 59,
    "hash": "172f6686c26c",
    "template": "guess3",
    "point": "stool",
@@ -29383,7 +29093,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 72,
+   "part": 60,
    "hash": "985255a792c9",
    "template": "guess3",
    "point": "terrace",
@@ -29404,36 +29114,11 @@
    ]
   },
   {
-   "id": "t2g3_thermometer",
+   "id": "t2g3_trail",
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 73,
-   "hash": "25247a3e4653",
-   "template": "guess3",
-   "point": "thermometer",
-   "taught": [
-    "thermometer"
-   ],
-   "ph": "e29949e69b6c8cc9",
-   "in": {
-    "word": "thermometer",
-    "img": "thermometer#n",
-    "ipa": "/θərˈmɑːmətər/",
-    "def": "an instrument used for measuring temperature",
-    "ex": "I don't have a thermometer.",
-    "bank_def": "an instrument used for measuring temperature"
-   },
-   "heads": [
-    "g3:thermometer"
-   ]
-  },
-  {
-   "id": "t2g3_trail",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 74,
+   "part": 61,
    "hash": "160a5ecb338e",
    "template": "guess3",
    "point": "trail",
@@ -29454,36 +29139,11 @@
    ]
   },
   {
-   "id": "t2g3_asteroid",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "part": 75,
-   "hash": "d884bcbe3d18",
-   "template": "guess3",
-   "point": "asteroid",
-   "taught": [
-    "asteroid"
-   ],
-   "ph": "e1ee9e1159db6508",
-   "in": {
-    "word": "asteroid",
-    "img": "asteroid#n",
-    "ipa": "/ˈæstərɔɪd/",
-    "def": "a large rock that moves around the sun",
-    "ex": "An asteroid impact may have wiped out the dinosaurs.",
-    "bank_def": "a large rock that moves around the sun"
-   },
-   "heads": [
-    "g3:asteroid"
-   ]
-  },
-  {
    "id": "t2g3_banquet",
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 76,
+   "part": 62,
    "hash": "5a0db8851311",
    "template": "guess3",
    "point": "banquet",
@@ -29508,7 +29168,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "part": 77,
+   "part": 63,
    "hash": "bb2ea973b11f",
    "template": "guess3",
    "point": "ruler",

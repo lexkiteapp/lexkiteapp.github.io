@@ -858,16 +858,16 @@ def T_slang():
 def T_guess3():
     """Guess in 3 Seconds (growth series #2): from frame 0 the hook headline, the picture, blank letter tiles (the word is hidden) and the 3-2-1 ring (the viewer guesses in the comments);
     reveal: the tiles fill, the word big + IPA pill take the headline slot, then the meaning card, the example bubble (word highlighted), CTA."""
-    D = EP['data']; series_chip(); w = D['word']; n = D['n']; t_rev, t_m, t_e, t_c = start('a'), start('m'), start('e'), start('c'); t_out = t_c - 0.2; t_h = t_rev - 0.12
+    D = EP['data']; series_chip(); w = D['word']; n = D['n']; t_rev, t_m, t_e, t_c = start('a'), start('m'), start('e'), start('c'); t_out = t_c - 0.2; t_h = t_rev - 0.3   # every card / title leaves 0.3 s before the next one's word (slang: t_q - 0.3): the soft entrance starts 0.12 s before its word, so nothing overlaps
     hw = EP['hook']['text'].split(); n2 = min(2, len(hw) - 1)
     title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 88, RY0, None, t_h, hook=True)
     P = 240 if D.get('l1') else 300; px = RX0 + (RW - P) / 2; py = RY0 + 215   # the headline slot (2 lines) = 215 px; the same slot holds the revealed word + IPA
     top('pic', [px, py, px + P, py + P], None, out=t_out, src='pic.png', sharp=True)
-    t0, t1 = end('h') + 0.05, end('h') + LINES['h']['pause'] - 0.1
+    t0, t1 = start('h') + 0.1, t_rev - 0.1   # the 3-2-1 ring runs from the hook's first word to the answer: the hook + its silence ~ 3 s
     top('ring', [px + P + 16, py + 10, px + P + 126, py + 120], t0, out=t1 + 0.3, ring=dict(t0=round(t0, 3), t1=round(t1, 3)), size=54)
     y = py + P + 22; lw = min(90, (RW - 12 * (n - 1)) / n); x = RX0 + (RW - (lw * n + 12 * (n - 1))) / 2
     for ch in w.upper():
-        top('letter', [x, y, x + lw, y + lw * 1.2], None, out=t_m - 0.1, ch=ch, size=int(lw * 0.7), st=[dict(t=round(t_rev, 4), s='show')], pairs=[['#382600', '#FFC524', int(lw * 0.7)]]); x += lw + 12
+        top('letter', [x, y, x + lw, y + lw * 1.2], None, out=t_m - 0.3, ch=ch, size=int(lw * 0.7), st=[dict(t=round(t_rev, 4), s='show')], pairs=[['#382600', '#FFC524', int(lw * 0.7)]]); x += lw + 12
     ww = tw(w, 104); top('text', [RX0 + (RW - ww) / 2, RY0, RX0 + (RW + ww) / 2, RY0 + 127], t_rev, out=t_out, runs=[[w, 'coral']], size=104, ipa=False)
     iw = min(RW, tw(D['ipa'], 48, True) + 80)
     nip = top('ipapill', [RX0 + (RW - iw) / 2, RY0 + 132, RX0 + (RW + iw) / 2, RY0 + 212], t_rev, out=t_out, text=D['ipa'], size=48, pairs=[[TH['ink'], TH['card'], 48]])
@@ -875,7 +875,7 @@ def T_guess3():
     y0 = py + P + 14; mean = D['mean'][0].upper() + D['mean'][1:].rstrip('.') + '.'
     c = Card(y0); c.text([[mean, 'ink']], S['body'], t_m, align='c')
     if D.get('l1'): c.text([[D['l1'], 'accent']], S['body'], t_m, align='c', extra={'rtl': True} if EP.get('lang') == 'ar' else None)   # the page's language (L1 channels only)
-    c.place(t_m, t_e - 0.2, 'a')
+    c.place(t_m, t_e - 0.3, 'a')
     hl = (re.search(rf'\b{re.escape(w)}(?:s|es)?\b', D['ex'], re.I) or re.search(re.escape(w), D['ex'], re.I)); hl = hl.group(0) if hl else w
     runs = runs_hl(D['ex'], hl, col='onhl', base='ongood'); c = Card(y0, tone='bubble_good'); c.tail = 'l'
     c.text(runs, S['body'] if len(c.wrap(runs, S['body'])) <= 2 else S['sub'], t_e); c.place(t_e, t_out, 'a')

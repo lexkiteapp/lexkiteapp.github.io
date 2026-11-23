@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_desert",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 23,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: desert!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "An area of land that has very little water and few plants.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "Very few plants grow in the desert.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "desert",
+  "ipa": "/ˈdezərt/",
+  "mean": "an area of land that has very little water and few plants",
+  "ex": "Very few plants grow in the desert.",
+  "img": "desert#n",
+  "n": 6
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/desert",
+  "link": "https://lexkite.com/app/#/dict/desert",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "desert",
+  "img": "desert#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.9,
+  "wpm": 131
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: D + 5 letters",
+  "keyword": "desert",
+  "value": "Desert /ˈdezərt/ = an area of land that has very little water and few plants. Example: \"Very few plants grow in the desert.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/desert",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: D + 5 letters",
+    "description": "Desert /ˈdezərt/ = an area of land that has very little water and few plants. Example: \"Very few plants grow in the desert.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/desert\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "desert",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: D + 5 letters\n\nDesert /ˈdezərt/ = an area of land that has very little water and few plants. Example: \"Very few plants grow in the desert.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/desert"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: D + 5 letters\n\nDesert /ˈdezərt/ = an area of land that has very little water and few plants. Example: \"Very few plants grow in the desert.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: D + 5 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: desert. An area of land that has very little water and few plants. Example: \"Very few plants grow in the desert.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

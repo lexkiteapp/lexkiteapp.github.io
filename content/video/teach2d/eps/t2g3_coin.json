@@ -2,17 +2,17 @@
  "id": "t2g3_coin",
  "template": "guess3",
  "series": "Guess in 3 Seconds",
- "part": 43,
+ "part": 33,
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 1.25,
+ "speed": 1.33,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "Quick! Guess in three seconds!",
-   "pause": 2.6
+   "text": "Name it in three seconds!",
+   "pause": 1.5
   },
   {
    "id": "a",
@@ -27,12 +27,12 @@
   {
    "id": "e",
    "text": "He found an old coin in the garden.",
-   "pause": 0.2
+   "pause": 0.15
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.3
   }
  ],
  "expr": "hype",
@@ -52,7 +52,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Quick! Guess in three seconds!"
+  "text": "Name it in three seconds!"
  },
  "src": {
   "word": "coin",
@@ -60,8 +60,8 @@
  },
  "est": {
   "words": 26,
-  "seconds": 11.6,
-  "wpm": 134
+  "seconds": 11.1,
+  "wpm": 141
  },
  "publish": {
   "title": "Guess in 3 seconds: C + 3 letters",
