@@ -68,7 +68,7 @@ async function run(type, name, opts, scheme) {
     return false; };
   const diag = () => page.evaluate(() => { const d = App.drawn(), v = document.getElementById('view'), f = v && v.firstElementChild;
     return `hash ${location.hash}, vẽ xong ${d.hash} (lượt ${d.tok}/${App.routeToken()}), #view: ${f ? f.tagName + '.' + String(f.className).slice(0, 60) : 'trống'}`; });
-  let shot = 0; const hub = async () => { await page.evaluate(h => { location.hash = h; }, HUB); if (await settle(HUB)) return true;
+  let shot = 0; const hub = async () => { await page.evaluate(h => { location.hash = h; }, HUB); if (await settle(HUB)) { await page.waitForTimeout(650); return true; } // app.js Scroll.restore: 600 ms sau khi vẽ lượt về, app kéo cuộn về vị trí cũ (dừng khi người dùng chạm/cuộn thật); cuộn bằng scrollIntoView của test không phải thao tác người dùng → chờ hết cửa sổ rồi mới đo/cuộn/chạm
     ok(false, `${tag}: màn Ôn không vẽ lại khi về ${HUB} (${await diag()})`); await page.screenshot({ path: path.join(OUT, `fail-${name}-${scheme}-${++shot}.png`) }).catch(() => {});
     await page.evaluate(() => { location.hash = '#/home'; }); await settle(null); await page.evaluate(h => { location.hash = h; }, HUB); return settle(HUB); }; // gỡ kẹt để kiểm tiếp các nút còn lại
   await page.goto('https://lk.test/app/?sandbox=1#/home', { waitUntil: 'load' }); await page.waitForFunction(() => window.App && App.state && App.saveSettings && window.Core, null, { timeout: 30000 });
