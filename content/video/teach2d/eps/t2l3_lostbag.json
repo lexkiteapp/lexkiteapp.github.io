@@ -2,7 +2,7 @@
  "id": "t2l3_lostbag",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 64,
+ "part": 38,
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
@@ -12,28 +12,28 @@
   {
    "id": "h",
    "text": "Lost luggage: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "My bag is not here.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Excuse me, my bag didn't arrive.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Hi, my bag never showed up.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 23,
-  "seconds": 11.6,
-  "wpm": 119
+  "seconds": 10.9,
+  "wpm": 127
  },
  "publish": {
   "title": "Lost luggage: A1, B1 or C1?",

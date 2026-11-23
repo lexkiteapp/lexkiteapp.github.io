@@ -12,28 +12,28 @@
   {
    "id": "h",
    "text": "Slow it down: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "Not so fast, please.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Could you speak more slowly, please?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Sorry, could you slow down a bit?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 24,
-  "seconds": 11.1,
-  "wpm": 130
+  "seconds": 10.3,
+  "wpm": 140
  },
  "publish": {
   "title": "Slow it down: A1, B1 or C1?",

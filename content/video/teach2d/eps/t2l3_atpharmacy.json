@@ -12,28 +12,28 @@
   {
    "id": "h",
    "text": "At the pharmacy: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "I have a cold.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Do you have anything for a cold?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "I've come down with a cold.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 24,
-  "seconds": 11.6,
-  "wpm": 124
+  "seconds": 10.9,
+  "wpm": 133
  },
  "publish": {
   "title": "At the pharmacy: A1, B1 or C1?",

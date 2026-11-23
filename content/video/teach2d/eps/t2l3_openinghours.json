@@ -2,38 +2,38 @@
  "id": "t2l3_openinghours",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 62,
+ "part": 63,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Opening hours: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "What time do you open?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
-   "text": "Could you tell me your opening hours?",
-   "pause": 0.3
+   "text": "Could you tell me your hours?",
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "What time are you open till?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -54,8 +54,8 @@
     "note": "Clear and correct."
    },
    "b": {
-    "text": "Could you tell me your opening hours?",
-    "key": "opening hours",
+    "text": "Could you tell me your hours?",
+    "key": "your hours",
     "note": "Polite and standard."
    },
    "c": {
@@ -87,14 +87,14 @@
   "levels3": "opening-hours"
  },
  "est": {
-  "words": 24,
-  "seconds": 12.1,
-  "wpm": 119
+  "words": 23,
+  "seconds": 10.6,
+  "wpm": 130
  },
  "publish": {
   "title": "Opening hours: A1, B1 or C1?",
   "keyword": "opening hours",
-  "value": "Opening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your opening hours?\" C1: \"What time are you open till?\"",
+  "value": "Opening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your hours?\" C1: \"What time are you open till?\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 17,
+  "script_words": 16,
   "platforms": {
    "youtube": {
     "title": "Opening hours: A1, B1 or C1?",
-    "description": "Opening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your opening hours?\" C1: \"What time are you open till?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Opening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your hours?\" C1: \"What time are you open till?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "opening hours",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Opening hours: A1, B1 or C1?\n\nOpening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your opening hours?\" C1: \"What time are you open till?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Opening hours: A1, B1 or C1?\n\nOpening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your hours?\" C1: \"What time are you open till?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Opening hours: A1, B1 or C1?\n\nOpening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your opening hours?\" C1: \"What time are you open till?\"\n\nLevel up your English free: link in bio.",
+    "caption": "Opening hours: A1, B1 or C1?\n\nOpening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your hours?\" C1: \"What time are you open till?\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",

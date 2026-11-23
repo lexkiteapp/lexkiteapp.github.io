@@ -2,38 +2,38 @@
  "id": "t2l3_rainyday",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 43,
+ "part": 44,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Talk about rain: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "It is raining.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "It's raining really hard today.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "It's raining cats and dogs!",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 20,
-  "seconds": 11.1,
-  "wpm": 108
+  "seconds": 10.3,
+  "wpm": 116
  },
  "publish": {
   "title": "Talk about rain: A1, B1 or C1?",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "Talk about rain: A1, B1 or C1?",
-    "description": "Talk about rain, three ways. A1: \"It is raining.\" B1: \"It's raining really hard today.\" C1: \"It's raining cats and dogs!\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Talk about rain, three ways. A1: \"It is raining.\" B1: \"It's raining really hard today.\" C1: \"It's raining cats and dogs!\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "talk about rain",
      "One Situation, 3 Levels",

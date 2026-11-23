@@ -101578,7 +101578,7 @@
      "note": "Clear, a little stiff."
     },
     "b": {
-     "text": "Hello, I live in the flat next door.",
+     "text": "Hi, I live next door.",
      "key": "next door",
      "note": "Friendly and clear."
     },
@@ -101670,7 +101670,7 @@
      "note": "Polite, full sentence."
     },
     "c": {
-     "text": "Could you drop me off at the airport?",
+     "text": "Could you drop me off there?",
      "key": "drop me off",
      "note": "What locals really say."
     }
@@ -101960,12 +101960,12 @@
      "note": "Clear, but very basic."
     },
     "b": {
-     "text": "Could you cut it a little shorter, please?",
-     "key": "a little shorter",
+     "text": "Could you cut it a bit shorter, please?",
+     "key": "a bit shorter",
      "note": "Polite and specific."
     },
     "c": {
-     "text": "Just a trim, please, nothing drastic.",
+     "text": "Just a trim, please, nothing fancy.",
      "key": "a trim",
      "note": "Short and natural."
     }
@@ -102349,7 +102349,7 @@
      "note": "Polite and careful."
     },
     "c": {
-     "text": "I hear you, but I'm not convinced.",
+     "text": "I hear you, but I doubt it.",
      "key": "I hear you",
      "note": "Shows you listened first."
     }
@@ -102613,11 +102613,53 @@
    }
   },
   {
-   "id": "t2l3_arrivelate",
+   "id": "t2l3_lostbag",
    "template": "levels3",
    "teacher": "carlos",
    "theme": "dusk",
    "part": 38,
+   "area": "phrases",
+   "point": "levels3:lost-bag",
+   "hash": "208fc29a97f9",
+   "heads": [
+    "lv3:lost-bag"
+   ],
+   "taught": [
+    "showed",
+    "up"
+   ],
+   "facts": {
+    "id": "lost-bag",
+    "title": "Lost luggage",
+    "em": "🧳",
+    "chip": "At the airport",
+    "reg": "neutral",
+    "a": {
+     "text": "My bag is not here.",
+     "key": "not here",
+     "note": "Clear, but basic."
+    },
+    "b": {
+     "text": "Excuse me, my bag didn't arrive.",
+     "key": "didn't arrive",
+     "note": "Clear and polite."
+    },
+    "c": {
+     "text": "Hi, my bag never showed up.",
+     "key": "showed up",
+     "note": "Natural for \"it did not arrive\"."
+    }
+   },
+   "in": {
+    "id": "lost-bag"
+   }
+  },
+  {
+   "id": "t2l3_arrivelate",
+   "template": "levels3",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 39,
    "area": "phrases",
    "point": "levels3:arrive-late",
    "hash": "f61bb7930dcc",
@@ -102657,9 +102699,9 @@
   {
    "id": "t2l3_movemeeting",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 39,
+   "part": 40,
    "area": "phrases",
    "point": "levels3:move-meeting",
    "hash": "d45f8cb90b60",
@@ -102683,7 +102725,7 @@
      "note": "Clear and simple."
     },
     "b": {
-     "text": "Could we move the meeting to Monday?",
+     "text": "Could we move the meeting?",
      "key": "move the meeting",
      "note": "Polite and specific."
     },
@@ -102700,9 +102742,9 @@
   {
    "id": "t2l3_needtime",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 40,
+   "part": 41,
    "area": "phrases",
    "point": "levels3:need-time",
    "hash": "581342f17fb3",
@@ -102742,9 +102784,9 @@
   {
    "id": "t2l3_postoffice",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 41,
+   "part": 42,
    "area": "phrases",
    "point": "levels3:post-office",
    "hash": "aa1fb1fe00a0",
@@ -102785,9 +102827,9 @@
   {
    "id": "t2l3_borrowbook",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 42,
+   "part": 43,
    "area": "phrases",
    "point": "levels3:borrow-book",
    "hash": "2846ac21ca91",
@@ -102827,9 +102869,9 @@
   {
    "id": "t2l3_rainyday",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 43,
+   "part": 44,
    "area": "phrases",
    "point": "levels3:rainy-day",
    "hash": "aed8e7162601",
@@ -102870,9 +102912,9 @@
   {
    "id": "t2l3_sayhungry",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 44,
+   "part": 45,
    "area": "phrases",
    "point": "levels3:say-hungry",
    "hash": "7f119a5d8727",
@@ -102913,9 +102955,9 @@
   {
    "id": "t2l3_saytired",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 45,
+   "part": 46,
    "area": "phrases",
    "point": "levels3:say-tired",
    "hash": "8cabd9beb936",
@@ -102957,9 +102999,9 @@
   {
    "id": "t2l3_getdiscount",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 46,
+   "part": 47,
    "area": "phrases",
    "point": "levels3:get-discount",
    "hash": "20618c0bf044",
@@ -102999,9 +103041,9 @@
   {
    "id": "t2l3_splitbill",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 47,
+   "part": 48,
    "area": "phrases",
    "point": "levels3:split-bill",
    "hash": "9c54f3be6f8b",
@@ -103041,9 +103083,9 @@
   {
    "id": "t2l3_offerhelp",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 48,
+   "part": 49,
    "area": "phrases",
    "point": "levels3:offer-help",
    "hash": "9d2105134d73",
@@ -103084,9 +103126,9 @@
   {
    "id": "t2l3_findseat",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 49,
+   "part": 50,
    "area": "phrases",
    "point": "levels3:find-seat",
    "hash": "69e2c1edc229",
@@ -103126,9 +103168,9 @@
   {
    "id": "t2l3_askhowlong",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 50,
+   "part": 51,
    "area": "phrases",
    "point": "levels3:ask-how-long",
    "hash": "f3d0b6551538",
@@ -103169,9 +103211,9 @@
   {
    "id": "t2l3_askadvice",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 51,
+   "part": 52,
    "area": "phrases",
    "point": "levels3:ask-advice",
    "hash": "b3ef02339034",
@@ -103211,9 +103253,9 @@
   {
    "id": "t2l3_changeorder",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 52,
+   "part": 53,
    "area": "phrases",
    "point": "levels3:change-order",
    "hash": "78142caf9091",
@@ -103252,9 +103294,9 @@
   {
    "id": "t2l3_specialrequest",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 53,
+   "part": 54,
    "area": "phrases",
    "point": "levels3:special-request",
    "hash": "0d90758d2690",
@@ -103294,9 +103336,9 @@
   {
    "id": "t2l3_praisefood",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 54,
+   "part": 55,
    "area": "phrases",
    "point": "levels3:praise-food",
    "hash": "a71ad8263536",
@@ -103337,9 +103379,9 @@
   {
    "id": "t2l3_takephoto",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 55,
+   "part": 56,
    "area": "phrases",
    "point": "levels3:take-photo",
    "hash": "5b40d5f7d88f",
@@ -103368,7 +103410,7 @@
      "note": "Polite and complete."
     },
     "c": {
-     "text": "Would you mind taking a quick pic?",
+     "text": "Would you mind taking a pic?",
      "key": "Would you mind",
      "note": "Polite and relaxed."
     }
@@ -103380,9 +103422,9 @@
   {
    "id": "t2l3_getpast",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 56,
+   "part": 57,
    "area": "phrases",
    "point": "levels3:get-past",
    "hash": "2d6ed1451632",
@@ -103421,9 +103463,9 @@
   {
    "id": "t2l3_saygoodbye",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 57,
+   "part": 58,
    "area": "phrases",
    "point": "levels3:say-goodbye",
    "hash": "66e440d479ef",
@@ -103463,9 +103505,9 @@
   {
    "id": "t2l3_saybusy",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 58,
+   "part": 59,
    "area": "phrases",
    "point": "levels3:say-busy",
    "hash": "03f7d67656c6",
@@ -103504,9 +103546,9 @@
   {
    "id": "t2l3_requestleave",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 59,
+   "part": 60,
    "area": "phrases",
    "point": "levels3:request-leave",
    "hash": "bdf301e1a7a4",
@@ -103531,7 +103573,7 @@
      "note": "Clear, a bit direct."
     },
     "b": {
-     "text": "Could I take Friday off, please?",
+     "text": "Could I take Friday off?",
      "key": "take Friday off",
      "note": "Polite and specific."
     },
@@ -103548,9 +103590,9 @@
   {
    "id": "t2l3_sayhello",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 60,
+   "part": 61,
    "area": "phrases",
    "point": "levels3:say-hello",
    "hash": "d15bbc59adbf",
@@ -103591,9 +103633,9 @@
   {
    "id": "t2l3_paybycard",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 61,
+   "part": 62,
    "area": "phrases",
    "point": "levels3:pay-by-card",
    "hash": "20b52d320c45",
@@ -103633,9 +103675,9 @@
   {
    "id": "t2l3_openinghours",
    "template": "levels3",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
-   "part": 62,
+   "part": 63,
    "area": "phrases",
    "point": "levels3:opening-hours",
    "hash": "f10c96067a30",
@@ -103658,8 +103700,8 @@
      "note": "Clear and correct."
     },
     "b": {
-     "text": "Could you tell me your opening hours?",
-     "key": "opening hours",
+     "text": "Could you tell me your hours?",
+     "key": "your hours",
      "note": "Polite and standard."
     },
     "c": {
@@ -103675,9 +103717,9 @@
   {
    "id": "t2l3_getlift",
    "template": "levels3",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
-   "part": 63,
+   "part": 64,
    "area": "phrases",
    "point": "levels3:get-lift",
    "hash": "bb84033ec9ba",
@@ -103713,48 +103755,6 @@
    },
    "in": {
     "id": "get-lift"
-   }
-  },
-  {
-   "id": "t2l3_lostbag",
-   "template": "levels3",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "part": 64,
-   "area": "phrases",
-   "point": "levels3:lost-bag",
-   "hash": "208fc29a97f9",
-   "heads": [
-    "lv3:lost-bag"
-   ],
-   "taught": [
-    "showed",
-    "up"
-   ],
-   "facts": {
-    "id": "lost-bag",
-    "title": "Lost luggage",
-    "em": "🧳",
-    "chip": "At the airport",
-    "reg": "neutral",
-    "a": {
-     "text": "My bag is not here.",
-     "key": "not here",
-     "note": "Clear, but basic."
-    },
-    "b": {
-     "text": "Excuse me, my bag didn't arrive.",
-     "key": "didn't arrive",
-     "note": "Clear and polite."
-    },
-    "c": {
-     "text": "Hi, my bag never showed up.",
-     "key": "showed up",
-     "note": "Natural for \"it did not arrive\"."
-    }
-   },
-   "in": {
-    "id": "lost-bag"
    }
   }
  ]

@@ -12,28 +12,28 @@
   {
    "id": "h",
    "text": "Get online: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "Do you have internet?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Could I have the Wi-Fi code?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "What's the Wi-Fi password, by the way?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 23,
-  "seconds": 11.9,
-  "wpm": 116
+  "seconds": 11.1,
+  "wpm": 124
  },
  "publish": {
   "title": "Get online: A1, B1 or C1?",

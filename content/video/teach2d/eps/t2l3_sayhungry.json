@@ -2,38 +2,38 @@
  "id": "t2l3_sayhungry",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 44,
+ "part": 45,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Say you're hungry: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "I am hungry.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "I'm really hungry. Let's eat.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "I'm starving! Let's grab a bite.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 21,
-  "seconds": 11.1,
-  "wpm": 114
+  "seconds": 10.3,
+  "wpm": 122
  },
  "publish": {
   "title": "Say you're hungry: A1, B1 or C1?",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "Say you're hungry: A1, B1 or C1?",
-    "description": "Say you're hungry, three ways. A1: \"I am hungry.\" B1: \"I'm really hungry. Let's eat.\" C1: \"I'm starving! Let's grab a bite.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Say you're hungry, three ways. A1: \"I am hungry.\" B1: \"I'm really hungry. Let's eat.\" C1: \"I'm starving! Let's grab a bite.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "say you're hungry",
      "One Situation, 3 Levels",

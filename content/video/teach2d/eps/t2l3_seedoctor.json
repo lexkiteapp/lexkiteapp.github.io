@@ -12,28 +12,28 @@
   {
    "id": "h",
    "text": "See a doctor: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "I need a doctor.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "I'd like an appointment, please.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "I was hoping to get seen today.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 23,
-  "seconds": 11.9,
-  "wpm": 116
+  "seconds": 11.1,
+  "wpm": 124
  },
  "publish": {
   "title": "See a doctor: A1, B1 or C1?",

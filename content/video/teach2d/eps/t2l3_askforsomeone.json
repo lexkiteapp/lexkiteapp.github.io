@@ -12,28 +12,28 @@
   {
    "id": "h",
    "text": "Ask for someone: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "Is Ana there?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Hello, could I speak to Ana?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Hi, is Ana free for a quick word?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 24,
-  "seconds": 11.9,
-  "wpm": 121
+  "seconds": 11.1,
+  "wpm": 129
  },
  "publish": {
   "title": "Ask for someone: A1, B1 or C1?",

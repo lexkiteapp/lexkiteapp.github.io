@@ -12,28 +12,28 @@
   {
    "id": "h",
    "text": "Small talk: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "It's a nice day.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "The weather is lovely today, isn't it?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Lovely day, isn't it?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 21,
-  "seconds": 11.3,
-  "wpm": 111
+  "seconds": 10.6,
+  "wpm": 119
  },
  "publish": {
   "title": "Small talk: A1, B1 or C1?",

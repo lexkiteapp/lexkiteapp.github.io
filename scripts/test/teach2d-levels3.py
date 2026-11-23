@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One Situation, 3 Levels template (docs/VIDEO-TEACH2D.md "Levels 3", growth series #3): every situation of content/video/teach2d/levels3.json builds a valid 9-12.4 s episode (hook / A1 / B1 / C1 + silent quiz / CTA)
+"""One Situation, 3 Levels template (docs/VIDEO-TEACH2D.md "Levels 3", growth series #3): every situation of content/video/teach2d/levels3.json builds a valid 8.5-11.2 s episode (hook / A1 / B1 / C1 + silent quiz / CTA)
 or is skipped for a named reason, >= 90 % of the bank is renderable, every planned row == the live bank (data gate), publish metadata valid, one TeacherRig face per level line, quiz answer balanced,
 the quiz options are the key phrases (C1 key vs A1 / B1 key), >= 60 rows planned."""
 import json, os, sys
@@ -19,7 +19,7 @@ for i, it in enumerate(B.values()):
 try: import PIL  # noqa: F401 – the real-font width of every quiz label (preqc has no PIL: levels3.mjs pillW is the PIL-free guard there)
 except ImportError: pass
 else: assert all(gen.text_w(gen.lv3_label(x[k]['key']), 56) <= 640 for x in B.values() for k in 'abc'), 'a quiz label is wider than the pill'
-print(f'levels3: {ok}/{len(B)} situations build a 9-12.4 s episode; answers A/B {ans}; skipped {[(k, len(v), v[:4]) for k, v in bad.items()]}')
+print(f'levels3: {ok}/{len(B)} situations build a 8.5-11.2 s episode; answers A/B {ans}; skipped {[(k, len(v), v[:4]) for k, v in bad.items()]}')
 assert ok / len(B) >= 0.9, 'too many situations do not fit the clip - shorten them in levels3.json'
 assert min(ans) >= 0.3 * ok, ans
 rows = [r for r in gen.load_auto()['rows'] if r['template'] == 'levels3']

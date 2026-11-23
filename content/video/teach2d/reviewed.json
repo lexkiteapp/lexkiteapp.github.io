@@ -74784,7 +74784,7 @@
    "hook": "Order coffee: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -74806,7 +74806,7 @@
    "hook": "Airport check-in: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -74828,7 +74828,7 @@
    "hook": "Hotel check-in: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -74850,7 +74850,7 @@
    "hook": "Ask directions: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -74872,7 +74872,7 @@
    "hook": "Book a table: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -74894,7 +74894,7 @@
    "hook": "Order food: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -74916,7 +74916,7 @@
    "hook": "Pay the bill: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -74938,7 +74938,7 @@
    "hook": "Ask for size: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -74960,7 +74960,7 @@
    "hook": "Return something: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -74982,7 +74982,7 @@
    "hook": "See a doctor: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75004,7 +75004,7 @@
    "hook": "Ask for someone: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75026,7 +75026,7 @@
    "hook": "Job interview: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75048,7 +75048,7 @@
    "hook": "Meet a neighbour: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75060,7 +75060,7 @@
    "script": {
     "h": "Meet a neighbour: three levels!",
     "a": "Hello. I live here.",
-    "b": "Hello, I live in the flat next door.",
+    "b": "Hi, I live next door.",
     "n": "Hi, I just moved in next door.",
     "c": "lexkite.com"
    }
@@ -75070,7 +75070,7 @@
    "hook": "Noisy neighbours: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75092,7 +75092,7 @@
    "hook": "Take a taxi: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75105,7 +75105,7 @@
     "h": "Take a taxi: three levels!",
     "a": "To the airport, please.",
     "b": "Could you take me to the airport?",
-    "n": "Could you drop me off at the airport?",
+    "n": "Could you drop me off there?",
     "c": "lexkite.com"
    }
   },
@@ -75114,7 +75114,7 @@
    "hook": "Buy a ticket: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75136,7 +75136,7 @@
    "hook": "Train is late: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75158,7 +75158,7 @@
    "hook": "Get a bag: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75180,7 +75180,7 @@
    "hook": "At the pharmacy: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75202,7 +75202,7 @@
    "hook": "Join a gym: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75224,7 +75224,7 @@
    "hook": "Buy cinema tickets: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75246,7 +75246,7 @@
    "hook": "Get a haircut: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75258,8 +75258,8 @@
    "script": {
     "h": "Get a haircut: three levels!",
     "a": "I want short hair.",
-    "b": "Could you cut it a little shorter, please?",
-    "n": "Just a trim, please, nothing drastic.",
+    "b": "Could you cut it a bit shorter, please?",
+    "n": "Just a trim, please, nothing fancy.",
     "c": "lexkite.com"
    }
   },
@@ -75268,7 +75268,7 @@
    "hook": "Accept an invite: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75290,7 +75290,7 @@
    "hook": "Say no politely: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75312,7 +75312,7 @@
    "hook": "Ask to repeat: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75334,7 +75334,7 @@
    "hook": "Slow it down: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75356,7 +75356,7 @@
    "hook": "Say thanks: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75378,7 +75378,7 @@
    "hook": "Say sorry: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75400,7 +75400,7 @@
    "hook": "Give a compliment: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75422,7 +75422,7 @@
    "hook": "Agree with someone: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75444,7 +75444,7 @@
    "hook": "Disagree politely: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75457,7 +75457,7 @@
     "h": "Disagree politely: three levels!",
     "a": "I don't think so.",
     "b": "I'm not sure I agree.",
-    "n": "I hear you, but I'm not convinced.",
+    "n": "I hear you, but I doubt it.",
     "c": "lexkite.com"
    }
   },
@@ -75466,7 +75466,7 @@
    "hook": "Ask for help: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75488,7 +75488,7 @@
    "hook": "Ask to wait: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75510,7 +75510,7 @@
    "hook": "Small talk: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75532,7 +75532,7 @@
    "hook": "Weekend plans: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75554,7 +75554,7 @@
    "hook": "Ask the time: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75576,7 +75576,7 @@
    "hook": "Get online: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75593,12 +75593,34 @@
     "c": "lexkite.com"
    }
   },
+  "t2l3_lostbag": {
+   "template": "levels3",
+   "hook": "Lost luggage: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "208fc29a97f9",
+   "script": {
+    "h": "Lost luggage: three levels!",
+    "a": "My bag is not here.",
+    "b": "Excuse me, my bag didn't arrive.",
+    "n": "Hi, my bag never showed up.",
+    "c": "lexkite.com"
+   }
+  },
   "t2l3_arrivelate": {
    "template": "levels3",
    "hook": "Arrive late: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75620,7 +75642,7 @@
    "hook": "Move a meeting: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75632,7 +75654,7 @@
    "script": {
     "h": "Move a meeting: three levels!",
     "a": "Can we meet on Monday?",
-    "b": "Could we move the meeting to Monday?",
+    "b": "Could we move the meeting?",
     "n": "Could we push it to Monday?",
     "c": "lexkite.com"
    }
@@ -75642,7 +75664,7 @@
    "hook": "Need more time: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75664,7 +75686,7 @@
    "hook": "Post office: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75686,7 +75708,7 @@
    "hook": "Borrow a book: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75708,7 +75730,7 @@
    "hook": "Talk about rain: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75730,7 +75752,7 @@
    "hook": "Say you're hungry: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75752,7 +75774,7 @@
    "hook": "Say you're tired: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75774,7 +75796,7 @@
    "hook": "Get a discount: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75796,7 +75818,7 @@
    "hook": "Split the bill: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75818,7 +75840,7 @@
    "hook": "Offer to help: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75840,7 +75862,7 @@
    "hook": "Find a seat: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75862,7 +75884,7 @@
    "hook": "Ask how long: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75884,7 +75906,7 @@
    "hook": "Ask for advice: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75906,7 +75928,7 @@
    "hook": "Change your order: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75928,7 +75950,7 @@
    "hook": "Special request: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75950,7 +75972,7 @@
    "hook": "Praise the food: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75972,7 +75994,7 @@
    "hook": "Take a photo: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -75985,7 +76007,7 @@
     "h": "Take a photo: three levels!",
     "a": "Can you take a photo?",
     "b": "Could you take a photo of us?",
-    "n": "Would you mind taking a quick pic?",
+    "n": "Would you mind taking a pic?",
     "c": "lexkite.com"
    }
   },
@@ -75994,7 +76016,7 @@
    "hook": "Get past someone: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -76016,7 +76038,7 @@
    "hook": "Say goodbye: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -76038,7 +76060,7 @@
    "hook": "Say you're busy: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -76060,7 +76082,7 @@
    "hook": "Request time off: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -76072,7 +76094,7 @@
    "script": {
     "h": "Request time off: three levels!",
     "a": "I want one day off.",
-    "b": "Could I take Friday off, please?",
+    "b": "Could I take Friday off?",
     "n": "Is it okay if I take Friday off?",
     "c": "lexkite.com"
    }
@@ -76082,7 +76104,7 @@
    "hook": "Say hello: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -76104,7 +76126,7 @@
    "hook": "Pay by card: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -76126,7 +76148,7 @@
    "hook": "Opening hours: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -76138,7 +76160,7 @@
    "script": {
     "h": "Opening hours: three levels!",
     "a": "What time do you open?",
-    "b": "Could you tell me your opening hours?",
+    "b": "Could you tell me your hours?",
     "n": "What time are you open till?",
     "c": "lexkite.com"
    }
@@ -76148,7 +76170,7 @@
    "hook": "Get a lift: three levels!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
    "machine": true,
    "gates": {
     "data": true,
@@ -76162,28 +76184,6 @@
     "a": "Can you take me home?",
     "b": "Could you give me a lift home?",
     "n": "Could I trouble you for a lift?",
-    "c": "lexkite.com"
-   }
-  },
-  "t2l3_lostbag": {
-   "template": "levels3",
-   "hook": "Lost luggage: three levels!",
-   "hook_true": true,
-   "script_reviewed": true,
-   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)",
-   "machine": true,
-   "gates": {
-    "data": true,
-    "level": true,
-    "hook": true,
-    "dup": true
-   },
-   "hash": "208fc29a97f9",
-   "script": {
-    "h": "Lost luggage: three levels!",
-    "a": "My bag is not here.",
-    "b": "Excuse me, my bag didn't arrive.",
-    "n": "Hi, my bag never showed up.",
     "c": "lexkite.com"
    }
   }

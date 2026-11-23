@@ -2,38 +2,38 @@
  "id": "t2l3_getpast",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 56,
+ "part": 57,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Get past someone: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "Sorry, I want to go.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Excuse me, could I get past?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Sorry, just squeezing past!",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 22,
-  "seconds": 11.3,
-  "wpm": 116
+  "seconds": 10.6,
+  "wpm": 125
  },
  "publish": {
   "title": "Get past someone: A1, B1 or C1?",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "Get past someone: A1, B1 or C1?",
-    "description": "Get past someone, three ways. A1: \"Sorry, I want to go.\" B1: \"Excuse me, could I get past?\" C1: \"Sorry, just squeezing past!\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Get past someone, three ways. A1: \"Sorry, I want to go.\" B1: \"Excuse me, could I get past?\" C1: \"Sorry, just squeezing past!\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "get past someone",
      "One Situation, 3 Levels",

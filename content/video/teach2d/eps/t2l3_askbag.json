@@ -12,28 +12,28 @@
   {
    "id": "h",
    "text": "Get a bag: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "A bag, please.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Could I have a bag, please?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Could I get a bag with that?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 23,
-  "seconds": 10.3,
-  "wpm": 134
+  "seconds": 9.5,
+  "wpm": 145
  },
  "publish": {
   "title": "Get a bag: A1, B1 or C1?",

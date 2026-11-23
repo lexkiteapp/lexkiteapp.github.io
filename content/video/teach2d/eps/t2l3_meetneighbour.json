@@ -12,28 +12,28 @@
   {
    "id": "h",
    "text": "Meet a neighbour: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "Hello. I live here.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
-   "text": "Hello, I live in the flat next door.",
-   "pause": 0.3
+   "text": "Hi, I live next door.",
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Hi, I just moved in next door.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -54,7 +54,7 @@
     "note": "Clear, a little stiff."
    },
    "b": {
-    "text": "Hello, I live in the flat next door.",
+    "text": "Hi, I live next door.",
     "key": "next door",
     "note": "Friendly and clear."
    },
@@ -87,14 +87,14 @@
   "levels3": "meet-neighbour"
  },
  "est": {
-  "words": 26,
-  "seconds": 12.1,
-  "wpm": 128
+  "words": 23,
+  "seconds": 10.3,
+  "wpm": 134
  },
  "publish": {
   "title": "Meet a neighbour: A1, B1 or C1?",
   "keyword": "meet a neighbour",
-  "value": "Meet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hello, I live in the flat next door.\" C1: \"Hi, I just moved in next door.\"",
+  "value": "Meet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hi, I live next door.\" C1: \"Hi, I just moved in next door.\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 18,
+  "script_words": 15,
   "platforms": {
    "youtube": {
     "title": "Meet a neighbour: A1, B1 or C1?",
-    "description": "Meet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hello, I live in the flat next door.\" C1: \"Hi, I just moved in next door.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Meet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hi, I live next door.\" C1: \"Hi, I just moved in next door.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "meet a neighbour",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Meet a neighbour: A1, B1 or C1?\n\nMeet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hello, I live in the flat next door.\" C1: \"Hi, I just moved in next door.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Meet a neighbour: A1, B1 or C1?\n\nMeet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hi, I live next door.\" C1: \"Hi, I just moved in next door.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Meet a neighbour: A1, B1 or C1?\n\nMeet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hello, I live in the flat next door.\" C1: \"Hi, I just moved in next door.\"\n\nLevel up your English free: link in bio.",
+    "caption": "Meet a neighbour: A1, B1 or C1?\n\nMeet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hi, I live next door.\" C1: \"Hi, I just moved in next door.\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",

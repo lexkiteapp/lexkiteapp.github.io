@@ -277,7 +277,7 @@
     "note": "Clear, a little stiff."
    },
    "b": {
-    "text": "Hello, I live in the flat next door.",
+    "text": "Hi, I live next door.",
     "key": "next door",
     "note": "Friendly and clear."
    },
@@ -326,7 +326,7 @@
     "note": "Polite, full sentence."
    },
    "c": {
-    "text": "Could you drop me off at the airport?",
+    "text": "Could you drop me off there?",
     "key": "drop me off",
     "note": "What locals really say."
    }
@@ -475,12 +475,12 @@
     "note": "Clear, but very basic."
    },
    "b": {
-    "text": "Could you cut it a little shorter, please?",
-    "key": "a little shorter",
+    "text": "Could you cut it a bit shorter, please?",
+    "key": "a bit shorter",
     "note": "Polite and specific."
    },
    "c": {
-    "text": "Just a trim, please, nothing drastic.",
+    "text": "Just a trim, please, nothing fancy.",
     "key": "a trim",
     "note": "Short and natural."
    }
@@ -678,7 +678,7 @@
     "note": "Polite and careful."
    },
    "c": {
-    "text": "I hear you, but I'm not convinced.",
+    "text": "I hear you, but I doubt it.",
     "key": "I hear you",
     "note": "Shows you listened first."
    }
@@ -871,7 +871,7 @@
     "note": "Clear and simple."
    },
    "b": {
-    "text": "Could we move the meeting to Monday?",
+    "text": "Could we move the meeting?",
     "key": "move the meeting",
     "note": "Polite and specific."
    },
@@ -1228,7 +1228,7 @@
     "note": "Polite and complete."
    },
    "c": {
-    "text": "Would you mind taking a quick pic?",
+    "text": "Would you mind taking a pic?",
     "key": "Would you mind",
     "note": "Polite and relaxed."
    }
@@ -1311,7 +1311,7 @@
     "note": "Clear, a bit direct."
    },
    "b": {
-    "text": "Could I take Friday off, please?",
+    "text": "Could I take Friday off?",
     "key": "take Friday off",
     "note": "Polite and specific."
    },
@@ -1377,8 +1377,8 @@
     "note": "Clear and correct."
    },
    "b": {
-    "text": "Could you tell me your opening hours?",
-    "key": "opening hours",
+    "text": "Could you tell me your hours?",
+    "key": "your hours",
     "note": "Polite and standard."
    },
    "c": {

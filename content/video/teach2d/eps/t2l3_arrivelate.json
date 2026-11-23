@@ -2,38 +2,38 @@
  "id": "t2l3_arrivelate",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 38,
+ "part": 39,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Arrive late: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "I am late. Sorry.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Sorry I'm late. The traffic was bad.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Sorry I'm late, I got held up.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 24,
-  "seconds": 11.9,
-  "wpm": 121
+  "seconds": 11.1,
+  "wpm": 129
  },
  "publish": {
   "title": "Arrive late: A1, B1 or C1?",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "Arrive late: A1, B1 or C1?",
-    "description": "Arrive late, three ways. A1: \"I am late. Sorry.\" B1: \"Sorry I'm late. The traffic was bad.\" C1: \"Sorry I'm late, I got held up.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Arrive late, three ways. A1: \"I am late. Sorry.\" B1: \"Sorry I'm late. The traffic was bad.\" C1: \"Sorry I'm late, I got held up.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "arrive late",
      "One Situation, 3 Levels",

@@ -573,7 +573,7 @@ T['guess3'] = guess3; SERIES['guess3'] = 'Guess in 3 Seconds'
 
 
 # ---------------- levels3: "One situation, 3 levels" 10-13 s reels (growth series #3, docs/GROWTH-1M.md §2): the same sentence at A1, B1 and C1 (content/video/teach2d/levels3.json) ----------------
-LV3_F, LV3_SPEED, LV3_SECS, LV3_WORDS, LV3_RING = f'{ROOT}/content/video/teach2d/levels3.json', G3_SPEED, (9.0, 12.4), (12, 26), 2.2   # est. seconds (+ ~0.9 s end-card tail = the 10-13 s reel), words incl. hook + CTA, quiz countdown
+LV3_F, LV3_SPEED, LV3_SECS, LV3_WORDS, LV3_RING = f'{ROOT}/content/video/teach2d/levels3.json', G3_SPEED, (8.5, 11.2), (12, 26), 2.0   # est. seconds (CI pilots 45268414372: real total = est + 1.8-2.2 s with the end-card tail -> <= 13.4 s), words incl. hook + CTA, quiz countdown
 LV3_EXPR = dict(a='shrug', b='smirk', n='smug')   # TeacherRig EXPR faces (drawn, no pose image): plain -> confident -> smug, one per level line, held while it is spoken (rig_plan 'exprs')
 LV3_OK = {'ana', 'tom', 'sam', 'lee', 'mia', 'ben', 'wi-fi', 'latte', 'spain', 'monday', 'friday', 'sunday', 'neighbour', 'neighbours', 'pharmacy'}   # names / proper words the bank has no row for (levels3.mjs A1_FN)
 _LV3 = None
@@ -595,7 +595,7 @@ def levels3(p):   # hook -> A1 line -> B1 line -> C1 line (silent quick quiz in 
     if ans: opts.reverse()
     try: assert all(text_w(o, 56) <= 640 for o in opts), ('quiz option too wide', opts)   # pill: one line at 56 px inside the card (checked where PIL exists: the planner, render jobs; preqc regen has no PIL and replays rows that already passed)
     except ImportError: pass
-    lines = [L('h', levels3_hook(it), 0.35), L('a', it['a']['text'], 0.3), L('b', it['b']['text'], 0.3), L('n', it['c']['text'], LV3_RING, quiz=True), L('c', 'lexkite.com', 0.4)]
+    lines = [L('h', levels3_hook(it), 0.25), L('a', it['a']['text'], 0.15), L('b', it['b']['text'], 0.15), L('n', it['c']['text'], LV3_RING, quiz=True), L('c', 'lexkite.com', 0.25)]
     return dict(lines=lines, exprs=LV3_EXPR,
                 data=dict(id=it['id'], title=it['title'], em=it['em'], chip=it['chip'], reg=it['reg'], levels={k: it[k] for k in 'abc'}, quiz=dict(ask='Which would a native say?', options=opts, answer=ans)),
                 cta=cta('phrases', '#/phrases', 'Level up your English free'), hook=dict(line='h', text=lines[0]['text']), src=dict(levels3=it['id']))
@@ -1353,7 +1353,7 @@ def plan_guess3(n):   # one episode per picture word; teachers alternate; machin
     for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
 
 
-LV3_REVIEWER = 'gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 9-12.4 s est.)'
+LV3_REVIEWER = 'gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)'
 
 
 def plan_levels3(n, ids=None):   # one episode per situation (teachers alternate); --ids = hand-picked pilots first

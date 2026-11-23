@@ -12,28 +12,28 @@
   {
    "id": "h",
    "text": "Book a table: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "A table for two, please.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Could we have a table for two?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Hi, have you got a table?",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 25,
-  "seconds": 11.9,
-  "wpm": 126
+  "seconds": 11.1,
+  "wpm": 135
  },
  "publish": {
   "title": "Book a table: A1, B1 or C1?",

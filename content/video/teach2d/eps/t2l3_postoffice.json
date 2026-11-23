@@ -2,38 +2,38 @@
  "id": "t2l3_postoffice",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 41,
+ "part": 42,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
    "id": "h",
    "text": "Post office: three levels!",
-   "pause": 0.35
+   "pause": 0.25
   },
   {
    "id": "a",
    "text": "I want to send this.",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "b",
    "text": "Could I post this parcel to Spain?",
-   "pause": 0.3
+   "pause": 0.15
   },
   {
    "id": "n",
    "text": "Hi, I need to send it to Spain.",
-   "pause": 2.2,
+   "pause": 2.0,
    "quiz": true
   },
   {
    "id": "c",
    "text": "lexkite.com",
-   "pause": 0.4
+   "pause": 0.25
   }
  ],
  "exprs": {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 26,
-  "seconds": 11.6,
-  "wpm": 134
+  "seconds": 10.9,
+  "wpm": 144
  },
  "publish": {
   "title": "Post office: A1, B1 or C1?",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "Post office: A1, B1 or C1?",
-    "description": "Post office, three ways. A1: \"I want to send this.\" B1: \"Could I post this parcel to Spain?\" C1: \"Hi, I need to send it to Spain.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Post office, three ways. A1: \"I want to send this.\" B1: \"Could I post this parcel to Spain?\" C1: \"Hi, I need to send it to Spain.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "post office",
      "One Situation, 3 Levels",
