@@ -18,7 +18,7 @@
  *   matches the description marker "lk:<clip>", checks unlisted/public + processing done + duration → status 'done' → op ids → web manifest
  *   embeds YouTube exactly like an API upload. 'api': the resumable upload path above (needs youtube.upload). Never browser bots / cookies. */
 import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
-import { healthVerdict, localDate, localHM, normCfg, capCfg, pickEmbed, validTz, LANG_TZ, zonedToMs } from './_distribution.js';
+import { healthVerdict, localDate, localHM, normCfg, capCfg, pickEmbed, validTz, LANG_TZ, zonedToMs, peakOk, peakSlot } from './_distribution.js';
 import { guardBg } from './_d1guard.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
@@ -497,6 +497,8 @@ const CLI_OPS = {
       // Lịch theo NGÀY thật trong cửa sổ `days` (không đếm số hàng: hàng hẹn quá cửa sổ / trùng ngày làm 30 ngày đầu vẫn trống – 21/11): ngày trống = ngày mục tiêu chưa có hàng queued/uploading/done.
       const targets = Array.from({ length: days }, (_, i) => { const pa = slotAt(i, 1, lang, now, rot); return { pa, k: key(Date.parse(pa)) }; }), tkeys = new Set(targets.map(t => t.k));
       const rows = await all(db, "SELECT clip, status, publish_at FROM yt_queue WHERE channel_id = ? AND status IN ('queued', 'uploading', 'done') AND publish_at > ? ORDER BY publish_at", ch.channel_id, iso), covered = new Set(), movable = [];
+      const retime = []; for (const r of rows) if (r.status === 'queued' && !peakOk(Date.parse(r.publish_at), tz)) { const np = peakSlot(key(Date.parse(r.publish_at)), tz, ch.channel_id, [], 0); if (np != null && np > now + 15 * 6e4) { retime.push(db.prepare("UPDATE yt_queue SET publish_at = ?, updated = ? WHERE clip = ? AND status = 'queued'").bind(new Date(np).toISOString(), now, r.clip)); r.publish_at = new Date(np).toISOString(); } }   // 23/11: hàng chờ tải lệch giờ → dời vào giờ cao điểm địa phương cùng ngày
+      if (retime.length) await db.batch(retime);
       for (const r of rows) { const k = key(Date.parse(r.publish_at)); if (tkeys.has(k) && !covered.has(k)) covered.add(k); else if (r.status === 'queued') movable.push(r.clip); } // queued ngoài cửa sổ / trùng ngày → dời vào ngày trống
       const missing = targets.filter(t => !covered.has(t.k)), moved = [];
       for (const t of missing.slice(0, movable.length)) moved.push(db.prepare("UPDATE yt_queue SET publish_at = ?, updated = ? WHERE clip = ? AND status = 'queued'").bind(t.pa, now, movable[moved.length]));

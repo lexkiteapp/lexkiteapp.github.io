@@ -1,7 +1,8 @@
 // Test máy gác đúng page · ngôn ngữ · giờ (functions/api/_social_audit.js, chủ 23/11). Chạy: node scripts/test/social-audit.mjs
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { auditPosts, postViolation, clipLang } from '../../functions/api/_social_audit.js';
-import { peakOk, zonedToMs, LANG_TZ, schedule, capCfg, normCfg } from '../../functions/api/_distribution.js';
+import { peakOk, peakSlot, zonedToMs, LANG_TZ, schedule, capCfg, normCfg } from '../../functions/api/_distribution.js';
 import { slotAt, YT_SLOTS, MAIN_SLOTS } from '../../functions/api/youtube.js';
 let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
 const T = 'Asia/Ho_Chi_Minh', at = (d, hm, tz = T) => zonedToMs(d, hm, tz);
@@ -33,4 +34,13 @@ ok(new Set(Object.keys(LANG_TZ).map(l => slotAt(0, 1, l, now0, 0).slice(11, 16))
 // schedule() với cấu hình CŨ lệch (page tiếng Việt múi NY, cửa sổ 09–21 h) → capCfg ép múi giờ thị trường + giờ cao điểm: mọi bài rơi đúng giờ địa phương
 { const cfg = capCfg(normCfg({ lang: 'vi', tz: 'America/New_York', windows: [{ from: '09:00', to: '21:00' }] })), r = schedule({ clips: Array.from({ length: 20 }, (_, i) => ({ id: 'c' + i, title: 'T' + i })), cfg, now: now0 });
   ok(cfg.tz === 'Asia/Ho_Chi_Minh' && r.slots.length === 20 && r.slots.every(x => peakOk(x.ms, cfg.tz)), 'schedule: cấu hình cũ lệch vẫn ra 20 bài đúng giờ cao điểm giờ Việt Nam'); }
+// peakSlot: luôn trong giờ cao điểm, tránh bài đã có ≥ gap, mỗi kênh một giờ riêng
+{ const tz = 'Asia/Tokyo', a = peakSlot('2026-12-01', tz, 'ch-a'), b = peakSlot('2026-12-01', tz, 'ch-b'), c = peakSlot('2026-12-01', tz, 'ch-a', [a], 4 * 36e5);
+  ok(peakOk(a, tz, 0) && peakOk(b, tz, 0) && peakOk(c, tz, 0) && Math.abs(c - a) >= 4 * 36e5, 'peakSlot: trong giờ cao điểm + cách bài đã có ≥ 4 giờ'); ok(peakSlot('2026-12-01', tz, 'x', [zonedToMs('2026-12-01', '12:00', tz), zonedToMs('2026-12-01', '20:00', tz)], 24 * 36e5) === null, 'peakSlot: hết chỗ → null'); }
+// cổng thật sự được nối vào đường đẩy bài / dời bài / xếp hàng YouTube / CI (không chỉ có hàm)
+{ const au = fs.readFileSync('functions/api/_social_auto.js', 'utf8'), yt = fs.readFileSync('functions/api/youtube.js', 'utf8'), cv = fs.readFileSync('scripts/social/coverage.mjs', 'utf8');
+  ok(/postViolation\(/.test(au) && /gate-wrong-lang/.test(au), 'đẩy bài: sai ngôn ngữ page bị chặn trước khi gọi GrabCast');
+  ok(/peakOk\(ms, tz\)/.test(au) && /peakSlot\(/.test(au), 'rebalanceDays dời bài lệch giờ vào giờ cao điểm');
+  ok(/peakSlot\(/.test(yt) && /retime/.test(yt), 'op fill dời hàng chờ YouTube lệch giờ');
+  ok(/audit\(14\)/.test(cv) && /bad2/.test(cv), 'social-coverage chạy audit và đỏ khi còn lệch'); }
 console.log(`✓ social-audit: ${n} kiểm`);

@@ -102,6 +102,13 @@ export function implicitSocialRules(allRules, cfgs) {
   for (const ids of Object.values(en)) ids.forEach((id, i) => general.push({ cond: ids.length > 1 ? { shard: `${i}/${ids.length}` } : {}, channel_id: id, active: 1 }));
   return [...ownRules, ...general];
 }
+/** Giờ cao điểm còn trống trong NGÀY địa phương `date` (cách mọi giờ đã có `taken` ≥ gapMs): lưới 10 phút trong PEAK_WINDOWS, bắt đầu từ vị trí băm của `seed` (kênh) để các kênh không trùng phút; null nếu hết chỗ. Dùng để SỬA bài lệch giờ đã xếp (rebalanceDays, op fill). */
+export function peakSlot(date, tz, seed, taken = [], gapMs = 0) {
+  const cand = []; for (const [f, t] of PEAK_WINDOWS) for (let x = zonedToMs(date, f, tz), e = zonedToMs(date, t, tz); x <= e; x += 10 * MIN) cand.push(x);
+  const o = Math.floor(hash(String(seed)) * cand.length);
+  for (let i = 0; i < cand.length; i++) { const x = cand[(o + i) % cand.length]; if (!taken.some(q => Math.abs(q - x) < gapMs)) return x; }
+  return null;
+}
 /** Tài khoản không phải của Lexkite trong workspace GrabCast (OAuth Meta kéo kèm Page/IG "Grabcast.click" vào ws4, 05/11) hoặc bị tạm dừng đăng → không bao giờ là đích autopilot. */
 export const foreignAccount = a => /grab\s*cast/i.test([a && a.name, a && a.title, a && a.username, a && a.handle].filter(Boolean).join(' '));
 export const pausedAccount = a => /^(paused|disabled|inactive)$/i.test(String((a && (a.publishing || a.status)) || '')) || (a && (a.paused === true || a.publishing_paused === true));
