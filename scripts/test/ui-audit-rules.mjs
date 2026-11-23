@@ -34,6 +34,7 @@ ok(rules({ emptyBoxes: ['div.bubble'] }).includes('empty-box:medium'), 'bong bó
 ok(rules({ small: [{ text: 'x', w: 30, h: 30 }] }).includes('tap:low'), '1–2 vùng chạm nhỏ → thấp');
 ok(!rules({ touch: false, small: [{ text: 'Me', w: 222, h: 36 }] }).some(r => r.startsWith('tap')), 'chuột: 36 px ≥ 24 → không báo');
 ok(rules({ touch: false, small: [{ text: 'x', w: 20, h: 20 }] }).includes('tap:low'), 'chuột: 20 px < 24 → báo');
+ok(!rules({ touch: false, small: [{ text: 'user-friendly', w: 105, h: 20, inline: true }] }).some(r => r.startsWith('tap')), 'liên kết nằm trong dòng chữ → miễn (WCAG 2.5.8)');
 ok(rules({ touch: true, small: [{ text: 'edit', w: 36, h: 36 }] }).includes('tap:low'), 'cảm ứng: 36 px < 44 vẫn báo');
 ok(rules({ small: [1, 2, 3].map(() => ({ text: 'x', w: 30, h: 30 })) }).includes('tap:medium'), '≥3 vùng chạm nhỏ → trung');
 ok(audit({ measureFail: 'boom' })[0].sev === 'high', 'đo hỏng → cao (không im lặng)');

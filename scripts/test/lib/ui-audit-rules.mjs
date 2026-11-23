@@ -19,7 +19,7 @@ export function audit(m) {
   if ((m.placeholders || []).length) add('medium', 'placeholder', 'chữ giữ chỗ lọt ra giao diện: ' + m.placeholders.join(', '));
   if ((m.emptyBoxes || []).length) add('medium', 'empty-box', 'ô trống/bong bóng không có nội dung: ' + m.emptyBoxes.join(', '));
   if ((m.brokenImgs || []).length) add('medium', 'img', 'ảnh hỏng: ' + m.brokenImgs.join(', '));
-  const tapMin = m.touch === false ? T.tapMouse : T.tap, small = (m.small || []).filter(x => x.w == null || Math.min(x.w, x.h) < tapMin);
+  const tapMin = m.touch === false ? T.tapMouse : T.tap, small = (m.small || []).filter(x => !x.inline && (x.w == null || Math.min(x.w, x.h) < tapMin));
   if (small.length) add(small.length >= 3 ? 'medium' : 'low', 'tap', `vùng chạm <${tapMin}px ${small.length} chỗ: ` + small.slice(0, 3).map(s => `"${s.text}" ${s.w}×${s.h}`).join('; '));
   return out;
 }
