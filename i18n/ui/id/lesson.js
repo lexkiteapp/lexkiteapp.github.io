@@ -47,6 +47,8 @@
 "Mục tiêu {s}":"Target {s}",
 "Nghe chậm hơn":"Lebih pelan",
 "Nghe, chọn ảnh":"Dengar, pilih gambar",
+"Ngày mai ôn {n} từ để nhớ lâu":"Kata untuk diulas besok: {n}",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"Besok: pelajaran berikutnya sudah siap",
 "Những từ bạn hay quên":"Kata yang sering kamu lupa",
 "Nói câu này":"Ucapkan ini",
 "Nói hay hơn":"Lebih baik",
