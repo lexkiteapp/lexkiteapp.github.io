@@ -1,0 +1,133 @@
+{
+ "id": "t2s_idk",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 152,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where are we eating tonight?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "IDK!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I don't know.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "IDK, maybe we should stay home.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "IDK",
+  "forms": [
+   "idk"
+  ],
+  "ipa": "/ˌaɪ ˌdiː ˈkeɪ/",
+  "mean": "I don't know.",
+  "define": "Short for \"I don't know\" in texts.",
+  "vi": "Không biết nữa",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Texting",
+   "text": "IDK, maybe we should stay home."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "IDK means…",
+   "options": [
+    "I do know",
+    "I don't know"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't write 'IDK' to your boss's question.",
+   "why": "It sounds careless and short."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where are we eating tonight?"
+ },
+ "src": {
+  "slang": "IDK"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"IDK\" mean?",
+  "keyword": "IDK",
+  "value": "IDK = I don't know. Example: \"IDK, maybe we should stay home.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"IDK\" mean?",
+    "description": "IDK = I don't know. Example: \"IDK, maybe we should stay home.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "IDK",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"IDK\" mean?\n\nIDK = I don't know. Example: \"IDK, maybe we should stay home.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"IDK\" mean?\n\nIDK = I don't know. Example: \"IDK, maybe we should stay home.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"IDK\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't write 'IDK' to your boss's question. It sounds careless and short. Real example: \"IDK, maybe we should stay home.\" More real English slang, free: {link}"
+ }
+}

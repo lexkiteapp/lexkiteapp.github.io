@@ -1,0 +1,131 @@
+{
+ "id": "t2s_meh",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 119,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How was the movie?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Meh!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Not great, not bad.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The movie? Meh.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "meh",
+  "forms": [],
+  "ipa": "/ˈme/",
+  "mean": "Not great, not bad.",
+  "define": "Used to show you aren't impressed.",
+  "vi": "Bình thường thôi",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "After a movie",
+   "text": "The movie? Meh."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Meh\" means…",
+   "options": [
+    "very excited",
+    "not impressed"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'meh' about a friend's cooking.",
+   "why": "It sounds unkind and dismissive."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "How was the movie?"
+ },
+ "src": {
+  "slang": "meh"
+ },
+ "est": {
+  "words": 14,
+  "seconds": 8.9,
+  "wpm": 94
+ },
+ "publish": {
+  "title": "What does \"meh\" mean?",
+  "keyword": "meh",
+  "value": "Meh = Not great, not bad. Example: \"The movie? Meh.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"meh\" mean?",
+    "description": "Meh = Not great, not bad. Example: \"The movie? Meh.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "meh",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"meh\" mean?\n\nMeh = Not great, not bad. Example: \"The movie? Meh.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"meh\" mean?\n\nMeh = Not great, not bad. Example: \"The movie? Meh.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"meh\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'meh' about a friend's cooking. It sounds unkind and dismissive. Real example: \"The movie? Meh.\" More real English slang, free: {link}"
+ }
+}
