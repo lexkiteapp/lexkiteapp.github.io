@@ -178,6 +178,14 @@
       ]
     },
     {
+      "id": "P14",
+      "m": 6,
+      "title": "Interpreter (Phiên dịch): face-to-face two-language interpreting, travel phrasebook, history + new-word recap (Speech + Translation + NLLanguageRecognizer / ML Kit, free on-device)",
+      "routes": [
+        "#/interpret"
+      ]
+    },
+    {
       "id": "C01",
       "m": 1,
       "title": "Auth: Firebase Google + Apple sign-in, same project, guest mode, delete account",

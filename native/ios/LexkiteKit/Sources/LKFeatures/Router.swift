@@ -21,7 +21,7 @@ public struct AppRoute: Hashable, Sendable, Identifiable {
                        "review", "practice", "mistakes", "deck"]),
             ("skills", ["skills", "skill", "listening", "listen", "listen-test", "dictation", "reading", "read", "speak", "speaking", "pron", "say",
                         "reflex", "rtype", "roleplay", "handsfree", "call", "write", "task1", "fix", "grammar", "criteria", "method", "quick",
-                        "style", "confidence", "qstats", "watch"]),
+                        "style", "confidence", "qstats", "watch", "interpret"]),
             ("tests", ["tests", "goal", "mock", "cbt", "placement", "toeic", "toeic-r", "toeic-sw", "toeic-test", "toefl", "toefl-p"]),
             ("me", ["me", "stats", "streak", "league", "settings", "report", "contact", "resources", "class", "handoff", "welcome"]),
         ]

@@ -41,4 +41,6 @@
 'Cuộc này chưa có câu ngoại ngữ để học.': 'This conversation has no foreign-language phrases to learn yet.',
 'Lưu {n} câu vào Sổ từ': 'Save {n} phrases to your word list',
 'Cuộc mới': 'New conversation',
+'Phiên dịch': 'Interpreter',
+'Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí': 'Two people, two languages: speak, translate, learn new words – free',
 }); })(self);
