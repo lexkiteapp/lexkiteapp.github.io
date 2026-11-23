@@ -44,7 +44,7 @@ const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog',
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click', 'go_view', 'go_start', 'go_done', 'go_cta']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
 
 // Nguồn giọng (t:'vo'): khóa cố định, số đếm chặn trần → ≤ 12 dòng ext_events/beacon, không phình bảng
-export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref', 's_part', 's_off_user', 's_off_probe', 's_off_ios', 's_off_mem', 's_off_cores', 's_off_remote', 's_off_state', 'kp_r06', 'kp_r10', 'kp_r15', 'kp_r25', 'kp_rhi', 'kp_to'], VO_PLAT = ['web', 'app', 'ext'];
+export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref', 's_part', 's_off_user', 's_off_probe', 's_off_ios', 's_off_mem', 's_off_cores', 's_off_remote', 's_off_state', 'kp_r06', 'kp_r10', 'kp_r15', 'kp_r25', 'kp_rhi', 'kp_to', ...['ok', 'nospeech', 'silent', 'srfail', 'notallowed', 'audiocapture', 'svcblocked', 'network', 'other'].map(k => 'mic_' + k)], VO_PLAT = ['web', 'app', 'ext'];
 export function voRows(b) {
   const c = b && b.c && typeof b.c === 'object' ? b.c : null; if (!c) return [];
   const n = k => Math.min(Math.max(Math.floor(+c[k] || 0), 0), 500), p = VO_PLAT.includes(b.p) ? b.p : 'web', rows = [];
