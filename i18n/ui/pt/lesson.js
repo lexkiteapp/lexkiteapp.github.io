@@ -58,6 +58,7 @@
 "Trả lời câu hỏi":"Responda à pergunta",
 "Trọng âm rơi vào âm tiết {n}/{m}":"A sílaba tônica é a {n} de {m}",
 "Tuyệt!":"Ótimo!",
+"Tìm từ sai":"Ache a palavra errada",
 "Tăng điểm":"Aumente a nota",
 "Tỉ lệ trả lời đúng":"Respostas certas",
 "Từ bạn đã tra":"Sua pesquisa",

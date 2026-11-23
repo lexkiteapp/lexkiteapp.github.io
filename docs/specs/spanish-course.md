@@ -83,7 +83,7 @@ Mỗi phần ở §1 có đủ nội dung A1→C2 (từ vựng C1–C2 mở rộ
 
   | Phần | Điểm | Đang có | Còn thiếu (việc kế) |
   |---|---|---|---|
-  | Kho từ W1 | 3 → đang lên | 627 lemma `reviewed` (30 seed + 597 lô) / 3.000 | lô 300 trên CI tới 3.000 (mỗi lô 1 PR); gốc yield thấp đã sửa (dưới) |
+  | Kho từ W1 | 3 → 5 | 986 lemma `reviewed` (30 seed + 956 lô) / 3.000 | lô 300 trên CI tới 3.000 (mỗi lô 1 PR); gốc yield thấp đã sửa (dưới) |
   | Ôn tập / lặp ngắt quãng | 4 → 7 | **22/11**: "Từ mới" xong → thẻ `es:` vào Ôn tập (SRS sẵn có) | gợi nhớ chủ động ngay trong bước từ mới (nghe → chọn/gõ) |
   | Lộ trình ngày W4 | 7 | 125 ngày A1–B1, ≤ 8 từ/ngày, mạo từ el/la theo giống | ngày B2; từ ngoài lộ trình (sau 1.000 từ) chỉ qua Ôn tập |
   | Ngữ pháp W2 | 8 | 230 điểm A1–C2, 555 câu luyện, giải thích 15 ngôn ngữ | — |
@@ -93,4 +93,8 @@ Mỗi phần ở §1 có đủ nội dung A1→C2 (từ vựng C1–C2 mở rộ
   | Đo đầu ra nói+viết | 2 | `#/outcome` chỉ tiếng Anh | đề + chỉ số theo `tl` (es), lỗi/100 từ = "chưa chấm" tới khi có bộ soát es |
   | Video W6 | 0 | — | Teach2D es mẫu → chủ duyệt → lô |
 - **W1 yield (22/11/2026)**: lô 11–24 chỉ giữ 4–176/300 vì hàng ứng viên là DẠNG theo tần suất (hacemos, podía…) → 40–90 % lượt soạn bị loại "trùng lemma". `gen.mjs` nay quy dạng → lemma bằng Wiktionary/kaikki (`lemmaFromEntries`, chỉ đọc trên CI) TRƯỚC khi gọi ai-pool, bỏ trang chỉ tên riêng; thêm MỘT vòng sửa có lý do (người soạn sửa đúng chỗ giám khảo/dịch ngược/LanguageTool chê) rồi chấm lại ĐỦ cổng với giám khảo khác họ cả người soạn lẫn người sửa – ngưỡng không đổi. IPA es = MỘT quy ước luật `es-g2p.mjs` (452 mục duyệt tay khớp 100 %; sửa x → k.s: examen ekˈsamen, excelente ekseˈlente), espeak chỉ kiểm chéo (`qa.ipaEs`); `build.mjs es --check` chặn IPA lệch quy ước. Duyệt lô core-24 (176 → 175, bỏ `perra`): 15 % mục cần sửa, chủ yếu `gl.vi` + ví dụ (lỗi nghĩa nhiều nhất ở người soạn gpt-oss-120b) → mỗi lô sau duyệt-sửa 100 % `gl.vi`/`ex`, soát đủ 15 ngôn ngữ trên mẫu ≥ 5 %.
+<<<<<<< HEAD
 - **Hub lộ trình ngày (23/11/2026, owner chê "thiếu chuyên nghiệp")**: `#/practice/esd` (và `frd`, MỘT component `web/cpack/es-app/day-ui.js` theo bảng `TLD`) bỏ lưới 125 ô. Bố cục: hero (vòng tiến độ ngày/tổng, cấp CEFR, thời lượng, chuỗi ngày của app) → thẻ **Hôm nay** nổi nhất (các phần của ngày + phút + nút Bắt đầu) → các **tuần** (`<details>`, chỉ tuần hiện tại mở; tuần sau vẽ lười khi mở) với trạng thái Xong / Hôm nay / dở dang / Chưa tới (mờ + khoá mềm, vẫn bấm được) / Ôn lại, **thưởng tuần +50 XP** nhận một lần (`lk.<tl>.wk`), ô "Từ mở rộng" cho từ sau ngày cuối. CSS `web/css/tlpath.css` (token `--st-*` Stitch v2.1 + `--sp/--r/--fs`, sáng/tối/RTL), tải lười qua `App.loadCss` cùng `st-v2-day.css`; nhãn 15 ngôn ngữ `path-ui.json`. **Chưa khoá bằng màn Stitch riêng**: sinh màn qua Stitch MCP hết thời gian 5 lần (23/11) → dựng từ yếu tố đã duyệt (màn Ngày + Lộ trình v2.1); cần sinh lại màn Stitch + bổ sung `stitch-diff` khi MCP phục hồi.
+=======
+- **W1 lô 2** (22/11/2026, run 44982384784, 4 shard): 365 mục mới (core-25…28; ~75 % mục soạn qua cổng, 11 qua vòng sửa) → duyệt-sửa 100 % `gl.vi`/ví dụ: 361 giữ, bỏ leído, casar (→ casarse), ruego, desgraciado, cristo, okay; ~18 % mục cần sửa, mẫu soát đủ 15 ngôn ngữ ~30 % cần sửa ≥ 1 ngôn ngữ (vd. clave = mật khẩu/mã, không phải chìa khóa, sai cả 15) → cổng native-score 14 ngôn ngữ (`lexicon-i18n --tl es`) vẫn là việc bắt buộc trước khi gọi W1 xong. Shard dừng sớm vì Gemini 429 khi chạy song song → `gen.mjs` chờ-thử lại + tuyến GrabCast + ghi lô trước giới hạn giờ.
+>>>>>>> 282b62837c8840487aff743a58a579b66e9a8f0d
