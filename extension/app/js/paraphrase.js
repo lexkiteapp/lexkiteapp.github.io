@@ -22,10 +22,10 @@
     const draw = () => {
       if (i >= round.length) {
         const pct = Math.round(right / round.length * 100);
-        App.reward({ quizzes: 1, readings: 0, xp: 5 + right * 2 });
+        App.reward({ quizzes: 1, readings: 0, xp: Game.xpFor('set', { right, total: round.length }) });
         view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty"><div class="em">🔁</div><h2>${t('{right}/{total} đúng ({pct}%)', { right, total: round.length, pct })}</h2><p class="muted">${t('Nhận ra paraphrase nhanh là chìa khóa để làm Reading đúng và kịp giờ.')}</p><button class="btn primary" id="ppAgain">↻ ${t('Luyện tiếp')}</button> <a class="btn" href="#/skill/reading">${t('Về Reading')}</a></div></div>`;
         $('#ppAgain').onclick = () => routes.paraphrase();
-        Sfx.finish({ pct, xp: 5 + right * 2, el: $('.celebrate', view) });
+        Sfx.finish({ pct, xp: Game.xpFor('set', { right, total: round.length }), el: $('.celebrate', view) });
         return;
       }
       const it = round[i], opts = UI.shuffle([it.p, ...UI.shuffle(all.filter(x => x.p !== it.p && x.q !== it.q && Math.abs(x.p.length - it.p.length) < 40)).slice(0, 3).map(x => x.p)]);
