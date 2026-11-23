@@ -93,7 +93,9 @@ async function run(type, name, opts, scheme) {
     if (via === 'menu') { // qua menu tài khoản: phải mở, có mục sáng/tối, chạm mục "Tài khoản" → trang đích
       const mi = await page.waitForFunction(() => { const m = document.querySelector('.ux1-menu'), a = m && m.querySelector('a[data-m="x"]'), r = a && a.getBoundingClientRect(); /* 12/11 (#1138 bottom sheet): hộp thoại trượt lên .28 s – chỉ lấy toạ độ khi mọi hoạt ảnh đã xong, không thì chạm trượt vào lớp phủ */ return !!m && !!m.querySelector('[data-m="theme"]') && r && r.height > 0 && document.getAnimations().every(x => x.playState !== 'running') ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : false; }, null, { timeout: 5000 }).then(h => h.jsonValue()).catch(() => null);
       ok(!!mi, `${tag}: ${label} – chạm mở menu tài khoản có mục sáng/tối + "Tài khoản"`); if (!mi) return; await page.touchscreen.tap(mi.x, mi.y); }
-    const got = await page.waitForFunction(([b, w]) => location.hash !== b && [].concat(w).some(x => location.hash.startsWith(x)) ? location.hash : false, [before, want], { timeout: 5000 }).then(h => h.jsonValue()).catch(() => null);
+    const nav = t => page.waitForFunction(([b, w]) => location.hash !== b && [].concat(w).some(x => location.hash.startsWith(x)) ? location.hash : false, [before, want], { timeout: t }).then(h => h.jsonValue()).catch(() => null);
+    let got = await nav(5000);
+    if (!got && !via && (await page.evaluate(() => location.hash)) === before) { await page.touchscreen.tap(pt.x, pt.y); got = await nav(5000); } // WebKit: chạm đúng lúc màn Ôn vừa vẽ lại có thể rơi mất 1 lần; ô chết thật thì lần 2 cũng không đi → vẫn đỏ
     ok(!!got, `${tag}: ${label} – chạm → ${want}${got ? '' : ' (vẫn ở ' + (await page.evaluate(() => location.hash)) + ')'}`);
     if (got) ok(await settle(null), `${tag}: ${label} – trang đích vẽ xong (${await diag()})`); }; // về màn Ôn khi trang đích đã vẽ xong (cả lối chuyển tiếp ?src=forgetting → học nhanh)
   for (const [label, sel, want, via] of TARGETS) await check(label, sel, want, 0, null, via);
