@@ -59,3 +59,7 @@
 - [specs/me-settings-ux.md](specs/me-settings-ux.md) — Tôi + Cài đặt gọn: mục lục nhóm có giá trị hiện tại, trang con #/settings/<mục>, gom liên kết đọc thêm; đọc khi sửa settings.js/ux1-me.js
 - [specs/teacher-bubble.md](specs/teacher-bubble.md) — TeacherBubble: bong bóng lời giáo viên dùng chung (gõ 1 lần/ngày, pop, 🔊 Ama đọc giọng nữ, miệng bám âm thanh, idle dừng khi ẩn) + kiểm kê chỗ giáo viên nói; đọc khi đổi lời thoại giáo viên ở màn nào.
 - [specs/story-stage.md](specs/story-stage.md) — Màn Truyện Ama↔Carlos + khung bài tập (Xếp câu, nghe, điền, chính tả) chuẩn Duolingo Stories: lỗi → gốc → sửa, bảng kiểm màn tương tự; đọc khi sửa màn hội thoại/bài tập có giáo viên
+- [NEW-UI-QA.md](NEW-UI-QA.md) — Soát hình các màn mới trên CI (15 ngôn ngữ × 4 khung × sáng/tối, đầu dò tràn/che/44 px/tương phản/nhân vật, contact sheet); đọc khi: sửa màn bài học, chuỗi, giáo viên, video
+- [research/latent-bugs-1611.md](research/latent-bugs-1611.md) — Soát lỗi tiềm ẩn trên main 16/11 (6 vùng, kiểm lại độc lập, nhóm theo chủ vùng, 2 P0 + 6 P1); đọc khi: nhận việc sửa lỗi trong vùng của mình
+- [specs/top1-upgrade-plan.md](specs/top1-upgrade-plan.md) — Kế hoạch lên top 1 từ kiểm toán CI 18/11 (so Duolingo/Speak/ELSA/Cake theo hành trình; UI/UX, nội dung, tính năng; thước đo, thứ tự); đọc khi: chọn việc nâng chất lượng, vẽ màn Stitch mới
+- [specs/stitch-v2-group-b.md](specs/stitch-v2-group-b.md) — Port 5 màn Stitch v2 nhóm B (Thư viện, Bộ từ, Chủ đề, Sổ lỗi sai, Tiến độ) từ #247, mỗi màn một PR; đọc khi làm màn nhóm B
