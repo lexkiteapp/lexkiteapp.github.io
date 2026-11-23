@@ -73,10 +73,17 @@ const pick = (e, hint) => { const o = { word: e.word, pos: e.pos, ...(e.pos === 
   ...(R.kana ? { kana: e.kana, romaji: e.romaji, pitch: e.pitch, jlpt: e.jlpt, ...(e.pos === 'v' ? { vclass: e.vclass } : {}), ...(e.pos === 'adj' ? { aclass: e.aclass } : {}) } : {}), ipa: e.ipa, gl: e.gl, ex: e.ex, ...(e.exForm ? { exForm: e.exForm } : {}) };
   return R.derive ? R.derive(o, hint) : o; };
 const T0 = Date.now(), MAX_MS = (+process.env.GEN_MAX_MIN || 125) * 60e3; // hạn giờ: step CI có timeout 150 phút – hết giờ thì XUẤT phần đã nhận (ja lô 1 23/11: 186/300 bị mất vì timeout, không có artifact)
+// kiên nhẫn: ai-pool trả null = tạm hết tuyến/giám khảo (Gemini 429/503 cả kho khoá) → KHÔNG dừng cả lượt (ja lô 1 23/11: 23/300 vì dừng ở lần null đầu) mà chờ lùi dần có jitter
+// (60 s → ×1.5 → tối đa 6 phút) rồi gọi lại, tới hạn giờ. Giãn nhịp = ít đốt khoá hơn; mỗi lô xong ghi tệp ngay (save) nên timeout/huỷ không mất mục đã qua cổng.
+const patient = async (fn, what) => { for (let wait = 60e3, n = 1; ; n++) { const r = await fn(); if (r) return r; if (Date.now() - T0 + wait > MAX_MS) return null;
+  const w = Math.round(wait * (0.75 + Math.random() / 2)); console.log(`ai-pool: ${what} tạm hết tuyến → chờ ${Math.round(w / 1e3)} s rồi thử lại (lần ${n})`); await new Promise(r => setTimeout(r, w)); wait = Math.min(wait * 1.5, 360e3); } };
+const ltMemo = new Map(); // kết quả LanguageTool nhớ theo mục: chấm lại sau khi chờ không gọi lại LT, không mất mục LT-loại
+const save = () => { const f = accepted.slice(prev.length); if (!f.length) return; const d = { v: 1, tl: TL, variant: G.variant, status: 'pending-review', source: SOURCE, words: f }; if (validate(d).length) return;
+  fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(outFile, JSON.stringify(d, null, 1) + '\n'); fs.writeFileSync(repFile, JSON.stringify({ at: new Date().toISOString(), accepted: f.length, rejected, tried: [...tried], partial: true }, null, 1) + '\n'); };
 for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   if (Date.now() - T0 > MAX_MS) { console.log(`hết giờ (${Math.round(MAX_MS / 6e4)} phút) → xuất ${accepted.length - prev.length}/${N} mục đã qua cổng (lượt sau làm tiếp)`); break; }
   const items = await fillQ(BATCH); if (!items.length) { console.log('hết ứng viên'); break; }
-  const g = await AI.gen({ mode: 'lxgen', items }); if (!g) { console.log('ai-pool: hết tuyến soạn → dừng (lượt sau làm tiếp)'); break; }
+  const g = await patient(() => AI.gen({ mode: 'lxgen', items }), 'soạn'); if (!g) { console.log('ai-pool: hết tuyến soạn → dừng (lượt sau làm tiếp)'); break; }
   const draft = items.map(it => ({ it, e: g.out[it.k] })).filter(({ it, e }) => { if (!e || e.skip) { rejected.push({ form: it.form, why: e ? 'skip: ' + e.skip : 'không trả' }); return false; } return true; })
     .map(({ it, e }) => ({ k: it.k, hint: it.hint, e: { ...pick(e, it.hint), rank: it.rank } }));
   for (const it of items) tried.add(it.form.toLowerCase());
@@ -85,10 +92,8 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   const fams = [g.fam];
   async function grade(ds) {
     const bad = [], ok = [];
-    if (LT) for (let x = ds.length - 1; x >= 0; x--) { // §5.1: LanguageTool 0 lỗi trước khi tốn lượt giám khảo
-      const m = ds[x].e.ex && ds[x].e.ex[TL] ? await ltErrors(ds[x].e.ex[TL]) : ['không có câu ' + TL];
-      if (m.length) { bad.push({ d: ds[x], why: ['LanguageTool: ' + m.join(' | ')] }); ds.splice(x, 1); }
-    }
+    if (LT) { const keep = []; for (const d of ds) { let m = ltMemo.get(d.k); if (!m) { m = d.e.ex && d.e.ex[TL] ? await ltErrors(d.e.ex[TL]) : ['không có câu ' + TL]; ltMemo.set(d.k, m); }  // §5.1: LanguageTool 0 lỗi trước khi tốn lượt giám khảo
+        if (m.length) bad.push({ d, why: ['LanguageTool: ' + m.join(' | ')] }); else keep.push(d); } ds = keep; }
     if (!ds.length) return { ok, bad };
     const { a, b } = await AI.judgePair({ mode: 'lxaudit', items: ds.map(d => ({ k: d.k, entry: d.e })) }, { exclude: fams.filter(Boolean) });
     if (!a || !b) return null;
@@ -107,7 +112,7 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
     return { ok, bad };
   }
   const take = (list, qa) => { for (const { d, qa: q } of list) { const key = String(d.e.word || '').toLowerCase(); if (seen.has(key)) continue; seen.add(key); accepted.push({ ...d.e, qa: { gen: g.model, ...q, ...qa } }); } };
-  const r1 = await grade(draft);
+  let r1 = await grade(draft); for (let w = 60e3, n = 1; !r1 && Date.now() - T0 + w < MAX_MS; n++, w = Math.min(w * 1.5, 360e3)) { const ms = Math.round(w * (0.75 + Math.random() / 2)); console.log(`ai-pool: giám khảo khác họ tạm hết → chờ ${Math.round(ms / 1e3)} s rồi chấm lại (lần ${n})`); await new Promise(r => setTimeout(r, ms)); r1 = await grade(draft); }
   if (!r1) { console.log('ai-pool: thiếu giám khảo khác họ → không xuất lô này (lượt sau chấm lại)'); break; }
   take(r1.ok);
   // Một vòng SỬA có lý do (như người biên tập đọc phiếu chấm): mục trượt vì nghĩa/IPA/ví dụ/LanguageTool → người soạn sửa đúng chỗ bị chê → chấm LẠI ĐỦ cổng
@@ -125,6 +130,7 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
     else for (const x of fixable) if (!okK.has(x.d.k)) { const b2 = r2 && r2.bad.find(y => y.d.k === x.d.k); rejected.push({ form: x.d.k, word: x.d.e.word, why: [...x.why, ...(b2 ? ['sau sửa: ' + b2.why.join(' / ')] : ['sau sửa: ' + (f ? 'không trả/không chấm' : 'ai-pool hết tuyến sửa')])] }); }
     fixedN += okK.size;
   }
+  save();
   console.log(`lô ${i / BATCH + 1}: nhận ${accepted.length - prev.length}/${N} · loại ${rejected.length}`);
 }
 // ---------- 3) mẫu soát tay ≥ 5 % (mục mới) + ghi ----------

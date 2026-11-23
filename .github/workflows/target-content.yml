@@ -120,6 +120,7 @@ jobs:
           CF_POOL: ${{ secrets.CF_POOL }}
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}   # thêm tuyến gc-groq/gc-gemini khi Gemini 429 (ja lô 1 23/11); cf2/lexai vẫn tắt trong gen.mjs
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
         run: node scripts/target/gen.mjs --tl "$TL" --n $LX_IN1 --shard "${{ matrix.k }}/$SHARDS" $LX_IN2
