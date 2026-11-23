@@ -73,6 +73,8 @@
 'Truyện': 'Story', // thẻ Luyện → Truyện (cùng nghĩa nhóm lesson; màn Luyện không tải nhóm lesson)
 'Gọi giáo viên': 'Teacher call', // ô Luyện → #/call (nhãn Stitch v2 practice, 1 dòng)
 'Xem tất cả': 'View all',
+// ô Luyện: dòng phụ dưới tên ô (mẫu Stitch v2 practice)
+'Phần 1–4': 'Section 1–4', 'Đọc lướt': 'Skimming', 'Đề bài': 'Prompts', 'Thẻ gợi ý': 'Cue cards', 'Cú pháp': 'Syntax', 'Nhấn âm & cao độ': 'Stress & pitch', 'Thi nói mô phỏng': 'Live mock', 'Truyện đọc': 'Readers',
 // Home v2 "Hôm nay" (docs/HOME-V2.md)
 "Đang làm": "In progress",
 "Việc hiện tại": "Current",

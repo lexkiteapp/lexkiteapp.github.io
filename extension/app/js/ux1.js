@@ -362,7 +362,8 @@
     if (location.hash !== tok) return; // đã sang trang khác trong lúc tải kế hoạch
     const gr = GROUPS(), pool = new Map(); gr.forEach(([h, , items]) => items.forEach(([href, i, n, d]) => { const key = href + '|' + n; if (!pool.has(key)) pool.set(key, { href, icon: MS[i] || 'auto_awesome', title: n, sub: d || '', badge: h }); }));
     const all = [...pool.values()], pick = h => all.find(x => x.href === h), skills = gr[2] ? gr[2][0] : '';
-    const focus = FOCUS.map(pick).filter(Boolean).map(x => (x.href === '#/call' ? Object.assign({}, x, { title: t('Gọi giáo viên') }) : x)); focus.push({ href: '#/lesson', icon: 'auto_stories', title: t('Truyện'), sub: '', badge: gr[3] ? gr[3][0] : skills });
+    const FSUB = { '#/skill/listening': t('Phần 1–4'), '#/skill/reading': t('Đọc lướt'), '#/skill/writing': t('Đề bài'), '#/skill/speaking': t('Thẻ gợi ý'), '#/grammar': t('Cú pháp'), '#/pron': t('Nhấn âm & cao độ'), '#/call': t('Thi nói mô phỏng') }; // dòng phụ dưới tên ô, như mẫu Stitch v2 practice
+    const focus = FOCUS.map(pick).filter(Boolean).map(x => Object.assign({}, x, x.href === '#/call' ? { title: t('Gọi giáo viên') } : {}, FSUB[x.href] ? { sub: FSUB[x.href] } : {})); focus.push({ href: '#/lesson', icon: 'auto_stories', title: t('Truyện'), sub: t('Truyện đọc'), badge: gr[3] ? gr[3][0] : skills });
     const rest = all.filter(x => !FOCUS.includes(x.href)), tiles = [...focus, ...rest].map((x, ci) => Object.assign({ ci }, x));
     const tot = plan.length, dn = plan.filter(x => x.done).length, nx = plan.find(x => !x.done), pct = tot ? Math.round(dn / tot * 100) : 0, sprAria = t('Tiếp tục nước rút ngày');
     const mockName = t('Thi thử {x} đầy đủ', { x: Xe.short }), mins = { ielts: 165, ieltsgt: 165, toeic: 120, toefl: 120 }[ex];
