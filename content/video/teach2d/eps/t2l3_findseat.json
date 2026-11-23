@@ -2,11 +2,11 @@
  "id": "t2l3_findseat",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 50,
+ "part": 49,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
- "speed": 1.2,
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 21,
-  "seconds": 10.4,
-  "wpm": 121
+  "seconds": 10.8,
+  "wpm": 117
  },
  "publish": {
   "title": "Find a seat: A1, B1 or C1?",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "Find a seat: A1, B1 or C1?",
-    "description": "Find a seat, three ways. A1: \"Is this chair free?\" B1: \"Excuse me, is anyone sitting here?\" C1: \"Is this seat taken?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Find a seat, three ways. A1: \"Is this chair free?\" B1: \"Excuse me, is anyone sitting here?\" C1: \"Is this seat taken?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "find a seat",
      "One Situation, 3 Levels",

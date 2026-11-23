@@ -688,9 +688,9 @@
   {
    "id": "slang",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "Slang Card 7-12 s (docs/SAY-NATIVE.md, owner 22/11), bank content/say-native/slang.json: no banked clip with QC>=90 yet - flips to approved when the 3 pilots (short + wide) pass every qc.py gate"
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/45020198020 (t2s_nocap, salty, imdead, pigout short+wide) + L1 runs 45041603428 (vi), 45077083949 (ar/hi/th)", "qc": 100, "approved": "2026-11-23", "by": "coordinator (CI gates: 4/4 EN pilots + L1 pilots, 16/16 gates, QC 100 short+wide)", "note": "Slang Card 7-12 s (docs/SAY-NATIVE.md, owner 22/11), bank content/say-native/slang.json: approved 23/11 by the coordinator: pilots t2s_nocap/salty/imdead/pigout passed every qc.py gate at 100 short + wide (CI run 45020198020; L1 pilots vi run 45041603428, ar/hi/th run 45077083949)"
   },
   {
    "id": "rule",

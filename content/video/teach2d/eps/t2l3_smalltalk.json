@@ -6,7 +6,7 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 21,
-  "seconds": 10.4,
-  "wpm": 121
+  "seconds": 11.3,
+  "wpm": 111
  },
  "publish": {
   "title": "Small talk: A1, B1 or C1?",

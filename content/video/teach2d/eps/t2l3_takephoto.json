@@ -6,7 +6,7 @@
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 26,
-  "seconds": 12.0,
-  "wpm": 129
+  "seconds": 12.1,
+  "wpm": 128
  },
  "publish": {
   "title": "Take a photo: A1, B1 or C1?",

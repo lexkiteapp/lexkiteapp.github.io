@@ -2,11 +2,11 @@
  "id": "t2l3_splitbill",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 48,
+ "part": 47,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
- "speed": 1.2,
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 23,
-  "seconds": 11.1,
-  "wpm": 125
+  "seconds": 10.3,
+  "wpm": 134
  },
  "publish": {
   "title": "Split the bill: A1, B1 or C1?",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "Split the bill: A1, B1 or C1?",
-    "description": "Split the bill, three ways. A1: \"Two bills, please.\" B1: \"Can we each pay for our own food?\" C1: \"Shall we just split it?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Split the bill, three ways. A1: \"Two bills, please.\" B1: \"Can we each pay for our own food?\" C1: \"Shall we just split it?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "split the bill",
      "One Situation, 3 Levels",

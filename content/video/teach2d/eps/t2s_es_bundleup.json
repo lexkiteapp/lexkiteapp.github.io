@@ -1,0 +1,150 @@
+{
+ "id": "t2s_es_bundleup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 41,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "It's freezing outside. Ready?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bundle up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Put on warm clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Bundle up, it's freezing outside!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "bundle up",
+  "forms": [],
+  "ipa": "/ˈbʌndl ˈʌp/",
+  "mean": "Put on warm clothes.",
+  "define": "To wear many layers because it's cold.",
+  "vi": "Mặc thật ấm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Before going out",
+   "text": "Bundle up, it's freezing outside!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bundle up\" means…",
+   "options": [
+    "dress warmly",
+    "tie a box"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell a friend to 'bundle up' in summer.",
+   "why": "It means put on warm clothes."
+  },
+  "l1": "abrígate",
+  "l1_hook": "Hace mucho frío afuera. ¿Listos para 'bundle up'?",
+  "l1_ex": "¡'Bundle up', hace mucho frío afuera!",
+  "right": "bundle up",
+  "native": {
+   "hook": "¿Qué significa “bundle up”?",
+   "tip": "“bundle up” = abrígate. Ejemplo: “Bundle up, it's freezing outside!”",
+   "caption": "¿Qué significa “bundle up”?\n“bundle up” = abrígate.\nEjemplo: “Bundle up, it's freezing outside!” (¡'Bundle up', hace mucho frío afuera!)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “bundle up” = abrígate. “Bundle up, it's freezing outside!” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "It's freezing outside. Ready?"
+ },
+ "src": {
+  "slang": "bundle up"
+ },
+ "lang": "es",
+ "est": {
+  "words": 17,
+  "seconds": 10.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "¿Qué significa “bundle up”?",
+  "keyword": "bundle up",
+  "value": "“bundle up” = abrígate. Ejemplo: “Bundle up, it's freezing outside!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “bundle up”?",
+    "description": "“bundle up” = abrígate. Ejemplo: “Bundle up, it's freezing outside!”\n\n¿Qué significa “bundle up”?\n“bundle up” = abrígate.\nEjemplo: “Bundle up, it's freezing outside!” (¡'Bundle up', hace mucho frío afuera!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "bundle up",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “bundle up”?\n“bundle up” = abrígate.\nEjemplo: “Bundle up, it's freezing outside!” (¡'Bundle up', hace mucho frío afuera!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “bundle up”?\n\n“bundle up” = abrígate. Ejemplo: “Bundle up, it's freezing outside!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “bundle up”? “bundle up” = abrígate. Ejemplo: “Bundle up, it's freezing outside!” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “bundle up” = abrígate. “Bundle up, it's freezing outside!” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

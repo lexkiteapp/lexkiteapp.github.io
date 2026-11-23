@@ -498,6 +498,30 @@ def slang_src():   # (bank by lowercase key, TeacherRig EXPR + GESTURES) – the
     return _SX
 
 
+SL_M_F, SL_L_F, SL_FR_F = f'{ROOT}/content/say-native/meanings.json', f'{ROOT}/content/say-native/slang-lines.json', f'{ROOT}/content/say-native/slang-l1-frames.json'
+SL_LANGS = ['vi', 'ar', 'de', 'es', 'fr', 'hi', 'id', 'ja', 'ko', 'pt', 'ru', 'th', 'tr', 'zh']   # = scripts/say-native/build.mjs LANGS (pages with their own language)
+
+
+def slang_l1_src(it, lang):   # the card's page-language texts (None when one is missing: the row is not planned / not rendered)
+    J = lambda f: json.load(open(f)) if os.path.exists(f) else {}
+    k = it['key'].lower(); m = it['vi'] if lang == 'vi' else (J(SL_M_F).get(k) or {}).get(lang); LN = J(SL_L_F)
+    if m and lang != 'vi':   # ONE sense: the first that is really in the page language (fr 'bet' = "OK; Ça marche" → Ça marche); a judged gloss can also list a literal sense (ar 'salty' … ; حامض = sour)
+        S_ = [x.strip() for x in re.split(r'\s*[;；]\s*', m) if x.strip()]; m = next((x for x in S_ if not re.fullmatch(r"[A-Za-z' .!-]+", x)), S_[0] if S_ else m)
+    h, e = (LN.get(f'{k}|hook') or {}).get(lang), (LN.get(f'{k}|ex') or {}).get(lang)
+    if lang == 'vi': h, e = it.get('vi_hook'), it.get('vi_ex')   # vi = hand-written on the card (lexai 'translate' has no vi), like the vi gloss
+    return dict(m=m, hook=h, ex=e) if m and h and e else None
+
+
+def slang_native(it, lang, T):   # post copy in the page language from the hand-written frames (slang-l1-frames.json) + the judged translations
+    F = json.load(open(SL_FR_F))['langs'][lang]; k = it['key']; hook = F['hook'].replace('{k}', k)
+    if len(hook) > 34: hook = F['hook'].replace('{k}', k.split()[0] + '…')   # the frame-0 hook stays <= 34 characters (native-qa lengths)
+    ex = it['example']['text']   # the English example rides along in the tip + first comment: useful for the learner, and an acronym slang (ASAP, AFK) never makes the post 'all caps'
+    tip = f'“{k}” = {T["m"]}. {F["eg"]}: “{ex}”'
+    if len(tip) > 140: tip = f'“{k}” = {T["m"]}'   # native-qa: the tip stays <= 140 characters (the example is still in the caption + first comment)
+    return dict(hook=hook, tip=tip, caption=f'{hook}\n“{k}” = {T["m"]}.\n{F["eg"]}: “{it["example"]["text"]}” ({T["ex"]})\n{F["cta"]}',
+                comment=f'{F["ans"]}: “{k}” = {T["m"]}. “{ex}” {F["more"]}: {{link}}', hashtags=F['hashtags'])
+
+
 def slang_variant(key): return 'quiz' if int(hashlib.sha1(key.lower().encode()).hexdigest(), 16) % 2 == 0 else 'misuse'
 
 
@@ -515,10 +539,14 @@ def slang(p):   # Slang Card: hook + STRONG expression (drawn face or approved p
              L('c', 'lexkite.com', 0.5)]
         if secs(lines) <= SLANG_SECS[1]: break
     pose = dict(clip=X['g'][g]['pose'], after='h') if g and pose_ok else None
-    return dict(lines=lines, expr=it['expr'], **({'pose': pose} if pose else {}),
+    out = dict(lines=lines, expr=it['expr'], **({'pose': pose} if pose else {}),
                 data=dict(key=it['key'], forms=it.get('forms') or [], ipa=it['ipa'], mean=it['mean'], define=it['def'], vi=it['vi'], reg=it['reg'], region=it['region'], level=it['level'],
                           era=it['era'], theme=it['theme'], example=ex, variant=var, quiz=it['quiz'], misuse=it['misuse']),
                 cta=cta('phrases', '#/phrases', 'Learn real slang free'), hook=dict(line='h', text=it['hook']), src=dict(slang=it['key']))
+    if p.get('lang'):   # L1 page: same English lesson; the meaning, the hook and the example also in the page language (shown under the English), post copy in that language
+        T_ = slang_l1_src(it, p['lang']); assert T_, ('slang L1 texts missing', it['key'], p['lang'])
+        out['data'].update(l1=T_['m'], l1_hook=T_['hook'], l1_ex=T_['ex'], right=it['key'], native=slang_native(it, p['lang'], T_))
+    return out
 
 
 T['slang'] = slang; SERIES['slang'] = 'Slang Card'
@@ -545,7 +573,7 @@ T['guess3'] = guess3; SERIES['guess3'] = 'Guess in 3 Seconds'
 
 
 # ---------------- levels3: "One situation, 3 levels" 10-13 s reels (growth series #3, docs/GROWTH-1M.md §2): the same sentence at A1, B1 and C1 (content/video/teach2d/levels3.json) ----------------
-LV3_F, LV3_SPEED, LV3_SECS, LV3_WORDS, LV3_RING = f'{ROOT}/content/video/teach2d/levels3.json', 1.2, (9.0, 12.4), (12, 26), 2.2   # est. seconds (+ ~0.9 s end-card tail = the 10-13 s reel), words incl. hook + CTA, quiz countdown
+LV3_F, LV3_SPEED, LV3_SECS, LV3_WORDS, LV3_RING = f'{ROOT}/content/video/teach2d/levels3.json', G3_SPEED, (9.0, 12.4), (12, 26), 2.2   # est. seconds (+ ~0.9 s end-card tail = the 10-13 s reel), words incl. hook + CTA, quiz countdown
 LV3_EXPR = dict(a='shrug', b='smirk', n='smug')   # TeacherRig EXPR faces (drawn, no pose image): plain -> confident -> smug, one per level line, held while it is spoken (rig_plan 'exprs')
 LV3_OK = {'ana', 'tom', 'sam', 'lee', 'mia', 'ben', 'wi-fi', 'latte', 'spain', 'monday', 'friday', 'sunday', 'neighbour', 'neighbours', 'pharmacy'}   # names / proper words the bank has no row for (levels3.mjs A1_FN)
 _LV3 = None
@@ -868,7 +896,7 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
     elif t == 'slang':   # Slang Card: the row froze the bank card it was planned with; the live bank (slang.json, slang.mjs gates) must still say the same
         it = slang_src()[0].get(p['key'].lower())
         if not it: bad.append('slang key gone from slang.json')
-        elif slang_facts(it) != row.get('facts'): bad.append('slang card changed in slang.json (re-plan + review)')
+        elif slang_facts(it, row.get('lang')) != row.get('facts'): bad.append('slang card or its page-language texts changed (re-plan + review)')
     elif t == 'levels3':   # the row froze the situation it was planned with; the live bank (levels3.json, levels3.mjs gates) must still say the same
         it = levels3_src().get(p['id'])
         if not it: bad.append('situation gone from levels3.json')
@@ -1208,7 +1236,7 @@ def plan_bands(n):   # one episode per bands.json topic, writing and speaking al
 SLANG_REVIEWER = 'gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths)'
 
 
-def slang_facts(it): return {k: it[k] for k in ('key', 'ipa', 'mean', 'def', 'hook', 'example', 'quiz', 'misuse', 'expr', 'reg', 'region')}
+def slang_facts(it, lang=None): return dict({k: it[k] for k in ('key', 'ipa', 'mean', 'def', 'hook', 'example', 'quiz', 'misuse', 'expr', 'reg', 'region')}, **({'l1': slang_l1_src(it, lang)} if lang else {}))
 
 
 def plan_slang(n, keys=None):   # one episode per slang card (English channels; L1 variants follow the same rows), themes interleaved so no two neighbours share a theme
@@ -1360,6 +1388,34 @@ def plan_levels3(n, ids=None):   # one episode per situation (teachers alternate
     for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
 
 
+def plan_slang_l1(n):   # L1 pages: the first n slang episodes of the batch (auto.json order) per page language, when the meaning + hook + example exist in that language
+    A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; have = {r['id'] for r in rows}; used_h = {r['hash'] for r in rows}; B = slang_src()[0]; why = {}; new = []
+    EN = [r for r in rows if r['template'] == 'slang' and not r.get('lang')]
+    for lang in SL_LANGS:
+        k_ = 0
+        for r in EN:
+            if k_ >= n: break
+            it = B.get(r['in']['key'].lower())
+            if not it: continue
+            rid = f"t2s_{lang}_{r['id'][4:]}"[:40]
+            if rid in have: k_ += 1; continue
+            if not slang_l1_src(it, lang): why.setdefault(f'{lang}:texts-missing', []).append(it['key']); continue
+            row = dict(id=rid, template='slang', lang=lang, teacher=r['teacher'], theme='dusk', part=r.get('part', 1), area='phrases', point=f"slang:{lang}:{it['key'].lower()}",
+                       hash=chash('slang', f"{lang}:{it['key']}"), heads=[f"slang:{lang}:{it['key'].lower()}"], taught=r['taught'], facts=slang_facts(it, lang), **{'in': dict(key=it['key'], lang=lang)})
+            if row['hash'] in used_h or data_gate(row): why.setdefault('dup-or-data', []).append(rid); continue
+            try: ep = make(row)
+            except AssertionError as e: why.setdefault('shape:' + str(e.args[0]), []).append(rid); continue
+            if not hook_gate(row, ep): why.setdefault('hook', []).append(rid); continue
+            rows.append(row); new.append(row); k_ += 1
+            R_['verdicts'][rid] = dict(template='slang', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=SLANG_REVIEWER + ' · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs',
+                                        machine=True, gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    cnt = {L: sum(1 for x in new if x['lang'] == L) for L in SL_LANGS}
+    print(f'slang L1: +{len(new)} rows {cnt}')
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:5]}')
+
+
 def pilot_point(r):
     p = r['in']; return dict(usuk=lambda: f"{p.get('us')}/{p.get('uk')}", verbs=lambda: p.get('base'), stress=lambda: f"{p['a']['word']}/{p['b']['word']}" if 'a' in p else '',
                              guess=lambda: p.get('word'), guess3=lambda: p.get('word'), review=lambda: p.get('word')).get(r['template'], lambda: r['id'])()
@@ -1396,6 +1452,7 @@ if __name__ == '__main__':
     if '--plan' in A_: plan(int(A_[A_.index('--plan') + 1])); sys.exit(0)
     if '--hand' in A_: plan_hand(); sys.exit(0)
     if '--roots' in A_: plan_roots(); sys.exit(0)
+    if '--slang-l1' in A_: plan_slang_l1(int(A_[A_.index('--slang-l1') + 1])); sys.exit(0)
     if '--slang-eps' in A_: plan_slang(int(A_[A_.index('--slang-eps') + 1]), A_[A_.index('--keys') + 1].split('|') if '--keys' in A_ else None); sys.exit(0)
     if '--levels3-eps' in A_: plan_levels3(int(A_[A_.index('--levels3-eps') + 1]), A_[A_.index('--ids') + 1].split('|') if '--ids' in A_ else None); sys.exit(0)
     if '--guess3-eps' in A_: plan_guess3(int(A_[A_.index('--guess3-eps') + 1])); sys.exit(0)

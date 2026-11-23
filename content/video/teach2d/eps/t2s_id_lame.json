@@ -1,0 +1,146 @@
+{
+ "id": "t2s_id_lame",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 82,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Party ended at eight. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Lame!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Boring or disappointing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That party was kind of lame.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "lame",
+  "forms": [],
+  "ipa": "/ˈleɪm/",
+  "mean": "Boring or disappointing.",
+  "define": "Used for things that are dull or not cool.",
+  "vi": "Nhạt, dở ẹc",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Leaving a party",
+   "text": "That party was kind of lame."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Lame\" means…",
+   "options": [
+    "exciting",
+    "dull"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's idea 'lame' in front of everyone.",
+   "why": "It sounds hurtful."
+  },
+  "l1": "garing",
+  "l1_hook": "Pesta selesai jam delapan. Serius? \"Lame\".",
+  "l1_ex": "Pesta itu agak \"lame\".",
+  "right": "lame",
+  "native": {
+   "hook": "Apa arti “lame”?",
+   "tip": "“lame” = garing. Contoh: “That party was kind of lame.”",
+   "caption": "Apa arti “lame”?\n“lame” = garing.\nContoh: “That party was kind of lame.” (Pesta itu agak \"lame\".)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “lame” = garing. “That party was kind of lame.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Party ended at eight. Seriously?"
+ },
+ "src": {
+  "slang": "lame"
+ },
+ "lang": "id",
+ "est": {
+  "words": 17,
+  "seconds": 10.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Apa arti “lame”?",
+  "keyword": "lame",
+  "value": "“lame” = garing. Contoh: “That party was kind of lame.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “lame”?",
+    "description": "“lame” = garing. Contoh: “That party was kind of lame.”\n\nApa arti “lame”?\n“lame” = garing.\nContoh: “That party was kind of lame.” (Pesta itu agak \"lame\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "lame",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “lame”?\n“lame” = garing.\nContoh: “That party was kind of lame.” (Pesta itu agak \"lame\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “lame”?\n\n“lame” = garing. Contoh: “That party was kind of lame.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “lame”? “lame” = garing. Contoh: “That party was kind of lame.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “lame” = garing. “That party was kind of lame.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

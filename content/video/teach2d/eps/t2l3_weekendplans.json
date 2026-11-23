@@ -6,7 +6,7 @@
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 24,
-  "seconds": 11.4,
-  "wpm": 126
+  "seconds": 11.9,
+  "wpm": 121
  },
  "publish": {
   "title": "Weekend plans: A1, B1 or C1?",

@@ -1,0 +1,152 @@
+{
+ "id": "t2s_es_epicwin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 88,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last second goal. We win!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Epic win!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A really great victory.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We scored in the last second. Epic win!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "epic win",
+  "forms": [
+   "epic"
+  ],
+  "ipa": "/ˈepɪk ˈwɪn/",
+  "mean": "A really great victory.",
+  "define": "A big, impressive win.",
+  "vi": "Chiến thắng hoành tráng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Celebrating with friends",
+   "text": "We scored in the last second. Epic win!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "An \"epic win\" is…",
+   "options": [
+    "a great victory",
+    "a long story"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'epic win' about a tiny task.",
+   "why": "It exaggerates a small success."
+  },
+  "l1": "victoria épica",
+  "l1_hook": "Gol de último segundo. ¡Ganamos! \"epic win\"",
+  "l1_ex": "Anotamos en el último segundo. \"Epic win\"!",
+  "right": "epic win",
+  "native": {
+   "hook": "¿Qué significa “epic win”?",
+   "tip": "“epic win” = victoria épica. Ejemplo: “We scored in the last second. Epic win!”",
+   "caption": "¿Qué significa “epic win”?\n“epic win” = victoria épica.\nEjemplo: “We scored in the last second. Epic win!” (Anotamos en el último segundo. \"Epic win\"!)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “epic win” = victoria épica. “We scored in the last second. Epic win!” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Last second goal. We win!"
+ },
+ "src": {
+  "slang": "epic win"
+ },
+ "lang": "es",
+ "est": {
+  "words": 21,
+  "seconds": 11.9,
+  "wpm": 106
+ },
+ "publish": {
+  "title": "¿Qué significa “epic win”?",
+  "keyword": "epic win",
+  "value": "“epic win” = victoria épica. Ejemplo: “We scored in the last second. Epic win!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “epic win”?",
+    "description": "“epic win” = victoria épica. Ejemplo: “We scored in the last second. Epic win!”\n\n¿Qué significa “epic win”?\n“epic win” = victoria épica.\nEjemplo: “We scored in the last second. Epic win!” (Anotamos en el último segundo. \"Epic win\"!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "epic win",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “epic win”?\n“epic win” = victoria épica.\nEjemplo: “We scored in the last second. Epic win!” (Anotamos en el último segundo. \"Epic win\"!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “epic win”?\n\n“epic win” = victoria épica. Ejemplo: “We scored in the last second. Epic win!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “epic win”? “epic win” = victoria épica. Ejemplo: “We scored in the last second. Epic win!” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “epic win” = victoria épica. “We scored in the last second. Epic win!” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

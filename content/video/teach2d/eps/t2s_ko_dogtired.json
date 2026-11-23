@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ko_dogtired",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 97,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "That hike felt endless!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dog tired!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Totally exhausted.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm dog tired after that long hike.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "dog tired",
+  "forms": [
+   "dog-tired"
+  ],
+  "ipa": "/ˈdɔːɡ ˈtaɪɚd/",
+  "mean": "Totally exhausted.",
+  "define": "Used when you are so tired you can barely move.",
+  "vi": "Mệt rã rời",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "After a school sports day",
+   "text": "I'm dog tired after that long hike."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dog tired\" means…",
+   "options": [
+    "tired of dogs",
+    "very tired"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your pet 'dog tired' literally.",
+   "why": "It's an idiom for exhaustion."
+  },
+  "l1": "녹초가 된",
+  "l1_hook": "그 등산은 끝이 없는 것 같았어. 완전 'dog tired'했어.",
+  "l1_ex": "나는 그 긴 등산 후에 \"dog tired\"다.",
+  "right": "dog tired",
+  "native": {
+   "hook": "“dog tired” 무슨 뜻일까요?",
+   "tip": "“dog tired” = 녹초가 된. 예문: “I'm dog tired after that long hike.”",
+   "caption": "“dog tired” 무슨 뜻일까요?\n“dog tired” = 녹초가 된.\n예문: “I'm dog tired after that long hike.” (나는 그 긴 등산 후에 \"dog tired\"다.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “dog tired” = 녹초가 된. “I'm dog tired after that long hike.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "That hike felt endless!"
+ },
+ "src": {
+  "slang": "dog tired"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“dog tired” 무슨 뜻일까요?",
+  "keyword": "dog tired",
+  "value": "“dog tired” = 녹초가 된. 예문: “I'm dog tired after that long hike.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "“dog tired” 무슨 뜻일까요?",
+    "description": "“dog tired” = 녹초가 된. 예문: “I'm dog tired after that long hike.”\n\n“dog tired” 무슨 뜻일까요?\n“dog tired” = 녹초가 된.\n예문: “I'm dog tired after that long hike.” (나는 그 긴 등산 후에 \"dog tired\"다.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "dog tired",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“dog tired” 무슨 뜻일까요?\n“dog tired” = 녹초가 된.\n예문: “I'm dog tired after that long hike.” (나는 그 긴 등산 후에 \"dog tired\"다.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“dog tired” 무슨 뜻일까요?\n\n“dog tired” = 녹초가 된. 예문: “I'm dog tired after that long hike.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“dog tired” 무슨 뜻일까요? “dog tired” = 녹초가 된. 예문: “I'm dog tired after that long hike.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “dog tired” = 녹초가 된. “I'm dog tired after that long hike.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

@@ -2,11 +2,11 @@
  "id": "t2l3_askhowlong",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 51,
+ "part": 50,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
- "speed": 1.2,
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
@@ -88,8 +88,8 @@
  },
  "est": {
   "words": 24,
-  "seconds": 11.4,
-  "wpm": 126
+  "seconds": 11.1,
+  "wpm": 130
  },
  "publish": {
   "title": "Ask how long: A1, B1 or C1?",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "Ask how long: A1, B1 or C1?",
-    "description": "Ask how long, three ways. A1: \"How long is it?\" B1: \"How long will it take to arrive?\" C1: \"Roughly how long is the wait?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Ask how long, three ways. A1: \"How long is it?\" B1: \"How long will it take to arrive?\" C1: \"Roughly how long is the wait?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "ask how long",
      "One Situation, 3 Levels",

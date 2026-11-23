@@ -2,11 +2,11 @@
  "id": "t2l3_atpharmacy",
  "template": "levels3",
  "series": "One Situation, 3 Levels",
- "part": 63,
+ "part": 19,
  "theme": "dusk",
  "teacher": "ama",
  "voice": "af_bella",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
@@ -26,7 +26,7 @@
   },
   {
    "id": "n",
-   "text": "I've come down with a cold. Any suggestions?",
+   "text": "I've come down with a cold.",
    "pause": 2.2,
    "quiz": true
   },
@@ -59,7 +59,7 @@
     "note": "Polite and natural."
    },
    "c": {
-    "text": "I've come down with a cold. Any suggestions?",
+    "text": "I've come down with a cold.",
     "key": "come down with",
     "note": "A real phrasal verb for illness."
    }
@@ -87,14 +87,14 @@
   "levels3": "at-pharmacy"
  },
  "est": {
-  "words": 26,
-  "seconds": 12.0,
-  "wpm": 129
+  "words": 24,
+  "seconds": 11.6,
+  "wpm": 124
  },
  "publish": {
   "title": "At the pharmacy: A1, B1 or C1?",
   "keyword": "at the pharmacy",
-  "value": "At the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold. Any suggestions?\"",
+  "value": "At the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold.\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -107,7 +107,7 @@
   "platforms": {
    "youtube": {
     "title": "At the pharmacy: A1, B1 or C1?",
-    "description": "At the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold. Any suggestions?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "At the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "at the pharmacy",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "At the pharmacy: A1, B1 or C1?\n\nAt the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold. Any suggestions?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "At the pharmacy: A1, B1 or C1?\n\nAt the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "At the pharmacy: A1, B1 or C1?\n\nAt the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold. Any suggestions?\"\n\nLevel up your English free: link in bio.",
+    "caption": "At the pharmacy: A1, B1 or C1?\n\nAt the pharmacy, three ways. A1: \"I have a cold.\" B1: \"Do you have anything for a cold?\" C1: \"I've come down with a cold.\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",
@@ -132,6 +132,6 @@
     "caption": "At the pharmacy: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
    }
   },
-  "first_comment": "Quiz answer: Come down with. Native line: \"I've come down with a cold. Any suggestions?\" Which level are you? More real English, free: {link}"
+  "first_comment": "Quiz answer: Come down with. Native line: \"I've come down with a cold.\" Which level are you? More real English, free: {link}"
  }
 }

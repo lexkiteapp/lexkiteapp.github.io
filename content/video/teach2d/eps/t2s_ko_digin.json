@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ko_digin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 86,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dinner's ready. Who's hungry?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dig in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start eating now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dinner is ready, so dig in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "dig in",
+  "forms": [],
+  "ipa": "/ˈdɪɡ ˈɪn/",
+  "mean": "Start eating now.",
+  "define": "Used to invite people to begin eating.",
+  "vi": "Ăn đi nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "Serving dinner",
+   "text": "Dinner is ready, so dig in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dig in\" means…",
+   "options": [
+    "dig a hole",
+    "start eating"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell guests to 'dig in' before the host.",
+   "why": "Formal dinners wait for the host."
+  },
+  "l1": "밥 먹자",
+  "l1_hook": "저녁 준비됐어. 누가 배고프니?",
+  "l1_ex": "저녁이 준비됐으니 'dig in'!",
+  "right": "dig in",
+  "native": {
+   "hook": "“dig in” 무슨 뜻일까요?",
+   "tip": "“dig in” = 밥 먹자. 예문: “Dinner is ready, so dig in!”",
+   "caption": "“dig in” 무슨 뜻일까요?\n“dig in” = 밥 먹자.\n예문: “Dinner is ready, so dig in!” (저녁이 준비됐으니 'dig in'!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “dig in” = 밥 먹자. “Dinner is ready, so dig in!” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dinner's ready. Who's hungry?"
+ },
+ "src": {
+  "slang": "dig in"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“dig in” 무슨 뜻일까요?",
+  "keyword": "dig in",
+  "value": "“dig in” = 밥 먹자. 예문: “Dinner is ready, so dig in!”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“dig in” 무슨 뜻일까요?",
+    "description": "“dig in” = 밥 먹자. 예문: “Dinner is ready, so dig in!”\n\n“dig in” 무슨 뜻일까요?\n“dig in” = 밥 먹자.\n예문: “Dinner is ready, so dig in!” (저녁이 준비됐으니 'dig in'!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "dig in",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“dig in” 무슨 뜻일까요?\n“dig in” = 밥 먹자.\n예문: “Dinner is ready, so dig in!” (저녁이 준비됐으니 'dig in'!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“dig in” 무슨 뜻일까요?\n\n“dig in” = 밥 먹자. 예문: “Dinner is ready, so dig in!”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“dig in” 무슨 뜻일까요? “dig in” = 밥 먹자. 예문: “Dinner is ready, so dig in!” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “dig in” = 밥 먹자. “Dinner is ready, so dig in!” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

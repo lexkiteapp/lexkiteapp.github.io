@@ -6,7 +6,7 @@
  "theme": "dusk",
  "teacher": "carlos",
  "voice": "am_fenrir",
- "speed": 1.2,
+ "speed": 1.33,
  "area": "phrases",
  "lines": [
   {
@@ -21,12 +21,12 @@
   },
   {
    "id": "b",
-   "text": "How do I get to the station, please?",
+   "text": "How do I get to the station?",
    "pause": 0.3
   },
   {
    "id": "n",
-   "text": "Sorry, I'm trying to get to the station.",
+   "text": "I'm trying to get to the station.",
    "pause": 2.2,
    "quiz": true
   },
@@ -54,12 +54,12 @@
     "note": "Basic but correct."
    },
    "b": {
-    "text": "How do I get to the station, please?",
+    "text": "How do I get to the station?",
     "key": "How do I get",
     "note": "Polite and natural."
    },
    "c": {
-    "text": "Sorry, I'm trying to get to the station.",
+    "text": "I'm trying to get to the station.",
     "key": "trying to get to",
     "note": "Says your goal, not a question."
    }
@@ -87,14 +87,14 @@
   "levels3": "ask-directions"
  },
  "est": {
-  "words": 26,
-  "seconds": 12.0,
-  "wpm": 129
+  "words": 24,
+  "seconds": 11.9,
+  "wpm": 121
  },
  "publish": {
   "title": "Ask directions: A1, B1 or C1?",
   "keyword": "ask directions",
-  "value": "Ask directions, three ways. A1: \"Where is the station?\" B1: \"How do I get to the station, please?\" C1: \"Sorry, I'm trying to get to the station.\"",
+  "value": "Ask directions, three ways. A1: \"Where is the station?\" B1: \"How do I get to the station?\" C1: \"I'm trying to get to the station.\"",
   "hashtags": [
    "#englishlevels",
    "#learnenglish",
@@ -103,11 +103,11 @@
    "#englishtips"
   ],
   "link": "https://lexkite.com/app/#/phrases",
-  "script_words": 17,
+  "script_words": 16,
   "platforms": {
    "youtube": {
     "title": "Ask directions: A1, B1 or C1?",
-    "description": "Ask directions, three ways. A1: \"Where is the station?\" B1: \"How do I get to the station, please?\" C1: \"Sorry, I'm trying to get to the station.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "description": "Ask directions, three ways. A1: \"Where is the station?\" B1: \"How do I get to the station?\" C1: \"I'm trying to get to the station.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
     "tags": [
      "ask directions",
      "One Situation, 3 Levels",
@@ -116,10 +116,10 @@
     ]
    },
    "facebook": {
-    "text": "Ask directions: A1, B1 or C1?\n\nAsk directions, three ways. A1: \"Where is the station?\" B1: \"How do I get to the station, please?\" C1: \"Sorry, I'm trying to get to the station.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+    "text": "Ask directions: A1, B1 or C1?\n\nAsk directions, three ways. A1: \"Where is the station?\" B1: \"How do I get to the station?\" C1: \"I'm trying to get to the station.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Ask directions: A1, B1 or C1?\n\nAsk directions, three ways. A1: \"Where is the station?\" B1: \"How do I get to the station, please?\" C1: \"Sorry, I'm trying to get to the station.\"\n\nLevel up your English free: link in bio.",
+    "caption": "Ask directions: A1, B1 or C1?\n\nAsk directions, three ways. A1: \"Where is the station?\" B1: \"How do I get to the station?\" C1: \"I'm trying to get to the station.\"\n\nLevel up your English free: link in bio.",
     "hashtags": [
      "#englishlevels",
      "#learnenglish",
@@ -132,6 +132,6 @@
     "caption": "Ask directions: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
    }
   },
-  "first_comment": "Quiz answer: Trying to get to. Native line: \"Sorry, I'm trying to get to the station.\" Which level are you? More real English, free: {link}"
+  "first_comment": "Quiz answer: Trying to get to. Native line: \"I'm trying to get to the station.\" Which level are you? More real English, free: {link}"
  }
 }

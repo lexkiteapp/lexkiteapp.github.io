@@ -1,0 +1,146 @@
+{
+ "id": "t2s_es_goodasnew",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 79,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One nap, and I'm better!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Good as new!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fully better again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "After a nap, I feel good as new.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "good as new",
+  "forms": [],
+  "ipa": "/ˈɡʊd əz ˈnuː/",
+  "mean": "Fully better again.",
+  "define": "Used when something or someone is completely fixed or healthy.",
+  "vi": "Khỏe như mới",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a repair",
+   "text": "After a nap, I feel good as new."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "very old",
+    "fully fixed"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a broken phone 'good as new'.",
+   "why": "It means fully repaired or healed."
+  },
+  "l1": "como nuevo",
+  "l1_hook": "Una siesta, y estoy \"good as new\".",
+  "l1_ex": "Después de una siesta, me siento \"good as new\".",
+  "right": "good as new",
+  "native": {
+   "hook": "¿Qué significa “good as new”?",
+   "tip": "“good as new” = como nuevo. Ejemplo: “After a nap, I feel good as new.”",
+   "caption": "¿Qué significa “good as new”?\n“good as new” = como nuevo.\nEjemplo: “After a nap, I feel good as new.” (Después de una siesta, me siento \"good as new\".)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “good as new” = como nuevo. “After a nap, I feel good as new.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One nap, and I'm better!"
+ },
+ "src": {
+  "slang": "good as new"
+ },
+ "lang": "es",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "¿Qué significa “good as new”?",
+  "keyword": "good as new",
+  "value": "“good as new” = como nuevo. Ejemplo: “After a nap, I feel good as new.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “good as new”?",
+    "description": "“good as new” = como nuevo. Ejemplo: “After a nap, I feel good as new.”\n\n¿Qué significa “good as new”?\n“good as new” = como nuevo.\nEjemplo: “After a nap, I feel good as new.” (Después de una siesta, me siento \"good as new\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "good as new",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “good as new”?\n“good as new” = como nuevo.\nEjemplo: “After a nap, I feel good as new.” (Después de una siesta, me siento \"good as new\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “good as new”?\n\n“good as new” = como nuevo. Ejemplo: “After a nap, I feel good as new.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “good as new”? “good as new” = como nuevo. Ejemplo: “After a nap, I feel good as new.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “good as new” = como nuevo. “After a nap, I feel good as new.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}
