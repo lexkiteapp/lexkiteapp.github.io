@@ -14,12 +14,15 @@ for (const d of ['shots', 'sheets', 'flagged']) fs.mkdirSync(`${OUT}/${d}`, { re
 const OFFLINE_RE = /Turnstile|sitekey|net::ERR|Failed to load resource|Failed to fetch|NetworkError|lexkite\.com|ERR_BLOCKED|datamuse|CORS policy/i;
 const SKIP_RE = /sandbox|toast|🧪|thử nghiệm/i; // banner chế độ thử nghiệm của ?sandbox=1 không phải giao diện thật
 const ROUTES = ['welcome/setup', 'home', 'vocab', 'skills', 'tests', 'me', 'path', 'day/1', 'review', 'practice', 'dict/hello', 'dict/zzqxv', 'deck', 'library', 'grammar', 'grammar/ed-s-endings', 'courses', 'course', 'speaking', 'call', 'roleplay', 'say', 'speak', 'pron', 'listening', 'dictation', 'reading', 'write', 'paraphrase', 'cbt', 'qstats', 'quick', 'stats', 'streak', 'league', 'goal', 'settings', 'mistakes', 'toeic', 'toefl', 'resources', 'placement', 'contact', 'zzz-not-found'];
-const STATES = [['home', 'toast'], ['home', 'modal'], ['me', 'signed']];
+const STATES = [['home', 'toast'], ['home', 'modal'], ['me', 'signed'], ['home', 'examsheet'], ['home', 'langsheet']];
 const AREA = { 'welcome': 'chao', 'home': 'hoc', 'path': 'hoc', 'day/1': 'hoc', 'review': 'hoc', 'practice': 'hoc', 'courses': 'hoc', 'course': 'hoc', 'deck': 'hoc', 'library': 'hoc', 'mistakes': 'hoc', 'placement': 'hoc',
   'vocab': 'tu', 'dict/hello': 'tu', 'dict/zzqxv': 'tu', 'skills': 'ky-nang', 'grammar': 'ky-nang', 'grammar/ed-s-endings': 'ky-nang', 'speaking': 'ky-nang', 'call': 'ky-nang', 'roleplay': 'ky-nang', 'say': 'ky-nang', 'speak': 'ky-nang', 'pron': 'ky-nang', 'listening': 'ky-nang', 'dictation': 'ky-nang', 'reading': 'ky-nang', 'write': 'ky-nang', 'paraphrase': 'ky-nang',
   'tests': 'thi', 'cbt': 'thi', 'quick': 'thi', 'toeic': 'thi', 'toefl': 'thi', 'qstats': 'thi' };
 const areaOf = name => name.startsWith('welcome') ? 'chao' : AREA[name.split('+')[0]] || 'toi-he-thong';
 const VPS = { m: { width: 375, height: 812, isMobile: true, hasTouch: true }, d: { width: 1440, height: 900 } };
+// UIA_VPS='390x844,768x1024' → khổ tùy chọn (chương trình rà soát toàn app 23/11: 390 + 768); UIA_ALL=1 → mọi route trong docs/ui-inventory.json
+if (process.env.UIA_VPS) { for (const k of Object.keys(VPS)) delete VPS[k]; for (const v of process.env.UIA_VPS.split(',')) { const [w, h] = v.split('x').map(Number); VPS['w' + w] = { width: w, height: h, isMobile: w < 700, hasTouch: w < 700 }; } }
+if (process.env.UIA_ALL) { try { const inv = JSON.parse(fs.readFileSync('docs/ui-inventory.json', 'utf8')); for (const r of inv.routes) { const h = r.hash.replace(/^#\//, ''); if (h && !ROUTES.includes(h) && !/^(welcome|lesson)/.test(h)) ROUTES.push(h); } } catch (e) { /* chưa có kiểm kê */ } }
 const metrics = [], shots = [];
 const still = '*,*::before,*::after{animation:none!important;transition:none!important}';
 const safe = s => s.replace(/[^a-z0-9]+/gi, '_');
@@ -73,6 +76,7 @@ for (const [vn, vp] of Object.entries(VPS)) for (const scheme of ['light', 'dark
   // chụp từng bước Welcome rồi hoàn tất
   for (let i = 0; i < 8; i++) {
     const f = `${OUT}/shots/${vn}-${scheme}-welcome_step${i}.jpg`; await page.addStyleTag({ content: still }).catch(() => {});
+    await page.evaluate(() => { const t = document.getElementById('toast'); if (t) { t.classList.remove('show'); t._msg = null; } }).catch(() => {}); // toast 'Chế độ thử nghiệm' của ?sandbox=1 không che bước Welcome
     await page.screenshot({ path: f, type: 'jpeg', quality: 70 }).catch(() => {}); shots.push({ vn, scheme, name: 'welcome step ' + i, f });
     const mm = await measure(page);
     // chữ bị nút dính (CTA) che khi đã cuộn tới đáy: mỗi bước Welcome không được có chữ bị che
@@ -86,13 +90,15 @@ for (const [vn, vp] of Object.entries(VPS)) for (const scheme of ['light', 'dark
     errs.length = 0;
     try {
       await page.keyboard.press('Shift').catch(() => {});
+      await page.evaluate(() => { try { window.UI && UI.closeModal && UI.closeModal(); const t = document.getElementById('toast'); if (t) { t.classList.remove('show'); t._msg = null; } } catch (e) { /* bỏ qua */ } }); // rà soát 23/11: modal/toast của trạng thái trước không rò sang ảnh sau (me_signed hiện 'Locked day' giả; toast thử nghiệm che welcome)
       await page.evaluate(h => { location.hash = h; scrollTo(0, 0); }, '#/' + r); await page.waitForTimeout(1100);
       await page.addStyleTag({ content: still }).catch(() => {});
-      if (st) await page.evaluate(async k => { const U = window.UI || {}; if (k === 'toast' && U.toast) U.toast('Saved to your deck — a longer notification text to check wrapping', 15000); if (k === 'modal' && U.modal) U.modal('<h3>Locked day</h3><p>Complete the previous day first to unlock this day.</p><button class="btn primary">OK</button>'); if (k === 'signed' && window.Sync) { window.Sync.user = window.Sync.user || { uid: 'ua', displayName: 'Audit Learner', email: 'audit@example.com' }; const h = location.hash; location.hash = '#/home'; await new Promise(q => setTimeout(q, 300)); location.hash = h; await new Promise(q => setTimeout(q, 1000)); } }, st).catch(() => {});
+      if (st) await page.evaluate(async k => { const U = window.UI || {}; if (k === 'examsheet' && window.App) window.App.examPicker(); if (k === 'langsheet' && window.TLPick) window.TLPick.open(); if (k === 'toast' && U.toast) U.toast('Saved to your deck — a longer notification text to check wrapping', 15000); if (k === 'modal' && U.modal) U.modal('<h3>Locked day</h3><p>Complete the previous day first to unlock this day.</p><button class="btn primary">OK</button>'); if (k === 'signed' && window.Sync) { window.Sync.user = window.Sync.user || { uid: 'ua', displayName: 'Audit Learner', email: 'audit@example.com' }; const h = location.hash; location.hash = '#/home'; await new Promise(q => setTimeout(q, 300)); location.hash = h; await new Promise(q => setTimeout(q, 1000)); } }, st).catch(() => {});
       if (st) await page.waitForTimeout(600);
+      await page.mouse.move(0, 0).catch(() => {}); await page.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur()).catch(() => {}); // chuột/tiêu điểm còn kẹt từ bước bấm trước → hover/focus giả (viền cam lạ trong ảnh)
       const name = r + (st ? '+' + st : ''), f = `${OUT}/shots/${vn}-${scheme}-${safe(name)}.jpg`;
       await page.screenshot({ path: f, type: 'jpeg', quality: 70 }); shots.push({ vn, scheme, name, f });
-      metrics.push({ vn, scheme, route: name, st, f, ...(await measure(page, !!st && st === 'modal')), errs: [...errs] });
+      metrics.push({ vn, scheme, route: name, st, f, ...(await measure(page, !!st && /^(modal|examsheet|langsheet)$/.test(st))), errs: [...errs] });
     } catch (e) { metrics.push({ vn, scheme, route: r, fail: String(e.message).slice(0, 80) }); }
   }
   await ctx.close();
@@ -111,7 +117,7 @@ for (const vn of ['m', 'd']) for (const scheme of ['light', 'dark']) {
   for (const area of [...new Set(arr.map(s => areaOf(s.name)))]) {
     const inArea = arr.filter(s => areaOf(s.name) === area);
     for (let i = 0, k = 1; i < inArea.length; i += 12, k++) {
-      const chunk = inArea.slice(i, i + 12), cols = vn === 'm' ? 6 : 4;
+      const chunk = inArea.slice(i, i + 12), cols = VPS[vn].width < 700 ? 6 : 4;
       const cells = chunk.map(s => { const m = cellOf.get(s.f) || {}, sev = rank(m.issues || []), col = sev === 'high' || sev === 'medium' ? '#e11' : sev === 'low' ? '#e90' : '#444';
         return `<figure style="margin:0;background:#fff;outline:${sev === 'high' || sev === 'medium' ? 5 : 2}px solid ${col};outline-offset:-1px"><figcaption style="background:${col};color:#fff;padding:3px 5px;font-weight:600">${s.name} · ${vp.width}×${vp.height} · ${scheme}${(m.issues || []).length ? ` · ⚠${m.issues.length}` : ''}</figcaption><img style="width:100%;display:block" src="data:image/jpeg;base64,${fs.readFileSync(s.f).toString('base64')}"></figure>`; });
       const html = `<body style="margin:0;background:#777;font:13px sans-serif"><div style="display:grid;grid-template-columns:repeat(${cols},1fr);gap:6px;padding:6px">${cells.join('')}</div>`;
@@ -127,7 +133,7 @@ for (const vn of ['m', 'd']) for (const scheme of ['light', 'dark']) {
 await browser.close();
 // ── report.md: lỗi xếp theo mức, mỗi dòng chỉ tờ chứa ô ──
 const sheetOf = new Map(); for (const sh of sheetsOut) for (const n of sh.names) sheetOf.set(sh.file.split('-').slice(0, 2).join('-') + '|' + n, sh.file);
-const rows = []; for (const m of metrics) for (const i of m.issues) rows.push({ ...i, route: m.route, vp: m.vn === 'm' ? '375' : '1440', scheme: m.scheme, sheet: sheetOf.get(`${m.vn}-${m.scheme}|${m.route}`) || '' });
+const rows = []; for (const m of metrics) for (const i of m.issues) rows.push({ ...i, route: m.route, vp: String(VPS[m.vn].width), scheme: m.scheme, sheet: sheetOf.get(`${m.vn}-${m.scheme}|${m.route}`) || '' });
 rows.sort((a, b) => SEV_ORDER.indexOf(a.sev) - SEV_ORDER.indexOf(b.sev));
 const cnt = s => rows.filter(r => r.sev === s).length, cells = metrics.length, badCells = metrics.filter(m => m.issues.some(i => i.sev !== 'low')).length;
 const md = [`# UI audit – ${new Date().toISOString().slice(0, 10)} (${LANG})`, '', `${cells} ô · ${badCells} ô có lỗi cao/trung · 🔴 cao ${cnt('high')} · 🟠 trung ${cnt('medium')} · 🟡 thấp ${cnt('low')} · tờ có ô đỏ: ${flaggedSheets.length}/${sheetsOut.length}`, '',

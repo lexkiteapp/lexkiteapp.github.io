@@ -1,0 +1,140 @@
+{
+  "id": "a1-tortoise-and-hare",
+  "kind": "book",
+  "level": "A1",
+  "title": "The Tortoise and the Hare",
+  "summary": "A fast hare and a slow tortoise have a race.",
+  "source": {
+    "type": "public-domain",
+    "work": "Aesop's Fables",
+    "author": "Aesop",
+    "published": -550,
+    "authorDied": -564,
+    "url": "https://www.gutenberg.org/ebooks/21",
+    "note": "Retold from the plot of the fable in new A1 English by Lexkite; no sentences copied from any translation."
+  },
+  "license": "Adaptation CC BY 4.0 Lexkite; original fable in the public domain",
+  "cover": {
+    "style": "2d",
+    "cast": [],
+    "scene": "Flat 2D illustration: a green tortoise and a brown hare at the start of a race on a sunny road with hills, no text"
+  },
+  "audio": {
+    "wpm": 110,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "The Big Race",
+      "sentences": [
+        "A hare is very fast.",
+        "He runs and jumps all day.",
+        "He laughs at a slow tortoise.",
+        "\"You are so slow,\" says the hare.",
+        "The tortoise is not angry.",
+        "\"Let us have a race,\" he says.",
+        "The hare laughs again.",
+        "\"I will win easily,\" he says.",
+        "A fox shows the road to the hill.",
+        "The race starts, and the hare runs fast."
+      ],
+      "words": [
+        "race",
+        "slow",
+        "laugh",
+        "easily",
+        "road"
+      ],
+      "quiz": [
+        {
+          "q": "Who is very fast?",
+          "options": [
+            "The tortoise",
+            "The hare",
+            "The fox"
+          ],
+          "answer": 1,
+          "explain": "The story says the hare is very fast."
+        },
+        {
+          "q": "What does the tortoise ask for?",
+          "options": [
+            "A race",
+            "A song",
+            "A gift"
+          ],
+          "answer": 0,
+          "explain": "The tortoise says, \"Let us have a race.\""
+        },
+        {
+          "q": "Why does the hare laugh?",
+          "options": [
+            "He is sad.",
+            "He thinks he will win easily.",
+            "He is hungry."
+          ],
+          "answer": 1,
+          "explain": "He says he will win easily because he is fast."
+        }
+      ]
+    },
+    {
+      "title": "Slow and Steady",
+      "sentences": [
+        "The hare is far from the tortoise.",
+        "He sees a big tree and stops.",
+        "\"I have time,\" he thinks.",
+        "He sits down and sleeps.",
+        "The tortoise walks and walks.",
+        "He does not stop for a rest.",
+        "He passes the sleeping hare.",
+        "The hare wakes up at last.",
+        "He runs fast, but it is too late.",
+        "The tortoise is at the end of the road.",
+        "Slow and steady wins the race."
+      ],
+      "words": [
+        "rest",
+        "pass",
+        "sleep",
+        "steady",
+        "wake",
+        "late"
+      ],
+      "quiz": [
+        {
+          "q": "Why does the hare stop?",
+          "options": [
+            "He wants to sleep.",
+            "He is lost.",
+            "He is hurt."
+          ],
+          "answer": 0,
+          "explain": "He thinks he has time, so he sits down and sleeps."
+        },
+        {
+          "q": "Does the tortoise stop for a rest?",
+          "options": [
+            "Yes, many times",
+            "Yes, one time",
+            "No, he does not"
+          ],
+          "answer": 2,
+          "explain": "The tortoise walks and does not stop for a rest."
+        },
+        {
+          "q": "Who wins the race?",
+          "options": [
+            "The hare",
+            "The tortoise",
+            "The fox"
+          ],
+          "answer": 1,
+          "explain": "The tortoise reaches the end of the road first."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_id_drip",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 46,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New jacket, new shoes, new confidence!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Drip!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very stylish clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Nice jacket, you've got drip today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "drip",
+  "forms": [],
+  "ipa": "/ˈdrɪp/",
+  "mean": "Very stylish clothes.",
+  "define": "Slang for cool clothes and a stylish look.",
+  "vi": "Phong cách chất lừ",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Seeing a friend's outfit",
+   "text": "Nice jacket, you've got drip today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Drip\" means…",
+   "options": [
+    "a water drop",
+    "a cool style"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your boss 'nice drip' at work.",
+   "why": "It's too slangy for formal settings."
+  },
+  "l1": "gaya busana keren",
+  "l1_hook": "Jaket baru, sepatu baru, percaya diri baru! \"drip\"",
+  "l1_ex": "Jaketnya bagus, kamu punya \"drip\" hari ini.",
+  "right": "drip",
+  "native": {
+   "hook": "Apa arti “drip”?",
+   "tip": "“drip” = gaya busana keren. Contoh: “Nice jacket, you've got drip today.”",
+   "caption": "Apa arti “drip”?\n“drip” = gaya busana keren.\nContoh: “Nice jacket, you've got drip today.” (Jaketnya bagus, kamu punya \"drip\" hari ini.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “drip” = gaya busana keren. “Nice jacket, you've got drip today.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "New jacket, new shoes, new confidence!"
+ },
+ "src": {
+  "slang": "drip"
+ },
+ "lang": "id",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Apa arti “drip”?",
+  "keyword": "drip",
+  "value": "“drip” = gaya busana keren. Contoh: “Nice jacket, you've got drip today.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “drip”?",
+    "description": "“drip” = gaya busana keren. Contoh: “Nice jacket, you've got drip today.”\n\nApa arti “drip”?\n“drip” = gaya busana keren.\nContoh: “Nice jacket, you've got drip today.” (Jaketnya bagus, kamu punya \"drip\" hari ini.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "drip",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “drip”?\n“drip” = gaya busana keren.\nContoh: “Nice jacket, you've got drip today.” (Jaketnya bagus, kamu punya \"drip\" hari ini.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “drip”?\n\n“drip” = gaya busana keren. Contoh: “Nice jacket, you've got drip today.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “drip”? “drip” = gaya busana keren. Contoh: “Nice jacket, you've got drip today.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “drip” = gaya busana keren. “Nice jacket, you've got drip today.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

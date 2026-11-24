@@ -1,0 +1,148 @@
+{
+ "id": "t2s_hi_brainrot",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 39,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three hours of silly videos!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Brain rot!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Silly online content that feels empty.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Too many videos give me brain rot.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "brain rot",
+  "forms": [
+   "brainrot"
+  ],
+  "ipa": "/ˈbreɪn ˈrɑːt/",
+  "mean": "Silly online content that feels empty.",
+  "define": "Jokingly used for low-quality videos you scroll too much.",
+  "vi": "Nội dung nhảm, xem hoài",
+  "reg": "very-casual",
+  "region": "global",
+  "level": "C1",
+  "era": "gen-z",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Talking about screen time",
+   "text": "Too many videos give me brain rot."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Brain rot\" is a joke about…",
+   "options": [
+    "silly online content",
+    "a brain illness"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call a documentary 'brain rot'.",
+   "why": "It means empty, silly content."
+  },
+  "l1": "दिमाग ख़राब करने वाला कंटेंट",
+  "l1_hook": "तीन घंटे की बेतुकी वीडियो!",
+  "l1_ex": "बहुत सारी वीडियो मुझे \"brain rot\" देती हैं।",
+  "right": "brain rot",
+  "native": {
+   "hook": "“brain rot” का मतलब क्या है?",
+   "tip": "“brain rot” = दिमाग ख़राब करने वाला कंटेंट. उदाहरण: “Too many videos give me brain rot.”",
+   "caption": "“brain rot” का मतलब क्या है?\n“brain rot” = दिमाग ख़राब करने वाला कंटेंट.\nउदाहरण: “Too many videos give me brain rot.” (बहुत सारी वीडियो मुझे \"brain rot\" देती हैं।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “brain rot” = दिमाग ख़राब करने वाला कंटेंट. “Too many videos give me brain rot.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three hours of silly videos!"
+ },
+ "src": {
+  "slang": "brain rot"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "“brain rot” का मतलब क्या है?",
+  "keyword": "brain rot",
+  "value": "“brain rot” = दिमाग ख़राब करने वाला कंटेंट. उदाहरण: “Too many videos give me brain rot.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“brain rot” का मतलब क्या है?",
+    "description": "“brain rot” = दिमाग ख़राब करने वाला कंटेंट. उदाहरण: “Too many videos give me brain rot.”\n\n“brain rot” का मतलब क्या है?\n“brain rot” = दिमाग ख़राब करने वाला कंटेंट.\nउदाहरण: “Too many videos give me brain rot.” (बहुत सारी वीडियो मुझे \"brain rot\" देती हैं।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "brain rot",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“brain rot” का मतलब क्या है?\n“brain rot” = दिमाग ख़राब करने वाला कंटेंट.\nउदाहरण: “Too many videos give me brain rot.” (बहुत सारी वीडियो मुझे \"brain rot\" देती हैं।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“brain rot” का मतलब क्या है?\n\n“brain rot” = दिमाग ख़राब करने वाला कंटेंट. उदाहरण: “Too many videos give me brain rot.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“brain rot” का मतलब क्या है? “brain rot” = दिमाग ख़राब करने वाला कंटेंट. उदाहरण: “Too many videos give… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “brain rot” = दिमाग ख़राब करने वाला कंटेंट. “Too many videos give me brain rot.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

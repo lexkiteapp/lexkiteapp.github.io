@@ -1,0 +1,152 @@
+{
+ "id": "t2s_pt_cheers",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 106,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He held the door. Say thanks!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheers!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Thanks, or goodbye.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheers for the lift!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheers",
+  "forms": [
+   "cheer"
+  ],
+  "ipa": "/ˈtʃɪrz/",
+  "mean": "Thanks, or goodbye.",
+  "define": "A British way to say thank you or goodbye.",
+  "vi": "Cảm ơn nha, tạm biệt",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Thanking a friend",
+   "text": "Cheers for the lift!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheers\" can mean…",
+   "options": [
+    "angry",
+    "thanks"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't expect Americans to understand 'cheers' as thanks.",
+   "why": "It's mostly British casual usage."
+  },
+  "l1": "saúde",
+  "l1_hook": "Ele segurou a porta. Diga cheers!",
+  "l1_ex": "Cheers pela carona!",
+  "right": "cheers",
+  "native": {
+   "hook": "O que significa “cheers”?",
+   "tip": "“cheers” = saúde. Exemplo: “Cheers for the lift!”",
+   "caption": "O que significa “cheers”?\n“cheers” = saúde.\nExemplo: “Cheers for the lift!” (Cheers pela carona!)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “cheers” = saúde. “Cheers for the lift!” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He held the door. Say thanks!"
+ },
+ "src": {
+  "slang": "cheers"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "O que significa “cheers”?",
+  "keyword": "cheers",
+  "value": "“cheers” = saúde. Exemplo: “Cheers for the lift!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “cheers”?",
+    "description": "“cheers” = saúde. Exemplo: “Cheers for the lift!”\n\nO que significa “cheers”?\n“cheers” = saúde.\nExemplo: “Cheers for the lift!” (Cheers pela carona!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "cheers",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “cheers”?\n“cheers” = saúde.\nExemplo: “Cheers for the lift!” (Cheers pela carona!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “cheers”?\n\n“cheers” = saúde. Exemplo: “Cheers for the lift!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “cheers”? “cheers” = saúde. Exemplo: “Cheers for the lift!” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “cheers” = saúde. “Cheers for the lift!” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

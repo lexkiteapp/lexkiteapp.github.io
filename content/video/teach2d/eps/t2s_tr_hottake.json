@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_hottake",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 32,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pineapple pizza is the best!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hot take!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A strong, surprising opinion.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Here's my hot take: pineapple belongs on pizza.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "hot take",
+  "forms": [
+   "hot takes"
+  ],
+  "ipa": "/ˈhɑːt ˈteɪk/",
+  "mean": "A strong, surprising opinion.",
+  "define": "An opinion that is strong and often unpopular.",
+  "vi": "Quan điểm gây tranh cãi",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Chatting about food",
+   "text": "Here's my hot take: pineapple belongs on pizza."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"hot take\" is…",
+   "options": [
+    "a hot drink",
+    "a bold opinion"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call plain facts a 'hot take'.",
+   "why": "It means a bold, debatable opinion."
+  },
+  "l1": "iddialı yorum",
+  "l1_hook": "Ananas pizza en iyisi! \"hot take\"",
+  "l1_ex": "İşte benim \"hot take\": ananas pizzada olmalı.",
+  "right": "hot take",
+  "native": {
+   "hook": "“hot take” ne demek?",
+   "tip": "“hot take” = iddialı yorum. Örnek: “Here's my hot take: pineapple belongs on pizza.”",
+   "caption": "“hot take” ne demek?\n“hot take” = iddialı yorum.\nÖrnek: “Here's my hot take: pineapple belongs on pizza.” (İşte benim \"hot take\": ananas pizzada olmalı.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “hot take” = iddialı yorum. “Here's my hot take: pineapple belongs on pizza.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pineapple pizza is the best!"
+ },
+ "src": {
+  "slang": "hot take"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“hot take” ne demek?",
+  "keyword": "hot take",
+  "value": "“hot take” = iddialı yorum. Örnek: “Here's my hot take: pineapple belongs on pizza.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“hot take” ne demek?",
+    "description": "“hot take” = iddialı yorum. Örnek: “Here's my hot take: pineapple belongs on pizza.”\n\n“hot take” ne demek?\n“hot take” = iddialı yorum.\nÖrnek: “Here's my hot take: pineapple belongs on pizza.” (İşte benim \"hot take\": ananas pizzada olmalı.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "hot take",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“hot take” ne demek?\n“hot take” = iddialı yorum.\nÖrnek: “Here's my hot take: pineapple belongs on pizza.” (İşte benim \"hot take\": ananas pizzada olmalı.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“hot take” ne demek?\n\n“hot take” = iddialı yorum. Örnek: “Here's my hot take: pineapple belongs on pizza.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“hot take” ne demek? “hot take” = iddialı yorum. Örnek: “Here's my hot take: pineapple belongs on pizza.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “hot take” = iddialı yorum. “Here's my hot take: pineapple belongs on pizza.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

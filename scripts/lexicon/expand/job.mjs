@@ -5,14 +5,14 @@ import { fileURLToPath } from 'node:url';
 // Mỗi từ: IPA Mỹ CMUdict (BSD-2) · IPA Anh Wiktionary qua kaikki.org (CC BY-SA 4.0, ghi công) · nghĩa WordNet làm khung
 //   → /api/lexai lxgen (Gemini: định nghĩa ≤ B1, 2 ví dụ, cụm, đồng nghĩa, CEFR, chủ đề, vi, lỗi hay gặp vi) → lxtr (13 ngôn ngữ)
 //   → 2 giám khảo KHÁC HỌ (gemini + gemma) chấm mục + từng bản dịch + dịch ngược → cổng (scripts/lexicon/expand/lib.mjs gateEntry).
-// Đạt → content/lexicon/expand/pending/<lô>.json (CHƯA xuất). Trượt → content/qa/review-queue.json (src lexicon-expand). Không bao giờ xuất thẳng:
+// Đạt → content/lexicon/expand/pending/<lô>.json (CHƯA xuất). Trượt → content/qa/review-queue/<lô>.json.gz (src lexicon-expand). Không bao giờ xuất thẳng:
 // xuất = `promote.mjs` sau khi soát mẫu ≥ 5 % (docs/CONTENT-QA.md lớp 6) → content/lexicon/expand/<lô>.json + content/qa/batches/lx-<lô>.json.
 import fs from 'fs';
 import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { mergeViSources, shardOf, mixPool, RETRY_SHARE, yieldSplit, quotaDry, viAnswer, thinPool, MIN_SAMPLE, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, humanSrc, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
+import { mergeViSources, shardOf, mixPool, RETRY_SHARE, yieldSplit, quotaDry, viAnswer, thinPool, MIN_SAMPLE, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, readQ, writeQ, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, humanSrc, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -311,7 +311,7 @@ await pmap(chunks(judged, 10), 6, async ch => {
 // ---- cổng + ghi
 const PEND = `content/lexicon/expand/pending/${BATCH}.json`;
 const pend = !WORDS && fs.existsSync(new URL(PEND, ROOT)) ? JSON.parse(rd(PEND)) : { id: BATCH, at: new Date().toISOString(), items: {} };
-const queue = fs.existsSync(new URL(QUEUE, ROOT)) ? JSON.parse(rd(QUEUE)) : { _doc: 'Hàng duyệt nội dung (docs/CONTENT-QA.md): mục KHÔNG đạt cổng – không xuất.', items: [] };
+const queue = readQ();
 const why = {}, gaps = new Set(), OUT = {}; // OUT: kết quả từng mục cho chế độ mẫu cố định (--words)
 for (const x of items) {
   const g = G[x.k], c = x._c;
@@ -370,7 +370,7 @@ pend.n = Object.keys(pend.items).length;
 if (WORDS) { fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/pilot-hard-out.json', JSON.stringify({ batch: BATCH, at: new Date().toISOString(), words: WORDS, items: OUT })); }
 else { fs.mkdirSync(new URL('content/lexicon/expand/pending/', ROOT), { recursive: true });
 if (pend.n) wr(PEND, JSON.stringify(pend, null, 0).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n');
-wr(QUEUE, JSON.stringify(queue, null, 1) + '\n');
+writeQ(queue);
 { const settled = new Set([...Object.keys(pend.items), ...queue.items.filter(q => q.src === 'lexicon-expand').map(q => q.id)]); // chỉ bỏ khỏi retry khi ĐÃ đạt hoặc vào hàng duyệt (hạ tầng hỏng → giữ; run 40080132264 xóa nhầm)
   retry.items = [...new Set([...retry.items.filter(k => !settled.has(k)), ...gaps])].sort();
   fs.mkdirSync(new URL('content/lexicon/expand/retry/', ROOT), { recursive: true }); wr(RETRY, JSON.stringify(retry, null, 1) + '\n'); } }
