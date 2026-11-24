@@ -48,8 +48,10 @@
   // Chỗ đặt toast không đè vật cản: gốc CSS → ngay trên vật cản (≤ 55 % màn) → mép trên → khoảng hở bất kỳ → hoãn
   function toastLift(t) {
     t.style.removeProperty('--ty'); delete t.dataset.at; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return true;
-    const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw;
-    const base = tr.height ? H - tr.bottom + (t.classList.contains('show') ? 0 : 20) : 28; // chưa .show: translateY(20px)
+    // đo theo bố cục (offset*): rect lệch khi transform đang chạy
+    const tr = t.getBoundingClientRect(), lay = t.offsetHeight ? { h: t.offsetHeight, w: t.offsetWidth, b: H - t.offsetTop - t.offsetHeight } : null;
+    const h = lay ? lay.h : tr.height || 48, tw = Math.min(lay ? lay.w : tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw;
+    const base = lay ? lay.b : tr.height ? H - tr.bottom + (t.classList.contains('show') ? 0 : 20) : 28; // chưa .show: translateY(20px)
     const obs = [...document.querySelectorAll(AVOID)].map(el => el.getBoundingClientRect()).filter(r => r.height && r.width && r.top < H && r.bottom > 0 && (!W || (r.left < x1 && r.right > x0)));
     const free = (top, bot) => !obs.some(r => r.top < bot && r.bottom > top);
     if (free(H - base - h, H - base)) return true;
@@ -83,6 +85,8 @@
     t.classList.add('show');
     // màn vẽ lại → đặt lại chỗ, hết chỗ thì hoãn
     const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg && !toastLift(t)) { const m = t._msg; toastHide(t); toastDefer(m); } }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
+    // bố cục còn dịch mà DOM không đổi → soát lại sau 0,5 s
+    clearTimeout(toast._rc); toast._rc = setTimeout(() => { if (t._msg && t.classList.contains('show') && !toastLift(t)) { const m = t._msg; toastHide(t); toastDefer(m); } }, 5e2);
     toastTimer(t, ms);
   }
   // gỡ .show xong toast còn mờ 0,2 s (.toast transition) → cờ _fd 230 ms: toastShow chờ hết mờ mới đổi chữ (như đường _sw)

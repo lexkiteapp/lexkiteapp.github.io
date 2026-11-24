@@ -42,6 +42,11 @@ gsc('2026-11-23', 120, 2200);
 fs.writeFileSync(path.join(dir, 'index-2026-11-16.json'), JSON.stringify({ summary: { estIndexed: 5000 } }));
 ok(I.alerts(root, '2026-11-23', { estIndexed: 3000 }).some(a => /index ước tính/.test(a)), 'index tụt 40 % → cảnh báo');
 ok(I.alerts(root, '2026-11-23', { estIndexed: 4500 }).length === 0, 'index tụt 10 % → yên');
+// nhiễu mẫu (4/343 → 1/344, đúng ca 22–23/11) → yên; tụt thật 120/343 → 30/344 → cảnh báo
+fs.writeFileSync(path.join(dir, 'index-2026-11-16.json'), JSON.stringify({ summary: { estIndexed: 156, sampled: 343, indexed: 4 } }));
+ok(I.alerts(root, '2026-11-23', { estIndexed: 12, sampled: 344, indexed: 1 }).length === 0, 'nhiễu mẫu 4→1 → yên');
+fs.writeFileSync(path.join(dir, 'index-2026-11-16.json'), JSON.stringify({ summary: { estIndexed: 7000, sampled: 343, indexed: 120 } }));
+ok(I.alerts(root, '2026-11-23', { estIndexed: 1800, sampled: 344, indexed: 30 }).some(a => /index ước tính/.test(a)), 'tụt thật → cảnh báo');
 
 const rep = I.build(root, '2026-11-23', { maps, checked, sitemaps: [{ path: `${O}/sitemap.xml`, lastDownloaded: '2026-11-20T01:00:00Z', errors: '0', warnings: '1', contents: [{ type: 'web', submitted: '1000' }] }] });
 I.write(root, '2026-11-23', rep);

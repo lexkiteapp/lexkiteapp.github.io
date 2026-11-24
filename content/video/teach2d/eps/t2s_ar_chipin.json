@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ar_chipin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 91,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gift for her? Anyone?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Chip in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Give a bit of money to share.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's all chip in for her gift.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "chip in",
+  "forms": [
+   "chipped in"
+  ],
+  "ipa": "/ˈtʃɪp ɪn/",
+  "mean": "Give a bit of money to share.",
+  "define": "To give some money so a group can buy something.",
+  "vi": "Góp tiền chung",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Planning a gift",
+   "text": "Let's all chip in for her gift."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"chip in\" is to…",
+   "options": [
+    "eat chips",
+    "share the cost"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chip in' about potato chips.",
+   "why": "It means sharing the cost."
+  },
+  "l1": "يساهم بالمبلغ",
+  "l1_hook": "هدية لها؟ أي أحد يريد أن \"chip in\"؟",
+  "l1_ex": "فلنقم جميعًا بـ \"chip in\" لشراء هديتها.",
+  "right": "chip in",
+  "native": {
+   "hook": "ما معنى “chip in”؟",
+   "tip": "“chip in” = يساهم بالمبلغ. مثال: “Let's all chip in for her gift.”",
+   "caption": "ما معنى “chip in”؟\n“chip in” = يساهم بالمبلغ.\nمثال: “Let's all chip in for her gift.” (فلنقم جميعًا بـ \"chip in\" لشراء هديتها.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “chip in” = يساهم بالمبلغ. “Let's all chip in for her gift.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gift for her? Anyone?"
+ },
+ "src": {
+  "slang": "chip in"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "ما معنى “chip in”؟",
+  "keyword": "chip in",
+  "value": "“chip in” = يساهم بالمبلغ. مثال: “Let's all chip in for her gift.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “chip in”؟",
+    "description": "“chip in” = يساهم بالمبلغ. مثال: “Let's all chip in for her gift.”\n\nما معنى “chip in”؟\n“chip in” = يساهم بالمبلغ.\nمثال: “Let's all chip in for her gift.” (فلنقم جميعًا بـ \"chip in\" لشراء هديتها.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "chip in",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “chip in”؟\n“chip in” = يساهم بالمبلغ.\nمثال: “Let's all chip in for her gift.” (فلنقم جميعًا بـ \"chip in\" لشراء هديتها.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “chip in”؟\n\n“chip in” = يساهم بالمبلغ. مثال: “Let's all chip in for her gift.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “chip in”؟ “chip in” = يساهم بالمبلغ. مثال: “Let's all chip in for her gift.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “chip in” = يساهم بالمبلغ. “Let's all chip in for her gift.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

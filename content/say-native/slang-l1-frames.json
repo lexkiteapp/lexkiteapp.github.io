@@ -1,0 +1,19 @@
+{
+ "_note": "Slang Card L1 (docs/SAY-NATIVE.md): hand-written frame strings per page language (i18n-fixed tier, never machine-translated). {k} = the English slang (kept verbatim), {m} = its meaning in the page language (meanings.json / card vi), {ex} = the English example, {ext} = its translation (slang-lines.json). hashtags = the page's own general tags (l1/<lang>.json) + #lexkite. Checked by scripts/video/teach2d/native-qa.mjs (slang rows).",
+ "langs": {
+  "vi": { "hook": "“{k}” nghĩa là gì?", "eg": "Ví dụ", "cta": "Học tiếng lóng tiếng Anh miễn phí trên Lexkite.", "ans": "Đáp án", "more": "Luyện thêm miễn phí", "hashtags": ["#hoctienganh", "#tienganhgiaotiep", "#tienglong", "#lexkite"] },
+  "ar": { "hook": "ما معنى “{k}”؟", "eg": "مثال", "cta": "تعلّم العامية الإنجليزية مجانًا مع Lexkite.", "ans": "الإجابة", "more": "تدرّب أكثر مجانًا", "hashtags": ["#تعلم_الانجليزية", "#اللغة_الانجليزية", "#englishlearning", "#lexkite"] },
+  "de": { "hook": "Was heißt “{k}”?", "eg": "Beispiel", "cta": "Lerne englischen Slang kostenlos mit Lexkite.", "ans": "Antwort", "more": "Kostenlos weiterüben", "hashtags": ["#englischlernen", "#englischtipps", "#sprachenlernen", "#lexkite"] },
+  "es": { "hook": "¿Qué significa “{k}”?", "eg": "Ejemplo", "cta": "Aprende slang en inglés gratis con Lexkite.", "ans": "Respuesta", "more": "Practica más gratis", "hashtags": ["#aprenderingles", "#inglesfacil", "#vocabulario", "#lexkite"] },
+  "fr": { "hook": "Que veut dire « {k} » ?", "eg": "Exemple", "cta": "Apprends l'argot anglais gratuitement avec Lexkite.", "ans": "Réponse", "more": "Entraîne-toi gratuitement", "hashtags": ["#apprendrelanglais", "#anglaisfacile", "#coursdanglais", "#lexkite"] },
+  "hi": { "hook": "“{k}” का मतलब क्या है?", "eg": "उदाहरण", "cta": "Lexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।", "ans": "उत्तर", "more": "मुफ़्त में और अभ्यास करें", "hashtags": ["#अंग्रेजीसीखें", "#englishspeaking", "#learnenglish", "#lexkite"] },
+  "id": { "hook": "Apa arti “{k}”?", "eg": "Contoh", "cta": "Belajar slang bahasa Inggris gratis di Lexkite.", "ans": "Jawaban", "more": "Latihan lagi gratis", "hashtags": ["#belajarbahasainggris", "#bahasainggris", "#kosakata", "#lexkite"] },
+  "ja": { "hook": "「{k}」ってどういう意味？", "eg": "例文", "cta": "Lexkiteで英語のスラングを無料で学ぼう。", "ans": "答え", "more": "無料でもっと練習", "hashtags": ["#英語学習", "#英会話", "#英語勉強", "#lexkite"] },
+  "ko": { "hook": "“{k}” 무슨 뜻일까요?", "eg": "예문", "cta": "Lexkite에서 영어 슬랭을 무료로 배워 보세요.", "ans": "정답", "more": "무료로 더 연습하기", "hashtags": ["#영어공부", "#영어회화", "#영어독학", "#lexkite"] },
+  "pt": { "hook": "O que significa “{k}”?", "eg": "Exemplo", "cta": "Aprenda gírias em inglês de graça no Lexkite.", "ans": "Resposta", "more": "Pratique mais de graça", "hashtags": ["#aprenderingles", "#inglesfacil", "#inglesonline", "#lexkite"] },
+  "ru": { "hook": "Что значит «{k}»?", "eg": "Пример", "cta": "Учи английский сленг бесплатно в Lexkite.", "ans": "Ответ", "more": "Больше практики бесплатно", "hashtags": ["#английскийязык", "#английский", "#учуанглийский", "#lexkite"] },
+  "th": { "hook": "“{k}” แปลว่าอะไร?", "eg": "ตัวอย่าง", "cta": "เรียนสแลงภาษาอังกฤษฟรีกับ Lexkite", "ans": "คำตอบ", "more": "ฝึกเพิ่มฟรี", "hashtags": ["#เรียนภาษาอังกฤษ", "#ภาษาอังกฤษ", "#พูดอังกฤษ", "#lexkite"] },
+  "tr": { "hook": "“{k}” ne demek?", "eg": "Örnek", "cta": "Lexkite ile İngilizce argoyu ücretsiz öğren.", "ans": "Cevap", "more": "Ücretsiz daha fazla pratik", "hashtags": ["#ingilizceöğren", "#ingilizcekonuşma", "#ingilizce", "#lexkite"] },
+  "zh": { "hook": "“{k}”是什么意思？", "eg": "例句", "cta": "在 Lexkite 免费学英语俚语。", "ans": "答案", "more": "免费多练习", "hashtags": ["#学英语", "#英语口语", "#英语学习", "#lexkite"] }
+ }
+}

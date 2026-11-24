@@ -7,7 +7,7 @@
  * – Hỏi quyền mềm SAU bài học đầu tiên (không bao giờ lúc mở app), hỏi tối đa 1 lần; tắt/đổi trong Cài đặt. */
 (function (g) {
   'use strict';
-  const DAY = 864e5, SEQ = [0, 1, 2, 3, 5, 7, 10, 14], FINAL = 14, NOREP = 7;
+  const DAY = 864e5, SEQ = [0, 1, 2, 3, 5, 7], FINAL = 7, NOREP = 7, SAVE_GAP = 150, SAVE_MIN = 60, SAVE_PRE = 60; // tin 2: +150 phút, ≥ 60, ≤ 60 trước giờ yên lặng
   const TYPES = ['due', 'word', 'streak', 'conf', 'week', 'goal', 'path'], EVE = 17 * 60, BACKOFF = 3;
   // Giọng: ấm, khích lệ, không dọa mất chuỗi/trách móc (docs/specs/notifications.md; scripts/test/notify-tone.mjs chặn từ dọa)
   // Mẫu câu theo loại (khóa tiếng Việt → I18N; biến {n} số thẻ, {w} từ, {c} câu ngữ cảnh, {s} chuỗi ngày, {d} số ngày học trong tuần)
@@ -18,9 +18,14 @@
     conf: [['cf1', 'Thử một bài tự tin 3 phút?', 'Luyện nói câu thật, không áp lực.'], ['cf2', 'Nói tiếng Anh tự tin hơn mỗi ngày', 'Một bài ngắn hôm nay – bạn làm được!']],
     week: [['wk1', 'Tuần này: {n} lượt ôn 🎉', 'Xem tiến bộ của bạn trong tuần.'], ['wk2', 'Bạn đã học {d}/7 ngày tuần này', 'Mở để xem bảng tiến bộ tuần.']],
     goal: [['gl1', 'Đã xong {n}/{g} thẻ hôm nay', 'Còn {r} thẻ nữa là đạt mục tiêu – bạn sắp tới rồi!'], ['gl2', 'Sắp đạt mục tiêu hôm nay rồi', 'Thêm {r} thẻ là xong mục tiêu {g} thẻ. Nhẹ nhàng thôi!']],
-    // Người mới (chưa có thẻ đến hạn / từ kèm câu): bài đang học dở trên lộ trình ({u} tên bài) và mục tiêu ngày ({g} thẻ) thay cho câu chung chung gen1
+    // Người mới: bài đang học dở trên lộ trình ({u} tên bài) + mục tiêu ngày ({g} thẻ) thay cho câu chung gen1
     path: [['ls1', 'Bài “{u}” đang chờ bạn', 'Bạn đang học dở – thêm 5 phút cho bước tiếp theo.'], ['ls2', 'Học tiếp “{u}” nhé?', 'Bước tiếp theo đã sẵn sàng. 5 phút là đủ.']],
     gstart: [['gs1', 'Mục tiêu hôm nay: {g} thẻ', 'Bắt đầu nhẹ nhàng – 5 phút là đủ.'], ['gs2', '{g} thẻ hôm nay – bạn làm được!', 'Học một chút mỗi ngày là nhớ lâu.']],
+    // Tin 2 "giữ chuỗi" (docs/REMINDERS.md §9)
+    save: [['sv1', 'Chỉ cần 5 phút giữ chuỗi 🔥', 'Vài thẻ là đủ – Kit đợi bạn!'], ['sv2', 'Chuỗi {s} ngày đang chờ bạn 🔥', 'Một phút ôn là giữ được rồi.'], ['sv3', 'Còn kịp ôn nhanh hôm nay nhé?', 'Chỉ vài thẻ thôi – nhẹ nhàng nhé.']],
+    // Mốc quay lại ngày 3 / 5
+    bk3: [['bk3a', 'Kit nhớ bạn rồi 🐦', '{n} từ đang chờ ôn – 3 phút là đủ.'], ['bk3b', 'Kit nhớ bạn rồi 🐦', 'Quay lại nhẹ nhàng nhé – chỉ vài từ thôi.']],
+    bk7: [['bk7a', 'Vẫn còn nguyên những gì bạn đã học', 'Ôn vài thẻ, 2 phút thôi – Kit ở đây cùng bạn.']],
     miss: [['ms1', 'Kit sẽ tạm ngừng nhắc bạn 🐦', 'Để không làm phiền bạn. Quay lại lúc nào cũng được – mọi thứ bạn đã học vẫn ở đây.']],
     gen: [['gen1', 'Đến giờ học với Kit rồi!', 'Mở Lexkite để ôn vài từ nhé.']],
   };
@@ -63,6 +68,8 @@
   }
   /** Ngày thứ d kể từ lần mở app cuối: có nhắc không (dùng chung cho app gốc và máy chủ push). */
   const allowedDay = d => SEQ.includes(d);
+  /** Tin 2 (giữ chuỗi) có mã mẫu sv…: máy chủ/ngày đếm riêng */
+  const isSave = t => /^sv\d/.test(String(t || ''));
   /** Số lời nhắc gần nhất liên tiếp bị bỏ qua (ngày đã nhắc mà không học) + ngày nhắc gần nhất – từ lịch sử 'đã hiện'. */
   function ignoredOf(hist, days, today) {
     const ds = [...new Set((hist || []).map(h => h && h.day).filter(d => d && d < today))].sort().reverse();
@@ -97,6 +104,7 @@
       if (lastKept != null && dayN(day) - lastKept < 2) continue; // giãn cách sau nhiều lần bỏ qua
       let type;
       if (d === FINAL) type = 'miss';
+      else if ((d === 3 || d === 5) && types.length) type = d === 3 ? 'bk3' : 'bk7';
       else if (d === 0 && partial) type = 'goal';
       else {
         const cand = [];
@@ -109,14 +117,14 @@
         if (!type) continue;                       // người dùng tắt hết loại
       }
       // Mẫu: chưa dùng trong 7 ngày (theo lịch sử + kế hoạch này); hết thì lấy mẫu dùng lâu nhất
-      const lim = keyOf(new Date(addDays(at, -NOREP))), list = TPL[type];
+      const lim = keyOf(new Date(addDays(at, -NOREP))), list = type === 'bk3' && !dueBy(base + DAY - 1) ? TPL.bk3.slice(1) : TPL[type];
       const pick = list.find(([id]) => !used.has(id) || used.get(id) <= lim) || list.slice().sort((a, b) => { const x = used.get(a[0]) || '', y = used.get(b[0]) || ''; return x < y ? -1 : x > y ? 1 : 0; })[0]; // khóa ngày YYYY-MM-DD (ASCII) → so chuỗi thường cho cùng thứ tự localeCompare mà không khởi tạo ICU Collator (~50 ms CPU mobile)
       used.set(pick[0], day);
       const v = { n: 0, s: st, d: 0, w: '', c: '', g: goal, r: Math.max(0, goal - done), u: '' };
-      let url = ROUTE[type];
+      let url = ROUTE[type] || '#/review'; // bk3/bk7: về ôn tập
       if (type === 'path') { v.u = String(x.next.u).slice(0, 40); url = x.next.url; }
       if (type === 'gstart' && x.next && /^#\/[\w/?=&%~.-]*$/.test(x.next.url || '')) url = x.next.url;
-      if (type === 'due') v.n = dueBy(base + DAY - 1);
+      if (type === 'due' || type === 'bk3') v.n = dueBy(base + DAY - 1);
       if (type === 'goal') v.n = done;
       if (type === 'word') {
         const c = ctxCards[(d + out.length) % ctxCards.length], cx = String(c.ctx || c.contexts[0].text).replace(/\s+/g, ' ').trim();
@@ -125,8 +133,16 @@
       if (type === 'week') { for (let i = 0; i < 7; i++) { const n = +days[keyOf(new Date(addDays(t0, d - i)))] || 0; v.n += n; if (n) v.d++; } }
       if (lastKept != null) lastKept = dayN(day);
       out.push({ at, day, d, type, tpl: pick[0], title: tt(pick[1], v), body: tt(pick[2], v), url });
+      // Tin 2: chưa học, chuỗi ≥ 2 hoặc đã mở tin gần đây, không lùi, cầu dao bật
+      if (d === 0 && x.s2 !== false && !studied && lastKept == null && (st >= 2 || (+x.opens || 0) >= 1)) {
+        const [qa] = quietOf(s), m2 = Math.min(min + SAVE_GAP, qa > min ? qa - SAVE_PRE : 1439), at2 = base + m2 * 60e3;
+        if (m2 - min >= SAVE_MIN && !inQuiet(m2, s) && at2 > now + 60e3) {
+          const sl = TPL.save.filter(([id]) => id !== 'sv2' || st >= 2), pk = sl.find(([id]) => !used.has(id) || used.get(id) <= lim) || sl.slice().sort((a, b) => ((used.get(a[0]) || '') < (used.get(b[0]) || '') ? -1 : 1))[0];
+          used.set(pk[0], day); out.push({ at: at2, day, d: 0, type: 'save', tpl: pk[0], title: tt(pk[1], v), body: tt(pk[2], v), url: '#/review' });
+        }
+      }
     }
-    return out.slice(0, 1 + SEQ.length); // ≤ 1 lời nhắc/ngày (mỗi d là 1 ngày khác nhau)
+    return out.slice(0, 2 + SEQ.length);
   }
   /** Thuần (test): quyền thông báo prev → st (web: default|granted|denied; app gốc: prompt*|granted|denied). null = không đổi;
    *  { st, ev } – ev chỉ khi ĐỔI THẬT: →denied = 'optout', denied→granted = 'optin'; lần quan sát đầu (prev rỗng) chỉ ghi nhớ. */
@@ -141,7 +157,7 @@
   const fcmCapable = C => !!(C && C.Plugins && C.Plugins.FirebaseMessaging && (typeof C.isPluginAvailable !== 'function' || C.isPluginAvailable('FirebaseMessaging')));
   /** Promise có hạn giờ: getToken có thể treo khi bản app thiếu APNs (không gọi lại didRegister) – không bao giờ chặn lịch cục bộ. */
   const within = (pr, ms) => new Promise((ok, no) => { const t = setTimeout(() => no(new Error('timeout')), ms); Promise.resolve(pr).then(v => { clearTimeout(t); ok(v); }, e => { clearTimeout(t); no(e); }); });
-  const P = { plan, permStep, askDue, pickTime, habitMin, ignoredOf, clampQuiet, inQuiet, allowedDay, toMin, hm, SEQ, FINAL, TPL, TYPES, keyOf, generic, fcmCapable, within };
+  const P = { isSave, plan, permStep, askDue, pickTime, habitMin, ignoredOf, clampQuiet, inQuiet, allowedDay, toMin, hm, SEQ, FINAL, TPL, TYPES, keyOf, generic, fcmCapable, within };
   P.setRecent = r => { RECENT = Array.isArray(r) ? r : null; }; P.recent = () => RECENT;
   g.Remind = P;
   if (!g.document || !g.Core || !g.App) return; // môi trường test (vm) – chỉ phần thuần
@@ -152,12 +168,12 @@
   const NATIVE = !!(g.VBNative && g.VBNative.is), EXT = !!Store.isExtension;
   const BASE = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
   const OFF = /[?&](sandbox|demo)=/.test(location.search) || navigator.webdriver;
-  // journey-e2e (scripts/test/journey-e2e.mjs): chỉ khi đang kiểm thử tự động/sandbox VÀ cờ lk.e2e → cho hiện hộp hỏi mềm để kiểm (số liệu/push vẫn TẮT)
+  // journey-e2e: chỉ khi kiểm thử tự động/sandbox VÀ cờ lk.e2e → hiện hộp hỏi mềm để kiểm (số liệu/push vẫn TẮT)
   const raw = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
   const ASKOFF = OFF && !(raw('lk.e2e') === '1' && (navigator.webdriver || Store.sandbox));
   const tr = (k, v) => (typeof g.t === 'function' ? g.t(k, v) : k);
   const esc = x => String(x == null ? '' : x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  // Số liệu: shown/open theo mẫu (CTR), ask_yes/ask_no, optin/optout – gộp, gửi bằng beacon text/plain (không preflight), không gửi nội dung học
+  // Số liệu: shown/open theo mẫu, ask_*, optin/optout – gộp, beacon text/plain, không gửi nội dung học
   const evq = new Map(); let evT = 0;
   const ev = (e, tpl = '', n = 1) => { if (OFF) return; const k = e + '|' + tpl; evq.set(k, (evq.get(k) || 0) + n); clearTimeout(evT); evT = setTimeout(flush, 1500); };
   function flush() {
@@ -175,7 +191,7 @@
     if (r.ev) ev(r.ev, 'os');
   }
   /** Bấm thông báo app gốc (native.js ghi mẫu vào lk.remo rồi gọi ngay) → 'open' một lần; lần mở app sau đọc lại nếu lần trước chưa kịp gửi. */
-  function opened() { const o = ls.get('lk.remo', null); if (o) { ls.set('lk.remo', null); ev('open', String(o)); flush(); } }
+  function opened() { const o = ls.get('lk.remo', null); if (o) { ls.set('lk.remo', null); ev('open', String(o)); noteOpen(o); flush(); } }
 
   // Lịch sử giờ BẮT ĐẦU phiên học (chỉ trên máy, không đồng bộ): phiên = lần mở/quay lại app sau ≥ 30 phút; ghi 1 lần/ngày khi hôm nay đã học.
   let sess = Date.now(), hidAt = 0;
@@ -185,6 +201,7 @@
   function noteStart() {
     const day = todayKey(), r = starts(); if (!((state.stats.days || {})[day] > 0) || r.some(x => x.day === day)) return;
     const d = new Date(sess), m = keyOf(d) === day ? d.getHours() * 60 + d.getMinutes() : 0; // phiên bắt đầu từ hôm qua (qua nửa đêm) → 00:00
+    const svAt = ls.get('lk.svat', null); if (svAt && svAt.day === day && Date.now() - svAt.at <= 60 * 60e3 && Date.now() >= svAt.at && !svAt.l) { ev('learn60', 'save'); ls.set('lk.svat', { ...svAt, l: 1 }); }
     r.push({ day, m }); ls.set('lk.rems', r.slice(-21)); P.setRecent(starts());
     if (EXT) Promise.resolve(Store.set('remRecent', starts())).catch(() => {}); // add-on: service worker không đọc được localStorage → chép sang chrome.storage (chỉ trên máy)
   }
@@ -192,14 +209,19 @@
   /** Lời nhắc đã tới giờ trong kế hoạch cũ = đã hiện (app gốc không báo lại) → vào lịch sử chống lặp + đếm 'shown'. */
   function rollPlan(now) {
     const old = ls.get('lk.remp', []), h = hist();
-    for (const p of old) if (p.at <= now && !h.some(x => x.day === p.day)) { h.push({ day: p.day, tpl: p.tpl }); if (NATIVE) ev('shown', p.tpl); }
+    for (const p of old) if (p.at <= now && !h.some(x => x.day === p.day && isSave(x.tpl) === isSave(p.tpl))) { h.push({ day: p.day, tpl: p.tpl }); if (NATIVE) ev('shown', p.tpl); if (isSave(p.tpl)) ls.set('lk.svat', { day: p.day, at: p.at }); }
     ls.set('lk.remh', h.slice(-20)); return h;
   }
   let NEXT = null; // bài đang học dở trên lộ trình {u, url} (path.js App.pathNext) – cho mẫu cá nhân của người mới
   const nextLoad = () => (App.pathNext ? App.pathNext().then(n => { NEXT = n && n.unit && n.unit.topic && n.unit.topic.name ? { u: String(n.unit.topic.name), url: n.href } : null; }).catch(() => {}) : Promise.resolve());
+  // Lần mở thông báo gần đây (lk.remop) – điều kiện tin 2
+  const opensN = () => ls.get('lk.remop', []).filter(o => o && o.day >= keyOf(new Date(Date.now() - 14 * DAY))).length;
+  const noteOpen = tpl => { const a = ls.get('lk.remop', []); a.push({ day: todayKey(), tpl: String(tpl || '') }); ls.set('lk.remop', a.slice(-5)); };
+  // Cầu dao tin 2: cfg.s2
+  const s2On = () => ls.get('lk.s2', 1) !== 0;
   function build(now = Date.now(), remote = false, past = false) {
     const h = rollPlan(now);
-    const p = plan({ now, remote, past, next: NEXT, cards: Object.values(state.cards || {}), stats: state.stats, settings: state.settings, streak: App.streak ? App.streak() : 0, hist: h, recent: starts(), t: tr });
+    const p = plan({ now, remote, past, next: NEXT, cards: Object.values(state.cards || {}), stats: state.stats, settings: state.settings, streak: App.streak ? App.streak() : 0, hist: h, recent: starts(), t: tr, opens: opensN(), s2: s2On() });
     ls.set('lk.remp', p.filter(x => x.at > now).map(({ at, day, tpl }) => ({ at, day, tpl })));
     return p;
   }
@@ -212,13 +234,13 @@
     if (state.settings.reminderOn === false) return fcmOff(); // MỘT công tắc: tắt nhắc → hủy cả FCM máy chủ (trước 05/11 FCM vẫn gửi)
     const perm = await LN.checkPermissions(); permNote(perm.display);
     if (perm.display !== 'granted') {
-      // Chỉ xin quyền khi người dùng CHỦ ĐỘNG (hỏi mềm / bật trong Cài đặt) và hệ điều hành còn cho hỏi; đã từ chối → không hỏi lại, không đếm lại
+      // Chỉ xin quyền khi người dùng CHỦ ĐỘNG (hỏi mềm / bật trong Cài đặt) và hệ điều hành còn cho hỏi; đã từ chối → không hỏi lại
       if (!opts.ask || !/^prompt/.test(perm.display || '')) return fcmOff(); // hệ điều hành chặn → máy chủ cũng thôi gửi
       permNote('default'); const r = await LN.requestPermissions(); permNote(r.display); if (r.display !== 'granted') return fcmOff(); ev('optin', 'native');
     }
-    await nextLoad();
+    await nextLoad(); await cfg().catch(() => {});
     const remote = await fcmSub().catch(() => false);
-    if (FM() && !native.l) native.l = FM().addListener('notificationActionPerformed', a => { const d = (a && a.notification && a.notification.data) || {}; if (d.tpl) ev('open', String(d.tpl)); if (d.route && /^#\/[\w/?=&%-]*$/.test(d.route)) location.hash = d.route; });
+    if (FM() && !native.l) native.l = FM().addListener('notificationActionPerformed', a => { const d = (a && a.notification && a.notification.data) || {}; if (d.tpl) { ev('open', String(d.tpl)); noteOpen(d.tpl); } if (d.route && /^#\/[\w/?=&%-]*$/.test(d.route)) location.hash = d.route; });
     const p = build(Date.now(), remote); if (!p.length) return;
     await LN.schedule({ notifications: p.map((x, i) => ({ id: 100 + i, title: x.title, body: x.body, schedule: { at: new Date(x.at), allowWhileIdle: true }, isExactNotification: false, extra: { route: x.url, tpl: x.tpl } })) });
   }
@@ -229,10 +251,12 @@
     if (!('caches' in g) || !navigator.serviceWorker || EXT || NATIVE) return;
     const s = state.settings, studied = (state.stats.days || {})[todayKey()] > 0, gtx = generic(tr), first = p[0] || null;
     const m = { v: 2, on: s.reminderOn !== false, time: hm(pickTime(state.stats, s)), last: studied ? new Date().toISOString().slice(0, 10) : '', act: todayKey(), lastDay: studied ? todayKey() : '',
-      plan: p.filter(x => x.d <= 7).map(({ day, title, body, url, tpl }) => ({ day, title, body, url: '/app/' + url, tpl })), ...gtx, title: (first || gtx.gen).title, body: (first || gtx.gen).body };
+      plan: p.filter(x => x.d <= 7 && x.type !== 'save').map(({ day, title, body, url, tpl }) => ({ day, title, body, url: '/app/' + url, tpl })), ...gtx, title: (first || gtx.gen).title, body: (first || gtx.gen).body };
+    m.save = p.find(x => x.type === 'save' && x.day === todayKey()) || null; if (m.save) m.save = { day: m.save.day, title: m.save.title, body: m.save.body, tpl: m.save.tpl, url: '/app/' + m.save.url };
     const k = JSON.stringify(m); if (k === metaKey) return; metaKey = k;
     const c = await caches.open('lk-meta'), r = await c.match('/__meta'), prev = r ? await r.json().catch(() => ({})) : {};
-    await c.put('/__meta', new Response(JSON.stringify({ ...m, notified: prev.notified || '' }), { headers: { 'Content-Type': 'application/json' } }));
+    for (const o of prev.op || []) noteOpen(o);
+    await c.put('/__meta', new Response(JSON.stringify({ ...m, notified: prev.notified || '', notified2: prev.notified2 || '', op: [] }), { headers: { 'Content-Type': 'application/json' } }));
     const reg = await navigator.serviceWorker.getRegistration();
     if (reg && reg.periodicSync && m.on && 'Notification' in g && Notification.permission === 'granted') {
       try { const ps = await navigator.permissions.query({ name: 'periodic-background-sync' }); if (ps.state === 'granted') await reg.periodicSync.register('vb-daily', { minInterval: 3 * 3600e3 }); } catch (e) { /* không hỗ trợ */ }
@@ -260,12 +284,12 @@
   /** 'ok' | 'ios-install' (iPhone: chỉ khi đã thêm vào MH chính) | 'denied' | 'none' */
   const pushState = () => !pushApi() ? (iOS && !standalone() && !NATIVE && !EXT ? 'ios-install' : 'none') : Notification.permission === 'denied' ? 'denied' : 'ok';
   let cfgP = null;
-  const cfg = () => cfgP || (cfgP = fetch(BASE + '/api/push?op=cfg').then(r => (r.ok ? r.json() : {})).catch(() => ({})));
+  const cfg = () => cfgP || (cfgP = fetch(BASE + '/api/push?op=cfg').then(r => (r.ok ? r.json() : {})).then(c => { if (c && typeof c.s2 === 'boolean') ls.set('lk.s2', c.s2 ? 1 : 0); return c; }).catch(() => ({})));
   const cohort = pct => { let v = ls.get('lk.remc', -1); if (v < 0) { v = Math.floor(Math.random() * 100); ls.set('lk.remc', v); } return v < (+pct || 0); };
   const b64 = s => { const p = '='.repeat((4 - s.length % 4) % 4), r = atob((s + p).replace(/-/g, '+').replace(/_/g, '/')); return Uint8Array.from(r, ch => ch.charCodeAt(0)); };
   // Máy chủ cần: giờ nhắc ĐỊA PHƯƠNG + múi giờ IANA + giờ yên lặng + ngôn ngữ → tự tính khung UTC (đổi giờ mùa hè, đi du lịch)
-  const where = () => { const s = state.settings, q = [toMin(s.quietStart), toMin(s.quietEnd)]; let tz = 'UTC'; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; } catch (e) { /* cũ */ } return { lmin: pickTime(state.stats, s), q: q[0] >= 0 && q[1] >= 0 ? q : [1320, 480], tz, lang: g.I18N ? I18N.lang() : 'en' }; };
-  const sig = w => [w.lmin, w.q.join('-'), w.tz, w.lang].join('|');
+  const where = () => { const s = state.settings, q = [toMin(s.quietStart), toMin(s.quietEnd)]; let tz = 'UTC'; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; } catch (e) { /* cũ */ } return { lmin: pickTime(state.stats, s), q: q[0] >= 0 && q[1] >= 0 ? q : [1320, 480], tz, lang: g.I18N ? I18N.lang() : 'en', two: s2On() && ((App.streak ? App.streak() : 0) >= 2 || opensN() >= 1) ? 1 : 0 }; };
+  const sig = w => [w.lmin, w.q.join('-'), w.tz, w.lang, w.two].join('|');
   async function post(b) { const r = await fetch(BASE + '/api/push', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(b) }); if (!r.ok) throw new Error('push-' + r.status); return r.json().catch(() => ({})); }
   /** Có được bật push không (cờ + nhóm + trình duyệt) → khóa VAPID công khai | ''. */
   async function pushKey() { if (OFF || pushState() !== 'ok') return ''; const c = await cfg(); return c && c.on && c.key && cohort(c.pct) ? c.key : ''; }
@@ -296,7 +320,7 @@
   // ---------- Email nhắc học / tổng kết tuần (opt-in): logic ở cpack/mail-app/mail.js, nạp khi có bật hoặc người dùng bật công tắc ----------
   const mailSync = async force => { const s = state.settings; if (!force && s.emailRemind !== true && s.emailDigest !== true) return false; try { await App.need('mail'); return await g.MailSync({ state, ls, BASE, OFF, EXT, where, todayKey }, force); } catch (e) { return false; } };
   // ---------- App gốc: FCM (cờ FCM_ON) – chỉ kéo lại sau ≥ 3 ngày không mở app + tiến bộ tuần; nhắc hằng ngày vẫn là lịch cục bộ ----------
-  // Chỉ dùng FCM khi CẢ BA: bản app có plugin (fcmCapable), máy chủ báo Worker gửi được (cfg.fcm), lấy được token trong 8 giây. Thiếu 1 → lịch cục bộ đủ 14 ngày.
+  // FCM chỉ khi: có plugin (fcmCapable) + Worker gửi được (cfg.fcm) + lấy token ≤ 8 giây; thiếu 1 → lịch cục bộ đủ chu kỳ.
   const FM = () => (NATIVE && fcmCapable(g.Capacitor) && g.Capacitor.Plugins.FirebaseMessaging) || null;
   /** Hủy đăng ký FCM ở máy chủ (tắt nhắc / OS chặn / máy chủ thôi FCM / mất token) – lỗi mạng → giữ để thử lại lần mở app sau. */
   async function fcmOff() {
@@ -317,8 +341,7 @@
   }
 
   // ---------- Hỏi quyền mềm: sau bài học hoàn thành, không bao giờ lúc mở app ----------
-  // Tối đa 2 lần trong đời: lần 1 sau bài đầu tiên; chỉ khi bấm "Để sau" mới hỏi lại ĐÚNG 1 lần, sau ≥ 7 ngày VÀ ≥ 3 ngày học mới (người dùng đã gắn bó).
-  // Nêu rõ giá trị bằng chính lời nhắc đầu tiên sẽ nhận (xem trước), "Để sau" ngang hàng "Có", đóng/Esc = để sau. Số đo: ask_show/ask_yes/ask_no theo lần hỏi (a1/a2).
+  // Hỏi mềm: luật + số đo ở docs/REMINDERS.md §3.
   const askRec = () => { const v = ls.get('lk.reask', 0); return v && typeof v === 'object' ? v : v ? { n: 1, at: +v, no: 1 } : { n: 0 }; }; // bản cũ: số mốc thời gian = đã hỏi 1 lần
   const canAsk = async () => {
     if (ASKOFF || EXT || state.settings.reminderOn === false || !askDue(askRec(), state.stats.days, Date.now())) return false;
@@ -356,8 +379,7 @@
     const mo = new MutationObserver(() => { if (document.getElementById('modal').hidden) { mo.disconnect(); if (!ans) ev('ask_no', tag); } });
     mo.observe(document.getElementById('modal'), { attributes: true, attributeFilter: ['hidden'] });
   }
-  // Phễu lần đầu (hit.js ONB_EV, docs/specs/retention-1211.md §22/11): lk.fw = ngày xong bài ĐẦU TIÊN (chỉ trên máy); máy đã học từ trước bản này → 'old', không tính.
-  // Mở lại đúng ngày +1 / +7 sau bài đầu → fw_d1 / fw_d7 (mỗi mốc 1 lần) – D1 của người ĐÃ có khoảnh khắc thành công, so trước/sau theo ngày phát hành.
+  // Phễu lần đầu (hit.js ONB_EV): lk.fw = ngày xong bài đầu (máy cũ → 'old'); mở lại đúng +1/+7 → fw_d1/fw_d7 (1 lần/mốc).
   const hab = e => { if (!OFF && App.habTrack) App.habTrack(e); };
   const dayN = k => midnight(new Date(k + 'T12:00:00').getTime());
   const firstWin = () => {
@@ -379,7 +401,7 @@
     if (s.reminderAuto !== false) { const m = hm(pickTime(state.stats, s)); if (m !== s.reminderTime) { s.reminderTime = m; App.saveSettings(); } }
     if (EXT || NATIVE) return;
     if ('Notification' in g) permNote(Notification.permission); // người dùng chặn/mở lại trong cài đặt trình duyệt → đếm 1 lần
-    if (!(tick.n++ % 30)) await nextLoad();
+    if (!(tick.n++ % 30)) { await nextLoad(); cfg().catch(() => {}); }
     const p = build(Date.now(), false, true); syncMeta(p).catch(() => {}); touch().catch(() => {}); mailSync().catch(() => {});
     // Thời điểm vàng (giữ nguyên hành vi cũ, tôn trọng giờ yên lặng)
     const Golden = g.Core.Golden;

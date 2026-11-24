@@ -1,0 +1,152 @@
+{
+ "id": "t2s_zh_comfortfood",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 67,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sad day? Warm soup!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Comfort food!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Food that makes you feel better.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Warm soup is my comfort food.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "comfort food",
+  "forms": [
+   "comfort foods"
+  ],
+  "ipa": "/ˈkʌmfɚt ˈfuːd/",
+  "mean": "Food that makes you feel better.",
+  "define": "Simple food that makes you feel better and at home.",
+  "vi": "Món ăn an ủi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "Talking about a bad day",
+   "text": "Warm soup is my comfort food."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Comfort food\" makes you feel…",
+   "options": [
+    "cozy",
+    "nervous"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call hospital food your 'comfort food'.",
+   "why": "It means food that cozily soothes you."
+  },
+  "l1": "治愈系美食",
+  "l1_hook": "难过的一天？暖汤是'comfort food'！",
+  "l1_ex": "暖汤是我的'comfort food'。",
+  "right": "comfort food",
+  "native": {
+   "hook": "“comfort food”是什么意思？",
+   "tip": "“comfort food” = 治愈系美食. 例句: “Warm soup is my comfort food.”",
+   "caption": "“comfort food”是什么意思？\n“comfort food” = 治愈系美食.\n例句: “Warm soup is my comfort food.” (暖汤是我的'comfort food'。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “comfort food” = 治愈系美食. “Warm soup is my comfort food.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sad day? Warm soup!"
+ },
+ "src": {
+  "slang": "comfort food"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 20,
+  "seconds": 11.5,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "“comfort food”是什么意思？",
+  "keyword": "comfort food",
+  "value": "“comfort food” = 治愈系美食. 例句: “Warm soup is my comfort food.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“comfort food”是什么意思？",
+    "description": "“comfort food” = 治愈系美食. 例句: “Warm soup is my comfort food.”\n\n“comfort food”是什么意思？\n“comfort food” = 治愈系美食.\n例句: “Warm soup is my comfort food.” (暖汤是我的'comfort food'。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "comfort food",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“comfort food”是什么意思？\n“comfort food” = 治愈系美食.\n例句: “Warm soup is my comfort food.” (暖汤是我的'comfort food'。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“comfort food”是什么意思？\n\n“comfort food” = 治愈系美食. 例句: “Warm soup is my comfort food.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“comfort food”是什么意思？ “comfort food” = 治愈系美食. 例句: “Warm soup is my comfort food.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “comfort food” = 治愈系美食. “Warm soup is my comfort food.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

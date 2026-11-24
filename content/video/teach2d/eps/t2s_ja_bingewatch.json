@@ -1,0 +1,154 @@
+{
+ "id": "t2s_ja_bingewatch",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 20,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rainy weekend. Whole season. Go!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Binge-watch!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Watch many episodes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'll binge-watch this show all weekend.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "binge-watch",
+  "forms": [
+   "binge watch",
+   "binge-watching",
+   "binge-watched"
+  ],
+  "ipa": "/ˈbɪndʒ ˌwɑːtʃ/",
+  "mean": "Watch many episodes.",
+  "define": "To watch several episodes of a show one after another.",
+  "vi": "Cày phim liền tù tì",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Planning a rainy weekend",
+   "text": "I'll binge-watch this show all weekend."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"binge-watch\" is to…",
+   "options": [
+    "watch many episodes",
+    "watch in the rain"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't 'binge-watch' the night before exams.",
+   "why": "It steals study time."
+  },
+  "l1": "一気見する",
+  "l1_hook": "雨の週末。シーズン全体をbinge-watchしよう！",
+  "l1_ex": "週末ずっとこの番組をbinge-watchするよ。",
+  "right": "binge-watch",
+  "native": {
+   "hook": "「binge-watch」ってどういう意味？",
+   "tip": "“binge-watch” = 一気見する. 例文: “I'll binge-watch this show all weekend.”",
+   "caption": "「binge-watch」ってどういう意味？\n“binge-watch” = 一気見する.\n例文: “I'll binge-watch this show all weekend.” (週末ずっとこの番組をbinge-watchするよ。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “binge-watch” = 一気見する. “I'll binge-watch this show all weekend.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Rainy weekend. Whole season. Go!"
+ },
+ "src": {
+  "slang": "binge-watch"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 17,
+  "seconds": 10.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "「binge-watch」ってどういう意味？",
+  "keyword": "binge-watch",
+  "value": "“binge-watch” = 一気見する. 例文: “I'll binge-watch this show all weekend.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "「binge-watch」ってどういう意味？",
+    "description": "“binge-watch” = 一気見する. 例文: “I'll binge-watch this show all weekend.”\n\n「binge-watch」ってどういう意味？\n“binge-watch” = 一気見する.\n例文: “I'll binge-watch this show all weekend.” (週末ずっとこの番組をbinge-watchするよ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "binge-watch",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「binge-watch」ってどういう意味？\n“binge-watch” = 一気見する.\n例文: “I'll binge-watch this show all weekend.” (週末ずっとこの番組をbinge-watchするよ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「binge-watch」ってどういう意味？\n\n“binge-watch” = 一気見する. 例文: “I'll binge-watch this show all weekend.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「binge-watch」ってどういう意味？ “binge-watch” = 一気見する. 例文: “I'll binge-watch this show all weekend.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “binge-watch” = 一気見する. “I'll binge-watch this show all weekend.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

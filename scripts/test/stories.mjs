@@ -1,7 +1,7 @@
-// Test lõi Truyện & podcast (web/js/stories/core.js) + nội dung mẫu content/stories/*.json. Spec: docs/STORIES.md.
+// Test lõi Truyện & podcast (web/cpack/stories/core.js) + nội dung mẫu content/stories/*.json. Spec: docs/STORIES.md.
 // Chạy: node scripts/test/stories.mjs  (không cần thư viện ngoài; nằm trong npm test + CI)
 import fs from 'node:fs'; import vm from 'node:vm'; import { createRequire } from 'node:module';
-const S = createRequire(import.meta.url)('../../web/js/stories/core.js');
+const S = createRequire(import.meta.url)('../../web/cpack/stories/core.js');
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const DIR = new URL('../../content/stories/', import.meta.url);
 const ALL = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(new URL(f, DIR), 'utf8')));
@@ -118,6 +118,9 @@ const ALL = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).map(f => JSON.p
   ok(w.LK_WRITE && w.LK_WRITE.check('He go to school every day.').some(h => h.type === 'grammar'), 'LK_WRITE bắt "He go" → cổng stories/grammar không chạy rỗng');
   for (const x of ALL) for (const ch of x.chapters) for (const s of S.sentencesOf(ch)) { const b = w.LK_WRITE.check(s).filter(h => h.type === 'grammar' || h.type === 'spelling'); ok(!b.length, `${x.id}: soát lỗi sạch "${s}" ${b.map(h => h.rule).join()}`); }
 }
+
+// ---------- Độ phủ: ≥ 5 mục mỗi cấp A1–C1 (spec §6), có cả truyện lẫn podcast ----------
+for (const lv of S.LEVELS) { const L = ALL.filter(x => x.level === lv); ok(L.length >= 5, `cấp ${lv}: ≥ 5 mục (có ${L.length})`); ok(L.some(x => x.kind === 'podcast') && L.some(x => x.kind === 'book'), `cấp ${lv}: có cả truyện và podcast`); }
 
 console.log(fails ? `✗ stories: ${fails}/${n} kiểm trượt` : `✓ stories: ${n} kiểm đạt (lõi + ${ALL.length} nội dung mẫu)`);
 process.exit(fails ? 1 : 0);

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_de_bummer",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 75,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The trip got canceled. Ugh!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bummer!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's disappointing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The trip is canceled? What a bummer.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "bummer",
+  "forms": [],
+  "ipa": "/ˈbʌmɚ/",
+  "mean": "That's disappointing.",
+  "define": "Used when something is a bit sad or disappointing.",
+  "vi": "Chán ghê, tiếc quá",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Talking about plans",
+   "text": "The trip is canceled? What a bummer."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bummer\" is a word for…",
+   "options": [
+    "a disappointment",
+    "a happy surprise"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'bummer' to someone who lost a loved one.",
+   "why": "It's too light for deep grief."
+  },
+  "l1": "ärgerlich",
+  "l1_hook": "Die Reise wurde abgesagt. Ugh, das ist ein 'bummer'!",
+  "l1_ex": "Die Reise ist abgesagt? Was für ein \"bummer\".",
+  "right": "bummer",
+  "native": {
+   "hook": "Was heißt “bummer”?",
+   "tip": "“bummer” = ärgerlich. Beispiel: “The trip is canceled? What a bummer.”",
+   "caption": "Was heißt “bummer”?\n“bummer” = ärgerlich.\nBeispiel: “The trip is canceled? What a bummer.” (Die Reise ist abgesagt? Was für ein \"bummer\".)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “bummer” = ärgerlich. “The trip is canceled? What a bummer.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The trip got canceled. Ugh!"
+ },
+ "src": {
+  "slang": "bummer"
+ },
+ "lang": "de",
+ "est": {
+  "words": 17,
+  "seconds": 10.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Was heißt “bummer”?",
+  "keyword": "bummer",
+  "value": "“bummer” = ärgerlich. Beispiel: “The trip is canceled? What a bummer.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “bummer”?",
+    "description": "“bummer” = ärgerlich. Beispiel: “The trip is canceled? What a bummer.”\n\nWas heißt “bummer”?\n“bummer” = ärgerlich.\nBeispiel: “The trip is canceled? What a bummer.” (Die Reise ist abgesagt? Was für ein \"bummer\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "bummer",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “bummer”?\n“bummer” = ärgerlich.\nBeispiel: “The trip is canceled? What a bummer.” (Die Reise ist abgesagt? Was für ein \"bummer\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “bummer”?\n\n“bummer” = ärgerlich. Beispiel: “The trip is canceled? What a bummer.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “bummer”? “bummer” = ärgerlich. Beispiel: “The trip is canceled? What a bummer.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “bummer” = ärgerlich. “The trip is canceled? What a bummer.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

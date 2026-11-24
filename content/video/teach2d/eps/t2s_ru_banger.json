@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ru_banger",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 36,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Play this song louder!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Banger!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A fantastic song.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This new song is a banger!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "banger",
+  "forms": [
+   "bangers"
+  ],
+  "ipa": "/ˈbæŋɚ/",
+  "mean": "A fantastic song.",
+  "define": "A very good song that gets people moving.",
+  "vi": "Bài hát đỉnh",
+  "reg": "very-casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "praise",
+  "example": {
+   "ctx": "Listening to music",
+   "text": "This new song is a banger!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"banger\" is…",
+   "options": [
+    "a great song",
+    "a loud noise"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call a quiet lullaby a 'banger'.",
+   "why": "It means an energetic, great song."
+  },
+  "l1": "бэнгер",
+  "l1_hook": "Включи эту песню погромче! «banger»",
+  "l1_ex": "Эта новая песня — \"banger\"!",
+  "right": "banger",
+  "native": {
+   "hook": "Что значит «banger»?",
+   "tip": "“banger” = бэнгер. Пример: “This new song is a banger!”",
+   "caption": "Что значит «banger»?\n“banger” = бэнгер.\nПример: “This new song is a banger!” (Эта новая песня — \"banger\"!)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “banger” = бэнгер. “This new song is a banger!” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Play this song louder!"
+ },
+ "src": {
+  "slang": "banger"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 16,
+  "seconds": 10.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "Что значит «banger»?",
+  "keyword": "banger",
+  "value": "“banger” = бэнгер. Пример: “This new song is a banger!”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «banger»?",
+    "description": "“banger” = бэнгер. Пример: “This new song is a banger!”\n\nЧто значит «banger»?\n“banger” = бэнгер.\nПример: “This new song is a banger!” (Эта новая песня — \"banger\"!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "banger",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «banger»?\n“banger” = бэнгер.\nПример: “This new song is a banger!” (Эта новая песня — \"banger\"!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «banger»?\n\n“banger” = бэнгер. Пример: “This new song is a banger!”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «banger»? “banger” = бэнгер. Пример: “This new song is a banger!” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “banger” = бэнгер. “This new song is a banger!” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

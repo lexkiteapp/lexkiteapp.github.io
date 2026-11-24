@@ -1,0 +1,153 @@
+{
+ "id": "t2s_ja_cram",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 76,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Exam tomorrow. I haven't studied!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cram!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Study at the last minute.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I must cram for math.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "cram",
+  "forms": [
+   "cramming",
+   "crammed"
+  ],
+  "ipa": "/ˈkræm/",
+  "mean": "Study at the last minute.",
+  "define": "To study many things quickly just before a test.",
+  "vi": "Học nhồi nhét",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Waiting outside class",
+   "text": "I must cram for math."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"cram\" is to…",
+   "options": [
+    "sleep in class",
+    "study at the last minute"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'cram' for a three-year course.",
+   "why": "Cramming only works for short tests."
+  },
+  "l1": "詰め込む",
+  "l1_hook": "明日試験なのに、まだ cram していない！",
+  "l1_ex": "数学のために \"cram\" しなきゃ。",
+  "right": "cram",
+  "native": {
+   "hook": "「cram」ってどういう意味？",
+   "tip": "“cram” = 詰め込む. 例文: “I must cram for math.”",
+   "caption": "「cram」ってどういう意味？\n“cram” = 詰め込む.\n例文: “I must cram for math.” (数学のために \"cram\" しなきゃ。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “cram” = 詰め込む. “I must cram for math.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Exam tomorrow. I haven't studied!"
+ },
+ "src": {
+  "slang": "cram"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "「cram」ってどういう意味？",
+  "keyword": "cram",
+  "value": "“cram” = 詰め込む. 例文: “I must cram for math.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "「cram」ってどういう意味？",
+    "description": "“cram” = 詰め込む. 例文: “I must cram for math.”\n\n「cram」ってどういう意味？\n“cram” = 詰め込む.\n例文: “I must cram for math.” (数学のために \"cram\" しなきゃ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "cram",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「cram」ってどういう意味？\n“cram” = 詰め込む.\n例文: “I must cram for math.” (数学のために \"cram\" しなきゃ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「cram」ってどういう意味？\n\n“cram” = 詰め込む. 例文: “I must cram for math.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「cram」ってどういう意味？ “cram” = 詰め込む. 例文: “I must cram for math.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “cram” = 詰め込む. “I must cram for math.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

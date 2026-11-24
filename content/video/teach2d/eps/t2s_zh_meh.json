@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_meh",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 119,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How was the movie?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Meh!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Not great, not bad.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The movie? Meh.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "meh",
+  "forms": [],
+  "ipa": "/ˈme/",
+  "mean": "Not great, not bad.",
+  "define": "Used to show you aren't impressed.",
+  "vi": "Bình thường thôi",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "After a movie",
+   "text": "The movie? Meh."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Meh\" means…",
+   "options": [
+    "very excited",
+    "not impressed"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'meh' about a friend's cooking.",
+   "why": "It sounds unkind and dismissive."
+  },
+  "l1": "一般般",
+  "l1_hook": "电影怎么样？",
+  "l1_ex": "电影？\"Meh\"。",
+  "right": "meh",
+  "native": {
+   "hook": "“meh”是什么意思？",
+   "tip": "“meh” = 一般般. 例句: “The movie? Meh.”",
+   "caption": "“meh”是什么意思？\n“meh” = 一般般.\n例句: “The movie? Meh.” (电影？\"Meh\"。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “meh” = 一般般. “The movie? Meh.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "How was the movie?"
+ },
+ "src": {
+  "slang": "meh"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 14,
+  "seconds": 8.9,
+  "wpm": 94
+ },
+ "publish": {
+  "title": "“meh”是什么意思？",
+  "keyword": "meh",
+  "value": "“meh” = 一般般. 例句: “The movie? Meh.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“meh”是什么意思？",
+    "description": "“meh” = 一般般. 例句: “The movie? Meh.”\n\n“meh”是什么意思？\n“meh” = 一般般.\n例句: “The movie? Meh.” (电影？\"Meh\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "meh",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“meh”是什么意思？\n“meh” = 一般般.\n例句: “The movie? Meh.” (电影？\"Meh\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“meh”是什么意思？\n\n“meh” = 一般般. 例句: “The movie? Meh.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“meh”是什么意思？ “meh” = 一般般. 例句: “The movie? Meh.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “meh” = 一般般. “The movie? Meh.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

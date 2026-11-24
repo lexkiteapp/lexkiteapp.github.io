@@ -12,6 +12,9 @@ const rd = f => fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8');
 const hit = rd('functions/api/hit.js'), m = /const ONB_EV = (\[.*\]);/.exec(hit);
 const ONB = m ? vm.runInNewContext(m[1]) : [];
 ok(/const HAB_EV = \[[^\]]*\.\.\.ONB_EV\]/.test(hit), 'HAB_EV gồm ONB_EV');
+// Mọi hab('…') máy khách gửi (kể cả thẻ chào quay lại / tổng kết tuần ở web/cpack/ret-app) phải nằm trong HAB_EV, không thì máy chủ bỏ im lặng (23/11: back_*/recap_* bị bỏ → ô quản trị luôn 0)
+{ const hm = /const HAB_EV = (\[[^;]*\]);/.exec(hit), HAB = hm ? vm.runInNewContext(hm[1].replace('...ONB_EV', ONB.map(e => `'${e}'`).join(','))) : [];
+  for (const f of ['web/js/plan.js', 'web/js/app.js', 'web/cpack/ret-app/cards.js']) for (const x of rd(f).matchAll(/\bhab\('([a-z0-9_]+)'\)/g)) ok(HAB.includes(x[1]), `${f}: hab('${x[1]}') có trong HAB_EV`); }
 const used = new Set();
 for (const f of ['web/js/welcome.js', 'web/js/onboard.js', 'web/js/remind.js']) for (const x of rd(f).matchAll(/hab(?:Track)?\('([a-z0-9_]+)'\)/g)) used.add(x[1]);
 for (const e of used) if (!['plan_seen', 'plan_start', 'plan_done', 'resume_seen', 'resume_click'].includes(e)) ok(ONB.includes(e), `sự kiện ${e} có trong ONB_EV`);
@@ -19,6 +22,15 @@ ok(/'onb_s_' \+ STEPS\[n\]/.test(rd('web/js/onboard.js')) && ['lang', 'goal', 'l
 ok(/setTimeout\(\(\) => document\.visibilityState === 'visible' && on\(\), 5e3\)/.test(rd('web/js/welcome.js')) && /'pointerdown', 'keydown', 'scroll'/.test(rd('web/js/welcome.js')), 'onb_welcome chỉ đếm khi có tương tác hoặc hiện ≥ 5 s');
 ok(['onb_welcome', 'onb_done', 'first_win', 'fw_d1', 'fw_d7'].every(e => ONB.includes(e)), 'đủ mốc phễu');
 ok(rd('functions/api/config.js').includes("'rem_lsn'") && rd('functions/api/admin.js').includes("'rem_lsn'"), 'rem_lsn có trong PUBLIC_KEYS + CONFIG_KEYS');
+
+// 1b) Dòng "Ngày mai" ở màn kết bài học (lesson/ui.js finishV2): có công tắc khẩn ret_tmr, không hiện ở bài thử, đủ 15 ngôn ngữ
+const lu = rd('web/js/lesson/ui.js');
+ok(/more: more \+ tmr/.test(lu) && lu.includes('"ret_tmr":"0"') && /!L\.demo/.test(lu), 'màn kết bài học có dòng Ngày mai + công tắc khẩn + bỏ bài thử');
+ok(rd('functions/api/config.js').includes("'ret_tmr'") && rd('functions/api/admin.js').includes("'ret_tmr'"), 'ret_tmr có trong PUBLIC_KEYS + CONFIG_KEYS');
+for (const k of ['Ngày mai ôn {n} từ để nhớ lâu', 'Ngày mai: bài tiếp theo đã sẵn sàng']) {
+  ok(rd('web/js/i18n/en/lesson.js').includes(`'${k}'`), 'en có ' + k);
+  for (const l of rd('scripts/i18n-langs.txt').split('\n').map(x => x.trim()).filter(x => x && !x.startsWith('#'))) { const f = rd(`i18n/ui/${l}/lesson.js`), m2 = f.match(new RegExp(JSON.stringify(k).replace(/[{}]/g, '\\$&') + ':"([^"]*)"')); ok(m2 && (!k.includes('{n}') || m2[1].includes('{n}')), `${l} dịch "${k}" (giữ {n})`); }
+}
 
 // 2) remind.js trong DOM giả
 const pad = n => String(n).padStart(2, '0'), key = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
