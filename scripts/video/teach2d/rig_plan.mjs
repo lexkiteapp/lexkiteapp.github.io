@@ -84,7 +84,7 @@ export function schedule(T, lines, B) {
     else if (l.id === hook) { at(s - 0.1, 'emo', 'surprise', 'hook'); at((s + wEnd(l)) / 2, 'emo', 'happy', 'hook'); }
     else if (isQuiz(l)) { at(s - 0.1, 'emo', 'explain', 'quiz'); at(wEnd(l) + 0.05, 'emo', 'thinking', 'quiz pause'); }
     else if (prev && isQuiz(prev)) { at(s - 0.1, 'emo', 'praise', 'answer'); at(s + 0.05, 'gesture', 'nod', 'answer'); }
-    else if (l.id === 'c') at(s - 0.1, 'emo', 'encourage', 'cta');
+    else if (l.id === 'c') { const last = [...ev].reverse().find(e => e.kind === 'emo'); at(s - 0.1, 'emo', ['encourage', 'praise', 'happy'].find(n => !last || n !== last.name), 'cta'); }   // CTA look differs from the beat before it (qc pose_variety)
     else {   // v3 (audit 24/11 #1): every beat has its own look – cycle through BEAT_EMO, never the same as the previous beat's
       const last = [...ev].reverse().find(e => e.kind === 'emo'), used = new Set(ev.filter(e => e.kind === 'emo').map(e => e.name)), pick = BEAT_EMO.filter(n => !last || n !== last.name), fresh = pick.filter(n => !used.has(n));   // unused faces first: looks >= beats
       at(s - 0.1, 'emo', (fresh.length ? fresh : pick)[beat++ % (fresh.length || pick.length)], 'beat');
