@@ -755,6 +755,7 @@
 "Nghĩa tiếng Việt":"뜻",
 "Nghĩa tiếng Việt của cả cụm":"전체 문구의 번역",
 "Nghĩa trong ngữ cảnh:":"문맥상 의미:",
+"Nghĩa từng từ (tạm):":"단어별 뜻 (임시):",
 "Ngoại tuyến – sẽ tự đồng bộ khi có mạng":"오프라인 – 다시 연결되면 자동으로 동기화됩니다",
 "Nguồn từ":"단어 출처",
 "Nguồn “{name}” đang trống.":"\"{name}\" 소스가 비어 있습니다.",

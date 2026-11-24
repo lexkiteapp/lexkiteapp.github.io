@@ -755,6 +755,7 @@
 "Nghĩa tiếng Việt":"Sens",
 "Nghĩa tiếng Việt của cả cụm":"Traduction de l’expression entière",
 "Nghĩa trong ngữ cảnh:":"Sens en contexte :",
+"Nghĩa từng từ (tạm):":"Mot à mot (approx.) :",
 "Ngoại tuyến – sẽ tự đồng bộ khi có mạng":"Hors ligne – la synchronisation reprendra automatiquement une fois reconnecté",
 "Nguồn từ":"Source du mot",
 "Nguồn “{name}” đang trống.":"La source « {name} » est vide.",
