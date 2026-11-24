@@ -185,10 +185,11 @@ const BLOBS = [
   [[0.05, -0.14, 1.0], [-0.35, -0.05, 0.8, 'b'], [0.55, -0.15, 0.8, 'b']],   // 2 = tint crown, two low blobs
   [[-0.3, 0.12, 0.95], [0.5, -0.1, 0.7], [0.3, -0.12, 0.9, 'b']],   // 3 = tint left-high, cool corner top-right
 ];
-const Canvas = ({ T, w, h, tint, v = 0 }) => (   // Stitch Kit canvas: flat tokens, static soft blobs (no moving background, no blur on the teacher)
+const DRIFT = { amp: 0.025, period: 8 };   // motion v2: blobs breathe on a closed loop (never a still background, never moves a card)
+const Canvas = ({ T, w, h, tint, v = 0, t = 0 }) => (   // Stitch Kit canvas: flat tokens, static soft blobs (no moving background, no blur on the teacher)
   <AbsoluteFill style={{ background: `${T.sheen ? T.sheen + ', ' : ''}linear-gradient(180deg, ${T.bg} 0%, ${T.bg2} 100%)` }}>   {/* theme.json sheen: left-to-right light falloff, so no canvas row is a flat fill (qc dead_band) */}
     {(BLOBS[v] || BLOBS[0]).map(([x, y, s, b], i) => (
-      <div key={i} style={{ position: 'absolute', left: w * x, [b ? 'bottom' : 'top']: h * y, width: w * s, height: w * s, borderRadius: '50%',
+      <div key={i} style={{ position: 'absolute', left: w * x + w * DRIFT.amp * Math.sin(2 * Math.PI * (t / DRIFT.period + i / 3)), [b ? 'bottom' : 'top']: h * y + h * DRIFT.amp * Math.cos(2 * Math.PI * (t / DRIFT.period + i / 3)), width: w * s, height: w * s, borderRadius: '50%',
         background: `radial-gradient(circle, ${[tint || T.blobA, T.blobB, T.blobC][i]} 0%, transparent ${i === 2 ? 70 : 68}%)` }} />))}
   </AbsoluteFill>
 );
@@ -221,13 +222,26 @@ function HostClips({ host, f, ox, oy }) {   // the incoming clip fades in on top
   });
 }
 
+// Motion pack v2 (docs/VIDEO-TEACH2D.md "Motion v2"): caption beat pops in (70 % -> 108 % -> 100 %, 120 ms + 80 ms settle, easeOutBack), the word being spoken
+// bounces once (+12 %, 140 ms) and lights up on its onset, outline for legibility on any plate. Closed form per frame, no state.
+export const CAP_POP = { in: 0.12, settle: 0.08, from: 0.7, peak: 1.08, bounce: 0.14, bump: 0.12 };
+const backOut = x => { const c1 = 1.70158, c3 = c1 + 1, k = clamp01(x) - 1; return 1 + c3 * k ** 3 + c1 * k ** 2; };
+export const capScale = tau => {   // tau = seconds since the beat appeared
+  if (tau < 0) return CAP_POP.from;
+  if (tau < CAP_POP.in) return CAP_POP.from + (CAP_POP.peak - CAP_POP.from) * backOut(tau / CAP_POP.in);
+  if (tau < CAP_POP.in + CAP_POP.settle) return CAP_POP.peak + (1 - CAP_POP.peak) * easeOut((tau - CAP_POP.in) / CAP_POP.settle);
+  return 1;
+};
+export const wordBump = tau => (tau < 0 || tau > CAP_POP.bounce ? 0 : CAP_POP.bump * Math.sin(Math.PI * tau / CAP_POP.bounce));
 function Captions({ caps, box, t, T }) {
   const p = caps.find(c => t >= c.t0 && t < c.t1); if (!p || !box) return null;
-  const now = p.words.filter(w => t >= w.s - 0.02).length - 1, a = clamp01((t - p.t0) / 0.08);
+  const now = p.words.filter(w => t >= w.s - 0.02).length - 1, a = clamp01((t - p.t0) / 0.06), sc = capScale(t - p.t0);
   return (
     <div style={{ position: 'absolute', left: box[0], top: box[1], width: box[2] - box[0], height: box[3] - box[1], display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: a }}>
-      <div style={{ padding: '10px 26px', borderRadius: 24, textAlign: 'center', background: T.cap_plate, fontFamily: JAK, fontWeight: 800, fontSize: 58, lineHeight: '74px', whiteSpace: 'pre' }}>
-        {p.words.map((w, i) => <React.Fragment key={i}>{p.br && i === p.br ? <br /> : null}<span style={{ color: i === now ? T.cap_now : T.cap_ink }}>{(i && i !== p.br ? ' ' : '') + w.w}</span></React.Fragment>)}</div>
+      <div style={{ padding: '10px 26px', borderRadius: 24, textAlign: 'center', background: T.cap_plate, fontFamily: JAK, fontWeight: 800, fontSize: 58, lineHeight: '74px', whiteSpace: 'pre',
+        transform: `scale(${sc})`, transformOrigin: '50% 60%', boxShadow: `0 8px 0 ${T.ledge}` }}>
+        {p.words.map((w, i) => <React.Fragment key={i}>{p.br && i === p.br ? <br /> : null}
+          <span style={{ display: 'inline-block', whiteSpace: 'pre', color: i === now ? T.cap_now : T.cap_ink, transform: i === now ? `scale(${1 + wordBump(t - Math.max(p.t0, p.words[i].s))})` : 'none', textShadow: `0 3px 0 ${T.ledge}` }}>{(i && i !== p.br ? ' ' : '') + w.w}</span></React.Fragment>)}</div>
     </div>);
 }
 
@@ -237,7 +251,7 @@ export const TeachShort = ({ nodes = [], caps = [], capBox = null, host = null, 
   const kids = {}; for (const n of nodes) if (n.parent) (kids[n.parent] = kids[n.parent] || []).push(n);
   return (
     <AbsoluteFill>
-      <Canvas T={T} w={w} h={h} tint={tint} v={canvas} />
+      <Canvas T={T} w={w} h={h} tint={tint} v={canvas} t={t} />
       {host ? <Host host={host} f={f} T={T} /> : null}
       {audio ? <Audio src={staticFile(audio)} /> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} T={T} />)}</AbsoluteFill>

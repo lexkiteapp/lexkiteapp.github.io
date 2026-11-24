@@ -107,3 +107,11 @@ Chữ không-Latin (ru/hi/ar/ja/ko/zh): Chromium tự lùi phông theo glyph (jo
 - Owner OK 30/10 on the 5 new templates (grammar, dictation, toeic, review, call – CI f5c3fe8, all 32 renders QC 100). Batch / cron / publish still need their own OK.
 - Matching 2D scene backgrounds: today the Kit canvas (0 credits). A Kling 2D-scene bank would follow `CREDIT-RULES.md` (analysis → dry-run → 1 pilot) and needs an explicit credit OK.
 - 1080p bank (session teach-build-1080): `host.py` reads the same registry paths, no code change.
+
+## Motion v2 (23/11, owner: "template còn cơ bản") – spec = khảo sát kênh học ngoại ngữ top (nguồn blog, mỗi luật gắn S = có nguồn / D = mặc định của mình, cần A/B)
+- **Hook 0–1 s**: nhân vật + chữ hook ở khung 0 (không đen), giọng ≤ 150 ms, thay đổi hình đầu tiên 0,8–1,2 s. **Nhịp**: 0–5 s đổi hình mỗi 0,8–1,5 s, sau đó 1,5–3 s, không đứng yên > 3,5 s.
+- **Chữ động (đã làm, TeachShort.jsx)**: mỗi nhịp chữ nảy vào 70 % → 108 % → 100 % (120 ms + 80 ms, easeOutBack), từ đang đọc sáng + nảy +12 % 140 ms một lần, viền/đổ bóng; nền Kit trôi chậm (≤ 3 % khung, chu kỳ 8 s) – không bao giờ tĩnh. Hằng số khoá bởi `scripts/test/teach2d-motion-v2.mjs` (preqc).
+- **Vùng an toàn** x 80–920, y 220–1440; chữ ≥ 48 px; tương phản ≥ 4,5:1 (đích 7:1); xanh/đỏ luôn kèm ✓/✗.
+- **Âm**: giọng −14 LUFS, nhạc nền thấp hơn giọng ≥ 12 LU và duck thêm 6–8 dB, whoosh bắt đầu 80 ms trước cắt, pop ở mỗi thẻ, ding khi đúng, riser trước đáp án; ≤ 1 sfx/0,8 s.
+- **Chuyển cảnh**: mặc định cắt cứng; tối đa 1 chuyển cảnh/3 cắt, cùng một họ trong một clip. **CTA**: thẻ cuối ≤ 2,5 s, một lời kêu gọi, trong y 900–1300, 0,5 s cuối quay về khung 0 (lặp).
+- **Còn lại (làm tiếp từng đợt, mỗi đợt dựng lại lô mẫu so trước/sau)**: đổi hue nền mỗi 2–3 cảnh, riser + ding theo đáp án, zoom-punch ở hook, kiểm bằng ảnh chụp khung t=0/0,5/1/3/giữa/cuối−2,5/cuối.
