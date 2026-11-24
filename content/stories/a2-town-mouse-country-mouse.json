@@ -1,0 +1,144 @@
+{
+  "id": "a2-town-mouse-country-mouse",
+  "kind": "book",
+  "level": "A2",
+  "title": "The Town Mouse and the Country Mouse",
+  "summary": "Two mice visit each other and learn that a quiet home can be better than a rich but scary one.",
+  "source": {
+    "type": "public-domain",
+    "work": "Aesop's Fables",
+    "author": "Aesop",
+    "published": -550,
+    "authorDied": -564,
+    "url": "https://www.gutenberg.org/ebooks/21",
+    "note": "Retold from the plot of the fable in new A2 English by Lexkite; no sentences copied from any translation."
+  },
+  "license": "Adaptation CC BY 4.0 Lexkite; original fable in the public domain",
+  "cover": {
+    "style": "2d",
+    "cast": [],
+    "scene": "Flat 2D illustration: a small grey mouse at a cosy field home and a city mouse beside a grand table with cheese, warm colours, no text"
+  },
+  "audio": {
+    "wpm": 115,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "A Visit to the Country",
+      "sentences": [
+        "A little mouse lived in a quiet field.",
+        "His home was small, but it was warm.",
+        "He ate simple food like nuts and seeds.",
+        "One day, his cousin came from the town.",
+        "The country mouse was happy to see him.",
+        "He gave his cousin the best food he had.",
+        "The town mouse looked at the plate with sad eyes.",
+        "\"This food is very plain,\" he said.",
+        "\"Come to my house in town.",
+        "You will eat like a king.\"",
+        "The country mouse thought about it and agreed."
+      ],
+      "words": [
+        "field",
+        "seed",
+        "cousin",
+        "plain",
+        "agree"
+      ],
+      "quiz": [
+        {
+          "q": "Where did the first mouse live?",
+          "options": [
+            "In a quiet field",
+            "In a big town",
+            "In a ship"
+          ],
+          "answer": 0,
+          "explain": "He lived in a quiet field."
+        },
+        {
+          "q": "What did the country mouse eat?",
+          "options": [
+            "Cheese and cake",
+            "Nuts and seeds",
+            "Fish and rice"
+          ],
+          "answer": 1,
+          "explain": "He ate simple food like nuts and seeds."
+        },
+        {
+          "q": "Why did the town mouse invite his cousin?",
+          "options": [
+            "He wanted help.",
+            "He wanted to show better food.",
+            "He was lonely."
+          ],
+          "answer": 1,
+          "explain": "He said his cousin would eat like a king in town."
+        }
+      ]
+    },
+    {
+      "title": "A Rich but Scary Home",
+      "sentences": [
+        "The town house was big and beautiful.",
+        "There was bread, cheese and sweet cake on the table.",
+        "The country mouse had never seen so much food.",
+        "He sat down and began to eat.",
+        "Suddenly, the door opened with a loud noise.",
+        "A cat ran into the room!",
+        "The mice ran and hid in a small hole.",
+        "Their hearts beat very fast.",
+        "Later, the country mouse stood up.",
+        "\"Your food is wonderful,\" he said.",
+        "\"But I am afraid all the time here.",
+        "I prefer my simple life at home.\"",
+        "He went back to the quiet field and felt safe."
+      ],
+      "words": [
+        "cheese",
+        "suddenly",
+        "noise",
+        "hole",
+        "afraid",
+        "prefer",
+        "safe"
+      ],
+      "quiz": [
+        {
+          "q": "What frightened the mice?",
+          "options": [
+            "A cat",
+            "A storm",
+            "A dog"
+          ],
+          "answer": 0,
+          "explain": "A cat ran into the room, and the mice hid."
+        },
+        {
+          "q": "Where did the mice hide?",
+          "options": [
+            "Under the table",
+            "In a small hole",
+            "In the garden"
+          ],
+          "answer": 1,
+          "explain": "They ran and hid in a small hole."
+        },
+        {
+          "q": "What does the country mouse decide?",
+          "options": [
+            "To live in town",
+            "To buy more food",
+            "To go home to his simple life"
+          ],
+          "answer": 2,
+          "explain": "He prefers his simple, safe life in the field."
+        }
+      ]
+    }
+  ]
+}

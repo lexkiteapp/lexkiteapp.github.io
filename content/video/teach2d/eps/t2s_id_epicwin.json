@@ -1,0 +1,152 @@
+{
+ "id": "t2s_id_epicwin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 88,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last second goal. We win!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Epic win!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A really great victory.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We scored in the last second. Epic win!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "epic win",
+  "forms": [
+   "epic"
+  ],
+  "ipa": "/ˈepɪk ˈwɪn/",
+  "mean": "A really great victory.",
+  "define": "A big, impressive win.",
+  "vi": "Chiến thắng hoành tráng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Celebrating with friends",
+   "text": "We scored in the last second. Epic win!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "An \"epic win\" is…",
+   "options": [
+    "a great victory",
+    "a long story"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'epic win' about a tiny task.",
+   "why": "It exaggerates a small success."
+  },
+  "l1": "kemenangan epik",
+  "l1_hook": "Gol di detik terakhir. Kita menang! 'epic win'!",
+  "l1_ex": "Kami mencetak gol di detik terakhir. 'epic win'!",
+  "right": "epic win",
+  "native": {
+   "hook": "Apa arti “epic win”?",
+   "tip": "“epic win” = kemenangan epik. Contoh: “We scored in the last second. Epic win!”",
+   "caption": "Apa arti “epic win”?\n“epic win” = kemenangan epik.\nContoh: “We scored in the last second. Epic win!” (Kami mencetak gol di detik terakhir. 'epic win'!)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “epic win” = kemenangan epik. “We scored in the last second. Epic win!” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Last second goal. We win!"
+ },
+ "src": {
+  "slang": "epic win"
+ },
+ "lang": "id",
+ "est": {
+  "words": 21,
+  "seconds": 11.9,
+  "wpm": 106
+ },
+ "publish": {
+  "title": "Apa arti “epic win”?",
+  "keyword": "epic win",
+  "value": "“epic win” = kemenangan epik. Contoh: “We scored in the last second. Epic win!”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “epic win”?",
+    "description": "“epic win” = kemenangan epik. Contoh: “We scored in the last second. Epic win!”\n\nApa arti “epic win”?\n“epic win” = kemenangan epik.\nContoh: “We scored in the last second. Epic win!” (Kami mencetak gol di detik terakhir. 'epic win'!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "epic win",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “epic win”?\n“epic win” = kemenangan epik.\nContoh: “We scored in the last second. Epic win!” (Kami mencetak gol di detik terakhir. 'epic win'!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “epic win”?\n\n“epic win” = kemenangan epik. Contoh: “We scored in the last second. Epic win!”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “epic win”? “epic win” = kemenangan epik. Contoh: “We scored in the last second. Epic win!” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “epic win” = kemenangan epik. “We scored in the last second. Epic win!” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

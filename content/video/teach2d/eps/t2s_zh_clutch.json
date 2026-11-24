@@ -1,0 +1,150 @@
+{
+ "id": "t2s_zh_clutch",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 69,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last second goal wins it!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Clutch!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Great at the key moment.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That last-minute goal was so clutch.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "clutch",
+  "forms": [],
+  "ipa": "/ˈklʌtʃ/",
+  "mean": "Great at the key moment.",
+  "define": "Used when someone does well at an important time.",
+  "vi": "Cứu nguy đúng lúc",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Watching a game",
+   "text": "That last-minute goal was so clutch."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Clutch\" describes…",
+   "options": [
+    "a bag",
+    "a perfect key moment"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'clutch' about a small purse.",
+   "why": "Here it means great under pressure."
+  },
+  "l1": "关键时刻的",
+  "l1_hook": "最后一秒的进球决定胜负，真是 \"clutch\"！",
+  "l1_ex": "那粒最后一分钟的进球真是太 \"clutch\" 了。",
+  "right": "clutch",
+  "native": {
+   "hook": "“clutch”是什么意思？",
+   "tip": "“clutch” = 关键时刻的. 例句: “That last-minute goal was so clutch.”",
+   "caption": "“clutch”是什么意思？\n“clutch” = 关键时刻的.\n例句: “That last-minute goal was so clutch.” (那粒最后一分钟的进球真是太 \"clutch\" 了。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “clutch” = 关键时刻的. “That last-minute goal was so clutch.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Last second goal wins it!"
+ },
+ "src": {
+  "slang": "clutch"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“clutch”是什么意思？",
+  "keyword": "clutch",
+  "value": "“clutch” = 关键时刻的. 例句: “That last-minute goal was so clutch.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“clutch”是什么意思？",
+    "description": "“clutch” = 关键时刻的. 例句: “That last-minute goal was so clutch.”\n\n“clutch”是什么意思？\n“clutch” = 关键时刻的.\n例句: “That last-minute goal was so clutch.” (那粒最后一分钟的进球真是太 \"clutch\" 了。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "clutch",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“clutch”是什么意思？\n“clutch” = 关键时刻的.\n例句: “That last-minute goal was so clutch.” (那粒最后一分钟的进球真是太 \"clutch\" 了。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“clutch”是什么意思？\n\n“clutch” = 关键时刻的. 例句: “That last-minute goal was so clutch.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“clutch”是什么意思？ “clutch” = 关键时刻的. 例句: “That last-minute goal was so clutch.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “clutch” = 关键时刻的. “That last-minute goal was so clutch.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

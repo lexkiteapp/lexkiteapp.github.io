@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_bougie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 53,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She only drinks fancy tea!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bougie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fancy, and a bit too proud.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coffee shop is so bougie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "bougie",
+  "forms": [],
+  "ipa": "/ˈbuːʒi/",
+  "mean": "Fancy, and a bit too proud.",
+  "define": "Liking expensive or fancy things, sometimes in a showy way.",
+  "vi": "Sang chảnh, làm màu",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "money",
+  "example": {
+   "ctx": "Visiting a new café",
+   "text": "This coffee shop is so bougie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bougie\" means…",
+   "options": [
+    "very cheap",
+    "fancy and showy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your host 'bougie' at dinner.",
+   "why": "It can sound snobbish and rude."
+  },
+  "l1": "ติดหรู",
+  "l1_hook": "เธอดื่มชาแบบหรูหราเท่านั้น!",
+  "l1_ex": "ร้านกาแฟนี้ \"bougie\" มาก",
+  "right": "bougie",
+  "native": {
+   "hook": "“bougie” แปลว่าอะไร?",
+   "tip": "“bougie” = ติดหรู. ตัวอย่าง: “This coffee shop is so bougie.”",
+   "caption": "“bougie” แปลว่าอะไร?\n“bougie” = ติดหรู.\nตัวอย่าง: “This coffee shop is so bougie.” (ร้านกาแฟนี้ \"bougie\" มาก)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “bougie” = ติดหรู. “This coffee shop is so bougie.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She only drinks fancy tea!"
+ },
+ "src": {
+  "slang": "bougie"
+ },
+ "lang": "th",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“bougie” แปลว่าอะไร?",
+  "keyword": "bougie",
+  "value": "“bougie” = ติดหรู. ตัวอย่าง: “This coffee shop is so bougie.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“bougie” แปลว่าอะไร?",
+    "description": "“bougie” = ติดหรู. ตัวอย่าง: “This coffee shop is so bougie.”\n\n“bougie” แปลว่าอะไร?\n“bougie” = ติดหรู.\nตัวอย่าง: “This coffee shop is so bougie.” (ร้านกาแฟนี้ \"bougie\" มาก)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "bougie",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“bougie” แปลว่าอะไร?\n“bougie” = ติดหรู.\nตัวอย่าง: “This coffee shop is so bougie.” (ร้านกาแฟนี้ \"bougie\" มาก)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bougie” แปลว่าอะไร?\n\n“bougie” = ติดหรู. ตัวอย่าง: “This coffee shop is so bougie.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bougie” แปลว่าอะไร? “bougie” = ติดหรู. ตัวอย่าง: “This coffee shop is so bougie.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “bougie” = ติดหรู. “This coffee shop is so bougie.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

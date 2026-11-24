@@ -1,0 +1,135 @@
+{
+ "id": "t2s_zonked",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 247,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Home at last. Bed, now!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Zonked!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Completely worn out and sleepy.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm zonked, so I'm going to bed.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "zonked",
+  "forms": [],
+  "ipa": "/ˈzɑːŋkt/",
+  "mean": "Completely worn out and sleepy.",
+  "define": "Used when you're so tired you could fall asleep.",
+  "vi": "Mệt đến lịm đi",
+  "reg": "casual",
+  "region": "US",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "After a busy day",
+   "text": "I'm zonked, so I'm going to bed."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Zonked\" means…",
+   "options": [
+    "very hungry",
+    "very sleepy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'zonked' in a business email.",
+   "why": "It's very casual slang."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Home at last. Bed, now!"
+ },
+ "src": {
+  "slang": "zonked"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"zonked\" mean?",
+  "keyword": "zonked",
+  "value": "Zonked = Completely worn out and sleepy. Example: \"I'm zonked, so I'm going to bed.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"zonked\" mean?",
+    "description": "Zonked = Completely worn out and sleepy. Example: \"I'm zonked, so I'm going to bed.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "zonked",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"zonked\" mean?\n\nZonked = Completely worn out and sleepy. Example: \"I'm zonked, so I'm going to bed.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"zonked\" mean?\n\nZonked = Completely worn out and sleepy. Example: \"I'm zonked, so I'm going to bed.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"zonked\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'zonked' in a business email. It's very casual slang. Real example: \"I'm zonked, so I'm going to bed.\" More real English slang, free: {link}"
+ }
+}

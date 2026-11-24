@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ja_clickbait",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 58,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "'You won't believe it!' Really?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Clickbait!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A title that tricks you to click.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That title is pure clickbait.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "clickbait",
+  "forms": [
+   "clickbait title"
+  ],
+  "ipa": "/ˈklɪkˌbeɪt/",
+  "mean": "A title that tricks you to click.",
+  "define": "A catchy headline that isn't worth reading.",
+  "vi": "Giật tít câu view",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Watching videos",
+   "text": "That title is pure clickbait."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Clickbait\" is…",
+   "options": [
+    "a tricky headline",
+    "a mouse"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call a real news story 'clickbait'.",
+   "why": "It means a misleading title."
+  },
+  "l1": "クリックベイト",
+  "l1_hook": "『信じられない！』って本当？'clickbait'だね。",
+  "l1_ex": "あのタイトルは純粋に \"clickbait\" だ。",
+  "right": "clickbait",
+  "native": {
+   "hook": "「clickbait」ってどういう意味？",
+   "tip": "“clickbait” = クリックベイト. 例文: “That title is pure clickbait.”",
+   "caption": "「clickbait」ってどういう意味？\n“clickbait” = クリックベイト.\n例文: “That title is pure clickbait.” (あのタイトルは純粋に \"clickbait\" だ。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “clickbait” = クリックベイト. “That title is pure clickbait.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "'You won't believe it!' Really?"
+ },
+ "src": {
+  "slang": "clickbait"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "「clickbait」ってどういう意味？",
+  "keyword": "clickbait",
+  "value": "“clickbait” = クリックベイト. 例文: “That title is pure clickbait.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "「clickbait」ってどういう意味？",
+    "description": "“clickbait” = クリックベイト. 例文: “That title is pure clickbait.”\n\n「clickbait」ってどういう意味？\n“clickbait” = クリックベイト.\n例文: “That title is pure clickbait.” (あのタイトルは純粋に \"clickbait\" だ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "clickbait",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「clickbait」ってどういう意味？\n“clickbait” = クリックベイト.\n例文: “That title is pure clickbait.” (あのタイトルは純粋に \"clickbait\" だ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「clickbait」ってどういう意味？\n\n“clickbait” = クリックベイト. 例文: “That title is pure clickbait.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「clickbait」ってどういう意味？ “clickbait” = クリックベイト. 例文: “That title is pure clickbait.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “clickbait” = クリックベイト. “That title is pure clickbait.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_cranky",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 104,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't talk to me yet!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cranky!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Grumpy and in a bad mood.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm cranky before breakfast.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "cranky",
+  "forms": [],
+  "ipa": "/ˈkræŋki/",
+  "mean": "Grumpy and in a bad mood.",
+  "define": "Describes someone tired or annoyed.",
+  "vi": "Cáu kỉnh",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about a child",
+   "text": "I'm cranky before breakfast."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cranky\" means…",
+   "options": [
+    "happy",
+    "grumpy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your boss 'cranky' in an email.",
+   "why": "It's too casual and insulting."
+  },
+  "l1": "rabugento",
+  "l1_hook": "Não fala comigo ainda!",
+  "l1_ex": "Eu fico \"cranky\" (rabugento/mal-humorado) antes do café da manhã.",
+  "right": "cranky",
+  "native": {
+   "hook": "O que significa “cranky”?",
+   "tip": "“cranky” = rabugento. Exemplo: “I'm cranky before breakfast.”",
+   "caption": "O que significa “cranky”?\n“cranky” = rabugento.\nExemplo: “I'm cranky before breakfast.” (Eu fico \"cranky\" (rabugento/mal-humorado) antes do café da manhã.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “cranky” = rabugento. “I'm cranky before breakfast.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Don't talk to me yet!"
+ },
+ "src": {
+  "slang": "cranky"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "O que significa “cranky”?",
+  "keyword": "cranky",
+  "value": "“cranky” = rabugento. Exemplo: “I'm cranky before breakfast.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “cranky”?",
+    "description": "“cranky” = rabugento. Exemplo: “I'm cranky before breakfast.”\n\nO que significa “cranky”?\n“cranky” = rabugento.\nExemplo: “I'm cranky before breakfast.” (Eu fico \"cranky\" (rabugento/mal-humorado) antes do café da manhã.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "cranky",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “cranky”?\n“cranky” = rabugento.\nExemplo: “I'm cranky before breakfast.” (Eu fico \"cranky\" (rabugento/mal-humorado) antes do café da manhã.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “cranky”?\n\n“cranky” = rabugento. Exemplo: “I'm cranky before breakfast.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “cranky”? “cranky” = rabugento. Exemplo: “I'm cranky before breakfast.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “cranky” = rabugento. “I'm cranky before breakfast.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

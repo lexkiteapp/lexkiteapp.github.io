@@ -1,0 +1,150 @@
+{
+ "id": "t2s_id_catchyoulater",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 87,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gotta go. Class starts now!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Catch you later!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "See you later.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Catch you later, I have to go!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "catch you later",
+  "forms": [],
+  "ipa": "/ˈkætʃ ju ˈleɪtɚ/",
+  "mean": "See you later.",
+  "define": "A friendly, casual goodbye.",
+  "vi": "Gặp lại sau nhé",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Leaving a friend",
+   "text": "Catch you later, I have to go!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It's a way to say…",
+   "options": [
+    "stop that thief",
+    "goodbye"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't end a formal interview with 'catch you later'.",
+   "why": "It's too casual for formal talks."
+  },
+  "l1": "sampai jumpa lagi",
+  "l1_hook": "Aku harus pergi. Kelas mulai sekarang! 'catch you later'!",
+  "l1_ex": "'catch you later', aku harus pergi!",
+  "right": "catch you later",
+  "native": {
+   "hook": "Apa arti “catch you later”?",
+   "tip": "“catch you later” = sampai jumpa lagi. Contoh: “Catch you later, I have to go!”",
+   "caption": "Apa arti “catch you later”?\n“catch you later” = sampai jumpa lagi.\nContoh: “Catch you later, I have to go!” ('catch you later', aku harus pergi!)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “catch you later” = sampai jumpa lagi. “Catch you later, I have to go!” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gotta go. Class starts now!"
+ },
+ "src": {
+  "slang": "catch you later"
+ },
+ "lang": "id",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Apa arti “catch you later”?",
+  "keyword": "catch you later",
+  "value": "“catch you later” = sampai jumpa lagi. Contoh: “Catch you later, I have to go!”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “catch you later”?",
+    "description": "“catch you later” = sampai jumpa lagi. Contoh: “Catch you later, I have to go!”\n\nApa arti “catch you later”?\n“catch you later” = sampai jumpa lagi.\nContoh: “Catch you later, I have to go!” ('catch you later', aku harus pergi!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "catch you later",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “catch you later”?\n“catch you later” = sampai jumpa lagi.\nContoh: “Catch you later, I have to go!” ('catch you later', aku harus pergi!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “catch you later”?\n\n“catch you later” = sampai jumpa lagi. Contoh: “Catch you later, I have to go!”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “catch you later”? “catch you later” = sampai jumpa lagi. Contoh: “Catch you later, I have to… #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “catch you later” = sampai jumpa lagi. “Catch you later, I have to go!” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

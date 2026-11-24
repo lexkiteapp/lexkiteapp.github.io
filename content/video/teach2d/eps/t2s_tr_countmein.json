@@ -1,0 +1,150 @@
+{
+ "id": "t2s_tr_countmein",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 35,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Game night at my place!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Count me in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I want to join.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Game night? Count me in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "count me in",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈɪn/",
+  "mean": "I want to join.",
+  "define": "Used to say you will take part in a plan.",
+  "vi": "Tính tui vào nhé",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Replying to an invite",
+   "text": "Game night? Count me in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'll count",
+    "I'll join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me in' before checking the date.",
+   "why": "People will count on you."
+  },
+  "l1": "ben de varım",
+  "l1_hook": "Benim evimde oyun gecesi! \"count me in\"",
+  "l1_ex": "Oyun gecesi? \"count me in\"!",
+  "right": "count me in",
+  "native": {
+   "hook": "“count me in” ne demek?",
+   "tip": "“count me in” = ben de varım. Örnek: “Game night? Count me in!”",
+   "caption": "“count me in” ne demek?\n“count me in” = ben de varım.\nÖrnek: “Game night? Count me in!” (Oyun gecesi? \"count me in\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “count me in” = ben de varım. “Game night? Count me in!” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Game night at my place!"
+ },
+ "src": {
+  "slang": "count me in"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“count me in” ne demek?",
+  "keyword": "count me in",
+  "value": "“count me in” = ben de varım. Örnek: “Game night? Count me in!”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“count me in” ne demek?",
+    "description": "“count me in” = ben de varım. Örnek: “Game night? Count me in!”\n\n“count me in” ne demek?\n“count me in” = ben de varım.\nÖrnek: “Game night? Count me in!” (Oyun gecesi? \"count me in\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "count me in",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“count me in” ne demek?\n“count me in” = ben de varım.\nÖrnek: “Game night? Count me in!” (Oyun gecesi? \"count me in\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“count me in” ne demek?\n\n“count me in” = ben de varım. Örnek: “Game night? Count me in!”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“count me in” ne demek? “count me in” = ben de varım. Örnek: “Game night? Count me in!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “count me in” = ben de varım. “Game night? Count me in!” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

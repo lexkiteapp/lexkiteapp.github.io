@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_fairenough",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 43,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, hear my reasoning first!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Fair enough!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Okay, that makes sense.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Fair enough, let's try your idea.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "fair enough",
+  "forms": [],
+  "ipa": "/ˈfer ɪˈnʌf/",
+  "mean": "Okay, that makes sense.",
+  "define": "Used to accept someone's point.",
+  "vi": "Cũng đúng",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "In a friendly debate",
+   "text": "Fair enough, let's try your idea."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "that's a fair price",
+    "that's reasonable"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'fair enough' to a rude insult.",
+   "why": "It sounds like you agree with them."
+  },
+  "l1": "Okay, das stimmt",
+  "l1_hook": "Warte, hör dir zuerst meine Begründung an!",
+  "l1_ex": "Fair enough, lass uns deine Idee ausprobieren.",
+  "right": "fair enough",
+  "native": {
+   "hook": "Was heißt “fair enough”?",
+   "tip": "“fair enough” = Okay, das stimmt. Beispiel: “Fair enough, let's try your idea.”",
+   "caption": "Was heißt “fair enough”?\n“fair enough” = Okay, das stimmt.\nBeispiel: “Fair enough, let's try your idea.” (Fair enough, lass uns deine Idee ausprobieren.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “fair enough” = Okay, das stimmt. “Fair enough, let's try your idea.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wait, hear my reasoning first!"
+ },
+ "src": {
+  "slang": "fair enough"
+ },
+ "lang": "de",
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "Was heißt “fair enough”?",
+  "keyword": "fair enough",
+  "value": "“fair enough” = Okay, das stimmt. Beispiel: “Fair enough, let's try your idea.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “fair enough”?",
+    "description": "“fair enough” = Okay, das stimmt. Beispiel: “Fair enough, let's try your idea.”\n\nWas heißt “fair enough”?\n“fair enough” = Okay, das stimmt.\nBeispiel: “Fair enough, let's try your idea.” (Fair enough, lass uns deine Idee ausprobieren.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "fair enough",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “fair enough”?\n“fair enough” = Okay, das stimmt.\nBeispiel: “Fair enough, let's try your idea.” (Fair enough, lass uns deine Idee ausprobieren.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “fair enough”?\n\n“fair enough” = Okay, das stimmt. Beispiel: “Fair enough, let's try your idea.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “fair enough”? “fair enough” = Okay, das stimmt. Beispiel: “Fair enough, let's try your idea… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “fair enough” = Okay, das stimmt. “Fair enough, let's try your idea.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}
