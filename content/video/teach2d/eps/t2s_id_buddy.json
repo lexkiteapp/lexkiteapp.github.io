@@ -1,0 +1,152 @@
+{
+ "id": "t2s_id_buddy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 68,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who studies with you every night?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Buddy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A close friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's my study buddy.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "buddy",
+  "forms": [
+   "buddies"
+  ],
+  "ipa": "/ˈbʌdi/",
+  "mean": "A close friend.",
+  "define": "A friendly word for a friend.",
+  "vi": "Bạn thân, anh bạn",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Introducing a friend",
+   "text": "He's my study buddy."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"buddy\" is…",
+   "options": [
+    "a bud",
+    "a friend"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'buddy' to an angry stranger.",
+   "why": "It sounds sarcastic, not friendly."
+  },
+  "l1": "teman",
+  "l1_hook": "Siapa yang belajar bersamamu setiap malam? \"buddy\".",
+  "l1_ex": "Dia itu teman belajar (\"buddy\") aku.",
+  "right": "buddy",
+  "native": {
+   "hook": "Apa arti “buddy”?",
+   "tip": "“buddy” = teman. Contoh: “He's my study buddy.”",
+   "caption": "Apa arti “buddy”?\n“buddy” = teman.\nContoh: “He's my study buddy.” (Dia itu teman belajar (\"buddy\") aku.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “buddy” = teman. “He's my study buddy.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who studies with you every night?"
+ },
+ "src": {
+  "slang": "buddy"
+ },
+ "lang": "id",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "Apa arti “buddy”?",
+  "keyword": "buddy",
+  "value": "“buddy” = teman. Contoh: “He's my study buddy.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “buddy”?",
+    "description": "“buddy” = teman. Contoh: “He's my study buddy.”\n\nApa arti “buddy”?\n“buddy” = teman.\nContoh: “He's my study buddy.” (Dia itu teman belajar (\"buddy\") aku.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "buddy",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “buddy”?\n“buddy” = teman.\nContoh: “He's my study buddy.” (Dia itu teman belajar (\"buddy\") aku.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “buddy”?\n\n“buddy” = teman. Contoh: “He's my study buddy.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “buddy”? “buddy” = teman. Contoh: “He's my study buddy.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “buddy” = teman. “He's my study buddy.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

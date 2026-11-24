@@ -1,0 +1,148 @@
+{
+ "id": "t2s_vi_ngl",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 89,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Honest opinion about that movie?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Ngl!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Not gonna lie.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Ngl, I loved that movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "ngl",
+  "forms": [
+   "NGL"
+  ],
+  "ipa": "/ˌen dʒiː ˈel/",
+  "mean": "Not gonna lie.",
+  "define": "Short for \"not gonna lie\", before an honest opinion.",
+  "vi": "Nói thật nha",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Texting",
+   "text": "Ngl, I loved that movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Ngl\" means…",
+   "options": [
+    "never go left",
+    "to be honest"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't use 'ngl' in a job application.",
+   "why": "Texting shorthand looks unprofessional."
+  },
+  "l1": "Nói thật nha",
+  "l1_hook": "Nói thiệt phim đó sao?",
+  "l1_ex": "Ngl, tui mê phim đó lắm.",
+  "right": "ngl",
+  "native": {
+   "hook": "“ngl” nghĩa là gì?",
+   "tip": "“ngl” = Nói thật nha. Ví dụ: “Ngl, I loved that movie.”",
+   "caption": "“ngl” nghĩa là gì?\n“ngl” = Nói thật nha.\nVí dụ: “Ngl, I loved that movie.” (Ngl, tui mê phim đó lắm.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “ngl” = Nói thật nha. “Ngl, I loved that movie.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Honest opinion about that movie?"
+ },
+ "src": {
+  "slang": "ngl"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 16,
+  "seconds": 9.6,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“ngl” nghĩa là gì?",
+  "keyword": "ngl",
+  "value": "“ngl” = Nói thật nha. Ví dụ: “Ngl, I loved that movie.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“ngl” nghĩa là gì?",
+    "description": "“ngl” = Nói thật nha. Ví dụ: “Ngl, I loved that movie.”\n\n“ngl” nghĩa là gì?\n“ngl” = Nói thật nha.\nVí dụ: “Ngl, I loved that movie.” (Ngl, tui mê phim đó lắm.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "ngl",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“ngl” nghĩa là gì?\n“ngl” = Nói thật nha.\nVí dụ: “Ngl, I loved that movie.” (Ngl, tui mê phim đó lắm.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“ngl” nghĩa là gì?\n\n“ngl” = Nói thật nha. Ví dụ: “Ngl, I loved that movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“ngl” nghĩa là gì? “ngl” = Nói thật nha. Ví dụ: “Ngl, I loved that movie.” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “ngl” = Nói thật nha. “Ngl, I loved that movie.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

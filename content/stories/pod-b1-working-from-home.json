@@ -1,0 +1,214 @@
+{
+  "id": "pod-b1-working-from-home",
+  "kind": "podcast",
+  "level": "B1",
+  "title": "Working From Home",
+  "summary": "Ama and Carlos compare the good and bad sides of working from home and share tips to stay focused.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 3",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: split scene with Ama at a tidy home desk with a laptop and Carlos in a busy office, plants and a window, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 125,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "The Good and the Bad",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Hello and welcome back! Today we are talking about working from home."
+        },
+        {
+          "who": "B",
+          "text": "I have worked from home for two years now, and I have mixed feelings."
+        },
+        {
+          "who": "A",
+          "text": "Me too. The best part is that I save two hours of travelling every day."
+        },
+        {
+          "who": "B",
+          "text": "That is true. I also enjoy having lunch in my own kitchen."
+        },
+        {
+          "who": "A",
+          "text": "But what about the downsides? I sometimes feel lonely."
+        },
+        {
+          "who": "B",
+          "text": "Yes, that is my biggest problem. I miss chatting with my colleagues."
+        },
+        {
+          "who": "A",
+          "text": "And it is difficult to separate work from free time."
+        },
+        {
+          "who": "B",
+          "text": "Exactly. Last week I answered emails at eleven o'clock at night."
+        },
+        {
+          "who": "A",
+          "text": "That sounds unhealthy. Did your manager ask you to do that?"
+        },
+        {
+          "who": "B",
+          "text": "No, nobody asked me. I simply could not stop thinking about work."
+        },
+        {
+          "who": "A",
+          "text": "So we need some clear rules for ourselves."
+        }
+      ],
+      "words": [
+        "downside",
+        "colleague",
+        "separate",
+        "manager",
+        "kitchen",
+        "problem",
+        "difficult"
+      ],
+      "quiz": [
+        {
+          "q": "What is a benefit Ama mentions?",
+          "options": [
+            "A higher salary",
+            "Saving travel time",
+            "More meetings"
+          ],
+          "answer": 1,
+          "explain": "She saves two hours of travelling every day."
+        },
+        {
+          "q": "What is Carlos's biggest problem?",
+          "options": [
+            "He misses his colleagues",
+            "He has a noisy kitchen",
+            "He dislikes his manager"
+          ],
+          "answer": 0,
+          "explain": "He misses chatting with his colleagues."
+        },
+        {
+          "q": "Why did Carlos answer emails at night?",
+          "options": [
+            "His manager asked him",
+            "He could not stop thinking about work",
+            "He was in a different country"
+          ],
+          "answer": 1,
+          "explain": "Nobody asked him; he simply could not stop thinking about work."
+        }
+      ]
+    },
+    {
+      "title": "Tips to Stay Focused",
+      "sentences": [
+        {
+          "who": "B",
+          "text": "So, Ama, what rules do you follow?"
+        },
+        {
+          "who": "A",
+          "text": "First, I have a special corner for work, and I never work on the sofa."
+        },
+        {
+          "who": "B",
+          "text": "That is smart. For me, getting dressed in proper clothes helps a lot."
+        },
+        {
+          "who": "A",
+          "text": "Really? I thought pyjamas were the main benefit!"
+        },
+        {
+          "who": "B",
+          "text": "Ha! They are comfortable, but they make me feel lazy."
+        },
+        {
+          "who": "A",
+          "text": "I also set a timer and take a short break every hour."
+        },
+        {
+          "who": "B",
+          "text": "Good idea. I try to go for a walk at lunchtime."
+        },
+        {
+          "who": "A",
+          "text": "And I turn off my work notifications after six o'clock."
+        },
+        {
+          "who": "B",
+          "text": "I should try that. It would improve my sleep, too."
+        },
+        {
+          "who": "A",
+          "text": "Also, plan a coffee with a friend once a week to avoid feeling lonely."
+        },
+        {
+          "who": "B",
+          "text": "Great tips. Thanks for listening, and see you next time!"
+        }
+      ],
+      "words": [
+        "corner",
+        "proper",
+        "comfortable",
+        "lazy",
+        "timer",
+        "notification",
+        "improve"
+      ],
+      "quiz": [
+        {
+          "q": "Where does Ama do her work?",
+          "options": [
+            "On the sofa",
+            "In a special corner",
+            "In a café"
+          ],
+          "answer": 1,
+          "explain": "She has a special corner and never works on the sofa."
+        },
+        {
+          "q": "What does Carlos do to feel ready for work?",
+          "options": [
+            "He wears proper clothes",
+            "He drinks lots of coffee",
+            "He listens to music"
+          ],
+          "answer": 0,
+          "explain": "Getting dressed in proper clothes helps him a lot."
+        },
+        {
+          "q": "What does Ama turn off after six o'clock?",
+          "options": [
+            "Her laptop",
+            "Her work notifications",
+            "Her phone completely"
+          ],
+          "answer": 1,
+          "explain": "She turns off her work notifications after six o'clock."
+        }
+      ]
+    }
+  ]
+}

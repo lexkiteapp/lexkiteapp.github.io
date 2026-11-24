@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_ngl",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 89,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Honest opinion about that movie?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Ngl!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Not gonna lie.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Ngl, I loved that movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "ngl",
+  "forms": [
+   "NGL"
+  ],
+  "ipa": "/ˌen dʒiː ˈel/",
+  "mean": "Not gonna lie.",
+  "define": "Short for \"not gonna lie\", before an honest opinion.",
+  "vi": "Nói thật nha",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Texting",
+   "text": "Ngl, I loved that movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Ngl\" means…",
+   "options": [
+    "never go left",
+    "to be honest"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't use 'ngl' in a job application.",
+   "why": "Texting shorthand looks unprofessional."
+  },
+  "l1": "doğrusunu söylemek gerekirse",
+  "l1_hook": "O film hakkında dürüst bir görüş?",
+  "l1_ex": "\"Ngl\", o filmi çok sevdim.",
+  "right": "ngl",
+  "native": {
+   "hook": "“ngl” ne demek?",
+   "tip": "“ngl” = doğrusunu söylemek gerekirse. Örnek: “Ngl, I loved that movie.”",
+   "caption": "“ngl” ne demek?\n“ngl” = doğrusunu söylemek gerekirse.\nÖrnek: “Ngl, I loved that movie.” (\"Ngl\", o filmi çok sevdim.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “ngl” = doğrusunu söylemek gerekirse. “Ngl, I loved that movie.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Honest opinion about that movie?"
+ },
+ "src": {
+  "slang": "ngl"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 16,
+  "seconds": 9.6,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“ngl” ne demek?",
+  "keyword": "ngl",
+  "value": "“ngl” = doğrusunu söylemek gerekirse. Örnek: “Ngl, I loved that movie.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“ngl” ne demek?",
+    "description": "“ngl” = doğrusunu söylemek gerekirse. Örnek: “Ngl, I loved that movie.”\n\n“ngl” ne demek?\n“ngl” = doğrusunu söylemek gerekirse.\nÖrnek: “Ngl, I loved that movie.” (\"Ngl\", o filmi çok sevdim.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "ngl",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“ngl” ne demek?\n“ngl” = doğrusunu söylemek gerekirse.\nÖrnek: “Ngl, I loved that movie.” (\"Ngl\", o filmi çok sevdim.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“ngl” ne demek?\n\n“ngl” = doğrusunu söylemek gerekirse. Örnek: “Ngl, I loved that movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“ngl” ne demek? “ngl” = doğrusunu söylemek gerekirse. Örnek: “Ngl, I loved that movie.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “ngl” = doğrusunu söylemek gerekirse. “Ngl, I loved that movie.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

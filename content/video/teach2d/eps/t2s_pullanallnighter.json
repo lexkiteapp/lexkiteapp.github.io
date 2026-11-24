@@ -1,0 +1,138 @@
+{
+ "id": "t2s_pullanallnighter",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 202,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sunrise again? I never slept!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Pull an all-nighter!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stay up all night.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I pulled an all-nighter for science.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "pull an all-nighter",
+  "forms": [
+   "pulled an all-nighter",
+   "all-nighter"
+  ],
+  "ipa": "/pʊl ən ˈɔːl ˈnaɪtɚ/",
+  "mean": "Stay up all night.",
+  "define": "To stay awake all night to finish work or study.",
+  "vi": "Thức trắng đêm",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Studying with a friend",
+   "text": "I pulled an all-nighter for science."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"All-nighter\" means…",
+   "options": [
+    "a night walk",
+    "staying up all night"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say you 'pulled an all-nighter' if you slept.",
+   "why": "It means no sleep at all."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sunrise again? I never slept!"
+ },
+ "src": {
+  "slang": "pull an all-nighter"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"pull an all-nighter\" mean?",
+  "keyword": "pull an all-nighter",
+  "value": "Pull an all-nighter = Stay up all night. Example: \"I pulled an all-nighter for science.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"pull an all-nighter\" mean?",
+    "description": "Pull an all-nighter = Stay up all night. Example: \"I pulled an all-nighter for science.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "pull an all-nighter",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"pull an all-nighter\" mean?\n\nPull an all-nighter = Stay up all night. Example: \"I pulled an all-nighter for science.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"pull an all-nighter\" mean?\n\nPull an all-nighter = Stay up all night. Example: \"I pulled an all-nighter for science.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"pull an all-nighter\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say you 'pulled an all-nighter' if you slept. It means no sleep at all. Real example: \"I pulled an all-nighter for science.\" More real English slang, free: {link}"
+ }
+}

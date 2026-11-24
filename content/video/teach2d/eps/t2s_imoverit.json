@@ -1,0 +1,133 @@
+{
+ "id": "t2s_imoverit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 266,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Everyone still talks about that trend!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "I'm over it!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm tired of this.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That trend is old. I'm over it.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "I'm over it",
+  "forms": [
+   "over it"
+  ],
+  "ipa": "/aɪm ˈoʊvɚ ɪt/",
+  "mean": "I'm tired of this.",
+  "define": "Used when you no longer care or enjoy something.",
+  "vi": "Chán rồi, hết hứng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about a trend",
+   "text": "That trend is old. I'm over it."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm above it",
+    "I'm tired of it"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'I'm over it' while still crying.",
+   "why": "Your words and feelings won't match."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Everyone still talks about that trend!"
+ },
+ "src": {
+  "slang": "I'm over it"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"I'm over it\" mean?",
+  "keyword": "I'm over it",
+  "value": "I'm over it = I'm tired of this. Example: \"That trend is old. I'm over it.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"I'm over it\" mean?",
+    "description": "I'm over it = I'm tired of this. Example: \"That trend is old. I'm over it.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "I'm over it",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"I'm over it\" mean?\n\nI'm over it = I'm tired of this. Example: \"That trend is old. I'm over it.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"I'm over it\" mean?\n\nI'm over it = I'm tired of this. Example: \"That trend is old. I'm over it.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"I'm over it\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'I'm over it' while still crying. Your words and feelings won't match. Real example: \"That trend is old. I'm over it.\" More real English slang, free: {link}"
+ }
+}

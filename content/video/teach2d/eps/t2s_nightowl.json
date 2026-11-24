@@ -1,0 +1,133 @@
+{
+ "id": "t2s_nightowl",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 188,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Still awake at midnight?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Night owl!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A person who stays up late.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm a night owl, so I study late.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "night owl",
+  "forms": [
+   "night owls"
+  ],
+  "ipa": "/ˈnaɪt ˈaʊl/",
+  "mean": "A person who stays up late.",
+  "define": "Someone who likes being awake at night.",
+  "vi": "Cú đêm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about habits",
+   "text": "I'm a night owl, so I study late."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"night owl\" is…",
+   "options": [
+    "a bird",
+    "a late-night person"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a morning person a 'night owl'.",
+   "why": "It means someone who stays up late."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Still awake at midnight?"
+ },
+ "src": {
+  "slang": "night owl"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"night owl\" mean?",
+  "keyword": "night owl",
+  "value": "Night owl = A person who stays up late. Example: \"I'm a night owl, so I study late.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"night owl\" mean?",
+    "description": "Night owl = A person who stays up late. Example: \"I'm a night owl, so I study late.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "night owl",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"night owl\" mean?\n\nNight owl = A person who stays up late. Example: \"I'm a night owl, so I study late.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"night owl\" mean?\n\nNight owl = A person who stays up late. Example: \"I'm a night owl, so I study late.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"night owl\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a morning person a 'night owl'. It means someone who stays up late. Real example: \"I'm a night owl, so I study late.\" More real English slang, free: {link}"
+ }
+}

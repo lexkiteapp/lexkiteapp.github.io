@@ -1,0 +1,135 @@
+{
+ "id": "t2s_iconic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 149,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Everyone remembers that red jacket!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Iconic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Unforgettable and amazing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That red jacket is truly iconic.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "iconic",
+  "forms": [],
+  "ipa": "/aɪˈkɑːnɪk/",
+  "mean": "Unforgettable and amazing.",
+  "define": "Describes something so famous or stylish that people remember it forever.",
+  "vi": "Quá kinh điển, huyền thoại",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "praise",
+  "example": {
+   "ctx": "Looking at party photos",
+   "text": "That red jacket is truly iconic."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Iconic\" means…",
+   "options": [
+    "very quiet",
+    "unforgettable"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your lunch 'iconic' in a report.",
+   "why": "It's for famous, memorable things."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Everyone remembers that red jacket!"
+ },
+ "src": {
+  "slang": "iconic"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"iconic\" mean?",
+  "keyword": "iconic",
+  "value": "Iconic = Unforgettable and amazing. Example: \"That red jacket is truly iconic.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"iconic\" mean?",
+    "description": "Iconic = Unforgettable and amazing. Example: \"That red jacket is truly iconic.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "iconic",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"iconic\" mean?\n\nIconic = Unforgettable and amazing. Example: \"That red jacket is truly iconic.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"iconic\" mean?\n\nIconic = Unforgettable and amazing. Example: \"That red jacket is truly iconic.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"iconic\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call your lunch 'iconic' in a report. It's for famous, memorable things. Real example: \"That red jacket is truly iconic.\" More real English slang, free: {link}"
+ }
+}

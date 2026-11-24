@@ -851,6 +851,7 @@ def T_slang():
     D = EP['data']; series_chip(); RG = {'very-casual': 'VERY CASUAL', 'casual': 'CASUAL', 'neutral': 'EVERYDAY'}
     hw = EP['hook']['text'].split(); n2 = min(2, len(hw) - 1)
     title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 96, RY0 + 120, None, start('k') - 0.2, hook=True)
+    if D.get('l1_hook'): title([[D['l1_hook'], 'accent']], S['body'], RY0 + 400, None, start('k') - 0.2, rtl=EP.get('lang') == 'ar')   # L1 page: the situation in the page language under the English hook
     t_k, t_m, t_e, t_c = start('k'), start('m'), start('e'), start('c')
     c = Card(RY0); b = chip(c, RG[D['reg']], t_k, tone='chip')
     if D['region'] != 'global':   # US / UK flag chip right of the register chip
@@ -868,7 +869,9 @@ def T_slang():
     forms = sorted([D['key']] + [f for f in (D.get('forms') or [])], key=len, reverse=True)
     hl = next((f for f in forms if f.lower() in ex['text'].lower()), D['key'])
     t_q = end('e') + 0.12   # the silent card takes the region the moment the example is said (one card at a time – the region holds one)
-    c.text(runs_hl(ex['text'], hl, col='onhl', base='ongood'), S['body'], t_e); c.place(t_e, t_q - 0.3, 'a')
+    c.text(runs_hl(ex['text'], hl, col='onhl', base='ongood'), S['body'], t_e)
+    if D.get('l1_ex'): c.text([[D['l1_ex'], 'ongood']], S['sub'], t_e, extra={'rtl': True} if EP.get('lang') == 'ar' else None)   # L1 page: the example's translation (the English slang kept inside it)
+    c.place(t_e, t_q - 0.3, 'a')
     if D['variant'] == 'quiz':
         q = D['quiz']; t_r1 = end('e') + LINES['e']['pause'] - 0.75   # 3-2-1 ring, then the answer lights (ding) and stays ~0.55 s before the CTA card
         c = Card(RY0); chip(c, 'QUICK QUIZ', t_q); c.text([[q['ask'], 'ink']], S['body'], t_q); pills(c, q['options'], t_q, t_r1 + 0.05, q['answer'])
