@@ -1,0 +1,131 @@
+{
+ "id": "t2s_fedup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 176,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rain again? For real?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Fed up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Tired of something annoying.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm fed up with this rain.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "fed up",
+  "forms": [],
+  "ipa": "/ˈfed ˈʌp/",
+  "mean": "Tired of something annoying.",
+  "define": "Used when you've had enough of a problem.",
+  "vi": "Chán ngấy rồi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about noise",
+   "text": "I'm fed up with this rain."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Fed up\" means…",
+   "options": [
+    "very full",
+    "tired of it"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your host you're 'fed up' with dinner.",
+   "why": "It sounds like you hate the food."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Rain again? For real?"
+ },
+ "src": {
+  "slang": "fed up"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "What does \"fed up\" mean?",
+  "keyword": "fed up",
+  "value": "Fed up = Tired of something annoying. Example: \"I'm fed up with this rain.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"fed up\" mean?",
+    "description": "Fed up = Tired of something annoying. Example: \"I'm fed up with this rain.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "fed up",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"fed up\" mean?\n\nFed up = Tired of something annoying. Example: \"I'm fed up with this rain.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"fed up\" mean?\n\nFed up = Tired of something annoying. Example: \"I'm fed up with this rain.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"fed up\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell your host you're 'fed up' with dinner. It sounds like you hate the food. Real example: \"I'm fed up with this rain.\" More real English slang, free: {link}"
+ }
+}

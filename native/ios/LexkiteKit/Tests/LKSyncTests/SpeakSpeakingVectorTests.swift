@@ -68,7 +68,7 @@ final class SpeakSpeakingVectorTests: XCTestCase {
         var sh = Speaking.Shadow(["a", "b", "c"])
         sh.scored(100); sh.skip(); sh.scored(100)
         XCTAssertTrue(sh.finished); XCTAssertEqual(sh.average, 67)
-        XCTAssertEqual(Speaking.Shadow.reward, ["spoken": 3, "xp": 10])
+        XCTAssertEqual(sh.reward, ["spoken": 3, "xp": 6], "say(67) × 2")
         // a drill without a mic: tap the words in order, at most 1 star, the line is recorded but nothing is rewarded
         let s = try situation("cafe")
         var d = SpeakDrill(s, lang: "vi", stage: nil, store: .object([:]), week: SpeakSit.weekKey(now(V), calendar: tz()), shuffle: { $0 })
@@ -85,11 +85,11 @@ final class SpeakSpeakingVectorTests: XCTestCase {
             XCTAssertEqual(d.res?.stars, 1); XCTAssertNil(fx.reward)
         }
         XCTAssertEqual(d.b, 2)
-        // a drill WITH a mic earns the reward `spoken 1, xp 2·stars`
+        // a drill WITH a mic earns the reward `spoken 1, xp by stars` (web speak/app.js: 1 star → say(pass) = 3)
         var m = SpeakDrill(s, lang: "vi", stage: nil, store: .object([:]), week: "2026-W2", shuffle: { $0 })
         m.micStarted(nowMs: 0)
         let ok = m.attempt(SpeakScore.result(target: m.target, heard: m.target, platformScore: 100, seconds: 2), nowMs: 2000)
-        XCTAssertEqual(ok.reward, ["spoken": 1, "xp": 2])
+        XCTAssertEqual(ok.reward, ["spoken": 1, "xp": 3])
         XCTAssertEqual(m.store["cafe"]?["lines"]?["o1"]?.i("stars"), 1)
         XCTAssertEqual(Int(JSON.orZero(m.store["week"]?["2026-W2"])), 1)
     }
@@ -395,7 +395,7 @@ final class SpeakSpeakingVectorTests: XCTestCase {
             }
             r.check(sh.finished, "\(id) finished")
             r.eq(sh.average, o.list("final").first?["v"]?.i("pct") ?? -1, "\(id) average")
-            r.diff(.obj(Speaking.Shadow.reward.map { ($0.key, .int($0.value)) }), o.list("rewards").first, "\(id) reward")
+            r.diff(.obj(sh.reward.map { ($0.key, .int($0.value)) }), o.list("rewards").first, "\(id) reward")
         }
         finish(r, "speaking.shadow")
     }

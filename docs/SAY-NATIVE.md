@@ -26,3 +26,18 @@ Mẫu `react` trong pipeline teach2d (`docs/VIDEO-TEACH2D.md`): hook ≤ 6 chữ
 - [ ] say.json từ CI (đủ 14 nghĩa) · `build.mjs --check` trong npm test · journey-e2e `say-list/front/back` xanh.
 - [ ] Chủ OK ảnh trước/sau (sáng+tối) và 3 video mẫu trước khi gộp / chạy lô.
 - [ ] qc.py thêm `#/say` vào danh sách route CTA (chủ qc.py) → CTA video trỏ `#/say/<loạt>/<thẻ>`.
+
+## Slang Card (22/11 – dòng clip ngắn viral "thẻ lóng + biểu cảm")
+> Ý tưởng định dạng tham khảo trang khác (thẻ từ + biểu cảm hài); hình, câu chữ, nhân vật là của Lexkite: **không** ảnh meme/ảnh chụp, **không** từ tục – chỉ giáo viên 2D Ama/Carlos với bộ biểu cảm mạnh của TeacherRig.
+- **Kho**: `content/say-native/slang.json` (≥ 300 thẻ sạch, hợp quảng cáo: no cap, lowkey, ghosted, salty, it's giving, my bad, rain check…). Mỗi thẻ: `key`, `forms`, `ipa` (US), `mean` (lời giáo viên ≤ 9 chữ), `def`, `vi` (nghĩa tay), `hook` (tình huống ≤ 6 chữ, ?/!), `example {ctx, text}`, `quiz` (2 lựa chọn), `misuse {text, why}`, `level`, `reg` (neutral/casual/very-casual), `region`, `era`, `expr`, `theme`.
+- **Cổng** `node scripts/say-native/slang.mjs --check` (npm test): ≥ 300 thẻ, enum, độ dài, hook+key+mean+example ≤ 20 chữ nói (clip 7–12 s), ví dụ chứa từ, danh sách chặn an toàn quảng cáo (tục, tình dục, rượu/chất kích thích, bạo lực, xúc phạm nhóm, chính trị/tôn giáo; "I'm dead" = cười xỉu được phép), IPA đúng IPA kho từ cho mọi từ nội dung có trong kho.
+- **Nghĩa 13 ngôn ngữ**: `translate.mjs` (CI `say-native.yml`, 2 giám khảo) – cùng `meanings.json`; vi = `vi` của thẻ.
+- **Biểu cảm**: `expr` ∈ 14 tên của `TeacherRig.EXPR` (`web/js/teacher-rig.js`): shock · panic · smug · smirk · shrug · furious · cringe · laugh · deadpan · proud · love · confused · sad · hype → mặt vẽ (emotion) + ảnh tư thế đã duyệt (nếu có) trong khoảng lặng sau hook. Không tốn credit; thêm ảnh tư thế mới = Kling theo `CREDIT-RULES.md`.
+- **Clip** (teach2d `slang`, `gen.py` `slang()` / `build.py` `T_slang`): hook + biểu cảm → từ + IPA → nghĩa (+ nghĩa tiếng của page ở kênh L1) → ví dụ có ngữ cảnh → quiz câm 3-2-1 hoặc thẻ "đừng dùng ở đây" → CTA lexkite.com; giọng Kokoro của giáo viên, tốc 1.05, 7–12 s (qc.py `duration` 7–13 s cho mẫu này, mọi cổng khác giữ nguyên).
+- **Carousel vuông** (`scripts/video/teach2d/card.py`, job render của `teach-video.yml`): 3 ảnh 1080² (bìa · đời thật + đừng dùng · quiz + CTA) cùng tập, khung giáo viên cắt từ chính `rig.webm` của clip; cổng tràn chữ / tương phản / có giáo viên → `cards.json`.
+- **Lô**: `gen.py --slang-eps N` (cổng máy data · level · hook · dup → `auto.json` + `reviewed.json`), mẫu `slang` ở sổ duyệt `approved.json` = `draft` tới khi 3 tập mẫu short + wide QC ≥ 90.
+- **Bản 14 ngôn ngữ (page bản địa)**: cùng bài tiếng Anh (giọng, phụ đề karaoke tiếng Anh). Thêm theo ngôn ngữ page: nghĩa (`meanings.json`; vi = `vi` của thẻ), hook + câu ví dụ dịch (`slang-lines.json`, `translate.mjs --lines N`, giữ nguyên từ lóng tiếng Anh, 2 giám khảo). Bài đăng / bình luận đầu / hashtag dựng từ khung viết tay `slang-l1-frames.json`. Kênh EN chỉ tiếng Anh.
+  - Lập: `gen.py --slang-l1 N` (N tập đầu của lô cho mỗi ngôn ngữ, chỉ khi đủ 3 bản dịch) → `t2s_<lang>_*`. Định tuyến theo `lang` như clip L1.
+  - Cổng `native-qa.mjs` (hàng slang). Sau khi lập: `node scripts/video/teach2d/native-qa.mjs --write` → `l1-qa.json` (autopub đọc).
+  - Carousel L1: `card.py` chọn phông Noto theo hệ chữ; Ả Rập/Hindi/Thái cần Pillow có raqm, thiếu thì cổng `shaping` chặn, không xuất ảnh hỏng.
+

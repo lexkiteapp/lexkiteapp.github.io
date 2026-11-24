@@ -315,7 +315,7 @@
     return root;
   }
   // Đổi cỡ màn qua mốc 1024 px khi đang ở Hôm nay → vẽ lại đúng khung (điện thoại ↔ máy tính)
-  try { matchMedia('(min-width: 1024px)').addEventListener('change', () => { if (on() && document.querySelector('.v2s-today, .v2s-today-desk') && App.route) App.route(); }); } catch (e) { /* trình duyệt cũ */ }
+  try { matchMedia('(min-width: 1024px)').addEventListener('change', () => { if (on() && document.querySelector('.v2s-today, .v2s-today-desk') && App.route) (matchMedia('(min-width: 1024px)').matches && !ST2['today-desk'] ? App.need('ux1desk').catch(() => {}) : Promise.resolve()).then(() => App.route()); }); } catch (e) { /* trình duyệt cũ */ }
 
   // ---------- Cột phải (máy tính ≥ 1024 px) ----------
   function rail() {
@@ -362,11 +362,12 @@
     if (location.hash !== tok) return; // đã sang trang khác trong lúc tải kế hoạch
     const gr = GROUPS(), pool = new Map(); gr.forEach(([h, , items]) => items.forEach(([href, i, n, d]) => { const key = href + '|' + n; if (!pool.has(key)) pool.set(key, { href, icon: MS[i] || 'auto_awesome', title: n, sub: d || '', badge: h }); }));
     const all = [...pool.values()], pick = h => all.find(x => x.href === h), skills = gr[2] ? gr[2][0] : '';
-    const focus = FOCUS.map(pick).filter(Boolean).map(x => (x.href === '#/call' ? Object.assign({}, x, { title: t('Gọi giáo viên') }) : x)); focus.push({ href: '#/lesson', icon: 'auto_stories', title: t('Truyện'), sub: '', badge: gr[3] ? gr[3][0] : skills });
+    const FSUB = { '#/skill/listening': t('Phần 1–4'), '#/skill/reading': t('Đọc lướt'), '#/skill/writing': t('Đề bài'), '#/skill/speaking': t('Thẻ gợi ý'), '#/grammar': t('Cú pháp'), '#/pron': t('Nhấn âm & cao độ'), '#/call': t('Thi nói mô phỏng') }; // dòng phụ dưới tên ô, như mẫu Stitch v2 practice
+    const focus = FOCUS.map(pick).filter(Boolean).map(x => Object.assign({}, x, x.href === '#/call' ? { title: t('Gọi giáo viên') } : {}, FSUB[x.href] ? { sub: FSUB[x.href] } : {})); focus.push({ href: '#/lesson', icon: 'auto_stories', title: t('Truyện'), sub: t('Truyện đọc'), badge: gr[3] ? gr[3][0] : skills });
     const rest = all.filter(x => !FOCUS.includes(x.href)), tiles = [...focus, ...rest].map((x, ci) => Object.assign({ ci }, x));
     const tot = plan.length, dn = plan.filter(x => x.done).length, nx = plan.find(x => !x.done), pct = tot ? Math.round(dn / tot * 100) : 0, sprAria = t('Tiếp tục nước rút ngày');
     const mockName = t('Thi thử {x} đầy đủ', { x: Xe.short }), mins = { ielts: 165, ieltsgt: 165, toeic: 120, toefl: 120 }[ex];
-    const d = { ex: { name: Xe.short, pred: cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), title: Xe.short + (tg ? ' · ' + tg : ''), left: leftT, leftAria: leftT },
+    const d = { ex: { name: Xe.short, pred: cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm'), title: Xe.short + (tg ? ' · ' + tg : ''), left: leftT, leftAria: leftT },
       sp: { xp: '+' + (((g.days || {})[k] || {}).xp || 0) + ' XP', title: t('Nước rút ngày {a}/{b}', { a: dn, b: tot }), left: t('Còn {n} bài', { n: tot - dn }), pct, aria: sprAria, cta: t('Tiếp tục'), href: nx && nx.href ? nx.href : '#/home?all=1' },
       count: t('{n} mô-đun', { n: tiles.length }), tiles,
       mock: { title: mockName, chip: mins ? t('{n} phút', { n: mins }) : Xe.short, cta: t('Bắt đầu'), href: MOCK[ex] || '#/mock', aria: t('Bắt đầu thi thử {x}', { x: Xe.short }) } };
@@ -413,7 +414,7 @@
     const s = document.createElement('style'); s.id = 'ux1Css';
     s.textContent = `
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
-.ux1-exam-tx{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--text);text-decoration:none;min-height:44px;justify-content:center}
+.ux1-exam .ux1-mock{min-height:44px;display:inline-flex;align-items:center}.ux1-exam-tx{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--text);text-decoration:none;min-height:44px;justify-content:center}
 .ux1-exam-tx small{color:var(--muted);font-size:var(--fs-xs)}
 .ux1-ring{width:44px;height:44px;flex:none;transform:rotate(-90deg)}.ux1-ring.ic{transform:none;display:grid;place-items:center;border-radius:50%;background:var(--accent-soft);color:var(--accent-text)}
 .ux1-ring circle{fill:none;stroke:var(--surface-3);stroke-width:5}.ux1-ring .fg{stroke:var(--done);stroke-linecap:round}

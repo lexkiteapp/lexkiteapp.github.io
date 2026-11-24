@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ar_digin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 86,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dinner's ready. Who's hungry?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dig in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start eating now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dinner is ready, so dig in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "dig in",
+  "forms": [],
+  "ipa": "/ˈdɪɡ ˈɪn/",
+  "mean": "Start eating now.",
+  "define": "Used to invite people to begin eating.",
+  "vi": "Ăn đi nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "Serving dinner",
+   "text": "Dinner is ready, so dig in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dig in\" means…",
+   "options": [
+    "dig a hole",
+    "start eating"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell guests to 'dig in' before the host.",
+   "why": "Formal dinners wait for the host."
+  },
+  "l1": "يلا كل",
+  "l1_hook": "العشاء جاهز. من جائع؟",
+  "l1_ex": "العشاء جاهز، لذا \"dig in\"!",
+  "right": "dig in",
+  "native": {
+   "hook": "ما معنى “dig in”؟",
+   "tip": "“dig in” = يلا كل. مثال: “Dinner is ready, so dig in!”",
+   "caption": "ما معنى “dig in”؟\n“dig in” = يلا كل.\nمثال: “Dinner is ready, so dig in!” (العشاء جاهز، لذا \"dig in\"!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “dig in” = يلا كل. “Dinner is ready, so dig in!” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dinner's ready. Who's hungry?"
+ },
+ "src": {
+  "slang": "dig in"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "ما معنى “dig in”؟",
+  "keyword": "dig in",
+  "value": "“dig in” = يلا كل. مثال: “Dinner is ready, so dig in!”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “dig in”؟",
+    "description": "“dig in” = يلا كل. مثال: “Dinner is ready, so dig in!”\n\nما معنى “dig in”؟\n“dig in” = يلا كل.\nمثال: “Dinner is ready, so dig in!” (العشاء جاهز، لذا \"dig in\"!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "dig in",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “dig in”؟\n“dig in” = يلا كل.\nمثال: “Dinner is ready, so dig in!” (العشاء جاهز، لذا \"dig in\"!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “dig in”؟\n\n“dig in” = يلا كل. مثال: “Dinner is ready, so dig in!”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “dig in”؟ “dig in” = يلا كل. مثال: “Dinner is ready, so dig in!” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “dig in” = يلا كل. “Dinner is ready, so dig in!” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

@@ -100,7 +100,7 @@ items: [
 options: ['all employees in their first two weeks', 'those who use a computer for most of the day', 'staff who work from home two days a week', 'fire marshals and safety representatives'],
 a: 1, cue: 'if you use a computer for most of your working day, you may request a free eye test' },
 { n: 26, q: 'What must an employee do before starting to work from home?',
-options: ['talk to their line manager and complete an agreement', 'buy a separate screen for home use', 'finish a three-month course on remote working', 'work in the office for at least one year'],
+options: ['talk to their line manager and complete an agreement', 'purchase a dedicated printer for home use', 'complete a six‑month certification in telecommuting', 'remain on‑site for a minimum of six months'],
 a: 0, cue: 'you must first discuss it with your line manager and then complete a remote working agreement' },
 { n: 27, q: 'If a manager needs a home-working employee to come into the office, the employee',
 options: ['can refuse if the request is made by email.', 'must arrive before 10 a.m.', 'will be paid for the extra travel.', 'will be told at least two days in advance.'],
@@ -176,7 +176,7 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 40, q: 'What happened in Chinese cities around 2017?',
-options: ['Bike-sharing companies were banned by the government.', 'New segregated cycle routes led to legal challenges.', 'Many dockless bicycles were left unused and some firms failed.', 'Electric bicycles became more popular than ordinary ones.'],
+options: ['The government imposed heavy taxes on all bike-sharing services.', 'Cities introduced mandatory parking zones for docked bikes.', 'Many dockless bicycles were left unused and some firms failed.', 'Traditional bicycles saw a surge in sales surpassing electric models.'],
 a: 2, cue: 'many were abandoned in huge piles, and some of the companies went out of business' },
 ] },
 ],

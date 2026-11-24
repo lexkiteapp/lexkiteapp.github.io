@@ -1,0 +1,131 @@
+{
+ "id": "t2s_winwin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 238,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Both of us get cake!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Win-win!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Good for everyone.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "It's a win-win for both of us.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "win-win",
+  "forms": [],
+  "ipa": "/ˈwɪn ˈwɪn/",
+  "mean": "Good for everyone.",
+  "define": "Describes a deal that helps both sides.",
+  "vi": "Đôi bên cùng có lợi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Making a deal",
+   "text": "It's a win-win for both of us."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Win-win\" means…",
+   "options": [
+    "good for both",
+    "lose for both"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call a one-sided deal a 'win-win'.",
+   "why": "Only one person actually wins."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Both of us get cake!"
+ },
+ "src": {
+  "slang": "win-win"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"win-win\" mean?",
+  "keyword": "win-win",
+  "value": "Win-win = Good for everyone. Example: \"It's a win-win for both of us.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"win-win\" mean?",
+    "description": "Win-win = Good for everyone. Example: \"It's a win-win for both of us.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "win-win",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"win-win\" mean?\n\nWin-win = Good for everyone. Example: \"It's a win-win for both of us.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"win-win\" mean?\n\nWin-win = Good for everyone. Example: \"It's a win-win for both of us.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"win-win\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: good for both. \"It's a win-win for both of us.\" More real English slang, free: {link}"
+ }
+}

@@ -108,6 +108,7 @@
       savePick(pick);
       const n = pick.step, say = kitLine()[1];
       v2(STEPS[n], say);
+      if (App.habTrack) App.habTrack('onb_s_' + STEPS[n]); // phễu (hit.js ONB_EV)
       $('#onbBack').onclick = back;
       document.onkeydown = e => { if (e.key !== 'Escape' || (e.target && e.target.tagName === 'SELECT') || !document.getElementById('modal').hidden) return; e.preventDefault(); back(); }; // route() tự gỡ khi rời trang
       const nx = $('#obNext'); if (nx) nx.onclick = () => { pick.step++; pick.said = ''; try { history.pushState({ onb: pick.step, n: ((history.state && history.state.n) || 0) + 1 }, '', urlOf(pick.step)); } catch (e) { /* vẫn đi tiếp được */ } draw(); focusQ(); };
@@ -125,7 +126,7 @@
           if (!home) { Target.set(tl); return next(); } nx.disabled = true;
           const S = state.settings, old = { pace: S.pace, dailyGoal: S.dailyGoal, dailyNew: S.dailyNew }; busy = true;
           try { S.pace = S.pace || 20; S.dailyGoal = S.dailyGoal || S.pace; S.dailyNew = S.dailyNew || NEW_OF[S.pace] || NEW_OF[20]; // chỉ điền mặc định khi thiếu
-            Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); Object.assign(S, old); S.onboarded = done; if (me === runs && view.querySelector('#onbBack')) { nx.disabled = false; savePick(pick); try { history.replaceState(history.state, '', urlOf(pick.step)); } catch (e2) { /* Back hệ thống lúc đang lưu: đồng bộ lại URL */ } g.UI && UI.toast(t('Không lưu được – thử lại sau')); } } finally { busy = false; } }; // lỗi → trả ngôn ngữ + mặc định cũ, ở lại bước
+            Target.set(tl); if (App.habTrack) App.habTrack('onb_done'); await D.finish(true, home); } catch (e) { Target.set(was); Object.assign(S, old); S.onboarded = done; if (me === runs && view.querySelector('#onbBack')) { nx.disabled = false; savePick(pick); try { history.replaceState(history.state, '', urlOf(pick.step)); } catch (e2) { /* Back hệ thống lúc đang lưu: đồng bộ lại URL */ } g.UI && UI.toast(t('Không lưu được – thử lại sau')); } } finally { busy = false; } }; // lỗi → trả ngôn ngữ + mặc định cũ, ở lại bước
       }
       const acct = $('#setupIn'); if (acct) acct.onclick = e => { e.stopPropagation(); D.login(draw); }; // tài khoản trống: ở lại đúng bước, vẽ lại để ẩn liên kết đăng nhập
       if (TK()) TK().bindSetup(view, pick, id => { TR_ID = id; pick.said = 'goal'; setExam(pick.exam); }, () => { pick.said = 'level'; draw(); });
@@ -140,6 +141,7 @@
         await D.saveSettings();
         for (const id of pick.topics) for (const w of D.topicOf(id).words) if (!D.inDeck(w.word)) await D.addWord(w, null, { silent: true }); // bộ thẻ ôn ban đầu hợp mục tiêu
         if (to === '#/placement') try { sessionStorage.setItem('lk.plInv', JSON.stringify(topicsFor(pick.exam).map(x => x.id))); } catch (e) { /* riêng tư: không lời mời */ } // lời mời 5 phút (placement.js)
+        if (App.habTrack) App.habTrack('onb_done');
         await D.finish(true, to); // Ngày 1 hoặc lời mời – chưa cần tài khoản
       };
     };

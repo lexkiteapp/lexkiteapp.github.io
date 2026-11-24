@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_headsup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 99,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick warning: boss is coming!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Heads up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A quick warning in advance.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Just a heads up, the meeting starts early.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "heads up",
+  "forms": [],
+  "ipa": "/ˈhedz ˈʌp/",
+  "mean": "A quick warning in advance.",
+  "define": "Early information so someone can be ready.",
+  "vi": "Báo trước nhé",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Texting a teammate",
+   "text": "Just a heads up, the meeting starts early."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"heads up\" is a…",
+   "options": [
+    "quick warning",
+    "neck exercise"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'heads up' after the problem happens.",
+   "why": "It's a warning before something."
+  },
+  "l1": "Warnung",
+  "l1_hook": "Kurze Warnung, \"heads up\": Der Chef kommt!",
+  "l1_ex": "Nur ein \"heads up\": Das Meeting beginnt früh.",
+  "right": "heads up",
+  "native": {
+   "hook": "Was heißt “heads up”?",
+   "tip": "“heads up” = Warnung. Beispiel: “Just a heads up, the meeting starts early.”",
+   "caption": "Was heißt “heads up”?\n“heads up” = Warnung.\nBeispiel: “Just a heads up, the meeting starts early.” (Nur ein \"heads up\": Das Meeting beginnt früh.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “heads up” = Warnung. “Just a heads up, the meeting starts early.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick warning: boss is coming!"
+ },
+ "src": {
+  "slang": "heads up"
+ },
+ "lang": "de",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "Was heißt “heads up”?",
+  "keyword": "heads up",
+  "value": "“heads up” = Warnung. Beispiel: “Just a heads up, the meeting starts early.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “heads up”?",
+    "description": "“heads up” = Warnung. Beispiel: “Just a heads up, the meeting starts early.”\n\nWas heißt “heads up”?\n“heads up” = Warnung.\nBeispiel: “Just a heads up, the meeting starts early.” (Nur ein \"heads up\": Das Meeting beginnt früh.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "heads up",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “heads up”?\n“heads up” = Warnung.\nBeispiel: “Just a heads up, the meeting starts early.” (Nur ein \"heads up\": Das Meeting beginnt früh.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “heads up”?\n\n“heads up” = Warnung. Beispiel: “Just a heads up, the meeting starts early.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “heads up”? “heads up” = Warnung. Beispiel: “Just a heads up, the meeting starts early.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “heads up” = Warnung. “Just a heads up, the meeting starts early.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

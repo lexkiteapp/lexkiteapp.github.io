@@ -519,13 +519,13 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
       });
       const pct = Math.round(score / qs.length * 100);
       const used = total - Math.max(0, left);
-      await App.reward({ quizzes: 1, readings: rs.length, perfect: pct === 100 ? 1 : 0, xp: 15 + score * 4 });
+      await App.reward({ quizzes: 1, readings: rs.length, perfect: pct === 100 ? 1 : 0, xp: Game.xpFor('set', { right: score, total: qs.length }) });
       document.body.classList.remove('cbt-mode');
       if (pct >= 80) { Sfx.win(); confetti(); }
       view.innerHTML = `<div class="study-wrap" style="max-width:820px">
         <div class="card celebrate"><div class="em">${window.Kit ? Kit.svg(pct >= 80 ? 'win' : pct >= 50 ? 'happy' : 'think', 80, true) : (timeUp ? UI.icon('alarm-clock') : UI.icon('flag'))}</div><h2>${timeUp ? t('Hết giờ!') : t('Đã nộp bài')} · ${t('{a}/{b} câu đúng', { a: score, b: qs.length })}</h2>
           <div class="score-ring" style="--p:${pct};--c:${pct >= 70 ? 'var(--good)' : pct >= 50 ? 'var(--hard)' : 'var(--again)'}"><b>${pct}%</b></div>
-          <p class="muted">${t('Thời gian làm: {m} phút {s} giây · +{xp} XP · câu sai đã được ghi vào <a href="#/mistakes">Sổ lỗi sai</a>', { m: Math.floor(used / 60), s: used % 60, xp: 15 + score * 4 })}</p></div>
+          <p class="muted">${t('Thời gian làm: {m} phút {s} giây · +{xp} XP · câu sai đã được ghi vào <a href="#/mistakes">Sổ lỗi sai</a>', { m: Math.floor(used / 60), s: used % 60, xp: Game.xpFor('set', { right: score, total: qs.length }) })}</p></div>
         <div class="card" style="margin-top:1rem"><h3>${t('Đáp án & giải thích')}</h3>${rows.map(({ q, i, ok }) => `<div class="q-item"><b>${ok ? UI.icon('circle-check') : '❌'} ${i + 1}. ${esc(q.q)}</b>
           <div class="small">${t('Đáp án:')} <b style="color:var(--good-text)">${esc(q.type === 'tfng' ? q.answer : q.options[q.answer])}</b>${!ok ? ` · ${t('Bạn chọn:')} <span style="color:var(--again-text)">${esc(ans[i] == null ? t('(bỏ trống)') : q.type === 'tfng' ? ans[i] : q.options[+ans[i]])}</span>` : ''}</div>
           <div class="small muted">${UI.icon('lightbulb')} ${esc(q.explain)}</div></div>`).join('')}</div>

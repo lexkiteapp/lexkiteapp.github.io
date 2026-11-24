@@ -1,0 +1,262 @@
+{
+ "bond over": {
+  "n": "Bond over signifie se rapprocher de quelqu'un grâce à un intérêt, une expérience ou une activité partagés. C'est une expression familière, très courante à l'oral et sur les réseaux : bond over music (se rapprocher grâce à la musique), over a bad boss, over a long journey. Après over vient ce que les personnes ont en commun, et le sujet est souvent au pluriel. Pour nommer l'autre personne, on utilise bond with someone.",
+  "x": [
+   [
+    "Strangers on the course often bond over a shared fear of heights.",
+    "Les inconnus du stage se rapprochent souvent grâce à leur peur commune du vide."
+   ],
+   [
+    "We bond over cooking whenever my cousin visits.",
+    "On se rapproche en cuisinant ensemble chaque fois que mon cousin vient."
+   ]
+  ]
+ },
+ "outcome": {
+  "n": "Outcome désigne le résultat d'une action, d'un processus ou d'un événement, souvent incertain au départ : une issue. Il est neutre et dénombrable : a positive outcome, a likely outcome, the final outcome. Il est très courant en médecine, en politique, en sport et en éducation, où learning outcomes sont les compétences visées par un cours. Par rapport à result, il insiste sur ce qui s'est finalement passé. On l'emploie avec achieve, determine, predict et influence.",
+  "x": [
+   [
+    "Nobody could predict the outcome of the election.",
+    "Personne ne pouvait prédire l'issue de l'élection."
+   ],
+   [
+    "The meeting had a surprisingly happy outcome for everyone.",
+    "La réunion a eu une issue étonnamment heureuse pour tous."
+   ]
+  ]
+ },
+ "valid": {
+  "n": "Valid se traduit par valide ou valable et a deux sens principaux : accepté légalement (a valid ticket, a valid passport) ou raisonnable et bien fondé (a valid point, a valid argument). Sound et legitimate sont des synonymes proches pour les arguments. Le contraire est invalid ou no longer valid ; pour un document périmé, on dit expired. Avec une durée, on emploie valid for ou valid until.",
+  "x": [
+   [
+    "This ticket is valid for three months from the date of purchase.",
+    "Ce billet est valable trois mois à compter de la date d'achat."
+   ],
+   [
+    "That is a valid concern, and we should discuss it.",
+    "C'est une inquiétude légitime, et nous devrions en discuter."
+   ]
+  ]
+ },
+ "widespread": {
+  "n": "Widespread décrit ce qui existe ou se produit dans beaucoup d'endroits ou chez beaucoup de gens : répandu, généralisé. Il se combine avec widespread corruption, damage, use, criticism, support. Il est plus fort que common, car il souligne une grande étendue géographique ou sociale. Il se place le plus souvent devant le nom, mais peut suivre be : the practice is widespread. Extensive est un synonyme proche, surtout pour des dégâts.",
+  "x": [
+   [
+    "Flooding is widespread across the northern region this week.",
+    "Les inondations sont généralisées dans toute la région nord cette semaine."
+   ],
+   [
+    "There is widespread concern about rising food prices.",
+    "La hausse des prix alimentaires suscite une inquiétude générale."
+   ]
+  ]
+ },
+ "restrict": {
+  "n": "Restrict signifie limiter ou restreindre la taille, la quantité ou la portée de quelque chose, en général par une règle. On le retrouve dans restrict access, restrict movement et restrict something to a group, comme restrict sales to adults. Il est plus formel que limit et implique souvent des autorités ou des lois. L'adjectif restricted décrit des zones à accès limité, et restrictions désigne les règles elles-mêmes.",
+  "x": [
+   [
+    "Heavy snow restricted access to the mountain village.",
+    "De fortes chutes de neige ont limité l'accès au village de montagne."
+   ],
+   [
+    "Doctors advised him to restrict his salt intake.",
+    "Les médecins lui ont conseillé de limiter sa consommation de sel."
+   ]
+  ]
+ },
+ "levy": {
+  "n": "Comme nom, levy désigne une somme que l'on doit payer à l'État, souvent un prélèvement ou une taxe ciblée : a levy on plastic bags. On dit impose a levy et levy on. Il est plus précis que tax, car il vise en général une activité ou un produit particuliers. Comme verbe, to levy a tax signifie prélever ou imposer une taxe. C'est un mot formel, fréquent en politique et dans la presse.",
+  "x": [
+   [
+    "The government introduced a new levy on sugary drinks.",
+    "Le gouvernement a instauré un nouveau prélèvement sur les boissons sucrées."
+   ],
+   [
+    "Airlines face a levy on every ticket sold.",
+    "Les compagnies aériennes doivent payer un prélèvement sur chaque billet vendu."
+   ]
+  ]
+ },
+ "prime": {
+  "n": "Comme adjectif, prime signifie principal ou de la meilleure qualité : a prime example, a prime suspect, a prime location. Dans prime minister, il signifie premier ministre. Il se place presque toujours avant le nom. Main et chief sont des synonymes proches ; prime ajoute l'idée de ce qui se détache le plus. Il ne désigne pas la prime française (un bonus), qui se dit bonus. On trouve aussi prime time (heures de grande écoute).",
+  "x": [
+   [
+    "The house is in a prime location, close to the beach.",
+    "La maison est idéalement située, près de la plage."
+   ],
+   [
+    "The police named him as their prime suspect.",
+    "La police l'a désigné comme principal suspect."
+   ]
+  ]
+ },
+ "reside": {
+  "n": "Reside signifie résider, c'est-à-dire habiter dans un lieu précis. C'est un verbe formel, plutôt réservé aux textes administratifs, aux rapports et aux statistiques ; dans la conversation, on dit live. Il s'utilise avec in : reside in London. On trouve aussi permanently reside. Le nom est residence et l'habitant est a resident. Reside in peut aussi signifier se trouver dans, comme dans the power resides in the people.",
+  "x": [
+   [
+    "The ambassador resides in a villa on the edge of the city.",
+    "L'ambassadeur réside dans une villa en périphérie de la ville."
+   ],
+   [
+    "Applicants must legally reside in the country.",
+    "Les candidats doivent résider légalement dans le pays."
+   ]
+  ]
+ },
+ "sum": {
+  "n": "Sum désigne une somme d'argent ou le résultat d'une addition. On dit a large sum, a sum of money et the sum of two numbers. Pour l'argent, il est plus formel que amount et insiste sur une quantité précise, souvent importante. In sum est une expression qui introduit une conclusion. Comme verbe, sum up signifie résumer.",
+  "x": [
+   [
+    "The charity received a generous sum from an anonymous donor.",
+    "L'association a reçu une somme généreuse d'un donateur anonyme."
+   ],
+   [
+    "The sum of three and four is seven.",
+    "La somme de trois et de quatre est sept."
+   ]
+  ]
+ },
+ "transmit": {
+  "n": "Transmit signifie transmettre, envoyer ou faire passer quelque chose d'une personne ou d'un lieu à un autre. On dit transmit a disease, transmit data et transmit a signal. Il est plus formel et plus technique que send ou pass on, et fréquent en médecine, en technique et en radiodiffusion. Le nom est transmission et l'appareil qui émet s'appelle transmitter.",
+  "x": [
+   [
+    "Mosquitoes can transmit the virus from one person to another.",
+    "Les moustiques peuvent transmettre le virus d'une personne à une autre."
+   ],
+   [
+    "The satellite transmits images back to the station every hour.",
+    "Le satellite renvoie des images à la station toutes les heures."
+   ]
+  ]
+ },
+ "effective immediately": {
+  "n": "Effective immediately signifie avec effet immédiat ou dès maintenant. L'expression se place souvent au début d'une phrase ou à la fin d'une annonce officielle, quand une règle ou une décision s'applique sans délai. Elle est formelle et typique des communiqués d'entreprise ou d'administration : Effective immediately, the office is closed. Dans la vie courante, starting now suffit. Avec une date, on dit effective from ou effective as of.",
+  "x": [
+   [
+    "Effective immediately, the car park is closed to visitors.",
+    "À compter de maintenant, le parking est fermé aux visiteurs."
+   ],
+   [
+    "The manager resigned effective immediately.",
+    "Le directeur a démissionné avec effet immédiat."
+   ]
+  ]
+ },
+ "inevitable": {
+  "n": "Inevitable signifie inévitable : qu'on ne peut ni empêcher ni éviter. On dit an inevitable consequence, almost inevitable et inevitable result. Il est plus fort que likely, car il n'admet pas d'exception. Avec the devant, il devient un nom : the inevitable, c'est-à-dire ce qui doit arriver. Unavoidable est un synonyme proche et certain insiste plutôt sur la sûreté. L'adverbe est inevitably (forcément).",
+  "x": [
+   [
+    "Delays were inevitable after the heavy snowfall.",
+    "Les retards étaient inévitables après les fortes chutes de neige."
+   ],
+   [
+    "Change is an inevitable part of growing older.",
+    "Le changement est une part inévitable du vieillissement."
+   ]
+  ]
+ },
+ "precise": {
+  "n": "Precise signifie précis : exact et rigoureux dans les détails. On dit precise details, the precise moment et precise measurements. To be precise introduit une précision supplémentaire : It happened at 9:10, to be precise. Il est plus formel que exact et souligne le soin apporté aux détails. Le contraire est imprecise ou vague. L'adverbe precisely sert aussi à exprimer son accord, comme dans exactly.",
+  "x": [
+   [
+    "The police asked him to describe the precise time of the incident.",
+    "La police lui a demandé de décrire l'heure précise de l'incident."
+   ],
+   [
+    "Her instructions were short but extremely precise.",
+    "Ses instructions étaient brèves mais extrêmement précises."
+   ]
+  ]
+ },
+ "scheme": {
+  "n": "Scheme désigne un plan ou un programme officiel destiné à organiser quelque chose : a pilot scheme, a government scheme, a recycling scheme. Il est très courant en anglais britannique. Scheme désigne en général un plan, un programme ou un dispositif. Scheme peut aussi décrire un plan secret et souvent malhonnête, comme a scheme to cheat investors. Programme et plan sont des synonymes.",
+  "x": [
+   [
+    "The council launched a scheme to help first-time buyers.",
+    "La mairie a lancé un dispositif pour aider les primo-accédants."
+   ],
+   [
+    "He was jailed for a scheme to defraud elderly people.",
+    "Il a été emprisonné pour un stratagème visant à escroquer des personnes âgées."
+   ]
+  ]
+ },
+ "bureaucracy": {
+  "n": "Bureaucracy désigne un système où abondent règles compliquées et démarches officielles lentes : la bureaucratie. Le mot est souvent critique : excessive bureaucracy, cut bureaucracy, government bureaucracy. Red tape est une expression plus imagée pour les formalités administratives (la paperasserie). Il se prononce avec l'accent sur la deuxième syllabe, bu-REAU-cra-cy. Le nom pour la personne est bureaucrat et l'adjectif est bureaucratic.",
+  "x": [
+   [
+    "Setting up a business here involves a lot of bureaucracy.",
+    "Créer une entreprise ici demande beaucoup de bureaucratie."
+   ],
+   [
+    "The minister promised to cut bureaucracy for small firms.",
+    "La ministre a promis de réduire la bureaucratie pour les petites entreprises."
+   ]
+  ]
+ },
+ "bustling city": {
+  "n": "Bustling city désigne une ville très animée, pleine de monde et d'activité. Le participe bustling suggère le mouvement, le bruit et l'énergie, et il est le plus souvent positif : a bustling city centre, a bustling market. On le trouve dans les guides de voyage et les descriptions de lieux. Busy metropolis est proche, mais plus neutre. Bustling s'emploie aussi pour un marché, une rue ou un port, pas seulement pour une ville.",
+  "x": [
+   [
+    "She moved from a quiet village to a bustling city.",
+    "Elle a quitté un village tranquille pour une ville animée."
+   ],
+   [
+    "Tourists love the bustling city centre at night.",
+    "Les touristes adorent le centre-ville animé le soir."
+   ]
+  ]
+ },
+ "debunk": {
+  "n": "Debunk signifie démonter une croyance ou une idée répandue en montrant qu'elle est fausse : démystifier. Il se combine avec debunk a myth ou debunk a theory. Il suppose que l'on apporte des preuves ; disprove est plus général et plus neutre. Le nom pour la personne est debunker, et le verbe se retrouve beaucoup dans les articles sur les fausses informations. Le registre est soutenu ou journalistique.",
+  "x": [
+   [
+    "Scientists have debunked the claim that sugar makes children hyperactive.",
+    "Les scientifiques ont démonté l'idée que le sucre rend les enfants hyperactifs."
+   ],
+   [
+    "The documentary aims to debunk a popular conspiracy theory.",
+    "Le documentaire cherche à démonter une théorie du complot populaire."
+   ]
+  ]
+ },
+ "disproportionate": {
+  "n": "Disproportionate signifie disproportionné : trop grand ou trop petit par rapport à autre chose. Il se combine avec disproportionate effect, disproportionate amount et disproportionate share. Il est formel et fréquent dans la presse, les rapports et les débats sociaux. Excessive insiste sur l'excès, alors que disproportionate compare deux éléments. Le contraire est proportionate, et le nom est disproportion.",
+  "x": [
+   [
+    "The cuts had a disproportionate effect on rural schools.",
+    "Les coupes ont eu un effet disproportionné sur les écoles rurales."
+   ],
+   [
+    "The punishment seemed disproportionate to the offence.",
+    "La sanction semblait disproportionnée par rapport à l'infraction."
+   ]
+  ]
+ },
+ "make way for": {
+  "n": "Make way for signifie céder la place à quelque chose de nouveau : un bâtiment, une route, un projet. Le sujet est ce qui disparaît, et l'objet est ce qui le remplace : old shops were demolished to make way for flats. On l'emploie aussi pour des personnes, au sens de laisser passer : make way for the ambulance. C'est une expression courante dans les articles sur l'urbanisme et l'aménagement.",
+  "x": [
+   [
+    "Old warehouses were demolished to make way for new flats.",
+    "D'anciens entrepôts ont été démolis pour faire place à de nouveaux appartements."
+   ],
+   [
+    "Crowds stepped aside to make way for the ambulance.",
+    "La foule s'est écartée pour laisser passer l'ambulance."
+   ]
+  ]
+ },
+ "mitigate": {
+  "n": "Mitigate signifie atténuer : rendre quelque chose moins grave, moins nuisible ou moins douloureux. Il se combine avec mitigate the effects, mitigate risk et mitigate the impact. C'est un verbe formel, courant dans les rapports sur le climat, la santé, la finance et la sécurité. Reduce et lessen sont des synonymes plus simples. L'adjectif correspondant est mitigating, comme dans mitigating circumstances.",
+  "x": [
+   [
+    "Better insulation can mitigate the impact of rising energy prices.",
+    "Une meilleure isolation peut atténuer l'effet de la hausse des prix de l'énergie."
+   ],
+   [
+    "Banks must mitigate risk before they lend large sums.",
+    "Les banques doivent atténuer les risques avant de prêter de grosses sommes."
+   ]
+  ]
+ }
+}

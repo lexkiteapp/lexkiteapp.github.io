@@ -1,0 +1,150 @@
+{
+ "id": "t2s_hi_comeagain",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 94,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry, the music's too loud!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Come again!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Please say that again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Come again? It's too loud here.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "come again",
+  "forms": [],
+  "ipa": "/ˈkʌm əˈɡen/",
+  "mean": "Please say that again.",
+  "define": "A casual way to ask someone to repeat.",
+  "vi": "Nói lại đi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Talking in a noisy café",
+   "text": "Come again? It's too loud here."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "visit again",
+    "say it again"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'come again' when you heard clearly.",
+   "why": "It sounds like a challenge."
+  },
+  "l1": "क्या कहा",
+  "l1_hook": "माफ़ करना, संगीत बहुत तेज़ है! क्या आप \"come again\" कह सकते हैं?",
+  "l1_ex": "Come again? यहाँ बहुत तेज़ है।",
+  "right": "come again",
+  "native": {
+   "hook": "“come again” का मतलब क्या है?",
+   "tip": "“come again” = क्या कहा. उदाहरण: “Come again? It's too loud here.”",
+   "caption": "“come again” का मतलब क्या है?\n“come again” = क्या कहा.\nउदाहरण: “Come again? It's too loud here.” (Come again? यहाँ बहुत तेज़ है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “come again” = क्या कहा. “Come again? It's too loud here.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sorry, the music's too loud!"
+ },
+ "src": {
+  "slang": "come again"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“come again” का मतलब क्या है?",
+  "keyword": "come again",
+  "value": "“come again” = क्या कहा. उदाहरण: “Come again? It's too loud here.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“come again” का मतलब क्या है?",
+    "description": "“come again” = क्या कहा. उदाहरण: “Come again? It's too loud here.”\n\n“come again” का मतलब क्या है?\n“come again” = क्या कहा.\nउदाहरण: “Come again? It's too loud here.” (Come again? यहाँ बहुत तेज़ है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "come again",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“come again” का मतलब क्या है?\n“come again” = क्या कहा.\nउदाहरण: “Come again? It's too loud here.” (Come again? यहाँ बहुत तेज़ है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“come again” का मतलब क्या है?\n\n“come again” = क्या कहा. उदाहरण: “Come again? It's too loud here.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“come again” का मतलब क्या है? “come again” = क्या कहा. उदाहरण: “Come again? It's too loud here.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “come again” = क्या कहा. “Come again? It's too loud here.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

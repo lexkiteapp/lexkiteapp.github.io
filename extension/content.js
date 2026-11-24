@@ -698,7 +698,12 @@
   // Đoạn chọn có chữ ngoài tiếng Anh (Latin có dấu, chữ Việt có dấu chồng U+1E00–U+1EFF, Cyrillic, Ả Rập, CJK…) → để Google tự nhận
   // ngôn ngữ nguồn thay vì ép "en". Luôn chuẩn hóa NFC và dùng lớp Unicode \p{L}\p{M} (không dùng A-Za-z / \u00c0-\u024f: "thử" bị cắt thành "th").
   const nfc = s => String(s == null ? '' : s).normalize('NFC');
-  const srcLang = t => (/[^\x00-\x7f]/.test(nfc(t).replace(/[\s\p{P}\p{S}\p{N}]/gu, '')) ? 'auto' : 'en');
+  // Câu Pháp/TBN gõ không dấu (je suis dans la maison, el perro de mi amigo) toàn ASCII → trước đây bị coi là tiếng Anh (dịch EN→, sai). Nhận bằng từ chức năng
+  // KHÔNG có trong tiếng Anh: ≥ 3 từ, ≥ 2 từ khớp và ≥ 25 % số từ → 'auto' (Google tự nhận nguồn) + gợi ý fr/es (french-course.md W6, không thêm quyền)
+  const FW = { fr: new Set('le les des est je tu il elle nous vous ils elles une du au aux pas que qui dans pour avec sur ce cette ces mais et sont mon ma mes ton ta tes son sa ses leur leurs tres aussi bien ne avoir etre fait cest jai suis sommes etes'.split(' ')),
+    es: new Set('el los las es y del por para con una yo pero muy como mas esta estoy somos son hay mi mis su sus tu ella ellos nosotros usted lo porque cuando donde'.split(' ')) };
+  const tlGuess = t => { const w = nfc(t).toLowerCase().replace(/['’]/g, '').split(/[^a-z]+/).filter(Boolean); if (w.length < 3) return ''; let best = '', n = 0; for (const [l, S] of Object.entries(FW)) { const k = w.filter(x => S.has(x)).length; if (k > n) { n = k; best = l; } } return n >= 2 && n / w.length >= 0.25 ? best : ''; };
+  const srcLang = t => (/[^\x00-\x7f]/.test(nfc(t).replace(/[\s\p{P}\p{S}\p{N}]/gu, '')) || tlGuess(t) ? 'auto' : 'en');
   const VI_ONLY = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // chữ chỉ tiếng Việt có (â ê ô có cả trong tiếng Pháp)
   // "Tra từng từ": chỉ từ tiếng Anh (chữ Latin không dấu), bỏ từ chức năng, bỏ mã chữ+số (E2E, v2), giữ từ nối gạch (add-on) và viết tắt (API)
   const STOP = new Set(("a an the and or but nor so yet if then than as of to in on at by for from with without into onto over under about above below up down out off " +
@@ -793,7 +798,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     b.hidden = false; b.classList.toggle('dark', pageDark(info && info.rect)); b.dataset.kind = 'tr';
     b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', tx('🌐 Dịch đoạn đã chọn').replace(/^\S+\s+/, '')); b.tabIndex = -1;
     current = info.text;
-    const sl = srcLang(text), hint = sl === 'auto' && VI_ONLY.test(text) ? 'vi' : '', tl = ML();
+    const sl = srcLang(text), hint = sl === 'auto' ? (VI_ONLY.test(text) ? 'vi' : tlGuess(text)) : '', tl = ML();
     let sentence = ''; try { sentence = info.range ? sentenceAround(info.range) : ''; } catch (e) { /* bỏ qua */ }
     const words = text.split(' ').length > 1 ? lookupWords(text) : [];
     const st = (await sget('settings').catch(() => ({}))).settings || {};
@@ -802,7 +807,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     b.innerHTML = H(`
       <div class="tr-head"><b>${tx('🌐 Dịch đoạn đã chọn')}</b><span class="chip lchip" id="lang"></span><button class="x" id="close" title="${esc(tx('Đóng (Esc)'))}" aria-label="${esc(tx('Đóng (Esc)'))}">×</button></div>
       <div class="body">
-        <div class="src"${sl === 'en' ? ' lang="en"' : hint ? ' lang="vi"' : ''}>${esc(text)}</div>
+        <div class="src"${sl === 'en' ? ' lang="en"' : hint ? ` lang="${hint}"` : ''}>${esc(text)}</div>
         <div class="tr" id="tr" aria-live="polite" aria-busy="true"><div class="sk w80"></div><div class="sk w50"></div><span class="sr">${tx('⏳ Đang dịch…')}</span></div>
         ${words.length ? `<div class="def mt8"><b>${tx('Tra từng từ:')}</b> ${words.map(x => `<button type="button" class="lw chipw" data-w="${esc(x.w)}" lang="en">${esc(x.label)}</button>`).join(' ')}</div>` : ''}
         <div id="more"></div>

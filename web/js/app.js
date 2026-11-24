@@ -280,8 +280,13 @@ App.cpackI18n.qtips = { es: 'cpack/i18n/qtips-es.js', pt: 'cpack/i18n/qtips-pt.j
 App.cpackI18n.tlui = { es: 'cpack/i18n/tlui-es.js', pt: 'cpack/i18n/tlui-pt.js', fr: 'cpack/i18n/tlui-fr.js', de: 'cpack/i18n/tlui-de.js', id: 'cpack/i18n/tlui-id.js', th: 'cpack/i18n/tlui-th.js', zh: 'cpack/i18n/tlui-zh.js', ja: 'cpack/i18n/tlui-ja.js', ko: 'cpack/i18n/tlui-ko.js', ru: 'cpack/i18n/tlui-ru.js', tr: 'cpack/i18n/tlui-tr.js', ar: 'cpack/i18n/tlui-ar.js', hi: 'cpack/i18n/tlui-hi.js' };
 App.cpackI18n.lcardui = { es: 'cpack/i18n/lcardui-es.js', pt: 'cpack/i18n/lcardui-pt.js', fr: 'cpack/i18n/lcardui-fr.js', de: 'cpack/i18n/lcardui-de.js', id: 'cpack/i18n/lcardui-id.js', th: 'cpack/i18n/lcardui-th.js', zh: 'cpack/i18n/lcardui-zh.js', ja: 'cpack/i18n/lcardui-ja.js', ko: 'cpack/i18n/lcardui-ko.js', hi: 'cpack/i18n/lcardui-hi.js', ar: 'cpack/i18n/lcardui-ar.js', ru: 'cpack/i18n/lcardui-ru.js', tr: 'cpack/i18n/lcardui-tr.js' }; // mẹo làm bài thi (cpack/i18n/lcardui-<lang>.js, tải cùng gói màn thi/nghe/đọc; dời khỏi web/js để nhường chỗ ngân sách người học)
 App.esGx = { en: 'cpack/es/gx-en.js', vi: 'cpack/es/gx-vi.js', es: 'cpack/es/gx-es.js', pt: 'cpack/es/gx-pt.js', fr: 'cpack/es/gx-fr.js', de: 'cpack/es/gx-de.js', id: 'cpack/es/gx-id.js', th: 'cpack/es/gx-th.js', zh: 'cpack/es/gx-zh.js', ja: 'cpack/es/gx-ja.js', ko: 'cpack/es/gx-ko.js', hi: 'cpack/es/gx-hi.js', ar: 'cpack/es/gx-ar.js', ru: 'cpack/es/gx-ru.js', tr: 'cpack/es/gx-tr.js' }; // giải thích ngữ pháp TBN theo ngôn ngữ người học, tải lười 1 gói (js/espr.js)
+App.frGx = { en: 'cpack/fr/gx-en.js', vi: 'cpack/fr/gx-vi.js', es: 'cpack/fr/gx-es.js', pt: 'cpack/fr/gx-pt.js', fr: 'cpack/fr/gx-fr.js', de: 'cpack/fr/gx-de.js', id: 'cpack/fr/gx-id.js', th: 'cpack/fr/gx-th.js', zh: 'cpack/fr/gx-zh.js', ja: 'cpack/fr/gx-ja.js', ko: 'cpack/fr/gx-ko.js', hi: 'cpack/fr/gx-hi.js', ar: 'cpack/fr/gx-ar.js', ru: 'cpack/fr/gx-ru.js', tr: 'cpack/fr/gx-tr.js' }; // giải thích ngữ pháp tiếng Pháp theo ngôn ngữ người học (js/espr.js TLC.fr, french-course.md W2)
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
+App.frX = { lv: { A1: 'cpack/fr/x-A1.js', A2: 'cpack/fr/x-A2.js', B1: 'cpack/fr/x-B1.js', B2: 'cpack/fr/x-B2.js', C1: 'cpack/fr/x-C1.js', C2: 'cpack/fr/x-C2.js' }, ui: { en: 'cpack/fr/x-ui-en.js', vi: 'cpack/fr/x-ui-vi.js', es: 'cpack/fr/x-ui-es.js', pt: 'cpack/fr/x-ui-pt.js', fr: 'cpack/fr/x-ui-fr.js', de: 'cpack/fr/x-ui-de.js', id: 'cpack/fr/x-ui-id.js', th: 'cpack/fr/x-ui-th.js', zh: 'cpack/fr/x-ui-zh.js', ja: 'cpack/fr/x-ui-ja.js', ko: 'cpack/fr/x-ui-ko.js', hi: 'cpack/fr/x-ui-hi.js', ar: 'cpack/fr/x-ui-ar.js', ru: 'cpack/fr/x-ui-ru.js', tr: 'cpack/fr/x-ui-tr.js' } }; // luyện định dạng DELF/DALF W5 (cpack/es-app/exam-ui.js TX.fr): đề theo cấp (nguồn Tatoeba dựng trên CI, exam-es-build tl=fr) + nhãn theo ngôn ngữ người học, tải lười
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
+App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-es.js', pt: 'cpack/fr/px-pt.js', fr: 'cpack/fr/px-fr.js', de: 'cpack/fr/px-de.js', id: 'cpack/fr/px-id.js', th: 'cpack/fr/px-th.js', zh: 'cpack/fr/px-zh.js', ja: 'cpack/fr/px-ja.js', ko: 'cpack/fr/px-ko.js', hi: 'cpack/fr/px-hi.js', ar: 'cpack/fr/px-ar.js', ru: 'cpack/fr/px-ru.js', tr: 'cpack/fr/px-tr.js' }; // gói phát âm tiếng Pháp W3 theo ngôn ngữ người học (cpack/es-app/pron-ui.js, bảng TLX): nhãn giao diện + giải thích 8 chủ đề
+  // Màn Stitch (gói u1*) theo trang: ST2.<màn> được dò ở đúng trang đó; trang không có trong bảng (lesson, study, league, goal…) nạp đủ UX1_ALL như trước
+  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [] }; // path = bản đồ NGÀY (path-day.js, không dùng khung ST2.path của trang chủ)
   const ROUTE_BUNDLE = {
     call: 'call',
     cambridge: ['listening', 'cambridge'],
@@ -319,7 +324,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     paraphrase: 'paraphrase',
     path: ['words', 'pathx'],
     phrases: 'writing',
-    placement: ['words', 'grammar', 'placement'],
+    placement: ['placement'], // màn giới thiệu vẽ ngay; words + grammar nạp nền / khi bấm Bắt đầu (placement.js warm)
     practice: ['words', 'tsl', 'lfx'],
     pron: 'pron',
     qstats: 'qstats',
@@ -338,6 +343,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     speak: 'pas',
     speaking: 'speak',
     stats: ['words', 'streak', 'statsp'],
+    stories: 'stories',
     streak: ['streak', 'ret'],
     style: 'quick',
     task1: 'writing',
@@ -390,6 +396,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     dayv2: 'css/st-v2-day.css',
     dictp: 'css/st-v2-dict.css',
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
+    gend: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
     irregular: 'css/st-v2-irregular.css',
@@ -408,10 +415,12 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     readings: 'css/exam.css',
     say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'],
     settings: ['css/adm.css', 'css/st-v2-settings.css'],
+    stories: 'css/stories.css',
     tlpick: ['css/tl-pick.css'],
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
-    ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */,
+    u1home: ['css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay – chỉ nạp cùng gói u1home; màn khác tải theo màn (st/v2/runtime.js LZ) */,
+    ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css'] /* lõi: thanh tab/khung chung */,
     vhub: 'css/st-v2-vocab-hub.css',
     watch: 'css/watch.css',
     welcome: self.matchMedia && matchMedia('(min-width:1024px)').matches ? 'css/st-v2-welcome-desk.css' : 'css/st-v2-welcome.css',
@@ -424,7 +433,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     if (!home) x.push('review', 'practice', 'leagues', 'me', 'streak', 'exam-readiness'); if (matchMedia('(min-width: 1024px)').matches) x.push('today-desk', 'today-rail');
     if (home && !((state.game || {}).xp > 0)) x.push('today-new'); return x.map(k => `css/st-v2-${k}.css`); };
   let n0x = 0;
-  const LZCSS = n => /^(ux1|i18nx|i18nl)$/.test(n) ? [] : ['css/lazy-ui.css']; // CSS trang lười tách khỏi style.css (scripts/test/css-lazy.mjs) – ux1 vẽ ngay nên không chờ
+  const LZCSS = n => /^(ux1|u1\w+|i18nx|i18nl)$/.test(n) ? [] : ['css/lazy-ui.css']; // CSS trang lười tách khỏi style.css (scripts/test/css-lazy.mjs) – ux1 vẽ ngay nên không chờ
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = manifest().then(() => Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || [], n === 'ux1' ? UX1X() : [], LZCSS(n)).map(loadCss)))).catch(e => { delete bundleP[n]; throw e; }).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
@@ -555,7 +564,10 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     const late = PAINT_FIRST.has(name) ? b.filter(x => PAINT_LATE.has(x) && !App.loaded(x)) : [];
     if (late.length) b.splice(0, b.length, ...b.filter(x => !late.includes(x)));
     if (ux1 && name === 'library') b.push('libv2'); // Thư viện Stitch v2 (ux1-lib.js bọc routes.library, chỉ khi cờ ux1)
-    if (ux1) b.unshift(...(matchMedia('(min-width: 1024px)').matches ? ['ux1', 'ux1desk'] : ['ux1'])); // 🧭 cờ ux1: 5 tab + bản đồ – gói nạp trước mọi trang (lần sau tức thì)
+    if (ux1) { // 🧭 cờ ux1: 5 tab + bản đồ – lõi nạp trước mọi trang (lần sau tức thì); màn Stitch chỉ nạp cùng trang cần nó, phần còn lại sau lần vẽ đầu
+      const scr = UX1_SCR[name] || UX1_ALL; b.unshift('ux1', ...scr);
+      if (scr !== UX1_ALL) App.calm(() => App.need(...UX1_ALL.filter(x => !App.loaded(x))).catch(() => {}), 2500);
+    }
     // Khung màn đặt NGAY lúc chạm: docs/PERF-SCROLL.md
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
     document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); document.documentElement.classList.remove('lk-fo'); // màn học mở thẳng từ link: gỡ lớp ẩn khung của script đầu trang (data-lkf) khi route() đã đặt focus
@@ -568,7 +580,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     if (name !== 'welcome') document.body.classList.remove('bare'); // thanh trên hiện ngay lúc chạm (CLS #/home)
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
-    if (b.some(x => !App.loaded(x)) && !document.getElementById('lkHero')) skel = setTimeout(() => { // khung chào #lkHero đang hiện (LCP): không thay bằng khung chờ
+    if (b.some(x => !App.loaded(x)) && !document.getElementById('lkHero') && !document.getElementById('lkPath')) skel = setTimeout(() => { // khung chào #lkHero đang hiện (LCP): không thay bằng khung chờ
       const skelReview = `<div class="study-wrap skel-study" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="study-top"><div class="skel" style="width:32px;height:32px;border-radius:50%"></div><div class="skel" style="flex:1;height:12px;border-radius:6px"></div><div class="skel" style="width:70px;height:14px;border-radius:4px"></div></div><div class="skel-card-body"><div class="skel" style="width:45%;height:2.4rem;border-radius:10px"></div><div class="skel" style="width:30%;height:1.2rem;border-radius:6px"></div><div class="skel" style="width:75%;height:1.2rem;border-radius:6px;margin-top:.4rem"></div><div class="skel" style="width:85%;height:1rem;border-radius:6px"></div><div class="row center" style="gap:.8rem;width:100%;max-width:320px;margin-top:1.2rem"><div class="skel" style="height:44px;flex:1;border-radius:999px"></div><div class="skel" style="height:44px;flex:1;border-radius:999px"></div></div></div></div>`;
       const skelHome = `<div class="skel-page skel-home" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="today-head"><div class="skel" style="width:52px;height:52px;border-radius:50%;flex:none"></div><div class="grow" style="display:grid;gap:.5rem"><div class="skel skel-h" style="width:40%;height:1rem"></div><div class="skel skel-l" style="width:75%;height:1.3rem"></div></div><div class="skel" style="width:88px;height:34px;border-radius:999px;flex:none"></div></div><div class="skel" style="height:110px;border-radius:18px"></div><div class="skel" style="height:150px;border-radius:18px"></div><div class="skel" style="height:130px;border-radius:18px"></div></div>`;
       const skelDefault = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`;
@@ -977,6 +989,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       ['write', '✍️', t('Phòng viết'), t('Viết Task 2, phân tích từ vựng'), 'var(--gold-soft)'],
       ['speaking', '🗣️', t('Phòng Speaking'), t('Part 1–3, ghi âm, chấm từ vựng'), 'var(--good-soft)'],
       ...(window.Target && Target.enabled('es') ? [['es', '🇪🇸', t('Luyện tiếng Tây Ban Nha'), t('Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn'), 'var(--gold-soft)'], ['esp', '🇪🇸', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), 'var(--primary-soft)'], ['esx', '🇪🇸', t('Luyện định dạng DELE/SIELE'), t('Đọc, nghe, viết, nói theo cấu trúc đề thi'), 'var(--gold-soft)']] : []),
+      ...(window.Target && Target.enabled('fr') ? [['frd', '📅', t('Lộ trình'), t('Từ mới, ngữ pháp và cuộc gọi AI mỗi ngày'), 'var(--primary-soft)'], ['fr', '🇫🇷', t('Luyện tiếng Pháp'), t('Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn'), 'var(--gold-soft)'], ['frp', '🇫🇷', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), 'var(--primary-soft)'], ...(Object.keys(App.frX.lv).length ? [['frx', '🇫🇷', t('Luyện định dạng DELF/DALF'), t('Đọc, nghe, viết, nói theo cấu trúc đề thi'), 'var(--gold-soft)']] : [])] : []),
     ].map(([id, em, name, desc, bg]) => `<a class="mode" href="${id === 'write' || id === 'speaking' || id === 'handsfree' || id === 'reflex' ? '#/' + id : '#/practice/' + id}"><span class="em" style="background:${bg}">${UI.glyph(em)}</span><b>${name}</b><span class="muted small">${desc}</span></a>`);
   }
   App.modeTiles = modeTiles;
@@ -1233,7 +1246,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     const list = Object.values(state.cards);
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Sổ từ của bạn')}</h1>${list.length ? `<p class="muted">${t('{n} từ · {k} đã thuộc', { n: list.length, k: masteredCount() })}</p>` : ''}</div>
-        <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
+        <div class="row"><a class="btn primary" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><details class="deck-more"><summary class="btn">⋯ ${t('Thêm')}</summary><div class="row"><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></details></div></div>
       <div class="grid g4" style="margin-bottom:1rem">
         <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}" aria-label="${t('Tìm từ hoặc nghĩa…')}">
         <select class="input" id="filterTopic" aria-label="${t('Chọn bộ từ')}"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
@@ -1474,7 +1487,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const bootDog = setTimeout(() => { if (state.game && routeSeq) return; if (!view.children.length || view.querySelector('[data-lkph]') || (!state.game && view.querySelector('#lkHero'))) errState(true, true); }, 8000); // khung chờ màn học (index.html data-lkph) = chưa vẽ
   App.ready = (async function init() {
     if (/[?&]demo=1/.test(location.search)) { await App.need('demo'); await App.seedDemo(); }
-    if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);
+    if (Store.sandbox) setTimeout(() => toast('🧪 Sandbox'), 800); /* ngắn: thông báo dài (~14 000 px²) lớn hơn đoạn mô tả đầu trang từ điển nên chiếm LCP đo ở CI (?sandbox=1) = 7,5 s dù người dùng thật không bao giờ thấy nó; bản ngắn nhỏ hơn mọi khối nội dung → LCP = nội dung thật */
     try { await load(); } finally { if (!state.game) state.game = await Game.get().catch(() => null); dataReady(); }
     document.addEventListener('error', e => {
       const img = e.target;

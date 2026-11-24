@@ -1,0 +1,152 @@
+{
+ "id": "t2s_vi_fandom",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 96,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who loves this band most?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Fandom!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A group of devoted fans.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The fandom loves this band.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "fandom",
+  "forms": [
+   "fandoms"
+  ],
+  "ipa": "/ˈfændəm/",
+  "mean": "A group of devoted fans.",
+  "define": "People who love the same show or band.",
+  "vi": "Cộng đồng fan",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Talking about a band",
+   "text": "The fandom loves this band."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"fandom\" is…",
+   "options": [
+    "a fantasy",
+    "a fan community"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your coworkers a 'fandom'.",
+   "why": "It means devoted fans of one thing."
+  },
+  "l1": "Cộng đồng fan",
+  "l1_hook": "Ai mê ban nhạc này nhất?",
+  "l1_ex": "Fandom rất mê ban nhạc này.",
+  "right": "fandom",
+  "native": {
+   "hook": "“fandom” nghĩa là gì?",
+   "tip": "“fandom” = Cộng đồng fan. Ví dụ: “The fandom loves this band.”",
+   "caption": "“fandom” nghĩa là gì?\n“fandom” = Cộng đồng fan.\nVí dụ: “The fandom loves this band.” (Fandom rất mê ban nhạc này.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “fandom” = Cộng đồng fan. “The fandom loves this band.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who loves this band most?"
+ },
+ "src": {
+  "slang": "fandom"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“fandom” nghĩa là gì?",
+  "keyword": "fandom",
+  "value": "“fandom” = Cộng đồng fan. Ví dụ: “The fandom loves this band.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“fandom” nghĩa là gì?",
+    "description": "“fandom” = Cộng đồng fan. Ví dụ: “The fandom loves this band.”\n\n“fandom” nghĩa là gì?\n“fandom” = Cộng đồng fan.\nVí dụ: “The fandom loves this band.” (Fandom rất mê ban nhạc này.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "fandom",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“fandom” nghĩa là gì?\n“fandom” = Cộng đồng fan.\nVí dụ: “The fandom loves this band.” (Fandom rất mê ban nhạc này.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“fandom” nghĩa là gì?\n\n“fandom” = Cộng đồng fan. Ví dụ: “The fandom loves this band.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“fandom” nghĩa là gì? “fandom” = Cộng đồng fan. Ví dụ: “The fandom loves this band.” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “fandom” = Cộng đồng fan. “The fandom loves this band.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

@@ -2,7 +2,9 @@
  "_doc": "Màn Luyện (Practice) – d do Ux1 routes.train (web/js/ux1.js) dựng: thẻ kỳ thi, nước rút hằng ngày, 8 mô-đun kỹ năng + MỌI mục còn lại của GROUPS() cùng khuôn ô, hàng thi thử đầy đủ.",
  "remove": [
   ":scope > header",
-  ":scope > nav"
+  ":scope > nav",
+  ":scope > footer",
+  ":scope > main > .mock-pad"
  ],
  "i18n": {
   "Target Goal": "Mục tiêu nước rút",
@@ -11,15 +13,15 @@
   "Timed simulation": "Bấm giờ như thi thật"
  },
  "text": {
-  "IELTS": "d.ex.name",
-  "No predicted score yet": "d.ex.pred",
-  "IELTS · 7.5": "d.ex.title",
-  "12h left": "d.ex.left",
-  "+0 XP": "d.sp.xp",
-  "Daily sprint 0/4": "d.sp.title",
-  "4 drills left": "d.sp.left",
-  "Continue": "d.sp.cta",
-  "39 Modules": "d.count",
+  "Silver League": "d.ex.name",
+  "Top 15%": "d.ex.pred",
+  "Band 7.5 Target Prep": "d.ex.title",
+  "18h left": "d.ex.left",
+  "+25 XP": "d.sp.xp",
+  "Daily sprint 3/5": "d.sp.title",
+  "2 drills left": "d.sp.left",
+  "Resume": "d.sp.cta",
+  "8 Skills": "d.count",
   "Full IELTS Mock": "d.mock.title",
   "Sat 10:00": "d.mock.chip",
   "Register": "d.mock.cta"

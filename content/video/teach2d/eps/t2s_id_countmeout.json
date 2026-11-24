@@ -1,0 +1,146 @@
+{
+ "id": "t2s_id_countmeout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 54,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wanna go to the late show?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Count me out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I won't take part.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm tired, so count me out.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "count me out",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈaʊt/",
+  "mean": "I won't take part.",
+  "define": "Used to politely say you won't join a plan.",
+  "vi": "Đừng tính tui",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Declining an invitation",
+   "text": "I'm tired, so count me out."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm leaving the country",
+    "I won't join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me out' to your boss's request.",
+   "why": "It sounds like a flat refusal."
+  },
+  "l1": "tidak ikut",
+  "l1_hook": "Mau pergi ke pertunjukan larut? \"count me out\".",
+  "l1_ex": "Saya lelah, jadi \"count me out\".",
+  "right": "count me out",
+  "native": {
+   "hook": "Apa arti “count me out”?",
+   "tip": "“count me out” = tidak ikut. Contoh: “I'm tired, so count me out.”",
+   "caption": "Apa arti “count me out”?\n“count me out” = tidak ikut.\nContoh: “I'm tired, so count me out.” (Saya lelah, jadi \"count me out\".)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “count me out” = tidak ikut. “I'm tired, so count me out.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wanna go to the late show?"
+ },
+ "src": {
+  "slang": "count me out"
+ },
+ "lang": "id",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Apa arti “count me out”?",
+  "keyword": "count me out",
+  "value": "“count me out” = tidak ikut. Contoh: “I'm tired, so count me out.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “count me out”?",
+    "description": "“count me out” = tidak ikut. Contoh: “I'm tired, so count me out.”\n\nApa arti “count me out”?\n“count me out” = tidak ikut.\nContoh: “I'm tired, so count me out.” (Saya lelah, jadi \"count me out\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "count me out",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “count me out”?\n“count me out” = tidak ikut.\nContoh: “I'm tired, so count me out.” (Saya lelah, jadi \"count me out\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “count me out”?\n\n“count me out” = tidak ikut. Contoh: “I'm tired, so count me out.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “count me out”? “count me out” = tidak ikut. Contoh: “I'm tired, so count me out.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “count me out” = tidak ikut. “I'm tired, so count me out.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

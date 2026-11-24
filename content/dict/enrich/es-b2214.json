@@ -1,0 +1,162 @@
+{
+ "via": {
+  "n": "Via es una preposición que significa a través de o por medio de, y equivale al español vía. Se usa para indicar el canal o el camino: via email (por correo electrónico), via the internet, via Madrid (pasando por Madrid). Es más breve que by means of y más neutra que through en contextos técnicos. Va seguida de un sustantivo, nunca de un verbo conjugado. Aparece mucho en textos académicos, informática y viajes. También puede indicar el método con el que se consigue algo: communicate via social media.",
+  "x": [
+   ["You can register for the course via our website.", "Puedes inscribirte en el curso a través de nuestro sitio web."],
+   ["The flight to Sydney goes via Singapore.", "El vuelo a Sídney pasa por Singapur."],
+   ["Most customers contact us via email or telephone.", "La mayoría de los clientes nos contactan por correo electrónico o por teléfono."]
+  ]
+ },
+ "artefact": {
+  "n": "Artefact (artifact en inglés americano) es un objeto hecho por personas, sobre todo antiguo y de interés histórico o arqueológico: herramientas, cerámica, joyas. Equivale a artefacto en este sentido, aunque en español artefacto suele ser un aparato. Colocaciones frecuentes: ancient artefact, cultural artefact, archaeological artefact, museum artefact. Es más específico que object o relic, pues subraya que lo creó el ser humano. También puede usarse para cualquier producto cultural: a cultural artefact.",
+  "x": [
+   ["The museum displays artefacts from ancient Egypt.", "El museo exhibe artefactos del antiguo Egipto."],
+   ["Each artefact was carefully cleaned and catalogued.", "Cada artefacto fue limpiado y catalogado con cuidado."],
+   ["Old letters are a valuable cultural artefact.", "Las cartas antiguas son un valioso artefacto cultural."]
+  ]
+ },
+ "commence": {
+  "n": "Commence significa comenzar o empezar, y se usa sobre todo en contextos formales o administrativos: contratos, ceremonias, obras, juicios. Funciona con sujeto de cosa o con complemento directo: the trial commences on Monday, commence work. Es más solemne que begin o start, que son lo normal en una conversación. Después puede llevar to + verbo o -ing: commence to build o commence building. El sustantivo es commencement, que en inglés americano designa también la ceremonia de graduación.",
+  "x": [
+   ["The meeting will commence at nine o'clock sharp.", "La reunión comenzará a las nueve en punto."],
+   ["Building work is expected to commence in January.", "Se espera que las obras comiencen en enero."],
+   ["The new tenants may commence occupation on the first of the month.", "Los nuevos inquilinos pueden empezar a ocupar la vivienda el primero de mes."]
+  ]
+ },
+ "authentic": {
+  "n": "Authentic significa auténtico: real, genuino y no una copia ni una imitación. Se aplica a objetos, comida, experiencias y personas: authentic cuisine, an authentic signature, an authentic experience. Con personas indica que son sinceras y fieles a sí mismas. Es cercano a genuine y real; authentic destaca que algo es fiel al original o a su origen. Lo contrario es fake o counterfeit. El sustantivo es authenticity, y el verbo, authenticate, confirmar que algo es auténtico.",
+  "x": [
+   ["This restaurant serves authentic Italian pasta.", "Este restaurante sirve auténtica pasta italiana."],
+   ["Experts confirmed that the painting is authentic.", "Los expertos confirmaron que el cuadro es auténtico."],
+   ["Readers value an authentic voice in blogs.", "Los lectores valoran una voz auténtica en los blogs."]
+  ]
+ },
+ "biodiversity": {
+  "n": "Biodiversity es biodiversidad: la variedad de seres vivos, plantas, animales y microorganismos, que existe en un lugar o en la Tierra. Es un sustantivo incontable y no se usa en plural. Colocaciones típicas: loss of biodiversity, protect biodiversity, rich in biodiversity, marine biodiversity, biodiversity hotspot. Aparece en ciencia, medio ambiente y política. Es una forma abreviada de biological diversity. Se refiere al conjunto de especies, no a un animal concreto, por eso no se dice a biodiversity.",
+  "x": [
+   ["Deforestation is a major threat to biodiversity.", "La deforestación es una grave amenaza para la biodiversidad."],
+   ["Tropical forests have the greatest biodiversity on Earth.", "Los bosques tropicales tienen la mayor biodiversidad de la Tierra."],
+   ["The reserve was created to protect local biodiversity.", "La reserva se creó para proteger la biodiversidad local."]
+  ]
+ },
+ "accompany": {
+  "n": "Accompany es acompañar y tiene dos usos: ir con una persona a algún lugar, o ocurrir al mismo tiempo que otra cosa. Se usa con persona o con cosa: accompany a child to school, a fever accompanied by a cough. Con cosas suele ir en pasiva con by: be accompanied by. En música significa tocar o cantar con otro intérprete. Es más formal que go with. Es transitivo: se dice accompany someone, no accompany with. El sustantivo es accompaniment.",
+  "x": [
+   ["A teacher will accompany the students on the trip.", "Un profesor acompañará a los alumnos en la excursión."],
+   ["Heavy rain will accompany the strong winds.", "Una lluvia intensa acompañará a los fuertes vientos."],
+   ["Her brother will accompany her on the guitar when she sings.", "Su hermano la acompañará con la guitarra cuando ella cante."]
+  ]
+ },
+ "accumulate": {
+  "n": "Accumulate es acumular o acumularse: reunir poco a poco una cantidad creciente de algo, o crecer de esa forma. Puede ser transitivo (accumulate wealth, accumulate evidence) o intransitivo (dust accumulates). Es más formal que collect o build up y destaca el proceso gradual. Colocaciones habituales: accumulate experience, accumulate debt, accumulate over time. El sustantivo es accumulation. Se usa con cosas que aumentan, como dinero, datos, polvo o residuos.",
+  "x": [
+   ["Over the years, he accumulated a large collection of books.", "Con los años, acumuló una gran colección de libros."],
+   ["Snow began to accumulate on the roads overnight.", "La nieve empezó a acumularse en las carreteras durante la noche."],
+   ["Debt can accumulate quickly when interest rates are high.", "La deuda puede acumularse rápidamente cuando los tipos de interés son altos."]
+  ]
+ },
+ "accurate": {
+  "n": "Accurate significa preciso o exacto: sin errores y fiel a la realidad. Se usa con información, medidas, datos, descripciones, predicciones: accurate information, an accurate description, highly accurate. Puede ir con el adverbio accurately: accurately measure. Es cercano a precise, pero accurate se centra en que algo sea correcto o verdadero, mientras que precise añade el nivel de detalle. Lo contrario es inaccurate. El sustantivo es accuracy, y suele ir con of: the accuracy of the results.",
+  "x": [
+   ["The scientists needed an accurate measurement of the temperature.", "Los científicos necesitaban una medición exacta de la temperatura."],
+   ["Is the weather forecast usually accurate?", "¿Suele ser preciso el pronóstico del tiempo?"],
+   ["Her account of the accident was accurate and clear.", "Su relato del accidente fue exacto y claro."]
+  ]
+ },
+ "aid": {
+  "n": "Aid como sustantivo es ayuda, sobre todo la que dan gobiernos u organizaciones a países o personas necesitadas, en dinero, alimentos o medicinas. Colocaciones frecuentes: foreign aid, humanitarian aid, emergency aid, international aid, aid worker. Es incontable: no se dice an aid en este sentido. Es más específico que help y suena más institucional. También existe a hearing aid (audífono), donde aid es un aparato que ayuda. Como verbo, aid es ayudar, de uso formal.",
+  "x": [
+   ["Emergency aid arrived within days of the earthquake.", "La ayuda de emergencia llegó a los pocos días del terremoto."],
+   ["Many countries depend on international aid.", "Muchos países dependen de la ayuda internacional."],
+   ["Aid workers delivered food and medicine to the village.", "Los cooperantes llevaron alimentos y medicinas al pueblo."]
+  ]
+ },
+ "allocate": {
+  "n": "Allocate es asignar o destinar: repartir oficialmente dinero, tiempo, recursos o tareas para un fin concreto. Colocaciones típicas: allocate resources, allocate funds, allocate time, allocate a budget. Lleva to para el destino: allocate money to schools. Es muy frecuente en gestión, economía y administración. Es cercano a assign, aunque allocate se usa más con cantidades y recursos, y assign con personas y tareas. El sustantivo es allocation.",
+  "x": [
+   ["The council allocated money to repair the roads.", "El ayuntamiento destinó dinero a reparar las carreteras."],
+   ["How should we allocate our time between work and study?", "¿Cómo deberíamos repartir nuestro tiempo entre el trabajo y el estudio?"],
+   ["Funds are allocated according to the size of each school.", "Los fondos se asignan según el tamaño de cada colegio."]
+  ]
+ },
+ "ambiguous": {
+  "n": "Ambiguous significa ambiguo: algo que puede entenderse de más de una manera, por lo que no queda claro. Se aplica a palabras, frases, instrucciones, resultados o actitudes: an ambiguous statement, ambiguous wording, an ambiguous answer. Es más preciso que unclear o vague: aquí hay dos o más interpretaciones posibles. Lo contrario es unambiguous. El sustantivo es ambiguity y el adverbio ambiguously. Se usa mucho en textos académicos y legales.",
+  "x": [
+   ["The instructions were ambiguous, so students gave different answers.", "Las instrucciones eran ambiguas, así que los alumnos dieron respuestas distintas."],
+   ["Her ambiguous reply left us unsure what she wanted.", "Su respuesta ambigua nos dejó sin saber qué quería."],
+   ["The law is ambiguous on this point.", "La ley es ambigua en este punto."]
+  ]
+ },
+ "amend": {
+  "n": "Amend es modificar o enmendar: introducir cambios en un texto formal, como una ley, un contrato, un reglamento o un documento, normalmente para mejorarlo o corregirlo. Colocaciones: amend a law, amend the constitution, amend a contract, amend the rules. El sustantivo es amendment, una enmienda. Es más formal y oficial que change; revise es más general. Aparece en política, derecho y administración. Make amends es una expresión distinta, que significa compensar un daño.",
+  "x": [
+   ["Parliament voted to amend the constitution.", "El Parlamento votó para enmendar la constitución."],
+   ["You can amend your booking up to 24 hours before departure.", "Puedes modificar tu reserva hasta 24 horas antes de la salida."],
+   ["The contract was amended after both sides agreed to new terms.", "El contrato se modificó cuando ambas partes aceptaron nuevas condiciones."]
+  ]
+ },
+ "analogy": {
+  "n": "Analogy es analogía: una comparación que muestra en qué se parecen dos cosas distintas, normalmente para explicar una idea. Colocaciones frecuentes: draw an analogy, by analogy, a useful analogy, an analogy between X and Y. Se usa con between o with: an analogy between the heart and a pump. Es más amplia que parallel, pues sirve para explicar. No es lo mismo que metaphor, que describe algo como si fuera otra cosa. El adjetivo es analogous.",
+  "x": [
+   ["The teacher used an analogy to explain how electricity flows.", "El profesor usó una analogía para explicar cómo circula la electricidad."],
+   ["By analogy, the same rule can be applied to other cases.", "Por analogía, la misma norma puede aplicarse a otros casos."],
+   ["It is a poor analogy because the two situations are very different.", "Es una mala analogía porque las dos situaciones son muy diferentes."]
+  ]
+ },
+ "annual": {
+  "n": "Annual significa anual en dos sentidos: que ocurre una vez al año (an annual meeting, an annual festival) o que se refiere a un año entero (annual income, annual growth, annual rainfall). Se pone delante de un sustantivo y es más formal que yearly. Colocaciones frecuentes: annual report, annual salary, annual leave (vacaciones pagadas), annual increase. El adverbio es annually. En botánica, an annual es una planta que vive un año, y en inglés británico annual puede ser un libro que se publica cada año.",
+  "x": [
+   ["Employees are entitled to 25 days of annual leave.", "Los empleados tienen derecho a 25 días de vacaciones anuales."],
+   ["The annual conference takes place in Valencia.", "La conferencia anual se celebra en Valencia."],
+   ["Her annual salary rose by three per cent.", "Su salario anual subió un tres por ciento."]
+  ]
+ },
+ "aspect": {
+  "n": "Aspect es aspecto: una parte, característica o punto de vista de una situación, un problema o una idea. Colocaciones frecuentes: every aspect, key aspect, important aspect, positive aspect, an aspect of life. Se construye con of: an aspect of the problem. Es cercano a feature y facet, aunque aspect se usa para analizar algo desde un punto de vista concreto. Puede ser neutral, positivo o negativo. No se refiere a la apariencia física, que en inglés es appearance o look.",
+  "x": [
+   ["Cost is an important aspect of any business decision.", "El coste es un aspecto importante en cualquier decisión empresarial."],
+   ["The report covers every aspect of the project.", "El informe abarca todos los aspectos del proyecto."],
+   ["He enjoyed the social aspect of the course most.", "Lo que más disfrutó del curso fue el aspecto social."]
+  ]
+ },
+ "assemble": {
+  "n": "Assemble significa armar o montar, es decir, juntar las piezas de algo, y también reunir o reunirse, hablando de personas. Con cosas: assemble furniture, assemble a car, assemble parts. Con personas: assemble a team, the crowd assembled in the square. Puede ser transitivo o intransitivo. Es más técnico que build y más formal que gather. Los sustantivos son assembly (montaje o asamblea) y, en fábricas, assembly line, la cadena de montaje.",
+  "x": [
+   ["It took me two hours to assemble the bookcase.", "Me llevó dos horas montar la estantería."],
+   ["The manager assembled a team of experienced engineers.", "El director reunió a un equipo de ingenieros con experiencia."],
+   ["Hundreds of people assembled outside the town hall.", "Cientos de personas se reunieron frente al ayuntamiento."]
+  ]
+ },
+ "assess": {
+  "n": "Assess significa evaluar: juzgar la calidad, el valor, el tamaño o la importancia de algo después de examinarlo con cuidado. Colocaciones habituales: assess the impact, assess the risk, assess the situation, assess performance, accurately assess. Es más formal y analítico que judge, y cercano a evaluate; assess se usa mucho en educación para valorar a los alumnos. Lleva un complemento directo y no preposición. El sustantivo es assessment, que en educación es una evaluación o prueba.",
+  "x": [
+   ["Doctors assess each patient's condition before treatment.", "Los médicos evalúan el estado de cada paciente antes del tratamiento."],
+   ["Inspectors will assess the damage after the flood.", "Los inspectores evaluarán los daños tras la inundación."],
+   ["It is hard to assess how successful the policy has been.", "Es difícil valorar cuánto éxito ha tenido la política."]
+  ]
+ },
+ "assign": {
+  "n": "Assign significa asignar: dar a alguien una tarea, un puesto, un lugar o un deber, o decidir a qué grupo pertenece algo. Colocaciones: assign a task, assign a role, assign homework, randomly assign. Estructura típica: assign something to someone, o assign someone to a place o a group. Con tareas escolares, el profesor assigns homework. Es cercano a allocate y appoint, pero assign se centra en quién hace qué. El sustantivo es assignment: tarea o trabajo asignado.",
+  "x": [
+   ["The teacher assigned a short essay for homework.", "La profesora asignó un breve ensayo como deberes."],
+   ["She was assigned to the marketing department last month.", "El mes pasado la destinaron al departamento de marketing."],
+   ["Each volunteer is assigned a specific job.", "A cada voluntario se le asigna una tarea concreta."]
+  ]
+ },
+ "attain": {
+  "n": "Attain significa alcanzar o lograr algo tras un esfuerzo o un largo proceso: una meta, un nivel, un objetivo, un puesto. Colocaciones: attain a goal, attain a level, attain independence, attain fame. Es más formal que achieve o reach, y suele implicar algo difícil o valioso. Es transitivo y no necesita preposición. Sirve para metas y estados, no para llegar a un lugar físico. El sustantivo es attainment, y el adjetivo, attainable, que puede alcanzarse.",
+  "x": [
+   ["She worked for years to attain her goal of becoming a surgeon.", "Trabajó durante años para alcanzar su meta de ser cirujana."],
+   ["The country attained independence in 1960.", "El país logró la independencia en 1960."],
+   ["Few students attain such a high level of fluency.", "Pocos estudiantes alcanzan un nivel tan alto de fluidez."]
+  ]
+ },
+ "attribute": {
+  "n": "Como verbo, attribute significa atribuir: decir que algo es causado por otra cosa, o que lo ha hecho, escrito o dicho cierta persona. Se usa con to: attribute success to hard work, a painting attributed to Goya. Se pronuncia con acento en la segunda sílaba (atTRIbute). Con acento en la primera (ATtribute), es un sustantivo: atributo, cualidad. Es cercano a ascribe y credit; la voz pasiva be attributed to es muy frecuente en textos académicos.",
+  "x": [
+   ["Doctors attribute the improvement to regular exercise.", "Los médicos atribuyen la mejoría al ejercicio regular."],
+   ["The quotation is often attributed to Einstein.", "La cita suele atribuirse a Einstein."],
+   ["He attributes his success to good teachers.", "Él atribuye su éxito a los buenos profesores."]
+  ]
+ }
+}

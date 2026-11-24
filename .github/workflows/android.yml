@@ -45,10 +45,20 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release delete android-latest --yes --cleanup-tag || true
-          gh release create android-latest lexkite.apk --prerelease --title "Lexkite Android (bản mới nhất)" \
-            --notes "Bản build tự động từ commit ${GITHUB_SHA::7}. Tải lexkite.apk về điện thoại Android → mở file → cho phép cài từ nguồn này → Cài đặt. (Bản thử nghiệm, chưa lên Google Play.)"
-
+          # Link tải KHÔNG BAO GIỜ trống (23/11: upload timeout 408 sau khi đã xoá release → mất link APK): bản cũ chỉ bị thay SAU KHI bản mới tải lên xong.
+          NOTES="Bản build tự động từ commit ${GITHUB_SHA::7}. Tải lexkite.apk về điện thoại Android → mở file → cho phép cài từ nguồn này → Cài đặt. (Bản thử nghiệm, chưa lên Google Play.)"
+          retry() { for i in 1 2 3 4; do "$@" && return 0; echo "::warning::lần $i lỗi: $* – thử lại sau $((i*20))s"; sleep $((i*20)); done; return 1; }
+          cp lexkite.apk lexkite-next.apk
+          if gh release view android-latest >/dev/null 2>&1; then
+            retry gh release upload android-latest lexkite-next.apk --clobber            # bản cũ lexkite.apk vẫn nguyên tới đây
+            old=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/android-latest" --jq '.assets[] | select(.name=="lexkite.apk") | .id')
+            [ -z "$old" ] || gh api -X DELETE "repos/$GITHUB_REPOSITORY/releases/assets/$old"
+            new=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/android-latest" --jq '.assets[] | select(.name=="lexkite-next.apk") | .id')
+            retry gh api -X PATCH "repos/$GITHUB_REPOSITORY/releases/assets/$new" -f name=lexkite.apk >/dev/null   # đổi tên tức thì, không tải lại
+            gh release edit android-latest --notes "$NOTES" --prerelease
+          else
+            retry gh release create android-latest lexkite.apk --prerelease --title "Lexkite Android (bản mới nhất)" --notes "$NOTES"
+          fi
       # Bản KIỂM THỬ riêng (không phát hành): chèn đầu dò mặt tiền video (scripts/test/native-facade.js) → máy giả lập đọc "E2E-VF" trong logcat
       - name: APK kiểm thử (đầu dò mặt tiền video)
         working-directory: mobile/android

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_fr_forsure",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 81,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can I count on you?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "For sure!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Yes, definitely.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pizza tonight? For sure!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "for sure",
+  "forms": [],
+  "ipa": "/fɚ ˈʃʊr/",
+  "mean": "Yes, definitely.",
+  "define": "Used to agree strongly.",
+  "vi": "Chắc chắn rồi",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Answering a plan",
+   "text": "Pizza tonight? For sure!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"For sure\" means…",
+   "options": [
+    "I'm not sure",
+    "definitely"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'for sure' if you might cancel.",
+   "why": "It sounds like a firm promise."
+  },
+  "l1": "c'est sûr",
+  "l1_hook": "Puis-je compter sur toi ? \"for sure\"",
+  "l1_ex": "Pizza ce soir ? \"for sure\" !",
+  "right": "for sure",
+  "native": {
+   "hook": "Que veut dire « for sure » ?",
+   "tip": "“for sure” = c'est sûr. Exemple: “Pizza tonight? For sure!”",
+   "caption": "Que veut dire « for sure » ?\n“for sure” = c'est sûr.\nExemple: “Pizza tonight? For sure!” (Pizza ce soir ? \"for sure\" !)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “for sure” = c'est sûr. “Pizza tonight? For sure!” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can I count on you?"
+ },
+ "src": {
+  "slang": "for sure"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 15,
+  "seconds": 9.2,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Que veut dire « for sure » ?",
+  "keyword": "for sure",
+  "value": "“for sure” = c'est sûr. Exemple: “Pizza tonight? For sure!”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « for sure » ?",
+    "description": "“for sure” = c'est sûr. Exemple: “Pizza tonight? For sure!”\n\nQue veut dire « for sure » ?\n“for sure” = c'est sûr.\nExemple: “Pizza tonight? For sure!” (Pizza ce soir ? \"for sure\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "for sure",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « for sure » ?\n“for sure” = c'est sûr.\nExemple: “Pizza tonight? For sure!” (Pizza ce soir ? \"for sure\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « for sure » ?\n\n“for sure” = c'est sûr. Exemple: “Pizza tonight? For sure!”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « for sure » ? “for sure” = c'est sûr. Exemple: “Pizza tonight? For sure!” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “for sure” = c'est sûr. “Pizza tonight? For sure!” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}
