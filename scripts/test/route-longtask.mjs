@@ -5,4 +5,5 @@ const app = fs.readFileSync('web/js/app.js', 'utf8'), pill = fs.readFileSync('we
 ok(/requestAnimationFrame\(\(\) => \{ if \(my === routeSeq\) focusView\(\); \}\)/.test(app), 'route(): view.focus dời sang rAF (không buộc bố cục trong tác vụ vẽ)');
 ok(!/^\s*if \(routedOnce && !modalOpen[^\n]*view\.focus/m.test(app), 'route(): không còn focus đồng bộ');
 ok(!/hashchange', function \(\) \{[^}]*requestAnimationFrame/.test(pill) && /rebase/.test(pill), 'report-pill-ui: hashchange không đọc scrollY trong rAF (đặt lại mốc ở sự kiện cuộn)');
+ok(/function a11yRoute\(name, preTitle, my\)/.test(app) && /a11yRoute\(name, preTitle, my\)/.test(app), 'a11yRoute nhận my (focus rAF dùng routeSeq; thiếu → ReferenceError mọi route)');
 process.exit(bad ? 1 : 0);
