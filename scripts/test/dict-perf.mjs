@@ -101,7 +101,8 @@ await page.evaluate(() => { location.hash = '#/home'; }); await sleep(2500);
 await page.evaluate(() => { window.__lt.length = 0; });
 if (await page.locator('#gq').count()) {
   // ≤1023 px thanh trên cũ (có #gq) bị ẩn từ khi màn Hôm nay dùng khung Stitch v2 → người dùng thật mở ô tra bằng nút kính lúp (data-act=search); gõ vào #gq ẩn thì không có sự kiện nào
-  if (!(await page.locator('#gq').isVisible())) { const sb = page.locator('[data-act="search"]').first(); if (await sb.count()) { await sb.click(); await sleep(300); } }
+  if (!(await page.locator('#gq').isVisible())) { const sb = page.locator('[data-act="search"]').first(); if (await sb.count()) { await sb.click(); await sleep(800); } }
+  await page.evaluate(() => { window.__lt.length = 0; }); // đo tác vụ dài CHỈ lúc gõ (mở ô tra = bật lớp v2-gs, không thuộc phép gõ)
   await page.evaluate(() => document.querySelector('#gq').focus()); await page.keyboard.type('sustainab', { delay: 60 }); await sleep(1500);
   R.typingLongTasks = await page.evaluate(() => window.__lt.filter(x => x.d > 50).map(x => Math.round(x.d)));
   R.suggestList = await page.evaluate(() => [...document.querySelectorAll('#suggest a b')].map(b => b.textContent.toLowerCase())); // in ra để chẩn đoán khi đỏ
