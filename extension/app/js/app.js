@@ -1069,9 +1069,10 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   }
   App.personalCollections = personalCollections;
 
-  routes.topic = function (id, query) {
+  routes.topic = function (id, query, noX) {
     const tp = topicOf(id);
     if (!tp) return routes.library('', new URLSearchParams());
+    const xb = ['topicx', id].join('-'); if (!noX && typeof LK_BUNDLES !== 'undefined' && LK_BUNDLES[xb]) return App.need('topicx', xb).then(() => (window.LK_TOPICX && LK_TOPICX[id] ? LK_TOPICX_UI.draw(tp, LK_TOPICX[id]) : routes.topic(id, query, true)), () => routes.topic(id, query, true)); // chủ đề sâu (docs/specs/topic-depth.md): gói lười; lỗi tải → trang cũ
     const levels = [...new Set(tp.words.map(w => w.level).filter(Boolean))].sort();
     const missing = () => tp.words.filter(w => !inDeck(w.word));
     const gname = (GROUPS.find(g => g.id === tp.group) || {}).name || '';
