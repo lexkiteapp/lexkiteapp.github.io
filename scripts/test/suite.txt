@@ -410,6 +410,7 @@ node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
 node scripts/test/speak-pre-cls.mjs
 node scripts/test/route-longtask.mjs
+node scripts/test/sweep-longtask-scope.mjs
 node scripts/test/st-web-i18n.mjs
 node scripts/test/store-submit.mjs
 node scripts/store/release-notes.mjs --check
