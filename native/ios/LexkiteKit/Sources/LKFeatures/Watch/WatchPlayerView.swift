@@ -13,7 +13,9 @@ struct WatchPlayerView: View {
     let model: WatchPlayerModel
     var onRoute: (AppRoute) -> Void = { _ in }
     var web: ((WatchPlayerModel) -> AnyView)?
-    @State private var word = "", sentence = "", note = ""
+    @State private var word = ""
+    @State private var sentence = ""
+    @State private var note = ""
     @Environment(\.colorScheme) private var scheme
     @Environment(\.scenePhase) private var phase
     @Environment(\.l10n) private var t

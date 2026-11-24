@@ -95,10 +95,14 @@ final class WatchPlayerModel {
     let start: Int
     private let api: WatchAPI
     private let store: WatchStore
-    private(set) var title: String, ch: String
+    private(set) var title: String
+    private(set) var ch: String
     private let topic: String
-    private(set) var ready = false, playing = false, failed = false
-    private(set) var len: Double = 0, pos: Double = 0
+    private(set) var ready = false
+    private(set) var playing = false
+    private(set) var failed = false
+    private(set) var len: Double = 0
+    private(set) var pos: Double = 0
     private(set) var loop = WatchLoop()
     private(set) var rate: Double = 1
     private(set) var notes: [WatchNote]
