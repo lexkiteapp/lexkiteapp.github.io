@@ -10,6 +10,7 @@ PROG_F = f'{ROOT}/content/video/teach2d/progress.json'
 HOOK = 'Day one. Day thirty.'
 REVIEWER = ('gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · '
             'spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = "Day one. Day thirty." · no duplicate sentence · short 18-27 s)')
+REAL_OFF = 2.7   # CI renders (24/11): 9 padded shorts rendered 17.0-17.8 s at short_secs ~19.7 (real = short_secs - 1.9..2.7), so the estimate is short_secs - 2.7
 PROG_MAX = 27.0   # QC short ceiling 28 s (same calibration as band)
 _PJ = None
 FN = {}   # filled by install(): gen.py calls PROG.FN['data_gate'] / ['plan'] (static checkers cannot see names injected into globals)
@@ -40,14 +41,14 @@ def install(G):
                  L('b', it['day30'], 0.4),
                  L('w', 'Same sentence. Just a little practice every day.', 0.3),
                  L('c', 'Save this. Free on lexkite.com.')]
-        est = G['short_secs']({'lines': lines}) + 0.9   # short tail: the day-1 silence grows so every short lands >= 18 s for real (pilot: estimate 19.6 rendered 16.9)
-        lines[1]['pause'] = round(lines[1]['pause'] + max(0.0, min(2.4, 20.6 - est)), 2)
+        est = G['short_secs']({'lines': lines}) - REAL_OFF   # short tail: the day-1 silence grows so every short lands >= 18 s for real
+        lines[1]['pause'] = round(lines[1]['pause'] + max(0.0, min(4.0, 18.7 - est)), 2)
         return dict(lines=lines, data=dict(id=it['id'], day1=it['day1'], day30=it['day30'], marks=it['marks'], s1=it['s1'], s30=it['s30'], sample=True),
                     cta=cta('voice-diary', '#/diary', 'Start your voice diary'), hook=dict(line='h', text=HOOK), src=dict(progress=it['id']))
 
     G['T']['progress'] = progress; G['SERIES']['progress'] = 'Day 1 vs Day 30'
 
-    def progress_secs(ep): return G['short_secs'](ep) + 0.9   # real shorts run ~0.9 s over short_secs (band/rule calibration)
+    def progress_secs(ep): return G['short_secs'](ep) - REAL_OFF
 
     def taught(it): return [w for w in norm(it['day1']) if w not in set(norm(it['day30']))] + ['um', 'uh']
 

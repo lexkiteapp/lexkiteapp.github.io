@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "Tank you... for you elp... dis morning.",
-   "pause": 2.01
+   "pause": 3.71
   },
   {
    "id": "k",
@@ -68,8 +68,8 @@
  },
  "est": {
   "words": 35,
-  "seconds": 21.0,
-  "wpm": 100
+  "seconds": 22.7,
+  "wpm": 93
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"Thank you for your help this morning\"",

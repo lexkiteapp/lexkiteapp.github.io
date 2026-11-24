@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "Wery few... um... people wisit dis wilage.",
-   "pause": 0.7
+   "pause": 2.29
   },
   {
    "id": "k",
@@ -69,8 +69,8 @@
  },
  "est": {
   "words": 34,
-  "seconds": 19.2,
-  "wpm": 106
+  "seconds": 20.8,
+  "wpm": 98
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"Very few people visit this village\"",

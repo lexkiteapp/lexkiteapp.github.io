@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "De restaran is wery bizi... eveli nai.",
-   "pause": 0.7
+   "pause": 0.86
   },
   {
    "id": "k",
@@ -69,8 +69,8 @@
  },
  "est": {
   "words": 35,
-  "seconds": 19.7,
-  "wpm": 107
+  "seconds": 19.8,
+  "wpm": 106
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"The restaurant is very busy every night\"",

@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "She wok at a... big hospito... near de liba.",
-   "pause": 0.7
+   "pause": 1.43
   },
   {
    "id": "k",
@@ -69,8 +69,8 @@
  },
  "est": {
   "words": 39,
-  "seconds": 21.6,
-  "wpm": 108
+  "seconds": 22.4,
+  "wpm": 105
  },
  "publish": {
   "title": "Day 1 vs Day 30: She works at a big hospital near the river",

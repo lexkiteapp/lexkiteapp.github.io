@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "Our teacha gab us... tree nyu wods... todai.",
-   "pause": 0.87
+   "pause": 2.57
   },
   {
    "id": "k",
@@ -69,8 +69,8 @@
  },
  "est": {
   "words": 37,
-  "seconds": 20.8,
-  "wpm": 107
+  "seconds": 22.5,
+  "wpm": 99
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"Our teacher gave us three new words today\"",

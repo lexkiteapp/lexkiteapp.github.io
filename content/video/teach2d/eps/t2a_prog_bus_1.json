@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "Wat tim... does de nex bos leb?",
-   "pause": 2.58
+   "pause": 4.28
   },
   {
    "id": "k",
@@ -71,8 +71,8 @@
  },
  "est": {
   "words": 35,
-  "seconds": 21.6,
-  "wpm": 97
+  "seconds": 23.3,
+  "wpm": 90
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"What time does the next bus leave\"",

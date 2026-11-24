@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "De wedder was col... so we stay at hom.",
-   "pause": 0.87
+   "pause": 2.57
   },
   {
    "id": "k",
@@ -70,8 +70,8 @@
  },
  "est": {
   "words": 39,
-  "seconds": 21.8,
-  "wpm": 107
+  "seconds": 23.5,
+  "wpm": 100
  },
  "publish": {
   "title": "Day 1 vs Day 30: The weather was cold, so we stayed at home",

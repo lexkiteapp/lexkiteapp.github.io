@@ -17,7 +17,7 @@
   {
    "id": "a",
    "text": "Cood you sen me... de adres... by imeil?",
-   "pause": 0.87
+   "pause": 2.57
   },
   {
    "id": "k",
@@ -70,8 +70,8 @@
  },
  "est": {
   "words": 37,
-  "seconds": 20.8,
-  "wpm": 107
+  "seconds": 22.5,
+  "wpm": 99
  },
  "publish": {
   "title": "Day 1 vs Day 30: \"Could you send me the address by email\"",
