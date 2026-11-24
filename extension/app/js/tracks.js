@@ -148,13 +148,13 @@
     const s = document.createElement('style'); s.id = 'trkCss';
     s.textContent = `.trk-list{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));margin-top:.6rem}
 .trk-opt{display:flex;gap:.7rem;align-items:flex-start;text-align:start;width:100%;min-height:64px;padding:.75rem .85rem;border:2px solid var(--line);border-radius:16px;background:var(--surface);color:var(--text);font:inherit;cursor:pointer}
-.trk-opt[aria-pressed=true],.trk-card.on{border-color:var(--done);background:var(--accent-soft)}.trk-opt:focus-visible,.trk-sw a:focus-visible,.trk-vs button:focus-visible,.trk-lv button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.trk-opt[aria-pressed=true],.trk-card.on{border-color:var(--primary);background:var(--primary-soft)}.trk-opt:focus-visible,.trk-sw a:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
 .trk-em{font-size:1.7rem;line-height:1;flex:none}.trk-opt b,.trk-card b{display:block}.trk-opt .small,.trk-card .small{color:var(--muted)}
 .trk-vs{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}.trk-vs button,.trk-lv button{min-height:44px;padding:.35rem .8rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;cursor:pointer}
-.trk-vs button[aria-pressed=true],.trk-lv button[aria-pressed=true]{border-color:var(--done);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--done)}
+.trk-vs button[aria-pressed=true],.trk-lv button[aria-pressed=true]{border-color:var(--primary);background:var(--primary);color:var(--primary-ink)}
 .trk-lv{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
 .trk-sw{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0 0}.trk-sw a{display:inline-flex;align-items:center;justify-content:center;gap:.3rem;min-height:44px;min-width:44px;padding:.25rem .8rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--text);text-decoration:none;font-size:.88rem;font-weight:600}
-.trk-sw a[aria-current]{border-color:var(--done);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--done)}
+.trk-sw a[aria-current]{border-color:var(--primary);background:var(--primary-soft);color:var(--primary-text,var(--text))}
 .trk-card{border:2px solid var(--line);border-radius:16px;padding:.85rem;background:var(--surface)}.trk-card .row{margin-top:.6rem}
 .trk-card .trk-h{display:flex;gap:.7rem;align-items:flex-start}.trk-card select{min-height:44px;max-width:100%}`;
     document.head.appendChild(s);
@@ -215,7 +215,7 @@
           ${f ? `<span class="small" style="display:block;margin-top:.3rem">${f.k ? t('Ngày {n}', { n: f.k.n }) + ' · ' : ''}${t('{a}/{b} ngày', { a: f.n, b: f.of })}</span>` : ''}</div></div>
           ${on && x.vs ? `<div data-for="${id}">${vsBtns(x, variant(x))}</div>` : ''}
           ${on ? `<label class="small" style="display:block;margin-top:.6rem">${t('Trình độ hiện tại của bạn?')}<select class="input" data-lvsel="${id}">${x.stages.map(s => `<option value="${s.id}"${s.id === (sid || x.stages[0].id) ? ' selected' : ''}>${esc(s.name)}</option>`).join('')}</select></label>` : ''}
-          <div class="row">${me ? `<a class="btn primary" href="#/path">${f && f.k ? t('Bắt đầu Ngày {n}', { n: f.k.n }) : t('Gói học')} →</a>` : `<a class="btn" href="#/tracks?use=${id}">${on ? t('Học gói này') : '＋ ' + t('Theo dõi thêm')}</a>`}
+          <div class="row">${me ? `<a class="btn primary" href="#/path">${f && f.k ? t('Bắt đầu Ngày {n}', { n: f.k.n }) : t('Gói học')} →</a>` : `<a class="btn${on ? ' primary' : ''}" href="#/tracks?use=${id}">${on ? t('Học gói này') : '＋ ' + t('Theo dõi thêm')}</a>`}
           ${on && !me && c.on.length > 1 ? `<button type="button" class="btn ghost sm" data-unf="${id}">${t('Bỏ theo dõi')}</button>` : ''}</div></section>`; }).join('')}</div>
       <p class="small muted" style="margin-top:1rem"><a href="#/placement">🧭 ${t('Làm bài kiểm tra đầu vào')}</a> · <a href="#/goal">🚩 ${t('Mục tiêu & kế hoạch')}</a></p>`;
     view.querySelectorAll('[data-unf]').forEach(b => b.onclick = async () => { await unfollow(b.dataset.unf); page(); });

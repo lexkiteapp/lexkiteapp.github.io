@@ -32,7 +32,7 @@
       const acc = accent(), it = S[k], pl = C().plan(it, acc, WEAK), d = load();
       box.innerHTML = `<div class="row between"><h3 style="margin:0">${ic('audio-lines')} ${t('Nhịp câu & shadowing')}</h3><span class="chip">${acc === 'en-US' ? t('Giọng Mỹ') : t('Giọng Anh')}</span></div>
         <p class="small muted">${t('Từ in to được nhấn; từ nhỏ đọc nhanh, nhẹ (dạng yếu). Nghe mẫu, rồi bấm Shadowing và nói theo ngay.')}</p>
-        <div class="rhy-pick" role="group" aria-label="${t('Chọn câu')}">${S.map((s, i) => `<button type="button" class="chip ${i === k ? 'on' : ''}" data-k="${i}" aria-pressed="${i === k}" title="${esc(s.s)}">${d[i] >= 85 ? '✓' : i + 1}</button>`).join('')}</div>
+        <div class="rhy-pick" role="group" aria-label="${t('Chọn câu')}">${S.map((s, i) => `<button type="button" class="btn sm ${i === k ? 'primary' : ''}" data-k="${i}" aria-pressed="${i === k}" title="${esc(s.s)}">${d[i] >= 85 ? '✓' : i + 1}</button>`).join('')}</div>
         <div class="rhy-s" lang="en" translate="no">${pl.map(p => p.stress ? `<span class="rhy-w"><b>${esc(p.w)}</b></span>` : `<span class="rhy-w"><span>${esc(p.w)}</span>${p.weak ? `<span class="ipa">${esc(p.weak)}</span>` : ''}</span>`).join('')}</div>
         <div class="row" style="gap:.5rem;flex-wrap:wrap"><button class="btn sm" id="rhyN">${ic('volume-2')} ${t('Nghe mẫu')}</button><button class="btn sm" id="rhyS">${ic('turtle')} ${t('Nghe chậm')}</button><button class="btn primary" id="rhyGo">${ic('mic')} ${t('Shadowing')}</button></div>
         <div id="rhyRes" role="status" aria-live="polite" style="margin-top:.7rem">${res || ''}</div>`;
