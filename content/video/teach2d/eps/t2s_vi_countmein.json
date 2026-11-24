@@ -1,0 +1,150 @@
+{
+ "id": "t2s_vi_countmein",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 35,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Game night at my place!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Count me in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I want to join.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Game night? Count me in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "count me in",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈɪn/",
+  "mean": "I want to join.",
+  "define": "Used to say you will take part in a plan.",
+  "vi": "Tính tui vào nhé",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Replying to an invite",
+   "text": "Game night? Count me in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'll count",
+    "I'll join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me in' before checking the date.",
+   "why": "People will count on you."
+  },
+  "l1": "Tính tui vào nhé",
+  "l1_hook": "Tối chơi game ở nhà tui nè!",
+  "l1_ex": "Tối chơi game hả? Count me in!",
+  "right": "count me in",
+  "native": {
+   "hook": "“count me in” nghĩa là gì?",
+   "tip": "“count me in” = Tính tui vào nhé. Ví dụ: “Game night? Count me in!”",
+   "caption": "“count me in” nghĩa là gì?\n“count me in” = Tính tui vào nhé.\nVí dụ: “Game night? Count me in!” (Tối chơi game hả? Count me in!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “count me in” = Tính tui vào nhé. “Game night? Count me in!” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Game night at my place!"
+ },
+ "src": {
+  "slang": "count me in"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“count me in” nghĩa là gì?",
+  "keyword": "count me in",
+  "value": "“count me in” = Tính tui vào nhé. Ví dụ: “Game night? Count me in!”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“count me in” nghĩa là gì?",
+    "description": "“count me in” = Tính tui vào nhé. Ví dụ: “Game night? Count me in!”\n\n“count me in” nghĩa là gì?\n“count me in” = Tính tui vào nhé.\nVí dụ: “Game night? Count me in!” (Tối chơi game hả? Count me in!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "count me in",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“count me in” nghĩa là gì?\n“count me in” = Tính tui vào nhé.\nVí dụ: “Game night? Count me in!” (Tối chơi game hả? Count me in!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“count me in” nghĩa là gì?\n\n“count me in” = Tính tui vào nhé. Ví dụ: “Game night? Count me in!”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“count me in” nghĩa là gì? “count me in” = Tính tui vào nhé. Ví dụ: “Game night? Count me in!” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “count me in” = Tính tui vào nhé. “Game night? Count me in!” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

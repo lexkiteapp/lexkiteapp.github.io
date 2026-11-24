@@ -1,0 +1,148 @@
+{
+ "id": "t2s_th_frenemy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 83,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We smile, but we compete!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Frenemy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A friend who is also a rival.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She's my frenemy, always competing with me.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "key": "frenemy",
+  "forms": [
+   "frenemies"
+  ],
+  "ipa": "/ˈfrenəmi/",
+  "mean": "A friend who is also a rival.",
+  "define": "Someone who acts friendly but competes with you.",
+  "vi": "Bạn mà như đối thủ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "She's my frenemy, always competing with me."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"frenemy\" is…",
+   "options": [
+    "a pet",
+    "friend and rival"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your best friend your 'frenemy'.",
+   "why": "It suggests you secretly dislike her."
+  },
+  "l1": "เพื่อนคู่แข่ง",
+  "l1_hook": "เรายิ้มกัน แต่ก็แข่งขันกัน!",
+  "l1_ex": "เธอเป็น \"frenemy\" ของฉัน, มักจะแข่งขันกับฉันเสมอ.",
+  "right": "frenemy",
+  "native": {
+   "hook": "“frenemy” แปลว่าอะไร?",
+   "tip": "“frenemy” = เพื่อนคู่แข่ง. ตัวอย่าง: “She's my frenemy, always competing with me.”",
+   "caption": "“frenemy” แปลว่าอะไร?\n“frenemy” = เพื่อนคู่แข่ง.\nตัวอย่าง: “She's my frenemy, always competing with me.” (เธอเป็น \"frenemy\" ของฉัน, มักจะแข่งขันกับฉันเสมอ.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “frenemy” = เพื่อนคู่แข่ง. “She's my frenemy, always competing with me.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "We smile, but we compete!"
+ },
+ "src": {
+  "slang": "frenemy"
+ },
+ "lang": "th",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“frenemy” แปลว่าอะไร?",
+  "keyword": "frenemy",
+  "value": "“frenemy” = เพื่อนคู่แข่ง. ตัวอย่าง: “She's my frenemy, always competing with me.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“frenemy” แปลว่าอะไร?",
+    "description": "“frenemy” = เพื่อนคู่แข่ง. ตัวอย่าง: “She's my frenemy, always competing with me.”\n\n“frenemy” แปลว่าอะไร?\n“frenemy” = เพื่อนคู่แข่ง.\nตัวอย่าง: “She's my frenemy, always competing with me.” (เธอเป็น \"frenemy\" ของฉัน, มักจะแข่งขันกับฉันเสมอ.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "frenemy",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“frenemy” แปลว่าอะไร?\n“frenemy” = เพื่อนคู่แข่ง.\nตัวอย่าง: “She's my frenemy, always competing with me.” (เธอเป็น \"frenemy\" ของฉัน, มักจะแข่งขันกับฉันเสมอ.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“frenemy” แปลว่าอะไร?\n\n“frenemy” = เพื่อนคู่แข่ง. ตัวอย่าง: “She's my frenemy, always competing with me.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“frenemy” แปลว่าอะไร? “frenemy” = เพื่อนคู่แข่ง. ตัวอย่าง: “She's my frenemy, always competing with me.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “frenemy” = เพื่อนคู่แข่ง. “She's my frenemy, always competing with me.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

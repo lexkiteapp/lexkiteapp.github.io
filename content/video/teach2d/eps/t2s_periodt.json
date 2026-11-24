@@ -1,0 +1,133 @@
+{
+ "id": "t2s_periodt",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 190,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza is best. Any questions?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Periodt!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "And that's final.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pizza is the best food, period.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "periodt",
+  "forms": [
+   "period"
+  ],
+  "ipa": "/ˈpɪriəd/",
+  "mean": "And that's final.",
+  "define": "Used to end a point with confidence.",
+  "vi": "Hết, chốt luôn, khỏi bàn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Ending an argument",
+   "text": "Pizza is the best food, period."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Period\" here means…",
+   "options": [
+    "a time",
+    "that's final"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't write 'periodt' in a school essay.",
+   "why": "It's texting slang, not formal writing."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza is best. Any questions?"
+ },
+ "src": {
+  "slang": "periodt"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"periodt\" mean?",
+  "keyword": "periodt",
+  "value": "Periodt = And that's final. Example: \"Pizza is the best food, period.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"periodt\" mean?",
+    "description": "Periodt = And that's final. Example: \"Pizza is the best food, period.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "periodt",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"periodt\" mean?\n\nPeriodt = And that's final. Example: \"Pizza is the best food, period.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"periodt\" mean?\n\nPeriodt = And that's final. Example: \"Pizza is the best food, period.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"periodt\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't write 'periodt' in a school essay. It's texting slang, not formal writing. Real example: \"Pizza is the best food, period.\" More real English slang, free: {link}"
+ }
+}

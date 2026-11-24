@@ -1,0 +1,146 @@
+{
+ "id": "t2s_tr_headsup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 99,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Quick warning: boss is coming!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Heads up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A quick warning in advance.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Just a heads up, the meeting starts early.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "heads up",
+  "forms": [],
+  "ipa": "/ˈhedz ˈʌp/",
+  "mean": "A quick warning in advance.",
+  "define": "Early information so someone can be ready.",
+  "vi": "Báo trước nhé",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Texting a teammate",
+   "text": "Just a heads up, the meeting starts early."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"heads up\" is a…",
+   "options": [
+    "quick warning",
+    "neck exercise"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'heads up' after the problem happens.",
+   "why": "It's a warning before something."
+  },
+  "l1": "önceden uyarı",
+  "l1_hook": "Kısa bir uyarı: \"heads up\", patron geliyor!",
+  "l1_ex": "Sadece bir \"heads up\": toplantı erken başlıyor.",
+  "right": "heads up",
+  "native": {
+   "hook": "“heads up” ne demek?",
+   "tip": "“heads up” = önceden uyarı. Örnek: “Just a heads up, the meeting starts early.”",
+   "caption": "“heads up” ne demek?\n“heads up” = önceden uyarı.\nÖrnek: “Just a heads up, the meeting starts early.” (Sadece bir \"heads up\": toplantı erken başlıyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “heads up” = önceden uyarı. “Just a heads up, the meeting starts early.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Quick warning: boss is coming!"
+ },
+ "src": {
+  "slang": "heads up"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "“heads up” ne demek?",
+  "keyword": "heads up",
+  "value": "“heads up” = önceden uyarı. Örnek: “Just a heads up, the meeting starts early.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“heads up” ne demek?",
+    "description": "“heads up” = önceden uyarı. Örnek: “Just a heads up, the meeting starts early.”\n\n“heads up” ne demek?\n“heads up” = önceden uyarı.\nÖrnek: “Just a heads up, the meeting starts early.” (Sadece bir \"heads up\": toplantı erken başlıyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "heads up",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“heads up” ne demek?\n“heads up” = önceden uyarı.\nÖrnek: “Just a heads up, the meeting starts early.” (Sadece bir \"heads up\": toplantı erken başlıyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“heads up” ne demek?\n\n“heads up” = önceden uyarı. Örnek: “Just a heads up, the meeting starts early.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“heads up” ne demek? “heads up” = önceden uyarı. Örnek: “Just a heads up, the meeting starts early.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “heads up” = önceden uyarı. “Just a heads up, the meeting starts early.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

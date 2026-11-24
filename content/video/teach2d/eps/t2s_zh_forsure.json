@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_forsure",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 81,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can I count on you?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "For sure!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Yes, definitely.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pizza tonight? For sure!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "for sure",
+  "forms": [],
+  "ipa": "/fɚ ˈʃʊr/",
+  "mean": "Yes, definitely.",
+  "define": "Used to agree strongly.",
+  "vi": "Chắc chắn rồi",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Answering a plan",
+   "text": "Pizza tonight? For sure!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"For sure\" means…",
+   "options": [
+    "I'm not sure",
+    "definitely"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'for sure' if you might cancel.",
+   "why": "It sounds like a firm promise."
+  },
+  "l1": "当然",
+  "l1_hook": "我能指望你吗？（\"for sure\"）",
+  "l1_ex": "今晚吃披萨？\"for sure\"！",
+  "right": "for sure",
+  "native": {
+   "hook": "“for sure”是什么意思？",
+   "tip": "“for sure” = 当然. 例句: “Pizza tonight? For sure!”",
+   "caption": "“for sure”是什么意思？\n“for sure” = 当然.\n例句: “Pizza tonight? For sure!” (今晚吃披萨？\"for sure\"！)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “for sure” = 当然. “Pizza tonight? For sure!” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can I count on you?"
+ },
+ "src": {
+  "slang": "for sure"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 15,
+  "seconds": 9.2,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“for sure”是什么意思？",
+  "keyword": "for sure",
+  "value": "“for sure” = 当然. 例句: “Pizza tonight? For sure!”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“for sure”是什么意思？",
+    "description": "“for sure” = 当然. 例句: “Pizza tonight? For sure!”\n\n“for sure”是什么意思？\n“for sure” = 当然.\n例句: “Pizza tonight? For sure!” (今晚吃披萨？\"for sure\"！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "for sure",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“for sure”是什么意思？\n“for sure” = 当然.\n例句: “Pizza tonight? For sure!” (今晚吃披萨？\"for sure\"！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“for sure”是什么意思？\n\n“for sure” = 当然. 例句: “Pizza tonight? For sure!”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“for sure”是什么意思？ “for sure” = 当然. 例句: “Pizza tonight? For sure!” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “for sure” = 当然. “Pizza tonight? For sure!” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

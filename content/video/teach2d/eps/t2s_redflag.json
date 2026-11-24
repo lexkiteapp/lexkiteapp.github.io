@@ -1,0 +1,133 @@
+{
+ "id": "t2s_redflag",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 139,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He lied twice on date one!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Red flag!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A warning sign.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That sudden price change is a red flag.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "red flag",
+  "forms": [
+   "red flags"
+  ],
+  "ipa": "/ˈred ˈflæɡ/",
+  "mean": "A warning sign.",
+  "define": "A sign that something might be a problem.",
+  "vi": "Dấu hiệu cảnh báo",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a plan",
+   "text": "That sudden price change is a red flag."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"red flag\" is a…",
+   "options": [
+    "toy",
+    "warning sign"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'red flag' about a friend's haircut.",
+   "why": "It's for warning signs, not taste."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He lied twice on date one!"
+ },
+ "src": {
+  "slang": "red flag"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"red flag\" mean?",
+  "keyword": "red flag",
+  "value": "Red flag = A warning sign. Example: \"That sudden price change is a red flag.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"red flag\" mean?",
+    "description": "Red flag = A warning sign. Example: \"That sudden price change is a red flag.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "red flag",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"red flag\" mean?\n\nRed flag = A warning sign. Example: \"That sudden price change is a red flag.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"red flag\" mean?\n\nRed flag = A warning sign. Example: \"That sudden price change is a red flag.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"red flag\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'red flag' about a friend's haircut. It's for warning signs, not taste. Real example: \"That sudden price change is a red flag.\" More real English slang, free: {link}"
+ }
+}

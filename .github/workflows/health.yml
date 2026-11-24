@@ -11,10 +11,16 @@ permissions:
   contents: read
   issues: write
 concurrency: { group: health, cancel-in-progress: true }
+# 24/11 (#1680): MỘT job tuần tự (npm test 19' + e2e 22' + leak 4' + Drive 14'+) vượt timeout 60' → lượt 22–23/11 bị huỷ lúc hết giờ, không báo cáo gì. Tách 3 job SONG SONG (unit · e2e · drive) + job báo cáo; mọi bước và ngưỡng giữ nguyên.
 jobs:
-  health:
+  unit:
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
-    timeout-minutes: 60
+    timeout-minutes: 45
+    outputs:
+      test: ${{ steps.test.outcome }}
+      leak: ${{ steps.leak.outcome }}
+      tsc: ${{ steps.tsc.outcome }}
+      yaml: ${{ steps.yaml.outcome }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -37,6 +43,19 @@ jobs:
         id: yaml
         continue-on-error: true
         run: for f in .github/workflows/*.yml; do python3 -c "import yaml,sys;yaml.safe_load(open(sys.argv[1]))" "$f" || exit 1; done
+  e2e:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 45
+    outputs:
+      live: ${{ steps.live.outcome }}
+      e2e: ${{ steps.e2e.outcome }}
+      toeicread: ${{ steps.toeicread.outcome }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --no-audit --no-fund
       - name: Bản live (lexkite.com + CDN âm thanh)
         id: live
         continue-on-error: true
@@ -60,15 +79,34 @@ jobs:
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium
           npm run test:toeic-read
+  drive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      drive: ${{ steps.drive.outcome }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --no-audit --no-fund
       - name: Kho Drive – quota, token, ngưỡng 80/90 %, bản sao (cảnh báo + thư do máy chủ gửi; docs/ASSET-LIBRARY.md §8.6.2)
         id: drive
         continue-on-error: true
+        timeout-minutes: 15   # lượt 23/11: bước này treo ≥ 14' tới khi cả job hết giờ; giờ chỉ bước này đỏ
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
         run: node scripts/video/library.mjs drive-health
+  report:
+    needs: [unit, e2e, drive]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
       - name: Báo cáo (issue + email)
         env:
           GH_TOKEN: ${{ github.token }}
-          R: "test=${{ steps.test.outcome }} leak=${{ steps.leak.outcome }} tsc=${{ steps.tsc.outcome }} yaml=${{ steps.yaml.outcome }} live=${{ steps.live.outcome }} e2e=${{ steps.e2e.outcome }} toeicread=${{ steps.toeicread.outcome }} drive=${{ steps.drive.outcome }}"
+          GH_REPO: ${{ github.repository }}
+          R: "test=${{ needs.unit.outputs.test || 'thiếu' }} leak=${{ needs.unit.outputs.leak || 'thiếu' }} tsc=${{ needs.unit.outputs.tsc || 'thiếu' }} yaml=${{ needs.unit.outputs.yaml || 'thiếu' }} live=${{ needs.e2e.outputs.live || 'thiếu' }} e2e=${{ needs.e2e.outputs.e2e || 'thiếu' }} toeicread=${{ needs.e2e.outputs.toeicread || 'thiếu' }} drive=${{ needs.drive.outputs.drive || 'thiếu' }}"
         run: |
           RUN="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           BAD=$(echo "$R" | tr ' ' '\n' | grep -v '=success' || true)

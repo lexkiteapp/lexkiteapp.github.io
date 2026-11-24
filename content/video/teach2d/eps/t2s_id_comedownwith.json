@@ -1,0 +1,149 @@
+{
+ "id": "t2s_id_comedownwith",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 60,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My throat hurts. Uh-oh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Come down with!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start to get sick.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I think I'm coming down with a cold.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "data": {
+  "key": "come down with",
+  "forms": [
+   "came down with",
+   "coming down with"
+  ],
+  "ipa": "/ˈkʌm ˈdaʊn wɪð/",
+  "mean": "Start to get sick.",
+  "define": "To begin to feel ill with something like a cold.",
+  "vi": "Bắt đầu bị ốm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a friend",
+   "text": "I think I'm coming down with a cold."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you're…",
+   "options": [
+    "falling down",
+    "getting sick"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say you 'came down with' a gift.",
+   "why": "It means starting to get sick."
+  },
+  "l1": "mulai sakit",
+  "l1_hook": "Tenggorokku sakit. Uh-oh! \"come down with\".",
+  "l1_ex": "Kurasa aku sedang \"come down with\" flu.",
+  "right": "come down with",
+  "native": {
+   "hook": "Apa arti “come down with”?",
+   "tip": "“come down with” = mulai sakit. Contoh: “I think I'm coming down with a cold.”",
+   "caption": "Apa arti “come down with”?\n“come down with” = mulai sakit.\nContoh: “I think I'm coming down with a cold.” (Kurasa aku sedang \"come down with\" flu.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “come down with” = mulai sakit. “I think I'm coming down with a cold.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My throat hurts. Uh-oh!"
+ },
+ "src": {
+  "slang": "come down with"
+ },
+ "lang": "id",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Apa arti “come down with”?",
+  "keyword": "come down with",
+  "value": "“come down with” = mulai sakit. Contoh: “I think I'm coming down with a cold.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “come down with”?",
+    "description": "“come down with” = mulai sakit. Contoh: “I think I'm coming down with a cold.”\n\nApa arti “come down with”?\n“come down with” = mulai sakit.\nContoh: “I think I'm coming down with a cold.” (Kurasa aku sedang \"come down with\" flu.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "come down with",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “come down with”?\n“come down with” = mulai sakit.\nContoh: “I think I'm coming down with a cold.” (Kurasa aku sedang \"come down with\" flu.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “come down with”?\n\n“come down with” = mulai sakit. Contoh: “I think I'm coming down with a cold.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “come down with”? “come down with” = mulai sakit. Contoh: “I think I'm coming down with a col… #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “come down with” = mulai sakit. “I think I'm coming down with a cold.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

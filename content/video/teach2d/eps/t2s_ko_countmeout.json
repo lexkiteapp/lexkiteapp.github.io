@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_countmeout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 54,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wanna go to the late show?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Count me out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I won't take part.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm tired, so count me out.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "count me out",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈaʊt/",
+  "mean": "I won't take part.",
+  "define": "Used to politely say you won't join a plan.",
+  "vi": "Đừng tính tui",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Declining an invitation",
+   "text": "I'm tired, so count me out."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm leaving the country",
+    "I won't join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me out' to your boss's request.",
+   "why": "It sounds like a flat refusal."
+  },
+  "l1": "제외해 주세요",
+  "l1_hook": "심야 영화 보러 갈래?",
+  "l1_ex": "나 피곤하니까 \"count me out\".",
+  "right": "count me out",
+  "native": {
+   "hook": "“count me out” 무슨 뜻일까요?",
+   "tip": "“count me out” = 제외해 주세요. 예문: “I'm tired, so count me out.”",
+   "caption": "“count me out” 무슨 뜻일까요?\n“count me out” = 제외해 주세요.\n예문: “I'm tired, so count me out.” (나 피곤하니까 \"count me out\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “count me out” = 제외해 주세요. “I'm tired, so count me out.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wanna go to the late show?"
+ },
+ "src": {
+  "slang": "count me out"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“count me out” 무슨 뜻일까요?",
+  "keyword": "count me out",
+  "value": "“count me out” = 제외해 주세요. 예문: “I'm tired, so count me out.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“count me out” 무슨 뜻일까요?",
+    "description": "“count me out” = 제외해 주세요. 예문: “I'm tired, so count me out.”\n\n“count me out” 무슨 뜻일까요?\n“count me out” = 제외해 주세요.\n예문: “I'm tired, so count me out.” (나 피곤하니까 \"count me out\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "count me out",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“count me out” 무슨 뜻일까요?\n“count me out” = 제외해 주세요.\n예문: “I'm tired, so count me out.” (나 피곤하니까 \"count me out\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“count me out” 무슨 뜻일까요?\n\n“count me out” = 제외해 주세요. 예문: “I'm tired, so count me out.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“count me out” 무슨 뜻일까요? “count me out” = 제외해 주세요. 예문: “I'm tired, so count me out.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “count me out” = 제외해 주세요. “I'm tired, so count me out.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_lame",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 82,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Party ended at eight. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Lame!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Boring or disappointing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That party was kind of lame.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "lame",
+  "forms": [],
+  "ipa": "/ˈleɪm/",
+  "mean": "Boring or disappointing.",
+  "define": "Used for things that are dull or not cool.",
+  "vi": "Nhạt, dở ẹc",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Leaving a party",
+   "text": "That party was kind of lame."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Lame\" means…",
+   "options": [
+    "exciting",
+    "dull"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's idea 'lame' in front of everyone.",
+   "why": "It sounds hurtful."
+  },
+  "l1": "差劲的",
+  "l1_hook": "派对八点就结束了，真是 \"lame\"。",
+  "l1_ex": "那个派对有点 \"lame\"。",
+  "right": "lame",
+  "native": {
+   "hook": "“lame”是什么意思？",
+   "tip": "“lame” = 差劲的. 例句: “That party was kind of lame.”",
+   "caption": "“lame”是什么意思？\n“lame” = 差劲的.\n例句: “That party was kind of lame.” (那个派对有点 \"lame\"。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “lame” = 差劲的. “That party was kind of lame.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Party ended at eight. Seriously?"
+ },
+ "src": {
+  "slang": "lame"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 17,
+  "seconds": 10.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“lame”是什么意思？",
+  "keyword": "lame",
+  "value": "“lame” = 差劲的. 例句: “That party was kind of lame.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“lame”是什么意思？",
+    "description": "“lame” = 差劲的. 例句: “That party was kind of lame.”\n\n“lame”是什么意思？\n“lame” = 差劲的.\n例句: “That party was kind of lame.” (那个派对有点 \"lame\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "lame",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“lame”是什么意思？\n“lame” = 差劲的.\n例句: “That party was kind of lame.” (那个派对有点 \"lame\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“lame”是什么意思？\n\n“lame” = 差劲的. 例句: “That party was kind of lame.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“lame”是什么意思？ “lame” = 差劲的. 例句: “That party was kind of lame.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “lame” = 差劲的. “That party was kind of lame.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

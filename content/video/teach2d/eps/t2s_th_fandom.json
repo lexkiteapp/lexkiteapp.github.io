@@ -1,0 +1,152 @@
+{
+ "id": "t2s_th_fandom",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 96,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who loves this band most?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Fandom!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A group of devoted fans.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The fandom loves this band.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "fandom",
+  "forms": [
+   "fandoms"
+  ],
+  "ipa": "/ˈfændəm/",
+  "mean": "A group of devoted fans.",
+  "define": "People who love the same show or band.",
+  "vi": "Cộng đồng fan",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Talking about a band",
+   "text": "The fandom loves this band."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"fandom\" is…",
+   "options": [
+    "a fantasy",
+    "a fan community"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your coworkers a 'fandom'.",
+   "why": "It means devoted fans of one thing."
+  },
+  "l1": "กลุ่มแฟนคลับ",
+  "l1_hook": "ใครใน \"fandom\" รักวงนี้ที่สุด?",
+  "l1_ex": "\"fandom\" รักวงนี้",
+  "right": "fandom",
+  "native": {
+   "hook": "“fandom” แปลว่าอะไร?",
+   "tip": "“fandom” = กลุ่มแฟนคลับ. ตัวอย่าง: “The fandom loves this band.”",
+   "caption": "“fandom” แปลว่าอะไร?\n“fandom” = กลุ่มแฟนคลับ.\nตัวอย่าง: “The fandom loves this band.” (\"fandom\" รักวงนี้)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “fandom” = กลุ่มแฟนคลับ. “The fandom loves this band.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who loves this band most?"
+ },
+ "src": {
+  "slang": "fandom"
+ },
+ "lang": "th",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“fandom” แปลว่าอะไร?",
+  "keyword": "fandom",
+  "value": "“fandom” = กลุ่มแฟนคลับ. ตัวอย่าง: “The fandom loves this band.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“fandom” แปลว่าอะไร?",
+    "description": "“fandom” = กลุ่มแฟนคลับ. ตัวอย่าง: “The fandom loves this band.”\n\n“fandom” แปลว่าอะไร?\n“fandom” = กลุ่มแฟนคลับ.\nตัวอย่าง: “The fandom loves this band.” (\"fandom\" รักวงนี้)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "fandom",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“fandom” แปลว่าอะไร?\n“fandom” = กลุ่มแฟนคลับ.\nตัวอย่าง: “The fandom loves this band.” (\"fandom\" รักวงนี้)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“fandom” แปลว่าอะไร?\n\n“fandom” = กลุ่มแฟนคลับ. ตัวอย่าง: “The fandom loves this band.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“fandom” แปลว่าอะไร? “fandom” = กลุ่มแฟนคลับ. ตัวอย่าง: “The fandom loves this band.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “fandom” = กลุ่มแฟนคลับ. “The fandom loves this band.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

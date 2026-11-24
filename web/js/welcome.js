@@ -54,7 +54,9 @@
     if (mq && mq.addEventListener && mq.removeEventListener) { const my = st, on = () => { if (st !== my) return; App.loadCss('css/st-v2-' + (mq.matches ? 'welcome-desk' : 'welcome') + '.css').then(() => { if (st === my && $('#wCard')) render(); }); };
       mq.addEventListener('change', on); App.onCleanup(() => mq.removeEventListener('change', on)); }
     render();
-    if (App.habTrack) App.habTrack('onb_welcome'); // phễu lần đầu (hit.js ONB_EV)
+    // phễu (hit.js ONB_EV): chỉ người thật – chạm/phím/cuộn hoặc trang hiện ≥ 5 s (lọc máy mở rồi đóng ngay)
+    if (App.habTrack) { const E = ['pointerdown', 'keydown', 'scroll'], on = () => { off(); App.habTrack('onb_welcome'); }, off = () => { clearTimeout(tm); E.forEach(e => removeEventListener(e, on, true)); }, tm = setTimeout(() => document.visibilityState === 'visible' && on(), 5e3);
+      E.forEach(e => addEventListener(e, on, { capture: true, passive: true })); App.onCleanup(off); }
   }
   g.Welcome = { draw };
 })(self);
