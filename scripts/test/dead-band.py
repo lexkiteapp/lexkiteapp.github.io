@@ -15,4 +15,10 @@ assert band(tex(900), flat(100, 40), tex(100), flat(100, 40), tex(720)) < D.MIN_
 assert band(tex(H)) == 0, 'full-bleed texture passes'
 assert band(flat(H, 40)) == 1.0, 'an empty frame is one band'
 assert band(flat(200, 40), flat(200, 200)) <= 200 / H, 'a hard brightness step starts a new band'
+import numpy as np
+bare = np.full((480, 270), 40.0); assert D.empty_ratio(bare) > 0.99, 'a bare background frame is 100 % empty'
+busy = np.random.RandomState(2).uniform(0, 255, (480, 270)); assert D.empty_ratio(busy) == 0.0, 'full texture has no bare background'
+card = bare.copy(); card[20:460, 20:250] = 200.0 + np.random.RandomState(3).uniform(-30, 30, (440, 230)); assert D.empty_ratio(card) < D.MAX_EMPTY, 'a big card on the background fills the frame (card tone is not background)'
+tiny = bare.copy(); tiny[200:260, 100:160] = 200.0; assert D.empty_ratio(tiny) > D.MAX_EMPTY, 'a tiny card in a bare frame fails'
+assert D.check([bare, bare], empty=True)['ok'] is False and D.check([card, card], empty=True)['ok'] is True and 'max_empty_pct' in D.check([card])
 print('dead_band: OK')

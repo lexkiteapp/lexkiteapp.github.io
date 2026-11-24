@@ -37,9 +37,9 @@ ok(B.length === 3 && B.every((b, i) => b.start <= b.v0 - PRE + 1e-9 || b.start =
   `speak blocks: ${B.length} (split only at silences ≥ ${LONG} s: after the repeat and the quiz), each starts ≥ ${PRE} s before its voice`);
 ok(E('speak').length === B.length && E('speak').every(e => e.cues[0].value === 'X' && e.cues[0].start === 0), 'one speak(null, cues, {dur}) per block, cues relative to the block, X lead-in');
 const at = (n, id) => E('emo', n).some(e => Math.abs(e.t - T.lines[id].words[0].s) < 1.2 || e.t > T.lines[id].words[0].s && e.t < T.lines[id].t1 + T.lines[id].pause);
-ok(at('surprise', 'h') && at('happy', 'h') && at('thinking', 'q') && at('praise', 'ans') && E('gesture', 'nod').length === 1 && at('encourage', 'c') && at('explain', 'a'),
+ok(at('surprise', 'h') && at('happy', 'h') && at('thinking', 'q') && at('praise', 'ans') && E('gesture', 'nod').filter(e => e.why === 'answer').length === 1 && at('encourage', 'c') && at('explain', 'a'),
   'script → hook surprise→happy · quiz thinking in its pause · answer praise + nod · CTA encourage · lines explain');
-const pg = E('gesture').filter(e => e.name !== 'nod');
+const pg = E('gesture').filter(e => e.name !== 'nod' && e.why !== 'emphasis');
 ok(pg.length === 1 && pg[0].name === 'point' && pg[0].t > T.lines.r.words[0].e && pg[0].t < T.lines.q.words[0].s, `pose gesture only in a long silence: ${pg.map(e => `${e.name}@${e.t}`)} (after the repeat line, none in the quiz countdown)`);
 
 // ---- 3) core simulation → lipsync_rig gate (green), deterministic ----
@@ -138,6 +138,19 @@ s = z(1.12, ox, hx1, cap0, 12); print(json.dumps(dict(s=s, edge=ox + (hx1 - ox) 
 }
 const bsrc = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/build.py'), 'utf8');
 ok(!/\['1st', 'accent'\]|\['2nd', 'accent'\]|f"…-\{o\[1\]\}-…"/.test(bsrc), 'build.py T_stress has no hard-coded 1st/2nd or option positions');
+
+// ---- v3 engine (docs/VIDEO-V3.md): beat -> look, one end card, wide captions, new gates ----
+{
+  const P = plan(T, VO), emo = P.events.filter(e => e.kind === 'emo'), gest = P.events.filter(e => e.kind === 'gesture' && e.why === 'emphasis');
+  ok(emo.every((e, i) => !i || e.name !== emo[i - 1].name || e.t - emo[i - 1].t < 0.5 && /hook/.test(e.why)), 'v3: no two consecutive beats keep the same drawn face');
+  ok(new Set(emo.map(e => e.name)).size >= Math.min(6, Object.keys(T.lines).length), 'v3: at least as many different looks as beats (cap 6 in the fixture)');
+  ok(gest.length >= Object.keys(T.lines).length - 1, 'v3: head emphasis (nod / bob) inside every beat');
+  const bs = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/build.py'), 'utf8'), qs = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/qc.py'), 'utf8');
+  ok(/wide=dict\([^\n]*cap=\[96, 924, 1056, 1024\]/.test(bs.replace(/\n\s+/g, ' ')) || /cap=\[96, 924, 1056, 1024\]/.test(bs), 'v3: wide format burns captions (cap box set)');
+  ok(!/if EMBED:\n\s+c\.text\(\[\['Next step/.test(bs) && /CTA_LABEL/.test(bs) && /qr\.png/.test(bs), 'v3: one end card (no embed "Next step" variant), Practice button + QR + lexkite.com');
+  for (const g of ['end_card', 'caption_full', 'pose_variety']) ok(new RegExp(`gate\\('${g}'`).test(qs), `v3: qc.py gate ${g}`);
+  ok(!/if T\['format'\] == 'short':\n\s+capw/.test(qs), 'v3: caption_sync runs on wide too');
+}
 
 fs.rmSync(TMP, { recursive: true, force: true });
 console.log(out.join('\n')); console.log(process.exitCode ? '✗ teach2d-rig: ĐỎ' : '✓ teach2d-rig: đạt');

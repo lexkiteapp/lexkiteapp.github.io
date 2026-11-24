@@ -39,7 +39,8 @@ LAYOUTS = dict(   # same cards / timing; only where the card region, captions an
     side=dict(region=[60, 324, 960, 1150], cap=[510, 1196, 960, 1364], cap_rows=2, host_h=760, host_cx=260),
     bubble=dict(region=[60, 324, 960, 1396], cap=[60, 1410, 610, 1496], host_h=744, host_cx=None, bubble=[632, 1440, 1032, 1840]))
 FMT = dict(short=dict(W=1080, H=1920, chip=[60, 236], safe=[48, 232, 960, 1497], **LAYOUTS[o.layout or 'corner']),
-           wide=dict(W=1920, H=1080, region=[96, 150, 1056, 990], chip=[96, 70], safe=[60, 48, 1860, 1032], cap=None, host_h=960, host_cx=1460))[o.format]
+           wide=dict(W=1920, H=1080, region=[96, 150, 1056, 904], chip=[96, 70], safe=[60, 48, 1860, 1032], cap=[96, 924, 1056, 1024],   # v3 (audit 24/11 #5): burned karaoke captions in the wide cut too, under the card region, left of the teacher
+            host_h=960, host_cx=1460))[o.format]
 LAYOUT = (o.layout or 'corner') if o.format == 'short' else 'wide'
 SOCIAL = o.format == 'short'   # owner 29/10: social shorts get the cinematic layer (hook punch, camera push / cuts, whoosh + music); lesson embeds stay calm
 PZ = dict(top=0.12, bottom=0.22, right=0.14)   # platform UI zones of a 9:16 short (back / search icons, caption + sound row, like / comment rail): qc.py platform_zones gate
@@ -114,7 +115,7 @@ for l in EP['lines']:
     ws = [dict(w=x['w'], s=round(t + x['s'], 3), e=round(t + x['e'], 3)) for x in wj['words']]
     LINES[l['id']] = dict(l, t0=round(t, 3), t1=round(t + dur, 3), words=ws, wav=fn, interp=wj.get('interpolated', 0), whisper=wj.get('whisper', ''))
     SPEECH.append([ws[0]['s'], ws[-1]['e']]); t += dur + l['pause']
-TOTAL = round(t + (0.3 if EMBED else 0.6), 3)
+TOTAL = round(max(t + (0.3 if EMBED else 0.6), LINES['c']['words'][0]['s'] + 2.9), 3)   # v3: end card on screen >= 2 s (qc.py end_card)
 norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower().replace('’', "'"))
 
 
@@ -272,6 +273,11 @@ def hook_card(text_runs, t_out, extra=None):
     return b
 
 
+CTA_LABEL = {'dictionary': 'Practice with the dictionary', 'verbs': 'Practice verbs', 'pronunciation': 'Practice your sounds', 'grammar-check': 'Practice and fix grammar', 'phrases': 'Practice real phrases',
+             'word-usage': 'Practice tricky words', 'placement': 'Practice and find your level', 'grammar': 'Practice this rule', 'dictation': 'Practice dictation', 'toeic': 'Practice TOEIC free',
+             'vocab-review': 'Practice your words', 'call': 'Practice a real call'}   # button always starts with "Practice" (qc.py end_card)
+
+
 def end_card():
     """end card: app icon + Lexkite + 100% FREE, then the deep-link CTA button + QR + lexkite.com (embed: 'Next step', no QR / follow)."""
     cta = EP['cta']; t_in = start('c'); t_url = at('c', 'lexkite.com'); c = Card(RY0, tone='card')
@@ -280,12 +286,11 @@ def end_card():
     c.rows.append(dict(id=nid('t'), type='text', runs=[['Lexkite', 'ink']], size=84, ipa=False, box=[x + 134, y + 4, x + 134 + lw, y + 106], **{'in': cue(t_in)}))
     CUES.append(dict(node=c.rows[-1]['id'], t=t_in, tag='Lexkite')); c.y += 110 + 16
     c.text([['100% FREE', 'accent']], S['body'], t_in, align='c')
-    if EMBED:
-        c.text([['Next step →', 'primary']], S['body'], t_url, align='c')
-    else:
-        c.add(dict(type='cta', lines=[cta['say']], size=S['body'], box=[PAD, 0, PAD + c.inner, 0], **{'in': cue(t_url)}), 118)
-        q = 220; c.add(dict(type='img', src='qr.png', radius=24, box=[PAD + (c.inner - q) / 2, 0, PAD + (c.inner + q) / 2, 0], **{'in': cue(t_url)}), q, gap=14)
-        c.text([['lexkite.com', 'muted']], S['sub'], t_url, align='c')
+    # v3 (audit 24/11 #2): ONE end card for every template and every format – icon + Lexkite, "Practice ..." button, QR, lexkite.com; never an empty half-card
+    t_btn = t_in + 0.35; label = CTA_LABEL.get(cta['area'], 'Practice free on Lexkite')
+    c.add(dict(type='cta', lines=[label], size=S['body'], box=[PAD, 0, PAD + c.inner, 0], **{'in': cue(t_btn)}), 118)
+    q = 190 if EMBED else 220; c.add(dict(type='img', src='qr.png', radius=24, box=[PAD + (c.inner - q) / 2, 0, PAD + (c.inner + q) / 2, 0], **{'in': cue(t_btn + 0.15)}), q, gap=14)
+    c.text([['lexkite.com', 'muted']], S['sub'], t_btn + 0.3, align='c')
     c.place(t_in, None, 'a')
 
 

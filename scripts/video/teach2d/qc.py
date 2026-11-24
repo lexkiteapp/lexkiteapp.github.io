@@ -40,9 +40,20 @@ for k, v in L.items():
     # coverage of the script's letters in what whisper heard (whisper may repeat the prompt after the audio ends and splits 'U.S.' -> 'U .S.')
     r = P.heard(v['text'], v['whisper'])
     if spoken != script or r < 0.9 or v['interp'] > 2: bad.append(dict(line=k, heard=round(r, 2), interp=v['interp']))
-if T['format'] == 'short':
+if True:   # v3: wide burns captions too (audit 24/11 #5)
     capw = [norm(w['w']) for c in T['caps'] for w in c['words']]; allw = [norm(w['w']) for v in L.values() for w in v['words']]
     if capw != allw: bad.append(dict(captions='caption tokens != spoken tokens'))
+# v3 caption_full: every spoken line is covered by caption pages (burned in, every format) – none cut mid-sentence, none missing, plate inside the safe box
+_nc = []
+if not T.get('cap_box'): _nc.append(dict(why='no caption band'))
+else:
+    sb = T['safe']; cb = T['cap_box']
+    if cb[0] < sb[0] or cb[1] < sb[1] or cb[2] > sb[2] or cb[3] > sb[3]: _nc.append(dict(why='caption band outside safe box', cap=cb, safe=sb))
+for k, v in L.items():
+    pg = [c for c in T['caps'] if c['t0'] <= v['words'][0]['s'] + 0.5 and c['t1'] >= v['words'][0]['s']] if T.get('caps') else []
+    got = [w['w'] for c in T['caps'] for w in c['words'] if v['words'][0]['s'] - 1e-6 <= w['s'] <= v['words'][-1]['s'] + 1e-6]
+    if len(got) != len(v['words']): _nc.append(dict(line=k, spoken=len(v['words']), captioned=len(got)))
+gate('caption_full', not _nc, 3, bad=_nc[:6])
 gate('caption_sync', not bad, 3, bad=bad[:6])
 # mouth: talk frames cover every spoken word, no talk in silences > 0.35 s
 fps = T['fps']; nf = nf_of(T); talk = [False] * nf
@@ -66,6 +77,12 @@ if T.get('host') == 'rig':   # TeacherRig host: the mouth is the episode's own v
     if os.path.exists(rg['frames']): lr = LG.check(T, json.load(open(rg['frames'])), rg['vo'])
     else: lr = dict(ok=False, missing=rg['frames'])
     gate('lipsync_rig', lr.pop('ok'), 3, **lr)
+    # v3 pose_variety (audit 24/11 #1): the teacher changes look (drawn face / pose image) at EVERY beat and shows >= as many different looks as beats (cap 8 = rig vocabulary)
+    if os.path.exists(rg['frames']):
+        fr_ = json.load(open(rg['frames']))['frames']; look = lambda f: (fr_[min(len(fr_) - 1, f)].get('emo'), fr_[min(len(fr_) - 1, f)].get('pose'))
+        ls_ = sorted(L.values(), key=lambda v: v['t0']); same = [v['text'][:24] for a_, v in zip(ls_, ls_[1:]) if look(int((a_['words'][0]['s'] + 0.2) * fps)) == look(int((v['words'][0]['s'] + 0.3) * fps))]
+        kinds = {look(f) for f in range(len(fr_))}; need = min(len(ls_), 8)
+        gate('pose_variety', len(kinds) >= need and not same, 3, looks=len(kinds), beats=len(ls_), need=need, unchanged_at=same[:4])
 else: gate('mouth', not miss and not long_talk, 3, words_without_talk=miss[:5], talk_in_silence=long_talk[:5], segments=len(T['segs']))
 # hook
 hk = [n for n in T['nodes'] if n.get('hook')]
@@ -155,6 +172,12 @@ for x in T['ipa']:
     if bk.get(x['token'].lower()) != x['ipa']: ib.append(dict(token=x['token'], shown=x['ipa'], bank=bk.get(x['token'].lower())))
     if 'stress' in x and stress_index(x['ipa']) != x['stress']: ib.append(dict(token=x['token'], why='stress dot != IPA stress mark', ipa=x['ipa'], dot=x['stress']))
 gate('ipa', not ib, 3, checked=len(T['ipa']), bad=ib)
+# v3 end_card: the one closing card has all 4 parts (icon, 'Practice...' button, QR, lexkite.com) on screen >= 2 s
+_ns = list(N.values()); _in = lambda n: (n.get('in') or {}).get('t', 0)
+_p = dict(icon=[n for n in _ns if n.get('src') == 'icon.png'], button=[n for n in _ns if n['type'] == 'cta' and str(n.get('lines', [''])[0]).startswith('Practice')],
+          qr=[n for n in _ns if n.get('src') == 'qr.png'], url=[n for n in _ns if n['type'] == 'text' and any(r[0] == 'lexkite.com' for r in n.get('runs', []))])
+_miss = [k for k, v in _p.items() if not v]; _late = [k for k, v in _p.items() if v and T['total'] - _in(v[-1]) < 2.0]
+gate('end_card', not _miss and not _late, 3, missing=_miss, shown_under_2s=_late, total=T['total'])
 # CTA deep link into the matching app feature
 cta = T['cta']; ROUTES = ('#/dict/', '#/verb/', '#/pron/', '#/fix', '#/phrases', '#/usage', '#/grammar', '#/lesson', '#/call', '#/confidence', '#/placement', '#/toeic', '#/reading', '#/review', '#/dictation', '#/write', '#/speaking')
 gate('cta', cta['link'].startswith('https://lexkite.com/app/') and cta['route'].startswith(ROUTES) and cta['link'].endswith(cta['route']), 2, **cta)
@@ -179,7 +202,7 @@ if o.video:
         if im.std() < 4: blank.append(i)
     gate('frames', min(hostvis) > 0.12 and not blank, 3, host_cover_min=min(hostvis), host_missing_s=[i / 4 for i, x in enumerate(hostvis) if x <= 0.12][:6], blank=blank)   # 4 samples / s
     from dead_band import check as _dead_band   # owner 19/11: no flat empty band >= 8 % of the frame height (scripts/video/tpl/dead_band.py), short + wide
-    _db = _dead_band(im.astype(np.float32).mean(2) for im in fr); gate('dead_band', _db['ok'], 3, **{k: v for k, v in _db.items() if k != 'ok'})
+    _db = _dead_band((im.astype(np.float32).mean(2) for im in fr), empty=True); gate('dead_band', _db['ok'], 3, **{k: v for k, v in _db.items() if k != 'ok'})
     if o.sheet:   # contact sheet: one frame per line (middle), for the review sheet
         ts = [round((x['t0'] + x['t1']) / 2, 2) for x in L.values()]
         sel = '+'.join(f'between(t\\,{t - 0.02}\\,{t + 0.02})' for t in ts)

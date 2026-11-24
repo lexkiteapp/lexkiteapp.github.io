@@ -61,6 +61,7 @@ export function blocks(track, total) {
 
 const GEST_FOR_POSE = pose => Object.entries(CORE.GESTURES).filter(([, g]) => g.kind === 'pose' && g.pose === pose).map(([n]) => n).sort((a, b) => (a === pose ? -1 : b === pose ? 1 : 0))[0] || null;
 const posesOf = names => [...new Set(names.map(n => CORE.GESTURES[n] && CORE.GESTURES[n].pose).filter(Boolean))];
+export const BEAT_EMO = ['explain', 'happy', 'encourage', 'thinking', 'praise', 'surprise', 'listen'];   // plain teaching beats (spec §1 + v3)
 export const SILENCE_POSES = ['point', 'explain', 'cheer'];
 
 /** Emotion / gesture schedule from the script (spec §1): hook surprise -> happy · quiz: thinking in its pause · answer: praise + nod ·
@@ -73,6 +74,7 @@ export function schedule(T, lines, B) {
   const XP = T.expr ? CORE.EXPR[T.expr] : null, EX = T.exprs || {};   // exprs {line id: EXPR name} (levels3: one face per level line, held while it is spoken)
   for (const [lid, n] of Object.entries(EX)) if (!CORE.EXPR[n] || !lines.some(l => l.id === lid)) ev.push({ t: 0, kind: 'error', why: `unknown expression ${n} / line ${lid} (TeacherRig EXPR)` });
   if (T.expr && !XP) ev.push({ t: 0, kind: 'error', why: `unknown expression ${T.expr} (TeacherRig EXPR)` });
+  let beat = 0;
   const react = T.pose && T.pose.clip ? { after: T.pose.after, g: GEST_FOR_POSE(T.pose.clip) } : null;
   const at = (t, kind, name, why) => ev.push({ t: r3(Math.max(0, t)), kind, name, why });
   lines.forEach((l, i) => {
@@ -83,7 +85,12 @@ export function schedule(T, lines, B) {
     else if (isQuiz(l)) { at(s - 0.1, 'emo', 'explain', 'quiz'); at(wEnd(l) + 0.05, 'emo', 'thinking', 'quiz pause'); }
     else if (prev && isQuiz(prev)) { at(s - 0.1, 'emo', 'praise', 'answer'); at(s + 0.05, 'gesture', 'nod', 'answer'); }
     else if (l.id === 'c') at(s - 0.1, 'emo', 'encourage', 'cta');
-    else at(s - 0.1, 'emo', 'explain', 'line');
+    else {   // v3 (audit 24/11 #1): every beat has its own look – cycle through BEAT_EMO, never the same as the previous beat's
+      const last = [...ev].reverse().find(e => e.kind === 'emo'), pick = BEAT_EMO.filter(n => !last || n !== last.name);
+      at(s - 0.1, 'emo', pick[beat++ % pick.length], 'beat');
+    }
+    // head emphasis inside every beat (neck procedure, works while speaking – a pose image would cover the mouth): bob on the middle of the line
+    if (wEnd(l) - wStart(l) > 0.8) at(wStart(l) + 0.4 * (wEnd(l) - wStart(l)), 'gesture', i % 2 ? 'nod' : 'bob', 'emphasis');
   });
   // silences between blocks: pose gesture after quiet() when it shows >= 0.5 s at full weight (react pose >= 0.3 s) before the next speak fades it
   for (let i = 0; i + 1 < B.length; i++) {
