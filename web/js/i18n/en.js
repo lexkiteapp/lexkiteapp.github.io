@@ -6,54 +6,19 @@
 // ai.js
 'AI trên máy': 'on-device AI',
 'Trên máy': 'On-device',
-'Chạy trên máy của bạn – miễn phí, không gửi đi đâu': 'Runs on your device – free, nothing is sent anywhere',
-'Dùng AI trên máy (miễn phí, riêng tư)': 'Use on-device AI (free, private)',
-'Nên dùng Wi-Fi – tải tiếp được nếu bị ngắt': 'Wi-Fi recommended – the download resumes if interrupted',
-'Đang dùng dữ liệu di động – hãy bật Wi-Fi để tải': 'You are on mobile data – switch to Wi-Fi to download',
-'Mở {link} và đăng nhập Google.': 'Open {link} and sign in with Google.',
-'Bấm <b>Create API key</b> → sao chép khóa (bắt đầu bằng “AIza…”).': 'Click <b>Create API key</b> → copy the key (it starts with “AIza…”).',
-'Dán vào ô dưới đây.': 'Paste it into the box below.',
-'Khóa chỉ lưu trên trình duyệt này, không đồng bộ lên tài khoản và chỉ gửi tới Google khi bạn bấm chấm bài. Bài làm của bạn được gửi tới Google Gemini để chấm.': 'Your key is stored only in this browser. It is never synced to your account and is sent to Google only when you request grading. Your answer is sent to Google Gemini for grading.',
-'Lưu & kiểm tra': 'Save & test',
 'Để sau': 'Not now',
-'Khóa không đúng định dạng (bắt đầu bằng AIza… hoặc AQ.…).': 'Invalid key format (starts with AIza… or AQ.…).',
-'Đang kiểm tra khóa…': 'Checking your key…',
-'Khóa hoạt động!': 'Your key works!',
-'Khóa không hợp lệ – kiểm tra lại.': 'Invalid key – please check it.',
-'Đã hết lượt miễn phí trong ngày/phút của khóa này – thử lại sau ít phút.': 'This key has used up its free quota for now – try again in a few minutes.',
-'Không tìm thấy mô hình AI phù hợp.': 'No suitable AI model found.',
-'Lỗi: {msg}': 'Error: {msg}',
-'Band ước tính bởi AI': 'AI-estimated band',
 'Điểm mạnh': 'Strengths',
-'Cần cải thiện': 'To improve',
-'Lỗi cần sửa': 'Errors to fix',
-'Nâng cấp từ vựng': 'Vocabulary upgrades',
-'Câu trả lời mẫu band 8': 'Band 8 sample answer',
-'Viết lại đoạn yếu nhất ở band 8': 'Your weakest paragraph, rewritten at band 8',
 'Nghe': 'Listen',
 'dạng yếu': 'weak form',
 'dạng mạnh': 'strong form',
 'Nghe dạng yếu trong câu: {s}': 'Hear the weak form in a sentence: {s}',
-'Chấm bởi {model} – AI có thể sai sót, hãy dùng như một ý kiến tham khảo của giám khảo.': 'Graded by {model}. AI can make mistakes – treat this as a second opinion, not an official score.',
-'Chấm chi tiết bằng AI': 'Detailed AI grading',
-'4 tiêu chí IELTS · chỉ ra lỗi & cách sửa · gợi ý từ vựng · bài mẫu': '4 IELTS criteria · errors & fixes · vocabulary tips · model answer',
-'Chấm bằng AI': 'Grade with AI',
-'Bài quá ngắn để chấm (cần ≥ 20 từ)': 'Too short to grade (at least 20 words needed)',
-'AI đang chấm bài (10–30 giây)…': 'AI is grading (10–30 seconds)…',
-'Chrome đang tải AI trên máy lần đầu ({pct}%) – chỉ tải một lần…': 'Chrome is downloading on-device AI ({pct}%) – one-time download…',
 'Chấm lại': 'Grade again',
 'Nhập khóa': 'Enter key',
 'Sẵn sàng': 'Ready',
 'Trình duyệt chưa hỗ trợ': 'Not supported in this browser',
-'Chấm bài bằng AI': 'AI grading',
-'Đã có khóa {key}…': 'Key saved: {key}…',
 'Chưa có khóa': 'No key',
-'Đổi khóa': 'Change key',
 'Thêm khóa': 'Add key',
-'Xóa khóa': 'Remove key',
 'Mô hình': 'Model',
-'Tự động (khuyên dùng)': 'Automatic (recommended)',
-'Đã xóa khóa AI': 'AI key removed',
 'Giải thích sâu': 'In-depth explanation',
 'Nghĩa trong ngữ cảnh:': 'Meaning in context:',
 'Ngữ pháp:': 'Grammar:',
@@ -215,9 +180,6 @@
 'Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.': "You've used today's free limit – it resets at {time}.",
 'Máy chủ đang bận – thử lại sau ít phút.': 'The server is busy – please try again in a few minutes.',
 'Đăng nhập để có thêm lượt.': 'Sign in to get more.',
-'Khóa Gemini riêng (không bắt buộc)': 'Your own Gemini key (optional)',
-'Không bắt buộc – Lexkite đã có AI miễn phí, không cần khóa. Thêm khóa Gemini miễn phí của riêng bạn nếu muốn dùng nhiều lượt hơn mức miễn phí mỗi ngày.': 'Optional – Lexkite already includes free AI, no key needed. Add your own free Gemini key only if you want more uses than the daily free limit.',
-'Thêm khóa Gemini riêng (không bắt buộc)': 'Add your own Gemini key (optional)',
 'Dịch máy': 'Machine translation',
 'Cần giúp không? Cứ thử nhé – sai cũng không sao, mình học từ đó.': 'Need a hand? Just give it a try – mistakes are how we learn.',
 }); })(typeof self !== 'undefined' ? self : this);
@@ -389,7 +351,6 @@
 'Phân tích từ vựng': 'Analyse vocabulary',
 'Mở': 'Open',
 'Chưa có': 'None yet',
-'Độ đa dạng từ': 'Lexical variety',
 
 // write.js: trend stats (dynamic keys)
 'Bảng (table)': 'Table',
@@ -434,11 +395,11 @@
 }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, {
 'Đang phân tích từ vựng…': 'Analysing vocabulary…', 'Từ vựng quan trọng': 'Key vocabulary',
-'Tải AI của Chrome (~2GB, 1 lần)': 'Download Chrome’s AI (~2 GB, once)', 'AI phản hồi quá lâu – thử lại sau.': 'AI took too long – try again later.',
+'Tải AI của Chrome (~2GB, 1 lần)': 'Download Chrome’s AI (~2 GB, once)', 
 }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, {"{n}/{min} từ · {p} đoạn.": "{n}/{min} words · {p} paragraphs.", "Có câu tổng quan (overview).": "Has an overview.", "Thiếu câu tổng quan (overview) – lỗi nặng ở Task 1.": "No overview – a serious weakness in Task 1.", "{k} số liệu được dẫn.": "{k} figures cited.", "Nêu rõ quan điểm.": "Clear position.", "Chưa nêu rõ quan điểm.": "Position not clearly stated.", "Có kết luận.": "Has a conclusion.", "Thiếu đoạn kết luận.": "Missing a conclusion.", "Dùng {n} từ nối khác nhau: {list}.": "Uses {n} different linking words: {list}.", "Dùng {n} từ nối khác nhau.": "Uses {n} different linking words.", "Độ đa dạng từ {p}%, từ học thuật {a}%.": "Lexical variety {p}%, academic words {a}%.", "{c}% câu có cấu trúc phức · {e} lỗi phát hiện.": "{c}% complex sentences · {e} errors found.", "Viết đủ tối thiểu {min} từ – thiếu từ bị trừ điểm Task.": "Write at least {min} words – under-length answers lose Task marks.", "Thêm câu tổng quan bắt đầu bằng “Overall, …” nêu 2 xu hướng/đặc điểm nổi bật nhất.": "Add an overview starting with “Overall, …” stating the 2 most notable trends or features.", "Nêu rõ quan điểm ngay mở bài và nhắc lại ở kết bài.": "State your position in the introduction and restate it in the conclusion.", "Dùng đa dạng từ nối hơn: however, moreover, as a result, for instance, in contrast…": "Use a wider range of linkers: however, moreover, as a result, for instance, in contrast…", "Thêm câu phức: mệnh đề quan hệ (which/who), câu điều kiện, “Although…”, mệnh đề rút gọn V-ing.": "Add complex sentences: relative clauses (which/who), conditionals, “Although…”, participle clauses.", "Thay từ quá cơ bản bằng từ chính xác hơn (xem gợi ý bên dưới).": "Replace very basic words with more precise ones (see suggestions below).", "Dùng thêm từ học thuật (AWL) đã học trong thư viện Lexkite.": "Use more academic (AWL) words from your Lexkite library.", "Ước lượng nhanh theo các chỉ số đo được (độ dài, bố cục, từ nối, từ vựng, câu phức, lỗi ngữ pháp). Để có nhận xét chi tiết như giám khảo, bật chấm bằng AI.": "A quick estimate from measurable features (length, structure, linkers, vocabulary, complex sentences, grammar errors). For examiner-style feedback, turn on AI grading.", "Liên kết ý tốt với nhiều từ nối.": "Ideas are well linked with varied connectors.", "Vốn từ đa dạng, ít lặp từ.": "Varied vocabulary with little repetition.", "Dùng từ học thuật phù hợp.": "Appropriate academic vocabulary.", "Có nhiều câu phức.": "Good use of complex sentences.", "Đủ độ dài yêu cầu.": "Meets the length requirement.", "Từ cơ bản – nên thay để tăng điểm Lexical Resource.": "Basic word – replace it to raise your Lexical Resource score.", "Lexkite – chấm nhanh theo quy tắc": "Lexkite – quick rule-based scoring", "Chấm sâu như giám khảo bằng AI (miễn phí)": "Get examiner-style AI feedback (free)", "Đây là kết quả chấm nhanh theo quy tắc:": "Here is the quick rule-based result:", "Chấm lại": "Re-grade"}); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, {"Chấm lại": "Re-grade"}); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Trang trọng, học thuật hơn': 'More formal and academic', 'Gọn hơn, bỏ ý thừa': 'More concise', 'Diễn đạt đầy đủ, nhiều cấu trúc hơn': 'Fuller, with richer structures', 'Gợi ý sửa từ AI trên máy': 'Suggestion from on-device AI' }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Tải về (~2 GB, 1 lần)': 'Download (~2 GB, once)', 'Chấm nhanh & ghi chú từ soạn sẵn': 'Quick scoring & built-in word notes', 'Luôn có': 'Always on', 'AI có sẵn trong Chrome (trên máy, riêng tư)': 'Chrome built-in AI (on-device, private)', 'Gemini – chấm chi tiết như giám khảo': 'Gemini – examiner-style feedback','AI của Chrome đã sẵn sàng': 'Chrome AI is ready', 'Không tải được – thử lại sau': 'Download failed – try again later',
+(function (g) { Object.assign(g.I18N_DICT.en, { 'Luôn có': 'Always on', 'Không tải được – thử lại sau': 'Download failed – try again later',
 'Trang trọng': 'Formal', 'Bán trang trọng': 'Semi-formal', 'Thân mật': 'Informal',
 'Bạn bè, người thân: Dear/Hi + tên → Best wishes / Love / See you soon. Được dùng viết tắt (I\'m, can\'t) và câu cảm thán.': 'Friends and family: Dear/Hi + first name → Best wishes / Love / See you soon. Contractions (I\'m, can\'t) and exclamations are fine.',
 'Luyện viết': 'Practise writing', 
@@ -448,7 +409,7 @@
 
 /* English UI – khóa của nhóm tải lười verbs, exams, skills mà khung app, add-on hoặc dữ liệu dùng chung cần ngay → giữ trong en.js. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
-  'Mức sẵn sàng thi': 'Exam readiness', 'Mục tiêu hôm nay': "Today's goal", // khung (shell.js) dùng – không chuyển lazy
+  // khung (shell.js) dùng – không chuyển lazy
 // ---------- từ en/verbs.js (khung app / add-on / trang tĩnh dùng) ----------
 'Chia': 'Conjugate',
 'Bất quy tắc': 'Irregular',
@@ -1287,7 +1248,6 @@
 'Định cư, làm việc – viết thư ở Task 1': 'Migration & work – letter writing in Task 1',
 'Công sở – Nghe & Đọc, 10–990 điểm': 'Workplace – Listening & Reading, 10–990',
 'Du học Mỹ – bản 2026, band 1–6': 'Study in the US – 2026 format, band 1–6',
-'Giao tiếp & nền tảng, chưa thi chứng chỉ': 'Everyday English & foundations, no exam yet',
 'Học từ mới, ôn đúng lúc sắp quên và tra cứu nhanh.': 'Learn new words, review right before you forget, look things up fast.',
 'Ôn {n} thẻ hôm nay': 'Review {n} cards today',
 'Ôn đúng lúc sắp quên giúp nhớ lâu gấp nhiều lần': 'Reviewing just before you forget makes words stick for much longer',
@@ -1416,10 +1376,6 @@
 'Mẹo thi, từ vựng theo chủ đề, phương pháp học': 'Exam tips, topic vocabulary, study methods',
 'Tiếp tục bài đang học': 'Pick up where you left off',
 'Mở lại': 'Continue',
-'Còn {n} lượt chấm AI miễn phí hôm nay': '{n} free AI gradings left today',
-'AI chấm Writing & Speaking miễn phí của Lexkite': "Lexkite's free AI grading for Writing & Speaking",
-'3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa': '3 a day, 5 when signed in – no key needed',
-'Không bắt buộc – thêm khóa Gemini miễn phí của riêng bạn để chấm không giới hạn. Khóa chỉ lưu trên máy này.': 'Optional – add your own free Gemini key for unlimited grading. The key stays on this device only.',
 'Bỏ qua tới nội dung chính': 'Skip to main content',
 'Cú đêm': 'Night Owl',
 'Học sau 22 giờ trong 5 ngày': 'Study after 10 pm on 5 days',
