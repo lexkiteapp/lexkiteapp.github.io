@@ -7,6 +7,8 @@ name: Say it like a native – meanings
 #   main (dispatch / series edit landed) → commit to main over SSH deploy key [skip ci]; the 3-hourly Pages cron picks up say.json.
 #   Guard: scripts/test/no-pr-branch-push.mjs (npm test).
 on:
+  schedule:
+    - cron: '11 13 * * *'   # 23/11: lượt bù trên main khi lượt trước gặp hết quota AI (translate chỉ làm phần còn thiếu; không còn nghĩa thiếu = gần như 0 lượt gọi)
   push:   # feature branches: a series edit re-runs only the missing meanings
     branches-ignore: [main]
     paths: ['content/say-native/series.json', 'content/say-native/slang.json', 'scripts/say-native/translate.mjs', '.github/workflows/say-native.yml']
@@ -23,7 +25,28 @@ concurrency:
   group: say-native-${{ github.ref }}
   cancel-in-progress: false   # a running translate keeps its AI-pool work; the newest push waits as the single pending run
 jobs:
+  # 23/11 (#1945/#1953 kẹt): job sinh nội dung bằng Gemini chạy trên MỌI PR vì push-paths tính cả commit gộp từ main (merge main vào nhánh = đụng content/say-native/*)
+  # và required-gate tính nó → đốt quota đúng lúc kho khoá cạn. Nhánh ≠ main chỉ chạy khi chính nhánh đổi file của nó (so với merge-base với main).
+  scope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs: { run: '${{ steps.s.outputs.run }}' }
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - id: s
+        env: { EV: '${{ github.event_name }}', REF: '${{ github.ref }}' }
+        run: |
+          run=1
+          if [ "$EV" = push ] && [ "$REF" != refs/heads/main ]; then
+            git fetch -q origin main
+            own=$(git diff --name-only "$(git merge-base HEAD origin/main)" HEAD -- content/say-native/series.json content/say-native/slang.json scripts/say-native/translate.mjs .github/workflows/say-native.yml)
+            if [ -z "$own" ]; then run=0; echo "::notice title=bỏ qua::nhánh không đổi file của say-native (chỉ gộp main) – không gọi AI"; fi
+          fi
+          echo "run=$run" >> "$GITHUB_OUTPUT"
   meanings:
+    needs: scope
+    if: needs.scope.outputs.run == '1'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
@@ -52,7 +75,12 @@ jobs:
           AI_POOL_GC_MAX: '2000'
         run: |
           mkdir -p out/say-native
-          node scripts/say-native/translate.mjs $LX_IN1 $LX_IN2 --lines "${LX_LINES:-40}" 2>&1 | tee out/say-native/translate.log
+          node scripts/say-native/translate.mjs $LX_IN1 $LX_IN2 --lines "${LX_LINES:-40}" 2>&1 | tee out/say-native/translate.log; rc=${PIPESTATUS[0]}
+          # 23/11: kho khoá Gemini/Groq hết quota (429 hàng loạt) KHÔNG phải lỗi của PR → kết thúc trung tính, ghi chú, lượt cron 13:11 UTC trên main làm lại. Không có nghĩa nào được giữ + chỉ thấy 429 = hết quota.
+          if [ "$rc" != 0 ] && grep -qE 'khoá liên tiếp 429|mọi khoá đang nghỉ' out/say-native/translate.log && ! grep -qE '^say-native translate: kept [1-9]' out/say-native/translate.log; then
+            echo "::notice title=hết quota AI::say-native: kho khoá đang 429 – kết thúc trung tính, lượt bù theo lịch (13:11 UTC) làm lại"; echo "- ⏸ hết quota AI (429 hàng loạt): không đo/dịch được, KHÔNG phải lỗi của PR – lượt bù chạy theo lịch" >> "$GITHUB_STEP_SUMMARY"; exit 0
+          fi
+          exit "$rc"
       - name: Build say.json
         if: always()
         shell: bash

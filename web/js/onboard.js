@@ -108,7 +108,7 @@
       savePick(pick);
       const n = pick.step, say = kitLine()[1];
       v2(STEPS[n], say);
-      if (App.habTrack) App.habTrack('onb_s_' + STEPS[n]); // phễu lần đầu: bước nào người mới rời (hit.js ONB_EV)
+      if (App.habTrack) App.habTrack('onb_s_' + STEPS[n]); // phễu (hit.js ONB_EV)
       $('#onbBack').onclick = back;
       document.onkeydown = e => { if (e.key !== 'Escape' || (e.target && e.target.tagName === 'SELECT') || !document.getElementById('modal').hidden) return; e.preventDefault(); back(); }; // route() tự gỡ khi rời trang
       const nx = $('#obNext'); if (nx) nx.onclick = () => { pick.step++; pick.said = ''; try { history.pushState({ onb: pick.step, n: ((history.state && history.state.n) || 0) + 1 }, '', urlOf(pick.step)); } catch (e) { /* vẫn đi tiếp được */ } draw(); focusQ(); };
