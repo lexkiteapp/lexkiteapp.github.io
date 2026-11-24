@@ -43,7 +43,7 @@
 `; document.head.appendChild(st); } } catch (e) { /* không có DOM (kiểm thử) */ }
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => [...el.querySelectorAll(s)];
-  const L = 'ABCDEFGHI';
+  const L = 'ABCDEFGH';
   const code = o => String(o).split(' ')[0];
   const label = o => String(o).slice(code(o).length + 1);
   // Lời giải dịch sẵn theo ngôn ngữ người học (i18n/explain/<lang>.json – scripts/gen-explain.mjs), tải lười khi mở phần thi.
@@ -63,7 +63,8 @@
   function gradeGap(it, limit, given) {
     if (!given || !given.trim()) return { ok: false, empty: true };
     const over = limit && words(given) > limit;
-    return { ok: !over && it.a.some(a => norm(a) === norm(given)), over };
+    const key = g.QEN ? g.QEN.key : norm; // QEN (cpack/qe/norm.js): Anh/Mỹ, số chữ↔số, gạch nối; thiếu gói → so như cũ
+    return { ok: !over && it.a.some(a => norm(a) === norm(given) || key(a) === key(given)), over };
   }
   const numsOf = p => p.groups.flatMap(gr => gr.type === 'multi' ? gr.n : gr.items.map(i => i.n));
 
@@ -82,8 +83,8 @@
         const el = $(`[data-qn="${it.n}"]`, root);
         if (gr.type === 'mcq') { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? +v.value : null; res[it.n] = { ok: given === it.a, given: given == null ? '' : L[given], answer: L[it.a] + '. ' + it.options[it.a], cue: it.cue, q: it.q, type: 'mcq', kind, alts: [String(it.a)], stm: gr.photo ? it.options : null }; }
         else if (TF[gr.type]) { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? v.value : ''; res[it.n] = { ok: given === it.a, given, answer: it.a, cue: it.cue, q: it.text, type: gr.type, kind, alts: [it.a] }; }
-        else if (gr.type === 'match' || gr.type === 'summarybank') { const v = el ? el.value : ''; const opt = gr.bank ? gr.bank[L.indexOf(it.a)] : gr.options.find(o => code(o) === it.a); res[it.n] = { ok: v === it.a, given: v, answer: it.a + (gr.bank ? ' – ' + opt : opt && label(opt) ? ' – ' + label(opt) : ''), type: 'match', cue: it.cue, q: it.text, kind, alts: [it.a] }; }
-        else { const v = el ? el.value.trim() : ''; const r = gradeGap(it, gr.limit, v); res[it.n] = { ok: r.ok, over: r.over, given: v, answer: it.a[0], cue: it.cue, q: it.text || it.q, type: 'gap', kind, alts: it.a, limit: gr.limit }; }
+        else if (gr.type === 'match') { const v = el ? el.value : ''; const opt = gr.options.find(o => code(o) === it.a); res[it.n] = { ok: v === it.a, given: v, answer: it.a + (opt && label(opt) ? ' – ' + label(opt) : ''), cue: it.cue, q: it.text, type: 'match', kind, alts: [it.a] }; }
+        else { const v = el ? el.value.trim() : ''; const r = gradeGap(it, gr.limit, v); res[it.n] = { ok: r.ok, over: r.over, given: v, answer: it.a[0], cue: it.cue, q: it.text, type: 'gap', kind, alts: it.a, limit: gr.limit }; }
       });
     });
     return res;
@@ -113,9 +114,8 @@
     }
     if (gr.type === 'multi') return `<div class="lq-group">${head}<div class="lq-item" data-item="${gr.n.join(',')}"><div><span class="qn">${gr.n.join('–')}</span> ${esc(gr.q)}</div>
       <div class="lq-opts">${gr.options.map(o => `<label><input type="checkbox" data-multi="${gi}" value="${esc(code(o))}"> <b>${esc(code(o))}</b> ${esc(label(o))}</label>`).join('')}</div><div class="lq-fb" hidden></div></div></div>`;
-    if (gr.type === 'summarybank') return `<div class="lq-group">${head}<div class="lq-box">${gr.bank.map((w, k) => `<div><b>${L[k]}</b> ${esc(w)}</div>`).join('')}</div><div class="lq-notes">${gr.items.map(it => `<div class="lq-item lq-gap" data-item="${it.n}">${esc(it.text).replace('___', `<span class="qn">${it.n}</span><select data-qn="${it.n}"><option value="">–</option>${gr.bank.map((w, k) => `<option>${L[k]}</option>`).join('')}</select>`)}<div class="lq-fb" hidden></div></div>`).join('')}</div></div>`;
     const cls = gr.type === 'table' ? 'lq-table' : 'lq-notes';
-    return `<div class="lq-group">${head}<div class="${cls}">${gr.items.map(it => `<div class="lq-item lq-gap" data-item="${it.n}">${esc(it.text || it.q + ' ___').replace(/\n/g, '<br>').replace('___', `<span class="qn">${it.n}</span><input class="gap" data-qn="${it.n}" autocomplete="off" spellcheck="false" size="12">`)}<div class="lq-fb" hidden></div></div>`).join('')}</div></div>`;
+    return `<div class="lq-group">${head}<div class="${cls}">${gr.items.map(it => `<div class="lq-item lq-gap" data-item="${it.n}">${esc(it.text).replace(/\n/g, '<br>').replace('___', `<span class="qn">${it.n}</span><input class="gap" data-qn="${it.n}" autocomplete="off" spellcheck="false" size="12">`)}<div class="lq-fb" hidden></div></div>`).join('')}</div></div>`;
   }
   const questionsHtml = p => `<div class="lq">${p.groups.map((gr, gi) => groupHtml(gr, gi, p.tips)).join('')}</div>`; // p.tips: hiện ô mẹo theo dạng câu (chế độ luyện)
 

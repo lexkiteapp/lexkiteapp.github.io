@@ -20,8 +20,8 @@
       return (gr.options || []).every(o => !label(o)) ? 'info' : 'lmatch';
     }
     if (/\bmap\b|\bplan\b|diagram/i.test(ins)) return 'map';
-    if (gr.type === 'summary' || gr.type === 'summarybank') return 'summary';
-    if (gr.type === 'sentence' || gr.type === 'shortanswer') return 'sentence';
+    if (gr.type === 'summary') return 'summary';
+    if (gr.type === 'sentence') return 'sentence';
     return /choose .*from the (passage|text)/i.test(ins) ? 'rnotes' : 'notes';
   }
 

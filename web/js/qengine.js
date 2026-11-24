@@ -64,7 +64,8 @@
   function gradeGap(it, limit, given) {
     if (!given || !given.trim()) return { ok: false, empty: true };
     const over = limit && words(given) > limit;
-    return { ok: !over && it.a.some(a => norm(a) === norm(given)), over };
+    const key = g.QEN ? g.QEN.key : norm; // QEN (cpack/qe/norm.js): Anh/Mỹ, số chữ↔số, gạch nối; thiếu gói → so như cũ
+    return { ok: !over && it.a.some(a => norm(a) === norm(given) || key(a) === key(given)), over };
   }
   const numsOf = p => p.groups.flatMap(gr => gr.type === 'multi' ? gr.n : gr.items.map(i => i.n));
 
