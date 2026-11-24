@@ -48,7 +48,8 @@ if EP['template'] in ('rule', 'band') and o.format == 'short':   # Spell->Sound 
     _x = int(FMT['W'] * (1 - PZ['right'])); FMT = dict(FMT, region=[FMT['region'][0], FMT['region'][1], min(FMT['region'][2], _x), FMT['region'][3]], cap=[FMT['cap'][0], FMT['cap'][1], min(FMT['cap'][2], _x), FMT['cap'][3]], safe=[FMT['safe'][0], FMT['safe'][1], min(FMT['safe'][2], _x), FMT['safe'][3]])
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
-if EP['template'] in ('slang', 'guess3', 'levels3', 'scorecard'):   # v3 (audit 24/11 #3 empty frames): the few cards of a 7-13 s reel were small in a 826 px region (pilot t2s_ace: 70 % bare background at 2-3 s) -> bigger text, bigger cards
+REEL = EP['template'] in ('slang', 'guess3', 'levels3', 'scorecard')
+if REEL:   # v3 (audit 24/11 #3 empty frames): the few cards of a 7-13 s reel were small in a 826 px region (pilot t2s_ace: 70 % bare background at 2-3 s) -> bigger text, bigger cards
     S.update({k: round(S[k] * (1.25 if o.format == 'short' else 1.2)) for k in ('body', 'sub', 'chip', 'ipa', 'pill')})
 PAD, GAP, LEDGE, RADIUS = 40, 24, 10, 44
 FJ, FN = f'{o.fonts}/PlusJakartaSans-VF.ttf', f'{o.fonts}/NotoSans-Medium.ttf'; _fc = {}
@@ -317,6 +318,8 @@ def top(type_, box, t_in, k='soft', out=None, **kw):   # a free (card-less) elem
 
 def title(runs, size, y, t_in, out, hook=False, align='c', x0=RX0, x1=RX1, rtl=False):
     """free headline (Stitch frames put the title on the canvas, not in a card): one or more balanced lines, centred."""
+    if hook and REEL and y <= RY0 + 200:   # v3 (audit 24/11 #3/#6): the hook of a short reel is big and centred in the card region instead of a small line under the chip
+        size = round(size * (1.35 if o.format == 'short' else 1.2)); _n = len(Card(y, x0=x0, w=x1 - x0).wrap(runs, size, width=x1 - x0)); y = RY0 + max(60, ((RY1 - RY0) - _n * (round(size * 1.18) + 4)) * 0.3)
     c = Card(y, x0=x0, w=x1 - x0); lines = c.wrap(runs, size, width=x1 - x0); ns = []; yy = y
     for ln in lines:
         ln[-1][0] = ln[-1][0].rstrip(); lw = sum(tw(r[0], size) for r in ln); h = round(size * 1.18)
@@ -832,8 +835,8 @@ def T_slang():
     language gloss on L1 channels), then the example bubble (slang highlighted) + a silent 2-option quiz (answer lights on the CTA) or a ✗ misuse bubble, CTA."""
     D = EP['data']; series_chip(); RG = {'very-casual': 'VERY CASUAL', 'casual': 'CASUAL', 'neutral': 'EVERYDAY'}
     hw = EP['hook']['text'].split(); n2 = min(2, len(hw) - 1)
-    title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 96, RY0 + 120, None, start('k') - 0.2, hook=True)
-    if D.get('l1_hook'): title([[D['l1_hook'], 'accent']], S['body'], RY0 + 400, None, start('k') - 0.2, rtl=EP.get('lang') == 'ar')   # L1 page: the situation in the page language under the English hook
+    yh = title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 96, RY0 + 120, None, start('k') - 0.2, hook=True)
+    if D.get('l1_hook'): title([[D['l1_hook'], 'accent']], S['body'], max(RY0 + 400, yh + 30), None, start('k') - 0.2, rtl=EP.get('lang') == 'ar')   # L1 page: the situation in the page language under the English hook
     t_k, t_m, t_e, t_c = start('k'), start('m'), start('e'), start('c')
     c = Card(RY0); b = chip(c, RG[D['reg']], t_k, tone='chip')
     if D['region'] != 'global':   # US / UK flag chip right of the register chip
