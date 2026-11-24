@@ -19,8 +19,8 @@ ok(new Set(cids).size === cids.length && cids.length === Math.min(P.calls.length
 const lvr = { A1: 0, A2: 1, B1: 2, B2: 3, C1: 4 }, order = cids.map(id => lvr[P.calls.find(c => c.id === id).lv]);
 ok(order.every((v, i) => !i || v >= order[i - 1]), 'cuộc gọi đi từ dễ → khó theo ngày');
 ok(W.length >= 30 && W.slice(0, 30).every(w => w.rank === -1), 'từ học: seed 30 từ trước, lô lõi chỉ vào khi status "reviewed"');
-const row = i => JSON.parse(P.files['wd.js'].match(/wd=(.*);\n/)[1])[i];
-ok(row(0).join('|') === 'maison|n|mɛzɔ̃|Notre maison est près de la gare.|f' && row(1).slice(4).join('|') === 'f|eaux' && row(29).slice(4).join('|') === 'm||a', 'hàng wd.js: giống, số nhiều bất quy tắc (eaux), cờ h aspiré (haricot) cho mạo từ');
+const row = i => JSON.parse(P.files['@packs/wd.json'])[i]; // từ lộ trình ở web/packs/fr (path-lib)
+ok(row(0).join('|') === 'maison|n|mɛzɔ̃|Notre maison est près de la gare.|f' && row(1).slice(4).join('|') === 'f|eaux' && row(29).slice(4).join('|') === 'm||a', 'hàng wd.json: giống, số nhiều bất quy tắc (eaux), cờ h aspiré (haricot) cho mạo từ');
 // (b) nhãn
 const ui = rj('content/target/fr/path-ui.json'), VN = /[ơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđă]/i, bad = [], LANGS = Object.keys(ui);
 ok(LANGS.length === 15, 'path-ui.json có 15 ngôn ngữ');
@@ -32,7 +32,8 @@ for (const l of LANGS) {
 }
 ok(!bad.length, 'nhãn lộ trình fr: 15 ngôn ngữ đủ khóa, giữ chỗ {n}{d}{t}{p}, đã dịch' + (bad.length ? ': ' + bad.slice(0, 8).join(' | ') : ''));
 // (c) gói
-for (const [f, s] of Object.entries(P.files)) if (!fs.existsSync('web/cpack/fr/' + f) || fs.readFileSync('web/cpack/fr/' + f, 'utf8') !== s) { ok(false, `web/cpack/fr/${f} cũ so với nguồn – chạy node scripts/target/drill-pack.mjs --tl fr`); break; }
+const fp = f => f.startsWith('@packs/') ? 'web/packs/fr/' + f.slice(7) : 'web/cpack/fr/' + f; // từ lộ trình ở web/packs/fr (path-lib)
+for (const [f, s] of Object.entries(P.files)) if (!fs.existsSync(fp(f)) || fs.readFileSync(fp(f), 'utf8') !== s) { ok(false, `${fp(f)} cũ so với nguồn – chạy node scripts/target/drill-pack.mjs --tl fr`); break; }
 for (const tl of ['fr', 'es']) try { execFileSync('node', ['scripts/target/calls-check.mjs', '--tl', tl], { stdio: 'pipe' }); ok(true, `calls-check ${tl}: 24 cuộc gọi + cấu trúc + lệch chuẩn${tl === 'fr' ? ' + một xưng hô (tu ⟂ vous) mỗi cuộc' : ''}`); } catch (e) { ok(false, `calls-check ${tl}: ` + String(e.stderr).slice(0, 300)); }
 
 // (d) jsdom
@@ -40,17 +41,26 @@ const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8'), scrip
 const vc = new jsdom.VirtualConsole(), errors = []; vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) errors.push(e.message); });
 const dom = new jsdom.JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/#/practice', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
 const w = dom.window; w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} }); w.CSS = { escape: s => s };
-w.fetch = async () => ({ ok: false, status: 404, json: async () => ({}), text: async () => '' });
+w.fetch = async u => { const m = /^(?:https:\/\/lexkite\.com\/)?(packs\/fr\/[\w-]+\.json)\?v=\w+$/.exec(String(u)); if (m) { const t = fs.readFileSync(path.join(WEB, m[1]), 'utf8'); return { ok: true, status: 200, json: async () => JSON.parse(t), text: async () => t }; } return { ok: false, status: 404, json: async () => ({}), text: async () => '' }; }; // từ lộ trình: web/packs/fr/*.json
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
 require('./lazyfix.js')(w, fs, path, WEB, errors);
 const tick = (ms = 20) => new Promise(r => setTimeout(r, ms)); for (let k = 0; k < 100 && !w.document.querySelector('#modeGrid'); k++) await tick(100);
 ok(!errors.length, 'nạp mã + bundle frday/callfr không lỗi' + (errors.length ? ': ' + errors.join(' | ') : ''));
 const { App, UI } = w, $ = x => w.document.querySelector(x), $$ = x => [...w.document.querySelectorAll(x)];
-App.loadScript = async src => { w.eval(fs.readFileSync(path.join(WEB, src), 'utf8')); };
+App.loadScript = async src => { w.eval(fs.readFileSync(path.join(WEB, src), 'utf8')); }; App.loadCss = async () => {};
 UI.tts = () => {}; w.localStorage.clear(); w.sessionStorage.clear();
-ok(typeof App.frday === 'function' && typeof App.esday === 'function' && w.Target.homeOf('fr') === '#/practice/frd' && w.Target.table('fr').routes.vocab === '#/practice/fr' && w.Target.table('fr').ready === false, 'Target.fr: home #/practice/frd + routes (vẫn ready:false); App.frday/esday cùng engine');
+ok(typeof App.frday === 'function' && typeof App.esday === 'function' && w.Target.homeOf('fr') === '#/practice/frd' && w.Target.table('fr').routes.vocab === '#/practice/fr' && w.Target.table('fr').ready !== false, 'Target.fr: home #/practice/frd + routes (vẫn ready:false); App.frday/esday cùng engine');
 await App.frday(); await tick(60);
-ok($$('a.chip[href*="frd?d="]').length === P.days.length && $('a.btn.primary[href="#/practice/frd?d=1"]'), 'hub: mọi ngày có ô, nút Bắt đầu ngày 1');
+// Hub mới (owner 23/11: bỏ lưới 125 ô): hero vòng tiến độ + thẻ Hôm nay + tuần thu gọn, trạng thái rõ, thưởng tuần
+const WKS = Math.ceil(P.days.length / 7), DAYK = 'lk.fr.day', WKK = 'lk.fr.wk';
+ok($('.tp .tp-ring[role=progressbar]') && $('.tp-hero h1') && $('.tp-today a.tp-go[href="#/practice/frd?d=1"]') && $$('.tp-today li').length >= 2, 'hub: hero có vòng tiến độ, thẻ Hôm nay liệt kê các phần + nút Bắt đầu ngày 1');
+ok($$('details.tp-w').length === WKS && $$('details.tp-w[open]').length === 1 && $$('.tp-d').length === 7 && !$('a.chip[href*="frd?d="]') && !$$('details.tp-w:not([open]) .tp-d').length, `hub: ${WKS} tuần, chỉ tuần hiện tại mở (7 ngày), tuần sau chưa vẽ hàng, không còn lưới ô số`);
+ok($('.tp-d.today[aria-current=step]') && $$('.tp-d.lock').length === 6 && $$('.tp-d.done').length === 0 && $('.tp-d.today .tp-st').textContent.includes('▶') && $('.tp-d.lock .tp-st').textContent.includes('🔒'), 'hub: trạng thái hôm nay / chưa tới (mờ + khoá)');
+{ const w2 = $$('details.tp-w')[1]; w2.open = true; w2.dispatchEvent(new w.Event('toggle')); ok($$('details.tp-w')[1].querySelectorAll('.tp-d').length === 7 && $$('details.tp-w[open] .tp-rw').length === 2, 'hub: mở tuần 2 → vẽ lười 7 ngày + hàng thưởng tuần'); }
+w.localStorage.setItem(DAYK, JSON.stringify(Object.fromEntries(P.days.slice(0, 7).map((d, n) => [n, 'wgpc'])))); await App.frday(); await tick(60);
+{ const sec = $$('details.tp-w')[0]; sec.open = true; sec.dispatchEvent(new w.Event('toggle')); ok(sec.classList.contains('done') && $$('.tp-d.done').length === 7 && $('.tp-today a.tp-go[href="#/practice/frd?d=8"]'), 'hub: xong 7 ngày → tuần 1 ✓, hôm nay nhảy sang ngày 8');
+  const b = sec.querySelector('[data-claim="0"]'); ok(b && !b.disabled, 'hub: tuần xong → nút nhận thưởng'); if (b) { b.click(); await tick(20); ok(JSON.parse(w.localStorage.getItem(WKK))['0'] === 1 && $$('details.tp-w')[0].querySelector('[data-claim="0"]').disabled, 'hub: nhận thưởng một lần (ghi lk.fr.wk, nút khoá)'); } }
+w.localStorage.removeItem(DAYK); w.localStorage.removeItem(WKK); await App.frday(); await tick(60);
 const first = P.days.findIndex(d => d[1] > d[0]), d0 = P.days[first];
 await App.frday(String(first + 1)); await tick(60);
 ok($$('section.card').length === 2 + HP && $('#ds-w') && $('#ds-g') && (HP ? !!$('#ds-p') && !!$('a[href*="frp?tp="]') : !$('#ds-p') && !$('a[href*="frp?tp"]')) && $$('[data-sp]').length >= 2 && $(`a[href^="#/practice/fr?lv=A1&p=${d0[2]}"]`), `ngày ${first + 1} (ngày đầu có từ): từ mới + ngữ pháp (đúng điểm)${HP ? ' + phát âm (#/practice/frp)' : ', không có bước phát âm'}, có nút nghe`);

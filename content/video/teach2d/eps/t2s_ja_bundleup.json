@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ja_bundleup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 41,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "It's freezing outside. Ready?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bundle up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Put on warm clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Bundle up, it's freezing outside!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "bundle up",
+  "forms": [],
+  "ipa": "/ˈbʌndl ˈʌp/",
+  "mean": "Put on warm clothes.",
+  "define": "To wear many layers because it's cold.",
+  "vi": "Mặc thật ấm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Before going out",
+   "text": "Bundle up, it's freezing outside!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bundle up\" means…",
+   "options": [
+    "dress warmly",
+    "tie a box"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell a friend to 'bundle up' in summer.",
+   "why": "It means put on warm clothes."
+  },
+  "l1": "厚着する",
+  "l1_hook": "外は凍えるほど寒いよ。'bundle up'する準備はできた？",
+  "l1_ex": "「Bundle up」、外は凍えるほど寒いよ！",
+  "right": "bundle up",
+  "native": {
+   "hook": "「bundle up」ってどういう意味？",
+   "tip": "“bundle up” = 厚着する. 例文: “Bundle up, it's freezing outside!”",
+   "caption": "「bundle up」ってどういう意味？\n“bundle up” = 厚着する.\n例文: “Bundle up, it's freezing outside!” (「Bundle up」、外は凍えるほど寒いよ！)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “bundle up” = 厚着する. “Bundle up, it's freezing outside!” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "It's freezing outside. Ready?"
+ },
+ "src": {
+  "slang": "bundle up"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 17,
+  "seconds": 10.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "「bundle up」ってどういう意味？",
+  "keyword": "bundle up",
+  "value": "“bundle up” = 厚着する. 例文: “Bundle up, it's freezing outside!”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "「bundle up」ってどういう意味？",
+    "description": "“bundle up” = 厚着する. 例文: “Bundle up, it's freezing outside!”\n\n「bundle up」ってどういう意味？\n“bundle up” = 厚着する.\n例文: “Bundle up, it's freezing outside!” (「Bundle up」、外は凍えるほど寒いよ！)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "bundle up",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「bundle up」ってどういう意味？\n“bundle up” = 厚着する.\n例文: “Bundle up, it's freezing outside!” (「Bundle up」、外は凍えるほど寒いよ！)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「bundle up」ってどういう意味？\n\n“bundle up” = 厚着する. 例文: “Bundle up, it's freezing outside!”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「bundle up」ってどういう意味？ “bundle up” = 厚着する. 例文: “Bundle up, it's freezing outside!” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “bundle up” = 厚着する. “Bundle up, it's freezing outside!” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

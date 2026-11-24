@@ -93,6 +93,15 @@ if (BASE === 'https://lexkite.com') {
   lines.push(`| trang gốc / (nước ${cc}) | - | ${errs.length ? '❌ ' + errs.length : '✅'} |`);
   if (errs.length) failed.push({ n: 'trang gốc /', vp: '-', errs });
 }
+// /app/: preload script phải là đường dẫn tuyệt đối (preload thân trang bị tính theo /app/ thay vì <base href="/"> → 404 /app/h/js/bundles.<băm>.js, 23/11)
+{
+  const errs = []; try { const h = await (await fetch(BASE + '/app/', { headers: CI })).text();
+    for (const m of h.matchAll(/<link\b[^>]*\brel="preload"[^>]*>/g)) { const t = m[0], href = (t.match(/\bhref="([^"]+)"/) || [])[1] || ''; if (/\bas="script"/.test(t) && !/^(\/|https?:)/.test(href)) errs.push({ t: 'preload', m: `preload script tương đối: ${href} (cần /h/… tuyệt đối)` }); }
+  } catch (e) { errs.push({ t: 'preload', m: 'không tải được /app/: ' + e.message }); }
+  console.log(`preload script /app/: ${errs.length ? '❌ ' + errs[0].m : 'tuyệt đối ✅'}`);
+  lines.push(`| /app/ preload script tuyệt đối | - | ${errs.length ? '❌ ' + errs.length : '✅'} |`);
+  if (errs.length) failed.push({ n: '/app/ preload', vp: '-', errs });
+}
 for (const pg of PAGES) {
   const url = pg.article ? (article ? BASE + article : null) : pg.u;
   if (!url) { failed.push({ n: pg.n, vp: '-', errs: [{ t: 'content', m: 'không tìm thấy link bài blog trong /en/blog/' }] }); continue; }

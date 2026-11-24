@@ -142,7 +142,7 @@ final class ListenPartModel {
         let out = ListenSubmit.submit(part, answers: answers, game: ctx.game, mistakes: ctx.bundle.mistakes, now: ctx.now)
         outcome = out
         rows = Transcript.rows(part, lexis: ctx.lexis, evidence: true); live = true
-        await ctx.commit(game: out.game, mistakes: out.mistakes, reward: out.reward)
+        await ctx.commit(game: out.game, mistakes: out.mistakes, reward: out.reward, src: out.src)
     }
     func again() {
         player?.stop()

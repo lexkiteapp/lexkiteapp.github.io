@@ -1,0 +1,140 @@
+{
+  "id": "a1-kit-lost-hat",
+  "kind": "book",
+  "level": "A1",
+  "title": "Sam and the Red Hat",
+  "summary": "Sam loses a red hat in the park and finds help from a friend.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original story written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "kit"
+    ],
+    "scene": "Flat 2D illustration: a boy looking in a sunny park, a red hat on a tree branch above, no text"
+  },
+  "audio": {
+    "wpm": 100,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Where Is My Hat?",
+      "sentences": [
+        "Sam has a red hat.",
+        "He loves his hat.",
+        "Today Sam goes to the park.",
+        "It is a windy day.",
+        "The wind takes his hat.",
+        "Sam looks for it under a chair.",
+        "He looks behind a bench.",
+        "He cannot see the hat.",
+        "Sam is sad and cold.",
+        "He sits on the grass."
+      ],
+      "words": [
+        "hat",
+        "park",
+        "wind",
+        "cold",
+        "bench",
+        "grass"
+      ],
+      "quiz": [
+        {
+          "q": "What colour is Sam's hat?",
+          "options": [
+            "Red",
+            "Blue",
+            "Green"
+          ],
+          "answer": 0,
+          "explain": "The story says Sam has a red hat."
+        },
+        {
+          "q": "Why does Sam lose his hat?",
+          "options": [
+            "A dog takes it.",
+            "The wind takes it.",
+            "He gives it away."
+          ],
+          "answer": 1,
+          "explain": "The story says the wind takes his hat."
+        },
+        {
+          "q": "How does Sam feel at the end?",
+          "options": [
+            "Happy",
+            "Angry",
+            "Sad and tired"
+          ],
+          "answer": 2,
+          "explain": "Sam cannot see the hat, so he is sad and cold."
+        }
+      ]
+    },
+    {
+      "title": "A Good Friend",
+      "sentences": [
+        "Ama walks in the park.",
+        "She sees Sam on the grass.",
+        "\"Why are you sad?\" she asks.",
+        "\"I cannot find my hat,\" says Sam.",
+        "Ama looks up at a tall tree.",
+        "\"Look, there is your hat!\" she says.",
+        "The red hat is on a branch.",
+        "Ama is tall, so she gets it.",
+        "Sam is very happy.",
+        "\"Thank you, Ama,\" he says.",
+        "Now he holds his hat tight."
+      ],
+      "words": [
+        "tree",
+        "branch",
+        "tall",
+        "tight",
+        "find",
+        "thank"
+      ],
+      "quiz": [
+        {
+          "q": "Who finds the hat?",
+          "options": [
+            "Ama",
+            "Carlos",
+            "Nobody"
+          ],
+          "answer": 0,
+          "explain": "Ama looks up and sees the hat in the tree."
+        },
+        {
+          "q": "Where is the hat?",
+          "options": [
+            "Under a chair",
+            "On a branch",
+            "On a bench"
+          ],
+          "answer": 1,
+          "explain": "The red hat is on a branch of a tall tree."
+        },
+        {
+          "q": "Why can Ama get the hat?",
+          "options": [
+            "She has a ladder.",
+            "She is tall.",
+            "Sam helps her."
+          ],
+          "answer": 1,
+          "explain": "The story says Ama is tall, so she gets it."
+        }
+      ]
+    }
+  ]
+}

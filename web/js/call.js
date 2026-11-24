@@ -132,7 +132,7 @@ body.call-on{overflow:hidden}
     const flt = TLC === 'en' ? (pref('flt') || 'all') : 'all';
     const groups = ['all', 'ielts', 'toeic', 'everyday'];
     view.innerHTML = `<div class="page-head"><div><h1>📞 ${t('Gọi cho Ama & Carlos')}</h1><p class="muted">${t('Cuộc gọi video luyện nói: giáo viên hỏi, bạn trả lời bằng giọng nói. Câu hỏi rẽ nhánh theo câu trả lời, lỗi được sửa nhẹ nhàng, cuối cuộc gọi có tổng kết và luyện lại câu yếu.')}</p></div></div>
-      ${TLC !== 'en' ? '' : `<div class="call-flt" role="group" aria-label="${t('Lọc theo kỳ thi')}">${groups.map(gr => `<button type="button" class="btn sm ${flt === gr ? 'primary' : ''}" data-g="${gr}" aria-pressed="${flt === gr}">${gr === 'all' ? t('Tất cả') : GROUP[gr]()}</button>`).join('')}</div>`}
+      ${TLC !== 'en' ? '' : `<div class="call-flt" role="group" aria-label="${t('Lọc theo kỳ thi')}">${groups.map(gr => `<button type="button" class="chip ${flt === gr ? 'on' : ''}" data-g="${gr}" aria-pressed="${flt === gr}">${gr === 'all' ? t('Tất cả') : GROUP[gr]()}</button>`).join('')}</div>`}
       <div class="call-grid">${list.filter(x => flt === 'all' || groupOf(x) === flt).map(x => `<a class="call-card" href="#/call/${x.id}"><img data-po="${Chars.name(x.who)}" src="${poster(x.who)}" alt="" width="56" height="56" loading="lazy"><span><b>${x.em} ${esc(nameOf(x))}</b><span class="tiny muted"><span class="chip lv">${x.lv}</span> ${Chars.name(x.who)} · <span lang="${TLG}">${esc(x.title)}</span></span></span></a>`).join('')}</div>
       <p class="tiny muted" style="margin-top:1rem"><span id="callPriv">${PRIV.ask()}</span>${pref('asr') ? ` <button type="button" class="btn sm ghost" id="callAsr">${t('Đổi cách nhận dạng')}</button>` : ''}</p>`;
     const ab = $('#callAsr'); if (ab) ab.onclick = () => { try { localStorage.removeItem('vb.call.asr'); } catch (e) { /* bỏ qua */ } toast(t('Lần gọi sau Lexkite sẽ hỏi lại cách nhận dạng.')); routes.call(); };
@@ -151,7 +151,7 @@ body.call-on{overflow:hidden}
     poFix(view);
     probe().then(() => { const p = $('#callPriv'); if (p) p.textContent = (PRIV[mode()] || PRIV.ask)(); });
     $('#callGo').onclick = () => start(c);
-    if (window.LessonTeacher && LessonTeacher.prep) LessonTeacher.prep(); // mặt vẽ + mốc nạp trong lúc đổ chuông → câu chào đầu phát bản -ls.mp3 (pre)
+    if (window.LessonTeacher && LessonTeacher.prep) LessonTeacher.prep(true); // mặt vẽ + mốc nạp trong lúc đổ chuông → câu chào đầu phát bản -ls.mp3 (pre)
   }
 
   function start(c) {
@@ -414,7 +414,7 @@ body.call-on{overflow:hidden}
   function summary(c, log, secs, avgLat) {
     const r = E.recap(c, log), nm = Chars.name(c.who);
     try { if (TLD[c.tl] && sessionStorage.getItem('lk.' + c.tl + '.dayctx')) App.need(TLD[c.tl]).then(() => App.esDayMark('c', c.tl)); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: cuộc gọi xong → đánh dấu bước (cpack/es-app/day-ui.js)
-    const voiced = log.filter(x => !x.picked && !x.typed).length, xp = 5 + r.turns.length * 2 + voiced * 2 + (r.used.length ? 3 : 0);
+    const voiced = log.filter(x => !x.picked && !x.typed).length, xp = Game.xpFor('talk', { right: voiced });
     App.reward({ spoken: voiced, xp });
     const tx = r.turns.map(x => `<div class="call-tx ${x.weak ? 'weak' : ''}"><div class="small q" lang="${TLG}"><b>${nm}:</b> ${esc(x.m || '')}</div>
         <div class="a" lang="${TLG}"><b>${t('Bạn')}:</b> ${esc(x.text)}${x.picked ? ` <span class="chip">${t('gợi ý')}</span>` : ''}</div>

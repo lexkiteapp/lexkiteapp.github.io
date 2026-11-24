@@ -1,5 +1,6 @@
 package com.lexkite.app.core.write
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.lesson.Speaking
 import com.lexkite.app.core.vocab.Absent
 import com.lexkite.app.core.vocab.CardMath
@@ -100,8 +101,8 @@ object Paraphrase {
         fun answer(q: Question, choice: String): Boolean { val ok = choice == q.answer; if (ok) right++; return ok }
         fun next() { index++ }
         val percent get() = Math.round(right.toDouble() / items.size * 100).toInt()
-        /** reward {quizzes:1, readings:0, xp} */
-        val xp get() = 5 + right * 2
+        /** reward {quizzes:1, readings:0, xp} = set(right, total) */
+        val xp get() = RewardRules.xp("set", right = right, total = items.size)
     }
 }
 
@@ -259,7 +260,7 @@ object Models {
     fun finish(kind: String, right: Int, total: Int): Finish {
         val pct = Math.round(right.toDouble() / maxOf(1, total) * 100).toInt()
         val i = PRACTICE_TABS.indexOf(kind)
-        return Finish(pct, pct >= 70, pct == 100, 5 + right * 2, if (pct >= 70 && i >= 0) PRACTICE_TABS.getOrNull(i + 1) else null)
+        return Finish(pct, pct >= 70, pct == 100, RewardRules.xp("set", right = right, total = total), if (pct >= 70 && i >= 0) PRACTICE_TABS.getOrNull(i + 1) else null)
     }
     /** Add `kind` to the stored list (Store 'mdone:<id>') when the score qualifies. */
     fun markDone(done: List<String>, kind: String, f: Finish): List<String> = if (f.done && !done.contains(kind)) done + kind else done

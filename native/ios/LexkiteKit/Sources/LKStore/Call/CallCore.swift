@@ -379,7 +379,8 @@ public final class CallRules: @unchecked Sendable {
     }
 
     /// `5 + turns·2 + voiced·2 + (a topic word used ? 3 : 0)` – the numbers are the pack's
-    public func xp(turns: Int, voiced: Int, usedWords: Int) -> Int { xpBase + turns * xpPerTurn + voiced * xpPerVoiced + (usedWords > 0 ? xpUsedWords : 0) }
+    /// call XP = the one reward rule: talk(right: voiced lines) – turns / used words no longer count (web call.js: Game.xpFor('talk', { right: voiced }))
+    public func xp(turns: Int, voiced: Int, usedWords: Int) -> Int { RewardRules.xp("talk", right: voiced) }
 
     func isUnsafe(_ text: String, tl: String) -> Bool {
         return CallJS.test(unsafe[tl] ?? unsafe["en"], text)

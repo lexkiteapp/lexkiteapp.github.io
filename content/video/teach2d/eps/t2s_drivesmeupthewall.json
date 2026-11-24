@@ -1,0 +1,133 @@
+{
+ "id": "t2s_drivesmeupthewall",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 141,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "That tapping never stops. Aargh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Drives me up the wall!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "It annoys me.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That noise drives me up the wall.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "drives me up the wall",
+  "forms": [
+   "drive me up the wall"
+  ],
+  "ipa": "/ˈdraɪvz mi ˈʌp ðə ˈwɔːl/",
+  "mean": "It annoys me.",
+  "define": "Used when something bothers you a lot.",
+  "vi": "Làm tui phát điên",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about noise",
+   "text": "That noise drives me up the wall."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means it…",
+   "options": [
+    "makes me climb",
+    "really annoys me"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your teacher she 'drives you up the wall'.",
+   "why": "It sounds rude and personal."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "That tapping never stops. Aargh!"
+ },
+ "src": {
+  "slang": "drives me up the wall"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"drives me up the wall\" mean?",
+  "keyword": "drives me up the wall",
+  "value": "Drives me up the wall = It annoys me. Example: \"That noise drives me up the wall.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"drives me up the wall\" mean?",
+    "description": "Drives me up the wall = It annoys me. Example: \"That noise drives me up the wall.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "drives me up the wall",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"drives me up the wall\" mean?\n\nDrives me up the wall = It annoys me. Example: \"That noise drives me up the wall.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"drives me up the wall\" mean?\n\nDrives me up the wall = It annoys me. Example: \"That noise drives me up the wall.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"drives me up the wall\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell your teacher she 'drives you up the wall'. It sounds rude and personal. Real example: \"That noise drives me up the wall.\" More real English slang, free: {link}"
+ }
+}

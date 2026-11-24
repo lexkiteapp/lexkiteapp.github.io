@@ -112,7 +112,9 @@
     if (!d.getElementById('s30')) return; // đã rời trang
     const s = grade(r);
     if (!s) { box.innerHTML = `<p class="txt">${esc(r && r.error === 'unsupported' ? T('Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.') : T('Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.'))}</p><button class="btn cta" id="s30re" type="button">${esc(T('Làm lại'))}</button>`; $('#s30re', box).onclick = () => intro(box, pid, chal, id); return; }
-    ev(chal ? 'cdone' : 'done'); result(box, s, pid, chal, id);
+    ev(chal ? 'cdone' : 'done');
+    if (g.App && App.reward && g.Game) App.reward({ spoken: 1, xp: g.Game.xpFor('talk', { right: Math.min(10, Math.round(s.words / 10)) }), src: 'score30' }); // nói 30 s = một lượt nói thật: XP + chuỗi ngày (luật chung, chống cày)
+    result(box, s, pid, chal, id);
   }
 
   function result(box, s, pid, chal, id) {

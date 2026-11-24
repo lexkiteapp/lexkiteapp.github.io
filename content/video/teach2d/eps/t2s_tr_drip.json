@@ -1,0 +1,150 @@
+{
+ "id": "t2s_tr_drip",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 46,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New jacket, new shoes, new confidence!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Drip!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very stylish clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Nice jacket, you've got drip today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "drip",
+  "forms": [],
+  "ipa": "/ˈdrɪp/",
+  "mean": "Very stylish clothes.",
+  "define": "Slang for cool clothes and a stylish look.",
+  "vi": "Phong cách chất lừ",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Seeing a friend's outfit",
+   "text": "Nice jacket, you've got drip today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Drip\" means…",
+   "options": [
+    "a water drop",
+    "a cool style"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your boss 'nice drip' at work.",
+   "why": "It's too slangy for formal settings."
+  },
+  "l1": "havalı kıyafet",
+  "l1_hook": "Yeni ceket, yeni ayakkabılar, yeni özgüven! \"drip\"",
+  "l1_ex": "Güzel ceket, bugün \"drip\" var.",
+  "right": "drip",
+  "native": {
+   "hook": "“drip” ne demek?",
+   "tip": "“drip” = havalı kıyafet. Örnek: “Nice jacket, you've got drip today.”",
+   "caption": "“drip” ne demek?\n“drip” = havalı kıyafet.\nÖrnek: “Nice jacket, you've got drip today.” (Güzel ceket, bugün \"drip\" var.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “drip” = havalı kıyafet. “Nice jacket, you've got drip today.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "New jacket, new shoes, new confidence!"
+ },
+ "src": {
+  "slang": "drip"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“drip” ne demek?",
+  "keyword": "drip",
+  "value": "“drip” = havalı kıyafet. Örnek: “Nice jacket, you've got drip today.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“drip” ne demek?",
+    "description": "“drip” = havalı kıyafet. Örnek: “Nice jacket, you've got drip today.”\n\n“drip” ne demek?\n“drip” = havalı kıyafet.\nÖrnek: “Nice jacket, you've got drip today.” (Güzel ceket, bugün \"drip\" var.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "drip",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“drip” ne demek?\n“drip” = havalı kıyafet.\nÖrnek: “Nice jacket, you've got drip today.” (Güzel ceket, bugün \"drip\" var.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“drip” ne demek?\n\n“drip” = havalı kıyafet. Örnek: “Nice jacket, you've got drip today.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“drip” ne demek? “drip” = havalı kıyafet. Örnek: “Nice jacket, you've got drip today.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “drip” = havalı kıyafet. “Nice jacket, you've got drip today.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

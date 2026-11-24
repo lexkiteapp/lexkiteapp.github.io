@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ko_callitaday",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 59,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We're tired. What now?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Call it a day!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stop for today.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We're tired, let's call it a day.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "call it a day",
+  "forms": [
+   "calling it a day"
+  ],
+  "ipa": "/ˈkɔːl ɪt ə ˈdeɪ/",
+  "mean": "Stop for today.",
+  "define": "To decide to finish work or an activity for now.",
+  "vi": "Hôm nay nghỉ ở đây",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Finishing a group project",
+   "text": "We're tired, let's call it a day."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Call it a day\" means…",
+   "options": [
+    "stop for today",
+    "make a phone call"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't 'call it a day' before the deadline.",
+   "why": "It means stop for today."
+  },
+  "l1": "오늘은 여기까지 하다",
+  "l1_hook": "\"call it a day\" 우리는 피곤해. 이제 뭐 할까?",
+  "l1_ex": "우리 피곤한데, 이만 \"call it a day\" 하자.",
+  "right": "call it a day",
+  "native": {
+   "hook": "“call it a day” 무슨 뜻일까요?",
+   "tip": "“call it a day” = 오늘은 여기까지 하다. 예문: “We're tired, let's call it a day.”",
+   "caption": "“call it a day” 무슨 뜻일까요?\n“call it a day” = 오늘은 여기까지 하다.\n예문: “We're tired, let's call it a day.” (우리 피곤한데, 이만 \"call it a day\" 하자.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “call it a day” = 오늘은 여기까지 하다. “We're tired, let's call it a day.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "We're tired. What now?"
+ },
+ "src": {
+  "slang": "call it a day"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“call it a day” 무슨 뜻일까요?",
+  "keyword": "call it a day",
+  "value": "“call it a day” = 오늘은 여기까지 하다. 예문: “We're tired, let's call it a day.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“call it a day” 무슨 뜻일까요?",
+    "description": "“call it a day” = 오늘은 여기까지 하다. 예문: “We're tired, let's call it a day.”\n\n“call it a day” 무슨 뜻일까요?\n“call it a day” = 오늘은 여기까지 하다.\n예문: “We're tired, let's call it a day.” (우리 피곤한데, 이만 \"call it a day\" 하자.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "call it a day",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“call it a day” 무슨 뜻일까요?\n“call it a day” = 오늘은 여기까지 하다.\n예문: “We're tired, let's call it a day.” (우리 피곤한데, 이만 \"call it a day\" 하자.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“call it a day” 무슨 뜻일까요?\n\n“call it a day” = 오늘은 여기까지 하다. 예문: “We're tired, let's call it a day.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“call it a day” 무슨 뜻일까요? “call it a day” = 오늘은 여기까지 하다. 예문: “We're tired, let's call it a day.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “call it a day” = 오늘은 여기까지 하다. “We're tired, let's call it a day.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

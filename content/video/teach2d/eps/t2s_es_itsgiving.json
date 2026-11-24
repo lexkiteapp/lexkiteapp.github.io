@@ -1,0 +1,148 @@
+{
+ "id": "t2s_es_itsgiving",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 84,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "That coat looks like old movies!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "It's giving!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "It has the vibe of…",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That coat is giving old movie star.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "it's giving",
+  "forms": [
+   "giving"
+  ],
+  "ipa": "/ɪts ˈɡɪvɪŋ/",
+  "mean": "It has the vibe of…",
+  "define": "Used to say that something reminds you of a style or mood.",
+  "vi": "Nhìn là thấy vibe này",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "That coat is giving old movie star."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"It's giving\" means…",
+   "options": [
+    "it gives a gift",
+    "it has the vibe of"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'it's giving' to a job interviewer.",
+   "why": "It's trendy slang, too informal."
+  },
+  "l1": "da la sensación de",
+  "l1_hook": "Ese abrigo parece de películas antiguas, \"it's giving\".",
+  "l1_ex": "Ese abrigo está \"it's giving\" a estrella de película antigua.",
+  "right": "it's giving",
+  "native": {
+   "hook": "¿Qué significa “it's giving”?",
+   "tip": "“it's giving” = da la sensación de. Ejemplo: “That coat is giving old movie star.”",
+   "caption": "¿Qué significa “it's giving”?\n“it's giving” = da la sensación de.\nEjemplo: “That coat is giving old movie star.” (Ese abrigo está \"it's giving\" a estrella de película antigua.)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “it's giving” = da la sensación de. “That coat is giving old movie star.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "That coat looks like old movies!"
+ },
+ "src": {
+  "slang": "it's giving"
+ },
+ "lang": "es",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "¿Qué significa “it's giving”?",
+  "keyword": "it's giving",
+  "value": "“it's giving” = da la sensación de. Ejemplo: “That coat is giving old movie star.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “it's giving”?",
+    "description": "“it's giving” = da la sensación de. Ejemplo: “That coat is giving old movie star.”\n\n¿Qué significa “it's giving”?\n“it's giving” = da la sensación de.\nEjemplo: “That coat is giving old movie star.” (Ese abrigo está \"it's giving\" a estrella de película antigua.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "it's giving",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “it's giving”?\n“it's giving” = da la sensación de.\nEjemplo: “That coat is giving old movie star.” (Ese abrigo está \"it's giving\" a estrella de película antigua.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “it's giving”?\n\n“it's giving” = da la sensación de. Ejemplo: “That coat is giving old movie star.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “it's giving”? “it's giving” = da la sensación de. Ejemplo: “That coat is giving old movie s… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “it's giving” = da la sensación de. “That coat is giving old movie star.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

@@ -135,7 +135,15 @@ class WordEnv(
     // ---------- game ----------
     suspend fun game(): JsonElement? = store.doc().game
     /** `App.reward(add, xp)` of the writing screens: the day counters, the lifetime totals and XP of the game document. */
-    suspend fun reward(add: Map<String, Int>, xp: Int) { val now = clock(); store.mutate { d -> d.copy(game = StudyReward.track(d.game, add, xp, now)) } }
+    suspend fun reward(add: Map<String, Int>, xp: Int, src: String? = null) {
+        val now = clock()
+        var x = xp
+        if (src != null && xp > 0) { // web Game._track anti-repeat (device-only key "xprep")
+            val (cut, ledger) = com.lexkite.app.core.RewardRules.cutRepeat((store.get("xprep") as? JsonPrimitive)?.content, xp, src, CardMath.todayKey(now))
+            store.put(mapOf("xprep" to JsonPrimitive(ledger)), local = false); x = cut
+        }
+        store.mutate { d -> d.copy(game = StudyReward.track(d.game, add, x, now)) }
+    }
     fun now(): Long = clock()
     private val lookedUp = HashSet<String>()
     /** App.reward({lookups: 1}) once per word per day (dict-page.js): the day counter and the lifetime total of the game document. */

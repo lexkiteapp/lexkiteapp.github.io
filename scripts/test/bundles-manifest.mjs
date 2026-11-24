@@ -25,7 +25,7 @@ for (const [k, v] of Object.entries(B)) assert.ok(Array.isArray(v) && v.every(f 
 const first = firstLoadFiles();
 assert.ok(!first.some(u => /bundles\.js/.test(u)), 'bundles.js không được nằm trong khung (SW SHELL/<script> của /app/) – chỉ nạp lười');
 const sw = fs.readFileSync('web/sw.js', 'utf8'), html = fs.readFileSync('web/app/index.html', 'utf8');
-assert.ok(/<link rel="preload" as="script" href="js\/bundles\.js">/.test(html) && !/<script[^>]*bundles\.js/.test(html), 'index.html chỉ preload bundles.js (song song app.js), không chặn/nạp tĩnh');
+assert.ok(/<!--lkpre--><link rel="preload" as="script" href="\/js\/bundles\.js"><!--\/lkpre-->/.test(html) && !/<script[^>]*bundles\.js/.test(html), 'index.html chỉ preload bundles.js (song song app.js, đường dẫn tuyệt đối trong khối lkpre – không phụ thuộc <base>), không chặn/nạp tĩnh');
 assert.ok(!/bundles\.js/.test(sw.split('\n').find(l => /const SHELL/.test(l)) || ''), 'bundles.js không vào SW SHELL');
 
 // thêm tệp nội dung vào gói: khung không đổi, chỉ bundles.js đổi
@@ -36,3 +36,8 @@ const after = firstLoadFiles().filter(u => /\.js$/.test(u)).map(u => gzSize(fs.r
 assert.equal(after, before, 'khung (gz tệp nạp ngay) không phụ thuộc bundles.js');
 assert.throws(() => parseBundles('window.x = 1;'), /LK_BUNDLES/, 'tệp thiếu LK_BUNDLES báo lỗi rõ');
 console.log(`✓ bundles-manifest: ${Object.keys(B).length} gói ở web/js/bundles.js (nạp lười, ngoài khung), app.js ${(gzSize(fs.readFileSync('web/js/app.js')) / 1024).toFixed(1)} KB gz`);
+
+// preload tuyệt đối /js/bundles.js: phải được băm thành /h/js/bundles.<băm>.js và bản add-on/di động bỏ khối lkpre
+{ const { plan } = await import('./../build-hash.mjs'); const r = plan(new Map([['js/bundles.js', 'x']]), new Map([['app/index.html', fs.readFileSync('web/app/index.html', 'utf8')]]));
+  assert.match(r.out.get('app/index.html'), /<link rel="preload" as="script" href="\/h\/js\/bundles\.[0-9a-f]{10}\.js">/, 'preload bundles.js tuyệt đối → /h/js/bundles.<băm>.js');
+  assert.ok(!/<!--lkpre-->/.test(fs.readFileSync('web/app/index.html', 'utf8').replace(/<!--lkpre-->.*?<!--\/lkpre-->/s, '')), 'bản add-on bỏ khối lkpre'); }

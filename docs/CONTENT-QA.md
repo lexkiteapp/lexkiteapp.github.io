@@ -15,7 +15,7 @@ Mọi thư mục `content/*` và `web/js/*` (trừ vendor, i18n giao diện) ph�
 |---|---|---|---|
 | 1 | Lược đồ + kho từ | trường bắt buộc, đáp án trong phạm vi, phương án không trùng; từ đầu mục/ví dụ phát âm có trong kho từ (`scripts/lexicon/lib.mjs`) | cũ → baseline |
 | 2 | ✗/✓ | câu sai ≠ câu đúng (sửa dấu câu vẫn hợp lệ), không rỗng, câu đúng chứa cụm đích | cũ → baseline |
-| 3 | **2 giám khảo độc lập** | `qa[lang].j = { '<họ>:<mô hình>': điểm }` – ≥ 2 HỌ mô hình khác nhau (gemini · llama/Workers AI tk2 · qwen…) **hoặc** cặp duy nhất gpt-oss-120b + gpt-oss-20b (xem dưới), mọi điểm ≥ 4, lệch ≤ 1. Không đạt → `content/qa/review-queue.json` (hoặc `content/explain/review.json`), **không xuất** | CỨNG |
+| 3 | **2 giám khảo độc lập** | `qa[lang].j = { '<họ>:<mô hình>': điểm }` – ≥ 2 HỌ mô hình khác nhau (gemini · llama/Workers AI tk2 · qwen…) **hoặc** cặp duy nhất gpt-oss-120b + gpt-oss-20b (xem dưới), mọi điểm ≥ 4, lệch ≤ 1. Không đạt → `content/qa/review-queue/<lô>.json.gz (scripts/lib/review-queue.mjs)` (hoặc `content/explain/review.json`), **không xuất** | CỨNG |
 | 4 | CEFR | cấp bài hợp lệ; từ trong câu cao hơn cấp bài > 1 bậc (theo CEFR kho từ) → đánh dấu | cũ → baseline |
 | 5 | Dịch | giữ `{biến}`, `[đáp án]`, số; không lẫn tiếng Việt; đúng chữ viết bản địa (th/zh/ja/ko/hi/ar/ru ≥ 50% ký tự); không chép nguyên bản gốc; nội dung sinh: dịch ngược `qa.bt ≥ 0.8` | CỨNG (sinh) / baseline (cũ) |
 | 6 | Kiểm mẫu lô | mỗi lô `content/qa/batches/<id>.json` `{ id, source, n, checked:[{id, ok, note}], status }`: soát ≥ 5% (≥ 1 mục); sai > 2% → `status: "rejected"` + gỡ cả lô | CỨNG |

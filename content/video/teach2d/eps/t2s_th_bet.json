@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_bet",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 5,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza at six, deal?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bet!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Okay, sounds good.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pizza at six? Bet.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "bet",
+  "forms": [],
+  "ipa": "/ˈbet/",
+  "mean": "Okay, sounds good.",
+  "define": "Used to agree to a plan or to say okay.",
+  "vi": "Chốt luôn, ok nha",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Texting about weekend plans",
+   "text": "Pizza at six? Bet."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bet\" in a text means…",
+   "options": [
+    "okay, deal",
+    "I don't believe you"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't reply 'bet' to your principal's email.",
+   "why": "It sounds too casual for formal messages."
+  },
+  "l1": "ได้เลย",
+  "l1_hook": "พิซซ่าเวลา 6 โมง ดีไหม? \"bet\"",
+  "l1_ex": "พิซซ่าเวลา 6 โมง? Bet",
+  "right": "bet",
+  "native": {
+   "hook": "“bet” แปลว่าอะไร?",
+   "tip": "“bet” = ได้เลย. ตัวอย่าง: “Pizza at six? Bet.”",
+   "caption": "“bet” แปลว่าอะไร?\n“bet” = ได้เลย.\nตัวอย่าง: “Pizza at six? Bet.” (พิซซ่าเวลา 6 โมง? Bet)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “bet” = ได้เลย. “Pizza at six? Bet.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza at six, deal?"
+ },
+ "src": {
+  "slang": "bet"
+ },
+ "lang": "th",
+ "est": {
+  "words": 14,
+  "seconds": 8.7,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“bet” แปลว่าอะไร?",
+  "keyword": "bet",
+  "value": "“bet” = ได้เลย. ตัวอย่าง: “Pizza at six? Bet.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "“bet” แปลว่าอะไร?",
+    "description": "“bet” = ได้เลย. ตัวอย่าง: “Pizza at six? Bet.”\n\n“bet” แปลว่าอะไร?\n“bet” = ได้เลย.\nตัวอย่าง: “Pizza at six? Bet.” (พิซซ่าเวลา 6 โมง? Bet)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "bet",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“bet” แปลว่าอะไร?\n“bet” = ได้เลย.\nตัวอย่าง: “Pizza at six? Bet.” (พิซซ่าเวลา 6 โมง? Bet)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bet” แปลว่าอะไร?\n\n“bet” = ได้เลย. ตัวอย่าง: “Pizza at six? Bet.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bet” แปลว่าอะไร? “bet” = ได้เลย. ตัวอย่าง: “Pizza at six? Bet.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “bet” = ได้เลย. “Pizza at six? Bet.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

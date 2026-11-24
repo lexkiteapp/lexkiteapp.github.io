@@ -3,6 +3,7 @@
  "sites": {
   "web/js/ui.js": { "engine": "UI.tts/UI.speak + nút data-saysent (đường đọc chung, ưu tiên Kokoro)" },
   "web/js/audio.js": { "engine": "LKAudio: phát file, mở khóa âm thanh iOS bằng câu rỗng" },
+  "web/cpack/stories/ui.js": { "groups": [], "dynamic": "câu truyện/podcast (content/stories) đọc từng câu qua UI.tts giọng Ama/Carlos; file Kokoro dựng sẵn + mốc câu là PR kế (docs/STORIES.md §6) – chưa có file thì UI.tts rơi về engine đọc động" },
   "web/js/lesson/teacher.js": { "engine": "LessonTeacher.say → UI.tts giọng nhân vật" },
   "web/js/grammar.js": { "groups": ["grammar", "gold-examples"] },
   "web/cpack/irregular/table.js": { "groups": ["irregular"], "dynamic": "dạng đơn lẻ (went, gone) đọc qua UI.speak: phần lớn chưa có file riêng, rơi về engine đọc động" },
@@ -16,6 +17,7 @@
   "web/js/criteria.js": { "groups": ["speaking-samples"], "dynamic": "đọc đoạn người học đang xem trong bộ chấm tiêu chí" },
   "web/js/call.js": { "groups": ["calls"], "dynamic": "nút đọc lại câu người học vừa nói (cSpk)" },
   "web/js/lesson/story-stage.js": { "groups": ["lesson-stories"], "dynamic": "dòng truyện từ dữ liệu bài học, chỉ đọc khi chạm 🔊/🐢 (qua say của ui.js)" },
+  "web/cpack/game/game-end.js": { "groups": ["words-us"] },
   "web/js/lesson/ui.js": { "groups": ["lesson-stories", "lesson-teacher", "examples-us", "words-us"], "dynamic": "thẻ từ vựng giọng Carlos (am_michael) khi tắt ux1 – chưa có nhóm" },
   "web/cpack/lesson/card.js": {
     "groups": [],

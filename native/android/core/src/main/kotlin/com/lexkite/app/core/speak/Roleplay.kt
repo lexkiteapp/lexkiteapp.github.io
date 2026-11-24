@@ -1,5 +1,6 @@
 package com.lexkite.app.core.speak
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.lesson.Speaking
 import com.lexkite.app.core.skills.Reward
 import com.lexkite.app.core.vocab.ga
@@ -149,7 +150,7 @@ object Roleplay {
         val sc = ai ?: localScore(pack, s, L, hist) ?: return null
         val c = { x: Int -> maxOf(0, minOf(100, x)) }
         val avg = jsRound((c(sc.natural) + c(sc.polite) + c(sc.clarity) + c(sc.grammar)) / 4.0)
-        val xp = 10 + spoken * 3 - minOf(hints, spoken)
+        val xp = RewardRules.xp("talk", right = spoken, hints = hints)
         return Report(sc, ai != null, avg, listOf(Tr("Độ tự nhiên") to c(sc.natural), Tr("Mức lịch sự") to c(sc.polite), Tr("Độ rõ ý") to c(sc.clarity), Tr("Ngữ pháp") to c(sc.grammar)), Reward(mapOf("spoken" to spoken), maxOf(5, xp)), maxOf(5, xp),
             if (ai != null) Tr("Chấm bởi AI") else Tr("Ước lượng nhanh trên máy (không có AI)."))
     }

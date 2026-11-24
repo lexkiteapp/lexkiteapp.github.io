@@ -161,7 +161,7 @@ final class ConfidenceModel {
             n += 1
         }
         savedCards = n
-        if first { await ctx.commit(reward: ["spoken": shadow.count, "xp": 15]) }
+        if first { await ctx.commit(reward: ["spoken": shadow.count, "xp": RewardRules.xp("talk", right: shadow.count)]) }
     }
     var shadowAverage: Int? { shadow.isEmpty ? nil : Vocab.round(Double(shadow.values.reduce(0, +)) / Double(shadow.count)) }
 
@@ -223,7 +223,7 @@ final class ConfidenceModel {
         list = Array(list.suffix(30))
         var p = progress; p["daily"] = .array(list); progress = p; Confidence.save(p, defaults)
         dailyScore = score; newRecord = list.count > 1 && score > best
-        if at == nil { await ctx.commit(reward: ["spoken": 1, "xp": 10]) }
+        if at == nil { await ctx.commit(reward: ["spoken": 1, "xp": RewardRules.xp("talk")]) }
     }
     func stopAll() { stopSay(); recording = false; dailyTask?.cancel(); io.recognizer.cancel() }
 }

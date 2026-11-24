@@ -1,0 +1,150 @@
+{
+ "id": "t2s_pt_digin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 86,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dinner's ready. Who's hungry?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dig in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start eating now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dinner is ready, so dig in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "dig in",
+  "forms": [],
+  "ipa": "/ˈdɪɡ ˈɪn/",
+  "mean": "Start eating now.",
+  "define": "Used to invite people to begin eating.",
+  "vi": "Ăn đi nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "Serving dinner",
+   "text": "Dinner is ready, so dig in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dig in\" means…",
+   "options": [
+    "dig a hole",
+    "start eating"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell guests to 'dig in' before the host.",
+   "why": "Formal dinners wait for the host."
+  },
+  "l1": "sirva-se",
+  "l1_hook": "O jantar está pronto. Quem está com fome? Vamos \"dig in\"!",
+  "l1_ex": "O jantar está pronto, então \"dig in\"!",
+  "right": "dig in",
+  "native": {
+   "hook": "O que significa “dig in”?",
+   "tip": "“dig in” = sirva-se. Exemplo: “Dinner is ready, so dig in!”",
+   "caption": "O que significa “dig in”?\n“dig in” = sirva-se.\nExemplo: “Dinner is ready, so dig in!” (O jantar está pronto, então \"dig in\"!)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “dig in” = sirva-se. “Dinner is ready, so dig in!” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dinner's ready. Who's hungry?"
+ },
+ "src": {
+  "slang": "dig in"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "O que significa “dig in”?",
+  "keyword": "dig in",
+  "value": "“dig in” = sirva-se. Exemplo: “Dinner is ready, so dig in!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “dig in”?",
+    "description": "“dig in” = sirva-se. Exemplo: “Dinner is ready, so dig in!”\n\nO que significa “dig in”?\n“dig in” = sirva-se.\nExemplo: “Dinner is ready, so dig in!” (O jantar está pronto, então \"dig in\"!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "dig in",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “dig in”?\n“dig in” = sirva-se.\nExemplo: “Dinner is ready, so dig in!” (O jantar está pronto, então \"dig in\"!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “dig in”?\n\n“dig in” = sirva-se. Exemplo: “Dinner is ready, so dig in!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “dig in”? “dig in” = sirva-se. Exemplo: “Dinner is ready, so dig in!” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “dig in” = sirva-se. “Dinner is ready, so dig in!” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}
