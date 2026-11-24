@@ -526,6 +526,7 @@ node scripts/stitch-v2-convert.mjs --check
 node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
+node scripts/test/meta-attr.mjs
 node scripts/test/social-audit.mjs
 node scripts/test/select-cta-guard.mjs
 node scripts/test/lesson-lip-late.mjs
