@@ -4,6 +4,27 @@
  "repo": "lexkiteapp/lexkiteapp.github.io",
  "items": [
   {
+   "name": "lexkite-repo-20261122.bundle",
+   "week": "2026-W47",
+   "at": "2026-11-22T19:22:17.216Z",
+   "sha256": "0575f853d0d454a514a17d9d9aa519d2cf42762f30d2739dcc6d86cf146ea60a",
+   "size": 1589705408,
+   "main": "288588add598a8508677a105bec1eb7a8fa51600",
+   "branches": 1337,
+   "tags": 994,
+   "copies": [
+    {
+     "driveId": 33,
+     "fileId": "1zZ_XbW_WqwBP2KkVsKnFh8bm_y9o_05p"
+    },
+    {
+     "driveId": 36,
+     "fileId": "1AK0P3SLnYj2LqkF5rSIZVvDWfISRIqpM"
+    }
+   ],
+   "drill": "ok"
+  },
+  {
    "name": "lexkite-repo-20261104.bundle",
    "week": "2026-W45",
    "at": "2026-11-04T05:56:20.537Z",
@@ -23,28 +44,7 @@
     }
    ],
    "drill": "ok"
-  },
-  {
-   "name": "lexkite-repo-20261025.bundle",
-   "week": "2026-W43",
-   "at": "2026-10-25T13:38:17.673Z",
-   "sha256": "90ca2a5f0e97ffa5de0d7d89c1cf320550afa48919b34433dc760bd8918b528e",
-   "size": 953923168,
-   "main": "29c814baaece93c59c9479b2d013e61d770e17db",
-   "branches": 47,
-   "tags": 165,
-   "copies": [
-    {
-     "driveId": 1,
-     "fileId": "1ga3qiyQPsaxWD8irsYw3q507lxzwzRSA"
-    },
-    {
-     "driveId": 6,
-     "fileId": "1axQwmfCoUhAlyo400pdDf1hafqG9yy0o"
-    }
-   ],
-   "drill": "ok"
   }
  ],
- "updated": "2026-11-04T05:56:20.537Z"
+ "updated": "2026-11-22T19:22:17.216Z"
 }

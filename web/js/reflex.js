@@ -51,7 +51,7 @@
       if (!alive()) return; stopAll(); clearInterval(tick);
       $('#rxStage').innerHTML = `<div class="center"><div style="font-size:2.4rem">🏁</div><h2>${t('Hết giờ!')}</h2><p>${t('{n} câu · trung bình {p}%', { n: done, p: done ? Math.round(score / done) : 0 })}</p></div>`;
       $('#rxNext').hidden = true; $('#rxGo').hidden = false; $('#rxGo').textContent = '↻ ' + t('Chơi lại');
-      if (done) App.reward({ spoken: done, xp: 5 + done * 2 });
+      if (done) App.reward({ spoken: done, xp: Game.xpFor('talk', { right: done }) });
     };
     const listen = it => {
       if (!alive()) return;

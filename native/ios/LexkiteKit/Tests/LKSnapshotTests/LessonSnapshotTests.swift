@@ -6,7 +6,7 @@ import LKCore
 import LKStore
 import LKSync
 
-/// P03 lesson player: question (gap · build · match · type), feedback (right · wrong), completion and a story line,
+/// P03 lesson player: question (gap · build · match · type · lpic · mpic), feedback (right · wrong), completion and a story line,
 /// light/dark × en/vi/ar(RTL)/de at 390 pt = 8 states × 8 = 64 images. Fixed cards + seed, frozen teacher, no sound, no network.
 /// References live in __Snapshots__; CI records missing ones (SNAPSHOT_RECORD=missing, all with =1) and verifies after.
 @MainActor
@@ -32,16 +32,24 @@ final class LessonSnapshotTests: XCTestCase {
     struct Offline: VoiceTransport { func data(from url: URL, timeout: TimeInterval) async throws -> Data { throw URLError(.notConnectedToInternet) } }
 
     /// A running lesson restricted to one exercise kind (so the screen is the one named by the test).
-    func model(_ only: [String], lang: String, pose: String? = nil, matchFirst: Bool = false) -> LessonModel {
+    /// `pics` = lpic + mpic on with a picture for every word (web lesson flags); pictures stay empty boxes offline (fixed size, no layout jump).
+    func model(_ only: [String]?, lang: String, pose: String? = nil, matchFirst: Bool = false, pics: Bool = false, seed: Double = 11, first: ((LessonItem) -> Bool)? = nil) -> LessonModel {
         let m = LessonModel(uiLang: lang, voice: LKVoicePlayer(resolver: VoiceResolver(transport: Offline(), cacheDirectory: nil)),
                             defaults: UserDefaults(suiteName: "lk.snap.lesson")!, remote: NoText(), reduceMotion: true,
                             teacher: TeacherController.frozen(who: "ama", pose: pose), clock: { Date(timeIntervalSince1970: Self.now / 1000) })
         m.calendar = Self.cal; m.autoPlay = false
         let picks = LessonEngine.pickWords(Self.cards, .init(n: 4, now: Self.now), calendar: Self.cal)
-        var o = LessonEngine.BuildOptions(seed: 11, pool: Self.cards, only: only, calm: true, match: only.contains("match"))
+        var o = LessonEngine.BuildOptions(seed: seed, pool: Self.cards, only: only, calm: true, match: only?.contains("match") ?? false)
         o.mean = { c in lang == "vi" ? c.vi : "" }
+        if pics { o.lpic = true; o.mpic = true; o.hasImg = { _, _ in true } }
         var items = LessonEngine.build(picks, o)
         if matchFirst, let i = items.firstIndex(where: { $0.type == "match" }) { items.swapAt(0, i) }
+        if let first, let i = items.firstIndex(where: first) { items.swapAt(0, i) }
+        if pics {   // every card has a (transparent) picture: one shard, unresolvable .invalid host → fixed empty boxes (offline-stable)
+            let keys = Self.cards.map { VocabImages.key($0.word, $0.pos) }
+            m.pictures = VocabImages.Snapshot(enabled: true, head: .init(base: "https://pictures.invalid/", n: 1, on: true),
+                                              shards: [0: .init(m: Dictionary(uniqueKeysWithValues: keys.map { ($0, "x") }), a: Set(keys))])
+        }
         m.begin(items, kind: "lesson")
         return m
     }
@@ -63,6 +71,20 @@ final class LessonSnapshotTests: XCTestCase {
         shoot { lang in let m = self.model(["build"], lang: lang); m.tiles = [0, 2]; return m }
     }
     func testQuestionMatch() { shoot { lang in self.model(["gap", "match"], lang: lang, matchFirst: true) } }
+    func testQuestionLpic() {
+        shoot { lang in let m = self.model(["lpic"], lang: lang, pics: true); m.pick = m.cur?.options?.first { $0 != m.cur?.answer }; return m }
+    }
+    func testFeedbackLpic() {
+        shoot { lang in let m = self.model(["lpic"], lang: lang, pose: "cheer", pics: true); m.pick = m.cur?.answer; m.submit(); return m }
+    }
+    func testQuestionMpic() {
+        // mpic comes in ~40 % of lessons: first seed that has one (deterministic)
+        let seed = (1...200).map(Double.init).first { s in
+            var o = LessonEngine.BuildOptions(seed: s, pool: Self.cards, calm: true); o.lpic = true; o.mpic = true; o.hasImg = { _, _ in true }
+            return LessonEngine.build(LessonEngine.pickWords(Self.cards, .init(n: 4, now: Self.now), calendar: Self.cal), o).contains { $0.pics == true }
+        } ?? 1
+        shoot { lang in self.model(nil, lang: lang, pics: true, seed: seed, first: { $0.pics == true }) }
+    }
     func testQuestionType() {
         shoot { lang in let m = self.model(["type"], lang: lang); m.typed = String((m.cur?.answer ?? "").prefix(3)); return m }
     }

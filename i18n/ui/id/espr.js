@@ -3,6 +3,7 @@
 "Chưa có bài cho mục này.":"Belum ada latihan untuk topik ini.",
 "Cấp {l}":"Level {l}",
 "Cẩn thận dấu (tilde): {a}":"Perhatikan tanda aksen: {a}",
+"Cẩn thận dấu (é, è, ç…): {a}":"Perhatikan tanda aksen (é, è, ç…): {a}",
 "Không tải được bài. Kiểm tra mạng rồi thử lại.":"Pelajaran gagal dimuat. Periksa koneksimu lalu coba lagi.",
 "Điền từ còn thiếu":"Isi kata yang hilang",
 });

@@ -1,0 +1,152 @@
+{
+ "id": "t2s_zh_cheerup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 66,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She looks sad. What now?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheer up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Feel happier.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheer up, we're having pizza!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheer up",
+  "forms": [
+   "cheered up"
+  ],
+  "ipa": "/ˈtʃɪr ˈʌp/",
+  "mean": "Feel happier.",
+  "define": "Used to tell someone to feel better.",
+  "vi": "Vui lên nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Cheer up, we're having pizza!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheer up\" means…",
+   "options": [
+    "yell loudly",
+    "feel happier"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheer up' to someone grieving.",
+   "why": "It sounds like you dismiss their pain."
+  },
+  "l1": "高兴起来",
+  "l1_hook": "她看起来很难过。What now？\"cheer up\"",
+  "l1_ex": "'cheer up'，我们要吃披萨啦！",
+  "right": "cheer up",
+  "native": {
+   "hook": "“cheer up”是什么意思？",
+   "tip": "“cheer up” = 高兴起来. 例句: “Cheer up, we're having pizza!”",
+   "caption": "“cheer up”是什么意思？\n“cheer up” = 高兴起来.\n例句: “Cheer up, we're having pizza!” ('cheer up'，我们要吃披萨啦！)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “cheer up” = 高兴起来. “Cheer up, we're having pizza!” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She looks sad. What now?"
+ },
+ "src": {
+  "slang": "cheer up"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "“cheer up”是什么意思？",
+  "keyword": "cheer up",
+  "value": "“cheer up” = 高兴起来. 例句: “Cheer up, we're having pizza!”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“cheer up”是什么意思？",
+    "description": "“cheer up” = 高兴起来. 例句: “Cheer up, we're having pizza!”\n\n“cheer up”是什么意思？\n“cheer up” = 高兴起来.\n例句: “Cheer up, we're having pizza!” ('cheer up'，我们要吃披萨啦！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "cheer up",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“cheer up”是什么意思？\n“cheer up” = 高兴起来.\n例句: “Cheer up, we're having pizza!” ('cheer up'，我们要吃披萨啦！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cheer up”是什么意思？\n\n“cheer up” = 高兴起来. 例句: “Cheer up, we're having pizza!”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cheer up”是什么意思？ “cheer up” = 高兴起来. 例句: “Cheer up, we're having pizza!” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “cheer up” = 高兴起来. “Cheer up, we're having pizza!” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

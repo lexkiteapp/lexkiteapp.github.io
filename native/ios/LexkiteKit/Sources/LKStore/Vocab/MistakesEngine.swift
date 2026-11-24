@@ -10,7 +10,7 @@ public enum MistakesEngine {
     public static let kinds = ["vocab", "grammar", "reading", "listening"]
     public static let maxRecords = 300
     /// XP: "Đã hiểu" 2 · right in retry 3
-    public static let xpUnderstood = 2, xpRetryRight = 3
+    public static let xpUnderstood = RewardRules.xp("step"), xpRetryRight = RewardRules.xp("answer", mode: "type")
     static let lz = ["q", "given", "explain"]
     static let listenQ = "Gõ lại từ bạn nghe được"
     static let wordQ = "Nghĩa của “{word}”?"

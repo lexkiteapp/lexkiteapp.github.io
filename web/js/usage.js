@@ -327,7 +327,7 @@
         if (done === qs.length) {
           $('#usScore', box).innerHTML = `<div class="us-score" role="status"><b>${right}/${qs.length}</b><span>${right === qs.length ? t('Tuyệt vời – bạn nắm chắc rồi!') : right >= qs.length - 1 ? t('Rất tốt! Xem lại câu sai một chút nhé.') : t('Đọc lại ví dụ ở trên rồi làm lại nhé.')}</span><button type="button" class="btn sm" id="usAgain">↻ ${t('Làm bộ câu khác')}</button></div>`;
           $('#usAgain', box).onclick = () => { seed++; run(); const f = box.querySelector('input'); if (f) f.focus(); };
-          if (App.reward) { try { App.reward({ xp: right * 2 }); } catch (er) { /* bỏ qua */ } }
+          if (App.reward) { try { if (right) App.reward({ xp: Game.xpFor('set', { right, total: qs.length, mode: 'type' }) }); } catch (er) { /* bỏ qua */ } }
         }
       };
     };

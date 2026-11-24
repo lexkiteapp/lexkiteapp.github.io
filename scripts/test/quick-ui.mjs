@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { JSDOM } from 'jsdom';
+import { gameRules } from '../lib/game-rules.mjs';
 
 console.log('--- Kiểm tra [Q1] Quick Play 15s & English Style Quiz ---');
 
@@ -58,6 +59,7 @@ const state = {
   settings: {},
 };
 
+window.Game = globalThis.Game = gameRules(); // luật XP thật (game.js)
 window.App = {
   state,
   routes: {},

@@ -1,0 +1,133 @@
+{
+ "id": "t2s_myplateisfull",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 155,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can you take one more task?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "My plate is full!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "My schedule is full.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Sorry, my plate is full.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "my plate is full",
+  "forms": [
+   "plate is full"
+  ],
+  "ipa": "/maɪ ˈpleɪt ɪz ˈfʊl/",
+  "mean": "My schedule is full.",
+  "define": "Used to say you can't take more work.",
+  "vi": "Tui bận kín lịch",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Refusing extra work",
+   "text": "Sorry, my plate is full."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you're…",
+   "options": [
+    "hungry",
+    "very busy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'my plate is full' at dinner.",
+   "why": "It means too many tasks, not food."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can you take one more task?"
+ },
+ "src": {
+  "slang": "my plate is full"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"my plate is full\" mean?",
+  "keyword": "my plate is full",
+  "value": "My plate is full = My schedule is full. Example: \"Sorry, my plate is full.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"my plate is full\" mean?",
+    "description": "My plate is full = My schedule is full. Example: \"Sorry, my plate is full.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "my plate is full",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"my plate is full\" mean?\n\nMy plate is full = My schedule is full. Example: \"Sorry, my plate is full.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"my plate is full\" mean?\n\nMy plate is full = My schedule is full. Example: \"Sorry, my plate is full.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"my plate is full\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'my plate is full' at dinner. It means too many tasks, not food. Real example: \"Sorry, my plate is full.\" More real English slang, free: {link}"
+ }
+}

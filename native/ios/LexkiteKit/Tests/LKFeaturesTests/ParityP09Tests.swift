@@ -52,7 +52,7 @@ final class ParityP09Tests: XCTestCase {
         XCTAssertEqual(Array(lesson.steps.suffix(2)), [.quiz, .own]); XCTAssertEqual(lesson.quiz.count, 12)   // web: Luyện tập, then Tự đặt câu when GRAMMAR_CHECK has the lesson
         for (i, q) in lesson.quiz.enumerated() { await lesson.pickQuiz(i, i == 0 ? (q.i("answer") + 1) % max(1, q.strs("options").count) : q.i("answer")) }
         let sum = try XCTUnwrap(lesson.quizSummary)
-        XCTAssertEqual(sum.right, 11); XCTAssertEqual(sum.pct, 92); XCTAssertEqual(sum.xp, GrammarCore.quizXP(11))
+        XCTAssertEqual(sum.right, 11); XCTAssertEqual(sum.pct, 92); XCTAssertEqual(sum.xp, GrammarCore.quizXP(11, of: 12))
         let b1 = await data1.load()
         XCTAssertEqual(Int(JSON.orZero(b1.game["grammarDone"]?["present-simple"])), 92)
         XCTAssertEqual(Int(JSON.orZero(b1.game["xp"])), sum.xp)

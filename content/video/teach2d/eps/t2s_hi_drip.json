@@ -1,0 +1,150 @@
+{
+ "id": "t2s_hi_drip",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 46,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New jacket, new shoes, new confidence!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Drip!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very stylish clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Nice jacket, you've got drip today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "drip",
+  "forms": [],
+  "ipa": "/ˈdrɪp/",
+  "mean": "Very stylish clothes.",
+  "define": "Slang for cool clothes and a stylish look.",
+  "vi": "Phong cách chất lừ",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Seeing a friend's outfit",
+   "text": "Nice jacket, you've got drip today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Drip\" means…",
+   "options": [
+    "a water drop",
+    "a cool style"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your boss 'nice drip' at work.",
+   "why": "It's too slangy for formal settings."
+  },
+  "l1": "शानदार स्टाइल",
+  "l1_hook": "नई जैकेट, नए जूते, नया आत्मविश्वास! \"drip\"",
+  "l1_ex": "अच्छी जैकेट, आज तुम्हारे पास 'drip' है।",
+  "right": "drip",
+  "native": {
+   "hook": "“drip” का मतलब क्या है?",
+   "tip": "“drip” = शानदार स्टाइल. उदाहरण: “Nice jacket, you've got drip today.”",
+   "caption": "“drip” का मतलब क्या है?\n“drip” = शानदार स्टाइल.\nउदाहरण: “Nice jacket, you've got drip today.” (अच्छी जैकेट, आज तुम्हारे पास 'drip' है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “drip” = शानदार स्टाइल. “Nice jacket, you've got drip today.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "New jacket, new shoes, new confidence!"
+ },
+ "src": {
+  "slang": "drip"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“drip” का मतलब क्या है?",
+  "keyword": "drip",
+  "value": "“drip” = शानदार स्टाइल. उदाहरण: “Nice jacket, you've got drip today.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“drip” का मतलब क्या है?",
+    "description": "“drip” = शानदार स्टाइल. उदाहरण: “Nice jacket, you've got drip today.”\n\n“drip” का मतलब क्या है?\n“drip” = शानदार स्टाइल.\nउदाहरण: “Nice jacket, you've got drip today.” (अच्छी जैकेट, आज तुम्हारे पास 'drip' है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "drip",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“drip” का मतलब क्या है?\n“drip” = शानदार स्टाइल.\nउदाहरण: “Nice jacket, you've got drip today.” (अच्छी जैकेट, आज तुम्हारे पास 'drip' है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“drip” का मतलब क्या है?\n\n“drip” = शानदार स्टाइल. उदाहरण: “Nice jacket, you've got drip today.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“drip” का मतलब क्या है? “drip” = शानदार स्टाइल. उदाहरण: “Nice jacket, you've got drip today.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “drip” = शानदार स्टाइल. “Nice jacket, you've got drip today.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

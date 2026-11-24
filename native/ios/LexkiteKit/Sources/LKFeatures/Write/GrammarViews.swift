@@ -419,7 +419,7 @@ struct GrammarLessonView: View {
                 SkillAction(title: t.lv("Kiểm tra câu"), primary: true) { Task { await model.checkOwn() } }
                 if model.ownShort { SkillNote(icon: "exclamationmark.circle", text: t.lv("Hãy viết một câu hoàn chỉnh (ít nhất 4 từ).")) }
                 if let r = model.ownResult {
-                    if r.ok { SkillNote(icon: "checkmark.circle.fill", text: t.lv("Tuyệt! Bạn đã dùng đúng cấu trúc của bài.") + (r.first ? " +15 XP" : ""), tint: LKColor.success) }
+                    if r.ok { SkillNote(icon: "checkmark.circle.fill", text: t.lv("Tuyệt! Bạn đã dùng đúng cấu trúc của bài.") + (r.first ? " +\(RewardRules.xp("answer", mode: "write", hard: true)) XP" : ""), tint: LKColor.success) }
                     else {
                         SkillNote(icon: "xmark.circle.fill", text: t.lv("Chưa thấy cấu trúc của bài trong câu.") + " " + t.lv("Công thức") + ": " + (c.count > 1 ? c[1] : ""), tint: LKColor.error)
                         Text(verbatim: t.lv("Gợi ý: xem lại ví dụ ở phần “Cách dùng”, rồi viết lại câu theo đúng công thức.")).studyText(LKType.bodySm, LKColor.onSurfaceVariant).fixedSize(horizontal: false, vertical: true)

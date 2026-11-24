@@ -1,0 +1,138 @@
+{
+ "id": "t2s_nailedit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 200,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My speech got a standing ovation!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Nailed it!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I did it perfectly.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I nailed it! The teacher clapped.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "nailed it",
+  "forms": [
+   "nail it",
+   "nailing it"
+  ],
+  "ipa": "/ˈneɪld ɪt/",
+  "mean": "I did it perfectly.",
+  "define": "Used when you did something exactly right.",
+  "vi": "Làm quá chuẩn",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "praise",
+  "example": {
+   "ctx": "After a performance",
+   "text": "I nailed it! The teacher clapped."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Nailed it\" means…",
+   "options": [
+    "hit a nail",
+    "did it perfectly"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'nailed it' after you failed.",
+   "why": "It sounds sarcastic."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My speech got a standing ovation!"
+ },
+ "src": {
+  "slang": "nailed it"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"nailed it\" mean?",
+  "keyword": "nailed it",
+  "value": "Nailed it = I did it perfectly. Example: \"I nailed it! The teacher clapped.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"nailed it\" mean?",
+    "description": "Nailed it = I did it perfectly. Example: \"I nailed it! The teacher clapped.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "nailed it",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"nailed it\" mean?\n\nNailed it = I did it perfectly. Example: \"I nailed it! The teacher clapped.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"nailed it\" mean?\n\nNailed it = I did it perfectly. Example: \"I nailed it! The teacher clapped.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"nailed it\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'nailed it' after you failed. It sounds sarcastic. Real example: \"I nailed it! The teacher clapped.\" More real English slang, free: {link}"
+ }
+}

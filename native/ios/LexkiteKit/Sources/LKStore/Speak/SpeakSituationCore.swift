@@ -303,10 +303,10 @@ public struct SpeakDrill {
         let stars = noMic ? (pass ? 1 : 0) : (!pass ? 0 : (b < 2 ? 1 : (quick ? 3 : 2)))
         res = Res(score: Vocab.round(sc.text * 100), pass: pass, free: free, stars: free ? 0 : stars, words: sc.words.map { SpeakScore.Word(w: $0.w, ok: $0.ok) }, wpm: sc.wpm)
         guard pass || free else { return Effect() }
-        return record(text: sc.text, stars: res!.stars, pass: pass)
+        return record(text: sc.text, stars: res!.stars, score: res!.score, pass: pass)
     }
     /// `record` of app.js: best/stars of the line, the mission tasks that name it, the week counter, then the reward unless there was no mic
-    private mutating func record(text: Double, stars: Int, pass: Bool) -> Effect {
+    private mutating func record(text: Double, stars: Int, score: Int, pass: Bool) -> Effect {
         let sid = s.s("id"), id = order[i]
         var p = SpeakSit.prog(store, sid)
         let cur = p["lines"]?[id]
@@ -317,7 +317,7 @@ public struct SpeakDrill {
         store[sid] = p
         store["week"] = .obj([(week, .number(JSON.orZero(store["week"]?[week]) + 1))])
         var fx = Effect(); fx.wrote = true
-        if !noMic { fx.reward = ["spoken": 1, "xp": 2 * stars] }
+        if !noMic { fx.reward = ["spoken": 1, "xp": stars > 0 ? RewardRules.xp("say", score: Double(stars >= 2 ? RewardRules.great : RewardRules.pass)) : 0] }
         return fx
     }
     /// tap of the word at original index `k` (no-mic mode): must be the next one in order

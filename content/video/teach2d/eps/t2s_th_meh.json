@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_meh",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 119,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How was the movie?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Meh!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Not great, not bad.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The movie? Meh.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "meh",
+  "forms": [],
+  "ipa": "/ˈme/",
+  "mean": "Not great, not bad.",
+  "define": "Used to show you aren't impressed.",
+  "vi": "Bình thường thôi",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "After a movie",
+   "text": "The movie? Meh."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Meh\" means…",
+   "options": [
+    "very excited",
+    "not impressed"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'meh' about a friend's cooking.",
+   "why": "It sounds unkind and dismissive."
+  },
+  "l1": "เฉยๆ",
+  "l1_hook": "หนังเป็นยังไง? ฉันรู้สึกว่า 'meh' ค่ะ!",
+  "l1_ex": "หนังล่ะ? \"Meh\"",
+  "right": "meh",
+  "native": {
+   "hook": "“meh” แปลว่าอะไร?",
+   "tip": "“meh” = เฉยๆ. ตัวอย่าง: “The movie? Meh.”",
+   "caption": "“meh” แปลว่าอะไร?\n“meh” = เฉยๆ.\nตัวอย่าง: “The movie? Meh.” (หนังล่ะ? \"Meh\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “meh” = เฉยๆ. “The movie? Meh.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "How was the movie?"
+ },
+ "src": {
+  "slang": "meh"
+ },
+ "lang": "th",
+ "est": {
+  "words": 14,
+  "seconds": 8.9,
+  "wpm": 94
+ },
+ "publish": {
+  "title": "“meh” แปลว่าอะไร?",
+  "keyword": "meh",
+  "value": "“meh” = เฉยๆ. ตัวอย่าง: “The movie? Meh.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“meh” แปลว่าอะไร?",
+    "description": "“meh” = เฉยๆ. ตัวอย่าง: “The movie? Meh.”\n\n“meh” แปลว่าอะไร?\n“meh” = เฉยๆ.\nตัวอย่าง: “The movie? Meh.” (หนังล่ะ? \"Meh\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "meh",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“meh” แปลว่าอะไร?\n“meh” = เฉยๆ.\nตัวอย่าง: “The movie? Meh.” (หนังล่ะ? \"Meh\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“meh” แปลว่าอะไร?\n\n“meh” = เฉยๆ. ตัวอย่าง: “The movie? Meh.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“meh” แปลว่าอะไร? “meh” = เฉยๆ. ตัวอย่าง: “The movie? Meh.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “meh” = เฉยๆ. “The movie? Meh.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

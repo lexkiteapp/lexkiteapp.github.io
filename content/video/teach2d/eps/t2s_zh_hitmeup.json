@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_hitmeup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 110,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Need help? I'm around!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hit me up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Send me a message.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Hit me up if you need help.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "hit me up",
+  "forms": [],
+  "ipa": "/ˈhɪt mi ˈʌp/",
+  "mean": "Send me a message.",
+  "define": "To contact someone by text or call.",
+  "vi": "Nhắn tui nhé",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Ending a chat",
+   "text": "Hit me up if you need help."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "hit me",
+    "message me"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'hit me up' to your professor.",
+   "why": "It's too casual for teachers."
+  },
+  "l1": "联系我",
+  "l1_hook": "需要帮助吗？我就在附近！",
+  "l1_ex": "如果你需要帮助，hit me up。",
+  "right": "hit me up",
+  "native": {
+   "hook": "“hit me up”是什么意思？",
+   "tip": "“hit me up” = 联系我. 例句: “Hit me up if you need help.”",
+   "caption": "“hit me up”是什么意思？\n“hit me up” = 联系我.\n例句: “Hit me up if you need help.” (如果你需要帮助，hit me up。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “hit me up” = 联系我. “Hit me up if you need help.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Need help? I'm around!"
+ },
+ "src": {
+  "slang": "hit me up"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“hit me up”是什么意思？",
+  "keyword": "hit me up",
+  "value": "“hit me up” = 联系我. 例句: “Hit me up if you need help.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“hit me up”是什么意思？",
+    "description": "“hit me up” = 联系我. 例句: “Hit me up if you need help.”\n\n“hit me up”是什么意思？\n“hit me up” = 联系我.\n例句: “Hit me up if you need help.” (如果你需要帮助，hit me up。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "hit me up",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“hit me up”是什么意思？\n“hit me up” = 联系我.\n例句: “Hit me up if you need help.” (如果你需要帮助，hit me up。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“hit me up”是什么意思？\n\n“hit me up” = 联系我. 例句: “Hit me up if you need help.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“hit me up”是什么意思？ “hit me up” = 联系我. 例句: “Hit me up if you need help.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “hit me up” = 联系我. “Hit me up if you need help.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

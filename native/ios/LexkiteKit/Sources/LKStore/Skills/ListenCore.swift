@@ -215,6 +215,8 @@ public struct ListenOutcome: Sendable {
     public var advice: L10nKey
     /// the App.reward argument
     public var reward: [String: Int]
+    /// the anti-repeat key of `App.reward` (`ls:<part id>`); nil for the exam
+    public var src: String? = nil
     public var game: JSON, mistakes: [JSON]
 }
 
@@ -223,7 +225,7 @@ public enum ListenSubmit {
     public static func needsConfirm(exam: Bool, playing: Bool) -> Bool { exam && playing }
     public static func advice(_ right: Int) -> L10nKey { right >= 9 ? .skillListenXuatSacMucBand : right >= 7 ? .skillListenTotXemLaiCac : .skillListenMoLoiThoaiBen }
 
-    /// Grade a part: `listenDone[id] = max(right, old)`, per-kind stats, a mistake for every wrong question, 15 + 3·right XP.
+    /// Grade a part: `listenDone[id] = max(right, old)`, per-kind stats, a mistake for every wrong question, XP = set(right, total, type) and the anti-repeat key `ls:<id>`.
     public static func submit(_ p: JSON, answers: QAnswers, game: JSON, mistakes: [JSON], now: Int64) -> ListenOutcome {
         let res = QE.collect(p, answers), nums = res.keys.sorted(), list = nums.compactMap { res[$0] }
         let right = list.filter(\.ok).count, id = p.s("id")
@@ -236,9 +238,9 @@ public enum ListenSubmit {
         var done = g["listenDone"]?.object ?? [:]
         done[id] = .number(max(Double(right), JSON.orZero(done[id])))
         g["listenDone"] = .object(done)
-        let xp = 15 + right * 3
+        let xp = RewardRules.xp("set", right: right, total: nums.count, mode: "type")
         return ListenOutcome(results: list, right: right, total: nums.count, xp: xp, advice: advice(right),
-                             reward: ["quizzes": 1, "listens": 1, "perfect": right == nums.count ? 1 : 0, "xp": xp], game: g, mistakes: log)
+                             reward: ["quizzes": 1, "listens": 1, "perfect": right == nums.count ? 1 : 0, "xp": xp], src: "ls:" + id, game: g, mistakes: log)
     }
 
     /// "Từ vựng đáng học": the dictionary hit (or the part's own word + meaning), the line that carries the word as context
@@ -330,7 +332,7 @@ public struct ListenTestFlow: Sendable {
         /// band ≥ 7: win sound + confetti
         public var celebrates: Bool { band >= 7 }
     }
-    /// The result page and everything it writes: `listenBest`, `listenTests` (last 30), per-kind stats, a mistake per wrong question, 40 + 2·raw XP.
+    /// The result page and everything it writes: `listenBest`, `listenTests` (last 30), per-kind stats, a mistake per wrong question, XP = exam(raw, 40).
     public func finish(game: JSON, mistakes: [JSON], now: Int64) -> Result {
         let nums = results.keys.sorted(), list = nums.compactMap { results[$0] }
         let raw = list.filter(\.ok).count, band = QE.bandOf(raw)
@@ -347,6 +349,6 @@ public struct ListenTestFlow: Sendable {
         g["listenTests"] = .array(Array(tests.suffix(30)))
         g = QE.record(g, skill: "il", results: list, now: now)
         let byPart = parts.map { p in (href: "#/listen/" + p.s("id"), part: p.i("part"), right: QE.numbers(p).filter { results[$0]?.ok == true }.count) }
-        return Result(raw: raw, band: band, byPart: byPart, sheet: list, reward: ["quizzes": 1, "listens": 4, "perfect": raw == 40 ? 1 : 0, "xp": 40 + raw * 2], game: g, mistakes: log)
+        return Result(raw: raw, band: band, byPart: byPart, sheet: list, reward: ["quizzes": 1, "listens": 4, "perfect": raw == 40 ? 1 : 0, "xp": RewardRules.xp("exam", right: raw, total: 40)], game: g, mistakes: log)
     }
 }

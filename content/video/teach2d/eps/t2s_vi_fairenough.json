@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_fairenough",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 43,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, hear my reasoning first!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Fair enough!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Okay, that makes sense.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Fair enough, let's try your idea.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "fair enough",
+  "forms": [],
+  "ipa": "/ˈfer ɪˈnʌf/",
+  "mean": "Okay, that makes sense.",
+  "define": "Used to accept someone's point.",
+  "vi": "Cũng đúng",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "In a friendly debate",
+   "text": "Fair enough, let's try your idea."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "that's a fair price",
+    "that's reasonable"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'fair enough' to a rude insult.",
+   "why": "It sounds like you agree with them."
+  },
+  "l1": "Cũng đúng",
+  "l1_hook": "Khoan, nghe tui giải thích đã!",
+  "l1_ex": "Fair enough, thử ý của bạn xem sao.",
+  "right": "fair enough",
+  "native": {
+   "hook": "“fair enough” nghĩa là gì?",
+   "tip": "“fair enough” = Cũng đúng. Ví dụ: “Fair enough, let's try your idea.”",
+   "caption": "“fair enough” nghĩa là gì?\n“fair enough” = Cũng đúng.\nVí dụ: “Fair enough, let's try your idea.” (Fair enough, thử ý của bạn xem sao.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “fair enough” = Cũng đúng. “Fair enough, let's try your idea.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wait, hear my reasoning first!"
+ },
+ "src": {
+  "slang": "fair enough"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“fair enough” nghĩa là gì?",
+  "keyword": "fair enough",
+  "value": "“fair enough” = Cũng đúng. Ví dụ: “Fair enough, let's try your idea.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“fair enough” nghĩa là gì?",
+    "description": "“fair enough” = Cũng đúng. Ví dụ: “Fair enough, let's try your idea.”\n\n“fair enough” nghĩa là gì?\n“fair enough” = Cũng đúng.\nVí dụ: “Fair enough, let's try your idea.” (Fair enough, thử ý của bạn xem sao.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "fair enough",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“fair enough” nghĩa là gì?\n“fair enough” = Cũng đúng.\nVí dụ: “Fair enough, let's try your idea.” (Fair enough, thử ý của bạn xem sao.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“fair enough” nghĩa là gì?\n\n“fair enough” = Cũng đúng. Ví dụ: “Fair enough, let's try your idea.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“fair enough” nghĩa là gì? “fair enough” = Cũng đúng. Ví dụ: “Fair enough, let's try your idea.” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “fair enough” = Cũng đúng. “Fair enough, let's try your idea.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

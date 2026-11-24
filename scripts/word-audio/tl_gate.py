@@ -32,6 +32,12 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 # Bộ nghe: large-v3-turbo đa ngôn ngữ. Lượt 41433773084 chứng minh "small" không nghe nổi từ đơn tiếng Bồ: giọng ĐỐI CHỨNG Piper pt_BR (rõ, dữ liệu CC0)
 # cũng chỉ 7/20, nghe "homem" → "O que é isso?", "gato" → "Pronto." – bộ nghe yếu chứ không phải giọng. Nghe tốt hơn = cổng chặt hơn (vẫn khớp đúng chữ).
 model = load(os.environ.get('TL_ASR', C['asrModel']))
+# bảng asrMatch = "reading" (ja): Whisper viết kanji/kana tuỳ ý → so CÁCH ĐỌC (OpenJTalk, tl_kana.py) với kana của seed, trường âm chuẩn hoá; vẫn phải khớp trọn (WER mục từ = 0)
+if C.get('asrMatch') == 'reading':
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import tl_kana
+    def same(heard, r): return bool(r.get('kana')) and bool(heard) and tl_kana.fold(tl_kana.yomi(heard)) == tl_kana.fold(r['kana'])
+else:
+    def same(heard, r): return nrm(heard) == nrm(r['w'])
 def hear(f, carrier=None):
     """Chữ nghe được. Từ đơn: ghép SAU câu mang của chính giọng đó (câu mang của bảng + 0,25 s lặng + clip) rồi lấy phần sau câu mang –
     Whisper (cả large-v3-turbo) bịa chữ khi nghe từ tiếng Bồ trơ trọi: lượt 41439608580 giọng đối chứng Piper "casa" → "Realmente.", "dia" → "Tchau.".
@@ -98,7 +104,7 @@ def gate(r):
             if not src: tried.append({'m': 'cut', 'heard': why}); continue
         src = detail(src, r['w'])
         mp3 = src[:-4] + '.mp3'; li = norm16(src, mp3); heard = hear(mp3, CARRIER.get(r['v']) if ' ' not in r['w'].strip() else None)
-        last = {'v': r['v'], 'w': r['w'], 'key': r.get('key'), 'm': c['m'], 'mp3': mp3, 'heard': heard, 'lufs': li, 'asr': nrm(heard) == nrm(r['w']), 'loud': li is not None and abs(li + 16) <= 1.0}
+        last = {'v': r['v'], 'w': r['w'], 'key': r.get('key'), 'm': c['m'], 'mp3': mp3, 'heard': heard, 'lufs': li, 'asr': same(heard, r), 'loud': li is not None and abs(li + 16) <= 1.0}
         last['ok'] = last['asr'] and last['loud']; tried.append({'m': c['m'], 'heard': heard})
         if last['ok']: break
     if last is None: last = {'v': r['v'], 'w': r['w'], 'ok': False, 'asr': False, 'loud': False, 'heard': '; '.join(t['heard'] for t in tried)}
@@ -107,7 +113,7 @@ CARRIER = {v: detail(f, C['carrier'].rstrip(':')) for v, f in (probe.get('carrie
 res = [gate(r) if r.get('f') else {**r, 'ok': False, 'why': r.get('err', 'no file')} for r in probe.get('rows', [])]
 by = {}
 for x in res: by.setdefault(x.get('v', '?'), []).append(x)
-lines = [f'## Giọng từ đơn {TL} ({C["espeak"]}) – lượt mẫu', f"kokoro-js tự đọc {TL}: `{probe.get('kokoroJsGenTl')}` · giọng {TL} kèm kokoro-js: {probe.get('kokoroJsHasTl')} · âm vị mẫu {C['probe']}: `{(probe.get('sample') or {}).get('p')}` · ASR {os.environ.get('TL_ASR', C['asrModel'])}", '', '| giọng | đạt | qua câu mang | ASR trượt | độ to trượt |', '|---|---|---|---|---|']
+lines = [f'## Giọng từ đơn {TL} ({C["espeak"]}) – lượt mẫu', *([f"⚠ nguồn đối chứng hỏng (bỏ qua): {probe['altErr']}"] if probe.get('altErr') else []), f"kokoro-js tự đọc {TL}: `{probe.get('kokoroJsGenTl')}` · giọng {TL} kèm kokoro-js: {probe.get('kokoroJsHasTl')} · âm vị mẫu {C['probe']}: `{(probe.get('sample') or {}).get('p')}` · ASR {os.environ.get('TL_ASR', C['asrModel'])}", '', '| giọng | đạt | qua câu mang | ASR trượt | độ to trượt |', '|---|---|---|---|---|']
 for v, xs in by.items():
     lines.append(f"| {v} | {sum(x['ok'] for x in xs)}/{len(xs)} | {sum(1 for x in xs if x['ok'] and x.get('m') == 'cut')} | {', '.join(x['w'] + '→' + repr(x.get('heard')) for x in xs if not x.get('asr'))} | {', '.join(x['w'] for x in xs if x.get('asr') and not x.get('loud'))} |")
 json.dump(res, open(os.path.join(OUT, 'gate.json'), 'w'), ensure_ascii=False, indent=1)
@@ -120,8 +126,8 @@ if PUB:
     json.dump({v: sorted(ws) for v, ws in idx.items()}, open(os.path.join(OUT, 'index.json'), 'w'), ensure_ascii=False, indent=1)
 txt = '\n'.join(lines); print(txt)
 if os.environ.get('GITHUB_STEP_SUMMARY'): open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write(txt + '\n')
-# Tiêu chí tính RIÊNG từng giọng dùng thật (TL_REQUIRE, mặc định giọng Ama + Carlos của bảng); giọng khác (Piper đối chứng) chỉ báo cáo.
-REQ = [v for v in os.environ.get('TL_REQUIRE', ','.join(C['voices'])).split(',') if v]
+# Tiêu chí tính RIÊNG từng giọng dùng thật (TL_REQUIRE, mặc định require của bảng hoặc giọng Ama + Carlos Kokoro); giọng khác chỉ báo cáo.
+REQ = [v for v in os.environ.get('TL_REQUIRE', ','.join(C.get('require') or C['voices'])).split(',') if v]   # bảng require: giọng dùng thật khác Kokoro (ja: Open JTalk)
 bad = []
 for v in REQ:
     xs = by.get(v, []); ok = sum(x['ok'] for x in xs); n = len(xs) or 1

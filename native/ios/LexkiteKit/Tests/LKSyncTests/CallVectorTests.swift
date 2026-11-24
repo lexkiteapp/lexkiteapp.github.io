@@ -552,7 +552,7 @@ final class CallVectorTests: XCTestCase {
         for _ in 0..<E.depth(coffee) { session.tapOption(0) }
         rig.flush()
         guard case .summary(let S)? = rig.ended else { return XCTFail("the call ends with its summary") }
-        XCTAssertEqual(S.reward, ["spoken": 0, "xp": 17])
+        XCTAssertEqual(S.reward, ["spoken": 0, "xp": 10])
         XCTAssertEqual(S.recap.notes, [.speak])
         XCTAssertEqual(S.cards.count, coffee.phrases.count)
         XCTAssertTrue(rig.writes.isEmpty, "a call writes no stored choice by itself")

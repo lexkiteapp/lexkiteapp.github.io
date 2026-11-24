@@ -1,0 +1,153 @@
+{
+ "id": "t2s_hi_callout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 26,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She told everyone my mistake!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Call out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Point out someone's mistake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She called me out for being late.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "call out",
+  "forms": [
+   "called me out",
+   "called out"
+  ],
+  "ipa": "/ˈkɔːl ˈaʊt/",
+  "mean": "Point out someone's mistake.",
+  "define": "To say publicly that someone did something wrong.",
+  "vi": "Chỉ ra lỗi công khai",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a mistake",
+   "text": "She called me out for being late."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"call out\" is to…",
+   "options": [
+    "shout out",
+    "point out a mistake"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'call out' a coworker in front of the boss.",
+   "why": "Public correction embarrasses people."
+  },
+  "l1": "गलती उजागर करना",
+  "l1_hook": "उसने सबको मेरी गलती 'call out' कर दी!",
+  "l1_ex": "उसने मुझे देर से आने के लिए \"call out\" किया।",
+  "right": "call out",
+  "native": {
+   "hook": "“call out” का मतलब क्या है?",
+   "tip": "“call out” = गलती उजागर करना. उदाहरण: “She called me out for being late.”",
+   "caption": "“call out” का मतलब क्या है?\n“call out” = गलती उजागर करना.\nउदाहरण: “She called me out for being late.” (उसने मुझे देर से आने के लिए \"call out\" किया।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “call out” = गलती उजागर करना. “She called me out for being late.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She told everyone my mistake!"
+ },
+ "src": {
+  "slang": "call out"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“call out” का मतलब क्या है?",
+  "keyword": "call out",
+  "value": "“call out” = गलती उजागर करना. उदाहरण: “She called me out for being late.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“call out” का मतलब क्या है?",
+    "description": "“call out” = गलती उजागर करना. उदाहरण: “She called me out for being late.”\n\n“call out” का मतलब क्या है?\n“call out” = गलती उजागर करना.\nउदाहरण: “She called me out for being late.” (उसने मुझे देर से आने के लिए \"call out\" किया।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "call out",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“call out” का मतलब क्या है?\n“call out” = गलती उजागर करना.\nउदाहरण: “She called me out for being late.” (उसने मुझे देर से आने के लिए \"call out\" किया।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“call out” का मतलब क्या है?\n\n“call out” = गलती उजागर करना. उदाहरण: “She called me out for being late.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“call out” का मतलब क्या है? “call out” = गलती उजागर करना. उदाहरण: “She called me out for being late.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “call out” = गलती उजागर करना. “She called me out for being late.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

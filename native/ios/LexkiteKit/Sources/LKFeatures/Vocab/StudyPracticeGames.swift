@@ -310,7 +310,7 @@ struct PracticeSpeakDone: View {
             Text(verbatim: Fmt.int(model.good, t.lang) + "/" + Fmt.int(model.total, t.lang)).studyText(LKType.headlineMd)
             Text(verbatim: t(.revPronouncedWordsWell, ["good": Fmt.int(model.good, t.lang), "total": Fmt.int(model.total, t.lang)])).studyText(LKType.bodyMd, LKColor.onSurfaceVariant)
             Text(verbatim: t(.revPracticeDailyToMakeYour)).studyText(LKType.bodySm, LKColor.onSurfaceVariant).multilineTextAlignment(.center)
-            StudyChip(text: "+" + Fmt.int(PracticeRun.xpSpeakDone, t.lang) + " " + t(.todayXp), icon: "bolt.fill", tint: LKColor.star)
+            StudyChip(text: "+" + Fmt.int(model.speakDoneXP, t.lang) + " " + t(.todayXp), icon: "bolt.fill", tint: LKColor.star)
             Button(t(.revPlayAgain)) { model.start("speak") }.buttonStyle(PrimaryButtonStyle())
             Button(t(.revOtherModes)) { model.backToHub() }.buttonStyle(StudyOutlineButtonStyle())
         }

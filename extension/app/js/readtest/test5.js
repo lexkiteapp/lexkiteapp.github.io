@@ -162,7 +162,7 @@ items: [
 options: ['To show that Mercator made errors in his measurements.', 'To explain why sailors preferred maps of the northern hemisphere.', 'To illustrate how a projection can distort the relative size of areas.', 'To compare the accuracy of medieval and modern maps.'],
 a: 2, cue: 'Greenland appears roughly as large as Africa, although Africa is in reality about fourteen times larger' },
 { n: 33, q: 'What point does the writer make by comparing a medieval map with a cathedral?',
-options: ['Medieval maps were mainly kept in religious buildings.', 'Medieval maps were more beautiful than they were useful.', 'It is unfair to judge something by a purpose it was never meant to serve.', 'Religious institutions controlled the production of maps.'],
+options: ['Most medieval charts were stored within monastic libraries.', 'These maps were valued more for their artistry than for navigation.', 'It is unfair to judge something by a purpose it was never meant to serve.', 'Church authorities often dictated how maps were created and distributed.'],
 a: 2, cue: 'Criticising them for being useless to travellers is rather like criticising a cathedral because it would make a poor warehouse' },
 { n: 34, q: 'According to paragraph D, what effect did the blank areas on nineteenth-century maps of Africa have?',
 options: ['They encouraged scientific expeditions to the region.', 'They showed where local people had refused to help mapmakers.', 'They reduced conflict between European powers.', 'They made the region seem available to be taken over.'],

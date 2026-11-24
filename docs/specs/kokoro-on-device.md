@@ -28,7 +28,7 @@ Lý do:
 - **wasm-q8** (`onnx/model_quantized.onnx`, 92 MB, bản nhẹ nhất): cần RAM ≥ 4 GB (`deviceMemory`; không đo được thì tính là đủ trên máy tính) và ≥ 4 nhân.
 - **off**: iOS/iPadOS (WebKit giới hạn bộ nhớ tab; bật riêng bằng cờ `kl_ios`), RAM < 4 GB, < 4 nhân, đã đo chậm, hoặc người dùng tắt.
 - WebGPU chưa dùng ở v1: q8 trên WebGPU lỗi tiếng, còn fp32 tải nặng 3,5 lần (326 MB). Xem lại khi có số đo `tts-ab.yml phase=free`.
-- **Đo thử** ngay sau lần nạp đầu: sinh 1 câu 8 từ, RTF = thời gian sinh / thời lượng âm. RTF > 0,6 thì tắt và nhớ kết quả `lk.kl.probe` theo máy + phiên bản. Chạy lại sau 30 ngày.
+- **Đo thử** ngay sau lần nạp đầu: làm nóng "Hi." rồi sinh 3 câu (`P.PROBE_TEXTS`), RTF = **trung vị** thời gian sinh / thời lượng âm (22/11: một câu máy bận không quyết cả máy). Tab ẩn trong lúc đo → bỏ kết quả, đo lại lần sau. RTF > 0,6 (ngưỡng không đổi) thì tắt và nhớ `lk.kl.probe` theo máy + phiên bản; đo lại sau 3 ngày nếu sát ngưỡng (≤ 0,9), 7 ngày nếu timeout, 14 ngày nếu chậm rõ (`P.probeDays`). Phân bố RTF máy thật: beacon `vo` `kp_r06|r10|r15|r25|rhi|to`.
 
 ## Khi nào tải (`KLocalPolicy.mayLoad`)
 - Không có trong gói app (shell không đổi). `js/klocal.js` (~6 KB) nạp lười qua `App.need('klocal')`, Worker và mô hình nạp riêng.
@@ -54,6 +54,8 @@ Lý do:
 ## Số đo (không mù)
 `LKAudio.stats`: `kl_ok`, `kl_fail`, `kl_wait` (rơi giọng máy vì chưa sẵn), `kl_ttfa` (ms ra tiếng câu đầu, trung bình trượt), `kl_tier`. Test: `scripts/test/klocal.mjs` (chính sách, WAV, LRU, rơi giọng máy).
 - **Nguồn giọng thực phát** (5/11): `LKAudio.src('f'|'k'|'s', lý do)` lúc ra tiếng – f file dựng sẵn, k Kokoro trên máy, s giọng máy với lý do `off` (máy/nền tảng không chạy Kokoro: iOS, add-on, máy yếu, `kl=0`) · `wait` (đang nạp) · `load` (chưa có klocal.js) · `fail` (lỗi giữa chừng) · `lang` (ngôn ngữ đích khác tiếng Anh) · `pref` (người dùng tắt giọng HQ). Ẩn tab → beacon `/api/hit` `{t:'vo'}` (chỉ số đếm; bỏ CI/localhost/`lk.noTrack`/bot/bản dev) → `ext_events` `vo:*` → **Quản trị › Live: "Giọng đọc 7 ngày: x % giọng máy"**. Test `scripts/test/voice-source.mjs`.
+- **Câu rơi giọng máy → dựng sẵn** (22/11): khi rơi giọng máy câu tiếng Anh, `ui.js` ghi KHÓA băm `KVoice.lineKey(giọng, câu)` của từng câu chưa có file + trang `#/…` (`LKAudio.miss`, ≤ 300 khóa/phiên, không văn bản) → beacon `vo` kèm `m` (20 khóa) / `r` (8 trang) → `ext_events` `vm:<khóa>` / `vr:<trang>` → `voice-misses.yml` (01:30 VN) gọi `/api/vmiss` (ký HMAC) → `scripts/sentence-audio/misses.mjs` băm mọi chuỗi tiếng Anh trong `web/js`, `web/cpack`, `web/data`, `content` theo 16 giọng → khóa khớp vào `web/audio/l/misses.tsv` (nhiều lượt trước) → `corpus.mjs` nhóm `misses` → `audio.yml` 02:00 render. Khóa không khớp = chữ động (in tỉ lệ trong tóm tắt job). Test `voice-misses.mjs`.
+- **Đo thật 22/11**: `vo:k` = 0 suốt 8 ngày – wasm đơn luồng (trang không cross-origin isolated → không SharedArrayBuffer) cho RTF ≈ 1,45 ngay cả trên Apple M 10 nhân (làm nóng, 3 câu), probe đúng chứ không đo sai; mọi máy web đều `off_probe`.
 - Độ phủ file dựng sẵn: `scripts/audio/coverage.mjs` (npm test `audio-coverage.mjs`, sàn chỉ lên) – đo cả từ mở rộng của Lex (5/11).
 
 ## Chưa làm (việc sau, có thứ tự)
