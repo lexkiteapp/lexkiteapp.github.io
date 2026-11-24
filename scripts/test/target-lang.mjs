@@ -324,6 +324,26 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(/word-audio-ko/.test(rd('.github/workflows/word-audio-tl.yml')) && /tl: \[pt, es, fr, ja, ko\]/.test(rd('.github/workflows/target-content.yml')), 'workflow: nhãn word-audio-ko + ma trận target-content có ko');
   const { TL_GEN } = await import('../target/tl-gen.mjs'); ok(TL_GEN.ko.variant === 'ko-KR' && TL_GEN.ko.kaikki === 'Korean' && /ko_full/.test(TL_GEN.ko.source.url) && TL_GEN.ko.one.test('집') && !TL_GEN.ko.one.test('ㄱ'), 'tl-gen.mjs: dòng ko');
 }
+// W1 ko: gen.mjs SINH pron/romaja/ipa từ chữ trước cổng (derive), lệch người soạn → qa.<trường>Ai; ngôn ngữ khác không đổi; tiểu từ bóc theo bảng
+{ const { derive } = await import('../target/lib.mjs'), d = derive({ word: '국물', pos: 'n', pron: '국물', romaja: 'gungmul', ipa: 'x' }, 'ko');
+  ok(d.pron === '궁물' && d.romaja === 'gungmul' && d.ipa === 'kuŋmul' && d.qa.pronAi === '국물' && d.qa.ipaAi === 'x' && !d.qa.romajaAi, 'derive ko: pron/RR/IPA sinh từ chữ, lệch → qa.*Ai');
+  ok(derive({ word: '밟다', pos: 'v', pronX: { lbP: [0] } }, 'ko').pron === '밥따' && JSON.stringify(derive({ word: 'casa', pos: 'n', ipa: 'ˈkasa' }, 'es')) === '{"word":"casa","pos":"n","ipa":"ˈkasa"}', 'derive giữ pronX người soạn; es không đổi');
+  const g = rd('scripts/target/gen.mjs'), { TL_GEN } = await import('../target/tl-gen.mjs');
+  ok(/derive\(/.test(g) && /noGender \? ''/.test(g) && /stripOf\(form\)/.test(g) && TL_GEN.ko.strip.test('우리가') && !TL_GEN.es.strip, 'gen.mjs: derive + lời nhắc không giống cho noGender + bóc tiểu từ theo bảng'); }
+// W1a ko: dữ liệu bài Hangul (content/target/ko/hangul.json) – đủ 19 phụ âm + 21 nguyên âm, 7 âm cuối đại diện + 11 phụ âm kép cuối, bài đọc = máy sinh
+{ const H = readJSON('content/target/ko/hangul.json'), K = await import('../target/ko-hangul.mjs'), all = H.units.flatMap(u => u.jamo || []), bat = H.units.flatMap(u => u.batchim || []);
+  ok(H.consonants.length === 19 && H.vowels.length === 21 && new Set(all).size === 40 && all.length === 40 && bat.length === 18 && new Set(bat).size === 18, 'Hangul: 40 jamo dạy đúng 1 lần, 18 dạng âm cuối');
+  const vb = w => /다$/.test(w), rb = H.units.flatMap(u => u.read).filter(r => r.pron !== K.pron(r.w, { verb: vb(r.w) }) || r.romaja !== K.romaja(r.w, { verb: vb(r.w) }) || r.ipa !== K.ipa(r.w, { verb: vb(r.w) }));
+  ok(!rb.length, 'bài đọc Hangul: pron/RR/IPA = máy sinh: ' + rb.map(r => r.w).join(' '));
+  const seenJ = new Set(); let order = true; for (const u of H.units) { for (const r of u.read) for (const ch of r.w) { const x = K.split(ch); for (const j of [x.l, x.v]) if (j !== 'ㅇ' && !seenJ.has(j) && !(u.jamo || []).includes(j)) order = false; } (u.jamo || []).forEach(j => seenJ.add(j)); }
+  ok(order, 'bài đọc chỉ dùng jamo đã học ở bài đó hoặc trước'); }
+// W2 ko: bảng chia đủ dạng (conjAll) – mẫu offline; CI đối chiếu Wiktionary 100 % (conj-check --tl ko)
+{ const K = await import('../target/ko-hangul.mjs'), F = (w, k) => K.conjAll(w, ...K.KNOWN[w])[k];
+  const S = [['살다', 'plain', '산다'], ['살다', 'detPres', '사는'], ['살다', 'eum', '삶'], ['살다', 'myeon', '살면'], ['살다', 'nikka', '사니까'], ['춥다', 'detPres', '추운'], ['춥다', 'myeon', '추우면'], ['듣다', 'detPast', '들은'], ['듣다', 'go', '듣고'],
+    ['낫다', 'myeon', '나으면'], ['파랗다', 'detPres', '파란'], ['파랗다', 'neunde', '파란데'], ['모르다', 'seo', '몰라서'], ['크다', 'detPres', '큰'], ['먹다', 'plain', '먹는다'], ['가다', 'plain', '간다'], ['만들다', 'eum', '만듦'], ['길다', 'neunde', '긴데'], ['먹다', 'seyo', '드세요'], ['가다', 'seyo', '가세요'], ['공부하다', 'ryeogo', '공부하려고']];
+  const bad = S.filter(([w, k, f]) => F(w, k) !== f); ok(!bad.length, 'conjAll 21 dạng mẫu (ㄹ rơi/giữ, ㅂ→우, ㄷ→ㄹ, ㅅ rơi, ㅎ rơi, 르, 으, định ngữ động/tính từ, kính ngữ theo từ): ' + bad.map(x => x.join('→') + '≠' + F(x[0], x[1])).join(' '));
+  ok(Object.values(K.KNOWN).every(([c]) => K.CONJ.includes(c)) && Object.entries(K.KNOWN).every(([w, [c]]) => K.conjShape(w, c)) && new Set(Object.values(K.KNOWN).map(x => x[0])).size === 11, 'KNOWN: 57 vị từ mẫu đủ 11 lớp, khớp hình thức gốc');
+  ok(/conj-check\.mjs --tl ko/.test(rd('.github/workflows/target-content.yml')) && /주다:past/.test(rd('scripts/target/conj-check.mjs')), 'CI: chia ko ↔ Wiktionary; ngoại lệ có lý do'); }
 // ko-hangul.mjs: chữ Hangul (ghép/tách, IME), phát âm chuẩn, RR, IPA, tiểu từ, số + từ đếm, chia vị từ, chấm IME
 { const K = await import('../target/ko-hangul.mjs');
   ok(JSON.stringify(K.split('한')) === '{"l":"ㅎ","v":"ㅏ","t":"ㄴ"}' && K.join({ l: 'ㄱ', v: 'ㅘ', t: 'ㄴ' }) === '관' && K.split('a') === null, 'tách/ghép âm tiết');
@@ -359,7 +379,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(d.kana === 'はなす' && d.jlpt === 5 && d.romaji === 'hanasu' && d.ipa === 'hanasɯ' && d.pitch === 0 && d.qa.pitchAi === 9 && !('gender' in d), 'derive: cách đọc + cấp theo nguồn, romaji/IPA sinh, cao độ ngoài khoảng → 0 + qa.pitchAi, bỏ gender');
   const d2 = TL_RULES.ja.derive({ word: '話し', pos: 'n', kana: 'はなし', pitch: 3, jlpt: 4 }, { form: '話す', kana: 'はなす', jlpt: 5 }); ok(d2.kana === 'はなし' && d2.jlpt === 4 && d2.pitch === 3, 'derive: người soạn đổi mục từ → không áp cách đọc nguồn');
   const g = rd('scripts/target/gen.mjs'); ok(/G\.cands \? await G\.cands\(\)/.test(g) && /R\.derive \? R\.derive\(o, hint\)/.test(g) && /G\.lemma === false/.test(g) && !/'ja'/.test(g), 'gen.mjs: nguồn/derive/lemma theo bảng, không nhánh ja');
-  const tc = rd('.github/workflows/target-content.yml'); ok(/tl_ja_fill\.py --self/.test(tc) && tc.includes(`'.[$t].ipaCheck // ""' scripts/word-audio/tl-voices.json)" = "reading" ] && exit 0`), 'target-content: OpenJTalk cao độ/cách đọc cho ja, espeak không ghi đè IPA ja');
+  const tc = rd('.github/workflows/target-content.yml'); ok(/tl_ja_fill\.py --self/.test(tc) && /ipaCheck \/\/ ""' scripts\/word-audio\/tl-voices\.json\)" != "" \] && \{[^}]*exit 0/.test(tc), 'target-content: OpenJTalk cao độ/cách đọc cho ja, espeak không ghi đè IPA ja');
   ok(J.longFold('たいよう') === J.longFold('タイヨー') && J.longFold('がっこう') === J.longFold('ガッコー') && J.longFold('おもう') === 'おもー' && J.longFold('ちいさい') === 'ちーさい', 'longFold: trường âm viết kiểu nào cũng so được');
   const P = await import('../target/tl-pack.mjs'), b = P.build('ja');
   ok(!b.err.length && b.n === 30 && Object.keys(b.out).length === 15, 'tl-pack ja: seed (lô đã duyệt) × 15 ngôn ngữ');
