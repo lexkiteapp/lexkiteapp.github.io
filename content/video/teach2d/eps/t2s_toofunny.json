@@ -1,0 +1,135 @@
+{
+ "id": "t2s_toofunny",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 298,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Watch this puppy video!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Too funny!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That is really funny.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The puppy video is too funny.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "too funny",
+  "forms": [],
+  "ipa": "/ˈtuː ˈfʌni/",
+  "mean": "That is really funny.",
+  "define": "Used to say something made you laugh.",
+  "vi": "Buồn cười quá",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Reacting to a joke",
+   "text": "The puppy video is too funny."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "not funny",
+    "very funny"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'too funny' to a sad person.",
+   "why": "It sounds mean."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Watch this puppy video!"
+ },
+ "src": {
+  "slang": "too funny"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"too funny\" mean?",
+  "keyword": "too funny",
+  "value": "Too funny = That is really funny. Example: \"The puppy video is too funny.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"too funny\" mean?",
+    "description": "Too funny = That is really funny. Example: \"The puppy video is too funny.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "too funny",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"too funny\" mean?\n\nToo funny = That is really funny. Example: \"The puppy video is too funny.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"too funny\" mean?\n\nToo funny = That is really funny. Example: \"The puppy video is too funny.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"too funny\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'too funny' to a sad person. It sounds mean. Real example: \"The puppy video is too funny.\" More real English slang, free: {link}"
+ }
+}

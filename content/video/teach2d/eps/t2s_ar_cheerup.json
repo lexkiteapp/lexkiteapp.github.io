@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ar_cheerup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 66,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She looks sad. What now?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheer up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Feel happier.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheer up, we're having pizza!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheer up",
+  "forms": [
+   "cheered up"
+  ],
+  "ipa": "/ˈtʃɪr ˈʌp/",
+  "mean": "Feel happier.",
+  "define": "Used to tell someone to feel better.",
+  "vi": "Vui lên nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Cheer up, we're having pizza!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheer up\" means…",
+   "options": [
+    "yell loudly",
+    "feel happier"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheer up' to someone grieving.",
+   "why": "It sounds like you dismiss their pain."
+  },
+  "l1": "افرح",
+  "l1_hook": "تبدو حزينة. ماذا الآن؟ كيف نجعلها \"cheer up\"؟",
+  "l1_ex": "\"Cheer up\"، نحن نتناول البيتزا!",
+  "right": "cheer up",
+  "native": {
+   "hook": "ما معنى “cheer up”؟",
+   "tip": "“cheer up” = افرح. مثال: “Cheer up, we're having pizza!”",
+   "caption": "ما معنى “cheer up”؟\n“cheer up” = افرح.\nمثال: “Cheer up, we're having pizza!” (\"Cheer up\"، نحن نتناول البيتزا!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “cheer up” = افرح. “Cheer up, we're having pizza!” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She looks sad. What now?"
+ },
+ "src": {
+  "slang": "cheer up"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "ما معنى “cheer up”؟",
+  "keyword": "cheer up",
+  "value": "“cheer up” = افرح. مثال: “Cheer up, we're having pizza!”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “cheer up”؟",
+    "description": "“cheer up” = افرح. مثال: “Cheer up, we're having pizza!”\n\nما معنى “cheer up”؟\n“cheer up” = افرح.\nمثال: “Cheer up, we're having pizza!” (\"Cheer up\"، نحن نتناول البيتزا!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "cheer up",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “cheer up”؟\n“cheer up” = افرح.\nمثال: “Cheer up, we're having pizza!” (\"Cheer up\"، نحن نتناول البيتزا!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “cheer up”؟\n\n“cheer up” = افرح. مثال: “Cheer up, we're having pizza!”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “cheer up”؟ “cheer up” = افرح. مثال: “Cheer up, we're having pizza!” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “cheer up” = افرح. “Cheer up, we're having pizza!” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

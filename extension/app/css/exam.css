@@ -22,7 +22,11 @@
 /* Thi thử 4 kỹ năng (mock) + thanh giờ/điểm dùng chung TOEIC/TOEFL – chuyển từ style.css (khung app) */
 .mk-skills { display: grid; gap: var(--sp-2); }
 .mk-skill { display: flex; align-items: center; gap: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); padding: var(--sp-2) var(--sp-3); cursor: pointer; }
-.mk-skill:has(input:checked) { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 6%, transparent); }
+.mk-skill { position: relative; }
+.mk-skill input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; } /* ô chọn gốc ẩn; trạng thái = khối chọn chung (.on): vòng teal + nền accent-soft + ✓ */
+.mk-skill:has(input:checked) { border-color: var(--done); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--done); }
+.mk-skill:has(input:checked)::after { content: "✓"; margin-inline-start: auto; font-weight: 800; color: var(--done); }
+.mk-skill:has(input:focus-visible) { outline: 3px solid var(--accent); outline-offset: 2px; }
 .mk-skill .em { font-size: var(--fs-lg); }
 .mk-hist > div { padding: var(--sp-2) 0; border-bottom: 1px dashed var(--line); }
 .mk-ov { font-size: var(--fs-lg); color: var(--primary); min-width: 2.2rem; text-align: right; }
@@ -69,7 +73,7 @@
 .mstrand .progress { margin: var(--sp-1) 0; }
 .mplan { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--sp-2); margin-top: var(--sp-3); }
 .mpi { min-height: 44px; display: flex; align-items: center; gap: var(--sp-2); border: 1px solid var(--line); border-radius: var(--r-sm); padding: var(--sp-2) var(--sp-3); color: var(--text); text-decoration: none; }
-.mpi:hover { border-color: var(--primary); }
+.mpi:hover { background: var(--surface-3); }
 .mpi b { font-size: var(--fs-md); color: var(--primary); min-width: 2.4rem; }
 .mprin { display: flex; flex-direction: column; min-width: 0; }
 .mprin .mpic { font-size: var(--fs-xl); line-height: 1; color: var(--primary); display: grid; place-items: center; flex: none; }

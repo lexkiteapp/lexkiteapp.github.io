@@ -1,0 +1,134 @@
+{
+ "id": "t2s_ragequit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 220,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He lost, then closed everything!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Rage quit!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Leave a game in anger.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He rage quit after he lost.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "rage quit",
+  "forms": [
+   "rage-quit",
+   "rage quits"
+  ],
+  "ipa": "/ˈreɪdʒ ˈkwɪt/",
+  "mean": "Leave a game in anger.",
+  "define": "To stop playing suddenly because you are upset.",
+  "vi": "Giận quá thoát game",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Playing online",
+   "text": "He rage quit after he lost."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"rage quit\" is to…",
+   "options": [
+    "win quietly",
+    "leave angrily"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'rage quit' a team meeting online.",
+   "why": "It leaves colleagues confused and annoyed."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He lost, then closed everything!"
+ },
+ "src": {
+  "slang": "rage quit"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "What does \"rage quit\" mean?",
+  "keyword": "rage quit",
+  "value": "Rage quit = Leave a game in anger. Example: \"He rage quit after he lost.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"rage quit\" mean?",
+    "description": "Rage quit = Leave a game in anger. Example: \"He rage quit after he lost.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "rage quit",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"rage quit\" mean?\n\nRage quit = Leave a game in anger. Example: \"He rage quit after he lost.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"rage quit\" mean?\n\nRage quit = Leave a game in anger. Example: \"He rage quit after he lost.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"rage quit\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't 'rage quit' a team meeting online. It leaves colleagues confused and annoyed. Real example: \"He rage quit after he lost.\" More real English slang, free: {link}"
+ }
+}

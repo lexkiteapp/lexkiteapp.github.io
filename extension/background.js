@@ -84,11 +84,18 @@ const getSettings = async () => ({ ...DEFAULT_SETTINGS, ...(await Store.get('set
 const REM_DAY = 864e5, REM_LATE = 3 * 3600e3, REM_TOL = 10 * 60e3;
 const remKey = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 async function remPlan(now) {
-  const [s, cards, stats, recent, hist] = await Promise.all([getSettings(), Cards.all(), Stats.get(), Store.get('remRecent', []), Store.get('remHist', [])]);
-  const p = self.Remind ? self.Remind.plan({ now, cards: Object.values(cards || {}), stats, settings: s, streak: Stats.streak(stats), hist, recent, t: tx }) : [];
+  const [s, cards, stats, recent, hist, ops, s2] = await Promise.all([getSettings(), Cards.all(), Stats.get(), Store.get('remRecent', []), Store.get('remHist', []), Store.get('remOp', []), Store.get('remS2', null)]);
+  const opens = (ops || []).filter(o => o && o.day >= remKey(new Date(now - 14 * REM_DAY))).length; // tin 2 "giữ chuỗi": chuỗi ≥ 2 hoặc đã mở thông báo gần đây; cầu dao từ máy chủ (cfg.s2)
+  const p = self.Remind ? self.Remind.plan({ now, cards: Object.values(cards || {}), stats, settings: s, streak: Stats.streak(stats), hist, recent, t: tx, opens, s2: !(s2 && s2.v === 0) }) : [];
   return { s, p, stats };
 }
+// Cầu dao tin 2 (máy chủ: công tắc khẩn SAVE2_ON hoặc tỉ lệ tắt thông báo tăng) – hỏi lại ≤ 1 lần/6 giờ, lỗi mạng → giữ giá trị cũ
+async function refreshS2() {
+  const c = await Store.get('remS2', null); if (c && Date.now() - c.at < 6 * 3600e3) return;
+  try { const j = await (await fetch('https://lexkite.com/api/push?op=cfg')).json(); if (typeof j.s2 === 'boolean') await Store.set('remS2', { v: j.s2 ? 1 : 0, at: Date.now() }); } catch (e) { /* giữ cũ */ }
+}
 async function scheduleReminder() {
+  await refreshS2().catch(() => {});
   await langReady; // văn bản đã dịch (kế hoạch chỉ dùng giờ, nhưng đợi để SW vừa thức dậy dùng đúng ngôn ngữ)
   await chrome.alarms.clear('daily-reminder');
   const { p } = await remPlan(Date.now());
@@ -105,7 +112,7 @@ async function sendReminder(force = false, at = Date.now()) {
     if (!it || now - at > REM_LATE) return;          // hôm nay không còn lời nhắc (đã học đủ / tắt loại / giãn cách) hoặc SW dậy quá muộn
     if (Golden.quiet(s)) return;                      // giờ yên lặng (kể cả khi người dùng tự đặt giờ nhắc vào đó)
     const hist = await Store.get('remHist', []), today = it.day || remKey(new Date(now));
-    if (hist.some(h => h && h.day === today)) return;  // tối đa 1 lời nhắc/ngày
+    if (hist.some(h => h && h.day === today && R.isSave(h.tpl) === R.isSave(it.tpl))) return;  // tối đa 1 tin thường + 1 tin 2 "giữ chuỗi"/ngày
     await Store.set('remHist', [...hist, { day: today, tpl: it.tpl }].filter(h => h && h.day >= remKey(new Date(now - 8 * REM_DAY))).slice(-20));
   }
   if (!it) return;
@@ -218,7 +225,7 @@ const routeOf = id => { const m = /\|(.+)$/.exec(String(id)); try { const h = m 
 // Số liệu nhắc học (docs/REMINDERS.md, functions/api/push.js op ev): chỉ mã mẫu + đếm – CTR add-on trước đây không đo được
 const remEv = e => fetch('https://lexkite.com/api/push', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ op: 'ev', e }) }).catch(() => {});
 const tplOf = id => { const m = /^reminder-\d+~([a-z0-9_]{1,12})\|/.exec(String(id)); return m ? m[1] : ''; };
-const remClick = id => { chrome.notifications.clear(id); const tpl = tplOf(id); if (tpl) remEv([['open', tpl, 1]]); openApp(routeOf(id)); };
+const remClick = id => { chrome.notifications.clear(id); const tpl = tplOf(id); if (tpl) { remEv([['open', tpl, 1]]); Store.get('remOp', []).then(a => Store.set('remOp', [...(a || []), { day: remKey(new Date()), tpl }].slice(-5))).catch(() => {}); } openApp(routeOf(id)); };
 chrome.notifications.onClicked.addListener(remClick);
 chrome.notifications.onButtonClicked.addListener(remClick);
 

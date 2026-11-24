@@ -1,0 +1,148 @@
+{
+ "id": "t2s_hi_gettheballrolling",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 80,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Meeting starts. Who goes first?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Get the ball rolling!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start the activity now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's get the ball rolling with ideas.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "key": "get the ball rolling",
+  "forms": [
+   "get the ball rolling"
+  ],
+  "ipa": "/ɡet ðə ˈbɔːl ˈroʊlɪŋ/",
+  "mean": "Start the activity now.",
+  "define": "To begin a project or process.",
+  "vi": "Bắt đầu thôi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Starting a group project",
+   "text": "Let's get the ball rolling with ideas."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "play soccer",
+    "begin"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'get the ball rolling' about finishing.",
+   "why": "It means starting something."
+  },
+  "l1": "शुरुआत करना",
+  "l1_hook": "मीटिंग शुरू हो रही है, कौन \"get the ball rolling\" करेगा?",
+  "l1_ex": "आइडियाज़ के साथ \"get the ball rolling\" शुरू करें।",
+  "right": "get the ball rolling",
+  "native": {
+   "hook": "“get…” का मतलब क्या है?",
+   "tip": "“get the ball rolling” = शुरुआत करना. उदाहरण: “Let's get the ball rolling with ideas.”",
+   "caption": "“get…” का मतलब क्या है?\n“get the ball rolling” = शुरुआत करना.\nउदाहरण: “Let's get the ball rolling with ideas.” (आइडियाज़ के साथ \"get the ball rolling\" शुरू करें।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “get the ball rolling” = शुरुआत करना. “Let's get the ball rolling with ideas.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Meeting starts. Who goes first?"
+ },
+ "src": {
+  "slang": "get the ball rolling"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“get…” का मतलब क्या है?",
+  "keyword": "get the ball rolling",
+  "value": "“get the ball rolling” = शुरुआत करना. उदाहरण: “Let's get the ball rolling with ideas.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“get…” का मतलब क्या है?",
+    "description": "“get the ball rolling” = शुरुआत करना. उदाहरण: “Let's get the ball rolling with ideas.”\n\n“get…” का मतलब क्या है?\n“get the ball rolling” = शुरुआत करना.\nउदाहरण: “Let's get the ball rolling with ideas.” (आइडियाज़ के साथ \"get the ball rolling\" शुरू करें।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "get the ball rolling",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“get…” का मतलब क्या है?\n“get the ball rolling” = शुरुआत करना.\nउदाहरण: “Let's get the ball rolling with ideas.” (आइडियाज़ के साथ \"get the ball rolling\" शुरू करें।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“get…” का मतलब क्या है?\n\n“get the ball rolling” = शुरुआत करना. उदाहरण: “Let's get the ball rolling with ideas.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“get…” का मतलब क्या है? “get the ball rolling” = शुरुआत करना. उदाहरण: “Let's get the ball rolling with… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “get the ball rolling” = शुरुआत करना. “Let's get the ball rolling with ideas.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

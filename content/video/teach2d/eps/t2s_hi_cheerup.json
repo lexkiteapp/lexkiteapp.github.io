@@ -1,0 +1,152 @@
+{
+ "id": "t2s_hi_cheerup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 66,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She looks sad. What now?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheer up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Feel happier.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheer up, we're having pizza!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheer up",
+  "forms": [
+   "cheered up"
+  ],
+  "ipa": "/ˈtʃɪr ˈʌp/",
+  "mean": "Feel happier.",
+  "define": "Used to tell someone to feel better.",
+  "vi": "Vui lên nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Cheer up, we're having pizza!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheer up\" means…",
+   "options": [
+    "yell loudly",
+    "feel happier"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheer up' to someone grieving.",
+   "why": "It sounds like you dismiss their pain."
+  },
+  "l1": "खुश होना",
+  "l1_hook": "वह उदास दिख रही है। अब क्या? चलो 'cheer up' करें।",
+  "l1_ex": "Cheer up, हम पिज़्ज़ा खा रहे हैं!",
+  "right": "cheer up",
+  "native": {
+   "hook": "“cheer up” का मतलब क्या है?",
+   "tip": "“cheer up” = खुश होना. उदाहरण: “Cheer up, we're having pizza!”",
+   "caption": "“cheer up” का मतलब क्या है?\n“cheer up” = खुश होना.\nउदाहरण: “Cheer up, we're having pizza!” (Cheer up, हम पिज़्ज़ा खा रहे हैं!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “cheer up” = खुश होना. “Cheer up, we're having pizza!” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She looks sad. What now?"
+ },
+ "src": {
+  "slang": "cheer up"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "“cheer up” का मतलब क्या है?",
+  "keyword": "cheer up",
+  "value": "“cheer up” = खुश होना. उदाहरण: “Cheer up, we're having pizza!”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“cheer up” का मतलब क्या है?",
+    "description": "“cheer up” = खुश होना. उदाहरण: “Cheer up, we're having pizza!”\n\n“cheer up” का मतलब क्या है?\n“cheer up” = खुश होना.\nउदाहरण: “Cheer up, we're having pizza!” (Cheer up, हम पिज़्ज़ा खा रहे हैं!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "cheer up",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“cheer up” का मतलब क्या है?\n“cheer up” = खुश होना.\nउदाहरण: “Cheer up, we're having pizza!” (Cheer up, हम पिज़्ज़ा खा रहे हैं!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cheer up” का मतलब क्या है?\n\n“cheer up” = खुश होना. उदाहरण: “Cheer up, we're having pizza!”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cheer up” का मतलब क्या है? “cheer up” = खुश होना. उदाहरण: “Cheer up, we're having pizza!” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “cheer up” = खुश होना. “Cheer up, we're having pizza!” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}
