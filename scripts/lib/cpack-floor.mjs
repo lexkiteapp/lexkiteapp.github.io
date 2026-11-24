@@ -13,5 +13,5 @@ export const readFloor = () => { try { return JSON.parse(fs.readFileSync(FLOOR, 
 export const noteFiles = () => fs.existsSync(NOTES) ? fs.readdirSync(NOTES).filter(f => f.endsWith('.md')).map(f => path.join(NOTES, f)) : [];
 export const noteExtra = () => noteFiles().reduce((n, f) => n + (+(fs.readFileSync(f, 'utf8').match(/^cpack-extra:\s*(\d+)/m) || [])[1] || 0), 0);
 export const cpackCeiling = () => readFloor() + ALLOWANCE + noteExtra();
-// diff của budget.json (unified) có THÊM/sửa (dòng +; xoá thì không sao) trần cpack hay ghi chú _cpackNote…? → danh sách dòng vi phạm
+// diff của budget.json (unified) có dòng + sửa/thêm trần cpack hay ghi chú _cpackNote…? → danh sách dòng vi phạm
 export const ceilingEdits = diff => diff.split('\n').filter(l => /^\+\s*"(cpackTotal|_cpackNote\w*)"/.test(l));
