@@ -1,0 +1,150 @@
+{
+ "id": "t2s_th_chinup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 85,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rough day, but tomorrow's coming!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Chin up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stay brave and positive.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Chin up, tomorrow will be better.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "chin up",
+  "forms": [],
+  "ipa": "/ˈtʃɪn ˈʌp/",
+  "mean": "Stay brave and positive.",
+  "define": "Used to encourage someone who is sad.",
+  "vi": "Cố lên nào",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Cheering a friend",
+   "text": "Chin up, tomorrow will be better."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Chin up\" means…",
+   "options": [
+    "look up",
+    "stay positive"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chin up' to someone crying hard.",
+   "why": "It can sound like 'stop feeling'."
+  },
+  "l1": "ยิ้มไว้",
+  "l1_hook": "วันแย่ๆ แต่พรุ่งนี้กำลังมาถึง!",
+  "l1_ex": "\"chin up\", พรุ่งนี้จะดีขึ้น.",
+  "right": "chin up",
+  "native": {
+   "hook": "“chin up” แปลว่าอะไร?",
+   "tip": "“chin up” = ยิ้มไว้. ตัวอย่าง: “Chin up, tomorrow will be better.”",
+   "caption": "“chin up” แปลว่าอะไร?\n“chin up” = ยิ้มไว้.\nตัวอย่าง: “Chin up, tomorrow will be better.” (\"chin up\", พรุ่งนี้จะดีขึ้น.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “chin up” = ยิ้มไว้. “Chin up, tomorrow will be better.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Rough day, but tomorrow's coming!"
+ },
+ "src": {
+  "slang": "chin up"
+ },
+ "lang": "th",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“chin up” แปลว่าอะไร?",
+  "keyword": "chin up",
+  "value": "“chin up” = ยิ้มไว้. ตัวอย่าง: “Chin up, tomorrow will be better.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“chin up” แปลว่าอะไร?",
+    "description": "“chin up” = ยิ้มไว้. ตัวอย่าง: “Chin up, tomorrow will be better.”\n\n“chin up” แปลว่าอะไร?\n“chin up” = ยิ้มไว้.\nตัวอย่าง: “Chin up, tomorrow will be better.” (\"chin up\", พรุ่งนี้จะดีขึ้น.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "chin up",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“chin up” แปลว่าอะไร?\n“chin up” = ยิ้มไว้.\nตัวอย่าง: “Chin up, tomorrow will be better.” (\"chin up\", พรุ่งนี้จะดีขึ้น.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“chin up” แปลว่าอะไร?\n\n“chin up” = ยิ้มไว้. ตัวอย่าง: “Chin up, tomorrow will be better.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“chin up” แปลว่าอะไร? “chin up” = ยิ้มไว้. ตัวอย่าง: “Chin up, tomorrow will be better.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “chin up” = ยิ้มไว้. “Chin up, tomorrow will be better.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

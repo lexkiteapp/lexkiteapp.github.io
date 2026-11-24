@@ -1,0 +1,133 @@
+{
+ "id": "t2s_levelup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 162,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Time to get better at cooking!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Level up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Improve and get better.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I want to level up my cooking.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "level up",
+  "forms": [
+   "leveled up"
+  ],
+  "ipa": "/ˈlevl ˈʌp/",
+  "mean": "Improve and get better.",
+  "define": "To grow in skill, like moving up in a game.",
+  "vi": "Lên cấp, tiến bộ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Talking about skills",
+   "text": "I want to level up my cooking."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"level up\" is to…",
+   "options": [
+    "go upstairs",
+    "get better"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your teacher to 'level up'.",
+   "why": "It sounds like a challenge, not respect."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Time to get better at cooking!"
+ },
+ "src": {
+  "slang": "level up"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"level up\" mean?",
+  "keyword": "level up",
+  "value": "Level up = Improve and get better. Example: \"I want to level up my cooking.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"level up\" mean?",
+    "description": "Level up = Improve and get better. Example: \"I want to level up my cooking.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "level up",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"level up\" mean?\n\nLevel up = Improve and get better. Example: \"I want to level up my cooking.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"level up\" mean?\n\nLevel up = Improve and get better. Example: \"I want to level up my cooking.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"level up\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell your teacher to 'level up'. It sounds like a challenge, not respect. Real example: \"I want to level up my cooking.\" More real English slang, free: {link}"
+ }
+}

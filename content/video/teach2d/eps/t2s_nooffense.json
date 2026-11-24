@@ -1,0 +1,131 @@
+{
+ "id": "t2s_nooffense",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 145,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can I be honest?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "No offense!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I don't want to upset you.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "No offense, but I prefer the red one.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "no offense",
+  "forms": [],
+  "ipa": "/noʊ əˈfens/",
+  "mean": "I don't want to upset you.",
+  "define": "Used before an honest comment that might sound harsh.",
+  "vi": "Không có ý xúc phạm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Giving an opinion",
+   "text": "No offense, but I prefer the red one."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It's said before…",
+   "options": [
+    "an honest opinion",
+    "a gift"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'no offense' before a harsh insult.",
+   "why": "It doesn't soften the hurt."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can I be honest?"
+ },
+ "src": {
+  "slang": "no offense"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "What does \"no offense\" mean?",
+  "keyword": "no offense",
+  "value": "No offense = I don't want to upset you. Example: \"No offense, but I prefer the red one.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"no offense\" mean?",
+    "description": "No offense = I don't want to upset you. Example: \"No offense, but I prefer the red one.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "no offense",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"no offense\" mean?\n\nNo offense = I don't want to upset you. Example: \"No offense, but I prefer the red one.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"no offense\" mean?\n\nNo offense = I don't want to upset you. Example: \"No offense, but I prefer the red one.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"no offense\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: an honest opinion. \"No offense, but I prefer the red one.\" More real English slang, free: {link}"
+ }
+}

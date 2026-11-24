@@ -1,0 +1,137 @@
+{
+ "id": "t2s_hype",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 133,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Everyone's excited for this movie!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Hype!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Big excitement about something.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Is the movie worth the hype?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "hype",
+  "forms": [
+   "hyped"
+  ],
+  "ipa": "/ˈhaɪp/",
+  "mean": "Big excitement about something.",
+  "define": "Strong excitement from many people.",
+  "vi": "Cơn sốt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Talking about a movie",
+   "text": "Is the movie worth the hype?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Hype\" means…",
+   "options": [
+    "a long line",
+    "big excitement"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a quiet event 'hype'.",
+   "why": "It means big, loud excitement."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Everyone's excited for this movie!"
+ },
+ "src": {
+  "slang": "hype"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"hype\" mean?",
+  "keyword": "hype",
+  "value": "Hype = Big excitement about something. Example: \"Is the movie worth the hype?\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"hype\" mean?",
+    "description": "Hype = Big excitement about something. Example: \"Is the movie worth the hype?\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "hype",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"hype\" mean?\n\nHype = Big excitement about something. Example: \"Is the movie worth the hype?\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"hype\" mean?\n\nHype = Big excitement about something. Example: \"Is the movie worth the hype?\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"hype\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a quiet event 'hype'. It means big, loud excitement. Real example: \"Is the movie worth the hype?\" More real English slang, free: {link}"
+ }
+}

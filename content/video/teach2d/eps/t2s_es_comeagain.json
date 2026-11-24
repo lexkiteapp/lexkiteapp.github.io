@@ -1,0 +1,150 @@
+{
+ "id": "t2s_es_comeagain",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 94,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry, the music's too loud!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Come again!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Please say that again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Come again? It's too loud here.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "come again",
+  "forms": [],
+  "ipa": "/ˈkʌm əˈɡen/",
+  "mean": "Please say that again.",
+  "define": "A casual way to ask someone to repeat.",
+  "vi": "Nói lại đi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Talking in a noisy café",
+   "text": "Come again? It's too loud here."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "visit again",
+    "say it again"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'come again' when you heard clearly.",
+   "why": "It sounds like a challenge."
+  },
+  "l1": "¿cómo?",
+  "l1_hook": "¡Perdón, la música está demasiado alta!",
+  "l1_ex": "¿\"Come again\"? Está demasiado ruidoso aquí.",
+  "right": "come again",
+  "native": {
+   "hook": "¿Qué significa “come again”?",
+   "tip": "“come again” = ¿cómo?. Ejemplo: “Come again? It's too loud here.”",
+   "caption": "¿Qué significa “come again”?\n“come again” = ¿cómo?.\nEjemplo: “Come again? It's too loud here.” (¿\"Come again\"? Está demasiado ruidoso aquí.)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “come again” = ¿cómo?. “Come again? It's too loud here.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sorry, the music's too loud!"
+ },
+ "src": {
+  "slang": "come again"
+ },
+ "lang": "es",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿Qué significa “come again”?",
+  "keyword": "come again",
+  "value": "“come again” = ¿cómo?. Ejemplo: “Come again? It's too loud here.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “come again”?",
+    "description": "“come again” = ¿cómo?. Ejemplo: “Come again? It's too loud here.”\n\n¿Qué significa “come again”?\n“come again” = ¿cómo?.\nEjemplo: “Come again? It's too loud here.” (¿\"Come again\"? Está demasiado ruidoso aquí.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "come again",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “come again”?\n“come again” = ¿cómo?.\nEjemplo: “Come again? It's too loud here.” (¿\"Come again\"? Está demasiado ruidoso aquí.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “come again”?\n\n“come again” = ¿cómo?. Ejemplo: “Come again? It's too loud here.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “come again”? “come again” = ¿cómo?. Ejemplo: “Come again? It's too loud here.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “come again” = ¿cómo?. “Come again? It's too loud here.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

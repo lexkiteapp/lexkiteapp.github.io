@@ -1,0 +1,152 @@
+{
+ "id": "t2s_fr_hitthebooks",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 95,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Finals next week. Panic time!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Hit the books!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start studying seriously.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I have to hit the books tonight.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "hit the books",
+  "forms": [
+   "hitting the books"
+  ],
+  "ipa": "/ˈhɪt ðə ˈbʊks/",
+  "mean": "Start studying seriously.",
+  "define": "To begin studying hard.",
+  "vi": "Bắt đầu học bài",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Talking before a test",
+   "text": "I have to hit the books tonight."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Hit the books\" means…",
+   "options": [
+    "throw a book",
+    "study hard"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your friend to 'hit the books' at a party.",
+   "why": "It means study seriously."
+  },
+  "l1": "se mettre aux études",
+  "l1_hook": "Les partiels sont la semaine prochaine. C’est la panique ! Il faut \"hit the books\".",
+  "l1_ex": "Je dois \"hit the books\" ce soir.",
+  "right": "hit the books",
+  "native": {
+   "hook": "Que veut dire « hit the books » ?",
+   "tip": "“hit the books” = se mettre aux études. Exemple: “I have to hit the books tonight.”",
+   "caption": "Que veut dire « hit the books » ?\n“hit the books” = se mettre aux études.\nExemple: “I have to hit the books tonight.” (Je dois \"hit the books\" ce soir.)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “hit the books” = se mettre aux études. “I have to hit the books tonight.” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Finals next week. Panic time!"
+ },
+ "src": {
+  "slang": "hit the books"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Que veut dire « hit the books » ?",
+  "keyword": "hit the books",
+  "value": "“hit the books” = se mettre aux études. Exemple: “I have to hit the books tonight.”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « hit the books » ?",
+    "description": "“hit the books” = se mettre aux études. Exemple: “I have to hit the books tonight.”\n\nQue veut dire « hit the books » ?\n“hit the books” = se mettre aux études.\nExemple: “I have to hit the books tonight.” (Je dois \"hit the books\" ce soir.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "hit the books",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « hit the books » ?\n“hit the books” = se mettre aux études.\nExemple: “I have to hit the books tonight.” (Je dois \"hit the books\" ce soir.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « hit the books » ?\n\n“hit the books” = se mettre aux études. Exemple: “I have to hit the books tonight.”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « hit the books » ? “hit the books” = se mettre aux études. Exemple: “I have to hit th… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “hit the books” = se mettre aux études. “I have to hit the books tonight.” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

@@ -7,7 +7,7 @@
 import fs from 'fs';
 import crypto from 'crypto';
 import { ROOT, rd, wr } from '../lib.mjs';
-import { QUEUE } from './lib.mjs';
+import { readQ, writeQ } from './lib.mjs';
 import { createPool } from '../../lib/ai-pool.mjs';
 
 const [id] = process.argv.slice(2), arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
@@ -40,8 +40,8 @@ const checked = [], hold = [];
 for (const k of S) { const v = V[k], bad = v.vs.filter(x => x.bad.length), notes = bad.flatMap(x => x.bad).slice(0, 3).join(' · ');
   if (bad.length >= 2) checked.push({ id: k, ok: false, note: `soát AI ${bad.length}/3: ${notes}` });
   else { checked.push({ id: k, ok: true, ...(bad.length ? { note: `1/3 nêu lỗi (về hàng duyệt): ${notes}` } : {}) }); if (bad.length) hold.push([k, notes]); } }
-if (hold.length && !process.argv.includes('--dry')) { const q = JSON.parse(rd(QUEUE));
+if (hold.length && !process.argv.includes('--dry')) { const q = readQ();
   for (const [k, n] of hold) { if (!q.items.some(x => x.src === 'lexicon-expand' && x.id === k)) q.items.push({ src: 'lexicon-expand', id: k, batch: id, why: ['soát mẫu AI 1/3: ' + n], at: new Date().toISOString().slice(0, 10), data: P.items[k] }); delete P.items[k]; }
-  P.n = Object.keys(P.items).length; wr(QUEUE, JSON.stringify(q, null, 1) + '\n'); wr(PEND, JSON.stringify(P).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n'); }
+  P.n = Object.keys(P.items).length; writeQ(q); wr(PEND, JSON.stringify(P).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n'); }
 fs.writeFileSync(arg('--out', 'checked.json'), JSON.stringify(checked, null, 1));
 console.log(`✓ soát lô ${id}: mẫu ${S.length}/${keys.length} · sai (≥ 2/3) ${checked.filter(x => !x.ok).length} · về hàng duyệt (1/3) ${hold.length} · giám khảo ${[...new Set(Object.values(V).flatMap(v => v.by))].join(', ')}`);

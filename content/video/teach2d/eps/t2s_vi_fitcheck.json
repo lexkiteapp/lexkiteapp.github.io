@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_fitcheck",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 65,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Outfit ready. Thoughts before school?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Fit check!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Showing off your outfit.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Quick fit check before school!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "fit check",
+  "forms": [],
+  "ipa": "/ˈfɪt ˈtʃek/",
+  "mean": "Showing off your outfit.",
+  "define": "A moment to show your outfit and get opinions.",
+  "vi": "Khoe bộ đồ hôm nay",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Before leaving home",
+   "text": "Quick fit check before school!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"fit check\" shows…",
+   "options": [
+    "your outfit",
+    "your shoes only"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't ask for a 'fit check' at the gym.",
+   "why": "It means outfit, not fitness."
+  },
+  "l1": "Khoe bộ đồ hôm nay",
+  "l1_hook": "Đồ xong rồi. Ý kiến trước khi đi học?",
+  "l1_ex": "Fit check nhanh trước khi đi học nè!",
+  "right": "fit check",
+  "native": {
+   "hook": "“fit check” nghĩa là gì?",
+   "tip": "“fit check” = Khoe bộ đồ hôm nay. Ví dụ: “Quick fit check before school!”",
+   "caption": "“fit check” nghĩa là gì?\n“fit check” = Khoe bộ đồ hôm nay.\nVí dụ: “Quick fit check before school!” (Fit check nhanh trước khi đi học nè!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “fit check” = Khoe bộ đồ hôm nay. “Quick fit check before school!” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Outfit ready. Thoughts before school?"
+ },
+ "src": {
+  "slang": "fit check"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“fit check” nghĩa là gì?",
+  "keyword": "fit check",
+  "value": "“fit check” = Khoe bộ đồ hôm nay. Ví dụ: “Quick fit check before school!”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“fit check” nghĩa là gì?",
+    "description": "“fit check” = Khoe bộ đồ hôm nay. Ví dụ: “Quick fit check before school!”\n\n“fit check” nghĩa là gì?\n“fit check” = Khoe bộ đồ hôm nay.\nVí dụ: “Quick fit check before school!” (Fit check nhanh trước khi đi học nè!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "fit check",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“fit check” nghĩa là gì?\n“fit check” = Khoe bộ đồ hôm nay.\nVí dụ: “Quick fit check before school!” (Fit check nhanh trước khi đi học nè!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“fit check” nghĩa là gì?\n\n“fit check” = Khoe bộ đồ hôm nay. Ví dụ: “Quick fit check before school!”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“fit check” nghĩa là gì? “fit check” = Khoe bộ đồ hôm nay. Ví dụ: “Quick fit check before school!” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “fit check” = Khoe bộ đồ hôm nay. “Quick fit check before school!” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}
