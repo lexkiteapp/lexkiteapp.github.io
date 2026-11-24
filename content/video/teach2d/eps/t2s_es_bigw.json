@@ -1,0 +1,152 @@
+{
+ "id": "t2s_es_bigw",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 31,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You passed the test? Wow!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Big W!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A great win.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You passed the test? Big W!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "big W",
+  "forms": [
+   "W"
+  ],
+  "ipa": "/ˈbɪɡ ˈdʌbəlju/",
+  "mean": "A great win.",
+  "define": "Used to celebrate a success or good result.",
+  "vi": "Chiến thắng lớn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Celebrating a win",
+   "text": "You passed the test? Big W!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"W\" stands for…",
+   "options": [
+    "win",
+    "week"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'big W' to someone who lost.",
+   "why": "It celebrates wins, not losses."
+  },
+  "l1": "gran victoria",
+  "l1_hook": "¿Aprobaste el examen? ¡big W!",
+  "l1_ex": "¿Aprobaste el examen? ¡Big W!",
+  "right": "big W",
+  "native": {
+   "hook": "¿Qué significa “big W”?",
+   "tip": "“big W” = gran victoria. Ejemplo: “You passed the test? Big W!”",
+   "caption": "¿Qué significa “big W”?\n“big W” = gran victoria.\nEjemplo: “You passed the test? Big W!” (¿Aprobaste el examen? ¡Big W!)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “big W” = gran victoria. “You passed the test? Big W!” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You passed the test? Wow!"
+ },
+ "src": {
+  "slang": "big W"
+ },
+ "lang": "es",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿Qué significa “big W”?",
+  "keyword": "big W",
+  "value": "“big W” = gran victoria. Ejemplo: “You passed the test? Big W!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “big W”?",
+    "description": "“big W” = gran victoria. Ejemplo: “You passed the test? Big W!”\n\n¿Qué significa “big W”?\n“big W” = gran victoria.\nEjemplo: “You passed the test? Big W!” (¿Aprobaste el examen? ¡Big W!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "big W",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “big W”?\n“big W” = gran victoria.\nEjemplo: “You passed the test? Big W!” (¿Aprobaste el examen? ¡Big W!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “big W”?\n\n“big W” = gran victoria. Ejemplo: “You passed the test? Big W!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “big W”? “big W” = gran victoria. Ejemplo: “You passed the test? Big W!” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “big W” = gran victoria. “You passed the test? Big W!” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

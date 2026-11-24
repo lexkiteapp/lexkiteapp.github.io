@@ -1,0 +1,152 @@
+{
+ "id": "t2s_tr_bestie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 30,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who knows all your secrets?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bestie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A very close friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My bestie and I love tacos.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "bestie",
+  "forms": [
+   "besties"
+  ],
+  "ipa": "/ˈbesti/",
+  "mean": "A very close friend.",
+  "define": "A short, friendly word for a best friend.",
+  "vi": "Bạn thân",
+  "reg": "very-casual",
+  "region": "global",
+  "level": "A2",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "Talking about friends",
+   "text": "My bestie and I love tacos."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"bestie\" is…",
+   "options": [
+    "a best friend",
+    "a kind of pet"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your new boss your 'bestie'.",
+   "why": "It's too close and casual."
+  },
+  "l1": "en yakın arkadaş",
+  "l1_hook": "Tüm sırlarını bilen kim? \"bestie\".",
+  "l1_ex": "\"bestie\" ve ben taco'ları çok seviyoruz.",
+  "right": "bestie",
+  "native": {
+   "hook": "“bestie” ne demek?",
+   "tip": "“bestie” = en yakın arkadaş. Örnek: “My bestie and I love tacos.”",
+   "caption": "“bestie” ne demek?\n“bestie” = en yakın arkadaş.\nÖrnek: “My bestie and I love tacos.” (\"bestie\" ve ben taco'ları çok seviyoruz.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “bestie” = en yakın arkadaş. “My bestie and I love tacos.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who knows all your secrets?"
+ },
+ "src": {
+  "slang": "bestie"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“bestie” ne demek?",
+  "keyword": "bestie",
+  "value": "“bestie” = en yakın arkadaş. Örnek: “My bestie and I love tacos.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“bestie” ne demek?",
+    "description": "“bestie” = en yakın arkadaş. Örnek: “My bestie and I love tacos.”\n\n“bestie” ne demek?\n“bestie” = en yakın arkadaş.\nÖrnek: “My bestie and I love tacos.” (\"bestie\" ve ben taco'ları çok seviyoruz.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "bestie",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“bestie” ne demek?\n“bestie” = en yakın arkadaş.\nÖrnek: “My bestie and I love tacos.” (\"bestie\" ve ben taco'ları çok seviyoruz.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bestie” ne demek?\n\n“bestie” = en yakın arkadaş. Örnek: “My bestie and I love tacos.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bestie” ne demek? “bestie” = en yakın arkadaş. Örnek: “My bestie and I love tacos.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “bestie” = en yakın arkadaş. “My bestie and I love tacos.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

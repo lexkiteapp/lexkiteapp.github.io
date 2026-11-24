@@ -1,0 +1,43 @@
+# 🧼 Làm sạch clip giáo viên đã dựng mà cổng motion_smear.py còn đỏ (23/11: main đỏ teacher-motion từ #1375) – 0 credit, không cần kho footage.
+# Chạy tay trên nhánh: scripts/teach/refine_clips.py <web/teach> [pose ...] → cổng motion_smear.py → artifact bot-output-teach-refine (KHÔNG đẩy vào nhánh PR).
+# Lấy về: bash scripts/ci/bot-output.sh teach-refine, rồi tự commit.
+name: Teach refine
+on:
+  push:
+    branches: ['teach-refine*']   # như teach-build: đẩy nhánh teach-refine* (hoặc chạy tay) – lượt trên nhánh chỉ để lấy artifact, không đẩy lại vào nhánh
+  workflow_dispatch:
+    inputs:
+      clips: { description: 'chỉ các clip này (vd. carlos/explain ama/point-hd), trống = mọi clip vượt cổng', required: false, default: '' }
+permissions:
+  contents: read
+  actions: read
+  pull-requests: write
+concurrency:
+  group: teach-refine-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  refine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Cài công cụ
+        timeout-minutes: 10
+        run: pip install -q numpy pillow opencv-python-headless
+      - name: Hồi quy cổng đo
+        run: python3 scripts/test/motion-smear-selftest.py
+      - name: Làm sạch
+        env: { CLIPS: "${{ inputs.clips || '' }}" }
+        run: python3 scripts/teach/refine_clips.py web/teach $CLIPS
+      - name: Cổng khung vung tay
+        run: python3 scripts/teach/motion_smear.py web/teach
+      - name: Vòng nghỉ dựng lại từ clip vừa làm sạch (sha nguồn đổi) + kiểm bộ nhân vật
+        run: |
+          python3 scripts/teach/idle.py web/teach
+          python3 scripts/teach/idle.py --check web/teach
+          node scripts/test/characters-gate.mjs
+      - name: Artifact + summary (không đẩy vào nhánh)
+        if: always()
+        uses: ./.github/actions/bot-output
+        with: { name: teach-refine, paths: web/teach, comment: 'true' }

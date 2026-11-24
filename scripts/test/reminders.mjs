@@ -13,55 +13,69 @@ const card = (w, due, ctx) => ({ word: w, ctx, srs: { reps: 2, last: 1, due } })
 
 for (const TZ of ['Asia/Ho_Chi_Minh', 'America/New_York', 'Asia/Kolkata', 'Pacific/Auckland']) {
   process.env.TZ = TZ;
-  const R = load();
+  const R = load(), P1 = x => R.plan(x).filter(y => y.type !== 'save'); // tin 2 "giữ chuỗi" kiểm riêng bên dưới
   // New York: kế hoạch bắc qua mốc đổi giờ 01/11/2026 – vẫn đúng 19:30 giờ địa phương mỗi ngày
   const now = new Date(2026, 9, 28, 9, 0).getTime();
   const base = { now, settings: { reminderOn: true, reminderAuto: true, quietStart: '22:00', quietEnd: '07:00' }, stats: { hours: hours(20), days: daysAgo(now, 5) }, streak: 4, cards: [card('resilient', now + 2 * DAY, 'She stayed resilient after the storm.'), card('cope', now - DAY, '')] };
-  const p = R.plan(base);
-  ok(p.length >= 7, `${TZ}: kế hoạch ${p.length} lời nhắc`);
+  const p = P1(base);
+  ok(p.length >= 6, `${TZ}: kế hoạch ${p.length} lời nhắc`);
   ok(p.every(x => { const d = new Date(x.at); return d.getHours() === 19 && d.getMinutes() === 30; }), `${TZ}: mọi lời nhắc lúc 19:30 giờ địa phương (30 phút trước giờ hay học 20:00) – ${p.map(x => new Date(x.at).toTimeString().slice(0, 5)).join(',')}`);
   ok(new Set(p.map(x => x.day)).size === p.length, `${TZ}: tối đa 1 lời nhắc/ngày`);
-  ok(JSON.stringify(p.map(x => x.d)) === JSON.stringify([0, 1, 2, 3, 5, 7, 10, 14]), `${TZ}: giãn cách sau 3 lần bỏ qua + dừng sau ngày 14: ${p.map(x => x.d)}`);
+  ok(JSON.stringify(p.map(x => x.d)) === JSON.stringify([0, 1, 2, 3, 5, 7]), `${TZ}: 0, 1, 2, 3 → 5, 7 (2 ngày/lần) và dừng ở ngày 7 (tin 2 tách riêng): ${p.map(x => x.d)}`);
+  ok(p.find(x => x.d === 3).type === 'bk3' && p.find(x => x.d === 5).type === 'bk7' && !/mất chuỗi|sẽ mất|lost/i.test(p.filter(x => x.type === 'bk3' || x.type === 'bk7').map(x => x.title + x.body).join(' ')), `${TZ}: mốc quay lại ngày 3 và 5 có tin riêng, không dọa`);
   ok(p[p.length - 1].type === 'miss' && p.filter(x => x.type === 'miss').length === 1, `${TZ}: lời cuối "Kit nhớ bạn" đúng 1 lần ở ngày 14`);
   ok(p[0].type === 'streak', `${TZ}: chưa học hôm nay + có chuỗi → nhắc chuỗi sắp mất (${p[0].type})`);
   const win = p.filter(x => x.d <= 7).map(x => x.tpl); ok(new Set(win).size === win.length, `${TZ}: không lặp mẫu trong 7 ngày: ${win}`);
+  { // Tin 2 "giữ chuỗi" (24/11): tối đa 2 tin/ngày, giờ ≥ 60 phút sau tin 1 và ≥ 60 phút trước giờ yên lặng, không đang lùi, đã học → không có
+    const all = R.plan(base), sv = all.filter(x => x.type === 'save'), d0 = all.filter(x => x.d === 0);
+    ok(sv.length === 1 && d0.length === 2 && d0[1].type === 'save' && d0[1].at - d0[0].at >= 60 * 60e3 && /^sv\d$/.test(sv[0].tpl), `${TZ}: chuỗi 4 ngày → có đúng 1 tin 2 sau tin 1 (${sv.length})`);
+    const hh = new Date(sv[0].at).getHours() * 60 + new Date(sv[0].at).getMinutes();
+    ok(hh <= 22 * 60 - 60 && hh - (19 * 60 + 30) >= 60, `${TZ}: tin 2 lúc ${hh} ≤ 60 phút trước giờ yên lặng 22:00 (rút ngắn từ 22:00 → 21:00)`);
+    ok(all.every(x => x.d !== 0 || x.type === 'save' || x.type !== 'save') && Object.values(all.reduce((m, x) => { m[x.day] = (m[x.day] || 0) + 1; return m; }, {})).every(n => n <= 2), `${TZ}: không bao giờ quá 2 tin/ngày`);
+    ok(R.plan({ ...base, streak: 1, opens: 0 }).every(x => x.type !== 'save'), `${TZ}: chuỗi < 2 và chưa mở tin nào → không tin 2`);
+    ok(R.plan({ ...base, streak: 1, opens: 1 }).some(x => x.type === 'save'), `${TZ}: chuỗi < 2 nhưng đã mở thông báo gần đây → có tin 2`);
+    ok(R.plan({ ...base, s2: false }).every(x => x.type !== 'save'), `${TZ}: cầu dao/công tắc khẩn s2 = false → không tin 2`);
+    ok(R.plan({ ...base, stats: { ...base.stats, days: { ...base.stats.days, [key(new Date(now))]: 3 } } }).every(x => x.type !== 'save'), `${TZ}: hôm nay đã học → không tin 2`);
+    ok(R.plan({ ...base, settings: { ...base.settings, quietStart: '20:30' } }).every(x => x.type !== 'save'), `${TZ}: quá gần giờ yên lặng (< 60 phút giữa tin 1 và mốc −60) → không tin 2`);
+    ok(R.plan({ ...base, hist: ['2026-10-27', '2026-10-26', '2026-10-25'].map(day => ({ day, tpl: 'due1' })), stats: { hours: hours(20), days: {} }, streak: 3 }).every(x => x.type !== 'save'), `${TZ}: đang lùi (bỏ qua ≥ 3 lần) → không tin 2`);
+    ok(R.plan({ ...base, now: new Date(2026, 9, 28, 20, 0).getTime() }).every(x => x.type !== 'save' || x.d !== 0), `${TZ}: tin 1 đã qua giờ → web/app không lên lịch tin 2 quá khứ nếu hết chỗ (không lịch quá khứ)`); }
   ok(p.some(x => x.type === 'word' && /resilient/.test(x.title + x.body) && /storm/.test(x.body) && x.url === '#/review?w=resilient'), `${TZ}: có lời nhắc từ trong sổ kèm câu ngữ cảnh + liên kết sâu`);
   // giờ yên lặng: người hay học 23:00 → 22:30 rơi vào yên lặng → dời về 21:30
-  const q = R.plan({ ...base, stats: { hours: hours(23), days: daysAgo(now, 5) } });
+  const q = P1({ ...base, stats: { hours: hours(23), days: daysAgo(now, 5) } });
   ok(q.every(x => new Date(x.at).getHours() === 21 && new Date(x.at).getMinutes() === 30), `${TZ}: giờ yên lặng 22:00–07:00 → dời về 21:30`);
   ok(R.clampQuiet(6 * 60, { quietStart: '22:00', quietEnd: '07:00' }) === 7 * 60 && R.inQuiet(23 * 60, {}) && !R.inQuiet(20 * 60, {}), `${TZ}: clampQuiet/inQuiet`);
   // chưa đủ dữ liệu → 20:00; đã học hôm nay → bỏ ngày 0; tắt → rỗng; FCM (remote) → chỉ ngày < 3, không tiến bộ tuần
-  const f = R.plan({ ...base, stats: { hours: Array(24).fill(0), days: {} } });
+  const f = P1({ ...base, stats: { hours: Array(24).fill(0), days: {} } });
   ok(f.every(x => new Date(x.at).getHours() === 20 && new Date(x.at).getMinutes() === 0), `${TZ}: mặc định 20:00`);
-  const st = R.plan({ ...base, stats: { ...base.stats, days: { ...base.stats.days, [key(new Date(now))]: 3 } } });
+  const st = P1({ ...base, stats: { ...base.stats, days: { ...base.stats.days, [key(new Date(now))]: 3 } } });
   ok(!st.some(x => x.d === 0) && st[0].type === 'streak' && st[0].d === 1, `${TZ}: đã học hôm nay → không nhắc hôm nay, mai nhắc giữ chuỗi`);
-  ok(R.plan({ ...base, settings: { ...base.settings, reminderOn: false } }).length === 0, `${TZ}: tắt nhắc → không lên lịch`);
-  const rm = R.plan({ ...base, remote: true }); ok(rm.every(x => x.d < 3 && x.type !== 'week'), `${TZ}: có FCM → lịch cục bộ chỉ 3 ngày đầu`);
-  const ty = R.plan({ ...base, settings: { ...base.settings, remTypes: { streak: false, word: false, conf: false, week: false } } });
-  ok(ty.filter(x => x.type !== 'miss').every(x => x.type === 'due'), `${TZ}: lọc theo loại người dùng chọn`);
-  const late = R.plan({ ...base, now: new Date(2026, 9, 28, 21, 0).getTime() }); ok(late[0].d === 1, `${TZ}: giờ hôm nay đã qua → bắt đầu từ mai`);
+  ok(P1({ ...base, settings: { ...base.settings, reminderOn: false } }).length === 0, `${TZ}: tắt nhắc → không lên lịch`);
+  const rm = P1({ ...base, remote: true }); ok(rm.every(x => x.d < 3 && x.type !== 'week'), `${TZ}: có FCM → lịch cục bộ chỉ 3 ngày đầu`);
+  const ty = P1({ ...base, settings: { ...base.settings, remTypes: { streak: false, word: false, conf: false, week: false } } });
+  ok(ty.filter(x => x.type !== 'miss').every(x => ['due', 'bk3', 'bk7'].includes(x.type)), `${TZ}: lọc theo loại người dùng chọn`);
+  const late = P1({ ...base, now: new Date(2026, 9, 28, 21, 0).getTime() }); ok(late[0].d === 1, `${TZ}: giờ hôm nay đã qua → bắt đầu từ mai`);
   // ---------- Nâng cấp 26/10: giờ theo phiên gần đây, giờ yên lặng 22–08, chuỗi chỉ buổi tối, mục tiêu ngày, giãn cách khi bị bỏ qua ----------
   const rec = ms => ms.map((m, i) => ({ day: key(new Date(now - (ms.length - i) * DAY)), m }));
-  const hr = R.plan({ ...base, recent: rec([1150, 1145, 1160, 1155, 1150, 1158, 1152]) }); // ~19:12 dù histogram nói 20:00
+  const hr = P1({ ...base, recent: rec([1150, 1145, 1160, 1155, 1150, 1158, 1152]) }); // ~19:12 dù histogram nói 20:00
   ok(hr.every(x => { const d = new Date(x.at); return d.getHours() * 60 + d.getMinutes() === 1125; }), `${TZ}: giờ nhắc theo 7 phiên gần đây (~19:15 → 18:45): ${hr.map(x => new Date(x.at).toTimeString().slice(0, 5))}`);
   const sh = R.habitMin(rec([...Array(10).fill(480), ...Array(6).fill(1080)])); ok(sh >= 1070 && sh <= 1090, `${TZ}: đổi thói quen 08:00 → 18:00, phiên mới nặng hơn (${sh})`);
   ok(R.habitMin(rec([1150, 1150, 1150, 1150])) === -1 && R.pickTime(base.stats, base.settings, rec([600, 600, 600, 600])) === 1170, `${TZ}: < 5 phiên → dùng histogram`);
   ok(R.pickTime(base.stats, { ...base.settings, reminderAuto: false, reminderTime: '18:00' }, rec([600, 600, 600, 600, 600])) === 1080, `${TZ}: tự chọn giờ → bỏ qua lịch sử`);
   ok(R.habitMin(rec([1430, 5, 1435, 10, 0, 1425])) >= 1420 || R.habitMin(rec([1430, 5, 1435, 10, 0, 1425])) <= 15, `${TZ}: trung bình vòng tròn qua nửa đêm`);
   ok(R.inQuiet(7 * 60 + 30, {}) && !R.inQuiet(8 * 60, {}) && R.clampQuiet(7 * 60, {}) === 480, `${TZ}: giờ yên lặng mặc định 22:00–08:00`);
-  const mo = R.plan({ ...base, stats: { hours: hours(9), days: daysAgo(now, 5) }, now: new Date(2026, 9, 28, 6, 0).getTime() });
+  const mo = P1({ ...base, stats: { hours: hours(9), days: daysAgo(now, 5) }, now: new Date(2026, 9, 28, 6, 0).getTime() });
   ok(mo.length && !mo.some(x => x.type === 'streak'), `${TZ}: giờ nhắc buổi sáng → không nhắc "chuỗi sắp mất" (${mo.map(x => x.type)})`);
   const tk = key(new Date(now)), gs = { ...base.settings, dailyGoal: 20 };
-  const gl = R.plan({ ...base, settings: gs, stats: { ...base.stats, days: { ...base.stats.days, [tk]: 5 } } });
+  const gl = P1({ ...base, settings: gs, stats: { ...base.stats, days: { ...base.stats.days, [tk]: 5 } } });
   ok(gl[0].d === 0 && gl[0].type === 'goal' && /5\/20/.test(gl[0].title + gl[0].body) && /15/.test(gl[0].title + gl[0].body) && gl[0].url === '#/review', `${TZ}: học dở mục tiêu → nhắc tiến độ mục tiêu (${gl[0].type}: ${gl[0].title} / ${gl[0].body})`);
   ok(new Set(gl.map(x => x.day)).size === gl.length, `${TZ}: lời nhắc mục tiêu vẫn ≤ 1/ngày`);
-  ok(!R.plan({ ...base, settings: gs, stats: { ...base.stats, days: { ...base.stats.days, [tk]: 20 } } }).some(x => x.d === 0), `${TZ}: đủ mục tiêu → không nhắc hôm nay`);
-  ok(!R.plan({ ...base, settings: { ...gs, remTypes: { goal: false } }, stats: { ...base.stats, days: { ...base.stats.days, [tk]: 5 } } }).some(x => x.d === 0), `${TZ}: tắt loại mục tiêu → không nhắc`);
+  ok(!P1({ ...base, settings: gs, stats: { ...base.stats, days: { ...base.stats.days, [tk]: 20 } } }).some(x => x.d === 0), `${TZ}: đủ mục tiêu → không nhắc hôm nay`);
+  ok(!P1({ ...base, settings: { ...gs, remTypes: { goal: false } }, stats: { ...base.stats, days: { ...base.stats.days, [tk]: 5 } } }).some(x => x.d === 0), `${TZ}: tắt loại mục tiêu → không nhắc`);
   const ih = [1, 2, 3].map(i => ({ day: key(new Date(now - i * DAY)), tpl: 'due1' })), noStudy = { hours: hours(20), days: {} };
   ok(R.ignoredOf(ih, {}, tk).n === 3 && R.ignoredOf(ih, { [ih[1].day]: 4 }, tk).n === 1, `${TZ}: đếm lời nhắc bị bỏ qua liên tiếp`);
-  const bo = R.plan({ ...base, stats: noStudy, hist: ih }), gaps = bo.slice(1).map((x, i) => Math.round((x.at - bo[i].at) / DAY));
+  const bo = P1({ ...base, stats: noStudy, hist: ih }), gaps = bo.slice(1).map((x, i) => Math.round((x.at - bo[i].at) / DAY));
   ok(bo.length >= 4 && bo[0].d >= 1 && gaps.every(g => g >= 2), `${TZ}: bỏ qua 3 lần → cách ≥ 2 ngày (${bo.map(x => x.d)})`);
-  ok(R.plan({ ...base, stats: noStudy, hist: ih.slice(0, 2) }).some(x => x.d === 0), `${TZ}: bỏ qua 2 lần → vẫn nhắc bình thường`);
+  ok(P1({ ...base, stats: noStudy, hist: ih.slice(0, 2) }).some(x => x.d === 0), `${TZ}: bỏ qua 2 lần → vẫn nhắc bình thường`);
 }
 process.env.TZ = 'UTC';
 // ---------- Máy chủ: khung UTC theo múi giờ IANA, giờ địa phương, giờ yên lặng, đổi giờ mùa hè ----------
@@ -83,9 +97,9 @@ for (const [tz, at, slot] of cases) {
 ok(S.slotFor(L, 'America/New_York', Date.UTC(2026, 9, 31, 12)) === 1410 && S.slotFor(L, 'America/New_York', Date.UTC(2026, 10, 1, 12)) === 30, 'New York: khung UTC dời theo DST');
 const r0 = { id: 'b'.repeat(32), tz: 'Asia/Kolkata', lmin: L, q1: 1320, q2: 420, std: 0, last: 0, done: 0, lang: 'ja' }, at0 = Date.UTC(2026, 9, 28, 14, 5);
 const back = d => S.pickDue([{ ...r0, k: 'web', ep: 'https://x.push.apple.com/a', act: S.localDay(at0, 'Asia/Kolkata') - d }], at0).web.length;
-ok([0, 1, 2, 3, 5, 7, 10, 14].every(d => back(d) === 1) && [4, 6, 8, 9, 11, 13, 15, 20].every(d => back(d) === 0), 'Web Push: giãn cách 1,2,3 → 5,7,10 → 14 rồi dừng');
+ok([0, 1, 2, 3, 5, 7].every(d => back(d) === 1) && [4, 6, 8, 9, 10, 11, 13, 14, 15, 20].every(d => back(d) === 0), 'Web Push: giãn cách 1,2,3 → 5,7 (2 ngày/lần) rồi dừng sau ngày 7');
 const fc = d => S.pickDue([{ ...r0, k: 'fcm', ep: 'tok_'.repeat(8), act: S.localDay(at0, 'Asia/Kolkata') - d }], at0);
-ok(fc(1).fcm.length === 0 && fc(3).fcm[0].kind === 'back' && fc(14).fcm[0].kind === 'miss' && fc(14).final.length === 1 && fc(3).fcm[0].lang === 'ja', 'FCM: chỉ kéo lại từ ngày 3, lời cuối ngày 14, giữ ngôn ngữ');
+ok(fc(1).fcm.length === 0 && fc(3).fcm[0].kind === 'back3' && fc(5).fcm[0].kind === 'back7' && fc(10).fcm.length === 0 && fc(7).fcm[0].kind === 'miss' && fc(7).final.length === 1 && fc(3).fcm[0].lang === 'ja', 'FCM: chỉ kéo lại từ ngày 3, lời cuối ngày 14, giữ ngôn ngữ');
 ok(S.tzOk('Asia/Kolkata') === 'Asia/Kolkata' && S.tzOk('Nope/Zone') === 'UTC' && S.tzOk('x"; DROP') === 'UTC', 'tzOk chỉ nhận múi IANA hợp lệ');
 ok(S.PUSH_HOST.test('https://fcm.googleapis.com/fcm/send/abc') && S.PUSH_HOST.test('https://web.push.apple.com/QAB') && !S.PUSH_HOST.test('https://evil.com/fcm.googleapis.com/') && !S.PUSH_HOST.test('http://fcm.googleapis.com/x'), 'chống SSRF: chỉ máy chủ push thật');
 // ---------- Worker: câu FCM theo ngôn ngữ, rơi về en ----------
@@ -147,7 +161,7 @@ ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'
   const nw = R.plan({ ...b, now: morn, next: nx }), wk = nw.filter(x => x.d <= 7);
   ok(nw.some(x => x.type === 'path' && /Travel/.test(x.title) && x.url === nx.url), 'người mới: mẫu "bài đang học dở" kèm tên bài + liên kết sâu');
   ok(nw.some(x => x.type === 'gstart' && /20/.test(x.title)), 'người mới: mẫu mục tiêu ngày ({g} thẻ)');
-  ok(wk.every(x => x.tpl !== 'gen1' && ['path', 'gstart', 'conf', 'week', 'streak'].includes(x.type)) && new Set(wk.map(x => x.tpl)).size === wk.length, 'người mới: không câu chung chung, không lặp mẫu 7 ngày: ' + wk.map(x => x.tpl));
+  ok(wk.every(x => x.tpl !== 'gen1' && ['path', 'gstart', 'conf', 'week', 'streak', 'bk3', 'bk7', 'miss'].includes(x.type)) && new Set(wk.map(x => x.tpl)).size === wk.length, 'người mới: không câu chung chung, không lặp mẫu 7 ngày: ' + wk.map(x => x.tpl));
   ok(!R.plan({ ...b, now: morn, next: { u: 'X', url: 'javascript:alert(1)' } }).some(x => x.type === 'path'), 'bài đang dở: liên kết không phải #/ bị bỏ');
   ok(!R.plan({ ...b, now: morn, next: nx, settings: { ...b.settings, remTypes: { path: false, goal: false } } }).some(x => x.type === 'path' || x.type === 'gstart'), 'tắt loại "Bài đang học"/"Mục tiêu" → không dùng mẫu người mới');
   ok(!R.plan({ ...b, now: morn, cards: [card('cope', morn - DAY, '')] }).some(x => x.type === 'gstart'), 'người đã có thẻ đến hạn → không chen mẫu mục tiêu người mới');
@@ -235,5 +249,26 @@ ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'
 }
 // Gia sư 1-1 (lời nhắc giọng gia sư dùng chung lịch này) – chạy kèm vì package.json đang bị nhiều PR mở giữ; chuyển thẳng vào npm test khi rảnh
 { const { spawnSync } = await import('node:child_process'); const r = spawnSync(process.execPath, ['scripts/test/tutor.mjs'], { stdio: 'inherit' }); ok(r.status === 0, 'scripts/test/tutor.mjs xanh'); }
+// 24/11: số liệu theo giờ địa phương (shown_h/open_h) + nhóm loại tin ở Quản trị; mốc quay lại 3/7 có câu 15 ngôn ngữ cho FCM
+{ const src = fs.readFileSync(new URL('../../functions/api/push.js', import.meta.url), 'utf8'), adm = fs.readFileSync(new URL('../../web/js/admin-push.js', import.meta.url), 'utf8');
+  ok(/x\[0\] \+ '_h:' \+ hh/.test(src) && /request\.cf && request\.cf\.timezone/.test(src), 'ev: đếm theo giờ địa phương (shown_h/open_h) từ múi giờ yêu cầu');
+  ok(/shown\|open\)_h:/.test(adm) && /Mốc quay lại 3\/7 ngày/.test(adm) && /'Theo giờ địa phương': 'By local hour'/.test(adm), 'Quản trị: bảng theo loại tin + theo giờ (có EN)');
+  for (const l of Object.keys(W.copyOf ? { vi: 1, en: 1, ja: 1, ar: 1, de: 1 } : {})) ok(W.copyOf(l, 'back3')[0] && W.copyOf(l, 'back7')[1] && (l === 'vi' || !/[ạảấầậđ]/.test(W.copyOf(l, 'back3').join('') + W.copyOf(l, 'back7').join(''))), `FCM ${l}: có câu mốc quay lại 3/7 đúng ngôn ngữ`); }
+// Tin 2 "giữ chuỗi" phía máy chủ (web + FCM): trần 2 tin/ngày, giờ yên lặng, chế độ lùi, cầu dao
+{ const tzK = 'Asia/Kolkata', L2 = 19 * 60 + 30, base2 = { id: 'c'.repeat(32), k: 'web', ep: 'https://x.push.apple.com/a', tz: tzK, lmin: L2, q1: 1320, q2: 420, two: 1, done: 0, lang: 'ja', last2: 0, std: 0 };
+  const dayAt = (h, m) => Date.UTC(2026, 9, 28, h, m) - 330 * 60e3; // 28/10/2026 h:m giờ Ấn Độ (UTC+5:30)
+  const today = S.localDay(dayAt(21, 0), tzK), row = o => ({ ...base2, act: today, last: dayAt(19, 31), ...o });
+  ok(S.l2Of(L2, 1320, 420) === 21 * 60 && S.l2Of(18 * 60, 1320, 420) === 20 * 60 + 30 && S.l2Of(21 * 60, 1320, 420) === -1 && S.l2Of(20 * 60 + 30, 1320, 420) === -1, 'l2Of: +150 phút, tối đa 60 phút trước giờ yên lặng, cách tin 1 ≥ 60 phút (else bỏ)');
+  ok(S.pickSecond([row()], dayAt(21, 5)).web.length === 1, 'tin 2 đúng giờ (21:00 địa phương) sau tin 1 hôm nay');
+  ok(S.pickSecond([row({ k: 'fcm', ep: 'tok_'.repeat(8) })], dayAt(21, 5)).fcm[0].kind === 'save', 'tin 2 FCM: kind save');
+  ok(S.pickSecond([row()], dayAt(20, 0)).web.length === 0 && S.pickSecond([row()], dayAt(22, 0)).web.length === 0, 'tin 2 không gửi trước giờ / sau cửa sổ 40 phút / trong giờ yên lặng');
+  ok(S.pickSecond([row({ last2: dayAt(21, 0) })], dayAt(21, 5)).web.length === 0, 'tối đa 1 tin 2/ngày → tổng ≤ 2 tin/ngày');
+  ok(S.pickSecond([row({ std: today })], dayAt(21, 5)).web.length === 0, 'hôm nay đã học → không tin 2');
+  ok(S.pickSecond([row({ two: 0 })], dayAt(21, 5)).web.length === 0, 'chưa đủ điều kiện (chuỗi < 2, chưa mở tin) → không tin 2');
+  ok(S.pickSecond([row({ act: today - 3 })], dayAt(21, 5)).web.length === 0, 'đang lùi (≥ 3 ngày không mở app) → không tin 2');
+  ok(S.pickSecond([row({ last: dayAt(19, 31) - 864e5 })], dayAt(21, 5)).web.length === 0, 'tin 1 chưa gửi HÔM NAY → không tin 2');
+  ok(S.pickSecond([row({ last: dayAt(20, 30) })], dayAt(21, 5)).web.length === 0, 'cách tin 1 < 60 phút → không tin 2');
+  ok(S.s2Breaker(300, 3, 300, 3) === true && S.s2Breaker(300, 12, 300, 3) === false && S.s2Breaker(300, 5, 300, 1) === false && S.s2Breaker(100, 50, 100, 0) === true, 'cầu dao tin 2: tắt khi tỉ lệ tắt > 3 % hoặc tăng > 1 điểm % (cần ≥ 200 tin)');
+  ok(S.s2Env({}) === true && S.s2Env({ SAVE2_ON: '0' }) === false, 'công tắc khẩn SAVE2_ON=0'); }
 console.log(fail ? `✗ reminders: ${fail}/${n} lỗi` : `✓ reminders: ${n} kiểm`);
 process.exit(fail ? 1 : 0);

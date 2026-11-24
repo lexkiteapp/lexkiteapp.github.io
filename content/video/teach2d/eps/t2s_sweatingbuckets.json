@@ -1,0 +1,137 @@
+{
+ "id": "t2s_sweatingbuckets",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 135,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I ran. Now I'm soaked!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Sweating buckets!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Sweating a lot.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm sweating buckets after that run.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "sweating buckets",
+  "forms": [
+   "sweat buckets"
+  ],
+  "ipa": "/ˈswetɪŋ ˈbʌkɪts/",
+  "mean": "Sweating a lot.",
+  "define": "Used when you are very sweaty from heat or effort.",
+  "vi": "Đổ mồ hôi như tắm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "After a run",
+   "text": "I'm sweating buckets after that run."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you…",
+   "options": [
+    "carry buckets",
+    "sweat a lot"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'sweating buckets' about a calm interview.",
+   "why": "It means sweating heavily."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I ran. Now I'm soaked!"
+ },
+ "src": {
+  "slang": "sweating buckets"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"sweating buckets\" mean?",
+  "keyword": "sweating buckets",
+  "value": "Sweating buckets = Sweating a lot. Example: \"I'm sweating buckets after that run.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"sweating buckets\" mean?",
+    "description": "Sweating buckets = Sweating a lot. Example: \"I'm sweating buckets after that run.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "sweating buckets",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"sweating buckets\" mean?\n\nSweating buckets = Sweating a lot. Example: \"I'm sweating buckets after that run.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"sweating buckets\" mean?\n\nSweating buckets = Sweating a lot. Example: \"I'm sweating buckets after that run.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"sweating buckets\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'sweating buckets' about a calm interview. It means sweating heavily. Real example: \"I'm sweating buckets after that run.\" More real English slang, free: {link}"
+ }
+}

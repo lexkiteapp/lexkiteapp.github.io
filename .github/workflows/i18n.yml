@@ -47,10 +47,22 @@ jobs:
       - name: Cổng chất lượng trước khi commit (content-qa gate đỏ → KHÔNG đẩy bản dịch lên main)
         id: qa
         if: always()
+        continue-on-error: true   # đỏ → bước ngay dưới thử lại KHÔNG có lời giải dịch; hết đỏ thì vẫn đẩy phần còn lại
         timeout-minutes: 10
         run: node scripts/content-qa/gate.mjs   # 13/11: bot đẩy lời giải dịch lệch số làm main đỏ (#1243 bị chặn); đỏ ở đây thì bước lưu bị bỏ qua, lượt sau dịch lại
+      - name: Cổng đỏ → bỏ RIÊNG lời giải đề thi dịch (web/i18n/explain) rồi kiểm lại (không nới ngưỡng, bản dịch xấu vẫn không lên main)
+        id: qa2
+        if: always() && steps.qa.outcome == 'failure'
+        timeout-minutes: 10
+        run: |
+          # 24/11 (#1597, đỏ 19 lượt từ 17/11): vài mục explain-i18n mới "chưa dịch" làm cổng đỏ → KHÔNG đẩy gì, kể cả bản dịch GIAO DIỆN đã đạt → UI đứng 7 ngày.
+          # Giờ: gỡ riêng web/i18n/explain về bản đã commit, chạy lại cổng; vẫn đỏ (lỗi ngoài explain) → bước lưu bỏ qua như cũ.
+          git checkout -- web/i18n/explain && git clean -fdq -- web/i18n/explain
+          echo "::warning::lời giải dịch bị giữ lại (cổng content-qa đỏ ở explain-i18n) – lượt sau dịch lại; phần còn lại vẫn được đẩy nếu cổng xanh"
+          echo "### ⚠️ Lời giải dịch bị giữ lại\nCổng content-qa đỏ ở explain-i18n (lỗi MỚI cùng loại, không nâng baseline) → web/i18n/explain không được đẩy lượt này; sửa nội dung explain rồi chạy lại." >> "$GITHUB_STEP_SUMMARY"
+          node scripts/content-qa/gate.mjs
       - name: Lưu kết quả vào repo (tự lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
-        if: always() && github.ref == 'refs/heads/main' && steps.qa.outcome != 'failure'
+        if: always() && github.ref == 'refs/heads/main' && (steps.qa.outcome != 'failure' || steps.qa2.outcome == 'success')
         run: |
           # 3/11: bot dịch ghi NGUỒN i18n/ui/<lang>; gói chạy web/js/i18n/<lang> (khóa băm) sinh từ đó – đẩy cả hai.
           # 27/10: bản dịch mới ở web/js/i18n phải chép sang add-on cùng commit, nếu không ext-sync (npm test) đỏ trên main và mọi PR

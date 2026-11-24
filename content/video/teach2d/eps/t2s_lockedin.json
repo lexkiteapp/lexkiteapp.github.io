@@ -1,0 +1,137 @@
+{
+ "id": "t2s_lockedin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 132,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Phone off. Essay mode on!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Locked in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fully focused.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm locked in until this essay is done.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "locked in",
+  "forms": [
+   "lock in"
+  ],
+  "ipa": "/ˈlɑːkt ˈɪn/",
+  "mean": "Fully focused.",
+  "define": "Used when you are totally focused on a task.",
+  "vi": "Tập trung cao độ",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "school",
+  "example": {
+   "ctx": "Studying for a test",
+   "text": "I'm locked in until this essay is done."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Locked in\" means…",
+   "options": [
+    "stuck in a room",
+    "fully focused"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say you're 'locked in' while scrolling.",
+   "why": "It means deeply focused."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Phone off. Essay mode on!"
+ },
+ "src": {
+  "slang": "locked in"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"locked in\" mean?",
+  "keyword": "locked in",
+  "value": "Locked in = Fully focused. Example: \"I'm locked in until this essay is done.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"locked in\" mean?",
+    "description": "Locked in = Fully focused. Example: \"I'm locked in until this essay is done.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "locked in",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"locked in\" mean?\n\nLocked in = Fully focused. Example: \"I'm locked in until this essay is done.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"locked in\" mean?\n\nLocked in = Fully focused. Example: \"I'm locked in until this essay is done.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"locked in\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say you're 'locked in' while scrolling. It means deeply focused. Real example: \"I'm locked in until this essay is done.\" More real English slang, free: {link}"
+ }
+}

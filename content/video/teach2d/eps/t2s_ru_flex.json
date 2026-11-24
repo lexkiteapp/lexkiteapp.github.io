@@ -1,0 +1,149 @@
+{
+ "id": "t2s_ru_flex",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 114,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He keeps showing his sneakers!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Flex!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Show off something you're proud of.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He keeps flexing his new sneakers online.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "flex",
+  "forms": [
+   "flexing",
+   "flexed"
+  ],
+  "ipa": "/ˈfleks/",
+  "mean": "Show off something you're proud of.",
+  "define": "To show off what you have or can do.",
+  "vi": "Khoe khoang, làm màu",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Scrolling through social media",
+   "text": "He keeps flexing his new sneakers online."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Flex\" means to…",
+   "options": [
+    "show off",
+    "bend your arm"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't 'flex' your salary at a job interview.",
+   "why": "Bragging sounds arrogant."
+  },
+  "l1": "хвастаться",
+  "l1_hook": "Он постоянно «flex» свои кроссовки!",
+  "l1_ex": "Он всё время «flex» свои новые кроссовки онлайн.",
+  "right": "flex",
+  "native": {
+   "hook": "Что значит «flex»?",
+   "tip": "“flex” = хвастаться. Пример: “He keeps flexing his new sneakers online.”",
+   "caption": "Что значит «flex»?\n“flex” = хвастаться.\nПример: “He keeps flexing his new sneakers online.” (Он всё время «flex» свои новые кроссовки онлайн.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “flex” = хвастаться. “He keeps flexing his new sneakers online.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He keeps showing his sneakers!"
+ },
+ "src": {
+  "slang": "flex"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "Что значит «flex»?",
+  "keyword": "flex",
+  "value": "“flex” = хвастаться. Пример: “He keeps flexing his new sneakers online.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «flex»?",
+    "description": "“flex” = хвастаться. Пример: “He keeps flexing his new sneakers online.”\n\nЧто значит «flex»?\n“flex” = хвастаться.\nПример: “He keeps flexing his new sneakers online.” (Он всё время «flex» свои новые кроссовки онлайн.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "flex",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «flex»?\n“flex” = хвастаться.\nПример: “He keeps flexing his new sneakers online.” (Он всё время «flex» свои новые кроссовки онлайн.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «flex»?\n\n“flex” = хвастаться. Пример: “He keeps flexing his new sneakers online.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «flex»? “flex” = хвастаться. Пример: “He keeps flexing his new sneakers online.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “flex” = хвастаться. “He keeps flexing his new sneakers online.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

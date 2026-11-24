@@ -1,0 +1,131 @@
+{
+ "id": "t2s_sketchy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 196,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Weird link, free phone, hmm?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Sketchy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Looks like you can't trust it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That website looks sketchy, so I'm closing it.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "sketchy",
+  "forms": [],
+  "ipa": "/ˈsketʃi/",
+  "mean": "Looks like you can't trust it.",
+  "define": "Used for people, places or websites that seem a bit unsafe or fake.",
+  "vi": "Đáng nghi, không an toàn",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Shopping online",
+   "text": "That website looks sketchy, so I'm closing it."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Sketchy\" means…",
+   "options": [
+    "beautifully drawn",
+    "not trustworthy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your friend's cooking 'sketchy' to her.",
+   "why": "It sounds like you distrust it."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Weird link, free phone, hmm?"
+ },
+ "src": {
+  "slang": "sketchy"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"sketchy\" mean?",
+  "keyword": "sketchy",
+  "value": "Sketchy = Looks like you can't trust it. Example: \"That website looks sketchy, so I'm closing it.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"sketchy\" mean?",
+    "description": "Sketchy = Looks like you can't trust it. Example: \"That website looks sketchy, so I'm closing it.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "sketchy",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"sketchy\" mean?\n\nSketchy = Looks like you can't trust it. Example: \"That website looks sketchy, so I'm closing it.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"sketchy\" mean?\n\nSketchy = Looks like you can't trust it. Example: \"That website looks sketchy, so I'm closing it.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"sketchy\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call your friend's cooking 'sketchy' to her. It sounds like you distrust it. Real example: \"That website looks sketchy, so I'm closing it.\" More real English slang, free: {link}"
+ }
+}

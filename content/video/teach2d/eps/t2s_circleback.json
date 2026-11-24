@@ -1,0 +1,131 @@
+{
+ "id": "t2s_circleback",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 42,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No time now. Later?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Circle back!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Return to this later.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's circle back to that after lunch.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "circle back",
+  "forms": [],
+  "ipa": "/ˈsɜːrkl ˈbæk/",
+  "mean": "Return to this later.",
+  "define": "To come back to a topic after other things.",
+  "vi": "Quay lại sau nhé",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "In a team meeting",
+   "text": "Let's circle back to that after lunch."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Circle back\" means…",
+   "options": [
+    "walk in circles",
+    "return to it later"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'circle back' when you'll ignore it.",
+   "why": "People will wait for your reply."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "No time now. Later?"
+ },
+ "src": {
+  "slang": "circle back"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"circle back\" mean?",
+  "keyword": "circle back",
+  "value": "Circle back = Return to this later. Example: \"Let's circle back to that after lunch.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"circle back\" mean?",
+    "description": "Circle back = Return to this later. Example: \"Let's circle back to that after lunch.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "circle back",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"circle back\" mean?\n\nCircle back = Return to this later. Example: \"Let's circle back to that after lunch.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"circle back\" mean?\n\nCircle back = Return to this later. Example: \"Let's circle back to that after lunch.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"circle back\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'circle back' when you'll ignore it. People will wait for your reply. Real example: \"Let's circle back to that after lunch.\" More real English slang, free: {link}"
+ }
+}

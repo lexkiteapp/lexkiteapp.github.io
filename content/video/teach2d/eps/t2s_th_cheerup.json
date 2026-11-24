@@ -1,0 +1,152 @@
+{
+ "id": "t2s_th_cheerup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 66,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She looks sad. What now?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheer up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Feel happier.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheer up, we're having pizza!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheer up",
+  "forms": [
+   "cheered up"
+  ],
+  "ipa": "/ˈtʃɪr ˈʌp/",
+  "mean": "Feel happier.",
+  "define": "Used to tell someone to feel better.",
+  "vi": "Vui lên nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Cheer up, we're having pizza!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheer up\" means…",
+   "options": [
+    "yell loudly",
+    "feel happier"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheer up' to someone grieving.",
+   "why": "It sounds like you dismiss their pain."
+  },
+  "l1": "ร่าเริงหน่อย",
+  "l1_hook": "เธอดูเศร้าเลย จะทำยังไงต่อ?",
+  "l1_ex": "\"Cheer up\", เรากำลังกินพิซซ่า!",
+  "right": "cheer up",
+  "native": {
+   "hook": "“cheer up” แปลว่าอะไร?",
+   "tip": "“cheer up” = ร่าเริงหน่อย. ตัวอย่าง: “Cheer up, we're having pizza!”",
+   "caption": "“cheer up” แปลว่าอะไร?\n“cheer up” = ร่าเริงหน่อย.\nตัวอย่าง: “Cheer up, we're having pizza!” (\"Cheer up\", เรากำลังกินพิซซ่า!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “cheer up” = ร่าเริงหน่อย. “Cheer up, we're having pizza!” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She looks sad. What now?"
+ },
+ "src": {
+  "slang": "cheer up"
+ },
+ "lang": "th",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "“cheer up” แปลว่าอะไร?",
+  "keyword": "cheer up",
+  "value": "“cheer up” = ร่าเริงหน่อย. ตัวอย่าง: “Cheer up, we're having pizza!”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“cheer up” แปลว่าอะไร?",
+    "description": "“cheer up” = ร่าเริงหน่อย. ตัวอย่าง: “Cheer up, we're having pizza!”\n\n“cheer up” แปลว่าอะไร?\n“cheer up” = ร่าเริงหน่อย.\nตัวอย่าง: “Cheer up, we're having pizza!” (\"Cheer up\", เรากำลังกินพิซซ่า!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "cheer up",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“cheer up” แปลว่าอะไร?\n“cheer up” = ร่าเริงหน่อย.\nตัวอย่าง: “Cheer up, we're having pizza!” (\"Cheer up\", เรากำลังกินพิซซ่า!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cheer up” แปลว่าอะไร?\n\n“cheer up” = ร่าเริงหน่อย. ตัวอย่าง: “Cheer up, we're having pizza!”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cheer up” แปลว่าอะไร? “cheer up” = ร่าเริงหน่อย. ตัวอย่าง: “Cheer up, we're having pizza!” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “cheer up” = ร่าเริงหน่อย. “Cheer up, we're having pizza!” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

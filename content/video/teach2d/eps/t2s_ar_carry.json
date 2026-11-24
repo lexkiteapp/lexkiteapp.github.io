@@ -1,0 +1,153 @@
+{
+ "id": "t2s_ar_carry",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 50,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She won the match alone!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Carry!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Help the team win.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Mia carried us in the final round.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "carry",
+  "forms": [
+   "carried",
+   "carrying"
+  ],
+  "ipa": "/ˈkæri/",
+  "mean": "Help the team win.",
+  "define": "To lead a team to victory with great skill.",
+  "vi": "Gánh team",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Playing a team game",
+   "text": "Mia carried us in the final round."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"carry\" a team is to…",
+   "options": [
+    "help it win",
+    "lift it up"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'she carried us' about a lazy teammate.",
+   "why": "It praises someone who did the work."
+  },
+  "l1": "يحمل",
+  "l1_hook": "فازت بالمباراة بمفردها! \"carry\"",
+  "l1_ex": "لقد قامت ميا بـ \"carry\" الفريق في الجولة الأخيرة.",
+  "right": "carry",
+  "native": {
+   "hook": "ما معنى “carry”؟",
+   "tip": "“carry” = يحمل. مثال: “Mia carried us in the final round.”",
+   "caption": "ما معنى “carry”؟\n“carry” = يحمل.\nمثال: “Mia carried us in the final round.” (لقد قامت ميا بـ \"carry\" الفريق في الجولة الأخيرة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “carry” = يحمل. “Mia carried us in the final round.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She won the match alone!"
+ },
+ "src": {
+  "slang": "carry"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "ما معنى “carry”؟",
+  "keyword": "carry",
+  "value": "“carry” = يحمل. مثال: “Mia carried us in the final round.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “carry”؟",
+    "description": "“carry” = يحمل. مثال: “Mia carried us in the final round.”\n\nما معنى “carry”؟\n“carry” = يحمل.\nمثال: “Mia carried us in the final round.” (لقد قامت ميا بـ \"carry\" الفريق في الجولة الأخيرة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "carry",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “carry”؟\n“carry” = يحمل.\nمثال: “Mia carried us in the final round.” (لقد قامت ميا بـ \"carry\" الفريق في الجولة الأخيرة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “carry”؟\n\n“carry” = يحمل. مثال: “Mia carried us in the final round.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “carry”؟ “carry” = يحمل. مثال: “Mia carried us in the final round.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “carry” = يحمل. “Mia carried us in the final round.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

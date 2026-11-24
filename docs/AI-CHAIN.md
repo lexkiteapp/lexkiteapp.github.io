@@ -38,6 +38,14 @@ Workflow (chạy tay + thứ Hai hằng tuần, chỉ `main`) đọc `GEMINI_POO
 ## 5. Giám sát (`_aimix.js`)
 Mỗi lượt /api/ai đếm tuyến phục vụ vào `ai_quota` (id `m:gemini|m:groq|m:wai|m:busy`, khung 10 phút). Quản trị → Khóa API và → Hạn mức hiện tỉ lệ 1 giờ / 24 giờ. Cảnh báo `ai:weak` (banner + thư ≤ 1/24 h qua `syncAlerts`) khi > 10 % lượt trong 1 giờ rơi về Llama hoặc báo bận (≥ 5 lượt; > 50 % = crit).
 
+## 5b. Quota nền nhường người dùng (23/11)
+ai-golden đỏ 18:44Z: 85 khoá Gemini + 109 khoá Groq cùng 429 khi job nền (content-factory, explain…) chạy chồng giờ. Điều phối quyết: **người dùng luôn được ưu tiên quota AI.** Máy gác chung `scripts/lib/ai-share.mjs` (test `scripts/test/ai-share.mjs`):
+- **Trần 60 %**: việc nền cộng lại ≤ 60 % hạn mức ngày (Gemini 20 × 85 = 1.700 → ≤ 1.020; Groq 1.000 × 109). Mỗi việc khai `est.gemini_calls` / `est.groq_calls` trong `infra/jobs.json`; ai-pool dừng dùng nhà cung cấp đó khi lượt chạy chạm số đã khai (hết Gemini → rơi sang Groq, không cắt nội dung). Việc nền có lịch mà dùng GEMINI_POOL/GROQ_POOL phải khai (test chặn); ai-golden khai tài nguyên `gemini` (jobs-check chặn chồng giờ).
+- **Cầu dao 429**: > 20 % lượt gọi bị 429 trong 10 phút (≥ 20 lượt) → việc nền ngừng gọi nhà cung cấp đó (và lexai/gc-* cùng khoá) 30 phút; không còn tuyến → bỏ qua trung tính, lượt cron sau làm lại.
+- **content-factory** (đỏ 3 đêm liền): gen đốt quota rồi `collect` đỏ ở size-budget (người học 8,49/8,48 MB) → plan đo size-budget trước; đỏ hoặc < 50 KB chỗ → bỏ lượt, không soạn. Ngưỡng không đổi.
+- **say-native (`meanings`)**: push nhánh ≠ main chỉ chạy khi nhánh tự đổi file của nó (job `scope`, so với merge-base – merge main vào nhánh làm `paths` khớp oan, #1945/#1953); hết quota AI (429 hàng loạt, 0 nghĩa giữ được) → kết thúc trung tính + ghi chú, lượt bù 13:11 UTC trên main. Test `ai-share` bắt workflow dùng kho khoá AI mà thiếu `scope`.
+- **Canary** `ai-canary.yml` (3 giờ/lần, 4 lời gọi /api/ai thật): > 5 % lỗi/tier thấp → đỏ; 2 lượt liền → issue `ai-canary` (tự đóng khi xanh). 429 quota khách = không đo được.
+
 ## 6. Ngôn ngữ lời giải
 `web/js/ai.js` `forLang`: mọi lời nhắn gửi /api/ai (SYS/SCHEMA chấm IELTS và mọi `AI.ask` của toeic/toefl/fixer/assist…) viết mẫu "Vietnamese" → thay bằng ngôn ngữ người học (`I18N.learnLang`, 15 ngôn ngữ). Roleplay nhận xét cuối dùng `learnLang`. Đệm máy khách theo ngôn ngữ.
 

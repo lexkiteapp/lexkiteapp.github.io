@@ -1,0 +1,148 @@
+{
+ "id": "t2s_zh_facepalm",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 108,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He searched for his phone!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Facepalm!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "When you can't believe it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My phone was in my hand. Facepalm!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "facepalm",
+  "forms": [
+   "face palm"
+  ],
+  "ipa": "/ˈfeɪsˌpɑːm/",
+  "mean": "When you can't believe it.",
+  "define": "A hand-on-face gesture of disbelief.",
+  "vi": "Ôm mặt ngán ngẩm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Seeing a mistake",
+   "text": "My phone was in my hand. Facepalm!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Facepalm\" shows…",
+   "options": [
+    "joy",
+    "disbelief"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'facepalm' at your teacher's answer.",
+   "why": "The gesture looks rude."
+  },
+  "l1": "捂脸",
+  "l1_hook": "他居然在找自己的手机，真是 \"facepalm\"。",
+  "l1_ex": "我的手机就在手里。Facepalm！",
+  "right": "facepalm",
+  "native": {
+   "hook": "“facepalm”是什么意思？",
+   "tip": "“facepalm” = 捂脸. 例句: “My phone was in my hand. Facepalm!”",
+   "caption": "“facepalm”是什么意思？\n“facepalm” = 捂脸.\n例句: “My phone was in my hand. Facepalm!” (我的手机就在手里。Facepalm！)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “facepalm” = 捂脸. “My phone was in my hand. Facepalm!” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He searched for his phone!"
+ },
+ "src": {
+  "slang": "facepalm"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“facepalm”是什么意思？",
+  "keyword": "facepalm",
+  "value": "“facepalm” = 捂脸. 例句: “My phone was in my hand. Facepalm!”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“facepalm”是什么意思？",
+    "description": "“facepalm” = 捂脸. 例句: “My phone was in my hand. Facepalm!”\n\n“facepalm”是什么意思？\n“facepalm” = 捂脸.\n例句: “My phone was in my hand. Facepalm!” (我的手机就在手里。Facepalm！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "facepalm",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“facepalm”是什么意思？\n“facepalm” = 捂脸.\n例句: “My phone was in my hand. Facepalm!” (我的手机就在手里。Facepalm！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“facepalm”是什么意思？\n\n“facepalm” = 捂脸. 例句: “My phone was in my hand. Facepalm!”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“facepalm”是什么意思？ “facepalm” = 捂脸. 例句: “My phone was in my hand. Facepalm!” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “facepalm” = 捂脸. “My phone was in my hand. Facepalm!” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}
