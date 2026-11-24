@@ -3498,7 +3498,7 @@
   "speak.spk.duHocSongONuoc": "Estudiar y vivir en el extranjero",
   "speak.spk.mayTinhInternetHangNgay": "Ordenadores e internet cotidiano",
   "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
-  "interpret.title": "Interpreter",
+  "interpret.title": "Intérprete",
   "interpret.faceToFace": "Cara a cara",
   "interpret.phrasebook": "Frases útiles",
   "interpret.history": "Historial",
@@ -3540,5 +3540,13 @@
   "interpret.worth": "Frases que vale la pena guardar",
   "interpret.noCards": "Esta conversación aún no tiene frases en otro idioma para aprender.",
   "interpret.saveN": "Guardar {n} frases en mi lista",
-  "interpret.newConv": "Nueva conversación"
+  "interpret.newConv": "Nueva conversación",
+  "interp.replay": "Repetir",
+  "interp.listen": "Escuchar",
+  "interp.slow": "Escuchar despacio",
+  "interp.keywords": "Palabras clave",
+  "interp.speak": "Expresión oral",
+  "interp.recogErr": "Error de reconocimiento: {err}",
+  "interp.delete": "Eliminar",
+  "interp.cancel": "Cancelar"
 }

@@ -820,7 +820,7 @@
 "Nội động từ":"لازمة",
 "Part 1–3, ghi âm, chấm từ vựng":"الأجزاء 1-3، سجل نفسك، وسجل المفردات",
 "Part 1–4, có transcript và giải thích":"الأجزاء 1-4 مع النصوص والشروحات",
-"Phiên dịch":"Interpreter",
+"Phiên dịch":"المترجم الفوري",
 "Phiên âm":"IPA",
 "Phiên ôn xuất sắc!":"جلسة مراجعة ممتازة!",
 "Phrasal verb, thành ngữ, cách diễn đạt tự nhiên":"الأفعال الفعلية، والتعابير، والتعبيرات الطبيعية",

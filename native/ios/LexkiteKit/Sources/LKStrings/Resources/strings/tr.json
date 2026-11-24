@@ -3498,7 +3498,7 @@
   "speak.spk.duHocSongONuoc": "Yurt dışında okumak ve yaşamak",
   "speak.spk.mayTinhInternetHangNgay": "Bilgisayarlar ve günlük internet",
   "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
-  "interpret.title": "Interpreter",
+  "interpret.title": "Çevirmen",
   "interpret.faceToFace": "Yüz yüze",
   "interpret.phrasebook": "Hazır ifadeler",
   "interpret.history": "Geçmiş",
@@ -3540,5 +3540,13 @@
   "interpret.worth": "Kaydetmeye değer cümleler",
   "interpret.noCards": "Bu konuşmada henüz öğrenilecek yabancı dilde cümle yok.",
   "interpret.saveN": "{n} cümleyi kelime listesine kaydet",
-  "interpret.newConv": "Yeni konuşma"
+  "interpret.newConv": "Yeni konuşma",
+  "interp.replay": "Tekrar dinle",
+  "interp.listen": "Dinle",
+  "interp.slow": "Yavaş dinle",
+  "interp.keywords": "Anahtar kelimeler",
+  "interp.speak": "Konuşma",
+  "interp.recogErr": "Tanıma hatası: {err}",
+  "interp.delete": "Sil",
+  "interp.cancel": "İptal"
 }

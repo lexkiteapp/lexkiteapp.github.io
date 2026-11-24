@@ -820,7 +820,7 @@
 "Nội động từ":"자동사",
 "Part 1–3, ghi âm, chấm từ vựng":"파트 1~3, 본인 녹음, 어휘 채점",
 "Part 1–4, có transcript và giải thích":"성적표와 설명이 포함된 1~4부",
-"Phiên dịch":"Interpreter",
+"Phiên dịch":"통역",
 "Phiên âm":"IPA",
 "Phiên ôn xuất sắc!":"완벽한 복습 세션!",
 "Phrasal verb, thành ngữ, cách diễn đạt tự nhiên":"구동사, 숙어, 자연스러운 표현",

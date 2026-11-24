@@ -3540,5 +3540,13 @@
   "interpret.worth": "Phrases worth keeping",
   "interpret.noCards": "This conversation has no foreign-language phrases to learn yet.",
   "interpret.saveN": "Save {n} phrases to your word list",
-  "interpret.newConv": "New conversation"
+  "interpret.newConv": "New conversation",
+  "interp.replay": "Replay",
+  "interp.listen": "Play",
+  "interp.slow": "Play slowly",
+  "interp.keywords": "Keywords",
+  "interp.speak": "Speaking",
+  "interp.recogErr": "Recognition error: {err}",
+  "interp.delete": "Delete",
+  "interp.cancel": "Cancel"
 }

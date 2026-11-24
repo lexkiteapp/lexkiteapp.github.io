@@ -3498,7 +3498,7 @@
   "speak.spk.duHocSongONuoc": "해외 유학과 생활",
   "speak.spk.mayTinhInternetHangNgay": "컴퓨터와 일상 속 인터넷",
   "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
-  "interpret.title": "Interpreter",
+  "interpret.title": "통역",
   "interpret.faceToFace": "마주 보기",
   "interpret.phrasebook": "기본 표현",
   "interpret.history": "기록",
@@ -3540,5 +3540,13 @@
   "interpret.worth": "기억해 둘 문장",
   "interpret.noCards": "이 대화에는 아직 배울 외국어 문장이 없어요.",
   "interpret.saveN": "{n}개 문장을 단어장에 저장",
-  "interpret.newConv": "새 대화"
+  "interpret.newConv": "새 대화",
+  "interp.replay": "다시 듣기",
+  "interp.listen": "듣기",
+  "interp.slow": "천천히 듣기",
+  "interp.keywords": "핵심어",
+  "interp.speak": "말하기",
+  "interp.recogErr": "인식 오류: {err}",
+  "interp.delete": "삭제",
+  "interp.cancel": "취소"
 }

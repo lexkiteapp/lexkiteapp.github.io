@@ -820,7 +820,7 @@
 "Nội động từ":"Intransitiv",
 "Part 1–3, ghi âm, chấm từ vựng":"Teil 1–3: Nehmen Sie sich selbst auf, Vokabelbewertung",
 "Part 1–4, có transcript và giải thích":"Part 1–4 mit Transkripten und Erklärungen",
-"Phiên dịch":"Interpreter",
+"Phiên dịch":"Dolmetscher",
 "Phiên âm":"IPA",
 "Phiên ôn xuất sắc!":"Perfekte Wiederholung!",
 "Phrasal verb, thành ngữ, cách diễn đạt tự nhiên":"Phrasalverben, Redewendungen, natürliche Ausdrücke",

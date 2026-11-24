@@ -3498,7 +3498,7 @@
   "speak.spk.duHocSongONuoc": "विदेश में पढ़ाई और रहना",
   "speak.spk.mayTinhInternetHangNgay": "कंप्यूटर और रोज़मर्रा का इंटरनेट",
   "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
-  "interpret.title": "Interpreter",
+  "interpret.title": "दुभाषिया",
   "interpret.faceToFace": "आमने-सामने",
   "interpret.phrasebook": "उपयोगी वाक्य",
   "interpret.history": "इतिहास",
@@ -3540,5 +3540,13 @@
   "interpret.worth": "याद रखने लायक वाक्य",
   "interpret.noCards": "इस बातचीत में अभी सीखने लायक विदेशी भाषा के वाक्य नहीं हैं।",
   "interpret.saveN": "{n} वाक्य शब्द सूची में सहेजें",
-  "interpret.newConv": "नई बातचीत"
+  "interpret.newConv": "नई बातचीत",
+  "interp.replay": "फिर सुनें",
+  "interp.listen": "सुनें",
+  "interp.slow": "धीरे सुनें",
+  "interp.keywords": "मुख्य शब्द",
+  "interp.speak": "बोलना (स्पीकिंग)",
+  "interp.recogErr": "पहचान त्रुटि: {err}",
+  "interp.delete": "हटाएँ",
+  "interp.cancel": "रद्द करें"
 }

@@ -3574,7 +3574,15 @@ open class L10nKeys5 : L10nKeys4() {
     val interpretNoCards = L10nKey("interpret.noCards")
     val interpretSaveN = L10nKey("interpret.saveN")
     val interpretNewConv = L10nKey("interpret.newConv")
-    protected fun keys5(): List<L10nKey> = listOf(interpretFaceToFace, interpretPhrasebook, interpretHistory, interpretChooseLang, interpretPlaceholder, interpretTapToSpeak, interpretLatest, interpretSave, interpretSayBack, interpretSwap, interpretDownloadPack, interpretFinish, interpretNote, interpretListening, interpretNothingHeard, interpretFailed, interpretOnline, interpretOnDevice, interpretMicNeeded, interpretSameLang, interpretSaved, interpretUnsupported, interpretDownloading, interpretReady, interpretSayThis, interpretScore, interpretPhrasesFail, interpretGHi, interpretGGo, interpretGEat, interpretGStay, interpretGSos, interpretTravelPhrases, interpretHistoryTitle, interpretClearHistory, interpretEmpty, interpretConfirmClear, interpretRecapTitle, interpretWorth, interpretNoCards, interpretSaveN, interpretNewConv)
+    val interpReplay = L10nKey("interp.replay")
+    val interpListen = L10nKey("interp.listen")
+    val interpSlow = L10nKey("interp.slow")
+    val interpKeywords = L10nKey("interp.keywords")
+    val interpSpeak = L10nKey("interp.speak")
+    val interpRecogErr = L10nKey("interp.recogErr")
+    val interpDelete = L10nKey("interp.delete")
+    val interpCancel = L10nKey("interp.cancel")
+    protected fun keys5(): List<L10nKey> = listOf(interpretFaceToFace, interpretPhrasebook, interpretHistory, interpretChooseLang, interpretPlaceholder, interpretTapToSpeak, interpretLatest, interpretSave, interpretSayBack, interpretSwap, interpretDownloadPack, interpretFinish, interpretNote, interpretListening, interpretNothingHeard, interpretFailed, interpretOnline, interpretOnDevice, interpretMicNeeded, interpretSameLang, interpretSaved, interpretUnsupported, interpretDownloading, interpretReady, interpretSayThis, interpretScore, interpretPhrasesFail, interpretGHi, interpretGGo, interpretGEat, interpretGStay, interpretGSos, interpretTravelPhrases, interpretHistoryTitle, interpretClearHistory, interpretEmpty, interpretConfirmClear, interpretRecapTitle, interpretWorth, interpretNoCards, interpretSaveN, interpretNewConv, interpReplay, interpListen, interpSlow, interpKeywords, interpSpeak, interpRecogErr, interpDelete, interpCancel)
 }
 
 object L10nLangs {

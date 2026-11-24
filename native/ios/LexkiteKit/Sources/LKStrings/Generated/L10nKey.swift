@@ -3543,6 +3543,14 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case interpretNoCards = "interpret.noCards"
     case interpretSaveN = "interpret.saveN"
     case interpretNewConv = "interpret.newConv"
+    case interpReplay = "interp.replay"
+    case interpListen = "interp.listen"
+    case interpSlow = "interp.slow"
+    case interpKeywords = "interp.keywords"
+    case interpSpeak = "interp.speak"
+    case interpRecogErr = "interp.recogErr"
+    case interpDelete = "interp.delete"
+    case interpCancel = "interp.cancel"
 }
 
 public enum L10nLangs {

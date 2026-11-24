@@ -820,7 +820,7 @@
 "Nội động từ":"不及物动词",
 "Part 1–3, ghi âm, chấm từ vựng":"第 1-3 部分，录音，词汇评分",
 "Part 1–4, có transcript và giải thích":"第 1-4 部分包含文字记录和解释",
-"Phiên dịch":"Interpreter",
+"Phiên dịch":"口译",
 "Phiên âm":"音标",
 "Phiên ôn xuất sắc!":"完美的复习！",
 "Phrasal verb, thành ngữ, cách diễn đạt tự nhiên":"短语动词、习语、自然表达",

@@ -3498,7 +3498,7 @@
   "speak.spk.duHocSongONuoc": "الدراسة والعيش في الخارج",
   "speak.spk.mayTinhInternetHangNgay": "الحاسوب والإنترنت في الحياة اليومية",
   "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
-  "interpret.title": "Interpreter",
+  "interpret.title": "المترجم الفوري",
   "interpret.faceToFace": "وجهاً لوجه",
   "interpret.phrasebook": "عبارات جاهزة",
   "interpret.history": "السجل",
@@ -3540,5 +3540,13 @@
   "interpret.worth": "جمل تستحق الحفظ",
   "interpret.noCards": "لا تحتوي هذه المحادثة بعد على جمل بلغة أجنبية للتعلّم.",
   "interpret.saveN": "حفظ {n} جملة في قائمة الكلمات",
-  "interpret.newConv": "محادثة جديدة"
+  "interpret.newConv": "محادثة جديدة",
+  "interp.replay": "أعد الاستماع",
+  "interp.listen": "استمع",
+  "interp.slow": "استمع ببطء",
+  "interp.keywords": "الكلمات المفتاحية",
+  "interp.speak": "التحدث",
+  "interp.recogErr": "خطأ في التعرف: {err}",
+  "interp.delete": "حذف",
+  "interp.cancel": "إلغاء"
 }

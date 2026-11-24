@@ -3498,7 +3498,7 @@
   "speak.spk.duHocSongONuoc": "留学与海外生活",
   "speak.spk.mayTinhInternetHangNgay": "电脑与日常上网",
   "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
-  "interpret.title": "Interpreter",
+  "interpret.title": "口译",
   "interpret.faceToFace": "面对面",
   "interpret.phrasebook": "常用语",
   "interpret.history": "历史",
@@ -3540,5 +3540,13 @@
   "interpret.worth": "值得记住的句子",
   "interpret.noCards": "这次对话还没有可学习的外语句子。",
   "interpret.saveN": "将 {n} 句保存到生词本",
-  "interpret.newConv": "新对话"
+  "interpret.newConv": "新对话",
+  "interp.replay": "重听",
+  "interp.listen": "听",
+  "interp.slow": "慢速播放",
+  "interp.keywords": "关键词",
+  "interp.speak": "口语",
+  "interp.recogErr": "识别错误：{err}",
+  "interp.delete": "删除",
+  "interp.cancel": "取消"
 }

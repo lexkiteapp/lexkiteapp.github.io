@@ -3498,7 +3498,7 @@
   "speak.spk.duHocSongONuoc": "Belajar dan tinggal di luar negeri",
   "speak.spk.mayTinhInternetHangNgay": "Komputer dan internet sehari-hari",
   "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
-  "interpret.title": "Interpreter",
+  "interpret.title": "Penerjemah lisan",
   "interpret.faceToFace": "Tatap muka",
   "interpret.phrasebook": "Frasa umum",
   "interpret.history": "Riwayat",
@@ -3540,5 +3540,13 @@
   "interpret.worth": "Kalimat yang layak disimpan",
   "interpret.noCards": "Percakapan ini belum punya kalimat bahasa asing untuk dipelajari.",
   "interpret.saveN": "Simpan {n} kalimat ke daftar kata",
-  "interpret.newConv": "Percakapan baru"
+  "interpret.newConv": "Percakapan baru",
+  "interp.replay": "Dengar ulang",
+  "interp.listen": "Dengar",
+  "interp.slow": "Dengar pelan",
+  "interp.keywords": "Kata kunci",
+  "interp.speak": "Berbicara",
+  "interp.recogErr": "Kesalahan pengenalan: {err}",
+  "interp.delete": "Hapus",
+  "interp.cancel": "Batal"
 }

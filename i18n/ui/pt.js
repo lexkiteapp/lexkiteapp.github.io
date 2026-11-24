@@ -820,7 +820,7 @@
 "Nội động từ":"Intransitivo",
 "Part 1–3, ghi âm, chấm từ vựng":"Partes 1–3, grave você mesmo, pontuação de vocabulário",
 "Part 1–4, có transcript và giải thích":"Partes 1–4 com transcrições e explicações",
-"Phiên dịch":"Interpreter",
+"Phiên dịch":"Intérprete",
 "Phiên âm":"IPA",
 "Phiên ôn xuất sắc!":"Revisão impecável!",
 "Phrasal verb, thành ngữ, cách diễn đạt tự nhiên":"Verbos frasais, expressões idiomáticas, expressões naturais",

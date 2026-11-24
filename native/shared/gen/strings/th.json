@@ -3498,7 +3498,7 @@
   "speak.spk.duHocSongONuoc": "การเรียนและการใช้ชีวิตในต่างประเทศ",
   "speak.spk.mayTinhInternetHangNgay": "คอมพิวเตอร์และอินเทอร์เน็ตในชีวิตประจำวัน",
   "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
-  "interpret.title": "Interpreter",
+  "interpret.title": "ล่าม",
   "interpret.faceToFace": "เผชิญหน้า",
   "interpret.phrasebook": "วลีที่ใช้บ่อย",
   "interpret.history": "ประวัติ",
@@ -3540,5 +3540,13 @@
   "interpret.worth": "ประโยคที่ควรจำ",
   "interpret.noCards": "บทสนทนานี้ยังไม่มีประโยคภาษาต่างประเทศให้เรียนรู้",
   "interpret.saveN": "บันทึก {n} ประโยคลงรายการคำ",
-  "interpret.newConv": "บทสนทนาใหม่"
+  "interpret.newConv": "บทสนทนาใหม่",
+  "interp.replay": "ฟังอีกครั้ง",
+  "interp.listen": "ฟัง",
+  "interp.slow": "ฟังช้า",
+  "interp.keywords": "คำสำคัญ",
+  "interp.speak": "การพูด",
+  "interp.recogErr": "ข้อผิดพลาดในการรับรู้: {err}",
+  "interp.delete": "ลบ",
+  "interp.cancel": "ยกเลิก"
 }
