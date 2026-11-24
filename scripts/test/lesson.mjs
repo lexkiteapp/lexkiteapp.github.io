@@ -78,6 +78,20 @@ const C = {
   ok(keys === base, 'mpic: không làm lệch thứ tự/loại của các dạng khác');
 }
 {
+  // fix: sửa lỗi câu (bật bằng opts.gold – mục lỗi có sẵn; mặc định không sinh → vectors native không đổi)
+  const GE = [{ w: 'She go to school every day.', r: 'She goes to school every day.', why: 'Add -es after she.' }];
+  const gold = w => (w === 'afraid' ? GE : []), P = E.pickWords(C, { now: NOW, n: 6 }), seeds = Array.from({ length: 30 }, (_, k) => k + 1), mk = (seed, o) => E.build(P, Object.assign({ seed, perWord: 2 }, o));
+  const F = E.fixOf(GE[0], E.rng(5));
+  ok(F && F.answer === 'go' && F.fixed === GE[0].r && F.options.length === 4 && F.options.includes('go') && new Set(F.options.map(E.norm)).size === 4 && F.options.every(o => E.toks(F.sent).includes(o)), 'fix: fixOf → từ sai duy nhất + 4 ô lấy từ chính câu');
+  ok(!E.fixOf({ w: 'The school provides us books.', r: 'The school provides us with books.' }, E.rng(1)) && !E.fixOf({ w: 'Want to play together this weekend?', r: 'Want to hang out this weekend?' }, E.rng(1)) && !E.fixOf({ w: 'It is it is good.', r: 'It is good.' }, E.rng(1)) && !E.fixOf({ w: 'Go home.', r: 'Go now.' }, E.rng(1)) && !E.fixOf(null, E.rng(1)), 'fix: thiếu từ / đổi cả cụm / từ lặp / câu quá ngắn / không dữ liệu → null');
+  const hit = seeds.filter(sd => mk(sd, { gold }).some(i => i.type === 'fix')), it = mk(hit[0], { gold }).find(i => i.type === 'fix');
+  ok(hit.length >= 3 && hit.length < seeds.length, `fix: hiếm nhưng có (${hit.length}/${seeds.length} bài)`);
+  ok(it.card && it.answer === 'go' && it.options.includes('go') && it.fixed === GE[0].r && it.sent === GE[0].w && it.hints.join() === 'fifty' && !E.HARD(it) && E.check(it, 'go') && !E.check(it, 'school'), 'fix: đề + đáp án + chấm (chọn từ sai)');
+  ok(!seeds.some(sd => mk(sd, {}).some(i => i.type === 'fix')) && !seeds.some(sd => mk(sd, { gold: () => [] }).some(i => i.type === 'fix')), 'fix: không bật opts.gold / không có mục lỗi → không sinh');
+  ok(!seeds.some(sd => mk(sd, { gold, only: E.KIND.listen }).some(i => i.type === 'fix')), 'fix: nút/làn có only[] → không sinh');
+  ok(E.HINTS.fix === undefined && E.KIND.listen.join() === 'gap,build,type,match', 'fix: HINTS/KIND xuất ra (đối chiếu native) không đổi');
+}
+{
   const has = w => w === 'key card';
   const items = E.build(E.pickWords(C, { now: NOW, n: 6 }), { seed: 3, hasImg: has, perWord: 2 });
   const of = w => items.filter(i => i.word === w).map(i => i.type);
@@ -583,6 +597,33 @@ for (const v2 of [true, false]) {
     let g3 = 0; while (st() && st().sess && !st().sess.done && g3++ < 40) { const c = st().sess.cur; await solve(true); if (c.type !== 'line') { $('#lsnNext').click(); await tick(); } }
   }
   delete w.VImg; w.localStorage.removeItem('lk.lsn.path.demo');
+}
+for (const v2 of [true, false]) {
+  // fix trên giao diện v2 + v1: câu sai trong đề (lang=en) + 4 từ, chọn từ sai → đúng; chọn nhầm → tấm sai có câu đã sửa
+  App.ux1On = () => v2;
+  w.LESSON_GOLD = new Proxy({}, { get: (_, k) => (typeof k === 'string' ? [{ w: 'She go to school every day.', r: 'She goes to school every day.', why: 'Add -es after she.' }] : undefined) });
+  let F1 = null;
+  for (let pos = 0; pos < 8 && !F1; pos++) {
+    w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
+    if (st() && st().items.some(i => i.type === 'fix')) F1 = st();
+  }
+  ok(F1, 'fix UI: bài demo có dạng tìm từ sai khi có mục lỗi sẵn');
+  if (F1) {
+    let g = 0;
+    while (st() && st().sess && !st().sess.done && st().sess.cur.type !== 'fix' && g++ < 40) { const c0 = st().sess.cur; await solve(true); if (c0.type !== 'line') { $('#lsnNext').click(); await tick(); } }
+    const it = st().sess.cur, D = w.document;
+    if (it.type === 'fix') {
+      const tiles = () => [...D.querySelectorAll('#lsnBody .lsn-opt')], sentEl = [...D.querySelectorAll('[lang="en"]')].find(x => x.textContent.includes('She go to school'));
+      ok(tiles().length === 4 && tiles().some(b => b.dataset.o === 'go') && sentEl && !D.querySelector('#lsnBub').textContent.includes('goes'), 'fix UI: câu sai nằm trong đề (lang=en), 4 ô từ, không lộ câu đúng');
+      ok(!$('#lsnPlay') || $('#lsnPlay').hidden, 'fix UI: không có nút nghe');
+      if (v2) { $('#lsnHint').click(); await tick(20); ok(tiles().length === 3 && tiles().some(b => b.dataset.o === 'go'), 'fix UI: gợi ý fifty bỏ 1 ô sai, còn đáp án'); }
+      tiles().find(b => b.dataset.o !== 'go').click(); $('#lsnCheck').click(); await tick();
+      ok($('#lsnFoot.bad') && D.querySelector('#lsnFoot').textContent.includes('She goes to school every day.') && !errors.length, 'fix UI: chọn sai → tấm đỏ + câu đã sửa');
+      $('#lsnNext').click(); await tick();
+    }
+    let g3 = 0; while (st() && st().sess && !st().sess.done && g3++ < 40) { const c = st().sess.cur; await solve(true); if (c.type === 'fix') ok(!!$('#lsnFoot.ok'), 'fix UI: chọn đúng từ sai → đúng'); if (c.type !== 'line') { $('#lsnNext').click(); await tick(); } }
+  }
+  delete w.LESSON_GOLD; w.localStorage.removeItem('lk.lsn.path.demo');
 }
 console.log(`\n${total - fails}/${total} lesson`);
 // Nội dung mọi từ × dạng × ngôn ngữ (docs/LESSON-UX-V2.md §4) – chạy kèm tại đây để package.json không đổi

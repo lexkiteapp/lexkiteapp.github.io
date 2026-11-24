@@ -29,12 +29,15 @@ Nguồn: `reports/seo/gsc-2026-11-17.{md,json}` (sc-domain:lexkite.com, 18/10→
 |---|---|---|---|---|---|
 | 16/11 (gốc) | 2,5 | 2.881 | – | 33,8 | – |
 | 22/11 (đo) | 3,2 (89/28 ngày) | – | 1,2 % mẫu (≈ 156 ước tính; 69 % Google chưa biết) | 33,7 | #1805, #1806, #1815 live |
+| 23/11 (đo) | 3,3 (92/28 ngày) | – | 0,3 % mẫu (≈ 12): **nhiễu mẫu, không phải tụt** – 4/343 → 1/344 URL trúng; bấm 89→92, trang hiển thị không giảm | 33,7 | máy gác thêm kiểm định z ≥ 3 |
 | 30/11 | 4 | 3.600 | ≥ 3 % mẫu, "unknown" ≤ 60 % | 31 | lô làm giàu theo dictQueue |
 | 07/12 | 6 | 4.000 | ≥ 5 %, "unknown" ≤ 50 % | 29 | th/ar hạng 8–12 → ≤ 7 (20 trang) |
 | 21/12 | 10 | 5.000 | ≥ 10 % | 26 | 2 cụm bài GSC (a) mỗi ngôn ngữ th/ar/vi |
 | 18/01 | 25 | 7.000 | ≥ 20 % | 22 | backlink edu/cộng đồng ≥ 15 nơi live |
 | 15/03 | 100 | 10.000 | ≥ 50 % URL sitemap | 18 | – |
 Lệch ≥ 25 % so với mục tiêu 2 tuần liền thì xem lại đòn bẩy ở §3, không hạ mục tiêu. Máy gác (§4) đỏ khi số **tụt**, không phải khi chậm.
+
+> Nguyên nhân #1944 (24/11): mẫu URL Inspection đổi theo ngày (seed = ngày) và mới ~1 % URL được index → 1–4 URL trúng/344 làm ước tính nhảy 156 ↔ 12. Không có noindex/canonical/sitemap lỗi (live-audit xanh, bấm không giảm). `index-coverage.mjs › alerts` giờ chỉ báo khi tỉ lệ index tụt có ý nghĩa thống kê (z ≥ 3). Tỉ lệ index chỉ đọc theo xu hướng ≥ 3 tuần, không theo từng ngày.
 
 ## 3. Đòn bẩy (xếp theo tác động ÷ công sức)
 | # | Đòn bẩy | Tác động | Công sức | Trạng thái / PR | Chủ |

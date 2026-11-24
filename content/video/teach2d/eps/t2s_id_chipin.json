@@ -1,0 +1,148 @@
+{
+ "id": "t2s_id_chipin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 91,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gift for her? Anyone?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Chip in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Give a bit of money to share.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's all chip in for her gift.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "chip in",
+  "forms": [
+   "chipped in"
+  ],
+  "ipa": "/ˈtʃɪp ɪn/",
+  "mean": "Give a bit of money to share.",
+  "define": "To give some money so a group can buy something.",
+  "vi": "Góp tiền chung",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Planning a gift",
+   "text": "Let's all chip in for her gift."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"chip in\" is to…",
+   "options": [
+    "eat chips",
+    "share the cost"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chip in' about potato chips.",
+   "why": "It means sharing the cost."
+  },
+  "l1": "menyumbang",
+  "l1_hook": "Hadiah untuk dia? Ada yang mau \"chip in\"?",
+  "l1_ex": "Ayo semua chip in untuk hadiah dia.",
+  "right": "chip in",
+  "native": {
+   "hook": "Apa arti “chip in”?",
+   "tip": "“chip in” = menyumbang. Contoh: “Let's all chip in for her gift.”",
+   "caption": "Apa arti “chip in”?\n“chip in” = menyumbang.\nContoh: “Let's all chip in for her gift.” (Ayo semua chip in untuk hadiah dia.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “chip in” = menyumbang. “Let's all chip in for her gift.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gift for her? Anyone?"
+ },
+ "src": {
+  "slang": "chip in"
+ },
+ "lang": "id",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Apa arti “chip in”?",
+  "keyword": "chip in",
+  "value": "“chip in” = menyumbang. Contoh: “Let's all chip in for her gift.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “chip in”?",
+    "description": "“chip in” = menyumbang. Contoh: “Let's all chip in for her gift.”\n\nApa arti “chip in”?\n“chip in” = menyumbang.\nContoh: “Let's all chip in for her gift.” (Ayo semua chip in untuk hadiah dia.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "chip in",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “chip in”?\n“chip in” = menyumbang.\nContoh: “Let's all chip in for her gift.” (Ayo semua chip in untuk hadiah dia.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “chip in”?\n\n“chip in” = menyumbang. Contoh: “Let's all chip in for her gift.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “chip in”? “chip in” = menyumbang. Contoh: “Let's all chip in for her gift.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “chip in” = menyumbang. “Let's all chip in for her gift.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

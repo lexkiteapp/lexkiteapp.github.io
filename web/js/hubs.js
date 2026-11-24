@@ -33,14 +33,7 @@
   App.setExam = async e => { if (!EXAMS[e]) return; const s0 = state.settings; App.moveExamTarget(s0, App.exam(), e); s0.exam = e; alignTrack(s0, e); await App.saveSettings(); if (window.Sync) Sync.schedule(); App.updateExamChip(); toast(EXAMS[e].name); App.route(); };
   App.updateExamChip = () => { App.fixExamTarget(); const b = document.getElementById('examChip'); if (!b) return; const x = EXAMS[App.exam()]; b.innerHTML = `<span class="tl-f tl-flag" aria-hidden="true">${Target.table(Target.cur()).em}</span><span aria-hidden="true">${UI.icon(x.ic)}</span> ${esc(x.short)} <span class="chev" aria-hidden="true">▾</span>`; b.title = t('Kỳ thi của bạn') + ': ' + x.name;
     const tb = document.getElementById('tlBtn'); if (tb) tb.title = tb.ariaLabel = t('Ngôn ngữ đang học'); document.querySelectorAll('.tl-flag').forEach(f => f.textContent = Target.table(Target.cur()).em); };
-  App.examPicker = () => {
-    const cur = App.exam();
-    UI.modal(`<h2 style="margin-top:0">${t('Bạn đang luyện kỳ thi nào?')}</h2><p class="muted small">${t('Nội dung Kỹ năng, Thi thử và kế hoạch hôm nay sẽ theo kỳ thi này. Đổi kỳ thi không xóa dữ liệu.')}</p>
-      <div class="exam-list">${Object.entries(EXAMS).map(([k, x]) => `<button type="button" class="exam-opt ${k === cur ? 'on' : ''}" data-exam="${k}"><span class="em" aria-hidden="true">${UI.icon(x.ic)}</span><span><b>${esc(x.name)}</b><small>${esc(EXAM_DESC()[k])}</small></span>${k === cur ? '<span class="tick" aria-hidden="true">✓</span>' : ''}</button>`).join('')}</div><div id="tlPick"></div>`);
-    if (window.Target && Target.enabled()) App.need('settings').then(() => App.tlPick());   // bộ chọn ngôn ngữ đích nằm ở settings.js (tải lười)
-    $$('.exam-opt').forEach(b => b.onclick = () => { UI.closeModal(); if (b.dataset.exam !== cur) App.setExam(b.dataset.exam); });
-  };
-  const EXAM_DESC = () => ({ ielts: t('Du học, định cư – 4 kỹ năng, band 0–9'), ieltsgt: t('Định cư, làm việc – viết thư ở Task 1'), toeic: t('Công sở – Nghe & Đọc, 10–990 điểm'), toefl: t('Du học Mỹ – bản 2026, band 1–6'), general: t('Giao tiếp & nền tảng, chưa thi chứng chỉ') });
+  App.examPicker = () => App.need('tlpick').then(() => window.TLPick && TLPick.exam()).catch(() => {});   // bảng chọn ngôn ngữ + kỳ thi: gói lười tlpick (cpack/tl-app/tl-pick.js), không nằm ở khung
   document.addEventListener('click', e => { if (e.target.closest && e.target.closest('#examChip')) App.examPicker(); else if (e.target.closest && e.target.closest('#tlBtn')) App.need('settings').then(() => App.tlMenu()); });
 
   // ---------- Khối dựng dùng chung ----------
@@ -62,7 +55,7 @@
   const TOEFL_T = (k, ic, n, d) => ['#/toefl-p/' + k, ic, n, d];
   const CONTENT = {
     listening: {
-      ielts: () => [['#/listening', UI.icon('headphones'), t('Luyện theo phần'), t('Part 1–4, có transcript và giải thích')], ['#/practice/listen', UI.icon('keyboard'), t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')], ['#/watch', UI.icon('monitor'), t('Học qua video'), t('Video YouTube theo chủ đề, lặp đoạn, lưu từ')]],
+      ielts: () => [['#/listening', UI.icon('headphones'), t('Luyện theo phần'), t('Part 1–4, có transcript và giải thích')], ['#/practice/listen', UI.icon('keyboard'), t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')], ['#/watch', UI.icon('monitor'), t('Học qua video'), t('Video YouTube theo chủ đề, lặp đoạn, lưu từ')], ['#/stories', UI.icon('book-open'), t('Truyện & podcast'), t('Đọc và nghe theo cấp A1–C1, chạm từ để học')]],
       toeic: () => [['#/toeic', UI.icon('briefcase'), t('TOEIC Part 1–4'), t('Mô tả tranh, hỏi – đáp, hội thoại, bài nói')], ['#/watch', UI.icon('monitor'), t('Học qua video'), t('Video YouTube theo chủ đề, lặp đoạn, lưu từ')]],
       toefl: () => [TOEFL_T('response', UI.icon('message-circle'), 'Listen and Choose a Response', t('Chọn câu đáp phù hợp')), TOEFL_T('conversation', UI.icon('users'), 'Listen to a Conversation', t('Hội thoại đời sống')), TOEFL_T('announcement', UI.icon('megaphone'), 'Listen to an Announcement', t('Thông báo trong trường')), TOEFL_T('talk', UI.icon('graduation-cap'), 'Listen to an Academic Talk', t('Bài giảng ngắn')), ['#/watch', UI.icon('monitor'), t('Học qua video'), t('Video YouTube theo chủ đề, lặp đoạn, lưu từ')]],
       general: () => [['#/listening', UI.icon('headphones'), t('Luyện nghe'), t('Bài nghe theo trình độ, có transcript')], ['#/practice/listen', UI.icon('keyboard'), t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')], ['#/watch', UI.icon('monitor'), t('Học qua video'), t('Video YouTube theo chủ đề, lặp đoạn, lưu từ')]],
@@ -71,7 +64,7 @@
       ielts: () => [['#/reading', UI.icon('newspaper'), t('Bài đọc theo trình độ'), t('30 bài, có thể làm ở chế độ thi trên máy')], ['#/rtype', UI.icon('target'), t('Luyện theo dạng câu hỏi'), t('True/False/Not Given, Matching, điền từ…')], ['#/paraphrase', UI.icon('repeat'), t('Luyện paraphrase'), t('Nhận ra cách bài đọc diễn đạt lại từ khóa câu hỏi')], ['#/cbt', UI.icon('monitor'), t('Đọc trên máy tính'), t('Giao diện như thi IELTS trên máy')]],
       toeic: () => [['#/toeic', UI.icon('briefcase'), t('TOEIC Part 5–7'), t('Điền câu, điền đoạn, đọc hiểu')]],
       toefl: () => [TOEFL_T('cw', UI.icon('puzzle'), 'Complete the Words', t('Điền chữ còn thiếu')), TOEFL_T('daily', UI.icon('smartphone'), 'Read in Daily Life', t('Tin nhắn, thông báo, email')), TOEFL_T('academic', UI.icon('library'), 'Read an Academic Passage', t('Đoạn văn học thuật ngắn'))],
-      general: () => [['#/reading', UI.icon('newspaper'), t('Bài đọc theo trình độ'), t('Đọc vừa sức, lưu từ mới kèm câu gốc')]],
+      general: () => [['#/reading', UI.icon('newspaper'), t('Bài đọc theo trình độ'), t('Đọc vừa sức, lưu từ mới kèm câu gốc')], ['#/stories', UI.icon('book-open'), t('Truyện & podcast'), t('Đọc và nghe theo cấp A1–C1, chạm từ để học')]],
     },
     writing: {
       ielts: () => [['#/task1', UI.icon('trending-up'), t('Task 1 – Biểu đồ'), t('Mô tả số liệu, có bài mẫu')], ['#/write', UI.icon('pen-line'), 'Writing Task 2', t('Viết luận, AI chấm theo 4 tiêu chí')], ['#/ideas', UI.icon('lightbulb'), t('Ngân hàng ý tưởng'), t('Ý tưởng và từ vựng theo chủ đề')], ['#/models', UI.icon('file-text'), t('Bài mẫu band 8'), t('Có đánh dấu cụm từ hay và từ nối')]],
@@ -324,6 +317,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
     if (name === 'practice') return arg === 'speak' ? ['skills', 'pron'] : ['vocab', 'practice'];
     if (name === 'skill') return ['skills', 'skill-' + arg];
     if (name === 'cbt' && arg && arg.includes(',')) return ['tests', 'tests'];
+    if (name === 'stories') return ['skills', 'skill-listening']; // Truyện & podcast: Kỹ năng › Nghe (docs/STORIES.md)
     if (SKILL_OF[name]) return ['skills', 'skill-' + SKILL_OF[name]];
     if (name === 'toefl-p') return ['skills', 'skill-' + (TOEFL_SK[arg] || 'reading')];
     if (['skills', 'grammar', 'pron', 'toeic', 'toefl', 'score'].includes(name)) return ['skills', name];

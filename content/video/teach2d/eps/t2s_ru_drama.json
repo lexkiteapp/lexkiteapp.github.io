@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ru_drama",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 64,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Group chat exploded over nothing!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Drama!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fuss and arguments about small things.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I don't want any drama this year.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "drama",
+  "forms": [
+   "dramatic"
+  ],
+  "ipa": "/ˈdrɑːmə/",
+  "mean": "Fuss and arguments about small things.",
+  "define": "Needless trouble or arguments between people.",
+  "vi": "Drama nổ trời",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about school",
+   "text": "I don't want any drama this year."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Drama\" here means…",
+   "options": [
+    "fuss and arguments",
+    "a theater play"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your friend's real problem 'drama'.",
+   "why": "It makes serious feelings sound silly."
+  },
+  "l1": "драма",
+  "l1_hook": "В групповом чате начался «drama» из‑за ничего.",
+  "l1_ex": "Я не хочу никакого «drama» в этом году.",
+  "right": "drama",
+  "native": {
+   "hook": "Что значит «drama»?",
+   "tip": "“drama” = драма. Пример: “I don't want any drama this year.”",
+   "caption": "Что значит «drama»?\n“drama” = драма.\nПример: “I don't want any drama this year.” (Я не хочу никакого «drama» в этом году.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “drama” = драма. “I don't want any drama this year.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Group chat exploded over nothing!"
+ },
+ "src": {
+  "slang": "drama"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "Что значит «drama»?",
+  "keyword": "drama",
+  "value": "“drama” = драма. Пример: “I don't want any drama this year.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «drama»?",
+    "description": "“drama” = драма. Пример: “I don't want any drama this year.”\n\nЧто значит «drama»?\n“drama” = драма.\nПример: “I don't want any drama this year.” (Я не хочу никакого «drama» в этом году.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "drama",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «drama»?\n“drama” = драма.\nПример: “I don't want any drama this year.” (Я не хочу никакого «drama» в этом году.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «drama»?\n\n“drama” = драма. Пример: “I don't want any drama this year.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «drama»? “drama” = драма. Пример: “I don't want any drama this year.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “drama” = драма. “I don't want any drama this year.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

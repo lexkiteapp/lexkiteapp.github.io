@@ -1,0 +1,135 @@
+{
+ "id": "t2s_forreal",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 185,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I won a ticket!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "For real!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Seriously, I mean it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You won a ticket? For real?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "for real",
+  "forms": [],
+  "ipa": "/fɚ ˈriːl/",
+  "mean": "Seriously, I mean it.",
+  "define": "Used to ask or say that something is true.",
+  "vi": "Thật hả? Thật đó",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Hearing big news",
+   "text": "You won a ticket? For real?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"For real?\" asks if it's…",
+   "options": [
+    "funny",
+    "true"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'for real' to doubt a friend's pain.",
+   "why": "It sounds like you don't believe them."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I won a ticket!"
+ },
+ "src": {
+  "slang": "for real"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"for real\" mean?",
+  "keyword": "for real",
+  "value": "For real = Seriously, I mean it. Example: \"You won a ticket? For real?\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"for real\" mean?",
+    "description": "For real = Seriously, I mean it. Example: \"You won a ticket? For real?\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "for real",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"for real\" mean?\n\nFor real = Seriously, I mean it. Example: \"You won a ticket? For real?\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"for real\" mean?\n\nFor real = Seriously, I mean it. Example: \"You won a ticket? For real?\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"for real\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'for real' to doubt a friend's pain. It sounds like you don't believe them. Real example: \"You won a ticket? For real?\" More real English slang, free: {link}"
+ }
+}

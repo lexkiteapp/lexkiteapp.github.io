@@ -1,0 +1,146 @@
+{
+ "id": "t2s_hi_cooked",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 52,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I forgot my notes. Uh-oh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cooked!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm in trouble or out of luck.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I forgot my notes. I'm cooked.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "cooked",
+  "forms": [],
+  "ipa": "/ˈkʊkt/",
+  "mean": "I'm in trouble or out of luck.",
+  "define": "Used jokingly when a situation looks bad for you.",
+  "vi": "Toang rồi",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Before a test",
+   "text": "I forgot my notes. I'm cooked."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"I'm cooked\" here means…",
+   "options": [
+    "I'm dinner",
+    "I'm in trouble"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'I'm cooked' when you merely feel sleepy.",
+   "why": "It means you're in real trouble."
+  },
+  "l1": "मुसीबत में",
+  "l1_hook": "मैंने अपने नोट्स भूल गया। Uh-oh!",
+  "l1_ex": "मैंने अपने नोट्स भूल गया। I'm cooked.",
+  "right": "cooked",
+  "native": {
+   "hook": "“cooked” का मतलब क्या है?",
+   "tip": "“cooked” = मुसीबत में. उदाहरण: “I forgot my notes. I'm cooked.”",
+   "caption": "“cooked” का मतलब क्या है?\n“cooked” = मुसीबत में.\nउदाहरण: “I forgot my notes. I'm cooked.” (मैंने अपने नोट्स भूल गया। I'm cooked.)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “cooked” = मुसीबत में. “I forgot my notes. I'm cooked.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I forgot my notes. Uh-oh!"
+ },
+ "src": {
+  "slang": "cooked"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“cooked” का मतलब क्या है?",
+  "keyword": "cooked",
+  "value": "“cooked” = मुसीबत में. उदाहरण: “I forgot my notes. I'm cooked.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“cooked” का मतलब क्या है?",
+    "description": "“cooked” = मुसीबत में. उदाहरण: “I forgot my notes. I'm cooked.”\n\n“cooked” का मतलब क्या है?\n“cooked” = मुसीबत में.\nउदाहरण: “I forgot my notes. I'm cooked.” (मैंने अपने नोट्स भूल गया। I'm cooked.)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "cooked",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“cooked” का मतलब क्या है?\n“cooked” = मुसीबत में.\nउदाहरण: “I forgot my notes. I'm cooked.” (मैंने अपने नोट्स भूल गया। I'm cooked.)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cooked” का मतलब क्या है?\n\n“cooked” = मुसीबत में. उदाहरण: “I forgot my notes. I'm cooked.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cooked” का मतलब क्या है? “cooked” = मुसीबत में. उदाहरण: “I forgot my notes. I'm cooked.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “cooked” = मुसीबत में. “I forgot my notes. I'm cooked.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

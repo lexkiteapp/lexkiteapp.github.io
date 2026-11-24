@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ru_basic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 6,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza and a movie again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Basic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too ordinary, like everyone else.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My weekend plan is basic: pizza and a movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "basic",
+  "forms": [],
+  "ipa": "/ˈbeɪsɪk/",
+  "mean": "Too ordinary, like everyone else.",
+  "define": "Describes things that are very ordinary and popular. It can sound a bit mean.",
+  "vi": "Quá bình thường, đại trà",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Planning a weekend with friends",
+   "text": "My weekend plan is basic: pizza and a movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Basic\" in slang means…",
+   "options": [
+    "easy to learn",
+    "too ordinary"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your friend's gift 'basic' to her.",
+   "why": "It sounds like an insult."
+  },
+  "l1": "обычный",
+  "l1_hook": "Опять пицца и фильм?",
+  "l1_ex": "Мой план на выходные \"basic\": пицца и фильм.",
+  "right": "basic",
+  "native": {
+   "hook": "Что значит «basic»?",
+   "tip": "“basic” = обычный. Пример: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "Что значит «basic»?\n“basic” = обычный.\nПример: “My weekend plan is basic: pizza and a movie.” (Мой план на выходные \"basic\": пицца и фильм.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “basic” = обычный. “My weekend plan is basic: pizza and a movie.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza and a movie again?"
+ },
+ "src": {
+  "slang": "basic"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Что значит «basic»?",
+  "keyword": "basic",
+  "value": "“basic” = обычный. Пример: “My weekend plan is basic: pizza and a movie.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «basic»?",
+    "description": "“basic” = обычный. Пример: “My weekend plan is basic: pizza and a movie.”\n\nЧто значит «basic»?\n“basic” = обычный.\nПример: “My weekend plan is basic: pizza and a movie.” (Мой план на выходные \"basic\": пицца и фильм.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "basic",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «basic»?\n“basic” = обычный.\nПример: “My weekend plan is basic: pizza and a movie.” (Мой план на выходные \"basic\": пицца и фильм.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «basic»?\n\n“basic” = обычный. Пример: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «basic»? “basic” = обычный. Пример: “My weekend plan is basic: pizza and a movie.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “basic” = обычный. “My weekend plan is basic: pizza and a movie.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

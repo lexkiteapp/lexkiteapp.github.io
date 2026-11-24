@@ -1,0 +1,152 @@
+{
+ "id": "t2s_th_imdown",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 100,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Bowling tonight, who's coming?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "I'm down!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm happy to join.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We're going bowling tonight. Are you down?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "I'm down",
+  "forms": [
+   "down"
+  ],
+  "ipa": "/aɪm ˈdaʊn/",
+  "mean": "I'm happy to join.",
+  "define": "Used to say you agree to a plan or want to do it.",
+  "vi": "Tui chơi, tui đồng ý",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Making weekend plans",
+   "text": "We're going bowling tonight. Are you down?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"I'm down\" means…",
+   "options": [
+    "I'm very sad",
+    "I'll join you"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'I'm down' when you feel sad.",
+   "why": "It can also mean feeling low."
+  },
+  "l1": "พร้อม",
+  "l1_hook": "คืนนี้จะไปโบว์ลิ่ง ใครจะมาบ้าง? ถ้าคุณ \"I'm down\" บอกเลย",
+  "l1_ex": "คืนนี้เราจะไปโบว์ลิ่ง คุณ \"I'm down\" หรือเปล่า?",
+  "right": "I'm down",
+  "native": {
+   "hook": "“I'm down” แปลว่าอะไร?",
+   "tip": "“I'm down” = พร้อม. ตัวอย่าง: “We're going bowling tonight. Are you down?”",
+   "caption": "“I'm down” แปลว่าอะไร?\n“I'm down” = พร้อม.\nตัวอย่าง: “We're going bowling tonight. Are you down?” (คืนนี้เราจะไปโบว์ลิ่ง คุณ \"I'm down\" หรือเปล่า?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “I'm down” = พร้อม. “We're going bowling tonight. Are you down?” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Bowling tonight, who's coming?"
+ },
+ "src": {
+  "slang": "I'm down"
+ },
+ "lang": "th",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“I'm down” แปลว่าอะไร?",
+  "keyword": "I'm down",
+  "value": "“I'm down” = พร้อม. ตัวอย่าง: “We're going bowling tonight. Are you down?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“I'm down” แปลว่าอะไร?",
+    "description": "“I'm down” = พร้อม. ตัวอย่าง: “We're going bowling tonight. Are you down?”\n\n“I'm down” แปลว่าอะไร?\n“I'm down” = พร้อม.\nตัวอย่าง: “We're going bowling tonight. Are you down?” (คืนนี้เราจะไปโบว์ลิ่ง คุณ \"I'm down\" หรือเปล่า?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I'm down",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“I'm down” แปลว่าอะไร?\n“I'm down” = พร้อม.\nตัวอย่าง: “We're going bowling tonight. Are you down?” (คืนนี้เราจะไปโบว์ลิ่ง คุณ \"I'm down\" หรือเปล่า?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“I'm down” แปลว่าอะไร?\n\n“I'm down” = พร้อม. ตัวอย่าง: “We're going bowling tonight. Are you down?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I'm down” แปลว่าอะไร? “I'm down” = พร้อม. ตัวอย่าง: “We're going bowling tonight. Are you down?” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “I'm down” = พร้อม. “We're going bowling tonight. Are you down?” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

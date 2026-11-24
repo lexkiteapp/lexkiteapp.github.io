@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ar_callitaday",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 59,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We're tired. What now?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Call it a day!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stop for today.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We're tired, let's call it a day.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "call it a day",
+  "forms": [
+   "calling it a day"
+  ],
+  "ipa": "/ˈkɔːl ɪt ə ˈdeɪ/",
+  "mean": "Stop for today.",
+  "define": "To decide to finish work or an activity for now.",
+  "vi": "Hôm nay nghỉ ở đây",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Finishing a group project",
+   "text": "We're tired, let's call it a day."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Call it a day\" means…",
+   "options": [
+    "stop for today",
+    "make a phone call"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't 'call it a day' before the deadline.",
+   "why": "It means stop for today."
+  },
+  "l1": "نقفل اليوم",
+  "l1_hook": "نحن متعبون. ماذا الآن؟ \"call it a day\"",
+  "l1_ex": "لقد تعبنا، لنقم بـ \"call it a day\".",
+  "right": "call it a day",
+  "native": {
+   "hook": "ما معنى “call it a day”؟",
+   "tip": "“call it a day” = نقفل اليوم. مثال: “We're tired, let's call it a day.”",
+   "caption": "ما معنى “call it a day”؟\n“call it a day” = نقفل اليوم.\nمثال: “We're tired, let's call it a day.” (لقد تعبنا، لنقم بـ \"call it a day\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “call it a day” = نقفل اليوم. “We're tired, let's call it a day.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "We're tired. What now?"
+ },
+ "src": {
+  "slang": "call it a day"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "ما معنى “call it a day”؟",
+  "keyword": "call it a day",
+  "value": "“call it a day” = نقفل اليوم. مثال: “We're tired, let's call it a day.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “call it a day”؟",
+    "description": "“call it a day” = نقفل اليوم. مثال: “We're tired, let's call it a day.”\n\nما معنى “call it a day”؟\n“call it a day” = نقفل اليوم.\nمثال: “We're tired, let's call it a day.” (لقد تعبنا، لنقم بـ \"call it a day\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "call it a day",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “call it a day”؟\n“call it a day” = نقفل اليوم.\nمثال: “We're tired, let's call it a day.” (لقد تعبنا، لنقم بـ \"call it a day\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “call it a day”؟\n\n“call it a day” = نقفل اليوم. مثال: “We're tired, let's call it a day.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “call it a day”؟ “call it a day” = نقفل اليوم. مثال: “We're tired, let's call it a day.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “call it a day” = نقفل اليوم. “We're tired, let's call it a day.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

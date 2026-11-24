@@ -1,0 +1,137 @@
+{
+ "id": "t2s_cheers",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 106,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He held the door. Say thanks!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheers!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Thanks, or goodbye.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheers for the lift!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheers",
+  "forms": [
+   "cheer"
+  ],
+  "ipa": "/ˈtʃɪrz/",
+  "mean": "Thanks, or goodbye.",
+  "define": "A British way to say thank you or goodbye.",
+  "vi": "Cảm ơn nha, tạm biệt",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Thanking a friend",
+   "text": "Cheers for the lift!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheers\" can mean…",
+   "options": [
+    "angry",
+    "thanks"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't expect Americans to understand 'cheers' as thanks.",
+   "why": "It's mostly British casual usage."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He held the door. Say thanks!"
+ },
+ "src": {
+  "slang": "cheers"
+ },
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "What does \"cheers\" mean?",
+  "keyword": "cheers",
+  "value": "Cheers = Thanks, or goodbye. Example: \"Cheers for the lift!\" (casual English, UK).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cheers\" mean?",
+    "description": "Cheers = Thanks, or goodbye. Example: \"Cheers for the lift!\" (casual English, UK).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "cheers",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cheers\" mean?\n\nCheers = Thanks, or goodbye. Example: \"Cheers for the lift!\" (casual English, UK).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"cheers\" mean?\n\nCheers = Thanks, or goodbye. Example: \"Cheers for the lift!\" (casual English, UK).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cheers\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't expect Americans to understand 'cheers' as thanks. It's mostly British casual usage. Real example: \"Cheers for the lift!\" More real English slang, free: {link}"
+ }
+}

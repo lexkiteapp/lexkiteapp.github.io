@@ -1,0 +1,133 @@
+{
+ "id": "t2s_tickedoff",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 301,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My flight got delayed again. Ugh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Ticked off!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Really annoyed.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm ticked off about the delay.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "ticked off",
+  "forms": [
+   "tick off"
+  ],
+  "ipa": "/ˈtɪkt ˈɔːf/",
+  "mean": "Really annoyed.",
+  "define": "Used when something has made you angry.",
+  "vi": "Bực mình",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about a bus ride",
+   "text": "I'm ticked off about the delay."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Ticked off\" means…",
+   "options": [
+    "checked",
+    "annoyed"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'ticked off' about a checklist.",
+   "why": "It means annoyed, not checked."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My flight got delayed again. Ugh!"
+ },
+ "src": {
+  "slang": "ticked off"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "What does \"ticked off\" mean?",
+  "keyword": "ticked off",
+  "value": "Ticked off = Really annoyed. Example: \"I'm ticked off about the delay.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"ticked off\" mean?",
+    "description": "Ticked off = Really annoyed. Example: \"I'm ticked off about the delay.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "ticked off",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"ticked off\" mean?\n\nTicked off = Really annoyed. Example: \"I'm ticked off about the delay.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"ticked off\" mean?\n\nTicked off = Really annoyed. Example: \"I'm ticked off about the delay.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"ticked off\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'ticked off' about a checklist. It means annoyed, not checked. Real example: \"I'm ticked off about the delay.\" More real English slang, free: {link}"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ar_classact",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 55,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He thanked everyone, even rivals!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Class act!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A person with great manners.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Our coach is a real class act.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "class act",
+  "forms": [],
+  "ipa": "/ˈklæs ˈækt/",
+  "mean": "A person with great manners.",
+  "define": "Someone who behaves with style and kindness.",
+  "vi": "Người lịch thiệp",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "praise",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "Our coach is a real class act."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"class act\" is…",
+   "options": [
+    "a polite, graceful person",
+    "a school play"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'class act' about a school class.",
+   "why": "It praises someone's manners."
+  },
+  "l1": "شخص راقٍ",
+  "l1_hook": "شكر الجميع، حتى الخصوم!",
+  "l1_ex": "مدربنا \"class act\" حقيقي.",
+  "right": "class act",
+  "native": {
+   "hook": "ما معنى “class act”؟",
+   "tip": "“class act” = شخص راقٍ. مثال: “Our coach is a real class act.”",
+   "caption": "ما معنى “class act”؟\n“class act” = شخص راقٍ.\nمثال: “Our coach is a real class act.” (مدربنا \"class act\" حقيقي.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “class act” = شخص راقٍ. “Our coach is a real class act.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He thanked everyone, even rivals!"
+ },
+ "src": {
+  "slang": "class act"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 21,
+  "seconds": 11.9,
+  "wpm": 106
+ },
+ "publish": {
+  "title": "ما معنى “class act”؟",
+  "keyword": "class act",
+  "value": "“class act” = شخص راقٍ. مثال: “Our coach is a real class act.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “class act”؟",
+    "description": "“class act” = شخص راقٍ. مثال: “Our coach is a real class act.”\n\nما معنى “class act”؟\n“class act” = شخص راقٍ.\nمثال: “Our coach is a real class act.” (مدربنا \"class act\" حقيقي.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "class act",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “class act”؟\n“class act” = شخص راقٍ.\nمثال: “Our coach is a real class act.” (مدربنا \"class act\" حقيقي.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “class act”؟\n\n“class act” = شخص راقٍ. مثال: “Our coach is a real class act.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “class act”؟ “class act” = شخص راقٍ. مثال: “Our coach is a real class act.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “class act” = شخص راقٍ. “Our coach is a real class act.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}
