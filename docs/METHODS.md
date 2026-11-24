@@ -100,6 +100,8 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
 - Lỗi đã mắc (Antigravity, add-on, credit, CDN, test, secret, worktree) → nguyên văn `docs/archive/METHODS-LESSONS-2411.md`.
+- Không đăng nhập tài khoản thật để test; dùng `?sandbox=1`, fixture CI.
+- Không in/lưu token/khóa/mật khẩu; secret đổ thẳng từ file.
 
 ## 9. Tài khoản & hạ tầng (chi tiết `docs/INFRA-RULES.md`, `docs/API-KEYS.md`)
 - Email chính thức: vintagezulilyjewelry@gmail.com (không dùng khieudinhthong cho Google). Domain lexkite.com; Firebase `lexkite-app` chỉ auth; dữ liệu đồng bộ ở D1 `lexkite-sync`.
