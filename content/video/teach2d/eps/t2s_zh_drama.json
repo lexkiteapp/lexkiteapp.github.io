@@ -1,0 +1,148 @@
+{
+ "id": "t2s_zh_drama",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 64,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Group chat exploded over nothing!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Drama!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fuss and arguments about small things.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I don't want any drama this year.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "drama",
+  "forms": [
+   "dramatic"
+  ],
+  "ipa": "/ˈdrɑːmə/",
+  "mean": "Fuss and arguments about small things.",
+  "define": "Needless trouble or arguments between people.",
+  "vi": "Drama nổ trời",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about school",
+   "text": "I don't want any drama this year."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Drama\" here means…",
+   "options": [
+    "fuss and arguments",
+    "a theater play"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your friend's real problem 'drama'.",
+   "why": "It makes serious feelings sound silly."
+  },
+  "l1": "纠纷",
+  "l1_hook": "群聊因为一点小事就炸开了，简直是'drama'。",
+  "l1_ex": "我今年不想有任何'drama'。",
+  "right": "drama",
+  "native": {
+   "hook": "“drama”是什么意思？",
+   "tip": "“drama” = 纠纷. 例句: “I don't want any drama this year.”",
+   "caption": "“drama”是什么意思？\n“drama” = 纠纷.\n例句: “I don't want any drama this year.” (我今年不想有任何'drama'。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “drama” = 纠纷. “I don't want any drama this year.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Group chat exploded over nothing!"
+ },
+ "src": {
+  "slang": "drama"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "“drama”是什么意思？",
+  "keyword": "drama",
+  "value": "“drama” = 纠纷. 例句: “I don't want any drama this year.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“drama”是什么意思？",
+    "description": "“drama” = 纠纷. 例句: “I don't want any drama this year.”\n\n“drama”是什么意思？\n“drama” = 纠纷.\n例句: “I don't want any drama this year.” (我今年不想有任何'drama'。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "drama",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“drama”是什么意思？\n“drama” = 纠纷.\n例句: “I don't want any drama this year.” (我今年不想有任何'drama'。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“drama”是什么意思？\n\n“drama” = 纠纷. 例句: “I don't want any drama this year.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“drama”是什么意思？ “drama” = 纠纷. 例句: “I don't want any drama this year.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “drama” = 纠纷. “I don't want any drama this year.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

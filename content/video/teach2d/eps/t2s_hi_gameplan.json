@@ -1,0 +1,146 @@
+{
+ "id": "t2s_hi_gameplan",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 92,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Test tomorrow. Where do we start?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Game plan!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The plan for what to do.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "So, what's the game plan?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "game plan",
+  "forms": [],
+  "ipa": "/ˈɡeɪm ˈplæn/",
+  "mean": "The plan for what to do.",
+  "define": "A clear plan to reach a goal.",
+  "vi": "Kế hoạch hành động",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Talking before a project",
+   "text": "So, what's the game plan?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"game plan\" is…",
+   "options": [
+    "a video game",
+    "a clear plan"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a vague idea a 'game plan'.",
+   "why": "It means a clear plan."
+  },
+  "l1": "कार्ययोजना",
+  "l1_hook": "कल टेस्ट है। हमें \"game plan\" कहाँ से शुरू करना चाहिए?",
+  "l1_ex": "तो, game plan क्या है?",
+  "right": "game plan",
+  "native": {
+   "hook": "“game plan” का मतलब क्या है?",
+   "tip": "“game plan” = कार्ययोजना. उदाहरण: “So, what's the game plan?”",
+   "caption": "“game plan” का मतलब क्या है?\n“game plan” = कार्ययोजना.\nउदाहरण: “So, what's the game plan?” (तो, game plan क्या है?)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “game plan” = कार्ययोजना. “So, what's the game plan?” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Test tomorrow. Where do we start?"
+ },
+ "src": {
+  "slang": "game plan"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“game plan” का मतलब क्या है?",
+  "keyword": "game plan",
+  "value": "“game plan” = कार्ययोजना. उदाहरण: “So, what's the game plan?”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "“game plan” का मतलब क्या है?",
+    "description": "“game plan” = कार्ययोजना. उदाहरण: “So, what's the game plan?”\n\n“game plan” का मतलब क्या है?\n“game plan” = कार्ययोजना.\nउदाहरण: “So, what's the game plan?” (तो, game plan क्या है?)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "game plan",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“game plan” का मतलब क्या है?\n“game plan” = कार्ययोजना.\nउदाहरण: “So, what's the game plan?” (तो, game plan क्या है?)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“game plan” का मतलब क्या है?\n\n“game plan” = कार्ययोजना. उदाहरण: “So, what's the game plan?”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“game plan” का मतलब क्या है? “game plan” = कार्ययोजना. उदाहरण: “So, what's the game plan?” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “game plan” = कार्ययोजना. “So, what's the game plan?” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

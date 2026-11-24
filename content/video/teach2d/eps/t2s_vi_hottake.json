@@ -1,0 +1,148 @@
+{
+ "id": "t2s_vi_hottake",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 32,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pineapple pizza is the best!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hot take!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A strong, surprising opinion.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Here's my hot take: pineapple belongs on pizza.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "hot take",
+  "forms": [
+   "hot takes"
+  ],
+  "ipa": "/ˈhɑːt ˈteɪk/",
+  "mean": "A strong, surprising opinion.",
+  "define": "An opinion that is strong and often unpopular.",
+  "vi": "Quan điểm gây tranh cãi",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Chatting about food",
+   "text": "Here's my hot take: pineapple belongs on pizza."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"hot take\" is…",
+   "options": [
+    "a hot drink",
+    "a bold opinion"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call plain facts a 'hot take'.",
+   "why": "It means a bold, debatable opinion."
+  },
+  "l1": "Quan điểm gây tranh cãi",
+  "l1_hook": "Pizza dứa là ngon nhất!",
+  "l1_ex": "Hot take nè: dứa hợp với pizza đó.",
+  "right": "hot take",
+  "native": {
+   "hook": "“hot take” nghĩa là gì?",
+   "tip": "“hot take” = Quan điểm gây tranh cãi. Ví dụ: “Here's my hot take: pineapple belongs on pizza.”",
+   "caption": "“hot take” nghĩa là gì?\n“hot take” = Quan điểm gây tranh cãi.\nVí dụ: “Here's my hot take: pineapple belongs on pizza.” (Hot take nè: dứa hợp với pizza đó.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “hot take” = Quan điểm gây tranh cãi. “Here's my hot take: pineapple belongs on pizza.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pineapple pizza is the best!"
+ },
+ "src": {
+  "slang": "hot take"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“hot take” nghĩa là gì?",
+  "keyword": "hot take",
+  "value": "“hot take” = Quan điểm gây tranh cãi. Ví dụ: “Here's my hot take: pineapple belongs on pizza.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“hot take” nghĩa là gì?",
+    "description": "“hot take” = Quan điểm gây tranh cãi. Ví dụ: “Here's my hot take: pineapple belongs on pizza.”\n\n“hot take” nghĩa là gì?\n“hot take” = Quan điểm gây tranh cãi.\nVí dụ: “Here's my hot take: pineapple belongs on pizza.” (Hot take nè: dứa hợp với pizza đó.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "hot take",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“hot take” nghĩa là gì?\n“hot take” = Quan điểm gây tranh cãi.\nVí dụ: “Here's my hot take: pineapple belongs on pizza.” (Hot take nè: dứa hợp với pizza đó.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“hot take” nghĩa là gì?\n\n“hot take” = Quan điểm gây tranh cãi. Ví dụ: “Here's my hot take: pineapple belongs on pizza.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“hot take” nghĩa là gì? “hot take” = Quan điểm gây tranh cãi. Ví dụ: “Here's my hot take: pineapple belongs… #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “hot take” = Quan điểm gây tranh cãi. “Here's my hot take: pineapple belongs on pizza.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

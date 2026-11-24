@@ -1,0 +1,146 @@
+{
+ "id": "t2s_tr_basic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 6,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza and a movie again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Basic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too ordinary, like everyone else.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My weekend plan is basic: pizza and a movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "basic",
+  "forms": [],
+  "ipa": "/ˈbeɪsɪk/",
+  "mean": "Too ordinary, like everyone else.",
+  "define": "Describes things that are very ordinary and popular. It can sound a bit mean.",
+  "vi": "Quá bình thường, đại trà",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Planning a weekend with friends",
+   "text": "My weekend plan is basic: pizza and a movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Basic\" in slang means…",
+   "options": [
+    "easy to learn",
+    "too ordinary"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your friend's gift 'basic' to her.",
+   "why": "It sounds like an insult."
+  },
+  "l1": "sıradan",
+  "l1_hook": "Yine pizza ve film mi?",
+  "l1_ex": "Hafta sonu planım \"basic\": pizza ve film.",
+  "right": "basic",
+  "native": {
+   "hook": "“basic” ne demek?",
+   "tip": "“basic” = sıradan. Örnek: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "“basic” ne demek?\n“basic” = sıradan.\nÖrnek: “My weekend plan is basic: pizza and a movie.” (Hafta sonu planım \"basic\": pizza ve film.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “basic” = sıradan. “My weekend plan is basic: pizza and a movie.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza and a movie again?"
+ },
+ "src": {
+  "slang": "basic"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“basic” ne demek?",
+  "keyword": "basic",
+  "value": "“basic” = sıradan. Örnek: “My weekend plan is basic: pizza and a movie.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“basic” ne demek?",
+    "description": "“basic” = sıradan. Örnek: “My weekend plan is basic: pizza and a movie.”\n\n“basic” ne demek?\n“basic” = sıradan.\nÖrnek: “My weekend plan is basic: pizza and a movie.” (Hafta sonu planım \"basic\": pizza ve film.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "basic",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“basic” ne demek?\n“basic” = sıradan.\nÖrnek: “My weekend plan is basic: pizza and a movie.” (Hafta sonu planım \"basic\": pizza ve film.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“basic” ne demek?\n\n“basic” = sıradan. Örnek: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“basic” ne demek? “basic” = sıradan. Örnek: “My weekend plan is basic: pizza and a movie.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “basic” = sıradan. “My weekend plan is basic: pizza and a movie.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

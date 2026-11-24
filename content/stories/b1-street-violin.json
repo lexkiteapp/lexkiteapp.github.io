@@ -1,0 +1,139 @@
+{
+  "id": "b1-street-violin",
+  "kind": "book",
+  "level": "B1",
+  "title": "The Street Violin",
+  "summary": "A shy girl plays the violin in the street to save money, and a stranger changes her plans.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama"
+    ],
+    "scene": "Flat 2D illustration: Ama playing a violin on a busy city square, a few people stopping to listen, autumn leaves, no text"
+  },
+  "audio": {
+    "wpm": 125,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Playing for Strangers",
+      "sentences": [
+        "Ama had played the violin since she was six years old.",
+        "She wanted to study music at a big school, but the fees were very high.",
+        "So every Saturday, she took her violin to the main square and played for the people passing by.",
+        "At first, she felt shy, and she closed her eyes while she played.",
+        "Most people walked past without stopping.",
+        "Some of them smiled, and a few left small coins in her case.",
+        "After a month, she had saved only a little money.",
+        "She began to doubt her dream.",
+        "One cold afternoon, she nearly stayed at home.",
+        "But she picked up her violin and went to the square anyway."
+      ],
+      "words": [
+        "violin",
+        "fee",
+        "square",
+        "coin",
+        "doubt",
+        "anyway"
+      ],
+      "quiz": [
+        {
+          "q": "Why did Ama play in the square?",
+          "options": [
+            "To save money for music school",
+            "To meet her friends",
+            "To sell her violin"
+          ],
+          "answer": 0,
+          "explain": "The school fees were high, so she wanted to save money."
+        },
+        {
+          "q": "How did Ama feel at first?",
+          "options": [
+            "Proud",
+            "Shy",
+            "Angry"
+          ],
+          "answer": 1,
+          "explain": "She felt shy and closed her eyes while she played."
+        },
+        {
+          "q": "What happened after a month?",
+          "options": [
+            "She became famous",
+            "She had saved only a little money",
+            "She lost her violin"
+          ],
+          "answer": 1,
+          "explain": "She had saved only a little money, so she began to doubt her dream."
+        }
+      ]
+    },
+    {
+      "title": "An Unexpected Offer",
+      "sentences": [
+        "That afternoon, an older man stopped and listened to her for a long time.",
+        "When she finished, he clapped and gave her his card.",
+        "\"I am a teacher at the music school,\" he said. \"You play beautifully.\"",
+        "Ama could not believe what she was hearing.",
+        "\"I think you should try for a scholarship,\" he continued.",
+        "\"Students who win it pay no fees.\"",
+        "She practised every evening for two months and trained hard for the test.",
+        "On the day of the test, her hands were shaking, but she played from her heart.",
+        "A week later, a letter came. It had good news.",
+        "Ama read it three times and then ran to tell her mother."
+      ],
+      "words": [
+        "clap",
+        "scholarship",
+        "continue",
+        "train",
+        "shake",
+        "letter"
+      ],
+      "quiz": [
+        {
+          "q": "Who was the man in the square?",
+          "options": [
+            "A music teacher",
+            "A shop owner",
+            "A police officer"
+          ],
+          "answer": 0,
+          "explain": "He said he was a teacher at the music school."
+        },
+        {
+          "q": "What did the man suggest?",
+          "options": [
+            "Trying for a scholarship",
+            "Selling her violin",
+            "Moving abroad"
+          ],
+          "answer": 0,
+          "explain": "He told her to try for a scholarship."
+        },
+        {
+          "q": "What was the good news?",
+          "options": [
+            "She won a prize in the square",
+            "She got the scholarship",
+            "She found a new job"
+          ],
+          "answer": 1,
+          "explain": "A letter arrived with the good news after her test."
+        }
+      ]
+    }
+  ]
+}

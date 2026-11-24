@@ -1,0 +1,153 @@
+{
+ "id": "t2s_ar_callout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 26,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She told everyone my mistake!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Call out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Point out someone's mistake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She called me out for being late.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "call out",
+  "forms": [
+   "called me out",
+   "called out"
+  ],
+  "ipa": "/ˈkɔːl ˈaʊt/",
+  "mean": "Point out someone's mistake.",
+  "define": "To say publicly that someone did something wrong.",
+  "vi": "Chỉ ra lỗi công khai",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a mistake",
+   "text": "She called me out for being late."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"call out\" is to…",
+   "options": [
+    "shout out",
+    "point out a mistake"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'call out' a coworker in front of the boss.",
+   "why": "Public correction embarrasses people."
+  },
+  "l1": "ينتقد علنًا",
+  "l1_hook": "هي \"call out\" خطأي أمام الجميع!",
+  "l1_ex": "لقد \"called me out\" بسبب تأخري.",
+  "right": "call out",
+  "native": {
+   "hook": "ما معنى “call out”؟",
+   "tip": "“call out” = ينتقد علنًا. مثال: “She called me out for being late.”",
+   "caption": "ما معنى “call out”؟\n“call out” = ينتقد علنًا.\nمثال: “She called me out for being late.” (لقد \"called me out\" بسبب تأخري.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “call out” = ينتقد علنًا. “She called me out for being late.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She told everyone my mistake!"
+ },
+ "src": {
+  "slang": "call out"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "ما معنى “call out”؟",
+  "keyword": "call out",
+  "value": "“call out” = ينتقد علنًا. مثال: “She called me out for being late.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “call out”؟",
+    "description": "“call out” = ينتقد علنًا. مثال: “She called me out for being late.”\n\nما معنى “call out”؟\n“call out” = ينتقد علنًا.\nمثال: “She called me out for being late.” (لقد \"called me out\" بسبب تأخري.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "call out",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “call out”؟\n“call out” = ينتقد علنًا.\nمثال: “She called me out for being late.” (لقد \"called me out\" بسبب تأخري.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “call out”؟\n\n“call out” = ينتقد علنًا. مثال: “She called me out for being late.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “call out”؟ “call out” = ينتقد علنًا. مثال: “She called me out for being late.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “call out” = ينتقد علنًا. “She called me out for being late.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

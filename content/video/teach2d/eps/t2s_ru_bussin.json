@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ru_bussin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 10,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Mom's pasta tastes unreal tonight!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bussin!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That food is really delicious.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Mom's pasta is bussin tonight.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "bussin",
+  "forms": [],
+  "ipa": "/ˈbʌsɪn/",
+  "mean": "That food is really delicious.",
+  "define": "Slang for food that tastes amazing.",
+  "vi": "Ngon đỉnh",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "food",
+  "example": {
+   "ctx": "At a family dinner",
+   "text": "Mom's pasta is bussin tonight."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bussin\" describes…",
+   "options": [
+    "delicious food",
+    "a bus stop"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'bussin' about a cold, bland sandwich.",
+   "why": "It means really delicious food."
+  },
+  "l1": "вкусный",
+  "l1_hook": "Паста мамы сегодня просто нереальная!",
+  "l1_ex": "Паста мамы \"bussin\" сегодня.",
+  "right": "bussin",
+  "native": {
+   "hook": "Что значит «bussin»?",
+   "tip": "“bussin” = вкусный. Пример: “Mom's pasta is bussin tonight.”",
+   "caption": "Что значит «bussin»?\n“bussin” = вкусный.\nПример: “Mom's pasta is bussin tonight.” (Паста мамы \"bussin\" сегодня.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “bussin” = вкусный. “Mom's pasta is bussin tonight.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Mom's pasta tastes unreal tonight!"
+ },
+ "src": {
+  "slang": "bussin"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Что значит «bussin»?",
+  "keyword": "bussin",
+  "value": "“bussin” = вкусный. Пример: “Mom's pasta is bussin tonight.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «bussin»?",
+    "description": "“bussin” = вкусный. Пример: “Mom's pasta is bussin tonight.”\n\nЧто значит «bussin»?\n“bussin” = вкусный.\nПример: “Mom's pasta is bussin tonight.” (Паста мамы \"bussin\" сегодня.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "bussin",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «bussin»?\n“bussin” = вкусный.\nПример: “Mom's pasta is bussin tonight.” (Паста мамы \"bussin\" сегодня.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «bussin»?\n\n“bussin” = вкусный. Пример: “Mom's pasta is bussin tonight.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «bussin»? “bussin” = вкусный. Пример: “Mom's pasta is bussin tonight.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “bussin” = вкусный. “Mom's pasta is bussin tonight.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

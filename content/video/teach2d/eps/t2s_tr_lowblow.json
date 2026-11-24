@@ -1,0 +1,150 @@
+{
+ "id": "t2s_tr_lowblow",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 102,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He mentioned her old mistake!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Low blow!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "An unfair or unkind remark.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That joke was a low blow.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "low blow",
+  "forms": [],
+  "ipa": "/ˈloʊ ˈbloʊ/",
+  "mean": "An unfair or unkind remark.",
+  "define": "Something unfair said to hurt someone.",
+  "vi": "Chơi xấu, đòn thấp",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "drama",
+  "example": {
+   "ctx": "After an argument",
+   "text": "That joke was a low blow."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"low blow\" is…",
+   "options": [
+    "an unfair remark",
+    "a punch"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call fair criticism a 'low blow'.",
+   "why": "It may just be honest feedback."
+  },
+  "l1": "aşağılayıcı söz",
+  "l1_hook": "O, onun eski hatasını söyledi! 'Low blow'.",
+  "l1_ex": "O şaka bir \"low blow\" idi.",
+  "right": "low blow",
+  "native": {
+   "hook": "“low blow” ne demek?",
+   "tip": "“low blow” = aşağılayıcı söz. Örnek: “That joke was a low blow.”",
+   "caption": "“low blow” ne demek?\n“low blow” = aşağılayıcı söz.\nÖrnek: “That joke was a low blow.” (O şaka bir \"low blow\" idi.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “low blow” = aşağılayıcı söz. “That joke was a low blow.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He mentioned her old mistake!"
+ },
+ "src": {
+  "slang": "low blow"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 20,
+  "seconds": 11.5,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "“low blow” ne demek?",
+  "keyword": "low blow",
+  "value": "“low blow” = aşağılayıcı söz. Örnek: “That joke was a low blow.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“low blow” ne demek?",
+    "description": "“low blow” = aşağılayıcı söz. Örnek: “That joke was a low blow.”\n\n“low blow” ne demek?\n“low blow” = aşağılayıcı söz.\nÖrnek: “That joke was a low blow.” (O şaka bir \"low blow\" idi.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "low blow",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“low blow” ne demek?\n“low blow” = aşağılayıcı söz.\nÖrnek: “That joke was a low blow.” (O şaka bir \"low blow\" idi.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“low blow” ne demek?\n\n“low blow” = aşağılayıcı söz. Örnek: “That joke was a low blow.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“low blow” ne demek? “low blow” = aşağılayıcı söz. Örnek: “That joke was a low blow.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “low blow” = aşağılayıcı söz. “That joke was a low blow.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

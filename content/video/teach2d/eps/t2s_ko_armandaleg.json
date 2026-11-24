@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ko_armandaleg",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 15,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at this coat's price!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Arm and a leg!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely expensive.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coat costs an arm and a leg.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "arm and a leg",
+  "forms": [
+   "an arm and a leg"
+  ],
+  "ipa": "/ən ˈɑːrm ən ə ˈleɡ/",
+  "mean": "Extremely expensive.",
+  "define": "Used when something costs a huge amount of money.",
+  "vi": "Đắt cắt cổ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Looking at store prices",
+   "text": "This coat costs an arm and a leg."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means something is…",
+   "options": [
+    "very cheap",
+    "very expensive"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't take 'an arm and a leg' literally at the store.",
+   "why": "It just means very expensive."
+  },
+  "l1": "엄청 비싸다",
+  "l1_hook": "이 코트 가격을 봐! \"arm and a leg\"이야.",
+  "l1_ex": "이 코트는 \"arm and a leg\" 정도야.",
+  "right": "arm and a leg",
+  "native": {
+   "hook": "“arm and a leg” 무슨 뜻일까요?",
+   "tip": "“arm and a leg” = 엄청 비싸다. 예문: “This coat costs an arm and a leg.”",
+   "caption": "“arm and a leg” 무슨 뜻일까요?\n“arm and a leg” = 엄청 비싸다.\n예문: “This coat costs an arm and a leg.” (이 코트는 \"arm and a leg\" 정도야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “arm and a leg” = 엄청 비싸다. “This coat costs an arm and a leg.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at this coat's price!"
+ },
+ "src": {
+  "slang": "arm and a leg"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“arm and a leg” 무슨 뜻일까요?",
+  "keyword": "arm and a leg",
+  "value": "“arm and a leg” = 엄청 비싸다. 예문: “This coat costs an arm and a leg.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“arm and a leg” 무슨 뜻일까요?",
+    "description": "“arm and a leg” = 엄청 비싸다. 예문: “This coat costs an arm and a leg.”\n\n“arm and a leg” 무슨 뜻일까요?\n“arm and a leg” = 엄청 비싸다.\n예문: “This coat costs an arm and a leg.” (이 코트는 \"arm and a leg\" 정도야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "arm and a leg",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“arm and a leg” 무슨 뜻일까요?\n“arm and a leg” = 엄청 비싸다.\n예문: “This coat costs an arm and a leg.” (이 코트는 \"arm and a leg\" 정도야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“arm and a leg” 무슨 뜻일까요?\n\n“arm and a leg” = 엄청 비싸다. 예문: “This coat costs an arm and a leg.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“arm and a leg” 무슨 뜻일까요? “arm and a leg” = 엄청 비싸다. 예문: “This coat costs an arm and a leg.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “arm and a leg” = 엄청 비싸다. “This coat costs an arm and a leg.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}
