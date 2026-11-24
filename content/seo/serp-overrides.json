@@ -240,6 +240,246 @@
         "date": "2026-11-22",
         "src": "reports/seo/gsc-2026-11-22.json"
       }
+    },
+    "/th/words/prime": {
+      "t": "Prime แปลว่า หลัก, จำนวนเฉพาะ พร้อมคำอ่าน",
+      "d": "Prime แปลว่า หลัก, สำคัญที่สุด, จำนวนเฉพาะ ฟังเสียงอ่าน UK/US พร้อม IPA ดูประโยคตัวอย่าง คำที่ใช้คู่กัน คำพ้องความหมาย และควิซสั้น ๆ",
+      "base": {
+        "impr": 33,
+        "clicks": 0,
+        "pos": 11.6,
+        "q": "prime แปลว่า",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/th/words/voluntary": {
+      "t": "Voluntary แปลว่า สมัครใจ ฟังเสียงอ่านและตัวอย่าง",
+      "d": "Voluntary แปลว่า สมัครใจ เรียนคำอ่านสองสำเนียง UK/US พร้อม IPA และเสียง มีประโยคตัวอย่าง คำที่ใช้คู่กัน คำพ้องความหมาย และควิซสั้น ๆ",
+      "base": {
+        "impr": 31,
+        "clicks": 0,
+        "pos": 10,
+        "q": "voluntary แปลว่า",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/th/words/resolve": {
+      "t": "Resolve แปลว่า ตัดสินใจ, แก้ไข พร้อมคำอ่านและตัวอย่าง",
+      "d": "Resolve แปลว่า ตัดสินใจ, แก้ไขปัญหา ดูคำอ่านแบบ UK และ US (IPA) ฟังเสียงได้ พร้อมประโยคตัวอย่าง คำที่มักใช้ร่วมกัน และคำพ้องความหมาย",
+      "base": {
+        "impr": 27,
+        "clicks": 0,
+        "pos": 10.6,
+        "q": "resolve แปลว่า",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/th/words/academy": {
+      "t": "Academy แปลว่า สถาบัน, โรงเรียนเฉพาะทาง และวิธีอ่าน",
+      "d": "Academy แปลว่า สถาบัน, โรงเรียนเฉพาะทาง ฟังเสียงอ่านแบบอังกฤษและอเมริกัน (IPA) อ่านประโยคตัวอย่าง คำที่ใช้คู่กัน คำพ้องความหมาย และแบบทดสอบสั้น ๆ",
+      "base": {
+        "impr": 26,
+        "clicks": 0,
+        "pos": 11.2,
+        "q": "academy แปลว่า",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/th/words/valid": {
+      "t": "Valid แปลว่า ใช้ได้, ถูกต้อง คำอ่านและตัวอย่างประโยค",
+      "d": "Valid แปลว่า ใช้ได้, ถูกต้อง, มีผลตามกฎ ดูวิธีออกเสียง UK/US พร้อม IPA และเสียง ประโยคตัวอย่าง คำที่ใช้คู่กัน คำพ้องความหมาย และควิซสั้น ๆ",
+      "base": {
+        "impr": 26,
+        "clicks": 0,
+        "pos": 10.7,
+        "q": "valid แปลว่า",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/th/words/scope": {
+      "t": "Scope แปลว่า ขอบเขต ฟังคำอ่านและดูตัวอย่างประโยค",
+      "d": "Scope แปลว่า ขอบเขต, ขอบข่าย ฟังเสียงอ่านสองสำเนียงพร้อมสัญลักษณ์ IPA อ่านประโยคตัวอย่าง คำที่ใช้บ่อยคู่กัน คำพ้องความหมาย และทำควิซสั้น ๆ",
+      "base": {
+        "impr": 25,
+        "clicks": 0,
+        "pos": 9.9,
+        "q": "scope แปลว่า",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/th/words/sequence": {
+      "t": "Sequence แปลว่า ลำดับ วิธีอ่านและตัวอย่างประโยค",
+      "d": "Sequence แปลว่า ลำดับ, ชุดต่อเนื่อง เรียนวิธีอ่านแบบอังกฤษและอเมริกัน (IPA) พร้อมเสียง มีประโยคตัวอย่าง คำที่ใช้คู่กัน คำพ้องความหมาย และแบบทดสอบ",
+      "base": {
+        "impr": 24,
+        "clicks": 0,
+        "pos": 8.8,
+        "q": "sequence แปลว่า",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/th/words/terminate": {
+      "t": "Terminate แปลว่า ยุติ, สิ้นสุด คำอ่านและตัวอย่าง",
+      "d": "Terminate แปลว่า ยุติ, ทำให้สิ้นสุด ฟังเสียงอ่าน UK/US พร้อม IPA ดูประโยคตัวอย่าง คำที่ใช้ร่วมกัน คำพ้องความหมาย และแบบทดสอบสั้น ๆ ท้ายหน้า",
+      "base": {
+        "impr": 24,
+        "clicks": 0,
+        "pos": 10.3,
+        "q": "terminate แปลว่า",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/ar/words/fee": {
+      "t": "Fee معنى: رسوم، أتعاب مع النطق والأمثلة",
+      "d": "معنى Fee: رسوم، أتعاب. تعرّف على النطق البريطاني والأمريكي (IPA) بالصوت، مع جمل توضيحية والكلمات المصاحبة والمرادفات وأخطاء شائعة.",
+      "base": {
+        "impr": 44,
+        "clicks": 0,
+        "pos": 8.5,
+        "q": "fees معنى",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/ar/words/revolution": {
+      "t": "Revolution معنى: ثورة، دوران مع النطق والأمثلة",
+      "d": "معنى Revolution: ثورة، دوران. استمع إلى النطق بلكنتين بريطانية وأمريكية (IPA) واقرأ أمثلة في جمل والتعبيرات المصاحبة والمرادفات.",
+      "base": {
+        "impr": 31,
+        "clicks": 0,
+        "pos": 7.5,
+        "q": "معنى revolution",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/ar/words/rational": {
+      "t": "Rational معنى: عقلاني، منطقي مع النطق والأمثلة",
+      "d": "معنى Rational: عقلاني، منطقي. اسمع النطق البريطاني والأمريكي (IPA) بالصوت، مع جمل أمثلة والكلمات المصاحبة والمرادفات واختبار قصير.",
+      "base": {
+        "impr": 29,
+        "clicks": 0,
+        "pos": 10,
+        "q": "معنى rational",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/ar/words/consent": {
+      "t": "Consent معنى: موافقة، رضا مع النطق والأمثلة",
+      "d": "معنى Consent: موافقة، رضا. استمع إلى النطق بلكنتين (IPA)، وتصفّح جمل الأمثلة والكلمات المصاحبة والمرادفات، ثم اختبر نفسك باختبار قصير.",
+      "base": {
+        "impr": 28,
+        "clicks": 0,
+        "pos": 8.2,
+        "q": "معنى consent",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/ar/words/convert": {
+      "t": "Convert معنى: حوّل، تحويل مع النطق والأمثلة",
+      "d": "معنى Convert: حوّل، تحويل. اطّلع على النطق البريطاني والأمريكي (IPA) بالصوت، مع أمثلة في جمل والكلمات التي ترافقه والمرادفات وأخطاء شائعة.",
+      "base": {
+        "impr": 28,
+        "clicks": 0,
+        "pos": 8.9,
+        "q": "معنى convert",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/ar/words/accurate": {
+      "t": "Accurate معنى: دقيق، صحيح مع النطق والأمثلة",
+      "d": "معنى Accurate: دقيق، صحيح. استمع للنطق البريطاني والأمريكي (IPA) بالصوت، واقرأ جملاً تطبيقية مع المرادفات والكلمات المصاحبة واختبار قصير.",
+      "base": {
+        "impr": 26,
+        "clicks": 0,
+        "pos": 10.1,
+        "q": "accurate معنى",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/ar/words/inspect": {
+      "t": "Inspect معنى: فحص، تفقّد مع النطق والأمثلة",
+      "d": "معنى Inspect: فحص، تفقّد. تعرّف إلى النطق بلكنتين بريطانية وأمريكية (IPA) مع الصوت، وتابع جمل الأمثلة والكلمات المصاحبة والمرادفات.",
+      "base": {
+        "impr": 26,
+        "clicks": 0,
+        "pos": 8.4,
+        "q": "معنى inspect",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/ar/words/prior": {
+      "t": "Prior معنى: سابق، مسبق مع النطق والأمثلة",
+      "d": "معنى Prior: سابق، مسبق. استمع إلى النطق البريطاني والأمريكي (IPA) وتعلّم من جمل الأمثلة والتعبيرات المصاحبة والمرادفات، ثم جرّب اختباراً قصيراً.",
+      "base": {
+        "impr": 25,
+        "clicks": 0,
+        "pos": 9.2,
+        "q": "معنى prior",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/ar/words/reverse": {
+      "t": "Reverse معنى: عكس، تراجع مع النطق والأمثلة",
+      "d": "معنى Reverse: عكس، تراجع. اسمع النطق بلكنتين (IPA) بالصوت، واقرأ أمثلة في جمل مع الكلمات المصاحبة والمرادفات وتنبيهات لأخطاء شائعة.",
+      "base": {
+        "impr": 25,
+        "clicks": 0,
+        "pos": 8.5,
+        "q": "معنى reverse",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/de/words/outcome": {
+      "t": "Outcome Bedeutung: Ergebnis, Ausgang mit Aussprache",
+      "d": "Outcome auf Deutsch: Ergebnis, Ausgang. UK- und US-Aussprache (IPA) zum Anhören, Beispielsätze, Kollokationen, Synonyme und ein Kurzquiz.",
+      "base": {
+        "impr": 30,
+        "clicks": 0,
+        "pos": 14.1,
+        "q": "outcome deutsch",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/en/words/artificial": {
+      "t": "Artificial meaning: made by people, not natural",
+      "d": "Artificial means made by people rather than found in nature, or not genuine. UK and US IPA with audio, examples, collocations, synonyms and a short quiz.",
+      "base": {
+        "impr": 30,
+        "clicks": 0,
+        "pos": 12.4,
+        "q": "artificial meaning",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
+    },
+    "/en/words/rake-leaves": {
+      "t": "Rake leaves meaning: gather fallen leaves in a pile",
+      "d": "Rake leaves means to pull fallen autumn leaves together with a rake. UK and US IPA with audio, example sentences, collocations, synonyms and common mistakes.",
+      "base": {
+        "impr": 28,
+        "clicks": 0,
+        "pos": 7,
+        "q": "rake leaves meaning",
+        "date": "2026-11-22",
+        "src": "reports/seo/gsc-2026-11-22.json"
+      }
     }
   }
 }
