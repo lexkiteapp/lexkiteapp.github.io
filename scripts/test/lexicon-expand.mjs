@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
+import { readQueue } from '../lib/review-queue.mjs';
 import path from 'path';
 import { rescueSelect, defGrammarBad, mixPool, yieldSplit, quotaDry, viAnswer, thinPool, MIN_SAMPLE, shardOf, humanSrc } from '../lexicon/expand/lib.mjs';
 import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
@@ -96,7 +97,7 @@ ok(!btMatch('trumpet', 'trump') && btMatch('to reclaim', 'claim') && btMatch('re
 ok(btMatch('after', 'afterwards') && btMatch('to claim back', 'reclaim') && !btMatch('to eat', 'reclaim'), 'btMatch lồng nhau');
 { const e = { w: 'savor', syn: ['relish'], def: 'to enjoy the taste of food slowly', qa: { btw: { zh: ['taste'], de: ['taste'] }, tr: { zh: [5, 4], de: [5, 4] } } };
   ok(btOk(e, 'zh') && !btOk(e, 'de'), 'btOk: zh lỏng (từ của định nghĩa), de chặt'); e.qa.tr.zh = [5, 3]; ok(!btOk(e, 'zh'), 'btOk: lỏng cần cả 2 giám khảo ≥ 4'); }
-const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items || [];
+const Q = readQueue(ROOT).items || [];
 ok(!Q.some(q => q.src === 'lexicon-expand' && /^gen:/.test((q.why || [])[0] || '') && !q.data), 'hàng duyệt không chứa mục lexicon-expand "gen" rỗng (lỗi hạ tầng)');
 ok(!Q.some(q => q.src === 'lexicon-expand' && hasGap({ ok: false, why: q.why || [] })), 'hàng duyệt không chứa mục lexicon-expand trượt vì lỗ dữ liệu nguồn (ipa) – node scripts/lexicon/expand/requeue.mjs --gaps');
 { const R = path.join(ROOT, 'content/lexicon/expand/retry/words.json'); if (fs.existsSync(R)) { const d = doneWords(), r = JSON.parse(fs.readFileSync(R, 'utf8')).items; ok(r.every(k => !d.has(k)), 'mục trong retry/words.json không bị doneWords() loại (khoá từ#loại)'); } }
@@ -406,9 +407,9 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   mergeExpand(IDX, XM, [mk('duck', 'v', 'cúi né', 'to lower')]); ok(IDX.duck.more.length === 1, 'đa từ loại: ghép lại lũy đẳng');
   ok(OTHER_POS.test('keep: từ đã có trong kho với từ loại khác – chờ mục đa từ loại (job.mjs doneWords theo từ)'), 'OTHER_POS khớp lý do hàng duyệt cũ');
   const d = doneWords(), keys = [...d]; ok(keys.length && keys.every(k => /#/.test(k)), 'doneWords: khoá từ#loại (không theo từ – duck#n không chặn duck#v)');
-  const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items.filter(x => x.src === 'lexicon-expand' && OTHER_POS.test((x.why || [])[0] || ''));
+  const Q = readQueue(ROOT).items.filter(x => x.src === 'lexicon-expand' && OTHER_POS.test((x.why || [])[0] || ''));
   ok(Q.every(x => !d.has(x.id)), 'doneWords: mục "keep: … từ loại khác" không bị loại (requeue --pos đưa về retry)');
-  { const dq = doneWords({ queue: false }), all = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items.filter(x => x.src === 'lexicon-expand'), fun = all.filter(x => (x.why || []).length && x.why.every(y => /^(dịch vi|ví dụ):/.test(y)));
+  { const dq = doneWords({ queue: false }), all = readQueue(ROOT).items.filter(x => x.src === 'lexicon-expand'), fun = all.filter(x => (x.why || []).length && x.why.every(y => /^(dịch vi|ví dụ):/.test(y)));
     ok(!fun.length || fun.some(x => !dq.has(String(x.id))), 'doneWords({queue:false}): mục hàng duyệt chưa xuất không bị chặn (requeue --funnel từng ra 0 mục mà xoá 8.937 mục)');
     ok(/doneWords\(\{ queue: false \}\)/.test(fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/requeue.mjs'), 'utf8')), 'requeue.mjs dùng doneWords({ queue: false })'); }
   // từ điển: nghĩa biên soạn của từ loại phụ vào ĐÚNG khối, sau từ loại chính; không đè khối có sẵn

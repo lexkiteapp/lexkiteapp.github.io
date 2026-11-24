@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_brainrot",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 39,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three hours of silly videos!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Brain rot!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Silly online content that feels empty.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Too many videos give me brain rot.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "brain rot",
+  "forms": [
+   "brainrot"
+  ],
+  "ipa": "/ˈbreɪn ˈrɑːt/",
+  "mean": "Silly online content that feels empty.",
+  "define": "Jokingly used for low-quality videos you scroll too much.",
+  "vi": "Nội dung nhảm, xem hoài",
+  "reg": "very-casual",
+  "region": "global",
+  "level": "C1",
+  "era": "gen-z",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Talking about screen time",
+   "text": "Too many videos give me brain rot."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Brain rot\" is a joke about…",
+   "options": [
+    "silly online content",
+    "a brain illness"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call a documentary 'brain rot'.",
+   "why": "It means empty, silly content."
+  },
+  "l1": "boş içerik",
+  "l1_hook": "Üç saat boyunca aptal videolar! 'brain rot'!",
+  "l1_ex": "Çok fazla video bana brain rot veriyor.",
+  "right": "brain rot",
+  "native": {
+   "hook": "“brain rot” ne demek?",
+   "tip": "“brain rot” = boş içerik. Örnek: “Too many videos give me brain rot.”",
+   "caption": "“brain rot” ne demek?\n“brain rot” = boş içerik.\nÖrnek: “Too many videos give me brain rot.” (Çok fazla video bana brain rot veriyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “brain rot” = boş içerik. “Too many videos give me brain rot.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three hours of silly videos!"
+ },
+ "src": {
+  "slang": "brain rot"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "“brain rot” ne demek?",
+  "keyword": "brain rot",
+  "value": "“brain rot” = boş içerik. Örnek: “Too many videos give me brain rot.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“brain rot” ne demek?",
+    "description": "“brain rot” = boş içerik. Örnek: “Too many videos give me brain rot.”\n\n“brain rot” ne demek?\n“brain rot” = boş içerik.\nÖrnek: “Too many videos give me brain rot.” (Çok fazla video bana brain rot veriyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "brain rot",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“brain rot” ne demek?\n“brain rot” = boş içerik.\nÖrnek: “Too many videos give me brain rot.” (Çok fazla video bana brain rot veriyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“brain rot” ne demek?\n\n“brain rot” = boş içerik. Örnek: “Too many videos give me brain rot.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“brain rot” ne demek? “brain rot” = boş içerik. Örnek: “Too many videos give me brain rot.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “brain rot” = boş içerik. “Too many videos give me brain rot.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

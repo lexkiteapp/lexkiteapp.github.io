@@ -1,0 +1,148 @@
+{
+ "id": "t2s_hi_ngl",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 89,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Honest opinion about that movie?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Ngl!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Not gonna lie.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Ngl, I loved that movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "ngl",
+  "forms": [
+   "NGL"
+  ],
+  "ipa": "/ˌen dʒiː ˈel/",
+  "mean": "Not gonna lie.",
+  "define": "Short for \"not gonna lie\", before an honest opinion.",
+  "vi": "Nói thật nha",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Texting",
+   "text": "Ngl, I loved that movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Ngl\" means…",
+   "options": [
+    "never go left",
+    "to be honest"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't use 'ngl' in a job application.",
+   "why": "Texting shorthand looks unprofessional."
+  },
+  "l1": "सच कहूँ तो",
+  "l1_hook": "उस फिल्म के बारे में ईमानदार राय? \"ngl\"",
+  "l1_ex": "\"ngl\", मुझे वह फिल्म बहुत पसंद आई।",
+  "right": "ngl",
+  "native": {
+   "hook": "“ngl” का मतलब क्या है?",
+   "tip": "“ngl” = सच कहूँ तो. उदाहरण: “Ngl, I loved that movie.”",
+   "caption": "“ngl” का मतलब क्या है?\n“ngl” = सच कहूँ तो.\nउदाहरण: “Ngl, I loved that movie.” (\"ngl\", मुझे वह फिल्म बहुत पसंद आई।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “ngl” = सच कहूँ तो. “Ngl, I loved that movie.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Honest opinion about that movie?"
+ },
+ "src": {
+  "slang": "ngl"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 16,
+  "seconds": 9.6,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“ngl” का मतलब क्या है?",
+  "keyword": "ngl",
+  "value": "“ngl” = सच कहूँ तो. उदाहरण: “Ngl, I loved that movie.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“ngl” का मतलब क्या है?",
+    "description": "“ngl” = सच कहूँ तो. उदाहरण: “Ngl, I loved that movie.”\n\n“ngl” का मतलब क्या है?\n“ngl” = सच कहूँ तो.\nउदाहरण: “Ngl, I loved that movie.” (\"ngl\", मुझे वह फिल्म बहुत पसंद आई।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "ngl",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“ngl” का मतलब क्या है?\n“ngl” = सच कहूँ तो.\nउदाहरण: “Ngl, I loved that movie.” (\"ngl\", मुझे वह फिल्म बहुत पसंद आई।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“ngl” का मतलब क्या है?\n\n“ngl” = सच कहूँ तो. उदाहरण: “Ngl, I loved that movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“ngl” का मतलब क्या है? “ngl” = सच कहूँ तो. उदाहरण: “Ngl, I loved that movie.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “ngl” = सच कहूँ तो. “Ngl, I loved that movie.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

@@ -1,0 +1,133 @@
+{
+ "id": "t2s_getonmynerves",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 206,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He chews so loudly. Seriously!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Get on my nerves!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "It really annoys me.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "His loud humming gets on my nerves.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "get on my nerves",
+  "forms": [
+   "gets on my nerves"
+  ],
+  "ipa": "/ˈɡet ɑːn maɪ ˈnɝːvz/",
+  "mean": "It really annoys me.",
+  "define": "Used when something or someone bothers you.",
+  "vi": "Làm tui khó chịu",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "His loud humming gets on my nerves."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means it…",
+   "options": [
+    "calms me",
+    "annoys me"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your teacher she 'gets on your nerves'.",
+   "why": "It sounds rude and personal."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He chews so loudly. Seriously!"
+ },
+ "src": {
+  "slang": "get on my nerves"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"get on my nerves\" mean?",
+  "keyword": "get on my nerves",
+  "value": "Get on my nerves = It really annoys me. Example: \"His loud humming gets on my nerves.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"get on my nerves\" mean?",
+    "description": "Get on my nerves = It really annoys me. Example: \"His loud humming gets on my nerves.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "get on my nerves",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"get on my nerves\" mean?\n\nGet on my nerves = It really annoys me. Example: \"His loud humming gets on my nerves.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"get on my nerves\" mean?\n\nGet on my nerves = It really annoys me. Example: \"His loud humming gets on my nerves.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"get on my nerves\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell your teacher she 'gets on your nerves'. It sounds rude and personal. Real example: \"His loud humming gets on my nerves.\" More real English slang, free: {link}"
+ }
+}

@@ -47,6 +47,8 @@
 "Mục tiêu {s}":"الهدف {s}",
 "Nghe chậm hơn":"أبطأ",
 "Nghe, chọn ảnh":"استمع واختر الصورة",
+"Ngày mai ôn {n} từ để nhớ lâu":"كلمات للمراجعة غدًا: {n}",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"غدًا: درسك التالي جاهز",
 "Những từ bạn hay quên":"كلمات تنساها كثيرًا",
 "Nói câu này":"قل هذا",
 "Nói hay hơn":"تعبير أفضل",

@@ -1,0 +1,148 @@
+{
+ "id": "t2s_pt_ngl",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 89,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Honest opinion about that movie?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Ngl!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Not gonna lie.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Ngl, I loved that movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "ngl",
+  "forms": [
+   "NGL"
+  ],
+  "ipa": "/ˌen dʒiː ˈel/",
+  "mean": "Not gonna lie.",
+  "define": "Short for \"not gonna lie\", before an honest opinion.",
+  "vi": "Nói thật nha",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Texting",
+   "text": "Ngl, I loved that movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Ngl\" means…",
+   "options": [
+    "never go left",
+    "to be honest"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't use 'ngl' in a job application.",
+   "why": "Texting shorthand looks unprofessional."
+  },
+  "l1": "sem mentira",
+  "l1_hook": "Opinião sincera sobre esse filme? \"ngl\"",
+  "l1_ex": "\"Ngl\", eu amei aquele filme.",
+  "right": "ngl",
+  "native": {
+   "hook": "O que significa “ngl”?",
+   "tip": "“ngl” = sem mentira. Exemplo: “Ngl, I loved that movie.”",
+   "caption": "O que significa “ngl”?\n“ngl” = sem mentira.\nExemplo: “Ngl, I loved that movie.” (\"Ngl\", eu amei aquele filme.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “ngl” = sem mentira. “Ngl, I loved that movie.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Honest opinion about that movie?"
+ },
+ "src": {
+  "slang": "ngl"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 16,
+  "seconds": 9.6,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "O que significa “ngl”?",
+  "keyword": "ngl",
+  "value": "“ngl” = sem mentira. Exemplo: “Ngl, I loved that movie.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “ngl”?",
+    "description": "“ngl” = sem mentira. Exemplo: “Ngl, I loved that movie.”\n\nO que significa “ngl”?\n“ngl” = sem mentira.\nExemplo: “Ngl, I loved that movie.” (\"Ngl\", eu amei aquele filme.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "ngl",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “ngl”?\n“ngl” = sem mentira.\nExemplo: “Ngl, I loved that movie.” (\"Ngl\", eu amei aquele filme.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “ngl”?\n\n“ngl” = sem mentira. Exemplo: “Ngl, I loved that movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “ngl”? “ngl” = sem mentira. Exemplo: “Ngl, I loved that movie.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “ngl” = sem mentira. “Ngl, I loved that movie.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

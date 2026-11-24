@@ -36,4 +36,8 @@ Mẫu `react` trong pipeline teach2d (`docs/VIDEO-TEACH2D.md`): hook ≤ 6 chữ
 - **Clip** (teach2d `slang`, `gen.py` `slang()` / `build.py` `T_slang`): hook + biểu cảm → từ + IPA → nghĩa (+ nghĩa tiếng của page ở kênh L1) → ví dụ có ngữ cảnh → quiz câm 3-2-1 hoặc thẻ "đừng dùng ở đây" → CTA lexkite.com; giọng Kokoro của giáo viên, tốc 1.05, 7–12 s (qc.py `duration` 7–13 s cho mẫu này, mọi cổng khác giữ nguyên).
 - **Carousel vuông** (`scripts/video/teach2d/card.py`, job render của `teach-video.yml`): 3 ảnh 1080² (bìa · đời thật + đừng dùng · quiz + CTA) cùng tập, khung giáo viên cắt từ chính `rig.webm` của clip; cổng tràn chữ / tương phản / có giáo viên → `cards.json`.
 - **Lô**: `gen.py --slang-eps N` (cổng máy data · level · hook · dup → `auto.json` + `reviewed.json`), mẫu `slang` ở sổ duyệt `approved.json` = `draft` tới khi 3 tập mẫu short + wide QC ≥ 90.
+- **Bản 14 ngôn ngữ (page bản địa)**: cùng bài tiếng Anh (giọng, phụ đề karaoke tiếng Anh). Thêm theo ngôn ngữ page: nghĩa (`meanings.json`; vi = `vi` của thẻ), hook + câu ví dụ dịch (`slang-lines.json`, `translate.mjs --lines N`, giữ nguyên từ lóng tiếng Anh, 2 giám khảo). Bài đăng / bình luận đầu / hashtag dựng từ khung viết tay `slang-l1-frames.json`. Kênh EN chỉ tiếng Anh.
+  - Lập: `gen.py --slang-l1 N` (N tập đầu của lô cho mỗi ngôn ngữ, chỉ khi đủ 3 bản dịch) → `t2s_<lang>_*`. Định tuyến theo `lang` như clip L1.
+  - Cổng `native-qa.mjs` (hàng slang). Sau khi lập: `node scripts/video/teach2d/native-qa.mjs --write` → `l1-qa.json` (autopub đọc).
+  - Carousel L1: `card.py` chọn phông Noto theo hệ chữ; Ả Rập/Hindi/Thái cần Pillow có raqm, thiếu thì cổng `shaping` chặn, không xuất ảnh hỏng.
 

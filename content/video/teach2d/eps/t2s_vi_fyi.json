@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_fyi",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 61,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Just a little news!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "FYI!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Just so you know.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "FYI, the shop closes at five.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "FYI",
+  "forms": [],
+  "ipa": "/ˌef waɪ ˈaɪ/",
+  "mean": "Just so you know.",
+  "define": "Short for \"for your information\"; used to share a helpful fact.",
+  "vi": "Để bạn biết nhé",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Sending a message",
+   "text": "FYI, the shop closes at five."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "FYI means…",
+   "options": [
+    "for your information",
+    "for your idea"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't use 'FYI' to scold someone.",
+   "why": "It can sound cold and sharp."
+  },
+  "l1": "Để bạn biết nhé",
+  "l1_hook": "Báo tin nhỏ thôi!",
+  "l1_ex": "FYI, tiệm đóng cửa lúc năm giờ.",
+  "right": "FYI",
+  "native": {
+   "hook": "“FYI” nghĩa là gì?",
+   "tip": "“FYI” = Để bạn biết nhé. Ví dụ: “FYI, the shop closes at five.”",
+   "caption": "“FYI” nghĩa là gì?\n“FYI” = Để bạn biết nhé.\nVí dụ: “FYI, the shop closes at five.” (FYI, tiệm đóng cửa lúc năm giờ.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “FYI” = Để bạn biết nhé. “FYI, the shop closes at five.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Just a little news!"
+ },
+ "src": {
+  "slang": "FYI"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 17,
+  "seconds": 9.8,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“FYI” nghĩa là gì?",
+  "keyword": "FYI",
+  "value": "“FYI” = Để bạn biết nhé. Ví dụ: “FYI, the shop closes at five.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“FYI” nghĩa là gì?",
+    "description": "“FYI” = Để bạn biết nhé. Ví dụ: “FYI, the shop closes at five.”\n\n“FYI” nghĩa là gì?\n“FYI” = Để bạn biết nhé.\nVí dụ: “FYI, the shop closes at five.” (FYI, tiệm đóng cửa lúc năm giờ.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "FYI",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“FYI” nghĩa là gì?\n“FYI” = Để bạn biết nhé.\nVí dụ: “FYI, the shop closes at five.” (FYI, tiệm đóng cửa lúc năm giờ.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“FYI” nghĩa là gì?\n\n“FYI” = Để bạn biết nhé. Ví dụ: “FYI, the shop closes at five.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“FYI” nghĩa là gì? “FYI” = Để bạn biết nhé. Ví dụ: “FYI, the shop closes at five.” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “FYI” = Để bạn biết nhé. “FYI, the shop closes at five.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_th_drip",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 46,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New jacket, new shoes, new confidence!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Drip!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very stylish clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Nice jacket, you've got drip today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "drip",
+  "forms": [],
+  "ipa": "/ˈdrɪp/",
+  "mean": "Very stylish clothes.",
+  "define": "Slang for cool clothes and a stylish look.",
+  "vi": "Phong cách chất lừ",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Seeing a friend's outfit",
+   "text": "Nice jacket, you've got drip today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Drip\" means…",
+   "options": [
+    "a water drop",
+    "a cool style"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your boss 'nice drip' at work.",
+   "why": "It's too slangy for formal settings."
+  },
+  "l1": "เท่เก๋",
+  "l1_hook": "แจ็คเก็ตใหม่ รองเท้าใหม่ ความมั่นใจใหม่ \"drip\"!",
+  "l1_ex": "แจ็คเก็ตดีนะ, วันนี้เธอมี \"drip\" เลย.",
+  "right": "drip",
+  "native": {
+   "hook": "“drip” แปลว่าอะไร?",
+   "tip": "“drip” = เท่เก๋. ตัวอย่าง: “Nice jacket, you've got drip today.”",
+   "caption": "“drip” แปลว่าอะไร?\n“drip” = เท่เก๋.\nตัวอย่าง: “Nice jacket, you've got drip today.” (แจ็คเก็ตดีนะ, วันนี้เธอมี \"drip\" เลย.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “drip” = เท่เก๋. “Nice jacket, you've got drip today.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "New jacket, new shoes, new confidence!"
+ },
+ "src": {
+  "slang": "drip"
+ },
+ "lang": "th",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“drip” แปลว่าอะไร?",
+  "keyword": "drip",
+  "value": "“drip” = เท่เก๋. ตัวอย่าง: “Nice jacket, you've got drip today.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“drip” แปลว่าอะไร?",
+    "description": "“drip” = เท่เก๋. ตัวอย่าง: “Nice jacket, you've got drip today.”\n\n“drip” แปลว่าอะไร?\n“drip” = เท่เก๋.\nตัวอย่าง: “Nice jacket, you've got drip today.” (แจ็คเก็ตดีนะ, วันนี้เธอมี \"drip\" เลย.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "drip",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“drip” แปลว่าอะไร?\n“drip” = เท่เก๋.\nตัวอย่าง: “Nice jacket, you've got drip today.” (แจ็คเก็ตดีนะ, วันนี้เธอมี \"drip\" เลย.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“drip” แปลว่าอะไร?\n\n“drip” = เท่เก๋. ตัวอย่าง: “Nice jacket, you've got drip today.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“drip” แปลว่าอะไร? “drip” = เท่เก๋. ตัวอย่าง: “Nice jacket, you've got drip today.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “drip” = เท่เก๋. “Nice jacket, you've got drip today.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

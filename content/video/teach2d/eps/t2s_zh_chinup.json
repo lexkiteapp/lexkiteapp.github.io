@@ -1,0 +1,150 @@
+{
+ "id": "t2s_zh_chinup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 85,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rough day, but tomorrow's coming!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Chin up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stay brave and positive.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Chin up, tomorrow will be better.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "chin up",
+  "forms": [],
+  "ipa": "/ˈtʃɪn ˈʌp/",
+  "mean": "Stay brave and positive.",
+  "define": "Used to encourage someone who is sad.",
+  "vi": "Cố lên nào",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Cheering a friend",
+   "text": "Chin up, tomorrow will be better."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Chin up\" means…",
+   "options": [
+    "look up",
+    "stay positive"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chin up' to someone crying hard.",
+   "why": "It can sound like 'stop feeling'."
+  },
+  "l1": "振作起来",
+  "l1_hook": "艰难的一天，但\"chin up\"，明天就要来了！",
+  "l1_ex": "\"chin up\"，明天会更好。",
+  "right": "chin up",
+  "native": {
+   "hook": "“chin up”是什么意思？",
+   "tip": "“chin up” = 振作起来. 例句: “Chin up, tomorrow will be better.”",
+   "caption": "“chin up”是什么意思？\n“chin up” = 振作起来.\n例句: “Chin up, tomorrow will be better.” (\"chin up\"，明天会更好。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “chin up” = 振作起来. “Chin up, tomorrow will be better.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Rough day, but tomorrow's coming!"
+ },
+ "src": {
+  "slang": "chin up"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“chin up”是什么意思？",
+  "keyword": "chin up",
+  "value": "“chin up” = 振作起来. 例句: “Chin up, tomorrow will be better.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“chin up”是什么意思？",
+    "description": "“chin up” = 振作起来. 例句: “Chin up, tomorrow will be better.”\n\n“chin up”是什么意思？\n“chin up” = 振作起来.\n例句: “Chin up, tomorrow will be better.” (\"chin up\"，明天会更好。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "chin up",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“chin up”是什么意思？\n“chin up” = 振作起来.\n例句: “Chin up, tomorrow will be better.” (\"chin up\"，明天会更好。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“chin up”是什么意思？\n\n“chin up” = 振作起来. 例句: “Chin up, tomorrow will be better.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“chin up”是什么意思？ “chin up” = 振作起来. 例句: “Chin up, tomorrow will be better.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “chin up” = 振作起来. “Chin up, tomorrow will be better.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

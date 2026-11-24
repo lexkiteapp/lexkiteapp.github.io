@@ -1,0 +1,152 @@
+{
+ "id": "t2s_pt_flatbroke",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 109,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can I borrow ten dollars?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Flat broke!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I have no money left.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm flat broke until Friday.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "flat broke",
+  "forms": [
+   "broke"
+  ],
+  "ipa": "/ˈflæt ˈbroʊk/",
+  "mean": "I have no money left.",
+  "define": "Used when you have almost no money at all.",
+  "vi": "Cháy túi hoàn toàn",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Talking before payday",
+   "text": "I'm flat broke until Friday."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Flat broke\" means…",
+   "options": [
+    "no money",
+    "a broken phone"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'flat broke' about a broken phone.",
+   "why": "It means having no money."
+  },
+  "l1": "na pindaíba",
+  "l1_hook": "Flat broke: posso pegar dez dólares emprestado?",
+  "l1_ex": "Estou flat broke até sexta-feira.",
+  "right": "flat broke",
+  "native": {
+   "hook": "O que significa “flat broke”?",
+   "tip": "“flat broke” = na pindaíba. Exemplo: “I'm flat broke until Friday.”",
+   "caption": "O que significa “flat broke”?\n“flat broke” = na pindaíba.\nExemplo: “I'm flat broke until Friday.” (Estou flat broke até sexta-feira.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “flat broke” = na pindaíba. “I'm flat broke until Friday.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can I borrow ten dollars?"
+ },
+ "src": {
+  "slang": "flat broke"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "O que significa “flat broke”?",
+  "keyword": "flat broke",
+  "value": "“flat broke” = na pindaíba. Exemplo: “I'm flat broke until Friday.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “flat broke”?",
+    "description": "“flat broke” = na pindaíba. Exemplo: “I'm flat broke until Friday.”\n\nO que significa “flat broke”?\n“flat broke” = na pindaíba.\nExemplo: “I'm flat broke until Friday.” (Estou flat broke até sexta-feira.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "flat broke",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “flat broke”?\n“flat broke” = na pindaíba.\nExemplo: “I'm flat broke until Friday.” (Estou flat broke até sexta-feira.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “flat broke”?\n\n“flat broke” = na pindaíba. Exemplo: “I'm flat broke until Friday.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “flat broke”? “flat broke” = na pindaíba. Exemplo: “I'm flat broke until Friday.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “flat broke” = na pindaíba. “I'm flat broke until Friday.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_es_digin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 86,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dinner's ready. Who's hungry?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dig in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start eating now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dinner is ready, so dig in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "dig in",
+  "forms": [],
+  "ipa": "/ˈdɪɡ ˈɪn/",
+  "mean": "Start eating now.",
+  "define": "Used to invite people to begin eating.",
+  "vi": "Ăn đi nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "Serving dinner",
+   "text": "Dinner is ready, so dig in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dig in\" means…",
+   "options": [
+    "dig a hole",
+    "start eating"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell guests to 'dig in' before the host.",
+   "why": "Formal dinners wait for the host."
+  },
+  "l1": "¡a comer!",
+  "l1_hook": "La cena está lista. ¿Quién tiene hambre? \"dig in\"",
+  "l1_ex": "La cena está lista, ¡así que \"dig in\"!",
+  "right": "dig in",
+  "native": {
+   "hook": "¿Qué significa “dig in”?",
+   "tip": "“dig in” = ¡a comer!. Ejemplo: “Dinner is ready, so dig in!”",
+   "caption": "¿Qué significa “dig in”?\n“dig in” = ¡a comer!.\nEjemplo: “Dinner is ready, so dig in!” (La cena está lista, ¡así que \"dig in\"!)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “dig in” = ¡a comer!. “Dinner is ready, so dig in!” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dinner's ready. Who's hungry?"
+ },
+ "src": {
+  "slang": "dig in"
+ },
+ "lang": "es",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "¿Qué significa “dig in”?",
+  "keyword": "dig in",
+  "value": "“dig in” = ¡a comer!. Ejemplo: “Dinner is ready, so dig in!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “dig in”?",
+    "description": "“dig in” = ¡a comer!. Ejemplo: “Dinner is ready, so dig in!”\n\n¿Qué significa “dig in”?\n“dig in” = ¡a comer!.\nEjemplo: “Dinner is ready, so dig in!” (La cena está lista, ¡así que \"dig in\"!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "dig in",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “dig in”?\n“dig in” = ¡a comer!.\nEjemplo: “Dinner is ready, so dig in!” (La cena está lista, ¡así que \"dig in\"!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “dig in”?\n\n“dig in” = ¡a comer!. Ejemplo: “Dinner is ready, so dig in!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “dig in”? “dig in” = ¡a comer!. Ejemplo: “Dinner is ready, so dig in!” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “dig in” = ¡a comer!. “Dinner is ready, so dig in!” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

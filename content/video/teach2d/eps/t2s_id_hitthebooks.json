@@ -1,0 +1,152 @@
+{
+ "id": "t2s_id_hitthebooks",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 95,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Finals next week. Panic time!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Hit the books!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start studying seriously.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I have to hit the books tonight.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "hit the books",
+  "forms": [
+   "hitting the books"
+  ],
+  "ipa": "/ˈhɪt ðə ˈbʊks/",
+  "mean": "Start studying seriously.",
+  "define": "To begin studying hard.",
+  "vi": "Bắt đầu học bài",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Talking before a test",
+   "text": "I have to hit the books tonight."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Hit the books\" means…",
+   "options": [
+    "throw a book",
+    "study hard"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your friend to 'hit the books' at a party.",
+   "why": "It means study seriously."
+  },
+  "l1": "mulai belajar giat",
+  "l1_hook": "Ujian akhir minggu depan. Saatnya panik!",
+  "l1_ex": "Saya harus \"hit the books\" malam ini.",
+  "right": "hit the books",
+  "native": {
+   "hook": "Apa arti “hit the books”?",
+   "tip": "“hit the books” = mulai belajar giat. Contoh: “I have to hit the books tonight.”",
+   "caption": "Apa arti “hit the books”?\n“hit the books” = mulai belajar giat.\nContoh: “I have to hit the books tonight.” (Saya harus \"hit the books\" malam ini.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “hit the books” = mulai belajar giat. “I have to hit the books tonight.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Finals next week. Panic time!"
+ },
+ "src": {
+  "slang": "hit the books"
+ },
+ "lang": "id",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Apa arti “hit the books”?",
+  "keyword": "hit the books",
+  "value": "“hit the books” = mulai belajar giat. Contoh: “I have to hit the books tonight.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “hit the books”?",
+    "description": "“hit the books” = mulai belajar giat. Contoh: “I have to hit the books tonight.”\n\nApa arti “hit the books”?\n“hit the books” = mulai belajar giat.\nContoh: “I have to hit the books tonight.” (Saya harus \"hit the books\" malam ini.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "hit the books",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “hit the books”?\n“hit the books” = mulai belajar giat.\nContoh: “I have to hit the books tonight.” (Saya harus \"hit the books\" malam ini.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “hit the books”?\n\n“hit the books” = mulai belajar giat. Contoh: “I have to hit the books tonight.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “hit the books”? “hit the books” = mulai belajar giat. Contoh: “I have to hit the books tonig… #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “hit the books” = mulai belajar giat. “I have to hit the books tonight.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

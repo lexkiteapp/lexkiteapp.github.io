@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ru_clutch",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 69,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last second goal wins it!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Clutch!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Great at the key moment.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That last-minute goal was so clutch.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "clutch",
+  "forms": [],
+  "ipa": "/ˈklʌtʃ/",
+  "mean": "Great at the key moment.",
+  "define": "Used when someone does well at an important time.",
+  "vi": "Cứu nguy đúng lúc",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Watching a game",
+   "text": "That last-minute goal was so clutch."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Clutch\" describes…",
+   "options": [
+    "a bag",
+    "a perfect key moment"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'clutch' about a small purse.",
+   "why": "Here it means great under pressure."
+  },
+  "l1": "на высоте",
+  "l1_hook": "Гол в последнюю секунду решает всё! («clutch»)",
+  "l1_ex": "Тот гол в последнюю минуту был таким «clutch».",
+  "right": "clutch",
+  "native": {
+   "hook": "Что значит «clutch»?",
+   "tip": "“clutch” = на высоте. Пример: “That last-minute goal was so clutch.”",
+   "caption": "Что значит «clutch»?\n“clutch” = на высоте.\nПример: “That last-minute goal was so clutch.” (Тот гол в последнюю минуту был таким «clutch».)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “clutch” = на высоте. “That last-minute goal was so clutch.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Last second goal wins it!"
+ },
+ "src": {
+  "slang": "clutch"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Что значит «clutch»?",
+  "keyword": "clutch",
+  "value": "“clutch” = на высоте. Пример: “That last-minute goal was so clutch.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «clutch»?",
+    "description": "“clutch” = на высоте. Пример: “That last-minute goal was so clutch.”\n\nЧто значит «clutch»?\n“clutch” = на высоте.\nПример: “That last-minute goal was so clutch.” (Тот гол в последнюю минуту был таким «clutch».)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "clutch",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «clutch»?\n“clutch” = на высоте.\nПример: “That last-minute goal was so clutch.” (Тот гол в последнюю минуту был таким «clutch».)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «clutch»?\n\n“clutch” = на высоте. Пример: “That last-minute goal was so clutch.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «clutch»? “clutch” = на высоте. Пример: “That last-minute goal was so clutch.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “clutch” = на высоте. “That last-minute goal was so clutch.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}
