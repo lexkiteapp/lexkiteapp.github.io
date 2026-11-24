@@ -2,7 +2,7 @@
 // Dùng: node scripts/push-copy.mjs [--check]   (npm test chạy --check: copy.json phải khớp bản dịch)
 import fs from 'node:fs';
 import vm from 'node:vm';
-const KEYS = { back: ['Đến giờ học với Kit rồi!', 'Mở Lexkite để ôn vài từ nhé.'], miss: ['Kit sẽ tạm ngừng nhắc bạn 🐦', 'Để không làm phiền bạn. Quay lại lúc nào cũng được – mọi thứ bạn đã học vẫn ở đây.'], week: ['Tiến bộ tuần', 'Xem tiến bộ của bạn trong tuần.'],
+const KEYS = { back3: ['Kit nhớ bạn rồi 🐦', 'Quay lại nhẹ nhàng nhé – chỉ vài từ thôi.'], back7: ['Vẫn còn nguyên những gì bạn đã học', 'Ôn vài thẻ, 2 phút thôi – Kit ở đây cùng bạn.'], back: ['Đến giờ học với Kit rồi!', 'Mở Lexkite để ôn vài từ nhé.'], miss: ['Kit sẽ tạm ngừng nhắc bạn 🐦', 'Để không làm phiền bạn. Quay lại lúc nào cũng được – mọi thứ bạn đã học vẫn ở đây.'], week: ['Tiến bộ tuần', 'Xem tiến bộ của bạn trong tuần.'],
   fixed: ['Lỗi {id} đã được sửa', 'Cảm ơn bạn đã báo – chạm để xem chi tiết.'] }; // fixed: nhóm i18n "report" (Báo lỗi – docs/REPORTS.md § Báo đẩy)
 const GROUP = { fixed: 'report' }; // còn lại: nhóm "remind"
 const LANGS = ['en', ...fs.readFileSync('scripts/i18n-langs.txt', 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'))];

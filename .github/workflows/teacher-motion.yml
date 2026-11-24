@@ -5,9 +5,11 @@ name: teacher-motion
 on:
   push:
     branches: [main]
-    paths: ['web/js/teacher-slot.js', 'web/js/teacher-live.js', 'web/js/characters.js', 'scripts/test/teacher-motion-webkit.mjs']
+    paths: ['web/js/teacher-slot.js', 'web/js/teacher-live.js', 'web/js/characters.js', 'scripts/test/teacher-motion-webkit.mjs', 'web/teach/**', 'scripts/teach/motion_smear.py', 'scripts/teach/refine_clips.py', 'scripts/test/motion-smear-selftest.py']   # clip/đo đổi thì cổng PHẢI chạy trên main (23/11: #1375 đổi clip, cổng không chạy lại, đỏ 3 ngày không ai thấy)
+  schedule:
+    - cron: '17 21 * * *'   # hằng ngày: clip đỏ lọt vào main bằng đường nào cũng lộ trong ≤ 24 h
   pull_request:
-    paths: ['web/js/teacher-slot.js', 'web/js/teacher-live.js', 'web/js/characters.js', 'scripts/teach/motion_smear.py', 'web/teach/**', 'scripts/test/teacher-motion-webkit.mjs', '.github/workflows/teacher-motion.yml']
+    paths: ['web/js/teacher-slot.js', 'web/js/teacher-live.js', 'web/js/characters.js', 'scripts/teach/motion_smear.py', 'scripts/teach/refine_clips.py', 'scripts/test/motion-smear-selftest.py', 'web/teach/**', 'scripts/test/teacher-motion-webkit.mjs', '.github/workflows/teacher-motion.yml']
   workflow_dispatch:
     inputs:
       before: { description: 'ref để chụp ảnh trước (vd. main), trống = bỏ qua', required: false, default: '' }
@@ -57,6 +59,8 @@ jobs:
       - name: Số đo trước (không chặn)
         if: github.event_name == 'pull_request'
         run: python3 scripts/teach/motion_smear.py before-src/web/teach --report
+      - name: Hồi quy cổng đo (tổng hợp)
+        run: python3 scripts/test/motion-smear-selftest.py
       - name: Chạy cổng
         run: python3 scripts/teach/motion_smear.py web/teach
   webkit:

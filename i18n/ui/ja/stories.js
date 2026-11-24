@@ -13,7 +13,7 @@
 "Nghe lại câu này":"この文をもう一度聞く",
 "Podcast":"ポッドキャスト",
 "Thư viện truyện":"ストーリーライブラリ",
-"Truyện đọc":"ストーリー",
+"Truyện đọc":"読み物",
 "Trình phát":"プレーヤー",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.":"すばらしい！この章をすべて理解できました。",
 "Xem kết quả":"結果を見る",

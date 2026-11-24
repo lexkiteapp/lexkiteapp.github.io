@@ -13,7 +13,7 @@
 "Nghe lại câu này":"重播这句话",
 "Podcast":"播客",
 "Thư viện truyện":"故事库",
-"Truyện đọc":"故事",
+"Truyện đọc":"阅读故事",
 "Trình phát":"播放器",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.":"太棒了！你读懂了整章内容。",
 "Xem kết quả":"查看结果",

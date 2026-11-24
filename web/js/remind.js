@@ -7,7 +7,7 @@
  * – Hỏi quyền mềm SAU bài học đầu tiên (không bao giờ lúc mở app), hỏi tối đa 1 lần; tắt/đổi trong Cài đặt. */
 (function (g) {
   'use strict';
-  const DAY = 864e5, SEQ = [0, 1, 2, 3, 5, 7, 10, 14], FINAL = 14, NOREP = 7;
+  const DAY = 864e5, SEQ = [0, 1, 2, 3, 5, 7, 14], FINAL = 14, NOREP = 7;
   const TYPES = ['due', 'word', 'streak', 'conf', 'week', 'goal', 'path'], EVE = 17 * 60, BACKOFF = 3;
   // Giọng: ấm, khích lệ, không dọa mất chuỗi/trách móc (docs/specs/notifications.md; scripts/test/notify-tone.mjs chặn từ dọa)
   // Mẫu câu theo loại (khóa tiếng Việt → I18N; biến {n} số thẻ, {w} từ, {c} câu ngữ cảnh, {s} chuỗi ngày, {d} số ngày học trong tuần)
@@ -18,9 +18,12 @@
     conf: [['cf1', 'Thử một bài tự tin 3 phút?', 'Luyện nói câu thật, không áp lực.'], ['cf2', 'Nói tiếng Anh tự tin hơn mỗi ngày', 'Một bài ngắn hôm nay – bạn làm được!']],
     week: [['wk1', 'Tuần này: {n} lượt ôn 🎉', 'Xem tiến bộ của bạn trong tuần.'], ['wk2', 'Bạn đã học {d}/7 ngày tuần này', 'Mở để xem bảng tiến bộ tuần.']],
     goal: [['gl1', 'Đã xong {n}/{g} thẻ hôm nay', 'Còn {r} thẻ nữa là đạt mục tiêu – bạn sắp tới rồi!'], ['gl2', 'Sắp đạt mục tiêu hôm nay rồi', 'Thêm {r} thẻ là xong mục tiêu {g} thẻ. Nhẹ nhàng thôi!']],
-    // Người mới (chưa có thẻ đến hạn / từ kèm câu): bài đang học dở trên lộ trình ({u} tên bài) và mục tiêu ngày ({g} thẻ) thay cho câu chung chung gen1
+    // Người mới: bài đang học dở trên lộ trình ({u} tên bài) + mục tiêu ngày ({g} thẻ) thay cho câu chung gen1
     path: [['ls1', 'Bài “{u}” đang chờ bạn', 'Bạn đang học dở – thêm 5 phút cho bước tiếp theo.'], ['ls2', 'Học tiếp “{u}” nhé?', 'Bước tiếp theo đã sẵn sàng. 5 phút là đủ.']],
     gstart: [['gs1', 'Mục tiêu hôm nay: {g} thẻ', 'Bắt đầu nhẹ nhàng – 5 phút là đủ.'], ['gs2', '{g} thẻ hôm nay – bạn làm được!', 'Học một chút mỗi ngày là nhớ lâu.']],
+    // Mốc quay lại sau 3 / 7 ngày vắng (ấm, có lý do cụ thể, không dọa mất chuỗi) – ngày 14 là lời cuối 'miss'
+    bk3: [['bk3a', 'Kit nhớ bạn rồi 🐦', '{n} từ đang chờ ôn – 3 phút là đủ.'], ['bk3b', 'Kit nhớ bạn rồi 🐦', 'Quay lại nhẹ nhàng nhé – chỉ vài từ thôi.']],
+    bk7: [['bk7a', 'Vẫn còn nguyên những gì bạn đã học', 'Ôn vài thẻ, 2 phút thôi – Kit ở đây cùng bạn.']],
     miss: [['ms1', 'Kit sẽ tạm ngừng nhắc bạn 🐦', 'Để không làm phiền bạn. Quay lại lúc nào cũng được – mọi thứ bạn đã học vẫn ở đây.']],
     gen: [['gen1', 'Đến giờ học với Kit rồi!', 'Mở Lexkite để ôn vài từ nhé.']],
   };
@@ -97,6 +100,7 @@
       if (lastKept != null && dayN(day) - lastKept < 2) continue; // giãn cách sau nhiều lần bỏ qua
       let type;
       if (d === FINAL) type = 'miss';
+      else if ((d === 3 || d === 7) && types.length) type = d === 3 ? 'bk3' : 'bk7'; // mốc quay lại: 1 tin ấm/mốc (bk3 chỉ nhắc số từ khi thật sự có thẻ đến hạn)
       else if (d === 0 && partial) type = 'goal';
       else {
         const cand = [];
@@ -109,14 +113,14 @@
         if (!type) continue;                       // người dùng tắt hết loại
       }
       // Mẫu: chưa dùng trong 7 ngày (theo lịch sử + kế hoạch này); hết thì lấy mẫu dùng lâu nhất
-      const lim = keyOf(new Date(addDays(at, -NOREP))), list = TPL[type];
+      const lim = keyOf(new Date(addDays(at, -NOREP))), list = type === 'bk3' && !dueBy(base + DAY - 1) ? TPL.bk3.slice(1) : TPL[type];
       const pick = list.find(([id]) => !used.has(id) || used.get(id) <= lim) || list.slice().sort((a, b) => { const x = used.get(a[0]) || '', y = used.get(b[0]) || ''; return x < y ? -1 : x > y ? 1 : 0; })[0]; // khóa ngày YYYY-MM-DD (ASCII) → so chuỗi thường cho cùng thứ tự localeCompare mà không khởi tạo ICU Collator (~50 ms CPU mobile)
       used.set(pick[0], day);
       const v = { n: 0, s: st, d: 0, w: '', c: '', g: goal, r: Math.max(0, goal - done), u: '' };
-      let url = ROUTE[type];
+      let url = ROUTE[type] || '#/review'; // bk3/bk7: về ôn tập
       if (type === 'path') { v.u = String(x.next.u).slice(0, 40); url = x.next.url; }
       if (type === 'gstart' && x.next && /^#\/[\w/?=&%~.-]*$/.test(x.next.url || '')) url = x.next.url;
-      if (type === 'due') v.n = dueBy(base + DAY - 1);
+      if (type === 'due' || type === 'bk3') v.n = dueBy(base + DAY - 1);
       if (type === 'goal') v.n = done;
       if (type === 'word') {
         const c = ctxCards[(d + out.length) % ctxCards.length], cx = String(c.ctx || c.contexts[0].text).replace(/\s+/g, ' ').trim();
@@ -152,12 +156,12 @@
   const NATIVE = !!(g.VBNative && g.VBNative.is), EXT = !!Store.isExtension;
   const BASE = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
   const OFF = /[?&](sandbox|demo)=/.test(location.search) || navigator.webdriver;
-  // journey-e2e (scripts/test/journey-e2e.mjs): chỉ khi đang kiểm thử tự động/sandbox VÀ cờ lk.e2e → cho hiện hộp hỏi mềm để kiểm (số liệu/push vẫn TẮT)
+  // journey-e2e: chỉ khi kiểm thử tự động/sandbox VÀ cờ lk.e2e → hiện hộp hỏi mềm để kiểm (số liệu/push vẫn TẮT)
   const raw = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
   const ASKOFF = OFF && !(raw('lk.e2e') === '1' && (navigator.webdriver || Store.sandbox));
   const tr = (k, v) => (typeof g.t === 'function' ? g.t(k, v) : k);
   const esc = x => String(x == null ? '' : x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  // Số liệu: shown/open theo mẫu (CTR), ask_yes/ask_no, optin/optout – gộp, gửi bằng beacon text/plain (không preflight), không gửi nội dung học
+  // Số liệu: shown/open theo mẫu, ask_*, optin/optout – gộp, beacon text/plain, không gửi nội dung học
   const evq = new Map(); let evT = 0;
   const ev = (e, tpl = '', n = 1) => { if (OFF) return; const k = e + '|' + tpl; evq.set(k, (evq.get(k) || 0) + n); clearTimeout(evT); evT = setTimeout(flush, 1500); };
   function flush() {
@@ -212,7 +216,7 @@
     if (state.settings.reminderOn === false) return fcmOff(); // MỘT công tắc: tắt nhắc → hủy cả FCM máy chủ (trước 05/11 FCM vẫn gửi)
     const perm = await LN.checkPermissions(); permNote(perm.display);
     if (perm.display !== 'granted') {
-      // Chỉ xin quyền khi người dùng CHỦ ĐỘNG (hỏi mềm / bật trong Cài đặt) và hệ điều hành còn cho hỏi; đã từ chối → không hỏi lại, không đếm lại
+      // Chỉ xin quyền khi người dùng CHỦ ĐỘNG (hỏi mềm / bật trong Cài đặt) và hệ điều hành còn cho hỏi; đã từ chối → không hỏi lại
       if (!opts.ask || !/^prompt/.test(perm.display || '')) return fcmOff(); // hệ điều hành chặn → máy chủ cũng thôi gửi
       permNote('default'); const r = await LN.requestPermissions(); permNote(r.display); if (r.display !== 'granted') return fcmOff(); ev('optin', 'native');
     }
@@ -296,7 +300,7 @@
   // ---------- Email nhắc học / tổng kết tuần (opt-in): logic ở cpack/mail-app/mail.js, nạp khi có bật hoặc người dùng bật công tắc ----------
   const mailSync = async force => { const s = state.settings; if (!force && s.emailRemind !== true && s.emailDigest !== true) return false; try { await App.need('mail'); return await g.MailSync({ state, ls, BASE, OFF, EXT, where, todayKey }, force); } catch (e) { return false; } };
   // ---------- App gốc: FCM (cờ FCM_ON) – chỉ kéo lại sau ≥ 3 ngày không mở app + tiến bộ tuần; nhắc hằng ngày vẫn là lịch cục bộ ----------
-  // Chỉ dùng FCM khi CẢ BA: bản app có plugin (fcmCapable), máy chủ báo Worker gửi được (cfg.fcm), lấy được token trong 8 giây. Thiếu 1 → lịch cục bộ đủ 14 ngày.
+  // FCM chỉ khi: có plugin (fcmCapable) + Worker gửi được (cfg.fcm) + lấy token ≤ 8 giây; thiếu 1 → lịch cục bộ đủ chu kỳ.
   const FM = () => (NATIVE && fcmCapable(g.Capacitor) && g.Capacitor.Plugins.FirebaseMessaging) || null;
   /** Hủy đăng ký FCM ở máy chủ (tắt nhắc / OS chặn / máy chủ thôi FCM / mất token) – lỗi mạng → giữ để thử lại lần mở app sau. */
   async function fcmOff() {
@@ -317,8 +321,7 @@
   }
 
   // ---------- Hỏi quyền mềm: sau bài học hoàn thành, không bao giờ lúc mở app ----------
-  // Tối đa 2 lần trong đời: lần 1 sau bài đầu tiên; chỉ khi bấm "Để sau" mới hỏi lại ĐÚNG 1 lần, sau ≥ 7 ngày VÀ ≥ 3 ngày học mới (người dùng đã gắn bó).
-  // Nêu rõ giá trị bằng chính lời nhắc đầu tiên sẽ nhận (xem trước), "Để sau" ngang hàng "Có", đóng/Esc = để sau. Số đo: ask_show/ask_yes/ask_no theo lần hỏi (a1/a2).
+  // Hỏi mềm: luật + số đo ở docs/REMINDERS.md §3.
   const askRec = () => { const v = ls.get('lk.reask', 0); return v && typeof v === 'object' ? v : v ? { n: 1, at: +v, no: 1 } : { n: 0 }; }; // bản cũ: số mốc thời gian = đã hỏi 1 lần
   const canAsk = async () => {
     if (ASKOFF || EXT || state.settings.reminderOn === false || !askDue(askRec(), state.stats.days, Date.now())) return false;
@@ -356,8 +359,7 @@
     const mo = new MutationObserver(() => { if (document.getElementById('modal').hidden) { mo.disconnect(); if (!ans) ev('ask_no', tag); } });
     mo.observe(document.getElementById('modal'), { attributes: true, attributeFilter: ['hidden'] });
   }
-  // Phễu lần đầu (hit.js ONB_EV, docs/specs/retention-1211.md §22/11): lk.fw = ngày xong bài ĐẦU TIÊN (chỉ trên máy); máy đã học từ trước bản này → 'old', không tính.
-  // Mở lại đúng ngày +1 / +7 sau bài đầu → fw_d1 / fw_d7 (mỗi mốc 1 lần) – D1 của người ĐÃ có khoảnh khắc thành công, so trước/sau theo ngày phát hành.
+  // Phễu lần đầu (hit.js ONB_EV): lk.fw = ngày xong bài đầu (máy cũ → 'old'); mở lại đúng +1/+7 → fw_d1/fw_d7 (1 lần/mốc).
   const hab = e => { if (!OFF && App.habTrack) App.habTrack(e); };
   const dayN = k => midnight(new Date(k + 'T12:00:00').getTime());
   const firstWin = () => {
