@@ -69,7 +69,7 @@
       App.bindCommon(); UI.fillIpa($r('#mList'));
       const settle = async (card, key, ok) => {
         await App.mistakeSettle(key, ok);
-        if (ok) { App.reward({ xp: 3 }, card); Sfx.correct(); card.style.opacity = '.5'; setTimeout(() => card.remove(), 600); } else Sfx.wrong();
+        if (ok) { App.reward({ xp: Game.xpFor('answer', { mode: 'type' }) }, card); Sfx.correct(); card.style.opacity = '.5'; setTimeout(() => card.remove(), 600); } else Sfx.wrong();
       };
       $$('#mList [data-mk]', root).forEach(card => {
         const key = card.dataset.mk, it = open.find(x => x.key === key), box = card.querySelector('[data-rt]');
@@ -85,7 +85,7 @@
           if (noB) noB.onclick = () => { settle(card, key, false); hide(self); };
         }
         const fx = card.querySelector('[data-fix]');
-        fx.onclick = async () => { await App.mistakeSettle(key, true); App.reward({ xp: 2 }, fx); card.remove(); };
+        fx.onclick = async () => { await App.mistakeSettle(key, true); App.reward({ xp: Game.xpFor('step') }, fx); card.remove(); };
       });
     };
     draw();
