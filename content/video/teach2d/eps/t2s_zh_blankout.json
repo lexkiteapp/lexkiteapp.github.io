@@ -1,0 +1,148 @@
+{
+ "id": "t2s_zh_blankout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 38,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stage lights on. My mind's empty!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Blank out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly forget everything.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I blanked out in the middle of my speech.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "blank out",
+  "forms": [
+   "blanked out"
+  ],
+  "ipa": "/ˈblæŋk ˈaʊt/",
+  "mean": "Suddenly forget everything.",
+  "define": "To suddenly forget what you wanted to say or know.",
+  "vi": "Đầu óc trống rỗng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Talking after a speech",
+   "text": "I blanked out in the middle of my speech."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"blank out\" is to…",
+   "options": [
+    "clean a board",
+    "suddenly forget"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'blank out' about a paper.",
+   "why": "It means suddenly forgetting."
+  },
+  "l1": "脑子空白",
+  "l1_hook": "舞台灯光亮起，我的脑子空白了！blank out",
+  "l1_ex": "我在演讲中途脑子空白了。blank out",
+  "right": "blank out",
+  "native": {
+   "hook": "“blank out”是什么意思？",
+   "tip": "“blank out” = 脑子空白. 例句: “I blanked out in the middle of my speech.”",
+   "caption": "“blank out”是什么意思？\n“blank out” = 脑子空白.\n例句: “I blanked out in the middle of my speech.” (我在演讲中途脑子空白了。blank out)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “blank out” = 脑子空白. “I blanked out in the middle of my speech.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stage lights on. My mind's empty!"
+ },
+ "src": {
+  "slang": "blank out"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“blank out”是什么意思？",
+  "keyword": "blank out",
+  "value": "“blank out” = 脑子空白. 例句: “I blanked out in the middle of my speech.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“blank out”是什么意思？",
+    "description": "“blank out” = 脑子空白. 例句: “I blanked out in the middle of my speech.”\n\n“blank out”是什么意思？\n“blank out” = 脑子空白.\n例句: “I blanked out in the middle of my speech.” (我在演讲中途脑子空白了。blank out)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "blank out",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“blank out”是什么意思？\n“blank out” = 脑子空白.\n例句: “I blanked out in the middle of my speech.” (我在演讲中途脑子空白了。blank out)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“blank out”是什么意思？\n\n“blank out” = 脑子空白. 例句: “I blanked out in the middle of my speech.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“blank out”是什么意思？ “blank out” = 脑子空白. 例句: “I blanked out in the middle of my speech.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “blank out” = 脑子空白. “I blanked out in the middle of my speech.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

@@ -1,0 +1,36 @@
+# ci-policy: fast-lane – khung chạy đúng khổ 390/768: phần tử fixed không lệch khung, nội dung cuối không bị thanh dưới che (scripts/test/chrome-fit.mjs). Chạy khi đổi CSS/khung/script.
+name: Chrome fit
+on:
+  workflow_dispatch:
+    inputs:
+      write: { description: 'Ghi lại baseline (1 = có)', required: false, default: '' }
+  pull_request:
+    paths: ['scripts/test/chrome-fit.mjs', 'scripts/test/chrome-fit-baseline.json', '.github/workflows/chrome-fit.yml', 'web/css/style.css', 'web/css/st-*.css', 'web/js/st/**', 'web/js/ux1*.js', 'web/js/say.js', 'docs/ui-inventory.json']
+permissions:
+  contents: read
+concurrency:
+  group: chrome-fit-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  fit:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
+      - name: Kiểm
+        shell: bash
+        env: { W: "${{ github.event.inputs.write }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/chrome-fit.mjs http://localhost:8080 ${W:+--write-baseline} | tee "$GITHUB_STEP_SUMMARY"
+          [ -z "$W" ] || cat scripts/test/chrome-fit-baseline.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: chrome-fit, path: chrome-fit-out.json, retention-days: 5 }

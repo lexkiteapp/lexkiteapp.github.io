@@ -1,0 +1,146 @@
+{
+ "id": "t2s_hi_bougie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 53,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She only drinks fancy tea!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bougie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fancy, and a bit too proud.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coffee shop is so bougie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "bougie",
+  "forms": [],
+  "ipa": "/ˈbuːʒi/",
+  "mean": "Fancy, and a bit too proud.",
+  "define": "Liking expensive or fancy things, sometimes in a showy way.",
+  "vi": "Sang chảnh, làm màu",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "money",
+  "example": {
+   "ctx": "Visiting a new café",
+   "text": "This coffee shop is so bougie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bougie\" means…",
+   "options": [
+    "very cheap",
+    "fancy and showy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your host 'bougie' at dinner.",
+   "why": "It can sound snobbish and rude."
+  },
+  "l1": "दिखावटी",
+  "l1_hook": "वह केवल महँचा चाय पीती है!",
+  "l1_ex": "यह कॉफ़ी शॉप बहुत bougie है।",
+  "right": "bougie",
+  "native": {
+   "hook": "“bougie” का मतलब क्या है?",
+   "tip": "“bougie” = दिखावटी. उदाहरण: “This coffee shop is so bougie.”",
+   "caption": "“bougie” का मतलब क्या है?\n“bougie” = दिखावटी.\nउदाहरण: “This coffee shop is so bougie.” (यह कॉफ़ी शॉप बहुत bougie है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “bougie” = दिखावटी. “This coffee shop is so bougie.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She only drinks fancy tea!"
+ },
+ "src": {
+  "slang": "bougie"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“bougie” का मतलब क्या है?",
+  "keyword": "bougie",
+  "value": "“bougie” = दिखावटी. उदाहरण: “This coffee shop is so bougie.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“bougie” का मतलब क्या है?",
+    "description": "“bougie” = दिखावटी. उदाहरण: “This coffee shop is so bougie.”\n\n“bougie” का मतलब क्या है?\n“bougie” = दिखावटी.\nउदाहरण: “This coffee shop is so bougie.” (यह कॉफ़ी शॉप बहुत bougie है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "bougie",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“bougie” का मतलब क्या है?\n“bougie” = दिखावटी.\nउदाहरण: “This coffee shop is so bougie.” (यह कॉफ़ी शॉप बहुत bougie है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bougie” का मतलब क्या है?\n\n“bougie” = दिखावटी. उदाहरण: “This coffee shop is so bougie.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bougie” का मतलब क्या है? “bougie” = दिखावटी. उदाहरण: “This coffee shop is so bougie.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “bougie” = दिखावटी. “This coffee shop is so bougie.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

@@ -1,0 +1,52 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# Trình duyệt thật cho Truyện & podcast (docs/STORIES.md §5) (scripts/test/stories-e2e.mjs).
+name: Stories e2e
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['web/cpack/stories/**', 'web/js/stories/**', 'web/css/stories.css', 'content/stories/**', 'web/js/i18n/*/stories.js', 'scripts/test/stories-e2e.mjs', '.github/workflows/stories-e2e.yml']
+  push:
+    branches: [main]
+    paths: ['web/cpack/stories/**', 'web/js/stories/**', 'web/css/stories.css', 'content/stories/**', 'web/js/i18n/*/stories.js', 'scripts/test/stories-e2e.mjs', '.github/workflows/stories-e2e.yml']
+permissions:
+  contents: read
+concurrency:
+  group: stories-e2e-${{ github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'push' }}
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
+  e2e:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
+      - name: Chạy
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/stories-e2e.mjs web out/stories-e2e

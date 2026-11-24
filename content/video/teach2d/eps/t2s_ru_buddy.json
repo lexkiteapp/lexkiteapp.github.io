@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ru_buddy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 68,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who studies with you every night?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Buddy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A close friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's my study buddy.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "buddy",
+  "forms": [
+   "buddies"
+  ],
+  "ipa": "/ˈbʌdi/",
+  "mean": "A close friend.",
+  "define": "A friendly word for a friend.",
+  "vi": "Bạn thân, anh bạn",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Introducing a friend",
+   "text": "He's my study buddy."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"buddy\" is…",
+   "options": [
+    "a bud",
+    "a friend"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'buddy' to an angry stranger.",
+   "why": "It sounds sarcastic, not friendly."
+  },
+  "l1": "приятель",
+  "l1_hook": "Кто твой «buddy», который учится с тобой каждую ночь?",
+  "l1_ex": "Он мой учебный «buddy».",
+  "right": "buddy",
+  "native": {
+   "hook": "Что значит «buddy»?",
+   "tip": "“buddy” = приятель. Пример: “He's my study buddy.”",
+   "caption": "Что значит «buddy»?\n“buddy” = приятель.\nПример: “He's my study buddy.” (Он мой учебный «buddy».)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “buddy” = приятель. “He's my study buddy.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who studies with you every night?"
+ },
+ "src": {
+  "slang": "buddy"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "Что значит «buddy»?",
+  "keyword": "buddy",
+  "value": "“buddy” = приятель. Пример: “He's my study buddy.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «buddy»?",
+    "description": "“buddy” = приятель. Пример: “He's my study buddy.”\n\nЧто значит «buddy»?\n“buddy” = приятель.\nПример: “He's my study buddy.” (Он мой учебный «buddy».)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "buddy",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «buddy»?\n“buddy” = приятель.\nПример: “He's my study buddy.” (Он мой учебный «buddy».)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «buddy»?\n\n“buddy” = приятель. Пример: “He's my study buddy.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «buddy»? “buddy” = приятель. Пример: “He's my study buddy.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “buddy” = приятель. “He's my study buddy.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

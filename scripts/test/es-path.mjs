@@ -40,11 +40,20 @@ require('./lazyfix.js')(w, fs, path, WEB, errors);
 const tick = (ms = 20) => new Promise(r => setTimeout(r, ms)); for (let k = 0; k < 100 && !w.document.querySelector('#modeGrid'); k++) await tick(100); // chờ route khởi động (#/practice) vẽ xong, tránh nó vẽ đè lên màn đang thử
 ok(!errors.length, 'nạp mã + bundle esday không lỗi' + (errors.length ? ': ' + errors.join(' | ') : ''));
 const { App, UI } = w, $ = x => w.document.querySelector(x), $$ = x => [...w.document.querySelectorAll(x)];
-App.loadScript = async src => { w.eval(fs.readFileSync(path.join(WEB, src), 'utf8')); };
+App.loadScript = async src => { w.eval(fs.readFileSync(path.join(WEB, src), 'utf8')); }; App.loadCss = async () => {};
 UI.tts = () => {}; w.localStorage.clear(); w.sessionStorage.clear();
 await App.esday(); await tick(60);
 ok(fetched.some(u => /packs\/es\/wd\.json\?v=/.test(u)) && fetched.some(u => /wd-en\.json/.test(u)) && !Object.keys(P.files).some(f => /^wd/.test(f)), 'từ lộ trình tải từ packs/es/*.json kèm ?v=băm (ngoài web/cpack)');
-ok($$('a.chip[href*="esd?d="]').length === P.days.length && $('a.btn.primary[href="#/practice/esd?d=1"]'), 'hub: mọi ngày có ô, nút Bắt đầu ngày 1');
+// Hub mới (owner 23/11: bỏ lưới 125 ô): hero vòng tiến độ + thẻ Hôm nay + tuần thu gọn, trạng thái rõ, thưởng tuần
+const WKS = Math.ceil(P.days.length / 7), DAYK = 'lk.es.day', WKK = 'lk.es.wk';
+ok($('.tp .tp-ring[role=progressbar]') && $('.tp-hero h1') && $('.tp-today a.tp-go[href="#/practice/esd?d=1"]') && $$('.tp-today li').length >= 2, 'hub: hero có vòng tiến độ, thẻ Hôm nay liệt kê các phần + nút Bắt đầu ngày 1');
+ok($$('details.tp-w').length === WKS && $$('details.tp-w[open]').length === 1 && $$('.tp-d').length === 7 && !$('a.chip[href*="esd?d="]') && !$$('details.tp-w:not([open]) .tp-d').length, `hub: ${WKS} tuần, chỉ tuần hiện tại mở (7 ngày), tuần sau chưa vẽ hàng, không còn lưới ô số`);
+ok($('.tp-d.today[aria-current=step]') && $$('.tp-d.lock').length === 6 && $$('.tp-d.done').length === 0 && $('.tp-d.today .tp-st').textContent.includes('▶') && $('.tp-d.lock .tp-st').textContent.includes('🔒'), 'hub: trạng thái hôm nay / chưa tới (mờ + khoá)');
+{ const w2 = $$('details.tp-w')[1]; w2.open = true; w2.dispatchEvent(new w.Event('toggle')); ok($$('details.tp-w')[1].querySelectorAll('.tp-d').length === 7 && $$('details.tp-w[open] .tp-rw').length === 2, 'hub: mở tuần 2 → vẽ lười 7 ngày + hàng thưởng tuần'); }
+w.localStorage.setItem(DAYK, JSON.stringify(Object.fromEntries(P.days.slice(0, 7).map((d, n) => [n, 'wgpc'])))); await App.esday(); await tick(60);
+{ const sec = $$('details.tp-w')[0]; sec.open = true; sec.dispatchEvent(new w.Event('toggle')); ok(sec.classList.contains('done') && $$('.tp-d.done').length === 7 && $('.tp-today a.tp-go[href="#/practice/esd?d=8"]'), 'hub: xong 7 ngày → tuần 1 ✓, hôm nay nhảy sang ngày 8');
+  const b = sec.querySelector('[data-claim="0"]'); ok(b && !b.disabled, 'hub: tuần xong → nút nhận thưởng'); if (b) { b.click(); await tick(20); ok(JSON.parse(w.localStorage.getItem(WKK))['0'] === 1 && $$('details.tp-w')[0].querySelector('[data-claim="0"]').disabled, 'hub: nhận thưởng một lần (ghi lk.es.wk, nút khoá)'); } }
+w.localStorage.removeItem(DAYK); w.localStorage.removeItem(WKK); await App.esday(); await tick(60);
 await App.esday('1'); await tick(60);
 ok($$('section.card').length === 3 && $$('[data-sp]').length >= 6 && $('a[href^="#/practice/es?lv=A1&p=ser-identity"]') && $('a[href^="#/practice/esp?tp="]'), 'ngày 1: từ mới + ngữ pháp (đúng điểm) + phát âm, có nút nghe');
 $('#dsMk').click(); await tick(20);

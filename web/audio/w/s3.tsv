@@ -10033,6 +10033,10 @@ clast	cut_wordis: câu mang: "The word is clasty." · dot100:"Classed." 0.67s ·
 erythropoiesis	ok	ok
 axil	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.69s · cut_wordis100: câu mang: "The word is axial." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.65s · dot090:"Axle" 0.80s	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.62s · cut_wordis100: câu mang: "The word is axel." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.63s · dot090:"Axle" 0.74s
 taxonomist	ok	ok
+perfumer	ok	ok
+adverb	ok	ok
+abstinence	ok	ok
+bacteriology	ok	ok
 retaliate	ok	ok
 alimony	ok	ok
 incoherent	ok	ok
@@ -10055,4 +10059,3 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
-perfumer	ok	ok

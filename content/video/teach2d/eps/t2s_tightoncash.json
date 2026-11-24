@@ -1,0 +1,133 @@
+{
+ "id": "t2s_tightoncash",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 210,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can we skip the restaurant?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Tight on cash!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I don't have much money.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm tight on cash this month.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "tight on cash",
+  "forms": [
+   "tight on money"
+  ],
+  "ipa": "/ˈtaɪt ɑːn ˈkæʃ/",
+  "mean": "I don't have much money.",
+  "define": "Used when you have little money to spend right now.",
+  "vi": "Hơi cạn ví",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Declining a plan",
+   "text": "I'm tight on cash this month."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you have…",
+   "options": [
+    "a tight wallet",
+    "little money"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'tight on cash' about a tight shirt.",
+   "why": "It means money is limited."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can we skip the restaurant?"
+ },
+ "src": {
+  "slang": "tight on cash"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"tight on cash\" mean?",
+  "keyword": "tight on cash",
+  "value": "Tight on cash = I don't have much money. Example: \"I'm tight on cash this month.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"tight on cash\" mean?",
+    "description": "Tight on cash = I don't have much money. Example: \"I'm tight on cash this month.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "tight on cash",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"tight on cash\" mean?\n\nTight on cash = I don't have much money. Example: \"I'm tight on cash this month.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"tight on cash\" mean?\n\nTight on cash = I don't have much money. Example: \"I'm tight on cash this month.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"tight on cash\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'tight on cash' about a tight shirt. It means money is limited. Real example: \"I'm tight on cash this month.\" More real English slang, free: {link}"
+ }
+}

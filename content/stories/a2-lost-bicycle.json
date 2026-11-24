@@ -1,0 +1,138 @@
+{
+  "id": "a2-lost-bicycle",
+  "kind": "book",
+  "level": "A2",
+  "title": "The Lost Bicycle",
+  "summary": "A girl loses her new bicycle at the market and finds help from a kind old neighbour.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama"
+    ],
+    "scene": "Flat 2D illustration: Ama standing next to an empty bicycle rack at a busy street market, fruit stalls behind her, no text"
+  },
+  "audio": {
+    "wpm": 115,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Where Is My Bicycle?",
+      "sentences": [
+        "On Saturday morning, Ama rode her new bicycle to the market.",
+        "She wanted to buy some fruit for her mother.",
+        "The market was full of people, so she parked her bicycle near the gate.",
+        "She was away for only ten minutes.",
+        "When she came back, the bicycle was not there.",
+        "Ama felt very sad and a little angry.",
+        "She looked in every street near the market.",
+        "Then she asked a woman who sold flowers.",
+        "\"Did you see a red bicycle?\" Ama asked.",
+        "\"No, I am sorry,\" the woman said, \"but you should call the police.\""
+      ],
+      "words": [
+        "market",
+        "fruit",
+        "park",
+        "gate",
+        "police",
+        "angry"
+      ],
+      "quiz": [
+        {
+          "q": "Why did Ama go to the market?",
+          "options": [
+            "To sell her bicycle",
+            "To buy fruit for her mother",
+            "To meet the police"
+          ],
+          "answer": 1,
+          "explain": "She wanted to buy some fruit for her mother."
+        },
+        {
+          "q": "Where did Ama leave her bicycle?",
+          "options": [
+            "Near the gate",
+            "Inside a shop",
+            "At home"
+          ],
+          "answer": 0,
+          "explain": "She parked it near the gate of the market."
+        },
+        {
+          "q": "What did the flower seller advise?",
+          "options": [
+            "Look in the park",
+            "Buy a new bicycle",
+            "Call the police"
+          ],
+          "answer": 2,
+          "explain": "The woman said Ama should call the police."
+        }
+      ]
+    },
+    {
+      "title": "A Kind Neighbour",
+      "sentences": [
+        "Ama walked home slowly and told her father the sad news.",
+        "\"Let us call the police together,\" he said.",
+        "Just then, their old neighbour, Mr Lopez, knocked on the door.",
+        "He was holding a red bicycle in his hand.",
+        "\"I saw a boy take this from the market,\" he said.",
+        "\"I followed him, and he left it in the street.\"",
+        "Ama was so happy that she gave Mr Lopez a big hug.",
+        "Her father thanked him many times.",
+        "The next day, Ama bought a strong lock for her bicycle.",
+        "She also brought a basket of fruit to her kind neighbour."
+      ],
+      "words": [
+        "knock",
+        "follow",
+        "lock",
+        "basket",
+        "strong"
+      ],
+      "quiz": [
+        {
+          "q": "Who brought the bicycle back?",
+          "options": [
+            "Ama's father",
+            "Mr Lopez",
+            "The police"
+          ],
+          "answer": 1,
+          "explain": "Their neighbour, Mr Lopez, found the bicycle and brought it back."
+        },
+        {
+          "q": "Where did Mr Lopez find the bicycle?",
+          "options": [
+            "In the street",
+            "At the market gate",
+            "In his house"
+          ],
+          "answer": 0,
+          "explain": "The boy left it in the street after Mr Lopez followed him."
+        },
+        {
+          "q": "What did Ama do the next day?",
+          "options": [
+            "She sold the bicycle",
+            "She bought a lock and gave fruit to Mr Lopez",
+            "She called the police"
+          ],
+          "answer": 1,
+          "explain": "She bought a strong lock and brought a basket of fruit to Mr Lopez."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ar_comeagain",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 94,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry, the music's too loud!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Come again!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Please say that again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Come again? It's too loud here.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "come again",
+  "forms": [],
+  "ipa": "/ˈkʌm əˈɡen/",
+  "mean": "Please say that again.",
+  "define": "A casual way to ask someone to repeat.",
+  "vi": "Nói lại đi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Talking in a noisy café",
+   "text": "Come again? It's too loud here."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "visit again",
+    "say it again"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'come again' when you heard clearly.",
+   "why": "It sounds like a challenge."
+  },
+  "l1": "ماذا قلت؟",
+  "l1_hook": "عذراً، الموسيقى صاخبة جداً! هل يمكنك أن \"come again\"؟",
+  "l1_ex": "\"come again\"؟ المكان صاخب جدًا هنا.",
+  "right": "come again",
+  "native": {
+   "hook": "ما معنى “come again”؟",
+   "tip": "“come again” = ماذا قلت؟. مثال: “Come again? It's too loud here.”",
+   "caption": "ما معنى “come again”؟\n“come again” = ماذا قلت؟.\nمثال: “Come again? It's too loud here.” (\"come again\"؟ المكان صاخب جدًا هنا.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “come again” = ماذا قلت؟. “Come again? It's too loud here.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sorry, the music's too loud!"
+ },
+ "src": {
+  "slang": "come again"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "ما معنى “come again”؟",
+  "keyword": "come again",
+  "value": "“come again” = ماذا قلت؟. مثال: “Come again? It's too loud here.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “come again”؟",
+    "description": "“come again” = ماذا قلت؟. مثال: “Come again? It's too loud here.”\n\nما معنى “come again”؟\n“come again” = ماذا قلت؟.\nمثال: “Come again? It's too loud here.” (\"come again\"؟ المكان صاخب جدًا هنا.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "come again",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “come again”؟\n“come again” = ماذا قلت؟.\nمثال: “Come again? It's too loud here.” (\"come again\"؟ المكان صاخب جدًا هنا.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “come again”؟\n\n“come again” = ماذا قلت؟. مثال: “Come again? It's too loud here.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “come again”؟ “come again” = ماذا قلت؟. مثال: “Come again? It's too loud here.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “come again” = ماذا قلت؟. “Come again? It's too loud here.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

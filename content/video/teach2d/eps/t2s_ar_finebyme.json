@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ar_finebyme",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 62,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza or tacos, you pick?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Fine by me!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's okay with me.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pizza or tacos? Fine by me.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "fine by me",
+  "forms": [],
+  "ipa": "/ˈfaɪn baɪ ˈmiː/",
+  "mean": "That's okay with me.",
+  "define": "Used to say you accept an idea.",
+  "vi": "Tui sao cũng được",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Picking dinner",
+   "text": "Pizza or tacos? Fine by me."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm okay with it",
+    "I'm angry"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'fine by me' when you're upset.",
+   "why": "People will think you truly don't mind."
+  },
+  "l1": "لا مانع لدي",
+  "l1_hook": "بيتزا أم تاكو، اختر أنت، الأمر \"fine by me\".",
+  "l1_ex": "بيتزا أم تاكو؟ \"fine by me\".",
+  "right": "fine by me",
+  "native": {
+   "hook": "ما معنى “fine by me”؟",
+   "tip": "“fine by me” = لا مانع لدي. مثال: “Pizza or tacos? Fine by me.”",
+   "caption": "ما معنى “fine by me”؟\n“fine by me” = لا مانع لدي.\nمثال: “Pizza or tacos? Fine by me.” (بيتزا أم تاكو؟ \"fine by me\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “fine by me” = لا مانع لدي. “Pizza or tacos? Fine by me.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza or tacos, you pick?"
+ },
+ "src": {
+  "slang": "fine by me"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "ما معنى “fine by me”؟",
+  "keyword": "fine by me",
+  "value": "“fine by me” = لا مانع لدي. مثال: “Pizza or tacos? Fine by me.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “fine by me”؟",
+    "description": "“fine by me” = لا مانع لدي. مثال: “Pizza or tacos? Fine by me.”\n\nما معنى “fine by me”؟\n“fine by me” = لا مانع لدي.\nمثال: “Pizza or tacos? Fine by me.” (بيتزا أم تاكو؟ \"fine by me\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "fine by me",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “fine by me”؟\n“fine by me” = لا مانع لدي.\nمثال: “Pizza or tacos? Fine by me.” (بيتزا أم تاكو؟ \"fine by me\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “fine by me”؟\n\n“fine by me” = لا مانع لدي. مثال: “Pizza or tacos? Fine by me.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “fine by me”؟ “fine by me” = لا مانع لدي. مثال: “Pizza or tacos? Fine by me.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “fine by me” = لا مانع لدي. “Pizza or tacos? Fine by me.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

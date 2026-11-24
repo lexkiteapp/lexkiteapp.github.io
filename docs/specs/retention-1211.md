@@ -42,3 +42,16 @@ Số thật 38 ngày (người thật, bot loại; D1 = có phiên đúng ngày 
 - **Gốc lỗi đã sửa:** cờ `ux1` = 100 % nên đường học chính là lesson engine (màn kết `.lsn-end`), nhưng nó không phát `lexkite:practice-done` → `remind.js` không bao giờ hỏi bật nhắc sau bài đầu. Nay `remind.js` nhận màn kết bài học (công tắc khẩn `/api/config` `rem_lsn` = `'0'`). `hab:plan_done` = 0 trong 14 ngày cùng nguyên nhân gốc: người học xong bài ở lesson engine.
 - **Phễu mới** (`hit.js` `ONB_EV`, đếm `hab:*` 1 lượt/máy/ngày, thẻ Quản trị › Phân tích "Phễu lần đầu"): `onb_welcome` → `onb_s_<bước>` → `onb_done` → `first_win` (xong bài/lượt luyện đầu tiên, máy đã học từ trước = `lk.fw` `'old'`, không tính) → `fw_d1` / `fw_d7` (mở lại đúng ngày +1/+7 sau bài đầu). Cửa sổ 7 ngày nên D7 sau bài đầu chỉ là xấp xỉ; so trước/sau theo ngày phát hành (không chia nhóm %).
 - **Web Push (việc cấu hình, chưa làm):** `PUSH_PCT` (bí mật Pages, đang 10) cần nâng lên 100 theo luật ship 100 % – công tắc khẩn = đặt lại 0. 90 % máy web bật nhắc hiện chỉ nhận nhắc khi tab đang mở.
+
+## 23/11 – D1 theo độ sâu phiên đầu + sự kiện lesson-done
+Máy mới 40 ngày, D1 / quay lại trong 7 ngày theo thời lượng phiên đầu:
+
+| Phiên đầu | Máy | D1 | ≤ 7 ngày |
+|---|---|---|---|
+| < 20 s | 329 | 8,5 % | 15,8 % |
+| 20 s – 2 phút | 139 | 15,1 % | 23,0 % |
+| 2–10 phút | 193 | 16,6 % | 23,3 % |
+| ≥ 10 phút | 168 | 16,1 % | 31,0 % |
+
+- Người thật học rất sâu ngay phiên đầu, mà D1 vẫn chỉ ~16 %. Vậy điểm rơi chính là lý do quay lại ngày mai, không phải phiên đầu. Ai vào bước thiết lập đều đi hết (3/3, 2 ngày). PWA đã cài có D1 36 %, gấp 3 lần web.
+- **Gốc lỗi thứ hai:** `install-sheet.js` (mời cài app lúc "xong bài đầu") và mốc chuỗi của `retention.js` chỉ nghe `practice-done`, nên bài học lesson engine (đường chính ux1) không bao giờ kích hoạt chúng. Nay `lesson/ui.js` phát `lexkite:lesson-done`. Nhắc mềm (`remind.js`), mời cài app và mốc chuỗi cùng nghe sự kiện này. Quảng cáo toàn màn và lớp học KHÔNG nghe. Tắt khẩn: `rem_lsn = '0'`.

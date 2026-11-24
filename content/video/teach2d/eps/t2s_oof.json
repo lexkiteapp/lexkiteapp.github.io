@@ -1,0 +1,131 @@
+{
+ "id": "t2s_oof",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 272,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My test score was terrible. Help!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Oof!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's painful or awkward.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Oof, that test was tough!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "oof",
+  "forms": [],
+  "ipa": "/ˈuːf/",
+  "mean": "That's painful or awkward.",
+  "define": "A reaction to something unlucky or embarrassing.",
+  "vi": "Ôi trời, đau ghê",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Seeing an accident",
+   "text": "Oof, that test was tough!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Oof\" shows…",
+   "options": [
+    "joy",
+    "sympathy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'oof' at a funeral.",
+   "why": "It's too casual for deep sorrow."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My test score was terrible. Help!"
+ },
+ "src": {
+  "slang": "oof"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "What does \"oof\" mean?",
+  "keyword": "oof",
+  "value": "Oof = That's painful or awkward. Example: \"Oof, that test was tough!\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"oof\" mean?",
+    "description": "Oof = That's painful or awkward. Example: \"Oof, that test was tough!\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "oof",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"oof\" mean?\n\nOof = That's painful or awkward. Example: \"Oof, that test was tough!\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"oof\" mean?\n\nOof = That's painful or awkward. Example: \"Oof, that test was tough!\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"oof\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'oof' at a funeral. It's too casual for deep sorrow. Real example: \"Oof, that test was tough!\" More real English slang, free: {link}"
+ }
+}

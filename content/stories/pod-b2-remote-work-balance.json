@@ -1,0 +1,220 @@
+{
+  "id": "pod-b2-remote-work-balance",
+  "kind": "podcast",
+  "level": "B2",
+  "title": "Working From Home: Finding Balance",
+  "summary": "Ama and Carlos compare the freedom and the hidden problems of remote work.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 2",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos sitting on a sofa with laptops and mugs, a plant and a bright window behind them, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 135,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "The Good and the Bad",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Carlos, you have been working from home for a year now. Do you still enjoy it?"
+        },
+        {
+          "who": "B",
+          "text": "Mostly, yes. I save two hours a day because I do not have to commute."
+        },
+        {
+          "who": "A",
+          "text": "That is a huge advantage. I would use that time to exercise or cook properly."
+        },
+        {
+          "who": "B",
+          "text": "In theory, yes. In practice, I often start working earlier and finish much later."
+        },
+        {
+          "who": "A",
+          "text": "Really? I thought flexibility was the main benefit of remote work."
+        },
+        {
+          "who": "B",
+          "text": "It is, but the boundary between my job and my private life has become blurred."
+        },
+        {
+          "who": "A",
+          "text": "I understand. When your laptop is always on the kitchen table, it is hard to switch off."
+        },
+        {
+          "who": "B",
+          "text": "Exactly. Last week I answered an email at ten at night, and I felt ridiculous."
+        },
+        {
+          "who": "A",
+          "text": "Did anyone expect you to reply at that hour?"
+        },
+        {
+          "who": "B",
+          "text": "Not at all. It was my own habit. Nobody had asked me to do it."
+        },
+        {
+          "who": "A",
+          "text": "Then maybe you should set stricter rules for yourself."
+        },
+        {
+          "who": "B",
+          "text": "You are right. I am thinking of creating a small routine to mark the end of the day."
+        }
+      ],
+      "words": [
+        "commute",
+        "flexibility",
+        "boundary",
+        "private",
+        "habit",
+        "routine"
+      ],
+      "quiz": [
+        {
+          "q": "What is one benefit Carlos mentions?",
+          "options": [
+            "He saves time on travel.",
+            "He earns more money.",
+            "He has a bigger office."
+          ],
+          "answer": 0,
+          "explain": "He saves two hours a day because he does not commute."
+        },
+        {
+          "q": "What problem does Carlos have?",
+          "options": [
+            "His internet is slow.",
+            "Work and private life are mixed together.",
+            "His boss calls him constantly."
+          ],
+          "answer": 1,
+          "explain": "He says the boundary between job and private life is blurred."
+        },
+        {
+          "q": "Who asked Carlos to reply at ten at night?",
+          "options": [
+            "His manager",
+            "A client",
+            "Nobody did"
+          ],
+          "answer": 2,
+          "explain": "It was his own habit; nobody asked him."
+        }
+      ]
+    },
+    {
+      "title": "Building a Healthy Routine",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "So what kind of routine do you have in mind?"
+        },
+        {
+          "who": "B",
+          "text": "First, I want to go for a short walk before I open my laptop, as if I were going to the office."
+        },
+        {
+          "who": "A",
+          "text": "That is clever. It helps your brain to switch into work mode."
+        },
+        {
+          "who": "B",
+          "text": "Then I plan to take a proper lunch break away from the screen."
+        },
+        {
+          "who": "A",
+          "text": "I find that very difficult. I often eat while I am answering messages."
+        },
+        {
+          "who": "B",
+          "text": "Which is not good for concentration, as far as I know."
+        },
+        {
+          "who": "A",
+          "text": "True. Last month I made a mistake in a report because I was distracted."
+        },
+        {
+          "who": "B",
+          "text": "At the end of the day, I will close the laptop and put it in a drawer."
+        },
+        {
+          "who": "A",
+          "text": "Out of sight, out of mind. I might copy that idea."
+        },
+        {
+          "who": "B",
+          "text": "It also helps to talk to colleagues, because remote work can feel lonely."
+        },
+        {
+          "who": "A",
+          "text": "Definitely. I schedule a video call with a friend every Friday just to chat."
+        },
+        {
+          "who": "B",
+          "text": "That is a lovely way to end the week. Maybe I should join you next time."
+        }
+      ],
+      "words": [
+        "concentration",
+        "distract",
+        "schedule",
+        "drawer",
+        "colleague",
+        "remote"
+      ],
+      "quiz": [
+        {
+          "q": "Why does Carlos want to walk before work?",
+          "options": [
+            "To get to the office",
+            "To prepare his mind for work",
+            "To meet colleagues"
+          ],
+          "answer": 1,
+          "explain": "It helps his brain switch into work mode."
+        },
+        {
+          "q": "What happened to Ama last month?",
+          "options": [
+            "She lost her laptop.",
+            "She changed jobs.",
+            "She made a mistake because she was distracted."
+          ],
+          "answer": 2,
+          "explain": "She made a mistake in a report because she was distracted."
+        },
+        {
+          "q": "What does Ama do every Friday?",
+          "options": [
+            "A video call with a friend",
+            "A team meeting",
+            "A long walk"
+          ],
+          "answer": 0,
+          "explain": "She schedules a video call with a friend to chat."
+        }
+      ]
+    }
+  ]
+}

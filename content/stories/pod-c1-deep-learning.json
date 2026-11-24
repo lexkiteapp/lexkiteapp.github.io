@@ -1,0 +1,220 @@
+{
+  "id": "pod-c1-deep-learning",
+  "kind": "podcast",
+  "level": "C1",
+  "title": "Learning Deeply, Not Just Quickly",
+  "summary": "Ama and Carlos compare shallow memorising with deliberate practice and talk about how to make new skills last.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 3",
+    "author": "Lexkite",
+    "note": "Original dialogue written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos at a long library table with open notebooks and a small plant, warm afternoon light, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 140,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Why Cramming Fails",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Carlos, I studied for six hours yesterday, and this morning I can barely remember anything."
+        },
+        {
+          "who": "B",
+          "text": "That is the classic problem with cramming, Ama, because the knowledge feels solid but stays shallow."
+        },
+        {
+          "who": "A",
+          "text": "So how can I retain more of what I read without spending even longer on it?"
+        },
+        {
+          "who": "B",
+          "text": "Research suggests that recalling is far more powerful than rereading, so you should test yourself regularly."
+        },
+        {
+          "who": "A",
+          "text": "You mean closing the book and trying to recall the main ideas from memory?"
+        },
+        {
+          "who": "B",
+          "text": "Exactly, and the effort of struggling to remember is what helps your brain consolidate the information."
+        },
+        {
+          "who": "A",
+          "text": "That is slightly annoying, because rereading feels productive and recalling feels like failing."
+        },
+        {
+          "who": "B",
+          "text": "Many people think so, but a certain amount of difficulty is actually desirable for lasting progress."
+        },
+        {
+          "who": "A",
+          "text": "I suppose I have been avoiding difficulty and calling it efficiency."
+        },
+        {
+          "who": "B",
+          "text": "Spacing helps too, so try reviewing the same material after a day, then a week, then a month."
+        },
+        {
+          "who": "A",
+          "text": "That sounds far more manageable than one exhausting marathon session."
+        },
+        {
+          "who": "B",
+          "text": "It is, and it also reduces the stress that makes people give up."
+        }
+      ],
+      "words": [
+        "retain",
+        "shallow",
+        "consolidate",
+        "productive",
+        "efficiency",
+        "desirable"
+      ],
+      "quiz": [
+        {
+          "q": "What problem did Ama describe?",
+          "options": [
+            "She forgot most of what she studied.",
+            "She could not find a book.",
+            "She studied for too short a time."
+          ],
+          "answer": 0,
+          "explain": "She studied for six hours but could barely remember anything."
+        },
+        {
+          "q": "According to Carlos, what works better than rereading?",
+          "options": [
+            "Highlighting every line",
+            "Testing yourself from memory",
+            "Reading faster"
+          ],
+          "answer": 1,
+          "explain": "He says retrieval is more powerful than rereading."
+        },
+        {
+          "q": "What does spacing mean in this talk?",
+          "options": [
+            "Reviewing material at increasing intervals",
+            "Studying in a quiet room",
+            "Leaving gaps in your notes"
+          ],
+          "answer": 0,
+          "explain": "He suggests reviewing after a day, a week, and a month."
+        }
+      ]
+    },
+    {
+      "title": "Breaking Through a Plateau",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Carlos, my progress in Spanish has reached a plateau, and it is making me rather discouraged."
+        },
+        {
+          "who": "B",
+          "text": "Every learner hits that point, Ama, and it usually means the easy gains are over."
+        },
+        {
+          "who": "A",
+          "text": "What do you do when the practice becomes boring and the improvement is almost invisible?"
+        },
+        {
+          "who": "B",
+          "text": "I focus on one specific weakness, then I ask someone for honest feedback about it."
+        },
+        {
+          "who": "A",
+          "text": "Could that be a teacher, or would a friendly native speaker be enough?"
+        },
+        {
+          "who": "B",
+          "text": "Either works, provided the person corrects you clearly instead of just smiling politely."
+        },
+        {
+          "who": "A",
+          "text": "I like the idea of small goals, because tiny improvements are easier to notice and to celebrate."
+        },
+        {
+          "who": "B",
+          "text": "Exactly, and when you notice progress, your motivation tends to return without any forced effort."
+        },
+        {
+          "who": "A",
+          "text": "Still, I worry that motivation disappears whenever I have a busy week at the office."
+        },
+        {
+          "who": "B",
+          "text": "That is why a small daily habit matters more than a heroic weekend of study."
+        },
+        {
+          "who": "A",
+          "text": "Fifteen minutes every morning is surely better than nothing, even on the worst days."
+        },
+        {
+          "who": "B",
+          "text": "Precisely, and in a year you will be astonished by how far those fifteen minutes have taken you."
+        }
+      ],
+      "words": [
+        "plateau",
+        "feedback",
+        "progress",
+        "motivation",
+        "habit",
+        "weakness"
+      ],
+      "quiz": [
+        {
+          "q": "Why is Ama discouraged?",
+          "options": [
+            "Her Spanish stopped improving noticeably.",
+            "She lost her textbook.",
+            "Her teacher left."
+          ],
+          "answer": 0,
+          "explain": "She says her progress has reached a plateau."
+        },
+        {
+          "q": "What kind of feedback does Carlos recommend?",
+          "options": [
+            "Polite smiles only",
+            "Clear corrections",
+            "No feedback at all"
+          ],
+          "answer": 1,
+          "explain": "The person should correct clearly instead of just smiling politely."
+        },
+        {
+          "q": "Why does Carlos prefer a small daily habit?",
+          "options": [
+            "It is more reliable than occasional long sessions.",
+            "It costs nothing.",
+            "It makes the day shorter."
+          ],
+          "answer": 0,
+          "explain": "A small daily habit matters more than a heroic weekend of study."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+ "id": "t2s_myfault",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 146,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who spilled the juice?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "My fault!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I caused the problem.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That's my fault, I'm sorry.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "my fault",
+  "forms": [],
+  "ipa": "/ˈmaɪ ˈfɔːlt/",
+  "mean": "I caused the problem.",
+  "define": "A simple way to admit a mistake.",
+  "vi": "Lỗi của tui",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Apologizing",
+   "text": "That's my fault, I'm sorry."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"My fault\" means…",
+   "options": [
+    "I'm responsible",
+    "you're guilty"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'my fault' if it wasn't yours.",
+   "why": "You may get blamed unfairly."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who spilled the juice?"
+ },
+ "src": {
+  "slang": "my fault"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"my fault\" mean?",
+  "keyword": "my fault",
+  "value": "My fault = I caused the problem. Example: \"That's my fault, I'm sorry.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"my fault\" mean?",
+    "description": "My fault = I caused the problem. Example: \"That's my fault, I'm sorry.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "my fault",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"my fault\" mean?\n\nMy fault = I caused the problem. Example: \"That's my fault, I'm sorry.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"my fault\" mean?\n\nMy fault = I caused the problem. Example: \"That's my fault, I'm sorry.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"my fault\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: I'm responsible. \"That's my fault, I'm sorry.\" More real English slang, free: {link}"
+ }
+}

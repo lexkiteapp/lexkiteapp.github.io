@@ -1,0 +1,149 @@
+{
+ "id": "t2s_id_burnthemidnightoil",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 57,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Still working at two a.m.?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Burn the midnight oil!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Work very late.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We burned the midnight oil last night.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "burn the midnight oil",
+  "forms": [
+   "burning the midnight oil",
+   "burned the midnight oil"
+  ],
+  "ipa": "/bɜːrn ðə ˈmɪdnaɪt ˈɔɪl/",
+  "mean": "Work very late.",
+  "define": "To keep working late into the night.",
+  "vi": "Thức khuya cày việc",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Preparing for a big test",
+   "text": "We burned the midnight oil last night."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means to work…",
+   "options": [
+    "with real oil",
+    "late at night"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say it about lighting candles.",
+   "why": "It means working very late."
+  },
+  "l1": "begadang",
+  "l1_hook": "Masih kerja sampai jam dua pagi?",
+  "l1_ex": "Kami \"burn the midnight oil\" tadi malam.",
+  "right": "burn the midnight oil",
+  "native": {
+   "hook": "Apa arti “burn the midnight oil”?",
+   "tip": "“burn the midnight oil” = begadang. Contoh: “We burned the midnight oil last night.”",
+   "caption": "Apa arti “burn the midnight oil”?\n“burn the midnight oil” = begadang.\nContoh: “We burned the midnight oil last night.” (Kami \"burn the midnight oil\" tadi malam.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “burn the midnight oil” = begadang. “We burned the midnight oil last night.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Still working at two a.m.?"
+ },
+ "src": {
+  "slang": "burn the midnight oil"
+ },
+ "lang": "id",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Apa arti “burn the midnight oil”?",
+  "keyword": "burn the midnight oil",
+  "value": "“burn the midnight oil” = begadang. Contoh: “We burned the midnight oil last night.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “burn the midnight oil”?",
+    "description": "“burn the midnight oil” = begadang. Contoh: “We burned the midnight oil last night.”\n\nApa arti “burn the midnight oil”?\n“burn the midnight oil” = begadang.\nContoh: “We burned the midnight oil last night.” (Kami \"burn the midnight oil\" tadi malam.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "burn the midnight oil",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “burn the midnight oil”?\n“burn the midnight oil” = begadang.\nContoh: “We burned the midnight oil last night.” (Kami \"burn the midnight oil\" tadi malam.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “burn the midnight oil”?\n\n“burn the midnight oil” = begadang. Contoh: “We burned the midnight oil last night.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “burn the midnight oil”? “burn the midnight oil” = begadang. Contoh: “We burned the midnight… #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “burn the midnight oil” = begadang. “We burned the midnight oil last night.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

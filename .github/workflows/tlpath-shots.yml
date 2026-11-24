@@ -1,0 +1,39 @@
+# ci-policy: fast-lane – đường dẫn rất hẹp (chỉ hub lộ trình ngày + nhãn path-ui), một job ≤ 25 phút, chụp ảnh để duyệt; không phải cổng chặn
+# 🗺️ Ảnh trước/sau hub "Lộ trình ngày" của MỌI ngôn ngữ đích có `home` (390/768 × sáng/tối + tuần mở + RTL): web/ của commit gốc (lưới ô cũ) và của commit đang chạy.
+# PR đổi hub chạy tự động (trước = base của PR); chạy tay chọn commit `before`. Artifact 7 ngày (mở ảnh để duyệt: scripts/test/tlpath-shots.mjs).
+name: TL path shots
+on:
+  workflow_dispatch:
+    inputs:
+      before: { description: 'Commit TRƯỚC khi có hub mới (để trống = chỉ chụp bản mới)', required: false, default: '' }
+  pull_request:
+    paths: ['web/cpack/es-app/day-ui.js', 'web/css/tlpath.css', 'content/target/*/path-ui.json', 'scripts/test/tlpath-shots.mjs', '.github/workflows/tlpath-shots.yml']
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('tlpath-shots-pr-{0}', github.ref) || 'tlpath-shots' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  shots:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
+      - name: Chụp
+        env: { BEFORE: "${{ github.event.inputs.before || github.event.pull_request.base.sha }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &)
+          B=""
+          if [ -n "$BEFORE" ]; then git worktree add -q /tmp/before "$BEFORE"; (cd /tmp/before/web && python3 -m http.server 8081 >/dev/null 2>&1 &) ; B=http://localhost:8081; fi
+          sleep 1
+          node scripts/test/tlpath-shots.mjs http://localhost:8080 "$B" out/tlpath
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: tlpath-shots, path: out/tlpath, retention-days: 7 }

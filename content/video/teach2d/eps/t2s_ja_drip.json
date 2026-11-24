@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ja_drip",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 46,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New jacket, new shoes, new confidence!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Drip!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very stylish clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Nice jacket, you've got drip today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "drip",
+  "forms": [],
+  "ipa": "/ˈdrɪp/",
+  "mean": "Very stylish clothes.",
+  "define": "Slang for cool clothes and a stylish look.",
+  "vi": "Phong cách chất lừ",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Seeing a friend's outfit",
+   "text": "Nice jacket, you've got drip today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Drip\" means…",
+   "options": [
+    "a water drop",
+    "a cool style"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your boss 'nice drip' at work.",
+   "why": "It's too slangy for formal settings."
+  },
+  "l1": "イケてる服",
+  "l1_hook": "新しいジャケットに新しい靴、そして新しい自信！'drip'だね。",
+  "l1_ex": "いいジャケットだね、今日は「drip」だね。",
+  "right": "drip",
+  "native": {
+   "hook": "「drip」ってどういう意味？",
+   "tip": "“drip” = イケてる服. 例文: “Nice jacket, you've got drip today.”",
+   "caption": "「drip」ってどういう意味？\n“drip” = イケてる服.\n例文: “Nice jacket, you've got drip today.” (いいジャケットだね、今日は「drip」だね。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “drip” = イケてる服. “Nice jacket, you've got drip today.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "New jacket, new shoes, new confidence!"
+ },
+ "src": {
+  "slang": "drip"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "「drip」ってどういう意味？",
+  "keyword": "drip",
+  "value": "“drip” = イケてる服. 例文: “Nice jacket, you've got drip today.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "「drip」ってどういう意味？",
+    "description": "“drip” = イケてる服. 例文: “Nice jacket, you've got drip today.”\n\n「drip」ってどういう意味？\n“drip” = イケてる服.\n例文: “Nice jacket, you've got drip today.” (いいジャケットだね、今日は「drip」だね。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "drip",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「drip」ってどういう意味？\n“drip” = イケてる服.\n例文: “Nice jacket, you've got drip today.” (いいジャケットだね、今日は「drip」だね。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「drip」ってどういう意味？\n\n“drip” = イケてる服. 例文: “Nice jacket, you've got drip today.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「drip」ってどういう意味？ “drip” = イケてる服. 例文: “Nice jacket, you've got drip today.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “drip” = イケてる服. “Nice jacket, you've got drip today.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

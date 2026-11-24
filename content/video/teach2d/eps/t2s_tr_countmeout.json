@@ -1,0 +1,146 @@
+{
+ "id": "t2s_tr_countmeout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 54,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wanna go to the late show?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Count me out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I won't take part.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm tired, so count me out.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "count me out",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈaʊt/",
+  "mean": "I won't take part.",
+  "define": "Used to politely say you won't join a plan.",
+  "vi": "Đừng tính tui",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Declining an invitation",
+   "text": "I'm tired, so count me out."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm leaving the country",
+    "I won't join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me out' to your boss's request.",
+   "why": "It sounds like a flat refusal."
+  },
+  "l1": "beni saymayın",
+  "l1_hook": "Geç gösteriye gitmek ister misin?",
+  "l1_ex": "Yorgunum, bu yüzden count me out.",
+  "right": "count me out",
+  "native": {
+   "hook": "“count me out” ne demek?",
+   "tip": "“count me out” = beni saymayın. Örnek: “I'm tired, so count me out.”",
+   "caption": "“count me out” ne demek?\n“count me out” = beni saymayın.\nÖrnek: “I'm tired, so count me out.” (Yorgunum, bu yüzden count me out.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “count me out” = beni saymayın. “I'm tired, so count me out.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wanna go to the late show?"
+ },
+ "src": {
+  "slang": "count me out"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“count me out” ne demek?",
+  "keyword": "count me out",
+  "value": "“count me out” = beni saymayın. Örnek: “I'm tired, so count me out.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“count me out” ne demek?",
+    "description": "“count me out” = beni saymayın. Örnek: “I'm tired, so count me out.”\n\n“count me out” ne demek?\n“count me out” = beni saymayın.\nÖrnek: “I'm tired, so count me out.” (Yorgunum, bu yüzden count me out.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "count me out",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“count me out” ne demek?\n“count me out” = beni saymayın.\nÖrnek: “I'm tired, so count me out.” (Yorgunum, bu yüzden count me out.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“count me out” ne demek?\n\n“count me out” = beni saymayın. Örnek: “I'm tired, so count me out.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“count me out” ne demek? “count me out” = beni saymayın. Örnek: “I'm tired, so count me out.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “count me out” = beni saymayın. “I'm tired, so count me out.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}
