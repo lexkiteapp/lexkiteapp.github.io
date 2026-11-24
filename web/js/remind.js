@@ -7,7 +7,7 @@
  * – Hỏi quyền mềm SAU bài học đầu tiên (không bao giờ lúc mở app), hỏi tối đa 1 lần; tắt/đổi trong Cài đặt. */
 (function (g) {
   'use strict';
-  const DAY = 864e5, SEQ = [0, 1, 2, 3, 5, 7], FINAL = 7, NOREP = 7, SAVE_GAP = 150, SAVE_MIN = 60, SAVE_PRE = 60; // 24/11: lờ 7 ngày liền → lời cuối ngày 7; tin 2 "giữ chuỗi": sau tin 1 ~2,5 giờ, ≥ 60 phút, muộn nhất 60 phút trước giờ yên lặng
+  const DAY = 864e5, SEQ = [0, 1, 2, 3, 5, 7], FINAL = 7, NOREP = 7, SAVE_GAP = 150, SAVE_MIN = 60, SAVE_PRE = 60; // tin 2: +150 phút, ≥ 60, ≤ 60 trước giờ yên lặng
   const TYPES = ['due', 'word', 'streak', 'conf', 'week', 'goal', 'path'], EVE = 17 * 60, BACKOFF = 3;
   // Giọng: ấm, khích lệ, không dọa mất chuỗi/trách móc (docs/specs/notifications.md; scripts/test/notify-tone.mjs chặn từ dọa)
   // Mẫu câu theo loại (khóa tiếng Việt → I18N; biến {n} số thẻ, {w} từ, {c} câu ngữ cảnh, {s} chuỗi ngày, {d} số ngày học trong tuần)
@@ -21,9 +21,9 @@
     // Người mới: bài đang học dở trên lộ trình ({u} tên bài) + mục tiêu ngày ({g} thẻ) thay cho câu chung gen1
     path: [['ls1', 'Bài “{u}” đang chờ bạn', 'Bạn đang học dở – thêm 5 phút cho bước tiếp theo.'], ['ls2', 'Học tiếp “{u}” nhé?', 'Bước tiếp theo đã sẵn sàng. 5 phút là đủ.']],
     gstart: [['gs1', 'Mục tiêu hôm nay: {g} thẻ', 'Bắt đầu nhẹ nhàng – 5 phút là đủ.'], ['gs2', '{g} thẻ hôm nay – bạn làm được!', 'Học một chút mỗi ngày là nhớ lâu.']],
-    // Tin 2 trong ngày "giữ chuỗi" (tối đa 2 tin/ngày; chỉ khi chưa học hôm nay, chuỗi ≥ 2 ngày hoặc đã mở thông báo gần đây, không đang lùi): vui, nhẹ, không dọa
+    // Tin 2 "giữ chuỗi" (docs/REMINDERS.md §9)
     save: [['sv1', 'Chỉ cần 5 phút giữ chuỗi 🔥', 'Vài thẻ là đủ – Kit đợi bạn!'], ['sv2', 'Chuỗi {s} ngày đang chờ bạn 🔥', 'Một phút ôn là giữ được rồi.'], ['sv3', 'Còn kịp ôn nhanh hôm nay nhé?', 'Chỉ vài thẻ thôi – nhẹ nhàng nhé.']],
-    // Mốc quay lại sau 3 / 5 ngày vắng (ấm, có lý do cụ thể, không dọa mất chuỗi) – ngày 14 là lời cuối 'miss'
+    // Mốc quay lại ngày 3 / 5
     bk3: [['bk3a', 'Kit nhớ bạn rồi 🐦', '{n} từ đang chờ ôn – 3 phút là đủ.'], ['bk3b', 'Kit nhớ bạn rồi 🐦', 'Quay lại nhẹ nhàng nhé – chỉ vài từ thôi.']],
     bk7: [['bk7a', 'Vẫn còn nguyên những gì bạn đã học', 'Ôn vài thẻ, 2 phút thôi – Kit ở đây cùng bạn.']],
     miss: [['ms1', 'Kit sẽ tạm ngừng nhắc bạn 🐦', 'Để không làm phiền bạn. Quay lại lúc nào cũng được – mọi thứ bạn đã học vẫn ở đây.']],
@@ -104,7 +104,7 @@
       if (lastKept != null && dayN(day) - lastKept < 2) continue; // giãn cách sau nhiều lần bỏ qua
       let type;
       if (d === FINAL) type = 'miss';
-      else if ((d === 3 || d === 5) && types.length) type = d === 3 ? 'bk3' : 'bk7'; // mốc quay lại: 1 tin ấm/mốc (bk3 chỉ nhắc số từ khi thật sự có thẻ đến hạn)
+      else if ((d === 3 || d === 5) && types.length) type = d === 3 ? 'bk3' : 'bk7';
       else if (d === 0 && partial) type = 'goal';
       else {
         const cand = [];
@@ -133,7 +133,7 @@
       if (type === 'week') { for (let i = 0; i < 7; i++) { const n = +days[keyOf(new Date(addDays(t0, d - i)))] || 0; v.n += n; if (n) v.d++; } }
       if (lastKept != null) lastKept = dayN(day);
       out.push({ at, day, d, type, tpl: pick[0], title: tt(pick[1], v), body: tt(pick[2], v), url });
-      // Tin 2 "giữ chuỗi" (chỉ hôm nay): cùng bộ lập lịch cho web/FCM/app/add-on. Không gửi khi: tắt (x.s2 === false – công tắc khẩn/cầu dao), đã học, đang lùi (lastKept), không có chuỗi ≥ 2 và chưa mở thông báo nào gần đây
+      // Tin 2: chưa học, chuỗi ≥ 2 hoặc đã mở tin gần đây, không lùi, cầu dao bật
       if (d === 0 && x.s2 !== false && !studied && lastKept == null && (st >= 2 || (+x.opens || 0) >= 1)) {
         const [qa] = quietOf(s), m2 = Math.min(min + SAVE_GAP, qa > min ? qa - SAVE_PRE : 1439), at2 = base + m2 * 60e3;
         if (m2 - min >= SAVE_MIN && !inQuiet(m2, s) && at2 > now + 60e3) {
@@ -142,7 +142,7 @@
         }
       }
     }
-    return out.slice(0, 2 + SEQ.length); // ≤ 1 lời nhắc/ngày (mỗi d là 1 ngày khác nhau) + tin 2 của hôm nay
+    return out.slice(0, 2 + SEQ.length);
   }
   /** Thuần (test): quyền thông báo prev → st (web: default|granted|denied; app gốc: prompt*|granted|denied). null = không đổi;
    *  { st, ev } – ev chỉ khi ĐỔI THẬT: →denied = 'optout', denied→granted = 'optin'; lần quan sát đầu (prev rỗng) chỉ ghi nhớ. */
@@ -214,10 +214,10 @@
   }
   let NEXT = null; // bài đang học dở trên lộ trình {u, url} (path.js App.pathNext) – cho mẫu cá nhân của người mới
   const nextLoad = () => (App.pathNext ? App.pathNext().then(n => { NEXT = n && n.unit && n.unit.topic && n.unit.topic.name ? { u: String(n.unit.topic.name), url: n.href } : null; }).catch(() => {}) : Promise.resolve());
-  // Lần mở thông báo gần đây (chỉ trên máy): điều kiện của tin 2 ("đã mở ít nhất 1 trong các tin gần nhất"); mọi kênh ghi vào lk.remop (app gốc, FCM, web qua service worker, add-on qua remOp)
+  // Lần mở thông báo gần đây (lk.remop) – điều kiện tin 2
   const opensN = () => ls.get('lk.remop', []).filter(o => o && o.day >= keyOf(new Date(Date.now() - 14 * DAY))).length;
   const noteOpen = tpl => { const a = ls.get('lk.remop', []); a.push({ day: todayKey(), tpl: String(tpl || '') }); ls.set('lk.remop', a.slice(-5)); };
-  // Cầu dao tin 2 (máy chủ: SAVE2_ON='0' hoặc tỉ lệ tắt thông báo tăng) → cfg.s2 === false; nhớ ở máy cho lịch cục bộ
+  // Cầu dao tin 2: cfg.s2
   const s2On = () => ls.get('lk.s2', 1) !== 0;
   function build(now = Date.now(), remote = false, past = false) {
     const h = rollPlan(now);
@@ -238,7 +238,7 @@
       if (!opts.ask || !/^prompt/.test(perm.display || '')) return fcmOff(); // hệ điều hành chặn → máy chủ cũng thôi gửi
       permNote('default'); const r = await LN.requestPermissions(); permNote(r.display); if (r.display !== 'granted') return fcmOff(); ev('optin', 'native');
     }
-    await nextLoad(); await cfg().catch(() => {}); // cfg cũng báo cầu dao tin 2 (lk.s2)
+    await nextLoad(); await cfg().catch(() => {});
     const remote = await fcmSub().catch(() => false);
     if (FM() && !native.l) native.l = FM().addListener('notificationActionPerformed', a => { const d = (a && a.notification && a.notification.data) || {}; if (d.tpl) { ev('open', String(d.tpl)); noteOpen(d.tpl); } if (d.route && /^#\/[\w/?=&%-]*$/.test(d.route)) location.hash = d.route; });
     const p = build(Date.now(), remote); if (!p.length) return;
@@ -255,7 +255,7 @@
     m.save = p.find(x => x.type === 'save' && x.day === todayKey()) || null; if (m.save) m.save = { day: m.save.day, title: m.save.title, body: m.save.body, tpl: m.save.tpl, url: '/app/' + m.save.url };
     const k = JSON.stringify(m); if (k === metaKey) return; metaKey = k;
     const c = await caches.open('lk-meta'), r = await c.match('/__meta'), prev = r ? await r.json().catch(() => ({})) : {};
-    for (const o of prev.op || []) noteOpen(o); // service worker ghi các lần mở thông báo (tpl) → điều kiện tin 2
+    for (const o of prev.op || []) noteOpen(o);
     await c.put('/__meta', new Response(JSON.stringify({ ...m, notified: prev.notified || '', notified2: prev.notified2 || '', op: [] }), { headers: { 'Content-Type': 'application/json' } }));
     const reg = await navigator.serviceWorker.getRegistration();
     if (reg && reg.periodicSync && m.on && 'Notification' in g && Notification.permission === 'granted') {
