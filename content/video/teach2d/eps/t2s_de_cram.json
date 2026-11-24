@@ -1,0 +1,153 @@
+{
+ "id": "t2s_de_cram",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 76,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Exam tomorrow. I haven't studied!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cram!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Study at the last minute.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I must cram for math.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "cram",
+  "forms": [
+   "cramming",
+   "crammed"
+  ],
+  "ipa": "/ˈkræm/",
+  "mean": "Study at the last minute.",
+  "define": "To study many things quickly just before a test.",
+  "vi": "Học nhồi nhét",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Waiting outside class",
+   "text": "I must cram for math."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"cram\" is to…",
+   "options": [
+    "sleep in class",
+    "study at the last minute"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'cram' for a three-year course.",
+   "why": "Cramming only works for short tests."
+  },
+  "l1": "büffeln",
+  "l1_hook": "Morgen Prüfung, ich habe nicht gelernt – ich muss 'cram'!",
+  "l1_ex": "Ich muss für Mathe \"cram\".",
+  "right": "cram",
+  "native": {
+   "hook": "Was heißt “cram”?",
+   "tip": "“cram” = büffeln. Beispiel: “I must cram for math.”",
+   "caption": "Was heißt “cram”?\n“cram” = büffeln.\nBeispiel: “I must cram for math.” (Ich muss für Mathe \"cram\".)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “cram” = büffeln. “I must cram for math.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Exam tomorrow. I haven't studied!"
+ },
+ "src": {
+  "slang": "cram"
+ },
+ "lang": "de",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Was heißt “cram”?",
+  "keyword": "cram",
+  "value": "“cram” = büffeln. Beispiel: “I must cram for math.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “cram”?",
+    "description": "“cram” = büffeln. Beispiel: “I must cram for math.”\n\nWas heißt “cram”?\n“cram” = büffeln.\nBeispiel: “I must cram for math.” (Ich muss für Mathe \"cram\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "cram",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “cram”?\n“cram” = büffeln.\nBeispiel: “I must cram for math.” (Ich muss für Mathe \"cram\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “cram”?\n\n“cram” = büffeln. Beispiel: “I must cram for math.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “cram”? “cram” = büffeln. Beispiel: “I must cram for math.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “cram” = büffeln. “I must cram for math.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

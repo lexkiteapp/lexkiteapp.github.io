@@ -1,0 +1,146 @@
+{
+ "id": "t2s_id_bougie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 53,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She only drinks fancy tea!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bougie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fancy, and a bit too proud.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coffee shop is so bougie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "bougie",
+  "forms": [],
+  "ipa": "/ˈbuːʒi/",
+  "mean": "Fancy, and a bit too proud.",
+  "define": "Liking expensive or fancy things, sometimes in a showy way.",
+  "vi": "Sang chảnh, làm màu",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "money",
+  "example": {
+   "ctx": "Visiting a new café",
+   "text": "This coffee shop is so bougie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bougie\" means…",
+   "options": [
+    "very cheap",
+    "fancy and showy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your host 'bougie' at dinner.",
+   "why": "It can sound snobbish and rude."
+  },
+  "l1": "mewah",
+  "l1_hook": "Dia hanya minum teh mewah!",
+  "l1_ex": "Kedai kopi ini sangat \"bougie\".",
+  "right": "bougie",
+  "native": {
+   "hook": "Apa arti “bougie”?",
+   "tip": "“bougie” = mewah. Contoh: “This coffee shop is so bougie.”",
+   "caption": "Apa arti “bougie”?\n“bougie” = mewah.\nContoh: “This coffee shop is so bougie.” (Kedai kopi ini sangat \"bougie\".)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “bougie” = mewah. “This coffee shop is so bougie.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She only drinks fancy tea!"
+ },
+ "src": {
+  "slang": "bougie"
+ },
+ "lang": "id",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "Apa arti “bougie”?",
+  "keyword": "bougie",
+  "value": "“bougie” = mewah. Contoh: “This coffee shop is so bougie.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “bougie”?",
+    "description": "“bougie” = mewah. Contoh: “This coffee shop is so bougie.”\n\nApa arti “bougie”?\n“bougie” = mewah.\nContoh: “This coffee shop is so bougie.” (Kedai kopi ini sangat \"bougie\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "bougie",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “bougie”?\n“bougie” = mewah.\nContoh: “This coffee shop is so bougie.” (Kedai kopi ini sangat \"bougie\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “bougie”?\n\n“bougie” = mewah. Contoh: “This coffee shop is so bougie.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “bougie”? “bougie” = mewah. Contoh: “This coffee shop is so bougie.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “bougie” = mewah. “This coffee shop is so bougie.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

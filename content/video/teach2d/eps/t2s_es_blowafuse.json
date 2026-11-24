@@ -1,0 +1,148 @@
+{
+ "id": "t2s_es_blowafuse",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 9,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dad saw the messy room!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Blow a fuse!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly become very angry.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He blew a fuse over the messy room.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "blow a fuse",
+  "forms": [
+   "blew a fuse"
+  ],
+  "ipa": "/ˈbloʊ ə ˈfjuːz/",
+  "mean": "Suddenly become very angry.",
+  "define": "To lose your temper quickly.",
+  "vi": "Nổi nóng bất chợt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Telling a story",
+   "text": "He blew a fuse over the messy room."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "get angry",
+    "fix electricity"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'blow a fuse' about mild annoyance.",
+   "why": "It means sudden, big anger."
+  },
+  "l1": "perder los estribos",
+  "l1_hook": "¡Papá vio la habitación desordenada! Va a hacer \"blow a fuse\".",
+  "l1_ex": "Él hizo \"blow a fuse\" por la habitación desordenada.",
+  "right": "blow a fuse",
+  "native": {
+   "hook": "¿Qué significa “blow a fuse”?",
+   "tip": "“blow a fuse” = perder los estribos. Ejemplo: “He blew a fuse over the messy room.”",
+   "caption": "¿Qué significa “blow a fuse”?\n“blow a fuse” = perder los estribos.\nEjemplo: “He blew a fuse over the messy room.” (Él hizo \"blow a fuse\" por la habitación desordenada.)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “blow a fuse” = perder los estribos. “He blew a fuse over the messy room.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dad saw the messy room!"
+ },
+ "src": {
+  "slang": "blow a fuse"
+ },
+ "lang": "es",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "¿Qué significa “blow a fuse”?",
+  "keyword": "blow a fuse",
+  "value": "“blow a fuse” = perder los estribos. Ejemplo: “He blew a fuse over the messy room.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “blow a fuse”?",
+    "description": "“blow a fuse” = perder los estribos. Ejemplo: “He blew a fuse over the messy room.”\n\n¿Qué significa “blow a fuse”?\n“blow a fuse” = perder los estribos.\nEjemplo: “He blew a fuse over the messy room.” (Él hizo \"blow a fuse\" por la habitación desordenada.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "blow a fuse",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “blow a fuse”?\n“blow a fuse” = perder los estribos.\nEjemplo: “He blew a fuse over the messy room.” (Él hizo \"blow a fuse\" por la habitación desordenada.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “blow a fuse”?\n\n“blow a fuse” = perder los estribos. Ejemplo: “He blew a fuse over the messy room.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “blow a fuse”? “blow a fuse” = perder los estribos. Ejemplo: “He blew a fuse over the messy… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “blow a fuse” = perder los estribos. “He blew a fuse over the messy room.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_id_awesome",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 17,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You got us free tickets?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Awesome!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Really great.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You got us free tickets? That's awesome!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "awesome",
+  "forms": [],
+  "ipa": "/ˈɔːsəm/",
+  "mean": "Really great.",
+  "define": "Used to say that something is excellent or very enjoyable.",
+  "vi": "Tuyệt vời, đỉnh",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "praise",
+  "example": {
+   "ctx": "Hearing good news",
+   "text": "You got us free tickets? That's awesome!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Awesome\" means…",
+   "options": [
+    "a little boring",
+    "really great"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'awesome' about sad news.",
+   "why": "It sounds sarcastic or cruel."
+  },
+  "l1": "keren",
+  "l1_hook": "Kamu dapat tiket gratis untuk kami? Itu 'awesome'.",
+  "l1_ex": "Kamu dapat tiket gratis untuk kami? Itu \"awesome\"!",
+  "right": "awesome",
+  "native": {
+   "hook": "Apa arti “awesome”?",
+   "tip": "“awesome” = keren. Contoh: “You got us free tickets? That's awesome!”",
+   "caption": "Apa arti “awesome”?\n“awesome” = keren.\nContoh: “You got us free tickets? That's awesome!” (Kamu dapat tiket gratis untuk kami? Itu \"awesome\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “awesome” = keren. “You got us free tickets? That's awesome!” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You got us free tickets?"
+ },
+ "src": {
+  "slang": "awesome"
+ },
+ "lang": "id",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Apa arti “awesome”?",
+  "keyword": "awesome",
+  "value": "“awesome” = keren. Contoh: “You got us free tickets? That's awesome!”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “awesome”?",
+    "description": "“awesome” = keren. Contoh: “You got us free tickets? That's awesome!”\n\nApa arti “awesome”?\n“awesome” = keren.\nContoh: “You got us free tickets? That's awesome!” (Kamu dapat tiket gratis untuk kami? Itu \"awesome\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "awesome",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “awesome”?\n“awesome” = keren.\nContoh: “You got us free tickets? That's awesome!” (Kamu dapat tiket gratis untuk kami? Itu \"awesome\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “awesome”?\n\n“awesome” = keren. Contoh: “You got us free tickets? That's awesome!”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “awesome”? “awesome” = keren. Contoh: “You got us free tickets? That's awesome!” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “awesome” = keren. “You got us free tickets? That's awesome!” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

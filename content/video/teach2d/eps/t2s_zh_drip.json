@@ -1,0 +1,150 @@
+{
+ "id": "t2s_zh_drip",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 46,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New jacket, new shoes, new confidence!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Drip!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very stylish clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Nice jacket, you've got drip today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "drip",
+  "forms": [],
+  "ipa": "/ˈdrɪp/",
+  "mean": "Very stylish clothes.",
+  "define": "Slang for cool clothes and a stylish look.",
+  "vi": "Phong cách chất lừ",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Seeing a friend's outfit",
+   "text": "Nice jacket, you've got drip today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Drip\" means…",
+   "options": [
+    "a water drop",
+    "a cool style"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your boss 'nice drip' at work.",
+   "why": "It's too slangy for formal settings."
+  },
+  "l1": "酷炫穿搭",
+  "l1_hook": "新夹克，新鞋子，新自信！\"drip\"。",
+  "l1_ex": "好夹克，你今天真有 \"drip\"。",
+  "right": "drip",
+  "native": {
+   "hook": "“drip”是什么意思？",
+   "tip": "“drip” = 酷炫穿搭. 例句: “Nice jacket, you've got drip today.”",
+   "caption": "“drip”是什么意思？\n“drip” = 酷炫穿搭.\n例句: “Nice jacket, you've got drip today.” (好夹克，你今天真有 \"drip\"。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “drip” = 酷炫穿搭. “Nice jacket, you've got drip today.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "New jacket, new shoes, new confidence!"
+ },
+ "src": {
+  "slang": "drip"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“drip”是什么意思？",
+  "keyword": "drip",
+  "value": "“drip” = 酷炫穿搭. 例句: “Nice jacket, you've got drip today.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“drip”是什么意思？",
+    "description": "“drip” = 酷炫穿搭. 例句: “Nice jacket, you've got drip today.”\n\n“drip”是什么意思？\n“drip” = 酷炫穿搭.\n例句: “Nice jacket, you've got drip today.” (好夹克，你今天真有 \"drip\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "drip",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“drip”是什么意思？\n“drip” = 酷炫穿搭.\n例句: “Nice jacket, you've got drip today.” (好夹克，你今天真有 \"drip\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“drip”是什么意思？\n\n“drip” = 酷炫穿搭. 例句: “Nice jacket, you've got drip today.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“drip”是什么意思？ “drip” = 酷炫穿搭. 例句: “Nice jacket, you've got drip today.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “drip” = 酷炫穿搭. “Nice jacket, you've got drip today.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_zh_bussin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 10,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Mom's pasta tastes unreal tonight!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bussin!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That food is really delicious.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Mom's pasta is bussin tonight.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "bussin",
+  "forms": [],
+  "ipa": "/ˈbʌsɪn/",
+  "mean": "That food is really delicious.",
+  "define": "Slang for food that tastes amazing.",
+  "vi": "Ngon đỉnh",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "food",
+  "example": {
+   "ctx": "At a family dinner",
+   "text": "Mom's pasta is bussin tonight."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bussin\" describes…",
+   "options": [
+    "delicious food",
+    "a bus stop"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'bussin' about a cold, bland sandwich.",
+   "why": "It means really delicious food."
+  },
+  "l1": "绝味的",
+  "l1_hook": "妈妈今晚的意面味道简直 unreal，太 bussin 了。",
+  "l1_ex": "妈妈今晚的意面太 bussin 了。",
+  "right": "bussin",
+  "native": {
+   "hook": "“bussin”是什么意思？",
+   "tip": "“bussin” = 绝味的. 例句: “Mom's pasta is bussin tonight.”",
+   "caption": "“bussin”是什么意思？\n“bussin” = 绝味的.\n例句: “Mom's pasta is bussin tonight.” (妈妈今晚的意面太 bussin 了。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “bussin” = 绝味的. “Mom's pasta is bussin tonight.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Mom's pasta tastes unreal tonight!"
+ },
+ "src": {
+  "slang": "bussin"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“bussin”是什么意思？",
+  "keyword": "bussin",
+  "value": "“bussin” = 绝味的. 例句: “Mom's pasta is bussin tonight.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“bussin”是什么意思？",
+    "description": "“bussin” = 绝味的. 例句: “Mom's pasta is bussin tonight.”\n\n“bussin”是什么意思？\n“bussin” = 绝味的.\n例句: “Mom's pasta is bussin tonight.” (妈妈今晚的意面太 bussin 了。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "bussin",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“bussin”是什么意思？\n“bussin” = 绝味的.\n例句: “Mom's pasta is bussin tonight.” (妈妈今晚的意面太 bussin 了。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bussin”是什么意思？\n\n“bussin” = 绝味的. 例句: “Mom's pasta is bussin tonight.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bussin”是什么意思？ “bussin” = 绝味的. 例句: “Mom's pasta is bussin tonight.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “bussin” = 绝味的. “Mom's pasta is bussin tonight.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

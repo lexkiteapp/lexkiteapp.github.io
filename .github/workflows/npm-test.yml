@@ -32,6 +32,10 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - name: làn nhanh (lint + chính sách)
         run: node scripts/test/run-suite.mjs --fast
+      # máy gác 24/11: `build-stitch-css --check` trước chỉ chạy ở workflow nặng (bỏ qua trên PR không có ready-heavy) → PR nhẹ (#1960) đổi
+      # nguồn web/js/st/* mà không biên dịch lại CSS lọt vào main, làm diff-shard đỏ ở PR khác. Chạy ở làn nhanh, mọi PR (~10 s).
+      - name: CSS Stitch khớp mẫu (biên dịch lại, đỏ nếu lệch)
+        run: npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 && node scripts/build-stitch-css.mjs --check
   shard:
     name: npm test shard ${{ matrix.shard }}/8
     runs-on: ubuntu-latest

@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { digestDue, morning, mainRuns, classify, excerpt, digest, issueBody, issueTitle, redStreak, coreHealth, orphanIssueFile, staleManualDays, CORE_TESTS, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
+import { digestDue, morning, mainRuns, classify, excerpt, digest, issueBody, issueTitle, redStreak, coreHealth, orphanIssueFile, staleManualDays, CORE_TESTS, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince, runIdOf, greenAfter, streakLines } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
@@ -36,6 +36,21 @@ ok(classify('Error on ZipFile unknown archive.', { attempt: 2 }).kind === 'real'
 const R = (c, d, e = 'schedule') => ({ conclusion: c, status: 'completed', event: e, created_at: `2026-11-0${d}T23:00:00Z` });
 ok(redStreak([R('failure', 1), R('failure', 2), R('cancelled', 3), R('failure', 3), R('success', 0), R('failure', 4, 'pull_request')]).n === 3, 'đỏ liên tiếp: bỏ PR/huỷ, dừng ở lượt xanh');
 ok(redStreak([R('success', 4), R('failure', 3)]).n === 0, 'lượt mới nhất xanh → 0');
+// 24/11 #1984: issue đỏ (lượt 100) bị ghi lại SAU lượt xanh 105 → luật updated_at không đóng; luật thứ tự lượt phải đóng
+{ const iss = { body: 'x https://github.com/o/r/actions/runs/100 y', updated_at: '2026-11-23T20:03:00Z' }, G = (id, c, ev = 'schedule', up = '2026-11-23T19:18:00Z') => ({ id, conclusion: c, status: 'completed', event: ev, updated_at: up });
+  ok(runIdOf(iss.body) === 100 && runIdOf('') === 0, 'runIdOf: lấy id lượt trong thân issue');
+  ok(greenAfter(iss, [G(105, 'success')]) && greenAfter(iss, [G(105, 'success')]).id === 105, 'xanh (id lớn hơn lượt đỏ) dù cập nhật trước lần ghi issue → đóng');
+  ok(greenAfter(iss, [G(99, 'success')]) === null, 'xanh CŨ hơn lượt đỏ trong issue → không đóng');
+  ok(greenAfter(iss, [G(106, 'failure'), G(105, 'success')]) === null, 'lượt mới nhất đỏ → không đóng');
+  ok(greenAfter(iss, [G(107, 'success', 'pull_request'), G(104, 'failure')]) === null, 'lượt xanh của PR không đóng issue');
+  ok(greenAfter(iss, [G(108, 'cancelled'), G(105, 'success')]).id === 105, 'bỏ lượt huỷ');
+  ok(greenAfter({ body: 'không id', updated_at: '2026-11-23T19:00:00Z' }, [G(1, 'success')]) !== null && greenAfter({ body: 'không id', updated_at: '2026-11-23T21:00:00Z' }, [G(1, 'success')]) === null, 'thân cũ không có id → luật updated_at cũ');
+}
+{ const L = streakLines([{ number: 5, title: 'CI đỏ: A (đỏ 3 lượt liền)', html_url: 'u5' }, { number: 6, title: 'CI đỏ: B (đỏ 19 lượt liền)', html_url: 'u6' }, { number: 7, title: 'CI đỏ: C' }, { number: 8, title: 'CI đỏ: D (đỏ 2 lượt liền)' }]);
+  ok(L.length === 2 && /B: đỏ 19 lượt liền – #6/.test(L[0]) && /A: đỏ 3/.test(L[1]), 'streakLines: ≥3 lượt, lâu nhất trước');
+  const d = digest([], {}, [{ number: 6, title: 'CI đỏ: B (đỏ 19 lượt liền)', html_url: 'u6' }], null, { bad: [], lines: [] });
+  ok(d.text.indexOf('đỏ ≥ 3 lượt liền') > -1 && d.text.indexOf('B: đỏ 19') < d.text.indexOf('Issue ci-failure đang mở') && d.md.indexOf('🔥') < d.md.indexOf('### Issue ci-failure') && d.red >= 1, 'bản tin: khối đỏ ≥ 3 lượt đứng đầu + tính là đỏ (gửi thư)');
+}
 ok(redStreak([R('failure', 2), R('failure', 1)]).since === '2026-11-01T23:00:00Z', 'mốc bắt đầu chuỗi đỏ');
 ok(issueTitle('Quality sweep', 6) === 'CI đỏ: Quality sweep (đỏ 6 lượt liền)' && issueTitle('x', 2) === 'CI đỏ: x', 'tiêu đề báo khi ≥ 3 lượt liền');
 ok(/Đỏ \*\*6 lượt liên tiếp\*\*.*cần người sửa gốc/.test(issueBody({ name: 'Q', file: 'q.yml', run: { html_url: 'u', head_branch: 'main' }, cls: { kind: 'real', why: 'x' }, log: '', streak: { n: 6, since: '2026-10-27T23:09:11Z' } })), 'thân issue có chuỗi đỏ');
