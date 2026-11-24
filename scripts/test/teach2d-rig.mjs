@@ -147,6 +147,7 @@ ok(!/\['1st', 'accent'\]|\['2nd', 'accent'\]|f"…-\{o\[1\]\}-…"/.test(bsrc), 
   ok(gest.length >= Object.keys(T.lines).length - 1, 'v3: head emphasis (nod / bob) inside every beat');
   const bs = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/build.py'), 'utf8'), qs = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/qc.py'), 'utf8');
   ok(/wide=dict\([^\n]*cap=\[96, 924, 1056, 1024\]/.test(bs.replace(/\n\s+/g, ' ')) || /cap=\[96, 924, 1056, 1024\]/.test(bs), 'v3: wide format burns captions (cap box set)');
+  { const labs = [...bs.match(/CTA_LABEL = \{[^}]*\}/)[0].matchAll(/: '([^']+)'/g)].map(m => m[1]); ok(labs.length >= 12 && labs.every(l => /^Practice /.test(l) && l.length <= 21), 'v3: every end-card button label starts with Practice and fits (<= 21 chars)'); }
   ok(!/if EMBED:\n\s+c\.text\(\[\['Next step/.test(bs) && /CTA_LABEL/.test(bs) && /qr\.png/.test(bs), 'v3: one end card (no embed "Next step" variant), Practice button + QR + lexkite.com');
   for (const g of ['end_card', 'caption_full', 'pose_variety', 'layout_fill']) ok(new RegExp(`gate\\('${g}'`).test(qs), `v3: qc.py gate ${g}`);
   ok(!/if T\['format'\] == 'short':\n\s+capw/.test(qs), 'v3: caption_sync runs on wide too');

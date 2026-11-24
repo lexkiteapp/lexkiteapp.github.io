@@ -276,8 +276,8 @@ def hook_card(text_runs, t_out, extra=None):
     return b
 
 
-CTA_LABEL = {'dictionary': 'Practice with the dictionary', 'verbs': 'Practice verbs', 'pronunciation': 'Practice your sounds', 'grammar-check': 'Practice and fix grammar', 'phrases': 'Practice real phrases',
-             'word-usage': 'Practice tricky words', 'placement': 'Practice and find your level', 'grammar': 'Practice this rule', 'dictation': 'Practice dictation', 'toeic': 'Practice TOEIC free',
+CTA_LABEL = {'dictionary': 'Practice any word', 'verbs': 'Practice verbs', 'pronunciation': 'Practice your sounds', 'grammar-check': 'Practice your grammar', 'phrases': 'Practice real phrases',
+             'word-usage': 'Practice tricky words', 'placement': 'Practice your level', 'grammar': 'Practice this rule', 'dictation': 'Practice dictation', 'toeic': 'Practice TOEIC free',
              'vocab-review': 'Practice your words', 'call': 'Practice a real call'}   # button always starts with "Practice" (qc.py end_card)
 
 
@@ -290,7 +290,7 @@ def end_card():
     CUES.append(dict(node=c.rows[-1]['id'], t=t_in, tag='Lexkite')); c.y += 110 + 16
     c.text([['100% FREE', 'accent']], S['body'], t_in, align='c')
     # v3 (audit 24/11 #2): ONE end card for every template and every format – icon + Lexkite, "Practice ..." button, QR, lexkite.com; never an empty half-card
-    t_btn = t_in; label = CTA_LABEL.get(cta['area'], 'Practice free on Lexkite')
+    t_btn = t_in; label = CTA_LABEL.get(cta['area'], 'Practice free')
     c.add(dict(type='cta', lines=[label], size=S['body'], box=[PAD, 0, PAD + c.inner, 0], **{'in': cue(t_btn)}), 118)
     q = 190 if EMBED else 220; c.add(dict(type='img', src='qr.png', radius=24, box=[PAD + (c.inner - q) / 2, 0, PAD + (c.inner + q) / 2, 0], **{'in': cue(t_btn + 0.1)}), q, gap=14)
     c.text([['lexkite.com', 'muted']], S['sub'], t_btn + 0.2, align='c')
