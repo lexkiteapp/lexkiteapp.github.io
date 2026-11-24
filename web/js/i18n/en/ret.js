@@ -38,7 +38,7 @@
 'Mỗi mốc 🎁 · 7 ngày 🧊 · miễn phí': 'Each milestone 🎁 · 7 days 🧊 · free',
 'Gom {n} mảnh': 'Collect {n} pieces',
 'Học 1 ngày = 1 mảnh': '1 study day = 1 piece',
-'Học ít nhất 1 bài mỗi ngày để giữ chuỗi.': 'Finish at least 1 lesson a day to keep your streak.',
+'Có XP hoặc ôn thẻ trong ngày là giữ được chuỗi.': 'Earn any XP or review cards on a day to keep your streak.',
 'Lỡ một ngày? Lượt đóng băng tự giữ chuỗi cho bạn.': 'Missed a day? A streak freeze keeps it for you automatically.',
 'Mỗi mốc 3, 7, 14, 30… ngày được 1 rương quà.': 'Every milestone – 3, 7, 14, 30… days – earns a gift chest.',
 'Tất cả đều miễn phí – không cần trả tiền để giữ chuỗi.': 'It is all free – you never pay to keep your streak.',

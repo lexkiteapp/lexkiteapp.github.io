@@ -1,0 +1,146 @@
+{
+ "id": "t2s_id_legit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 70,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is this shop real?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Legit!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Real and good, not fake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This shop is legit, my sister bought shoes there.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "legit",
+  "forms": [],
+  "ipa": "/ləˈdʒɪt/",
+  "mean": "Real and good, not fake.",
+  "define": "Short for legitimate; used for things that are real, true or really good.",
+  "vi": "Xịn thật, đáng tin",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Checking an online shop",
+   "text": "This shop is legit, my sister bought shoes there."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Legit\" means…",
+   "options": [
+    "very fast",
+    "real and trusted"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'legit' in a legal document.",
+   "why": "Use 'legitimate' in formal writing."
+  },
+  "l1": "legit",
+  "l1_hook": "Apakah toko ini \"legit\"?",
+  "l1_ex": "Toko ini \"legit\", kakakku membeli sepatu di sana.",
+  "right": "legit",
+  "native": {
+   "hook": "Apa arti “legit”?",
+   "tip": "“legit” = legit. Contoh: “This shop is legit, my sister bought shoes there.”",
+   "caption": "Apa arti “legit”?\n“legit” = legit.\nContoh: “This shop is legit, my sister bought shoes there.” (Toko ini \"legit\", kakakku membeli sepatu di sana.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “legit” = legit. “This shop is legit, my sister bought shoes there.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is this shop real?"
+ },
+ "src": {
+  "slang": "legit"
+ },
+ "lang": "id",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Apa arti “legit”?",
+  "keyword": "legit",
+  "value": "“legit” = legit. Contoh: “This shop is legit, my sister bought shoes there.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “legit”?",
+    "description": "“legit” = legit. Contoh: “This shop is legit, my sister bought shoes there.”\n\nApa arti “legit”?\n“legit” = legit.\nContoh: “This shop is legit, my sister bought shoes there.” (Toko ini \"legit\", kakakku membeli sepatu di sana.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "legit",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “legit”?\n“legit” = legit.\nContoh: “This shop is legit, my sister bought shoes there.” (Toko ini \"legit\", kakakku membeli sepatu di sana.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “legit”?\n\n“legit” = legit. Contoh: “This shop is legit, my sister bought shoes there.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “legit”? “legit” = legit. Contoh: “This shop is legit, my sister bought shoes there.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “legit” = legit. “This shop is legit, my sister bought shoes there.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

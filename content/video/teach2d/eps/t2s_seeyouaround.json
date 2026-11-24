@@ -1,0 +1,135 @@
+{
+ "id": "t2s_seeyouaround",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 275,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Nice chat. Bye for now!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "See you around!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Goodbye for now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Nice meeting you, see you around!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "see you around",
+  "forms": [],
+  "ipa": "/ˈsiː ju əˈraʊnd/",
+  "mean": "Goodbye for now.",
+  "define": "A casual goodbye when you will meet again some day.",
+  "vi": "Hẹn gặp lại",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Saying goodbye",
+   "text": "Nice meeting you, see you around!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'll find you",
+    "goodbye for now"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'see you around' to set a meeting.",
+   "why": "It's vague, with no fixed time."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Nice chat. Bye for now!"
+ },
+ "src": {
+  "slang": "see you around"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"see you around\" mean?",
+  "keyword": "see you around",
+  "value": "See you around = Goodbye for now. Example: \"Nice meeting you, see you around!\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"see you around\" mean?",
+    "description": "See you around = Goodbye for now. Example: \"Nice meeting you, see you around!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "see you around",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"see you around\" mean?\n\nSee you around = Goodbye for now. Example: \"Nice meeting you, see you around!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"see you around\" mean?\n\nSee you around = Goodbye for now. Example: \"Nice meeting you, see you around!\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"see you around\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'see you around' to set a meeting. It's vague, with no fixed time. Real example: \"Nice meeting you, see you around!\" More real English slang, free: {link}"
+ }
+}

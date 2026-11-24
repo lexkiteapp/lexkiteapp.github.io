@@ -1,0 +1,131 @@
+{
+ "id": "t2s_longstoryshort",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 219,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't ask why my bike broke!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Long story short!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "To make it quick.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Long story short, my bike broke.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "long story short",
+  "forms": [],
+  "ipa": "/ˈlɔːŋ ˈstɔːri ˈʃɔːrt/",
+  "mean": "To make it quick.",
+  "define": "Used before a short version of a long story.",
+  "vi": "Nói ngắn gọn thôi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Explaining a delay",
+   "text": "Long story short, my bike broke."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "a long book",
+    "in short"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say it, then tell a very long story.",
+   "why": "It promises you'll keep it brief."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Don't ask why my bike broke!"
+ },
+ "src": {
+  "slang": "long story short"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"long story short\" mean?",
+  "keyword": "long story short",
+  "value": "Long story short = To make it quick. Example: \"Long story short, my bike broke.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"long story short\" mean?",
+    "description": "Long story short = To make it quick. Example: \"Long story short, my bike broke.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "long story short",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"long story short\" mean?\n\nLong story short = To make it quick. Example: \"Long story short, my bike broke.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"long story short\" mean?\n\nLong story short = To make it quick. Example: \"Long story short, my bike broke.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"long story short\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say it, then tell a very long story. It promises you'll keep it brief. Real example: \"Long story short, my bike broke.\" More real English slang, free: {link}"
+ }
+}

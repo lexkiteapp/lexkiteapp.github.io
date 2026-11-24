@@ -23,7 +23,8 @@
   "View library": "Xem thư viện",
   "7-Day Streak": "Chuỗi 7 ngày",
   "Notifications": "Thông báo",
-  "Look up a word": "Tra từ"
+  "Look up a word": "Tra từ",
+  "Search words…": "Tra từ…"
  },
  "text": {
   "L": "d.ini",
@@ -59,16 +60,9 @@
  "html": {
   ":scope > main > div > section:nth-child(2) > div:nth-child(1) > div:nth-child(1)": "d.teacher",
   ":scope > main > div > section:nth-child(2) > p": "d.k.words",
-  ":scope > main > header > div:nth-child(1) > span": "'lex<b>kite</b>'",
   ":scope > main > div > section:nth-child(9)": "d.pathHtml"
  },
  "attr": {
-  ":scope > main > header > div:nth-child(2) > div": {
-   "href": "'#/me'",
-   "aria-label": "t('Tài khoản')",
-   "data-act": "'menu'",
-   "aria-haspopup": "'dialog'"
-  },
   ":scope > main > div > section:nth-child(1) > div:nth-child(1)": {
    "href": "d.c.tgHref"
   },
@@ -174,10 +168,6 @@
    "href": "'#/streak'",
    "data-blk": "'week'"
   },
-  ":scope > main > header > div:nth-child(2) > button:last-of-type": {
-   "data-act": "'lang'",
-   "aria-haspopup": "'dialog'"
-  },
   ":scope > main > div > section:nth-child(2) > div:nth-child(3) > span": {
    "aria-hidden": "'true'"
   },
@@ -223,9 +213,6 @@
   }
  },
  "tag": {
-  ":scope > main > header > div:nth-child(2) > div": {
-   "to": "a"
-  },
   ":scope > main > div > section:nth-child(1) > div:nth-child(1)": {
    "to": "a"
   },
@@ -264,16 +251,13 @@
   }
  },
  "addClass": {
-  ":scope > main > header > div:nth-child(2) > button": "relative after:absolute after:-inset-y-[10px] after:-inset-x-1 after:content-['']",
-  ":scope > main > header > div:nth-child(2) > div": "relative after:absolute after:-inset-1.5 after:content-['']",
   ":scope > main > div > section:nth-child(5) > div:nth-child(1) > span": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
   ":scope > main > div > section:nth-child(7) > div:nth-child(1) > span": "relative after:absolute after:-inset-y-[14px] after:-inset-x-1 after:content-['']",
   ":scope > main > div > section:nth-child(2) > div:nth-child(1)": "rtl:flex-row",
   ":scope > main > div > section:nth-child(6) button": "min-h-[44px]"
  },
  "remove": [
-  ":scope > main > nav",
-  "header button[aria-label^=\"Target Language\"], header button[aria-label^=\"Learning Language\"]"
+  ":scope > main > nav"
  ],
  "repeat": [
   {

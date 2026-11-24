@@ -1,6 +1,6 @@
 /* UI zh – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {
-"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"这对你来说似乎太简单了。试试更难的题目（输入而不是选择），赢取额外 XP？",
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhớ lâu hơn nhé?":"这对您来说似乎太简单了。要不要试试更难的题（输入而不是选择），记得更久？",
 "Bật lại":"重新开启",
 "Chuỗi dài nhất":"最长连对",
 "Câu khó · +{n} XP":"难题 · +{n} XP",

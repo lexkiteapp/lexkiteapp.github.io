@@ -12,6 +12,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { mkEnv, mkApp, slice, NOW } from './gen-vocab.mjs';
 import { rigVectorText } from './gen-teach.mjs';
+import { gameRules } from '../lib/game-rules.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const rd = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
@@ -86,7 +87,7 @@ export async function mk(o = {}) {
   const { app, state, routes } = mkApp(E, { cards: o.cards || {}, settings: o.settings || {}, game });
   const S = E.Core.Store, set0 = S.set.bind(S); S.set = async (k, v) => { writes.push({ store: 'store', key: k, value: clone(v) }); return set0(k, v); };
   const ls0 = E.ls.setItem; E.ls.setItem = (k, v) => { writes.push({ store: 'localStorage', key: k, value: String(v) }); return ls0(k, v); };
-  sb.Game = { mutate: async fn => { const before = clone(state.game), gs = clone(before); await fn(gs); for (const k of Object.keys(gs)) if (JSON.stringify(gs[k]) !== JSON.stringify(before[k])) writes.push({ store: 'game', key: k, value: clone(gs[k]) }); state.game = gs; return gs; } };
+  sb.Game = { ...gameRules(), mutate: async fn => { const before = clone(state.game), gs = clone(before); await fn(gs); for (const k of Object.keys(gs)) if (JSON.stringify(gs[k]) !== JSON.stringify(before[k])) writes.push({ store: 'game', key: k, value: clone(gs[k]) }); state.game = gs; return gs; } };
   app.reward = async (r, el) => { calls.rewards.push(clone(r)); }; let prevSet = clone(state.settings); app.saveSettings = () => { for (const k of Object.keys(state.settings)) if (JSON.stringify(state.settings[k]) !== JSON.stringify(prevSet[k])) writes.push({ store: 'settings', key: k, value: clone(state.settings[k]) }); prevSet = clone(state.settings); };
   app.addWord = async (entry, ctx, opts) => { calls.addWord.push({ entry: entry.topic === 'mine' ? { word: entry.word, topic: 'mine', emoji: entry.emoji } : { word: entry.word, vi: entry.vi }, ctx: clone(ctx), opts: clone(opts) }); };
   app.inDeck = w => !!state.cards[String(w).toLowerCase()];
@@ -292,7 +293,7 @@ const PERSIST = [];   // [route, action, [store:key…]] collected from every fl
 const note = (route, action, P) => PERSIST.push([route, action, writesOf(P)]);
 const SPK = c => [...String(c).matchAll(/<span class="chip">(\S*) ([^<]*)<\/span>/g)].map(m => ({ flag: m[1], name: unesc(m[2]) }));
 function hubOut(h) {
-  const tabs = [...h.matchAll(/<a class="(?:on)?" href="#\/listening\?t=(\d+)" style="([^"]*)">Test \d+( ✓)?<\/a>/g)].map(m => ({ n: +m[1], done: !!m[3], selected: /background/.test(m[2]) }));
+  const tabs = [...h.matchAll(/<a class="(on)?" href="#\/listening\?t=(\d+)"[^>]*>Test \d+( ✓)?<\/a>/g)].map(m => ({ n: +m[2], done: !!m[3], selected: m[1] === 'on' }));
   const card = h.split('<div class="card" style="margin-bottom:1rem">')[1] || '';
   const parts = card.split('<div class="card hover"').slice(1).map(c => ({ id: /href="#\/listen\/(\w+)"/.exec(c)[1], part: +/Part (\d) · /.exec(c)[1], partKey: unesc(/Part \d · ([^<]*)</.exec(c)[1]), best: (m => (m ? +m[1] : null))(/✓ (\d+)\/10/.exec(c)),
     title: strip(/<h3[^>]*>([\s\S]*?)<\/h3>/.exec(c)[1]), sub: strip(/<div class="small muted">([\s\S]*?)<\/div>/.exec(c)[1]), speakers: SPK(/<div class="row" style="margin-top:\.4rem">([\s\S]*?)<\/div>/.exec(c)[1]),

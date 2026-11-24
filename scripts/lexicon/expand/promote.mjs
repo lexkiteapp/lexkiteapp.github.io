@@ -11,7 +11,7 @@ import { spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { ROOT, rd, wr } from '../lib.mjs';
 import { spot } from '../../content-qa/lib.mjs';
-import { QUEUE, gateEntry } from './lib.mjs';
+import { readQ, writeQ, gateEntry } from './lib.mjs';
 import { loadRefs, checkEntry } from '../ipa-check.mjs';
 const [id] = process.argv.slice(2), arg = n => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : null; };
 const PEND = `content/lexicon/expand/pending/${id}.json`, P = JSON.parse(rd(PEND)), keys = Object.keys(P.items);
@@ -31,21 +31,21 @@ if (!process.argv.includes('--no-audio-gate')) { const { wordsWithoutAudio } = a
   if (no.length > AUDIO_MAX) { console.error(`⏳ chờ giọng: lô ${id} còn ${no.length} từ chưa có giọng Kokoro (> ${AUDIO_MAX}) – chưa xuất, word-audio sẽ render rồi lượt sau xuất (vd ${no.slice(0, 5).join(', ')})`); process.exit(4); } }
 // cổng ĐIỂM (13/11: lô r229/r230 xuất bằng commit bot [skip ci] kéo "Dễ học" 91,7 → 91,6 < sàn → main đỏ, chặn mọi PR): đo content-score TRƯỚC, xuất, đo SAU – xanh trước mà đỏ sau → hoàn tác, lô nằm chờ (ảnh/collocation/giọng bổ sung rồi lượt sau xuất). Sàn không đổi; main đã đỏ sẵn thì không chặn.
 const scoreOk = () => spawnSync('node', ['scripts/content-score.mjs'], { cwd: fileURLToPath(new URL('../../..', import.meta.url)), stdio: 'ignore' }).status === 0;
-const GATE = !process.argv.includes('--no-score-gate'), baseOk = GATE && scoreOk(), snap = { q: rd(QUEUE), p: rd(PEND) };
+const GATE = !process.argv.includes('--no-score-gate'), baseOk = GATE && scoreOk(), snap = { q: readQ(), p: rd(PEND) };
 const checked = JSON.parse(fs.readFileSync(arg('--checked'), 'utf8')), b = { id, source: 'lexicon-expand', n: keys.length, checked, at: new Date().toISOString().slice(0, 10) };
 const s = spot(b); b.status = s.ok ? 'published' : 'rejected'; if (!s.ok) b.why = s.why;
 fs.mkdirSync(new URL('content/qa/batches/', ROOT), { recursive: true });
 wr(`content/qa/batches/lx-${id}.json`, JSON.stringify(b, null, 1) + '\n');
 const bad = new Set(checked.filter(x => !x.ok).map(x => x.id));
 if (s.ok) {
-  const q = JSON.parse(rd(QUEUE));
+  const q = readQ();
   for (const [k, r] of regate) { q.items = q.items.filter(x => !(x.src === 'lexicon-expand' && x.id === k)); q.items.push({ src: 'lexicon-expand', id: k, batch: id, why: ['cổng lại lúc xuất: ' + r.why[0]].concat(r.why.slice(1, 4)), at: b.at, data: P.items[k] }); delete P.items[k]; }
   for (const k of bad) { q.items.push({ src: 'lexicon-expand', id: k, batch: id, why: ['soát mẫu: ' + (checked.find(x => x.id === k).note || 'sai')], at: b.at, data: P.items[k] }); delete P.items[k]; }
-  P.n = Object.keys(P.items).length; wr(QUEUE, JSON.stringify(q, null, 1) + '\n');
+  P.n = Object.keys(P.items).length; writeQ(q);
   wr(`content/lexicon/expand/${id}.json`, rd(PEND).length && JSON.stringify(P).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n'); fs.unlinkSync(new URL(PEND, ROOT));
   // 31/10 đa từ loại: từ vừa xuất có TỪ LOẠI KHÁC ở retry (duck#n xuất → duck#v) GIỮ ở retry – job.mjs khoá trùng theo từ#loại, mục chính nhận `more` (shards.mjs)
 }
 if (s.ok && baseOk && !scoreOk()) {
-  wr(QUEUE, snap.q); wr(PEND, snap.p); for (const f of [`content/lexicon/expand/${id}.json`, `content/qa/batches/lx-${id}.json`]) if (fs.existsSync(new URL(f, ROOT))) fs.unlinkSync(new URL(f, ROOT));
+  writeQ(snap.q); wr(PEND, snap.p); for (const f of [`content/lexicon/expand/${id}.json`, `content/qa/batches/lx-${id}.json`]) if (fs.existsSync(new URL(f, ROOT))) fs.unlinkSync(new URL(f, ROOT));
   console.error(`⏳ chờ điểm: xuất lô ${id} làm content-score tụt dưới sàn (content/pipeline/score.budget.json) – hoàn tác, lô nằm chờ (bổ sung ảnh/collocation/giọng cho mục mới); sàn không hạ`); process.exit(5); }
 console.log(`${s.ok ? '✓ xuất' : '✗ loại'} lô ${id}: ${keys.length} mục · soát ${checked.length} · sai ${bad.size}${s.ok ? '' : ' – ' + s.why}`);

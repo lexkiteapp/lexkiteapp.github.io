@@ -1,0 +1,153 @@
+{
+ "id": "t2s_es_cram",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 76,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Exam tomorrow. I haven't studied!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cram!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Study at the last minute.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I must cram for math.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "cram",
+  "forms": [
+   "cramming",
+   "crammed"
+  ],
+  "ipa": "/ˈkræm/",
+  "mean": "Study at the last minute.",
+  "define": "To study many things quickly just before a test.",
+  "vi": "Học nhồi nhét",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Waiting outside class",
+   "text": "I must cram for math."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"cram\" is to…",
+   "options": [
+    "sleep in class",
+    "study at the last minute"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'cram' for a three-year course.",
+   "why": "Cramming only works for short tests."
+  },
+  "l1": "estudiar a última hora",
+  "l1_hook": "Examen mañana. ¡No he estudiado, \"cram\"!",
+  "l1_ex": "Tengo que \"cram\" para matemáticas.",
+  "right": "cram",
+  "native": {
+   "hook": "¿Qué significa “cram”?",
+   "tip": "“cram” = estudiar a última hora. Ejemplo: “I must cram for math.”",
+   "caption": "¿Qué significa “cram”?\n“cram” = estudiar a última hora.\nEjemplo: “I must cram for math.” (Tengo que \"cram\" para matemáticas.)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “cram” = estudiar a última hora. “I must cram for math.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Exam tomorrow. I haven't studied!"
+ },
+ "src": {
+  "slang": "cram"
+ },
+ "lang": "es",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "¿Qué significa “cram”?",
+  "keyword": "cram",
+  "value": "“cram” = estudiar a última hora. Ejemplo: “I must cram for math.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “cram”?",
+    "description": "“cram” = estudiar a última hora. Ejemplo: “I must cram for math.”\n\n¿Qué significa “cram”?\n“cram” = estudiar a última hora.\nEjemplo: “I must cram for math.” (Tengo que \"cram\" para matemáticas.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "cram",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “cram”?\n“cram” = estudiar a última hora.\nEjemplo: “I must cram for math.” (Tengo que \"cram\" para matemáticas.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “cram”?\n\n“cram” = estudiar a última hora. Ejemplo: “I must cram for math.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “cram”? “cram” = estudiar a última hora. Ejemplo: “I must cram for math.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “cram” = estudiar a última hora. “I must cram for math.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

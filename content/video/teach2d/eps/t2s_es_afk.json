@@ -1,0 +1,148 @@
+{
+ "id": "t2s_es_afk",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 12,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Five minutes, then I'm back!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "AFK!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Away from keyboard.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Brb, I'll be AFK for five minutes.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "AFK",
+  "forms": [
+   "afk"
+  ],
+  "ipa": "/ˌeɪ ef ˈkeɪ/",
+  "mean": "Away from keyboard.",
+  "define": "Used when you leave your game or chat for a short while.",
+  "vi": "Đi chút quay lại ngay",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Playing online",
+   "text": "Brb, I'll be AFK for five minutes."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "AFK means…",
+   "options": [
+    "always fun king",
+    "away from keyboard"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'AFK' in a formal email.",
+   "why": "It's gamer shorthand."
+  },
+  "l1": "ausente",
+  "l1_hook": "¡Cinco minutos y vuelvo!",
+  "l1_ex": "Vuelvo pronto, estaré \"AFK\" cinco minutos.",
+  "right": "AFK",
+  "native": {
+   "hook": "¿Qué significa “AFK”?",
+   "tip": "“AFK” = ausente. Ejemplo: “Brb, I'll be AFK for five minutes.”",
+   "caption": "¿Qué significa “AFK”?\n“AFK” = ausente.\nEjemplo: “Brb, I'll be AFK for five minutes.” (Vuelvo pronto, estaré \"AFK\" cinco minutos.)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “AFK” = ausente. “Brb, I'll be AFK for five minutes.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Five minutes, then I'm back!"
+ },
+ "src": {
+  "slang": "AFK"
+ },
+ "lang": "es",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "¿Qué significa “AFK”?",
+  "keyword": "AFK",
+  "value": "“AFK” = ausente. Ejemplo: “Brb, I'll be AFK for five minutes.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “AFK”?",
+    "description": "“AFK” = ausente. Ejemplo: “Brb, I'll be AFK for five minutes.”\n\n¿Qué significa “AFK”?\n“AFK” = ausente.\nEjemplo: “Brb, I'll be AFK for five minutes.” (Vuelvo pronto, estaré \"AFK\" cinco minutos.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "AFK",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “AFK”?\n“AFK” = ausente.\nEjemplo: “Brb, I'll be AFK for five minutes.” (Vuelvo pronto, estaré \"AFK\" cinco minutos.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “AFK”?\n\n“AFK” = ausente. Ejemplo: “Brb, I'll be AFK for five minutes.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “AFK”? “AFK” = ausente. Ejemplo: “Brb, I'll be AFK for five minutes.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “AFK” = ausente. “Brb, I'll be AFK for five minutes.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

@@ -103,12 +103,20 @@ class LessonController(
     }
     fun clearFlash() { if (st.flash) st = st.copy(flash = false) }
 
-    // ---------- hints (no XP cost) ----------
+    // ---------- hints: fifty · first · the first letter hint of an attempt cost 1 XP each (web lesson/ui.js); bank / pair / slow are free ----------
+    private var xpHints = 0
+    private var letterAt: LItem? = null
     /** One step of help for the current kind. Returns what happened, for the screen to announce. */
     fun hint(): String? {
         val it = sess.cur ?: return null; if (!open()) return null
+        val r = hintStep(it)
+        if (r == "fifty" || r == "first" || (r == "letter" && letterAt !== it)) xpHints++
+        if (r == "letter") letterAt = it
+        return r
+    }
+    private fun hintStep(it: LItem): String? {
         return when (it.type) {
-            "gap", "mean", "q", "pic" -> if (it.type == "pic" && it.choice != true) null else { val wrong = (it.options ?: emptyList()).filter { o -> o != it.answer && o !in st.removed && o != st.pick }; if (wrong.size <= 1) null else { st = st.copy(removed = st.removed + wrong.first(), hints = st.hints + 1); "fifty" } }
+            "gap", "mean", "q", "pic", "lpic" -> if (it.type == "pic" && it.choice != true) null else { val wrong = (it.options ?: emptyList()).filter { o -> o != it.answer && o !in st.removed && o != st.pick }; if (wrong.size <= 1) null else { st = st.copy(removed = st.removed + wrong.first(), hints = st.hints + 1); "fifty" } }
             "build", "tr" -> {
                 val w = it.answer.split(" "); val tiles = it.tiles ?: return null
                 val cur = st.tiles.map { i -> tiles[i] }; val okPrefix = cur.size <= w.size && cur.indices.all { k -> LessonEngine.same(cur[k], w[k]) }
@@ -168,7 +176,7 @@ class LessonController(
     private fun advance() { if (sess.done) finishNow() else enter() }
     private fun finishNow() {
         val s = sess
-        finish = Finish(LessonWriter.xpOf(s), s.accuracy, s.best, max(1, Math.round((now() - t0) / 60000.0).toInt()), picks.mapNotNull { (it.card["word"] as? kotlinx.serialization.json.JsonPrimitive)?.content?.takeIf { w -> w.isNotEmpty() } },
+        finish = Finish(LessonWriter.xpOf(s, xpHints), s.accuracy, s.best, max(1, Math.round((now() - t0) / 60000.0).toInt()), picks.mapNotNull { (it.card["word"] as? kotlinx.serialization.json.JsonPrimitive)?.content?.takeIf { w -> w.isNotEmpty() } },
             s.wrong.keys.filter { !it.startsWith("#") }, s.wrong.isEmpty())
     }
     fun results(): List<LessonEngine.Res> = LessonEngine.results(sess, items0, cards, now())

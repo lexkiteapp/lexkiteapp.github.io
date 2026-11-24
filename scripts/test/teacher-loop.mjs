@@ -7,7 +7,7 @@ const dom = new JSDOM('<!doctype html><body><div id="t"></div></body>', { url: '
 const w = dom.window, D = w.document;
 let q = [], now = 0, ops = 0, ro = [];
 w.requestAnimationFrame = f => { q.push(f); return q.length; }; w.cancelAnimationFrame = () => {};
-w.localStorage.setItem('lk.lipsync', '1');
+w.localStorage.setItem('lk.lipsync', '1'); w.localStorage.setItem('lk.lipEarly', '1'); // jsdom không tải ảnh → poster không bao giờ 'load': thử vòng vẽ ở chế độ nạp ngay (công tắc lk.lipEarly); thứ tự nạp-sau-poster do lesson-lip-late.mjs kiểm
 w.Path2D = class { addPath() {} ellipse() {} rect() {} moveTo() {} lineTo() {} closePath() {} arc() {} bezierCurveTo() {} quadraticCurveTo() {} };
 const ctx = new Proxy({}, { get: (o, k) => k in o ? o[k] : (typeof k === 'string' ? (() => { ops++; }) : undefined), set: (o, k, v) => { o[k] = v; return true; } });
 w.HTMLCanvasElement.prototype.getContext = function () { return ctx; };

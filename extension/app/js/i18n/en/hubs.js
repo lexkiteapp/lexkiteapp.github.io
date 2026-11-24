@@ -241,4 +241,6 @@
 'Đề A2 Key → C2 Proficiency: Đọc & Viết, Nghe, Nói': 'A2 Key → C2 Proficiency tests: Reading & Writing, Listening, Speaking',
 'Trung gian': 'Mediation',
 'Chuyển ý từ nguồn tiếng Anh cho đúng người cần': 'Pass on what matters from English sources',
+'Truyện & podcast': 'Stories & podcasts',
+'Đọc và nghe theo cấp A1–C1, chạm từ để học': 'Read and listen by level A1–C1, tap words to learn',
 }); })(typeof self !== 'undefined' ? self : this);

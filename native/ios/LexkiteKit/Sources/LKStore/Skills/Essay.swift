@@ -6,8 +6,8 @@ import LKStrings
 /// Verified against native/shared/gen/vectors/write.json (WriteVectorTests); the tables the web keeps in closures (outline, trends, STOP, SKILL …) come from `web/data/write-pack.json`.
 public enum Essay {
     public static let minWords = 250, minToAnalyse = 40, keepSaved = 20, showSaved = 6, clockMinutes = 40, warnSeconds = 300
-    /// `App.reward({ quizzes: 1, writes: 1, xp: 25 })`
-    public static let reward: [String: Int] = ["quizzes": 1, "writes": 1, "xp": 25]
+    /// `App.reward({ quizzes: 1, writes: 1, xp: Game.xpFor('essay') })`
+    public static let reward: [String: Int] = ["quizzes": 1, "writes": 1, "xp": RewardRules.xp("essay")]
 
     private static let wordRe = try! NSRegularExpression(pattern: "[A-Za-z][A-Za-z'\u{2019}-]*")
     /// `(text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length`
@@ -91,7 +91,7 @@ public enum Essay {
 
     // MARK: Task 1 (task1.js `score`)
     public static let task1MinWords = 150, task1MinToAnalyse = 30, task1Clock = 20, task1Warn = 180
-    public static let task1Reward: [String: Int] = ["quizzes": 1, "writes": 1, "xp": 20]
+    public static let task1Reward: [String: Int] = ["quizzes": 1, "writes": 1, "xp": RewardRules.xp("essay")]
     public enum Task1Note: Equatable, Sendable { case short(Int), noOverview, fewNumbers, fewTrend, fewCompare, passiveProcess, passiveMap, opinion, fewParagraphs, good }
     public struct Task1Score: Equatable, Sendable { public var band: Double, words: Int, overview: Int, numbers: Int, trend: Int, compare: Int, notes: [Task1Note] }
     private static func rx(_ p: String) -> NSRegularExpression { try! NSRegularExpression(pattern: p, options: [.caseInsensitive]) }

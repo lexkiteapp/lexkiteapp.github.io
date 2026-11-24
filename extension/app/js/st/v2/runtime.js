@@ -28,8 +28,8 @@
     return !((g.days || {})[k] || {}).xp && (g.frozen || {})[yk] ? 'frozen' : 'active'; };
   // CSS theo màn: ux1 chỉ nạp sẵn Lộ trình + Hôm nay; màn khác nạp khi mở (khung ẩn ≤ 1,5 s), Home xong thì nạp nốt lúc rảnh.
   const LZ = ['review', 'practice', 'skills', 'leagues', 'me', 'streak', 'exam-readiness', 'today-new', 'today-desk', 'today-rail'], cssOk = {};
-  const css = (k, w) => { if (!LZ.includes(k) || cssOk[k] || !window.App || !App.loadCss) return; if (w) w.style.visibility = 'hidden';
-    App.loadCss('css/st-v2-' + k + '.css').then(() => { cssOk[k] = 1; if (w) w.style.visibility = ''; }); };
+  const css = (k, w) => { if (!LZ.includes(k) || cssOk[k] || !window.App || !App.loadCss) return; const m = w && (w.querySelector('main') || w); if (m) m.style.visibility = 'hidden'; // chỉ ẩn thân màn: thanh tab (CSS chung đã nạp) luôn hiện → chạm tab ngay, không đợi CSS riêng của màn
+    App.loadCss('css/st-v2-' + k + '.css').then(() => { cssOk[k] = 1; if (m) m.style.visibility = ''; }); };
   let idle = false; const rest = () => { if (idle || (App.lean && App.lean())) return; idle = true; (self.requestIdleCallback || (f => setTimeout(f, 1200)))(() => LZ.forEach(x => css(x)), { timeout: 8000 }); };
   S.css = css;
 

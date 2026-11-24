@@ -57,7 +57,7 @@
       let i = 0, ok = 0, scored = 0, retry = 0, ctl = null, t0 = Date.now();
       const done = () => {
         P.endSession(stats, sess, today()); P.save(stats);
-        const pct = scored ? Math.round(ok / scored * 100) : 0, xp = 5 + ok * 2;
+        const pct = scored ? Math.round(ok / scored * 100) : 0, xp = Game.xpFor('set', { right: ok, total: scored, mode: 'say' });
         box.innerHTML = `<h3>${ic('mic')} ${t('Luyện nói cặp từ')}</h3>
           <div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static" role="status"><b>${t('Nói đúng {ok}/{n} từ', { ok, n: scored })}</b></div>
           <div class="row" style="margin-top:.5rem">${Object.keys(sess).map(id => { const c = cs.find(z => z.id === id), s = sess[id]; return `<span class="chip ${s.ok === s.n ? 'ok' : ''}"><b>${esc(P.label(c))}</b> ${s.ok}/${s.n}</span>`; }).join('')}</div>

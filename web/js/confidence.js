@@ -236,8 +236,8 @@
         try { await App.addWord({ word: p.say, vi: t(p.mean), def: p.meanEn, ex: p.say, pos: 'phrase', emoji: u.em, topic: 'confidence' }, { text: p.say, title: 'Speak with confidence: ' + u.titleEn }, { silent: true }); n++; } catch (e) { /* bỏ qua 1 thẻ lỗi */ }
       }
       const el = $('#cfSaved'); if (el) el.textContent = '✓ ' + (n ? t('Đã lưu {n} cụm câu vào thẻ ôn.', { n }) : t('Các cụm câu đã có trong thẻ ôn.'));
-      if (first && !R.rp) App.reward({ spoken: Object.keys(R.shadow).length, xp: 15 }); // hội thoại đã tự cộng XP (roleplay.js)
-      else if (first) App.reward({ xp: 5 });
+      if (first && !R.rp) App.reward({ spoken: Object.keys(R.shadow).length, xp: Game.xpFor('talk', { right: Object.keys(R.shadow).length }) }); // hội thoại đã tự cộng XP (roleplay.js)
+      else if (first) App.reward({ xp: Game.xpFor('step') });
       if (window.Sfx) Sfx.finish({ pct: sh, xp: first ? (R.rp ? null : 15) : 0, good: 0, el: b }); // 4 thẻ số liệu; thiếu số liệu → '–'
     }
     [listen, pack, shadow, gaps, roleplay, recap][step](step);
@@ -331,7 +331,7 @@
         $('#cfScore').innerHTML = `<div class="cf-hero" style="margin-top:.8rem">${UI.ring(score, score, 'var(--primary)')}<div class="grow"><b>${t('Điểm tự tin hôm nay: {n}/100', { n: score })}</b>
           <p class="small muted" style="margin:.2rem 0">${up ? '🏆 ' + t('Kỷ lục mới! Bạn đang tiến bộ thật sự.') : st >= 3 ? '🔥 ' + t('{n} ngày liên tiếp – giữ nhịp nhé!', { n: st }) : t('Nói mỗi ngày để điểm tăng dần.')}</p>${spark(P.daily)}</div></div>
           <div class="cf-bar"><a class="btn primary" href="#/confidence">${t('Về lộ trình')}</a><a class="btn" href="#/confidence/toolkit">🧰 ${t('Bộ công cụ tự tin')}</a></div>`;
-        if (today < 0) { App.reward({ spoken: 1, xp: 10 }); if (up || st === 3) { if (window.Sfx) Sfx.win(); if (window.confetti) confetti(80); } }
+        if (today < 0) { App.reward({ spoken: 1, xp: Game.xpFor('talk') }); if (up || st === 3) { if (window.Sfx) Sfx.win(); if (window.confetti) confetti(80); } }
       });
     }
   }

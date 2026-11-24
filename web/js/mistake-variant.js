@@ -80,7 +80,7 @@
     let i = 0, right = 0;
     const next = () => {
       if (i >= qs.length) {
-        App.reward({ quizzes: 1, xp: 3 + right * 2 });
+        App.reward({ quizzes: 1, xp: Game.xpFor('set', { right, total: qs.length }) });
         view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate"><div class="em">${UI.icon('party-popper')}</div><h2>${t('{score}/{total} câu đúng', { score: right, total: qs.length })}</h2><p class="muted">${t('Mình sẽ hỏi lại những câu này vào đúng lúc để bạn nhớ lâu.')}</p><div class="row center">${back}</div></div></div>`;
         return;
       }

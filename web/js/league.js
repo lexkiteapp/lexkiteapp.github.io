@@ -141,7 +141,7 @@
   async function v2Board(data, curTier, nextTier, board, me, leftTime, last, lastKey) {
     const rules = data.rules || {}, upCut = rules.up || 7, downCut = rules.down || 5, maxTier = rules.maxTier != null ? rules.maxTier : 5;
     const canDown = data.member.tier > 0 && board.length > upCut + downCut, canUp = data.member.tier < maxTier;
-    const zoneChip = z => (z === 'up' ? t('Thăng hạng') : z === 'down' ? t('Nguy cơ') : t('An toàn'));
+    const zoneChip = z => (z === 'up' ? t('Thăng hạng') : z === 'down' ? t('Cần thêm XP') : t('An toàn'));
     const cut = board[upCut - 1], gapUp = cut && canUp && me.zone !== 'up' ? Math.max(1, cut.xp - (me.xp || 0) + 1) : 0, myXp = me.xp != null ? me.xp : data.member.xp || 0;
     const rows = [];
     board.forEach((r, idx) => {
@@ -158,7 +158,7 @@
       const lt = getTier(last.tier).name(), args = { rank: last.rank, of: last.of, xp: (last.xp || 0).toLocaleString(), tier: lt };
       cards.push({ k: 'last', icon: last.move > 0 ? 'celebration' : last.move < 0 ? 'trending_down' : 'trending_flat', act: 'last', btn: t('Đã hiểu'), aria: t('Đã hiểu'),
         title: last.move > 0 ? t('Chúc mừng! Bạn đã thăng hạng!') : last.move < 0 ? t('Kết quả tuần trước') : t('Giữ vững thứ hạng!'),
-        sub: last.move > 0 ? t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và đã thăng hạng lên {tier}!', args) : last.move < 0 ? t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và chuyển xuống {tier}. Tuần này hãy cố gắng hơn nhé!', args) : t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và tiếp tục giữ vững {tier}.', args) });
+        sub: last.move > 0 ? t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và đã thăng hạng lên {tier}!', args) : last.move < 0 ? t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và chuyển xuống {tier}. Tuần mới, khởi đầu mới – học đều mỗi ngày là đủ.', args) : t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và tiếp tục giữ vững {tier}.', args) });
     }
     cards.push({ k: 'cta', icon: 'local_fire_department', title: gapUp ? t('Kiếm +{n} XP để leo hạng', { n: gapUp.toLocaleString() }) : t('Giữ vững vị trí'), sub: (nx && nx.t) || t('Ôn tập thẻ đến hạn'), btn: t('Học ngay'), href: (nx && nx.href) || '#/review', aria: t('Học ngay') + ': ' + ((nx && nx.t) || '') },
       { k: 'nick', icon: 'edit', title: data.member.nick, sub: t('Đổi biệt danh bảng xếp hạng'), btn: t('Đổi'), act: 'nick', aria: t('Đổi biệt danh') },
@@ -358,7 +358,7 @@
               <div>
                 <div style="font-size:1.05rem;font-weight:700;color:var(--again-text)">📉 ${t('Kết quả tuần trước')}</div>
                 <div class="small" style="margin-top:.2rem">
-                  ${t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và chuyển xuống {tier}. Tuần này hãy cố gắng hơn nhé!', { rank: last.rank, of: last.of, xp: (last.xp || 0).toLocaleString(), tier: lastTierObj.name() })}
+                  ${t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và chuyển xuống {tier}. Tuần mới, khởi đầu mới – học đều mỗi ngày là đủ.', { rank: last.rank, of: last.of, xp: (last.xp || 0).toLocaleString(), tier: lastTierObj.name() })}
                 </div>
               </div>
               <button type="button" class="btn sm" id="btnDismissLast" style="flex:none">${t('Đã hiểu')}</button>

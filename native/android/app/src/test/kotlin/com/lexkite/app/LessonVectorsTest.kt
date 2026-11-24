@@ -17,6 +17,7 @@ import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.booleanOrNull
+import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.buildJsonArray
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.jsonArray
@@ -59,12 +60,13 @@ class LessonVectorsTest {
         put("hints", strs(hints)!!); mean?.let { put("mean", it) }; noAudio?.let { put("noAudio", it) }
         sent?.let { put("sent", it) }; own?.let { put("own", it) }
         blank?.let { b -> put("blank", buildJsonObject { put("i", b.i); put("n", b.n); put("toks", strs(b.toks)!!); put("form", b.form) }) }
-        if (answer.isNotEmpty() || word == "#match") put("answer", answer); strs(options)?.let { put("options", it) }; strs(tiles)?.let { put("tiles", it) }; prompt?.let { put("prompt", it) }; tr?.let { put("tr", it) }
+        if (answer.isNotEmpty() || word == "#match" || word == "#mpic") put("answer", answer); strs(options)?.let { put("options", it) }; strs(tiles)?.let { put("tiles", it) }; prompt?.let { put("prompt", it) }; tr?.let { put("tr", it) }
         def?.let { put("def", it) }; len?.let { put("len", it) }; first?.let { put("first", it) }; strs(bank)?.let { put("bank", it) }
         this@json.alt?.let { put("alt", it.json(true)) }
         choice?.let { put("choice", it) }; spoke?.let { put("spoke", it) }
         pairs?.let { p -> put("pairs", buildJsonArray { p.forEach { m -> add(if (m.card != null) ref(m.card) else buildJsonObject { put("word", m.word); put("mean", m.mean ?: "") }) } }) }
         free?.let { put("free", it) }; who?.let { put("who", it) }; radio?.let { put("radio", it) }
+        ipos?.let { m -> put("ipos", buildJsonObject { m.forEach { (k, x) -> put(k, x) } }) }; pics?.let { put("pics", it) }
     }
 
     private fun parseItem(j: JsonObject): LItem {
@@ -75,7 +77,8 @@ class LessonVectorsTest {
             sl("hints").orEmpty(), st("mean"), bo("noAudio"), st("sent"), bo("own"),
             (j["blank"] as? JsonObject)?.let { Found(it.getValue("i").jsonPrimitive.long.toInt(), it.getValue("n").jsonPrimitive.long.toInt(), it.a("toks").map { x -> x.s() }, it.s("form")) },
             st("answer").orEmpty(), sl("options"), sl("tiles"), st("prompt"), st("tr"), st("def"), j["len"]?.jsonPrimitive?.long?.toInt(), st("first"), sl("bank"),
-            (j["alt"] as? JsonObject)?.let { a -> parseItem(JsonObject(a + mapOf("id" to JsonPrimitive(0), "word" to JsonPrimitive("")))) }, bo("choice"), bo("spoke"), (j["pairs"] as? JsonArray)?.map { e -> if (e is JsonPrimitive) cardOf(e.content).let { c -> MatchPair(c.s("word"), null, c) } else e.jsonObject.let { o -> MatchPair(o.s("word"), o.s("mean")) } }, bo("free"), st("who"), bo("radio"))
+            (j["alt"] as? JsonObject)?.let { a -> parseItem(JsonObject(a + mapOf("id" to JsonPrimitive(0), "word" to JsonPrimitive("")))) }, bo("choice"), bo("spoke"), (j["pairs"] as? JsonArray)?.map { e -> if (e is JsonPrimitive) cardOf(e.content).let { c -> MatchPair(c.s("word"), null, c) } else e.jsonObject.let { o -> MatchPair(o.s("word"), o.s("mean")) } }, bo("free"), st("who"), bo("radio"),
+            (j["ipos"] as? JsonObject)?.mapValues { it.value.s() }, bo("pics"))
     }
     private fun JsonObject.s(k: String) = getValue(k).jsonPrimitive.content
 
@@ -107,11 +110,12 @@ class LessonVectorsTest {
 
     private fun buildOf(b: JsonObject): List<LItem> {
         val picks = picksById.getValue(b.s("pick")); val off = b["off"]?.jsonObject?.let { Off(it.b("listen"), it.b("speak")) } ?: Off()
-        val hasImg: (String, String) -> Boolean = { w, _ -> b.b("img") && w in imgWords }
+        val allImg = (b["img"] as? JsonPrimitive)?.contentOrNull == "all"
+        val hasImg: (String, String) -> Boolean = { w, _ -> allImg || (b.b("img") && w in imgWords) }
         val glossFn: (JsonObject, String) -> String = { _, en -> gloss[en]?.s().orEmpty() }
         val meanFn: (JsonObject) -> String = { c -> if (b.s("mean") == "vi") (c["vi"] as? JsonPrimitive)?.content.orEmpty() else "" }
         return LessonEngine.build(picks, BuildOpts(b.getValue("seed").jsonPrimitive.long, cards + starter, off, b["only"]?.jsonArray?.map { it.s() }, b.b("calm"), b["perWord"]?.jsonPrimitive?.long?.toInt() ?: 0,
-            b["match"]?.jsonPrimitive?.booleanOrNull ?: true, hasImg, if (b.b("gloss")) glossFn else null, meanFn))
+            b["match"]?.jsonPrimitive?.booleanOrNull ?: true, b.b("lpic"), b.b("mpic"), hasImg, if (b.b("gloss")) glossFn else null, meanFn))
     }
     private val builds: Map<String, List<LItem>> by lazy { v.a("build").associate { it.jsonObject.s("id") to buildOf(it.jsonObject) } }
 

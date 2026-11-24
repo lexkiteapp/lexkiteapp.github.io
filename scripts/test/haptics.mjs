@@ -25,7 +25,7 @@ ok(['morning', 'noon', 'evening'].includes(r.doc.documentElement.dataset.daypart
 // native.js: mẫu [rung, nghỉ, rung] phát tuần tự qua Haptics.vibrate
 const src = fs.readFileSync('web/js/native.js', 'utf8'); ok(/hapT/.test(src) && !/Array\.isArray\(p\) \? p\[0\]/.test(src), 'native.js phát cả mẫu, không chỉ phần tử đầu');
 // mọi chỗ rung đi qua cổng chung
-for (const f of ['study.js', 'study-swipe.js', 'retention.js']) ok(!/navigator\.vibrate\(/.test(fs.readFileSync('web/js/' + f, 'utf8')), `${f} không gọi navigator.vibrate trực tiếp`);
+for (const f of ['study.js', 'study-swipe.js', 'retention.js', 'lesson/ui.js']) ok(!/navigator\.vibrate\(/.test(fs.readFileSync('web/js/' + f, 'utf8')), `${f} không gọi navigator.vibrate trực tiếp`);
 // CSS: nền tối giữ #10191B, daypart chỉ đổi --dp
 const css = fs.readFileSync('web/css/style.css', 'utf8'); ok(/data-daypart/.test(css) && !/data-daypart[^{]*\{[^}]*background/.test(css), 'daypart không đổi nền');
 console.log(`haptics: ${n} kiểm tra PASS`);

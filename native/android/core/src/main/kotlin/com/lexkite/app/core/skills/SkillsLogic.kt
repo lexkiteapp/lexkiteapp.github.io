@@ -1,5 +1,6 @@
 package com.lexkite.app.core.skills
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.sync.Js
 import com.lexkite.app.core.vocab.Mistakes
 import com.lexkite.app.core.vocab.Qe
@@ -16,7 +17,8 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 
 /** What a finished activity pays out: counters (quizzes, listens, perfect, readings, dictations) + xp, as App.reward({…}) takes them. */
-class Reward(val add: Map<String, Int>, val xp: Int) { fun json() = jo(*add.map { it.key to it.value }.toTypedArray(), "xp" to xp) }
+/** `App.reward` argument; [src] = the per-day anti-repeat key (ls:<part>, rd:<reading>, gg:/gd:<lesson>), shown in the vectors as `src`. */
+class Reward(val add: Map<String, Int>, val xp: Int, val src: String? = null) { fun json() = jo(*(add.map { (k, v) -> k to (v as Any?) } + listOf<Pair<String, Any?>>("xp" to xp) + (if (src != null) listOf<Pair<String, Any?>>("src" to src) else emptyList())).toTypedArray()) }
 
 /** qengine.js grading + band table (QE.collect / gradeGap / bandOf / overall) and qtips.js kindOf. */
 object Qx {
@@ -194,14 +196,14 @@ object ListenPage {
     fun mistakeOf(p: Part, n: Int, r: Qx.Res) = mistake("listening", jo("k" to "{title} – Câu {n}: {q}", "v" to jo("title" to p.title, "n" to n, "q" to r.q)), r, p.id)
     fun mistakeOfTest(test: Int, n: Int, r: Qx.Res, ref: String) = mistake("listening", jo("k" to "Test {t} – Câu {n}: {q}", "v" to jo("t" to test, "n" to n, "q" to r.q)), r, ref)
 
-    /** "Nộp bài": grade, record the question types, log the wrong ones, keep the best raw score; pays 15 + 3·right XP. */
+    /** "Nộp bài": grade, record the question types, log the wrong ones, keep the best raw score; pays set(right, total, type) XP, src ls:<id>. */
     fun submit(p: Part, answers: Map<String, Any?>, game: JsonElement?, mistakes: List<JsonObject>, now: Long, tx: Tx = Tx.RAW): Submit {
         val res = Qx.collect(p, answers); val right = res.values.count { it.ok }; val total = res.size
         var list = mistakes
         for ((n, r) in res) if (!r.ok) list = Mistakes.log(list, mistakeOf(p, n, r), now, tx)
         val g = SkillsGame.listenDone(SkillsGame.qstat(game, "il", Qx.tally(res.values), now), p.id, right)
-        val xp = 15 + right * 3
-        return Submit(res, right, total, xp, Reward(mapOf("quizzes" to 1, "listens" to 1, "perfect" to if (right == total) 1 else 0), xp), g, list)
+        val xp = RewardRules.xp("set", right = right, total = total, mode = "type")
+        return Submit(res, right, total, xp, Reward(mapOf("quizzes" to 1, "listens" to 1, "perfect" to if (right == total) 1 else 0), xp, "ls:" + p.id), g, list)
     }
 
     /** Transcript rows: pauses are skipped; [ev] = the question numbers whose cue sits on that line (after submitting). */
@@ -231,7 +233,7 @@ object ListenTest {
         var list = mistakes
         for (q in nums) { val (r, pid) = results.getValue(q); if (!r.ok) list = Mistakes.log(list, ListenPage.mistakeOfTest(n, q, r, pid), now, tx) }
         val g = SkillsGame.qstat(SkillsGame.listenTest(game, n, raw, band, now), "il", Qx.tally(results.values.map { it.first }), now)
-        return Done(raw, band, nums, parts.map { p -> p.qNums.count { results[it]?.first?.ok == true } }, Reward(mapOf("quizzes" to 1, "listens" to 4, "perfect" to if (raw == 40) 1 else 0), 40 + raw * 2), g, list)
+        return Done(raw, band, nums, parts.map { p -> p.qNums.count { results[it]?.first?.ok == true } }, Reward(mapOf("quizzes" to 1, "listens" to 4, "perfect" to if (raw == 40) 1 else 0), RewardRules.xp("exam", right = raw, total = 40)), g, list)
     }
 }
 
@@ -297,7 +299,7 @@ object Dictation {
     /** End of the session: [score] = sum of line percentages over [done] checked lines. */
     fun finish(partId: String, mode: String, score: Double, done: Int, game: JsonElement?): Fin {
         val pct = if (done > 0) Math.floor(score / done * 100 + 0.5).toInt() else 0
-        return Fin(pct, done, listOf("#/listen/$partId", "#/dictation/$partId?m=" + (if (mode == "mid") "hard" else "full"), "#/listening"), Reward(mapOf("quizzes" to 1, "dictations" to 1), 10 + Math.floor(pct / 5.0 + 0.5).toInt()), SkillsGame.dictDone(game, partId, pct))
+        return Fin(pct, done, listOf("#/listen/$partId", "#/dictation/$partId?m=" + (if (mode == "mid") "hard" else "full"), "#/listening"), Reward(mapOf("quizzes" to 1, "dictations" to 1), RewardRules.xp("set", right = RewardRules.jsRound(score), total = done, mode = "type")), SkillsGame.dictDone(game, partId, pct))
     }
     /** Replay delay of "Tự động phát lại câu" after the line was read. */
     const val AUTO_REPLAY_MS = 1800L; const val SLOW_RATE = 0.7
@@ -370,7 +372,7 @@ object Reader {
 
     class Item(val chosen: String?, val right: String, val classes: List<String>, val explain: String, val wrong: Boolean)
     class Graded(val score: Int, val n: Int, val items: List<Item>, val reward: Reward, val game: JsonElement, val mistakes: List<JsonObject>) {
-        val pct get() = Math.floor(score * 100.0 / n + 0.5).toInt(); val ok get() = pct >= 60; val xp get() = 10 + score * 4
+        val pct get() = Math.floor(score * 100.0 / n + 0.5).toInt(); val ok get() = pct >= 60; val xp get() = RewardRules.xp("set", right = score, total = n)
         val text get() = "$score/$n"
     }
     /** "Chấm điểm": [picks] = the chosen value per question (TRUE/FALSE/NOT GIVEN or option index as text; null = blank). */
@@ -381,8 +383,8 @@ object Reader {
             if (ok) score++ else list = Mistakes.log(list, jo("kind" to "reading", "q" to "${r.title}: ${q.q}", "answer" to q.optionText(right), "given" to (if (pick == null) jo("k" to "(bỏ trống)") else q.optionText(pick)), "explain" to q.explain, "ref" to r.id), now, tx)
             Item(pick, right, q.picks.map { v -> if (v == right) (if (v == pick) "right+sel" else "right") else if (v == pick) "sel+wrong" else "" }, (if (ok) "" else "❌ ") + q.explain, !ok)
         }
-        val first = Js.spread(Js.prop(game, "readDone"))[r.id] == null; val pct = Math.floor(score * 100.0 / r.questions.size + 0.5).toInt(); val xp = 10 + score * 4
-        return Graded(score, r.questions.size, items, Reward(mapOf("readings" to if (first) 1 else 0, "quizzes" to 1, "perfect" to if (pct == 100) 1 else 0), xp), SkillsGame.readDone(game, r.id, "$score/${r.questions.size}"), list)
+        val first = Js.spread(Js.prop(game, "readDone"))[r.id] == null; val pct = Math.floor(score * 100.0 / r.questions.size + 0.5).toInt(); val xp = RewardRules.xp("set", right = score, total = r.questions.size)
+        return Graded(score, r.questions.size, items, Reward(mapOf("readings" to if (first) 1 else 0, "quizzes" to 1, "perfect" to if (pct == 100) 1 else 0), xp, "rd:" + r.id), SkillsGame.readDone(game, r.id, "$score/${r.questions.size}"), list)
     }
 }
 

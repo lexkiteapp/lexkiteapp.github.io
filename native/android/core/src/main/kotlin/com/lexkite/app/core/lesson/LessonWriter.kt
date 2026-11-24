@@ -18,8 +18,8 @@ import java.util.TimeZone
  * (FSRS via [SRS], `mod` = now like Cards.update), then XP/day counters like Game.track. Pure: the caller runs it inside LexStore.mutate.
  */
 object LessonWriter {
-    /** XP of a finished lesson (web: 10 + 2 per first-time right + 5 when nothing was wrong). */
-    fun xpOf(s: LessonEngine.Session): Int = 10 + s.ok1 * 2 + (if (s.wrong.isEmpty()) 5 else 0)
+    /** XP of a finished lesson = Game.xpFor("set", { right: ok1, total, hints }) (web lesson/ui.js finish). */
+    fun xpOf(s: LessonEngine.Session, hints: Int = 0): Int = com.lexkite.app.core.RewardRules.xp("set", right = s.ok1, total = s.total, hints = hints) // luật chung (Game.xpFor); gợi ý fifty/first/chữ đầu −1 XP như web
 
     private fun toSrs(o: JsonObject?): SRSCard {
         fun n(k: String) = Js.num(o?.get(k))
