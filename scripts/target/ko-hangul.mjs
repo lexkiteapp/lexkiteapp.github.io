@@ -257,3 +257,70 @@ export function same(typed, answer) {
   if (a === b) return 'ok';
   return a.replace(/\s/g, '') === b.replace(/\s/g, '') ? 'spacing' : '';
 }
+
+// ---- W2: bảng chia đủ dạng (đối chiếu Wiktionary/kaikki 100 % bằng scripts/target/conj-check.mjs --tl ko) ----
+// Ba nhóm đuôi: (A) 아/어 (inf, 해요, quá khứ, -아서, -아야, -아라) dựa inf(); (B) đuôi có 으 đệm (-(으)니까, -(으)면, -(으)려고, -(으)세요, định ngữ -(으)ㄴ/-(으)ㄹ,
+// danh từ hoá -(으)ㅁ, -(으)ㄴ데 của tính từ) – gốc biến theo lớp (ㅂ → 우, ㄷ → ㄹ, ㅅ rơi, ㅎ rơi không 으, ㄹ rơi trước ㄴ ㅂ ㅅ, giữ trước ㄹ/면/려고);
+// (C) đuôi phụ âm (-고, -지만, -기, -겠-, -자, -는/-는데/-는다 của động từ, -습니다) – gốc nguyên (ㄹ rơi trước ㄴ ㅂ ㅅ).
+const syl = s => [...s];
+const withT = (s, t) => { const a = syl(s), x = split(a.pop()); return a.join('') + join({ ...x, t }); };
+const lastOf = s => split(syl(s).pop());
+function bBase(st, cls) { // → [gốc, cần 으?]
+  const a = syl(st), x = split(a[a.length - 1]), head = a.slice(0, -1).join('');
+  if (cls === 'ㅂ') return [head + join({ ...x, t: '' }) + '우', false];
+  if (cls === 'ㄷ') return [head + join({ ...x, t: 'ㄹ' }), true];
+  if (cls === 'ㅅ') return [head + join({ ...x, t: '' }), true];
+  if (cls === 'ㅎ') return [head + join({ ...x, t: '' }), false];
+  return [st, !!x.t];
+}
+function bForm(st, cls, suf) { // suf: 니까 면 려고 세요 시 | ㄴ ㄹ ㅁ ㄴ데
+  if (cls === 'ㄹ') {
+    const drop = withT(st, '');
+    if (suf === 'ㄴ' || suf === 'ㄴ데') return withT(drop, 'ㄴ') + (suf === 'ㄴ데' ? '데' : '');
+    if (suf === 'ㄹ') return st;
+    if (suf === 'ㅁ') return withT(st, 'ㄻ');
+    if (suf === '니까' || suf === '세요' || suf === '시') return drop + suf;
+    return st + suf; // 면, 려고
+  }
+  const [b, need] = bBase(st, cls);
+  if (suf === 'ㄴ' || suf === 'ㄹ' || suf === 'ㅁ' || suf === 'ㄴ데') {
+    const c = suf === 'ㄴ데' ? 'ㄴ' : suf, tail = suf === 'ㄴ데' ? '데' : '';
+    return (need ? b + join({ l: 'ㅇ', v: 'ㅡ', t: c }) : withT(b, c)) + tail;
+  }
+  return b + (need ? '으' : '') + suf;
+}
+function cStem(st, cls, next) { // gốc trước đuôi phụ âm; ㄹ rơi trước ㄴ ㅂ ㅅ (사는, 삽니다)
+  return cls === 'ㄹ' && /^[ㄴㅂㅅ]/.test(next) ? withT(st, '') : st;
+}
+/** Mọi dạng của một vị từ → { tên dạng: chữ } (pos 'v' | 'adj'). 이다/아니다 chỉ có dạng W0 (conj()). */
+// vị từ có từ kính ngữ riêng (không thêm -(으)시- vào gốc): gốc kính ngữ trước -세요
+export const HONOR = { '먹다': '드', '마시다': '드', '자다': '주무', '있다': '계', '말하다': '말씀하' };
+export function conjAll(w, cls, pos) {
+  const st = stemOf(w), adj = pos === 'adj', i = conj(w, cls, 'inf'), x = lastOf(st);
+  const pastStem = withT(i, 'ㅆ'), f = {};
+  f.inf = i; f.haeyo = i + '요'; f.past = pastStem + '어요'; f.hamnida = conj(w, cls, 'hamnida'); f.hamnikka = f.hamnida.replace(/다$/, '까');
+  f.plainPast = pastStem + '다'; f.pastFormal = pastStem + '습니다';
+  f.plain = adj ? w : cls === 'ㄹ' ? withT(withT(st, ''), 'ㄴ') + '다' : x.t ? st + '는다' : withT(st, 'ㄴ') + '다';
+  f.fut = st + '겠어요'; f.go = st + '고'; f.jiman = st + '지만'; f.gi = st + '기';
+  f.seo = i + '서'; f.aya = i + '야';
+  f.nikka = bForm(st, cls, '니까'); f.myeon = bForm(st, cls, '면'); f.eum = bForm(st, cls, 'ㅁ');
+  f.neunde = adj ? bForm(st, cls, 'ㄴ데') : cStem(st, cls, 'ㄴ') + '는데';
+  f.detPres = adj ? bForm(st, cls, 'ㄴ') : cStem(st, cls, 'ㄴ') + '는';
+  f.detFut = bForm(st, cls, 'ㄹ');
+  if (!adj) { f.detPast = bForm(st, cls, 'ㄴ'); f.ryeogo = bForm(st, cls, '려고'); f.ja = st + '자'; f.ara = i + '라'; }
+  f.seyo = HONOR[w] ? HONOR[w] + '세요' : bForm(st, cls, '세요'); // kính ngữ theo từ: 먹다/마시다 → 드세요, 자다 → 주무세요, 있다 → 계세요
+  return f;
+}
+// Wiktionary (kaikki Korean) nhãn từng dạng – conj-check.mjs khớp ĐÚNG bộ nhãn (định ngữ bỏ qua formal/informal: động từ ghi formal, tính từ informal)
+export const CONJ_TAGS = { inf: ['infinitive'], haeyo: ['indicative', 'informal', 'non-past', 'polite'], past: ['indicative', 'informal', 'past', 'polite'], hamnida: ['formal', 'indicative', 'non-past', 'polite'],
+  hamnikka: ['formal', 'interrogative', 'non-past', 'polite'], plainPast: ['formal', 'indicative', 'past'], pastFormal: ['formal', 'indicative', 'past', 'polite'], plain: ['formal', 'indicative', 'non-past'],
+  fut: ['assertive', 'informal', 'polite'], go: ['conjunctive', 'formal'], jiman: ['contrastive', 'formal'], gi: ['informal', 'noun-from-verb'], seo: ['causative', 'informal'], aya: ['conditional', 'informal'],
+  nikka: ['causative', 'formal', 'polite'], myeon: ['conditional', 'formal'], eum: ['formal', 'noun-from-verb'], neunde: ['contrastive', 'informal'], detPres: ['determiner', 'present'], detFut: ['determiner', 'future'],
+  detPast: ['determiner', 'past'], ryeogo: ['formal', 'motive-form'], ja: ['formal', 'hortative'], ara: ['formal', 'imperative'] }; // seyo không kiểm: Wiktionary ghi kính ngữ cùng nhãn với 해요 (không tách được)
+// vị từ mẫu đủ 11 lớp (ngoài bộ từ) cho conj-check + test – [lớp, loại]
+export const KNOWN = { '가다': ['reg', 'v'], '먹다': ['reg', 'v'], '보다': ['reg', 'v'], '주다': ['reg', 'v'], '마시다': ['reg', 'v'], '오다': ['reg', 'v'], '되다': ['reg', 'v'], '보내다': ['reg', 'v'], '배우다': ['reg', 'v'], '기다리다': ['reg', 'v'],
+  '입다': ['reg', 'v'], '받다': ['reg', 'v'], '웃다': ['reg', 'v'], '좋다': ['reg', 'adj'], '작다': ['reg', 'adj'], '많다': ['reg', 'adj'], '앉다': ['reg', 'v'], '읽다': ['reg', 'v'], '쉬다': ['reg', 'v'], '켜다': ['reg', 'v'],
+  '공부하다': ['하', 'v'], '말하다': ['하', 'v'], '좋아하다': ['하', 'v'], '깨끗하다': ['하', 'adj'], '돕다': ['ㅂ', 'v'], '춥다': ['ㅂ', 'adj'], '덥다': ['ㅂ', 'adj'], '쉽다': ['ㅂ', 'adj'], '어렵다': ['ㅂ', 'adj'], '맵다': ['ㅂ', 'adj'],
+  '듣다': ['ㄷ', 'v'], '걷다': ['ㄷ', 'v'], '묻다': ['ㄷ', 'v'], '낫다': ['ㅅ', 'v'], '짓다': ['ㅅ', 'v'], '붓다': ['ㅅ', 'v'], '파랗다': ['ㅎ', 'adj'], '하얗다': ['ㅎ', 'adj'], '빨갛다': ['ㅎ', 'adj'], '그렇다': ['ㅎ', 'adj'],
+  '모르다': ['르', 'v'], '부르다': ['르', 'v'], '빠르다': ['르', 'adj'], '다르다': ['르', 'adj'], '고르다': ['르', 'v'], '쓰다': ['으', 'v'], '크다': ['으', 'adj'], '바쁘다': ['으', 'adj'], '예쁘다': ['으', 'adj'], '기쁘다': ['으', 'adj'],
+  '살다': ['ㄹ', 'v'], '알다': ['ㄹ', 'v'], '만들다': ['ㄹ', 'v'], '길다': ['ㄹ', 'adj'], '멀다': ['ㄹ', 'adj'], '푸다': ['우', 'v'], '이르다': ['러', 'v'] };

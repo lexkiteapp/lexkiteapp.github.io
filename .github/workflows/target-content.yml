@@ -44,6 +44,9 @@ jobs:
       - name: Wiktionary trên seed (es, fr)
         if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' }}
         run: node scripts/target/wikt-check.mjs --tl ${{ matrix.tl }} --self
+      - name: Chia vị từ ↔ Wiktionary (ko, khớp 100 % – 24 dạng × vị từ bộ từ + 57 mẫu đủ 11 lớp)
+        if: ${{ matrix.tl == 'ko' }}
+        run: node scripts/target/conj-check.mjs --tl ko
       - name: Chia động từ ↔ Wiktionary (es, khớp 100 %)
         if: ${{ matrix.tl == 'es' }}
         run: node scripts/target/conj-check.mjs
@@ -119,6 +122,7 @@ jobs:
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}   # thêm họ mô hình cho giám khảo B khi Gemini 429 (như content-factory)
           AI_POOL_GC_MAX: '600'
+          AI_GEM_MAX: '150'   # es: ≤ 150 lượt Gemini/lượt chạy (chỉ chấm), chừa hạn mức ngày cho fr/ja – lịch: chạy ngay sau 08:00 UTC
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
         run: node scripts/target/gen.mjs --tl "$TL" --n $LX_IN1 --shard "${{ matrix.k }}/$SHARDS" $LX_IN2
@@ -126,6 +130,7 @@ jobs:
         if: ${{ github.event.inputs.dry != '1' }}
         run: |
           [ "$(jq -r --arg t "$TL" '.[$t].espeak // ""' scripts/word-audio/tl-voices.json)" = "" ] && exit 0
+          [ "$(jq -r --arg t "$TL" '.[$t].ipaCheck // ""' scripts/word-audio/tl-voices.json)" != "" ] && { echo "IPA do bảng sinh từ chữ (ipaCheck) – không ghi đè bằng espeak"; exit 0; }
           pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && python3 scripts/target/tl_ipa_fill.py "$(ls content/target/$TL/core-[0-9]*.json | grep -v report | tail -1)"
       - name: IPA es theo quy ước g2p (espeak còn là kiểm chéo, lệch → qa.ipaEs)
         if: ${{ github.event.inputs.dry != '1' && github.event.inputs.tl == 'es' }}
