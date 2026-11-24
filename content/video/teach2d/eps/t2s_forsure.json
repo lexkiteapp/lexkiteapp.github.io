@@ -1,0 +1,131 @@
+{
+ "id": "t2s_forsure",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 81,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can I count on you?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "For sure!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Yes, definitely.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pizza tonight? For sure!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "for sure",
+  "forms": [],
+  "ipa": "/fɚ ˈʃʊr/",
+  "mean": "Yes, definitely.",
+  "define": "Used to agree strongly.",
+  "vi": "Chắc chắn rồi",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Answering a plan",
+   "text": "Pizza tonight? For sure!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"For sure\" means…",
+   "options": [
+    "I'm not sure",
+    "definitely"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'for sure' if you might cancel.",
+   "why": "It sounds like a firm promise."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can I count on you?"
+ },
+ "src": {
+  "slang": "for sure"
+ },
+ "est": {
+  "words": 15,
+  "seconds": 9.2,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"for sure\" mean?",
+  "keyword": "for sure",
+  "value": "For sure = Yes, definitely. Example: \"Pizza tonight? For sure!\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"for sure\" mean?",
+    "description": "For sure = Yes, definitely. Example: \"Pizza tonight? For sure!\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "for sure",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"for sure\" mean?\n\nFor sure = Yes, definitely. Example: \"Pizza tonight? For sure!\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"for sure\" mean?\n\nFor sure = Yes, definitely. Example: \"Pizza tonight? For sure!\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"for sure\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'for sure' if you might cancel. It sounds like a firm promise. Real example: \"Pizza tonight? For sure!\" More real English slang, free: {link}"
+ }
+}

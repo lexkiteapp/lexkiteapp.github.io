@@ -1,0 +1,143 @@
+{
+  "id": "b2-saki-open-window",
+  "kind": "book",
+  "level": "B2",
+  "title": "The Open Window",
+  "summary": "A nervous visitor hears a clever young girl's ghost story and gets a shock he will never forget.",
+  "source": {
+    "type": "public-domain",
+    "work": "The Open Window",
+    "author": "Saki (H. H. Munro)",
+    "published": 1914,
+    "authorDied": 1916,
+    "url": "https://en.wikisource.org/wiki/The_Open_Window",
+    "note": "Retold from the plot in new B2 English by Lexkite; no sentences copied from the original text."
+  },
+  "license": "Adaptation CC BY 4.0 Lexkite; original story in the public domain",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "kit"
+    ],
+    "scene": "Flat 2D illustration: a large country house window open to a green lawn at dusk, a young girl sitting in a chair, three hunters far away in the mist, no text"
+  },
+  "audio": {
+    "wpm": 135,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "A Nervous Visitor",
+      "sentences": [
+        "Framton Nuttel had come to the countryside because his doctor had told him to rest.",
+        "His nerves were weak, and he needed quiet, fresh air, and no excitement at all.",
+        "His sister had given him several letters of introduction to the people living nearby.",
+        "On the first afternoon he visited Mrs Sappleton, a lady he had never met.",
+        "He was kept waiting in the sitting room by her fifteen-year-old niece, who greeted him politely.",
+        "The girl asked whether he knew many people in the area, and he admitted that he knew nobody.",
+        "She wondered aloud whether he knew anything about her aunt, and he replied that he did not.",
+        "Then she pointed to a large window that stood wide open onto the lawn.",
+        "It was a warm October day, so he thought it was a strange thing to remark upon.",
+        "She lowered her voice and said that the window had a sad and terrible story behind it."
+      ],
+      "words": [
+        "weak",
+        "introduction",
+        "greet",
+        "admit",
+        "remark",
+        "lawn"
+      ],
+      "quiz": [
+        {
+          "q": "Why had Framton come to the countryside?",
+          "options": [
+            "To visit his sister",
+            "To rest for his health",
+            "To find work"
+          ],
+          "answer": 1,
+          "explain": "His doctor told him to rest because his nerves were weak."
+        },
+        {
+          "q": "Who talked to Framton first?",
+          "options": [
+            "Mrs Sappleton",
+            "A doctor",
+            "Her young niece"
+          ],
+          "answer": 2,
+          "explain": "The fifteen-year-old niece greeted him while he waited."
+        },
+        {
+          "q": "What did the girl point at?",
+          "options": [
+            "A large open window",
+            "A closed door",
+            "A photograph"
+          ],
+          "answer": 0,
+          "explain": "She pointed to a window standing wide open onto the lawn."
+        }
+      ]
+    },
+    {
+      "title": "The Ghosts at Dusk",
+      "sentences": [
+        "The girl explained that, exactly three years earlier, her aunt's husband and two brothers had gone hunting.",
+        "They had walked out through that window and never returned, because they had disappeared in a dangerous marsh.",
+        "Her poor aunt still kept the window open each evening, hoping that they would come home.",
+        "She added that they usually walked in at dusk, with a white coat and a little dog.",
+        "Framton shivered and tried to change the subject to something more cheerful.",
+        "Mrs Sappleton then entered the room, apologised for being late, and chatted happily about the hunting.",
+        "She hoped the men would bring a few birds home for dinner, and she kept glancing at the window.",
+        "Framton, horrified, tried to explain that doctors had advised him to avoid any shock.",
+        "Suddenly his hostess smiled and said that her husband and brothers were coming back.",
+        "He turned and saw three figures crossing the lawn in the fading light, with a dog beside them.",
+        "He grabbed his hat and ran out of the house in panic, and the niece calmly invented another story."
+      ],
+      "words": [
+        "hunt",
+        "disappear",
+        "dangerous",
+        "subject",
+        "advise",
+        "panic"
+      ],
+      "quiz": [
+        {
+          "q": "According to the girl, what happened to the three men?",
+          "options": [
+            "They moved to another country.",
+            "They disappeared in a marsh.",
+            "They stayed at a hotel."
+          ],
+          "answer": 1,
+          "explain": "She said they disappeared in a dangerous marsh."
+        },
+        {
+          "q": "How did Framton react at the end?",
+          "options": [
+            "He ran away in panic.",
+            "He joined them for dinner.",
+            "He called the police."
+          ],
+          "answer": 0,
+          "explain": "He grabbed his hat and ran out of the house."
+        },
+        {
+          "q": "What is the best description of the niece?",
+          "options": [
+            "Honest and shy",
+            "Imaginative and tricky",
+            "Angry and rude"
+          ],
+          "answer": 1,
+          "explain": "She invented a story and then calmly made up another one."
+        }
+      ]
+    }
+  ]
+}

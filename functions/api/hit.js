@@ -32,7 +32,7 @@ const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 const ONB_EV = ['onb_welcome', ...['lang', 'goal', 'level', 'target', 'pace', 'ready'].map(k => 'onb_s_' + k), 'onb_done', 'first_win', 'fw_d1', 'fw_d7'];
 const RET_EV = ['ret_on_seen', 'ret_off_seen', 'ret_on_d7', 'ret_off_d7']; // thử nghiệm cờ ret (web/js/app.js retTrack): nhóm bật/đối chứng – đã thấy / chuỗi chạm 7 → kind 'ret:<ev>' (D7 = d7/seen)
 const UX1_EV = ['on', 'off'].flatMap(a => ['seen', 'd1', 'd7'].map(e => `ux1_${a}_${e}`)); // thử nghiệm cờ ux1 (web/js/app.js ux1Track) → kind 'ux1:<ev>' (D1 = d1/seen, D7 = d7/seen)
-const HAB_EV = ['plan_seen', 'plan_start', 'plan_done', 'resume_seen', 'resume_click', ...ONB_EV]; // vòng thói quen trang chủ (web/js/plan.js App.habTrack, 1 lượt/máy/ngày/sự kiện) → kind 'hab:<ev>' – chỉ số đếm, không định danh
+const HAB_EV = ['plan_seen', 'plan_start', 'plan_done', 'resume_seen', 'resume_click', 'back_seen', 'back_go', 'recap_seen', 'recap_go', ...ONB_EV]; // vòng thói quen trang chủ (web/js/plan.js App.habTrack, 1 lượt/máy/ngày/sự kiện) → kind 'hab:<ev>' – chỉ số đếm, không định danh
 const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge',
   ...['head', 'foot', 'menu', 'me', 'top', 'rail', 'inst', 'get'].flatMap(p => ['cws', 'play', 'ios', 'edge', 'firefox', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
@@ -44,12 +44,20 @@ const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog',
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click', 'go_view', 'go_start', 'go_done', 'go_cta']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
 
 // Nguồn giọng (t:'vo'): khóa cố định, số đếm chặn trần → ≤ 12 dòng ext_events/beacon, không phình bảng
-export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref', 's_part', 's_off_user', 's_off_probe', 's_off_ios', 's_off_mem', 's_off_cores', 's_off_remote', 's_off_state', 'kp_r06', 'kp_r10', 'kp_r15', 'kp_r25', 'kp_rhi', 'kp_to'], VO_PLAT = ['web', 'app', 'ext'];
+export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref', 's_part', 's_off_user', 's_off_probe', 's_off_ios', 's_off_mem', 's_off_cores', 's_off_remote', 's_off_state', 'kp_r06', 'kp_r10', 'kp_r15', 'kp_r25', 'kp_rhi', 'kp_to', ...['ok', 'nospeech', 'silent', 'srfail', 'notallowed', 'audiocapture', 'svcblocked', 'network', 'other'].map(k => 'mic_' + k)], VO_PLAT = ['web', 'app', 'ext'];
 export function voRows(b) {
   const c = b && b.c && typeof b.c === 'object' ? b.c : null; if (!c) return [];
   const n = k => Math.min(Math.max(Math.floor(+c[k] || 0), 0), 500), p = VO_PLAT.includes(b.p) ? b.p : 'web', rows = [];
   for (const k of VO_KEYS) if (n(k) > 0) rows.push(['vo:' + k, n(k)]);
   for (const k of ['f', 'k', 's']) if (n(k) > 0) rows.push([`vo:${k}:${p}`, n(k)]);
+  return rows;
+}
+// Câu rơi giọng máy (beacon t:'vo' kèm m = { khóa băm: số lần } ≤ 20, r = { trang: số lần } ≤ 8): 'vm:<khóa>' / 'vr:<trang>' – chỉ khóa băm, không văn bản.
+// Đọc: /api/vmiss (CI ký HMAC) → scripts/sentence-audio/misses.mjs dựng sẵn file Kokoro cho câu hay rơi nhất.
+export function vmRows(b) {
+  const rows = [], take = (o, re, pre, cap) => { if (!o || typeof o !== 'object' || Array.isArray(o)) return; let i = 0;
+    for (const [k, v] of Object.entries(o)) { if (i >= cap) break; const n = Math.min(Math.max(Math.floor(+v || 0), 0), 50); if (re.test(k) && n > 0) { rows.push([pre + k, n]); i++; } } };
+  take(b && b.m, /^[0-9a-z]{1,8}$/, 'vm:', 20); take(b && b.r, /^[a-z][a-z0-9-]{0,23}$/, 'vr:', 8);
   return rows;
 }
 let ready = false;
@@ -279,7 +287,7 @@ export async function onRequestPost({ request, env }) {
     } else if (b.t === 'vo' && !automation(request) && !devOrigin(request)) {
       // 🔊 Nguồn giọng (web/js/audio.js flushVo): 1 beacon/lần ẩn tab – giám sát tỷ lệ rơi về giọng máy (Quản trị + health)
       if (await limit('hvo:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 30, 3600)) return ok();
-      const rows = voRows(b);
+      const rows = [...voRows(b), ...vmRows(b)];
       if (rows.length) await env.DB.batch(rows.map(([kind, n]) => env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, kind) DO UPDATE SET n = n + ?3').bind(dayOf(now), kind, n)));
     } else if (b.t === 'e' && b.msg && !devOrigin(request)) {
       const msg = cut(b.msg, 300), src = cut(b.src, 200) + (b.line ? ':' + (+b.line || 0) : '');

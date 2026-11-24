@@ -1,0 +1,135 @@
+{
+ "id": "t2s_mytreat",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 147,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't reach for your wallet!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "My treat!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'll pay for this.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Don't worry, it's my treat tonight.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "my treat",
+  "forms": [],
+  "ipa": "/ˈmaɪ ˈtriːt/",
+  "mean": "I'll pay for this.",
+  "define": "Used to say you will pay for the others.",
+  "vi": "Tui đãi",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Offering to pay",
+   "text": "Don't worry, it's my treat tonight."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"My treat\" means…",
+   "options": [
+    "you're paying",
+    "I'm paying"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'my treat' if you can't pay.",
+   "why": "Everyone expects you to cover it."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Don't reach for your wallet!"
+ },
+ "src": {
+  "slang": "my treat"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"my treat\" mean?",
+  "keyword": "my treat",
+  "value": "My treat = I'll pay for this. Example: \"Don't worry, it's my treat tonight.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"my treat\" mean?",
+    "description": "My treat = I'll pay for this. Example: \"Don't worry, it's my treat tonight.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "my treat",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"my treat\" mean?\n\nMy treat = I'll pay for this. Example: \"Don't worry, it's my treat tonight.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"my treat\" mean?\n\nMy treat = I'll pay for this. Example: \"Don't worry, it's my treat tonight.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"my treat\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'my treat' if you can't pay. Everyone expects you to cover it. Real example: \"Don't worry, it's my treat tonight.\" More real English slang, free: {link}"
+ }
+}

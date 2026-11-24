@@ -1,0 +1,142 @@
+{
+  "id": "b2-lighthouse-keeper",
+  "kind": "book",
+  "level": "B2",
+  "title": "The Lighthouse Keeper's Letter",
+  "summary": "A young engineer finds an old letter in a lighthouse and learns why the lamp has never gone out.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "kit"
+    ],
+    "scene": "Flat 2D illustration: a tall white lighthouse on a rocky coast at night, a warm beam of light across a stormy sea, a small figure at the door, no text"
+  },
+  "audio": {
+    "wpm": 135,
+    "voice": "kokoro:am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "The Last Inspection",
+      "sentences": [
+        "Nora was a young engineer, and her company had sent her to inspect the old lighthouse on Gull Rock.",
+        "The government planned to replace its lamp with an automatic system, so someone had to check the equipment.",
+        "She travelled by boat on a grey morning, and the waves made her feel slightly sick.",
+        "The building was cold and damp, and the iron stairs groaned under her boots.",
+        "At the top she found a heavy brass lamp that was still polished as if somebody cared for it.",
+        "That surprised her, because the last keeper had left the island almost forty years earlier.",
+        "Behind a loose panel she discovered a yellow envelope with her own surname written on it.",
+        "The handwriting was careful and slightly shaky, and the paper smelled of salt.",
+        "She hesitated for a moment, then carefully opened it and began to read.",
+        "The letter was addressed to whoever would one day come to switch the light off."
+      ],
+      "words": [
+        "inspect",
+        "equipment",
+        "damp",
+        "polish",
+        "panel",
+        "surname",
+        "envelope"
+      ],
+      "quiz": [
+        {
+          "q": "Why was Nora sent to the lighthouse?",
+          "options": [
+            "To check the equipment before a change",
+            "To work as the new keeper",
+            "To make a film"
+          ],
+          "answer": 0,
+          "explain": "The lamp was going to be replaced by an automatic system."
+        },
+        {
+          "q": "What surprised Nora about the lamp?",
+          "options": [
+            "It was broken.",
+            "It was still well polished.",
+            "It was very small."
+          ],
+          "answer": 1,
+          "explain": "It looked as if somebody still cared for it."
+        },
+        {
+          "q": "What did she find behind the panel?",
+          "options": [
+            "An envelope with her surname",
+            "A set of keys",
+            "An old map"
+          ],
+          "answer": 0,
+          "explain": "It was a yellow envelope with her own surname on it."
+        }
+      ]
+    },
+    {
+      "title": "The Light That Stayed On",
+      "sentences": [
+        "The writer was her great-grandfather, Elias, who had been the keeper of the lighthouse for thirty years.",
+        "He explained that a terrible storm had once destroyed a fishing fleet while the lamp was dark.",
+        "After that disaster he promised himself that the light would never fail again.",
+        "He had trained local volunteers to take turns, and the village had carried on the work after he died.",
+        "Nora realised that the polished lamp was not a mystery but the result of years of quiet devotion.",
+        "He ended the letter by asking her to decide carefully, because progress was not always a bad thing.",
+        "A machine might be more reliable, he admitted, but it could never replace the people who cared.",
+        "She went down to the village that evening and met an elderly man who confirmed the story.",
+        "His family had polished that lamp every Sunday for generations, simply out of gratitude.",
+        "Nora wrote a new report that recommended keeping the old lamp as a backup and honouring the volunteers.",
+        "Her manager was sceptical, but the village celebrated, and the light shone over Gull Rock that night as always."
+      ],
+      "words": [
+        "fleet",
+        "disaster",
+        "volunteer",
+        "progress",
+        "reliable",
+        "celebrate",
+        "sceptical"
+      ],
+      "quiz": [
+        {
+          "q": "Why did Elias promise that the light would never fail?",
+          "options": [
+            "A storm destroyed boats when it was dark.",
+            "He was paid extra money.",
+            "His boss ordered it."
+          ],
+          "answer": 0,
+          "explain": "A fishing fleet was lost during a storm while the lamp was dark."
+        },
+        {
+          "q": "Who kept the lamp polished after Elias died?",
+          "options": [
+            "A machine",
+            "Village volunteers",
+            "Nora's company"
+          ],
+          "answer": 1,
+          "explain": "Local volunteers carried on the work for generations."
+        },
+        {
+          "q": "What did Nora recommend in her report?",
+          "options": [
+            "Closing the island",
+            "Keeping the old lamp as a backup",
+            "Selling the lamp"
+          ],
+          "answer": 1,
+          "explain": "She recommended keeping the old lamp as a backup."
+        }
+      ]
+    }
+  ]
+}

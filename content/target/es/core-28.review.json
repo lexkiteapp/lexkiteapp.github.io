@@ -1,0 +1,82 @@
+{
+ "fixed": [
+  {
+   "word": "echar",
+   "field": "gl.vi",
+   "from": "ném",
+   "to": "ném; bỏ vào",
+   "why": "ví dụ là bỏ rác vào thùng"
+  },
+  {
+   "word": "paseo",
+   "field": "ex.es",
+   "from": "Vamos al paseo del parque.",
+   "to": "Después de comer, dimos un paseo por el parque.",
+   "why": "\"Vamos al paseo del parque\" không tự nhiên"
+  },
+  {
+   "word": "paseo",
+   "field": "ex.en",
+   "from": "Let's go to the park's walk.",
+   "to": "After eating, we took a walk through the park.",
+   "why": "ex.en cũ \"the park's walk\" sai"
+  },
+  {
+   "word": "paseo",
+   "field": "gl.vi",
+   "from": "đi dạo",
+   "to": "chuyến đi dạo",
+   "why": "\"đi dạo\" là động từ"
+  },
+  {
+   "word": "carga",
+   "field": "gl.vi",
+   "from": "hàng",
+   "to": "hàng hóa, tải trọng",
+   "why": "\"hàng\" quá chung"
+  },
+  {
+   "word": "carga",
+   "field": "gl.th",
+   "from": "โหลด",
+   "to": "สิ่งของที่บรรทุก",
+   "why": "\"โหลด\" (load) không tự nhiên"
+  },
+  {
+   "word": "presente",
+   "field": "gl.vi",
+   "from": "hiện tại",
+   "to": "có mặt",
+   "why": "ví dụ \"estoy presente\" = có mặt, không phải \"hiện tại\""
+  },
+  {
+   "word": "peso",
+   "field": "gl.vi",
+   "from": "trọng lượng",
+   "to": "cân nặng",
+   "why": "ví dụ bajar de peso; \"trọng lượng\" lệch"
+  },
+  {
+   "word": "contento",
+   "field": "gl.vi",
+   "from": "vui vẻ",
+   "to": "hài lòng, vui",
+   "why": "\"vui vẻ\" lệch với ví dụ (contento con el trabajo)"
+  },
+  {
+   "word": "cerrado",
+   "field": "gl.vi",
+   "from": "đóng",
+   "to": "đóng cửa",
+   "why": "\"đóng\" là động từ/thiếu tự nhiên cho tính từ closed"
+  },
+  {
+   "word": "robado",
+   "field": "gl.vi",
+   "from": "đánh cắp",
+   "to": "bị đánh cắp",
+   "why": "tính từ bị động; \"đánh cắp\" là động từ"
+  }
+ ],
+ "dropped": []
+}

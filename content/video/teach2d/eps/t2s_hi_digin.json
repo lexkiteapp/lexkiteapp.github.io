@@ -1,0 +1,150 @@
+{
+ "id": "t2s_hi_digin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 86,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dinner's ready. Who's hungry?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dig in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start eating now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dinner is ready, so dig in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "dig in",
+  "forms": [],
+  "ipa": "/ˈdɪɡ ˈɪn/",
+  "mean": "Start eating now.",
+  "define": "Used to invite people to begin eating.",
+  "vi": "Ăn đi nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "Serving dinner",
+   "text": "Dinner is ready, so dig in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dig in\" means…",
+   "options": [
+    "dig a hole",
+    "start eating"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell guests to 'dig in' before the host.",
+   "why": "Formal dinners wait for the host."
+  },
+  "l1": "खाना शुरू करो",
+  "l1_hook": "डिनर तैयार है। कौन भूखा है? \"dig in\"",
+  "l1_ex": "डिनर तैयार है, तो \"dig in\"!",
+  "right": "dig in",
+  "native": {
+   "hook": "“dig in” का मतलब क्या है?",
+   "tip": "“dig in” = खाना शुरू करो. उदाहरण: “Dinner is ready, so dig in!”",
+   "caption": "“dig in” का मतलब क्या है?\n“dig in” = खाना शुरू करो.\nउदाहरण: “Dinner is ready, so dig in!” (डिनर तैयार है, तो \"dig in\"!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “dig in” = खाना शुरू करो. “Dinner is ready, so dig in!” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dinner's ready. Who's hungry?"
+ },
+ "src": {
+  "slang": "dig in"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“dig in” का मतलब क्या है?",
+  "keyword": "dig in",
+  "value": "“dig in” = खाना शुरू करो. उदाहरण: “Dinner is ready, so dig in!”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“dig in” का मतलब क्या है?",
+    "description": "“dig in” = खाना शुरू करो. उदाहरण: “Dinner is ready, so dig in!”\n\n“dig in” का मतलब क्या है?\n“dig in” = खाना शुरू करो.\nउदाहरण: “Dinner is ready, so dig in!” (डिनर तैयार है, तो \"dig in\"!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "dig in",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“dig in” का मतलब क्या है?\n“dig in” = खाना शुरू करो.\nउदाहरण: “Dinner is ready, so dig in!” (डिनर तैयार है, तो \"dig in\"!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“dig in” का मतलब क्या है?\n\n“dig in” = खाना शुरू करो. उदाहरण: “Dinner is ready, so dig in!”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“dig in” का मतलब क्या है? “dig in” = खाना शुरू करो. उदाहरण: “Dinner is ready, so dig in!” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “dig in” = खाना शुरू करो. “Dinner is ready, so dig in!” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

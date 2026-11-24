@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ja_finebyme",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 62,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza or tacos, you pick?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Fine by me!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's okay with me.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pizza or tacos? Fine by me.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "fine by me",
+  "forms": [],
+  "ipa": "/ˈfaɪn baɪ ˈmiː/",
+  "mean": "That's okay with me.",
+  "define": "Used to say you accept an idea.",
+  "vi": "Tui sao cũng được",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Picking dinner",
+   "text": "Pizza or tacos? Fine by me."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm okay with it",
+    "I'm angry"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'fine by me' when you're upset.",
+   "why": "People will think you truly don't mind."
+  },
+  "l1": "大丈夫",
+  "l1_hook": "ピザかタコス、どっちがいい？",
+  "l1_ex": "ピザかタコス？ Fine by me。",
+  "right": "fine by me",
+  "native": {
+   "hook": "「fine by me」ってどういう意味？",
+   "tip": "“fine by me” = 大丈夫. 例文: “Pizza or tacos? Fine by me.”",
+   "caption": "「fine by me」ってどういう意味？\n“fine by me” = 大丈夫.\n例文: “Pizza or tacos? Fine by me.” (ピザかタコス？ Fine by me。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “fine by me” = 大丈夫. “Pizza or tacos? Fine by me.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza or tacos, you pick?"
+ },
+ "src": {
+  "slang": "fine by me"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "「fine by me」ってどういう意味？",
+  "keyword": "fine by me",
+  "value": "“fine by me” = 大丈夫. 例文: “Pizza or tacos? Fine by me.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "「fine by me」ってどういう意味？",
+    "description": "“fine by me” = 大丈夫. 例文: “Pizza or tacos? Fine by me.”\n\n「fine by me」ってどういう意味？\n“fine by me” = 大丈夫.\n例文: “Pizza or tacos? Fine by me.” (ピザかタコス？ Fine by me。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "fine by me",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「fine by me」ってどういう意味？\n“fine by me” = 大丈夫.\n例文: “Pizza or tacos? Fine by me.” (ピザかタコス？ Fine by me。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「fine by me」ってどういう意味？\n\n“fine by me” = 大丈夫. 例文: “Pizza or tacos? Fine by me.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「fine by me」ってどういう意味？ “fine by me” = 大丈夫. 例文: “Pizza or tacos? Fine by me.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “fine by me” = 大丈夫. “Pizza or tacos? Fine by me.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

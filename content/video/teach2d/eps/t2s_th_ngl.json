@@ -1,0 +1,148 @@
+{
+ "id": "t2s_th_ngl",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 89,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Honest opinion about that movie?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Ngl!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Not gonna lie.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Ngl, I loved that movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "ngl",
+  "forms": [
+   "NGL"
+  ],
+  "ipa": "/ˌen dʒiː ˈel/",
+  "mean": "Not gonna lie.",
+  "define": "Short for \"not gonna lie\", before an honest opinion.",
+  "vi": "Nói thật nha",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Texting",
+   "text": "Ngl, I loved that movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Ngl\" means…",
+   "options": [
+    "never go left",
+    "to be honest"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't use 'ngl' in a job application.",
+   "why": "Texting shorthand looks unprofessional."
+  },
+  "l1": "บอกตามตรงเลยนะ",
+  "l1_hook": "พูดตรงๆ เกี่ยวกับหนังเรื่องนั้น? \"ngl\"",
+  "l1_ex": "\"Ngl\", ฉันชอบหนังเรื่องนั้นมาก!",
+  "right": "ngl",
+  "native": {
+   "hook": "“ngl” แปลว่าอะไร?",
+   "tip": "“ngl” = บอกตามตรงเลยนะ. ตัวอย่าง: “Ngl, I loved that movie.”",
+   "caption": "“ngl” แปลว่าอะไร?\n“ngl” = บอกตามตรงเลยนะ.\nตัวอย่าง: “Ngl, I loved that movie.” (\"Ngl\", ฉันชอบหนังเรื่องนั้นมาก!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “ngl” = บอกตามตรงเลยนะ. “Ngl, I loved that movie.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Honest opinion about that movie?"
+ },
+ "src": {
+  "slang": "ngl"
+ },
+ "lang": "th",
+ "est": {
+  "words": 16,
+  "seconds": 9.6,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“ngl” แปลว่าอะไร?",
+  "keyword": "ngl",
+  "value": "“ngl” = บอกตามตรงเลยนะ. ตัวอย่าง: “Ngl, I loved that movie.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“ngl” แปลว่าอะไร?",
+    "description": "“ngl” = บอกตามตรงเลยนะ. ตัวอย่าง: “Ngl, I loved that movie.”\n\n“ngl” แปลว่าอะไร?\n“ngl” = บอกตามตรงเลยนะ.\nตัวอย่าง: “Ngl, I loved that movie.” (\"Ngl\", ฉันชอบหนังเรื่องนั้นมาก!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "ngl",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“ngl” แปลว่าอะไร?\n“ngl” = บอกตามตรงเลยนะ.\nตัวอย่าง: “Ngl, I loved that movie.” (\"Ngl\", ฉันชอบหนังเรื่องนั้นมาก!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“ngl” แปลว่าอะไร?\n\n“ngl” = บอกตามตรงเลยนะ. ตัวอย่าง: “Ngl, I loved that movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“ngl” แปลว่าอะไร? “ngl” = บอกตามตรงเลยนะ. ตัวอย่าง: “Ngl, I loved that movie.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “ngl” = บอกตามตรงเลยนะ. “Ngl, I loved that movie.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

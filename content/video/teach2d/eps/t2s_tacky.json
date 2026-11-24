@@ -1,0 +1,131 @@
+{
+ "id": "t2s_tacky",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 174,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She wore flashing earrings. Why?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Tacky!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Cheap-looking and in bad style.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That sign looks a bit tacky.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "tacky",
+  "forms": [],
+  "ipa": "/ˈtæki/",
+  "mean": "Cheap-looking and in bad style.",
+  "define": "Describes things that look cheap or show poor taste.",
+  "vi": "Lòe loẹt, thiếu tinh tế",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Looking at decor",
+   "text": "That sign looks a bit tacky."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Tacky\" means…",
+   "options": [
+    "sticky",
+    "cheap-looking"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your host's decor 'tacky'.",
+   "why": "It insults their taste in their own home."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She wore flashing earrings. Why?"
+ },
+ "src": {
+  "slang": "tacky"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"tacky\" mean?",
+  "keyword": "tacky",
+  "value": "Tacky = Cheap-looking and in bad style. Example: \"That sign looks a bit tacky.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"tacky\" mean?",
+    "description": "Tacky = Cheap-looking and in bad style. Example: \"That sign looks a bit tacky.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "tacky",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"tacky\" mean?\n\nTacky = Cheap-looking and in bad style. Example: \"That sign looks a bit tacky.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"tacky\" mean?\n\nTacky = Cheap-looking and in bad style. Example: \"That sign looks a bit tacky.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"tacky\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call your host's decor 'tacky'. It insults their taste in their own home. Real example: \"That sign looks a bit tacky.\" More real English slang, free: {link}"
+ }
+}

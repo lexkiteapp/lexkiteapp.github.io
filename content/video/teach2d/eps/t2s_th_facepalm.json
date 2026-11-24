@@ -1,0 +1,148 @@
+{
+ "id": "t2s_th_facepalm",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 108,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He searched for his phone!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Facepalm!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "When you can't believe it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My phone was in my hand. Facepalm!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "facepalm",
+  "forms": [
+   "face palm"
+  ],
+  "ipa": "/ˈfeɪsˌpɑːm/",
+  "mean": "When you can't believe it.",
+  "define": "A hand-on-face gesture of disbelief.",
+  "vi": "Ôm mặt ngán ngẩm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Seeing a mistake",
+   "text": "My phone was in my hand. Facepalm!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Facepalm\" shows…",
+   "options": [
+    "joy",
+    "disbelief"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'facepalm' at your teacher's answer.",
+   "why": "The gesture looks rude."
+  },
+  "l1": "การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ)",
+  "l1_hook": "เขาค้นหาโทรศัพท์ของเขา! ทำให้ฉัน \"facepalm\"",
+  "l1_ex": "โทรศัพท์ของฉันอยู่ในมือของฉันเอง. \"facepalm!\"",
+  "right": "facepalm",
+  "native": {
+   "hook": "“facepalm” แปลว่าอะไร?",
+   "tip": "“facepalm” = การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ). ตัวอย่าง: “My phone was in my hand. Facepalm!”",
+   "caption": "“facepalm” แปลว่าอะไร?\n“facepalm” = การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ).\nตัวอย่าง: “My phone was in my hand. Facepalm!” (โทรศัพท์ของฉันอยู่ในมือของฉันเอง. \"facepalm!\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “facepalm” = การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ). “My phone was in my hand. Facepalm!” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He searched for his phone!"
+ },
+ "src": {
+  "slang": "facepalm"
+ },
+ "lang": "th",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“facepalm” แปลว่าอะไร?",
+  "keyword": "facepalm",
+  "value": "“facepalm” = การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ). ตัวอย่าง: “My phone was in my hand. Facepalm!”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“facepalm” แปลว่าอะไร?",
+    "description": "“facepalm” = การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ). ตัวอย่าง: “My phone was in my hand. Facepalm!”\n\n“facepalm” แปลว่าอะไร?\n“facepalm” = การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ).\nตัวอย่าง: “My phone was in my hand. Facepalm!” (โทรศัพท์ของฉันอยู่ในมือของฉันเอง. \"facepalm!\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "facepalm",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“facepalm” แปลว่าอะไร?\n“facepalm” = การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ).\nตัวอย่าง: “My phone was in my hand. Facepalm!” (โทรศัพท์ของฉันอยู่ในมือของฉันเอง. \"facepalm!\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“facepalm” แปลว่าอะไร?\n\n“facepalm” = การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ). ตัวอย่าง: “My phone was in my hand. Facepalm!”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“facepalm” แปลว่าอะไร? “facepalm” = การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ). ตัวอย่าง: “My phone wa… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “facepalm” = การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ). “My phone was in my hand. Facepalm!” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

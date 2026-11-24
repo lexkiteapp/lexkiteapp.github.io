@@ -1,0 +1,146 @@
+{
+ "id": "t2s_id_goodasnew",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 79,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One nap, and I'm better!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Good as new!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fully better again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "After a nap, I feel good as new.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "good as new",
+  "forms": [],
+  "ipa": "/ˈɡʊd əz ˈnuː/",
+  "mean": "Fully better again.",
+  "define": "Used when something or someone is completely fixed or healthy.",
+  "vi": "Khỏe như mới",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a repair",
+   "text": "After a nap, I feel good as new."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "very old",
+    "fully fixed"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a broken phone 'good as new'.",
+   "why": "It means fully repaired or healed."
+  },
+  "l1": "sehat kembali",
+  "l1_hook": "Tidur sebentar, dan aku sudah \"good as new\"!",
+  "l1_ex": "Setelah tidur sebentar, aku merasa \"good as new\".",
+  "right": "good as new",
+  "native": {
+   "hook": "Apa arti “good as new”?",
+   "tip": "“good as new” = sehat kembali. Contoh: “After a nap, I feel good as new.”",
+   "caption": "Apa arti “good as new”?\n“good as new” = sehat kembali.\nContoh: “After a nap, I feel good as new.” (Setelah tidur sebentar, aku merasa \"good as new\".)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “good as new” = sehat kembali. “After a nap, I feel good as new.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One nap, and I'm better!"
+ },
+ "src": {
+  "slang": "good as new"
+ },
+ "lang": "id",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Apa arti “good as new”?",
+  "keyword": "good as new",
+  "value": "“good as new” = sehat kembali. Contoh: “After a nap, I feel good as new.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “good as new”?",
+    "description": "“good as new” = sehat kembali. Contoh: “After a nap, I feel good as new.”\n\nApa arti “good as new”?\n“good as new” = sehat kembali.\nContoh: “After a nap, I feel good as new.” (Setelah tidur sebentar, aku merasa \"good as new\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "good as new",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “good as new”?\n“good as new” = sehat kembali.\nContoh: “After a nap, I feel good as new.” (Setelah tidur sebentar, aku merasa \"good as new\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “good as new”?\n\n“good as new” = sehat kembali. Contoh: “After a nap, I feel good as new.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “good as new”? “good as new” = sehat kembali. Contoh: “After a nap, I feel good as new.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “good as new” = sehat kembali. “After a nap, I feel good as new.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ru_cheerup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 66,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She looks sad. What now?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheer up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Feel happier.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheer up, we're having pizza!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheer up",
+  "forms": [
+   "cheered up"
+  ],
+  "ipa": "/ˈtʃɪr ˈʌp/",
+  "mean": "Feel happier.",
+  "define": "Used to tell someone to feel better.",
+  "vi": "Vui lên nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Cheer up, we're having pizza!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheer up\" means…",
+   "options": [
+    "yell loudly",
+    "feel happier"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheer up' to someone grieving.",
+   "why": "It sounds like you dismiss their pain."
+  },
+  "l1": "веселее",
+  "l1_hook": "Она выглядит грустной. Что дальше? («cheer up»)",
+  "l1_ex": "«Cheer up», у нас будет пицца!",
+  "right": "cheer up",
+  "native": {
+   "hook": "Что значит «cheer up»?",
+   "tip": "“cheer up” = веселее. Пример: “Cheer up, we're having pizza!”",
+   "caption": "Что значит «cheer up»?\n“cheer up” = веселее.\nПример: “Cheer up, we're having pizza!” («Cheer up», у нас будет пицца!)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “cheer up” = веселее. “Cheer up, we're having pizza!” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She looks sad. What now?"
+ },
+ "src": {
+  "slang": "cheer up"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "Что значит «cheer up»?",
+  "keyword": "cheer up",
+  "value": "“cheer up” = веселее. Пример: “Cheer up, we're having pizza!”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «cheer up»?",
+    "description": "“cheer up” = веселее. Пример: “Cheer up, we're having pizza!”\n\nЧто значит «cheer up»?\n“cheer up” = веселее.\nПример: “Cheer up, we're having pizza!” («Cheer up», у нас будет пицца!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "cheer up",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «cheer up»?\n“cheer up” = веселее.\nПример: “Cheer up, we're having pizza!” («Cheer up», у нас будет пицца!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «cheer up»?\n\n“cheer up” = веселее. Пример: “Cheer up, we're having pizza!”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «cheer up»? “cheer up” = веселее. Пример: “Cheer up, we're having pizza!” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “cheer up” = веселее. “Cheer up, we're having pizza!” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

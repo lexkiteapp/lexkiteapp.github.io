@@ -5,12 +5,14 @@ on:
   workflow_dispatch:
     inputs:
       lang: { description: 'Ngôn ngữ giao diện', required: false, default: 'en' }
+      vps: { description: 'Khổ chụp, vd 390x844,768x1024 (rỗng = 375 + 1440)', required: false, default: '' }
+      all: { description: 'Chụp mọi route trong docs/ui-inventory.json (1 = có)', required: false, default: '' }
   pull_request:
     paths: ['scripts/test/ui-audit-shots.mjs', 'scripts/test/lib/ui-audit-rules.mjs', '.github/workflows/ui-audit-shots.yml']
 permissions:
   contents: read
 concurrency:
-  group: ui-audit-shots-${{ github.ref }}
+  group: ui-audit-shots-${{ github.ref }}-${{ github.event.inputs.lang || 'en' }}
   cancel-in-progress: true
 jobs:
   shots:
@@ -24,7 +26,7 @@ jobs:
       - uses: ./.github/actions/playwright-cache
         with: { browsers: '--with-deps chromium' }
       - name: Chụp
-        env: { LANG_IN: "${{ github.event.inputs.lang || 'en' }}" }
+        env: { LANG_IN: "${{ github.event.inputs.lang || 'en' }}", UIA_VPS: "${{ github.event.inputs.vps }}", UIA_ALL: "${{ github.event.inputs.all }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium

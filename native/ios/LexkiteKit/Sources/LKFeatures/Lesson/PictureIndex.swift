@@ -19,13 +19,19 @@ public struct PictureIndex: Sendable {
         let b = Int.random(in: 0..<100); d.set(b, forKey: "lk.vb"); return b
     }
 
-    public func snapshot(words: [String]) async -> VocabImages.Snapshot {
+    /// `extra` = pool words that may serve as picture distractors (lpic): their shards load only while the total stays ≤ `maxShards`,
+    /// most-covering shard first, so a lesson start never fans out into many downloads (shards are cached on disk after the first load).
+    public func snapshot(words: [String], extra: [String] = [], maxShards: Int = 4) async -> VocabImages.Snapshot {
         let mode = VocabImages.mode(flag: flag, pct: pct, bucket: bucket)
         guard mode != 0 else { return .none }
         guard let text = await source.text("js/lexicon-img.json"), let head = try? JSONDecoder().decode(VocabImages.Head.self, from: Data(text.utf8)) else { return .none }
         guard mode == 1 || head.on, head.n > 0 else { return .none }
         var shards: [Int: Shard] = [:]
-        for i in Set(words.map { VocabImages.shard($0, count: head.n) }) {
+        var want = Set(words.map { VocabImages.shard($0, count: head.n) })
+        var cover: [Int: Int] = [:]
+        for w in extra { let i = VocabImages.shard(w, count: head.n); if !want.contains(i) { cover[i, default: 0] += 1 } }
+        for (i, _) in cover.sorted(by: { $0.value != $1.value ? $0.value > $1.value : $0.key < $1.key }) where want.count < maxShards { want.insert(i) }
+        for i in want.sorted() {
             if let t = await source.text(String(format: "js/vimg/%02d.json", i)), let s = try? JSONDecoder().decode(VocabImages.Shard.self, from: Data(t.utf8)) { shards[i] = s }
         }
         return VocabImages.Snapshot(enabled: true, head: head, shards: shards)
@@ -39,6 +45,7 @@ import UIKit
 /// Bytes are cached on disk by a dedicated URLCache.
 struct LessonPicture: View {
     let url: URL, label: String
+    var side: CGFloat = 160
     @State private var image: UIImage?
     @Environment(\.colorScheme) private var scheme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -53,7 +60,7 @@ struct LessonPicture: View {
         ZStack {
             if let image { Image(uiImage: image).resizable().scaledToFit().transition(.opacity).accessibilityLabel(label) }
         }
-        .frame(width: 160, height: 160)
+        .frame(width: side, height: side)
         .frame(maxWidth: .infinity)
         .animation(reduceMotion ? nil : .easeOut(duration: 0.15), value: image != nil)
         .task(id: url) {
@@ -65,6 +72,7 @@ struct LessonPicture: View {
 #else
 struct LessonPicture: View {
     let url: URL, label: String
-    var body: some View { Color.clear.frame(width: 160, height: 160) }
+    var side: CGFloat = 160
+    var body: some View { Color.clear.frame(width: side, height: side) }
 }
 #endif

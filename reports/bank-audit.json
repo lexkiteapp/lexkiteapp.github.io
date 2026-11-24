@@ -25,7 +25,7 @@
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 18.8,
+  "longestIsAnswerPct": 11.8,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -51,11 +51,11 @@
   "posSkew": 0.6,
   "noExplainPct": 0,
   "shortExplainPct": 0.2,
-  "explainNotMentionAnsPct": 37.7,
+  "explainNotMentionAnsPct": 37.4,
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 4.2,
+  "longestIsAnswerPct": 3.3,
   "dupOptionPct": 2,
   "allAbovePct": 0
  },
@@ -76,11 +76,11 @@
   "posSkew": 0.3,
   "noExplainPct": 0,
   "shortExplainPct": 0,
-  "explainNotMentionAnsPct": 43,
-  "templatedExplainPct": 7.3,
+  "explainNotMentionAnsPct": 42.8,
+  "templatedExplainPct": 5.5,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 11.8,
+  "longestIsAnswerPct": 6.8,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -105,7 +105,7 @@
   "templatedExplainPct": 12.8,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 12.5,
+  "longestIsAnswerPct": 8.9,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -138,7 +138,7 @@
   "templatedExplainPct": 4.3,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 47.3,
+  "longestIsAnswerPct": 46.7,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -165,7 +165,7 @@
   "templatedExplainPct": 1.7,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 52.8,
+  "longestIsAnswerPct": 52.1,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -192,7 +192,7 @@
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 22.6,
+  "longestIsAnswerPct": 8.3,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -220,7 +220,7 @@
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 15.3,
+  "longestIsAnswerPct": 11.3,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -250,11 +250,11 @@
   "posSkew": 0.8,
   "noExplainPct": 0,
   "shortExplainPct": 0,
-  "explainNotMentionAnsPct": 68.6,
+  "explainNotMentionAnsPct": 67.3,
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 15.6,
+  "longestIsAnswerPct": 8.3,
   "dupOptionPct": 0,
   "allAbovePct": 0
  }

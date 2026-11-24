@@ -1,0 +1,148 @@
+{
+ "id": "t2s_zh_armandaleg",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 15,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at this coat's price!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Arm and a leg!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely expensive.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coat costs an arm and a leg.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "arm and a leg",
+  "forms": [
+   "an arm and a leg"
+  ],
+  "ipa": "/ən ˈɑːrm ən ə ˈleɡ/",
+  "mean": "Extremely expensive.",
+  "define": "Used when something costs a huge amount of money.",
+  "vi": "Đắt cắt cổ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Looking at store prices",
+   "text": "This coat costs an arm and a leg."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means something is…",
+   "options": [
+    "very cheap",
+    "very expensive"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't take 'an arm and a leg' literally at the store.",
+   "why": "It just means very expensive."
+  },
+  "l1": "贵得离谱",
+  "l1_hook": "看看这件大衣的价格！真是要花上“an arm and a leg”（一笔巨款/非常昂贵）。",
+  "l1_ex": "这件外套花了arm and a leg。",
+  "right": "arm and a leg",
+  "native": {
+   "hook": "“arm and a leg”是什么意思？",
+   "tip": "“arm and a leg” = 贵得离谱. 例句: “This coat costs an arm and a leg.”",
+   "caption": "“arm and a leg”是什么意思？\n“arm and a leg” = 贵得离谱.\n例句: “This coat costs an arm and a leg.” (这件外套花了arm and a leg。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “arm and a leg” = 贵得离谱. “This coat costs an arm and a leg.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at this coat's price!"
+ },
+ "src": {
+  "slang": "arm and a leg"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“arm and a leg”是什么意思？",
+  "keyword": "arm and a leg",
+  "value": "“arm and a leg” = 贵得离谱. 例句: “This coat costs an arm and a leg.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“arm and a leg”是什么意思？",
+    "description": "“arm and a leg” = 贵得离谱. 例句: “This coat costs an arm and a leg.”\n\n“arm and a leg”是什么意思？\n“arm and a leg” = 贵得离谱.\n例句: “This coat costs an arm and a leg.” (这件外套花了arm and a leg。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "arm and a leg",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“arm and a leg”是什么意思？\n“arm and a leg” = 贵得离谱.\n例句: “This coat costs an arm and a leg.” (这件外套花了arm and a leg。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“arm and a leg”是什么意思？\n\n“arm and a leg” = 贵得离谱. 例句: “This coat costs an arm and a leg.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“arm and a leg”是什么意思？ “arm and a leg” = 贵得离谱. 例句: “This coat costs an arm and a leg.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “arm and a leg” = 贵得离谱. “This coat costs an arm and a leg.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

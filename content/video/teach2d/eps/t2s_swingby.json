@@ -1,0 +1,131 @@
+{
+ "id": "t2s_swingby",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 234,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can you stop by later?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Swing by!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Visit for a short time.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'll swing by after school.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "swing by",
+  "forms": [],
+  "ipa": "/ˈswɪŋ ˈbaɪ/",
+  "mean": "Visit for a short time.",
+  "define": "To stop by a place quickly.",
+  "vi": "Ghé qua một chút",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Texting a friend",
+   "text": "I'll swing by after school."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Swing by\" means…",
+   "options": [
+    "go on a swing",
+    "visit quickly"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'swing by' for a two-day visit.",
+   "why": "It means a short stop."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can you stop by later?"
+ },
+ "src": {
+  "slang": "swing by"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"swing by\" mean?",
+  "keyword": "swing by",
+  "value": "Swing by = Visit for a short time. Example: \"I'll swing by after school.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"swing by\" mean?",
+    "description": "Swing by = Visit for a short time. Example: \"I'll swing by after school.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "swing by",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"swing by\" mean?\n\nSwing by = Visit for a short time. Example: \"I'll swing by after school.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"swing by\" mean?\n\nSwing by = Visit for a short time. Example: \"I'll swing by after school.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"swing by\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'swing by' for a two-day visit. It means a short stop. Real example: \"I'll swing by after school.\" More real English slang, free: {link}"
+ }
+}

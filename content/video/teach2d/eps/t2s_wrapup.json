@@ -1,0 +1,134 @@
+{
+ "id": "t2s_wrapup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 189,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "It's late. Are we finished?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Wrap up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Finish something and end.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's wrap up and go home.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "wrap up",
+  "forms": [
+   "wrapping up",
+   "wrapped up"
+  ],
+  "ipa": "/ˈræp ˈʌp/",
+  "mean": "Finish something and end.",
+  "define": "To finish a task, meeting or talk.",
+  "vi": "Kết thúc, hoàn tất",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Near the end of class",
+   "text": "Let's wrap up and go home."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"wrap up\" is to…",
+   "options": [
+    "cover a gift",
+    "finish"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'wrap up' in the middle of a talk.",
+   "why": "It tells people to finish."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "It's late. Are we finished?"
+ },
+ "src": {
+  "slang": "wrap up"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"wrap up\" mean?",
+  "keyword": "wrap up",
+  "value": "Wrap up = Finish something and end. Example: \"Let's wrap up and go home.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"wrap up\" mean?",
+    "description": "Wrap up = Finish something and end. Example: \"Let's wrap up and go home.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "wrap up",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"wrap up\" mean?\n\nWrap up = Finish something and end. Example: \"Let's wrap up and go home.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"wrap up\" mean?\n\nWrap up = Finish something and end. Example: \"Let's wrap up and go home.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"wrap up\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'wrap up' in the middle of a talk. It tells people to finish. Real example: \"Let's wrap up and go home.\" More real English slang, free: {link}"
+ }
+}

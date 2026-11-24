@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_corny",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 63,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dad's pun again. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Corny!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Old-fashioned and silly.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dad's jokes are so corny.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "corny",
+  "forms": [],
+  "ipa": "/ˈkɔːrni/",
+  "mean": "Old-fashioned and silly.",
+  "define": "Describes jokes that are so silly they're embarrassing.",
+  "vi": "Nhạt nhẽo, sến",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Listening to a joke",
+   "text": "Dad's jokes are so corny."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Corny\" means…",
+   "options": [
+    "silly",
+    "crunchy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your teacher's joke 'corny' out loud.",
+   "why": "It sounds rude, not playful."
+  },
+  "l1": "진부한",
+  "l1_hook": "\"corny\" 아빠가 또 말장난이야. 진심이야?",
+  "l1_ex": "우리 아빠 농담은 너무 corny해.",
+  "right": "corny",
+  "native": {
+   "hook": "“corny” 무슨 뜻일까요?",
+   "tip": "“corny” = 진부한. 예문: “Dad's jokes are so corny.”",
+   "caption": "“corny” 무슨 뜻일까요?\n“corny” = 진부한.\n예문: “Dad's jokes are so corny.” (우리 아빠 농담은 너무 corny해.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “corny” = 진부한. “Dad's jokes are so corny.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dad's pun again. Seriously?"
+ },
+ "src": {
+  "slang": "corny"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 15,
+  "seconds": 9.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“corny” 무슨 뜻일까요?",
+  "keyword": "corny",
+  "value": "“corny” = 진부한. 예문: “Dad's jokes are so corny.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "“corny” 무슨 뜻일까요?",
+    "description": "“corny” = 진부한. 예문: “Dad's jokes are so corny.”\n\n“corny” 무슨 뜻일까요?\n“corny” = 진부한.\n예문: “Dad's jokes are so corny.” (우리 아빠 농담은 너무 corny해.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "corny",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“corny” 무슨 뜻일까요?\n“corny” = 진부한.\n예문: “Dad's jokes are so corny.” (우리 아빠 농담은 너무 corny해.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“corny” 무슨 뜻일까요?\n\n“corny” = 진부한. 예문: “Dad's jokes are so corny.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“corny” 무슨 뜻일까요? “corny” = 진부한. 예문: “Dad's jokes are so corny.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “corny” = 진부한. “Dad's jokes are so corny.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

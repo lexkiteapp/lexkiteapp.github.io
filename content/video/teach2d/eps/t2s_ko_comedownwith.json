@@ -1,0 +1,149 @@
+{
+ "id": "t2s_ko_comedownwith",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 60,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My throat hurts. Uh-oh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Come down with!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start to get sick.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I think I'm coming down with a cold.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "data": {
+  "key": "come down with",
+  "forms": [
+   "came down with",
+   "coming down with"
+  ],
+  "ipa": "/ˈkʌm ˈdaʊn wɪð/",
+  "mean": "Start to get sick.",
+  "define": "To begin to feel ill with something like a cold.",
+  "vi": "Bắt đầu bị ốm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a friend",
+   "text": "I think I'm coming down with a cold."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you're…",
+   "options": [
+    "falling down",
+    "getting sick"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say you 'came down with' a gift.",
+   "why": "It means starting to get sick."
+  },
+  "l1": "(병에) 걸리다",
+  "l1_hook": "\"come down with\" 목이 아파. 어쩌지?",
+  "l1_ex": "나 감기에 \"come down with\" 하는 것 같아.",
+  "right": "come down with",
+  "native": {
+   "hook": "“come down with” 무슨 뜻일까요?",
+   "tip": "“come down with” = (병에) 걸리다. 예문: “I think I'm coming down with a cold.”",
+   "caption": "“come down with” 무슨 뜻일까요?\n“come down with” = (병에) 걸리다.\n예문: “I think I'm coming down with a cold.” (나 감기에 \"come down with\" 하는 것 같아.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “come down with” = (병에) 걸리다. “I think I'm coming down with a cold.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My throat hurts. Uh-oh!"
+ },
+ "src": {
+  "slang": "come down with"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“come down with” 무슨 뜻일까요?",
+  "keyword": "come down with",
+  "value": "“come down with” = (병에) 걸리다. 예문: “I think I'm coming down with a cold.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“come down with” 무슨 뜻일까요?",
+    "description": "“come down with” = (병에) 걸리다. 예문: “I think I'm coming down with a cold.”\n\n“come down with” 무슨 뜻일까요?\n“come down with” = (병에) 걸리다.\n예문: “I think I'm coming down with a cold.” (나 감기에 \"come down with\" 하는 것 같아.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "come down with",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“come down with” 무슨 뜻일까요?\n“come down with” = (병에) 걸리다.\n예문: “I think I'm coming down with a cold.” (나 감기에 \"come down with\" 하는 것 같아.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“come down with” 무슨 뜻일까요?\n\n“come down with” = (병에) 걸리다. 예문: “I think I'm coming down with a cold.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“come down with” 무슨 뜻일까요? “come down with” = (병에) 걸리다. 예문: “I think I'm coming down with a cold.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “come down with” = (병에) 걸리다. “I think I'm coming down with a cold.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

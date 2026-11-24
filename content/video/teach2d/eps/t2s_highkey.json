@@ -1,0 +1,137 @@
+{
+ "id": "t2s_highkey",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 249,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Secret: I love this album!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Highkey!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Really, and I'm not hiding it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I highkey love this new album.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "highkey",
+  "forms": [
+   "high-key"
+  ],
+  "ipa": "/ˈhaɪˌkiː/",
+  "mean": "Really, and I'm not hiding it.",
+  "define": "Used to say something strongly and openly. It's the opposite of lowkey.",
+  "vi": "Thật sự luôn, công khai",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Chatting about music",
+   "text": "I highkey love this new album."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Highkey\" means you feel it…",
+   "options": [
+    "in secret",
+    "very openly"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'highkey' in a formal presentation.",
+   "why": "It's casual online slang."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Secret: I love this album!"
+ },
+ "src": {
+  "slang": "highkey"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"highkey\" mean?",
+  "keyword": "highkey",
+  "value": "Highkey = Really, and I'm not hiding it. Example: \"I highkey love this new album.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"highkey\" mean?",
+    "description": "Highkey = Really, and I'm not hiding it. Example: \"I highkey love this new album.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "highkey",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"highkey\" mean?\n\nHighkey = Really, and I'm not hiding it. Example: \"I highkey love this new album.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"highkey\" mean?\n\nHighkey = Really, and I'm not hiding it. Example: \"I highkey love this new album.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"highkey\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'highkey' in a formal presentation. It's casual online slang. Real example: \"I highkey love this new album.\" More real English slang, free: {link}"
+ }
+}

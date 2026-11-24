@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_lame",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 82,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Party ended at eight. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Lame!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Boring or disappointing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That party was kind of lame.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "lame",
+  "forms": [],
+  "ipa": "/ˈleɪm/",
+  "mean": "Boring or disappointing.",
+  "define": "Used for things that are dull or not cool.",
+  "vi": "Nhạt, dở ẹc",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Leaving a party",
+   "text": "That party was kind of lame."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Lame\" means…",
+   "options": [
+    "exciting",
+    "dull"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's idea 'lame' in front of everyone.",
+   "why": "It sounds hurtful."
+  },
+  "l1": "Nhạt, dở ẹc",
+  "l1_hook": "Tiệc tan lúc tám giờ. Thiệt hả?",
+  "l1_ex": "Bữa tiệc đó hơi lame á.",
+  "right": "lame",
+  "native": {
+   "hook": "“lame” nghĩa là gì?",
+   "tip": "“lame” = Nhạt, dở ẹc. Ví dụ: “That party was kind of lame.”",
+   "caption": "“lame” nghĩa là gì?\n“lame” = Nhạt, dở ẹc.\nVí dụ: “That party was kind of lame.” (Bữa tiệc đó hơi lame á.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “lame” = Nhạt, dở ẹc. “That party was kind of lame.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Party ended at eight. Seriously?"
+ },
+ "src": {
+  "slang": "lame"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 17,
+  "seconds": 10.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“lame” nghĩa là gì?",
+  "keyword": "lame",
+  "value": "“lame” = Nhạt, dở ẹc. Ví dụ: “That party was kind of lame.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“lame” nghĩa là gì?",
+    "description": "“lame” = Nhạt, dở ẹc. Ví dụ: “That party was kind of lame.”\n\n“lame” nghĩa là gì?\n“lame” = Nhạt, dở ẹc.\nVí dụ: “That party was kind of lame.” (Bữa tiệc đó hơi lame á.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "lame",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“lame” nghĩa là gì?\n“lame” = Nhạt, dở ẹc.\nVí dụ: “That party was kind of lame.” (Bữa tiệc đó hơi lame á.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“lame” nghĩa là gì?\n\n“lame” = Nhạt, dở ẹc. Ví dụ: “That party was kind of lame.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“lame” nghĩa là gì? “lame” = Nhạt, dở ẹc. Ví dụ: “That party was kind of lame.” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “lame” = Nhạt, dở ẹc. “That party was kind of lame.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}
