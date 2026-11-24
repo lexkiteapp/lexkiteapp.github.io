@@ -307,6 +307,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     handsfree: ['words', 'tsl', 'voice', 'handsfree'],
     home: ['words', 'streak'],
     ideas: 'writing',
+    interpret: 'interpret',
     irregular: ['vcore', 'irregular'],
     league: 'league',
     lesson: 'lesson',
@@ -315,7 +316,6 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     listen: ['listening', 'toeic'],
     'listen-test': 'listening',
     listening: 'listening',
-    interpret: 'interpret',
     mediate: 'mediate',
     method: 'readings',
     mock: ['listening', 'writing', 'speak', 'mock'],
@@ -392,7 +392,6 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
   // CSS riêng của gói (ngoài khung app): nạp song song với JS, chờ xong (tối đa 1,5 s) → không nháy bố cục
   const BCSS = {
-    interpret: ['css/interpret.css'],
     call: ['css/st-v2-teacher-call.css'],
     cambridge: 'css/exam.css',
     dayv2: 'css/st-v2-day.css',
@@ -401,6 +400,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     gend: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
+    interpret: ['css/interpret.css'],
     irregular: 'css/st-v2-irregular.css',
     irvdrill: 'css/st-v2-irregular-drill.css',
     lcard: 'css/lcard.css',

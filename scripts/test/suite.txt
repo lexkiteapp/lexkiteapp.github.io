@@ -367,6 +367,7 @@ node scripts/test/sitemap-lastmod.mjs
 node scripts/test/indexnow-wait.mjs
 node scripts/test/serp-overrides.mjs
 node scripts/test/outcomes.mjs
+node scripts/test/interpret.mjs
 node scripts/test/today-debt.mjs
 node scripts/test/ci-shards-busy.mjs
 node scripts/test/brand-logo-stitch.mjs

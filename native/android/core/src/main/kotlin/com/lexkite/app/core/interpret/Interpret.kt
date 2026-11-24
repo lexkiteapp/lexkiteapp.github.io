@@ -27,7 +27,7 @@ object Interpret {
 
     /** The pair of the two people: [a] sits at the bottom, [b] at the top (turned 180°). */
     data class Pair2(val a: String, val b: String)
-    fun defaultPair(me: String): Pair2 = Pair2(if (ok(me)) base(me) else "en", if (base(me) == "en") "es" else "en")
+    fun defaultPair(me: String): Pair2 { val a = if (ok(me)) base(me) else "en"; return Pair2(a, if (a == "en") "es" else "en") }
     /** A stored / picked pair → a valid one (both known, different); anything else → [defaultPair]. */
     fun fixPair(a: String?, b: String?, me: String): Pair2 = if (ok(a) && ok(b) && base(a) != base(b)) Pair2(base(a), base(b)) else defaultPair(me)
     /** Picking [lang] for [side] ("a"|"b"): when it equals the other side's, the two swap (web `onchange`). */
