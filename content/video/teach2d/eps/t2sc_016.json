@@ -1,0 +1,164 @@
+{
+ "id": "t2sc_016",
+ "template": "scorecard",
+ "series": "Score Challenge",
+ "part": 16,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "placement",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Perfect score. Match me?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Five questions. All five right.",
+   "pause": 0.25
+  },
+  {
+   "id": "r",
+   "text": "Perfect. Tough to match.",
+   "pause": 0.3
+  },
+  {
+   "id": "ch",
+   "text": "Can you match that? Take the free test.",
+   "pause": 0.4
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "items": [
+   {
+    "stem": "I ___ you enjoy the party!",
+    "options": [
+     "hope",
+     "wish"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "C1"
+   },
+   {
+    "stem": "Please don't hesitate ___ us.",
+    "options": [
+     "to call",
+     "calling"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "The ___ is cold today.",
+    "options": [
+     "weather",
+     "weathers"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "He ___ a crime last year.",
+    "options": [
+     "did",
+     "committed"
+    ],
+    "answer": 1,
+    "pick": 1,
+    "cefr": "B1"
+   },
+   {
+    "stem": "This soup lacks ___.",
+    "options": [
+     "salt",
+     "of salt"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "B1"
+   }
+  ],
+  "right": 5,
+  "score": 100,
+  "pts": 20,
+  "sample": true
+ },
+ "cta": {
+  "area": "placement",
+  "route": "#/placement",
+  "link": "https://lexkite.com/app/#/placement",
+  "say": "Take the level test"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Score 100/100. Match me?"
+ },
+ "src": {
+  "gold": [
+   "sb_2ac8da2b",
+   "sb_29c61515",
+   "sb_aab92e69",
+   "sb_16707e4b",
+   "sb_43b7bd40"
+  ]
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.8,
+  "wpm": 128
+ },
+ "publish": {
+  "title": "Can you match 100/100 on this English quiz?",
+  "keyword": "english quiz score",
+  "value": "Sample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.",
+  "hashtags": [
+   "#englishquiz",
+   "#englishtest",
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish"
+  ],
+  "link": "https://lexkite.com/app/#/placement",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Can you match 100/100 on this English quiz?",
+    "description": "Sample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement\n\nSeries: Score Challenge · Teacher: Carlos\n\n#englishquiz #englishtest #learnenglish #englishtips #speakenglish",
+    "tags": [
+     "english quiz score",
+     "Score Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Can you match 100/100 on this English quiz?\n\nSample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement"
+   },
+   "instagram": {
+    "caption": "Can you match 100/100 on this English quiz?\n\nSample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test: link in bio.",
+    "hashtags": [
+     "#englishquiz",
+     "#englishtest",
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish"
+    ]
+   },
+   "tiktok": {
+    "caption": "Can you match 100/100 on this English quiz? #englishquiz #englishtest #learnenglish"
+   }
+  },
+  "first_comment": "Answer: Sample score from 5 real quiz questions: 5 right x 20 points = 100/100 (sample answers, not a real learner result). Take the free level test and see your own score. Try the full lesson and quiz here: {link}"
+ }
+}

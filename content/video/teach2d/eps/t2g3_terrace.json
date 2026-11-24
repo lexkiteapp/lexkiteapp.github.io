@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_terrace",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 60,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: terrace!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A paved outdoor platform attached to a house.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "You can't smoke except on the terrace.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "terrace",
+  "ipa": "/ˈterəs/",
+  "mean": "a paved outdoor platform attached to a house",
+  "ex": "You can't smoke except on the terrace.",
+  "img": "terrace#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/terrace",
+  "link": "https://lexkite.com/app/#/dict/terrace",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "terrace",
+  "img": "terrace#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 11.3,
+  "wpm": 122
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: T + 6 letters",
+  "keyword": "terrace",
+  "value": "Terrace /ˈterəs/ = a paved outdoor platform attached to a house. Example: \"You can't smoke except on the terrace.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/terrace",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: T + 6 letters",
+    "description": "Terrace /ˈterəs/ = a paved outdoor platform attached to a house. Example: \"You can't smoke except on the terrace.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/terrace\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "terrace",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: T + 6 letters\n\nTerrace /ˈterəs/ = a paved outdoor platform attached to a house. Example: \"You can't smoke except on the terrace.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/terrace"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: T + 6 letters\n\nTerrace /ˈterəs/ = a paved outdoor platform attached to a house. Example: \"You can't smoke except on the terrace.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: T + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: terrace. A paved outdoor platform attached to a house. Example: \"You can't smoke except on the terrace.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

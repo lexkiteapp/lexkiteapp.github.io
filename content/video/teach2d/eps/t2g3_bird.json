@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_bird",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 3,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: bird!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "An animal with feathers that uses wings to fly.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "A small bird built a nest on our balcony.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "bird",
+  "ipa": "/bɜːrd/",
+  "mean": "an animal with feathers that uses wings to fly",
+  "ex": "A small bird built a nest on our balcony.",
+  "img": "bird#n",
+  "n": 4
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/bird",
+  "link": "https://lexkite.com/app/#/dict/bird",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "bird",
+  "img": "bird#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.3,
+  "wpm": 132
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: B + 3 letters",
+  "keyword": "bird",
+  "value": "Bird /bɜːrd/ = an animal with feathers that uses wings to fly. Example: \"A small bird built a nest on our balcony.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/bird",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: B + 3 letters",
+    "description": "Bird /bɜːrd/ = an animal with feathers that uses wings to fly. Example: \"A small bird built a nest on our balcony.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/bird\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "bird",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: B + 3 letters\n\nBird /bɜːrd/ = an animal with feathers that uses wings to fly. Example: \"A small bird built a nest on our balcony.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/bird"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: B + 3 letters\n\nBird /bɜːrd/ = an animal with feathers that uses wings to fly. Example: \"A small bird built a nest on our balcony.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: B + 3 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: bird. An animal with feathers that uses wings to fly. Example: \"A small bird built a nest on our balcony.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

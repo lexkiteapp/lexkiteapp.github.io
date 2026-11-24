@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_offerhelp",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 49,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Offer to help: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Can I help you?",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Would you like some help with that?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Need a hand with that?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "offer-help",
+  "title": "Offer to help",
+  "em": "🤝",
+  "chip": "Everyday",
+  "reg": "casual",
+  "levels": {
+   "a": {
+    "text": "Can I help you?",
+    "key": "Can I help",
+    "note": "Simple, always polite."
+   },
+   "b": {
+    "text": "Would you like some help with that?",
+    "key": "Would you like",
+    "note": "Polite and friendly."
+   },
+   "c": {
+    "text": "Need a hand with that?",
+    "key": "Need a hand",
+    "note": "Natural and friendly."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Need a hand",
+    "Would you like"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Offer to help: three levels!"
+ },
+ "src": {
+  "levels3": "offer-help"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 9.8,
+  "wpm": 141
+ },
+ "publish": {
+  "title": "Offer to help: A1, B1 or C1?",
+  "keyword": "offer to help",
+  "value": "Offer to help, three ways. A1: \"Can I help you?\" B1: \"Would you like some help with that?\" C1: \"Need a hand with that?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "Offer to help: A1, B1 or C1?",
+    "description": "Offer to help, three ways. A1: \"Can I help you?\" B1: \"Would you like some help with that?\" C1: \"Need a hand with that?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "offer to help",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Offer to help: A1, B1 or C1?\n\nOffer to help, three ways. A1: \"Can I help you?\" B1: \"Would you like some help with that?\" C1: \"Need a hand with that?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Offer to help: A1, B1 or C1?\n\nOffer to help, three ways. A1: \"Can I help you?\" B1: \"Would you like some help with that?\" C1: \"Need a hand with that?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Offer to help: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Need a hand. Native line: \"Need a hand with that?\" Which level are you? More real English, free: {link}"
+ }
+}

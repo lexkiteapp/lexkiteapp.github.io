@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_nose",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 16,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: nose!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A part of the face used for breathing and smelling.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "He has a cold and a runny nose.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "nose",
+  "ipa": "/noʊz/",
+  "mean": "a part of the face used for breathing and smelling",
+  "ex": "He has a cold and a runny nose.",
+  "img": "nose#n",
+  "n": 4
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/nose",
+  "link": "https://lexkite.com/app/#/dict/nose",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "nose",
+  "img": "nose#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 10.8,
+  "wpm": 139
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: N + 3 letters",
+  "keyword": "nose",
+  "value": "Nose /noʊz/ = a part of the face used for breathing and smelling. Example: \"He has a cold and a runny nose.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/nose",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: N + 3 letters",
+    "description": "Nose /noʊz/ = a part of the face used for breathing and smelling. Example: \"He has a cold and a runny nose.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/nose\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "nose",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: N + 3 letters\n\nNose /noʊz/ = a part of the face used for breathing and smelling. Example: \"He has a cold and a runny nose.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/nose"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: N + 3 letters\n\nNose /noʊz/ = a part of the face used for breathing and smelling. Example: \"He has a cold and a runny nose.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: N + 3 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: nose. A part of the face used for breathing and smelling. Example: \"He has a cold and a runny nose.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

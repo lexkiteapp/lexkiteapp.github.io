@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_pier",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 55,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: pier!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A long platform built out over water.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "People are fishing from the end of the pier.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "pier",
+  "ipa": "/pɪr/",
+  "mean": "a long platform built out over water",
+  "ex": "People are fishing from the end of the pier.",
+  "img": "pier#n",
+  "n": 4
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/pier",
+  "link": "https://lexkite.com/app/#/dict/pier",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "pier",
+  "img": "pier#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.5,
+  "wpm": 131
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: P + 3 letters",
+  "keyword": "pier",
+  "value": "Pier /pɪr/ = a long platform built out over water. Example: \"People are fishing from the end of the pier.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/pier",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: P + 3 letters",
+    "description": "Pier /pɪr/ = a long platform built out over water. Example: \"People are fishing from the end of the pier.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/pier\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "pier",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: P + 3 letters\n\nPier /pɪr/ = a long platform built out over water. Example: \"People are fishing from the end of the pier.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/pier"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: P + 3 letters\n\nPier /pɪr/ = a long platform built out over water. Example: \"People are fishing from the end of the pier.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: P + 3 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: pier. A long platform built out over water. Example: \"People are fishing from the end of the pier.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

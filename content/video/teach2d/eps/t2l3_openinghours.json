@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_openinghours",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 63,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Opening hours: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "What time do you open?",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Could you tell me your hours?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "What time are you open till?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "opening-hours",
+  "title": "Opening hours",
+  "em": "🕘",
+  "chip": "In a shop",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "What time do you open?",
+    "key": "What time",
+    "note": "Clear and correct."
+   },
+   "b": {
+    "text": "Could you tell me your hours?",
+    "key": "your hours",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "What time are you open till?",
+    "key": "open till",
+    "note": "Short and casual."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "What time",
+    "Open till"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Opening hours: three levels!"
+ },
+ "src": {
+  "levels3": "opening-hours"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.6,
+  "wpm": 130
+ },
+ "publish": {
+  "title": "Opening hours: A1, B1 or C1?",
+  "keyword": "opening hours",
+  "value": "Opening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your hours?\" C1: \"What time are you open till?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "Opening hours: A1, B1 or C1?",
+    "description": "Opening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your hours?\" C1: \"What time are you open till?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "opening hours",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Opening hours: A1, B1 or C1?\n\nOpening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your hours?\" C1: \"What time are you open till?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Opening hours: A1, B1 or C1?\n\nOpening hours, three ways. A1: \"What time do you open?\" B1: \"Could you tell me your hours?\" C1: \"What time are you open till?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Opening hours: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Open till. Native line: \"What time are you open till?\" Which level are you? More real English, free: {link}"
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_wrist",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 44,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: wrist!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "The joint that connects the hand to the forearm.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I took him by the wrist.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "wrist",
+  "ipa": "/rɪst/",
+  "mean": "the joint that connects the hand to the forearm",
+  "ex": "I took him by the wrist.",
+  "img": "wrist#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/wrist",
+  "link": "https://lexkite.com/app/#/dict/wrist",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "wrist",
+  "img": "wrist#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 9.7,
+  "wpm": 142
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: W + 4 letters",
+  "keyword": "wrist",
+  "value": "Wrist /rɪst/ = the joint that connects the hand to the forearm. Example: \"I took him by the wrist.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/wrist",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: W + 4 letters",
+    "description": "Wrist /rɪst/ = the joint that connects the hand to the forearm. Example: \"I took him by the wrist.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/wrist\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "wrist",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: W + 4 letters\n\nWrist /rɪst/ = the joint that connects the hand to the forearm. Example: \"I took him by the wrist.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/wrist"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: W + 4 letters\n\nWrist /rɪst/ = the joint that connects the hand to the forearm. Example: \"I took him by the wrist.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: W + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: wrist. The joint that connects the hand to the forearm. Example: \"I took him by the wrist.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

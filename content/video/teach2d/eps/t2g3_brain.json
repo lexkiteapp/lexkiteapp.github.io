@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_brain",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 22,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: brain!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A part of the head that thinks and controls your body.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "Sleep is important for a healthy brain.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "brain",
+  "ipa": "/breɪn/",
+  "mean": "a part of the head that thinks and controls your body",
+  "ex": "Sleep is important for a healthy brain.",
+  "img": "brain#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/brain",
+  "link": "https://lexkite.com/app/#/dict/brain",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "brain",
+  "img": "brain#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.1,
+  "wpm": 136
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: B + 4 letters",
+  "keyword": "brain",
+  "value": "Brain /breɪn/ = a part of the head that thinks and controls your body. Example: \"Sleep is important for a healthy brain.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/brain",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: B + 4 letters",
+    "description": "Brain /breɪn/ = a part of the head that thinks and controls your body. Example: \"Sleep is important for a healthy brain.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/brain\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "brain",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: B + 4 letters\n\nBrain /breɪn/ = a part of the head that thinks and controls your body. Example: \"Sleep is important for a healthy brain.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/brain"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: B + 4 letters\n\nBrain /breɪn/ = a part of the head that thinks and controls your body. Example: \"Sleep is important for a healthy brain.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: B + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: brain. A part of the head that thinks and controls your body. Example: \"Sleep is important for a healthy brain.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

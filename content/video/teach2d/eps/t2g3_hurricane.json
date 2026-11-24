@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_hurricane",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 38,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: hurricane!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A violent storm with strong winds.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The hurricane forced the airport to close for two days.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "hurricane",
+  "ipa": "/ˈhɜːrəkeɪn/",
+  "mean": "a violent storm with strong winds",
+  "ex": "The hurricane forced the airport to close for two days.",
+  "img": "hurricane#n",
+  "n": 9
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/hurricane",
+  "link": "https://lexkite.com/app/#/dict/hurricane",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "hurricane",
+  "img": "hurricane#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 11.1,
+  "wpm": 125
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: H + 8 letters",
+  "keyword": "hurricane",
+  "value": "Hurricane /ˈhɜːrəkeɪn/ = a violent storm with strong winds. Example: \"The hurricane forced the airport to close for two days.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/hurricane",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: H + 8 letters",
+    "description": "Hurricane /ˈhɜːrəkeɪn/ = a violent storm with strong winds. Example: \"The hurricane forced the airport to close for two days.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/hurricane\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "hurricane",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: H + 8 letters\n\nHurricane /ˈhɜːrəkeɪn/ = a violent storm with strong winds. Example: \"The hurricane forced the airport to close for two days.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/hurricane"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: H + 8 letters\n\nHurricane /ˈhɜːrəkeɪn/ = a violent storm with strong winds. Example: \"The hurricane forced the airport to close for two days.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: H + 8 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: hurricane. A violent storm with strong winds. Example: \"The hurricane forced the airport to close for two days.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_ring",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 41,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Name it in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: ring!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A round piece of jewellery worn on a finger.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "He gave her a ring on her birthday.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "ring",
+  "ipa": "/rɪŋ/",
+  "mean": "a round piece of jewellery worn on a finger",
+  "ex": "He gave her a ring on her birthday.",
+  "img": "ring#n",
+  "n": 4
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/ring",
+  "link": "https://lexkite.com/app/#/dict/ring",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Name it in three seconds!"
+ },
+ "src": {
+  "word": "ring",
+  "img": "ring#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.3,
+  "wpm": 138
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: R + 3 letters",
+  "keyword": "ring",
+  "value": "Ring /rɪŋ/ = a round piece of jewellery worn on a finger. Example: \"He gave her a ring on her birthday.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/ring",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: R + 3 letters",
+    "description": "Ring /rɪŋ/ = a round piece of jewellery worn on a finger. Example: \"He gave her a ring on her birthday.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/ring\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "ring",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: R + 3 letters\n\nRing /rɪŋ/ = a round piece of jewellery worn on a finger. Example: \"He gave her a ring on her birthday.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/ring"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: R + 3 letters\n\nRing /rɪŋ/ = a round piece of jewellery worn on a finger. Example: \"He gave her a ring on her birthday.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: R + 3 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: ring. A round piece of jewellery worn on a finger. Example: \"He gave her a ring on her birthday.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

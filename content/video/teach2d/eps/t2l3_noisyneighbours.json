@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_noisyneighbours",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 14,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Noisy neighbours: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Please be quiet. It's late.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Could you be a bit quieter, please?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Sorry, could you keep the noise down?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "noisy-neighbours",
+  "title": "Noisy neighbours",
+  "em": "🔊",
+  "chip": "At the door",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "Please be quiet. It's late.",
+    "key": "be quiet",
+    "note": "Clear, but quite strong."
+   },
+   "b": {
+    "text": "Could you be a bit quieter, please?",
+    "key": "a bit quieter",
+    "note": "Polite and soft."
+   },
+   "c": {
+    "text": "Sorry, could you keep the noise down?",
+    "key": "keep the noise down",
+    "note": "A real, everyday phrase."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Be quiet",
+    "Keep the noise down"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Noisy neighbours: three levels!"
+ },
+ "src": {
+  "levels3": "noisy-neighbours"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.1,
+  "wpm": 135
+ },
+ "publish": {
+  "title": "Noisy neighbours: A1, B1 or C1?",
+  "keyword": "noisy neighbours",
+  "value": "Noisy neighbours, three ways. A1: \"Please be quiet. It's late.\" B1: \"Could you be a bit quieter, please?\" C1: \"Sorry, could you keep the noise down?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "Noisy neighbours: A1, B1 or C1?",
+    "description": "Noisy neighbours, three ways. A1: \"Please be quiet. It's late.\" B1: \"Could you be a bit quieter, please?\" C1: \"Sorry, could you keep the noise down?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "noisy neighbours",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Noisy neighbours: A1, B1 or C1?\n\nNoisy neighbours, three ways. A1: \"Please be quiet. It's late.\" B1: \"Could you be a bit quieter, please?\" C1: \"Sorry, could you keep the noise down?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Noisy neighbours: A1, B1 or C1?\n\nNoisy neighbours, three ways. A1: \"Please be quiet. It's late.\" B1: \"Could you be a bit quieter, please?\" C1: \"Sorry, could you keep the noise down?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Noisy neighbours: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Keep the noise down. Native line: \"Sorry, could you keep the noise down?\" Which level are you? More real English, free: {link}"
+ }
+}

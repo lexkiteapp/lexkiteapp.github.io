@@ -1,0 +1,164 @@
+{
+ "id": "t2sc_037",
+ "template": "scorecard",
+ "series": "Score Challenge",
+ "part": 37,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "placement",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Score forty. Beat me?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Five questions. Two right.",
+   "pause": 0.25
+  },
+  {
+   "id": "r",
+   "text": "Oops. Easy to beat!",
+   "pause": 0.3
+  },
+  {
+   "id": "ch",
+   "text": "Can you beat that? Take the free test.",
+   "pause": 0.4
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "items": [
+   {
+    "stem": "She pretended ___ asleep.",
+    "options": [
+     "being",
+     "to be"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "I ___ a mistake on the test.",
+    "options": [
+     "made",
+     "did"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A1"
+   },
+   {
+    "stem": "I ___ with you.",
+    "options": [
+     "am agree",
+     "agree"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "B2"
+   },
+   {
+    "stem": "We bought some new ___.",
+    "options": [
+     "furnitures",
+     "furniture"
+    ],
+    "answer": 1,
+    "pick": 0,
+    "cefr": "A2"
+   },
+   {
+    "stem": "She ___ my question.",
+    "options": [
+     "answered",
+     "answered to"
+    ],
+    "answer": 0,
+    "pick": 0,
+    "cefr": "A2"
+   }
+  ],
+  "right": 2,
+  "score": 40,
+  "pts": 20,
+  "sample": true
+ },
+ "cta": {
+  "area": "placement",
+  "route": "#/placement",
+  "link": "https://lexkite.com/app/#/placement",
+  "say": "Take the level test"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Score 40/100. Beat me?"
+ },
+ "src": {
+  "gold": [
+   "sb_344dfdad",
+   "sb_37234b0e",
+   "sb_4f5a34f3",
+   "sb_74c70f2e",
+   "sb_f82b0a44"
+  ]
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.4,
+  "wpm": 126
+ },
+ "publish": {
+  "title": "Can you beat 40/100 on this English quiz?",
+  "keyword": "english quiz score",
+  "value": "Sample score from 5 real quiz questions: 2 right x 20 points = 40/100 (sample answers, not a real learner result). Take the free level test and see your own score.",
+  "hashtags": [
+   "#englishquiz",
+   "#englishtest",
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish"
+  ],
+  "link": "https://lexkite.com/app/#/placement",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Can you beat 40/100 on this English quiz?",
+    "description": "Sample score from 5 real quiz questions: 2 right x 20 points = 40/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement\n\nSeries: Score Challenge · Teacher: Ama\n\n#englishquiz #englishtest #learnenglish #englishtips #speakenglish",
+    "tags": [
+     "english quiz score",
+     "Score Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Can you beat 40/100 on this English quiz?\n\nSample score from 5 real quiz questions: 2 right x 20 points = 40/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test, free: https://lexkite.com/app/#/placement"
+   },
+   "instagram": {
+    "caption": "Can you beat 40/100 on this English quiz?\n\nSample score from 5 real quiz questions: 2 right x 20 points = 40/100 (sample answers, not a real learner result). Take the free level test and see your own score.\n\nTake the level test: link in bio.",
+    "hashtags": [
+     "#englishquiz",
+     "#englishtest",
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish"
+    ]
+   },
+   "tiktok": {
+    "caption": "Can you beat 40/100 on this English quiz? #englishquiz #englishtest #learnenglish"
+   }
+  },
+  "first_comment": "Answer: Sample score from 5 real quiz questions: 2 right x 20 points = 40/100 (sample answers, not a real learner result). Take the free level test and see your own score. Try the full lesson and quiz here: {link}"
+ }
+}

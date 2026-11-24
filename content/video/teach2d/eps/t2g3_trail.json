@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_trail",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 61,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: trail!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A path through the countryside.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "We followed a trail through the forest.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "trail",
+  "ipa": "/treɪl/",
+  "mean": "a path through the countryside",
+  "ex": "We followed a trail through the forest.",
+  "img": "trail#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/trail",
+  "link": "https://lexkite.com/app/#/dict/trail",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "trail",
+  "img": "trail#n"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 9.5,
+  "wpm": 121
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: T + 4 letters",
+  "keyword": "trail",
+  "value": "Trail /treɪl/ = a path through the countryside. Example: \"We followed a trail through the forest.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/trail",
+  "script_words": 18,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: T + 4 letters",
+    "description": "Trail /treɪl/ = a path through the countryside. Example: \"We followed a trail through the forest.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/trail\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "trail",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: T + 4 letters\n\nTrail /treɪl/ = a path through the countryside. Example: \"We followed a trail through the forest.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/trail"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: T + 4 letters\n\nTrail /treɪl/ = a path through the countryside. Example: \"We followed a trail through the forest.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: T + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: trail. A path through the countryside. Example: \"We followed a trail through the forest.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

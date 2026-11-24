@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_givecompliment",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 29,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Give a compliment: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Your shirt is nice.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "I really like your shirt.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Love your shirt, where did you get it?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "give-compliment",
+  "title": "Give a compliment",
+  "em": "😍",
+  "chip": "With a friend",
+  "reg": "casual",
+  "levels": {
+   "a": {
+    "text": "Your shirt is nice.",
+    "key": "is nice",
+    "note": "Correct, but plain."
+   },
+   "b": {
+    "text": "I really like your shirt.",
+    "key": "really like",
+    "note": "Warm and clear."
+   },
+   "c": {
+    "text": "Love your shirt, where did you get it?",
+    "key": "Love your",
+    "note": "Natives drop the \"I\"."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Is nice",
+    "Love your"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Give a compliment: three levels!"
+ },
+ "src": {
+  "levels3": "give-compliment"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 10.6,
+  "wpm": 136
+ },
+ "publish": {
+  "title": "Give a compliment: A1, B1 or C1?",
+  "keyword": "give a compliment",
+  "value": "Give a compliment, three ways. A1: \"Your shirt is nice.\" B1: \"I really like your shirt.\" C1: \"Love your shirt, where did you get it?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "Give a compliment: A1, B1 or C1?",
+    "description": "Give a compliment, three ways. A1: \"Your shirt is nice.\" B1: \"I really like your shirt.\" C1: \"Love your shirt, where did you get it?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "give a compliment",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Give a compliment: A1, B1 or C1?\n\nGive a compliment, three ways. A1: \"Your shirt is nice.\" B1: \"I really like your shirt.\" C1: \"Love your shirt, where did you get it?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Give a compliment: A1, B1 or C1?\n\nGive a compliment, three ways. A1: \"Your shirt is nice.\" B1: \"I really like your shirt.\" C1: \"Love your shirt, where did you get it?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Give a compliment: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Love your. Native line: \"Love your shirt, where did you get it?\" Which level are you? More real English, free: {link}"
+ }
+}

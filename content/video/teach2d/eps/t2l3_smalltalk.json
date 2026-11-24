@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_smalltalk",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 34,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Small talk: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "It's a nice day.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "The weather is lovely today, isn't it?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Lovely day, isn't it?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "small-talk",
+  "title": "Small talk",
+  "em": "💬",
+  "chip": "In a queue",
+  "reg": "casual",
+  "levels": {
+   "a": {
+    "text": "It's a nice day.",
+    "key": "nice day",
+    "note": "Clear, but simple."
+   },
+   "b": {
+    "text": "The weather is lovely today, isn't it?",
+    "key": "isn't it",
+    "note": "Classic small talk."
+   },
+   "c": {
+    "text": "Lovely day, isn't it?",
+    "key": "Lovely day",
+    "note": "Natives cut the start."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Lovely day",
+    "Isn't it"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Small talk: three levels!"
+ },
+ "src": {
+  "levels3": "small-talk"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 10.6,
+  "wpm": 119
+ },
+ "publish": {
+  "title": "Small talk: A1, B1 or C1?",
+  "keyword": "small talk",
+  "value": "Small talk, three ways. A1: \"It's a nice day.\" B1: \"The weather is lovely today, isn't it?\" C1: \"Lovely day, isn't it?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "Small talk: A1, B1 or C1?",
+    "description": "Small talk, three ways. A1: \"It's a nice day.\" B1: \"The weather is lovely today, isn't it?\" C1: \"Lovely day, isn't it?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "small talk",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Small talk: A1, B1 or C1?\n\nSmall talk, three ways. A1: \"It's a nice day.\" B1: \"The weather is lovely today, isn't it?\" C1: \"Lovely day, isn't it?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Small talk: A1, B1 or C1?\n\nSmall talk, three ways. A1: \"It's a nice day.\" B1: \"The weather is lovely today, isn't it?\" C1: \"Lovely day, isn't it?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Small talk: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Lovely day. Native line: \"Lovely day, isn't it?\" Which level are you? More real English, free: {link}"
+ }
+}

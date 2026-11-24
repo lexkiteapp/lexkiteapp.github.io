@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_brewery",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 47,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Name it in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: brewery!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A factory or building where beer is made.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The brewery produces three beers.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "brewery",
+  "ipa": "/ˈbruːəri/",
+  "mean": "a factory or building where beer is made",
+  "ex": "The brewery produces three beers.",
+  "img": "brewery#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/brewery",
+  "link": "https://lexkite.com/app/#/dict/brewery",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Name it in three seconds!"
+ },
+ "src": {
+  "word": "brewery",
+  "img": "brewery#n"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.3,
+  "wpm": 117
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: B + 6 letters",
+  "keyword": "brewery",
+  "value": "Brewery /ˈbruːəri/ = a factory or building where beer is made. Example: \"The brewery produces three beers.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/brewery",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: B + 6 letters",
+    "description": "Brewery /ˈbruːəri/ = a factory or building where beer is made. Example: \"The brewery produces three beers.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/brewery\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "brewery",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: B + 6 letters\n\nBrewery /ˈbruːəri/ = a factory or building where beer is made. Example: \"The brewery produces three beers.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/brewery"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: B + 6 letters\n\nBrewery /ˈbruːəri/ = a factory or building where beer is made. Example: \"The brewery produces three beers.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: B + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: brewery. A factory or building where beer is made. Example: \"The brewery produces three beers.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

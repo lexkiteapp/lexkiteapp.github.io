@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_taketaxi",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 15,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Take a taxi: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "To the airport, please.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Could you take me to the airport?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Could you drop me off there?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "take-taxi",
+  "title": "Take a taxi",
+  "em": "🚕",
+  "chip": "In a taxi",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "To the airport, please.",
+    "key": "To the airport",
+    "note": "Short and polite."
+   },
+   "b": {
+    "text": "Could you take me to the airport?",
+    "key": "take me to",
+    "note": "Polite, full sentence."
+   },
+   "c": {
+    "text": "Could you drop me off there?",
+    "key": "drop me off",
+    "note": "What locals really say."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "To the airport",
+    "Drop me off"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Take a taxi: three levels!"
+ },
+ "src": {
+  "levels3": "take-taxi"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 10.6,
+  "wpm": 136
+ },
+ "publish": {
+  "title": "Take a taxi: A1, B1 or C1?",
+  "keyword": "take a taxi",
+  "value": "Take a taxi, three ways. A1: \"To the airport, please.\" B1: \"Could you take me to the airport?\" C1: \"Could you drop me off there?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "Take a taxi: A1, B1 or C1?",
+    "description": "Take a taxi, three ways. A1: \"To the airport, please.\" B1: \"Could you take me to the airport?\" C1: \"Could you drop me off there?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "take a taxi",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Take a taxi: A1, B1 or C1?\n\nTake a taxi, three ways. A1: \"To the airport, please.\" B1: \"Could you take me to the airport?\" C1: \"Could you drop me off there?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Take a taxi: A1, B1 or C1?\n\nTake a taxi, three ways. A1: \"To the airport, please.\" B1: \"Could you take me to the airport?\" C1: \"Could you drop me off there?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Take a taxi: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Drop me off. Native line: \"Could you drop me off there?\" Which level are you? More real English, free: {link}"
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_joingym",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 20,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Join a gym: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "I want to join.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Hi, I'd like to sign up, please.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Hi, I'm thinking of signing up.",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "join-gym",
+  "title": "Join a gym",
+  "em": "🏋️",
+  "chip": "At the gym",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "I want to join.",
+    "key": "I want to join",
+    "note": "Clear, but a little blunt."
+   },
+   "b": {
+    "text": "Hi, I'd like to sign up, please.",
+    "key": "sign up",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "Hi, I'm thinking of signing up.",
+    "key": "thinking of",
+    "note": "Casual, open and natural."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Thinking of",
+    "I want to join"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Join a gym: three levels!"
+ },
+ "src": {
+  "levels3": "join-gym"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 10.3,
+  "wpm": 140
+ },
+ "publish": {
+  "title": "Join a gym: A1, B1 or C1?",
+  "keyword": "join a gym",
+  "value": "Join a gym, three ways. A1: \"I want to join.\" B1: \"Hi, I'd like to sign up, please.\" C1: \"Hi, I'm thinking of signing up.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "Join a gym: A1, B1 or C1?",
+    "description": "Join a gym, three ways. A1: \"I want to join.\" B1: \"Hi, I'd like to sign up, please.\" C1: \"Hi, I'm thinking of signing up.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "join a gym",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Join a gym: A1, B1 or C1?\n\nJoin a gym, three ways. A1: \"I want to join.\" B1: \"Hi, I'd like to sign up, please.\" C1: \"Hi, I'm thinking of signing up.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Join a gym: A1, B1 or C1?\n\nJoin a gym, three ways. A1: \"I want to join.\" B1: \"Hi, I'd like to sign up, please.\" C1: \"Hi, I'm thinking of signing up.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Join a gym: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Thinking of. Native line: \"Hi, I'm thinking of signing up.\" Which level are you? More real English, free: {link}"
+ }
+}

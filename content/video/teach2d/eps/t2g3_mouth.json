@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_mouth",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 15,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: mouth!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A part of the face used for eating and talking.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "Don't talk with your mouth full.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "mouth",
+  "ipa": "/maʊθ/",
+  "mean": "a part of the face used for eating and talking",
+  "ex": "Don't talk with your mouth full.",
+  "img": "mouth#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/mouth",
+  "link": "https://lexkite.com/app/#/dict/mouth",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "mouth",
+  "img": "mouth#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.0,
+  "wpm": 138
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: M + 4 letters",
+  "keyword": "mouth",
+  "value": "Mouth /maʊθ/ = a part of the face used for eating and talking. Example: \"Don't talk with your mouth full.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/mouth",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: M + 4 letters",
+    "description": "Mouth /maʊθ/ = a part of the face used for eating and talking. Example: \"Don't talk with your mouth full.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/mouth\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "mouth",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: M + 4 letters\n\nMouth /maʊθ/ = a part of the face used for eating and talking. Example: \"Don't talk with your mouth full.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/mouth"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: M + 4 letters\n\nMouth /maʊθ/ = a part of the face used for eating and talking. Example: \"Don't talk with your mouth full.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: M + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: mouth. A part of the face used for eating and talking. Example: \"Don't talk with your mouth full.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

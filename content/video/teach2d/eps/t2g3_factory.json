@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_factory",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 25,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Name it in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: factory!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A building where things are made.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "My uncle works in a shoe factory.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "factory",
+  "ipa": "/ˈfæktəri/",
+  "mean": "a building where things are made",
+  "ex": "My uncle works in a shoe factory.",
+  "img": "factory#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/factory",
+  "link": "https://lexkite.com/app/#/dict/factory",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Name it in three seconds!"
+ },
+ "src": {
+  "word": "factory",
+  "img": "factory#n"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.5,
+  "wpm": 125
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: F + 6 letters",
+  "keyword": "factory",
+  "value": "Factory /ˈfæktəri/ = a building where things are made. Example: \"My uncle works in a shoe factory.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/factory",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: F + 6 letters",
+    "description": "Factory /ˈfæktəri/ = a building where things are made. Example: \"My uncle works in a shoe factory.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/factory\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "factory",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: F + 6 letters\n\nFactory /ˈfæktəri/ = a building where things are made. Example: \"My uncle works in a shoe factory.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/factory"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: F + 6 letters\n\nFactory /ˈfæktəri/ = a building where things are made. Example: \"My uncle works in a shoe factory.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: F + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: factory. A building where things are made. Example: \"My uncle works in a shoe factory.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

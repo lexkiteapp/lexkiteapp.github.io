@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_airportcheckin",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 2,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Airport check-in: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Here is my passport.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "I'd like to check in, please.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Hi, I'm just checking in for my flight.",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "airport-checkin",
+  "title": "Airport check-in",
+  "em": "✈️",
+  "chip": "At the airport",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "Here is my passport.",
+    "key": "Here is",
+    "note": "Simple and clear."
+   },
+   "b": {
+    "text": "I'd like to check in, please.",
+    "key": "check in",
+    "note": "Polite and clear."
+   },
+   "c": {
+    "text": "Hi, I'm just checking in for my flight.",
+    "key": "checking in for",
+    "note": "Friendly, with a softener."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Here is",
+    "Checking in for"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Airport check-in: three levels!"
+ },
+ "src": {
+  "levels3": "airport-checkin"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 10.9,
+  "wpm": 133
+ },
+ "publish": {
+  "title": "Airport check-in: A1, B1 or C1?",
+  "keyword": "airport check-in",
+  "value": "Airport check-in, three ways. A1: \"Here is my passport.\" B1: \"I'd like to check in, please.\" C1: \"Hi, I'm just checking in for my flight.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "Airport check-in: A1, B1 or C1?",
+    "description": "Airport check-in, three ways. A1: \"Here is my passport.\" B1: \"I'd like to check in, please.\" C1: \"Hi, I'm just checking in for my flight.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "airport check-in",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Airport check-in: A1, B1 or C1?\n\nAirport check-in, three ways. A1: \"Here is my passport.\" B1: \"I'd like to check in, please.\" C1: \"Hi, I'm just checking in for my flight.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Airport check-in: A1, B1 or C1?\n\nAirport check-in, three ways. A1: \"Here is my passport.\" B1: \"I'd like to check in, please.\" C1: \"Hi, I'm just checking in for my flight.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Airport check-in: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Checking in for. Native line: \"Hi, I'm just checking in for my flight.\" Which level are you? More real English, free: {link}"
+ }
+}

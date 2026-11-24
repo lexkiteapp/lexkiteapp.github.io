@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_stool",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 59,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: stool!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A simple one‑person seat without a back or armrests.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "She got off her stool.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "stool",
+  "ipa": "/stuːl/",
+  "mean": "a simple one‑person seat without a back or armrests",
+  "ex": "She got off her stool.",
+  "img": "stool#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/stool",
+  "link": "https://lexkite.com/app/#/dict/stool",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "stool",
+  "img": "stool#n"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.0,
+  "wpm": 132
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: S + 4 letters",
+  "keyword": "stool",
+  "value": "Stool /stuːl/ = a simple one‑person seat without a back or armrests. Example: \"She got off her stool.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/stool",
+  "script_words": 20,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: S + 4 letters",
+    "description": "Stool /stuːl/ = a simple one‑person seat without a back or armrests. Example: \"She got off her stool.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/stool\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "stool",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: S + 4 letters\n\nStool /stuːl/ = a simple one‑person seat without a back or armrests. Example: \"She got off her stool.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/stool"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: S + 4 letters\n\nStool /stuːl/ = a simple one‑person seat without a back or armrests. Example: \"She got off her stool.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: S + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: stool. A simple oneperson seat without a back or armrests. Example: \"She got off her stool.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_school",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 17,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Name it in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: school!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A building where you learn in classes with a teacher.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "My younger brother started school this year.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "school",
+  "ipa": "/skuːl/",
+  "mean": "a building where you learn in classes with a teacher",
+  "ex": "My younger brother started school this year.",
+  "img": "school#n",
+  "n": 6
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/school",
+  "link": "https://lexkite.com/app/#/dict/school",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Name it in three seconds!"
+ },
+ "src": {
+  "word": "school",
+  "img": "school#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.6,
+  "wpm": 135
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: S + 5 letters",
+  "keyword": "school",
+  "value": "School /skuːl/ = a building where you learn in classes with a teacher. Example: \"My younger brother started school this year.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/school",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: S + 5 letters",
+    "description": "School /skuːl/ = a building where you learn in classes with a teacher. Example: \"My younger brother started school this year.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/school\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "school",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: S + 5 letters\n\nSchool /skuːl/ = a building where you learn in classes with a teacher. Example: \"My younger brother started school this year.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/school"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: S + 5 letters\n\nSchool /skuːl/ = a building where you learn in classes with a teacher. Example: \"My younger brother started school this year.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: S + 5 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: school. A building where you learn in classes with a teacher. Example: \"My younger brother started school this year.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

@@ -484,7 +484,7 @@ T['react'] = react; SERIES['react'] = 'Say it like a native'   # 9:16 reaction-c
 
 
 # ---------------- slang: "Slang Card" 7-12 s reels (content/say-native/slang.json, docs/SAY-NATIVE.md "Slang Card") ----------------
-SLANG_F, SLANG_SPEED, SLANG_WORDS, SLANG_SECS = f'{ROOT}/content/say-native/slang.json', 1.1, (10, 24), (7.0, 12.0)   # owner 22/11: 7-12 s vertical, ≤ 150 wpm (silences included)
+SLANG_F, SLANG_SPEED, SLANG_WORDS, SLANG_SECS = f'{ROOT}/content/say-native/slang.json', 1.1, (10, 28), (7.0, 12.0)   # owner 22/11: 7-12 s vertical, ≤ 150 wpm (silences included)
 _SX = None
 
 
@@ -551,6 +551,112 @@ def slang(p):   # Slang Card: hook + STRONG expression (drawn face or approved p
 
 T['slang'] = slang; SERIES['slang'] = 'Slang Card'
 
+# ---------------- scorecard: "Score Challenge" 9-12 s reels (growth series #5, docs/GROWTH-1M.md §2: "Mình được 82/100, bạn thử đi" -> the app's level test) ----------------
+# 5 REAL quiz items of the audited gold bank (stem, 2 options, answer key) + a SAMPLE pick per item: the score is computed from the shown ticks (20 points each), labelled
+# "SAMPLE ANSWERS" on screen, never a stat or a user claim. Teacher reacts to the score band with a TeacherRig EXPR; CTA = the real test (#/placement).
+SC_N, SC_PTS, SC_CEFR = 5, 20, ('A1', 'A2', 'B1', 'B2', 'C1')
+SC_EXPR = {100: 'hype', 80: 'smug', 60: 'shrug', 40: 'cringe'}   # score band -> TeacherRig EXPR (hype has an approved pose, the rest are drawn faces)
+SC_NUM, SC_COUNT = {40: 'forty', 60: 'sixty', 80: 'eighty'}, ['No', 'One', 'Two', 'Three', 'Four', 'All five']
+SC_REACT = {100: 'Perfect. Tough to match.', 80: 'Pretty good, right?', 60: 'Okay. You can beat that.', 40: 'Oops. Easy to beat!'}
+SC_CYCLE = [80, 60, 100, 80, 40, 60, 80, 100]   # bands in plan order: smug / shrug / hype alternate, so no two neighbours look alike
+SC_GATE = 750   # verify-time limit (data gate, test): the card column is 758 px
+SC_W, SC_ROW, SC_REGION = 708, 40, 820   # row text: measured here (basic layout) <= 708 px; the card column is 758 px (900 - badge column 102 - pad 40), a 7 % margin for CI's raqm / hinted advances, row font (= the 40 px min-text floor), card height room (card region 826)
+SC_WORDS, SC_SECS = (16, 28), (7.2, 10.8)   # word range / est. seconds (syllable clock, make()) of the score challenge reel: real total = est + ~2 s end-card tail -> qc.py 9-13 s; speed = SLANG_SPEED (3.1 syllables / s, <= 5)
+
+
+def sc_ok(g, w=None):   # a gold quiz item the card can show: one gap, 2 short options, learner level, audited (qc.gold), BOTH fillings fit one 40 px row
+    q = g['quiz']; s = q['q']
+    if not (s.count('___') == 1 and len(q['options']) == 2 and not re.search(r'[0-9/()]', s) and g['cefr'] in SC_CEFR and (g.get('qc') or {}).get('gold') is True and all(len(o) <= 14 for o in q['options'])): return False
+    a, b = s.split('___'); return all(text_w(a + o + b, SC_ROW) <= (w or SC_W) for o in q['options'])
+
+
+def sc_pool(w=None): return {i: g for i, g in GOLD.items() if sc_ok(g, w)}   # w = the width limit: SC_W when planning (what we measure here), SC_GATE when verifying (any machine: CI measures the same text a few % wider)
+def sc_fact(i, pick): g = GOLD[i]; q = g['quiz']; return dict(id=i, q=q['q'], options=q['options'], answer=q['answer'], cefr=g['cefr'], pick=pick)
+def sc_right(F): return sum(f['pick'] == f['answer'] for f in F)
+def sc_score(F): return SC_PTS * sc_right(F)
+def sc_verb(s): return 'match' if s == 100 else 'beat'
+def sc_hook(s): return f"Score {s}/100. {sc_verb(s).capitalize()} me?"
+def sc_filled(f):   # the sentence with the sample pick in the gap: (before, pick + attached punctuation, after)
+    a, b = f['q'].split('___'); m = re.match(r'\S*', b); return a, f['options'][f['pick']] + m[0], b[m.end():]
+
+
+def sc_height():   # card height of build.py T_scorecard with 5 single-line rows (Card.text: line = 1.22 x size + 6, row gap 14); place() asserts the same on CI
+    h = lambda sz: round(sz * 1.22)
+    return 40 + (40 + 28) + 24 + SC_N * (h(SC_ROW) + 6 + 8) + (h(104) + 6 + 24) + (h(48) + 6 + 24) - 24 + 40 + 10
+
+
+def scorecard(p):
+    F = [sc_fact(i, k) for i, k in zip(p['items'], p['picks'])]; assert len(F) == SC_N and all(k in (0, 1) for k in p['picks']), ('scorecard: 5 items, picks 0/1', p)
+    s, n = sc_score(F), sc_right(F); assert s in SC_EXPR, ('scorecard: score band', s); XP = slang_src()[1]['x'][SC_EXPR[s]]; g = XP.get('gesture'); X_ = slang_src()[1]
+    hs = 'Perfect score. Match me?' if s == 100 else f'Score {SC_NUM[s]}. Beat me?'
+    def secs(ls): return sum(syllables(l['text']) for l in ls) / (G3_SYL_S * SLANG_SPEED / 1.25) + sum(l['pause'] for l in ls)   # = make()'s syllable clock
+    for pose_ok in ((True, False) if g else (False,)):   # same rule as slang: the approved pose image needs a >= 1.2 s voiced gap, else the drawn face carries the expression
+        lines = [L('h', hs, 1.25 if pose_ok else 0.55), L('k', f'Five questions. {SC_COUNT[n]} right.', 0.25), L('r', SC_REACT[s], 0.3),
+                 L('ch', f'Can you {sc_verb(s)} that? Take the free test.', 0.4), L('c', 'lexkite.com', 0.5)]
+        if secs(lines) <= SC_SECS[1]: break
+    pose = dict(clip=X_['g'][g]['pose'], after='h') if g and pose_ok else None
+    return dict(lines=lines, expr=SC_EXPR[s], **({'pose': pose} if pose else {}),
+                data=dict(items=[dict(stem=f['q'], options=f['options'], answer=f['answer'], pick=f['pick'], cefr=f['cefr']) for f in F], right=n, score=s, pts=SC_PTS, sample=True),
+                cta=cta('placement', '#/placement', 'Take the level test'), hook=dict(line='h', text=sc_hook(s)), src=dict(gold=[f['id'] for f in F]))
+
+
+T['scorecard'] = scorecard; SERIES['scorecard'] = 'Score Challenge'
+
+
+# ---------------- guess3: "Guess in 3 Seconds" 7-12 s reels (growth series #2, docs/GROWTH-1M.md §2): picture + hidden word, 3-2-1 ring, reveal ----------------
+G3_HOOKS = ('Guess in three seconds!', 'Three seconds. Go!', 'Name it in three seconds!')   # each <= 6 words and TRUE: the ring counts 3-2-1 right after it
+G3_EXPR = ('confused', 'smirk', 'hype')   # TeacherRig EXPR faces held through the hook + countdown (drawn face: the ring is the focus, no pose image over it)
+G3_RING = 1.5   # the silence after the hook; the 3-2-1 ring runs over the hook + this silence (~3 s)
+G3_SYL_S = 3.5   # syllables per second of Kokoro at G3_SPEED (calibrated on CI renders)
+G3_SPEED = 1.33   # Kokoro 1.33x: the highest speed under the qc pace gate (<= 5 syllables / s per line; 1.25x measured 4.5) – a 12 s reel holds ~9 s of speech
+SHORT_T = ('slang', 'guess3')   # 7-12 s vertical reels: same pace / word / length gates
+
+
+def guess3(p):   # Guess in 3 Seconds: hook + picture with the word hidden (blank tiles) + 3-2-1 ring (viewer guesses in the comments) -> answer + IPA -> meaning -> one example -> CTA
+    w = p['word']; ipa, dfn, ex = frozen(p); assert ipa and dfn and ex, ('word not in the audited bank', w)
+    h = int(hashlib.sha1(w.encode()).hexdigest(), 16); hook = G3_HOOKS[h % 3]  ; expr = G3_EXPR[h // 3 % 3]; mean = dfn[0].upper() + dfn[1:].rstrip('.') + '.'
+    lines = [L('h', hook, G3_RING), L('a', f'Answer: {w}!', 0.15), L('m', mean, 0.1), L('e', ex, 0.15), L('c', 'lexkite.com', 0.3)]
+    return dict(lines=lines, expr=expr, data=dict(word=w, ipa=ipa, mean=dfn, ex=ex, img=p['img'], n=len(w)),
+                cta=cta('dictionary', f'#/dict/{w}', 'Look up any word'), hook=dict(line='h', text=hook), src=dict(word=w, img=p['img']))
+
+
+T['guess3'] = guess3; SERIES['guess3'] = 'Guess in 3 Seconds'
+
+
+# ---------------- levels3: "One situation, 3 levels" 10-13 s reels (growth series #3, docs/GROWTH-1M.md §2): the same sentence at A1, B1 and C1 (content/video/teach2d/levels3.json) ----------------
+LV3_F, LV3_SPEED, LV3_SECS, LV3_WORDS, LV3_RING = f'{ROOT}/content/video/teach2d/levels3.json', G3_SPEED, (8.5, 11.2), (12, 26), 2.0   # est. seconds (CI pilots 45268414372: real total = est + 1.8-2.2 s with the end-card tail -> <= 13.4 s), words incl. hook + CTA, quiz countdown
+LV3_EXPR = dict(a='shrug', b='smirk', n='smug')   # TeacherRig EXPR faces (drawn, no pose image): plain -> confident -> smug, one per level line, held while it is spoken (rig_plan 'exprs')
+LV3_OK = {'ana', 'tom', 'sam', 'lee', 'mia', 'ben', 'wi-fi', 'latte', 'spain', 'monday', 'friday', 'sunday', 'neighbour', 'neighbours', 'pharmacy'}   # names / proper words the bank has no row for (levels3.mjs A1_FN)
+_LV3 = None
+
+
+def levels3_src():
+    global _LV3
+    if _LV3 is None: _LV3 = {i['id']: i for i in json.load(open(LV3_F))['items']}
+    return _LV3
+
+
+def levels3_hook(it): return f"{it['title']}: three levels!"
+def lv3_label(k): return k[:1].upper() + k[1:]
+
+
+def levels3(p):   # hook -> A1 line -> B1 line -> C1 line (silent quick quiz in its pause: which key phrase would a native say?) -> CTA; each level line has its own TeacherRig face
+    it = levels3_src()[p['id']]; h = int(hashlib.sha1(it['id'].encode()).hexdigest(), 16); wrong = 'ab'[h % 2]
+    opts = [lv3_label(it['c']['key']), lv3_label(it[wrong]['key'])]; ans = int(hashlib.sha1((it['id'] + 'q').encode()).hexdigest(), 16) % 2
+    if ans: opts.reverse()
+    try: assert all(text_w(o, 56) <= 640 for o in opts), ('quiz option too wide', opts)   # pill: one line at 56 px inside the card (checked where PIL exists: the planner, render jobs; preqc regen has no PIL and replays rows that already passed)
+    except ImportError: pass
+    lines = [L('h', levels3_hook(it), 0.25), L('a', it['a']['text'], 0.15), L('b', it['b']['text'], 0.15), L('n', it['c']['text'], LV3_RING, quiz=True), L('c', 'lexkite.com', 0.25)]
+    return dict(lines=lines, exprs=LV3_EXPR,
+                data=dict(id=it['id'], title=it['title'], em=it['em'], chip=it['chip'], reg=it['reg'], levels={k: it[k] for k in 'abc'}, quiz=dict(ask='Which would a native say?', options=opts, answer=ans)),
+                cta=cta('phrases', '#/phrases', 'Level up your English free'), hook=dict(line='h', text=lines[0]['text']), src=dict(levels3=it['id']))
+
+
+T['levels3'] = levels3; SERIES['levels3'] = 'One Situation, 3 Levels'
+
+
+def syllables(s): return sum(max(1, len(re.findall(r'[aeiouy]+', w.lower())) - (1 if w.lower().endswith('e') and not w.lower().endswith(('le', 'ee')) and len(re.findall(r'[aeiouy]+', w.lower())) > 1 else 0)) for w in re.findall(r"[A-Za-z']+", s))
+
 
 def words(s): return re.findall(r"[A-Za-z0-9'’-]+", s)
 
@@ -562,17 +668,19 @@ def make(row):
     if 'teacher' in sp:   # react: the series' own teacher (Ama = female voice, Carlos = male voice) + a pose from that teacher's registry clips
         assert sp.pop('teacher') == who and sp['pose']['clip'] in REG['people'][who]['clips'], ('react: series teacher / pose mismatch', who, sp['pose'])
     ep = dict(id=row['id'], template=t, series=SERIES[t], part=row.get('part', 1), theme=row['theme'], teacher=who,
-              voice=REG['people'][who]['voice']['video'], speed=row.get('speed', SLANG_SPEED if t == 'slang' else 0.8), area=sp['cta']['area'], **sp)
+              voice=REG['people'][who]['voice']['video'], speed=row.get('speed', SLANG_SPEED if t in ('slang', 'scorecard') else G3_SPEED if t == 'guess3' else LV3_SPEED if t == 'levels3' else 0.8), area=sp['cta']['area'], **sp)
     # self-checks (the CI gates re-check on the real audio): hook <= 6 words, one point, 55-95 words, est. <= 150 wpm
     n = sum(len(words(l['text'])) for l in ep['lines']); est = n / (2.55 * ep['speed']) + sum(l['pause'] for l in ep['lines'])
+    if t in ('guess3', 'levels3', 'scorecard'): est = sum(syllables(l['text']) for l in ep['lines']) / (G3_SYL_S * ep['speed'] / 1.25) + sum(l['pause'] for l in ep['lines'])   # levels3 uses the same syllable clock (guess3 lesson 24/11: words / 2.55 under-counts by ~25 %)   # measured on the CI pilots (run 45197149417): ~3.5 syllables / s at 1.25x (words / 2.55 under-counted by 25 %: violin 14.6 s, crane 13.8 s)
     hk = ep['lines'][0]['text']
     assert len(words(hk)) <= 7, ('hook too long', hk)
-    lo, hi = SLANG_WORDS if t == 'slang' else (30, 70)   # slang reels are 7-12 s (owner 22/11); every other template 18-28 s
+    lo, hi = LV3_WORDS if t == 'levels3' else SC_WORDS if t == 'scorecard' else SLANG_WORDS if t in SHORT_T else (30, 70)   # slang / guess3 reels are 7-12 s (owner 22/11); every other template 18-28 s
     assert lo <= n <= hi, ('word count', n)
     assert 60 * n / est <= 150, ('pace', 60 * n / est)
     if row.get('lang'): ep['lang'] = row['lang']   # L1 clip: routed only to pages whose cfg.lang == lang (functions/api/_distribution.js blockOf)
     ep['est'] = dict(words=n, seconds=round(est, 1), wpm=round(60 * n / est))
-    if t == 'slang': assert SLANG_SECS[0] <= est <= SLANG_SECS[1], ('slang clip length', round(est, 1), SLANG_SECS)
+    if t in SHORT_T + ('levels3',): assert (LV3_SECS if t == 'levels3' else SLANG_SECS)[0] <= est <= (LV3_SECS if t == 'levels3' else SLANG_SECS)[1], ('short reel length', round(est, 1))
+    if t == 'scorecard': assert SC_SECS[0] <= est <= SC_SECS[1] and G3_SYL_S * ep['speed'] / 1.25 <= 5.0, ('scorecard clip length (syllable clock; real total = est + ~2 s end card) / syllables per second', round(est, 1))
     ep['publish'] = PUBLISH.build(ep)   # posting metadata written at production from this script (publish.py, docs/specs/video-production-v2.md §2)
     return ep
 
@@ -841,6 +949,19 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
         it = slang_src()[0].get(p['key'].lower())
         if not it: bad.append('slang key gone from slang.json')
         elif slang_facts(it, row.get('lang')) != row.get('facts'): bad.append('slang card or its page-language texts changed (re-plan + review)')
+    elif t == 'scorecard':   # Score Challenge: the row froze 5 gold quiz items + the sample picks; the live audited bank must still say the same, and the score is recomputed from the ticks
+        ids, pk = p['items'], p['picks']; pool = sc_pool(SC_GATE)
+        if len(set(ids)) != SC_N or len(ids) != SC_N or len(pk) != SC_N: bad.append('scorecard needs 5 distinct items and 5 picks')
+        elif any(i not in pool for i in ids): bad.append('a quiz item left the audited gold bank / the card item rules')
+        else:
+            Fx = [sc_fact(i, k) for i, k in zip(ids, pk)]
+            if Fx != row.get('facts'): bad.append('quiz item changed in the gold bank (re-plan + review)')
+            if len({GOLD[i]['pid'] for i in ids}) != SC_N: bad.append('two items test the same point')
+            if sc_score(Fx) not in SC_EXPR: bad.append('score band')
+    elif t == 'levels3':   # the row froze the situation it was planned with; the live bank (levels3.json, levels3.mjs gates) must still say the same
+        it = levels3_src().get(p['id'])
+        if not it: bad.append('situation gone from levels3.json')
+        elif it != row.get('facts'): bad.append('levels3 situation changed in levels3.json (re-plan + review)')
     elif t in ('mistake', 'phrasal'):   # hand-written rows (hand.json): the gold-bank row is the audited fact
         g = GOLD.get(p['gold']) or {}
         if not g: bad.append('gold row gone')
@@ -852,10 +973,10 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
         w = p['word']
         for f in ('ipa', 'ex'): eq(w, f, p[f])
         eq(w, 'def', p.get('bank_def', p['def']))
-        if 'bank_def' in p and gloss(p['bank_def']) != p['def']: bad.append('gloss != first clause of the bank definition')
-        if t == 'guess':
+        if 'bank_def' in p and (g3_gloss if t == 'guess3' else gloss)(p['bank_def']) != p['def']: bad.append('gloss != first clause of the bank definition')
+        if t in ('guess', 'guess3'):
             it = img_items().get(p['img']) or {}
-            if p['img'] != f'{w}#n' or (W.get(w) or {}).get('key') != p['img'] or not it.get('ph') or it.get('rejected'): bad.append('picture is not this word sense')
+            if p['img'] != f'{w}#n' or (W.get(w) or {}).get('key') != p['img'] or not (it.get('ph') or (it.get('src') or {}).get('tier') == 'icon') or it.get('rejected'): bad.append('picture is not this word sense')
     return bad
 
 
@@ -872,6 +993,9 @@ def hook_gate(row, ep):   # the on-screen hook is a true claim about these facts
     if t == 'band': ok = ok and hk == 'Band five to nine'
     if t == 'rule': ok = ok and hk == f"The {' '.join(p_letter(row))} is silent"
     if t == 'usuk': ok = ok and p['us'] != p['uk'] and p['ipa_us'] != p['ipa_uk']
+    if t == 'scorecard': ok = ok and hk == sc_hook(sc_score(row['facts'])) and hk[-1:] == '?'   # the number on screen is the one computed from the shown ticks
+    if t == 'levels3': ok = ok and hk == levels3_hook(levels3_src()[p['id']])   # the title of the situation + the fixed claim: the clip really says it three times
+    if t == 'guess3': ok = ok and hk in G3_HOOKS   # fixed true claims: the ring counts 3-2-1 after the hook
     if t == 'slang': ok = ok and hk == slang_src()[0][p['key'].lower()]['hook'] and hk[-1:] in '?!'   # a situation question/shout from the reviewed card, never a definition
     return ok
 
@@ -910,12 +1034,13 @@ def plan(n):
     used_h = {r['hash'] for r in rows} | {chash(r['template'], pilot_point(r)) for r in PIL['pilots']}
     used_w = {h for r in rows for h in r['heads']} | {h for r in PIL['pilots'] for h in pilot_point(r).split('/')}
     phs = [r['ph'] for r in rows if r.get('ph')] + [img_items()[r['in']['img']]['ph'] for r in PIL['pilots'] if r['template'] == 'guess' and img_items().get(r['in']['img'], {}).get('ph')]
+    g3w = {r['in']['word'] for r in rows if r['template'] == 'guess3'}
     def skip(k): why[k] = why.get(k, 0) + 1
     pool = {t: [] for t in CANDS}
     for t in CANDS:   # shaped + data-gated candidates (bounded), then ONE level-gate call for all of them
         for c in CANDS[t](F):
             if len(pool[t]) >= 3 * n: break
-            if chash(t, c['point']) in used_h or any(h in used_w for h in c['heads']): skip('dup'); continue
+            if chash(t, c['point']) in used_h or any(h in used_w for h in c['heads']) or (t == 'guess' and c['point'] in g3w): skip('dup'); continue   # a 30 s guess clip never reuses a guess3 picture word
             row = mkrow(c)
             if data_gate(row, F): skip('data'); continue
             try: ep = make(row)
@@ -1210,6 +1335,158 @@ def plan_slang(n, keys=None):   # one episode per slang card (English channels; 
     for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
 
 
+SCORE_REVIEWER = 'gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)'
+
+
+def plan_scorecard(n):   # n new Score Challenge rows; every item of the pool is used at most once across all scorecard rows (dup gate), bands follow SC_CYCLE
+    F = facts(); A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; why = {}; used_h = {r['hash'] for r in rows}; ok = []
+    used_i = {i for r in rows if r['template'] == 'scorecard' for i in r['in']['items']}; k0 = sum(1 for r in rows if r['template'] == 'scorecard')
+    pool = sorted((i for i in sc_pool() if i not in used_i), key=lambda i: hashlib.sha1(i.encode()).hexdigest())
+    def skip(k, r): why.setdefault(k, []).append(r)
+    for _ in range(n):
+        k = k0 + len(ok) + 1; rid = f't2sc_{k:03d}'; pick, pids, ty = [], set(), {}
+        for i in pool:   # 5 items: distinct point, <= 4 situational / <= 2 of any other type, <= 2 B2/C1, at least one A1/A2
+            g = GOLD[i]
+            if g['pid'] in pids or ty.get(g['type'], 0) >= (4 if g['type'] == 'situational' else 2) or (g['cefr'] in ('B2', 'C1') and sum(GOLD[j]['cefr'] in ('B2', 'C1') for j in pick) >= 2) or (len(pick) == SC_N - 1 and g['cefr'] not in ('A1', 'A2') and not any(GOLD[j]['cefr'] in ('A1', 'A2') for j in pick)): continue
+            pick.append(i); pids.add(g['pid']); ty[g['type']] = ty.get(g['type'], 0) + 1
+            if len(pick) == SC_N: break
+        if len(pick) < SC_N or not any(GOLD[i]['cefr'] in ('A1', 'A2') for i in pick): skip('pool', rid); break
+        s = SC_CYCLE[(k - 1) % len(SC_CYCLE)]; wrong = set(sorted(pick, key=lambda i: hashlib.sha1((rid + i).encode()).hexdigest())[:SC_N - s // SC_PTS])
+        picks = [1 - GOLD[i]['quiz']['answer'] if i in wrong else GOLD[i]['quiz']['answer'] for i in pick]; Fx = [sc_fact(i, p_) for i, p_ in zip(pick, picks)]
+        row = dict(id=rid, template='scorecard', teacher='ama' if k % 2 else 'carlos', theme='dusk', part=k, area='placement', point=f'scorecard:{rid}', hash=chash('scorecard', ','.join(sorted(pick))),
+                   heads=[f'scorecard:{i}' for i in pick], taught=[], facts=Fx, **{'in': dict(items=pick, picks=picks)})
+        if row['hash'] in used_h: skip('dup', rid); continue
+        if data_gate(row, F): skip('data:' + ','.join(data_gate(row, F)), rid); continue
+        try: ep = make(row)
+        except AssertionError as e: skip('shape:' + str(e.args[0]), rid); continue
+        if not hook_gate(row, ep): skip('hook', rid); continue
+        spoken = ' '.join(l['text'] for l in ep['lines'] if l['id'] != 'c')
+        un = [u for u in unknown([spoken])[0] if u.lower() not in FRAME | set(SC_NUM.values()) and not lvl_ok(u, F)]   # number words are plain learner English
+        if un: skip('level:' + ','.join(un), rid); continue
+        ok.append(row); rows.append(row); used_h.add(row['hash']); pool = [i for i in pool if i not in pick]
+        R_['verdicts'][rid] = dict(template='scorecard', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=SCORE_REVIEWER, machine=True,
+                                   gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    print(f"scorecard: +{len(ok)} rows, total {sum(1 for r in rows if r['template'] == 'scorecard')}")
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
+
+
+GUESS3_REVIEWER = 'gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)'
+_TXT = None
+
+
+def text_objects(ws):   # words the picture bank refuses to draw (scripts/vocab-img/scene.mjs TEXT_OBJ: books, forms, reports ... carry text) -> never a hidden-word picture
+    global _TXT
+    if _TXT is None:
+        js = "import('" + f'{ROOT}/scripts/vocab-img/scene.mjs' + "').then(m=>{const r=new RegExp('^(?:'+m.TEXT_OBJ.source+')$','i');console.log(JSON.stringify(JSON.parse(process.argv[1]).filter(w=>r.test(w))))})"
+        _TXT = lambda ws_: set(json.loads(subprocess.run(['node', '-e', js, json.dumps(sorted(ws_))], capture_output=True, text=True, check=True).stdout))
+    return _TXT(ws)
+
+
+G3_THING = re.compile(r"\b(vehicle|machine|device|tool|instrument|building|factory|room|animal|bird|fish|insect|plant|tree|flower|fruit|vegetable|food|dish|meal|drink|container|box|bag|bottle|cup|toy|ship|boat|plane|aircraft|train|road|path|trail|bridge|tunnel|tower|hat|helmet|shoes?|clothing|clothes|coat|jacket|dress|furniture|chair|table|bed|weapon|stone|rock|screen|pole|stick|pipe|wire|engine|ball|garden|beach|forest|mountain|island|river|lake|field|farm|shop|market|hotel|restaurant|school|hospital|kitchen|park|clock|key|lock|door|roof|coin|plate|knife|fork|spoon|glass|jar|tank|crane|truck|bus|car|bike|bicycle|jewellery|structure|brush|block|bat|corridor|hallway|mammal|reptile|storm|cloud|pot|house|cord|strip|phone|tent|seat|stand|fence|garment|hair|honey|joint|platform)\b")   # picture-guessable physical things named by the HEAD of the gloss (abstract / professional nouns make a poor 3-second guess)
+G3_SKIP = {'place', 'coffin', 'pitch', 'stall', 'aerial', 'gauge', 'caterer', 'dashboard', 'router', 'showroom', 'pole', 'motor', 'bench', 'wing', 'fur', 'pill', 'tobacco', 'housekeeping', 'extension', 'chamber', 'prey', 'trajectory', 'strand', 'valve', 'filter', 'bellboy', 'marquee', 'guard', 'marble', 'reservoir', 'brick'}   # ambiguous picture / other sense / dark topic (reviewed by hand once)
+G3_HEAD_END = re.compile(r'\b(by|of|for|with|in|from|to|that|which|where|who|used|made|when|on|at|as|between|under|than)\b')
+
+
+def g3_thing(g): return bool(G3_THING.search(G3_HEAD_END.split(re.sub(r'^(an?|the) ', '', g), 1)[0]))   # 'a machine that can fly' yes · 'a journey by plane' / 'a very large amount of money' no
+
+
+def g3_gloss(dfn):   # first clause of the bank definition as one spoken noun phrase: 'a/an/the ...' as is (lowercase), or an article-less definition of a physical thing with 'a/an' added; None = not a clean noun phrase
+    d = re.split(r',\s*(?:often|usually|especially|typically|mainly|etc)\b', re.sub(r'\s*\([^)]*\)', '', dfn.split(';')[0]))[0].strip().rstrip('.,')   # only a trailing aside is dropped, never a word inside the clause
+    d = d[0].lower() + d[1:] if re.match(r'(A|An|The) [a-z]', d) else d
+    if re.match(r'(a|an) piece of [a-z]', d): return d   # 'a piece of furniture / equipment' names a thing (gloss() calls any 'piece' vague)
+    g = gloss(d)
+    if g: return g
+    w1 = d.split(' ')[0]
+    if w1 in ('building', 'place', 'part', 'area', 'object', 'vehicle', 'machine', 'device', 'tool', 'animal', 'plant') and re.match(r'[a-z]+ [a-z]', d) and not re.match(r'to\b', d): return ('an ' if d[0] in 'aeiou' else 'a ') + d
+    if re.fullmatch(r'[a-z]+(?<![su])s', w1) and re.match(r'[a-z]+ [a-z]', d): return d   # plural / mass start (trousers made of denim, bags and suitcases ...): no article needed
+    return None
+
+
+def cand_guess3(F):   # picture words: A1-C1 nouns with a high-confidence picture of the exact word#n sense, a physical-thing gloss <= 9 words and a short example
+    W, I = F['words'], img_items(); out = []
+    for k in sorted(I, key=lambda k: ((W.get(k[:-2]) or {}).get('cefr') or 'C9', k)):
+        w, it = k[:-2], I[k]; r = W.get(w)
+        if not (k.endswith('#n') and r and r['key'] == k and r['cefr'] in ('A1', 'A2', 'B1', 'B2', 'C1') and re.fullmatch('[a-z]{3,12}', w) and r['ipa'] and r['def'] and r['ex']): continue
+        icon = (it.get('src') or {}).get('tier') == 'icon' and (it.get('q') or {}).get('named') == w   # deterministic Noto emoji icon of the word itself (dog, guitar, umbrella): always guessable, never text
+        if it.get('rejected') or w in TOPIC_SKIP | GUESS_SKIP | G3_SKIP or not (icon or (it.get('ph') and ((it.get('q') or {}).get('conf') or 0) >= 80)): continue
+        g = g3_gloss(r['def'])
+        if not g or not (icon or g3_thing(g)) or len(words(g)) > 12 or re.search(rf'\b{w[:4]}', g.lower()) or not clean(r['ex'], 4, 10) or not re.search(rf'\b{w}\b', r['ex'].lower()): continue
+        out.append(dict(template='guess3', point=w, heads=[w], taught=[w], slug=w, **({'ph': it['ph']} if it.get('ph') else {}), **{'in': dict(word=w, img=k, ipa=r['ipa'], **{'def': g}, ex=r['ex'], bank_def=r['def'])}))
+    bad = text_objects({c['point'] for c in out}); return [c for c in out if c['point'] not in bad]
+
+
+G3_FORMS = dict(held='hold', built='build', worn='wear', swept='sweep', bigger='big', favourite='favorite', thousands='thousand', barks='bark', boiling='boil', mammals='animal', wore='wear', teeth='tooth', twenty='twelve', thirty='twelve', forty='twelve', fifty='twelve', fridays='friday')   # inflected / UK forms of A1-B1 words that the NGSL list lacks (lvl_ok only knows regular endings)
+
+
+def plan_guess3(n):   # one episode per picture word; teachers alternate; machine gates data / level / hook / dup -> auto.json + reviewed.json
+    F = facts(); A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; why = {}
+    used_h = {r['hash'] for r in rows}; used_w = {r['in']['word'] for r in rows if r['template'] in ('guess', 'guess3')} | {r['in']['word'] for r in PIL['pilots'] if r['template'] == 'guess'}   # the picture + word of a 30 s guess clip is not reused (a different series may teach the same word)
+    phs = [r['ph'] for r in rows if r.get('ph')] + [img_items()[r['in']['img']]['ph'] for r in PIL['pilots'] if r['template'] == 'guess' and img_items().get(r['in']['img'], {}).get('ph')]
+    k0 = sum(1 for r in rows if r['template'] == 'guess3'); ok = []
+    def skip(k, r): why.setdefault(k, []).append(r)
+    for c in cand_guess3(F):
+        if len(ok) >= 3 * n: break
+        row = dict(id='t2g3_' + c['slug'], teacher='ama' if (k0 + len(ok)) % 2 == 0 else 'carlos', theme='dusk', area='dictionary', part=k0 + len(ok) + 1, hash=chash('guess3', c['point']),
+                   **{k: c[k] for k in ('template', 'point', 'taught', 'ph', 'in') if k in c}, heads=['g3:' + c['point']])   # heads are unique per auto row (teach2d-gen.py): the word is shared with other series on purpose, only a 30 s guess clip of the same word is a dup
+        if row['hash'] in used_h or c['point'] in used_w: skip('dup', c['slug']); continue
+        if data_gate(row, F): skip('data', c['slug']); continue
+        try: ep = make(row)
+        except AssertionError as e: skip('shape:' + str(e.args[0][0]), c['slug']); continue
+        if not hook_gate(row, ep): skip('hook', c['slug']); continue
+        ok.append([row, ep, taught_re(row['taught']).sub(' ', ' '.join(l['text'] for l in ep['lines'] if l['id'] in ('m', 'e')))])
+    for x, un in zip(ok, unknown([x[2] for x in ok])): x[2] = [u for u in un if u.lower() not in FRAME and not lvl_ok(G3_FORMS.get(u.lower(), u), F)]
+    new = []
+    for row, ep, un in ok:
+        if len(new) >= n: break
+        if len(un) > 1: skip('level:' + ','.join(un), row['id']); continue   # like slang: one word above B1 may stay (a picture noun's own gloss), two or more -> not a beginner-friendly reel
+        if row.get('ph') and not phash_far(row['ph'], phs): skip('phash', row['id']); continue
+        row['teacher'] = 'ama' if (k0 + len(new)) % 2 == 0 else 'carlos'; row['part'] = k0 + len(new) + 1; ep = make(row)   # alternate over the rows that really stay
+        rows.append(row); new.append(row); used_h.add(row['hash']); used_w.add(row['in']['word']); phs += [row['ph']] if row.get('ph') else []
+        R_['verdicts'][row['id']] = dict(template='guess3', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=GUESS3_REVIEWER, machine=True,
+                                         gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    print(f"guess3: +{len(new)} rows, total {sum(1 for r in rows if r['template'] == 'guess3')}")
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
+
+
+LV3_REVIEWER = 'gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)'
+
+
+def plan_levels3(n, ids=None):   # one episode per situation (teachers alternate); --ids = hand-picked pilots first
+    if subprocess.run(['node', f'{ROOT}/scripts/say-native/levels3.mjs', '--check'], capture_output=True, text=True, cwd=ROOT).returncode: sys.exit('levels3.mjs --check is red: fix content/video/teach2d/levels3.json first')
+    F = facts(); A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; why = {}; have = {r['id'] for r in rows}; used_h = {r['hash'] for r in rows}; ok = []
+    def skip(k, r): why.setdefault(k, []).append(r)
+    order = list(levels3_src().values())
+    if ids: order = sorted([x for x in order if x['id'] in ids], key=lambda x: ids.index(x['id']))
+    k0 = sum(1 for r in rows if r['template'] == 'levels3')
+    for it in order:
+        if len(ok) >= n: break
+        rid = 't2l3_' + re.sub('[^a-z0-9]', '', it['id'])[:24]
+        if rid in have: continue
+        row = dict(id=rid, template='levels3', teacher='ama' if (k0 + len(ok)) % 2 == 0 else 'carlos', theme='dusk', part=k0 + len(ok) + 1, area='phrases', point=f"levels3:{it['id']}", hash=chash('levels3', it['id']),
+                   heads=[f"lv3:{it['id']}"], taught=re.findall(r"[A-Za-z']+", it['c']['key']), facts=it, **{'in': dict(id=it['id'])})
+        if row['hash'] in used_h: skip('dup', rid); continue
+        if data_gate(row, F): skip('data:' + ','.join(data_gate(row, F)), rid); continue
+        try: ep = make(row)
+        except AssertionError as e: skip('shape:' + str(e.args[0][0] if isinstance(e.args[0], tuple) else e.args[0]), rid); continue
+        if not hook_gate(row, ep): skip('hook', rid); continue
+        ok.append([row, ep, ' '.join(l['text'] for l in ep['lines'] if l['id'] in ('h', 'a', 'b'))])   # the C1 line may use native words; the hook + the A1 / B1 lines must stay <= B1
+    for x, un in zip(ok, unknown([x[2] for x in ok])): x[2] = [u for u in un if u.lower() not in FRAME | LV3_OK and not lvl_ok(G3_FORMS.get(u.lower(), u), F)]
+    new = []
+    for row, ep, un in ok:
+        if un: skip('level:' + ','.join(un), row['id']); continue
+        rows.append(row); new.append(row)
+        R_['verdicts'][row['id']] = dict(template='levels3', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=LV3_REVIEWER, machine=True,
+                                         gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    print(f"levels3: +{len(new)} rows, total {sum(1 for r in rows if r['template'] == 'levels3')}")
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
+
+
 def plan_slang_l1(n):   # L1 pages: the first n slang episodes of the batch (auto.json order) per page language, when the meaning + hook + example exist in that language
     A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; have = {r['id'] for r in rows}; used_h = {r['hash'] for r in rows}; B = slang_src()[0]; why = {}; new = []
     EN = [r for r in rows if r['template'] == 'slang' and not r.get('lang')]
@@ -1240,7 +1517,7 @@ def plan_slang_l1(n):   # L1 pages: the first n slang episodes of the batch (aut
 
 def pilot_point(r):
     p = r['in']; return dict(usuk=lambda: f"{p.get('us')}/{p.get('uk')}", verbs=lambda: p.get('base'), stress=lambda: f"{p['a']['word']}/{p['b']['word']}" if 'a' in p else '',
-                             guess=lambda: p.get('word'), review=lambda: p.get('word')).get(r['template'], lambda: r['id'])()
+                             guess=lambda: p.get('word'), guess3=lambda: p.get('word'), review=lambda: p.get('word')).get(r['template'], lambda: r['id'])()
 
 
 def verify():   # live re-check of every auto row: (ok ids, stale [(id, problems)])
@@ -1276,6 +1553,9 @@ if __name__ == '__main__':
     if '--roots' in A_: plan_roots(); sys.exit(0)
     if '--slang-l1' in A_: plan_slang_l1(int(A_[A_.index('--slang-l1') + 1])); sys.exit(0)
     if '--slang-eps' in A_: plan_slang(int(A_[A_.index('--slang-eps') + 1]), A_[A_.index('--keys') + 1].split('|') if '--keys' in A_ else None); sys.exit(0)
+    if '--scorecard-eps' in A_: plan_scorecard(int(A_[A_.index('--scorecard-eps') + 1])); sys.exit(0)
+    if '--levels3-eps' in A_: plan_levels3(int(A_[A_.index('--levels3-eps') + 1]), A_[A_.index('--ids') + 1].split('|') if '--ids' in A_ else None); sys.exit(0)
+    if '--guess3-eps' in A_: plan_guess3(int(A_[A_.index('--guess3-eps') + 1])); sys.exit(0)
     if '--band-eps' in A_: plan_bands(int(A_[A_.index('--band-eps') + 1])); sys.exit(0)
     if '--rule-eps' in A_: plan_rules(int(A_[A_.index('--rule-eps') + 1])); sys.exit(0)
     if '--rules' in A_:   # Spell->Sound word mining (rules.py): rules-words.json regenerates identically (--check) or is rewritten

@@ -45,10 +45,21 @@ def facts(ep):
     if t == 'band':   # Band 5 -> 7 -> 9: the title names the topic, the value line gives the three sentences so the post is useful as text
         tp = D['topic'].replace('-', ' ').capitalize(); S_ = {x['band']: x['text'] for x in D['steps']}
         return _fit(f'IELTS band 5 to 9: {tp}', f'Band 5 to 9: {tp}', 'IELTS band 5 to 9'), 'ielts band 9', f'{tp}, three ways. Band 5: {S_[5]} Band 7: {S_[7]} Band 9: {S_[9]}'
+    if t == 'scorecard':   # Score Challenge: the title names the sample score; the value line says plainly it is a sample computed from 5 quiz items (never a user result)
+        s_, n_, v_ = D['score'], D['right'], 'match' if D['score'] == 100 else 'beat'
+        return (_fit(f'Can you {v_} {s_}/100 on this English quiz?', f'Can you {v_} {s_}/100? English quiz', f'English quiz: {s_}/100'), 'english quiz score',
+                f'Sample score from 5 real quiz questions: {n_} right x {D["pts"]} points = {s_}/100 (sample answers, not a real learner result). Take the free level test and see your own score.')
     if t == 'slang':   # Slang Card: the title names the slang; the value line = meaning + the example, so the post teaches as plain text too
         k = D['key']; K = k[:1].upper() + k[1:]; tone = {'very-casual': 'very casual', 'casual': 'casual', 'neutral': 'everyday'}[D['reg']]
         return (_fit(f'What does {_q(k)} mean?', f'{K}: what does it mean?', f'{K} meaning'), k,
                 f'{K} = {D["mean"].rstrip(".!?")}. Example: "{D["example"]["text"]}" ({tone} English{", " + D["region"] if D["region"] != "global" else ""}).')
+    if t == 'levels3':   # One Situation, 3 Levels: the title names the situation, the value line gives the three sentences so the post teaches as plain text
+        tt = D['title']; V = {k: D['levels'][k]['text'] for k in 'abc'}
+        return _fit(f'{tt}: A1, B1 or C1?', f'{tt} at 3 English levels', f'{tt}: 3 levels'), tt.lower(), f'{tt}, three ways. A1: "{V["a"]}" B1: "{V["b"]}" C1: "{V["c"]}"'
+    if t == 'guess3':   # Guess in 3 Seconds: the title hints (first letter + length) but never spoils; the value line = answer + IPA + meaning + example so the post teaches as plain text
+        w = D['word']; W_ = w.capitalize()
+        return (_fit(f'Guess in 3 seconds: {w[0].upper()} + {len(w) - 1} letters', f'Guess the picture in 3 seconds: {len(w)} letters'), w,
+                f'{W_} {D["ipa"]} = {D["mean"].rstrip(".!?")}. Example: "{D["ex"]}"')
     if t == 'review':
         w = D['word']; return _fit(f'What does {_q(w)} mean?', f'{w.capitalize()}: what does it mean?'), w, f'{w.capitalize()} means {D["mean"]}.'
     if t == 'usuk':
@@ -95,6 +106,9 @@ def build(ep):
     title, kw, value = facts(ep)
     lvl = str(ep.get('cefr') or (ep.get('data') or {}).get('cefr') or '').lower()
     tags = list(dict.fromkeys(['#learnenglish', '#englishtips', AREA_TAG.get(ep['area'], '#speakenglish')] + ([f'#{lvl}english'] if re.fullmatch(r'[abc][12]', lvl) else []) + ['#englishteacher']))[:5]
+    if ep['template'] == 'scorecard': tags = ['#englishquiz', '#englishtest', '#learnenglish', '#englishtips', '#speakenglish']
+    if ep['template'] == 'levels3': tags = ['#englishlevels', '#learnenglish', '#a1b1c1', '#speakenglish', '#englishtips']
+    if ep['template'] == 'guess3': tags = ['#guesstheword', '#learnenglish', '#englishvocabulary', '#englishquiz', '#englishtips']
     if ep['template'] == 'slang': tags = ['#englishslang', '#learnenglish', '#slang', '#speakenglish', '#englishtips']
     link = ep['cta']['link']; say = ep['cta'].get('say') or 'Practice in the app'
     script = ' '.join(l['text'] for l in ep['lines'] if not l.get('quiz'))
@@ -117,6 +131,15 @@ def first_comment(ep, value):
     (+ the value line when it is plain English text – IPA / arrows would fail the en-only check), one {link} placeholder, 3 wordings rotated by id."""
     L = ep['lines']; qi = next((i for i, l in enumerate(L) if l.get('quiz')), None)
     a = (L[qi + 1]['text'] if qi is not None and qi + 1 < len(L) else value).strip()
+    if ep['template'] == 'scorecard':   # the answer key of the 5 shown items (the audited gold bank), the computed sample score, the link to the real test
+        D = ep['data']; key = ' '.join(f'{i}) {it["options"][it["answer"]]}.' for i, it in enumerate(D['items'], 1))
+        out = f'Answers: {key} Sample score {D["right"]}/5 = {D["score"]}/100. Try your own, free: {{link}}'
+    if ep['template'] == 'levels3':   # the quiz is silent: the first comment answers it (the native key phrase + the C1 line) and asks which level the viewer is
+        D = ep['data']; q = D['quiz']; out = f'Quiz answer: {q["options"][q["answer"]]}. Native line: "{D["levels"]["c"]["text"]}" Which level are you? More real English, free: {{link}}'
+        return re.sub(r' +', ' ', __import__('unicodedata').normalize('NFKD', out).encode('ascii', 'ignore').decode())
+    if ep['template'] == 'guess3':   # the video asks the viewer to guess: the first comment gives the answer + meaning + the example and asks for the viewer's own guess
+        D = ep['data']; out = f'Answer: {D["word"]}. {D["mean"][0].upper() + D["mean"][1:].rstrip(".")}. Example: "{D["ex"]}" Did you guess it in time? More picture quizzes, free: {{link}}'
+        return re.sub(r' +', ' ', __import__('unicodedata').normalize('NFKD', out).encode('ascii', 'ignore').decode())
     if ep['template'] == 'slang':   # the quiz / misuse card is silent: the first comment answers it (right option, or where not to use it) + the example
         D = ep['data']; q = D['quiz']; ex = D['example']['text']
         if D['variant'] == 'quiz': out = f'Quiz answer: {q["options"][q["answer"]].rstrip(".")}. "{ex}" More real English slang, free: {{link}}'

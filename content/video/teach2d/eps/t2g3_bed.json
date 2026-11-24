@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_bed",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 2,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: bed!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A piece of furniture that people sleep on.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I usually go to bed before midnight.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "bed",
+  "ipa": "/bed/",
+  "mean": "a piece of furniture that people sleep on",
+  "ex": "I usually go to bed before midnight.",
+  "img": "bed#n",
+  "n": 3
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/bed",
+  "link": "https://lexkite.com/app/#/dict/bed",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "bed",
+  "img": "bed#n"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 11.1,
+  "wpm": 125
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: B + 2 letters",
+  "keyword": "bed",
+  "value": "Bed /bed/ = a piece of furniture that people sleep on. Example: \"I usually go to bed before midnight.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/bed",
+  "script_words": 22,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: B + 2 letters",
+    "description": "Bed /bed/ = a piece of furniture that people sleep on. Example: \"I usually go to bed before midnight.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/bed\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "bed",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: B + 2 letters\n\nBed /bed/ = a piece of furniture that people sleep on. Example: \"I usually go to bed before midnight.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/bed"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: B + 2 letters\n\nBed /bed/ = a piece of furniture that people sleep on. Example: \"I usually go to bed before midnight.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: B + 2 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: bed. A piece of furniture that people sleep on. Example: \"I usually go to bed before midnight.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

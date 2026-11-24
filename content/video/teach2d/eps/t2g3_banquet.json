@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_banquet",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 62,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: banquet!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A large formal meal for many people.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The closing banquet will be held in the hotel ballroom.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "banquet",
+  "ipa": "/ˈbæŋkwət/",
+  "mean": "a large formal meal for many people",
+  "ex": "The closing banquet will be held in the hotel ballroom.",
+  "img": "banquet#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/banquet",
+  "link": "https://lexkite.com/app/#/dict/banquet",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "banquet",
+  "img": "banquet#n"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.6,
+  "wpm": 124
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: B + 6 letters",
+  "keyword": "banquet",
+  "value": "Banquet /ˈbæŋkwət/ = a large formal meal for many people. Example: \"The closing banquet will be held in the hotel ballroom.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/banquet",
+  "script_words": 23,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: B + 6 letters",
+    "description": "Banquet /ˈbæŋkwət/ = a large formal meal for many people. Example: \"The closing banquet will be held in the hotel ballroom.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/banquet\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "banquet",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: B + 6 letters\n\nBanquet /ˈbæŋkwət/ = a large formal meal for many people. Example: \"The closing banquet will be held in the hotel ballroom.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/banquet"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: B + 6 letters\n\nBanquet /ˈbæŋkwət/ = a large formal meal for many people. Example: \"The closing banquet will be held in the hotel ballroom.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: B + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: banquet. A large formal meal for many people. Example: \"The closing banquet will be held in the hotel ballroom.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

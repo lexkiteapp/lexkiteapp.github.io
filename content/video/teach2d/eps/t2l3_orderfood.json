@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_orderfood",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 6,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Order food: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "I want a pizza, please.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "I'd like the chicken pasta, please.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "I'll go for the chicken pasta.",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "order-food",
+  "title": "Order food",
+  "em": "🍕",
+  "chip": "At a restaurant",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "I want a pizza, please.",
+    "key": "I want",
+    "note": "Fine, but sounds like a list."
+   },
+   "b": {
+    "text": "I'd like the chicken pasta, please.",
+    "key": "I'd like",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "I'll go for the chicken pasta.",
+    "key": "I'll go for",
+    "note": "Natural when you decide."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "I'll go for",
+    "I want"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Order food: three levels!"
+ },
+ "src": {
+  "levels3": "order-food"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 11.1,
+  "wpm": 124
+ },
+ "publish": {
+  "title": "Order food: A1, B1 or C1?",
+  "keyword": "order food",
+  "value": "Order food, three ways. A1: \"I want a pizza, please.\" B1: \"I'd like the chicken pasta, please.\" C1: \"I'll go for the chicken pasta.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "Order food: A1, B1 or C1?",
+    "description": "Order food, three ways. A1: \"I want a pizza, please.\" B1: \"I'd like the chicken pasta, please.\" C1: \"I'll go for the chicken pasta.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "order food",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Order food: A1, B1 or C1?\n\nOrder food, three ways. A1: \"I want a pizza, please.\" B1: \"I'd like the chicken pasta, please.\" C1: \"I'll go for the chicken pasta.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Order food: A1, B1 or C1?\n\nOrder food, three ways. A1: \"I want a pizza, please.\" B1: \"I'd like the chicken pasta, please.\" C1: \"I'll go for the chicken pasta.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Order food: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: I'll go for. Native line: \"I'll go for the chicken pasta.\" Which level are you? More real English, free: {link}"
+ }
+}

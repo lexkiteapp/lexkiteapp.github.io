@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_paybycard",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 62,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pay by card: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Can I pay by card?",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Do you accept credit cards?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Can I just tap?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "pay-by-card",
+  "title": "Pay by card",
+  "em": "💳",
+  "chip": "At the till",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "Can I pay by card?",
+    "key": "pay by card",
+    "note": "Clear and correct."
+   },
+   "b": {
+    "text": "Do you accept credit cards?",
+    "key": "accept credit cards",
+    "note": "Polite, shop language."
+   },
+   "c": {
+    "text": "Can I just tap?",
+    "key": "just tap",
+    "note": "\"Tap\" means pay by contactless."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Just tap",
+    "Pay by card"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pay by card: three levels!"
+ },
+ "src": {
+  "levels3": "pay-by-card"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 9.5,
+  "wpm": 132
+ },
+ "publish": {
+  "title": "Pay by card: A1, B1 or C1?",
+  "keyword": "pay by card",
+  "value": "Pay by card, three ways. A1: \"Can I pay by card?\" B1: \"Do you accept credit cards?\" C1: \"Can I just tap?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "Pay by card: A1, B1 or C1?",
+    "description": "Pay by card, three ways. A1: \"Can I pay by card?\" B1: \"Do you accept credit cards?\" C1: \"Can I just tap?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "pay by card",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Pay by card: A1, B1 or C1?\n\nPay by card, three ways. A1: \"Can I pay by card?\" B1: \"Do you accept credit cards?\" C1: \"Can I just tap?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Pay by card: A1, B1 or C1?\n\nPay by card, three ways. A1: \"Can I pay by card?\" B1: \"Do you accept credit cards?\" C1: \"Can I just tap?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Pay by card: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Just tap. Native line: \"Can I just tap?\" Which level are you? More real English, free: {link}"
+ }
+}

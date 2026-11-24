@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_engine",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 24,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: engine!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A machine that changes energy into motion.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The car engine wouldn't start this morning.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "engine",
+  "ipa": "/ˈendʒn/",
+  "mean": "a machine that changes energy into motion",
+  "ex": "The car engine wouldn't start this morning.",
+  "img": "engine#n",
+  "n": 6
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/engine",
+  "link": "https://lexkite.com/app/#/dict/engine",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "engine",
+  "img": "engine#n"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.3,
+  "wpm": 117
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: E + 5 letters",
+  "keyword": "engine",
+  "value": "Engine /ˈendʒn/ = a machine that changes energy into motion. Example: \"The car engine wouldn't start this morning.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/engine",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: E + 5 letters",
+    "description": "Engine /ˈendʒn/ = a machine that changes energy into motion. Example: \"The car engine wouldn't start this morning.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/engine\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "engine",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: E + 5 letters\n\nEngine /ˈendʒn/ = a machine that changes energy into motion. Example: \"The car engine wouldn't start this morning.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/engine"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: E + 5 letters\n\nEngine /ˈendʒn/ = a machine that changes energy into motion. Example: \"The car engine wouldn't start this morning.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: E + 5 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: engine. A machine that changes energy into motion. Example: \"The car engine wouldn't start this morning.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

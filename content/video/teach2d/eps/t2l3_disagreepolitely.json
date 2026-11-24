@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_disagreepolitely",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 31,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Disagree politely: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "I don't think so.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "I'm not sure I agree.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "I hear you, but I doubt it.",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "disagree-politely",
+  "title": "Disagree politely",
+  "em": "🤔",
+  "chip": "In a chat",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "I don't think so.",
+    "key": "I don't think",
+    "note": "Correct, but a bit direct."
+   },
+   "b": {
+    "text": "I'm not sure I agree.",
+    "key": "not sure I agree",
+    "note": "Polite and careful."
+   },
+   "c": {
+    "text": "I hear you, but I doubt it.",
+    "key": "I hear you",
+    "note": "Shows you listened first."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "I hear you",
+    "Not sure I agree"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Disagree politely: three levels!"
+ },
+ "src": {
+  "levels3": "disagree-politely"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.9,
+  "wpm": 122
+ },
+ "publish": {
+  "title": "Disagree politely: A1, B1 or C1?",
+  "keyword": "disagree politely",
+  "value": "Disagree politely, three ways. A1: \"I don't think so.\" B1: \"I'm not sure I agree.\" C1: \"I hear you, but I doubt it.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Disagree politely: A1, B1 or C1?",
+    "description": "Disagree politely, three ways. A1: \"I don't think so.\" B1: \"I'm not sure I agree.\" C1: \"I hear you, but I doubt it.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "disagree politely",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Disagree politely: A1, B1 or C1?\n\nDisagree politely, three ways. A1: \"I don't think so.\" B1: \"I'm not sure I agree.\" C1: \"I hear you, but I doubt it.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Disagree politely: A1, B1 or C1?\n\nDisagree politely, three ways. A1: \"I don't think so.\" B1: \"I'm not sure I agree.\" C1: \"I hear you, but I doubt it.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Disagree politely: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: I hear you. Native line: \"I hear you, but I doubt it.\" Which level are you? More real English, free: {link}"
+ }
+}

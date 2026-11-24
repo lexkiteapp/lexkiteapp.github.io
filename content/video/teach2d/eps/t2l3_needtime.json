@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_needtime",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 41,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Need more time: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "More time, please.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Could I have a bit more time?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Could I get a bit of an extension?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "need-time",
+  "title": "Need more time",
+  "em": "⌛",
+  "chip": "At work",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "More time, please.",
+    "key": "More time",
+    "note": "Clear, a bit direct."
+   },
+   "b": {
+    "text": "Could I have a bit more time?",
+    "key": "a bit more time",
+    "note": "Polite and formal."
+   },
+   "c": {
+    "text": "Could I get a bit of an extension?",
+    "key": "an extension",
+    "note": "Natural work language."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "An extension",
+    "A bit more time"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Need more time: three levels!"
+ },
+ "src": {
+  "levels3": "need-time"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 10.6,
+  "wpm": 142
+ },
+ "publish": {
+  "title": "Need more time: A1, B1 or C1?",
+  "keyword": "need more time",
+  "value": "Need more time, three ways. A1: \"More time, please.\" B1: \"Could I have a bit more time?\" C1: \"Could I get a bit of an extension?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "Need more time: A1, B1 or C1?",
+    "description": "Need more time, three ways. A1: \"More time, please.\" B1: \"Could I have a bit more time?\" C1: \"Could I get a bit of an extension?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "need more time",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Need more time: A1, B1 or C1?\n\nNeed more time, three ways. A1: \"More time, please.\" B1: \"Could I have a bit more time?\" C1: \"Could I get a bit of an extension?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Need more time: A1, B1 or C1?\n\nNeed more time, three ways. A1: \"More time, please.\" B1: \"Could I have a bit more time?\" C1: \"Could I get a bit of an extension?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Need more time: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: An extension. Native line: \"Could I get a bit of an extension?\" Which level are you? More real English, free: {link}"
+ }
+}

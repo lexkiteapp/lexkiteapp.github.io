@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_saygoodbye",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 58,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say goodbye: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Goodbye. See you tomorrow.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "It was nice talking to you. Goodbye.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Right, I'd better get going. See you!",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "say-goodbye",
+  "title": "Say goodbye",
+  "em": "👋",
+  "chip": "Everyday",
+  "reg": "casual",
+  "levels": {
+   "a": {
+    "text": "Goodbye. See you tomorrow.",
+    "key": "See you",
+    "note": "Clear and polite."
+   },
+   "b": {
+    "text": "It was nice talking to you. Goodbye.",
+    "key": "nice talking to you",
+    "note": "Warm and polite."
+   },
+   "c": {
+    "text": "Right, I'd better get going. See you!",
+    "key": "get going",
+    "note": "A natural way to leave."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Get going",
+    "See you"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Say goodbye: three levels!"
+ },
+ "src": {
+  "levels3": "say-goodbye"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 10.9,
+  "wpm": 133
+ },
+ "publish": {
+  "title": "Say goodbye: A1, B1 or C1?",
+  "keyword": "say goodbye",
+  "value": "Say goodbye, three ways. A1: \"Goodbye. See you tomorrow.\" B1: \"It was nice talking to you. Goodbye.\" C1: \"Right, I'd better get going. See you!\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "Say goodbye: A1, B1 or C1?",
+    "description": "Say goodbye, three ways. A1: \"Goodbye. See you tomorrow.\" B1: \"It was nice talking to you. Goodbye.\" C1: \"Right, I'd better get going. See you!\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "say goodbye",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say goodbye: A1, B1 or C1?\n\nSay goodbye, three ways. A1: \"Goodbye. See you tomorrow.\" B1: \"It was nice talking to you. Goodbye.\" C1: \"Right, I'd better get going. See you!\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Say goodbye: A1, B1 or C1?\n\nSay goodbye, three ways. A1: \"Goodbye. See you tomorrow.\" B1: \"It was nice talking to you. Goodbye.\" C1: \"Right, I'd better get going. See you!\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say goodbye: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Get going. Native line: \"Right, I'd better get going. See you!\" Which level are you? More real English, free: {link}"
+ }
+}

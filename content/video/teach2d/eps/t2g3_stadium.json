@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_stadium",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 42,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Name it in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: stadium!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A large sports field with seats around it.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The concert will be held at the city stadium.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "stadium",
+  "ipa": "/ˈsteɪdiəm/",
+  "mean": "a large sports field with seats around it",
+  "ex": "The concert will be held at the city stadium.",
+  "img": "stadium#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/stadium",
+  "link": "https://lexkite.com/app/#/dict/stadium",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Name it in three seconds!"
+ },
+ "src": {
+  "word": "stadium",
+  "img": "stadium#n"
+ },
+ "est": {
+  "words": 26,
+  "seconds": 11.3,
+  "wpm": 138
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: S + 6 letters",
+  "keyword": "stadium",
+  "value": "Stadium /ˈsteɪdiəm/ = a large sports field with seats around it. Example: \"The concert will be held at the city stadium.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/stadium",
+  "script_words": 25,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: S + 6 letters",
+    "description": "Stadium /ˈsteɪdiəm/ = a large sports field with seats around it. Example: \"The concert will be held at the city stadium.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/stadium\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "stadium",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: S + 6 letters\n\nStadium /ˈsteɪdiəm/ = a large sports field with seats around it. Example: \"The concert will be held at the city stadium.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/stadium"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: S + 6 letters\n\nStadium /ˈsteɪdiəm/ = a large sports field with seats around it. Example: \"The concert will be held at the city stadium.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: S + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: stadium. A large sports field with seats around it. Example: \"The concert will be held at the city stadium.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

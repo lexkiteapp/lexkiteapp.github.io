@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_saynopolitely",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 24,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say no politely: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "I can't come. Sorry.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Thank you, but I'm busy that day.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Thanks, but I'll pass this time.",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "say-no-politely",
+  "title": "Say no politely",
+  "em": "🙅",
+  "chip": "By text",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "I can't come. Sorry.",
+    "key": "I can't",
+    "note": "Clear, but a bit cold."
+   },
+   "b": {
+    "text": "Thank you, but I'm busy that day.",
+    "key": "I'm busy",
+    "note": "Polite, with a reason."
+   },
+   "c": {
+    "text": "Thanks, but I'll pass this time.",
+    "key": "pass this time",
+    "note": "A soft, friendly no."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "I'm busy",
+    "Pass this time"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Say no politely: three levels!"
+ },
+ "src": {
+  "levels3": "say-no-politely"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.1,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Say no politely: A1, B1 or C1?",
+  "keyword": "say no politely",
+  "value": "Say no politely, three ways. A1: \"I can't come. Sorry.\" B1: \"Thank you, but I'm busy that day.\" C1: \"Thanks, but I'll pass this time.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "Say no politely: A1, B1 or C1?",
+    "description": "Say no politely, three ways. A1: \"I can't come. Sorry.\" B1: \"Thank you, but I'm busy that day.\" C1: \"Thanks, but I'll pass this time.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "say no politely",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say no politely: A1, B1 or C1?\n\nSay no politely, three ways. A1: \"I can't come. Sorry.\" B1: \"Thank you, but I'm busy that day.\" C1: \"Thanks, but I'll pass this time.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Say no politely: A1, B1 or C1?\n\nSay no politely, three ways. A1: \"I can't come. Sorry.\" B1: \"Thank you, but I'm busy that day.\" C1: \"Thanks, but I'll pass this time.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say no politely: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Pass this time. Native line: \"Thanks, but I'll pass this time.\" Which level are you? More real English, free: {link}"
+ }
+}

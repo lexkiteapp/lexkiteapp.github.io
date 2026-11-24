@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_askhowlong",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 51,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask how long: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "How long is it?",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "How long will it take to arrive?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Roughly how long is the wait?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "ask-how-long",
+  "title": "Ask how long",
+  "em": "⏱️",
+  "chip": "At the clinic",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "How long is it?",
+    "key": "How long",
+    "note": "Simple, but vague."
+   },
+   "b": {
+    "text": "How long will it take to arrive?",
+    "key": "How long will",
+    "note": "Clear and polite."
+   },
+   "c": {
+    "text": "Roughly how long is the wait?",
+    "key": "Roughly how long",
+    "note": "\"Roughly\" softens the question."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Roughly how long",
+    "How long"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Ask how long: three levels!"
+ },
+ "src": {
+  "levels3": "ask-how-long"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 10.3,
+  "wpm": 140
+ },
+ "publish": {
+  "title": "Ask how long: A1, B1 or C1?",
+  "keyword": "ask how long",
+  "value": "Ask how long, three ways. A1: \"How long is it?\" B1: \"How long will it take to arrive?\" C1: \"Roughly how long is the wait?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "Ask how long: A1, B1 or C1?",
+    "description": "Ask how long, three ways. A1: \"How long is it?\" B1: \"How long will it take to arrive?\" C1: \"Roughly how long is the wait?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "ask how long",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Ask how long: A1, B1 or C1?\n\nAsk how long, three ways. A1: \"How long is it?\" B1: \"How long will it take to arrive?\" C1: \"Roughly how long is the wait?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Ask how long: A1, B1 or C1?\n\nAsk how long, three ways. A1: \"How long is it?\" B1: \"How long will it take to arrive?\" C1: \"Roughly how long is the wait?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ask how long: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Roughly how long. Native line: \"Roughly how long is the wait?\" Which level are you? More real English, free: {link}"
+ }
+}

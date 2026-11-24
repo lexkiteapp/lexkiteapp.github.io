@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_crane",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 34,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three seconds. Go!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: crane!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A tall machine for lifting heavy things.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "A crane is lifting containers onto the ship.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "crane",
+  "ipa": "/kreɪn/",
+  "mean": "a tall machine for lifting heavy things",
+  "ex": "A crane is lifting containers onto the ship.",
+  "img": "crane#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/crane",
+  "link": "https://lexkite.com/app/#/dict/crane",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three seconds. Go!"
+ },
+ "src": {
+  "word": "crane",
+  "img": "crane#n"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.8,
+  "wpm": 122
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: C + 4 letters",
+  "keyword": "crane",
+  "value": "Crane /kreɪn/ = a tall machine for lifting heavy things. Example: \"A crane is lifting containers onto the ship.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/crane",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: C + 4 letters",
+    "description": "Crane /kreɪn/ = a tall machine for lifting heavy things. Example: \"A crane is lifting containers onto the ship.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/crane\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "crane",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: C + 4 letters\n\nCrane /kreɪn/ = a tall machine for lifting heavy things. Example: \"A crane is lifting containers onto the ship.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/crane"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: C + 4 letters\n\nCrane /kreɪn/ = a tall machine for lifting heavy things. Example: \"A crane is lifting containers onto the ship.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: C + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: crane. A tall machine for lifting heavy things. Example: \"A crane is lifting containers onto the ship.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

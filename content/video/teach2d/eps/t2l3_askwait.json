@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_askwait",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 33,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask to wait: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Wait, please. One minute.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Could you give me a minute, please?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Hang on, I'll be right with you.",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "ask-wait",
+  "title": "Ask to wait",
+  "em": "⏳",
+  "chip": "At work",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "Wait, please. One minute.",
+    "key": "One minute",
+    "note": "Clear, but a bit stiff."
+   },
+   "b": {
+    "text": "Could you give me a minute, please?",
+    "key": "give me a minute",
+    "note": "Polite and clear."
+   },
+   "c": {
+    "text": "Hang on, I'll be right with you.",
+    "key": "Hang on",
+    "note": "Casual and friendly."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Give me a minute",
+    "Hang on"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Ask to wait: three levels!"
+ },
+ "src": {
+  "levels3": "ask-wait"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 10.6,
+  "wpm": 142
+ },
+ "publish": {
+  "title": "Ask to wait: A1, B1 or C1?",
+  "keyword": "ask to wait",
+  "value": "Ask to wait, three ways. A1: \"Wait, please. One minute.\" B1: \"Could you give me a minute, please?\" C1: \"Hang on, I'll be right with you.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "Ask to wait: A1, B1 or C1?",
+    "description": "Ask to wait, three ways. A1: \"Wait, please. One minute.\" B1: \"Could you give me a minute, please?\" C1: \"Hang on, I'll be right with you.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "ask to wait",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Ask to wait: A1, B1 or C1?\n\nAsk to wait, three ways. A1: \"Wait, please. One minute.\" B1: \"Could you give me a minute, please?\" C1: \"Hang on, I'll be right with you.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Ask to wait: A1, B1 or C1?\n\nAsk to wait, three ways. A1: \"Wait, please. One minute.\" B1: \"Could you give me a minute, please?\" C1: \"Hang on, I'll be right with you.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ask to wait: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Hang on. Native line: \"Hang on, I'll be right with you.\" Which level are you? More real English, free: {link}"
+ }
+}

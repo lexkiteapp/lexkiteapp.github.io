@@ -73392,6 +73392,4120 @@
     "e": "The movie? Meh.",
     "c": "lexkite.com"
    }
+  },
+  "t2g3_airplane": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4db4928180f4",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: airplane!",
+    "m": "A vehicle with wings that flies.",
+    "e": "The airplane landed twenty minutes early despite the strong winds.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_bed": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "112ef02f1d3f",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: bed!",
+    "m": "A piece of furniture that people sleep on.",
+    "e": "I usually go to bed before midnight.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_bird": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "76d68e785ffc",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: bird!",
+    "m": "An animal with feathers that uses wings to fly.",
+    "e": "A small bird built a nest on our balcony.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_boy": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4a193fb41e25",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: boy!",
+    "m": "A young male person.",
+    "e": "The boy next door plays the violin every evening.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_butter": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a119c2dcd5b0",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: butter!",
+    "m": "A yellow food made from cream.",
+    "e": "The hotel breakfast includes bread, butter, jam, and fresh fruit.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_dog": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c446ad94e082",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: dog!",
+    "m": "An animal with four legs that barks.",
+    "e": "Our dog loves running on the beach.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_egg": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1303c9286199",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: egg!",
+    "m": "An oval object with a shell that birds lay.",
+    "e": "I usually have an egg for breakfast.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_fish": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "27ca5e40bd0f",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: fish!",
+    "m": "An animal that lives and swims in water.",
+    "e": "We had grilled fish for dinner.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_girl": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f45b5556e611",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: girl!",
+    "m": "A female child.",
+    "e": "The girl in the red coat is my cousin.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_hotel": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ef8190611699",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: hotel!",
+    "m": "A place where people can stay when traveling.",
+    "e": "We stayed at a hotel near the beach.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_house": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3311314193e3",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: house!",
+    "m": "A building in which a family, person lives.",
+    "e": "They live in a large house with a garden.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_leg": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "930dca4fa286",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: leg!",
+    "m": "A part of the body from the thigh down.",
+    "e": "I hurt my leg playing football.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_man": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9b3a897d38ca",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: man!",
+    "m": "An adult male human being.",
+    "e": "The man at the reception desk gave us a map.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_mouse": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7a4eba7dcac9",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: mouse!",
+    "m": "A small animal with fur and a long tail.",
+    "e": "We found a mouse in the kitchen.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_mouth": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8d8f4f4197d7",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: mouth!",
+    "m": "A part of the face used for eating and talking.",
+    "e": "Don't talk with your mouth full.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_nose": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1845058f4a82",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: nose!",
+    "m": "A part of the face used for breathing and smelling.",
+    "e": "He has a cold and a runny nose.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_school": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ccd1f27ba51c",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: school!",
+    "m": "A building where you learn in classes with a teacher.",
+    "e": "My younger brother started school this year.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_station": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d62d610eeef5",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: station!",
+    "m": "A place where you can catch a train or a bus.",
+    "e": "The station is a ten-minute walk from here.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_sun": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f5fe320ed109",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: sun!",
+    "m": "The hot shining star the earth moves around.",
+    "e": "The sun rises at about six in summer.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_train": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8197dac58bdc",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: train!",
+    "m": "A vehicle that carries people and runs on rails.",
+    "e": "We took the night train to Hue.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_baseball": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0a74831e14fb",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: baseball!",
+    "m": "A bat-and-ball game played by two teams.",
+    "e": "The company bought baseball tickets for the team.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_brain": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "01bab2cb803c",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: brain!",
+    "m": "A part of the head that thinks and controls your body.",
+    "e": "Sleep is important for a healthy brain.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_desert": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "96f6ed624f14",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: desert!",
+    "m": "An area of land that has very little water and few plants.",
+    "e": "Very few plants grow in the desert.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_engine": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "29fa65f21d13",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: engine!",
+    "m": "A machine that changes energy into motion.",
+    "e": "The car engine wouldn't start this morning.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_factory": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "49f435e8a5a7",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: factory!",
+    "m": "A building where things are made.",
+    "e": "My uncle works in a shoe factory.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_handbag": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0a604855b9bb",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: handbag!",
+    "m": "A small bag women use to carry personal items.",
+    "e": "I really like your handbag.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_oak": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "85ef924a3cd3",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: oak!",
+    "m": "A large forest tree that produces acorns and hard, strong wood.",
+    "e": "I'm here to cut down the big oak.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_printer": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "054f6e1f108a",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: printer!",
+    "m": "A machine that makes copies of papers and documents.",
+    "e": "The printer is out of paper.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_sausage": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "487f768e720d",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: sausage!",
+    "m": "A food made of ground meat and seasoning packed in a tube.",
+    "e": "We have no more sausage.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_scarf": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "51c83dbb6671",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: scarf!",
+    "m": "A piece of cloth worn around the neck.",
+    "e": "She bought a silk scarf at the airport shop.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_toothbrush": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e48ab3bf190e",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: toothbrush!",
+    "m": "A small brush with a long handle used to clean teeth.",
+    "e": "I need a new toothbrush.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_bandage": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9c924effbc60",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: bandage!",
+    "m": "A strip of gauze used to protect a wound.",
+    "e": "I'll look for a bandage.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_coin": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7a3eaa2ac205",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: coin!",
+    "m": "A small, flat piece of metal used as money.",
+    "e": "He found an old coin in the garden.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_crane": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "73133171f121",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: crane!",
+    "m": "A tall machine for lifting heavy things.",
+    "e": "A crane is lifting containers onto the ship.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_elbow": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "992943d31632",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: elbow!",
+    "m": "The joint between the upper arm and the forearm.",
+    "e": "She hit her elbow during a fall.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_flute": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a598c463a91f",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: flute!",
+    "m": "A woodwind instrument with a tube and finger holes.",
+    "e": "I want my flute back.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_fountain": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "684a4463221e",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: fountain!",
+    "m": "A structure that sends water into the air.",
+    "e": "We met by the fountain in the plaza.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_hurricane": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8395378dae76",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: hurricane!",
+    "m": "A violent storm with strong winds.",
+    "e": "The hurricane forced the airport to close for two days.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_kettle": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ad6fff5ea0ad",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: kettle!",
+    "m": "A metal pot used for boiling liquids.",
+    "e": "Go and put the kettle on.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_purse": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1a5563a9afe9",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: purse!",
+    "m": "A small bag for money or a handbag.",
+    "e": "She left her purse in the conference room.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_ring": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "443fecfa60ed",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: ring!",
+    "m": "A round piece of jewellery worn on a finger.",
+    "e": "He gave her a ring on her birthday.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_stadium": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2a58c9174605",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: stadium!",
+    "m": "A large sports field with seats around it.",
+    "e": "The concert will be held at the city stadium.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_trumpet": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d088a1853da0",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: trumpet!",
+    "m": "A brass instrument that produces sound when the player vibrates their lips.",
+    "e": "I got a new trumpet.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_wrist": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7ee46c5c7522",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: wrist!",
+    "m": "The joint that connects the hand to the forearm.",
+    "e": "I took him by the wrist.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_aircraft": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6daa292861ca",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: aircraft!",
+    "m": "A machine that can fly.",
+    "e": "The airport can handle large aircraft.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_barn": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4359739c2622",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: barn!",
+    "m": "A farm building used for storing grain, feed, or keeping animals.",
+    "e": "I'm still in the barn.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_brewery": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7bcb10926d62",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: brewery!",
+    "m": "A factory or building where beer is made.",
+    "e": "The brewery produces three beers.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_comet": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "abf570e06b31",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: comet!",
+    "m": "A ball of ice and dust orbiting the sun.",
+    "e": "The comet's tail always points away from the sun.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_corridor": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a099b228f6a3",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: corridor!",
+    "m": "A narrow hallway with rooms opening onto it.",
+    "e": "He's running quite fast through the corridor.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_freighter": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2695acc2130c",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: freighter!",
+    "m": "A ship or plane that carries goods.",
+    "e": "The freighter arrived at the port two days late.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_helmet": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a63fc281c728",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: helmet!",
+    "m": "A hard hat that protects the head.",
+    "e": "Visitors must wear a helmet on the construction site.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_highway": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "acd306dd4d55",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: highway!",
+    "m": "A main road between cities.",
+    "e": "Traffic on the highway was very heavy this morning.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_mansion": {
+   "template": "guess3",
+   "hook": "Name it in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "dba5c3fe8df8",
+   "script": {
+    "h": "Name it in three seconds!",
+    "a": "Answer: mansion!",
+    "m": "A large, luxurious house built for wealthy people.",
+    "e": "It is not a real mansion.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_mechanic": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "99de85cfdd4c",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: mechanic!",
+    "m": "A person who repairs engines and vehicles.",
+    "e": "The mechanic said the van needs new brakes.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_pier": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8226266cf18a",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: pier!",
+    "m": "A long platform built out over water.",
+    "e": "People are fishing from the end of the pier.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_railing": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b9f4f60b9e2c",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: railing!",
+    "m": "A fence made of metal or wooden bars.",
+    "e": "Tourists are leaning on the railing to enjoy the view.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_rat": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3ea4bfbb6a40",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: rat!",
+    "m": "An animal that looks like a large mouse.",
+    "e": "A rat ran across the street.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_sewer": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ef44e437d461",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: sewer!",
+    "m": "An underground pipe for waste water.",
+    "e": "The city is repairing the sewer on Main Street.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_stool": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "172f6686c26c",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: stool!",
+    "m": "A simple one‑person seat without a back or armrests.",
+    "e": "She got off her stool.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_terrace": {
+   "template": "guess3",
+   "hook": "Guess in three seconds!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "985255a792c9",
+   "script": {
+    "h": "Guess in three seconds!",
+    "a": "Answer: terrace!",
+    "m": "A paved outdoor platform attached to a house.",
+    "e": "You can't smoke except on the terrace.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_trail": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "160a5ecb338e",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: trail!",
+    "m": "A path through the countryside.",
+    "e": "We followed a trail through the forest.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_banquet": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5a0db8851311",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: banquet!",
+    "m": "A large formal meal for many people.",
+    "e": "The closing banquet will be held in the hotel ballroom.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2g3_ruler": {
+   "template": "guess3",
+   "hook": "Three seconds. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py guess3 gates v1 (data == audited bank + img.json picture of the exact word#n sense, conf >= 80, no text-bearing object (TEXT_OBJ) · level <= B1 NGSL except the taught word · hook = one of 3 true claims <= 6 words · dup: no word / picture (pHash >= 10 bits) used by guess / guess3 · 7-12 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bb2ea973b11f",
+   "script": {
+    "h": "Three seconds. Go!",
+    "a": "Answer: ruler!",
+    "m": "A straight strip used for measuring and drawing lines.",
+    "e": "Use a ruler to draw a straight line.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_ordercoffee": {
+   "template": "levels3",
+   "hook": "Order coffee: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "603df50da968",
+   "script": {
+    "h": "Order coffee: three levels!",
+    "a": "I want a coffee, please.",
+    "b": "Could I have a large latte, please?",
+    "n": "Can I grab a flat white to go?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_airportcheckin": {
+   "template": "levels3",
+   "hook": "Airport check-in: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2f300def2c55",
+   "script": {
+    "h": "Airport check-in: three levels!",
+    "a": "Here is my passport.",
+    "b": "I'd like to check in, please.",
+    "n": "Hi, I'm just checking in for my flight.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_hotelcheckin": {
+   "template": "levels3",
+   "hook": "Hotel check-in: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a27f7e0e5c89",
+   "script": {
+    "h": "Hotel check-in: three levels!",
+    "a": "I have a room.",
+    "b": "I have a reservation.",
+    "n": "Hi, I've got a booking.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askdirections": {
+   "template": "levels3",
+   "hook": "Ask directions: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "015c44cbb5a4",
+   "script": {
+    "h": "Ask directions: three levels!",
+    "a": "Where is the station?",
+    "b": "How do I get to the station?",
+    "n": "I'm trying to get to the station.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_booktable": {
+   "template": "levels3",
+   "hook": "Book a table: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d2cafd44abf6",
+   "script": {
+    "h": "Book a table: three levels!",
+    "a": "A table for two, please.",
+    "b": "Could we have a table for two?",
+    "n": "Hi, have you got a table?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_orderfood": {
+   "template": "levels3",
+   "hook": "Order food: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e8c01a0f3435",
+   "script": {
+    "h": "Order food: three levels!",
+    "a": "I want a pizza, please.",
+    "b": "I'd like the chicken pasta, please.",
+    "n": "I'll go for the chicken pasta.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_paybill": {
+   "template": "levels3",
+   "hook": "Pay the bill: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f0ef07259056",
+   "script": {
+    "h": "Pay the bill: three levels!",
+    "a": "The bill, please.",
+    "b": "Could we have the bill, please?",
+    "n": "Could we get the bill? No rush.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_asksize": {
+   "template": "levels3",
+   "hook": "Ask for size: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "22aca35c5913",
+   "script": {
+    "h": "Ask for size: three levels!",
+    "a": "Is there a bigger one?",
+    "b": "Do you have a larger size?",
+    "n": "Any chance you've got a large?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_returnitem": {
+   "template": "levels3",
+   "hook": "Return something: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f9624107677e",
+   "script": {
+    "h": "Return something: three levels!",
+    "a": "I want my money back.",
+    "b": "I'd like to return this, please.",
+    "n": "Hi, I need to bring this back.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_seedoctor": {
+   "template": "levels3",
+   "hook": "See a doctor: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bb8bd6129bdd",
+   "script": {
+    "h": "See a doctor: three levels!",
+    "a": "I need a doctor.",
+    "b": "I'd like an appointment, please.",
+    "n": "I was hoping to get seen today.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askforsomeone": {
+   "template": "levels3",
+   "hook": "Ask for someone: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d381f1444f24",
+   "script": {
+    "h": "Ask for someone: three levels!",
+    "a": "Is Ana there?",
+    "b": "Hello, could I speak to Ana?",
+    "n": "Hi, is Ana free for a quick word?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_jobintro": {
+   "template": "levels3",
+   "hook": "Job interview: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "68362a23e07c",
+   "script": {
+    "h": "Job interview: three levels!",
+    "a": "I work in a shop.",
+    "b": "I have three years of experience.",
+    "n": "I've been in sales for three years.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_meetneighbour": {
+   "template": "levels3",
+   "hook": "Meet a neighbour: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1413c490c7fe",
+   "script": {
+    "h": "Meet a neighbour: three levels!",
+    "a": "Hello. I live here.",
+    "b": "Hi, I live next door.",
+    "n": "Hi, I just moved in next door.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_noisyneighbours": {
+   "template": "levels3",
+   "hook": "Noisy neighbours: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e1051db010ab",
+   "script": {
+    "h": "Noisy neighbours: three levels!",
+    "a": "Please be quiet. It's late.",
+    "b": "Could you be a bit quieter, please?",
+    "n": "Sorry, could you keep the noise down?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_taketaxi": {
+   "template": "levels3",
+   "hook": "Take a taxi: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "413a8debb437",
+   "script": {
+    "h": "Take a taxi: three levels!",
+    "a": "To the airport, please.",
+    "b": "Could you take me to the airport?",
+    "n": "Could you drop me off there?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_buyticket": {
+   "template": "levels3",
+   "hook": "Buy a ticket: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9ef295c87452",
+   "script": {
+    "h": "Buy a ticket: three levels!",
+    "a": "One ticket, please.",
+    "b": "A ticket to the city, please.",
+    "n": "Can I get a return, please?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_trainlate": {
+   "template": "levels3",
+   "hook": "Train is late: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e97344bbb0c7",
+   "script": {
+    "h": "Train is late: three levels!",
+    "a": "The train is late.",
+    "b": "Do you know why the train is late?",
+    "n": "Any idea why the train's running late?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askbag": {
+   "template": "levels3",
+   "hook": "Get a bag: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f02a73501d93",
+   "script": {
+    "h": "Get a bag: three levels!",
+    "a": "A bag, please.",
+    "b": "Could I have a bag, please?",
+    "n": "Could I get a bag with that?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_atpharmacy": {
+   "template": "levels3",
+   "hook": "At the pharmacy: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "59bf60a61f5d",
+   "script": {
+    "h": "At the pharmacy: three levels!",
+    "a": "I have a cold.",
+    "b": "Do you have anything for a cold?",
+    "n": "I've come down with a cold.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_joingym": {
+   "template": "levels3",
+   "hook": "Join a gym: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ed1761ef351c",
+   "script": {
+    "h": "Join a gym: three levels!",
+    "a": "I want to join.",
+    "b": "Hi, I'd like to sign up, please.",
+    "n": "Hi, I'm thinking of signing up.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_cinematickets": {
+   "template": "levels3",
+   "hook": "Buy cinema tickets: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "83cbb187eb0d",
+   "script": {
+    "h": "Buy cinema tickets: three levels!",
+    "a": "Two tickets, please.",
+    "b": "Could I get two tickets, please?",
+    "n": "Two for the eight o'clock, please.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_gethaircut": {
+   "template": "levels3",
+   "hook": "Get a haircut: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cf5667f0346d",
+   "script": {
+    "h": "Get a haircut: three levels!",
+    "a": "I want short hair.",
+    "b": "Could you cut it a bit shorter, please?",
+    "n": "Just a trim, please, nothing fancy.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_acceptinvite": {
+   "template": "levels3",
+   "hook": "Accept an invite: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fbf3994e2e7c",
+   "script": {
+    "h": "Accept an invite: three levels!",
+    "a": "Yes, I can come.",
+    "b": "Thanks for inviting me, I'd love to come.",
+    "n": "Count me in! What time works?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saynopolitely": {
+   "template": "levels3",
+   "hook": "Say no politely: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "66073b9ac55a",
+   "script": {
+    "h": "Say no politely: three levels!",
+    "a": "I can't come. Sorry.",
+    "b": "Thank you, but I'm busy that day.",
+    "n": "Thanks, but I'll pass this time.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askrepeat": {
+   "template": "levels3",
+   "hook": "Ask to repeat: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ad722e773a69",
+   "script": {
+    "h": "Ask to repeat: three levels!",
+    "a": "Again, please.",
+    "b": "Could you say that again, please?",
+    "n": "Sorry, I didn't catch that.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_slowdown": {
+   "template": "levels3",
+   "hook": "Slow it down: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3da756b6983b",
+   "script": {
+    "h": "Slow it down: three levels!",
+    "a": "Not so fast, please.",
+    "b": "Could you speak more slowly, please?",
+    "n": "Sorry, could you slow down a bit?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saythanks": {
+   "template": "levels3",
+   "hook": "Say thanks: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "be61fa1b971f",
+   "script": {
+    "h": "Say thanks: three levels!",
+    "a": "Thank you.",
+    "b": "Thank you so much for your help.",
+    "n": "Thanks a million, I owe you one.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saysorry": {
+   "template": "levels3",
+   "hook": "Say sorry: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "66ee61994ed5",
+   "script": {
+    "h": "Say sorry: three levels!",
+    "a": "I am sorry.",
+    "b": "I'm so sorry. I didn't mean to.",
+    "n": "Oops, my bad, I wasn't looking.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_givecompliment": {
+   "template": "levels3",
+   "hook": "Give a compliment: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cbb2ebec0a73",
+   "script": {
+    "h": "Give a compliment: three levels!",
+    "a": "Your shirt is nice.",
+    "b": "I really like your shirt.",
+    "n": "Love your shirt, where did you get it?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_agreewith": {
+   "template": "levels3",
+   "hook": "Agree with someone: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "65576e271004",
+   "script": {
+    "h": "Agree with someone: three levels!",
+    "a": "Yes, I think so too.",
+    "b": "I totally agree with you.",
+    "n": "You can say that again!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_disagreepolitely": {
+   "template": "levels3",
+   "hook": "Disagree politely: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cb9cf45c5ed2",
+   "script": {
+    "h": "Disagree politely: three levels!",
+    "a": "I don't think so.",
+    "b": "I'm not sure I agree.",
+    "n": "I hear you, but I doubt it.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askhelp": {
+   "template": "levels3",
+   "hook": "Ask for help: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5ade349ebcd1",
+   "script": {
+    "h": "Ask for help: three levels!",
+    "a": "Help me, please.",
+    "b": "Excuse me, could you help me?",
+    "n": "Sorry, do you have a sec?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askwait": {
+   "template": "levels3",
+   "hook": "Ask to wait: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2e0b67a69170",
+   "script": {
+    "h": "Ask to wait: three levels!",
+    "a": "Wait, please. One minute.",
+    "b": "Could you give me a minute, please?",
+    "n": "Hang on, I'll be right with you.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_smalltalk": {
+   "template": "levels3",
+   "hook": "Small talk: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1c0af672df34",
+   "script": {
+    "h": "Small talk: three levels!",
+    "a": "It's a nice day.",
+    "b": "The weather is lovely today, isn't it?",
+    "n": "Lovely day, isn't it?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_weekendplans": {
+   "template": "levels3",
+   "hook": "Weekend plans: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b64048dda5ac",
+   "script": {
+    "h": "Weekend plans: three levels!",
+    "a": "What do you do on Sunday?",
+    "b": "What are you doing this weekend?",
+    "n": "Got any plans for the weekend?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_asktime": {
+   "template": "levels3",
+   "hook": "Ask the time: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "00836e6cc79e",
+   "script": {
+    "h": "Ask the time: three levels!",
+    "a": "What time is it?",
+    "b": "Excuse me, do you know the time?",
+    "n": "Sorry, do you happen to have the time?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_getonline": {
+   "template": "levels3",
+   "hook": "Get online: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "31d374e57d71",
+   "script": {
+    "h": "Get online: three levels!",
+    "a": "Do you have internet?",
+    "b": "Could I have the Wi-Fi code?",
+    "n": "What's the Wi-Fi password, by the way?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_lostbag": {
+   "template": "levels3",
+   "hook": "Lost luggage: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "208fc29a97f9",
+   "script": {
+    "h": "Lost luggage: three levels!",
+    "a": "My bag is not here.",
+    "b": "Excuse me, my bag didn't arrive.",
+    "n": "Hi, my bag never showed up.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_arrivelate": {
+   "template": "levels3",
+   "hook": "Arrive late: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f61bb7930dcc",
+   "script": {
+    "h": "Arrive late: three levels!",
+    "a": "I am late. Sorry.",
+    "b": "Sorry I'm late. The traffic was bad.",
+    "n": "Sorry I'm late, I got held up.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_movemeeting": {
+   "template": "levels3",
+   "hook": "Move a meeting: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d45f8cb90b60",
+   "script": {
+    "h": "Move a meeting: three levels!",
+    "a": "Can we meet on Monday?",
+    "b": "Could we move the meeting?",
+    "n": "Could we push it to Monday?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_needtime": {
+   "template": "levels3",
+   "hook": "Need more time: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "581342f17fb3",
+   "script": {
+    "h": "Need more time: three levels!",
+    "a": "More time, please.",
+    "b": "Could I have a bit more time?",
+    "n": "Could I get a bit of an extension?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_postoffice": {
+   "template": "levels3",
+   "hook": "Post office: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "aa1fb1fe00a0",
+   "script": {
+    "h": "Post office: three levels!",
+    "a": "I want to send this.",
+    "b": "Could I post this parcel to Spain?",
+    "n": "Hi, I need to send it to Spain.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_borrowbook": {
+   "template": "levels3",
+   "hook": "Borrow a book: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2846ac21ca91",
+   "script": {
+    "h": "Borrow a book: three levels!",
+    "a": "I want this book, please.",
+    "b": "Could I borrow this book, please?",
+    "n": "Can I check out this book?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_rainyday": {
+   "template": "levels3",
+   "hook": "Talk about rain: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "aed8e7162601",
+   "script": {
+    "h": "Talk about rain: three levels!",
+    "a": "It is raining.",
+    "b": "It's raining really hard today.",
+    "n": "It's raining cats and dogs!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_sayhungry": {
+   "template": "levels3",
+   "hook": "Say you're hungry: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7f119a5d8727",
+   "script": {
+    "h": "Say you're hungry: three levels!",
+    "a": "I am hungry.",
+    "b": "I'm really hungry. Let's eat.",
+    "n": "I'm starving! Let's grab a bite.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saytired": {
+   "template": "levels3",
+   "hook": "Say you're tired: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8cabd9beb936",
+   "script": {
+    "h": "Say you're tired: three levels!",
+    "a": "I want to sleep.",
+    "b": "I'm very tired. I need a rest.",
+    "n": "Let's call it a night.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_getdiscount": {
+   "template": "levels3",
+   "hook": "Get a discount: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "20618c0bf044",
+   "script": {
+    "h": "Get a discount: three levels!",
+    "a": "Can it be cheaper, please?",
+    "b": "Could you give me a discount, please?",
+    "n": "Is that your best price?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_splitbill": {
+   "template": "levels3",
+   "hook": "Split the bill: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9c54f3be6f8b",
+   "script": {
+    "h": "Split the bill: three levels!",
+    "a": "Two bills, please.",
+    "b": "Can we each pay for our own food?",
+    "n": "Shall we just split it?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_offerhelp": {
+   "template": "levels3",
+   "hook": "Offer to help: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9d2105134d73",
+   "script": {
+    "h": "Offer to help: three levels!",
+    "a": "Can I help you?",
+    "b": "Would you like some help with that?",
+    "n": "Need a hand with that?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_findseat": {
+   "template": "levels3",
+   "hook": "Find a seat: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "69e2c1edc229",
+   "script": {
+    "h": "Find a seat: three levels!",
+    "a": "Is this chair free?",
+    "b": "Excuse me, is anyone sitting here?",
+    "n": "Is this seat taken?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askhowlong": {
+   "template": "levels3",
+   "hook": "Ask how long: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f3d0b6551538",
+   "script": {
+    "h": "Ask how long: three levels!",
+    "a": "How long is it?",
+    "b": "How long will it take to arrive?",
+    "n": "Roughly how long is the wait?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_askadvice": {
+   "template": "levels3",
+   "hook": "Ask for advice: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b3ef02339034",
+   "script": {
+    "h": "Ask for advice: three levels!",
+    "a": "What is good here?",
+    "b": "What would you recommend here?",
+    "n": "What do you usually go for here?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_changeorder": {
+   "template": "levels3",
+   "hook": "Change your order: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "78142caf9091",
+   "script": {
+    "h": "Change your order: three levels!",
+    "a": "I want tea, not coffee.",
+    "b": "Could I change my order?",
+    "n": "Can I swap that for tea?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_specialrequest": {
+   "template": "levels3",
+   "hook": "Special request: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0d90758d2690",
+   "script": {
+    "h": "Special request: three levels!",
+    "a": "No meat, please.",
+    "b": "Could I have it without meat, please?",
+    "n": "Could you hold the meat, please?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_praisefood": {
+   "template": "levels3",
+   "hook": "Praise the food: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a71ad8263536",
+   "script": {
+    "h": "Praise the food: three levels!",
+    "a": "The food is good.",
+    "b": "This is delicious, thank you.",
+    "n": "This hits the spot!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_takephoto": {
+   "template": "levels3",
+   "hook": "Take a photo: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5b40d5f7d88f",
+   "script": {
+    "h": "Take a photo: three levels!",
+    "a": "Can you take a photo?",
+    "b": "Could you take a photo of us?",
+    "n": "Would you mind taking a pic?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_getpast": {
+   "template": "levels3",
+   "hook": "Get past someone: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2d6ed1451632",
+   "script": {
+    "h": "Get past someone: three levels!",
+    "a": "Sorry, I want to go.",
+    "b": "Excuse me, could I get past?",
+    "n": "Sorry, just squeezing past!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saygoodbye": {
+   "template": "levels3",
+   "hook": "Say goodbye: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "66e440d479ef",
+   "script": {
+    "h": "Say goodbye: three levels!",
+    "a": "Goodbye. See you tomorrow.",
+    "b": "It was nice talking to you. Goodbye.",
+    "n": "Right, I'd better get going. See you!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_saybusy": {
+   "template": "levels3",
+   "hook": "Say you're busy: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "03f7d67656c6",
+   "script": {
+    "h": "Say you're busy: three levels!",
+    "a": "I am busy now.",
+    "b": "I'm afraid I'm busy right now.",
+    "n": "I'm swamped at the moment.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_requestleave": {
+   "template": "levels3",
+   "hook": "Request time off: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bdf301e1a7a4",
+   "script": {
+    "h": "Request time off: three levels!",
+    "a": "I want one day off.",
+    "b": "Could I take Friday off?",
+    "n": "Is it okay if I take Friday off?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_sayhello": {
+   "template": "levels3",
+   "hook": "Say hello: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d15bbc59adbf",
+   "script": {
+    "h": "Say hello: three levels!",
+    "a": "Hello. How are you?",
+    "b": "Hi, how are you doing today?",
+    "n": "Hey, how's it going?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_paybycard": {
+   "template": "levels3",
+   "hook": "Pay by card: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "20b52d320c45",
+   "script": {
+    "h": "Pay by card: three levels!",
+    "a": "Can I pay by card?",
+    "b": "Do you accept credit cards?",
+    "n": "Can I just tap?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_openinghours": {
+   "template": "levels3",
+   "hook": "Opening hours: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f10c96067a30",
+   "script": {
+    "h": "Opening hours: three levels!",
+    "a": "What time do you open?",
+    "b": "Could you tell me your hours?",
+    "n": "What time are you open till?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2l3_getlift": {
+   "template": "levels3",
+   "hook": "Get a lift: three levels!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py levels3 gates v1 (data == levels3.json situation + levels3.mjs bank gates: A1 line = bank A1 words only, B1 <= B1, C1 key a real repo phrase, ad-safety · level <= B1 NGSL on hook + A1 + B1 lines · hook = title + fixed claim · one situation = one episode · 8.5-11.2 s est.)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bb84033ec9ba",
+   "script": {
+    "h": "Get a lift: three levels!",
+    "a": "Can you take me home?",
+    "b": "Could you give me a lift home?",
+    "n": "Could I trouble you for a lift?",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_001": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "88dd1a3c036a",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_002": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fa2405bd6ef3",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_003": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6a6b4f862263",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_004": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a3ef2883b04f",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_005": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0f024f5be04d",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_006": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "981726d47362",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_007": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5406136b5896",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_008": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "514a06b3169b",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_009": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9f23902f556a",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_010": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a21398b736b2",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_011": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2fc6eefabfdf",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_012": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5bd0dbaba437",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_013": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f15d21f4e7fc",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_014": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "10e4c592dbde",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_015": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1eebc1a4f66b",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_016": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2aa23762def8",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_017": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5b3b497139de",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_018": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "249d0eb14e20",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_019": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f981c0ff843d",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_020": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "24c3c38310cc",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_021": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b368295385b4",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_022": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "375f6ab9a6f3",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_023": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "609c97fda65c",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_024": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5a0c1804ee25",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_025": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "595df4b313c9",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_026": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8a6557c365d9",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_027": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0141743347e6",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_028": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f87115bc181f",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_029": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0dc095890102",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_030": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a778a63d55cb",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_031": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f5632407bec6",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_032": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "497385928348",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_033": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d4fcb44c143e",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_034": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d17992b54f29",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_035": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e1421a46db0c",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_036": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "53c5021ae796",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_037": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0308961e100a",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_038": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "42b29145adb6",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_039": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6138a3b5a975",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_040": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "93083a704fe2",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_041": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4e4ccff4b3d4",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_042": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "da714285212a",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_043": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "efb69f8b1549",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_044": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e25c203887f1",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_045": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "52e61885bc2e",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_046": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fe4626d639fb",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_047": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8114ed9a0a58",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_048": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6053e0e39394",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_049": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "36ea8184a9c7",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_050": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c9191dc5c8ed",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_051": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6a1111c22bcb",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_052": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "892241bb8a3b",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_053": {
+   "template": "scorecard",
+   "hook": "Score 40/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b5be5bb3fe99",
+   "script": {
+    "h": "Score forty. Beat me?",
+    "k": "Five questions. Two right.",
+    "r": "Oops. Easy to beat!",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_054": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "be5bb40330b3",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_055": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e0365d8d9da7",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_056": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4931c786dc85",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_057": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "14954242ea01",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_058": {
+   "template": "scorecard",
+   "hook": "Score 60/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "21a811269382",
+   "script": {
+    "h": "Score sixty. Beat me?",
+    "k": "Five questions. Three right.",
+    "r": "Okay. You can beat that.",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_059": {
+   "template": "scorecard",
+   "hook": "Score 100/100. Match me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f23019ed0d31",
+   "script": {
+    "h": "Perfect score. Match me?",
+    "k": "Five questions. All five right.",
+    "r": "Perfect. Tough to match.",
+    "ch": "Can you match that? Take the free test.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2sc_060": {
+   "template": "scorecard",
+   "hook": "Score 80/100. Beat me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py scorecard gates v1 (data == audited gold quiz items, answer key + score recomputed from the shown ticks · level <= B1 NGSL spoken script, items <= C1 (the placement test range) · hook number == computed score · no item reused across episodes, no repeated item set · 9-12 s · fits the card region)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "64ea709013f7",
+   "script": {
+    "h": "Score eighty. Beat me?",
+    "k": "Five questions. Four right.",
+    "r": "Pretty good, right?",
+    "ch": "Can you beat that? Take the free test.",
+    "c": "lexkite.com"
+   }
   }
  }
 }

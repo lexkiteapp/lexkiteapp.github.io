@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_dog",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 6,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: dog!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "An animal with four legs that barks.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "Our dog loves running on the beach.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "word": "dog",
+  "ipa": "/dɔːɡ/",
+  "mean": "an animal with four legs that barks",
+  "ex": "Our dog loves running on the beach.",
+  "img": "dog#n",
+  "n": 3
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/dog",
+  "link": "https://lexkite.com/app/#/dict/dog",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "dog",
+  "img": "dog#n"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.0,
+  "wpm": 132
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: D + 2 letters",
+  "keyword": "dog",
+  "value": "Dog /dɔːɡ/ = an animal with four legs that barks. Example: \"Our dog loves running on the beach.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/dog",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: D + 2 letters",
+    "description": "Dog /dɔːɡ/ = an animal with four legs that barks. Example: \"Our dog loves running on the beach.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/dog\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "dog",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: D + 2 letters\n\nDog /dɔːɡ/ = an animal with four legs that barks. Example: \"Our dog loves running on the beach.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/dog"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: D + 2 letters\n\nDog /dɔːɡ/ = an animal with four legs that barks. Example: \"Our dog loves running on the beach.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: D + 2 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: dog. An animal with four legs that barks. Example: \"Our dog loves running on the beach.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

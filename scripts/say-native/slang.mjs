@@ -24,7 +24,7 @@ const VI = /[ăâđêôơưàáạảãằắặẳẵầấậẩẫèéẹẻ�
 export const UNSAFE = /\b(shit\w*|fuck\w*|damn\w*|hell|bitch\w*|ass(hole)?|bastard|crap|piss\w*|dick|cock|pussy|tits?|boobs?|sexy?|sexual|horny|thirsty|nudes?|porn\w*|hookup|hook up|weed|stoned|high as|dope|drunk|wasted|hammered|booze|beer|vodka|shots?|vape|420|kill\w*|murder\w*|gun|shoot\w*|die|dead[- ]?ass|suicid\w*|lottery|casino|gambl\w*|poker|smok\w*|cigar\w*|ghetto|ratchet|karen|retard\w*|gay|lesbian|trans|woke|maga|trump|biden|liberal|conservative|religio\w*|church|god|jesus|allah|racist|nazi)\b/i;
 // "I'm dead" / "dying" = laughing hard (evergreen, ad-safe) – the blocklist's "die" is for the literal verb only
 const SAFE_IDIOMS = [/\bI'?m dead\b/i, /\bdying\b/i, /\bdead\b/i];
-const unsafeIn = s => { let t = String(s); for (const r of SAFE_IDIOMS) t = t.replace(r, ''); const m = t.match(UNSAFE); return m && m[0]; };
+export const unsafeIn = s => { let t = String(s); for (const r of SAFE_IDIOMS) t = t.replace(r, ''); const m = t.match(UNSAFE); return m && m[0]; };
 const IPA_OK = /^\/[a-zɑɒæɐʌəɚɛɜɝɪiʊuɔoeɡŋθðʃʒʧʤtʃdʒjwrlmnpbkfvszhʔɾɫːˈˌ.\s‿-]+\/$/;
 const norm = s => String(s || '').replace(/[\/ˈˌ.\s‿-]/g, '').replace(/ɝ/g, 'ɜr').replace(/ɚ/g, 'ər').replace(/ɡ/g, 'g').replace(/r/g, 'r');
 const STOP = new Set('a an the to of in on at for and or but is are am be it its it’s it\'s i i\'m you your my me we he she they this that no not so up out off down with like just'.split(' '));

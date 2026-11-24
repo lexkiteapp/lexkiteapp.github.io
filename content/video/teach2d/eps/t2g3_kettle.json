@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_kettle",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 39,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: kettle!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A metal pot used for boiling liquids.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "Go and put the kettle on.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "kettle",
+  "ipa": "/ˈketl/",
+  "mean": "a metal pot used for boiling liquids",
+  "ex": "Go and put the kettle on.",
+  "img": "kettle#n",
+  "n": 6
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/kettle",
+  "link": "https://lexkite.com/app/#/dict/kettle",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "kettle",
+  "img": "kettle#n"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 10.3,
+  "wpm": 123
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: K + 5 letters",
+  "keyword": "kettle",
+  "value": "Kettle /ˈketl/ = a metal pot used for boiling liquids. Example: \"Go and put the kettle on.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/kettle",
+  "script_words": 20,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: K + 5 letters",
+    "description": "Kettle /ˈketl/ = a metal pot used for boiling liquids. Example: \"Go and put the kettle on.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/kettle\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "kettle",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: K + 5 letters\n\nKettle /ˈketl/ = a metal pot used for boiling liquids. Example: \"Go and put the kettle on.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/kettle"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: K + 5 letters\n\nKettle /ˈketl/ = a metal pot used for boiling liquids. Example: \"Go and put the kettle on.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: K + 5 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: kettle. A metal pot used for boiling liquids. Example: \"Go and put the kettle on.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

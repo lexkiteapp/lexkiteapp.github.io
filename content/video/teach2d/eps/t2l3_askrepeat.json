@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_askrepeat",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 25,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask to repeat: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Again, please.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Could you say that again, please?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Sorry, I didn't catch that.",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "ask-repeat",
+  "title": "Ask to repeat",
+  "em": "🔁",
+  "chip": "In a chat",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "Again, please.",
+    "key": "Again",
+    "note": "Short, but a bit blunt."
+   },
+   "b": {
+    "text": "Could you say that again, please?",
+    "key": "say that again",
+    "note": "Polite and clear."
+   },
+   "c": {
+    "text": "Sorry, I didn't catch that.",
+    "key": "didn't catch",
+    "note": "What natives say."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Didn't catch",
+    "Again"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Ask to repeat: three levels!"
+ },
+ "src": {
+  "levels3": "ask-repeat"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 9.8,
+  "wpm": 123
+ },
+ "publish": {
+  "title": "Ask to repeat: A1, B1 or C1?",
+  "keyword": "ask to repeat",
+  "value": "Ask to repeat, three ways. A1: \"Again, please.\" B1: \"Could you say that again, please?\" C1: \"Sorry, I didn't catch that.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Ask to repeat: A1, B1 or C1?",
+    "description": "Ask to repeat, three ways. A1: \"Again, please.\" B1: \"Could you say that again, please?\" C1: \"Sorry, I didn't catch that.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "ask to repeat",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Ask to repeat: A1, B1 or C1?\n\nAsk to repeat, three ways. A1: \"Again, please.\" B1: \"Could you say that again, please?\" C1: \"Sorry, I didn't catch that.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Ask to repeat: A1, B1 or C1?\n\nAsk to repeat, three ways. A1: \"Again, please.\" B1: \"Could you say that again, please?\" C1: \"Sorry, I didn't catch that.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ask to repeat: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Didn't catch. Native line: \"Sorry, I didn't catch that.\" Which level are you? More real English, free: {link}"
+ }
+}

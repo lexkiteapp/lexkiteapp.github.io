@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_fountain",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 37,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Name it in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: fountain!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A structure that sends water into the air.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "We met by the fountain in the plaza.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "fountain",
+  "ipa": "/ˈfaʊntn/",
+  "mean": "a structure that sends water into the air",
+  "ex": "We met by the fountain in the plaza.",
+  "img": "fountain#n",
+  "n": 8
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/fountain",
+  "link": "https://lexkite.com/app/#/dict/fountain",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Name it in three seconds!"
+ },
+ "src": {
+  "word": "fountain",
+  "img": "fountain#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.3,
+  "wpm": 132
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: F + 7 letters",
+  "keyword": "fountain",
+  "value": "Fountain /ˈfaʊntn/ = a structure that sends water into the air. Example: \"We met by the fountain in the plaza.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/fountain",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: F + 7 letters",
+    "description": "Fountain /ˈfaʊntn/ = a structure that sends water into the air. Example: \"We met by the fountain in the plaza.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/fountain\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "fountain",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: F + 7 letters\n\nFountain /ˈfaʊntn/ = a structure that sends water into the air. Example: \"We met by the fountain in the plaza.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/fountain"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: F + 7 letters\n\nFountain /ˈfaʊntn/ = a structure that sends water into the air. Example: \"We met by the fountain in the plaza.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: F + 7 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: fountain. A structure that sends water into the air. Example: \"We met by the fountain in the plaza.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

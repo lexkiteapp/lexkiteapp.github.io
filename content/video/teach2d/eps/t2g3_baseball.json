@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_baseball",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 21,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Name it in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: baseball!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A bat-and-ball game played by two teams.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The company bought baseball tickets for the team.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "baseball",
+  "ipa": "/ˈbeɪsbɔːl/",
+  "mean": "a bat-and-ball game played by two teams",
+  "ex": "The company bought baseball tickets for the team.",
+  "img": "baseball#n",
+  "n": 8
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/baseball",
+  "link": "https://lexkite.com/app/#/dict/baseball",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Name it in three seconds!"
+ },
+ "src": {
+  "word": "baseball",
+  "img": "baseball#n"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.9,
+  "wpm": 121
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: B + 7 letters",
+  "keyword": "baseball",
+  "value": "Baseball /ˈbeɪsbɔːl/ = a bat-and-ball game played by two teams. Example: \"The company bought baseball tickets for the team.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/baseball",
+  "script_words": 23,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: B + 7 letters",
+    "description": "Baseball /ˈbeɪsbɔːl/ = a bat-and-ball game played by two teams. Example: \"The company bought baseball tickets for the team.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/baseball\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "baseball",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: B + 7 letters\n\nBaseball /ˈbeɪsbɔːl/ = a bat-and-ball game played by two teams. Example: \"The company bought baseball tickets for the team.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/baseball"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: B + 7 letters\n\nBaseball /ˈbeɪsbɔːl/ = a bat-and-ball game played by two teams. Example: \"The company bought baseball tickets for the team.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: B + 7 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: baseball. A bat-and-ball game played by two teams. Example: \"The company bought baseball tickets for the team.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

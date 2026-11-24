@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_butter",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 5,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Name it in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: butter!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A yellow food made from cream.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "The hotel breakfast includes bread, butter, jam, and fresh fruit.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "butter",
+  "ipa": "/ˈbʌtər/",
+  "mean": "a yellow food made from cream",
+  "ex": "The hotel breakfast includes bread, butter, jam, and fresh fruit.",
+  "img": "butter#n",
+  "n": 6
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/butter",
+  "link": "https://lexkite.com/app/#/dict/butter",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Name it in three seconds!"
+ },
+ "src": {
+  "word": "butter",
+  "img": "butter#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.6,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: B + 5 letters",
+  "keyword": "butter",
+  "value": "Butter /ˈbʌtər/ = a yellow food made from cream. Example: \"The hotel breakfast includes bread, butter, jam, and fresh fruit.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/butter",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: B + 5 letters",
+    "description": "Butter /ˈbʌtər/ = a yellow food made from cream. Example: \"The hotel breakfast includes bread, butter, jam, and fresh fruit.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/butter\n\nSeries: Guess in 3 Seconds · Teacher: Ama\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "butter",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: B + 5 letters\n\nButter /ˈbʌtər/ = a yellow food made from cream. Example: \"The hotel breakfast includes bread, butter, jam, and fresh fruit.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/butter"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: B + 5 letters\n\nButter /ˈbʌtər/ = a yellow food made from cream. Example: \"The hotel breakfast includes bread, butter, jam, and fresh fruit.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: B + 5 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: butter. A yellow food made from cream. Example: \"The hotel breakfast includes bread, butter, jam, and fresh fruit.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

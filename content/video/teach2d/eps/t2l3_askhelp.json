@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_askhelp",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 32,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Ask for help: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Help me, please.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Excuse me, could you help me?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Sorry, do you have a sec?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "ask-help",
+  "title": "Ask for help",
+  "em": "🆘",
+  "chip": "Everyday",
+  "reg": "polite",
+  "levels": {
+   "a": {
+    "text": "Help me, please.",
+    "key": "Help me",
+    "note": "Clear, but sounds urgent."
+   },
+   "b": {
+    "text": "Excuse me, could you help me?",
+    "key": "could you help me",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "Sorry, do you have a sec?",
+    "key": "a sec",
+    "note": "Very natural, informal."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Help me",
+    "A sec"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Ask for help: three levels!"
+ },
+ "src": {
+  "levels3": "ask-help"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 9.8,
+  "wpm": 135
+ },
+ "publish": {
+  "title": "Ask for help: A1, B1 or C1?",
+  "keyword": "ask for help",
+  "value": "Ask for help, three ways. A1: \"Help me, please.\" B1: \"Excuse me, could you help me?\" C1: \"Sorry, do you have a sec?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "Ask for help: A1, B1 or C1?",
+    "description": "Ask for help, three ways. A1: \"Help me, please.\" B1: \"Excuse me, could you help me?\" C1: \"Sorry, do you have a sec?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "ask for help",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Ask for help: A1, B1 or C1?\n\nAsk for help, three ways. A1: \"Help me, please.\" B1: \"Excuse me, could you help me?\" C1: \"Sorry, do you have a sec?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Ask for help: A1, B1 or C1?\n\nAsk for help, three ways. A1: \"Help me, please.\" B1: \"Excuse me, could you help me?\" C1: \"Sorry, do you have a sec?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ask for help: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: A sec. Native line: \"Sorry, do you have a sec?\" Which level are you? More real English, free: {link}"
+ }
+}

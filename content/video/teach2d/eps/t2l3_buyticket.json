@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_buyticket",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 16,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Buy a ticket: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "One ticket, please.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "A ticket to the city, please.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Can I get a return, please?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "buy-ticket",
+  "title": "Buy a ticket",
+  "em": "🚌",
+  "chip": "At the station",
+  "reg": "neutral",
+  "levels": {
+   "a": {
+    "text": "One ticket, please.",
+    "key": "One ticket",
+    "note": "Short and clear."
+   },
+   "b": {
+    "text": "A ticket to the city, please.",
+    "key": "A ticket to",
+    "note": "Polite and specific."
+   },
+   "c": {
+    "text": "Can I get a return, please?",
+    "key": "a return",
+    "note": "British for round trip."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "A return",
+    "One ticket"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Buy a ticket: three levels!"
+ },
+ "src": {
+  "levels3": "buy-ticket"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.6,
+  "wpm": 125
+ },
+ "publish": {
+  "title": "Buy a ticket: A1, B1 or C1?",
+  "keyword": "buy a ticket",
+  "value": "Buy a ticket, three ways. A1: \"One ticket, please.\" B1: \"A ticket to the city, please.\" C1: \"Can I get a return, please?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "Buy a ticket: A1, B1 or C1?",
+    "description": "Buy a ticket, three ways. A1: \"One ticket, please.\" B1: \"A ticket to the city, please.\" C1: \"Can I get a return, please?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "buy a ticket",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Buy a ticket: A1, B1 or C1?\n\nBuy a ticket, three ways. A1: \"One ticket, please.\" B1: \"A ticket to the city, please.\" C1: \"Can I get a return, please?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Buy a ticket: A1, B1 or C1?\n\nBuy a ticket, three ways. A1: \"One ticket, please.\" B1: \"A ticket to the city, please.\" C1: \"Can I get a return, please?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Buy a ticket: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: A return. Native line: \"Can I get a return, please?\" Which level are you? More real English, free: {link}"
+ }
+}

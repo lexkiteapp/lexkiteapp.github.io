@@ -107,7 +107,7 @@ function Body({ n, t, w, h, T }) {
         borderBottom: `8px solid ${T.pill_ledge}`, boxShadow: k ? `0 0 ${28 * k}px ${col}66` : 'none', fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 12}px`, textAlign: 'center', color: T.ink }}>{n.text}</div>; }
     case 'plus':
       return <div style={{ width: w, height: h, borderRadius: '50%', background: T.card, border: `3px solid ${T.edge}`, color: T.primary, fontFamily: JAK, fontWeight: 800, fontSize: 56, lineHeight: `${h - 8}px`, textAlign: 'center' }}>+</div>;
-    case 'pic': { const [cur, , m] = state(n, t), k = cur === 'clear' ? easeOut(m) : 0;   // polaroid: picture blurred until the answer, then sharp
+    case 'pic': { const [cur, , m] = state(n, t), k = n.sharp || cur === 'clear' ? easeOut(n.sharp ? 1 : m) : 0;   // polaroid: picture blurred until the answer, then sharp (n.sharp = guess3: always sharp, the word is hidden instead)
       return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 30, background: '#FFFFFF', padding: 22, paddingBottom: 54, transform: 'rotate(-3deg)', boxShadow: '0 14px 0 rgba(0,0,0,.25)' }}>
         <div style={{ width: '100%', height: '100%', borderRadius: 16, overflow: 'hidden', background: '#E3F1EE', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Img src={staticFile(n.src)} style={{ width: '78%', height: '78%', objectFit: 'contain', filter: `blur(${(1 - k) * 22}px)`, opacity: 0.5 + 0.5 * k }} /></div></div>; }

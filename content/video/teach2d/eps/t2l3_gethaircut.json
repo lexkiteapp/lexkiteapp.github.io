@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_gethaircut",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 22,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Get a haircut: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "I want short hair.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Could you cut it a bit shorter, please?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Just a trim, please, nothing fancy.",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "get-haircut",
+  "title": "Get a haircut",
+  "em": "💇",
+  "chip": "At the hairdresser",
+  "reg": "casual",
+  "levels": {
+   "a": {
+    "text": "I want short hair.",
+    "key": "short hair",
+    "note": "Clear, but very basic."
+   },
+   "b": {
+    "text": "Could you cut it a bit shorter, please?",
+    "key": "a bit shorter",
+    "note": "Polite and specific."
+   },
+   "c": {
+    "text": "Just a trim, please, nothing fancy.",
+    "key": "a trim",
+    "note": "Short and natural."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "A bit shorter",
+    "A trim"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Get a haircut: three levels!"
+ },
+ "src": {
+  "levels3": "get-haircut"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 11.1,
+  "wpm": 135
+ },
+ "publish": {
+  "title": "Get a haircut: A1, B1 or C1?",
+  "keyword": "get a haircut",
+  "value": "Get a haircut, three ways. A1: \"I want short hair.\" B1: \"Could you cut it a bit shorter, please?\" C1: \"Just a trim, please, nothing fancy.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 18,
+  "platforms": {
+   "youtube": {
+    "title": "Get a haircut: A1, B1 or C1?",
+    "description": "Get a haircut, three ways. A1: \"I want short hair.\" B1: \"Could you cut it a bit shorter, please?\" C1: \"Just a trim, please, nothing fancy.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "get a haircut",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Get a haircut: A1, B1 or C1?\n\nGet a haircut, three ways. A1: \"I want short hair.\" B1: \"Could you cut it a bit shorter, please?\" C1: \"Just a trim, please, nothing fancy.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Get a haircut: A1, B1 or C1?\n\nGet a haircut, three ways. A1: \"I want short hair.\" B1: \"Could you cut it a bit shorter, please?\" C1: \"Just a trim, please, nothing fancy.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Get a haircut: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: A trim. Native line: \"Just a trim, please, nothing fancy.\" Which level are you? More real English, free: {link}"
+ }
+}

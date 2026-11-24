@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_weekendplans",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 35,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Weekend plans: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "What do you do on Sunday?",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "What are you doing this weekend?",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Got any plans for the weekend?",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "weekend-plans",
+  "title": "Weekend plans",
+  "em": "📅",
+  "chip": "With a friend",
+  "reg": "casual",
+  "levels": {
+   "a": {
+    "text": "What do you do on Sunday?",
+    "key": "What do you do",
+    "note": "Correct, but a bit flat."
+   },
+   "b": {
+    "text": "What are you doing this weekend?",
+    "key": "doing this weekend",
+    "note": "Natural and standard."
+   },
+   "c": {
+    "text": "Got any plans for the weekend?",
+    "key": "any plans",
+    "note": "Natives drop the start."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Doing this weekend",
+    "Any plans"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Weekend plans: three levels!"
+ },
+ "src": {
+  "levels3": "weekend-plans"
+ },
+ "est": {
+  "words": 24,
+  "seconds": 11.1,
+  "wpm": 129
+ },
+ "publish": {
+  "title": "Weekend plans: A1, B1 or C1?",
+  "keyword": "weekend plans",
+  "value": "Weekend plans, three ways. A1: \"What do you do on Sunday?\" B1: \"What are you doing this weekend?\" C1: \"Got any plans for the weekend?\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 17,
+  "platforms": {
+   "youtube": {
+    "title": "Weekend plans: A1, B1 or C1?",
+    "description": "Weekend plans, three ways. A1: \"What do you do on Sunday?\" B1: \"What are you doing this weekend?\" C1: \"Got any plans for the weekend?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "weekend plans",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Weekend plans: A1, B1 or C1?\n\nWeekend plans, three ways. A1: \"What do you do on Sunday?\" B1: \"What are you doing this weekend?\" C1: \"Got any plans for the weekend?\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Weekend plans: A1, B1 or C1?\n\nWeekend plans, three ways. A1: \"What do you do on Sunday?\" B1: \"What are you doing this weekend?\" C1: \"Got any plans for the weekend?\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Weekend plans: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Any plans. Native line: \"Got any plans for the weekend?\" Which level are you? More real English, free: {link}"
+ }
+}

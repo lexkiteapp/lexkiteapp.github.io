@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_meetneighbour",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 13,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Meet a neighbour: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Hello. I live here.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Hi, I live next door.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Hi, I just moved in next door.",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "meet-neighbour",
+  "title": "Meet a neighbour",
+  "em": "🏠",
+  "chip": "In the building",
+  "reg": "casual",
+  "levels": {
+   "a": {
+    "text": "Hello. I live here.",
+    "key": "I live here",
+    "note": "Clear, a little stiff."
+   },
+   "b": {
+    "text": "Hi, I live next door.",
+    "key": "next door",
+    "note": "Friendly and clear."
+   },
+   "c": {
+    "text": "Hi, I just moved in next door.",
+    "key": "just moved in",
+    "note": "Short and natural."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Next door",
+    "Just moved in"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Meet a neighbour: three levels!"
+ },
+ "src": {
+  "levels3": "meet-neighbour"
+ },
+ "est": {
+  "words": 23,
+  "seconds": 10.3,
+  "wpm": 134
+ },
+ "publish": {
+  "title": "Meet a neighbour: A1, B1 or C1?",
+  "keyword": "meet a neighbour",
+  "value": "Meet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hi, I live next door.\" C1: \"Hi, I just moved in next door.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "Meet a neighbour: A1, B1 or C1?",
+    "description": "Meet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hi, I live next door.\" C1: \"Hi, I just moved in next door.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "meet a neighbour",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Meet a neighbour: A1, B1 or C1?\n\nMeet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hi, I live next door.\" C1: \"Hi, I just moved in next door.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Meet a neighbour: A1, B1 or C1?\n\nMeet a neighbour, three ways. A1: \"Hello. I live here.\" B1: \"Hi, I live next door.\" C1: \"Hi, I just moved in next door.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Meet a neighbour: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Just moved in. Native line: \"Hi, I just moved in next door.\" Which level are you? More real English, free: {link}"
+ }
+}

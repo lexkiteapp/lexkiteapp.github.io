@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_scarf",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 30,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: scarf!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A piece of cloth worn around the neck.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "She bought a silk scarf at the airport shop.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "word": "scarf",
+  "ipa": "/skɑːrf/",
+  "mean": "a piece of cloth worn around the neck",
+  "ex": "She bought a silk scarf at the airport shop.",
+  "img": "scarf#n",
+  "n": 5
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/scarf",
+  "link": "https://lexkite.com/app/#/dict/scarf",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "scarf",
+  "img": "scarf#n"
+ },
+ "est": {
+  "words": 25,
+  "seconds": 10.3,
+  "wpm": 146
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: S + 4 letters",
+  "keyword": "scarf",
+  "value": "Scarf /skɑːrf/ = a piece of cloth worn around the neck. Example: \"She bought a silk scarf at the airport shop.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/scarf",
+  "script_words": 24,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: S + 4 letters",
+    "description": "Scarf /skɑːrf/ = a piece of cloth worn around the neck. Example: \"She bought a silk scarf at the airport shop.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/scarf\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "scarf",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: S + 4 letters\n\nScarf /skɑːrf/ = a piece of cloth worn around the neck. Example: \"She bought a silk scarf at the airport shop.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/scarf"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: S + 4 letters\n\nScarf /skɑːrf/ = a piece of cloth worn around the neck. Example: \"She bought a silk scarf at the airport shop.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: S + 4 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: scarf. A piece of cloth worn around the neck. Example: \"She bought a silk scarf at the airport shop.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "id": "t2g3_bandage",
+ "template": "guess3",
+ "series": "Guess in 3 Seconds",
+ "part": 32,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess in three seconds!",
+   "pause": 1.5
+  },
+  {
+   "id": "a",
+   "text": "Answer: bandage!",
+   "pause": 0.15
+  },
+  {
+   "id": "m",
+   "text": "A strip of gauze used to protect a wound.",
+   "pause": 0.1
+  },
+  {
+   "id": "e",
+   "text": "I'll look for a bandage.",
+   "pause": 0.15
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.3
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "word": "bandage",
+  "ipa": "/ˈbændɪdʒ/",
+  "mean": "a strip of gauze used to protect a wound",
+  "ex": "I'll look for a bandage.",
+  "img": "bandage#n",
+  "n": 7
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/bandage",
+  "link": "https://lexkite.com/app/#/dict/bandage",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess in three seconds!"
+ },
+ "src": {
+  "word": "bandage",
+  "img": "bandage#n"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.0,
+  "wpm": 132
+ },
+ "publish": {
+  "title": "Guess in 3 seconds: B + 6 letters",
+  "keyword": "bandage",
+  "value": "Bandage /ˈbændɪdʒ/ = a strip of gauze used to protect a wound. Example: \"I'll look for a bandage.\"",
+  "hashtags": [
+   "#guesstheword",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#englishquiz",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/dict/bandage",
+  "script_words": 21,
+  "platforms": {
+   "youtube": {
+    "title": "Guess in 3 seconds: B + 6 letters",
+    "description": "Bandage /ˈbændɪdʒ/ = a strip of gauze used to protect a wound. Example: \"I'll look for a bandage.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/bandage\n\nSeries: Guess in 3 Seconds · Teacher: Carlos\n\n#guesstheword #learnenglish #englishvocabulary #englishquiz #englishtips",
+    "tags": [
+     "bandage",
+     "Guess in 3 Seconds",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Guess in 3 seconds: B + 6 letters\n\nBandage /ˈbændɪdʒ/ = a strip of gauze used to protect a wound. Example: \"I'll look for a bandage.\"\n\nLook up any word, free: https://lexkite.com/app/#/dict/bandage"
+   },
+   "instagram": {
+    "caption": "Guess in 3 seconds: B + 6 letters\n\nBandage /ˈbændɪdʒ/ = a strip of gauze used to protect a wound. Example: \"I'll look for a bandage.\"\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#guesstheword",
+     "#learnenglish",
+     "#englishvocabulary",
+     "#englishquiz",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Guess in 3 seconds: B + 6 letters #guesstheword #learnenglish #englishvocabulary"
+   }
+  },
+  "first_comment": "Answer: bandage. A strip of gauze used to protect a wound. Example: \"I'll look for a bandage.\" Did you guess it in time? More picture quizzes, free: {link}"
+ }
+}

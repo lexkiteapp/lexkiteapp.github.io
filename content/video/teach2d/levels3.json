@@ -1,0 +1,1413 @@
+{
+ "_note": "Levels 3 bank (docs/VIDEO-TEACH2D.md \"Levels 3\"): one situation said at A1 / B1 / C1. Validator: node scripts/say-native/levels3.mjs --check",
+ "items": [
+  {
+   "id": "order-coffee",
+   "title": "Order coffee",
+   "em": "☕",
+   "chip": "At a café",
+   "reg": "casual",
+   "a": {
+    "text": "I want a coffee, please.",
+    "key": "I want",
+    "note": "Clear, but a little blunt."
+   },
+   "b": {
+    "text": "Could I have a large latte, please?",
+    "key": "Could I have",
+    "note": "Polite and natural."
+   },
+   "c": {
+    "text": "Can I grab a flat white to go?",
+    "key": "grab",
+    "note": "\"Grab\" means get. Quick and casual."
+   }
+  },
+  {
+   "id": "airport-checkin",
+   "title": "Airport check-in",
+   "em": "✈️",
+   "chip": "At the airport",
+   "reg": "neutral",
+   "a": {
+    "text": "Here is my passport.",
+    "key": "Here is",
+    "note": "Simple and clear."
+   },
+   "b": {
+    "text": "I'd like to check in, please.",
+    "key": "check in",
+    "note": "Polite and clear."
+   },
+   "c": {
+    "text": "Hi, I'm just checking in for my flight.",
+    "key": "checking in for",
+    "note": "Friendly, with a softener."
+   }
+  },
+  {
+   "id": "ask-directions",
+   "title": "Ask directions",
+   "em": "🧭",
+   "chip": "On the street",
+   "reg": "neutral",
+   "a": {
+    "text": "Where is the station?",
+    "key": "Where is",
+    "note": "Basic but correct."
+   },
+   "b": {
+    "text": "How do I get to the station?",
+    "key": "How do I get",
+    "note": "Polite and natural."
+   },
+   "c": {
+    "text": "I'm trying to get to the station.",
+    "key": "trying to get to",
+    "note": "Says your goal, not a question."
+   }
+  },
+  {
+   "id": "hotel-checkin",
+   "title": "Hotel check-in",
+   "em": "🏨",
+   "chip": "At the hotel",
+   "reg": "polite",
+   "a": {
+    "text": "I have a room.",
+    "key": "I have",
+    "note": "Understood, but very basic."
+   },
+   "b": {
+    "text": "I have a reservation.",
+    "key": "a reservation",
+    "note": "Standard hotel English."
+   },
+   "c": {
+    "text": "Hi, I've got a booking.",
+    "key": "I've got a",
+    "note": "Relaxed and friendly."
+   }
+  },
+  {
+   "id": "book-table",
+   "title": "Book a table",
+   "em": "🍽️",
+   "chip": "At a restaurant",
+   "reg": "polite",
+   "a": {
+    "text": "A table for two, please.",
+    "key": "A table for",
+    "note": "Short and clear."
+   },
+   "b": {
+    "text": "Could we have a table for two?",
+    "key": "Could we have",
+    "note": "Polite and natural."
+   },
+   "c": {
+    "text": "Hi, have you got a table?",
+    "key": "have you got",
+    "note": "Common in British English."
+   }
+  },
+  {
+   "id": "order-food",
+   "title": "Order food",
+   "em": "🍕",
+   "chip": "At a restaurant",
+   "reg": "neutral",
+   "a": {
+    "text": "I want a pizza, please.",
+    "key": "I want",
+    "note": "Fine, but sounds like a list."
+   },
+   "b": {
+    "text": "I'd like the chicken pasta, please.",
+    "key": "I'd like",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "I'll go for the chicken pasta.",
+    "key": "I'll go for",
+    "note": "Natural when you decide."
+   }
+  },
+  {
+   "id": "pay-bill",
+   "title": "Pay the bill",
+   "em": "🧾",
+   "chip": "At a restaurant",
+   "reg": "neutral",
+   "a": {
+    "text": "The bill, please.",
+    "key": "The bill",
+    "note": "Short and polite."
+   },
+   "b": {
+    "text": "Could we have the bill, please?",
+    "key": "Could we have",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "Could we get the bill? No rush.",
+    "key": "No rush",
+    "note": "Friendly, no pressure."
+   }
+  },
+  {
+   "id": "ask-size",
+   "title": "Ask for size",
+   "em": "👕",
+   "chip": "In a shop",
+   "reg": "neutral",
+   "a": {
+    "text": "Is there a bigger one?",
+    "key": "bigger one",
+    "note": "Clear and simple."
+   },
+   "b": {
+    "text": "Do you have a larger size?",
+    "key": "a larger size",
+    "note": "Shop language."
+   },
+   "c": {
+    "text": "Any chance you've got a large?",
+    "key": "Any chance",
+    "note": "Soft and very natural."
+   }
+  },
+  {
+   "id": "return-item",
+   "title": "Return something",
+   "em": "📦",
+   "chip": "In a shop",
+   "reg": "neutral",
+   "a": {
+    "text": "I want my money back.",
+    "key": "money back",
+    "note": "Clear, but quite strong."
+   },
+   "b": {
+    "text": "I'd like to return this, please.",
+    "key": "return this",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "Hi, I need to bring this back.",
+    "key": "bring this back",
+    "note": "Everyday phrasal verb."
+   }
+  },
+  {
+   "id": "see-doctor",
+   "title": "See a doctor",
+   "em": "🩺",
+   "chip": "At the clinic",
+   "reg": "neutral",
+   "a": {
+    "text": "I need a doctor.",
+    "key": "I need",
+    "note": "Clear, but very basic."
+   },
+   "b": {
+    "text": "I'd like an appointment, please.",
+    "key": "an appointment",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "I was hoping to get seen today.",
+    "key": "was hoping to",
+    "note": "Softer and very natural."
+   }
+  },
+  {
+   "id": "ask-for-someone",
+   "title": "Ask for someone",
+   "em": "📞",
+   "chip": "On the phone",
+   "reg": "polite",
+   "a": {
+    "text": "Is Ana there?",
+    "key": "Is Ana",
+    "note": "Clear, a little direct."
+   },
+   "b": {
+    "text": "Hello, could I speak to Ana?",
+    "key": "Could I speak to",
+    "note": "Standard phone English."
+   },
+   "c": {
+    "text": "Hi, is Ana free for a quick word?",
+    "key": "a quick word",
+    "note": "Polite and relaxed."
+   }
+  },
+  {
+   "id": "job-intro",
+   "title": "Job interview",
+   "em": "💼",
+   "chip": "At an interview",
+   "reg": "formal",
+   "a": {
+    "text": "I work in a shop.",
+    "key": "I work in",
+    "note": "Simple, but very short."
+   },
+   "b": {
+    "text": "I have three years of experience.",
+    "key": "years of experience",
+    "note": "Clear and professional."
+   },
+   "c": {
+    "text": "I've been in sales for three years.",
+    "key": "for three years",
+    "note": "Smooth, like a story."
+   }
+  },
+  {
+   "id": "meet-neighbour",
+   "title": "Meet a neighbour",
+   "em": "🏠",
+   "chip": "In the building",
+   "reg": "casual",
+   "a": {
+    "text": "Hello. I live here.",
+    "key": "I live here",
+    "note": "Clear, a little stiff."
+   },
+   "b": {
+    "text": "Hi, I live next door.",
+    "key": "next door",
+    "note": "Friendly and clear."
+   },
+   "c": {
+    "text": "Hi, I just moved in next door.",
+    "key": "just moved in",
+    "note": "Short and natural."
+   }
+  },
+  {
+   "id": "noisy-neighbours",
+   "title": "Noisy neighbours",
+   "em": "🔊",
+   "chip": "At the door",
+   "reg": "polite",
+   "a": {
+    "text": "Please be quiet. It's late.",
+    "key": "be quiet",
+    "note": "Clear, but quite strong."
+   },
+   "b": {
+    "text": "Could you be a bit quieter, please?",
+    "key": "a bit quieter",
+    "note": "Polite and soft."
+   },
+   "c": {
+    "text": "Sorry, could you keep the noise down?",
+    "key": "keep the noise down",
+    "note": "A real, everyday phrase."
+   }
+  },
+  {
+   "id": "take-taxi",
+   "title": "Take a taxi",
+   "em": "🚕",
+   "chip": "In a taxi",
+   "reg": "neutral",
+   "a": {
+    "text": "To the airport, please.",
+    "key": "To the airport",
+    "note": "Short and polite."
+   },
+   "b": {
+    "text": "Could you take me to the airport?",
+    "key": "take me to",
+    "note": "Polite, full sentence."
+   },
+   "c": {
+    "text": "Could you drop me off there?",
+    "key": "drop me off",
+    "note": "What locals really say."
+   }
+  },
+  {
+   "id": "buy-ticket",
+   "title": "Buy a ticket",
+   "em": "🚌",
+   "chip": "At the station",
+   "reg": "neutral",
+   "a": {
+    "text": "One ticket, please.",
+    "key": "One ticket",
+    "note": "Short and clear."
+   },
+   "b": {
+    "text": "A ticket to the city, please.",
+    "key": "A ticket to",
+    "note": "Polite and specific."
+   },
+   "c": {
+    "text": "Can I get a return, please?",
+    "key": "a return",
+    "note": "British for round trip."
+   }
+  },
+  {
+   "id": "train-late",
+   "title": "Train is late",
+   "em": "🚆",
+   "chip": "At the station",
+   "reg": "neutral",
+   "a": {
+    "text": "The train is late.",
+    "key": "is late",
+    "note": "Simple, but clear."
+   },
+   "b": {
+    "text": "Do you know why the train is late?",
+    "key": "Do you know why",
+    "note": "Polite and clear."
+   },
+   "c": {
+    "text": "Any idea why the train's running late?",
+    "key": "running late",
+    "note": "Natural and common."
+   }
+  },
+  {
+   "id": "ask-bag",
+   "title": "Get a bag",
+   "em": "🛍️",
+   "chip": "At the till",
+   "reg": "neutral",
+   "a": {
+    "text": "A bag, please.",
+    "key": "A bag",
+    "note": "Short and polite."
+   },
+   "b": {
+    "text": "Could I have a bag, please?",
+    "key": "Could I have",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "Could I get a bag with that?",
+    "key": "with that",
+    "note": "Natural at the till."
+   }
+  },
+  {
+   "id": "at-pharmacy",
+   "title": "At the pharmacy",
+   "em": "💊",
+   "chip": "At the pharmacy",
+   "reg": "neutral",
+   "a": {
+    "text": "I have a cold.",
+    "key": "I have",
+    "note": "Clear, but very basic."
+   },
+   "b": {
+    "text": "Do you have anything for a cold?",
+    "key": "anything for",
+    "note": "Polite and natural."
+   },
+   "c": {
+    "text": "I've come down with a cold.",
+    "key": "come down with",
+    "note": "A real phrasal verb for illness."
+   }
+  },
+  {
+   "id": "join-gym",
+   "title": "Join a gym",
+   "em": "🏋️",
+   "chip": "At the gym",
+   "reg": "neutral",
+   "a": {
+    "text": "I want to join.",
+    "key": "I want to join",
+    "note": "Clear, but a little blunt."
+   },
+   "b": {
+    "text": "Hi, I'd like to sign up, please.",
+    "key": "sign up",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "Hi, I'm thinking of signing up.",
+    "key": "thinking of",
+    "note": "Casual, open and natural."
+   }
+  },
+  {
+   "id": "cinema-tickets",
+   "title": "Buy cinema tickets",
+   "em": "🎬",
+   "chip": "At the cinema",
+   "reg": "neutral",
+   "a": {
+    "text": "Two tickets, please.",
+    "key": "Two tickets",
+    "note": "Short and clear."
+   },
+   "b": {
+    "text": "Could I get two tickets, please?",
+    "key": "Could I get",
+    "note": "Polite and specific."
+   },
+   "c": {
+    "text": "Two for the eight o'clock, please.",
+    "key": "Two for",
+    "note": "Natives drop the nouns."
+   }
+  },
+  {
+   "id": "get-haircut",
+   "title": "Get a haircut",
+   "em": "💇",
+   "chip": "At the hairdresser",
+   "reg": "casual",
+   "a": {
+    "text": "I want short hair.",
+    "key": "short hair",
+    "note": "Clear, but very basic."
+   },
+   "b": {
+    "text": "Could you cut it a bit shorter, please?",
+    "key": "a bit shorter",
+    "note": "Polite and specific."
+   },
+   "c": {
+    "text": "Just a trim, please, nothing fancy.",
+    "key": "a trim",
+    "note": "Short and natural."
+   }
+  },
+  {
+   "id": "accept-invite",
+   "title": "Accept an invite",
+   "em": "🎉",
+   "chip": "By text",
+   "reg": "casual",
+   "a": {
+    "text": "Yes, I can come.",
+    "key": "I can come",
+    "note": "Clear, a bit plain."
+   },
+   "b": {
+    "text": "Thanks for inviting me, I'd love to come.",
+    "key": "I'd love to",
+    "note": "Warm and polite."
+   },
+   "c": {
+    "text": "Count me in! What time works?",
+    "key": "Count me in",
+    "note": "A classic, friendly yes."
+   }
+  },
+  {
+   "id": "say-no-politely",
+   "title": "Say no politely",
+   "em": "🙅",
+   "chip": "By text",
+   "reg": "polite",
+   "a": {
+    "text": "I can't come. Sorry.",
+    "key": "I can't",
+    "note": "Clear, but a bit cold."
+   },
+   "b": {
+    "text": "Thank you, but I'm busy that day.",
+    "key": "I'm busy",
+    "note": "Polite, with a reason."
+   },
+   "c": {
+    "text": "Thanks, but I'll pass this time.",
+    "key": "pass this time",
+    "note": "A soft, friendly no."
+   }
+  },
+  {
+   "id": "ask-repeat",
+   "title": "Ask to repeat",
+   "em": "🔁",
+   "chip": "In a chat",
+   "reg": "neutral",
+   "a": {
+    "text": "Again, please.",
+    "key": "Again",
+    "note": "Short, but a bit blunt."
+   },
+   "b": {
+    "text": "Could you say that again, please?",
+    "key": "say that again",
+    "note": "Polite and clear."
+   },
+   "c": {
+    "text": "Sorry, I didn't catch that.",
+    "key": "didn't catch",
+    "note": "What natives say."
+   }
+  },
+  {
+   "id": "slow-down",
+   "title": "Slow it down",
+   "em": "🐢",
+   "chip": "In a chat",
+   "reg": "polite",
+   "a": {
+    "text": "Not so fast, please.",
+    "key": "Not so fast",
+    "note": "Understood, but not natural."
+   },
+   "b": {
+    "text": "Could you speak more slowly, please?",
+    "key": "more slowly",
+    "note": "Polite and correct."
+   },
+   "c": {
+    "text": "Sorry, could you slow down a bit?",
+    "key": "slow down",
+    "note": "Natural and friendly."
+   }
+  },
+  {
+   "id": "say-thanks",
+   "title": "Say thanks",
+   "em": "🙏",
+   "chip": "Everyday",
+   "reg": "casual",
+   "a": {
+    "text": "Thank you.",
+    "key": "Thank you",
+    "note": "Always correct."
+   },
+   "b": {
+    "text": "Thank you so much for your help.",
+    "key": "so much",
+    "note": "Warmer and polite."
+   },
+   "c": {
+    "text": "Thanks a million, I owe you one.",
+    "key": "I owe you one",
+    "note": "You promise to help back."
+   }
+  },
+  {
+   "id": "say-sorry",
+   "title": "Say sorry",
+   "em": "😬",
+   "chip": "Everyday",
+   "reg": "casual",
+   "a": {
+    "text": "I am sorry.",
+    "key": "I am sorry",
+    "note": "Clear and simple."
+   },
+   "b": {
+    "text": "I'm so sorry. I didn't mean to.",
+    "key": "didn't mean to",
+    "note": "Shows it was an accident."
+   },
+   "c": {
+    "text": "Oops, my bad, I wasn't looking.",
+    "key": "my bad",
+    "note": "Casual sorry between friends."
+   }
+  },
+  {
+   "id": "give-compliment",
+   "title": "Give a compliment",
+   "em": "😍",
+   "chip": "With a friend",
+   "reg": "casual",
+   "a": {
+    "text": "Your shirt is nice.",
+    "key": "is nice",
+    "note": "Correct, but plain."
+   },
+   "b": {
+    "text": "I really like your shirt.",
+    "key": "really like",
+    "note": "Warm and clear."
+   },
+   "c": {
+    "text": "Love your shirt, where did you get it?",
+    "key": "Love your",
+    "note": "Natives drop the \"I\"."
+   }
+  },
+  {
+   "id": "agree-with",
+   "title": "Agree with someone",
+   "em": "👍",
+   "chip": "In a chat",
+   "reg": "casual",
+   "a": {
+    "text": "Yes, I think so too.",
+    "key": "I think so",
+    "note": "Clear and simple."
+   },
+   "b": {
+    "text": "I totally agree with you.",
+    "key": "totally agree",
+    "note": "Strong and clear."
+   },
+   "c": {
+    "text": "You can say that again!",
+    "key": "say that again",
+    "note": "A fun, strong \"yes\"."
+   }
+  },
+  {
+   "id": "disagree-politely",
+   "title": "Disagree politely",
+   "em": "🤔",
+   "chip": "In a chat",
+   "reg": "polite",
+   "a": {
+    "text": "I don't think so.",
+    "key": "I don't think",
+    "note": "Correct, but a bit direct."
+   },
+   "b": {
+    "text": "I'm not sure I agree.",
+    "key": "not sure I agree",
+    "note": "Polite and careful."
+   },
+   "c": {
+    "text": "I hear you, but I doubt it.",
+    "key": "I hear you",
+    "note": "Shows you listened first."
+   }
+  },
+  {
+   "id": "ask-help",
+   "title": "Ask for help",
+   "em": "🆘",
+   "chip": "Everyday",
+   "reg": "polite",
+   "a": {
+    "text": "Help me, please.",
+    "key": "Help me",
+    "note": "Clear, but sounds urgent."
+   },
+   "b": {
+    "text": "Excuse me, could you help me?",
+    "key": "could you help me",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "Sorry, do you have a sec?",
+    "key": "a sec",
+    "note": "Very natural, informal."
+   }
+  },
+  {
+   "id": "ask-wait",
+   "title": "Ask to wait",
+   "em": "⏳",
+   "chip": "At work",
+   "reg": "polite",
+   "a": {
+    "text": "Wait, please. One minute.",
+    "key": "One minute",
+    "note": "Clear, but a bit stiff."
+   },
+   "b": {
+    "text": "Could you give me a minute, please?",
+    "key": "give me a minute",
+    "note": "Polite and clear."
+   },
+   "c": {
+    "text": "Hang on, I'll be right with you.",
+    "key": "Hang on",
+    "note": "Casual and friendly."
+   }
+  },
+  {
+   "id": "small-talk",
+   "title": "Small talk",
+   "em": "💬",
+   "chip": "In a queue",
+   "reg": "casual",
+   "a": {
+    "text": "It's a nice day.",
+    "key": "nice day",
+    "note": "Clear, but simple."
+   },
+   "b": {
+    "text": "The weather is lovely today, isn't it?",
+    "key": "isn't it",
+    "note": "Classic small talk."
+   },
+   "c": {
+    "text": "Lovely day, isn't it?",
+    "key": "Lovely day",
+    "note": "Natives cut the start."
+   }
+  },
+  {
+   "id": "weekend-plans",
+   "title": "Weekend plans",
+   "em": "📅",
+   "chip": "With a friend",
+   "reg": "casual",
+   "a": {
+    "text": "What do you do on Sunday?",
+    "key": "What do you do",
+    "note": "Correct, but a bit flat."
+   },
+   "b": {
+    "text": "What are you doing this weekend?",
+    "key": "doing this weekend",
+    "note": "Natural and standard."
+   },
+   "c": {
+    "text": "Got any plans for the weekend?",
+    "key": "any plans",
+    "note": "Natives drop the start."
+   }
+  },
+  {
+   "id": "ask-time",
+   "title": "Ask the time",
+   "em": "🕒",
+   "chip": "On the street",
+   "reg": "polite",
+   "a": {
+    "text": "What time is it?",
+    "key": "What time",
+    "note": "Simple and correct."
+   },
+   "b": {
+    "text": "Excuse me, do you know the time?",
+    "key": "do you know",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "Sorry, do you happen to have the time?",
+    "key": "happen to have",
+    "note": "A soft, polite opening."
+   }
+  },
+  {
+   "id": "get-online",
+   "title": "Get online",
+   "em": "📶",
+   "chip": "At a café",
+   "reg": "casual",
+   "a": {
+    "text": "Do you have internet?",
+    "key": "internet",
+    "note": "Clear and simple."
+   },
+   "b": {
+    "text": "Could I have the Wi-Fi code?",
+    "key": "the Wi-Fi code",
+    "note": "Polite and exact."
+   },
+   "c": {
+    "text": "What's the Wi-Fi password, by the way?",
+    "key": "by the way",
+    "note": "Casual, easy tone."
+   }
+  },
+  {
+   "id": "lost-bag",
+   "title": "Lost luggage",
+   "em": "🧳",
+   "chip": "At the airport",
+   "reg": "neutral",
+   "a": {
+    "text": "My bag is not here.",
+    "key": "not here",
+    "note": "Clear, but basic."
+   },
+   "b": {
+    "text": "Excuse me, my bag didn't arrive.",
+    "key": "didn't arrive",
+    "note": "Clear and polite."
+   },
+   "c": {
+    "text": "Hi, my bag never showed up.",
+    "key": "showed up",
+    "note": "Natural for \"it did not arrive\"."
+   }
+  },
+  {
+   "id": "arrive-late",
+   "title": "Arrive late",
+   "em": "⏰",
+   "chip": "At work",
+   "reg": "casual",
+   "a": {
+    "text": "I am late. Sorry.",
+    "key": "I am late",
+    "note": "Clear, but blunt."
+   },
+   "b": {
+    "text": "Sorry I'm late. The traffic was bad.",
+    "key": "The traffic was bad",
+    "note": "Gives a reason."
+   },
+   "c": {
+    "text": "Sorry I'm late, I got held up.",
+    "key": "held up",
+    "note": "A natural reason, no detail."
+   }
+  },
+  {
+   "id": "move-meeting",
+   "title": "Move a meeting",
+   "em": "📆",
+   "chip": "At work",
+   "reg": "neutral",
+   "a": {
+    "text": "Can we meet on Monday?",
+    "key": "Can we meet",
+    "note": "Clear and simple."
+   },
+   "b": {
+    "text": "Could we move the meeting?",
+    "key": "move the meeting",
+    "note": "Polite and specific."
+   },
+   "c": {
+    "text": "Could we push it to Monday?",
+    "key": "push it to",
+    "note": "Flexible and natural."
+   }
+  },
+  {
+   "id": "need-time",
+   "title": "Need more time",
+   "em": "⌛",
+   "chip": "At work",
+   "reg": "polite",
+   "a": {
+    "text": "More time, please.",
+    "key": "More time",
+    "note": "Clear, a bit direct."
+   },
+   "b": {
+    "text": "Could I have a bit more time?",
+    "key": "a bit more time",
+    "note": "Polite and formal."
+   },
+   "c": {
+    "text": "Could I get a bit of an extension?",
+    "key": "an extension",
+    "note": "Natural work language."
+   }
+  },
+  {
+   "id": "post-office",
+   "title": "Post office",
+   "em": "📮",
+   "chip": "At the post office",
+   "reg": "neutral",
+   "a": {
+    "text": "I want to send this.",
+    "key": "I want",
+    "note": "Clear, a little blunt."
+   },
+   "b": {
+    "text": "Could I post this parcel to Spain?",
+    "key": "post this parcel",
+    "note": "Polite and specific."
+   },
+   "c": {
+    "text": "Hi, I need to send it to Spain.",
+    "key": "send it to",
+    "note": "Short and everyday."
+   }
+  },
+  {
+   "id": "borrow-book",
+   "title": "Borrow a book",
+   "em": "📚",
+   "chip": "At the library",
+   "reg": "neutral",
+   "a": {
+    "text": "I want this book, please.",
+    "key": "this book",
+    "note": "Clear, but not natural."
+   },
+   "b": {
+    "text": "Could I borrow this book, please?",
+    "key": "borrow this book",
+    "note": "Polite and natural."
+   },
+   "c": {
+    "text": "Can I check out this book?",
+    "key": "check out",
+    "note": "\"Check out\" means borrow."
+   }
+  },
+  {
+   "id": "rainy-day",
+   "title": "Talk about rain",
+   "em": "☔",
+   "chip": "Small talk",
+   "reg": "casual",
+   "a": {
+    "text": "It is raining.",
+    "key": "is raining",
+    "note": "Correct, but very plain."
+   },
+   "b": {
+    "text": "It's raining really hard today.",
+    "key": "really hard",
+    "note": "Natural and clear."
+   },
+   "c": {
+    "text": "It's raining cats and dogs!",
+    "key": "cats and dogs",
+    "note": "A fun idiom for heavy rain."
+   }
+  },
+  {
+   "id": "say-hungry",
+   "title": "Say you're hungry",
+   "em": "🍽️",
+   "chip": "With a friend",
+   "reg": "casual",
+   "a": {
+    "text": "I am hungry.",
+    "key": "I am hungry",
+    "note": "Clear and correct."
+   },
+   "b": {
+    "text": "I'm really hungry. Let's eat.",
+    "key": "Let's eat",
+    "note": "Clear and friendly."
+   },
+   "c": {
+    "text": "I'm starving! Let's grab a bite.",
+    "key": "grab a bite",
+    "note": "Natural and very common."
+   }
+  },
+  {
+   "id": "say-tired",
+   "title": "Say you're tired",
+   "em": "😴",
+   "chip": "With a friend",
+   "reg": "casual",
+   "a": {
+    "text": "I want to sleep.",
+    "key": "want to sleep",
+    "note": "Clear and correct."
+   },
+   "b": {
+    "text": "I'm very tired. I need a rest.",
+    "key": "need a rest",
+    "note": "Clear, a bit formal."
+   },
+   "c": {
+    "text": "Let's call it a night.",
+    "key": "call it a night",
+    "note": "A natural way to stop."
+   }
+  },
+  {
+   "id": "get-discount",
+   "title": "Get a discount",
+   "em": "🏷️",
+   "chip": "In a shop",
+   "reg": "casual",
+   "a": {
+    "text": "Can it be cheaper, please?",
+    "key": "cheaper",
+    "note": "Clear, a bit direct."
+   },
+   "b": {
+    "text": "Could you give me a discount, please?",
+    "key": "a discount",
+    "note": "Polite and direct."
+   },
+   "c": {
+    "text": "Is that your best price?",
+    "key": "best price",
+    "note": "A natural way to bargain."
+   }
+  },
+  {
+   "id": "split-bill",
+   "title": "Split the bill",
+   "em": "🧾",
+   "chip": "At a restaurant",
+   "reg": "casual",
+   "a": {
+    "text": "Two bills, please.",
+    "key": "Two bills",
+    "note": "Understood, but not natural."
+   },
+   "b": {
+    "text": "Can we each pay for our own food?",
+    "key": "each pay for",
+    "note": "Clear and polite."
+   },
+   "c": {
+    "text": "Shall we just split it?",
+    "key": "split it",
+    "note": "Short and friendly."
+   }
+  },
+  {
+   "id": "offer-help",
+   "title": "Offer to help",
+   "em": "🤝",
+   "chip": "Everyday",
+   "reg": "casual",
+   "a": {
+    "text": "Can I help you?",
+    "key": "Can I help",
+    "note": "Simple, always polite."
+   },
+   "b": {
+    "text": "Would you like some help with that?",
+    "key": "Would you like",
+    "note": "Polite and friendly."
+   },
+   "c": {
+    "text": "Need a hand with that?",
+    "key": "Need a hand",
+    "note": "Natural and friendly."
+   }
+  },
+  {
+   "id": "find-seat",
+   "title": "Find a seat",
+   "em": "💺",
+   "chip": "On the train",
+   "reg": "polite",
+   "a": {
+    "text": "Is this chair free?",
+    "key": "Is this chair",
+    "note": "Clear and correct."
+   },
+   "b": {
+    "text": "Excuse me, is anyone sitting here?",
+    "key": "is anyone sitting",
+    "note": "Polite and natural."
+   },
+   "c": {
+    "text": "Is this seat taken?",
+    "key": "seat taken",
+    "note": "\"Taken\" means someone has it."
+   }
+  },
+  {
+   "id": "ask-how-long",
+   "title": "Ask how long",
+   "em": "⏱️",
+   "chip": "At the clinic",
+   "reg": "neutral",
+   "a": {
+    "text": "How long is it?",
+    "key": "How long",
+    "note": "Simple, but vague."
+   },
+   "b": {
+    "text": "How long will it take to arrive?",
+    "key": "How long will",
+    "note": "Clear and polite."
+   },
+   "c": {
+    "text": "Roughly how long is the wait?",
+    "key": "Roughly how long",
+    "note": "\"Roughly\" softens the question."
+   }
+  },
+  {
+   "id": "ask-advice",
+   "title": "Ask for advice",
+   "em": "💡",
+   "chip": "At a restaurant",
+   "reg": "casual",
+   "a": {
+    "text": "What is good here?",
+    "key": "What is good",
+    "note": "Clear, a bit basic."
+   },
+   "b": {
+    "text": "What would you recommend here?",
+    "key": "recommend",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "What do you usually go for here?",
+    "key": "go for",
+    "note": "\"Go for\" means choose."
+   }
+  },
+  {
+   "id": "change-order",
+   "title": "Change your order",
+   "em": "🔄",
+   "chip": "At a restaurant",
+   "reg": "neutral",
+   "a": {
+    "text": "I want tea, not coffee.",
+    "key": "I want tea",
+    "note": "Clear, but no polite frame."
+   },
+   "b": {
+    "text": "Could I change my order?",
+    "key": "change my order",
+    "note": "Polite and clear."
+   },
+   "c": {
+    "text": "Can I swap that for tea?",
+    "key": "swap",
+    "note": "A natural fix."
+   }
+  },
+  {
+   "id": "special-request",
+   "title": "Special request",
+   "em": "🥗",
+   "chip": "At a restaurant",
+   "reg": "polite",
+   "a": {
+    "text": "No meat, please.",
+    "key": "No meat",
+    "note": "Clear, but very short."
+   },
+   "b": {
+    "text": "Could I have it without meat, please?",
+    "key": "without meat",
+    "note": "Polite and exact."
+   },
+   "c": {
+    "text": "Could you hold the meat, please?",
+    "key": "hold the",
+    "note": "\"Hold the\" means leave out."
+   }
+  },
+  {
+   "id": "praise-food",
+   "title": "Praise the food",
+   "em": "😋",
+   "chip": "At a restaurant",
+   "reg": "casual",
+   "a": {
+    "text": "The food is good.",
+    "key": "is good",
+    "note": "Correct, but plain."
+   },
+   "b": {
+    "text": "This is delicious, thank you.",
+    "key": "delicious",
+    "note": "Stronger and polite."
+   },
+   "c": {
+    "text": "This hits the spot!",
+    "key": "hits the spot",
+    "note": "Exactly what you wanted."
+   }
+  },
+  {
+   "id": "take-photo",
+   "title": "Take a photo",
+   "em": "📸",
+   "chip": "On holiday",
+   "reg": "polite",
+   "a": {
+    "text": "Can you take a photo?",
+    "key": "take a photo",
+    "note": "Clear and correct."
+   },
+   "b": {
+    "text": "Could you take a photo of us?",
+    "key": "Could you take",
+    "note": "Polite and complete."
+   },
+   "c": {
+    "text": "Would you mind taking a pic?",
+    "key": "Would you mind",
+    "note": "Polite and relaxed."
+   }
+  },
+  {
+   "id": "get-past",
+   "title": "Get past someone",
+   "em": "🚶",
+   "chip": "On the train",
+   "reg": "polite",
+   "a": {
+    "text": "Sorry, I want to go.",
+    "key": "I want to go",
+    "note": "Clear, but not polite enough."
+   },
+   "b": {
+    "text": "Excuse me, could I get past?",
+    "key": "get past",
+    "note": "Polite and clear."
+   },
+   "c": {
+    "text": "Sorry, just squeezing past!",
+    "key": "squeezing",
+    "note": "Light and friendly."
+   }
+  },
+  {
+   "id": "say-goodbye",
+   "title": "Say goodbye",
+   "em": "👋",
+   "chip": "Everyday",
+   "reg": "casual",
+   "a": {
+    "text": "Goodbye. See you tomorrow.",
+    "key": "See you",
+    "note": "Clear and polite."
+   },
+   "b": {
+    "text": "It was nice talking to you. Goodbye.",
+    "key": "nice talking to you",
+    "note": "Warm and polite."
+   },
+   "c": {
+    "text": "Right, I'd better get going. See you!",
+    "key": "get going",
+    "note": "A natural way to leave."
+   }
+  },
+  {
+   "id": "say-busy",
+   "title": "Say you're busy",
+   "em": "📵",
+   "chip": "At work",
+   "reg": "polite",
+   "a": {
+    "text": "I am busy now.",
+    "key": "I am busy",
+    "note": "Clear, but blunt."
+   },
+   "b": {
+    "text": "I'm afraid I'm busy right now.",
+    "key": "I'm afraid",
+    "note": "Polite and soft."
+   },
+   "c": {
+    "text": "I'm swamped at the moment.",
+    "key": "swamped",
+    "note": "A natural way to say very busy."
+   }
+  },
+  {
+   "id": "request-leave",
+   "title": "Request time off",
+   "em": "🏖️",
+   "chip": "At work",
+   "reg": "polite",
+   "a": {
+    "text": "I want one day off.",
+    "key": "day off",
+    "note": "Clear, a bit direct."
+   },
+   "b": {
+    "text": "Could I take Friday off?",
+    "key": "take Friday off",
+    "note": "Polite and specific."
+   },
+   "c": {
+    "text": "Is it okay if I take Friday off?",
+    "key": "Is it okay if",
+    "note": "Friendly and natural."
+   }
+  },
+  {
+   "id": "say-hello",
+   "title": "Say hello",
+   "em": "👋",
+   "chip": "With a friend",
+   "reg": "casual",
+   "a": {
+    "text": "Hello. How are you?",
+    "key": "How are you",
+    "note": "Correct and polite."
+   },
+   "b": {
+    "text": "Hi, how are you doing today?",
+    "key": "how are you doing",
+    "note": "Warm and natural."
+   },
+   "c": {
+    "text": "Hey, how's it going?",
+    "key": "how's it going",
+    "note": "What natives really say."
+   }
+  },
+  {
+   "id": "pay-by-card",
+   "title": "Pay by card",
+   "em": "💳",
+   "chip": "At the till",
+   "reg": "neutral",
+   "a": {
+    "text": "Can I pay by card?",
+    "key": "pay by card",
+    "note": "Clear and correct."
+   },
+   "b": {
+    "text": "Do you accept credit cards?",
+    "key": "accept credit cards",
+    "note": "Polite, shop language."
+   },
+   "c": {
+    "text": "Can I just tap?",
+    "key": "just tap",
+    "note": "\"Tap\" means pay by contactless."
+   }
+  },
+  {
+   "id": "opening-hours",
+   "title": "Opening hours",
+   "em": "🕘",
+   "chip": "In a shop",
+   "reg": "neutral",
+   "a": {
+    "text": "What time do you open?",
+    "key": "What time",
+    "note": "Clear and correct."
+   },
+   "b": {
+    "text": "Could you tell me your hours?",
+    "key": "your hours",
+    "note": "Polite and standard."
+   },
+   "c": {
+    "text": "What time are you open till?",
+    "key": "open till",
+    "note": "Short and casual."
+   }
+  },
+  {
+   "id": "get-lift",
+   "title": "Get a lift",
+   "em": "🚗",
+   "chip": "With a friend",
+   "reg": "polite",
+   "a": {
+    "text": "Can you take me home?",
+    "key": "take me home",
+    "note": "Clear, but direct."
+   },
+   "b": {
+    "text": "Could you give me a lift home?",
+    "key": "give me a lift",
+    "note": "Polite and natural."
+   },
+   "c": {
+    "text": "Could I trouble you for a lift?",
+    "key": "trouble you for",
+    "note": "Very polite, very native."
+   }
+  }
+ ]
+}

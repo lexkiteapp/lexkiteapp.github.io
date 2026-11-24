@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_agreewith",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 30,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Agree with someone: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Yes, I think so too.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "I totally agree with you.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "You can say that again!",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "agree-with",
+  "title": "Agree with someone",
+  "em": "👍",
+  "chip": "In a chat",
+  "reg": "casual",
+  "levels": {
+   "a": {
+    "text": "Yes, I think so too.",
+    "key": "I think so",
+    "note": "Clear and simple."
+   },
+   "b": {
+    "text": "I totally agree with you.",
+    "key": "totally agree",
+    "note": "Strong and clear."
+   },
+   "c": {
+    "text": "You can say that again!",
+    "key": "say that again",
+    "note": "A fun, strong \"yes\"."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "Say that again",
+    "Totally agree"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Agree with someone: three levels!"
+ },
+ "src": {
+  "levels3": "agree-with"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 10.9,
+  "wpm": 122
+ },
+ "publish": {
+  "title": "Agree with someone: A1, B1 or C1?",
+  "keyword": "agree with someone",
+  "value": "Agree with someone, three ways. A1: \"Yes, I think so too.\" B1: \"I totally agree with you.\" C1: \"You can say that again!\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 16,
+  "platforms": {
+   "youtube": {
+    "title": "Agree with someone: A1, B1 or C1?",
+    "description": "Agree with someone, three ways. A1: \"Yes, I think so too.\" B1: \"I totally agree with you.\" C1: \"You can say that again!\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Carlos\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "agree with someone",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Agree with someone: A1, B1 or C1?\n\nAgree with someone, three ways. A1: \"Yes, I think so too.\" B1: \"I totally agree with you.\" C1: \"You can say that again!\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Agree with someone: A1, B1 or C1?\n\nAgree with someone, three ways. A1: \"Yes, I think so too.\" B1: \"I totally agree with you.\" C1: \"You can say that again!\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Agree with someone: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: Say that again. Native line: \"You can say that again!\" Which level are you? More real English, free: {link}"
+ }
+}

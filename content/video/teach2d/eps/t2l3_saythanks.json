@@ -1,0 +1,137 @@
+{
+ "id": "t2l3_saythanks",
+ "template": "levels3",
+ "series": "One Situation, 3 Levels",
+ "part": 27,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.33,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say thanks: three levels!",
+   "pause": 0.25
+  },
+  {
+   "id": "a",
+   "text": "Thank you.",
+   "pause": 0.15
+  },
+  {
+   "id": "b",
+   "text": "Thank you so much for your help.",
+   "pause": 0.15
+  },
+  {
+   "id": "n",
+   "text": "Thanks a million, I owe you one.",
+   "pause": 2.0,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.25
+  }
+ ],
+ "exprs": {
+  "a": "shrug",
+  "b": "smirk",
+  "n": "smug"
+ },
+ "data": {
+  "id": "say-thanks",
+  "title": "Say thanks",
+  "em": "🙏",
+  "chip": "Everyday",
+  "reg": "casual",
+  "levels": {
+   "a": {
+    "text": "Thank you.",
+    "key": "Thank you",
+    "note": "Always correct."
+   },
+   "b": {
+    "text": "Thank you so much for your help.",
+    "key": "so much",
+    "note": "Warmer and polite."
+   },
+   "c": {
+    "text": "Thanks a million, I owe you one.",
+    "key": "I owe you one",
+    "note": "You promise to help back."
+   }
+  },
+  "quiz": {
+   "ask": "Which would a native say?",
+   "options": [
+    "I owe you one",
+    "Thank you"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Level up your English free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Say thanks: three levels!"
+ },
+ "src": {
+  "levels3": "say-thanks"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 9.5,
+  "wpm": 139
+ },
+ "publish": {
+  "title": "Say thanks: A1, B1 or C1?",
+  "keyword": "say thanks",
+  "value": "Say thanks, three ways. A1: \"Thank you.\" B1: \"Thank you so much for your help.\" C1: \"Thanks a million, I owe you one.\"",
+  "hashtags": [
+   "#englishlevels",
+   "#learnenglish",
+   "#a1b1c1",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Say thanks: A1, B1 or C1?",
+    "description": "Say thanks, three ways. A1: \"Thank you.\" B1: \"Thank you so much for your help.\" C1: \"Thanks a million, I owe you one.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases\n\nSeries: One Situation, 3 Levels · Teacher: Ama\n\n#englishlevels #learnenglish #a1b1c1 #speakenglish #englishtips",
+    "tags": [
+     "say thanks",
+     "One Situation, 3 Levels",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say thanks: A1, B1 or C1?\n\nSay thanks, three ways. A1: \"Thank you.\" B1: \"Thank you so much for your help.\" C1: \"Thanks a million, I owe you one.\"\n\nLevel up your English free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Say thanks: A1, B1 or C1?\n\nSay thanks, three ways. A1: \"Thank you.\" B1: \"Thank you so much for your help.\" C1: \"Thanks a million, I owe you one.\"\n\nLevel up your English free: link in bio.",
+    "hashtags": [
+     "#englishlevels",
+     "#learnenglish",
+     "#a1b1c1",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say thanks: A1, B1 or C1? #englishlevels #learnenglish #a1b1c1"
+   }
+  },
+  "first_comment": "Quiz answer: I owe you one. Native line: \"Thanks a million, I owe you one.\" Which level are you? More real English, free: {link}"
+ }
+}
