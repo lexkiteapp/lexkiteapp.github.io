@@ -13,7 +13,7 @@
 "Nghe lại câu này":"Putar ulang kalimat ini",
 "Podcast":"Podcast",
 "Thư viện truyện":"Perpustakaan cerita",
-"Truyện đọc":"Cerita",
+"Truyện đọc":"Bacaan",
 "Trình phát":"Pemutar",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.":"Luar biasa! Anda memahami seluruh bab ini.",
 "Xem kết quả":"Lihat hasil",

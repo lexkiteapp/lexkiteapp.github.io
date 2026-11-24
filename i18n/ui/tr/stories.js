@@ -13,7 +13,7 @@
 "Nghe lại câu này":"Bu cümleyi tekrar dinle",
 "Podcast":"Podcast",
 "Thư viện truyện":"Hikâye kitaplığı",
-"Truyện đọc":"Hikâye",
+"Truyện đọc":"Okuma metinleri",
 "Trình phát":"Oynatıcı",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.":"Harika! Bölümün tamamını anladınız.",
 "Xem kết quả":"Sonucu gör",
