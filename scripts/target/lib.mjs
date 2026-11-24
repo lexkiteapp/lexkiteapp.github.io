@@ -46,6 +46,19 @@ ja: { noGender: true, sub: true, kana: true, end: /(です|ます|ました|ま�
 TL_RULES.ko = { noGender: true, sub: 'lead', hangul: true, end: /요[.?]$/u, lint: [/[A-Za-z]/u, /\p{Script=Han}/u, /[\u1100-\u11ff\u3131-\u318e]/u] };
 const VCLASS = { ichidan: /[いきしちにひみりぎじびぴえけせてねへめれげぜべぺ]る$/u, godan: /[うくぐすつぬぶむる]$/u, irregular: /^(する|くる)$|する$/u };
 
+// trường hợp lệ của một mục (mọi tl; trường riêng bị chặn theo bảng trong validate) – gen.mjs lấy đúng các trường này từ người soạn
+export const FIELDS = ['word', 'pos', 'gender', 'plural', 'h', 'kana', 'romaji', 'pitch', 'jlpt', 'vclass', 'aclass', 'pron', 'romaja', 'topik', 'conj', 'hanja', 'pronX', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa'];
+/** Trường SINH từ chữ theo bảng (một quy ước, không tin người soạn): hangul (ko) → pron/romaja/ipa bằng ko-hangul.mjs (giữ pronX hợp lệ của người soạn).
+ *  Giá trị người soạn lệch → qa.<trường>Ai (gắn cờ, giám khảo/soát tay xem). Trả mục mới; chữ không hợp lệ → giữ nguyên để validate() báo lỗi. */
+export function derive(e, tl) {
+  const R = TL_RULES[tl] || {};
+  if (!R.hangul || !KO.isHangul(e.word)) return e;
+  const o = { verb: e.pos === 'v' || e.pos === 'adj', x: e.pronX }, out = { ...e }, qa = { ...(e.qa || {}) };
+  try { for (const [k, f] of [['pron', KO.pron], ['romaja', KO.romaja], ['ipa', KO.ipa]]) { const v = f(e.word, o); if (e[k] !== undefined && e[k] !== v) qa[k + 'Ai'] = e[k]; out[k] = v; } } catch { return e; }
+  if (Object.keys(qa).length) out.qa = qa;
+  return out;
+}
+
 /** Kiểm một bộ từ → mảng lỗi (rỗng = đạt). o.img = Set khóa ảnh tiếng Anh hợp lệ (content/lexicon/img.json). */
 export function validate(deck, o = {}) {
   const err = [], seen = new Set(), R = TL_RULES[deck && deck.tl] || {};
@@ -53,7 +66,7 @@ export function validate(deck, o = {}) {
   if (!deck || !/^[a-z]{2}$/.test(deck.tl || '')) err.push('tl sai');
   const words = (deck && deck.words) || [];
   if (!Array.isArray(words) || !words.length) err.push('words rỗng');
-  const ALLOWED = new Set(['word', 'pos', 'gender', 'plural', 'h', 'kana', 'romaji', 'pitch', 'jlpt', 'vclass', 'aclass', 'pron', 'romaja', 'topik', 'conj', 'hanja', 'pronX', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa']);
+  const ALLOWED = new Set(FIELDS);
   for (const w of words) {
     const id = (w && w.word) || '?', bad = m => err.push(`${id}: ${m}`);
     for (const k of Object.keys(w || {})) if (!ALLOWED.has(k)) bad('trường lạ ' + k);
