@@ -318,8 +318,16 @@ def top(type_, box, t_in, k='soft', out=None, **kw):   # a free (card-less) elem
 
 def title(runs, size, y, t_in, out, hook=False, align='c', x0=RX0, x1=RX1, rtl=False):
     """free headline (Stitch frames put the title on the canvas, not in a card): one or more balanced lines, centred."""
-    if hook and REEL and y <= RY0 + 200:   # v3 (audit 24/11 #3/#6): the hook of a short reel is big and centred in the card region instead of a small line under the chip
-        size = round(size * (1.35 if o.format == 'short' else 1.2)); _n = len(Card(y, x0=x0, w=x1 - x0).wrap(runs, size, width=x1 - x0)); y = RY0 + max(60, ((RY1 - RY0) - _n * (round(size * 1.18) + 4)) * 0.3)
+    if hook and REEL and y <= RY0 + 200:   # v3 (audit 24/11 #3/#6): the hook of a short reel is a big Kit poster card (large text, ~75 % of the region), not a small line on bare background
+        size = round(size * (1.35 if o.format == 'short' else 1.2)); ex = {'rtl': True} if rtl else None
+        _nc = len(CUES); m = Card(RY0, tone='card', x0=x0, w=x1 - x0); m.text(runs, size, None, align='c', extra=ex); del CUES[_nc:]   # measure only (nothing is placed)
+        dy = max(0, (0.74 * (RY1 - RY0) - (m.y + PAD + LEDGE)) / 2)
+        c = Card(RY0 + 0.05 * (RY1 - RY0), tone='card', x0=x0, w=x1 - x0); c.y += dy; c.text(runs, size, None, align='c', tag='hook', extra=ex); c.y += dy
+        bx = c.place(-0.13, out, 'a', k='fade')
+        for n in NODES:
+            if n['id'] == c.id: n['hook'] = True
+            if n.get('parent') == c.id: n['in'] = dict(t=-0.13, k='fade')
+        return bx[3]
     c = Card(y, x0=x0, w=x1 - x0); lines = c.wrap(runs, size, width=x1 - x0); ns = []; yy = y
     for ln in lines:
         ln[-1][0] = ln[-1][0].rstrip(); lw = sum(tw(r[0], size) for r in ln); h = round(size * 1.18)
