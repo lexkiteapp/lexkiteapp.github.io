@@ -1,0 +1,146 @@
+{
+ "id": "t2s_hi_nocap",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Best pizza in town. Believe me?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "No cap!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm not lying.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This pizza is the best in town, no cap.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "no cap",
+  "forms": [],
+  "ipa": "/ˌnoʊ ˈkæp/",
+  "mean": "I'm not lying.",
+  "define": "Used to say that you are being completely honest.",
+  "vi": "Nói thật, không xạo",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Texting a friend about lunch",
+   "text": "This pizza is the best in town, no cap."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"No cap\" means…",
+   "options": [
+    "I lost my hat",
+    "I'm telling the truth"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'no cap' about a baseball hat.",
+   "why": "It means 'no lie' in slang."
+  },
+  "l1": "सच में",
+  "l1_hook": "शहर की सबसे बेहतरीन पिज़्ज़ा है, \"no cap\"। विश्वास करो?",
+  "l1_ex": "यह पिज़्ज़ा शहर की सबसे बेहतरीन है, \"no cap\"।",
+  "right": "no cap",
+  "native": {
+   "hook": "“no cap” का मतलब क्या है?",
+   "tip": "“no cap” = सच में. उदाहरण: “This pizza is the best in town, no cap.”",
+   "caption": "“no cap” का मतलब क्या है?\n“no cap” = सच में.\nउदाहरण: “This pizza is the best in town, no cap.” (यह पिज़्ज़ा शहर की सबसे बेहतरीन है, \"no cap\"।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “no cap” = सच में. “This pizza is the best in town, no cap.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Best pizza in town. Believe me?"
+ },
+ "src": {
+  "slang": "no cap"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“no cap” का मतलब क्या है?",
+  "keyword": "no cap",
+  "value": "“no cap” = सच में. उदाहरण: “This pizza is the best in town, no cap.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“no cap” का मतलब क्या है?",
+    "description": "“no cap” = सच में. उदाहरण: “This pizza is the best in town, no cap.”\n\n“no cap” का मतलब क्या है?\n“no cap” = सच में.\nउदाहरण: “This pizza is the best in town, no cap.” (यह पिज़्ज़ा शहर की सबसे बेहतरीन है, \"no cap\"।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "no cap",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“no cap” का मतलब क्या है?\n“no cap” = सच में.\nउदाहरण: “This pizza is the best in town, no cap.” (यह पिज़्ज़ा शहर की सबसे बेहतरीन है, \"no cap\"।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“no cap” का मतलब क्या है?\n\n“no cap” = सच में. उदाहरण: “This pizza is the best in town, no cap.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“no cap” का मतलब क्या है? “no cap” = सच में. उदाहरण: “This pizza is the best in town, no cap.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “no cap” = सच में. “This pizza is the best in town, no cap.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

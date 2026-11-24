@@ -7,7 +7,7 @@
 //   gplAgree = có vi người viết nhưng chưa có 2 nguồn NGƯỜI VIẾT trùng; thêm GPL → có phương án ≥ 2 nguồn người viết (viAgreeSources) – qua lớp «≥ 2 nguồn»
 //              không cần AI họ A/B đồng ý (vẫn còn phản bác AI + trắc nghiệm 3 giám khảo → cận trên)
 import fs from 'fs';
-import { QUEUE, viAgreeSources } from './lib.mjs';
+import { readQ, viAgreeSources } from './lib.mjs';
 import { kaikki, pmap } from './wikt.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
@@ -17,7 +17,7 @@ const rng = (s => () => (s = (s * 1103515245 + 12345) % 2147483648) / 2147483648
 const split = k => { const i = k.lastIndexOf('#'); return { w: k.slice(0, i), pos: k.slice(i + 1) }; };
 
 if (arg('--sample')) {
-  const q = (J(QUEUE).items || []).filter(x => x.src === 'lexicon-expand' && String((x.why || [])[0]).startsWith('dịch vi: không có ≥ 2 nguồn')).map(x => String(x.id)).sort();
+  const q = (readQ().items || []).filter(x => x.src === 'lexicon-expand' && String((x.why || [])[0]).startsWith('dịch vi: không có ≥ 2 nguồn')).map(x => String(x.id)).sort();
   const qs = new Set(q), rt = (J('content/lexicon/expand/retry/words.json').items || []).filter(k => !qs.has(k)).sort();
   for (let i = rt.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [rt[i], rt[j]] = [rt[j], rt[i]]; }
   const items = [...q.map(k => ({ ...split(k), g: 'q2' })), ...rt.slice(0, PRE_N).map(k => ({ ...split(k), g: 'pre' }))];

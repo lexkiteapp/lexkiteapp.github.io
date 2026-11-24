@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ja_beatsme",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 13,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where did the key go?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Beats me!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I have no idea.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Where's the key? Beats me.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "beats me",
+  "forms": [],
+  "ipa": "/ˈbiːts ˈmiː/",
+  "mean": "I have no idea.",
+  "define": "Used when you don't know the answer.",
+  "vi": "Chịu, không biết",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Looking for something",
+   "text": "Where's the key? Beats me."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I hit it",
+    "I don't know"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'beats me' to a client's question.",
+   "why": "It sounds careless and unprofessional."
+  },
+  "l1": "わからない",
+  "l1_hook": "鍵がどこに行ったのか分からない。「beats me」",
+  "l1_ex": "鍵はどこ？Beats me。",
+  "right": "beats me",
+  "native": {
+   "hook": "「beats me」ってどういう意味？",
+   "tip": "“beats me” = わからない. 例文: “Where's the key? Beats me.”",
+   "caption": "「beats me」ってどういう意味？\n“beats me” = わからない.\n例文: “Where's the key? Beats me.” (鍵はどこ？Beats me。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “beats me” = わからない. “Where's the key? Beats me.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where did the key go?"
+ },
+ "src": {
+  "slang": "beats me"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "「beats me」ってどういう意味？",
+  "keyword": "beats me",
+  "value": "“beats me” = わからない. 例文: “Where's the key? Beats me.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "「beats me」ってどういう意味？",
+    "description": "“beats me” = わからない. 例文: “Where's the key? Beats me.”\n\n「beats me」ってどういう意味？\n“beats me” = わからない.\n例文: “Where's the key? Beats me.” (鍵はどこ？Beats me。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "beats me",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「beats me」ってどういう意味？\n“beats me” = わからない.\n例文: “Where's the key? Beats me.” (鍵はどこ？Beats me。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「beats me」ってどういう意味？\n\n“beats me” = わからない. 例文: “Where's the key? Beats me.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「beats me」ってどういう意味？ “beats me” = わからない. 例文: “Where's the key? Beats me.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “beats me” = わからない. “Where's the key? Beats me.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

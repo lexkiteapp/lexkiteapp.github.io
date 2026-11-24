@@ -1,0 +1,148 @@
+{
+ "id": "t2s_th_gettheballrolling",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 80,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Meeting starts. Who goes first?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Get the ball rolling!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start the activity now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's get the ball rolling with ideas.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "key": "get the ball rolling",
+  "forms": [
+   "get the ball rolling"
+  ],
+  "ipa": "/ɡet ðə ˈbɔːl ˈroʊlɪŋ/",
+  "mean": "Start the activity now.",
+  "define": "To begin a project or process.",
+  "vi": "Bắt đầu thôi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Starting a group project",
+   "text": "Let's get the ball rolling with ideas."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "play soccer",
+    "begin"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'get the ball rolling' about finishing.",
+   "why": "It means starting something."
+  },
+  "l1": "เริ่มต้นกัน",
+  "l1_hook": "การประชุมเริ่มแล้ว ใครจะเริ่ม \"get the ball rolling\" ก่อน?",
+  "l1_ex": "มาลอง \"get the ball rolling\" ด้วยไอเดียกันเถอะ",
+  "right": "get the ball rolling",
+  "native": {
+   "hook": "“get the ball rolling” แปลว่าอะไร?",
+   "tip": "“get the ball rolling” = เริ่มต้นกัน. ตัวอย่าง: “Let's get the ball rolling with ideas.”",
+   "caption": "“get the ball rolling” แปลว่าอะไร?\n“get the ball rolling” = เริ่มต้นกัน.\nตัวอย่าง: “Let's get the ball rolling with ideas.” (มาลอง \"get the ball rolling\" ด้วยไอเดียกันเถอะ)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “get the ball rolling” = เริ่มต้นกัน. “Let's get the ball rolling with ideas.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Meeting starts. Who goes first?"
+ },
+ "src": {
+  "slang": "get the ball rolling"
+ },
+ "lang": "th",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“get the ball rolling” แปลว่าอะไร?",
+  "keyword": "get the ball rolling",
+  "value": "“get the ball rolling” = เริ่มต้นกัน. ตัวอย่าง: “Let's get the ball rolling with ideas.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“get the ball rolling” แปลว่าอะไร?",
+    "description": "“get the ball rolling” = เริ่มต้นกัน. ตัวอย่าง: “Let's get the ball rolling with ideas.”\n\n“get the ball rolling” แปลว่าอะไร?\n“get the ball rolling” = เริ่มต้นกัน.\nตัวอย่าง: “Let's get the ball rolling with ideas.” (มาลอง \"get the ball rolling\" ด้วยไอเดียกันเถอะ)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "get the ball rolling",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“get the ball rolling” แปลว่าอะไร?\n“get the ball rolling” = เริ่มต้นกัน.\nตัวอย่าง: “Let's get the ball rolling with ideas.” (มาลอง \"get the ball rolling\" ด้วยไอเดียกันเถอะ)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“get the ball rolling” แปลว่าอะไร?\n\n“get the ball rolling” = เริ่มต้นกัน. ตัวอย่าง: “Let's get the ball rolling with ideas.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“get the ball rolling” แปลว่าอะไร? “get the ball rolling” = เริ่มต้นกัน. ตัวอย่าง: “Let's get the ball rollin… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “get the ball rolling” = เริ่มต้นกัน. “Let's get the ball rolling with ideas.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ja_pigout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 4,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The whole pizza is gone!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Pig out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Eat way too much.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We pigged out on pizza last night.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "pig out",
+  "forms": [
+   "pigged out"
+  ],
+  "ipa": "/ˈpɪɡ ˈaʊt/",
+  "mean": "Eat way too much.",
+  "define": "To eat a very large amount of food happily.",
+  "vi": "Ăn quên trời đất",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "After a party",
+   "text": "We pigged out on pizza last night."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"pig out\" is to…",
+   "options": [
+    "eat too much",
+    "go to a farm"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell your host she made you 'pig out'.",
+   "why": "It sounds like an insult."
+  },
+  "l1": "ドカ食いする",
+  "l1_hook": "ピザが全部なくなった！\"pig out\"",
+  "l1_ex": "昨晩、ピザで\"pig out\"した。",
+  "right": "pig out",
+  "native": {
+   "hook": "「pig out」ってどういう意味？",
+   "tip": "“pig out” = ドカ食いする. 例文: “We pigged out on pizza last night.”",
+   "caption": "「pig out」ってどういう意味？\n“pig out” = ドカ食いする.\n例文: “We pigged out on pizza last night.” (昨晩、ピザで\"pig out\"した。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “pig out” = ドカ食いする. “We pigged out on pizza last night.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The whole pizza is gone!"
+ },
+ "src": {
+  "slang": "pig out"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 20,
+  "seconds": 11.5,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "「pig out」ってどういう意味？",
+  "keyword": "pig out",
+  "value": "“pig out” = ドカ食いする. 例文: “We pigged out on pizza last night.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "「pig out」ってどういう意味？",
+    "description": "“pig out” = ドカ食いする. 例文: “We pigged out on pizza last night.”\n\n「pig out」ってどういう意味？\n“pig out” = ドカ食いする.\n例文: “We pigged out on pizza last night.” (昨晩、ピザで\"pig out\"した。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "pig out",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「pig out」ってどういう意味？\n“pig out” = ドカ食いする.\n例文: “We pigged out on pizza last night.” (昨晩、ピザで\"pig out\"した。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「pig out」ってどういう意味？\n\n“pig out” = ドカ食いする. 例文: “We pigged out on pizza last night.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「pig out」ってどういう意味？ “pig out” = ドカ食いする. 例文: “We pigged out on pizza last night.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “pig out” = ドカ食いする. “We pigged out on pizza last night.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

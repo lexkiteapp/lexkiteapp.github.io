@@ -1,0 +1,153 @@
+{
+ "id": "t2s_ru_callout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 26,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She told everyone my mistake!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Call out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Point out someone's mistake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She called me out for being late.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "call out",
+  "forms": [
+   "called me out",
+   "called out"
+  ],
+  "ipa": "/ˈkɔːl ˈaʊt/",
+  "mean": "Point out someone's mistake.",
+  "define": "To say publicly that someone did something wrong.",
+  "vi": "Chỉ ra lỗi công khai",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a mistake",
+   "text": "She called me out for being late."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"call out\" is to…",
+   "options": [
+    "shout out",
+    "point out a mistake"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'call out' a coworker in front of the boss.",
+   "why": "Public correction embarrasses people."
+  },
+  "l1": "выставить на свет",
+  "l1_hook": "Она всем рассказала о моей ошибке! «call out».",
+  "l1_ex": "Она сделала мне замечание («called me out») за то, что я опоздал.",
+  "right": "call out",
+  "native": {
+   "hook": "Что значит «call out»?",
+   "tip": "“call out” = выставить на свет. Пример: “She called me out for being late.”",
+   "caption": "Что значит «call out»?\n“call out” = выставить на свет.\nПример: “She called me out for being late.” (Она сделала мне замечание («called me out») за то, что я опоздал.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “call out” = выставить на свет. “She called me out for being late.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She told everyone my mistake!"
+ },
+ "src": {
+  "slang": "call out"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Что значит «call out»?",
+  "keyword": "call out",
+  "value": "“call out” = выставить на свет. Пример: “She called me out for being late.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «call out»?",
+    "description": "“call out” = выставить на свет. Пример: “She called me out for being late.”\n\nЧто значит «call out»?\n“call out” = выставить на свет.\nПример: “She called me out for being late.” (Она сделала мне замечание («called me out») за то, что я опоздал.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "call out",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «call out»?\n“call out” = выставить на свет.\nПример: “She called me out for being late.” (Она сделала мне замечание («called me out») за то, что я опоздал.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «call out»?\n\n“call out” = выставить на свет. Пример: “She called me out for being late.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «call out»? “call out” = выставить на свет. Пример: “She called me out for being late.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “call out” = выставить на свет. “She called me out for being late.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

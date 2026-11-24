@@ -62,5 +62,23 @@ for (const r of rows) {
   console.log(r.id, ok ? '✓' : '✗', ok ? '' : Object.entries(g).filter(([, v]) => !v).map(([k]) => k).join(','));
   if (!ok && bt) console.log('    dịch ngược:', JSON.stringify(bt.slice(0, 3)), '| gốc en:', JSON.stringify([E.hook, E.tip, enCap]));   // đỏ thì in bản dịch ngược để sửa đúng chỗ
 }
+// Slang Card L1 clips (gen.py --slang-l1, docs/SAY-NATIVE.md): native hook / tip / caption / comment come from the hand frames (slang-l1-frames.json) + 2-judge
+// translations (meaning, hook, example – say-native translate.mjs); the same static gates as the rows above, read from the generated episode (eps/t2s_<lang>_*.json).
+const EPS = ROOT + 'content/video/teach2d/eps/';
+for (const f of (fs.existsSync(EPS) ? fs.readdirSync(EPS) : []).filter(f => /^t2s_[a-z]{2}_/.test(f)).sort()) {
+  const ep = J('content/video/teach2d/eps/' + f); if (!ep.lang || (ONLY.length && !ONLY.includes(ep.id))) continue;
+  const L = ep.lang, D = ep.data, N = D.native, tags = N.hashtags, post = `${N.caption}\n\n${tags.join(' ')}\n\nlexkite.com`, all = [N.hook, N.tip, N.caption, N.comment, D.l1_hook, D.l1_ex];
+  const g = {
+    i18n_no_vi_leak: L === 'vi' || !all.some(x => VI.test(x)), i18n_no_known_bad: !all.some(x => BAD.test(x)),
+    i18n_english_kept: has(N.caption, D.example.text) && N.tip.includes(D.key),   // the English example + the slang stay verbatim
+    hashtags: tags.length >= 3 && tags.length <= 5 && tags.every(t => /^#[\p{L}\p{N}\p{M}_]+$/u.test(t)) && tags.includes('#lexkite'),
+    lengths: [...N.hook].length <= 34 && [...N.tip].length <= 140 && [...N.caption].length <= 400 && [...post].length <= 2200,
+    comment: (N.comment.match(/\{link\}/g) || []).length === 1 && !/https?:\/\/|#\w/.test(N.comment),
+    not_english: [[D.l1, D.mean], [D.l1_hook, ep.hook.text]].every(([x, en]) => x.toLowerCase() !== en.toLowerCase() && !/\\/.test(x) && (/[^\x00-\x7f]/.test(x) || !words(x).length || sim(x, en) < 0.6)),   // really another language (words() empty = a short word like 'ya': only an exact copy of the English fails; a stray backslash (escaped quote leak) fails too; sim() drops non-ASCII letters: a short accented line would look empty = 'same')
+  };
+  const ok = Object.values(g).every(Boolean); if (!ok) red++;
+  out[ep.id] = { ok, lang: L, online: false, gates: g, glosses: [] };
+  console.log(ep.id, ok ? '✓' : '✗', ok ? '' : Object.entries(g).filter(([, v]) => !v).map(([k]) => k).join(','));
+}
 if (WRITE) { const f = ROOT + 'content/video/teach2d/l1-qa.json', old = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : {}; fs.writeFileSync(f, JSON.stringify({ ...old, ...out }, null, 1) + '\n'); }
 process.exit(red ? 1 : 0);

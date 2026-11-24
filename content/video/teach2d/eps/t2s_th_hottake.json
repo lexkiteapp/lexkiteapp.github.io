@@ -1,0 +1,148 @@
+{
+ "id": "t2s_th_hottake",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 32,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pineapple pizza is the best!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hot take!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A strong, surprising opinion.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Here's my hot take: pineapple belongs on pizza.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "hot take",
+  "forms": [
+   "hot takes"
+  ],
+  "ipa": "/ˈhɑːt ˈteɪk/",
+  "mean": "A strong, surprising opinion.",
+  "define": "An opinion that is strong and often unpopular.",
+  "vi": "Quan điểm gây tranh cãi",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Chatting about food",
+   "text": "Here's my hot take: pineapple belongs on pizza."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"hot take\" is…",
+   "options": [
+    "a hot drink",
+    "a bold opinion"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call plain facts a 'hot take'.",
+   "why": "It means a bold, debatable opinion."
+  },
+  "l1": "มุมมองสุดโดดเด่น",
+  "l1_hook": "พิซซ่าใส่สับปะรดอร่อยที่สุด \"hot take\"!",
+  "l1_ex": "นี่คือ \"hot take\" ของฉัน: สับปะรดควรอยู่บนพิซซ่า.",
+  "right": "hot take",
+  "native": {
+   "hook": "“hot take” แปลว่าอะไร?",
+   "tip": "“hot take” = มุมมองสุดโดดเด่น. ตัวอย่าง: “Here's my hot take: pineapple belongs on pizza.”",
+   "caption": "“hot take” แปลว่าอะไร?\n“hot take” = มุมมองสุดโดดเด่น.\nตัวอย่าง: “Here's my hot take: pineapple belongs on pizza.” (นี่คือ \"hot take\" ของฉัน: สับปะรดควรอยู่บนพิซซ่า.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “hot take” = มุมมองสุดโดดเด่น. “Here's my hot take: pineapple belongs on pizza.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pineapple pizza is the best!"
+ },
+ "src": {
+  "slang": "hot take"
+ },
+ "lang": "th",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“hot take” แปลว่าอะไร?",
+  "keyword": "hot take",
+  "value": "“hot take” = มุมมองสุดโดดเด่น. ตัวอย่าง: “Here's my hot take: pineapple belongs on pizza.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“hot take” แปลว่าอะไร?",
+    "description": "“hot take” = มุมมองสุดโดดเด่น. ตัวอย่าง: “Here's my hot take: pineapple belongs on pizza.”\n\n“hot take” แปลว่าอะไร?\n“hot take” = มุมมองสุดโดดเด่น.\nตัวอย่าง: “Here's my hot take: pineapple belongs on pizza.” (นี่คือ \"hot take\" ของฉัน: สับปะรดควรอยู่บนพิซซ่า.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "hot take",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“hot take” แปลว่าอะไร?\n“hot take” = มุมมองสุดโดดเด่น.\nตัวอย่าง: “Here's my hot take: pineapple belongs on pizza.” (นี่คือ \"hot take\" ของฉัน: สับปะรดควรอยู่บนพิซซ่า.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“hot take” แปลว่าอะไร?\n\n“hot take” = มุมมองสุดโดดเด่น. ตัวอย่าง: “Here's my hot take: pineapple belongs on pizza.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“hot take” แปลว่าอะไร? “hot take” = มุมมองสุดโดดเด่น. ตัวอย่าง: “Here's my hot take: pineapple belongs on piz… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “hot take” = มุมมองสุดโดดเด่น. “Here's my hot take: pineapple belongs on pizza.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}
