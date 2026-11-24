@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ar_imdown",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 100,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Bowling tonight, who's coming?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "I'm down!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm happy to join.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We're going bowling tonight. Are you down?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "I'm down",
+  "forms": [
+   "down"
+  ],
+  "ipa": "/aɪm ˈdaʊn/",
+  "mean": "I'm happy to join.",
+  "define": "Used to say you agree to a plan or want to do it.",
+  "vi": "Tui chơi, tui đồng ý",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Making weekend plans",
+   "text": "We're going bowling tonight. Are you down?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"I'm down\" means…",
+   "options": [
+    "I'm very sad",
+    "I'll join you"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'I'm down' when you feel sad.",
+   "why": "It can also mean feeling low."
+  },
+  "l1": "أنا موافق",
+  "l1_hook": "البولينج الليلة، من سيأتي؟",
+  "l1_ex": "نحن ذاهبون للبولينغ الليلة. هل أنت \"I'm down\"؟",
+  "right": "I'm down",
+  "native": {
+   "hook": "ما معنى “I'm down”؟",
+   "tip": "“I'm down” = أنا موافق. مثال: “We're going bowling tonight. Are you down?”",
+   "caption": "ما معنى “I'm down”؟\n“I'm down” = أنا موافق.\nمثال: “We're going bowling tonight. Are you down?” (نحن ذاهبون للبولينغ الليلة. هل أنت \"I'm down\"؟)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “I'm down” = أنا موافق. “We're going bowling tonight. Are you down?” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Bowling tonight, who's coming?"
+ },
+ "src": {
+  "slang": "I'm down"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "ما معنى “I'm down”؟",
+  "keyword": "I'm down",
+  "value": "“I'm down” = أنا موافق. مثال: “We're going bowling tonight. Are you down?”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “I'm down”؟",
+    "description": "“I'm down” = أنا موافق. مثال: “We're going bowling tonight. Are you down?”\n\nما معنى “I'm down”؟\n“I'm down” = أنا موافق.\nمثال: “We're going bowling tonight. Are you down?” (نحن ذاهبون للبولينغ الليلة. هل أنت \"I'm down\"؟)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I'm down",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “I'm down”؟\n“I'm down” = أنا موافق.\nمثال: “We're going bowling tonight. Are you down?” (نحن ذاهبون للبولينغ الليلة. هل أنت \"I'm down\"؟)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “I'm down”؟\n\n“I'm down” = أنا موافق. مثال: “We're going bowling tonight. Are you down?”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “I'm down”؟ “I'm down” = أنا موافق. مثال: “We're going bowling tonight. Are you down?” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “I'm down” = أنا موافق. “We're going bowling tonight. Are you down?” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

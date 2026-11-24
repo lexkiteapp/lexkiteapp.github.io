@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ru_cheers",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 106,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He held the door. Say thanks!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheers!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Thanks, or goodbye.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheers for the lift!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheers",
+  "forms": [
+   "cheer"
+  ],
+  "ipa": "/ˈtʃɪrz/",
+  "mean": "Thanks, or goodbye.",
+  "define": "A British way to say thank you or goodbye.",
+  "vi": "Cảm ơn nha, tạm biệt",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Thanking a friend",
+   "text": "Cheers for the lift!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheers\" can mean…",
+   "options": [
+    "angry",
+    "thanks"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't expect Americans to understand 'cheers' as thanks.",
+   "why": "It's mostly British casual usage."
+  },
+  "l1": "спасибо",
+  "l1_hook": "Он держал дверь. Скажи «cheers»!",
+  "l1_ex": "«Cheers» за то, что подвёз!",
+  "right": "cheers",
+  "native": {
+   "hook": "Что значит «cheers»?",
+   "tip": "“cheers” = спасибо. Пример: “Cheers for the lift!”",
+   "caption": "Что значит «cheers»?\n“cheers” = спасибо.\nПример: “Cheers for the lift!” («Cheers» за то, что подвёз!)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “cheers” = спасибо. “Cheers for the lift!” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He held the door. Say thanks!"
+ },
+ "src": {
+  "slang": "cheers"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "Что значит «cheers»?",
+  "keyword": "cheers",
+  "value": "“cheers” = спасибо. Пример: “Cheers for the lift!”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «cheers»?",
+    "description": "“cheers” = спасибо. Пример: “Cheers for the lift!”\n\nЧто значит «cheers»?\n“cheers” = спасибо.\nПример: “Cheers for the lift!” («Cheers» за то, что подвёз!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "cheers",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «cheers»?\n“cheers” = спасибо.\nПример: “Cheers for the lift!” («Cheers» за то, что подвёз!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «cheers»?\n\n“cheers” = спасибо. Пример: “Cheers for the lift!”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «cheers»? “cheers” = спасибо. Пример: “Cheers for the lift!” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “cheers” = спасибо. “Cheers for the lift!” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_hi_busyasabee",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 40,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No free time this week!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Busy as a bee!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very busy and active.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm busy as a bee this week.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "busy as a bee",
+  "forms": [],
+  "ipa": "/ˈbɪzi əz ə ˈbiː/",
+  "mean": "Very busy and active.",
+  "define": "Used when someone is busy working.",
+  "vi": "Bận túi bụi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about a week",
+   "text": "I'm busy as a bee this week."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "fond of flowers",
+    "very busy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'busy as a bee' about a lazy afternoon.",
+   "why": "It means very busy."
+  },
+  "l1": "बहुत व्यस्त",
+  "l1_hook": "इस हफ़्ते कोई खाली समय नहीं है!",
+  "l1_ex": "मैं इस हफ़्ते \"busy as a bee\" हूँ।",
+  "right": "busy as a bee",
+  "native": {
+   "hook": "“busy as a bee” का मतलब क्या है?",
+   "tip": "“busy as a bee” = बहुत व्यस्त. उदाहरण: “I'm busy as a bee this week.”",
+   "caption": "“busy as a bee” का मतलब क्या है?\n“busy as a bee” = बहुत व्यस्त.\nउदाहरण: “I'm busy as a bee this week.” (मैं इस हफ़्ते \"busy as a bee\" हूँ।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “busy as a bee” = बहुत व्यस्त. “I'm busy as a bee this week.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "No free time this week!"
+ },
+ "src": {
+  "slang": "busy as a bee"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“busy as a bee” का मतलब क्या है?",
+  "keyword": "busy as a bee",
+  "value": "“busy as a bee” = बहुत व्यस्त. उदाहरण: “I'm busy as a bee this week.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“busy as a bee” का मतलब क्या है?",
+    "description": "“busy as a bee” = बहुत व्यस्त. उदाहरण: “I'm busy as a bee this week.”\n\n“busy as a bee” का मतलब क्या है?\n“busy as a bee” = बहुत व्यस्त.\nउदाहरण: “I'm busy as a bee this week.” (मैं इस हफ़्ते \"busy as a bee\" हूँ।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "busy as a bee",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“busy as a bee” का मतलब क्या है?\n“busy as a bee” = बहुत व्यस्त.\nउदाहरण: “I'm busy as a bee this week.” (मैं इस हफ़्ते \"busy as a bee\" हूँ।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“busy as a bee” का मतलब क्या है?\n\n“busy as a bee” = बहुत व्यस्त. उदाहरण: “I'm busy as a bee this week.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“busy as a bee” का मतलब क्या है? “busy as a bee” = बहुत व्यस्त. उदाहरण: “I'm busy as a bee this week.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “busy as a bee” = बहुत व्यस्त. “I'm busy as a bee this week.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

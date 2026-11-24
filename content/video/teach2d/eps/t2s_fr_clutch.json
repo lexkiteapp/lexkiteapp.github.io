@@ -1,0 +1,150 @@
+{
+ "id": "t2s_fr_clutch",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 69,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last second goal wins it!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Clutch!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Great at the key moment.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That last-minute goal was so clutch.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "clutch",
+  "forms": [],
+  "ipa": "/ˈklʌtʃ/",
+  "mean": "Great at the key moment.",
+  "define": "Used when someone does well at an important time.",
+  "vi": "Cứu nguy đúng lúc",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Watching a game",
+   "text": "That last-minute goal was so clutch."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Clutch\" describes…",
+   "options": [
+    "a bag",
+    "a perfect key moment"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'clutch' about a small purse.",
+   "why": "Here it means great under pressure."
+  },
+  "l1": "décisif",
+  "l1_hook": "But de dernière seconde qui fait gagner le match ! \"clutch\"",
+  "l1_ex": "Ce but de dernière minute était tellement \"clutch\".",
+  "right": "clutch",
+  "native": {
+   "hook": "Que veut dire « clutch » ?",
+   "tip": "“clutch” = décisif. Exemple: “That last-minute goal was so clutch.”",
+   "caption": "Que veut dire « clutch » ?\n“clutch” = décisif.\nExemple: “That last-minute goal was so clutch.” (Ce but de dernière minute était tellement \"clutch\".)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “clutch” = décisif. “That last-minute goal was so clutch.” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Last second goal wins it!"
+ },
+ "src": {
+  "slang": "clutch"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Que veut dire « clutch » ?",
+  "keyword": "clutch",
+  "value": "“clutch” = décisif. Exemple: “That last-minute goal was so clutch.”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « clutch » ?",
+    "description": "“clutch” = décisif. Exemple: “That last-minute goal was so clutch.”\n\nQue veut dire « clutch » ?\n“clutch” = décisif.\nExemple: “That last-minute goal was so clutch.” (Ce but de dernière minute était tellement \"clutch\".)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "clutch",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « clutch » ?\n“clutch” = décisif.\nExemple: “That last-minute goal was so clutch.” (Ce but de dernière minute était tellement \"clutch\".)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « clutch » ?\n\n“clutch” = décisif. Exemple: “That last-minute goal was so clutch.”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « clutch » ? “clutch” = décisif. Exemple: “That last-minute goal was so clutch.” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “clutch” = décisif. “That last-minute goal was so clutch.” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

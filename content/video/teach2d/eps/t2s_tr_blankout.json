@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_blankout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 38,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stage lights on. My mind's empty!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Blank out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly forget everything.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I blanked out in the middle of my speech.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "blank out",
+  "forms": [
+   "blanked out"
+  ],
+  "ipa": "/ˈblæŋk ˈaʊt/",
+  "mean": "Suddenly forget everything.",
+  "define": "To suddenly forget what you wanted to say or know.",
+  "vi": "Đầu óc trống rỗng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Talking after a speech",
+   "text": "I blanked out in the middle of my speech."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"blank out\" is to…",
+   "options": [
+    "clean a board",
+    "suddenly forget"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'blank out' about a paper.",
+   "why": "It means suddenly forgetting."
+  },
+  "l1": "aklım boşaldı",
+  "l1_hook": "Sahne ışıkları açık. Aklım 'blank out' oldu!",
+  "l1_ex": "Konuşmamın ortasında 'blank out' oldum.",
+  "right": "blank out",
+  "native": {
+   "hook": "“blank out” ne demek?",
+   "tip": "“blank out” = aklım boşaldı. Örnek: “I blanked out in the middle of my speech.”",
+   "caption": "“blank out” ne demek?\n“blank out” = aklım boşaldı.\nÖrnek: “I blanked out in the middle of my speech.” (Konuşmamın ortasında 'blank out' oldum.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “blank out” = aklım boşaldı. “I blanked out in the middle of my speech.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stage lights on. My mind's empty!"
+ },
+ "src": {
+  "slang": "blank out"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“blank out” ne demek?",
+  "keyword": "blank out",
+  "value": "“blank out” = aklım boşaldı. Örnek: “I blanked out in the middle of my speech.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“blank out” ne demek?",
+    "description": "“blank out” = aklım boşaldı. Örnek: “I blanked out in the middle of my speech.”\n\n“blank out” ne demek?\n“blank out” = aklım boşaldı.\nÖrnek: “I blanked out in the middle of my speech.” (Konuşmamın ortasında 'blank out' oldum.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "blank out",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“blank out” ne demek?\n“blank out” = aklım boşaldı.\nÖrnek: “I blanked out in the middle of my speech.” (Konuşmamın ortasında 'blank out' oldum.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“blank out” ne demek?\n\n“blank out” = aklım boşaldı. Örnek: “I blanked out in the middle of my speech.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“blank out” ne demek? “blank out” = aklım boşaldı. Örnek: “I blanked out in the middle of my speech.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “blank out” = aklım boşaldı. “I blanked out in the middle of my speech.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

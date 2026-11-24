@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_legit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 70,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is this shop real?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Legit!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Real and good, not fake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This shop is legit, my sister bought shoes there.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "legit",
+  "forms": [],
+  "ipa": "/ləˈdʒɪt/",
+  "mean": "Real and good, not fake.",
+  "define": "Short for legitimate; used for things that are real, true or really good.",
+  "vi": "Xịn thật, đáng tin",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Checking an online shop",
+   "text": "This shop is legit, my sister bought shoes there."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Legit\" means…",
+   "options": [
+    "very fast",
+    "real and trusted"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'legit' in a legal document.",
+   "why": "Use 'legitimate' in formal writing."
+  },
+  "l1": "Xịn thật, đáng tin",
+  "l1_hook": "Shop này thiệt không?",
+  "l1_ex": "Shop này legit nha, chị tui mua giày ở đó.",
+  "right": "legit",
+  "native": {
+   "hook": "“legit” nghĩa là gì?",
+   "tip": "“legit” = Xịn thật, đáng tin. Ví dụ: “This shop is legit, my sister bought shoes there.”",
+   "caption": "“legit” nghĩa là gì?\n“legit” = Xịn thật, đáng tin.\nVí dụ: “This shop is legit, my sister bought shoes there.” (Shop này legit nha, chị tui mua giày ở đó.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “legit” = Xịn thật, đáng tin. “This shop is legit, my sister bought shoes there.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is this shop real?"
+ },
+ "src": {
+  "slang": "legit"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“legit” nghĩa là gì?",
+  "keyword": "legit",
+  "value": "“legit” = Xịn thật, đáng tin. Ví dụ: “This shop is legit, my sister bought shoes there.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“legit” nghĩa là gì?",
+    "description": "“legit” = Xịn thật, đáng tin. Ví dụ: “This shop is legit, my sister bought shoes there.”\n\n“legit” nghĩa là gì?\n“legit” = Xịn thật, đáng tin.\nVí dụ: “This shop is legit, my sister bought shoes there.” (Shop này legit nha, chị tui mua giày ở đó.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "legit",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“legit” nghĩa là gì?\n“legit” = Xịn thật, đáng tin.\nVí dụ: “This shop is legit, my sister bought shoes there.” (Shop này legit nha, chị tui mua giày ở đó.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“legit” nghĩa là gì?\n\n“legit” = Xịn thật, đáng tin. Ví dụ: “This shop is legit, my sister bought shoes there.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“legit” nghĩa là gì? “legit” = Xịn thật, đáng tin. Ví dụ: “This shop is legit, my sister bought shoes there… #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “legit” = Xịn thật, đáng tin. “This shop is legit, my sister bought shoes there.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

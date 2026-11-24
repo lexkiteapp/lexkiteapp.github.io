@@ -1,0 +1,149 @@
+{
+ "id": "t2s_ru_burnthemidnightoil",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 57,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Still working at two a.m.?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Burn the midnight oil!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Work very late.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We burned the midnight oil last night.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "burn the midnight oil",
+  "forms": [
+   "burning the midnight oil",
+   "burned the midnight oil"
+  ],
+  "ipa": "/bɜːrn ðə ˈmɪdnaɪt ˈɔɪl/",
+  "mean": "Work very late.",
+  "define": "To keep working late into the night.",
+  "vi": "Thức khuya cày việc",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Preparing for a big test",
+   "text": "We burned the midnight oil last night."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means to work…",
+   "options": [
+    "with real oil",
+    "late at night"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say it about lighting candles.",
+   "why": "It means working very late."
+  },
+  "l1": "работать до поздна",
+  "l1_hook": "Ты всё ещё работаешь в два часа ночи? («burn the midnight oil»)",
+  "l1_ex": "Прошлой ночью нам пришлось «burn the midnight oil».",
+  "right": "burn the midnight oil",
+  "native": {
+   "hook": "Что значит «burn…»?",
+   "tip": "“burn the midnight oil” = работать до поздна. Пример: “We burned the midnight oil last night.”",
+   "caption": "Что значит «burn…»?\n“burn the midnight oil” = работать до поздна.\nПример: “We burned the midnight oil last night.” (Прошлой ночью нам пришлось «burn the midnight oil».)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “burn the midnight oil” = работать до поздна. “We burned the midnight oil last night.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Still working at two a.m.?"
+ },
+ "src": {
+  "slang": "burn the midnight oil"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Что значит «burn…»?",
+  "keyword": "burn the midnight oil",
+  "value": "“burn the midnight oil” = работать до поздна. Пример: “We burned the midnight oil last night.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «burn…»?",
+    "description": "“burn the midnight oil” = работать до поздна. Пример: “We burned the midnight oil last night.”\n\nЧто значит «burn…»?\n“burn the midnight oil” = работать до поздна.\nПример: “We burned the midnight oil last night.” (Прошлой ночью нам пришлось «burn the midnight oil».)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "burn the midnight oil",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «burn…»?\n“burn the midnight oil” = работать до поздна.\nПример: “We burned the midnight oil last night.” (Прошлой ночью нам пришлось «burn the midnight oil».)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «burn…»?\n\n“burn the midnight oil” = работать до поздна. Пример: “We burned the midnight oil last night.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «burn…»? “burn the midnight oil” = работать до поздна. Пример: “We burned the midnight oil last… #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “burn the midnight oil” = работать до поздна. “We burned the midnight oil last night.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

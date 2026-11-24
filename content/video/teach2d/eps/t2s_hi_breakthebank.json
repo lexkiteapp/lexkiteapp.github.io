@@ -1,0 +1,148 @@
+{
+ "id": "t2s_hi_breakthebank",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 72,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is lunch too expensive?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Break the bank!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Cost way too much money.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Don't worry, this lunch won't break the bank.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "break the bank",
+  "forms": [
+   "broke the bank"
+  ],
+  "ipa": "/ˈbreɪk ðə ˈbæŋk/",
+  "mean": "Cost way too much money.",
+  "define": "To cost so much that you can't afford it.",
+  "vi": "Tốn cả gia tài",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "Don't worry, this lunch won't break the bank."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It usually means to…",
+   "options": [
+    "rob a bank",
+    "cost too much"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'break the bank' at a bank.",
+   "why": "It only means costing too much."
+  },
+  "l1": "जेब ख़ाली कर देना",
+  "l1_hook": "क्या दोपहर का खाना बहुत महँगा है?",
+  "l1_ex": "चिंता मत करो, यह लंच \"break the bank\" नहीं होगा।",
+  "right": "break the bank",
+  "native": {
+   "hook": "“break the bank” का मतलब क्या है?",
+   "tip": "“break the bank” = जेब ख़ाली कर देना. उदाहरण: “Don't worry, this lunch won't break the bank.”",
+   "caption": "“break the bank” का मतलब क्या है?\n“break the bank” = जेब ख़ाली कर देना.\nउदाहरण: “Don't worry, this lunch won't break the bank.” (चिंता मत करो, यह लंच \"break the bank\" नहीं होगा।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “break the bank” = जेब ख़ाली कर देना. “Don't worry, this lunch won't break the bank.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is lunch too expensive?"
+ },
+ "src": {
+  "slang": "break the bank"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“break the bank” का मतलब क्या है?",
+  "keyword": "break the bank",
+  "value": "“break the bank” = जेब ख़ाली कर देना. उदाहरण: “Don't worry, this lunch won't break the bank.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“break the bank” का मतलब क्या है?",
+    "description": "“break the bank” = जेब ख़ाली कर देना. उदाहरण: “Don't worry, this lunch won't break the bank.”\n\n“break the bank” का मतलब क्या है?\n“break the bank” = जेब ख़ाली कर देना.\nउदाहरण: “Don't worry, this lunch won't break the bank.” (चिंता मत करो, यह लंच \"break the bank\" नहीं होगा।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "break the bank",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“break the bank” का मतलब क्या है?\n“break the bank” = जेब ख़ाली कर देना.\nउदाहरण: “Don't worry, this lunch won't break the bank.” (चिंता मत करो, यह लंच \"break the bank\" नहीं होगा।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“break the bank” का मतलब क्या है?\n\n“break the bank” = जेब ख़ाली कर देना. उदाहरण: “Don't worry, this lunch won't break the bank.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“break the bank” का मतलब क्या है? “break the bank” = जेब ख़ाली कर देना. उदाहरण: “Don't worry, this lunc… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “break the bank” = जेब ख़ाली कर देना. “Don't worry, this lunch won't break the bank.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

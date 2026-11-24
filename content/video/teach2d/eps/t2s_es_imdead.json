@@ -1,0 +1,148 @@
+{
+ "id": "t2s_es_imdead",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 3,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The cat jumped in the box!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "I'm dead!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That is so funny!",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The cat jumped in the box. I'm dead!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "data": {
+  "key": "I'm dead",
+  "forms": [
+   "dead"
+  ],
+  "ipa": "/aɪm ˈded/",
+  "mean": "That is so funny!",
+  "define": "Used when something is so funny that you can't stop laughing.",
+  "vi": "Cười chết mất",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Watching a funny video",
+   "text": "The cat jumped in the box. I'm dead!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"I'm dead\" here means…",
+   "options": [
+    "that's hilarious",
+    "I'm very hungry"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'I'm dead' about a sad story.",
+   "why": "It means laughing hard."
+  },
+  "l1": "Me muero",
+  "l1_hook": "¡El gato se metió en la caja! \"I'm dead\".",
+  "l1_ex": "El gato se metió en la caja. \"I'm dead\"!",
+  "right": "I'm dead",
+  "native": {
+   "hook": "¿Qué significa “I'm dead”?",
+   "tip": "“I'm dead” = Me muero. Ejemplo: “The cat jumped in the box. I'm dead!”",
+   "caption": "¿Qué significa “I'm dead”?\n“I'm dead” = Me muero.\nEjemplo: “The cat jumped in the box. I'm dead!” (El gato se metió en la caja. \"I'm dead\"!)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “I'm dead” = Me muero. “The cat jumped in the box. I'm dead!” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The cat jumped in the box!"
+ },
+ "src": {
+  "slang": "I'm dead"
+ },
+ "lang": "es",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "¿Qué significa “I'm dead”?",
+  "keyword": "I'm dead",
+  "value": "“I'm dead” = Me muero. Ejemplo: “The cat jumped in the box. I'm dead!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “I'm dead”?",
+    "description": "“I'm dead” = Me muero. Ejemplo: “The cat jumped in the box. I'm dead!”\n\n¿Qué significa “I'm dead”?\n“I'm dead” = Me muero.\nEjemplo: “The cat jumped in the box. I'm dead!” (El gato se metió en la caja. \"I'm dead\"!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "I'm dead",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “I'm dead”?\n“I'm dead” = Me muero.\nEjemplo: “The cat jumped in the box. I'm dead!” (El gato se metió en la caja. \"I'm dead\"!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “I'm dead”?\n\n“I'm dead” = Me muero. Ejemplo: “The cat jumped in the box. I'm dead!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “I'm dead”? “I'm dead” = Me muero. Ejemplo: “The cat jumped in the box. I'm dead!” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “I'm dead” = Me muero. “The cat jumped in the box. I'm dead!” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}
