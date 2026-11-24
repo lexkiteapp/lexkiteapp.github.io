@@ -11,6 +11,7 @@ import path from 'path';
 import { readBundles } from '../lib/bundles.mjs';
 import { gzSize, firstLoadFiles, swShell } from '../lib/gz-canon.mjs'; // gzip chuẩn (pako = zlib gốc): cùng số trên máy & CI
 import { execFileSync } from 'child_process';
+import { cpackBytes, cpackFiles, cpackCeiling, readFloor, noteExtra, ALLOWANCE } from '../lib/cpack-floor.mjs';
 import { lowHeadroom } from '../lib/headroom.mjs';
 import { learnerBytes } from '../lib/js-budget.mjs'; // byte người học tải: bỏ mã chỉ quản trị + nguồn dựng en.js (đã gộp vào en.js)
 const B = 'scripts/test/budget.json', budget = JSON.parse(fs.readFileSync(B, 'utf8'));
@@ -61,16 +62,17 @@ for (const [k, cap] of Object.entries(budget.routeGz || {})) {
   if (n > cap) errs.push(`Gói "${k}" tải lần đầu ${n} B gz > ${cap} B – tách màn ít dùng sang tải theo màn (vd st/v2/runtime.js LZ), không cắt tính năng`);
 }
 // 3d) Gói nội dung tải lười web/cpack (ngoài web/js; tải theo gói, tên băm, immutable – scripts/build-cpack.mjs): vẫn có trần, không phải đường tắt
-let cpackRaw = 0; const cwalk = d => { if (!fs.existsSync(d)) return; for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) cwalk(p); else if (p.endsWith('.js')) { cpackRaw += fs.statSync(p).size; const g = gz(p); if (g > budget.fileGz) errs.push(`Gói nội dung ${p} ${kb(g)} gzip > ${kb(budget.fileGz)} – tách lô`); } } };
-cwalk('web/cpack');
-if (cpackRaw > budget.cpackTotal) errs.push(`web/cpack ${cpackRaw} B > ${budget.cpackTotal} B (budget.cpackTotal) – rà dữ liệu thừa trước khi nâng`);
+// Trần = mốc đo do bot giữ (scripts/test/cpack-floor.json) + phụ cấp mỗi PR (scripts/lib/cpack-floor.mjs) – KHÔNG sửa tay trong budget.json (gốc xung đột); lý do vượt: scripts/test/cpack-notes/<nhánh>.md
+const cpackRaw = cpackBytes(), cpackCap = cpackCeiling();
+for (const p of cpackFiles()) { const g = gz(p); if (g > budget.fileGz) errs.push(`Gói nội dung ${p} ${kb(g)} gzip > ${kb(budget.fileGz)} – tách lô`); }
+if (cpackRaw > cpackCap) errs.push(`web/cpack ${cpackRaw} B > ${cpackCap} B (mốc main ${readFloor()} + phụ cấp ${ALLOWANCE} + khai ${noteExtra()}) – rà dữ liệu thừa; thật sự cần: thêm scripts/test/cpack-notes/<nhánh>.md (dòng "cpack-extra: <byte>" + lý do). KHÔNG sửa budget.json`);
 // 4) Chất lượng nội dung (ratchet)
 let warn = -1; try { const out = execFileSync('node', ['scripts/test/content-check.mjs'], { encoding: 'utf8' }); warn = +((out.match(/(\d+) cảnh báo/) || [])[1] ?? -1); } catch (e) { errs.push('content-check lỗi: ' + String(e.stdout || e.message).split('\n').slice(-3).join(' ')); }
 if (warn >= 0 && warn > budget.contentWarn) errs.push(`Cảnh báo nội dung tăng ${budget.contentWarn} → ${warn} – nội dung mới phải đủ phiên âm/ví dụ/lời giải (xem docs/CONTENT-RULES.md)`);
 if (process.argv.includes('--update') || (warn >= 0 && warn < budget.contentWarn)) { if (warn >= 0) budget.contentWarn = warn; fs.writeFileSync(B, JSON.stringify(budget, null, 2) + '\n'); }
 // 06/11: cảnh báo sớm mọi ngân sách (dư < 5 KB hoặc < 2 %) – máy gác budget-watch (scripts/ci/guards.mjs) đọc dòng HEADROOM: để mở issue
 const headroom = lowHeadroom([{ name: 'khung app (gz)', used: shellGz, cap: budget.shellGz }, { name: 'byte người học (web/js)', used: total, cap: budget.totalJs }, { name: 'cả kho web/js', used: LB.total, cap: budget.totalAll },
-  { name: 'web/cpack', used: cpackRaw, cap: budget.cpackTotal }, { name: 'gói ngôn ngữ lớn nhất', used: Math.max(0, ...Object.values(LB.packs)), cap: budget.langPackMax }, { name: 'trang giới thiệu (gz)', used: landMax, cap: LAND_GZ }]);
+  { name: 'gói ngôn ngữ lớn nhất', used: Math.max(0, ...Object.values(LB.packs)), cap: budget.langPackMax }, { name: 'trang giới thiệu (gz)', used: landMax, cap: LAND_GZ }]);
 for (const h of headroom) console.log(`${process.env.GITHUB_ACTIONS ? '::warning::' : '⚠ '}size-budget: ${h.name} còn ${kb(h.free)} trống (${(100 * h.free / h.cap).toFixed(1)} %) – sắp hết ngân sách, rà dữ liệu thừa trước khi PR kế tiếp đỏ`);
 // 10/11: gói ngôn ngữ nào còn dư < 5 % langPackMax → cảnh báo sớm (cả 13 gói, không chỉ gói lớn nhất) để rời nhóm nặng sang web/cpack (CPACK_I18N, scripts/lib/i18n-pack.mjs) trước khi PR kế tiếp đỏ
 for (const [l, n] of Object.entries(LB.packs)) { const free = budget.langPackMax - n; if (free >= 0 && free < budget.langPackMax * 0.05) { const m = `size-budget: gói ngôn ngữ ${l} còn ${kb(free)} trống (${(100 * free / budget.langPackMax).toFixed(1)} % < 5 %) – dời nhóm dịch nặng sang web/cpack (CPACK_I18N) trước khi PR kế tiếp đỏ`; console.log(`${process.env.GITHUB_ACTIONS ? '::warning::' : '⚠ '}${m}`); headroom.push({ name: `gói ngôn ngữ ${l}`, used: n, cap: budget.langPackMax, free }); } }
