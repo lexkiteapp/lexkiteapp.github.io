@@ -1,0 +1,133 @@
+{
+ "id": "t2s_hittheroof",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 256,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Mom found the broken vase!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hit the roof!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Get very angry.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Mom hit the roof when she saw the mess.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "hit the roof",
+  "forms": [
+   "hit the ceiling"
+  ],
+  "ipa": "/ˈhɪt ðə ˈruːf/",
+  "mean": "Get very angry.",
+  "define": "Used when someone suddenly becomes very angry.",
+  "vi": "Nổi giận đùng đùng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Telling a story",
+   "text": "Mom hit the roof when she saw the mess."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "climb up",
+    "get very angry"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'hit the roof' when mildly annoyed.",
+   "why": "It means very angry."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Mom found the broken vase!"
+ },
+ "src": {
+  "slang": "hit the roof"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"hit the roof\" mean?",
+  "keyword": "hit the roof",
+  "value": "Hit the roof = Get very angry. Example: \"Mom hit the roof when she saw the mess.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"hit the roof\" mean?",
+    "description": "Hit the roof = Get very angry. Example: \"Mom hit the roof when she saw the mess.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "hit the roof",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"hit the roof\" mean?\n\nHit the roof = Get very angry. Example: \"Mom hit the roof when she saw the mess.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"hit the roof\" mean?\n\nHit the roof = Get very angry. Example: \"Mom hit the roof when she saw the mess.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"hit the roof\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'hit the roof' when mildly annoyed. It means very angry. Real example: \"Mom hit the roof when she saw the mess.\" More real English slang, free: {link}"
+ }
+}

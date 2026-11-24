@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_fairenough",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 43,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, hear my reasoning first!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Fair enough!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Okay, that makes sense.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Fair enough, let's try your idea.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "fair enough",
+  "forms": [],
+  "ipa": "/ˈfer ɪˈnʌf/",
+  "mean": "Okay, that makes sense.",
+  "define": "Used to accept someone's point.",
+  "vi": "Cũng đúng",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "In a friendly debate",
+   "text": "Fair enough, let's try your idea."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "that's a fair price",
+    "that's reasonable"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'fair enough' to a rude insult.",
+   "why": "It sounds like you agree with them."
+  },
+  "l1": "tá certo",
+  "l1_hook": "Espere, ouça meu raciocínio primeiro. 'fair enough'?",
+  "l1_ex": "\"Fair enough\", vamos tentar sua ideia.",
+  "right": "fair enough",
+  "native": {
+   "hook": "O que significa “fair enough”?",
+   "tip": "“fair enough” = tá certo. Exemplo: “Fair enough, let's try your idea.”",
+   "caption": "O que significa “fair enough”?\n“fair enough” = tá certo.\nExemplo: “Fair enough, let's try your idea.” (\"Fair enough\", vamos tentar sua ideia.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “fair enough” = tá certo. “Fair enough, let's try your idea.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wait, hear my reasoning first!"
+ },
+ "src": {
+  "slang": "fair enough"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "O que significa “fair enough”?",
+  "keyword": "fair enough",
+  "value": "“fair enough” = tá certo. Exemplo: “Fair enough, let's try your idea.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “fair enough”?",
+    "description": "“fair enough” = tá certo. Exemplo: “Fair enough, let's try your idea.”\n\nO que significa “fair enough”?\n“fair enough” = tá certo.\nExemplo: “Fair enough, let's try your idea.” (\"Fair enough\", vamos tentar sua ideia.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "fair enough",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “fair enough”?\n“fair enough” = tá certo.\nExemplo: “Fair enough, let's try your idea.” (\"Fair enough\", vamos tentar sua ideia.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “fair enough”?\n\n“fair enough” = tá certo. Exemplo: “Fair enough, let's try your idea.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “fair enough”? “fair enough” = tá certo. Exemplo: “Fair enough, let's try your idea.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “fair enough” = tá certo. “Fair enough, let's try your idea.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

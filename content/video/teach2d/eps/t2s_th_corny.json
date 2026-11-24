@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_corny",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 63,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dad's pun again. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Corny!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Old-fashioned and silly.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dad's jokes are so corny.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "corny",
+  "forms": [],
+  "ipa": "/ˈkɔːrni/",
+  "mean": "Old-fashioned and silly.",
+  "define": "Describes jokes that are so silly they're embarrassing.",
+  "vi": "Nhạt nhẽo, sến",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Listening to a joke",
+   "text": "Dad's jokes are so corny."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Corny\" means…",
+   "options": [
+    "silly",
+    "crunchy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your teacher's joke 'corny' out loud.",
+   "why": "It sounds rude, not playful."
+  },
+  "l1": "ฝืด",
+  "l1_hook": "'corny' มุขพ่ออีกแล้ว. จริงๆ?",
+  "l1_ex": "มุขของพ่อมัน \"corny\" มากเลย.",
+  "right": "corny",
+  "native": {
+   "hook": "“corny” แปลว่าอะไร?",
+   "tip": "“corny” = ฝืด. ตัวอย่าง: “Dad's jokes are so corny.”",
+   "caption": "“corny” แปลว่าอะไร?\n“corny” = ฝืด.\nตัวอย่าง: “Dad's jokes are so corny.” (มุขของพ่อมัน \"corny\" มากเลย.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “corny” = ฝืด. “Dad's jokes are so corny.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dad's pun again. Seriously?"
+ },
+ "src": {
+  "slang": "corny"
+ },
+ "lang": "th",
+ "est": {
+  "words": 15,
+  "seconds": 9.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“corny” แปลว่าอะไร?",
+  "keyword": "corny",
+  "value": "“corny” = ฝืด. ตัวอย่าง: “Dad's jokes are so corny.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "“corny” แปลว่าอะไร?",
+    "description": "“corny” = ฝืด. ตัวอย่าง: “Dad's jokes are so corny.”\n\n“corny” แปลว่าอะไร?\n“corny” = ฝืด.\nตัวอย่าง: “Dad's jokes are so corny.” (มุขของพ่อมัน \"corny\" มากเลย.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "corny",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“corny” แปลว่าอะไร?\n“corny” = ฝืด.\nตัวอย่าง: “Dad's jokes are so corny.” (มุขของพ่อมัน \"corny\" มากเลย.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“corny” แปลว่าอะไร?\n\n“corny” = ฝืด. ตัวอย่าง: “Dad's jokes are so corny.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“corny” แปลว่าอะไร? “corny” = ฝืด. ตัวอย่าง: “Dad's jokes are so corny.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “corny” = ฝืด. “Dad's jokes are so corny.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

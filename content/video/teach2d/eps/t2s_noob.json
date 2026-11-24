@@ -1,0 +1,133 @@
+{
+ "id": "t2s_noob",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 179,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He's new and presses everything!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Noob!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A beginner who is still learning.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm a noob, so please be patient.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "noob",
+  "forms": [
+   "newbie"
+  ],
+  "ipa": "/ˈnuːb/",
+  "mean": "A beginner who is still learning.",
+  "define": "A person new to a game or skill.",
+  "vi": "Gà mờ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Playing with friends",
+   "text": "I'm a noob, so please be patient."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"noob\" is…",
+   "options": [
+    "an expert",
+    "a beginner"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a new coworker a 'noob'.",
+   "why": "It sounds mocking, not kind."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He's new and presses everything!"
+ },
+ "src": {
+  "slang": "noob"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"noob\" mean?",
+  "keyword": "noob",
+  "value": "Noob = A beginner who is still learning. Example: \"I'm a noob, so please be patient.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"noob\" mean?",
+    "description": "Noob = A beginner who is still learning. Example: \"I'm a noob, so please be patient.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "noob",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"noob\" mean?\n\nNoob = A beginner who is still learning. Example: \"I'm a noob, so please be patient.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"noob\" mean?\n\nNoob = A beginner who is still learning. Example: \"I'm a noob, so please be patient.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"noob\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a new coworker a 'noob'. It sounds mocking, not kind. Real example: \"I'm a noob, so please be patient.\" More real English slang, free: {link}"
+ }
+}

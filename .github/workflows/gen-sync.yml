@@ -22,7 +22,7 @@ jobs:
         with: { node-version: 22 }
       - name: dựng lại bản sinh từ nguồn + commit lên main
         run: |
-          bash scripts/ci/commit-regen.sh "Bản sinh - gói dịch + extension/app khớp nguồn (gen-sync)" "node scripts/i18n-pack.mjs" web/js/i18n web/cpack/lesson extension/app
+          bash scripts/ci/commit-regen.sh "Bản sinh - gói dịch + extension/app khớp nguồn (gen-sync)" "node scripts/i18n-pack.mjs" web/js/i18n web/cpack/i18n web/cpack/lesson extension/app   # web/cpack/i18n: i18n-pack ghi tlui-*.js ở đây; thiếu → extension/app (build từ web/) lệch web/ vĩnh viễn → ext-sync đỏ mọi lượt (24/11)
       - name: cổng khớp nguồn (bản đã commit = bản dựng từ nguồn)
         run: |
           git fetch -q origin main && git reset -q --hard origin/main

@@ -1,0 +1,1112 @@
+{
+ "_": "Sinh bởi scripts/ui-inventory.mjs – đừng sửa tay",
+ "matrix": {
+  "viewports": [
+   390,
+   768
+  ],
+  "themes": [
+   "light",
+   "dark"
+  ],
+  "langs": [
+   "vi",
+   "en",
+   "ar"
+  ]
+ },
+ "routes": [
+  {
+   "route": "#/call",
+   "hash": "#/call",
+   "area": "ky-nang",
+   "files": [
+    "web/js/call.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/cambridge",
+   "hash": "#/cambridge",
+   "area": "thi",
+   "files": [
+    "web/js/cambridge.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/cbt",
+   "hash": "#/cbt",
+   "area": "thi",
+   "files": [
+    "web/js/cbt.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/class",
+   "hash": "#/class",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/classroom.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/confidence",
+   "hash": "#/confidence",
+   "area": "ky-nang",
+   "files": [
+    "web/js/confidence.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/contact",
+   "hash": "#/contact",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/app.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/course",
+   "hash": "#/course",
+   "area": "hoc",
+   "files": [
+    "web/js/courses.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/courses",
+   "hash": "#/courses",
+   "area": "hoc",
+   "files": [
+    "web/js/courses.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/criteria",
+   "hash": "#/criteria",
+   "area": "ky-nang",
+   "files": [
+    "web/js/criteria.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/day",
+   "hash": "#/day/1",
+   "area": "hoc",
+   "files": [
+    "web/js/path.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/deck",
+   "hash": "#/deck",
+   "area": "hoc",
+   "files": [
+    "web/js/app.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "empty",
+    "full"
+   ]
+  },
+  {
+   "route": "#/dict",
+   "hash": "#/dict/hello",
+   "area": "tu",
+   "files": [
+    "web/js/dict-page.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/dictation",
+   "hash": "#/dictation",
+   "area": "tu",
+   "files": [
+    "web/js/listening.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/fix",
+   "hash": "#/fix",
+   "area": "ky-nang",
+   "files": [
+    "web/js/fixer.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/goal",
+   "hash": "#/goal",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/goal.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/grammar",
+   "hash": "#/grammar",
+   "area": "ky-nang",
+   "files": [
+    "web/js/grammar.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/handoff",
+   "hash": "#/handoff",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/handoff.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/handsfree",
+   "hash": "#/handsfree",
+   "area": "ky-nang",
+   "files": [
+    "web/js/handsfree.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/home",
+   "hash": "#/home",
+   "area": "hoc",
+   "files": [
+    "web/js/app.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "empty",
+    "full"
+   ]
+  },
+  {
+   "route": "#/ideas",
+   "hash": "#/ideas",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/ideas.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/league",
+   "hash": "#/league",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/league.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "empty",
+    "full"
+   ]
+  },
+  {
+   "route": "#/lesson",
+   "hash": "#/lesson",
+   "area": "hoc",
+   "files": [
+    "web/js/lesson/ui.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/letters",
+   "hash": "#/letters",
+   "area": "tu",
+   "files": [
+    "web/js/letters.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/library",
+   "hash": "#/library",
+   "area": "hoc",
+   "files": [
+    "web/js/app.js",
+    "web/js/ux1-lib.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "empty",
+    "full"
+   ]
+  },
+  {
+   "route": "#/listen",
+   "hash": "#/listen",
+   "area": "ky-nang",
+   "files": [
+    "web/js/listening.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/listen-test",
+   "hash": "#/listen-test",
+   "area": "ky-nang",
+   "files": [
+    "web/js/listening.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/listening",
+   "hash": "#/listening",
+   "area": "ky-nang",
+   "files": [
+    "web/js/listening.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/me",
+   "hash": "#/me",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/hubs.js",
+    "web/js/ux1-me.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/mediate",
+   "hash": "#/mediate",
+   "area": "ky-nang",
+   "files": [
+    "web/js/mediate.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/method",
+   "hash": "#/method",
+   "area": "ky-nang",
+   "files": [
+    "web/js/method.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/mistakes",
+   "hash": "#/mistakes",
+   "area": "hoc",
+   "files": [
+    "web/js/plan.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "empty",
+    "full"
+   ]
+  },
+  {
+   "route": "#/mock",
+   "hash": "#/mock",
+   "area": "thi",
+   "files": [
+    "web/js/mock.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/model",
+   "hash": "#/model",
+   "area": "ky-nang",
+   "files": [
+    "web/js/phrases-model.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/models",
+   "hash": "#/models",
+   "area": "ky-nang",
+   "files": [
+    "web/js/phrases-model.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/paraphrase",
+   "hash": "#/paraphrase",
+   "area": "ky-nang",
+   "files": [
+    "web/js/paraphrase.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/path",
+   "hash": "#/path",
+   "area": "hoc",
+   "files": [
+    "web/js/path.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "empty",
+    "full"
+   ]
+  },
+  {
+   "route": "#/phrases",
+   "hash": "#/phrases",
+   "area": "tu",
+   "files": [
+    "web/js/phrases-model.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/placement",
+   "hash": "#/placement",
+   "area": "hoc",
+   "files": [
+    "web/js/placement.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/practice",
+   "hash": "#/practice",
+   "area": "hoc",
+   "files": [
+    "web/js/study.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/pron",
+   "hash": "#/pron",
+   "area": "ky-nang",
+   "files": [
+    "web/js/pron.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/qstats",
+   "hash": "#/qstats",
+   "area": "thi",
+   "files": [
+    "web/js/qtips.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "empty",
+    "full"
+   ]
+  },
+  {
+   "route": "#/quick",
+   "hash": "#/quick",
+   "area": "thi",
+   "files": [
+    "web/js/quick.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/read",
+   "hash": "#/read",
+   "area": "ky-nang",
+   "files": [
+    "web/js/reading.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/reading",
+   "hash": "#/reading",
+   "area": "ky-nang",
+   "files": [
+    "web/js/reading.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/reflex",
+   "hash": "#/reflex",
+   "area": "hoc",
+   "files": [
+    "web/js/reflex.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/report",
+   "hash": "#/report",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/report-pill.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/resources",
+   "hash": "#/resources",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/resources.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/review",
+   "hash": "#/review",
+   "area": "hoc",
+   "files": [
+    "web/js/study.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "empty",
+    "full"
+   ]
+  },
+  {
+   "route": "#/roleplay",
+   "hash": "#/roleplay",
+   "area": "ky-nang",
+   "files": [
+    "web/js/roleplay.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/rtype",
+   "hash": "#/rtype",
+   "area": "hoc",
+   "files": [
+    "web/js/rtype.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/say",
+   "hash": "#/say",
+   "area": "ky-nang",
+   "files": [
+    "web/js/say.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/settings",
+   "hash": "#/settings",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/settings.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/skill",
+   "hash": "#/skill/listening",
+   "area": "ky-nang",
+   "files": [
+    "web/js/hubs.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/skills",
+   "hash": "#/skills",
+   "area": "ky-nang",
+   "files": [
+    "web/js/hubs.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/speak",
+   "hash": "#/speak",
+   "area": "ky-nang",
+   "files": [
+    "web/js/speak/app.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/speaking",
+   "hash": "#/speaking",
+   "area": "ky-nang",
+   "files": [
+    "web/js/speaking.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  },
+  {
+   "route": "#/stats",
+   "hash": "#/stats",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/stats-page.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "empty",
+    "full"
+   ]
+  },
+  {
+   "route": "#/streak",
+   "hash": "#/streak",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/retention.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "empty",
+    "full"
+   ]
+  },
+  {
+   "route": "#/style",
+   "hash": "#/style",
+   "area": "ky-nang",
+   "files": [
+    "web/js/quick.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/task1",
+   "hash": "#/task1",
+   "area": "ky-nang",
+   "files": [
+    "web/js/task1.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/tests",
+   "hash": "#/tests",
+   "area": "thi",
+   "files": [
+    "web/js/hubs.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/toefl",
+   "hash": "#/toefl",
+   "area": "thi",
+   "files": [
+    "web/js/toefl.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/toefl-p",
+   "hash": "#/toefl-p",
+   "area": "thi",
+   "files": [
+    "web/js/toefl.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/toeic",
+   "hash": "#/toeic",
+   "area": "thi",
+   "files": [
+    "web/js/toeic.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/toeic-r",
+   "hash": "#/toeic-r",
+   "area": "thi",
+   "files": [
+    "web/js/toeic.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/toeic-sw",
+   "hash": "#/toeic-sw",
+   "area": "thi",
+   "files": [
+    "web/js/toeic.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/toeic-test",
+   "hash": "#/toeic-test",
+   "area": "thi",
+   "files": [
+    "web/js/toeic.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/topic",
+   "hash": "#/topic/awl1",
+   "area": "hoc",
+   "files": [
+    "web/js/app.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/tracks",
+   "hash": "#/tracks",
+   "area": "hoc",
+   "files": [
+    "web/js/path.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/train",
+   "hash": "#/train",
+   "area": "hoc",
+   "files": [
+    "web/js/ux1.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/usage",
+   "hash": "#/usage",
+   "area": "toi-he-thong",
+   "files": [
+    "web/js/usage.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/verb",
+   "hash": "#/verb/go",
+   "area": "tu",
+   "files": [
+    "web/js/verbs.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/vocab",
+   "hash": "#/vocab",
+   "area": "tu",
+   "files": [
+    "web/js/vocab-hub.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/watch",
+   "hash": "#/watch",
+   "area": "ky-nang",
+   "files": [
+    "web/js/watch.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/welcome",
+   "hash": "#/welcome/setup",
+   "area": "chao",
+   "files": [
+    "web/js/app.js"
+   ],
+   "states": [
+    "new",
+    "returning"
+   ]
+  },
+  {
+   "route": "#/write",
+   "hash": "#/write",
+   "area": "ky-nang",
+   "files": [
+    "web/js/write.js"
+   ],
+   "states": [
+    "new",
+    "returning",
+    "loading",
+    "error"
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "web/cpack/tl-app/tl-pick.js",
+   "line": 47,
+   "title": "",
+   "variant": "sheet"
+  },
+  {
+   "file": "web/js/account-delete.js",
+   "line": 66,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/account.js",
+   "line": 61,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/ads/run.js",
+   "line": 208,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/app.js",
+   "line": 245,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/classroom.js",
+   "line": 216,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/exit-guard.js",
+   "line": 105,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/fixer.js",
+   "line": 180,
+   "title": "📋",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/install-sheet.js",
+   "line": 83,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/league.js",
+   "line": 88,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/mock.js",
+   "line": 119,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/native-auth.js",
+   "line": 43,
+   "title": "☁️",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/remind.js",
+   "line": 336,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/retention.js",
+   "line": 183,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/settings.js",
+   "line": 46,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/st/v2/runtime.js",
+   "line": 70,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/streak-ui.js",
+   "line": 111,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/study.js",
+   "line": 433,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/sync.js",
+   "line": 480,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/ux1-me.js",
+   "line": 94,
+   "title": "",
+   "variant": "dialog"
+  },
+  {
+   "file": "web/js/ux1.js",
+   "line": 100,
+   "title": "",
+   "variant": "dialog"
+  }
+ ]
+}

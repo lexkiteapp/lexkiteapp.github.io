@@ -138,10 +138,10 @@ public enum Dictation {
             public var reward: [String: Int], links: [String]
             public var dictDone: Double
         }
-        /// the end page: round(Σ pct / done · 100), the reward and the links; `old` = game.dictDone[part]
+        /// the end page: round(Σ pct / done · 100), the reward (xp = set(round(Σ pct), done, type)) and the links; `old` = game.dictDone[part]
         public func finish(old: Double?) -> Finish {
             let pct = done > 0 ? Vocab.round(score / Double(done) * 100) : 0, id = part.s("id")
-            return Finish(pct: pct, count: done, reward: ["quizzes": 1, "dictations": 1, "xp": 10 + Vocab.round(Double(pct) / 5)],
+            return Finish(pct: pct, count: done, reward: ["quizzes": 1, "dictations": 1, "xp": RewardRules.xp("set", right: RewardRules.jsRound(score), total: done, mode: "type")],
                           links: ["#/listen/\(id)", "#/dictation/\(id)?m=\(Dictation.nextMode(mode))", "#/listening"], dictDone: max(Double(pct), old ?? 0))
         }
     }

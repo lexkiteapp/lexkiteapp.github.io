@@ -90,6 +90,7 @@
 "Thẻ sẵn sàng":"Kartu siap",
 "Thẻ tiếp":"Kartu berikutnya",
 "Thử ngay":"Coba sekarang",
+"Tra từ…":"Carilah sebuah kata…",
 "Truyện & âm thanh":"Cerita & audio",
 "Truyện ngắn":"Cerita",
 "Trọng tâm hôm nay":"Fokus hari ini",

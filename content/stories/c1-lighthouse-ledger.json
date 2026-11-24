@@ -1,0 +1,143 @@
+{
+  "id": "c1-lighthouse-ledger",
+  "kind": "book",
+  "level": "C1",
+  "title": "The Lighthouse Ledger",
+  "summary": "A new lighthouse keeper discovers a hidden ledger that reveals why the old keeper left so suddenly.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original story written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "kit"
+    ],
+    "scene": "Flat 2D illustration: Kit standing inside a lighthouse lamp room at night holding an old notebook, stormy sea beyond the glass, no text"
+  },
+  "audio": {
+    "wpm": 140,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "The Keeper's Secret",
+      "words": [
+        "ledger",
+        "dwindle",
+        "meticulous",
+        "abandon",
+        "supply",
+        "ignore"
+      ],
+      "sentences": [
+        "When Kit accepted the post at Gannet Rock, nobody warned her how lonely the lighthouse would feel.",
+        "The supply boat visited only once a fortnight, and the radio often crackled with nothing but noise.",
+        "On her third night, while searching for matches, she noticed a loose board beneath the old iron stove.",
+        "Underneath lay a leather ledger, swollen with damp, but still tied shut with a length of faded string.",
+        "The previous keeper, Mr Alder, had left the island in a hurry, and the harbour office had never explained why.",
+        "His handwriting was meticulous, with every entry listing the weather, the oil used, and the passing ships.",
+        "For years the numbers were perfectly regular, which made the final pages all the more strange.",
+        "In the last month, Alder had recorded a ship that never appeared on any official schedule.",
+        "The ship came at the same hour each night, showed no lights, and sailed straight past the rocks.",
+        "Kit felt her curiosity grow as her supply of candles began to dwindle in the storm.",
+        "She wondered whether Alder had abandoned his post out of fear, or whether someone had forced him to go.",
+        "By morning she had read the whole ledger twice, and she knew she could not simply ignore it."
+      ],
+      "quiz": [
+        {
+          "q": "Where did Kit find the ledger?",
+          "options": [
+            "Under a loose board near the stove",
+            "In the supply boat",
+            "On the lamp room shelf"
+          ],
+          "answer": 0,
+          "explain": "It lay beneath a loose board under the old iron stove."
+        },
+        {
+          "q": "What was unusual about the final pages?",
+          "options": [
+            "They were torn out.",
+            "They recorded a ship with no lights.",
+            "They were written in code."
+          ],
+          "answer": 1,
+          "explain": "Alder recorded an unscheduled ship that showed no lights."
+        },
+        {
+          "q": "What was Alder's handwriting like?",
+          "options": [
+            "Careless",
+            "Very careful and detailed",
+            "Impossible to read"
+          ],
+          "answer": 1,
+          "explain": "It was meticulous, with every entry carefully listed."
+        }
+      ]
+    },
+    {
+      "title": "Light on the Water",
+      "words": [
+        "suspicion",
+        "smuggle",
+        "signal",
+        "testify",
+        "vessel",
+        "inspector"
+      ],
+      "sentences": [
+        "On the next clear night, Kit climbed to the lamp room and kept a silent watch by the great glass.",
+        "At exactly midnight, a dark shape slid across the water without a single light on its deck.",
+        "She felt a cold suspicion settle in her stomach, because the ship moved with the confidence of a regular visitor.",
+        "Then a small lamp blinked twice on the headland, and the ship answered with a signal from its stern.",
+        "Kit realised that someone on the island was helping the crew to smuggle goods past the coast guard.",
+        "Alder must have discovered the pattern, and perhaps he had left because he refused to take part.",
+        "She copied every detail into her own notebook, including the date, the time, and the direction of the signals.",
+        "When the supply boat arrived, she slowly handed the ledger and her notes to the harbour inspector.",
+        "The inspector listened carefully, and two weeks later a patrol vessel caught the dark ship at midnight.",
+        "Alder travelled back to the island, relieved, and he agreed to testify about everything he had seen.",
+        "He thanked Kit for the courage that he himself had lacked during his last difficult month.",
+        "That evening, she lit the great lamp as usual and watched its beam sweep calmly across an honest sea."
+      ],
+      "quiz": [
+        {
+          "q": "What did Kit see at midnight?",
+          "options": [
+            "A ship moving without lights",
+            "A fishing boat in distress",
+            "A storm approaching"
+          ],
+          "answer": 0,
+          "explain": "A dark shape crossed the water without any light on its deck."
+        },
+        {
+          "q": "What did Kit conclude?",
+          "options": [
+            "Alder had stolen the oil.",
+            "Someone on the island helped smugglers.",
+            "The ship was lost."
+          ],
+          "answer": 1,
+          "explain": "She realised someone was helping the crew smuggle goods."
+        },
+        {
+          "q": "What happened after Kit gave the ledger to the inspector?",
+          "options": [
+            "Nothing changed.",
+            "Alder was arrested.",
+            "A patrol caught the ship."
+          ],
+          "answer": 2,
+          "explain": "Two weeks later a patrol vessel caught the dark ship."
+        }
+      ]
+    }
+  ]
+}

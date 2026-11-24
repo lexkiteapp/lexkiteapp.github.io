@@ -1,0 +1,150 @@
+{
+ "id": "t2s_de_drip",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 46,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New jacket, new shoes, new confidence!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Drip!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very stylish clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Nice jacket, you've got drip today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "drip",
+  "forms": [],
+  "ipa": "/ˈdrɪp/",
+  "mean": "Very stylish clothes.",
+  "define": "Slang for cool clothes and a stylish look.",
+  "vi": "Phong cách chất lừ",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Seeing a friend's outfit",
+   "text": "Nice jacket, you've got drip today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Drip\" means…",
+   "options": [
+    "a water drop",
+    "a cool style"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your boss 'nice drip' at work.",
+   "why": "It's too slangy for formal settings."
+  },
+  "l1": "stylishe Klamotten",
+  "l1_hook": "Neue Jacke, neue Schuhe, neues Selbstbewusstsein!",
+  "l1_ex": "Schicke Jacke, du hast heute \"drip\".",
+  "right": "drip",
+  "native": {
+   "hook": "Was heißt “drip”?",
+   "tip": "“drip” = stylishe Klamotten. Beispiel: “Nice jacket, you've got drip today.”",
+   "caption": "Was heißt “drip”?\n“drip” = stylishe Klamotten.\nBeispiel: “Nice jacket, you've got drip today.” (Schicke Jacke, du hast heute \"drip\".)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “drip” = stylishe Klamotten. “Nice jacket, you've got drip today.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "New jacket, new shoes, new confidence!"
+ },
+ "src": {
+  "slang": "drip"
+ },
+ "lang": "de",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Was heißt “drip”?",
+  "keyword": "drip",
+  "value": "“drip” = stylishe Klamotten. Beispiel: “Nice jacket, you've got drip today.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “drip”?",
+    "description": "“drip” = stylishe Klamotten. Beispiel: “Nice jacket, you've got drip today.”\n\nWas heißt “drip”?\n“drip” = stylishe Klamotten.\nBeispiel: “Nice jacket, you've got drip today.” (Schicke Jacke, du hast heute \"drip\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "drip",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “drip”?\n“drip” = stylishe Klamotten.\nBeispiel: “Nice jacket, you've got drip today.” (Schicke Jacke, du hast heute \"drip\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “drip”?\n\n“drip” = stylishe Klamotten. Beispiel: “Nice jacket, you've got drip today.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “drip”? “drip” = stylishe Klamotten. Beispiel: “Nice jacket, you've got drip today.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “drip” = stylishe Klamotten. “Nice jacket, you've got drip today.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

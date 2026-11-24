@@ -1,6 +1,6 @@
 /* UI ko – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
-"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"너무 쉬워 보이네요. 더 어려운 문제(고르는 대신 직접 입력)로 보너스 XP를 받아 볼까요?",
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhớ lâu hơn nhé?":"너무 쉬워 보이네요. 더 오래 기억할 수 있도록 어려운 문제(고르는 대신 입력)에 도전해 볼까요?",
 "Bật lại":"다시 켜기",
 "Chuỗi dài nhất":"최장 연속",
 "Câu khó · +{n} XP":"어려운 문제 · +{n} XP",

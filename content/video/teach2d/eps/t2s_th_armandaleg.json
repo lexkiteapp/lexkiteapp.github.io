@@ -1,0 +1,148 @@
+{
+ "id": "t2s_th_armandaleg",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 15,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at this coat's price!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Arm and a leg!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely expensive.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coat costs an arm and a leg.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "arm and a leg",
+  "forms": [
+   "an arm and a leg"
+  ],
+  "ipa": "/ən ˈɑːrm ən ə ˈleɡ/",
+  "mean": "Extremely expensive.",
+  "define": "Used when something costs a huge amount of money.",
+  "vi": "Đắt cắt cổ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Looking at store prices",
+   "text": "This coat costs an arm and a leg."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means something is…",
+   "options": [
+    "very cheap",
+    "very expensive"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't take 'an arm and a leg' literally at the store.",
+   "why": "It just means very expensive."
+  },
+  "l1": "แพงหูฉี่",
+  "l1_hook": "ดูราคาของเสื้อโค้ทนี้สิ 'arm and a leg'!",
+  "l1_ex": "เสื้อโค้ทนี้ราคา \"arm and a leg\".",
+  "right": "arm and a leg",
+  "native": {
+   "hook": "“arm and a leg” แปลว่าอะไร?",
+   "tip": "“arm and a leg” = แพงหูฉี่. ตัวอย่าง: “This coat costs an arm and a leg.”",
+   "caption": "“arm and a leg” แปลว่าอะไร?\n“arm and a leg” = แพงหูฉี่.\nตัวอย่าง: “This coat costs an arm and a leg.” (เสื้อโค้ทนี้ราคา \"arm and a leg\".)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “arm and a leg” = แพงหูฉี่. “This coat costs an arm and a leg.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at this coat's price!"
+ },
+ "src": {
+  "slang": "arm and a leg"
+ },
+ "lang": "th",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“arm and a leg” แปลว่าอะไร?",
+  "keyword": "arm and a leg",
+  "value": "“arm and a leg” = แพงหูฉี่. ตัวอย่าง: “This coat costs an arm and a leg.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“arm and a leg” แปลว่าอะไร?",
+    "description": "“arm and a leg” = แพงหูฉี่. ตัวอย่าง: “This coat costs an arm and a leg.”\n\n“arm and a leg” แปลว่าอะไร?\n“arm and a leg” = แพงหูฉี่.\nตัวอย่าง: “This coat costs an arm and a leg.” (เสื้อโค้ทนี้ราคา \"arm and a leg\".)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "arm and a leg",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“arm and a leg” แปลว่าอะไร?\n“arm and a leg” = แพงหูฉี่.\nตัวอย่าง: “This coat costs an arm and a leg.” (เสื้อโค้ทนี้ราคา \"arm and a leg\".)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“arm and a leg” แปลว่าอะไร?\n\n“arm and a leg” = แพงหูฉี่. ตัวอย่าง: “This coat costs an arm and a leg.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“arm and a leg” แปลว่าอะไร? “arm and a leg” = แพงหูฉี่. ตัวอย่าง: “This coat costs an arm and a leg.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “arm and a leg” = แพงหูฉี่. “This coat costs an arm and a leg.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

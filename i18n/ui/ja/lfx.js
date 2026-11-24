@@ -1,6 +1,6 @@
 /* UI ja – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {
-"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"簡単すぎるようですね。もっと難しい問題（選ぶ代わりに入力）でボーナスXPを狙いませんか？",
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhớ lâu hơn nhé?":"この問題は簡単すぎるようです。より長く覚えられるよう、難しめの問題（選ぶのではなく入力）に挑戦しますか？",
 "Bật lại":"再開する",
 "Chuỗi dài nhất":"最長連続",
 "Câu khó · +{n} XP":"難問 · +{n} XP",

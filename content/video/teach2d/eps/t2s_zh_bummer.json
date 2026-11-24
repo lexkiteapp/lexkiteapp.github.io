@@ -1,0 +1,150 @@
+{
+ "id": "t2s_zh_bummer",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 75,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The trip got canceled. Ugh!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bummer!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's disappointing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The trip is canceled? What a bummer.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "bummer",
+  "forms": [],
+  "ipa": "/ˈbʌmɚ/",
+  "mean": "That's disappointing.",
+  "define": "Used when something is a bit sad or disappointing.",
+  "vi": "Chán ghê, tiếc quá",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Talking about plans",
+   "text": "The trip is canceled? What a bummer."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bummer\" is a word for…",
+   "options": [
+    "a disappointment",
+    "a happy surprise"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'bummer' to someone who lost a loved one.",
+   "why": "It's too light for deep grief."
+  },
+  "l1": "真遗憾",
+  "l1_hook": "旅行被取消了，真是 bummer。",
+  "l1_ex": "旅行被取消了？真是 bummer。",
+  "right": "bummer",
+  "native": {
+   "hook": "“bummer”是什么意思？",
+   "tip": "“bummer” = 真遗憾. 例句: “The trip is canceled? What a bummer.”",
+   "caption": "“bummer”是什么意思？\n“bummer” = 真遗憾.\n例句: “The trip is canceled? What a bummer.” (旅行被取消了？真是 bummer。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “bummer” = 真遗憾. “The trip is canceled? What a bummer.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The trip got canceled. Ugh!"
+ },
+ "src": {
+  "slang": "bummer"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 17,
+  "seconds": 10.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“bummer”是什么意思？",
+  "keyword": "bummer",
+  "value": "“bummer” = 真遗憾. 例句: “The trip is canceled? What a bummer.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "“bummer”是什么意思？",
+    "description": "“bummer” = 真遗憾. 例句: “The trip is canceled? What a bummer.”\n\n“bummer”是什么意思？\n“bummer” = 真遗憾.\n例句: “The trip is canceled? What a bummer.” (旅行被取消了？真是 bummer。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "bummer",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“bummer”是什么意思？\n“bummer” = 真遗憾.\n例句: “The trip is canceled? What a bummer.” (旅行被取消了？真是 bummer。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bummer”是什么意思？\n\n“bummer” = 真遗憾. 例句: “The trip is canceled? What a bummer.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bummer”是什么意思？ “bummer” = 真遗憾. 例句: “The trip is canceled? What a bummer.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “bummer” = 真遗憾. “The trip is canceled? What a bummer.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

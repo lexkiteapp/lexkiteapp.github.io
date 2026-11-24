@@ -1,0 +1,137 @@
+{
+  "id": "b1-last-night-bus",
+  "kind": "book",
+  "level": "B1",
+  "title": "The Last Night Bus",
+  "summary": "A tired student falls asleep on the night bus and learns something kind about the driver.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "kit"
+    ],
+    "scene": "Flat 2D illustration: an empty city bus at night with warm yellow lights, one young person asleep by the window, rain on the glass, no text"
+  },
+  "audio": {
+    "wpm": 125,
+    "voice": "kokoro:am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Too Late to Go Home",
+      "sentences": [
+        "Kit studied at the library until it closed, and then she ran to the bus stop.",
+        "It had been a long week, and she was exhausted.",
+        "The last bus of the night arrived a few minutes later.",
+        "There were only two other passengers, and both of them were asleep.",
+        "Kit sat by the window and watched the rain run down the glass.",
+        "She promised herself that she would stay awake.",
+        "But the gentle movement of the bus made her eyes heavy.",
+        "Within minutes, she was dreaming about her exams.",
+        "When she opened her eyes again, the bus was parked and the lights were off.",
+        "She was alone, and she had no idea where she was."
+      ],
+      "words": [
+        "library",
+        "passenger",
+        "gentle",
+        "promise",
+        "exam"
+      ],
+      "quiz": [
+        {
+          "q": "Why was Kit so tired?",
+          "options": [
+            "She worked all night",
+            "She had a long week of study",
+            "She was ill"
+          ],
+          "answer": 1,
+          "explain": "It had been a long week and she had studied until the library closed."
+        },
+        {
+          "q": "What happened on the bus?",
+          "options": [
+            "Kit got off at the wrong stop",
+            "Kit fell asleep",
+            "The bus broke down"
+          ],
+          "answer": 1,
+          "explain": "The gentle movement of the bus made her fall asleep."
+        },
+        {
+          "q": "How did Kit feel when she woke up?",
+          "options": [
+            "Lost and alone",
+            "Happy and rested",
+            "Bored"
+          ],
+          "answer": 0,
+          "explain": "She was alone and had no idea where she was."
+        }
+      ]
+    },
+    {
+      "title": "The Driver's Surprise",
+      "sentences": [
+        "Kit stood up quickly and walked to the front of the bus.",
+        "The driver was not in his seat.",
+        "Through the window, she saw him standing outside in the rain.",
+        "He was talking to an old man who was sitting on a bench.",
+        "The driver gave the man a warm coat and a hot drink from a flask.",
+        "When he returned to the bus, he looked surprised to see her.",
+        "\"I am so sorry,\" he said. \"I did not want to wake you, because you looked so tired.\"",
+        "\"That man has no home, so I bring him something every night,\" he explained.",
+        "Then he drove Kit all the way to her street, even though it was not on his route.",
+        "Before she got off, she thanked him and promised to come back with a hot meal."
+      ],
+      "words": [
+        "bench",
+        "route",
+        "explain",
+        "driver",
+        "coat"
+      ],
+      "quiz": [
+        {
+          "q": "Where was the driver?",
+          "options": [
+            "Outside, talking to an old man",
+            "At the library",
+            "Asleep in his seat"
+          ],
+          "answer": 0,
+          "explain": "He was standing in the rain, talking to an old man on a bench."
+        },
+        {
+          "q": "What did the driver give the old man?",
+          "options": [
+            "A ticket",
+            "A warm coat and a hot drink",
+            "Some money"
+          ],
+          "answer": 1,
+          "explain": "He gave him a warm coat and a hot drink."
+        },
+        {
+          "q": "What did Kit promise?",
+          "options": [
+            "To report the driver",
+            "To bring a hot meal",
+            "To take a taxi"
+          ],
+          "answer": 1,
+          "explain": "She promised to come back with a hot meal."
+        }
+      ]
+    }
+  ]
+}

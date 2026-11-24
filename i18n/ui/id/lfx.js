@@ -1,6 +1,6 @@
 /* UI id – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {
-"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Sepertinya ini terlalu mudah untukmu. Coba soal yang lebih sulit (mengetik, bukan memilih) untuk bonus XP?",
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhớ lâu hơn nhé?":"Ini tampaknya terlalu mudah bagi Anda. Mau soal yang lebih sulit (mengetik, bukan memilih) agar lebih lama diingat?",
 "Bật lại":"Aktifkan lagi",
 "Chuỗi dài nhất":"Beruntun terbaik",
 "Câu khó · +{n} XP":"Soal sulit · +{n} XP",

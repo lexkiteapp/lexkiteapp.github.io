@@ -1,0 +1,135 @@
+{
+ "id": "t2s_pumped",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 293,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Concert tonight! Can you believe it?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Pumped!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Super excited.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm so pumped for the concert!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "pumped",
+  "forms": [],
+  "ipa": "/ˈpʌmpt/",
+  "mean": "Super excited.",
+  "define": "Used when you feel excited and full of energy.",
+  "vi": "Hào hứng quá",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about a concert",
+   "text": "I'm so pumped for the concert!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Pumped\" means…",
+   "options": [
+    "full of air",
+    "super excited"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say you're 'pumped' about a flat tire.",
+   "why": "It means excited, not inflated."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Concert tonight! Can you believe it?"
+ },
+ "src": {
+  "slang": "pumped"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"pumped\" mean?",
+  "keyword": "pumped",
+  "value": "Pumped = Super excited. Example: \"I'm so pumped for the concert!\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"pumped\" mean?",
+    "description": "Pumped = Super excited. Example: \"I'm so pumped for the concert!\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "pumped",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"pumped\" mean?\n\nPumped = Super excited. Example: \"I'm so pumped for the concert!\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"pumped\" mean?\n\nPumped = Super excited. Example: \"I'm so pumped for the concert!\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"pumped\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say you're 'pumped' about a flat tire. It means excited, not inflated. Real example: \"I'm so pumped for the concert!\" More real English slang, free: {link}"
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "id": "t2s_og",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 262,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who joined our club first?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "OG!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The original or classic one.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's the OG member of our club.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "OG",
+  "forms": [
+   "og"
+  ],
+  "ipa": "/ˌoʊ ˈdʒiː/",
+  "mean": "The original or classic one.",
+  "define": "Someone or something that was first and respected.",
+  "vi": "Hàng gốc, lão làng",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "Talking about a fan",
+   "text": "He's the OG member of our club."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"OG\" means…",
+   "options": [
+    "a candy",
+    "the original"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your new friend 'OG' on day one.",
+   "why": "It means original, long-time."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who joined our club first?"
+ },
+ "src": {
+  "slang": "OG"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"OG\" mean?",
+  "keyword": "OG",
+  "value": "OG = The original or classic one. Example: \"He's the OG member of our club.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"OG\" mean?",
+    "description": "OG = The original or classic one. Example: \"He's the OG member of our club.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "OG",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"OG\" mean?\n\nOG = The original or classic one. Example: \"He's the OG member of our club.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"OG\" mean?\n\nOG = The original or classic one. Example: \"He's the OG member of our club.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"OG\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call your new friend 'OG' on day one. It means original, long-time. Real example: \"He's the OG member of our club.\" More real English slang, free: {link}"
+ }
+}

@@ -2,8 +2,9 @@
 import fs from 'node:fs';
 import assert from 'node:assert'; // lỏng: đối tượng từ vm khác realm nên deepStrictEqual (so prototype) sẽ lệch
 import vm from 'node:vm';
+import { gameRules } from '../lib/game-rules.mjs';
 
-const w = {}; w.self = w;
+const w = { Game: gameRules() }; w.self = w; // XP theo luật chung game.js
 for (const f of ['web/js/pron/coach.js', 'web/cpack/play-app/play-blitz.js', 'web/cpack/play-app/play-rhythm.js']) vm.runInNewContext(fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8'), w);
 const { core } = w.PlayRhythm, Coach = w.PronCoach, B = 700;
 const P = [{ stress: true }, { stress: false }, { stress: true }, { stress: false }, { stress: true }]; // 0,2,4 nhấn · 1,3 yếu
@@ -48,7 +49,7 @@ assert.equal(core.mult(2), 1); assert.equal(core.mult(3), 2); assert.equal(core.
 
 // Nhịp nhanh dần, XP có trần
 assert.equal(core.beatOf(0), 700); assert.equal(core.beatOf(4), 560);
-assert.equal(core.xpOf(0, 0), 5); assert.equal(core.xpOf(100, 100), 40); assert.equal(core.xpOf(5, 95), 20);
+assert.equal(core.xpOf(0, 0), 10); assert.equal(core.xpOf(100, 100), 40); assert.equal(core.xpOf(5, 95), 20);
 
 // SRS: chỉ chấm khi chạm đúng từ đích, cả câu ≥ 90 % VÀ không chạm thừa; còn lại không chấm (không phạt)
 assert.equal(core.srsGrade({ words: ['perfect'], acc: 100, extra: 0 }, 0), 2); assert.equal(core.srsGrade({ words: ['good'], acc: 90, extra: 0 }, 0), 2);

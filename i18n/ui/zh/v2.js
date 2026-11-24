@@ -90,6 +90,7 @@
 "Thẻ sẵn sàng":"待复习卡片",
 "Thẻ tiếp":"下一张",
 "Thử ngay":"立即试用",
+"Tra từ…":"查一个词...",
 "Truyện & âm thanh":"故事与音频",
 "Truyện ngắn":"故事",
 "Trọng tâm hôm nay":"今日重点",

@@ -90,6 +90,7 @@
 "Thẻ sẵn sàng":"Cartões prontos",
 "Thẻ tiếp":"Próximo cartão",
 "Thử ngay":"Experimente agora",
+"Tra từ…":"Procure uma palavra…",
 "Truyện & âm thanh":"Histórias e áudio",
 "Truyện ngắn":"Histórias",
 "Trọng tâm hôm nay":"Foco de hoje",

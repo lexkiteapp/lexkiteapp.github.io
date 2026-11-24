@@ -1,0 +1,131 @@
+{
+ "id": "t2s_petty",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 120,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He wants his cookie back?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Petty!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Upset about tiny, unimportant things.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Counting every cookie is petty, don't you think?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "petty",
+  "forms": [],
+  "ipa": "/ˈpeti/",
+  "mean": "Upset about tiny, unimportant things.",
+  "define": "Used for someone who makes a big deal out of small things.",
+  "vi": "Nhỏ nhen, chấp nhặt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "Counting every cookie is petty, don't you think?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Petty\" means worried about…",
+   "options": [
+    "big money",
+    "tiny things"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a real complaint 'petty'.",
+   "why": "It dismisses someone's genuine feelings."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He wants his cookie back?"
+ },
+ "src": {
+  "slang": "petty"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"petty\" mean?",
+  "keyword": "petty",
+  "value": "Petty = Upset about tiny, unimportant things. Example: \"Counting every cookie is petty, don't you think?\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"petty\" mean?",
+    "description": "Petty = Upset about tiny, unimportant things. Example: \"Counting every cookie is petty, don't you think?\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "petty",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"petty\" mean?\n\nPetty = Upset about tiny, unimportant things. Example: \"Counting every cookie is petty, don't you think?\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"petty\" mean?\n\nPetty = Upset about tiny, unimportant things. Example: \"Counting every cookie is petty, don't you think?\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"petty\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a real complaint 'petty'. It dismisses someone's genuine feelings. Real example: \"Counting every cookie is petty, don't you think?\" More real English slang, free: {link}"
+ }
+}

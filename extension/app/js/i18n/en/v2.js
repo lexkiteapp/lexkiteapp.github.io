@@ -90,6 +90,7 @@
   "Thẻ sẵn sàng": "Cards ready",
   "Thẻ tiếp": "Next card",
   "Thử ngay": "Try it now",
+  "Tra từ…": "Search words…",
   "Truyện & âm thanh": "Stories & audio",
   "Truyện ngắn": "Stories",
   "Trọng tâm hôm nay": "Today's Focus",
