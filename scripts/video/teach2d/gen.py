@@ -559,17 +559,18 @@ SC_EXPR = {100: 'hype', 80: 'smug', 60: 'shrug', 40: 'cringe'}   # score band ->
 SC_NUM, SC_COUNT = {40: 'forty', 60: 'sixty', 80: 'eighty'}, ['No', 'One', 'Two', 'Three', 'Four', 'All five']
 SC_REACT = {100: 'Perfect. Tough to match.', 80: 'Pretty good, right?', 60: 'Okay. You can beat that.', 40: 'Oops. Easy to beat!'}
 SC_CYCLE = [80, 60, 100, 80, 40, 60, 80, 100]   # bands in plan order: smug / shrug / hype alternate, so no two neighbours look alike
+SC_GATE = 750   # verify-time limit (data gate, test): the card column is 758 px
 SC_W, SC_ROW, SC_REGION = 708, 40, 820   # row text: measured here (basic layout) <= 708 px; the card column is 758 px (900 - badge column 102 - pad 40), a 7 % margin for CI's raqm / hinted advances, row font (= the 40 px min-text floor), card height room (card region 826)
 SC_WORDS, SC_SECS = (16, 28), (7.2, 10.8)   # word range / est. seconds (syllable clock, make()) of the score challenge reel: real total = est + ~2 s end-card tail -> qc.py 9-13 s; speed = SLANG_SPEED (3.1 syllables / s, <= 5)
 
 
-def sc_ok(g):   # a gold quiz item the card can show: one gap, 2 short options, learner level, audited (qc.gold), BOTH fillings fit one 40 px row
+def sc_ok(g, w=None):   # a gold quiz item the card can show: one gap, 2 short options, learner level, audited (qc.gold), BOTH fillings fit one 40 px row
     q = g['quiz']; s = q['q']
     if not (s.count('___') == 1 and len(q['options']) == 2 and not re.search(r'[0-9/()]', s) and g['cefr'] in SC_CEFR and (g.get('qc') or {}).get('gold') is True and all(len(o) <= 14 for o in q['options'])): return False
-    a, b = s.split('___'); return all(text_w(a + o + b, SC_ROW) <= SC_W for o in q['options'])
+    a, b = s.split('___'); return all(text_w(a + o + b, SC_ROW) <= (w or SC_W) for o in q['options'])
 
 
-def sc_pool(): return {i: g for i, g in GOLD.items() if sc_ok(g)}
+def sc_pool(w=None): return {i: g for i, g in GOLD.items() if sc_ok(g, w)}   # w = the width limit: SC_W when planning (what we measure here), SC_GATE when verifying (any machine: CI measures the same text a few % wider)
 def sc_fact(i, pick): g = GOLD[i]; q = g['quiz']; return dict(id=i, q=q['q'], options=q['options'], answer=q['answer'], cefr=g['cefr'], pick=pick)
 def sc_right(F): return sum(f['pick'] == f['answer'] for f in F)
 def sc_score(F): return SC_PTS * sc_right(F)
@@ -949,7 +950,7 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
         if not it: bad.append('slang key gone from slang.json')
         elif slang_facts(it, row.get('lang')) != row.get('facts'): bad.append('slang card or its page-language texts changed (re-plan + review)')
     elif t == 'scorecard':   # Score Challenge: the row froze 5 gold quiz items + the sample picks; the live audited bank must still say the same, and the score is recomputed from the ticks
-        ids, pk = p['items'], p['picks']; pool = sc_pool()
+        ids, pk = p['items'], p['picks']; pool = sc_pool(SC_GATE)
         if len(set(ids)) != SC_N or len(ids) != SC_N or len(pk) != SC_N: bad.append('scorecard needs 5 distinct items and 5 picks')
         elif any(i not in pool for i in ids): bad.append('a quiz item left the audited gold bank / the card item rules')
         else:
