@@ -1,5 +1,7 @@
 # IELTS – độ phủ định dạng so với format công khai (ielts.org) – 23/11
 
+> TL;DR: Độ phủ định dạng IELTS (Reading 19 đề/760 câu, Listening 20 đề/800 câu, Writing 164 bài mẫu) so với format công khai trên ielts.org; liệt kê khoảng trống theo dạng câu để xếp việc.
+
 > Phạm vi: kiểm đọc-chỉ trên checkout `claude/topic-depth-w3`; số đếm bằng cách nạp dữ liệu (`READTESTS`, `LISTENING`, `MODELS`, `GT_LETTERS`, `TASK1_MORE`). Spec định dạng: `content/exams/spec/ielts-ac.json`, `ielts-gt.json`; cổng `scripts/content-qa/exam-format-check.mjs`. Nội dung đều tự biên soạn (CONTENT-RULES §1) – không lấy từ sách Cambridge.
 
 ## 1. Tóm tắt dữ liệu hiện có
