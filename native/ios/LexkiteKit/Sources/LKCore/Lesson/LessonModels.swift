@@ -92,6 +92,8 @@ public struct LessonItem: Encodable, Equatable, Sendable {
     public var def: String?, len: Int?, first: String?, bank: [String]?
     public var alt: LessonAlt?, choice: Bool?, spoke: Bool?
     public var pairs: [LessonPair]?
+    /// lpic: part of speech per option (UI looks up the image word#pos) · match: pics = right column shows images (mpic)
+    public var ipos: [String: String]?, pics: Bool?
     public var free: Bool?, who: String?, radio: Bool?
 
     public init(id: Int, type: String, word: String, card: LessonCard? = nil, retry: Int = 0, hints: [String] = []) {
@@ -100,7 +102,7 @@ public struct LessonItem: Encodable, Equatable, Sendable {
 
     private enum K: String, CodingKey {
         case id, type, word, card, why, ipa, retry, hints, mean, noAudio, sent, own, blank, answer, options, tiles, prompt, tr, def, len, first, bank
-        case alt, choice, spoke, pairs, free, who, radio
+        case alt, choice, spoke, pairs, free, who, radio, ipos, pics
     }
     private struct PairOut: Encodable { let word: String, mean: String }
     public func encode(to e: Encoder) throws {
@@ -119,6 +121,7 @@ public struct LessonItem: Encodable, Equatable, Sendable {
             if pairs.contains(where: { $0.card != nil }) { try c.encode(pairs.compactMap { $0.card?.ref }, forKey: .pairs) }
             else { try c.encode(pairs.map { PairOut(word: $0.word ?? "", mean: $0.mean ?? "") }, forKey: .pairs) }
         }
+        try c.encodeIfPresent(ipos, forKey: .ipos); try c.encodeIfPresent(pics, forKey: .pics)
         try c.encodeIfPresent(free, forKey: .free); try c.encodeIfPresent(who, forKey: .who); try c.encodeIfPresent(radio, forKey: .radio)
     }
 }

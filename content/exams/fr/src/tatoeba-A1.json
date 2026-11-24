@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "A1",
+ "items": [
+  {
+   "id": 9152563,
+   "au": "carlosalberto",
+   "s": "Vous ___ une très bonne personne.",
+   "a": "êtes",
+   "o": [
+    "es",
+    "suis",
+    "êtes"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 7805451,
+   "au": "Rockaround",
+   "s": "Tu ___ un bon à rien.",
+   "a": "es",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4139850,
+   "au": "sacredceltic",
+   "s": "Est-ce de temps dont vous ___ besoin ?",
+   "a": "avez",
+   "o": [
+    "avez",
+    "ai",
+    "as"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 7701769,
+   "au": "Maxence",
+   "s": "Tu ___ trop vite.",
+   "a": "cours",
+   "o": [
+    "courons",
+    "cours",
+    "court"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12112075,
+   "au": "LdjuherTaqvaylit",
+   "s": "Tu ___ comment est mon travail.",
+   "a": "sais",
+   "o": [
+    "savons",
+    "sais",
+    "sait"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 7967057,
+   "au": "Aiji",
+   "s": "Je ___ aller chez toi demain.",
+   "a": "peux",
+   "o": [
+    "pouvons",
+    "peux",
+    "peut"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12720260,
+   "au": "sad15",
+   "s": "Nous ___ trouvé un bon endroit.",
+   "a": "avons",
+   "o": [
+    "avons",
+    "ai",
+    "as"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 379539,
+   "au": "Pharamp",
+   "s": "Il ___ très heureux.",
+   "a": "était",
+   "o": [
+    "était",
+    "étais",
+    "étions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3948223,
+   "au": "serpico",
+   "s": "Tu ___ demander pardon.",
+   "a": "dois",
+   "o": [
+    "dois",
+    "doit",
+    "devons"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12432703,
+   "au": "Orange",
+   "s": "Elle ___ son père.",
+   "a": "voit",
+   "o": [
+    "voit",
+    "vois",
+    "voyons"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1767851,
+   "au": "sacredceltic",
+   "s": "Il ___ raison la première fois.",
+   "a": "avait",
+   "o": [
+    "avait",
+    "avais",
+    "avions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11162213,
+   "au": "GuillaumeR",
+   "s": "Je ___ là dans une minute.",
+   "a": "serai",
+   "o": [
+    "sera",
+    "serai",
+    "seras"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 7272524,
+   "au": "tras",
+   "s": "Je ___ très heureux de te voir.",
+   "a": "serais",
+   "o": [
+    "serais",
+    "serait",
+    "serions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 7698808,
+   "au": "Maxence",
+   "s": "Il ___ toujours son parti.",
+   "a": "prend",
+   "o": [
+    "prends",
+    "prenons",
+    "prend"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4760201,
+   "au": "sacredceltic",
+   "s": "Elle ___ être seule.",
+   "a": "voulait",
+   "o": [
+    "voulait",
+    "voulais",
+    "voulions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1953933,
+   "au": "sacredceltic",
+   "s": "Elles ___ là pour moi.",
+   "a": "sont",
+   "o": [
+    "es",
+    "sont",
+    "suis"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 9675997,
+   "au": "Talwit",
+   "s": "Il ___ son tour.",
+   "a": "attend",
+   "o": [
+    "attends",
+    "attendons",
+    "attend"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12580779,
+   "au": "LdjuherTaqvaylit",
+   "s": "Si vous ___ bien, moi aussi.",
+   "a": "voulez",
+   "o": [
+    "veux",
+    "veut",
+    "voulez"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13443306,
+   "au": "LdjuherTaqvaylit",
+   "s": "Vous ___ jouer avec nous ?",
+   "a": "venez",
+   "o": [
+    "venez",
+    "viens",
+    "vient"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13928501,
+   "au": "slahatuvelli",
+   "s": "Il ___ beau et jeune.",
+   "a": "est",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10946,
+   "au": "Archibald",
+   "s": "Puis-je vous demander votre nom ?",
+   "k": "l"
+  },
+  {
+   "id": 1188700,
+   "au": "FiRez",
+   "s": "Quel genre de personne est-elle ?",
+   "k": "l"
+  },
+  {
+   "id": 1149097,
+   "au": "sacredceltic",
+   "s": "À quelle heure est-il parti ?",
+   "k": "l"
+  },
+  {
+   "id": 8730460,
+   "au": "Julien_PDC",
+   "s": "Son mari est en prison.",
+   "k": "l"
+  },
+  {
+   "id": 8347960,
+   "au": "felix63",
+   "s": "Es-tu en train de manger ?",
+   "k": "l"
+  },
+  {
+   "id": 1915694,
+   "au": "Amastan",
+   "s": "Je ne vous vois pas.",
+   "k": "l"
+  },
+  {
+   "id": 1612400,
+   "au": "sacredceltic",
+   "s": "Si ça peut te faire plaisir...",
+   "k": "l"
+  },
+  {
+   "id": 2341978,
+   "au": "sacredceltic",
+   "s": "Tout le monde devrait y aller.",
+   "k": "l"
+  },
+  {
+   "id": 12072472,
+   "au": "LdjuherTaqvaylit",
+   "s": "La ville est petite.",
+   "k": "l"
+  },
+  {
+   "id": 14109559,
+   "au": "madjidoumnia",
+   "s": "Je compte beaucoup sur les autres.",
+   "k": "l"
+  },
+  {
+   "id": 6593872,
+   "au": "Micsmithel",
+   "s": "Comment ta femme prend-elle ça ?",
+   "k": "l"
+  },
+  {
+   "id": 9472581,
+   "au": "Julien_PDC",
+   "s": "Je pense que je vais lui donner.",
+   "k": "l"
+  }
+ ]
+}

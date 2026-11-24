@@ -1,0 +1,149 @@
+{
+ "id": "t2s_zh_comedownwith",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 60,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My throat hurts. Uh-oh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Come down with!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start to get sick.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I think I'm coming down with a cold.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "data": {
+  "key": "come down with",
+  "forms": [
+   "came down with",
+   "coming down with"
+  ],
+  "ipa": "/ˈkʌm ˈdaʊn wɪð/",
+  "mean": "Start to get sick.",
+  "define": "To begin to feel ill with something like a cold.",
+  "vi": "Bắt đầu bị ốm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a friend",
+   "text": "I think I'm coming down with a cold."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you're…",
+   "options": [
+    "falling down",
+    "getting sick"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say you 'came down with' a gift.",
+   "why": "It means starting to get sick."
+  },
+  "l1": "染上（疾病）",
+  "l1_hook": "我的喉咙疼，哎呀！",
+  "l1_ex": "我觉得我正在 \"come down with\" 感冒。",
+  "right": "come down with",
+  "native": {
+   "hook": "“come down with”是什么意思？",
+   "tip": "“come down with” = 染上（疾病）. 例句: “I think I'm coming down with a cold.”",
+   "caption": "“come down with”是什么意思？\n“come down with” = 染上（疾病）.\n例句: “I think I'm coming down with a cold.” (我觉得我正在 \"come down with\" 感冒。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “come down with” = 染上（疾病）. “I think I'm coming down with a cold.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My throat hurts. Uh-oh!"
+ },
+ "src": {
+  "slang": "come down with"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“come down with”是什么意思？",
+  "keyword": "come down with",
+  "value": "“come down with” = 染上（疾病）. 例句: “I think I'm coming down with a cold.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“come down with”是什么意思？",
+    "description": "“come down with” = 染上（疾病）. 例句: “I think I'm coming down with a cold.”\n\n“come down with”是什么意思？\n“come down with” = 染上（疾病）.\n例句: “I think I'm coming down with a cold.” (我觉得我正在 \"come down with\" 感冒。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "come down with",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“come down with”是什么意思？\n“come down with” = 染上（疾病）.\n例句: “I think I'm coming down with a cold.” (我觉得我正在 \"come down with\" 感冒。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“come down with”是什么意思？\n\n“come down with” = 染上（疾病）. 例句: “I think I'm coming down with a cold.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“come down with”是什么意思？ “come down with” = 染上（疾病）. 例句: “I think I'm coming down with a cold.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “come down with” = 染上（疾病）. “I think I'm coming down with a cold.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

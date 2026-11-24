@@ -140,6 +140,7 @@ ok(!$$('.pl-wrap .option').some(b => /picked|right|wrong/.test(b.className) || b
 const prog = () => ($('.study-top .small') || {}).textContent;
 ok(prog() === '1/20', 'bộ đếm 1/20');
 ok(w.App.routeHeld(), 'đang làm bài → giữ phiên: lần vẽ lại lúc khởi động xong (boot) không xóa tiến độ');
+await tick(300); // câu 1 vẽ sau khi gói words+grammar về (nút Bắt đầu chờ nạp) → đợi hết khoảng chống chạm đúp 250 ms của câu 1
 const first = $('.pl-wrap .opt-idk'); click(first); click(first); await tick(320);
 ok(prog() === '2/20', 'chạm đúp chỉ tính 1 câu (bộ đếm 2/20, không nhảy 3/20)');
 click($('.pl-wrap .opt-idk')); await tick(320);
@@ -226,7 +227,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   delete S.settings.placement;
   // Nội dung đích của mọi bước (đọc thẳng file dữ liệu – không cần nạp từng gói)
   const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
-  const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
+  const dir = d => { try { return fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f); } catch (e) { return []; } }; // web/js/toeic có thể không còn (đề đã dời web/cpack/toeic)
   const C = { roleplay: src(...dir('roleplay'), ...dir('../cpack/roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic'), ...dir('../cpack/toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
     rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic'), ...dir('../cpack/toeic')), grammar: src(...dir('grammar'), ...dir('../cpack/grammar')) };
   const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);

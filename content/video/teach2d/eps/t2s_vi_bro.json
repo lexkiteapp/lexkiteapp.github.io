@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_bro",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 49,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thanks for saving my homework!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bro!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A friendly word for a friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Thanks, bro, you saved me!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "bro",
+  "forms": [],
+  "ipa": "/ˈbroʊ/",
+  "mean": "A friendly word for a friend.",
+  "define": "Casual slang used for a friend or buddy.",
+  "vi": "Ông bạn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "A2",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Thanks, bro, you saved me!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bro\" means…",
+   "options": [
+    "a brother only",
+    "a friend"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your grandma 'bro'.",
+   "why": "It sounds disrespectful and odd."
+  },
+  "l1": "Ông bạn",
+  "l1_hook": "Cảm ơn đã cứu bài tập tui!",
+  "l1_ex": "Cảm ơn bro, bạn cứu tui rồi!",
+  "right": "bro",
+  "native": {
+   "hook": "“bro” nghĩa là gì?",
+   "tip": "“bro” = Ông bạn. Ví dụ: “Thanks, bro, you saved me!”",
+   "caption": "“bro” nghĩa là gì?\n“bro” = Ông bạn.\nVí dụ: “Thanks, bro, you saved me!” (Cảm ơn bro, bạn cứu tui rồi!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “bro” = Ông bạn. “Thanks, bro, you saved me!” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Thanks for saving my homework!"
+ },
+ "src": {
+  "slang": "bro"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“bro” nghĩa là gì?",
+  "keyword": "bro",
+  "value": "“bro” = Ông bạn. Ví dụ: “Thanks, bro, you saved me!”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“bro” nghĩa là gì?",
+    "description": "“bro” = Ông bạn. Ví dụ: “Thanks, bro, you saved me!”\n\n“bro” nghĩa là gì?\n“bro” = Ông bạn.\nVí dụ: “Thanks, bro, you saved me!” (Cảm ơn bro, bạn cứu tui rồi!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "bro",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“bro” nghĩa là gì?\n“bro” = Ông bạn.\nVí dụ: “Thanks, bro, you saved me!” (Cảm ơn bro, bạn cứu tui rồi!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bro” nghĩa là gì?\n\n“bro” = Ông bạn. Ví dụ: “Thanks, bro, you saved me!”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bro” nghĩa là gì? “bro” = Ông bạn. Ví dụ: “Thanks, bro, you saved me!” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “bro” = Ông bạn. “Thanks, bro, you saved me!” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

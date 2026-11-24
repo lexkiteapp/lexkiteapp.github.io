@@ -28,6 +28,7 @@
 "node scripts/test/drive.mjs": 4.4,
 "node scripts/test/es-exam.mjs": 8.8,
 "node scripts/test/es-path.mjs": 7.3,
+"node scripts/test/tl-day-routes.mjs": 0.6,
 "node scripts/test/es-pron.mjs": 13.2,
 "node scripts/test/exit-guard.mjs": 7.7,
 "node scripts/test/ext-dict-i18n.mjs all": 45.2,

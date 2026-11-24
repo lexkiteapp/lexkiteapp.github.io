@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ru_anytime",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 11,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thanks so much for the ride!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Anytime!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "You're welcome, ask again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Thanks for the ride! Anytime.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "anytime",
+  "forms": [],
+  "ipa": "/ˈeniˌtaɪm/",
+  "mean": "You're welcome, ask again.",
+  "define": "A friendly reply to thanks.",
+  "vi": "Cứ tự nhiên",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "After helping",
+   "text": "Thanks for the ride! Anytime."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Anytime\" means…",
+   "options": [
+    "you're welcome",
+    "never"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'anytime' if you hate helping.",
+   "why": "People will ask you again."
+  },
+  "l1": "не за что",
+  "l1_hook": "Спасибо большое за поездку! «anytime».",
+  "l1_ex": "Спасибо за поездку! Anytime.",
+  "right": "anytime",
+  "native": {
+   "hook": "Что значит «anytime»?",
+   "tip": "“anytime” = не за что. Пример: “Thanks for the ride! Anytime.”",
+   "caption": "Что значит «anytime»?\n“anytime” = не за что.\nПример: “Thanks for the ride! Anytime.” (Спасибо за поездку! Anytime.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “anytime” = не за что. “Thanks for the ride! Anytime.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Thanks so much for the ride!"
+ },
+ "src": {
+  "slang": "anytime"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Что значит «anytime»?",
+  "keyword": "anytime",
+  "value": "“anytime” = не за что. Пример: “Thanks for the ride! Anytime.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «anytime»?",
+    "description": "“anytime” = не за что. Пример: “Thanks for the ride! Anytime.”\n\nЧто значит «anytime»?\n“anytime” = не за что.\nПример: “Thanks for the ride! Anytime.” (Спасибо за поездку! Anytime.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "anytime",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «anytime»?\n“anytime” = не за что.\nПример: “Thanks for the ride! Anytime.” (Спасибо за поездку! Anytime.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «anytime»?\n\n“anytime” = не за что. Пример: “Thanks for the ride! Anytime.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «anytime»? “anytime” = не за что. Пример: “Thanks for the ride! Anytime.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “anytime” = не за что. “Thanks for the ride! Anytime.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

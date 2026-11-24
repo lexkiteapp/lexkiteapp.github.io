@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "A2",
+ "items": [
+  {
+   "id": 8741406,
+   "au": "Julien_PDC",
+   "s": "Tu ___ prendre exemple sur moi.",
+   "a": "devrais",
+   "o": [
+    "devrais",
+    "devrait",
+    "devrions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12652987,
+   "au": "LdjuherTaqvaylit",
+   "s": "Nous ___ bientôt retourner à l'école.",
+   "a": "allons",
+   "o": [
+    "vais",
+    "allons",
+    "vas"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11356424,
+   "au": "lbdx",
+   "s": "Approche-toi du feu si tu ___ froid.",
+   "a": "as",
+   "o": [
+    "a",
+    "as",
+    "ai"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1074072,
+   "au": "sysko",
+   "s": "Ils ___ pour sûr tomber amoureux l'un de l'autre.",
+   "a": "vont",
+   "o": [
+    "vont",
+    "vais",
+    "vas"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 7449024,
+   "au": "Aiji",
+   "s": "Je ___ que ce n'est pas ce que tu veux.",
+   "a": "sais",
+   "o": [
+    "savons",
+    "sais",
+    "sait"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12426315,
+   "au": "LdjuherTaqvaylit",
+   "s": "D'accord, je ___ tout de suite.",
+   "a": "sors",
+   "o": [
+    "sortons",
+    "sors",
+    "sort"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11545090,
+   "au": "Fenrir",
+   "s": "D'abord, vous ___ changer vos vêtements.",
+   "a": "devez",
+   "o": [
+    "dois",
+    "doit",
+    "devez"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13366451,
+   "au": "LdjuherTaqvaylit",
+   "s": "Je ___ venue simplement pour m'excuser.",
+   "a": "suis",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 418532,
+   "au": "jerom",
+   "s": "Il ___ là dans dix minutes.",
+   "a": "sera",
+   "o": [
+    "sera",
+    "serai",
+    "seras"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10564364,
+   "au": "Igider",
+   "s": "On ___ de tout sur cette planète !",
+   "a": "voit",
+   "o": [
+    "voit",
+    "vois",
+    "voyons"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2015805,
+   "au": "sacredceltic",
+   "s": "Je ___ savoir d'où tu tiens ça.",
+   "a": "veux",
+   "o": [
+    "voulons",
+    "veux",
+    "veut"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4206136,
+   "au": "Amastan",
+   "s": "Tu ___ finalement partir demain en avion.",
+   "a": "vas",
+   "o": [
+    "vais",
+    "va",
+    "vas"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 5684600,
+   "au": "Yemana",
+   "s": "Pouvez-vous me dire pourquoi vous ___ travailler pour nous ?",
+   "a": "voulez",
+   "o": [
+    "veux",
+    "veut",
+    "voulez"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11571773,
+   "au": "madjidoumnia",
+   "s": "Il ___ seulement triste en ce moment.",
+   "a": "est",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13476521,
+   "au": "madjidoumnia",
+   "s": "Rappelle-les, elles ___ peut-être oublié.",
+   "a": "ont",
+   "o": [
+    "ont",
+    "ai",
+    "as"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13711555,
+   "au": "slahatuvelli",
+   "s": "Il ___ appel à tous ses frères.",
+   "a": "fera",
+   "o": [
+    "fera",
+    "ferai",
+    "feras"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12036673,
+   "au": "djefdeg",
+   "s": "Toi tu ___ une femme, ta place est dans la cuisine.",
+   "a": "es",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13251446,
+   "au": "Rovo",
+   "s": "Nous ___ besoin de votre aide pour la retrouver.",
+   "a": "avons",
+   "o": [
+    "avons",
+    "ai",
+    "as"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12633912,
+   "au": "lbdx",
+   "s": "Je ___ lui dire en personne.",
+   "a": "préfère",
+   "o": [
+    "préférons",
+    "préfère",
+    "préfères"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 14104014,
+   "au": "madjidoumnia",
+   "s": "Il ___ être en colère contre elle.",
+   "a": "doit",
+   "o": [
+    "doit",
+    "dois",
+    "devons"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 8390147,
+   "au": "Aiji",
+   "s": "Je ne pensais pas que ce serait si facile à faire.",
+   "k": "l"
+  },
+  {
+   "id": 2401876,
+   "au": "sacredceltic",
+   "s": "Nous ne savons simplement pas pourquoi.",
+   "k": "l"
+  },
+  {
+   "id": 11594042,
+   "au": "Adrien_FR",
+   "s": "Je n'ai pas pris mon petit déjeuner.",
+   "k": "l"
+  },
+  {
+   "id": 12356458,
+   "au": "felix63",
+   "s": "C'est une histoire de fou.",
+   "k": "l"
+  },
+  {
+   "id": 2315905,
+   "au": "Amastan",
+   "s": "Tu n'as pas assez d'amis.",
+   "k": "l"
+  },
+  {
+   "id": 12894786,
+   "au": "slahatuvelli",
+   "s": "Tu lui as tiré dessus, n'est-ce pas ?",
+   "k": "l"
+  },
+  {
+   "id": 13949550,
+   "au": "Rovo",
+   "s": "À présent, c'est à moi de parler.",
+   "k": "l"
+  },
+  {
+   "id": 2135601,
+   "au": "sacredceltic",
+   "s": "Nous ne pouvons pas perdre ça de vue.",
+   "k": "l"
+  },
+  {
+   "id": 839038,
+   "au": "sacredceltic",
+   "s": "Elle a bien sa classe sous contrôle.",
+   "k": "l"
+  },
+  {
+   "id": 1742155,
+   "au": "Sibelius",
+   "s": "Même les enfants peuvent comprendre cela.",
+   "k": "l"
+  },
+  {
+   "id": 13151712,
+   "au": "slahatuvelli",
+   "s": "Il y en avait d'autres avec lui.",
+   "k": "l"
+  },
+  {
+   "id": 7853416,
+   "au": "Rockaround",
+   "s": "Combien de fois par jour passe ce bus ?",
+   "k": "l"
+  }
+ ]
+}

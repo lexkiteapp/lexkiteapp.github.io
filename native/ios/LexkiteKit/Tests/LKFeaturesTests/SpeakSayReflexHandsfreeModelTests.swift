@@ -99,8 +99,8 @@ final class SpeakSayReflexHandsfreeModelTests: XCTestCase {
         for _ in 0..<60 { m.tick() }
         guard case .finished(let s) = m.stage else { return XCTFail("time is up ⇒ the summary") }
         XCTAssertEqual(s.n, 1); XCTAssertEqual(s.p, 100)
-        let xp = await eventually { JSON.orZero(await data.load().game["xp"]) == 7 }
-        XCTAssertTrue(xp, "reward xp 5 + 2·1")
+        let xp = await eventually { JSON.orZero(await data.load().game["xp"]) == 13 }
+        XCTAssertTrue(xp, "reward xp talk(1) = 10 + 3")
         // leaving ends every late callback
         let m2 = ReflexModel(ctx: c, io: io, items: items, live: false)
         m2.start(); m2.leave()

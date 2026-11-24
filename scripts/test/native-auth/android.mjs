@@ -53,7 +53,14 @@ const cdp = (method, params) => new Promise(r => { const i = ++id; pend.set(i, r
 ws.onclose = () => { console.log('DevTools WebView đóng'); for (const [, f] of pend) f({ result: { exceptionDetails: { text: 'ws closed' } } }); pend.clear(); };
 const ev = async expr => { const r = await cdp('Runtime.evaluate', { expression: `(async () => { ${expr} })()`, awaitPromise: true, returnByValue: true }); if (r.result && r.result.exceptionDetails) return { __err: JSON.stringify(r.result.exceptionDetails).slice(0, 300) }; return r.result && r.result.result ? r.result.result.value : undefined; };
 await cdp('Runtime.enable', {});
-const alog = async () => { const v = await ev("return window.__auth ? __auth.slice() : []"); return Array.isArray(v) ? v : []; };
+// Nguồn thật = logcat của Capacitor (V/Capacitor: "To native … signInWithGoogle", D/Capacitor: "Sending plugin error/success …"); móc JS (toNative/nativePromise) chỉ bổ sung –
+// 23/11: móc JS không thấy lệnh dù plugin chạy (logcat có đủ: Credential Manager "No credentials available" → luồng cũ 12501) → test đỏ oan. Lệnh signInWithGoogle lấy từ logcat khi có.
+const logAuth = () => { const out = []; for (const ln of adb('logcat', '-d', '-s', 'Capacitor:V', 'Capacitor/Plugin:V').split('\n')) {
+  let m = /To native \(Capacitor plugin\): .*pluginId: FirebaseAuthentication, methodName: (signInWithGoogle)/.exec(ln); if (m) { out.push({ dir: 'call', m: m[1] }); continue; }
+  m = /Sending plugin (error|success): (\{.*"pluginId":"FirebaseAuthentication".*"methodName":"signInWithGoogle".*\})/.exec(ln);
+  if (m) { let j = {}; try { j = JSON.parse(m[2]); } catch (e) {} out.push({ dir: 'ret', m: 'signInWithGoogle', success: m[1] === 'success', code: String((j.error && j.error.code) || ''), err: String((j.error && j.error.message) || '') }); } } return out; };
+let logBase = 0;
+const alog = async () => { const v = await ev("return window.__auth ? __auth.slice() : []"); const js = Array.isArray(v) ? v : []; const lc = logAuth().slice(logBase); return lc.some(x => x.dir === 'call') ? lc.concat(js.filter(x => !/signInWithGoogle/.test(x.m))) : js.concat(lc); };
 const go = async (h, ms) => { await ev(`location.hash = ${JSON.stringify(h)}; return 1`); await sleep(ms || 4000); };
 const COMING = '/sẽ có ở bản phát hành chính thức|phát hành chính thức|coming soon|official release|full release/i';
 // ghi lệnh gọi/kết quả plugin FirebaseAuthentication qua cầu Capacitor (không ghi dữ liệu người dùng)
@@ -85,6 +92,7 @@ if (info.ui && info.ui.coming) fail('Có chữ "sắp có / phát hành chính t
 // ---- 3. bấm Google → hoạt động đăng nhập gốc → BACK ----
 await clearAnr();
 const focus0 = focus();
+logBase = logAuth().length;
 await ev(`__auth.length = 0; const b = document.querySelector('#syncBox [data-acct="google"]') || document.querySelector('#syncBox [data-acct="in"]'); b.click(); return 1`);
 let sheet = '', ui = '';
 for (let k = 0; k < 10; k++) { await sleep(1500); const f = focus(); if (f && !f.startsWith(PKG + '/')) { sheet = f; break; } }

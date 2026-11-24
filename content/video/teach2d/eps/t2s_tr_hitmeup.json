@@ -1,0 +1,146 @@
+{
+ "id": "t2s_tr_hitmeup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 110,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Need help? I'm around!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hit me up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Send me a message.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Hit me up if you need help.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "hit me up",
+  "forms": [],
+  "ipa": "/ˈhɪt mi ˈʌp/",
+  "mean": "Send me a message.",
+  "define": "To contact someone by text or call.",
+  "vi": "Nhắn tui nhé",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Ending a chat",
+   "text": "Hit me up if you need help."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "hit me",
+    "message me"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'hit me up' to your professor.",
+   "why": "It's too casual for teachers."
+  },
+  "l1": "bana ulaş",
+  "l1_hook": "Yardıma mı ihtiyacın var? Buradayım! 'hit me up'.",
+  "l1_ex": "Yardıma ihtiyacın olursa 'hit me up'.",
+  "right": "hit me up",
+  "native": {
+   "hook": "“hit me up” ne demek?",
+   "tip": "“hit me up” = bana ulaş. Örnek: “Hit me up if you need help.”",
+   "caption": "“hit me up” ne demek?\n“hit me up” = bana ulaş.\nÖrnek: “Hit me up if you need help.” (Yardıma ihtiyacın olursa 'hit me up'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “hit me up” = bana ulaş. “Hit me up if you need help.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Need help? I'm around!"
+ },
+ "src": {
+  "slang": "hit me up"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“hit me up” ne demek?",
+  "keyword": "hit me up",
+  "value": "“hit me up” = bana ulaş. Örnek: “Hit me up if you need help.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“hit me up” ne demek?",
+    "description": "“hit me up” = bana ulaş. Örnek: “Hit me up if you need help.”\n\n“hit me up” ne demek?\n“hit me up” = bana ulaş.\nÖrnek: “Hit me up if you need help.” (Yardıma ihtiyacın olursa 'hit me up'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "hit me up",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“hit me up” ne demek?\n“hit me up” = bana ulaş.\nÖrnek: “Hit me up if you need help.” (Yardıma ihtiyacın olursa 'hit me up'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“hit me up” ne demek?\n\n“hit me up” = bana ulaş. Örnek: “Hit me up if you need help.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“hit me up” ne demek? “hit me up” = bana ulaş. Örnek: “Hit me up if you need help.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “hit me up” = bana ulaş. “Hit me up if you need help.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

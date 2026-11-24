@@ -3,6 +3,7 @@
 "Chưa có bài cho mục này.":"此主题暂无练习。",
 "Cấp {l}":"第 {l} 级",
 "Cẩn thận dấu (tilde): {a}":"注意重音符号：{a}",
+"Cẩn thận dấu (é, è, ç…): {a}":"注意重音符号(é、è、ç…):{a}",
 "Không tải được bài. Kiểm tra mạng rồi thử lại.":"无法加载课程。请检查网络后重试。",
 "Điền từ còn thiếu":"填写缺少的单词",
 });

@@ -1,0 +1,152 @@
+{
+ "id": "t2s_th_chefskiss",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 48,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Taste this and tell me!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Chef's kiss!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Absolutely perfect.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The soup was chef's kiss.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "chef's kiss",
+  "forms": [
+   "chef’s kiss"
+  ],
+  "ipa": "/ˌʃefs ˈkɪs/",
+  "mean": "Absolutely perfect.",
+  "define": "Said to show something is perfect, like a great meal.",
+  "vi": "Hoàn hảo, ngon tuyệt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "food",
+  "example": {
+   "ctx": "After tasting dinner",
+   "text": "The soup was chef's kiss."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Chef's kiss\" means…",
+   "options": [
+    "too salty",
+    "perfect"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chef's kiss' about burnt toast.",
+   "why": "It praises perfect things only."
+  },
+  "l1": "สุดยอด",
+  "l1_hook": "ลองชิมนี่แล้วบอกฉัน \"chef's kiss\"!",
+  "l1_ex": "ซุปนี้เป็น \"chef's kiss\" เลย.",
+  "right": "chef's kiss",
+  "native": {
+   "hook": "“chef's kiss” แปลว่าอะไร?",
+   "tip": "“chef's kiss” = สุดยอด. ตัวอย่าง: “The soup was chef's kiss.”",
+   "caption": "“chef's kiss” แปลว่าอะไร?\n“chef's kiss” = สุดยอด.\nตัวอย่าง: “The soup was chef's kiss.” (ซุปนี้เป็น \"chef's kiss\" เลย.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “chef's kiss” = สุดยอด. “The soup was chef's kiss.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Taste this and tell me!"
+ },
+ "src": {
+  "slang": "chef's kiss"
+ },
+ "lang": "th",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "“chef's kiss” แปลว่าอะไร?",
+  "keyword": "chef's kiss",
+  "value": "“chef's kiss” = สุดยอด. ตัวอย่าง: “The soup was chef's kiss.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“chef's kiss” แปลว่าอะไร?",
+    "description": "“chef's kiss” = สุดยอด. ตัวอย่าง: “The soup was chef's kiss.”\n\n“chef's kiss” แปลว่าอะไร?\n“chef's kiss” = สุดยอด.\nตัวอย่าง: “The soup was chef's kiss.” (ซุปนี้เป็น \"chef's kiss\" เลย.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "chef's kiss",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“chef's kiss” แปลว่าอะไร?\n“chef's kiss” = สุดยอด.\nตัวอย่าง: “The soup was chef's kiss.” (ซุปนี้เป็น \"chef's kiss\" เลย.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“chef's kiss” แปลว่าอะไร?\n\n“chef's kiss” = สุดยอด. ตัวอย่าง: “The soup was chef's kiss.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“chef's kiss” แปลว่าอะไร? “chef's kiss” = สุดยอด. ตัวอย่าง: “The soup was chef's kiss.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “chef's kiss” = สุดยอด. “The soup was chef's kiss.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

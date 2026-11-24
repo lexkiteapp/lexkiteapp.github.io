@@ -35,6 +35,8 @@
 
 `SayText` (`web/js/say-text.js`) hiện chữ theo từng từ khi giáo viên nói: có file tiếng thì bám mốc khớp miệng `LK_CUES`, không có thì theo đồng hồ. Chữ chờ chỉ mờ, không xô bố cục; tiếng lỗi hoặc bị chặn thì hiện đủ câu. Giảm chuyển động và tiết kiệm dữ liệu thì tắt. Máy kiểm thử mặc định tắt; đặt `lk.saytext=1` để bật. Gọi qua `teacher.say(text, { caption })`. Cổng: `scripts/test/say-text.mjs`.
 
+**Biểu cảm mạnh (22/11, `TeacherRig.EXPR`):** 14 tên dùng lại cho mọi clip (thẻ lóng – docs/SAY-NATIVE.md): shock, panic, smug, smirk, shrug, furious, cringe, laugh, deadpan, proud, love, confused, sad, hype = mặt vẽ đẩy gần giới hạn khớp (`EMOTIONS`, trong `LIMITS`) + ảnh tư thế đã duyệt khi có (surprise, concern, laugh, thumbs_up, clap, thinking, empathy, cheer). Cổng `scripts/test/teacher-rig.mjs` §4b.
+
 **Cảm xúc trung tâm (7/11, `TeacherMood` – `web/js/teacher-mood.js`, tải lười):** đúng → cheer · sai → concern, sai ≥ 2 liền → encourage · chuỗi tăng → laugh · lỡ chuỗi → empathy + câu an ủi trên Hôm nay (`App.streakLost`) · đứng yên ≥ 45 s → gợi ý chữ 1 lần/màn, ≤ 3/ngày, không tiếng. Biểu cảm: `Chars.POSE_EMO`. Cổng `scripts/test/teacher-mood.mjs`.
 
 **Bong bóng lời giáo viên (5/11):** gõ chữ 1 lần/ngày, pop nhẹ, 🔊 Ama đọc, miệng bám âm thanh, vòng nghỉ dừng khi ẩn = `TeacherBubble` (`web/js/teacher-bubble.js`) – spec + kiểm kê các chỗ giáo viên nói: [docs/specs/teacher-bubble.md](specs/teacher-bubble.md).
@@ -61,3 +63,4 @@ Ghi chú cho `web/js/teacher-slot.js` (`.tslot-fig`, `.tslot-img`, `.tslot-ledge
 | Lệch miệng (mặt vẽ có tiếng) | Đọc thẳng `audio.currentTime`: trễ loa, bậc thô, trễ 1 khung | `LipSync.clock` | `lip-clock.mjs` (p95 ≤ 33 ms) |
 | Vệt/khung đen | H.264 không gắn dải màu; nhiễu alpha 1–3/255; `mediump` lấy mẫu qua đường nối | Shader tự đo mức đen, cắt nhiễu, cắt cứng alpha < 9/255, highp; `build.py`/`idle.py` gắn BT.709 tv | `teacher-quality.mjs` (Chromium + WebKit) |
 | Lag | Tải texture mỗi rAF (60/s) cả 2 video; đầu 1108 px thu nhỏ mỗi khung; video giải mã ở tab ẩn | rVFC + `texSubImage2D`, chỉ video đang hiện; thu nhỏ đầu 1 lần; dừng khi tab ẩn; máy không GPU/CPU yếu (tải khung > 12 ms trung bình) → ảnh tĩnh thở CSS (`lkSlow`) | `teacher-quality.mjs` (CPU 4×) |
+- Cổng khung vung tay (`teacher-motion.yml` job `clips`, `scripts/teach/motion_smear.py`): clip commit từ trước pipeline vẫn còn nét đen da tay → `scripts/teach/refine_clips.py` (workflow `teach-refine.yml`, chạy tay) làm sạch đúng bước build.py rồi ghi sha; cổng chạy khi `web/teach/**` đổi + hằng ngày; hồi quy đo: `scripts/test/motion-smear-selftest.py`.

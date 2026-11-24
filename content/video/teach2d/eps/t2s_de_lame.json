@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_lame",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 82,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Party ended at eight. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Lame!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Boring or disappointing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That party was kind of lame.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "lame",
+  "forms": [],
+  "ipa": "/ˈleɪm/",
+  "mean": "Boring or disappointing.",
+  "define": "Used for things that are dull or not cool.",
+  "vi": "Nhạt, dở ẹc",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Leaving a party",
+   "text": "That party was kind of lame."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Lame\" means…",
+   "options": [
+    "exciting",
+    "dull"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's idea 'lame' in front of everyone.",
+   "why": "It sounds hurtful."
+  },
+  "l1": "öde",
+  "l1_hook": "Die Party endete um acht. Ernsthaft? \"lame\".",
+  "l1_ex": "Die Party war irgendwie \"lame\".",
+  "right": "lame",
+  "native": {
+   "hook": "Was heißt “lame”?",
+   "tip": "“lame” = öde. Beispiel: “That party was kind of lame.”",
+   "caption": "Was heißt “lame”?\n“lame” = öde.\nBeispiel: “That party was kind of lame.” (Die Party war irgendwie \"lame\".)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “lame” = öde. “That party was kind of lame.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Party ended at eight. Seriously?"
+ },
+ "src": {
+  "slang": "lame"
+ },
+ "lang": "de",
+ "est": {
+  "words": 17,
+  "seconds": 10.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Was heißt “lame”?",
+  "keyword": "lame",
+  "value": "“lame” = öde. Beispiel: “That party was kind of lame.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “lame”?",
+    "description": "“lame” = öde. Beispiel: “That party was kind of lame.”\n\nWas heißt “lame”?\n“lame” = öde.\nBeispiel: “That party was kind of lame.” (Die Party war irgendwie \"lame\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "lame",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “lame”?\n“lame” = öde.\nBeispiel: “That party was kind of lame.” (Die Party war irgendwie \"lame\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “lame”?\n\n“lame” = öde. Beispiel: “That party was kind of lame.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “lame”? “lame” = öde. Beispiel: “That party was kind of lame.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “lame” = öde. “That party was kind of lame.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ru_itsgiving",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 84,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "That coat looks like old movies!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "It's giving!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "It has the vibe of…",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That coat is giving old movie star.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "it's giving",
+  "forms": [
+   "giving"
+  ],
+  "ipa": "/ɪts ˈɡɪvɪŋ/",
+  "mean": "It has the vibe of…",
+  "define": "Used to say that something reminds you of a style or mood.",
+  "vi": "Nhìn là thấy vibe này",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "That coat is giving old movie star."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"It's giving\" means…",
+   "options": [
+    "it gives a gift",
+    "it has the vibe of"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'it's giving' to a job interviewer.",
+   "why": "It's trendy slang, too informal."
+  },
+  "l1": "выдает",
+  "l1_hook": "Эта куртка «it's giving» атмосферу старых фильмов!",
+  "l1_ex": "Эта куртка «it's giving» образ старой кинозвезды.",
+  "right": "it's giving",
+  "native": {
+   "hook": "Что значит «it's giving»?",
+   "tip": "“it's giving” = выдает. Пример: “That coat is giving old movie star.”",
+   "caption": "Что значит «it's giving»?\n“it's giving” = выдает.\nПример: “That coat is giving old movie star.” (Эта куртка «it's giving» образ старой кинозвезды.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “it's giving” = выдает. “That coat is giving old movie star.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "That coat looks like old movies!"
+ },
+ "src": {
+  "slang": "it's giving"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Что значит «it's giving»?",
+  "keyword": "it's giving",
+  "value": "“it's giving” = выдает. Пример: “That coat is giving old movie star.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «it's giving»?",
+    "description": "“it's giving” = выдает. Пример: “That coat is giving old movie star.”\n\nЧто значит «it's giving»?\n“it's giving” = выдает.\nПример: “That coat is giving old movie star.” (Эта куртка «it's giving» образ старой кинозвезды.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "it's giving",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «it's giving»?\n“it's giving” = выдает.\nПример: “That coat is giving old movie star.” (Эта куртка «it's giving» образ старой кинозвезды.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «it's giving»?\n\n“it's giving” = выдает. Пример: “That coat is giving old movie star.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «it's giving»? “it's giving” = выдает. Пример: “That coat is giving old movie star.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “it's giving” = выдает. “That coat is giving old movie star.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

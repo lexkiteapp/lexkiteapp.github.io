@@ -1,0 +1,342 @@
+{
+ "identical": {
+  "n": "Identical significa idéntico: exactamente igual en todos los detalles, sin ninguna diferencia. Se usa con la preposición to (identical to something) o con in (identical in size), y en la expresión identical twins, gemelos idénticos o univitelinos. Es más fuerte que similar, que admite pequeñas diferencias. Como la igualdad total no tiene grados, no suele llevar very; se dice almost identical o virtually identical. El adverbio es identically.",
+  "x": [
+   [
+    "The two apartments are identical in size and layout.",
+    "Los dos pisos son idénticos en tamaño y distribución."
+   ],
+   [
+    "Her signature was identical to the one on the contract.",
+    "Su firma era idéntica a la del contrato."
+   ],
+   [
+    "Identical twins often share the same interests.",
+    "Los gemelos idénticos suelen compartir los mismos intereses."
+   ]
+  ]
+ },
+ "input": {
+  "n": "Como sustantivo, input significa aportación, opinión o esfuerzo que alguien pone en un proyecto, y en informática, los datos o comandos que se introducen en un sistema; su contrario es output. Suele ser incontable: with input from experts, valuable input, public input. Se acerca a contribution, pero sugiere también las opiniones que se piden antes de decidir. Como verbo significa introducir datos: input the figures.",
+  "x": [
+   [
+    "The mayor asked residents for input before building the new park.",
+    "La alcaldesa pidió la opinión de los vecinos antes de construir el nuevo parque."
+   ],
+   [
+    "The machine needs input from a keyboard or a scanner.",
+    "La máquina necesita datos de entrada de un teclado o de un escáner."
+   ],
+   [
+    "Your input helped us improve the design.",
+    "Tu aportación nos ayudó a mejorar el diseño."
+   ]
+  ]
+ },
+ "cease": {
+  "n": "Cease significa cesar, dejar de ocurrir o poner fin a algo. Es un verbo bastante formal, propio de noticias, textos legales y empresariales: cease to exist, cease trading, cease production. Admite -ing o infinitivo con to: cease operating, cease to operate. Es más oficial que stop y suele indicar un final definitivo, no una pausa. Ceasefire es el alto el fuego y ceaseless, incesante.",
+  "x": [
+   [
+    "The shop ceased trading at the end of the year.",
+    "La tienda dejó de comerciar a finales de año."
+   ],
+   [
+    "The pain ceased as soon as he took the medicine.",
+    "El dolor cesó en cuanto tomó la medicina."
+   ],
+   [
+    "Both sides agreed to cease hostilities.",
+    "Ambos bandos acordaron poner fin a las hostilidades."
+   ]
+  ]
+ },
+ "dynamic": {
+  "n": "Como adjetivo, dynamic significa dinámico: lleno de energía, en cambio constante o capaz de adaptarse. Se aplica a personas (a dynamic leader), mercados, economías y equipos: dynamic economy, highly dynamic, dynamic range. Es un elogio habitual en ofertas de empleo. Es más fuerte que active e implica movimiento o cambio, a diferencia de static, su contrario. El sustantivo es dynamism y dynamics se usa para las fuerzas que mueven un sistema, como group dynamics.",
+  "x": [
+   [
+    "She is a dynamic manager who inspires her team.",
+    "Es una directiva dinámica que inspira a su equipo."
+   ],
+   [
+    "The city has a dynamic economy based on technology.",
+    "La ciudad tiene una economía dinámica basada en la tecnología."
+   ],
+   [
+    "The situation is dynamic and changes every hour.",
+    "La situación es cambiante y varía cada hora."
+   ]
+  ]
+ },
+ "exhibit": {
+  "n": "Como verbo, exhibit tiene dos sentidos principales: exponer algo al público, como arte o productos en una galería o feria, y mostrar una cualidad, un síntoma o un comportamiento, como en exhibit symptoms o exhibit courage. El segundo uso es muy frecuente en ciencia y medicina. Es más formal que show. Como sustantivo, an exhibit es una pieza expuesta en un museo o una prueba presentada ante un tribunal.",
+  "x": [
+   [
+    "The museum will exhibit rare maps from the fifteenth century.",
+    "El museo expondrá mapas poco comunes del siglo XV."
+   ],
+   [
+    "Some patients exhibit mild side effects.",
+    "Algunos pacientes presentan efectos secundarios leves."
+   ],
+   [
+    "The lawyer showed Exhibit A to the jury.",
+    "El abogado mostró la prueba A al jurado."
+   ]
+  ]
+ },
+ "sum": {
+  "n": "Sum es una cantidad de dinero, como en a large sum of money, o el resultado de sumar números. Con dinero suele ir con un adjetivo: a considerable sum, a small sum, a lump sum (pago único). En inglés británico, sums también son los ejercicios sencillos de cálculo de la escuela. La expresión in sum significa en resumen y el verbo sum up, resumir. No confundir con summary, que es un resumen.",
+  "x": [
+   [
+    "They paid a considerable sum for the old farmhouse.",
+    "Pagaron una suma considerable por la antigua casa de campo."
+   ],
+   [
+    "The sum of 12 and 8 is 20.",
+    "La suma de 12 y 8 es 20."
+   ],
+   [
+    "She received a lump sum when she left the company.",
+    "Recibió un pago único al dejar la empresa."
+   ]
+  ]
+ },
+ "abstract": {
+  "n": "Como adjetivo, abstract significa abstracto: basado en ideas generales y no en objetos o hechos concretos. Se usa con concept, idea, thought, noun y art: abstract art es el arte que no representa cosas reales. Su contrario es concrete. Como sustantivo, an abstract es el resumen breve de un artículo científico o de una tesis, y el verbo, con acento distinto, significa extraer o separar algo.",
+  "x": [
+   [
+    "Justice is an abstract idea that is hard to define.",
+    "La justicia es una idea abstracta difícil de definir."
+   ],
+   [
+    "The gallery has a room of abstract paintings.",
+    "La galería tiene una sala de cuadros abstractos."
+   ],
+   [
+    "Read the abstract first to see if the article is useful.",
+    "Lee primero el resumen para ver si el artículo es útil."
+   ]
+  ]
+ },
+ "exceed": {
+  "n": "Exceed significa superar o exceder: ser mayor que una cantidad, un límite o una expectativa. Se usa con límites, presupuestos y cifras (exceed the limit, exceed the budget) y con expectativas (exceed expectations). Es más formal que go over y aparece mucho en normas, informes y contratos. El adjetivo es excessive, que significa excesivo, y la expresión in excess of quiere decir por encima de.",
+  "x": [
+   [
+    "Sales exceeded our expectations this quarter.",
+    "Las ventas superaron nuestras expectativas este trimestre."
+   ],
+   [
+    "Drivers must not exceed the speed limit.",
+    "Los conductores no deben superar el límite de velocidad."
+   ],
+   [
+    "The final cost exceeded the budget by ten percent.",
+    "El coste final superó el presupuesto en un diez por ciento."
+   ]
+  ]
+ },
+ "extract": {
+  "n": "Como verbo, extract significa extraer: sacar algo de un lugar o de una mezcla, a menudo con esfuerzo. Se usa con materiales (extract oil, extract a tooth), con sustancias (extract juice) y con datos (extract information). Es más técnico que take out. Como sustantivo, an extract es un fragmento de un texto o una sustancia concentrada, como vanilla extract. El sustantivo de la acción es extraction.",
+  "x": [
+   [
+    "The dentist extracted two teeth in one visit.",
+    "El dentista extrajo dos muelas en una sola visita."
+   ],
+   [
+    "The software extracts data from hundreds of documents.",
+    "El programa extrae datos de cientos de documentos."
+   ],
+   [
+    "Add a drop of vanilla extract to the mixture.",
+    "Añade una gota de extracto de vainilla a la mezcla."
+   ]
+  ]
+ },
+ "transmit": {
+  "n": "Transmit significa transmitir: enviar o hacer pasar algo de una persona o un lugar a otro. Se usa con señales, datos, programas y enfermedades: transmit data, transmit a signal, transmit a virus. Es más técnico que send y es normal en telecomunicaciones, radio y medicina. También sirve para pasar valores o conocimientos a otros. El sustantivo es transmission y transmitter es el aparato emisor.",
+  "x": [
+   [
+    "The antenna transmits the signal to all nearby houses.",
+    "La antena transmite la señal a todas las casas cercanas."
+   ],
+   [
+    "Some insects transmit diseases to humans.",
+    "Algunos insectos transmiten enfermedades a los humanos."
+   ],
+   [
+    "Traditions are transmitted from parents to children.",
+    "Las tradiciones se transmiten de padres a hijos."
+   ]
+  ]
+ },
+ "exploit": {
+  "n": "Exploit tiene dos caras. En sentido neutro significa explotar o aprovechar al máximo un recurso o una oportunidad: exploit natural resources, exploit a weakness. En sentido negativo significa explotar a personas, tratarlas injustamente para sacar provecho, como en exploit workers. El contexto indica cuál es. Es más fuerte que use y a menudo implica crítica. El sustantivo exploitation tiene la misma doble lectura.",
+  "x": [
+   [
+    "The company plans to exploit the gas reserves under the sea.",
+    "La empresa planea explotar las reservas de gas bajo el mar."
+   ],
+   [
+    "Hackers exploited a weakness in the system.",
+    "Unos piratas informáticos aprovecharon una vulnerabilidad del sistema."
+   ],
+   [
+    "Criminals exploit vulnerable people for money.",
+    "Los delincuentes se aprovechan de las personas vulnerables para ganar dinero."
+   ]
+  ]
+ },
+ "precise": {
+  "n": "Precise significa preciso: exacto y detallado, sin errores ni vaguedad. Se usa con detalles, medidas, instrucciones y momentos: precise location, precise figure, at that precise moment. La expresión to be precise se añade para dar un dato más exacto. Es cercano a exact, pero suele sugerir una exactitud fina y cuidadosa. El sustantivo es precision y el adverbio, precisely, que también se usa como respuesta: justo, exacto.",
+  "x": [
+   [
+    "The report gives precise figures for each region.",
+    "El informe da cifras precisas para cada región."
+   ],
+   [
+    "Follow the instructions in precise order.",
+    "Sigue las instrucciones en el orden exacto."
+   ],
+   [
+    "He arrived at ten past five, to be precise.",
+    "Llegó a las cinco y diez, para ser exactos."
+   ]
+  ]
+ },
+ "scheme": {
+  "n": "En inglés británico, scheme es un plan o sistema organizado, a menudo oficial, para lograr algo: pilot scheme, government scheme, recycling scheme, pension scheme. Se acerca a programme o plan, pero suele indicar un sistema con reglas concretas. También significa plan secreto o astuto, a veces deshonesto, como en a get-rich-quick scheme, y color scheme es la combinación de colores.",
+  "x": [
+   [
+    "The council launched a pilot scheme to reduce traffic in the centre.",
+    "El ayuntamiento puso en marcha un plan piloto para reducir el tráfico en el centro."
+   ],
+   [
+    "She joined the company's pension scheme.",
+    "Se incorporó al plan de pensiones de la empresa."
+   ],
+   [
+    "The police uncovered a scheme to cheat elderly people.",
+    "La policía descubrió un plan para estafar a personas mayores."
+   ]
+  ]
+ },
+ "trace": {
+  "n": "Como verbo, trace significa rastrear o localizar el origen, la causa o la historia de algo siguiendo pistas. Suele ir con back o to: trace the problem back to a faulty cable, trace a call. También significa calcar un dibujo siguiendo sus líneas sobre papel fino. Es más investigativo que find y sugiere seguir un camino paso a paso. Como sustantivo, a trace es una señal pequeña de que algo existió o estuvo allí.",
+  "x": [
+   [
+    "Police traced the stolen car to a garage in the next town.",
+    "La policía localizó el coche robado en un taller de la ciudad vecina."
+   ],
+   [
+    "Scientists traced the virus back to a single market.",
+    "Los científicos rastrearon el virus hasta un único mercado."
+   ],
+   [
+    "There was no trace of the missing hikers.",
+    "No había ni rastro de los excursionistas desaparecidos."
+   ]
+  ]
+ },
+ "bureaucracy": {
+  "n": "Bureaucracy significa burocracia: un sistema con muchas reglas complicadas y procedimientos oficiales lentos, o el conjunto de funcionarios que lo manejan. Se usa con cut bureaucracy, reduce bureaucracy, government bureaucracy y excessive bureaucracy. Suele tener tono negativo cuando se habla de trámites inútiles, aunque también describe neutralmente la administración. El adjetivo es bureaucratic y el funcionario es a bureaucrat.",
+  "x": [
+   [
+    "Small firms complain about the amount of bureaucracy they face.",
+    "Las pequeñas empresas se quejan de la cantidad de burocracia que enfrentan."
+   ],
+   [
+    "The minister promised to cut bureaucracy in the health service.",
+    "El ministro prometió reducir la burocracia en la sanidad."
+   ],
+   [
+    "Getting a visa involves a lot of bureaucracy.",
+    "Conseguir un visado implica mucho papeleo."
+   ]
+  ]
+ },
+ "compute": {
+  "n": "Compute significa calcular: hallar una cantidad o un número mediante operaciones matemáticas o un ordenador. Se usa con compute the average, compute costs, compute a result. Es más técnico que work out y aparece en textos científicos, financieros e informáticos. En el uso cotidiano, calculate es más frecuente. El sustantivo computation es el cálculo, y computer es literalmente la máquina que calcula. Cuando algo no tiene sentido, en inglés coloquial se dice It does not compute.",
+  "x": [
+   [
+    "The program computes the total cost of each order.",
+    "El programa calcula el coste total de cada pedido."
+   ],
+   [
+    "Researchers computed the average age of the participants.",
+    "Los investigadores calcularon la edad media de los participantes."
+   ],
+   [
+    "It takes a few seconds to compute the final result.",
+    "Se tardan unos segundos en calcular el resultado final."
+   ]
+  ]
+ },
+ "mutual": {
+  "n": "Mutual significa mutuo o recíproco: sentido o hecho de forma igual por dos o más personas. Se usa con benefit, respect, trust, agreement y understanding: mutual respect, mutual benefit. También significa común, como en a mutual friend, un amigo que tenéis los dos. Es más preciso que shared cuando algo va en ambos sentidos. La expresión the feeling is mutual responde a un sentimiento que se comparte. El adverbio es mutually: mutually beneficial.",
+  "x": [
+   [
+    "The two leaders spoke of mutual respect between their countries.",
+    "Los dos líderes hablaron del respeto mutuo entre sus países."
+   ],
+   [
+    "We met through a mutual friend.",
+    "Nos conocimos a través de un amigo común."
+   ],
+   [
+    "The deal brings mutual benefits to both companies.",
+    "El acuerdo trae beneficios mutuos a ambas empresas."
+   ]
+  ]
+ },
+ "random": {
+  "n": "Random significa aleatorio: que ocurre o se elige sin un patrón, un plan o un criterio. Se usa con random sample, random number, random selection y la expresión at random, al azar. En inglés coloquial también significa inesperado o fuera de lugar, como en a random comment, un comentario sin venir a cuento. Es más preciso que casual en estadística. El sustantivo randomness es la aleatoriedad y randomly es el adverbio.",
+  "x": [
+   [
+    "The winners were chosen by random draw.",
+    "Los ganadores se eligieron por sorteo al azar."
+   ],
+   [
+    "Questions were asked of people picked at random in the street.",
+    "Se hicieron preguntas a personas elegidas al azar en la calle."
+   ],
+   [
+    "He made a random comment about the weather.",
+    "Hizo un comentario sin venir a cuento sobre el tiempo."
+   ]
+  ]
+ },
+ "reluctance": {
+  "n": "Reluctance significa reticencia o desgana: falta de ganas de hacer algo, normalmente por dudas o miedo. Se usa con to y un verbo: reluctance to speak, reluctance to change, o con show y feel: show reluctance, feel a reluctance. Es el sustantivo de reluctant, reacio. Es más suave que refusal, porque la persona puede acabar haciéndolo, y suele aparecer en frases con despite o with. El adverbio es reluctantly, a regañadientes.",
+  "x": [
+   [
+    "There is a general reluctance to talk about money in public.",
+    "Existe una reticencia general a hablar de dinero en público."
+   ],
+   [
+    "He showed great reluctance to sign the contract.",
+    "Mostró mucha reticencia a firmar el contrato."
+   ],
+   [
+    "Despite her reluctance, she agreed to help.",
+    "A pesar de su desgana, aceptó ayudar."
+   ]
+  ]
+ },
+ "tension": {
+  "n": "Tension significa tensión: un sentimiento de ansiedad y nerviosismo, o una situación de conflicto entre personas o grupos. Se usa con ethnic tension, political tension, ease tension, reduce tension, build tension, y con between: tension between two countries. También describe una fuerza que estira algo, como en a rope under tension. Es menos fuerte que conflict, porque puede ser solo malestar. El verbo relacionado es tense up, ponerse tenso.",
+  "x": [
+   [
+    "Tension rose between the two neighbouring countries.",
+    "La tensión aumentó entre los dos países vecinos."
+   ],
+   [
+    "A joke from the host helped ease the tension in the room.",
+    "Una broma del presentador ayudó a aliviar la tensión en la sala."
+   ],
+   [
+    "The film builds tension slowly until the final scene.",
+    "La película va acumulando tensión poco a poco hasta la escena final."
+   ]
+  ]
+ }
+}

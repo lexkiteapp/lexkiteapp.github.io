@@ -29,6 +29,9 @@ const hashes = [];
 const LM = lastmodStore();
 const url = p => SITE + p;
 const fileOf = p => path.join(R2L.has(p.split('/')[1]) && p.split('/')[2] === 'words' ? WORDS_DIR : D, p.endsWith('/') ? p + 'index.html' : p + '.html');
+// Tiêu đề/mô tả viết tay theo truy vấn GSC thật cho trang hạng 8–12 hiển thị cao mà CTR 0 (22/11) – { path: { t, d, base: {impr, clicks, pos, date} } };
+// base = số gốc để so sau 2–4 tuần (giữ nếu CTR tăng, bỏ mục nếu không). Cổng: scripts/test/serp-overrides.mjs.
+const SERP = (() => { try { return JSON.parse(fs.readFileSync('content/seo/serp-overrides.json', 'utf8')).pages || {}; } catch { return {}; } })();
 const usedT = new Set(), usedD = new Set(); // tiêu đề/mô tả duy nhất trong mỗi ngôn ngữ (cổng seo-pages)
 const uniq = (set, l, s, alt) => { let v = s; if (set.has(l + v)) v = alt; set.add(l + v); return v; };
 const write = (p, html, { lm, alts, type, lang, index }) => {
@@ -78,7 +81,8 @@ for (const l of LANGS) {
     const alts = idx ? withDefault(LANGS.filter(x => idxW[x].has(e)).map(x => [x, wPath(x, e)]), idxW.en.has(e) ? wPath('en', e) : '') : [];
     const p = wPath(l, e), W = cap(w);
     // Có nghĩa ngay trong tiêu đề (th/ar/id/ko, hạng 8–12 mà 0 bấm: người tìm "X แปลว่า/معنى X/arti X/X 뜻" thấy luôn đáp án) – chỉ dùng khi vừa ≤ 60 ký tự, không thì tiêu đề cũ.
-    const tM = t.wTitleM && m ? fill(t.wTitleM, { w: W, m }) : '', title = (tM && [...tM].length <= 50 ? tM : fill(t.wTitle, { w: W })) + ' | Lexkite', desc = uniq(usedD, l, clip(fill(t.wDesc, { w: W, m, ipa: e.ipa || '' })), clip(`${W} – ${m}: “${e.ex}”`));
+    const tM = t.wTitleM && m ? fill(t.wTitleM, { w: W, m }) : '', ov = idx ? SERP[p] : null; // ghi đè có đo (content/seo/serp-overrides.json) – chỉ trang index được
+    const title = ov?.t ? ov.t + ' | Lexkite' : (tM && [...tM].length <= 50 ? tM : fill(t.wTitle, { w: W })) + ' | Lexkite', desc = ov?.d ? uniq(usedD, l, ov.d, clip(`${W} – ${m}: “${e.ex}”`)) : uniq(usedD, l, clip(fill(t.wDesc, { w: W, m, ipa: e.ipa || '' })), clip(`${W} – ${m}: “${e.ex}”`));
     const jl = { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: w, description: m, inLanguage: l, url: url(p), inDefinedTermSet: { '@type': 'DefinedTermSet', name: t.words, url: `${SITE}/${l}/words/` } };
     const fq = faq && { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }; // chữ = đúng <details> trên trang (cổng seo-pages kiểm)
     const langHref = x => (idxW[x] && idxW[x].has(e) ? wPath(x, e) : `/${x}/words/`);
