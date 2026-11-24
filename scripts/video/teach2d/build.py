@@ -180,7 +180,7 @@ class Card:
         n.setdefault('id', nid(n['type'][0])); n['box'] = [n['box'][0], s.y, n['box'][2], s.y + h]; s.rows.append(n); s.y += h + gap; return n
     def place(s, t_in, t_out=None, slot='a', k='soft'):
         h = s.y - GAP + PAD + LEDGE
-        if REEL and o.format == 'short' and s.y0 == RY0 and h < 0.3 * (RY1 - RY0) and not getattr(s, 'tail', None):   # v3: a lone first card never looks lost in the region: min height 30 %, rows centred
+        if REEL and o.format == 'short' and s.y0 == RY0 and h < 0.3 * (RY1 - RY0):   # v3: a lone first card never looks lost in the region: min height 30 %, rows centred
             dy = (0.3 * (RY1 - RY0) - h) / 2
             for n in s.rows: n['box'] = [n['box'][0], n['box'][1] + dy, n['box'][2], n['box'][3] + dy]
             h += 2 * dy
