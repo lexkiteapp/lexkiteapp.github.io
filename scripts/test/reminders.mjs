@@ -237,13 +237,13 @@ ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'
   // 🎙️ Loại nhắc 'diary' (Nhật ký giọng nói, docs/specs/voice-diary.md): web/cpack/diary-app/diary.js ghi lk.vd.next/nm → build() đưa vào plan({diary})
   const R = load(), rd = f => fs.readFileSync(f, 'utf8'), day = (k, h = 12) => { const [y, m, d] = k.split('-').map(Number); return new Date(y, m - 1, d, h).getTime(); };
   const now0 = day('2026-03-02', 9), base = { now: now0, settings: { reminderOn: true }, stats: { days: {} }, cards: [], streak: 0, hist: [] };
-  const due = new Date(2026, 2, 8).getTime(), p1 = R.plan({ ...base, diary: { at: due, m: 7 } }), dv = p1.filter(x => x.type === 'diary');
-  ok(dv.length === 1 && dv[0].day === '2026-03-09' && dv[0].url === '#/diary' && /7/.test(dv[0].title), 'nhắc nhật ký đúng 1 lần, ở lịch nhắc đầu tiên từ ngày tới mốc 7 (8/3 → lịch ngày 7 = 9/3): ' + JSON.stringify(dv.map(x => [x.day, x.title])));
+  const due = new Date(2026, 2, 4).getTime(), p1 = R.plan({ ...base, diary: { at: due, m: 7 } }), dv = p1.filter(x => x.type === 'diary');
+  ok(dv.length === 1 && dv[0].day === '2026-03-04' && dv[0].url === '#/diary' && /7/.test(dv[0].title), 'nhắc nhật ký đúng 1 lần, ở lịch nhắc đầu tiên từ ngày tới mốc 7 (4/3 = lịch ngày 2 → nhắc đúng ngày đó): ' + JSON.stringify(dv.map(x => [x.day, x.title])));
   ok(new Set(p1.map(x => x.day)).size === p1.length, 'vẫn ≤ 1 lời nhắc/ngày');
   ok(!R.plan({ ...base, diary: { at: due, m: 7 }, settings: { reminderOn: true, remTypes: { diary: false } } }).some(x => x.type === 'diary') && !R.plan({ ...base, diary: { at: due, m: 7 }, settings: { reminderOn: false } }).length, 'tắt loại nhắc nhật ký / tắt nhắc → không nhắc');
   ok(!R.plan({ ...base }).some(x => x.type === 'diary') && !R.plan({ ...base, diary: { at: due, m: 0 } }).some(x => x.type === 'diary'), 'không có nhật ký → không nhắc');
-  const late = R.plan({ ...base, diary: { at: new Date(2026, 2, 10).getTime(), m: 7 } }).find(x => x.type === 'diary');
-  ok(late && late.day === '2026-03-12', 'mốc rơi vào ngày không có lịch (10/3) → nhắc ở lịch kế tiếp (12/3): ' + (late && late.day));
+  const late = R.plan({ ...base, diary: { at: new Date(2026, 2, 6).getTime(), m: 7 } }).find(x => x.type === 'diary');
+  ok(late && late.day === '2026-03-07', 'mốc rơi vào ngày không có lịch (6/3) → nhắc ở lịch kế tiếp (7/3, thay tin bk7): ' + (late && late.day));
   ok(R.TPL.diary.every(([, a, b]) => !/mất|cuối cùng|kẻo|nhanh lên|!!/i.test(a + b)) && R.TYPES.includes('diary'), 'giọng nhắc ấm, không dọa');
   ok(/\['diary', t\('Nhật ký giọng nói'\)\]/.test(rd('web/js/settings.js')), 'Cài đặt: công tắc loại nhắc "Nhật ký giọng nói"');
 }

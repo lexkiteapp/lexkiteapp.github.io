@@ -31,7 +31,8 @@
     diary: [['vd1', 'Mốc ngày {m} của nhật ký giọng nói 🎙️', 'Thu lại câu của bạn – 1 phút để nghe mình tiến bộ.'], ['vd2', 'Giọng ngày {m} của bạn đang chờ', 'Đọc lại câu cũ rồi so với ngày 1 nhé.']],
     gen: [['gen1', 'Đến giờ học với Kit rồi!', 'Mở Lexkite để ôn vài từ nhé.']],
   };
-  const ROUTE = { gstart: '#/home', path: '#/home', due: '#/review', streak: '#/review', conf: '#/confidence', week: '#/stats', goal: '#/review', miss: '#/home', gen: '#/review', diary: '#/diary' };
+  const ROUTE = { gstart: '#/home', path: '#/home', due: '#/review', streak: '#/review', conf: '#/confidence', week: '#/stats', goal: '#/review', miss: '#/home', gen: '#/review' };
+  ROUTE.diary = '#/diary'; // dòng riêng: không nối vào registry một dòng (gen-guard)
   const toMin = s => { const m = /^(\d{1,2}):(\d{2})$/.exec(String(s || '')); return m ? Math.min(23, +m[1]) * 60 + Math.min(59, +m[2]) : -1; };
   const hm = n => String(Math.floor(n / 60) % 24).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0');
   const keyOf = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
@@ -107,11 +108,11 @@
       if (lastKept != null && dayN(day) - lastKept < 2) continue; // giãn cách sau nhiều lần bỏ qua
       let type;
       if (d === FINAL) type = 'miss';
+      else if (vd && keyOf(dt) >= keyOf(new Date(vd.at))) type = 'diary'; // đã tới mốc → nhắc nhật ký (1 lần, rồi vd = null; thay tin giữ chân thường, không thay tin cuối)
       else if ((d === 3 || d === 5) && types.length) type = d === 3 ? 'bk3' : 'bk7';
       else if (d === 0 && partial) type = 'goal';
       else {
         const cand = [];
-        if (vd && keyOf(dt) >= keyOf(new Date(vd.at))) { cand.push('diary'); } // đã tới mốc → nhắc nhật ký trước (1 lần, rồi vd = null)
         if (types.includes('streak') && st > 0 && min >= EVE && ((d === 0 && !studied) || (d === 1 && studied))) cand.push('streak'); // chuỗi sắp mất: chỉ khi chưa học hôm nay (hoặc ngày mai nếu hôm nay đã học)
         if (types.includes('week') && dt.getDay() === 0 && d <= 7) cand.push('week'); // có FCM: tiến bộ tuần ngày 0–2 vẫn do lịch cục bộ (máy chủ không gửi thêm cùng ngày)
         const nx = x.next && x.next.u && /^#\/[\w/?=&%~.-]*$/.test(x.next.url || '') ? x.next : null, fresh = !dueBy(base + DAY - 1) && !ctxCards.length; // người mới: chưa thẻ đến hạn, chưa từ kèm câu
