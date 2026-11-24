@@ -57,9 +57,10 @@
   const TF = { tfng: ['TRUE', 'FALSE', 'NOT GIVEN'], ynng: ['YES', 'NO', 'NOT GIVEN'] };
 
   // ---------- Chấm ----------
-  const norm = s => String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/[£$€]/g, '').replace(/(\d),(\d{3})/g, '$1$2').replace(/[.,!?;:"“”()]/g, ' ').replace(/\s+/g, ' ').trim().replace(/^(the|a|an) /, '');
+  const plain = s => String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/[£$€]/g, '').replace(/(\d),(\d{3})/g, '$1$2').replace(/[.,!?;:"“”()]/g, ' ').replace(/\s+/g, ' ').trim();
+  const norm = s => plain(s).replace(/^(the|a|an) /, '');
   // Số có dấu ngăn (7.45, 3.50, 10:30, 1/11) tính là MỘT số khi đếm giới hạn từ, như quy ước IELTS
-  const words = s => norm(String(s || '').replace(/(\d)[.:/](\d)/g, '$1$2')).split(' ').filter(Boolean).length;
+  const words = s => plain(String(s || '').replace(/(\d)[.:/](\d)/g, '$1$2')).split(' ').filter(Boolean).length;
   function gradeGap(it, limit, given) {
     if (!given || !given.trim()) return { ok: false, empty: true };
     const over = limit && words(given) > limit;
