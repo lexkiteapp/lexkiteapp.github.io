@@ -179,7 +179,12 @@ class Card:
     def add(s, n, h, gap=GAP):
         n.setdefault('id', nid(n['type'][0])); n['box'] = [n['box'][0], s.y, n['box'][2], s.y + h]; s.rows.append(n); s.y += h + gap; return n
     def place(s, t_in, t_out=None, slot='a', k='soft'):
-        h = s.y - GAP + PAD + LEDGE; s.box = [s.x0, s.y0, s.x0 + s.w, s.y0 + h]
+        h = s.y - GAP + PAD + LEDGE
+        if REEL and o.format == 'short' and s.y0 == RY0 and h < 0.3 * (RY1 - RY0) and not getattr(s, 'tail', None):   # v3: a lone first card never looks lost in the region: min height 30 %, rows centred
+            dy = (0.3 * (RY1 - RY0) - h) / 2
+            for n in s.rows: n['box'] = [n['box'][0], n['box'][1] + dy, n['box'][2], n['box'][3] + dy]
+            h += 2 * dy
+        s.box = [s.x0, s.y0, s.x0 + s.w, s.y0 + h]
         assert s.box[3] <= RY1 + 2, ('card leaves the card region', s.box, RY1)
         c = dict(id=s.id, type='card', tone=s.tone, box=s.box, **{'in': cue(t_in, k)}, **({'out': dict(t=round(t_out, 4))} if t_out else {}), **({'tail': s.tail} if getattr(s, 'tail', None) else {}))
         NODES.append(c)
