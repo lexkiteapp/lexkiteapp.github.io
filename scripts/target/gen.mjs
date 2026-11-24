@@ -9,7 +9,7 @@
 // Chạy: node scripts/target/gen.mjs --tl es --n 300 [--dry]   (--dry: chỉ dựng danh sách ứng viên, không gọi AI)
 import fs from 'node:fs';
 import path from 'node:path';
-import { ROOT, MEAN_LANGS, validate, readJSON, seedPath, coreFiles, nextCoreFile, ltErrors as ltErr, kaikki, lemmaFromEntries } from './lib.mjs';
+import { ROOT, MEAN_LANGS, validate, readJSON, seedPath, coreFiles, nextCoreFile, ltErrors as ltErr, kaikki, lemmaFromEntries, FIELDS, derive, TL_RULES } from './lib.mjs';
 import { TL_GEN } from './tl-gen.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
@@ -38,7 +38,10 @@ if (DRY) { console.log(cand.slice(0, 40).map(x => x.rank + ':' + x.form).join(' 
 // Lô 11–24 mất 40–90 % lượt soạn vì dạng chia (hacemos, podía…) quy về lemma đã có. Nay: dạng → lemma theo form_of; lemma đã có/đã thử → bỏ, không tốn ai-pool;
 // trang chỉ có tên riêng → bỏ. Không có trang → vẫn gửi AI (AI tự quy lemma, cổng trùng lemma giữ nguyên). Ngưỡng/cổng phía sau KHÔNG đổi.
 const lemmaQ = [], qSeen = new Set(); let ci = 0, skipped = { dup: 0, name: 0 };
-const lemmaOf = async form => lemmaFromEntries(form, G.kaikki ? await kaikki(G.kaikki, form) : []);
+// bảng có strip (ko: tiểu từ dính sau danh từ) → bóc khi gốc cũng là dạng đứng riêng trong 50k dạng đầu (우리가 → 우리; 고양이 giữ nguyên vì 고양 không đứng riêng)
+const TOP = G.strip ? new Set(txt.split('\n').slice(0, 50000).map(l => l.split(' ')[0])) : null;
+const stripOf = (form, top = TOP) => { if (!G.strip) return form; const b = form.replace(G.strip, ''); return b && b !== form && top.has(b) ? b : form; };
+const lemmaOf = async form => { const f = stripOf(form); return lemmaFromEntries(f, G.kaikki ? await kaikki(G.kaikki, f) : []); };
 async function fillQ(min) { // kéo dạng theo thứ hạng tới khi hàng lemma mới đủ min (6 yêu cầu kaikki song song)
   while (lemmaQ.length < min && ci < cand.length) {
     const part = cand.slice(ci, ci + 6); ci += 6;
@@ -59,7 +62,7 @@ const { createPool } = await import('../lib/ai-pool.mjs');
 const L15 = MEAN_LANGS.join(', ');
 // Lời nhắc theo bảng TL_GEN (pt cho ra đúng chuỗi cũ của lát 1)
 const SYS = {
-  lxgen: `You are a ${G.lang} lexicographer building an ${G.level} core deck for learners. For each item (a frequent word FORM), return the dictionary headword (lemma) and its single most frequent sense. JSON object keyed by item k: {"word": lemma, "pos": one of n|v|adj|adv|pron|prep|conj|num|interj|det, "gender": "m"|"f"|"mf" ONLY for nouns${G.extra}, "ipa": ${G.ipa}, "gl": {${L15}} short glosses of THAT sense written natively in each language ("${TL}" = the headword itself), "ex": {"${TL}": natural short ${G.exLevel} sentence using the word, "en": faithful English translation}, "exForm": inflected form used in ex.${TL} ONLY if different from the lemma}. If the form is a proper name, interjection noise or not standard ${G.variant}, return {"skip": "reason"}.${G.rules ? ' ' + G.rules : ''}`,
+  lxgen: `You are a ${G.lang} lexicographer building an ${G.level} core deck for learners. For each item (a frequent word FORM), return the dictionary headword (lemma) and its single most frequent sense. JSON object keyed by item k: {"word": lemma, "pos": one of n|v|adj|adv|pron|prep|conj|num|interj|det${(TL_RULES[TL] || {}).noGender ? '' : ', "gender": "m"|"f"|"mf" ONLY for nouns'}${G.extra}, "ipa": ${G.ipa}, "gl": {${L15}} short glosses of THAT sense written natively in each language ("${TL}" = the headword itself), "ex": {"${TL}": natural short ${G.exLevel} sentence using the word, "en": faithful English translation}, "exForm": inflected form used in ex.${TL} ONLY if different from the lemma}. If the form is a proper name, interjection noise or not standard ${G.variant}, return {"skip": "reason"}.${G.rules ? ' ' + G.rules : ''}`,
   lxaudit: `You review a ${G.lang} learner deck. Return ONE JSON object keyed by each item's k: {"<k>": {"ok": true|false, "score": 1-5, "why": short reason}, …}. ok=false if ANY of: lemma or part of speech wrong; noun gender wrong; ${G.audit}; any gloss mistranslates the sense or is in the wrong language; example unnatural, not ${G.variant}, not using the word, or English translation unfaithful.`,
   lxfix: `You are the senior editor of a ${G.lang} learner deck. Each item k is a draft entry that FAILED review, with the reviewers' problems (and literal back-translations of glosses when they drifted). Fix ONLY what the problems point at, keeping the same headword and its single most frequent sense: correct pos/gender/plural/IPA (${G.ipa}), rewrite any gloss whose back-translation drifted so it means exactly the English gloss, written natively; rewrite the example if it is unnatural, not ${G.variant} or flagged by the grammar checker. Return ONE JSON object keyed by k with the FULL corrected entry in the same shape as the input (word, pos, gender/plural for nouns, ipa, gl, ex, exForm), or {"skip": "reason"} if the headword is not a good ${G.level} learner word.${G.rules ? ' ' + G.rules : ''}`,
   lxjudge: `Back-translation check. For each item k you get a ${G.short} word with its English gloss and glosses in other languages. Translate EACH non-English gloss back to English literally, then decide if it means the same as the English gloss for that sense. Return ONE JSON object keyed by each item's k: {"<k>": {"bt": {lang: english}, "same": {lang: true|false}}, …}.`,
@@ -71,8 +74,12 @@ const accepted = [...prev], rejected = [], seen = new Set(have); let fixedN = 0;
 // thay vì bỏ cả lượt; vẫn không tuyến nào sau ~15 phút = hết hạn mức ngày → dừng, lượt sau nối tiếp. Không đổi cổng/ngưỡng.
 const WAITS = (process.env.GEN_WAITS || '60,120,240,480').split(',').map(Number);
 async function patient(fn, what) { for (let t = 0; ; t++) { const r = await fn(); if (r || t >= WAITS.length) return r; console.log(`ai-pool: thiếu tuyến ${what} → chờ ${WAITS[t]} s rồi thử lại (${t + 1}/${WAITS.length})`); await new Promise(z => setTimeout(z, WAITS[t] * 1000)); } }
-const pick = e => ({ word: e.word, pos: e.pos, ...(e.pos === 'n' ? { gender: e.gender, ...(e.plural ? { plural: e.plural } : {}) } : {}), ...(e.h ? { h: e.h } : {}), ipa: e.ipa, gl: e.gl, ex: e.ex, ...(e.exForm ? { exForm: e.exForm } : {}) });
 const T0 = Date.now(), MAX_MS = (+process.env.GEN_MAX_MIN || 110) * 60e3; // job 150 phút: ghi lô trước khi hết giờ (hết giờ giữa chừng = mất cả lô)
+// lấy trường người soạn trả theo bảng: es/fr/pt giữ đúng hình cũ (gender + plural chỉ danh từ, h); trường riêng tl (ja kana…, ko conj/topik/hanja/pronX) theo FIELDS;
+// trường SINH từ chữ (ko pron/romaja/ipa) do derive() ghi đè – lệch giữ ở qa.<trường>Ai
+const NOG = (TL_RULES[TL] || {}).noGender, XTRA = FIELDS.filter(k => !['word', 'pos', 'gender', 'plural', 'h', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa'].includes(k));
+const pick = e => derive({ word: e.word, pos: e.pos, ...(e.pos === 'n' && !NOG ? { gender: e.gender, ...(e.plural ? { plural: e.plural } : {}) } : {}), ...(e.h ? { h: e.h } : {}),
+  ...Object.fromEntries(XTRA.filter(k => e[k] !== undefined && e[k] !== null && !(k === 'conj' && e.pos !== 'v' && e.pos !== 'adj') && !(k === 'hanja' && !e[k])).map(k => [k, e[k]])), ipa: e.ipa, gl: e.gl, ex: e.ex, ...(e.exForm ? { exForm: e.exForm } : {}) }, TL);
 for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   if (Date.now() - T0 > MAX_MS) { console.log('hết giờ lượt → ghi lô đã nhận (lượt sau nối tiếp)'); break; }
   const items = await fillQ(BATCH); if (!items.length) { console.log('hết ứng viên'); break; }
