@@ -1,0 +1,152 @@
+{
+ "id": "t2s_fr_bigw",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 31,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You passed the test? Wow!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Big W!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A great win.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You passed the test? Big W!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "big W",
+  "forms": [
+   "W"
+  ],
+  "ipa": "/ˈbɪɡ ˈdʌbəlju/",
+  "mean": "A great win.",
+  "define": "Used to celebrate a success or good result.",
+  "vi": "Chiến thắng lớn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Celebrating a win",
+   "text": "You passed the test? Big W!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"W\" stands for…",
+   "options": [
+    "win",
+    "week"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'big W' to someone who lost.",
+   "why": "It celebrates wins, not losses."
+  },
+  "l1": "super succès",
+  "l1_hook": "Tu as réussi le test ? Wow ! « big W ».",
+  "l1_ex": "Tu as réussi le test ? \"Big W\" !",
+  "right": "big W",
+  "native": {
+   "hook": "Que veut dire « big W » ?",
+   "tip": "“big W” = super succès. Exemple: “You passed the test? Big W!”",
+   "caption": "Que veut dire « big W » ?\n“big W” = super succès.\nExemple: “You passed the test? Big W!” (Tu as réussi le test ? \"Big W\" !)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “big W” = super succès. “You passed the test? Big W!” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You passed the test? Wow!"
+ },
+ "src": {
+  "slang": "big W"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Que veut dire « big W » ?",
+  "keyword": "big W",
+  "value": "“big W” = super succès. Exemple: “You passed the test? Big W!”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « big W » ?",
+    "description": "“big W” = super succès. Exemple: “You passed the test? Big W!”\n\nQue veut dire « big W » ?\n“big W” = super succès.\nExemple: “You passed the test? Big W!” (Tu as réussi le test ? \"Big W\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "big W",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « big W » ?\n“big W” = super succès.\nExemple: “You passed the test? Big W!” (Tu as réussi le test ? \"Big W\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « big W » ?\n\n“big W” = super succès. Exemple: “You passed the test? Big W!”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « big W » ? “big W” = super succès. Exemple: “You passed the test? Big W!” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “big W” = super succès. “You passed the test? Big W!” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

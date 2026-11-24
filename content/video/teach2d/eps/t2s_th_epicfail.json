@@ -1,0 +1,150 @@
+{
+ "id": "t2s_th_epicfail",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 90,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My cake collapsed. Everyone watched!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Epic fail!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A big, funny failure.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My cake fell flat. Total epic fail!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "epic fail",
+  "forms": [],
+  "ipa": "/ˌepɪk ˈfeɪl/",
+  "mean": "A big, funny failure.",
+  "define": "A mistake or failure that is so big it is almost funny.",
+  "vi": "Thất bại hoành tráng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Looking at a kitchen mess",
+   "text": "My cake fell flat. Total epic fail!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "An \"epic fail\" is a…",
+   "options": [
+    "great success",
+    "big failure"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's loss an 'epic fail'.",
+   "why": "It sounds like mocking them."
+  },
+  "l1": "พังพินาศ",
+  "l1_hook": "เค้กของฉันพังลง ทุกคนดู! \"epic fail\"",
+  "l1_ex": "เค้กของฉันแบนลง, \"epic fail\" อย่างเต็มที่!",
+  "right": "epic fail",
+  "native": {
+   "hook": "“epic fail” แปลว่าอะไร?",
+   "tip": "“epic fail” = พังพินาศ. ตัวอย่าง: “My cake fell flat. Total epic fail!”",
+   "caption": "“epic fail” แปลว่าอะไร?\n“epic fail” = พังพินาศ.\nตัวอย่าง: “My cake fell flat. Total epic fail!” (เค้กของฉันแบนลง, \"epic fail\" อย่างเต็มที่!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “epic fail” = พังพินาศ. “My cake fell flat. Total epic fail!” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My cake collapsed. Everyone watched!"
+ },
+ "src": {
+  "slang": "epic fail"
+ },
+ "lang": "th",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“epic fail” แปลว่าอะไร?",
+  "keyword": "epic fail",
+  "value": "“epic fail” = พังพินาศ. ตัวอย่าง: “My cake fell flat. Total epic fail!”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“epic fail” แปลว่าอะไร?",
+    "description": "“epic fail” = พังพินาศ. ตัวอย่าง: “My cake fell flat. Total epic fail!”\n\n“epic fail” แปลว่าอะไร?\n“epic fail” = พังพินาศ.\nตัวอย่าง: “My cake fell flat. Total epic fail!” (เค้กของฉันแบนลง, \"epic fail\" อย่างเต็มที่!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "epic fail",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“epic fail” แปลว่าอะไร?\n“epic fail” = พังพินาศ.\nตัวอย่าง: “My cake fell flat. Total epic fail!” (เค้กของฉันแบนลง, \"epic fail\" อย่างเต็มที่!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“epic fail” แปลว่าอะไร?\n\n“epic fail” = พังพินาศ. ตัวอย่าง: “My cake fell flat. Total epic fail!”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“epic fail” แปลว่าอะไร? “epic fail” = พังพินาศ. ตัวอย่าง: “My cake fell flat. Total epic fail!” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “epic fail” = พังพินาศ. “My cake fell flat. Total epic fail!” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

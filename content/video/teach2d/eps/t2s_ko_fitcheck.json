@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_fitcheck",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 65,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Outfit ready. Thoughts before school?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Fit check!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Showing off your outfit.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Quick fit check before school!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "fit check",
+  "forms": [],
+  "ipa": "/ˈfɪt ˈtʃek/",
+  "mean": "Showing off your outfit.",
+  "define": "A moment to show your outfit and get opinions.",
+  "vi": "Khoe bộ đồ hôm nay",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Before leaving home",
+   "text": "Quick fit check before school!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"fit check\" shows…",
+   "options": [
+    "your outfit",
+    "your shoes only"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't ask for a 'fit check' at the gym.",
+   "why": "It means outfit, not fitness."
+  },
+  "l1": "코디 확인",
+  "l1_hook": "‘fit check’ 준비됐어. 학교 가기 전에 생각 있어?",
+  "l1_ex": "등교 전에 빠르게 fit check!",
+  "right": "fit check",
+  "native": {
+   "hook": "“fit check” 무슨 뜻일까요?",
+   "tip": "“fit check” = 코디 확인. 예문: “Quick fit check before school!”",
+   "caption": "“fit check” 무슨 뜻일까요?\n“fit check” = 코디 확인.\n예문: “Quick fit check before school!” (등교 전에 빠르게 fit check!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “fit check” = 코디 확인. “Quick fit check before school!” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Outfit ready. Thoughts before school?"
+ },
+ "src": {
+  "slang": "fit check"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“fit check” 무슨 뜻일까요?",
+  "keyword": "fit check",
+  "value": "“fit check” = 코디 확인. 예문: “Quick fit check before school!”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“fit check” 무슨 뜻일까요?",
+    "description": "“fit check” = 코디 확인. 예문: “Quick fit check before school!”\n\n“fit check” 무슨 뜻일까요?\n“fit check” = 코디 확인.\n예문: “Quick fit check before school!” (등교 전에 빠르게 fit check!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "fit check",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“fit check” 무슨 뜻일까요?\n“fit check” = 코디 확인.\n예문: “Quick fit check before school!” (등교 전에 빠르게 fit check!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“fit check” 무슨 뜻일까요?\n\n“fit check” = 코디 확인. 예문: “Quick fit check before school!”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“fit check” 무슨 뜻일까요? “fit check” = 코디 확인. 예문: “Quick fit check before school!” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “fit check” = 코디 확인. “Quick fit check before school!” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

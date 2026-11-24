@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_countmeout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 54,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wanna go to the late show?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Count me out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I won't take part.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm tired, so count me out.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "count me out",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈaʊt/",
+  "mean": "I won't take part.",
+  "define": "Used to politely say you won't join a plan.",
+  "vi": "Đừng tính tui",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Declining an invitation",
+   "text": "I'm tired, so count me out."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm leaving the country",
+    "I won't join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me out' to your boss's request.",
+   "why": "It sounds like a flat refusal."
+  },
+  "l1": "算我不参加",
+  "l1_hook": "想去看深夜秀吗？",
+  "l1_ex": "我累了，所以 \"count me out\"。",
+  "right": "count me out",
+  "native": {
+   "hook": "“count me out”是什么意思？",
+   "tip": "“count me out” = 算我不参加. 例句: “I'm tired, so count me out.”",
+   "caption": "“count me out”是什么意思？\n“count me out” = 算我不参加.\n例句: “I'm tired, so count me out.” (我累了，所以 \"count me out\"。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “count me out” = 算我不参加. “I'm tired, so count me out.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wanna go to the late show?"
+ },
+ "src": {
+  "slang": "count me out"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“count me out”是什么意思？",
+  "keyword": "count me out",
+  "value": "“count me out” = 算我不参加. 例句: “I'm tired, so count me out.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“count me out”是什么意思？",
+    "description": "“count me out” = 算我不参加. 例句: “I'm tired, so count me out.”\n\n“count me out”是什么意思？\n“count me out” = 算我不参加.\n例句: “I'm tired, so count me out.” (我累了，所以 \"count me out\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "count me out",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“count me out”是什么意思？\n“count me out” = 算我不参加.\n例句: “I'm tired, so count me out.” (我累了，所以 \"count me out\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“count me out”是什么意思？\n\n“count me out” = 算我不参加. 例句: “I'm tired, so count me out.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“count me out”是什么意思？ “count me out” = 算我不参加. 例句: “I'm tired, so count me out.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “count me out” = 算我不参加. “I'm tired, so count me out.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

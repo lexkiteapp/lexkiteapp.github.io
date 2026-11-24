@@ -1,0 +1,148 @@
+{
+ "id": "t2s_th_justkidding",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 51,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I ate your cake!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Just kidding!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I was only joking.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I ate your cake! Just kidding.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "just kidding",
+  "forms": [
+   "JK"
+  ],
+  "ipa": "/dʒʌst ˈkɪdɪŋ/",
+  "mean": "I was only joking.",
+  "define": "Used after a joke to show you didn't mean it.",
+  "vi": "Đùa thôi mà",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Joking with a friend",
+   "text": "I ate your cake! Just kidding."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm serious",
+    "I'm joking"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'just kidding' after a serious insult.",
+   "why": "It doesn't erase hurt feelings."
+  },
+  "l1": "ล้อเล่นน่า",
+  "l1_hook": "ฉันกินเค้กของคุณ!",
+  "l1_ex": "ฉันกินเค้กของคุณ. \"just kidding\"",
+  "right": "just kidding",
+  "native": {
+   "hook": "“just kidding” แปลว่าอะไร?",
+   "tip": "“just kidding” = ล้อเล่นน่า. ตัวอย่าง: “I ate your cake! Just kidding.”",
+   "caption": "“just kidding” แปลว่าอะไร?\n“just kidding” = ล้อเล่นน่า.\nตัวอย่าง: “I ate your cake! Just kidding.” (ฉันกินเค้กของคุณ. \"just kidding\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “just kidding” = ล้อเล่นน่า. “I ate your cake! Just kidding.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I ate your cake!"
+ },
+ "src": {
+  "slang": "just kidding"
+ },
+ "lang": "th",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“just kidding” แปลว่าอะไร?",
+  "keyword": "just kidding",
+  "value": "“just kidding” = ล้อเล่นน่า. ตัวอย่าง: “I ate your cake! Just kidding.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“just kidding” แปลว่าอะไร?",
+    "description": "“just kidding” = ล้อเล่นน่า. ตัวอย่าง: “I ate your cake! Just kidding.”\n\n“just kidding” แปลว่าอะไร?\n“just kidding” = ล้อเล่นน่า.\nตัวอย่าง: “I ate your cake! Just kidding.” (ฉันกินเค้กของคุณ. \"just kidding\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "just kidding",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“just kidding” แปลว่าอะไร?\n“just kidding” = ล้อเล่นน่า.\nตัวอย่าง: “I ate your cake! Just kidding.” (ฉันกินเค้กของคุณ. \"just kidding\")\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“just kidding” แปลว่าอะไร?\n\n“just kidding” = ล้อเล่นน่า. ตัวอย่าง: “I ate your cake! Just kidding.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“just kidding” แปลว่าอะไร? “just kidding” = ล้อเล่นน่า. ตัวอย่าง: “I ate your cake! Just kidding.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “just kidding” = ล้อเล่นน่า. “I ate your cake! Just kidding.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

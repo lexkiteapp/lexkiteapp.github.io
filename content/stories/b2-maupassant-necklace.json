@@ -1,0 +1,146 @@
+{
+  "id": "b2-maupassant-necklace",
+  "kind": "book",
+  "level": "B2",
+  "title": "The Necklace",
+  "summary": "A woman borrows a beautiful necklace for one party, loses it, and spends ten years paying for the mistake.",
+  "source": {
+    "type": "public-domain",
+    "work": "The Necklace (La Parure)",
+    "author": "Guy de Maupassant",
+    "published": 1884,
+    "authorDied": 1893,
+    "url": "https://en.wikisource.org/wiki/The_Necklace",
+    "note": "Retold from the plot in new B2 English by Lexkite; no sentences copied from any translation."
+  },
+  "license": "Adaptation CC BY 4.0 Lexkite; original story in the public domain",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama"
+    ],
+    "scene": "Flat 2D illustration: an elegant woman in a long evening dress at a grand ball, a sparkling necklace at her throat, warm lights, no text"
+  },
+  "audio": {
+    "wpm": 135,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "A Night to Remember",
+      "sentences": [
+        "Mathilde was a pretty young woman who felt that she had been born into the wrong life.",
+        "Her husband worked as a minor clerk, and they lived in a modest apartment that she found depressing.",
+        "She dreamed constantly of luxury, of servants, silk dresses, and grand dinners.",
+        "One evening her husband came home looking proud and handed her an invitation to a ministry ball.",
+        "To his disappointment, she burst into tears instead of thanking him.",
+        "She had nothing suitable to wear, she complained, and she refused to go looking poor.",
+        "He gave her the four hundred francs he had saved for a hunting trip so that she could buy a dress.",
+        "Still she was not satisfied, because she owned no jewellery to wear with it.",
+        "Her husband suggested that she borrow something from her wealthy friend, Madame Forestier.",
+        "Her friend generously opened a box and let her choose, and Mathilde picked a magnificent diamond necklace.",
+        "At the ball she was the most admired woman in the room, and she danced happily until four in the morning."
+      ],
+      "words": [
+        "clerk",
+        "modest",
+        "complain",
+        "luxury",
+        "borrow",
+        "magnificent",
+        "admire"
+      ],
+      "quiz": [
+        {
+          "q": "Why did Mathilde cry when she received the invitation?",
+          "options": [
+            "She had nothing suitable to wear.",
+            "She did not like parties.",
+            "She was afraid of her husband."
+          ],
+          "answer": 0,
+          "explain": "She said she had no dress and would look poor."
+        },
+        {
+          "q": "Where did the money for her dress come from?",
+          "options": [
+            "A gift from her friend",
+            "Her husband's savings",
+            "Her own job"
+          ],
+          "answer": 1,
+          "explain": "Her husband gave her the money he had saved for a hunting trip."
+        },
+        {
+          "q": "What did she borrow from Madame Forestier?",
+          "options": [
+            "A diamond necklace",
+            "A silk dress",
+            "A pair of shoes"
+          ],
+          "answer": 0,
+          "explain": "She chose a magnificent diamond necklace."
+        }
+      ]
+    },
+    {
+      "title": "The Price of Pride",
+      "sentences": [
+        "When they reached home, Mathilde took one last look at herself in the mirror and froze.",
+        "The necklace was no longer around her neck.",
+        "They searched the coat, the street, and the carriage, but they found nothing.",
+        "A week later they gave up hope, and her husband decided that they must replace it.",
+        "In a jeweller's shop they found a similar necklace that cost thirty-six thousand francs.",
+        "He used his inheritance and borrowed the rest at terrible rates of interest.",
+        "Madame Forestier received the new necklace and did not notice anything unusual.",
+        "For ten years the couple worked extremely hard to pay off their debt.",
+        "They dismissed the maid, moved to a cheaper attic, and Mathilde scrubbed floors with rough, red hands.",
+        "One Sunday she met Madame Forestier by chance and decided to tell her the whole truth.",
+        "Her friend was shocked and replied that the original necklace had been only imitation, worth about five hundred francs."
+      ],
+      "words": [
+        "replace",
+        "inheritance",
+        "interest",
+        "floor",
+        "debt",
+        "dismiss",
+        "original"
+      ],
+      "quiz": [
+        {
+          "q": "What did the couple discover after the ball?",
+          "options": [
+            "The necklace was lost.",
+            "The necklace was broken.",
+            "The necklace was stolen by a friend."
+          ],
+          "answer": 0,
+          "explain": "Mathilde noticed that the necklace was missing from her neck."
+        },
+        {
+          "q": "How did they pay for the replacement?",
+          "options": [
+            "They won a prize.",
+            "They sold their house.",
+            "They used an inheritance and took out loans."
+          ],
+          "answer": 2,
+          "explain": "He used his inheritance and borrowed the rest."
+        },
+        {
+          "q": "What was the final surprise?",
+          "options": [
+            "The old necklace was a cheap imitation.",
+            "Madame Forestier had been angry.",
+            "The necklace was found in the street."
+          ],
+          "answer": 0,
+          "explain": "Her friend said the original was only an imitation worth little."
+        }
+      ]
+    }
+  ]
+}

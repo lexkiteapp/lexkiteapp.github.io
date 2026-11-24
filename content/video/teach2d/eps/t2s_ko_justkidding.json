@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ko_justkidding",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 51,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I ate your cake!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Just kidding!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I was only joking.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I ate your cake! Just kidding.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "just kidding",
+  "forms": [
+   "JK"
+  ],
+  "ipa": "/dʒʌst ˈkɪdɪŋ/",
+  "mean": "I was only joking.",
+  "define": "Used after a joke to show you didn't mean it.",
+  "vi": "Đùa thôi mà",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Joking with a friend",
+   "text": "I ate your cake! Just kidding."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm serious",
+    "I'm joking"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'just kidding' after a serious insult.",
+   "why": "It doesn't erase hurt feelings."
+  },
+  "l1": "농담이야",
+  "l1_hook": "\"just kidding\" 네 케이크를 먹었어!",
+  "l1_ex": "나 네 케이크 먹었어! \"Just kidding.\"",
+  "right": "just kidding",
+  "native": {
+   "hook": "“just kidding” 무슨 뜻일까요?",
+   "tip": "“just kidding” = 농담이야. 예문: “I ate your cake! Just kidding.”",
+   "caption": "“just kidding” 무슨 뜻일까요?\n“just kidding” = 농담이야.\n예문: “I ate your cake! Just kidding.” (나 네 케이크 먹었어! \"Just kidding.\")\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “just kidding” = 농담이야. “I ate your cake! Just kidding.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I ate your cake!"
+ },
+ "src": {
+  "slang": "just kidding"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“just kidding” 무슨 뜻일까요?",
+  "keyword": "just kidding",
+  "value": "“just kidding” = 농담이야. 예문: “I ate your cake! Just kidding.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“just kidding” 무슨 뜻일까요?",
+    "description": "“just kidding” = 농담이야. 예문: “I ate your cake! Just kidding.”\n\n“just kidding” 무슨 뜻일까요?\n“just kidding” = 농담이야.\n예문: “I ate your cake! Just kidding.” (나 네 케이크 먹었어! \"Just kidding.\")\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "just kidding",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“just kidding” 무슨 뜻일까요?\n“just kidding” = 농담이야.\n예문: “I ate your cake! Just kidding.” (나 네 케이크 먹었어! \"Just kidding.\")\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“just kidding” 무슨 뜻일까요?\n\n“just kidding” = 농담이야. 예문: “I ate your cake! Just kidding.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“just kidding” 무슨 뜻일까요? “just kidding” = 농담이야. 예문: “I ate your cake! Just kidding.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “just kidding” = 농담이야. “I ate your cake! Just kidding.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

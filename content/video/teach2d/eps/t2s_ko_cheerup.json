@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ko_cheerup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 66,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She looks sad. What now?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheer up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Feel happier.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheer up, we're having pizza!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheer up",
+  "forms": [
+   "cheered up"
+  ],
+  "ipa": "/ˈtʃɪr ˈʌp/",
+  "mean": "Feel happier.",
+  "define": "Used to tell someone to feel better.",
+  "vi": "Vui lên nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Cheer up, we're having pizza!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheer up\" means…",
+   "options": [
+    "yell loudly",
+    "feel happier"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheer up' to someone grieving.",
+   "why": "It sounds like you dismiss their pain."
+  },
+  "l1": "힘내",
+  "l1_hook": "그녀가 슬퍼 보여요. 이제 어떻게 하죠?",
+  "l1_ex": "\"Cheer up\", 우리 피자 먹을 거잖아!",
+  "right": "cheer up",
+  "native": {
+   "hook": "“cheer up” 무슨 뜻일까요?",
+   "tip": "“cheer up” = 힘내. 예문: “Cheer up, we're having pizza!”",
+   "caption": "“cheer up” 무슨 뜻일까요?\n“cheer up” = 힘내.\n예문: “Cheer up, we're having pizza!” (\"Cheer up\", 우리 피자 먹을 거잖아!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “cheer up” = 힘내. “Cheer up, we're having pizza!” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She looks sad. What now?"
+ },
+ "src": {
+  "slang": "cheer up"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "“cheer up” 무슨 뜻일까요?",
+  "keyword": "cheer up",
+  "value": "“cheer up” = 힘내. 예문: “Cheer up, we're having pizza!”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“cheer up” 무슨 뜻일까요?",
+    "description": "“cheer up” = 힘내. 예문: “Cheer up, we're having pizza!”\n\n“cheer up” 무슨 뜻일까요?\n“cheer up” = 힘내.\n예문: “Cheer up, we're having pizza!” (\"Cheer up\", 우리 피자 먹을 거잖아!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "cheer up",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“cheer up” 무슨 뜻일까요?\n“cheer up” = 힘내.\n예문: “Cheer up, we're having pizza!” (\"Cheer up\", 우리 피자 먹을 거잖아!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cheer up” 무슨 뜻일까요?\n\n“cheer up” = 힘내. 예문: “Cheer up, we're having pizza!”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cheer up” 무슨 뜻일까요? “cheer up” = 힘내. 예문: “Cheer up, we're having pizza!” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “cheer up” = 힘내. “Cheer up, we're having pizza!” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

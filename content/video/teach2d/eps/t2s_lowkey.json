@@ -1,0 +1,133 @@
+{
+ "id": "t2s_lowkey",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 278,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Honest: I want a nap!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Lowkey!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Kind of, but quietly.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I lowkey want to stay home and nap.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "lowkey",
+  "forms": [
+   "low-key"
+  ],
+  "ipa": "/ˈloʊˌkiː/",
+  "mean": "Kind of, but quietly.",
+  "define": "Used to say something is true in a quiet, not obvious way.",
+  "vi": "Hơi hơi, âm thầm thôi",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking after class",
+   "text": "I lowkey want to stay home and nap."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Lowkey\" is closest to…",
+   "options": [
+    "very loudly",
+    "a little, secretly"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'lowkey' about a huge, loud love.",
+   "why": "It means quiet, mild feelings."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Honest: I want a nap!"
+ },
+ "src": {
+  "slang": "lowkey"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "What does \"lowkey\" mean?",
+  "keyword": "lowkey",
+  "value": "Lowkey = Kind of, but quietly. Example: \"I lowkey want to stay home and nap.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lowkey\" mean?",
+    "description": "Lowkey = Kind of, but quietly. Example: \"I lowkey want to stay home and nap.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "lowkey",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lowkey\" mean?\n\nLowkey = Kind of, but quietly. Example: \"I lowkey want to stay home and nap.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"lowkey\" mean?\n\nLowkey = Kind of, but quietly. Example: \"I lowkey want to stay home and nap.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lowkey\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'lowkey' about a huge, loud love. It means quiet, mild feelings. Real example: \"I lowkey want to stay home and nap.\" More real English slang, free: {link}"
+ }
+}

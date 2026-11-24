@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ko_bigyikes",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 37,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Socks with sandals? Really?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Big yikes!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's really awkward or bad.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Socks with sandals? Big yikes.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "big yikes",
+  "forms": [
+   "yikes"
+  ],
+  "ipa": "/ˌbɪɡ ˈjaɪks/",
+  "mean": "That's really awkward or bad.",
+  "define": "Used to react when something is awkward, embarrassing or a bad idea.",
+  "vi": "Ngại quá, tệ thật",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Reacting to an awkward moment",
+   "text": "Socks with sandals? Big yikes."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Big yikes\" is a reaction to…",
+   "options": [
+    "something awkward",
+    "something delicious"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell your host 'big yikes' about dinner.",
+   "why": "It sounds rude."
+  },
+  "l1": "와, 어색해",
+  "l1_hook": "샌들에 양말? 정말? \"big yikes\"!",
+  "l1_ex": "샌들에 양말? \"big yikes\".",
+  "right": "big yikes",
+  "native": {
+   "hook": "“big yikes” 무슨 뜻일까요?",
+   "tip": "“big yikes” = 와, 어색해. 예문: “Socks with sandals? Big yikes.”",
+   "caption": "“big yikes” 무슨 뜻일까요?\n“big yikes” = 와, 어색해.\n예문: “Socks with sandals? Big yikes.” (샌들에 양말? \"big yikes\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “big yikes” = 와, 어색해. “Socks with sandals? Big yikes.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Socks with sandals? Really?"
+ },
+ "src": {
+  "slang": "big yikes"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“big yikes” 무슨 뜻일까요?",
+  "keyword": "big yikes",
+  "value": "“big yikes” = 와, 어색해. 예문: “Socks with sandals? Big yikes.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“big yikes” 무슨 뜻일까요?",
+    "description": "“big yikes” = 와, 어색해. 예문: “Socks with sandals? Big yikes.”\n\n“big yikes” 무슨 뜻일까요?\n“big yikes” = 와, 어색해.\n예문: “Socks with sandals? Big yikes.” (샌들에 양말? \"big yikes\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "big yikes",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“big yikes” 무슨 뜻일까요?\n“big yikes” = 와, 어색해.\n예문: “Socks with sandals? Big yikes.” (샌들에 양말? \"big yikes\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“big yikes” 무슨 뜻일까요?\n\n“big yikes” = 와, 어색해. 예문: “Socks with sandals? Big yikes.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“big yikes” 무슨 뜻일까요? “big yikes” = 와, 어색해. 예문: “Socks with sandals? Big yikes.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “big yikes” = 와, 어색해. “Socks with sandals? Big yikes.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

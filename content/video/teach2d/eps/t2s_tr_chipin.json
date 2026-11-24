@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_chipin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 91,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gift for her? Anyone?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Chip in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Give a bit of money to share.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's all chip in for her gift.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "chip in",
+  "forms": [
+   "chipped in"
+  ],
+  "ipa": "/ˈtʃɪp ɪn/",
+  "mean": "Give a bit of money to share.",
+  "define": "To give some money so a group can buy something.",
+  "vi": "Góp tiền chung",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Planning a gift",
+   "text": "Let's all chip in for her gift."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"chip in\" is to…",
+   "options": [
+    "eat chips",
+    "share the cost"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chip in' about potato chips.",
+   "why": "It means sharing the cost."
+  },
+  "l1": "katkı sağlamak",
+  "l1_hook": "Onun için hediye? Birisi \"chip in\" edecek mi?",
+  "l1_ex": "Hadi hepimiz onun hediyesi için \"chip in\" yapalım.",
+  "right": "chip in",
+  "native": {
+   "hook": "“chip in” ne demek?",
+   "tip": "“chip in” = katkı sağlamak. Örnek: “Let's all chip in for her gift.”",
+   "caption": "“chip in” ne demek?\n“chip in” = katkı sağlamak.\nÖrnek: “Let's all chip in for her gift.” (Hadi hepimiz onun hediyesi için \"chip in\" yapalım.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “chip in” = katkı sağlamak. “Let's all chip in for her gift.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gift for her? Anyone?"
+ },
+ "src": {
+  "slang": "chip in"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“chip in” ne demek?",
+  "keyword": "chip in",
+  "value": "“chip in” = katkı sağlamak. Örnek: “Let's all chip in for her gift.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“chip in” ne demek?",
+    "description": "“chip in” = katkı sağlamak. Örnek: “Let's all chip in for her gift.”\n\n“chip in” ne demek?\n“chip in” = katkı sağlamak.\nÖrnek: “Let's all chip in for her gift.” (Hadi hepimiz onun hediyesi için \"chip in\" yapalım.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "chip in",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“chip in” ne demek?\n“chip in” = katkı sağlamak.\nÖrnek: “Let's all chip in for her gift.” (Hadi hepimiz onun hediyesi için \"chip in\" yapalım.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“chip in” ne demek?\n\n“chip in” = katkı sağlamak. Örnek: “Let's all chip in for her gift.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“chip in” ne demek? “chip in” = katkı sağlamak. Örnek: “Let's all chip in for her gift.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “chip in” = katkı sağlamak. “Let's all chip in for her gift.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

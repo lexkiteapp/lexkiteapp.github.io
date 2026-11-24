@@ -1,0 +1,133 @@
+{
+ "id": "t2s_hitsdifferent",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 261,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Why is pizza better after soccer?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hits different!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "It feels extra special.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pizza hits different after a long soccer game.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "hits different",
+  "forms": [
+   "hit different"
+  ],
+  "ipa": "/ˈhɪts ˈdɪfərənt/",
+  "mean": "It feels extra special.",
+  "define": "Used when something feels better or more emotional than usual.",
+  "vi": "Cảm giác khác hẳn luôn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Eating with friends after a game",
+   "text": "Pizza hits different after a long soccer game."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Hits different\" means it feels…",
+   "options": [
+    "hard to hit",
+    "extra special"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'hits different' in a school essay.",
+   "why": "It's casual slang, not formal."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Why is pizza better after soccer?"
+ },
+ "src": {
+  "slang": "hits different"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"hits different\" mean?",
+  "keyword": "hits different",
+  "value": "Hits different = It feels extra special. Example: \"Pizza hits different after a long soccer game.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"hits different\" mean?",
+    "description": "Hits different = It feels extra special. Example: \"Pizza hits different after a long soccer game.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "hits different",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"hits different\" mean?\n\nHits different = It feels extra special. Example: \"Pizza hits different after a long soccer game.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"hits different\" mean?\n\nHits different = It feels extra special. Example: \"Pizza hits different after a long soccer game.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"hits different\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'hits different' in a school essay. It's casual slang, not formal. Real example: \"Pizza hits different after a long soccer game.\" More real English slang, free: {link}"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_hi_makesnosense",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 101,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rules changed again. Why?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Makes no sense!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That is illogical or confusing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This game rule makes no sense.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "makes no sense",
+  "forms": [],
+  "ipa": "/ˈmeɪks noʊ ˈsens/",
+  "mean": "That is illogical or confusing.",
+  "define": "Used when something doesn't seem logical.",
+  "vi": "Chẳng hợp lý",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Reading new rules",
+   "text": "This game rule makes no sense."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means it's…",
+   "options": [
+    "delicious",
+    "illogical"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'makes no sense' about your boss's plan.",
+   "why": "It sounds too blunt."
+  },
+  "l1": "समझ से बाहर है",
+  "l1_hook": "नियम फिर से बदल गए। क्यों? \"makes no sense\"",
+  "l1_ex": "इस खेल का नियम \"makes no sense\" है।",
+  "right": "makes no sense",
+  "native": {
+   "hook": "“makes no sense” का मतलब क्या है?",
+   "tip": "“makes no sense” = समझ से बाहर है. उदाहरण: “This game rule makes no sense.”",
+   "caption": "“makes no sense” का मतलब क्या है?\n“makes no sense” = समझ से बाहर है.\nउदाहरण: “This game rule makes no sense.” (इस खेल का नियम \"makes no sense\" है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “makes no sense” = समझ से बाहर है. “This game rule makes no sense.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Rules changed again. Why?"
+ },
+ "src": {
+  "slang": "makes no sense"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“makes no sense” का मतलब क्या है?",
+  "keyword": "makes no sense",
+  "value": "“makes no sense” = समझ से बाहर है. उदाहरण: “This game rule makes no sense.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“makes no sense” का मतलब क्या है?",
+    "description": "“makes no sense” = समझ से बाहर है. उदाहरण: “This game rule makes no sense.”\n\n“makes no sense” का मतलब क्या है?\n“makes no sense” = समझ से बाहर है.\nउदाहरण: “This game rule makes no sense.” (इस खेल का नियम \"makes no sense\" है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "makes no sense",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“makes no sense” का मतलब क्या है?\n“makes no sense” = समझ से बाहर है.\nउदाहरण: “This game rule makes no sense.” (इस खेल का नियम \"makes no sense\" है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“makes no sense” का मतलब क्या है?\n\n“makes no sense” = समझ से बाहर है. उदाहरण: “This game rule makes no sense.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“makes no sense” का मतलब क्या है? “makes no sense” = समझ से बाहर है. उदाहरण: “This game rule makes no s… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “makes no sense” = समझ से बाहर है. “This game rule makes no sense.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

@@ -1,0 +1,131 @@
+{
+ "id": "t2s_extra",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 168,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She brought balloons to study group!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Extra!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Doing way too much.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She brought balloons to study group. So extra.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "extra",
+  "forms": [],
+  "ipa": "/ˈekstrə/",
+  "mean": "Doing way too much.",
+  "define": "Used for someone who is dramatic or over the top for small things.",
+  "vi": "Làm lố quá, kịch tính",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Joking about a classmate",
+   "text": "She brought balloons to study group. So extra."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Extra\" here means…",
+   "options": [
+    "more than enough time",
+    "over the top"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your boss's effort 'extra'.",
+   "why": "It sounds like you mock them."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She brought balloons to study group!"
+ },
+ "src": {
+  "slang": "extra"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"extra\" mean?",
+  "keyword": "extra",
+  "value": "Extra = Doing way too much. Example: \"She brought balloons to study group. So extra.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"extra\" mean?",
+    "description": "Extra = Doing way too much. Example: \"She brought balloons to study group. So extra.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "extra",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"extra\" mean?\n\nExtra = Doing way too much. Example: \"She brought balloons to study group. So extra.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"extra\" mean?\n\nExtra = Doing way too much. Example: \"She brought balloons to study group. So extra.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"extra\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call your boss's effort 'extra'. It sounds like you mock them. Real example: \"She brought balloons to study group. So extra.\" More real English slang, free: {link}"
+ }
+}

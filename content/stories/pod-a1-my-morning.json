@@ -1,0 +1,220 @@
+{
+  "id": "pod-a1-my-morning",
+  "kind": "podcast",
+  "level": "A1",
+  "title": "My Morning",
+  "summary": "Ama and Carlos talk about what they do and eat in the morning.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 2",
+    "author": "Lexkite",
+    "note": "Original dialogue written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos at a kitchen table with bread, eggs and tea, bright morning window, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 100,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Breakfast Time",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Hello, Carlos! How are you?"
+        },
+        {
+          "who": "B",
+          "text": "I am fine, Ama. I am hungry."
+        },
+        {
+          "who": "A",
+          "text": "Do you eat breakfast every day?"
+        },
+        {
+          "who": "B",
+          "text": "Yes, I do. I eat bread and eggs."
+        },
+        {
+          "who": "A",
+          "text": "I like eggs too. I eat them with tea."
+        },
+        {
+          "who": "B",
+          "text": "Do you drink milk?"
+        },
+        {
+          "who": "A",
+          "text": "No, I do not. I drink tea."
+        },
+        {
+          "who": "B",
+          "text": "What time do you eat?"
+        },
+        {
+          "who": "A",
+          "text": "I eat at seven o'clock."
+        },
+        {
+          "who": "B",
+          "text": "I eat at eight. I wake up late."
+        },
+        {
+          "who": "A",
+          "text": "I get up early. I like the morning."
+        },
+        {
+          "who": "B",
+          "text": "You are very busy!"
+        }
+      ],
+      "words": [
+        "breakfast",
+        "bread",
+        "egg",
+        "tea",
+        "hungry",
+        "early"
+      ],
+      "quiz": [
+        {
+          "q": "What does Carlos eat for breakfast?",
+          "options": [
+            "Bread and eggs",
+            "Rice and fish",
+            "Only tea"
+          ],
+          "answer": 0,
+          "explain": "Carlos says he eats bread and eggs."
+        },
+        {
+          "q": "What does Ama drink?",
+          "options": [
+            "Milk",
+            "Tea",
+            "Juice"
+          ],
+          "answer": 1,
+          "explain": "Ama says she drinks tea and does not drink milk."
+        },
+        {
+          "q": "Who gets up early?",
+          "options": [
+            "Carlos",
+            "Both of them",
+            "Ama"
+          ],
+          "answer": 2,
+          "explain": "Ama says she gets up early. Carlos wakes up late."
+        }
+      ]
+    },
+    {
+      "title": "Going to Work",
+      "sentences": [
+        {
+          "who": "B",
+          "text": "How do you go to work, Ama?"
+        },
+        {
+          "who": "A",
+          "text": "I walk. My office is near my home."
+        },
+        {
+          "who": "B",
+          "text": "That is nice. I take the bus."
+        },
+        {
+          "who": "A",
+          "text": "Is the bus full in the morning?"
+        },
+        {
+          "who": "B",
+          "text": "Yes, it is. I stand for twenty minutes."
+        },
+        {
+          "who": "A",
+          "text": "Oh no. That is long."
+        },
+        {
+          "who": "B",
+          "text": "I read a book on the bus."
+        },
+        {
+          "who": "A",
+          "text": "What book do you read?"
+        },
+        {
+          "who": "B",
+          "text": "A small book about animals."
+        },
+        {
+          "who": "A",
+          "text": "Nice! I listen to music when I walk."
+        },
+        {
+          "who": "B",
+          "text": "Then we are both happy."
+        },
+        {
+          "who": "A",
+          "text": "Yes! See you at lunch."
+        }
+      ],
+      "words": [
+        "walk",
+        "office",
+        "bus",
+        "stand",
+        "minute",
+        "music"
+      ],
+      "quiz": [
+        {
+          "q": "How does Ama go to work?",
+          "options": [
+            "By bus",
+            "On foot",
+            "By car"
+          ],
+          "answer": 1,
+          "explain": "Ama says she walks because her office is near her home."
+        },
+        {
+          "q": "How long does Carlos stand on the bus?",
+          "options": [
+            "Ten minutes",
+            "Two hours",
+            "Twenty minutes"
+          ],
+          "answer": 2,
+          "explain": "He says he stands for twenty minutes."
+        },
+        {
+          "q": "What does Ama do when she walks?",
+          "options": [
+            "She listens to music.",
+            "She reads a book.",
+            "She calls a friend."
+          ],
+          "answer": 0,
+          "explain": "Ama says she listens to music when she walks."
+        }
+      ]
+    }
+  ]
+}

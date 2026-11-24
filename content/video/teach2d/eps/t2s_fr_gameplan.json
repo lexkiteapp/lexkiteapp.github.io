@@ -1,0 +1,146 @@
+{
+ "id": "t2s_fr_gameplan",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 92,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Test tomorrow. Where do we start?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Game plan!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The plan for what to do.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "So, what's the game plan?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "game plan",
+  "forms": [],
+  "ipa": "/ˈɡeɪm ˈplæn/",
+  "mean": "The plan for what to do.",
+  "define": "A clear plan to reach a goal.",
+  "vi": "Kế hoạch hành động",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Talking before a project",
+   "text": "So, what's the game plan?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"game plan\" is…",
+   "options": [
+    "a video game",
+    "a clear plan"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a vague idea a 'game plan'.",
+   "why": "It means a clear plan."
+  },
+  "l1": "stratégie",
+  "l1_hook": "Test demain. Par où commencer ? « game plan »",
+  "l1_ex": "Alors, quel est le « game plan » ?",
+  "right": "game plan",
+  "native": {
+   "hook": "Que veut dire « game plan » ?",
+   "tip": "“game plan” = stratégie. Exemple: “So, what's the game plan?”",
+   "caption": "Que veut dire « game plan » ?\n“game plan” = stratégie.\nExemple: “So, what's the game plan?” (Alors, quel est le « game plan » ?)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “game plan” = stratégie. “So, what's the game plan?” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Test tomorrow. Where do we start?"
+ },
+ "src": {
+  "slang": "game plan"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Que veut dire « game plan » ?",
+  "keyword": "game plan",
+  "value": "“game plan” = stratégie. Exemple: “So, what's the game plan?”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « game plan » ?",
+    "description": "“game plan” = stratégie. Exemple: “So, what's the game plan?”\n\nQue veut dire « game plan » ?\n“game plan” = stratégie.\nExemple: “So, what's the game plan?” (Alors, quel est le « game plan » ?)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "game plan",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « game plan » ?\n“game plan” = stratégie.\nExemple: “So, what's the game plan?” (Alors, quel est le « game plan » ?)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « game plan » ?\n\n“game plan” = stratégie. Exemple: “So, what's the game plan?”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « game plan » ? “game plan” = stratégie. Exemple: “So, what's the game plan?” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “game plan” = stratégie. “So, what's the game plan?” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

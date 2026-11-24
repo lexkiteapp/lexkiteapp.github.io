@@ -1,0 +1,146 @@
+{
+ "id": "t2s_hi_circleback",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 42,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No time now. Later?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Circle back!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Return to this later.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's circle back to that after lunch.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "circle back",
+  "forms": [],
+  "ipa": "/ˈsɜːrkl ˈbæk/",
+  "mean": "Return to this later.",
+  "define": "To come back to a topic after other things.",
+  "vi": "Quay lại sau nhé",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "In a team meeting",
+   "text": "Let's circle back to that after lunch."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Circle back\" means…",
+   "options": [
+    "walk in circles",
+    "return to it later"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'circle back' when you'll ignore it.",
+   "why": "People will wait for your reply."
+  },
+  "l1": "बाद में चर्चा करना",
+  "l1_hook": "अब समय नहीं है, बाद में? \"circle back\"",
+  "l1_ex": "\"circle back\" चलिए दोपहर के बाद उस पर वापस आते हैं।",
+  "right": "circle back",
+  "native": {
+   "hook": "“circle back” का मतलब क्या है?",
+   "tip": "“circle back” = बाद में चर्चा करना. उदाहरण: “Let's circle back to that after lunch.”",
+   "caption": "“circle back” का मतलब क्या है?\n“circle back” = बाद में चर्चा करना.\nउदाहरण: “Let's circle back to that after lunch.” (\"circle back\" चलिए दोपहर के बाद उस पर वापस आते हैं।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “circle back” = बाद में चर्चा करना. “Let's circle back to that after lunch.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "No time now. Later?"
+ },
+ "src": {
+  "slang": "circle back"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“circle back” का मतलब क्या है?",
+  "keyword": "circle back",
+  "value": "“circle back” = बाद में चर्चा करना. उदाहरण: “Let's circle back to that after lunch.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“circle back” का मतलब क्या है?",
+    "description": "“circle back” = बाद में चर्चा करना. उदाहरण: “Let's circle back to that after lunch.”\n\n“circle back” का मतलब क्या है?\n“circle back” = बाद में चर्चा करना.\nउदाहरण: “Let's circle back to that after lunch.” (\"circle back\" चलिए दोपहर के बाद उस पर वापस आते हैं।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "circle back",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“circle back” का मतलब क्या है?\n“circle back” = बाद में चर्चा करना.\nउदाहरण: “Let's circle back to that after lunch.” (\"circle back\" चलिए दोपहर के बाद उस पर वापस आते हैं।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“circle back” का मतलब क्या है?\n\n“circle back” = बाद में चर्चा करना. उदाहरण: “Let's circle back to that after lunch.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“circle back” का मतलब क्या है? “circle back” = बाद में चर्चा करना. उदाहरण: “Let's circle back to that a… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “circle back” = बाद में चर्चा करना. “Let's circle back to that after lunch.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}
