@@ -56,7 +56,7 @@ class InterpretTest {
     }
 
     @Test fun sayBackScoreIsUnicodeAware() {
-        assertEquals(100 to "Dónde está la farmacia", Interpret.score("¿Dónde está la farmacia?", listOf("dónde está la farmacia")))
+        assertEquals(100 to "dónde está la farmacia", Interpret.score("¿Dónde está la farmacia?", listOf("dónde está la farmacia")))
         assertEquals(0, Interpret.score("hello", emptyList()).first); assertTrue(Interpret.score("thank you very much", listOf("thank you", "tank you very much")).first >= 90)
         assertEquals(100, Interpret.score("ありがとうございます", listOf("ありがとうございます")).first)
     }

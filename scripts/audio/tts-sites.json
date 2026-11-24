@@ -1,6 +1,7 @@
 {
  "note": "Mọi file có chỗ đọc to (UI.tts/UI.speak/UI.sayBtn, data-saysent/data-speak-text, giáo viên .say, speechSynthesis trực tiếp) → nhóm Kokoro dựng sẵn (scripts/sentence-audio/corpus.mjs, đo ở scripts/audio/coverage.mjs) và/hoặc lý do 'dynamic' (chữ chỉ có lúc chạy → engine đọc động). File mới có chỗ đọc mà chưa khai ở đây → npm test đỏ (scripts/test/tts-sites.mjs). docs/WORD-AUDIO.md § Chỗ gọi.",
  "sites": {
+  "web/cpack/interpret/interpret.js": { "groups": [], "dynamic": "Phiên dịch (#/interpret): bản dịch người dùng vừa nói + câu mẫu du lịch đọc qua UI.tts theo ngôn ngữ đích do người dùng chọn (15 ngôn ngữ, chữ chỉ có lúc chạy) → engine đọc động; docs/INTERPRET.md" },
   "web/js/ui.js": { "engine": "UI.tts/UI.speak + nút data-saysent (đường đọc chung, ưu tiên Kokoro)" },
   "web/js/audio.js": { "engine": "LKAudio: phát file, mở khóa âm thanh iOS bằng câu rỗng" },
   "web/cpack/stories/ui.js": { "groups": [], "dynamic": "câu truyện/podcast (content/stories) đọc từng câu qua UI.tts giọng Ama/Carlos; file Kokoro dựng sẵn + mốc câu là PR kế (docs/STORIES.md §6) – chưa có file thì UI.tts rơi về engine đọc động" },
