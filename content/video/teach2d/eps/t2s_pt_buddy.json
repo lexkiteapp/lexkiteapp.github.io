@@ -1,0 +1,152 @@
+{
+ "id": "t2s_pt_buddy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 68,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who studies with you every night?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Buddy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A close friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's my study buddy.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "buddy",
+  "forms": [
+   "buddies"
+  ],
+  "ipa": "/ˈbʌdi/",
+  "mean": "A close friend.",
+  "define": "A friendly word for a friend.",
+  "vi": "Bạn thân, anh bạn",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Introducing a friend",
+   "text": "He's my study buddy."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"buddy\" is…",
+   "options": [
+    "a bud",
+    "a friend"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'buddy' to an angry stranger.",
+   "why": "It sounds sarcastic, not friendly."
+  },
+  "l1": "camarada",
+  "l1_hook": "Quem estuda com você todas as noites? \"buddy\"",
+  "l1_ex": "Ele é meu \"buddy\" de estudo.",
+  "right": "buddy",
+  "native": {
+   "hook": "O que significa “buddy”?",
+   "tip": "“buddy” = camarada. Exemplo: “He's my study buddy.”",
+   "caption": "O que significa “buddy”?\n“buddy” = camarada.\nExemplo: “He's my study buddy.” (Ele é meu \"buddy\" de estudo.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “buddy” = camarada. “He's my study buddy.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who studies with you every night?"
+ },
+ "src": {
+  "slang": "buddy"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "O que significa “buddy”?",
+  "keyword": "buddy",
+  "value": "“buddy” = camarada. Exemplo: “He's my study buddy.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “buddy”?",
+    "description": "“buddy” = camarada. Exemplo: “He's my study buddy.”\n\nO que significa “buddy”?\n“buddy” = camarada.\nExemplo: “He's my study buddy.” (Ele é meu \"buddy\" de estudo.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "buddy",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “buddy”?\n“buddy” = camarada.\nExemplo: “He's my study buddy.” (Ele é meu \"buddy\" de estudo.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “buddy”?\n\n“buddy” = camarada. Exemplo: “He's my study buddy.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “buddy”? “buddy” = camarada. Exemplo: “He's my study buddy.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “buddy” = camarada. “He's my study buddy.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

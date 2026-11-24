@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_countmeout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 54,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wanna go to the late show?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Count me out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I won't take part.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm tired, so count me out.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "count me out",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈaʊt/",
+  "mean": "I won't take part.",
+  "define": "Used to politely say you won't join a plan.",
+  "vi": "Đừng tính tui",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Declining an invitation",
+   "text": "I'm tired, so count me out."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm leaving the country",
+    "I won't join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me out' to your boss's request.",
+   "why": "It sounds like a flat refusal."
+  },
+  "l1": "não conte comigo",
+  "l1_hook": "Quer ir ao late show?",
+  "l1_ex": "Estou cansado, então \"count me out\".",
+  "right": "count me out",
+  "native": {
+   "hook": "O que significa “count me out”?",
+   "tip": "“count me out” = não conte comigo. Exemplo: “I'm tired, so count me out.”",
+   "caption": "O que significa “count me out”?\n“count me out” = não conte comigo.\nExemplo: “I'm tired, so count me out.” (Estou cansado, então \"count me out\".)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “count me out” = não conte comigo. “I'm tired, so count me out.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wanna go to the late show?"
+ },
+ "src": {
+  "slang": "count me out"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "O que significa “count me out”?",
+  "keyword": "count me out",
+  "value": "“count me out” = não conte comigo. Exemplo: “I'm tired, so count me out.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “count me out”?",
+    "description": "“count me out” = não conte comigo. Exemplo: “I'm tired, so count me out.”\n\nO que significa “count me out”?\n“count me out” = não conte comigo.\nExemplo: “I'm tired, so count me out.” (Estou cansado, então \"count me out\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "count me out",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “count me out”?\n“count me out” = não conte comigo.\nExemplo: “I'm tired, so count me out.” (Estou cansado, então \"count me out\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “count me out”?\n\n“count me out” = não conte comigo. Exemplo: “I'm tired, so count me out.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “count me out”? “count me out” = não conte comigo. Exemplo: “I'm tired, so count me out.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “count me out” = não conte comigo. “I'm tired, so count me out.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

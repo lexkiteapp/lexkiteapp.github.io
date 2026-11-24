@@ -1,0 +1,148 @@
+{
+ "id": "t2s_id_blankout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 38,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stage lights on. My mind's empty!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Blank out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly forget everything.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I blanked out in the middle of my speech.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "blank out",
+  "forms": [
+   "blanked out"
+  ],
+  "ipa": "/ˈblæŋk ˈaʊt/",
+  "mean": "Suddenly forget everything.",
+  "define": "To suddenly forget what you wanted to say or know.",
+  "vi": "Đầu óc trống rỗng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Talking after a speech",
+   "text": "I blanked out in the middle of my speech."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"blank out\" is to…",
+   "options": [
+    "clean a board",
+    "suddenly forget"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'blank out' about a paper.",
+   "why": "It means suddenly forgetting."
+  },
+  "l1": "lupa ingatan",
+  "l1_hook": "Lampu panggung menyala. Otakku kosong! blank out",
+  "l1_ex": "Saya \"blank out\" di tengah pidato saya.",
+  "right": "blank out",
+  "native": {
+   "hook": "Apa arti “blank out”?",
+   "tip": "“blank out” = lupa ingatan. Contoh: “I blanked out in the middle of my speech.”",
+   "caption": "Apa arti “blank out”?\n“blank out” = lupa ingatan.\nContoh: “I blanked out in the middle of my speech.” (Saya \"blank out\" di tengah pidato saya.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “blank out” = lupa ingatan. “I blanked out in the middle of my speech.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stage lights on. My mind's empty!"
+ },
+ "src": {
+  "slang": "blank out"
+ },
+ "lang": "id",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Apa arti “blank out”?",
+  "keyword": "blank out",
+  "value": "“blank out” = lupa ingatan. Contoh: “I blanked out in the middle of my speech.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “blank out”?",
+    "description": "“blank out” = lupa ingatan. Contoh: “I blanked out in the middle of my speech.”\n\nApa arti “blank out”?\n“blank out” = lupa ingatan.\nContoh: “I blanked out in the middle of my speech.” (Saya \"blank out\" di tengah pidato saya.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "blank out",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “blank out”?\n“blank out” = lupa ingatan.\nContoh: “I blanked out in the middle of my speech.” (Saya \"blank out\" di tengah pidato saya.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “blank out”?\n\n“blank out” = lupa ingatan. Contoh: “I blanked out in the middle of my speech.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “blank out”? “blank out” = lupa ingatan. Contoh: “I blanked out in the middle of my speech.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “blank out” = lupa ingatan. “I blanked out in the middle of my speech.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

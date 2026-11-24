@@ -1,0 +1,146 @@
+{
+ "id": "t2s_hi_lame",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 82,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Party ended at eight. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Lame!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Boring or disappointing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That party was kind of lame.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "lame",
+  "forms": [],
+  "ipa": "/ˈleɪm/",
+  "mean": "Boring or disappointing.",
+  "define": "Used for things that are dull or not cool.",
+  "vi": "Nhạt, dở ẹc",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Leaving a party",
+   "text": "That party was kind of lame."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Lame\" means…",
+   "options": [
+    "exciting",
+    "dull"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's idea 'lame' in front of everyone.",
+   "why": "It sounds hurtful."
+  },
+  "l1": "बेकार",
+  "l1_hook": "पार्टी आठ बजे खत्म हो गई। सच में?",
+  "l1_ex": "वो पार्टी थोड़ी \"lame\" थी।",
+  "right": "lame",
+  "native": {
+   "hook": "“lame” का मतलब क्या है?",
+   "tip": "“lame” = बेकार. उदाहरण: “That party was kind of lame.”",
+   "caption": "“lame” का मतलब क्या है?\n“lame” = बेकार.\nउदाहरण: “That party was kind of lame.” (वो पार्टी थोड़ी \"lame\" थी।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “lame” = बेकार. “That party was kind of lame.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Party ended at eight. Seriously?"
+ },
+ "src": {
+  "slang": "lame"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 17,
+  "seconds": 10.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“lame” का मतलब क्या है?",
+  "keyword": "lame",
+  "value": "“lame” = बेकार. उदाहरण: “That party was kind of lame.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“lame” का मतलब क्या है?",
+    "description": "“lame” = बेकार. उदाहरण: “That party was kind of lame.”\n\n“lame” का मतलब क्या है?\n“lame” = बेकार.\nउदाहरण: “That party was kind of lame.” (वो पार्टी थोड़ी \"lame\" थी।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "lame",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“lame” का मतलब क्या है?\n“lame” = बेकार.\nउदाहरण: “That party was kind of lame.” (वो पार्टी थोड़ी \"lame\" थी।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“lame” का मतलब क्या है?\n\n“lame” = बेकार. उदाहरण: “That party was kind of lame.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“lame” का मतलब क्या है? “lame” = बेकार. उदाहरण: “That party was kind of lame.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “lame” = बेकार. “That party was kind of lame.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

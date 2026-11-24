@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_goodasnew",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 79,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One nap, and I'm better!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Good as new!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fully better again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "After a nap, I feel good as new.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "good as new",
+  "forms": [],
+  "ipa": "/ˈɡʊd əz ˈnuː/",
+  "mean": "Fully better again.",
+  "define": "Used when something or someone is completely fixed or healthy.",
+  "vi": "Khỏe như mới",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a repair",
+   "text": "After a nap, I feel good as new."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "very old",
+    "fully fixed"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a broken phone 'good as new'.",
+   "why": "It means fully repaired or healed."
+  },
+  "l1": "em perfeitas condições",
+  "l1_hook": "Um cochilo, e já estou \"good as new\".",
+  "l1_ex": "Depois de um cochilo, me sinto \"good as new\".",
+  "right": "good as new",
+  "native": {
+   "hook": "O que significa “good as new”?",
+   "tip": "“good as new” = em perfeitas condições. Exemplo: “After a nap, I feel good as new.”",
+   "caption": "O que significa “good as new”?\n“good as new” = em perfeitas condições.\nExemplo: “After a nap, I feel good as new.” (Depois de um cochilo, me sinto \"good as new\".)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “good as new” = em perfeitas condições. “After a nap, I feel good as new.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One nap, and I'm better!"
+ },
+ "src": {
+  "slang": "good as new"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "O que significa “good as new”?",
+  "keyword": "good as new",
+  "value": "“good as new” = em perfeitas condições. Exemplo: “After a nap, I feel good as new.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “good as new”?",
+    "description": "“good as new” = em perfeitas condições. Exemplo: “After a nap, I feel good as new.”\n\nO que significa “good as new”?\n“good as new” = em perfeitas condições.\nExemplo: “After a nap, I feel good as new.” (Depois de um cochilo, me sinto \"good as new\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "good as new",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “good as new”?\n“good as new” = em perfeitas condições.\nExemplo: “After a nap, I feel good as new.” (Depois de um cochilo, me sinto \"good as new\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “good as new”?\n\n“good as new” = em perfeitas condições. Exemplo: “After a nap, I feel good as new.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “good as new”? “good as new” = em perfeitas condições. Exemplo: “After a nap, I feel good… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “good as new” = em perfeitas condições. “After a nap, I feel good as new.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

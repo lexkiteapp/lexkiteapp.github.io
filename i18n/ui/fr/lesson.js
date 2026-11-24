@@ -47,6 +47,8 @@
 "Mục tiêu {s}":"Objectif {s}",
 "Nghe chậm hơn":"Plus lentement",
 "Nghe, chọn ảnh":"Écoutez, choisissez l'image",
+"Ngày mai ôn {n} từ để nhớ lâu":"À réviser demain : {n} mots",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"Demain : votre prochaine leçon sera prête",
 "Những từ bạn hay quên":"Les mots que vous oubliez souvent",
 "Nói câu này":"Dites ceci",
 "Nói hay hơn":"Mieux dit",

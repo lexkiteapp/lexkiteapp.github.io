@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ko_chipin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 91,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gift for her? Anyone?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Chip in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Give a bit of money to share.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's all chip in for her gift.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "chip in",
+  "forms": [
+   "chipped in"
+  ],
+  "ipa": "/ˈtʃɪp ɪn/",
+  "mean": "Give a bit of money to share.",
+  "define": "To give some money so a group can buy something.",
+  "vi": "Góp tiền chung",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Planning a gift",
+   "text": "Let's all chip in for her gift."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"chip in\" is to…",
+   "options": [
+    "eat chips",
+    "share the cost"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chip in' about potato chips.",
+   "why": "It means sharing the cost."
+  },
+  "l1": "돈을 조금씩 모으다",
+  "l1_hook": "그녀에게 줄 선물? ‘chip in’ 할 사람?",
+  "l1_ex": "우리 모두 ‘chip in’ 해서 그녀 선물에 돈을 모으자.",
+  "right": "chip in",
+  "native": {
+   "hook": "“chip in” 무슨 뜻일까요?",
+   "tip": "“chip in” = 돈을 조금씩 모으다. 예문: “Let's all chip in for her gift.”",
+   "caption": "“chip in” 무슨 뜻일까요?\n“chip in” = 돈을 조금씩 모으다.\n예문: “Let's all chip in for her gift.” (우리 모두 ‘chip in’ 해서 그녀 선물에 돈을 모으자.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “chip in” = 돈을 조금씩 모으다. “Let's all chip in for her gift.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gift for her? Anyone?"
+ },
+ "src": {
+  "slang": "chip in"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“chip in” 무슨 뜻일까요?",
+  "keyword": "chip in",
+  "value": "“chip in” = 돈을 조금씩 모으다. 예문: “Let's all chip in for her gift.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“chip in” 무슨 뜻일까요?",
+    "description": "“chip in” = 돈을 조금씩 모으다. 예문: “Let's all chip in for her gift.”\n\n“chip in” 무슨 뜻일까요?\n“chip in” = 돈을 조금씩 모으다.\n예문: “Let's all chip in for her gift.” (우리 모두 ‘chip in’ 해서 그녀 선물에 돈을 모으자.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "chip in",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“chip in” 무슨 뜻일까요?\n“chip in” = 돈을 조금씩 모으다.\n예문: “Let's all chip in for her gift.” (우리 모두 ‘chip in’ 해서 그녀 선물에 돈을 모으자.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“chip in” 무슨 뜻일까요?\n\n“chip in” = 돈을 조금씩 모으다. 예문: “Let's all chip in for her gift.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“chip in” 무슨 뜻일까요? “chip in” = 돈을 조금씩 모으다. 예문: “Let's all chip in for her gift.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “chip in” = 돈을 조금씩 모으다. “Let's all chip in for her gift.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

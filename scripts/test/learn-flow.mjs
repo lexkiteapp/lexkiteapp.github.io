@@ -227,7 +227,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   delete S.settings.placement;
   // Nội dung đích của mọi bước (đọc thẳng file dữ liệu – không cần nạp từng gói)
   const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
-  const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
+  const dir = d => { try { return fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f); } catch (e) { return []; } }; // web/js/toeic có thể không còn (đề đã dời web/cpack/toeic)
   const C = { roleplay: src(...dir('roleplay'), ...dir('../cpack/roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic'), ...dir('../cpack/toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
     rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic'), ...dir('../cpack/toeic')), grammar: src(...dir('grammar'), ...dir('../cpack/grammar')) };
   const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);

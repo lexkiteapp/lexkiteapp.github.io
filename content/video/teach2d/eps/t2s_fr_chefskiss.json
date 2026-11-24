@@ -1,0 +1,152 @@
+{
+ "id": "t2s_fr_chefskiss",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 48,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Taste this and tell me!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Chef's kiss!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Absolutely perfect.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The soup was chef's kiss.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "chef's kiss",
+  "forms": [
+   "chef’s kiss"
+  ],
+  "ipa": "/ˌʃefs ˈkɪs/",
+  "mean": "Absolutely perfect.",
+  "define": "Said to show something is perfect, like a great meal.",
+  "vi": "Hoàn hảo, ngon tuyệt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "food",
+  "example": {
+   "ctx": "After tasting dinner",
+   "text": "The soup was chef's kiss."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Chef's kiss\" means…",
+   "options": [
+    "too salty",
+    "perfect"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chef's kiss' about burnt toast.",
+   "why": "It praises perfect things only."
+  },
+  "l1": "coup de maître",
+  "l1_hook": "Goûte ça et dis‑moi, c’est un \"chef's kiss\" !",
+  "l1_ex": "La soupe était « chef's kiss ».",
+  "right": "chef's kiss",
+  "native": {
+   "hook": "Que veut dire « chef's kiss » ?",
+   "tip": "“chef's kiss” = coup de maître. Exemple: “The soup was chef's kiss.”",
+   "caption": "Que veut dire « chef's kiss » ?\n“chef's kiss” = coup de maître.\nExemple: “The soup was chef's kiss.” (La soupe était « chef's kiss ».)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “chef's kiss” = coup de maître. “The soup was chef's kiss.” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Taste this and tell me!"
+ },
+ "src": {
+  "slang": "chef's kiss"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "Que veut dire « chef's kiss » ?",
+  "keyword": "chef's kiss",
+  "value": "“chef's kiss” = coup de maître. Exemple: “The soup was chef's kiss.”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « chef's kiss » ?",
+    "description": "“chef's kiss” = coup de maître. Exemple: “The soup was chef's kiss.”\n\nQue veut dire « chef's kiss » ?\n“chef's kiss” = coup de maître.\nExemple: “The soup was chef's kiss.” (La soupe était « chef's kiss ».)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "chef's kiss",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « chef's kiss » ?\n“chef's kiss” = coup de maître.\nExemple: “The soup was chef's kiss.” (La soupe était « chef's kiss ».)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « chef's kiss » ?\n\n“chef's kiss” = coup de maître. Exemple: “The soup was chef's kiss.”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « chef's kiss » ? “chef's kiss” = coup de maître. Exemple: “The soup was chef's kiss.” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “chef's kiss” = coup de maître. “The soup was chef's kiss.” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}
