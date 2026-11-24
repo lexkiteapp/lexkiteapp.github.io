@@ -69,4 +69,10 @@
 "Quay lại nhẹ nhàng nhé – chỉ vài từ thôi.": "Come back gently – just a few words.",
 "Vẫn còn nguyên những gì bạn đã học": "Everything you learned is still here",
 "Ôn vài thẻ, 2 phút thôi – Kit ở đây cùng bạn.": "Review a few cards, just 2 minutes – Kit is with you.",
+"Chỉ cần 5 phút giữ chuỗi 🔥": "Just 5 minutes to keep your streak 🔥",
+"Vài thẻ là đủ – Kit đợi bạn!": "A few cards is enough – Kit is waiting!",
+"Chuỗi {s} ngày đang chờ bạn 🔥": "Your {s}-day streak is waiting 🔥",
+"Một phút ôn là giữ được rồi.": "One minute of review keeps it going.",
+"Còn kịp ôn nhanh hôm nay nhé?": "Still time for a quick review today?",
+"Chỉ vài thẻ thôi – nhẹ nhàng nhé.": "Just a few cards – nice and easy.",
 }); })(typeof self !== 'undefined' ? self : this);
