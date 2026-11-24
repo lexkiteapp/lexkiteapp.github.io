@@ -48,7 +48,7 @@ if EP['template'] in ('rule', 'band') and o.format == 'short':   # Spell->Sound 
     _x = int(FMT['W'] * (1 - PZ['right'])); FMT = dict(FMT, region=[FMT['region'][0], FMT['region'][1], min(FMT['region'][2], _x), FMT['region'][3]], cap=[FMT['cap'][0], FMT['cap'][1], min(FMT['cap'][2], _x), FMT['cap'][3]], safe=[FMT['safe'][0], FMT['safe'][1], min(FMT['safe'][2], _x), FMT['safe'][3]])
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
-MINF = 0.45 if EP['template'] == 'l1' else 0.3   # first-card min height (share of the card region); l1: the lone mistake bubble must fill the frame (layout_fill)
+MINF = (0.55 if LAYOUT == 'bubble' else 0.45) if EP['template'] == 'l1' else 0.3   # first-card min height (share of the card region); l1: the lone mistake bubble must fill the frame (layout_fill)
 REEL = EP['template'] in ('slang', 'guess3', 'levels3', 'scorecard', 'l1')
 if REEL:   # v3 (audit 24/11 #3 empty frames): the few cards of a 7-13 s reel were small in a 826 px region (pilot t2s_ace: 70 % bare background at 2-3 s) -> bigger text, bigger cards
     S.update({k: round(S[k] * (1.12 if EP['template'] == 'l1' else 1.25 if o.format == 'short' else 1.2)) for k in ('body', 'sub', 'chip', 'ipa', 'pill')})
