@@ -41,4 +41,13 @@ for L in gen.SL_LANGS:
     assert not publish.check(ep), (L, publish.check(ep))
     assert ep['publish']['lang'] == L and ep['publish']['title'] == publish._fit(N['hook'], N['hook'] + '!'), L
 gen.slang_l1_src = real
+# no escaped-quote leak in the translated lines / eps, and the native-qa not_english gate accepts a 1-word L1 gloss ("ya") but rejects a copy of the English
+import glob, json as _j, subprocess
+_L = _j.load(open(f'{gen.ROOT}/content/say-native/slang-lines.json'))
+assert '\\' not in _j.dumps(_L, ensure_ascii=False).replace('\\"', '').replace('\\n', '').replace('\\u', ''), 'slang-lines.json: stray backslash'
+for f in glob.glob(f'{gen.ROOT}/content/video/teach2d/eps/t2s_*_*.json'):
+    d = _j.load(open(f)).get('data', {})
+    assert not any('\\' in str(d.get(k, '')) for k in ('l1', 'l1_hook', 'l1_ex')), f
+_q = subprocess.run(['node', f'{gen.ROOT}/scripts/video/teach2d/native-qa.mjs'], capture_output=True, text=True).stdout
+assert '✗' not in _q, [l for l in _q.splitlines() if '✗' in l][:5]
 print(f'✓ teach2d-slang L1: {len(gen.SL_LANGS)} page languages build a clip + native post copy')

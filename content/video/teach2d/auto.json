@@ -38374,7 +38374,7 @@
     "region": "US",
     "l1": {
      "m": "sich vollstopfen",
-     "hook": "Die ganze Pizza ist weg! \\\"pig out\\\"",
+     "hook": "Die ganze Pizza ist weg! \"pig out\"",
      "ex": "Wir haben gestern Abend bei Pizza „pigged out“."
     }
    },
@@ -38637,7 +38637,7 @@
     "l1": {
      "m": "ausflippen",
      "hook": "Papa hat das unordentliche Zimmer gesehen!",
-     "ex": "Er ist wegen des chaotischen Zimmers ausgerastet. \\\"blow a fuse\\\""
+     "ex": "Er ist wegen des chaotischen Zimmers ausgerastet. \"blow a fuse\""
     }
    },
    "in": {
@@ -39530,7 +39530,7 @@
     "region": "US",
     "l1": {
      "m": "öffentlich kritisieren",
-     "hook": "Sie hat allen meinen Fehler gezeigt! \\\"call out\\\"",
+     "hook": "Sie hat allen meinen Fehler gezeigt! \"call out\"",
      "ex": "Sie hat mich dafür kritisiert („called me out“), dass ich zu spät war."
     }
    },
@@ -40320,7 +40320,7 @@
     "region": "global",
     "l1": {
      "m": "sich warm anziehen",
-     "hook": "Es ist eiskalt draußen. Bereit? \\\"bundle up\\\"",
+     "hook": "Es ist eiskalt draußen. Bereit? \"bundle up\"",
      "ex": "'Bundle up', es ist eiskalt draußen!"
     }
    },
@@ -40795,7 +40795,7 @@
     "l1": {
      "m": "führen",
      "hook": "Sie hat das Spiel allein gewonnen – ein echtes „carry“.",
-     "ex": "Mia hat uns in der letzten Runde zum Sieg getragen. \\\"carry\\\""
+     "ex": "Mia hat uns in der letzten Runde zum Sieg getragen. \"carry\""
     }
    },
    "in": {
@@ -42535,7 +42535,7 @@
     "l1": {
      "m": "Frenemy",
      "hook": "Wir lächeln, aber wir sind 'frenemy'!",
-     "ex": "Sie ist meine \\\"frenemy\\\", immer im Wettbewerb mit mir."
+     "ex": "Sie ist meine \"frenemy\", immer im Wettbewerb mit mir."
     }
    },
    "in": {
@@ -42588,7 +42588,7 @@
     "l1": {
      "m": "hat den Vibe von",
      "hook": "Dieser Mantel sieht aus wie alte Filme!",
-     "ex": "Dieser Mantel vermittelt den Look eines alten Filmstars. \\\"it's giving\\\""
+     "ex": "Dieser Mantel vermittelt den Look eines alten Filmstars. \"it's giving\""
     }
    },
    "in": {
@@ -42640,7 +42640,7 @@
     "l1": {
      "m": "Kopf hoch",
      "hook": "Schwieriger Tag, aber morgen kommt – 'chin up'!",
-     "ex": "\\\"Chin up\\\", morgen wird es besser."
+     "ex": "\"Chin up\", morgen wird es besser."
     }
    },
    "in": {
@@ -42692,7 +42692,7 @@
     "l1": {
      "m": "Los, essen!",
      "hook": "Das Abendessen ist fertig. Wer hat Hunger? 'dig in'!",
-     "ex": "Das Abendessen ist fertig, also \\\"dig in\\\"!"
+     "ex": "Das Abendessen ist fertig, also \"dig in\"!"
     }
    },
    "in": {
@@ -42744,7 +42744,7 @@
     "l1": {
      "m": "bis später",
      "hook": "Muss los, der Unterricht beginnt jetzt! 'catch you later'!",
-     "ex": "\\\"Catch you later\\\", ich muss gehen!"
+     "ex": "\"Catch you later\", ich muss gehen!"
     }
    },
    "in": {
@@ -53054,8 +53054,8 @@
     "region": "global",
     "l1": {
      "m": "ami(e) ennemi(e)",
-     "hook": "On sourit, mais on se fait concurrence, comme des \\\"frenemy\\\" !",
-     "ex": "C’est ma \\\"frenemy\\\", toujours en compétition avec moi."
+     "hook": "On sourit, mais on se fait concurrence, comme des \"frenemy\" !",
+     "ex": "C’est ma \"frenemy\", toujours en compétition avec moi."
     }
    },
    "in": {
@@ -53159,8 +53159,8 @@
     "region": "UK",
     "l1": {
      "m": "garde le moral",
-     "hook": "Journée difficile, mais demain arrive, alors \\\"chin up\\\" !",
-     "ex": "\\\"Chin up\\\", demain sera meilleur."
+     "hook": "Journée difficile, mais demain arrive, alors \"chin up\" !",
+     "ex": "\"Chin up\", demain sera meilleur."
     }
    },
    "in": {
@@ -53212,7 +53212,7 @@
     "l1": {
      "m": "passer à table",
      "hook": "Le dîner est prêt. Qui a faim ? \"dig in\"",
-     "ex": "Le dîner est prêt, alors \\\"dig in\\\" !"
+     "ex": "Le dîner est prêt, alors \"dig in\" !"
     }
    },
    "in": {
@@ -53263,8 +53263,8 @@
     "region": "US",
     "l1": {
      "m": "à plus tard",
-     "hook": "Je dois filer, le cours commence, \\\"catch you later\\\" !",
-     "ex": "\\\"Catch you later\\\", je dois y aller !"
+     "hook": "Je dois filer, le cours commence, \"catch you later\" !",
+     "ex": "\"Catch you later\", je dois y aller !"
     }
    },
    "in": {
@@ -60100,7 +60100,7 @@
     "l1": {
      "m": "keren",
      "hook": "Kamu dapat tiket gratis untuk kami? Itu 'awesome'.",
-     "ex": "Kamu dapat tiket gratis untuk kami? Itu \\\"awesome\\\"!"
+     "ex": "Kamu dapat tiket gratis untuk kami? Itu \"awesome\"!"
     }
    },
    "in": {
@@ -60152,7 +60152,7 @@
     "l1": {
      "m": "bener banget",
      "hook": "Kucing mengantuk. Itu 'big mood'.",
-     "ex": "Kucing mengantuk itu \\\"big mood\\\"."
+     "ex": "Kucing mengantuk itu \"big mood\"."
     }
    },
    "in": {
@@ -60259,7 +60259,7 @@
     "l1": {
      "m": "maraton menonton",
      "hook": "Akhir pekan hujan. Seluruh musim. Ayo 'binge-watch'!",
-     "ex": "Aku akan \\\"binge-watch\\\" acara ini sepanjang akhir pekan."
+     "ex": "Aku akan \"binge-watch\" acara ini sepanjang akhir pekan."
     }
    },
    "in": {
@@ -67413,8 +67413,8 @@
     "region": "US",
     "l1": {
      "m": "マジで",
-     "hook": "\\\"bruh\\\"、また宿題を忘れたの？",
-     "ex": "\\\"Bruh\\\"、また宿題を忘れたの？"
+     "hook": "\"bruh\"、また宿題を忘れたの？",
+     "ex": "\"Bruh\"、また宿題を忘れたの？"
     }
    },
    "in": {
@@ -67521,7 +67521,7 @@
     "l1": {
      "m": "クリックベイト",
      "hook": "『信じられない！』って本当？'clickbait'だね。",
-     "ex": "あのタイトルは純粋に \\\"clickbait\\\" だ。"
+     "ex": "あのタイトルは純粋に \"clickbait\" だ。"
     }
    },
    "in": {
@@ -67574,7 +67574,7 @@
     "l1": {
      "m": "今日はここまでにする",
      "hook": "みんな疲れたね。どうする？'call it a day'しようか。",
-     "ex": "疲れたから \\\"call it a day\\\" しよう。"
+     "ex": "疲れたから \"call it a day\" しよう。"
     }
    },
    "in": {
@@ -68205,7 +68205,7 @@
     "region": "global",
     "l1": {
      "m": "手加減して",
-     "hook": "私、初心者です。\\\"cut me some slack\\\"、優しくお願いします！",
+     "hook": "私、初心者です。\"cut me some slack\"、優しくお願いします！",
      "ex": "「Cut me some slack」、私は初心者です。"
     }
    },
@@ -69205,7 +69205,7 @@
     "region": "US",
     "l1": {
      "m": "作戦",
-     "hook": "明日テストです。どこから始めるか、\\\"game plan\\\" を決めましょうか？",
+     "hook": "明日テストです。どこから始めるか、\"game plan\" を決めましょうか？",
      "ex": "で、何が\"game plan\"？"
     }
    },
@@ -69363,8 +69363,8 @@
     "region": "global",
     "l1": {
      "m": "土砂降り",
-     "hook": "外を見て！傘を持って！ \\\"raining cats and dogs\\\" です。",
-     "ex": "今、\\\"raining cats and dogs\\\" です！"
+     "hook": "外を見て！傘を持って！ \"raining cats and dogs\" です。",
+     "ex": "今、\"raining cats and dogs\" です！"
     }
    },
    "in": {
@@ -87027,7 +87027,7 @@
     "l1": {
      "m": "ร่าเริงหน่อย",
      "hook": "เธอดูเศร้าเลย จะทำยังไงต่อ?",
-     "ex": "\\\"Cheer up\\\", เรากำลังกินพิซซ่า!"
+     "ex": "\"Cheer up\", เรากำลังกินพิซซ่า!"
     }
    },
    "in": {
@@ -87080,7 +87080,7 @@
     "l1": {
      "m": "อาหารปลอบใจ",
      "hook": "วันเศร้า? ซุปอุ่นๆ!",
-     "ex": "ซุปอุ่นคือ \\\"comfort food\\\" ของฉัน."
+     "ex": "ซุปอุ่นคือ \"comfort food\" ของฉัน."
     }
    },
    "in": {
@@ -87133,7 +87133,7 @@
     "l1": {
      "m": "เพื่อน",
      "hook": "ใครเรียนกับคุณทุกคืน?",
-     "ex": "เขาเป็น \\\"buddy\\\" ของฉันในการเรียน."
+     "ex": "เขาเป็น \"buddy\" ของฉันในการเรียน."
     }
    },
    "in": {
@@ -87185,7 +87185,7 @@
     "l1": {
      "m": "เด็ด",
      "hook": "ประตูในวินาทีสุดท้ายทำให้ชนะ!",
-     "ex": "ประตูในนาทีสุดท้ายนั้น \\\"clutch\\\" มาก."
+     "ex": "ประตูในนาทีสุดท้ายนั้น \"clutch\" มาก."
     }
    },
    "in": {
@@ -87237,7 +87237,7 @@
     "l1": {
      "m": "ของจริง",
      "hook": "ร้านนี้จริงหรือ?",
-     "ex": "ร้านนี้ \\\"legit\\\" นะ พี่สาวของฉันซื้อรองเท้าที่นั่น."
+     "ex": "ร้านนี้ \"legit\" นะ พี่สาวของฉันซื้อรองเท้าที่นั่น."
     }
    },
    "in": {
@@ -91912,8 +91912,8 @@
     "region": "US",
     "l1": {
      "m": "ya",
-     "hook": "\\\"Bruh\\\", ödevini yine unuttun mu?",
-     "ex": "\\\"Bruh\\\", ödevini yine unuttun mu?"
+     "hook": "\"Bruh\", ödevini yine unuttun mu?",
+     "ex": "\"Bruh\", ödevini yine unuttun mu?"
     }
    },
    "in": {
@@ -91965,8 +91965,8 @@
     "region": "global",
     "l1": {
      "m": "Bugünü burada bitirelim",
-     "hook": "Yorgunuz, şimdi ne yapacağız? \\\"Call it a day\\\" mı?",
-     "ex": "Yorgunuz, \\\"call it a day\\\" diyelim."
+     "hook": "Yorgunuz, şimdi ne yapacağız? \"Call it a day\" mı?",
+     "ex": "Yorgunuz, \"call it a day\" diyelim."
     }
    },
    "in": {
@@ -92175,7 +92175,7 @@
     "l1": {
      "m": "gerçek",
      "hook": "Bu dükkan legit mi?",
-     "ex": "Bu dükkan \\\"legit\\\", kız kardeşim oradan ayakkabı aldı."
+     "ex": "Bu dükkan \"legit\", kız kardeşim oradan ayakkabı aldı."
     }
    },
    "in": {
@@ -94278,8 +94278,8 @@
     "region": "US",
     "l1": {
      "m": "不骗你",
-     "hook": "全城最好的披萨，真的，\\\"no cap\\\"。",
-     "ex": "这家披萨是全城最好的，\\\"no cap\\\"。"
+     "hook": "全城最好的披萨，真的，\"no cap\"。",
+     "ex": "这家披萨是全城最好的，\"no cap\"。"
     }
    },
    "in": {
@@ -94330,8 +94330,8 @@
     "region": "US",
     "l1": {
      "m": "恼火的",
-     "hook": "他输了，然后闹别扭，\\\"salty\\\"。",
-     "ex": "他因为我赢了纸牌游戏而很\\\"salty\\\"。"
+     "hook": "他输了，然后闹别扭，\"salty\"。",
+     "ex": "他因为我赢了纸牌游戏而很\"salty\"。"
     }
    },
    "in": {
@@ -94383,8 +94383,8 @@
     "region": "US",
     "l1": {
      "m": "笑死了",
-     "hook": "猫跳进盒子里！\\\"I'm dead\\\"。",
-     "ex": "猫跳进盒子里，\\\"I'm dead\\\"！"
+     "hook": "猫跳进盒子里！\"I'm dead\"。",
+     "ex": "猫跳进盒子里，\"I'm dead\"！"
     }
    },
    "in": {
@@ -94436,8 +94436,8 @@
     "region": "US",
     "l1": {
      "m": "大吃特吃",
-     "hook": "整张披萨都没了！\\\"pig out\\\"。",
-     "ex": "我们昨晚大吃披萨，\\\"pig out\\\"。"
+     "hook": "整张披萨都没了！\"pig out\"。",
+     "ex": "我们昨晚大吃披萨，\"pig out\"。"
     }
    },
    "in": {
@@ -94488,8 +94488,8 @@
     "region": "US",
     "l1": {
      "m": "没问题",
-     "hook": "六点吃披萨，行吗？\\\"bet\\\"。",
-     "ex": "六点吃披萨？\\\"Bet\\\"。"
+     "hook": "六点吃披萨，行吗？\"bet\"。",
+     "ex": "六点吃披萨？\"Bet\"。"
     }
    },
    "in": {
