@@ -1,0 +1,137 @@
+{
+ "id": "t2s_epicwin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 88,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last second goal. We win!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Epic win!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A really great victory.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We scored in the last second. Epic win!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "epic win",
+  "forms": [
+   "epic"
+  ],
+  "ipa": "/ˈepɪk ˈwɪn/",
+  "mean": "A really great victory.",
+  "define": "A big, impressive win.",
+  "vi": "Chiến thắng hoành tráng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Celebrating with friends",
+   "text": "We scored in the last second. Epic win!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "An \"epic win\" is…",
+   "options": [
+    "a great victory",
+    "a long story"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'epic win' about a tiny task.",
+   "why": "It exaggerates a small success."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Last second goal. We win!"
+ },
+ "src": {
+  "slang": "epic win"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.9,
+  "wpm": 106
+ },
+ "publish": {
+  "title": "What does \"epic win\" mean?",
+  "keyword": "epic win",
+  "value": "Epic win = A really great victory. Example: \"We scored in the last second. Epic win!\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"epic win\" mean?",
+    "description": "Epic win = A really great victory. Example: \"We scored in the last second. Epic win!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "epic win",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"epic win\" mean?\n\nEpic win = A really great victory. Example: \"We scored in the last second. Epic win!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"epic win\" mean?\n\nEpic win = A really great victory. Example: \"We scored in the last second. Epic win!\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"epic win\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: a great victory. \"We scored in the last second. Epic win!\" More real English slang, free: {link}"
+ }
+}

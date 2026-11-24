@@ -1,0 +1,131 @@
+{
+ "id": "t2s_toxic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 192,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Why does that chat feel awful?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Toxic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Harmful to your mood.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That group chat feels toxic.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "toxic",
+  "forms": [],
+  "ipa": "/ˈtɑːksɪk/",
+  "mean": "Harmful to your mood.",
+  "define": "Describes people or places that make you feel bad.",
+  "vi": "Độc hại, tiêu cực",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a group chat",
+   "text": "That group chat feels toxic."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Toxic\" here means…",
+   "options": [
+    "harmful to feelings",
+    "poisonous snack"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call spicy soup 'toxic' at dinner.",
+   "why": "It means harmful, not just strong."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Why does that chat feel awful?"
+ },
+ "src": {
+  "slang": "toxic"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"toxic\" mean?",
+  "keyword": "toxic",
+  "value": "Toxic = Harmful to your mood. Example: \"That group chat feels toxic.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"toxic\" mean?",
+    "description": "Toxic = Harmful to your mood. Example: \"That group chat feels toxic.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "toxic",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"toxic\" mean?\n\nToxic = Harmful to your mood. Example: \"That group chat feels toxic.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"toxic\" mean?\n\nToxic = Harmful to your mood. Example: \"That group chat feels toxic.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"toxic\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: harmful to feelings. \"That group chat feels toxic.\" More real English slang, free: {link}"
+ }
+}

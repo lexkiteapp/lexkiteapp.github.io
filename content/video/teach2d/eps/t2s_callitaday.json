@@ -1,0 +1,133 @@
+{
+ "id": "t2s_callitaday",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 59,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We're tired. What now?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Call it a day!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stop for today.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We're tired, let's call it a day.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "call it a day",
+  "forms": [
+   "calling it a day"
+  ],
+  "ipa": "/ˈkɔːl ɪt ə ˈdeɪ/",
+  "mean": "Stop for today.",
+  "define": "To decide to finish work or an activity for now.",
+  "vi": "Hôm nay nghỉ ở đây",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Finishing a group project",
+   "text": "We're tired, let's call it a day."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Call it a day\" means…",
+   "options": [
+    "stop for today",
+    "make a phone call"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't 'call it a day' before the deadline.",
+   "why": "It means stop for today."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "We're tired. What now?"
+ },
+ "src": {
+  "slang": "call it a day"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"call it a day\" mean?",
+  "keyword": "call it a day",
+  "value": "Call it a day = Stop for today. Example: \"We're tired, let's call it a day.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"call it a day\" mean?",
+    "description": "Call it a day = Stop for today. Example: \"We're tired, let's call it a day.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "call it a day",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"call it a day\" mean?\n\nCall it a day = Stop for today. Example: \"We're tired, let's call it a day.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"call it a day\" mean?\n\nCall it a day = Stop for today. Example: \"We're tired, let's call it a day.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"call it a day\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: stop for today. \"We're tired, let's call it a day.\" More real English slang, free: {link}"
+ }
+}

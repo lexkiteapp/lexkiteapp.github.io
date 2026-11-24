@@ -1,0 +1,137 @@
+{
+ "id": "t2s_moveon",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 281,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Still thinking about that game?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Move on!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stop dwelling on it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's move on to the next game.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "move on",
+  "forms": [
+   "moving on"
+  ],
+  "ipa": "/ˈmuːv ˈɑːn/",
+  "mean": "Stop dwelling on it.",
+  "define": "To stop thinking about the past and continue.",
+  "vi": "Bước tiếp",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking after a loss",
+   "text": "Let's move on to the next game."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"move on\" is to…",
+   "options": [
+    "change houses",
+    "go forward"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell someone to 'move on' after a loss.",
+   "why": "Their sadness needs time."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Still thinking about that game?"
+ },
+ "src": {
+  "slang": "move on"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"move on\" mean?",
+  "keyword": "move on",
+  "value": "Move on = Stop dwelling on it. Example: \"Let's move on to the next game.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"move on\" mean?",
+    "description": "Move on = Stop dwelling on it. Example: \"Let's move on to the next game.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "move on",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"move on\" mean?\n\nMove on = Stop dwelling on it. Example: \"Let's move on to the next game.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"move on\" mean?\n\nMove on = Stop dwelling on it. Example: \"Let's move on to the next game.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"move on\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell someone to 'move on' after a loss. Their sadness needs time. Real example: \"Let's move on to the next game.\" More real English slang, free: {link}"
+ }
+}

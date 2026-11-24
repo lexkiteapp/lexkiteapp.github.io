@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ko_ngl",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 89,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Honest opinion about that movie?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Ngl!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Not gonna lie.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Ngl, I loved that movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "ngl",
+  "forms": [
+   "NGL"
+  ],
+  "ipa": "/ˌen dʒiː ˈel/",
+  "mean": "Not gonna lie.",
+  "define": "Short for \"not gonna lie\", before an honest opinion.",
+  "vi": "Nói thật nha",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Texting",
+   "text": "Ngl, I loved that movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Ngl\" means…",
+   "options": [
+    "never go left",
+    "to be honest"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't use 'ngl' in a job application.",
+   "why": "Texting shorthand looks unprofessional."
+  },
+  "l1": "솔직히 말해서",
+  "l1_hook": "그 영화에 대한 솔직한 의견이 뭐야?",
+  "l1_ex": "'ngl', 그 영화 정말 좋았어.",
+  "right": "ngl",
+  "native": {
+   "hook": "“ngl” 무슨 뜻일까요?",
+   "tip": "“ngl” = 솔직히 말해서. 예문: “Ngl, I loved that movie.”",
+   "caption": "“ngl” 무슨 뜻일까요?\n“ngl” = 솔직히 말해서.\n예문: “Ngl, I loved that movie.” ('ngl', 그 영화 정말 좋았어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “ngl” = 솔직히 말해서. “Ngl, I loved that movie.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Honest opinion about that movie?"
+ },
+ "src": {
+  "slang": "ngl"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 16,
+  "seconds": 9.6,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“ngl” 무슨 뜻일까요?",
+  "keyword": "ngl",
+  "value": "“ngl” = 솔직히 말해서. 예문: “Ngl, I loved that movie.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“ngl” 무슨 뜻일까요?",
+    "description": "“ngl” = 솔직히 말해서. 예문: “Ngl, I loved that movie.”\n\n“ngl” 무슨 뜻일까요?\n“ngl” = 솔직히 말해서.\n예문: “Ngl, I loved that movie.” ('ngl', 그 영화 정말 좋았어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "ngl",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“ngl” 무슨 뜻일까요?\n“ngl” = 솔직히 말해서.\n예문: “Ngl, I loved that movie.” ('ngl', 그 영화 정말 좋았어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“ngl” 무슨 뜻일까요?\n\n“ngl” = 솔직히 말해서. 예문: “Ngl, I loved that movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“ngl” 무슨 뜻일까요? “ngl” = 솔직히 말해서. 예문: “Ngl, I loved that movie.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “ngl” = 솔직히 말해서. “Ngl, I loved that movie.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

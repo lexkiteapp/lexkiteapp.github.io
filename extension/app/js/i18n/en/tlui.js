@@ -15,4 +15,8 @@
   'Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.': 'Pick one language – you can change it any time in Settings.',
   'Sắp ra mắt': 'Coming soon',
   "Bạn muốn học ngôn ngữ nào nhỉ?": "Which language do you want to learn?",
+  'Hoặc chỉ học giao tiếp': 'Or just learn to communicate',
+  'Nói chuyện hằng ngày, chưa cần chứng chỉ': 'Everyday conversation, no certificate needed',
+  'Tiếng Nhật · JLPT N5–N1': 'Japanese · JLPT N5–N1',
+  'Tiếng Hàn · TOPIK I–II': 'Korean · TOPIK I–II',
 }); })(typeof self !== 'undefined' ? self : this);

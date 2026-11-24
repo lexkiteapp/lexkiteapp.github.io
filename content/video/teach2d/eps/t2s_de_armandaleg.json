@@ -1,0 +1,148 @@
+{
+ "id": "t2s_de_armandaleg",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 15,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at this coat's price!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Arm and a leg!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely expensive.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coat costs an arm and a leg.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "arm and a leg",
+  "forms": [
+   "an arm and a leg"
+  ],
+  "ipa": "/ən ˈɑːrm ən ə ˈleɡ/",
+  "mean": "Extremely expensive.",
+  "define": "Used when something costs a huge amount of money.",
+  "vi": "Đắt cắt cổ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Looking at store prices",
+   "text": "This coat costs an arm and a leg."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means something is…",
+   "options": [
+    "very cheap",
+    "very expensive"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't take 'an arm and a leg' literally at the store.",
+   "why": "It just means very expensive."
+  },
+  "l1": "ein Vermögen kosten",
+  "l1_hook": "Sieh dir den Preis dieses Mantels an – er kostet 'arm and a leg'.",
+  "l1_ex": "Dieser Mantel kostet „an arm and a leg“.",
+  "right": "arm and a leg",
+  "native": {
+   "hook": "Was heißt “arm and a leg”?",
+   "tip": "“arm and a leg” = ein Vermögen kosten. Beispiel: “This coat costs an arm and a leg.”",
+   "caption": "Was heißt “arm and a leg”?\n“arm and a leg” = ein Vermögen kosten.\nBeispiel: “This coat costs an arm and a leg.” (Dieser Mantel kostet „an arm and a leg“.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “arm and a leg” = ein Vermögen kosten. “This coat costs an arm and a leg.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at this coat's price!"
+ },
+ "src": {
+  "slang": "arm and a leg"
+ },
+ "lang": "de",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Was heißt “arm and a leg”?",
+  "keyword": "arm and a leg",
+  "value": "“arm and a leg” = ein Vermögen kosten. Beispiel: “This coat costs an arm and a leg.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “arm and a leg”?",
+    "description": "“arm and a leg” = ein Vermögen kosten. Beispiel: “This coat costs an arm and a leg.”\n\nWas heißt “arm and a leg”?\n“arm and a leg” = ein Vermögen kosten.\nBeispiel: “This coat costs an arm and a leg.” (Dieser Mantel kostet „an arm and a leg“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "arm and a leg",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “arm and a leg”?\n“arm and a leg” = ein Vermögen kosten.\nBeispiel: “This coat costs an arm and a leg.” (Dieser Mantel kostet „an arm and a leg“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “arm and a leg”?\n\n“arm and a leg” = ein Vermögen kosten. Beispiel: “This coat costs an arm and a leg.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “arm and a leg”? “arm and a leg” = ein Vermögen kosten. Beispiel: “This coat costs an arm an… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “arm and a leg” = ein Vermögen kosten. “This coat costs an arm and a leg.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}
