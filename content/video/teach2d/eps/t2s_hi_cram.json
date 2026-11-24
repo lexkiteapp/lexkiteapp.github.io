@@ -1,0 +1,153 @@
+{
+ "id": "t2s_hi_cram",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 76,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Exam tomorrow. I haven't studied!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cram!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Study at the last minute.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I must cram for math.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "cram",
+  "forms": [
+   "cramming",
+   "crammed"
+  ],
+  "ipa": "/ˈkræm/",
+  "mean": "Study at the last minute.",
+  "define": "To study many things quickly just before a test.",
+  "vi": "Học nhồi nhét",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Waiting outside class",
+   "text": "I must cram for math."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"cram\" is to…",
+   "options": [
+    "sleep in class",
+    "study at the last minute"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'cram' for a three-year course.",
+   "why": "Cramming only works for short tests."
+  },
+  "l1": "रट्टा मारना",
+  "l1_hook": "कल परीक्षा है, मैंने अभी तक पढ़ाई नहीं की! \"cram\" करो!",
+  "l1_ex": "मुझे गणित के लिए \"cram\" करना है।",
+  "right": "cram",
+  "native": {
+   "hook": "“cram” का मतलब क्या है?",
+   "tip": "“cram” = रट्टा मारना. उदाहरण: “I must cram for math.”",
+   "caption": "“cram” का मतलब क्या है?\n“cram” = रट्टा मारना.\nउदाहरण: “I must cram for math.” (मुझे गणित के लिए \"cram\" करना है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “cram” = रट्टा मारना. “I must cram for math.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Exam tomorrow. I haven't studied!"
+ },
+ "src": {
+  "slang": "cram"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“cram” का मतलब क्या है?",
+  "keyword": "cram",
+  "value": "“cram” = रट्टा मारना. उदाहरण: “I must cram for math.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“cram” का मतलब क्या है?",
+    "description": "“cram” = रट्टा मारना. उदाहरण: “I must cram for math.”\n\n“cram” का मतलब क्या है?\n“cram” = रट्टा मारना.\nउदाहरण: “I must cram for math.” (मुझे गणित के लिए \"cram\" करना है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "cram",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“cram” का मतलब क्या है?\n“cram” = रट्टा मारना.\nउदाहरण: “I must cram for math.” (मुझे गणित के लिए \"cram\" करना है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cram” का मतलब क्या है?\n\n“cram” = रट्टा मारना. उदाहरण: “I must cram for math.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cram” का मतलब क्या है? “cram” = रट्टा मारना. उदाहरण: “I must cram for math.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “cram” = रट्टा मारना. “I must cram for math.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

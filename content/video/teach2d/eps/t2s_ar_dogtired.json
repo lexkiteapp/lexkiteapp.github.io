@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ar_dogtired",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 97,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "That hike felt endless!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dog tired!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Totally exhausted.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm dog tired after that long hike.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "dog tired",
+  "forms": [
+   "dog-tired"
+  ],
+  "ipa": "/ˈdɔːɡ ˈtaɪɚd/",
+  "mean": "Totally exhausted.",
+  "define": "Used when you are so tired you can barely move.",
+  "vi": "Mệt rã rời",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "After a school sports day",
+   "text": "I'm dog tired after that long hike."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dog tired\" means…",
+   "options": [
+    "tired of dogs",
+    "very tired"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your pet 'dog tired' literally.",
+   "why": "It's an idiom for exhaustion."
+  },
+  "l1": "متعب جدًا",
+  "l1_hook": "كانت تلك النزهة تبدو بلا نهاية!",
+  "l1_ex": "أنا \"dog tired\" بعد تلك النزهة السيرية الطويلة.",
+  "right": "dog tired",
+  "native": {
+   "hook": "ما معنى “dog tired”؟",
+   "tip": "“dog tired” = متعب جدًا. مثال: “I'm dog tired after that long hike.”",
+   "caption": "ما معنى “dog tired”؟\n“dog tired” = متعب جدًا.\nمثال: “I'm dog tired after that long hike.” (أنا \"dog tired\" بعد تلك النزهة السيرية الطويلة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “dog tired” = متعب جدًا. “I'm dog tired after that long hike.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "That hike felt endless!"
+ },
+ "src": {
+  "slang": "dog tired"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "ما معنى “dog tired”؟",
+  "keyword": "dog tired",
+  "value": "“dog tired” = متعب جدًا. مثال: “I'm dog tired after that long hike.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “dog tired”؟",
+    "description": "“dog tired” = متعب جدًا. مثال: “I'm dog tired after that long hike.”\n\nما معنى “dog tired”؟\n“dog tired” = متعب جدًا.\nمثال: “I'm dog tired after that long hike.” (أنا \"dog tired\" بعد تلك النزهة السيرية الطويلة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "dog tired",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “dog tired”؟\n“dog tired” = متعب جدًا.\nمثال: “I'm dog tired after that long hike.” (أنا \"dog tired\" بعد تلك النزهة السيرية الطويلة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “dog tired”؟\n\n“dog tired” = متعب جدًا. مثال: “I'm dog tired after that long hike.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “dog tired”؟ “dog tired” = متعب جدًا. مثال: “I'm dog tired after that long hike.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “dog tired” = متعب جدًا. “I'm dog tired after that long hike.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

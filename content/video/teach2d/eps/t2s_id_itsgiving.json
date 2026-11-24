@@ -1,0 +1,148 @@
+{
+ "id": "t2s_id_itsgiving",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 84,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "That coat looks like old movies!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "It's giving!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "It has the vibe of…",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That coat is giving old movie star.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "it's giving",
+  "forms": [
+   "giving"
+  ],
+  "ipa": "/ɪts ˈɡɪvɪŋ/",
+  "mean": "It has the vibe of…",
+  "define": "Used to say that something reminds you of a style or mood.",
+  "vi": "Nhìn là thấy vibe này",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "That coat is giving old movie star."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"It's giving\" means…",
+   "options": [
+    "it gives a gift",
+    "it has the vibe of"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'it's giving' to a job interviewer.",
+   "why": "It's trendy slang, too informal."
+  },
+  "l1": "memberi kesan",
+  "l1_hook": "Mantel itu 'it's giving' nuansa film lama!",
+  "l1_ex": "Mantel itu 'it's giving' vibe bintang film lama.",
+  "right": "it's giving",
+  "native": {
+   "hook": "Apa arti “it's giving”?",
+   "tip": "“it's giving” = memberi kesan. Contoh: “That coat is giving old movie star.”",
+   "caption": "Apa arti “it's giving”?\n“it's giving” = memberi kesan.\nContoh: “That coat is giving old movie star.” (Mantel itu 'it's giving' vibe bintang film lama.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “it's giving” = memberi kesan. “That coat is giving old movie star.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "That coat looks like old movies!"
+ },
+ "src": {
+  "slang": "it's giving"
+ },
+ "lang": "id",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Apa arti “it's giving”?",
+  "keyword": "it's giving",
+  "value": "“it's giving” = memberi kesan. Contoh: “That coat is giving old movie star.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “it's giving”?",
+    "description": "“it's giving” = memberi kesan. Contoh: “That coat is giving old movie star.”\n\nApa arti “it's giving”?\n“it's giving” = memberi kesan.\nContoh: “That coat is giving old movie star.” (Mantel itu 'it's giving' vibe bintang film lama.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "it's giving",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “it's giving”?\n“it's giving” = memberi kesan.\nContoh: “That coat is giving old movie star.” (Mantel itu 'it's giving' vibe bintang film lama.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “it's giving”?\n\n“it's giving” = memberi kesan. Contoh: “That coat is giving old movie star.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “it's giving”? “it's giving” = memberi kesan. Contoh: “That coat is giving old movie star.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “it's giving” = memberi kesan. “That coat is giving old movie star.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

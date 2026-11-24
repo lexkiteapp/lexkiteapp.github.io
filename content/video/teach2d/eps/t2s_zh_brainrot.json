@@ -1,0 +1,148 @@
+{
+ "id": "t2s_zh_brainrot",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 39,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three hours of silly videos!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Brain rot!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Silly online content that feels empty.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Too many videos give me brain rot.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "brain rot",
+  "forms": [
+   "brainrot"
+  ],
+  "ipa": "/ˈbreɪn ˈrɑːt/",
+  "mean": "Silly online content that feels empty.",
+  "define": "Jokingly used for low-quality videos you scroll too much.",
+  "vi": "Nội dung nhảm, xem hoài",
+  "reg": "very-casual",
+  "region": "global",
+  "level": "C1",
+  "era": "gen-z",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Talking about screen time",
+   "text": "Too many videos give me brain rot."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Brain rot\" is a joke about…",
+   "options": [
+    "silly online content",
+    "a brain illness"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call a documentary 'brain rot'.",
+   "why": "It means empty, silly content."
+  },
+  "l1": "脑残内容",
+  "l1_hook": "三小时的傻视频！简直是 \"brain rot\"。",
+  "l1_ex": "看太多此类视频会让我“brain rot”。",
+  "right": "brain rot",
+  "native": {
+   "hook": "“brain rot”是什么意思？",
+   "tip": "“brain rot” = 脑残内容. 例句: “Too many videos give me brain rot.”",
+   "caption": "“brain rot”是什么意思？\n“brain rot” = 脑残内容.\n例句: “Too many videos give me brain rot.” (看太多此类视频会让我“brain rot”。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “brain rot” = 脑残内容. “Too many videos give me brain rot.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Three hours of silly videos!"
+ },
+ "src": {
+  "slang": "brain rot"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "“brain rot”是什么意思？",
+  "keyword": "brain rot",
+  "value": "“brain rot” = 脑残内容. 例句: “Too many videos give me brain rot.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“brain rot”是什么意思？",
+    "description": "“brain rot” = 脑残内容. 例句: “Too many videos give me brain rot.”\n\n“brain rot”是什么意思？\n“brain rot” = 脑残内容.\n例句: “Too many videos give me brain rot.” (看太多此类视频会让我“brain rot”。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "brain rot",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“brain rot”是什么意思？\n“brain rot” = 脑残内容.\n例句: “Too many videos give me brain rot.” (看太多此类视频会让我“brain rot”。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“brain rot”是什么意思？\n\n“brain rot” = 脑残内容. 例句: “Too many videos give me brain rot.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“brain rot”是什么意思？ “brain rot” = 脑残内容. 例句: “Too many videos give me brain rot.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “brain rot” = 脑残内容. “Too many videos give me brain rot.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

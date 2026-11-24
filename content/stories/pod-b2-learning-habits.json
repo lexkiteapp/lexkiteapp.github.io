@@ -1,0 +1,220 @@
+{
+  "id": "pod-b2-learning-habits",
+  "kind": "podcast",
+  "level": "B2",
+  "title": "Learning a Language for Real",
+  "summary": "Ama and Carlos discuss why small daily habits beat long, rare study sessions.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 3",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos at a bright café table with notebooks, headphones and a small clock, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 135,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Why Consistency Wins",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Carlos, I have been studying Italian for six months, but I feel I am not making progress."
+        },
+        {
+          "who": "B",
+          "text": "How often do you practise?"
+        },
+        {
+          "who": "A",
+          "text": "Usually on Sunday. I study for about four hours, and then I do nothing for the rest of the week."
+        },
+        {
+          "who": "B",
+          "text": "That might be the problem. Your memory needs repetition, not just one big effort."
+        },
+        {
+          "who": "A",
+          "text": "But I thought long sessions were more efficient."
+        },
+        {
+          "who": "B",
+          "text": "They feel productive, but you forget most of the material within a few days."
+        },
+        {
+          "who": "A",
+          "text": "So you would recommend something shorter?"
+        },
+        {
+          "who": "B",
+          "text": "Yes, twenty minutes every day is far better than one marathon at the weekend."
+        },
+        {
+          "who": "A",
+          "text": "It sounds almost too easy. Does it really make such a big difference?"
+        },
+        {
+          "who": "B",
+          "text": "In my experience it does, because the habit becomes automatic after a few weeks."
+        },
+        {
+          "who": "A",
+          "text": "I suppose I could study while I drink my morning coffee."
+        },
+        {
+          "who": "B",
+          "text": "Perfect. Link the new habit to something you already do every day."
+        }
+      ],
+      "words": [
+        "progress",
+        "repetition",
+        "efficient",
+        "productive",
+        "automatic",
+        "link"
+      ],
+      "quiz": [
+        {
+          "q": "How does Ama study at the moment?",
+          "options": [
+            "Twenty minutes every day",
+            "About four hours on Sundays",
+            "Only with a teacher"
+          ],
+          "answer": 1,
+          "explain": "She studies for about four hours on Sunday and then does nothing."
+        },
+        {
+          "q": "What does Carlos say about long sessions?",
+          "options": [
+            "They are the best method.",
+            "They are too cheap.",
+            "Most of the material is forgotten quickly."
+          ],
+          "answer": 2,
+          "explain": "You forget most of the material within a few days."
+        },
+        {
+          "q": "What does Carlos suggest linking the new habit to?",
+          "options": [
+            "Something she already does daily",
+            "A weekend trip",
+            "A language exam"
+          ],
+          "answer": 0,
+          "explain": "He suggests linking it to a daily action like drinking coffee."
+        }
+      ]
+    },
+    {
+      "title": "Making Mistakes Is Fine",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "There is another problem. I am afraid of speaking, because I make so many mistakes."
+        },
+        {
+          "who": "B",
+          "text": "Everybody does, Ama. Mistakes are simply part of the process."
+        },
+        {
+          "who": "A",
+          "text": "I know, but I get embarrassed when people correct me."
+        },
+        {
+          "who": "B",
+          "text": "Try to see a correction as a free lesson rather than as a criticism."
+        },
+        {
+          "who": "A",
+          "text": "That is a healthier attitude. I will try to remember it."
+        },
+        {
+          "who": "B",
+          "text": "Also, find a conversation partner who is patient and curious."
+        },
+        {
+          "who": "A",
+          "text": "Do you know any websites where I can meet language partners?"
+        },
+        {
+          "who": "B",
+          "text": "There are several. You can also join a local group that meets once a week."
+        },
+        {
+          "who": "A",
+          "text": "Good idea. I would feel less nervous in front of a small group."
+        },
+        {
+          "who": "B",
+          "text": "And keep a notebook with your favourite new expressions, then review them regularly."
+        },
+        {
+          "who": "A",
+          "text": "I am already looking forward to my first conversation."
+        },
+        {
+          "who": "B",
+          "text": "Remember to enjoy it. Motivation lasts longer when learning is fun."
+        }
+      ],
+      "words": [
+        "embarrass",
+        "criticism",
+        "attitude",
+        "patient",
+        "expression",
+        "motivation"
+      ],
+      "quiz": [
+        {
+          "q": "Why is Ama afraid of speaking?",
+          "options": [
+            "She makes many mistakes.",
+            "She has no time.",
+            "She dislikes Italian."
+          ],
+          "answer": 0,
+          "explain": "She is afraid because she makes many mistakes."
+        },
+        {
+          "q": "How should she see corrections, according to Carlos?",
+          "options": [
+            "As a punishment",
+            "As a free lesson",
+            "As a waste of time"
+          ],
+          "answer": 1,
+          "explain": "He says to see a correction as a free lesson."
+        },
+        {
+          "q": "What helps keep motivation high?",
+          "options": [
+            "Strict rules",
+            "Studying alone",
+            "Making learning enjoyable"
+          ],
+          "answer": 2,
+          "explain": "Motivation lasts longer when learning is fun."
+        }
+      ]
+    }
+  ]
+}

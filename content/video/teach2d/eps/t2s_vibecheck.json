@@ -1,0 +1,131 @@
+{
+ "id": "t2s_vibecheck",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 288,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is this music okay?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Vibe check!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Checking someone's mood or energy.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Quick vibe check: is this music okay?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "vibe check",
+  "forms": [],
+  "ipa": "/ˈvaɪb ˌtʃek/",
+  "mean": "Checking someone's mood or energy.",
+  "define": "A quick moment to see how someone feels or if a place feels good.",
+  "vi": "Kiểm tra tâm trạng nhé",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "friends",
+  "example": {
+   "ctx": "Meeting friends at a café",
+   "text": "Quick vibe check: is this music okay?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"vibe check\" asks about…",
+   "options": [
+    "your car",
+    "someone's mood"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't run a 'vibe check' on your teacher.",
+   "why": "It's casual and could sound rude."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is this music okay?"
+ },
+ "src": {
+  "slang": "vibe check"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "What does \"vibe check\" mean?",
+  "keyword": "vibe check",
+  "value": "Vibe check = Checking someone's mood or energy. Example: \"Quick vibe check: is this music okay?\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"vibe check\" mean?",
+    "description": "Vibe check = Checking someone's mood or energy. Example: \"Quick vibe check: is this music okay?\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "vibe check",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"vibe check\" mean?\n\nVibe check = Checking someone's mood or energy. Example: \"Quick vibe check: is this music okay?\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"vibe check\" mean?\n\nVibe check = Checking someone's mood or energy. Example: \"Quick vibe check: is this music okay?\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"vibe check\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't run a 'vibe check' on your teacher. It's casual and could sound rude. Real example: \"Quick vibe check: is this music okay?\" More real English slang, free: {link}"
+ }
+}

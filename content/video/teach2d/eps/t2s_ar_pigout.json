@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ar_pigout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 4,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The whole pizza is gone!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Pig out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Eat way too much.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We pigged out on pizza last night.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "pig out",
+  "forms": [
+   "pigged out"
+  ],
+  "ipa": "/ˈpɪɡ ˈaʊt/",
+  "mean": "Eat way too much.",
+  "define": "To eat a very large amount of food happily.",
+  "vi": "Ăn quên trời đất",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "After a party",
+   "text": "We pigged out on pizza last night."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"pig out\" is to…",
+   "options": [
+    "eat too much",
+    "go to a farm"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell your host she made you 'pig out'.",
+   "why": "It sounds like an insult."
+  },
+  "l1": "نأكل بشراهة",
+  "l1_hook": "البيتزا بأكملها اختفت! \"pig out\"",
+  "l1_ex": "لقد قمنا بـ 'pig out' على البيتزا ليلة أمس.",
+  "right": "pig out",
+  "native": {
+   "hook": "ما معنى “pig out”؟",
+   "tip": "“pig out” = نأكل بشراهة. مثال: “We pigged out on pizza last night.”",
+   "caption": "ما معنى “pig out”؟\n“pig out” = نأكل بشراهة.\nمثال: “We pigged out on pizza last night.” (لقد قمنا بـ 'pig out' على البيتزا ليلة أمس.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “pig out” = نأكل بشراهة. “We pigged out on pizza last night.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The whole pizza is gone!"
+ },
+ "src": {
+  "slang": "pig out"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 20,
+  "seconds": 11.5,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "ما معنى “pig out”؟",
+  "keyword": "pig out",
+  "value": "“pig out” = نأكل بشراهة. مثال: “We pigged out on pizza last night.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “pig out”؟",
+    "description": "“pig out” = نأكل بشراهة. مثال: “We pigged out on pizza last night.”\n\nما معنى “pig out”؟\n“pig out” = نأكل بشراهة.\nمثال: “We pigged out on pizza last night.” (لقد قمنا بـ 'pig out' على البيتزا ليلة أمس.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "pig out",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “pig out”؟\n“pig out” = نأكل بشراهة.\nمثال: “We pigged out on pizza last night.” (لقد قمنا بـ 'pig out' على البيتزا ليلة أمس.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “pig out”؟\n\n“pig out” = نأكل بشراهة. مثال: “We pigged out on pizza last night.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “pig out”؟ “pig out” = نأكل بشراهة. مثال: “We pigged out on pizza last night.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “pig out” = نأكل بشراهة. “We pigged out on pizza last night.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

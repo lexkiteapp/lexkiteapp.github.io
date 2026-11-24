@@ -1,0 +1,220 @@
+{
+  "id": "pod-a1-my-city",
+  "kind": "podcast",
+  "level": "A1",
+  "title": "My City",
+  "summary": "Ama and Carlos talk about places they like in their city.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 3",
+    "author": "Lexkite",
+    "note": "Original dialogue written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos on a bench in a green city park with a small shop and a tree, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 100,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Favourite Places",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Carlos, do you like our city?"
+        },
+        {
+          "who": "B",
+          "text": "Yes, I do. It is big and busy."
+        },
+        {
+          "who": "A",
+          "text": "Where do you go on Sunday?"
+        },
+        {
+          "who": "B",
+          "text": "I go to the park. It is very green."
+        },
+        {
+          "who": "A",
+          "text": "I like the park too. I sit under a tree."
+        },
+        {
+          "who": "B",
+          "text": "Is there a shop near the park?"
+        },
+        {
+          "who": "A",
+          "text": "Yes, there is a small shop."
+        },
+        {
+          "who": "B",
+          "text": "Can we buy ice cream there?"
+        },
+        {
+          "who": "A",
+          "text": "Yes, we can. It is cheap and good."
+        },
+        {
+          "who": "B",
+          "text": "Let us go together this Sunday."
+        },
+        {
+          "who": "A",
+          "text": "Great idea! I am free in the afternoon."
+        },
+        {
+          "who": "B",
+          "text": "Then it is a plan."
+        }
+      ],
+      "words": [
+        "city",
+        "park",
+        "tree",
+        "shop",
+        "cheap",
+        "afternoon"
+      ],
+      "quiz": [
+        {
+          "q": "Where does Carlos go on Sunday?",
+          "options": [
+            "To the park",
+            "To the office",
+            "To the shop only"
+          ],
+          "answer": 0,
+          "explain": "Carlos says he goes to the park on Sunday."
+        },
+        {
+          "q": "What can they buy near the park?",
+          "options": [
+            "Bread",
+            "Ice cream",
+            "Shoes"
+          ],
+          "answer": 1,
+          "explain": "Ama says there is a small shop where they can buy ice cream."
+        },
+        {
+          "q": "When is Ama free?",
+          "options": [
+            "In the morning",
+            "On Monday",
+            "In the afternoon"
+          ],
+          "answer": 2,
+          "explain": "Ama says she is free in the afternoon."
+        }
+      ]
+    },
+    {
+      "title": "Getting Around",
+      "sentences": [
+        {
+          "who": "B",
+          "text": "Ama, where is the train station?"
+        },
+        {
+          "who": "A",
+          "text": "It is on Green Street, next to the bank."
+        },
+        {
+          "who": "B",
+          "text": "Is it far from here?"
+        },
+        {
+          "who": "A",
+          "text": "No, it is five minutes on foot."
+        },
+        {
+          "who": "B",
+          "text": "Is the train station big?"
+        },
+        {
+          "who": "A",
+          "text": "Yes, it is very big and clean."
+        },
+        {
+          "who": "B",
+          "text": "Is there a café inside?"
+        },
+        {
+          "who": "A",
+          "text": "Yes, there is a nice café on the left."
+        },
+        {
+          "who": "B",
+          "text": "Good. I want a coffee before the train."
+        },
+        {
+          "who": "A",
+          "text": "Turn right at the bank, then go straight."
+        },
+        {
+          "who": "B",
+          "text": "Thank you, Ama. You are very kind."
+        },
+        {
+          "who": "A",
+          "text": "You are welcome, Carlos."
+        }
+      ],
+      "words": [
+        "station",
+        "street",
+        "bank",
+        "far",
+        "straight",
+        "kind"
+      ],
+      "quiz": [
+        {
+          "q": "Where is the train station?",
+          "options": [
+            "Next to the bank",
+            "Next to the park",
+            "Next to the shop"
+          ],
+          "answer": 0,
+          "explain": "Ama says it is on Green Street, next to the bank."
+        },
+        {
+          "q": "How far is the station?",
+          "options": [
+            "Five minutes on foot",
+            "One hour",
+            "Ten minutes by bus"
+          ],
+          "answer": 0,
+          "explain": "Ama says it is five minutes on foot."
+        },
+        {
+          "q": "What does Carlos want before the train?",
+          "options": [
+            "A sandwich",
+            "A newspaper",
+            "A coffee"
+          ],
+          "answer": 2,
+          "explain": "He says he wants a coffee before the train."
+        }
+      ]
+    }
+  ]
+}

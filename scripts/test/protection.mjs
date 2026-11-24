@@ -166,7 +166,7 @@ const SEARCH = ['Googlebot', 'Googlebot-Image', 'Bingbot', 'Applebot', 'DuckDuck
 const TRAIN = ['GPTBot', 'CCBot', 'ClaudeBot', 'anthropic-ai', 'Google-Extended', 'Applebot-Extended', 'Bytespider', 'meta-externalagent', 'cohere-training-data-crawler', 'Diffbot', 'img2dataset', 'AI2Bot'];
 for (const b of SEARCH) for (const pth of ['/', '/vi/blog/x/', '/tu-vung/abc', '/samples/x', '/en/terms', '/sitemap.xml']) ok(robotsAllows(robots, b, pth), `robots: ${b} được vào ${pth} (SEO giữ nguyên)`);
 for (const b of SEARCH) ok(!robotsAllows(robots, b, '/admin') && !robotsAllows(robots, b, '/x?demo=1'), `robots: ${b} vẫn tránh /admin, ?demo=`);
-for (const b of TRAIN) for (const pth of ['/', '/vi/blog/x/', '/js/toeic/reading1.js', '/packs/vi.json']) ok(!robotsAllows(robots, b, pth), `robots: bot huấn luyện ${b} bị chặn ${pth}`);
+for (const b of TRAIN) for (const pth of ['/', '/vi/blog/x/', '/cpack/toeic/reading1.js', '/packs/vi.json']) ok(!robotsAllows(robots, b, pth), `robots: bot huấn luyện ${b} bị chặn ${pth}`);
 ok(/^Sitemap: https:\/\/lexkite\.com\/sitemap\.xml$/m.test(robots), 'robots: còn khai báo sitemap');
 ok(!/^User-agent:\s*(Googlebot|Bingbot|Applebot|PetalBot|YandexBot|DuckDuckBot)\s*$/im.test(robots), 'robots: không có nhóm riêng nào cho máy tìm kiếm');
 ok(/^User-Agent: \*\nDisallow: \/$/m.test(fs.readFileSync('web/ai.txt', 'utf8')), 'ai.txt: cấm dùng mọi nội dung cho AI');
