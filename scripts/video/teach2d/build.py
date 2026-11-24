@@ -280,7 +280,7 @@ CTA_LABEL = {'dictionary': 'Practice with the dictionary', 'verbs': 'Practice ve
 
 def end_card():
     """end card: app icon + Lexkite + 100% FREE, then the deep-link CTA button + QR + lexkite.com (embed: 'Next step', no QR / follow)."""
-    cta = EP['cta']; t_in = start('c'); t_url = at('c', 'lexkite.com'); c = Card(RY0, tone='card')
+    cta = EP['cta']; t_in = start('c'); c = Card(RY0, tone='card')
     lw = tw('Lexkite', 84); x = PAD + (c.inner - (110 + 24 + lw)) / 2; y = c.y
     c.rows.append(dict(id=nid('i'), type='img', src='icon.png', radius=28, box=[x, y, x + 110, y + 110], **{'in': cue(t_in)}))
     c.rows.append(dict(id=nid('t'), type='text', runs=[['Lexkite', 'ink']], size=84, ipa=False, box=[x + 134, y + 4, x + 134 + lw, y + 106], **{'in': cue(t_in)}))
