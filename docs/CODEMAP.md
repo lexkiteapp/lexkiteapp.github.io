@@ -10,8 +10,8 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `extension/` (2423 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (115 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
-- `scripts/` (1660 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
-- `.github/workflows/` (256 file): CI/CD + việc nền theo lịch (xem mục Workflows)
+- `scripts/` (1662 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
+- `.github/workflows/` (257 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (15 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1920 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
 - `content/` (8129 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
@@ -19,7 +19,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `store/` (47 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (272 file): Luật + tài liệu chủ đề (README.md → INDEX.md); cũ: docs/archive
 - API `/api/*` (52): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,challenge…
-- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:774 s/test:722 s/video:132 s/stitch:93 s/lib:79 js/vimg:64 s/ci:55 s/cine:54 js/st:44 s/lexicon:39 s/vocab-img:33 s/native:31 js/notes:27 js/readtest:21 s/pron:20 s/target:20 s/content-qa:16 s/lesson:16 js/get-app:15 js/irv:15 js/lib:15 s/ops:14 s/word-audio:14 js/call:14 s/lipsync:12
+- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:774 s/test:723 s/video:132 s/stitch:93 s/lib:79 js/vimg:64 s/ci:55 s/cine:54 js/st:44 s/lexicon:39 s/vocab-img:33 s/native:31 js/notes:27 js/readtest:21 s/pron:20 s/target:20 s/content-qa:16 s/lesson:16 js/get-app:15 js/irv:15 js/lib:15 s/ops:14 s/word-audio:14 js/call:14 s/lipsync:12 s/teach:12
 
 ## Sửa ở đâu (tác vụ → file)
 - **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js; add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md
@@ -109,9 +109,9 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `watch.js`: watch
 - `write.js`: write
 
-## Workflows (256) theo trigger – tên + mô tả đủ: json `workflows`
+## Workflows (257) theo trigger – tên + mô tả đủ: json `workflows`
 Tra: `node -e "const g=require('./docs/codemap.json');console.log(g.workflows.filter(w=>/regex/.test(w.file)).map(w=>w.file+' ['+w.triggers+'] '+w.desc).join('\n'))"`
-[cron,manual] 56 · [push:main,pr,manual] 53 · [manual] 52 · [push:main,manual] 20 · [push:main,cron,manual] 17 · [pr,manual] 13 · [push,manual] 10 · [pr,cron,manual] 7 · [push:main,pr,cron,manual] 5 · [cron,manual,after-wf] 3 · [?] 2 · [call] 2 · [manual,call] 2 · [pr] 2 · [push] 2 · [after-wf] 1 · [manual,after-wf] 1 · [manual,after-wf,call] 1 · [pr,call] 1 · [pr,cron,manual,after-wf] 1 · [push,cron,manual] 1 · [push:main,cron,manual,after-wf] 1 · [push:main,pr] 1 · [push:main,pr,manual,after-wf,call] 1 · [push:main,pr,manual,call] 1
+[cron,manual] 56 · [manual] 52 · [push:main,pr,manual] 52 · [push:main,manual] 20 · [push:main,cron,manual] 17 · [pr,manual] 13 · [push,manual] 11 · [pr,cron,manual] 7 · [push:main,pr,cron,manual] 6 · [cron,manual,after-wf] 3 · [?] 2 · [call] 2 · [manual,call] 2 · [pr] 2 · [push] 2 · [after-wf] 1 · [manual,after-wf] 1 · [manual,after-wf,call] 1 · [pr,call] 1 · [pr,cron,manual,after-wf] 1 · [push,cron,manual] 1 · [push:main,cron,manual,after-wf] 1 · [push:main,pr] 1 · [push:main,pr,manual,after-wf,call] 1 · [push:main,pr,manual,call] 1
 
 ## Test (619) → vùng phủ – tên + file đích đủ: json `tests`
 Tra: `node -e "const g=require('./docs/codemap.json');console.log(g.tests.filter(t=>/regex|vùng/.test(t.test+t.area)).map(t=>t.file+' → '+t.targets).join('\n'))"`
