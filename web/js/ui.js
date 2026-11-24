@@ -280,7 +280,8 @@
     if (!opts.noKl && /^en-/.test(accent) && prefs().hqVoice !== false && LA()) {
       const K = g.KLocal;
       why = !K ? 'load' : K.allowed && !K.allowed() ? 'off' : 'wait';
-      if (K && K.ready()) {
+      // Kokoro trên máy: sinh trực tiếp (máy đủ nhanh) HOẶC mọi câu đã sinh sẵn trong cache (tầng sinh nền của máy chậm – klocal.js later)
+      if (K && (K.ready() || (K.hasAll && K.hasAll(splitSentences(text), kvoice)))) {
         const my = ++speakSeq, pr = Math.min(1.3, Math.max(0.55, (rate || prefs().ttsRate || 0.92) / 0.95));
         if ('speechSynthesis' in g) speechSynthesis.cancel();
         const ok = K.speak(splitSentences(text), { voice: kvoice, rate: pr, gap: Math.round(SENT_GAP / pr), onSentence: opts.onSentence,
@@ -299,6 +300,7 @@
       // khóa câu chưa có file (băm, không văn bản) + trang → CI dựng sẵn file Kokoro cho câu hay rơi nhất (scripts/sentence-audio/misses.mjs)
       if (LA().miss && g.KVoice && /^en-/.test(accent) && why !== 'pref') { const rt = (/^#\/([a-z][a-z0-9-]*)/.exec(location.hash || '') || [])[1] || (g.Store && g.Store.isExtension ? 'ext' : 'home');
         for (const p of splitSentences(text)) { const k = g.KVoice.lineKey(kvoice, p); if (!g.LISTEN_AUDIO || !g.LISTEN_AUDIO.has(k)) LA().miss(k, rt); } }
+      if (why === 'off' && K && K.later && /^en-/.test(accent)) K.later(splitSentences(text), kvoice); // máy chậm: sinh sẵn lúc rảnh → lần sau Kokoro
     }
     const NT = nativeTTS();
     if (NT) {
