@@ -47,6 +47,22 @@ export function redStreak(runs) {
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))) { if (r.conclusion !== 'failure') break; n++; since = r.created_at; }
   return { n, since };
 }
+/** Id lượt đỏ mới nhất ghi trong thân issue ("Lượt mới nhất: …/actions/runs/<id>") – thuần. */
+export const runIdOf = body => { const m = String(body || '').match(/\/actions\/runs\/(\d+)/); return m ? +m[1] : 0; };
+/** 24/11 (#1984 ai-golden xanh 19:18Z mà issue mở tới sáng): trước đây "xanh lại" = lượt xanh cập nhật SAU `issue.updated_at`, nhưng thân issue bị ghi lại tại chỗ
+ *  mỗi lượt quét → lượt xanh nào xen giữa 2 lần ghi đều không bao giờ đóng được issue. Giờ so theo THỨ TỰ LƯỢT: lượt xanh mới nhất (không PR) phải có id lớn hơn lượt đỏ ghi trong thân issue.
+ *  runs mới → cũ. Trả lượt xanh hoặc null. Thân issue không có id (cũ) → quay lại luật updated_at. */
+export function greenAfter(issue, runs) {
+  const last = (runs || []).find(r => r && r.event !== 'pull_request' && r.status !== 'in_progress' && ['success', 'failure'].includes(r.conclusion));
+  if (!last || last.conclusion !== 'success') return null;
+  const red = runIdOf(issue && issue.body);
+  return (red ? last.id > red : new Date(last.updated_at) > new Date(issue.updated_at) - 60e3) ? last : null;
+}
+/** Dòng "đỏ ≥ STREAK_ALERT lượt liền" từ tiêu đề issue ci-failure đang mở (thuần): lâu nhất trước. Đứng ĐẦU bản tin – điều phối đọc mỗi nhịp. */
+export function streakLines(issues) {
+  return (issues || []).map(i => ({ n: +((String(i.title || '').match(/đỏ (\d+) lượt liền/) || [])[1] || 0), i })).filter(x => x.n >= STREAK_ALERT)
+    .sort((a, b) => b.n - a.n).map(({ n, i }) => `- 🔥 ${String(i.title).replace(/^CI đỏ: /, '').replace(/ \(đỏ \d+ lượt liền\)/, '')}: đỏ ${n} lượt liền – #${i.number} ${i.html_url || ''}`.trim());
+}
 /** Cổng kiểm thử lõi trên main (tên báo cáo → file). Dùng chung: bản tin dưới đây + scripts/world/ci-status.mjs. */
 export const CORE_TESTS = { 'npm-test': 'ci.yml', 'visual-qa': 'visual-qa.yml', 'new-ui-qa': 'new-ui-qa.yml', 'mobile-qa': 'mobile-qa.yml', 'journey-e2e': 'journey-e2e.yml', 'stitch-quality-qc': 'stitch-quality-qc.yml', 'ext-e2e': 'ext-e2e.yml', 'native-auth-e2e': 'native-auth-e2e.yml', 'qa-bot': 'qa-bot.yml' };
 /** Sức khỏe cổng lõi (thuần): 4/11 ext-e2e đỏ 8 lượt từ 30/10 mà bản tin không nói, vì bản tin chỉ kể lượt đỏ TRONG 24 h – workflow chạy theo paths, hôm đó không có lượt là biến mất;
@@ -100,10 +116,11 @@ export function digest(runs, latest, issues, video, core) {
   const coreBad = (core && core.bad) || [], coreRed = coreBad.filter(b => b.state === 'red' && !red.includes(b.key)).length;
   const msg = coreBad.length ? `${coreBad.length} cổng kiểm thử lõi chưa xanh (nặng nhất ${coreBad[0].key}${coreBad[0].state === 'red' ? ` ${coreBad[0].days} ngày` : ''}) · ${msg0}` : msg0;
   const coreT = coreBad.length ? `Cổng kiểm thử lõi chưa xanh (đỏ lâu nhất trước):\n${core.lines.join('\n')}\n\n` : '', coreM = coreBad.length ? `### 🚨 Cổng kiểm thử lõi chưa xanh\n${core.lines.join('\n')}\n\n` : '';
-  const text = `Bản tin CI 24 h (${new Date().toISOString().slice(0, 16)}Z): ${msg}.\n\n${coreT}${lines.join('\n') || '- (trống)'}\n\nIssue ci-failure đang mở:\n${iss.join('\n') || '- (không có)'}\n\n` +
+  const sk = streakLines(issues), skT = sk.length ? `Workflow đỏ ≥ ${STREAK_ALERT} lượt liền (cần người sửa gốc):\n${sk.join('\n')}\n\n` : '', skM = sk.length ? `### 🔥 Đỏ ≥ ${STREAK_ALERT} lượt liền\n${sk.join('\n')}\n\n` : '';
+  const text = `Bản tin CI 24 h (${new Date().toISOString().slice(0, 16)}Z): ${sk.length ? `${sk.length} workflow đỏ ≥ ${STREAK_ALERT} lượt liền · ` : ''}${msg}.\n\n${skT}${coreT}${lines.join('\n') || '- (trống)'}\n\nIssue ci-failure đang mở:\n${iss.join('\n') || '- (không có)'}\n\n` +
     'Lỗi hạn mức D1 (quota-guard) giờ là bỏ qua trung tính; lỗi tạm thời được chạy lại 1 lần; lỗi thật → issue. Tắt thư từng lượt: GitHub → Settings → Notifications → Actions → "Only notify for failed workflows" hoặc bỏ chọn Email.';
   const vl = video === undefined ? '' : videoLine(video);
-  return { msg, text: vl ? `${text}\n\nPipeline video:\n${vl}` : text, red: red.length + coreRed, failed: names.length + coreBad.length, md: `## 🧾 Bản tin CI 24 h\n${msg}\n\n${coreM}${lines.join('\n')}\n\n### Issue ci-failure\n${iss.join('\n') || '- (không có)'}\n${vl ? `\n### Pipeline video\n${vl}\n` : ''}` };
+  return { msg, text: vl ? `${text}\n\nPipeline video:\n${vl}` : text, red: Math.max(red.length + coreRed, sk.length), failed: names.length + coreBad.length, md: `## 🧾 Bản tin CI 24 h\n${msg}\n\n${skM}${coreM}${lines.join('\n')}\n\n### Issue ci-failure\n${iss.join('\n') || '- (không có)'}\n${vl ? `\n### Pipeline video\n${vl}\n` : ''}` };
 }
 
 async function videoSummary(now) { // latest news-auto run (24 h) -> artifact video-summary-<run> (news_auto.py summary json)
@@ -239,9 +256,9 @@ async function sweep() {
   const issues = await openIssues();
   for (const i of issues) {
     const m = (i.body || '').match(/ci-triage:wf=([\w.-]+)/); if (!m) continue;
-    const runs = ((await gh(`/actions/workflows/${m[1]}/runs?status=completed&per_page=5`)) || {}).workflow_runs || [];
-    const last = runs.find(r => ['success', 'failure'].includes(r.conclusion));
-    if (last && last.conclusion === 'success' && new Date(last.updated_at) > new Date(i.updated_at) - 60e3) {
+    const runs = ((await gh(`/actions/workflows/${m[1]}/runs?status=completed&per_page=10`)) || {}).workflow_runs || [];
+    const last = greenAfter(i, runs);
+    if (last) {
       await gh(`/issues/${i.number}`, { method: 'PATCH', body: { state: 'closed', state_reason: 'completed', body: (i.body || '') + `\n\n✅ Xanh lại: ${last.html_url} (ci-triage tự đóng ${now.toISOString().slice(0, 16)}Z)` } });
       summary(`- Đóng #${i.number} (${m[1]} xanh lại)`);
     }

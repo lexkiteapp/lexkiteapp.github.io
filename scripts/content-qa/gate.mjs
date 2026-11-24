@@ -88,7 +88,7 @@ for (const r of K.READINGS || []) {
 }
 
 // ---------- Truyện & podcast theo cấp (docs/STORIES.md §3–4) – nguồn mới → mọi lỗi CỨNG ----------
-{ const { createRequire } = await import('node:module'); const S = createRequire(import.meta.url)('../../web/js/stories/core.js');
+{ const { createRequire } = await import('node:module'); const S = createRequire(import.meta.url)('../../web/cpack/stories/core.js');
   const wctx = { console }; wctx.self = wctx; vm.createContext(wctx); vm.runInContext(fs.readFileSync(P('web/js/writecheck-rules.js'), 'utf8'), wctx);
   const dir = 'content/stories', files = ex(dir) ? fs.readdirSync(P(dir)).filter(f => f.endsWith('.json')) : [], ids = new Set();
   for (const f of files) {

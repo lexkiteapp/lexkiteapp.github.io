@@ -1,0 +1,144 @@
+{
+  "id": "c1-open-window",
+  "kind": "book",
+  "level": "C1",
+  "title": "The Open Window",
+  "summary": "A nervous visitor is told a ghostly story by a young girl, and the evening ends with a clever surprise.",
+  "source": {
+    "type": "public-domain",
+    "work": "The Open Window",
+    "author": "Saki",
+    "published": 1914,
+    "authorDied": 1916,
+    "url": "https://en.wikisource.org/wiki/The_Open_Window",
+    "note": "Retold from the plot in new C1 English by Lexkite; no sentences copied from the original text."
+  },
+  "license": "Adaptation CC BY 4.0 Lexkite; original story in the public domain",
+  "cover": {
+    "style": "2d",
+    "cast": [],
+    "scene": "Flat 2D illustration: a country house drawing room with a large open window at dusk, three hunters with a spaniel on the lawn in the distance, no text"
+  },
+  "audio": {
+    "wpm": 140,
+    "voice": "kokoro:am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "A Calm Cure",
+      "words": [
+        "nerve",
+        "fragile",
+        "endure",
+        "admit",
+        "doubt",
+        "enthusiasm"
+      ],
+      "sentences": [
+        "Framton Nuttel had come to the countryside because his doctor wanted him to rest his fragile nerves.",
+        "His sister had given him several letters of introduction, and he delivered the first one with little enthusiasm.",
+        "He was shown into a quiet drawing room, where a calm girl of fifteen greeted him politely.",
+        "Her aunt, she explained, would be down shortly, so he would have to endure her company until then.",
+        "Framton tried to say something charming, though he doubted that these visits would help his health.",
+        "The girl glanced at the large window that stood wide open onto the lawn, even though it was October.",
+        "She asked whether he knew anything about the family, and he admitted that he knew almost nothing.",
+        "Then she lowered her voice and said that something terrible had happened in that very room three years before.",
+        "Her aunt's husband and two brothers had gone shooting across the swamp and had never returned.",
+        "They had disappeared in the soft ground, and their bodies had never been found, which was the cruelest part.",
+        "Her aunt still believed they would walk back one evening, followed by their little brown dog.",
+        "That was why the window stayed open every day until the light had completely faded."
+      ],
+      "quiz": [
+        {
+          "q": "Why did Framton come to the countryside?",
+          "options": [
+            "To rest his nerves",
+            "To go hunting",
+            "To visit his brother"
+          ],
+          "answer": 0,
+          "explain": "His doctor wanted him to rest his fragile nerves."
+        },
+        {
+          "q": "What does the girl claim happened three years earlier?",
+          "options": [
+            "Three men vanished on a hunting trip.",
+            "The house burned down.",
+            "Her aunt left the country."
+          ],
+          "answer": 0,
+          "explain": "She says her aunt's husband and brothers never returned from the swamp."
+        },
+        {
+          "q": "Why is the window left open?",
+          "options": [
+            "The room is too warm.",
+            "Her aunt expects the men to return.",
+            "The glass is broken."
+          ],
+          "answer": 1,
+          "explain": "The aunt believes they will walk back one evening."
+        }
+      ]
+    },
+    {
+      "title": "The Return",
+      "words": [
+        "excitement",
+        "tolerate",
+        "behave",
+        "remark",
+        "advise",
+        "invent"
+      ],
+      "sentences": [
+        "Soon the aunt hurried in, apologised for the delay, and chatted cheerfully about the weather and the birds.",
+        "Framton tried to answer politely, but the girl's story kept returning to his mind with growing fear.",
+        "The aunt mentioned that her husband and brothers would soon be back from shooting, and she hoped they would not bring too much mud.",
+        "Framton, trying to be sympathetic, explained as gently as he could that doctors had advised him to avoid all excitement.",
+        "The aunt barely listened, because she was staring at the open window with a bright and expectant smile.",
+        "Framton turned and saw three figures crossing the lawn in the dusk, with guns under their arms and a dog beside them.",
+        "One of them sang a cheerful tune, and the sight was more than his shaken nerves could tolerate.",
+        "He grabbed his hat and walking stick, and ran from the house without even saying goodbye.",
+        "The men entered the room, puzzled, and the aunt remarked that the visitor had behaved very oddly.",
+        "The girl offered a quick explanation: he had been bitten by dogs in India and feared them ever since.",
+        "She could invent a tale on any subject, and she did so with perfect calm and no visible effort.",
+        "For her, romance at short notice was a gift, and the poor man was only her latest audience."
+      ],
+      "quiz": [
+        {
+          "q": "Why did Framton run away?",
+          "options": [
+            "He thought he saw ghosts.",
+            "He was late for a train.",
+            "He felt insulted."
+          ],
+          "answer": 0,
+          "explain": "He believed the three men crossing the lawn were the vanished hunters."
+        },
+        {
+          "q": "What excuse did the girl give for his behaviour?",
+          "options": [
+            "He disliked loud music.",
+            "He was afraid of dogs.",
+            "He was feeling sick."
+          ],
+          "answer": 1,
+          "explain": "She said he had been bitten by dogs in India."
+        },
+        {
+          "q": "What does the ending show about the girl?",
+          "options": [
+            "She tells convincing invented stories easily.",
+            "She is deeply afraid of ghosts.",
+            "She dislikes her aunt."
+          ],
+          "answer": 0,
+          "explain": "She invents a tale at short notice with perfect calm."
+        }
+      ]
+    }
+  ]
+}
