@@ -5,7 +5,7 @@ import { chain, MAX_BACK } from '../ci/cheap-revert.mjs';
 import { revertNames, duplicate, revertable } from '../ci/revert-pr.mjs';
 import { mainRed, pickRetry } from '../ci/main-red-retry.mjs';
 import { dupActive, dispatchOnce, fillerAllowed, yieldsToPr, queueAlert, FILLER_MAX_BUSY } from '../ci/dispatch-once.mjs';
-import { redSince, stale, issueTitle, hasIssue } from '../ci/main-red-age.mjs';
+import { redSince, stale, issueTitle, hasIssue, redCount, firstRedRun, reportable } from '../ci/main-red-age.mjs';
 import { heavyFiles } from '../ci/heavy-rerun.mjs';
 let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
 const suite = fs.readFileSync('scripts/test/suite.txt', 'utf8').split('\n').map(l => l.trim());
@@ -70,5 +70,11 @@ ok(queueAlert({ running: 17, queued: 37 }) && /KHÔNG phải thiếu runner/.tes
   ok(redSince([R('success', '2026-11-23T10:00:00Z'), R('failure', '2026-11-20T00:00:00Z')]) === null && redSince([]) === null && redSince([R(null, '2026-11-23T10:00:00Z', 'in_progress')]) === null, 'xanh/không có lượt/đang chạy → không đỏ');
   ok(stale('2026-11-20T11:49:27Z', now2) && !stale('2026-11-23T00:00:00Z', now2) && !stale(null, now2), 'stale: > 24 giờ mới mở issue');
   ok(hasIssue([{ title: issueTitle('teacher-motion') }], 'teacher-motion') && !hasIssue([], 'teacher-motion') && !hasIssue([{ title: issueTitle('x') }], 'teacher-motion'), 'không mở issue lặp');
+  { const F = (c, t, sha) => ({ status: 'completed', conclusion: c, created_at: t, head_sha: sha || 'a'.repeat(40) }), now3 = Date.parse('2026-11-24T12:00:00Z');
+    const three = [F('failure', '2026-11-24T11:00:00Z'), F('failure', '2026-11-24T10:00:00Z'), F('failure', '2026-11-24T09:31:00Z', 'b'.repeat(40)), F('success', '2026-11-24T09:00:00Z')];
+    ok(redCount(three) === 3 && redCount([F('success', '2026-11-24T11:00:00Z'), F('failure', '2026-11-24T10:00:00Z')]) === 0, 'redCount: số lượt đỏ liền');
+    ok(firstRedRun(three).head_sha === 'b'.repeat(40) && firstRedRun([]) === null, 'firstRedRun: commit gây lỗi = lượt đỏ đầu chuỗi');
+    ok(reportable(three, now3) && !reportable([F('failure', '2026-11-24T11:00:00Z'), F('success', '2026-11-24T10:00:00Z')], now3) && reportable([F('failure', '2026-11-20T00:00:00Z')], now3), 'reportable: ≥2 lượt đỏ liền (frame-consistency 24/11) hoặc > 24 giờ; 1 lượt đỏ mới thì chưa');
+    ok(hasIssue([{ title: 'main đỏ > 24 giờ: x' }], 'x'), 'issue cũ (tiêu đề > 24 giờ) vẫn khớp – không mở lặp'); }
   const y = fs.readFileSync('.github/workflows/main-red-retry.yml', 'utf8'); ok(/main-red-age\.mjs/.test(y) && /issues: write/.test(y), 'workflow chạy sweep với quyền issues:write'); }
 console.log(`✓ main-guards: ${n} kiểm tra đạt (tự revert check rẻ, kiểm lại trên main mới, không đốt runner khi main đỏ, chống dispatch trùng)`);
