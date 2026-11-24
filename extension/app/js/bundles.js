@@ -109,6 +109,7 @@
     lsw: ['js/lang-menu.js'],
     tlpick: ['js/i18n/en/tlui.js', 'cpack/tl-app/tl-pick.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
+    interpret: ['js/i18n/en/interpret.js', 'cpack/interpret/core.js', 'cpack/interpret/interpret.js'], // 🗣️ Phiên dịch (#/interpret, docs/INTERPRET.md): đối mặt 2 ngôn ngữ, miễn phí trên máy; câu mẫu cpack/interpret tải khi mở "Câu mẫu"
     gend: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-complete.js', 'cpack/game/game-end.js'], // 🏁 màn kết mini-game chung (khung Stitch lesson-complete, docs/specs/game-system.md P3)
     pgames: ['js/i18n/en/rhythm.js', 'js/study-games.js', 'js/pron/coach.js', 'cpack/play-app/play-blitz.js', 'cpack/play-app/play-rhythm.js'], // ⚡ Thử thách 60 giây (docs/specs/play-learn.md)
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
@@ -130,6 +131,7 @@
     u1me: ['js/st/v2/me.js', 'js/ux1-me.js'],
     lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'js/lesson/ui.js'],
     lgold: ['cpack/lesson/gold.js'],
+    trfast: ['cpack/tr-fast.js'], // dịch câu (phrases.js nạp)
     dayv2: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/day.js', 'js/characters.js'], // 📅 Khung Stitch v2 của trang buổi học #/day/N (path-day.js page)
     libv2: ['js/i18n/en/v2.js', 'js/i18n/en/watch.js', 'js/st/v2/runtime.js', 'js/st/v2/library.js', 'js/ux1-lib.js'], // 📚 Thư viện (khung Stitch v2 sau cờ ux1; bọc routes.library)
     vhub: ['js/st/v2/vocab-hub.js', 'js/vocab-hub.js'], // 📚 Tab Từ vựng
