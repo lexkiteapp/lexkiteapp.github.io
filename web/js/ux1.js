@@ -430,7 +430,7 @@
 .ux1-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:.6rem}
 .ux1-tiles.big{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
 .ux1-tile{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:.4rem;padding:.8rem .5rem;min-height:96px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line);color:var(--text);text-decoration:none;text-align:center;font-size:var(--fs-sm);box-shadow:0 3px 0 var(--line)}
-.ux1-tile:hover{border-color:var(--primary)}.ux1-tile b{font-weight:700;line-height:1.25}.ux1-tile small{color:var(--muted);font-size:var(--fs-xs);line-height:1.3}
+.ux1-tile:hover{background:var(--surface-3)}.ux1-tile b{font-weight:700;line-height:1.25}.ux1-tile small{color:var(--muted);font-size:var(--fs-xs);line-height:1.3}
 .ux1-ti{width:44px;height:44px;border-radius:var(--r-md);display:grid;place-items:center;background:var(--accent-soft);color:var(--accent-text)}
 .ux1-tiles.big .ux1-tile{min-height:128px}.ux1-tiles.big .ux1-ti{background:var(--primary-soft);color:var(--primary-text);width:52px;height:52px}
 .ux1-tiles.big .ux1-tile b{font-size:var(--fs-md)}
