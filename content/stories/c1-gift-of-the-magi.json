@@ -1,0 +1,144 @@
+{
+  "id": "c1-gift-of-the-magi",
+  "kind": "book",
+  "level": "C1",
+  "title": "The Gift of the Magi",
+  "summary": "A poor young couple each sacrifice their most valuable possession to buy the other a Christmas present.",
+  "source": {
+    "type": "public-domain",
+    "work": "The Gift of the Magi",
+    "author": "O. Henry",
+    "published": 1905,
+    "authorDied": 1910,
+    "url": "https://en.wikisource.org/wiki/The_Gift_of_the_Magi",
+    "note": "Retold from the plot in new C1 English by Lexkite; no sentences copied from the original text."
+  },
+  "license": "Adaptation CC BY 4.0 Lexkite; original story in the public domain",
+  "cover": {
+    "style": "2d",
+    "cast": [],
+    "scene": "Flat 2D illustration: a small bare apartment at Christmas with a pocket watch chain and a set of hair combs on a table, snow at the window, no text"
+  },
+  "audio": {
+    "wpm": 140,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Della's Sacrifice",
+      "words": [
+        "frugal",
+        "sacrifice",
+        "decent",
+        "modest",
+        "anxious",
+        "salary"
+      ],
+      "sentences": [
+        "On the day before Christmas, Della counted her money for the third time and found only a tiny amount.",
+        "She had saved every coin for months by being frugal, yet it was not nearly enough for a decent gift.",
+        "Her husband, Jim, owned only two treasures: a gold watch from his father and a modest salary.",
+        "Della owned one treasure as well, a cascade of long brown hair that reached below her knees.",
+        "She stood in front of the window for a long while, and a single tear fell onto the worn carpet.",
+        "Then she put on her old jacket, brushed her hair one last time, and hurried out into the cold street.",
+        "At a small shop, a woman who bought hair for hats offered her twenty dollars without a moment of hesitation.",
+        "Della accepted the offer, and the sacrifice felt strangely light because she was thinking only of Jim.",
+        "Two hours later she found the perfect present, a plain platinum chain for his beloved watch.",
+        "She paid twenty-one dollars for it and hurried home with the remaining eighty-seven cents.",
+        "In the mirror, her short curls made her look like a schoolboy, and she felt suddenly anxious.",
+        "She prayed quietly that Jim would still find her pretty when he walked through the door."
+      ],
+      "quiz": [
+        {
+          "q": "How did Della get money for the present?",
+          "options": [
+            "She sold her hair.",
+            "She pawned her ring.",
+            "She borrowed it from a friend."
+          ],
+          "answer": 0,
+          "explain": "A woman who bought hair for hats paid her twenty dollars."
+        },
+        {
+          "q": "What did Della buy for Jim?",
+          "options": [
+            "A new coat",
+            "A chain for his watch",
+            "A pair of shoes"
+          ],
+          "answer": 1,
+          "explain": "She bought a plain platinum chain for his beloved watch."
+        },
+        {
+          "q": "How did Della feel at the end of the chapter?",
+          "options": [
+            "Anxious about Jim's reaction",
+            "Angry at her husband",
+            "Bored and sleepy"
+          ],
+          "answer": 0,
+          "explain": "She prayed that Jim would still find her pretty."
+        }
+      ]
+    },
+    {
+      "title": "Jim's Reaction",
+      "words": [
+        "stare",
+        "admire",
+        "precious",
+        "generous",
+        "regret",
+        "expensive"
+      ],
+      "sentences": [
+        "When Jim came home, he stopped in the doorway and stared at Della with an expression she could not read.",
+        "It was not anger, nor surprise, nor disapproval, but a strange look that frightened her more than any of those.",
+        "Della explained that she had cut and sold her hair, and that it would grow back soon enough.",
+        "Jim hugged her tightly and said that no haircut could ever make him love her less.",
+        "Then he placed a small package on the table and asked her to open it before saying anything else.",
+        "Inside lay a set of beautiful combs, the very ones she had admired in a shop window for a year.",
+        "They were expensive and now completely useless, because the hair they were designed for no longer existed.",
+        "Della laughed through her tears and held the combs against her chest like precious jewels.",
+        "Then she remembered her own gift and offered him the chain with a trembling, eager smile.",
+        "Jim sat down slowly and confessed that he had sold his watch to pay for the combs.",
+        "They both realised how silly and how generous they had been, and neither of them felt any regret.",
+        "The narrator says that such givers are the wisest of all, because love was the only treasure they truly needed."
+      ],
+      "quiz": [
+        {
+          "q": "What did Jim give Della?",
+          "options": [
+            "Tortoiseshell combs",
+            "A gold ring",
+            "A wool scarf"
+          ],
+          "answer": 0,
+          "explain": "He gave her a set of beautiful combs."
+        },
+        {
+          "q": "Why were the combs useless?",
+          "options": [
+            "They were too small.",
+            "She had no long hair to use them.",
+            "They were broken."
+          ],
+          "answer": 1,
+          "explain": "Her hair had been cut and sold."
+        },
+        {
+          "q": "What had Jim done to pay for the combs?",
+          "options": [
+            "Sold his watch",
+            "Sold his coat",
+            "Worked extra hours"
+          ],
+          "answer": 0,
+          "explain": "He confessed that he had sold his watch."
+        }
+      ]
+    }
+  ]
+}

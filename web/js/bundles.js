@@ -22,6 +22,7 @@
     handsfree: ['js/handsfree.js'],
     reflex: ['js/reflex.js'],
     watch: ['js/i18n/en/watch.js', 'js/watch-topics.js', 'js/watch.js'], // 🎬 Học qua video (#/watch) – docs/specs/video-learn.md
+    stories: ['js/i18n/en/stories.js', 'js/characters.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'cpack/stories/core.js', 'cpack/stories/lib.js', 'cpack/stories/ui.js'], // 📚 Truyện & podcast theo cấp (#/stories, #/story/<id>/<ch>) – docs/STORIES.md
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
     roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'cpack/roleplay/data-lot1.js', 'cpack/roleplay/data-lot2.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
     say: ['js/i18n/en/v2.js', 'js/i18n/en/say.js', 'js/i18n/en/share.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/say-front.js', 'js/st/v2/say-back.js', 'js/say.js'], // 🗣️ Say it like a native: thẻ phản xạ 2 mặt, khung Stitch v2 say-front/back (docs/SAY-NATIVE.md)
