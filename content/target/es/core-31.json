@@ -1,0 +1,259 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "tribunal",
+   "pos": "n",
+   "gender": "m",
+   "plural": "tribunales",
+   "ipa": "tɾiβuˈnal",
+   "gl": {
+    "es": "tribunal",
+    "en": "court",
+    "pt": "tribunal",
+    "fr": "tribunal",
+    "de": "Gericht",
+    "vi": "tòa án",
+    "id": "pengadilan",
+    "th": "ศาล",
+    "zh": "法院",
+    "ja": "裁判所",
+    "ko": "법원",
+    "hi": "अदालत",
+    "ar": "محكمة",
+    "ru": "суд",
+    "tr": "mahkeme"
+   },
+   "ex": {
+    "es": "El tribunal dictó la sentencia.",
+    "en": "The court issued the sentence."
+   },
+   "rank": 2046,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "cadáver",
+   "pos": "n",
+   "gender": "m",
+   "plural": "cadáveres",
+   "ipa": "kaˈðaβeɾ",
+   "gl": {
+    "es": "cadáver",
+    "en": "corpse",
+    "pt": "cadáver",
+    "fr": "cadavre",
+    "de": "Leiche",
+    "vi": "xác chết",
+    "id": "mayat",
+    "th": "ศพ",
+    "zh": "尸体",
+    "ja": "死体",
+    "ko": "시신",
+    "hi": "शव",
+    "ar": "جثة",
+    "ru": "труп",
+    "tr": "ceset"
+   },
+   "ex": {
+    "es": "Encontraron el cadáver en el bosque.",
+    "en": "They found the corpse in the forest."
+   },
+   "rank": 2090,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "temporada",
+   "pos": "n",
+   "gender": "f",
+   "plural": "temporadas",
+   "ipa": "tempoˈɾaða",
+   "gl": {
+    "es": "temporada",
+    "en": "season",
+    "pt": "temporada",
+    "fr": "saison",
+    "de": "Saison",
+    "vi": "mùa",
+    "id": "musim",
+    "th": "ฤดูกาล",
+    "zh": "季节",
+    "ja": "季節",
+    "ko": "계절",
+    "hi": "मौसम",
+    "ar": "موسم",
+    "ru": "сезон",
+    "tr": "sezon"
+   },
+   "ex": {
+    "es": "La temporada de lluvias empieza en junio.",
+    "en": "The rainy season starts in June."
+   },
+   "rank": 2095,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "rosa",
+   "pos": "n",
+   "gender": "f",
+   "plural": "rosas",
+   "ipa": "ˈrosa",
+   "gl": {
+    "es": "rosa",
+    "en": "rose",
+    "pt": "rosa",
+    "fr": "rose",
+    "de": "Rose",
+    "vi": "hoa hồng",
+    "id": "mawar",
+    "th": "กุหลาบ",
+    "zh": "玫瑰",
+    "ja": "バラ",
+    "ko": "장미",
+    "hi": "गुलाब",
+    "ar": "وردة",
+    "ru": "роза",
+    "tr": "gül"
+   },
+   "ex": {
+    "es": "Compré una rosa para mi madre.",
+    "en": "I bought a rose for my mother."
+   },
+   "rank": 2131,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "sacar",
+   "pos": "v",
+   "ipa": "saˈkaɾ",
+   "gl": {
+    "es": "sacar",
+    "en": "to take out",
+    "pt": "tirar",
+    "fr": "sortir",
+    "de": "herausnehmen",
+    "vi": "lấy ra",
+    "id": "mengeluarkan",
+    "th": "เอาออก",
+    "zh": "取出",
+    "ja": "取り出す",
+    "ko": "꺼내다",
+    "hi": "निकालना",
+    "ar": "يُخرج",
+    "ru": "вынимать",
+    "tr": "çıkarmak"
+   },
+   "ex": {
+    "es": "Él saca la basura cada mañana.",
+    "en": "He takes out the trash every morning."
+   },
+   "exForm": "saca",
+   "rank": 2138,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "registro",
+   "pos": "n",
+   "gender": "m",
+   "plural": "registros",
+   "ipa": "reˈxistɾo",
+   "gl": {
+    "es": "registro",
+    "en": "register, record",
+    "pt": "registro",
+    "fr": "registre",
+    "de": "Register",
+    "vi": "sổ đăng ký, hồ sơ",
+    "id": "daftar",
+    "th": "ทะเบียน",
+    "zh": "登记簿",
+    "ja": "登録簿",
+    "ko": "등록부",
+    "hi": "रिकॉर्ड",
+    "ar": "سجل",
+    "ru": "реестр",
+    "tr": "kayıt"
+   },
+   "ex": {
+    "es": "El registro de nacimientos está en el ayuntamiento.",
+    "en": "The birth register is at the town hall."
+   },
+   "rank": 2143,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  }
+ ]
+}
