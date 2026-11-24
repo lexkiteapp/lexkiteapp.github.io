@@ -1,6 +1,7 @@
 import SwiftUI
 import Observation
 import LKCore
+import LKStore
 
 
 
@@ -44,6 +45,8 @@ public final class LessonModel {
     public private(set) var hidden: Set<String> = []
     public private(set) var letters = 0
     public private(set) var pairHints = 0
+    /// Hints that cost 1 XP each, like the web lesson (fifty · first · the first letter hint of an attempt); bank / pair / slow are free.
+    public private(set) var xpHints = 0
     public private(set) var heard = ""
     public private(set) var listening = false
     public private(set) var speechError = false
@@ -91,6 +94,8 @@ public final class LessonModel {
 
     /// Picture of a `pic` exercise (exact word#pos; never a scene picture).
     public func pictureURL(_ it: LessonItem) -> URL? { pictures.usable(it.word, it.card?.pos, dark: dark)?.url }
+    /// Picture of any word (lpic option: pos from `ipos`; mpic pair: the card's pos).
+    public func pictureURL(word: String, pos: String?) -> URL? { pictures.usable(word, pos, dark: dark)?.url }
 
     // MARK: setup
     /// Start with explicit data (tests, previews, the app after it has read the store).
@@ -102,11 +107,13 @@ public final class LessonModel {
         } else {
             let picks = LessonEngine.pickWords(src.cards, .init(n: 4, now: now, mode: kind, starter: src.starter), calendar: calendar)
             if let index {
-                let snap = await index.snapshot(words: picks.map(\.card.word))
+                let snap = await index.snapshot(words: picks.map(\.card.word), extra: (src.cards + src.starter).map(\.word))
                 pictures = snap
                 self.dark = dark
             }
-            var o = LessonEngine.BuildOptions(seed: seed ?? now, pool: src.cards + src.starter, off: off(), only: LessonEngine.kind[kind] ?? nil, calm: true)
+            let only = (LessonEngine.kind[kind] ?? nil).map { kind == "listen" ? $0 + ["lpic"] : $0 }   // web: KIND.listen + lpic
+            var o = LessonEngine.BuildOptions(seed: seed ?? now, pool: src.cards + src.starter, off: off(), only: only, calm: true)
+            o.lpic = true; o.mpic = true   // same as the web lesson (lesson/ui.js); both need pictures, so they appear only when hasImg finds them
             if pictures.enabled { let snap = pictures; o.hasImg = { w, p in snap.usable(w, p, dark: dark) != nil } }
             o.mean = { [uiLang] c in uiLang == "vi" ? c.vi : "" }   // learner-language meaning: only Vietnamese cards carry one (web nativeMean)
             items = LessonEngine.build(picks, o)
@@ -120,6 +127,7 @@ public final class LessonModel {
         isStory = items.contains { $0.type == "line" }
         if isStory && teacher2 == nil { teacher2 = TeacherController(who: "carlos", reduceMotion: teacher.reduceMotion) }
         session = LessonSession(items, ease: true)
+        xpHints = 0
         if items.isEmpty { phase = .empty; return }
         started = clock()
         mood = TeacherMood(rig: TeacherRigStore.shared)
@@ -150,7 +158,7 @@ public final class LessonModel {
     public var questionNumber: Int { min(session.solved + 1, max(1, session.total)) }
     public var needsConfirmToExit: Bool { phase != .done && phase != .empty && session.solved > 0 }
 
-    public func listens(_ it: LessonItem) -> Bool { it.noAudio != true && ["gap", "build", "say", "type"].contains(it.type) }
+    public func listens(_ it: LessonItem) -> Bool { it.noAudio != true && ["gap", "build", "say", "type", "lpic"].contains(it.type) }
     public func speaks(_ it: LessonItem) -> Bool { it.type == "say" || (it.type == "pic" && it.choice != true) }
     /// The text read aloud for an item (web `audioText`).
     public func audioText(_ it: LessonItem) -> String { (it.type == "gap" || it.type == "build" ? it.sent : it.answer) ?? "" }
@@ -213,12 +221,12 @@ public final class LessonModel {
         guard let it = cur else { return }
         switch h {
         case "fifty":
-            if let o = it.options?.first(where: { $0 != it.answer && !hidden.contains($0) && $0 != pick }) { hidden.insert(o) }
+            if let o = it.options?.first(where: { $0 != it.answer && !hidden.contains($0) && $0 != pick }) { hidden.insert(o); xpHints += 1 }
         case "first":
             let words = LessonEngine.toks(it.answer ?? "")
             if (tiles.count > words.count) || zip(tiles, words).contains(where: { !LessonEngine.same(it.tiles?[$0.0] ?? "", $0.1) }) { tiles = [] }
-            if tiles.count < words.count, let i = it.tiles?.indices.first(where: { !tiles.contains($0) && LessonEngine.same(it.tiles?[$0] ?? "", words[tiles.count]) }) { tiles.append(i) }
-        case "letter": letters += 1
+            if tiles.count < words.count, let i = it.tiles?.indices.first(where: { !tiles.contains($0) && LessonEngine.same(it.tiles?[$0] ?? "", words[tiles.count]) }) { tiles.append(i); xpHints += 1 }
+        case "letter": if letters == 0 { xpHints += 1 }; letters += 1
         case "bank": useBank = true; typed = ""; bankPicks = []
         case "pair": pairHints += 1
         default: break
@@ -295,7 +303,7 @@ public final class LessonModel {
         phase = .done
         let s = session
         let now = clock()
-        let xp = 10 + s.ok1 * 2 + (s.wrong.isEmpty ? 5 : 0)
+        let xp = RewardRules.xp("set", right: s.ok1, total: s.total, hints: xpHints) // luật chung (Game.xpFor); gợi ý fifty/first/chữ đầu −1 XP như web
         let weak = s.wrong.keys.filter { !$0.hasPrefix("#") }.sorted()
         let learned = isStory ? [] : items.compactMap { $0.card?.word }.reduce(into: [String]()) { if !$0.contains($1) { $0.append($1) } }
         summary = Summary(xp: xp, accuracy: s.accuracy, best: s.best, minutes: max(1, Int((now.timeIntervalSince(started) / 60).rounded())),

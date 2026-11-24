@@ -1,0 +1,131 @@
+{
+ "id": "t2s_noproblem",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 257,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thanks for holding the door!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "No problem!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "You're welcome.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "No problem, happy to help.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "no problem",
+  "forms": [],
+  "ipa": "/noʊ ˈprɑːbləm/",
+  "mean": "You're welcome.",
+  "define": "A casual reply to thanks.",
+  "vi": "Không có gì",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "After helping",
+   "text": "No problem, happy to help."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "there's a problem",
+    "you're welcome"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'no problem' if it was hard.",
+   "why": "It can hide your real effort."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Thanks for holding the door!"
+ },
+ "src": {
+  "slang": "no problem"
+ },
+ "est": {
+  "words": 16,
+  "seconds": 9.6,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"no problem\" mean?",
+  "keyword": "no problem",
+  "value": "No problem = You're welcome. Example: \"No problem, happy to help.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"no problem\" mean?",
+    "description": "No problem = You're welcome. Example: \"No problem, happy to help.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "no problem",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"no problem\" mean?\n\nNo problem = You're welcome. Example: \"No problem, happy to help.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"no problem\" mean?\n\nNo problem = You're welcome. Example: \"No problem, happy to help.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"no problem\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'no problem' if it was hard. It can hide your real effort. Real example: \"No problem, happy to help.\" More real English slang, free: {link}"
+ }
+}

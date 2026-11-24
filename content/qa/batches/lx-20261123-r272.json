@@ -1,0 +1,29 @@
+{
+ "id": "20261123-r272",
+ "source": "lexicon-expand",
+ "n": 5,
+ "checked": [
+  {
+   "id": "arrest#n",
+   "ok": true
+  },
+  {
+   "id": "adverb#n",
+   "ok": true
+  },
+  {
+   "id": "approach#v",
+   "ok": true
+  },
+  {
+   "id": "bacteriology#n",
+   "ok": true
+  },
+  {
+   "id": "abstinence#n",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-23",
+ "status": "published"
+}

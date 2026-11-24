@@ -71,7 +71,7 @@ public struct ReviewState: Sendable {
         guard let c0 = current(), let key = session.queue.first else { return nil }
         var c = c0
         let wasNew = Vocab.isNew(c)
-        let xp = g == 0 ? 2 : wasNew ? 8 : 5
+        let xp = RewardRules.xp("card", isNew: wasNew, again: g == 0)
         session.last = ReviewSession.Snapshot(key: key, srs: c["srs"] ?? .null, queue: session.queue, done: session.done, again: session.again, missed: session.missed, wasNew: wasNew, g: g, xp: xp)
         let next = clock.srs().review(Vocab.srs(c), grade: g, now: now)
         c["srs"] = Vocab.srsJSON(next, over: c["srs"])

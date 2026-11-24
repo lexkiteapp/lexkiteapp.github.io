@@ -1,0 +1,133 @@
+{
+ "id": "t2s_thatscap",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 209,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I ran a marathon yesterday!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "That's cap!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That is not true.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You ran a marathon yesterday? That's cap.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "that's cap",
+  "forms": [
+   "cap"
+  ],
+  "ipa": "/ðæts ˈkæp/",
+  "mean": "That is not true.",
+  "define": "Used to say that someone is lying or exaggerating.",
+  "vi": "Xạo quá, không đúng đâu",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Chatting with a friend at school",
+   "text": "You ran a marathon yesterday? That's cap."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"That's cap\" means…",
+   "options": [
+    "That is a lie",
+    "That is a hat"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell your teacher 'that's cap'.",
+   "why": "It calls someone a liar rudely."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I ran a marathon yesterday!"
+ },
+ "src": {
+  "slang": "that's cap"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"that's cap\" mean?",
+  "keyword": "that's cap",
+  "value": "That's cap = That is not true. Example: \"You ran a marathon yesterday? That's cap.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"that's cap\" mean?",
+    "description": "That's cap = That is not true. Example: \"You ran a marathon yesterday? That's cap.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "that's cap",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"that's cap\" mean?\n\nThat's cap = That is not true. Example: \"You ran a marathon yesterday? That's cap.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"that's cap\" mean?\n\nThat's cap = That is not true. Example: \"You ran a marathon yesterday? That's cap.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"that's cap\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: That is a lie. \"You ran a marathon yesterday? That's cap.\" More real English slang, free: {link}"
+ }
+}

@@ -32,7 +32,7 @@
     {
       "id": "P03",
       "m": 2,
-      "title": "Lesson player: match/type/gap/build/say/pic/tr, segmented bar, Check, feedback sheet + teacher, gold bank, combo, retries, stories/radio, lesson complete + celebration",
+      "title": "Lesson player: match/type/gap/build/say/pic/tr/lpic (listen → picture)/mpic (match word ↔ picture), segmented bar, Check, feedback sheet + teacher, gold bank, combo, retries, stories/radio, lesson complete + celebration",
       "routes": [
         "#/lesson"
       ],

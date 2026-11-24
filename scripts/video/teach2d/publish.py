@@ -45,6 +45,10 @@ def facts(ep):
     if t == 'band':   # Band 5 -> 7 -> 9: the title names the topic, the value line gives the three sentences so the post is useful as text
         tp = D['topic'].replace('-', ' ').capitalize(); S_ = {x['band']: x['text'] for x in D['steps']}
         return _fit(f'IELTS band 5 to 9: {tp}', f'Band 5 to 9: {tp}', 'IELTS band 5 to 9'), 'ielts band 9', f'{tp}, three ways. Band 5: {S_[5]} Band 7: {S_[7]} Band 9: {S_[9]}'
+    if t == 'slang':   # Slang Card: the title names the slang; the value line = meaning + the example, so the post teaches as plain text too
+        k = D['key']; K = k[:1].upper() + k[1:]; tone = {'very-casual': 'very casual', 'casual': 'casual', 'neutral': 'everyday'}[D['reg']]
+        return (_fit(f'What does {_q(k)} mean?', f'{K}: what does it mean?', f'{K} meaning'), k,
+                f'{K} = {D["mean"].rstrip(".!?")}. Example: "{D["example"]["text"]}" ({tone} English{", " + D["region"] if D["region"] != "global" else ""}).')
     if t == 'review':
         w = D['word']; return _fit(f'What does {_q(w)} mean?', f'{w.capitalize()}: what does it mean?'), w, f'{w.capitalize()} means {D["mean"]}.'
     if t == 'usuk':
@@ -91,6 +95,7 @@ def build(ep):
     title, kw, value = facts(ep)
     lvl = str(ep.get('cefr') or (ep.get('data') or {}).get('cefr') or '').lower()
     tags = list(dict.fromkeys(['#learnenglish', '#englishtips', AREA_TAG.get(ep['area'], '#speakenglish')] + ([f'#{lvl}english'] if re.fullmatch(r'[abc][12]', lvl) else []) + ['#englishteacher']))[:5]
+    if ep['template'] == 'slang': tags = ['#englishslang', '#learnenglish', '#slang', '#speakenglish', '#englishtips']
     link = ep['cta']['link']; say = ep['cta'].get('say') or 'Practice in the app'
     script = ' '.join(l['text'] for l in ep['lines'] if not l.get('quiz'))
     yt_desc = '\n'.join([value, '', f'{say}, free: {link}', '', f'Series: {ep["series"]} · Teacher: {ep["teacher"].capitalize()}', '', ' '.join(tags)])
@@ -112,6 +117,11 @@ def first_comment(ep, value):
     (+ the value line when it is plain English text – IPA / arrows would fail the en-only check), one {link} placeholder, 3 wordings rotated by id."""
     L = ep['lines']; qi = next((i for i, l in enumerate(L) if l.get('quiz')), None)
     a = (L[qi + 1]['text'] if qi is not None and qi + 1 < len(L) else value).strip()
+    if ep['template'] == 'slang':   # the quiz / misuse card is silent: the first comment answers it (right option, or where not to use it) + the example
+        D = ep['data']; q = D['quiz']; ex = D['example']['text']
+        if D['variant'] == 'quiz': out = f'Quiz answer: {q["options"][q["answer"]].rstrip(".")}. "{ex}" More real English slang, free: {{link}}'
+        else: out = f'{D["misuse"]["text"]} {D["misuse"]["why"]} Real example: "{ex}" More real English slang, free: {{link}}'
+        return re.sub(r' +', ' ', __import__('unicodedata').normalize('NFKD', out).encode('ascii', 'ignore').decode())   # café -> cafe: the en first comment is ASCII (publish_meta)
     if a[-1:] not in '.!?': a += '.'
     x = value.strip() if ASCII_OK.match(value) and value.strip().lower() not in a.lower() else ''
     if x and x[-1] not in '.!?': x += '.'

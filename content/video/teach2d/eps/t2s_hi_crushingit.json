@@ -1,0 +1,152 @@
+{
+ "id": "t2s_hi_crushingit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 74,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "First week, already top seller!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Crushing it!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "You're doing great.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You're crushing it at your new job!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "crushing it",
+  "forms": [
+   "crush it"
+  ],
+  "ipa": "/ˈkrʌʃɪŋ ɪt/",
+  "mean": "You're doing great.",
+  "define": "Used when someone is doing really well at something.",
+  "vi": "Làm đỉnh quá",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "praise",
+  "example": {
+   "ctx": "Praising a friend",
+   "text": "You're crushing it at your new job!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Crushing it\" means…",
+   "options": [
+    "doing great",
+    "breaking it"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell a struggling friend 'crushing it' sarcastically.",
+   "why": "It sounds mocking."
+  },
+  "l1": "कमाल करना",
+  "l1_hook": "पहले हफ़्ते में ही आप \"crushing it\" हैं, टॉप सेलर!",
+  "l1_ex": "आप \"crushing it\" कर रहे हैं अपने नए काम में!",
+  "right": "crushing it",
+  "native": {
+   "hook": "“crushing it” का मतलब क्या है?",
+   "tip": "“crushing it” = कमाल करना. उदाहरण: “You're crushing it at your new job!”",
+   "caption": "“crushing it” का मतलब क्या है?\n“crushing it” = कमाल करना.\nउदाहरण: “You're crushing it at your new job!” (आप \"crushing it\" कर रहे हैं अपने नए काम में!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “crushing it” = कमाल करना. “You're crushing it at your new job!” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "First week, already top seller!"
+ },
+ "src": {
+  "slang": "crushing it"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“crushing it” का मतलब क्या है?",
+  "keyword": "crushing it",
+  "value": "“crushing it” = कमाल करना. उदाहरण: “You're crushing it at your new job!”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“crushing it” का मतलब क्या है?",
+    "description": "“crushing it” = कमाल करना. उदाहरण: “You're crushing it at your new job!”\n\n“crushing it” का मतलब क्या है?\n“crushing it” = कमाल करना.\nउदाहरण: “You're crushing it at your new job!” (आप \"crushing it\" कर रहे हैं अपने नए काम में!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "crushing it",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“crushing it” का मतलब क्या है?\n“crushing it” = कमाल करना.\nउदाहरण: “You're crushing it at your new job!” (आप \"crushing it\" कर रहे हैं अपने नए काम में!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“crushing it” का मतलब क्या है?\n\n“crushing it” = कमाल करना. उदाहरण: “You're crushing it at your new job!”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“crushing it” का मतलब क्या है? “crushing it” = कमाल करना. उदाहरण: “You're crushing it at your new job!” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “crushing it” = कमाल करना. “You're crushing it at your new job!” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

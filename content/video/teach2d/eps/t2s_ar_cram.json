@@ -1,0 +1,153 @@
+{
+ "id": "t2s_ar_cram",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 76,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Exam tomorrow. I haven't studied!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cram!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Study at the last minute.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I must cram for math.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "cram",
+  "forms": [
+   "cramming",
+   "crammed"
+  ],
+  "ipa": "/ˈkræm/",
+  "mean": "Study at the last minute.",
+  "define": "To study many things quickly just before a test.",
+  "vi": "Học nhồi nhét",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Waiting outside class",
+   "text": "I must cram for math."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"cram\" is to…",
+   "options": [
+    "sleep in class",
+    "study at the last minute"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'cram' for a three-year course.",
+   "why": "Cramming only works for short tests."
+  },
+  "l1": "يذاكر على السريع",
+  "l1_hook": "الامتحان غداً. لم أدرس بعد!",
+  "l1_ex": "يجب أن أقوم بـ \"cram\" لمادة الرياضيات.",
+  "right": "cram",
+  "native": {
+   "hook": "ما معنى “cram”؟",
+   "tip": "“cram” = يذاكر على السريع. مثال: “I must cram for math.”",
+   "caption": "ما معنى “cram”؟\n“cram” = يذاكر على السريع.\nمثال: “I must cram for math.” (يجب أن أقوم بـ \"cram\" لمادة الرياضيات.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “cram” = يذاكر على السريع. “I must cram for math.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Exam tomorrow. I haven't studied!"
+ },
+ "src": {
+  "slang": "cram"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "ما معنى “cram”؟",
+  "keyword": "cram",
+  "value": "“cram” = يذاكر على السريع. مثال: “I must cram for math.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “cram”؟",
+    "description": "“cram” = يذاكر على السريع. مثال: “I must cram for math.”\n\nما معنى “cram”؟\n“cram” = يذاكر على السريع.\nمثال: “I must cram for math.” (يجب أن أقوم بـ \"cram\" لمادة الرياضيات.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "cram",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “cram”؟\n“cram” = يذاكر على السريع.\nمثال: “I must cram for math.” (يجب أن أقوم بـ \"cram\" لمادة الرياضيات.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “cram”؟\n\n“cram” = يذاكر على السريع. مثال: “I must cram for math.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “cram”؟ “cram” = يذاكر على السريع. مثال: “I must cram for math.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “cram” = يذاكر على السريع. “I must cram for math.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

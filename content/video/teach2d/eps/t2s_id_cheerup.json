@@ -1,0 +1,152 @@
+{
+ "id": "t2s_id_cheerup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 66,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She looks sad. What now?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheer up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Feel happier.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheer up, we're having pizza!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheer up",
+  "forms": [
+   "cheered up"
+  ],
+  "ipa": "/ˈtʃɪr ˈʌp/",
+  "mean": "Feel happier.",
+  "define": "Used to tell someone to feel better.",
+  "vi": "Vui lên nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "Cheer up, we're having pizza!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheer up\" means…",
+   "options": [
+    "yell loudly",
+    "feel happier"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheer up' to someone grieving.",
+   "why": "It sounds like you dismiss their pain."
+  },
+  "l1": "gembiralah",
+  "l1_hook": "Dia terlihat sedih. Lalu? \"cheer up\".",
+  "l1_ex": "\"Cheer up\", kita mau makan pizza nih!",
+  "right": "cheer up",
+  "native": {
+   "hook": "Apa arti “cheer up”?",
+   "tip": "“cheer up” = gembiralah. Contoh: “Cheer up, we're having pizza!”",
+   "caption": "Apa arti “cheer up”?\n“cheer up” = gembiralah.\nContoh: “Cheer up, we're having pizza!” (\"Cheer up\", kita mau makan pizza nih!)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “cheer up” = gembiralah. “Cheer up, we're having pizza!” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She looks sad. What now?"
+ },
+ "src": {
+  "slang": "cheer up"
+ },
+ "lang": "id",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "Apa arti “cheer up”?",
+  "keyword": "cheer up",
+  "value": "“cheer up” = gembiralah. Contoh: “Cheer up, we're having pizza!”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “cheer up”?",
+    "description": "“cheer up” = gembiralah. Contoh: “Cheer up, we're having pizza!”\n\nApa arti “cheer up”?\n“cheer up” = gembiralah.\nContoh: “Cheer up, we're having pizza!” (\"Cheer up\", kita mau makan pizza nih!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "cheer up",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “cheer up”?\n“cheer up” = gembiralah.\nContoh: “Cheer up, we're having pizza!” (\"Cheer up\", kita mau makan pizza nih!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “cheer up”?\n\n“cheer up” = gembiralah. Contoh: “Cheer up, we're having pizza!”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “cheer up”? “cheer up” = gembiralah. Contoh: “Cheer up, we're having pizza!” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “cheer up” = gembiralah. “Cheer up, we're having pizza!” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

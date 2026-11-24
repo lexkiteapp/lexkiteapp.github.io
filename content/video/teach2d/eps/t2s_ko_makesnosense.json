@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ko_makesnosense",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 101,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rules changed again. Why?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Makes no sense!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That is illogical or confusing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This game rule makes no sense.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "makes no sense",
+  "forms": [],
+  "ipa": "/ˈmeɪks noʊ ˈsens/",
+  "mean": "That is illogical or confusing.",
+  "define": "Used when something doesn't seem logical.",
+  "vi": "Chẳng hợp lý",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Reading new rules",
+   "text": "This game rule makes no sense."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means it's…",
+   "options": [
+    "delicious",
+    "illogical"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'makes no sense' about your boss's plan.",
+   "why": "It sounds too blunt."
+  },
+  "l1": "말이 안 된다",
+  "l1_hook": "규칙이 또 바뀌었어. 왜? 전혀 'makes no sense'야.",
+  "l1_ex": "이 게임 규칙은 \"makes no sense\".",
+  "right": "makes no sense",
+  "native": {
+   "hook": "“makes no sense” 무슨 뜻일까요?",
+   "tip": "“makes no sense” = 말이 안 된다. 예문: “This game rule makes no sense.”",
+   "caption": "“makes no sense” 무슨 뜻일까요?\n“makes no sense” = 말이 안 된다.\n예문: “This game rule makes no sense.” (이 게임 규칙은 \"makes no sense\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “makes no sense” = 말이 안 된다. “This game rule makes no sense.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Rules changed again. Why?"
+ },
+ "src": {
+  "slang": "makes no sense"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“makes no sense” 무슨 뜻일까요?",
+  "keyword": "makes no sense",
+  "value": "“makes no sense” = 말이 안 된다. 예문: “This game rule makes no sense.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“makes no sense” 무슨 뜻일까요?",
+    "description": "“makes no sense” = 말이 안 된다. 예문: “This game rule makes no sense.”\n\n“makes no sense” 무슨 뜻일까요?\n“makes no sense” = 말이 안 된다.\n예문: “This game rule makes no sense.” (이 게임 규칙은 \"makes no sense\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "makes no sense",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“makes no sense” 무슨 뜻일까요?\n“makes no sense” = 말이 안 된다.\n예문: “This game rule makes no sense.” (이 게임 규칙은 \"makes no sense\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“makes no sense” 무슨 뜻일까요?\n\n“makes no sense” = 말이 안 된다. 예문: “This game rule makes no sense.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“makes no sense” 무슨 뜻일까요? “makes no sense” = 말이 안 된다. 예문: “This game rule makes no sense.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “makes no sense” = 말이 안 된다. “This game rule makes no sense.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

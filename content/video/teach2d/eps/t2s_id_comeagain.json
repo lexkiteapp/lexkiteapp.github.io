@@ -1,0 +1,150 @@
+{
+ "id": "t2s_id_comeagain",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 94,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry, the music's too loud!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Come again!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Please say that again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Come again? It's too loud here.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "come again",
+  "forms": [],
+  "ipa": "/ˈkʌm əˈɡen/",
+  "mean": "Please say that again.",
+  "define": "A casual way to ask someone to repeat.",
+  "vi": "Nói lại đi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Talking in a noisy café",
+   "text": "Come again? It's too loud here."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "visit again",
+    "say it again"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'come again' when you heard clearly.",
+   "why": "It sounds like a challenge."
+  },
+  "l1": "apa?",
+  "l1_hook": "Maaf, musiknya terlalu keras!",
+  "l1_ex": "\"Come again\"? Di sini terlalu berisik.",
+  "right": "come again",
+  "native": {
+   "hook": "Apa arti “come again”?",
+   "tip": "“come again” = apa?. Contoh: “Come again? It's too loud here.”",
+   "caption": "Apa arti “come again”?\n“come again” = apa?.\nContoh: “Come again? It's too loud here.” (\"Come again\"? Di sini terlalu berisik.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “come again” = apa?. “Come again? It's too loud here.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sorry, the music's too loud!"
+ },
+ "src": {
+  "slang": "come again"
+ },
+ "lang": "id",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Apa arti “come again”?",
+  "keyword": "come again",
+  "value": "“come again” = apa?. Contoh: “Come again? It's too loud here.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “come again”?",
+    "description": "“come again” = apa?. Contoh: “Come again? It's too loud here.”\n\nApa arti “come again”?\n“come again” = apa?.\nContoh: “Come again? It's too loud here.” (\"Come again\"? Di sini terlalu berisik.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "come again",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “come again”?\n“come again” = apa?.\nContoh: “Come again? It's too loud here.” (\"Come again\"? Di sini terlalu berisik.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “come again”?\n\n“come again” = apa?. Contoh: “Come again? It's too loud here.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “come again”? “come again” = apa?. Contoh: “Come again? It's too loud here.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “come again” = apa?. “Come again? It's too loud here.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

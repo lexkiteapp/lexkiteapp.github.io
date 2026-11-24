@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ar_breakthebank",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 72,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is lunch too expensive?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Break the bank!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Cost way too much money.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Don't worry, this lunch won't break the bank.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "break the bank",
+  "forms": [
+   "broke the bank"
+  ],
+  "ipa": "/ˈbreɪk ðə ˈbæŋk/",
+  "mean": "Cost way too much money.",
+  "define": "To cost so much that you can't afford it.",
+  "vi": "Tốn cả gia tài",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "Don't worry, this lunch won't break the bank."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It usually means to…",
+   "options": [
+    "rob a bank",
+    "cost too much"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'break the bank' at a bank.",
+   "why": "It only means costing too much."
+  },
+  "l1": "يكلف ثروة",
+  "l1_hook": "هل الغداء مكلف للغاية بحيث ينطبق عليه عبارة \"break the bank\"؟",
+  "l1_ex": "لا تقلق، وجبة الغداء هذه لن تكلف ثروة (\"break the bank\").",
+  "right": "break the bank",
+  "native": {
+   "hook": "ما معنى “break the bank”؟",
+   "tip": "“break the bank” = يكلف ثروة. مثال: “Don't worry, this lunch won't break the bank.”",
+   "caption": "ما معنى “break the bank”؟\n“break the bank” = يكلف ثروة.\nمثال: “Don't worry, this lunch won't break the bank.” (لا تقلق، وجبة الغداء هذه لن تكلف ثروة (\"break the bank\").)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “break the bank” = يكلف ثروة. “Don't worry, this lunch won't break the bank.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is lunch too expensive?"
+ },
+ "src": {
+  "slang": "break the bank"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "ما معنى “break the bank”؟",
+  "keyword": "break the bank",
+  "value": "“break the bank” = يكلف ثروة. مثال: “Don't worry, this lunch won't break the bank.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “break the bank”؟",
+    "description": "“break the bank” = يكلف ثروة. مثال: “Don't worry, this lunch won't break the bank.”\n\nما معنى “break the bank”؟\n“break the bank” = يكلف ثروة.\nمثال: “Don't worry, this lunch won't break the bank.” (لا تقلق، وجبة الغداء هذه لن تكلف ثروة (\"break the bank\").)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "break the bank",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “break the bank”؟\n“break the bank” = يكلف ثروة.\nمثال: “Don't worry, this lunch won't break the bank.” (لا تقلق، وجبة الغداء هذه لن تكلف ثروة (\"break the bank\").)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “break the bank”؟\n\n“break the bank” = يكلف ثروة. مثال: “Don't worry, this lunch won't break the bank.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “break the bank”؟ “break the bank” = يكلف ثروة. مثال: “Don't worry, this lunch won't brea… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “break the bank” = يكلف ثروة. “Don't worry, this lunch won't break the bank.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/zh/v2b.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.zh=Object.assign(D.zh||{},{_fh6l:"过去 14 天",_stvs:"未来 14 天",_wk6l:"按分数段评分",_agk8:"练习模式",_qchy:"全选",_lp2k:"你的答案：",_fdjb:"常用搭配：",_5vmk:"词汇列表",_wsuj:"闪卡",_fciv:"60 秒快速配对",_hxhr:"卡片配对",_kpc2:"测试",_t9ro:"快速测验",_c9rs:"间隔练习",_74bl:"最能长久记住的复习时机",_fiqm:"词库掌握度",_g9i1:"循环播放",_c295:"导入 Anki",_926u:"免提",_tifu:"排序：频率",_te6n:"向此词库添加新词",_3oy3:"闪卡",_i2vk:"最佳",_17zu:"导出 Anki",_y642:"导出 Anki（.apkg）",_kajg:"今天复习",_feap:"明白了 (+2 XP)"});})(typeof self!=='undefined'?self:this);

@@ -1,0 +1,149 @@
+{
+ "id": "t2s_ar_burnthemidnightoil",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 57,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Still working at two a.m.?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Burn the midnight oil!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Work very late.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We burned the midnight oil last night.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "burn the midnight oil",
+  "forms": [
+   "burning the midnight oil",
+   "burned the midnight oil"
+  ],
+  "ipa": "/bɜːrn ðə ˈmɪdnaɪt ˈɔɪl/",
+  "mean": "Work very late.",
+  "define": "To keep working late into the night.",
+  "vi": "Thức khuya cày việc",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Preparing for a big test",
+   "text": "We burned the midnight oil last night."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means to work…",
+   "options": [
+    "with real oil",
+    "late at night"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say it about lighting candles.",
+   "why": "It means working very late."
+  },
+  "l1": "يسهر الليالي في العمل",
+  "l1_hook": "ما زلت تعمل حتى الثانية صباحاً؟ هل تقوم بـ \"burn the midnight oil\"؟",
+  "l1_ex": "لقد قمنا بـ \"burn the midnight oil\" الليلة الماضية.",
+  "right": "burn the midnight oil",
+  "native": {
+   "hook": "ما معنى “burn the midnight oil”؟",
+   "tip": "“burn the midnight oil” = يسهر الليالي في العمل. مثال: “We burned the midnight oil last night.”",
+   "caption": "ما معنى “burn the midnight oil”؟\n“burn the midnight oil” = يسهر الليالي في العمل.\nمثال: “We burned the midnight oil last night.” (لقد قمنا بـ \"burn the midnight oil\" الليلة الماضية.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “burn the midnight oil” = يسهر الليالي في العمل. “We burned the midnight oil last night.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Still working at two a.m.?"
+ },
+ "src": {
+  "slang": "burn the midnight oil"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "ما معنى “burn the midnight oil”؟",
+  "keyword": "burn the midnight oil",
+  "value": "“burn the midnight oil” = يسهر الليالي في العمل. مثال: “We burned the midnight oil last night.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “burn the midnight oil”؟",
+    "description": "“burn the midnight oil” = يسهر الليالي في العمل. مثال: “We burned the midnight oil last night.”\n\nما معنى “burn the midnight oil”؟\n“burn the midnight oil” = يسهر الليالي في العمل.\nمثال: “We burned the midnight oil last night.” (لقد قمنا بـ \"burn the midnight oil\" الليلة الماضية.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "burn the midnight oil",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “burn the midnight oil”؟\n“burn the midnight oil” = يسهر الليالي في العمل.\nمثال: “We burned the midnight oil last night.” (لقد قمنا بـ \"burn the midnight oil\" الليلة الماضية.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “burn the midnight oil”؟\n\n“burn the midnight oil” = يسهر الليالي في العمل. مثال: “We burned the midnight oil last night.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “burn the midnight oil”؟ “burn the midnight oil” = يسهر الليالي في العمل. مثال: “We burne… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “burn the midnight oil” = يسهر الليالي في العمل. “We burned the midnight oil last night.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

@@ -183,7 +183,7 @@ internal class ReviewVm(private val env: VocabEnv, private val query: Map<String
         val ctx = obj("text" to t, "title" to "Câu của tôi", "at" to now)
         val updated = c.with("contexts" to (listOf<Any>(ctx) + c.ga("contexts")).take(5), "mod" to now)
         s.cards[key] = updated; notice = L10nKey.revSaved; noticeOk = true
-        val game0 = StudyReward.track(game, emptyMap(), 5, now); game = game0
+        val game0 = StudyReward.track(game, emptyMap(), com.lexkite.app.core.RewardRules.xp("answer", mode = "write"), now); game = game0
         val dk = docKey[key] ?: key
         viewModelScope.launch { env.write(changed = mapOf(dk to updated), game = game0) }
         publish()

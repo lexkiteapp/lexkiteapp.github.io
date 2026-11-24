@@ -54,7 +54,7 @@ const tick = () => new Promise(r => setTimeout(r, 20));
   d.querySelector('.tlp-card').remove(); w.App.afterRoute('review'); ok(!d.querySelector('.tlp-card'), 'trang khác: không thẻ'); }
 // 5) thông báo nhẹ đúng 1 lần khi fr bật và người dùng đã bấm "Báo tôi"
 { const { w, toasts } = mk({}, { 'lk.tlnotify': '["fr"]' }); w.TLPick.boot(); ok(toasts.length === 0, 'fr còn tắt → im lặng');
-  w.localStorage.setItem('lk.fr', '1'); w.TLPick.boot(); ok(toasts.length === 0, 'fr ready:false → vẫn im lặng (người thường không thấy khóa chưa có nội dung)'); w.Target.TABLE.fr.ready = true; w.TLPick.boot(); ok(toasts.length === 1 && /Français/.test(toasts[0]), 'fr bật → 1 dòng báo'); w.TLPick.boot(); ok(toasts.length === 1, 'không báo lại'); }
+  w.localStorage.setItem('lk.fr', '1'); w.Target.TABLE.fr.ready = false; w.TLPick.boot(); ok(toasts.length === 0, 'khóa ready:false → vẫn im lặng (người thường không thấy khóa chưa có nội dung)'); w.Target.TABLE.fr.ready = true; w.TLPick.boot(); ok(toasts.length === 1 && /Français/.test(toasts[0]), 'fr bật → 1 dòng báo'); w.TLPick.boot(); ok(toasts.length === 1, 'không báo lại'); }
 // 6) onboarding: bước 'lang' chỉ khi ≥ 2 ngôn ngữ; Target.set chỉ khi bấm Tiếp tục (đã onboard xong không bị hỏi: bước chỉ chạy trong luồng thiết lập)
 { const o = rd('web/js/onboard.js'); ok(/Target\.avail\(\)\.length > 1 \? \['lang', \.\.\.BASE\] : BASE/.test(o), 'onboard: bước lang khi avail ≥ 2'); ok(/pick\.tl \|\| Target\.cur\(\)/.test(o), 'onboard: mặc định = ngôn ngữ hiện tại (en)'); }
 // 7) nối dây: bundle + css + hook
@@ -68,9 +68,9 @@ const tick = () => new Promise(r => setTimeout(r, 20));
   ok(w.Target.routeFor('home') === '' && w.Target.routeFor('me') === '' && w.Target.routeFor('settings') === '', 'màn dùng chung giữ nguyên');
   w.Target.set('en'); ok(NAV.every(n => w.Target.routeFor(n) === ''), 'en: không ánh xạ nào (giữ nguyên từng byte)');
   for (const id of w.Target.LANGS) { const r = w.Target.table(id); if (r.ready === false) { ok(!w.Target.enabled(id), id + ' ready:false → người thường không bật được'); } else if (id !== 'en') { ok(r.routes && ['vocab', 'skills', 'tests'].every(k => /^#\/(?!vocab|skills|tests)/.test(r.routes[k] || '')), id + ': đủ bản đồ vocab/skills/tests không trỏ về hub tiếng Anh'); } }
-  const a = mk({ fr_course: true }, { 'lk.adm': '1' }); a.w.Target.set('fr'); ok(a.w.Target.cur() === 'fr' && a.w.Target.routeFor('vocab') === '#/tlprep/fr' && a.w.Target.homeOf('fr') === '#/tlprep/fr', 'quản trị chọn fr → màn chuẩn bị, không phải Hôm nay tiếng Anh');
-  const u = mk({ fr_course: true }); u.w.Target.set('fr'); ok(u.w.Target.cur() === 'en', 'người thường: fr (chưa sẵn sàng) → cur() = en');
-  a.w.App = { routes: {} }; a.w.eval(rd('web/cpack/tl-app/tl-pick.js')); a.w.location.hash = '#/tlprep/fr'; a.w.App.routes.tlprep(); ok(!!a.d.querySelector('.tlp-prep [data-back]') && /Français/.test(a.d.querySelector('.tlp-prep').textContent), 'màn chuẩn bị: tên khóa + nút quay lại tiếng Anh');
+  const a = mk({ fr_course: true }, { 'lk.adm': '1' }); a.w.Target.set('fr'); ok(a.w.Target.cur() === 'fr' && a.w.Target.routeFor('vocab') === '#/practice/fr' && a.w.Target.routeFor('skills') === '#/practice/frp' && a.w.Target.homeOf('fr') === '#/practice/frd', 'quản trị chọn fr → lộ trình ngày fr (W4), không phải Hôm nay tiếng Anh');
+  const u = mk({ pt_pilot: true }); u.w.Target.set('pt'); ok(u.w.Target.cur() === 'en', 'người thường: pt (chưa sẵn sàng, ready:false) → cur() = en'); const uf = mk({ fr_course: true }); uf.w.Target.set('fr'); ok(uf.w.Target.cur() === 'fr', 'người thường: fr đã sẵn sàng (W7) + cờ bật → chọn được fr');
+  a.w.App = { routes: {} }; a.w.eval(rd('web/cpack/tl-app/tl-pick.js')); a.w.location.hash = '#/tlprep/pt'; a.w.App.routes.tlprep(); ok(!!a.d.querySelector('.tlp-prep [data-back]') && /Português/.test(a.d.querySelector('.tlp-prep').textContent), 'màn chuẩn bị: tên khóa + nút quay lại tiếng Anh');
   a.d.querySelector('[data-back]').click(); ok(a.w.Target.cur() === 'en' && a.w.location.hash === '#/home', 'quay lại tiếng Anh → #/home');
   const ap = rd('web/js/app.js'); ok(/Target\.routeFor\(name\)/.test(ap) && /tlprep: 'tlpick'/.test(ap), 'app.js route(): chuyển hướng + gói tlprep');
   ok(/routeFor\(k\)/.test(rd('web/cpack/tl-app/tl-pick.js')), 'tl-pick: thanh tab đổi đích theo bản đồ'); }

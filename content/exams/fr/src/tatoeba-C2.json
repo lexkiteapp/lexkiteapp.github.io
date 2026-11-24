@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "C2",
+ "items": [
+  {
+   "id": 7858207,
+   "au": "Aiji",
+   "s": "Quand j'___ enfant, des jours comme celui-ci, on sortait la luge, marchait jusqu'à la colline avec les copains et passait de sacrés bons moments à jouer et à rigoler.",
+   "a": "étais",
+   "o": [
+    "étais",
+    "était",
+    "étions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 8317329,
+   "au": "Julien_PDC",
+   "s": "Tu ___ éteindre tes feux de route lorsque tu croises quelqu'un en pleine nuit.",
+   "a": "dois",
+   "o": [
+    "dois",
+    "doit",
+    "devons"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12980380,
+   "au": "carlosalberto",
+   "s": "L’espoir, auquel il ___ facile de croire, anime la vie, annonçant toujours un avenir meilleur.",
+   "a": "est",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13469756,
+   "au": "carlosalberto",
+   "s": "Je ___ contre les préjugés en général, que je considère comme aveugles et nuisibles.",
+   "a": "suis",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3019643,
+   "au": "nimfeo",
+   "s": "J'ignore si vous ___ comme moi, mais je n'arrive jamais à formuler les bonnes choses au bon moment.",
+   "a": "êtes",
+   "o": [
+    "es",
+    "suis",
+    "êtes"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12758499,
+   "au": "Igider",
+   "s": "J’___ découvert un documentaire sur les grands reportages historiques, c’était vraiment captivant.",
+   "a": "ai",
+   "o": [
+    "a",
+    "ai",
+    "as"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 6001047,
+   "au": "Blabla",
+   "s": "Elle ___ dans cet âge plein d'espérances où la petite fille n'est plus une enfant, mais où l'enfant n'est pas encore une jeune fille.",
+   "a": "était",
+   "o": [
+    "était",
+    "étais",
+    "étions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3399182,
+   "au": "gillux",
+   "s": "Ça fait un moment que ça me turlupine, mais… depuis quand vous vous ___ si bien ?",
+   "a": "entendez",
+   "o": [
+    "entendez",
+    "entend",
+    "entends"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12681500,
+   "au": "Olcyx",
+   "s": "À force de subir des coups de pressions, tu ___ par t'endurcir le mental et tu deviens encore plus fort.",
+   "a": "finis",
+   "o": [
+    "finis",
+    "finit",
+    "finissons"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10592877,
+   "au": "Aiji",
+   "s": "Ça me désespère de voir le nombre de commentaires disant que l'on ___ en dictature.",
+   "a": "vit",
+   "o": [
+    "vîmes",
+    "vit",
+    "vis"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12758732,
+   "au": "Igider",
+   "s": "On ___ organiser une soirée pour échanger des idées sur l’amélioration des performances commerciales.",
+   "a": "pourrait",
+   "o": [
+    "pourrions",
+    "pourrait",
+    "pourrais"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12400187,
+   "au": "Bernie75",
+   "s": "Par-dessus tout, je ___ et j’ai toujours peur, que quelqu’un puisse me traiter de fille facile, bien qu’il n’y ait aucune raison pour cela.",
+   "a": "craignais",
+   "o": [
+    "craignais",
+    "craignait",
+    "craignions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12978118,
+   "au": "samir_t",
+   "s": "Dans une bibliothèque poussiéreuse, il ___ un ouvrage oublié qui semblait porter les secrets d'une autre époque.",
+   "a": "découvrit",
+   "o": [
+    "découvrîmes",
+    "découvrit",
+    "découvris"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3596909,
+   "au": "sacredceltic",
+   "s": "J'ai fort à faire aujourd'hui alors, si ça ne vous dérange pas, j'___ avoir cette discussion une autre fois.",
+   "a": "aimerais",
+   "o": [
+    "aimerais",
+    "aimerait",
+    "aimerions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12995452,
+   "au": "samir_t",
+   "s": "Au marché, on ___ entendre le cliquetis des balances et le marchand qui appelle les passants à goûter ses produits.",
+   "a": "peut",
+   "o": [
+    "pouvons",
+    "peut",
+    "peux"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2023125,
+   "au": "sacredceltic",
+   "s": "Une langue est comme une espèce ; pour survivre, elle ___ s'améliorer et non se dégrader.",
+   "a": "doit",
+   "o": [
+    "doit",
+    "dois",
+    "devons"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13760075,
+   "au": "carlosalberto",
+   "s": "Les êtres humains accomplissent des choses extraordinaires, car ils ___ échanger des informations sur leurs connaissances et leurs intentions grâce au langage.",
+   "a": "peuvent",
+   "o": [
+    "peuvent",
+    "peux",
+    "peut"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12152089,
+   "au": "samir_t",
+   "s": "Je ___ qu'il y a des superstitieux qui ne regarderont pas cette vidéo.",
+   "a": "sais",
+   "o": [
+    "savons",
+    "sais",
+    "sait"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 898360,
+   "au": "U2FS",
+   "s": "S'il y a réellement des différences entre ces deux cultures, je ___ que les plus grandes porteront précisément sur l'idée que nous nous faisons des étrangers apprenant notre langue.",
+   "a": "crois",
+   "o": [
+    "croyons",
+    "crois",
+    "croit"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 405413,
+   "au": "Dorenda",
+   "s": "Quand on ___ à l'étranger, c'est utile d'apprendre au moins quelques formules de politesse dans la langue locale.",
+   "a": "part",
+   "o": [
+    "partons",
+    "part",
+    "pars"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3608287,
+   "au": "gillux",
+   "s": "L’amplificateur opérationnel est un composant électronique utilisé pour une grande variété d’applications.",
+   "k": "l"
+  },
+  {
+   "id": 8961313,
+   "au": "lbdx",
+   "s": "Les étudiants des universités des régions touchées n'ont pas pu passer leurs examens.",
+   "k": "l"
+  },
+  {
+   "id": 474249,
+   "au": "sacredceltic",
+   "s": "La société s'engage à tout mettre en œuvre pour maximiser les ventes des articles du partenaire, inclus dans le périmètre défini ci-dessous.",
+   "k": "l"
+  },
+  {
+   "id": 803616,
+   "au": "sacredceltic",
+   "s": "Durant le premier mois suivant l'accident, elle ne pouvait que boire des liquides à la paille.",
+   "k": "l"
+  },
+  {
+   "id": 127781,
+   "au": "dominiko",
+   "s": "Je me souviens de l'horreur que j'ai ressentie lorsqu'elle a hurlé.",
+   "k": "l"
+  },
+  {
+   "id": 6968620,
+   "au": "Caku",
+   "s": "Du coup on rase d'immenses forêts pour faire des champs de soja remplis d'OGM et après on nourrit nos bêtes avec.",
+   "k": "l"
+  },
+  {
+   "id": 8577449,
+   "au": "AmarMecheri",
+   "s": "Tant va la cruche à l'eau, qu'à la fin elle se brise.",
+   "k": "l"
+  },
+  {
+   "id": 12318685,
+   "au": "carlosalberto",
+   "s": "Avec la mauvaise volonté de ces arbitres, mon équipe ne pourra jamais gagner un match.",
+   "k": "l"
+  },
+  {
+   "id": 627726,
+   "au": "sysko",
+   "s": "Cela va sans dire qu'à ce moment une sorte d'amitié au-delà de la relation maître-disciple grandissait entre eux deux.",
+   "k": "l"
+  },
+  {
+   "id": 11658964,
+   "au": "lbdx",
+   "s": "L'entreprise a tenté d'inciter certains employés à démissionner en leur faisant miroiter une année de salaire.",
+   "k": "l"
+  },
+  {
+   "id": 6733819,
+   "au": "Blabla",
+   "s": "Le mal avait si bien rongé cette femme qu’elle n’était plus qu’un fantôme.",
+   "k": "l"
+  },
+  {
+   "id": 13554363,
+   "au": "felix63",
+   "s": "L'amour qui puise sa force dans le présent est éternellement en quête de plus.",
+   "k": "l"
+  }
+ ]
+}

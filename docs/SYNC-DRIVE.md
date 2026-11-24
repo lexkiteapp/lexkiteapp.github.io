@@ -22,7 +22,7 @@ Google ghi sẽ tính phí khi VƯỢT hạn mức "cuối 2026, báo trước �
 - **Một lượt**: `get version` (5) → khác bản đã biết thì `alt=media` (200) + kiểm SHA + gộp → ảnh chụp mới khác hash thì `PATCH` (50). Mở app không đổi = 5 đv. Lần đầu: `list` (100) + `create` (50) + bản sao lưu ngày (50).
 - **Gộp xác định** (`Sync._m`): thẻ = hoạt động muộn nhất thắng (LWW từng bản ghi), hòa → so chuỗi ổn định; ngữ cảnh hợp; dấu xóa (giữ 90 ngày) thắng nếu mới hơn hoạt động; thống kê/game = max/hợp, sắp 2 bản trước khi gộp → giao hoán, lũy đẳng, hội tụ (fuzz §7).
 - **Lịch**: gom theo `every` (Drive 10 phút, D1 `d1Every` 10 phút), đẩy ngay khi ẩn trang/`pagehide` (`keepalive` khi ≤ 60 KB), khi có mạng lại, nút "Đồng bộ ngay".
-- **Token & đồng ý**: `drive.appdata` xin 1 lần ở popup đăng nhập Google (Firebase `addScope`); người đăng nhập từ trước: nút "Sao lưu vào Google Drive của bạn" trong thẻ tài khoản (1 lần, chỉ khi bấm). Token 1 giờ (`lk.dt`, chỉ chạm tệp của app). Hết hạn → chỉ khi CẦN (còn thay đổi chưa gửi hoặc > 12 giờ chưa kéo) mới gia hạn trong cú chạm kế tiếp bằng popup `prompt=none` tự đóng; ≤ 1 lần/45 phút, ≤ 3 lần/ngày. Không bao giờ hỏi khi đang học.
+- **Token & đồng ý**: `drive.appdata` xin 1 lần ở popup đăng nhập Google (Firebase `addScope`); người đăng nhập từ trước: nút "Sao lưu vào Google Drive của bạn" trong thẻ tài khoản (1 lần, chỉ khi bấm). Token 1 giờ (`lk.dt`, chỉ chạm tệp của app). Hết hạn → lượt nền KHÔNG BAO GIỜ mở popup: khi CẦN (còn thay đổi chưa gửi hoặc > 12 giờ chưa kéo) sync.js đồng bộ im lặng qua D1 (cùng đường/ngân sách D1), có token lại thì về Drive. Popup `prompt=none` tự đóng chỉ khi người dùng bấm "Đồng bộ ngay"/"Kết nối Drive".
 - **Khách** học hoàn toàn trên máy (0 lượt mạng); đăng nhập sau = GỘP. Add-on đồng bộ qua cầu nối web app (không thêm quyền, `permissions.lock` không đổi; `sync-drive.js` bị loại khỏi bản add-on).
 - **Công tắc từ xa** (`firebase-config.js`, tệp tĩnh): `mode: 'auto' | 'd1' | 'off'`, `drive`, `native`, `every`, `cap`, `d1Every`.
 
@@ -55,7 +55,7 @@ Mã thật trong jsdom ↔ Drive giả đếm đơn vị (list/get/media/PATCH/m
 |---|---|---|
 | Sửa xung đột nhiều máy | §3, §15, §19 | cùng 1 bản ở mọi máy, thẻ xóa biến mất |
 | Ngoại tuyến → có mạng | §4 | dữ liệu ở máy, lùi, tự gửi |
-| Token hết hạn / thu hồi quyền | §5, §7 | không popup khi không chạm; 403 → D1 + nút |
+| Token hết hạn / thu hồi quyền | §5, §7 | không popup nền, đi D1 im lặng; 403 → D1 + nút |
 | Hạn mức / 429 / 5xx | §4, §6, §13 | lùi gấp đôi, trần ngày không vượt, D1 an toàn sau 5 lượt |
 | Tệp xa hỏng / SHA sai | §10, §11 | giữ `.corrupt`, khôi phục từ sao lưu, không có sao lưu → ghi lại từ máy |
 | Ghi dở | §12 | phát hiện bằng size, khôi phục, đủ dữ liệu |

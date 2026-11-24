@@ -1,0 +1,342 @@
+{
+ "sphere": {
+  "n": "معنى sphere كاسم: مجال أو ميدان نشاط أو نفوذ، وبمعنى آخر شكل كروي مستدير. من أشهر تعبيراتها public sphere أي الحيز العام، وsphere of influence أي مجال النفوذ، وprivate sphere أي الحياة الخاصة. تُستخدم في السياسة والاجتماع حين نتحدث عن مجال معين من الحياة، وهي أكثر رسمية من field. وفي الهندسة تعني الكرة، مثل a sphere of glass. يحدد السياق أي المعنيين مقصود.",
+  "x": [
+   [
+    "Social media has changed the public sphere in many countries.",
+    "غيّرت وسائل التواصل الاجتماعي المجال العام في كثير من البلدان."
+   ],
+   [
+    "The company wants to expand its sphere of influence in Asia.",
+    "تريد الشركة توسيع مجال نفوذها في آسيا."
+   ],
+   [
+    "The artist placed a glass sphere on the table.",
+    "وضع الفنان كرة زجاجية على الطاولة."
+   ]
+  ]
+ },
+ "deduce": {
+  "n": "معنى deduce كفعل: يستنتج أو يخلص إلى نتيجة اعتمادًا على أدلة أو معلومات متاحة، كما يفعل المحقق. يأتي غالبًا بعد deduce that أي استنتج أن، وdeduce from أي استنتج من. وهو أكثر رسمية من guess لأنه يقوم على منطق وأدلة لا على التخمين، ويقاربه infer. ويُستخدم كثيرًا في العلوم والتحقيقات والنصوص الأكاديمية. الصيغة المعتادة: deduce something from evidence.",
+  "x": [
+   [
+    "Scientists deduced the age of the rock from its layers.",
+    "استنتج العلماء عمر الصخرة من طبقاتها."
+   ],
+   [
+    "I deduced that she was tired from her slow walk.",
+    "استنتجت أنها متعبة من مشيتها البطيئة."
+   ],
+   [
+    "Can you deduce the answer from these clues?",
+    "هل تستطيع استنتاج الإجابة من هذه القرائن؟"
+   ]
+  ]
+ },
+ "simulate": {
+  "n": "معنى simulate كفعل: يحاكي أو يقلّد ظروفًا حقيقية بهدف الدراسة أو التدريب، غالبًا بالحاسوب. من تعبيراتها simulate conditions أي محاكاة الظروف، وcomputer-simulated أي مُحاكى حاسوبيًا. تُستخدم في العلوم والتقنية والتدريب المهني، مثل محاكاة الطيران. وهي أقرب إلى imitate لكنها تفيد إعادة إنتاج نظام أو موقف بدقة لا مجرد التقليد. الاسم منها simulation أي محاكاة.",
+  "x": [
+   [
+    "Pilots simulate emergency landings during training.",
+    "يحاكي الطيارون الهبوط الاضطراري أثناء التدريب."
+   ],
+   [
+    "The software can simulate how a bridge handles heavy traffic.",
+    "يستطيع البرنامج محاكاة تحمّل الجسر للحركة الكثيفة."
+   ],
+   [
+    "Engineers simulated the earthquake in a laboratory.",
+    "حاكى المهندسون الزلزال في المختبر."
+   ]
+  ]
+ },
+ "capacity": {
+  "n": "معنى capacity كاسم: السعة أي أقصى كمية يمكن لشيء أن يحملها، أو القدرة على فعل شيء. نقول full capacity أي بكامل طاقتها، وcapacity to learn أي القدرة على التعلم، وseating capacity أي عدد المقاعد. وفي الاستخدام الرسمي نقول in his capacity as manager أي بصفته مديرًا. تختلف عن ability بأنها كثيرًا ما تقيس حدًا أقصى يمكن قياسه، وتظهر كثيرًا في الأخبار والأعمال.",
+  "x": [
+   [
+    "The stadium has a seating capacity of fifty thousand.",
+    "تبلغ سعة الملعب خمسين ألف مقعد."
+   ],
+   [
+    "Children have a remarkable capacity to learn languages.",
+    "يملك الأطفال قدرة مذهلة على تعلم اللغات."
+   ],
+   [
+    "The factory is working at full capacity this month.",
+    "يعمل المصنع بكامل طاقته هذا الشهر."
+   ]
+  ]
+ },
+ "input": {
+  "n": "معنى input كاسم: مساهمة أو أفكار أو جهد أو مادة تُضاف إلى عملية ما، وفي الحاسوب مدخلات البيانات. نقول valuable input أي مساهمة قيّمة، وinput from أي ملاحظات من، وask for input أي طلب الرأي. وهي أقرب إلى contribution أو feedback في العمل، ويقابلها output أي المخرجات. وتأتي غير معدودة غالبًا فلا نقول inputs إلا في السياق التقني.",
+  "x": [
+   [
+    "We welcome your input before the final decision.",
+    "نرحب بمساهمتك قبل القرار النهائي."
+   ],
+   [
+    "The teacher asked for input from all the students.",
+    "طلب المعلم آراء جميع الطلاب."
+   ],
+   [
+    "The program needs user input to continue.",
+    "يحتاج البرنامج إلى مدخلات المستخدم كي يستمر."
+   ]
+  ]
+ },
+ "evolve": {
+  "n": "معنى evolve كفعل: يتطور تدريجيًا عبر الزمن، أو ينشأ من شكل أبسط إلى آخر أكثر تعقيدًا. نقول evolve into أي يتطور إلى، وevolve over time أي يتطور مع الوقت، وevolve from أي ينشأ من. وهي مرتبطة بالتطور البيولوجي، لكنها تُستخدم أيضًا للأفكار والشركات والتقنية. وتختلف عن change بأن التغيير فيها بطيء ومتدرج ومتصل، لا مفاجئ.",
+  "x": [
+   [
+    "Small startups can evolve into global companies.",
+    "يمكن للشركات الناشئة الصغيرة أن تتطور إلى شركات عالمية."
+   ],
+   [
+    "Species evolve over millions of years.",
+    "تتطور الأنواع عبر ملايين السنين."
+   ],
+   [
+    "Our teaching methods have evolved since the 1990s.",
+    "تطورت أساليبنا في التدريس منذ التسعينيات."
+   ]
+  ]
+ },
+ "subsequent": {
+  "n": "معنى subsequent كصفة: لاحق أو تالٍ، أي حدث بعد شيء آخر في الزمن. نقول subsequent years أي السنوات اللاحقة، وsubsequent events أي الأحداث التالية، وsubsequent to بمعنى بعد. وهي أكثر رسمية من following أو later، وتناسب الكتابة الأكاديمية والتقارير. توضع قبل الاسم عادة، والظرف منها subsequently أي لاحقًا. ولا تُستخدم للمكان، بل للترتيب الزمني.",
+  "x": [
+   [
+    "Subsequent research confirmed the early results.",
+    "أكدت الأبحاث اللاحقة النتائج الأولى."
+   ],
+   [
+    "Prices rose sharply in subsequent months.",
+    "ارتفعت الأسعار بشدة في الأشهر التالية."
+   ],
+   [
+    "Subsequent to the meeting, we changed our plan.",
+    "بعد الاجتماع غيّرنا خطتنا."
+   ]
+  ]
+ },
+ "visual": {
+  "n": "معنى visual كصفة: بصري أي متعلق بالرؤية والنظر، أو يعتمد على الصور والمشاهد. تأتي في visual aid أي وسيلة إيضاح بصرية، وvisual impact أي الأثر البصري، وvisual arts أي الفنون البصرية. وكثيرًا ما نقول visual learner أي من يتعلم بالصور. وهي اسم أيضًا في الجمع visuals بمعنى الصور والرسوم المصاحبة لعرض ما. تناسب التعليم والتصميم والإعلان.",
+  "x": [
+   [
+    "The presentation included strong visual elements.",
+    "تضمن العرض عناصر بصرية قوية."
+   ],
+   [
+    "Many children are visual learners who need pictures.",
+    "كثير من الأطفال متعلمون بصريون يحتاجون إلى الصور."
+   ],
+   [
+    "The film has a stunning visual style.",
+    "يتميز الفيلم بأسلوب بصري مذهل."
+   ]
+  ]
+ },
+ "dynamic": {
+  "n": "معنى dynamic كصفة: ديناميكي أي متغير باستمرار ومليء بالنشاط والحيوية. نقول dynamic economy أي اقتصاد نشط، وdynamic leader أي قائد حيوي، وdynamic market أي سوق متحرك. تحمل غالبًا معنى إيجابيًا في وصف الأشخاص والشركات، وتأتي في العلوم بمعنى متعلق بالحركة والقوى. ضدها static أي ثابت. والاسم منها dynamics أي الديناميكيات، كما في group dynamics.",
+  "x": [
+   [
+    "She is a dynamic manager who inspires her team.",
+    "هي مديرة نشيطة تلهم فريقها."
+   ],
+   [
+    "Vietnam has a dynamic and growing economy.",
+    "يتمتع اقتصاد فيتنام بالنشاط والنمو."
+   ],
+   [
+    "The website shows dynamic content that updates hourly.",
+    "يعرض الموقع محتوى ديناميكيًا يتحدث كل ساعة."
+   ]
+  ]
+ },
+ "reside": {
+  "n": "معنى reside كفعل: يقيم أو يسكن في مكان معين، وهو صيغة رسمية لـ live. نقول reside in أي يقيم في، وpermanently reside أي يقيم بصفة دائمة. يظهر كثيرًا في الوثائق القانونية والإدارية مثل استمارات التأشيرة. والاسم منه resident أي مقيم، وresidence أي إقامة. لا يناسب الحديث اليومي، فنقول في المحادثة I live in. ويأتي أيضًا بمعنى كامن في، كما في the power resides in the people.",
+  "x": [
+   [
+    "The family has resided in Cairo for ten years.",
+    "تقيم الأسرة في القاهرة منذ عشر سنوات."
+   ],
+   [
+    "Applicants must reside in the country for two years.",
+    "يجب أن يقيم المتقدمون في البلد سنتين."
+   ],
+   [
+    "The real power resides in the voters.",
+    "تكمن السلطة الحقيقية في الناخبين."
+   ]
+  ]
+ },
+ "contrary": {
+  "n": "معنى contrary كصفة: مناقض أو مخالف تمامًا لشيء آخر. أشهر استعمالاتها contrary to أي خلافًا لـ، كما في contrary to popular belief أي خلافًا للاعتقاد الشائع، وon the contrary أي على العكس تمامًا، وهي تنفي ما قيل قبلها. والصفة قبل الاسم نادرة، مثل contrary evidence أي دليل مناقض. أرسمي من opposite، وكثيرة الاستعمال في المقالات والنقاش. تجنب خلطها مع contrast.",
+  "x": [
+   [
+    "Contrary to expectations, sales rose during the winter.",
+    "خلافًا للتوقعات، ارتفعت المبيعات في الشتاء."
+   ],
+   [
+    "I'm not angry; on the contrary, I'm very pleased.",
+    "لست غاضبًا، بل على العكس أنا مسرور جدًا."
+   ],
+   [
+    "The report found no evidence contrary to our claim.",
+    "لم يجد التقرير دليلًا يناقض ادعاءنا."
+   ]
+  ]
+ },
+ "enable": {
+  "n": "معنى enable كفعل: يمكّن أو يتيح لشخص أو لشيء فعل أمر ما، أي يجعله ممكنًا. الصيغة المعتادة enable someone to do something أي مكّن أحدهم من فعل، وenable access أي أتاح الوصول. وهي أيضًا تشغيل خاصية في الحاسوب، مثل enable notifications أي تفعيل الإشعارات، ويقابلها disable. وهي أرسمي من allow، وتؤكد أن الشيء هو السبب في إمكان الفعل.",
+  "x": [
+   [
+    "A scholarship enabled her to study abroad.",
+    "مكّنتها المنحة الدراسية من الدراسة في الخارج."
+   ],
+   [
+    "Please enable notifications to receive updates.",
+    "يرجى تفعيل الإشعارات لتصلك التحديثات."
+   ],
+   [
+    "New technology enables doctors to diagnose faster.",
+    "تتيح التقنية الحديثة للأطباء التشخيص بسرعة أكبر."
+   ]
+  ]
+ },
+ "invoke": {
+  "n": "معنى invoke كفعل: يستشهد أو يحتج بقانون أو مبدأ أو اسم شخص لدعم حجة أو تبرير فعل. نقول invoke a law أي يحتج بقانون، وinvoke the principle أي يستند إلى المبدأ. وفي البرمجة تعني استدعاء دالة. وفي الأدب الرسمي تأتي بمعنى استحضر أو ناشد. وهي أرسمي من cite، وتناسب السياسة والقانون والتقنية.",
+  "x": [
+   [
+    "The lawyer invoked a rule that protects witnesses.",
+    "احتج المحامي بقاعدة تحمي الشهود."
+   ],
+   [
+    "Leaders often invoke history to win support.",
+    "كثيرًا ما يستشهد القادة بالتاريخ لكسب التأييد."
+   ],
+   [
+    "The code invokes a function every second.",
+    "تستدعي الشيفرة دالة كل ثانية."
+   ]
+  ]
+ },
+ "thereby": {
+  "n": "معنى thereby كظرف: وبذلك أو نتيجة لذلك، أي بسبب الفعل المذكور قبله مباشرة. تأتي غالبًا قبل صيغة -ing، مثل thereby reducing أي مما يقلل، وthereby increasing أي مما يزيد. وهي رسمية وتُستخدم في الكتابة الأكاديمية والتقارير، وتربط جملة بنتيجتها. وهي أقرب إلى thus وconsequently، لكنها تدل على أن النتيجة تأتي من الفعل نفسه.",
+  "x": [
+   [
+    "She saved money, thereby avoiding any debt.",
+    "وفرت المال وبذلك تجنبت أي دين."
+   ],
+   [
+    "The company cut costs, thereby raising its profits.",
+    "خفضت الشركة التكاليف، مما رفع أرباحها."
+   ],
+   [
+    "He signed the form, thereby accepting the rules.",
+    "وقّع النموذج وبذلك قبل القواعد."
+   ]
+  ]
+ },
+ "abstract": {
+  "n": "معنى abstract كصفة: مجرد أي قائم على أفكار عامة لا على أشياء أو أحداث ملموسة. نقول abstract concept أي مفهوم مجرد، وabstract art أي الفن التجريدي، وabstract noun أي اسم معنى كالحرية. ضدها concrete أي ملموس. وتأتي أيضًا كاسم بمعنى ملخص بحث علمي في أعلى الورقة. وفي الاستعمال اليومي قد توحي بأن الفكرة بعيدة عن الواقع.",
+  "x": [
+   [
+    "Freedom is an abstract idea that people define differently.",
+    "الحرية فكرة مجردة يعرّفها الناس تعريفات مختلفة."
+   ],
+   [
+    "The museum has a large collection of abstract paintings.",
+    "يضم المتحف مجموعة كبيرة من اللوحات التجريدية."
+   ],
+   [
+    "Abstract thinking develops as children grow.",
+    "ينمو التفكير المجرد مع نمو الأطفال."
+   ]
+  ]
+ },
+ "extract": {
+  "n": "معنى extract كفعل: يستخرج أو ينتزع شيئًا من مكانه، غالبًا ببذل جهد. نقول extract oil أي استخرج النفط، وextract information أي استخلص المعلومات، وextract a tooth أي قلع سنًا. وتُستخدم في الصناعة والطب والبيانات. وتأتي كاسم بمعنى مقتطف أو خلاصة، كما في vanilla extract. النطق يختلف: الفعل يشدد على المقطع الثاني.",
+  "x": [
+   [
+    "Workers extract salt from the sea water.",
+    "يستخرج العمال الملح من ماء البحر."
+   ],
+   [
+    "The tool can extract text from any image.",
+    "تستطيع الأداة استخراج النص من أي صورة."
+   ],
+   [
+    "The dentist extracted the damaged tooth.",
+    "قلع طبيب الأسنان السن التالف."
+   ]
+  ]
+ },
+ "transmit": {
+  "n": "معنى transmit كفعل: ينقل أو يرسل شيئًا من شخص أو مكان إلى آخر، كالمرض أو الإشارة أو البيانات. نقول transmit a disease أي ينقل مرضًا، وtransmit data أي يرسل بيانات، وtransmit a signal أي يبث إشارة. وهي أرسمي من send وpass on، وتناسب العلوم والطب والاتصالات. والاسم منها transmission أي انتقال أو إرسال، وغالبًا تأتي في صيغة المبني للمجهول.",
+  "x": [
+   [
+    "Mosquitoes can transmit dangerous diseases.",
+    "يمكن للبعوض أن ينقل أمراضًا خطيرة."
+   ],
+   [
+    "The station transmits news around the clock.",
+    "تبث المحطة الأخبار على مدار الساعة."
+   ],
+   [
+    "Data is transmitted securely over the network.",
+    "تُرسل البيانات بأمان عبر الشبكة."
+   ]
+  ]
+ },
+ "effective immediately": {
+  "n": "معنى effective immediately عبارة تعني ساري المفعول فورًا أي يبدأ التطبيق من هذه اللحظة. تظهر في الإعلانات الرسمية والقرارات والبريد الوظيفي، مثل effective immediately, the office is closed أي يُغلق المكتب اعتبارًا من الآن. وتوضع غالبًا في بداية الجملة تتبعها فاصلة. تختلف عن effective from Monday التي تحدد تاريخًا لاحقًا. وهي لغة رسمية لا تناسب الحديث العادي.",
+  "x": [
+   [
+    "Effective immediately, the road is closed to all traffic.",
+    "يُغلق الطريق أمام جميع المركبات اعتبارًا من الآن."
+   ],
+   [
+    "He resigned from his post, effective immediately.",
+    "استقال من منصبه بأثر فوري."
+   ],
+   [
+    "The new rules are effective immediately for all staff.",
+    "القواعد الجديدة سارية فورًا على جميع الموظفين."
+   ]
+  ]
+ },
+ "inevitable": {
+  "n": "معنى inevitable كصفة: حتمي أو لا مفر منه، أي لا يمكن تجنبه أو منعه. نقول inevitable consequence أي نتيجة حتمية، وalmost inevitable أي شبه حتمي، وthe inevitable أي الأمر المحتوم. وهي أقوى من likely لأنها تنفي أي احتمال للتجنب، وتناسب الحديث عن التغير والخسارة والزمن. والظرف inevitably يعني حتمًا، وتأتي كثيرًا في بداية الجملة.",
+  "x": [
+   [
+    "Delays are inevitable when the weather is this bad.",
+    "التأخير حتمي حين يكون الطقس بهذا السوء."
+   ],
+   [
+    "Change was inevitable after the election.",
+    "كان التغيير حتميًا بعد الانتخابات."
+   ],
+   [
+    "An argument seemed inevitable once they met.",
+    "بدا الخلاف لا مفر منه حين التقيا."
+   ]
+  ]
+ },
+ "impose": {
+  "n": "معنى impose كفعل: يفرض قاعدة أو ضريبة أو عقوبة رسميًا، أو يفرض رأيه على الآخرين. نقول impose a tax أي يفرض ضريبة، وimpose restrictions أي يفرض قيودًا، وimpose on someone أي يثقل على أحد. تأتي مع السلطة والقانون غالبًا، وقد تحمل معنى سلبيًا حين يكون الفرض غير مرغوب فيه. وأقرب مرادف enforce، والاسم منها imposition أي فرض.",
+  "x": [
+   [
+    "The city imposed a ban on cars in the old town.",
+    "فرضت المدينة حظرًا على السيارات في البلدة القديمة."
+   ],
+   [
+    "Parents should not impose their dreams on children.",
+    "لا ينبغي للآباء أن يفرضوا أحلامهم على أبنائهم."
+   ],
+   [
+    "The court imposed a heavy fine on the company.",
+    "فرضت المحكمة غرامة كبيرة على الشركة."
+   ]
+  ]
+ }
+}

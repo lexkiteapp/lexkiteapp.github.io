@@ -12,7 +12,8 @@
   const E = window.CallEngine;
   // Ngôn ngữ đích (Target.cur): 'en' = hành vi cũ từng byte; es → cuộc gọi gắn tl:'es' từ gói cpack/es/cl.js, giọng/ASR/lang theo bảng Target
   let TLC = 'en', ACCENT = 'en-US', TLG = 'en';
-  const setTl = id => { TLC = /^es-/.test(id || '') ? 'es' : window.Target ? Target.cur() : 'en'; ACCENT = TLC !== 'en' ? Target.accent('en-US', TLC) : 'en-US'; // id 'es-…' (từ lộ trình ngày) mở thẳng cuộc gọi es, không đổi ngôn ngữ đang học
+  const TLB = { es: 'calles', fr: 'callfr' }, TLD = { es: 'esday', fr: 'frday' }; // gói cuộc gọi + gói lộ trình ngày theo tl (bundles.js; id 'fr-…' mở thẳng cuộc gọi fr)
+  const setTl = id => { const m = /^([a-z]{2})-/.exec(id || ''); TLC = m && TLB[m[1]] ? m[1] : window.Target ? Target.cur() : 'en'; ACCENT = TLC !== 'en' ? Target.accent('en-US', TLC) : 'en-US'; // id 'es-…' (từ lộ trình ngày) mở thẳng cuộc gọi es, không đổi ngôn ngữ đang học
     TLG = TLC === 'en' ? 'en' : TLC; };
   const callsNow = () => (window.CALLS || []).filter(x => (x.tl || 'en') === TLC);
   // Giáo viên: CHỈ qua Chars (web/js/characters.js, registry web/teach/characters.json) – 2 người 2D Ama/Carlos, không đường dẫn cứng. Thiếu ảnh → ô chữ cái trung tính
@@ -28,7 +29,8 @@
   const groupOf = c => (/^ielts/.test(c.exam) ? 'ielts' : c.exam === 'toeic' ? 'toeic' : 'everyday');
   const pref = (k, v) => { try { if (v === undefined) return localStorage.getItem('vb.call.' + k); localStorage.setItem('vb.call.' + k, v); } catch (e) { return null; } };
   // An toàn: lời lẽ thô tục/nhạy cảm → giáo viên nhẹ nhàng đưa cuộc gọi về chủ đề, không lặp lại lời đó
-  const UNSAFE_X = { es: /\b(mierda|puta|puto|joder|verga|pendej|cabron|coño|matar|suicid|droga|sexo|negrata)\w*/i };
+  const UNSAFE_X = { es: /\b(mierda|puta|puto|joder|verga|pendej|cabron|coño|matar|suicid|droga|sexo|negrata)\w*/i, fr: /(^|[^\p{L}])(merde|putain|pute|connard|connasse|salope|enculé|encule|nique|baiser|tuer|suicid|drogue|sexe|nègre|negre)\p{L}*/iu };
+  const SAFE_SAY = { es: 'Mantengamos la charla amable y en el tema.', fr: 'Gardons une conversation aimable et sur le sujet.' };
   const UNSAFE = { test: s => (UNSAFE_X[TLC] || /\b(fuck|shit|bitch|asshole|dick|sex|kill|suicide|drugs?|nigg|whore|slut)\w*/i).test(s) };
   // 🧩 Stitch v2.1 teacher-call (cờ ux1): khung tự sinh brand/stitch/v2/bind/teacher-call.json (ST2.mount → .v2s-teacher-call), giáo viên = c.who (Ama/Carlos) CHỈ qua Chars + LessonTeacher,
   // giọng = Chars.voice(who). Logic giữ nguyên CallEngine (nhánh, quyền riêng tư, lượt dài, gõ phím); trang cũ (.call-ov) làm dự phòng khi chưa bật cờ / thiếu khung.
@@ -122,7 +124,7 @@ body.call-on{overflow:hidden}
 
   routes.call = function (arg) {
     setTl(arg);
-    if (TLC !== 'en' && !(window.CALLS || []).some(x => x.tl === TLC)) { view.innerHTML = '<div class="page-head"><div class="muted">…</div></div>'; App.need('calles').then(() => routes.call(arg)).catch(() => { TLC = 'en'; }); return; }
+    if (TLC !== 'en' && !(window.CALLS || []).some(x => x.tl === TLC)) { view.innerHTML = '<div class="page-head"><div class="muted">…</div></div>'; App.need(TLB[TLC] || 'calles').then(() => routes.call(arg)).catch(() => { TLC = 'en'; }); return; }
     css(); probe();
     const list = callsNow().map(E.prep);
     const c = list.find(x => x.id === arg);
@@ -130,7 +132,7 @@ body.call-on{overflow:hidden}
     const flt = TLC === 'en' ? (pref('flt') || 'all') : 'all';
     const groups = ['all', 'ielts', 'toeic', 'everyday'];
     view.innerHTML = `<div class="page-head"><div><h1>📞 ${t('Gọi cho Ama & Carlos')}</h1><p class="muted">${t('Cuộc gọi video luyện nói: giáo viên hỏi, bạn trả lời bằng giọng nói. Câu hỏi rẽ nhánh theo câu trả lời, lỗi được sửa nhẹ nhàng, cuối cuộc gọi có tổng kết và luyện lại câu yếu.')}</p></div></div>
-      ${TLC !== 'en' ? '' : `<div class="call-flt" role="group" aria-label="${t('Lọc theo kỳ thi')}">${groups.map(gr => `<button type="button" class="btn sm ${flt === gr ? 'primary' : ''}" data-g="${gr}" aria-pressed="${flt === gr}">${gr === 'all' ? t('Tất cả') : GROUP[gr]()}</button>`).join('')}</div>`}
+      ${TLC !== 'en' ? '' : `<div class="call-flt" role="group" aria-label="${t('Lọc theo kỳ thi')}">${groups.map(gr => `<button type="button" class="chip ${flt === gr ? 'on' : ''}" data-g="${gr}" aria-pressed="${flt === gr}">${gr === 'all' ? t('Tất cả') : GROUP[gr]()}</button>`).join('')}</div>`}
       <div class="call-grid">${list.filter(x => flt === 'all' || groupOf(x) === flt).map(x => `<a class="call-card" href="#/call/${x.id}"><img data-po="${Chars.name(x.who)}" src="${poster(x.who)}" alt="" width="56" height="56" loading="lazy"><span><b>${x.em} ${esc(nameOf(x))}</b><span class="tiny muted"><span class="chip lv">${x.lv}</span> ${Chars.name(x.who)} · <span lang="${TLG}">${esc(x.title)}</span></span></span></a>`).join('')}</div>
       <p class="tiny muted" style="margin-top:1rem"><span id="callPriv">${PRIV.ask()}</span>${pref('asr') ? ` <button type="button" class="btn sm ghost" id="callAsr">${t('Đổi cách nhận dạng')}</button>` : ''}</p>`;
     const ab = $('#callAsr'); if (ab) ab.onclick = () => { try { localStorage.removeItem('vb.call.asr'); } catch (e) { /* bỏ qua */ } toast(t('Lần gọi sau Lexkite sẽ hỏi lại cách nhận dạng.')); routes.call(); };
@@ -149,7 +151,7 @@ body.call-on{overflow:hidden}
     poFix(view);
     probe().then(() => { const p = $('#callPriv'); if (p) p.textContent = (PRIV[mode()] || PRIV.ask)(); });
     $('#callGo').onclick = () => start(c);
-    if (window.LessonTeacher && LessonTeacher.prep) LessonTeacher.prep(); // mặt vẽ + mốc nạp trong lúc đổ chuông → câu chào đầu phát bản -ls.mp3 (pre)
+    if (window.LessonTeacher && LessonTeacher.prep) LessonTeacher.prep(true); // mặt vẽ + mốc nạp trong lúc đổ chuông → câu chào đầu phát bản -ls.mp3 (pre)
   }
 
   function start(c) {
@@ -291,7 +293,7 @@ body.call-on{overflow:hidden}
       if (n.long && longBuf.length && !picked) text = longBuf.join(' ');
       if (n.long) { longEnd = 0; longBuf = []; }
       const tipBox = V2 ? $('#cTipT', ov) : $('#cTip', ov); if (V2) tipBox.textContent = t('Gợi ý trả lời'); else tipBox.innerHTML = '';
-      if (UNSAFE.test(text)) { busy = false; say([TLC === 'es' ? 'Mantengamos la charla amable y en el tema.' : 'Let\'s keep our chat friendly and on topic!', n.m]); return; }
+      if (UNSAFE.test(text)) { busy = false; say([SAFE_SAY[TLC] || 'Let\'s keep our chat friendly and on topic!', n.m]); return; }
       const secs = tAsk ? Math.max(0, (Date.now() - tAsk) / 1000) : 0;
       if (!n.prep) log.push(Object.assign({ id, text, picked: !!picked, secs: extra.secs != null ? extra.secs : (picked ? 0 : secs) }, extra));
       if (!picked) $('#cYou', ov).textContent = '🗣️ ' + text;
@@ -411,8 +413,8 @@ body.call-on{overflow:hidden}
 
   function summary(c, log, secs, avgLat) {
     const r = E.recap(c, log), nm = Chars.name(c.who);
-    try { if (c.tl === 'es' && sessionStorage.getItem('lk.es.dayctx')) App.need('esday').then(() => App.esDayMark('c')); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: cuộc gọi xong → đánh dấu bước (cpack/es-app/day-ui.js)
-    const voiced = log.filter(x => !x.picked && !x.typed).length, xp = 5 + r.turns.length * 2 + voiced * 2 + (r.used.length ? 3 : 0);
+    try { if (TLD[c.tl] && sessionStorage.getItem('lk.' + c.tl + '.dayctx')) App.need(TLD[c.tl]).then(() => App.esDayMark('c', c.tl)); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: cuộc gọi xong → đánh dấu bước (cpack/es-app/day-ui.js)
+    const voiced = log.filter(x => !x.picked && !x.typed).length, xp = Game.xpFor('talk', { right: voiced });
     App.reward({ spoken: voiced, xp });
     const tx = r.turns.map(x => `<div class="call-tx ${x.weak ? 'weak' : ''}"><div class="small q" lang="${TLG}"><b>${nm}:</b> ${esc(x.m || '')}</div>
         <div class="a" lang="${TLG}"><b>${t('Bạn')}:</b> ${esc(x.text)}${x.picked ? ` <span class="chip">${t('gợi ý')}</span>` : ''}</div>

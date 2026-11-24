@@ -1,0 +1,133 @@
+{
+ "id": "t2s_pennypincher",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 182,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He counts every coin twice!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Penny-pincher!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A person who saves every cent.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My dad is a penny-pincher.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "penny-pincher",
+  "forms": [
+   "penny pincher"
+  ],
+  "ipa": "/ˈpeni ˌpɪntʃɚ/",
+  "mean": "A person who saves every cent.",
+  "define": "Someone who is very careful with money.",
+  "vi": "Người tiết kiệm từng đồng",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Joking about a friend",
+   "text": "My dad is a penny-pincher."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"penny-pincher\" is…",
+   "options": [
+    "a pincher",
+    "a careful saver"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a family friend a 'penny-pincher'.",
+   "why": "It sounds insulting."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He counts every coin twice!"
+ },
+ "src": {
+  "slang": "penny-pincher"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"penny-pincher\" mean?",
+  "keyword": "penny-pincher",
+  "value": "Penny-pincher = A person who saves every cent. Example: \"My dad is a penny-pincher.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"penny-pincher\" mean?",
+    "description": "Penny-pincher = A person who saves every cent. Example: \"My dad is a penny-pincher.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "penny-pincher",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"penny-pincher\" mean?\n\nPenny-pincher = A person who saves every cent. Example: \"My dad is a penny-pincher.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"penny-pincher\" mean?\n\nPenny-pincher = A person who saves every cent. Example: \"My dad is a penny-pincher.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"penny-pincher\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a family friend a 'penny-pincher'. It sounds insulting. Real example: \"My dad is a penny-pincher.\" More real English slang, free: {link}"
+ }
+}

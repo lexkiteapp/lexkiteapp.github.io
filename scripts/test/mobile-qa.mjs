@@ -236,18 +236,44 @@ for (const vp of VPS) {
   }
   await ctx.close();
 }
+// ---- Chẩn đoán LCP trang sâu (22/11, path lưỡng cực 1,9 s/8 s): MỖI lần đo ghi mọi ứng viên LCP (phần tử · cỡ · url · startTime/renderTime/loadTime), TTFB, FCP,
+// byte đã tải trước LCP – dưới mạng 4G chậm + CPU 4× thật (CDP). In cả lần nhanh lẫn lần chậm để so (thủ phạm lộ ở lần chậm). Không đổi ngưỡng/đỏ-xanh.
+const probe = [];
+if (LH) { const prate = (await rateFor(browser, 4)).rate;
+  for (const [route, i, fast] of [['path', 0, 0], ['path', 1, 1], ['path', 2, 0], ['review', 0, 0], ['review', 1, 1], ['dict/hello', 0, 0]]) {
+    const c = await browser.newContext({ bypassCSP: true, viewport: { width: 412, height: 915 }, deviceScaleFactor: 2.625, isMobile: true, hasTouch: true, userAgent: UA, locale: 'en' });
+    try {
+      await noProd(c); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
+      const pg = await c.newPage(), cdp = await c.newCDPSession(pg);
+      await cdp.send('Network.enable'); if (!fast) await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8, uploadThroughput: 0.75e6 / 8 }); if (!fast) await cdp.send('Emulation.setCPUThrottlingRate', { rate: prate });
+      await pg.addInitScript(() => { window.__lcp = []; try { new PerformanceObserver(l => { for (const e of l.getEntries()) { const el = e.element, cn = el && typeof el.className === 'string' ? el.className.trim().split(/\s+/).slice(0, 2).join('.') : ''; window.__lcp.push({ t: Math.round(e.startTime), render: Math.round(e.renderTime), load: Math.round(e.loadTime), size: e.size, url: e.url ? e.url.replace(/^.*\//, '') : '', tx: el && el.textContent ? el.textContent.trim().slice(0, 50) : '', el: el ? el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (cn ? '.' + cn : '') : '' }); } }).observe({ type: 'largest-contentful-paint', buffered: true }); } catch (e) { /* bỏ qua */ } });
+      await pg.goto(`${BASE}/app/?sandbox=1&hl=en#/${route}`, { waitUntil: 'load', timeout: 90e3 }); await pg.waitForTimeout(fast ? 4000 : 14000);
+      const r = await pg.evaluate(() => { const nav = performance.getEntriesByType('navigation')[0], fcp = (performance.getEntriesByName('first-contentful-paint')[0] || {}).startTime || 0, L = window.__lcp || [], last = L.length ? L[L.length - 1].t : 0;
+        const res = performance.getEntriesByType('resource').filter(x => x.responseEnd <= last); return { ttfb: Math.round(nav.responseStart), fcp: Math.round(fcp), lcp: L, bytesBeforeLcp: Math.round(res.reduce((a, x) => a + (x.transferSize || 0), 0) / 1024), reqBeforeLcp: res.length, lastBefore: res.sort((x, y) => y.responseEnd - x.responseEnd).slice(0, 4).map(x => Math.round(x.responseEnd) + ' ' + x.name.replace(/^.*\//, '')) }; });
+      r.view = await pg.evaluate(() => { const v = document.getElementById('view'); return { len: v ? v.innerText.length : -1, head: v ? v.innerText.trim().replace(/\s+/g, ' ').slice(0, 70) : '', hero: !!document.getElementById('lkHero'), cls: document.body.className.slice(0, 60) }; }); if (route === 'path') await pg.screenshot({ path: `${OUT}/probe-path-${i + 1}${fast ? 'f' : ''}.png` });
+      probe.push({ route, run: i + 1, fast, ...r });
+    } catch (e) { probe.push({ route, run: i + 1, error: String(e.message || e).slice(0, 120) }); }
+    await c.close();
+  } }
+for (const x of probe) console.log('LCP-probe', JSON.stringify(x));
 await browser.close();
 
 // ---- Lighthouse mobile (giả lập 4G chậm + CPU 4×) cho từng route – lần tải lạnh
-const lh = [];
+const lh = [], lhRuns = [];
 // 16/11: TBT 202 > 200 ms đỏ #552/#362/#1427 (PR không đụng trang) – Lighthouse giả lập CPU 4× trên số đo THẬT của runner; runner EPYC chậm gấp ~2,2× nên TBT phình. Hiệu chuẩn như INP (ngưỡng KHÔNG đổi)
 const cpuLh = LH ? (await rateFor(browser, 4)).rate : 4;
 if (LH) for (const route of ['home', 'path', 'review', 'dict/hello', 'me', 'practice/mcq?src=topic:education']) {
   const f = `${OUT}/lh-${route.replace(/[^a-z]+/g, '_')}.json`;
   const runs = [];
   for (let i = 0; i < 3; i++) {
-    try { execFileSync('npx', ['-y', 'lighthouse@12.2.1', `${BASE}/app/?sandbox=1&hl=en#/${route}`, '--form-factor=mobile', '--only-categories=performance,accessibility', '--chrome-flags=--headless=new --no-sandbox', '--output=json', `--output-path=${f}`, `--throttling.cpuSlowdownMultiplier=${cpuLh}`, '--quiet'], { stdio: 'ignore', timeout: 180e3 }); } catch (e) { continue; }
+    try { execFileSync('npx', ['-y', 'lighthouse@12.2.1', `${BASE}/app/?sandbox=1&hl=en#/${route}`, '--form-factor=mobile', '--only-categories=performance,accessibility', '--chrome-flags=--headless=new --no-sandbox', '--output=json', `--output-path=${f}`, '--save-assets', `--throttling.cpuSlowdownMultiplier=${cpuLh}`, '--quiet'], { stdio: 'ignore', timeout: 180e3 }); } catch (e) { continue; }
     const d = JSON.parse(fs.readFileSync(f, 'utf8')), a = d.audits;
+    fs.copyFileSync(f, f.replace(/\.json$/, `-run${i + 1}.json`));
+    let cands = []; try { // ứng viên LCP trong trace Lighthouse (phần tử audit của LH 12.2 lỗi RootCauses): [ms từ navigationStart, cỡ, loại]
+      const tf = fs.readdirSync(OUT).filter(x => /\.trace\.json$/.test(x)).map(x => `${OUT}/${x}`).sort((x, y) => fs.statSync(y).mtimeMs - fs.statSync(x).mtimeMs)[0];
+      if (tf) { const ev = JSON.parse(fs.readFileSync(tf, 'utf8')).traceEvents || [], ns = ev.find(e => e.name === 'navigationStart' && e.args && e.args.data && e.args.data.isOutermostMainFrame !== false), t0 = ns ? ns.ts : 0;
+        cands = ev.filter(e => e.name === 'largestContentfulPaint::Candidate' && e.args && e.args.data).map(e => [Math.round((e.ts - t0) / 1000), e.args.data.size, e.args.data.type, e.args.data.nodeName || '']); fs.rmSync(tf, { force: true }); }
+    } catch (e) { cands = [String(e.message).slice(0, 80)]; } const mt = (a.metrics && a.metrics.details && a.metrics.details.items[0]) || {}; lhRuns.push({ route, run: i + 1, lcp: Math.round(a['largest-contentful-paint'].numericValue), obsLcp: Math.round(mt.observedLargestContentfulPaint || 0), obsFcp: Math.round(mt.observedFirstContentfulPaint || 0), cands });
     runs.push({ route, perf: Math.round(d.categories.performance.score * 100), a11y: Math.round(d.categories.accessibility.score * 100), lcp: Math.round(a['largest-contentful-paint'].numericValue), cls: +a['cumulative-layout-shift'].numericValue.toFixed(4), tbt: Math.round(a['total-blocking-time'].numericValue), fcp: Math.round(a['first-contentful-paint'].numericValue), tap: a['target-size'] ? a['target-size'].score : null });
   }
   if (!runs.length) { errs.push('lighthouse lỗi: ' + route); continue; }
@@ -264,6 +290,8 @@ if (maxCls > BUDGET.cls) fails.push(`CLS ${maxCls} > ${BUDGET.cls}`);
 if (maxInp > BUDGET.inp_ms) fails.push(`INP ${maxInp} ms > ${BUDGET.inp_ms}`);
 // LCP: trang vào đầu tiên (home) ≤ 2,5 s; mở thẳng trang sâu (#/review, #/dict…) phải khởi động cả khung app → ngân sách riêng lcp_deep_ms, chỉ được GIẢM
 for (const l of lh) { const cap = l.route === 'home' ? BUDGET.lcp_ms : BUDGET.lcp_deep_ms; if (l.lcp > cap) fails.push(`LCP ${l.route} ${l.lcp} ms > ${cap}`); }
+// Máy gác hồi quy LCP (chạy cả trên main sau mỗi lần merge – mobile-qa.yml push: main): mỗi route so với MỐC riêng (lcp_base, chỉ được GIẢM); xấu hơn > lcp_regress (×1,2) = ĐỎ → lỗi như ux1 bật mặc định (path 1,65 → 8,1 s) không lọt lần sau
+for (const l of lh) { const base = (BUDGET.lcp_base || {})[l.route.split(/[/?]/)[0]]; if (base && l.lcp > base * (BUDGET.lcp_regress || 1.2)) fails.push(`LCP ${l.route} ${l.lcp} ms xấu hơn mốc ${base} ms quá ${Math.round(((BUDGET.lcp_regress || 1.2) - 1) * 100)} % – tìm commit làm nặng đường tới LCP (docs/UX-PUBLIC.md › Luật LCP)`); }
 if (LH && maxTbt > BUDGET.tbt_ms) fails.push(`TBT ${maxTbt} ms > ${BUDGET.tbt_ms}`);
 if (pages < (VPS.length * ROUTES.length + UX1_ROUTES.length) * 0.9) fails.push(`chỉ soát được ${pages}/${VPS.length * ROUTES.length + UX1_ROUTES.length} trang`); // không cho xanh khi chạy rỗng
 if (perf.filter(p => p.inp !== null && p.n > 0).length < VPS.length) fails.push('không đo được INP (0 tương tác)');
@@ -274,7 +302,7 @@ if (errs.some(e => /nút ngôn ngữ/.test(e))) fails.push('nút đổi ngôn ng
 if (errs.some(e => /không có chỗ trống để chạm/.test(e))) fails.push('kịch bản không chạm được trước khi đổi trang – số CLS không đáng tin');
 if (errs.some(e => /nút Thoát màn học/.test(e))) fails.push('nút Thoát màn học không hiện/không bấm được');
 
-const report = { at: new Date().toISOString(), pages, count, maxCls, maxInp, maxLcp, maxTbt, lh, perf, issues, errs, fails, hasOffer, offerSeen };
+const report = { at: new Date().toISOString(), pages, count, maxCls, maxInp, maxLcp, maxTbt, lh, lhRuns, probe, perf, issues, errs, fails, hasOffer, offerSeen };
 fs.writeFileSync(`${OUT}/report.json`, JSON.stringify(report, null, 1));
 const md = [`# Mobile QA – ${pages} trang × ${VPS.map(v => v.w).join('/')} px`, '',
   `**Kết quả:** ${fails.length ? '❌ ' + fails.join(' · ') : '✅ đạt ngân sách'}`, '',

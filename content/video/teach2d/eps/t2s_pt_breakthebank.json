@@ -1,0 +1,148 @@
+{
+ "id": "t2s_pt_breakthebank",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 72,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is lunch too expensive?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Break the bank!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Cost way too much money.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Don't worry, this lunch won't break the bank.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "break the bank",
+  "forms": [
+   "broke the bank"
+  ],
+  "ipa": "/ˈbreɪk ðə ˈbæŋk/",
+  "mean": "Cost way too much money.",
+  "define": "To cost so much that you can't afford it.",
+  "vi": "Tốn cả gia tài",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "Don't worry, this lunch won't break the bank."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It usually means to…",
+   "options": [
+    "rob a bank",
+    "cost too much"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'break the bank' at a bank.",
+   "why": "It only means costing too much."
+  },
+  "l1": "estourar o orçamento",
+  "l1_hook": "Almoço está caro demais? \"break the bank\"",
+  "l1_ex": "Não se preocupe, esse almoço não vai \"break the bank\".",
+  "right": "break the bank",
+  "native": {
+   "hook": "O que significa “break the bank”?",
+   "tip": "“break the bank” = estourar o orçamento. Exemplo: “Don't worry, this lunch won't break the bank.”",
+   "caption": "O que significa “break the bank”?\n“break the bank” = estourar o orçamento.\nExemplo: “Don't worry, this lunch won't break the bank.” (Não se preocupe, esse almoço não vai \"break the bank\".)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “break the bank” = estourar o orçamento. “Don't worry, this lunch won't break the bank.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is lunch too expensive?"
+ },
+ "src": {
+  "slang": "break the bank"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "O que significa “break the bank”?",
+  "keyword": "break the bank",
+  "value": "“break the bank” = estourar o orçamento. Exemplo: “Don't worry, this lunch won't break the bank.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “break the bank”?",
+    "description": "“break the bank” = estourar o orçamento. Exemplo: “Don't worry, this lunch won't break the bank.”\n\nO que significa “break the bank”?\n“break the bank” = estourar o orçamento.\nExemplo: “Don't worry, this lunch won't break the bank.” (Não se preocupe, esse almoço não vai \"break the bank\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "break the bank",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “break the bank”?\n“break the bank” = estourar o orçamento.\nExemplo: “Don't worry, this lunch won't break the bank.” (Não se preocupe, esse almoço não vai \"break the bank\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “break the bank”?\n\n“break the bank” = estourar o orçamento. Exemplo: “Don't worry, this lunch won't break the bank.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “break the bank”? “break the bank” = estourar o orçamento. Exemplo: “Don't worry, this lun… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “break the bank” = estourar o orçamento. “Don't worry, this lunch won't break the bank.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

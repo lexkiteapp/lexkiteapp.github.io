@@ -96,7 +96,7 @@
       // Làm lại: tự nhớ đáp án trước khi xem (active recall) → đúng thì gỡ khỏi sổ, sai thì tăng số lần sai
       const settle = async (card, key, ok) => {
         await App.mistakeSettle(key, ok);
-        if (ok) { App.reward({ xp: 3 }, card); Sfx.correct(); card.style.opacity = '.5'; setTimeout(() => card.remove(), 600); } else Sfx.wrong();
+        if (ok) { App.reward({ xp: Game.xpFor('answer', { mode: 'type' }) }, card); Sfx.correct(); card.style.opacity = '.5'; setTimeout(() => card.remove(), 600); } else Sfx.wrong();
       };
       $$('[data-rt]').forEach(box => {
         const card = box.closest('.card'), key = box.dataset.rt, ans = $('[data-ans]', card), it = rows.find(x => x.key === key);
@@ -109,7 +109,7 @@
         if (noB) noB.onclick = () => { settle(card, key, false); $('[data-self]', card).hidden = true; };
       });
       $$('[data-fix]').forEach(b => b.onclick = async () => {
-        await App.mistakeSettle(b.dataset.fix, true); App.reward({ xp: 2 }, b); b.closest('.card').remove();
+        await App.mistakeSettle(b.dataset.fix, true); App.reward({ xp: Game.xpFor('step') }, b); b.closest('.card').remove();
       });
     };
     draw('');

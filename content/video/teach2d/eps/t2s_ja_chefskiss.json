@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ja_chefskiss",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 48,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Taste this and tell me!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Chef's kiss!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Absolutely perfect.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The soup was chef's kiss.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "chef's kiss",
+  "forms": [
+   "chef’s kiss"
+  ],
+  "ipa": "/ˌʃefs ˈkɪs/",
+  "mean": "Absolutely perfect.",
+  "define": "Said to show something is perfect, like a great meal.",
+  "vi": "Hoàn hảo, ngon tuyệt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "food",
+  "example": {
+   "ctx": "After tasting dinner",
+   "text": "The soup was chef's kiss."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Chef's kiss\" means…",
+   "options": [
+    "too salty",
+    "perfect"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chef's kiss' about burnt toast.",
+   "why": "It praises perfect things only."
+  },
+  "l1": "完璧",
+  "l1_hook": "これ食べて感想教えて！ まさに「chef's kiss」な瞬間です。",
+  "l1_ex": "そのスープは「chef's kiss」だった。",
+  "right": "chef's kiss",
+  "native": {
+   "hook": "「chef's kiss」ってどういう意味？",
+   "tip": "“chef's kiss” = 完璧. 例文: “The soup was chef's kiss.”",
+   "caption": "「chef's kiss」ってどういう意味？\n“chef's kiss” = 完璧.\n例文: “The soup was chef's kiss.” (そのスープは「chef's kiss」だった。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “chef's kiss” = 完璧. “The soup was chef's kiss.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Taste this and tell me!"
+ },
+ "src": {
+  "slang": "chef's kiss"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "「chef's kiss」ってどういう意味？",
+  "keyword": "chef's kiss",
+  "value": "“chef's kiss” = 完璧. 例文: “The soup was chef's kiss.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "「chef's kiss」ってどういう意味？",
+    "description": "“chef's kiss” = 完璧. 例文: “The soup was chef's kiss.”\n\n「chef's kiss」ってどういう意味？\n“chef's kiss” = 完璧.\n例文: “The soup was chef's kiss.” (そのスープは「chef's kiss」だった。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "chef's kiss",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「chef's kiss」ってどういう意味？\n“chef's kiss” = 完璧.\n例文: “The soup was chef's kiss.” (そのスープは「chef's kiss」だった。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「chef's kiss」ってどういう意味？\n\n“chef's kiss” = 完璧. 例文: “The soup was chef's kiss.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「chef's kiss」ってどういう意味？ “chef's kiss” = 完璧. 例文: “The soup was chef's kiss.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “chef's kiss” = 完璧. “The soup was chef's kiss.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

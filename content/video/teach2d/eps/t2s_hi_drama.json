@@ -1,0 +1,148 @@
+{
+ "id": "t2s_hi_drama",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 64,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Group chat exploded over nothing!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Drama!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fuss and arguments about small things.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I don't want any drama this year.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "drama",
+  "forms": [
+   "dramatic"
+  ],
+  "ipa": "/ˈdrɑːmə/",
+  "mean": "Fuss and arguments about small things.",
+  "define": "Needless trouble or arguments between people.",
+  "vi": "Drama nổ trời",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about school",
+   "text": "I don't want any drama this year."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Drama\" here means…",
+   "options": [
+    "fuss and arguments",
+    "a theater play"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your friend's real problem 'drama'.",
+   "why": "It makes serious feelings sound silly."
+  },
+  "l1": "नौटंकी",
+  "l1_hook": "ग्रुप चैट में कुछ नहीं पर झगड़ा हो गया!",
+  "l1_ex": "मैं इस साल कोई \"drama\" नहीं चाहता।",
+  "right": "drama",
+  "native": {
+   "hook": "“drama” का मतलब क्या है?",
+   "tip": "“drama” = नौटंकी. उदाहरण: “I don't want any drama this year.”",
+   "caption": "“drama” का मतलब क्या है?\n“drama” = नौटंकी.\nउदाहरण: “I don't want any drama this year.” (मैं इस साल कोई \"drama\" नहीं चाहता।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “drama” = नौटंकी. “I don't want any drama this year.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Group chat exploded over nothing!"
+ },
+ "src": {
+  "slang": "drama"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "“drama” का मतलब क्या है?",
+  "keyword": "drama",
+  "value": "“drama” = नौटंकी. उदाहरण: “I don't want any drama this year.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“drama” का मतलब क्या है?",
+    "description": "“drama” = नौटंकी. उदाहरण: “I don't want any drama this year.”\n\n“drama” का मतलब क्या है?\n“drama” = नौटंकी.\nउदाहरण: “I don't want any drama this year.” (मैं इस साल कोई \"drama\" नहीं चाहता।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "drama",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“drama” का मतलब क्या है?\n“drama” = नौटंकी.\nउदाहरण: “I don't want any drama this year.” (मैं इस साल कोई \"drama\" नहीं चाहता।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“drama” का मतलब क्या है?\n\n“drama” = नौटंकी. उदाहरण: “I don't want any drama this year.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“drama” का मतलब क्या है? “drama” = नौटंकी. उदाहरण: “I don't want any drama this year.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “drama” = नौटंकी. “I don't want any drama this year.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

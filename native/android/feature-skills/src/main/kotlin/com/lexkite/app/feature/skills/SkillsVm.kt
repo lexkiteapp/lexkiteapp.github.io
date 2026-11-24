@@ -39,7 +39,13 @@ private fun JsonElement?.settingStr(k: String) = ((this as? JsonObject)?.get(k) 
 /** Saves the mistakes list and pays the reward (XP + day counters) for a finished activity. */
 private suspend fun SkillsEnv.settle(mistakes: List<JsonObject>?, game: JsonElement, reward: Reward) {
     if (mistakes != null) vocab.saveMistakes(mistakes)
-    vocab.write(game = StudyReward.track(game, reward.add.filterValues { it != 0 }, reward.xp, now))
+    var xp = reward.xp
+    val src = reward.src
+    if (src != null && xp > 0) { // web Game._track anti-repeat (device-only key "xprep")
+        val (cut, ledger) = com.lexkite.app.core.RewardRules.cutRepeat(kv("xprep"), xp, src, com.lexkite.app.core.vocab.CardMath.todayKey(now))
+        putKv("xprep", ledger); xp = cut
+    }
+    vocab.write(game = StudyReward.track(game, reward.add.filterValues { it != 0 }, xp, now))
 }
 
 // ---------------------------------------------------------------- #/listening
