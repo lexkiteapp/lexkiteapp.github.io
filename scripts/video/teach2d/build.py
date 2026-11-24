@@ -48,8 +48,8 @@ if EP['template'] in ('rule', 'band') and o.format == 'short':   # Spell->Sound 
     _x = int(FMT['W'] * (1 - PZ['right'])); FMT = dict(FMT, region=[FMT['region'][0], FMT['region'][1], min(FMT['region'][2], _x), FMT['region'][3]], cap=[FMT['cap'][0], FMT['cap'][1], min(FMT['cap'][2], _x), FMT['cap'][3]], safe=[FMT['safe'][0], FMT['safe'][1], min(FMT['safe'][2], _x), FMT['safe'][3]])
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
-if EP['template'] in ('slang', 'guess3', 'levels3', 'scorecard') and o.format == 'short':   # v3 (audit 24/11 #3 empty frames): the few cards of a 7-13 s reel were small in a 826 px region (pilot t2s_ace: 70 % bare background at 2-3 s) -> bigger text, bigger cards
-    S.update({k: round(S[k] * 1.25) for k in ('body', 'sub', 'chip', 'ipa', 'pill')})
+if EP['template'] in ('slang', 'guess3', 'levels3', 'scorecard'):   # v3 (audit 24/11 #3 empty frames): the few cards of a 7-13 s reel were small in a 826 px region (pilot t2s_ace: 70 % bare background at 2-3 s) -> bigger text, bigger cards
+    S.update({k: round(S[k] * (1.25 if o.format == 'short' else 1.2)) for k in ('body', 'sub', 'chip', 'ipa', 'pill')})
 PAD, GAP, LEDGE, RADIUS = 40, 24, 10, 44
 FJ, FN = f'{o.fonts}/PlusJakartaSans-VF.ttf', f'{o.fonts}/NotoSans-Medium.ttf'; _fc = {}
 
@@ -881,6 +881,7 @@ def T_scorecard():
     c.place(t_k, t_ch - 0.3, 'a')
     c = Card(RY0); chip(c, 'YOUR TURN', t_ch); c.text([[('Match ' if s == 100 else 'Beat '), 'ink'], [f'{s}/100', 'coral'], ['?', 'ink']], S['big'], t_ch, align='c')
     c.text([['Take the free level test', 'muted']], S['sub'], at('ch', 'Take'), align='c'); c.place(t_ch, t_c - 0.3, 'a')
+    end_card()   # v3: the scorecard closed with an empty frame (audit 24/11 #2)
 
 
 def T_guess3():

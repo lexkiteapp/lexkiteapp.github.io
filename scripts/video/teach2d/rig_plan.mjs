@@ -61,7 +61,7 @@ export function blocks(track, total) {
 
 const GEST_FOR_POSE = pose => Object.entries(CORE.GESTURES).filter(([, g]) => g.kind === 'pose' && g.pose === pose).map(([n]) => n).sort((a, b) => (a === pose ? -1 : b === pose ? 1 : 0))[0] || null;
 const posesOf = names => [...new Set(names.map(n => CORE.GESTURES[n] && CORE.GESTURES[n].pose).filter(Boolean))];
-export const BEAT_EMO = ['explain', 'happy', 'encourage', 'thinking', 'praise', 'surprise', 'listen'];   // plain teaching beats (spec §1 + v3)
+export const BEAT_EMO = ['explain', 'happy', 'encourage', 'thinking', 'praise', 'surprise', 'listen', 'hype', 'love'];   // plain teaching beats (spec §1 + v3)
 export const SILENCE_POSES = ['point', 'explain', 'cheer'];
 
 /** Emotion / gesture schedule from the script (spec §1): hook surprise -> happy · quiz: thinking in its pause · answer: praise + nod ·
