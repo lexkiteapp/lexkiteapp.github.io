@@ -336,6 +336,8 @@
   "rev.test": "测验",
   "rev.pronunciation": "发音练习",
   "rev.gamesPractice": "游戏与练习",
+  "rev.gamePicmatch": "图片配对",
+  "rev.gameCrossword": "每日填字",
   "rev.pickAWordSource": "选择一个单词来源，然后选择一个练习模式。每次会话均可赚取 XP 并计入您的每日任务。",
   "rev.wordSource": "词语来源",
   "rev.mySentence": "我的句子",

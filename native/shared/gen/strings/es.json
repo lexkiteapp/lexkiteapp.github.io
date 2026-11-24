@@ -336,6 +336,8 @@
   "rev.test": "Prueba",
   "rev.pronunciation": "Pronunciación",
   "rev.gamesPractice": "Juegos y ejercicios",
+  "rev.gamePicmatch": "Unir imágenes",
+  "rev.gameCrossword": "Crucigrama diario",
   "rev.pickAWordSource": "Elige una fuente de palabras y luego un modo de práctica. Cada sesión gana XP y cuenta para tus misiones diarias.",
   "rev.wordSource": "Origen de la palabra",
   "rev.mySentence": "Mi frase",
