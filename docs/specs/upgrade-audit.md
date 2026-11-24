@@ -5,7 +5,7 @@
 
 **Số đo hiện tại (Lighthouse, tự cập nhật):**
 <!-- measured:start -->
-Điện thoại, 10 trang (trung vị): hiệu năng 98 · trợ năng 100 · SEO 100 · LCP 2 s. Yếu nhất: hiệu năng `en/` 97; trợ năng `app/` 98.
+Điện thoại, 10 trang (trung vị): hiệu năng 99 · trợ năng 100 · SEO 100 · LCP 1.9 s. Yếu nhất: hiệu năng `vi/words/` 96; trợ năng `app/` 98.
 <!-- measured:end -->
 
 ## UX

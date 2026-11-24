@@ -1,0 +1,150 @@
+{
+ "id": "t2s_pt_awesome",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 17,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You got us free tickets?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Awesome!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Really great.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You got us free tickets? That's awesome!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "awesome",
+  "forms": [],
+  "ipa": "/ˈɔːsəm/",
+  "mean": "Really great.",
+  "define": "Used to say that something is excellent or very enjoyable.",
+  "vi": "Tuyệt vời, đỉnh",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "praise",
+  "example": {
+   "ctx": "Hearing good news",
+   "text": "You got us free tickets? That's awesome!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Awesome\" means…",
+   "options": [
+    "a little boring",
+    "really great"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'awesome' about sad news.",
+   "why": "It sounds sarcastic or cruel."
+  },
+  "l1": "incrível",
+  "l1_hook": "Você conseguiu ingressos grátis para a gente?",
+  "l1_ex": "Você conseguiu ingressos grátis para a gente? Isso é \"awesome\"!",
+  "right": "awesome",
+  "native": {
+   "hook": "O que significa “awesome”?",
+   "tip": "“awesome” = incrível. Exemplo: “You got us free tickets? That's awesome!”",
+   "caption": "O que significa “awesome”?\n“awesome” = incrível.\nExemplo: “You got us free tickets? That's awesome!” (Você conseguiu ingressos grátis para a gente? Isso é \"awesome\"!)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “awesome” = incrível. “You got us free tickets? That's awesome!” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You got us free tickets?"
+ },
+ "src": {
+  "slang": "awesome"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "O que significa “awesome”?",
+  "keyword": "awesome",
+  "value": "“awesome” = incrível. Exemplo: “You got us free tickets? That's awesome!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “awesome”?",
+    "description": "“awesome” = incrível. Exemplo: “You got us free tickets? That's awesome!”\n\nO que significa “awesome”?\n“awesome” = incrível.\nExemplo: “You got us free tickets? That's awesome!” (Você conseguiu ingressos grátis para a gente? Isso é \"awesome\"!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "awesome",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “awesome”?\n“awesome” = incrível.\nExemplo: “You got us free tickets? That's awesome!” (Você conseguiu ingressos grátis para a gente? Isso é \"awesome\"!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “awesome”?\n\n“awesome” = incrível. Exemplo: “You got us free tickets? That's awesome!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “awesome”? “awesome” = incrível. Exemplo: “You got us free tickets? That's awesome!” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “awesome” = incrível. “You got us free tickets? That's awesome!” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

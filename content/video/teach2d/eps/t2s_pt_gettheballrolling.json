@@ -1,0 +1,148 @@
+{
+ "id": "t2s_pt_gettheballrolling",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 80,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Meeting starts. Who goes first?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Get the ball rolling!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start the activity now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's get the ball rolling with ideas.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "key": "get the ball rolling",
+  "forms": [
+   "get the ball rolling"
+  ],
+  "ipa": "/ɡet ðə ˈbɔːl ˈroʊlɪŋ/",
+  "mean": "Start the activity now.",
+  "define": "To begin a project or process.",
+  "vi": "Bắt đầu thôi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Starting a group project",
+   "text": "Let's get the ball rolling with ideas."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "play soccer",
+    "begin"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'get the ball rolling' about finishing.",
+   "why": "It means starting something."
+  },
+  "l1": "dar o pontapé inicial",
+  "l1_hook": "A reunião começa. Quem vai \"get the ball rolling\" primeiro?",
+  "l1_ex": "Vamos \"get the ball rolling\" com algumas ideias.",
+  "right": "get the ball rolling",
+  "native": {
+   "hook": "O que significa “get…”?",
+   "tip": "“get the ball rolling” = dar o pontapé inicial. Exemplo: “Let's get the ball rolling with ideas.”",
+   "caption": "O que significa “get…”?\n“get the ball rolling” = dar o pontapé inicial.\nExemplo: “Let's get the ball rolling with ideas.” (Vamos \"get the ball rolling\" com algumas ideias.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “get the ball rolling” = dar o pontapé inicial. “Let's get the ball rolling with ideas.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Meeting starts. Who goes first?"
+ },
+ "src": {
+  "slang": "get the ball rolling"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "O que significa “get…”?",
+  "keyword": "get the ball rolling",
+  "value": "“get the ball rolling” = dar o pontapé inicial. Exemplo: “Let's get the ball rolling with ideas.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “get…”?",
+    "description": "“get the ball rolling” = dar o pontapé inicial. Exemplo: “Let's get the ball rolling with ideas.”\n\nO que significa “get…”?\n“get the ball rolling” = dar o pontapé inicial.\nExemplo: “Let's get the ball rolling with ideas.” (Vamos \"get the ball rolling\" com algumas ideias.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "get the ball rolling",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “get…”?\n“get the ball rolling” = dar o pontapé inicial.\nExemplo: “Let's get the ball rolling with ideas.” (Vamos \"get the ball rolling\" com algumas ideias.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “get…”?\n\n“get the ball rolling” = dar o pontapé inicial. Exemplo: “Let's get the ball rolling with ideas.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “get…”? “get the ball rolling” = dar o pontapé inicial. Exemplo: “Let's get the ball rolli… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “get the ball rolling” = dar o pontapé inicial. “Let's get the ball rolling with ideas.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

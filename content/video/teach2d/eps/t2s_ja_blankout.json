@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ja_blankout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 38,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stage lights on. My mind's empty!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Blank out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly forget everything.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I blanked out in the middle of my speech.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "blank out",
+  "forms": [
+   "blanked out"
+  ],
+  "ipa": "/ˈblæŋk ˈaʊt/",
+  "mean": "Suddenly forget everything.",
+  "define": "To suddenly forget what you wanted to say or know.",
+  "vi": "Đầu óc trống rỗng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Talking after a speech",
+   "text": "I blanked out in the middle of my speech."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"blank out\" is to…",
+   "options": [
+    "clean a board",
+    "suddenly forget"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'blank out' about a paper.",
+   "why": "It means suddenly forgetting."
+  },
+  "l1": "頭が真っ白になる",
+  "l1_hook": "ステージのライトがついた。頭が「blank out」した。",
+  "l1_ex": "スピーチの途中で \"blank out\" した。",
+  "right": "blank out",
+  "native": {
+   "hook": "「blank out」ってどういう意味？",
+   "tip": "“blank out” = 頭が真っ白になる. 例文: “I blanked out in the middle of my speech.”",
+   "caption": "「blank out」ってどういう意味？\n“blank out” = 頭が真っ白になる.\n例文: “I blanked out in the middle of my speech.” (スピーチの途中で \"blank out\" した。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “blank out” = 頭が真っ白になる. “I blanked out in the middle of my speech.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stage lights on. My mind's empty!"
+ },
+ "src": {
+  "slang": "blank out"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "「blank out」ってどういう意味？",
+  "keyword": "blank out",
+  "value": "“blank out” = 頭が真っ白になる. 例文: “I blanked out in the middle of my speech.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "「blank out」ってどういう意味？",
+    "description": "“blank out” = 頭が真っ白になる. 例文: “I blanked out in the middle of my speech.”\n\n「blank out」ってどういう意味？\n“blank out” = 頭が真っ白になる.\n例文: “I blanked out in the middle of my speech.” (スピーチの途中で \"blank out\" した。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "blank out",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「blank out」ってどういう意味？\n“blank out” = 頭が真っ白になる.\n例文: “I blanked out in the middle of my speech.” (スピーチの途中で \"blank out\" した。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「blank out」ってどういう意味？\n\n“blank out” = 頭が真っ白になる. 例文: “I blanked out in the middle of my speech.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「blank out」ってどういう意味？ “blank out” = 頭が真っ白になる. 例文: “I blanked out in the middle of my speech.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “blank out” = 頭が真っ白になる. “I blanked out in the middle of my speech.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

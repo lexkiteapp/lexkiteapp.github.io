@@ -1,0 +1,150 @@
+{
+ "id": "t2s_es_drip",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 46,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New jacket, new shoes, new confidence!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Drip!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very stylish clothes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Nice jacket, you've got drip today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "drip",
+  "forms": [],
+  "ipa": "/ˈdrɪp/",
+  "mean": "Very stylish clothes.",
+  "define": "Slang for cool clothes and a stylish look.",
+  "vi": "Phong cách chất lừ",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Seeing a friend's outfit",
+   "text": "Nice jacket, you've got drip today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Drip\" means…",
+   "options": [
+    "a water drop",
+    "a cool style"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your boss 'nice drip' at work.",
+   "why": "It's too slangy for formal settings."
+  },
+  "l1": "estilo",
+  "l1_hook": "¡Nueva chaqueta, nuevos zapatos, nueva confianza! \"drip\"",
+  "l1_ex": "Buena chaqueta, hoy tienes \"drip\".",
+  "right": "drip",
+  "native": {
+   "hook": "¿Qué significa “drip”?",
+   "tip": "“drip” = estilo. Ejemplo: “Nice jacket, you've got drip today.”",
+   "caption": "¿Qué significa “drip”?\n“drip” = estilo.\nEjemplo: “Nice jacket, you've got drip today.” (Buena chaqueta, hoy tienes \"drip\".)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “drip” = estilo. “Nice jacket, you've got drip today.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "New jacket, new shoes, new confidence!"
+ },
+ "src": {
+  "slang": "drip"
+ },
+ "lang": "es",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "¿Qué significa “drip”?",
+  "keyword": "drip",
+  "value": "“drip” = estilo. Ejemplo: “Nice jacket, you've got drip today.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “drip”?",
+    "description": "“drip” = estilo. Ejemplo: “Nice jacket, you've got drip today.”\n\n¿Qué significa “drip”?\n“drip” = estilo.\nEjemplo: “Nice jacket, you've got drip today.” (Buena chaqueta, hoy tienes \"drip\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "drip",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “drip”?\n“drip” = estilo.\nEjemplo: “Nice jacket, you've got drip today.” (Buena chaqueta, hoy tienes \"drip\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “drip”?\n\n“drip” = estilo. Ejemplo: “Nice jacket, you've got drip today.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “drip”? “drip” = estilo. Ejemplo: “Nice jacket, you've got drip today.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “drip” = estilo. “Nice jacket, you've got drip today.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

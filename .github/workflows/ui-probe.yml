@@ -1,0 +1,37 @@
+# ci-policy: fast-lane – chạy tay: dò hộp bố cục một route ở một khổ (gỡ lỗi giao diện), artifact 5 ngày.
+name: UI probe
+on:
+  workflow_dispatch:
+    inputs:
+      routes: { description: 'Route cách nhau dấu phẩy (không có #/)', required: true, default: 'say' }
+      vp: { description: 'Khổ WxH', required: false, default: '768x1024' }
+      lang: { description: 'Ngôn ngữ', required: false, default: 'vi' }
+      scheme: { description: 'light|dark', required: false, default: 'light' }
+  pull_request:
+    paths: ['scripts/test/ui-probe.mjs', '.github/workflows/ui-probe.yml']
+permissions:
+  contents: read
+concurrency:
+  group: ui-probe-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  probe:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
+      - name: Dò
+        env: { R: "${{ github.event.inputs.routes || 'say,pron,ideas' }}", VP: "${{ github.event.inputs.vp || '768x1024' }}", L: "${{ github.event.inputs.lang || 'vi' }}", S: "${{ github.event.inputs.scheme || 'light' }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/ui-probe.mjs http://localhost:8080 probe-out "$R" "$VP" "$L" "$S" | tee -a "$GITHUB_STEP_SUMMARY"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: ui-probe, path: probe-out, retention-days: 5 }

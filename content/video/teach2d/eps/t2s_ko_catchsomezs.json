@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ko_catchsomezs",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 78,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "It's late and I'm sleepy!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Catch some Zs!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Get some sleep.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm going to catch some Zs.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "catch some Zs",
+  "forms": [
+   "catch Zs"
+  ],
+  "ipa": "/ˈkætʃ sʌm ˈziːz/",
+  "mean": "Get some sleep.",
+  "define": "A casual way to say you will sleep.",
+  "vi": "Chợp mắt chút",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Before bed",
+   "text": "I'm going to catch some Zs."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "sleep",
+    "play games"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell your boss you'll 'catch some Zs'.",
+   "why": "It sounds like napping on work time."
+  },
+  "l1": "한눈 붙이다",
+  "l1_hook": "‘catch some Zs’, 늦었고 졸려!",
+  "l1_ex": "'catch some Zs' 할게.",
+  "right": "catch some Zs",
+  "native": {
+   "hook": "“catch some Zs” 무슨 뜻일까요?",
+   "tip": "“catch some Zs” = 한눈 붙이다. 예문: “I'm going to catch some Zs.”",
+   "caption": "“catch some Zs” 무슨 뜻일까요?\n“catch some Zs” = 한눈 붙이다.\n예문: “I'm going to catch some Zs.” ('catch some Zs' 할게.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “catch some Zs” = 한눈 붙이다. “I'm going to catch some Zs.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "It's late and I'm sleepy!"
+ },
+ "src": {
+  "slang": "catch some Zs"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 19,
+  "seconds": 10.5,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“catch some Zs” 무슨 뜻일까요?",
+  "keyword": "catch some Zs",
+  "value": "“catch some Zs” = 한눈 붙이다. 예문: “I'm going to catch some Zs.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“catch some Zs” 무슨 뜻일까요?",
+    "description": "“catch some Zs” = 한눈 붙이다. 예문: “I'm going to catch some Zs.”\n\n“catch some Zs” 무슨 뜻일까요?\n“catch some Zs” = 한눈 붙이다.\n예문: “I'm going to catch some Zs.” ('catch some Zs' 할게.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "catch some Zs",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“catch some Zs” 무슨 뜻일까요?\n“catch some Zs” = 한눈 붙이다.\n예문: “I'm going to catch some Zs.” ('catch some Zs' 할게.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“catch some Zs” 무슨 뜻일까요?\n\n“catch some Zs” = 한눈 붙이다. 예문: “I'm going to catch some Zs.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“catch some Zs” 무슨 뜻일까요? “catch some Zs” = 한눈 붙이다. 예문: “I'm going to catch some Zs.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “catch some Zs” = 한눈 붙이다. “I'm going to catch some Zs.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

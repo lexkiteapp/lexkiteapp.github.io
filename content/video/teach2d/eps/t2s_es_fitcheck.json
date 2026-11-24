@@ -1,0 +1,146 @@
+{
+ "id": "t2s_es_fitcheck",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 65,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Outfit ready. Thoughts before school?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Fit check!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Showing off your outfit.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Quick fit check before school!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "fit check",
+  "forms": [],
+  "ipa": "/ˈfɪt ˈtʃek/",
+  "mean": "Showing off your outfit.",
+  "define": "A moment to show your outfit and get opinions.",
+  "vi": "Khoe bộ đồ hôm nay",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Before leaving home",
+   "text": "Quick fit check before school!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"fit check\" shows…",
+   "options": [
+    "your outfit",
+    "your shoes only"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't ask for a 'fit check' at the gym.",
+   "why": "It means outfit, not fitness."
+  },
+  "l1": "revisión de outfit",
+  "l1_hook": "Conjunto listo. \"fit check\", ¿qué opinas antes de la escuela?",
+  "l1_ex": "¡Rápido \"fit check\" antes de la escuela!",
+  "right": "fit check",
+  "native": {
+   "hook": "¿Qué significa “fit check”?",
+   "tip": "“fit check” = revisión de outfit. Ejemplo: “Quick fit check before school!”",
+   "caption": "¿Qué significa “fit check”?\n“fit check” = revisión de outfit.\nEjemplo: “Quick fit check before school!” (¡Rápido \"fit check\" antes de la escuela!)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “fit check” = revisión de outfit. “Quick fit check before school!” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Outfit ready. Thoughts before school?"
+ },
+ "src": {
+  "slang": "fit check"
+ },
+ "lang": "es",
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "¿Qué significa “fit check”?",
+  "keyword": "fit check",
+  "value": "“fit check” = revisión de outfit. Ejemplo: “Quick fit check before school!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “fit check”?",
+    "description": "“fit check” = revisión de outfit. Ejemplo: “Quick fit check before school!”\n\n¿Qué significa “fit check”?\n“fit check” = revisión de outfit.\nEjemplo: “Quick fit check before school!” (¡Rápido \"fit check\" antes de la escuela!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "fit check",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “fit check”?\n“fit check” = revisión de outfit.\nEjemplo: “Quick fit check before school!” (¡Rápido \"fit check\" antes de la escuela!)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “fit check”?\n\n“fit check” = revisión de outfit. Ejemplo: “Quick fit check before school!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “fit check”? “fit check” = revisión de outfit. Ejemplo: “Quick fit check before school!” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “fit check” = revisión de outfit. “Quick fit check before school!” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

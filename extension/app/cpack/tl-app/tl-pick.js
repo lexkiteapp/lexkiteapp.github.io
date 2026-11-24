@@ -5,10 +5,10 @@
 (function (g) {
   'use strict';
   const T = () => g.Target, tr = (k, v) => (typeof g.t === 'function' ? g.t(k, v) : k), esc = s => (g.UI ? UI.esc(s) : String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])));
-  const ORDER = ['en', 'es', 'fr', 'pt'], SOON = ['fr', 'pt'], NKEY = 'lk.tlnotify', AKEY = 'lk.tlannounced';
+  const ORDER = ['en', 'es', 'fr', 'ja', 'ko', 'pt'], SOON = ['fr', 'pt'], NKEY = 'lk.tlnotify', AKEY = 'lk.tlannounced';
   const ls = (k, v) => { try { if (v === undefined) return g.localStorage.getItem(k); g.localStorage.setItem(k, v); } catch (e) { /* riêng tư */ } return null; };
   const list = k => { try { const a = JSON.parse(ls(k) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } };
-  const SUB = () => ({ en: tr('IELTS, TOEIC và giao tiếp hằng ngày'), pt: tr('Tiếng Bồ Đào Nha Brazil'), es: tr('Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2'), fr: tr('Tiếng Pháp chuẩn · A1–C2') });
+  const SUB = () => ({ en: tr('IELTS, TOEIC và giao tiếp hằng ngày'), pt: tr('Tiếng Bồ Đào Nha Brazil'), es: tr('Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2'), fr: tr('Tiếng Pháp chuẩn · A1–C2'), ja: tr('Tiếng Nhật · JLPT N5–N1'), ko: tr('Tiếng Hàn · TOPIK I–II') });
   const show = () => !!T() && T().LANGS.length > 1;
   // các khóa hiển thị: bật = chọn được; chưa bật mà có spec = sắp ra mắt; còn lại ẩn
   const courses = () => { const on = T().avail(); return ORDER.filter(id => T().TABLE[id] && (on.includes(id) || SOON.includes(id))).map(id => ({ id, on: on.includes(id) })); };
@@ -53,6 +53,40 @@
     addEventListener('hashchange', close, { once: true });
   }
   function notify(id, b) { const a = list(NKEY); if (!a.includes(id)) { a.push(id); ls(NKEY, JSON.stringify(a)); } if (b) { b.disabled = true; b.setAttribute('aria-pressed', 'true'); b.textContent = tr('Sẽ báo bạn khi có'); } }
+
+  // ===== Bảng "Bạn đang luyện kỳ thi nào?" (chip kỳ thi · docs/specs/exam-sheet.md): NGÔN NGỮ trước → kỳ thi lọc theo ngôn ngữ → "Xong".
+  // Một kiểu chọn duy nhất (role=radio, .on = nền accent-soft + ✓); focus-visible là vòng riêng; hover chỉ đổi nền nhạt. Chưa có nội dung → "Sắp có".
+  const EXAMS = { es: 'DELE / SIELE', fr: 'DELF / DALF / TCF', ja: 'JLPT', ko: 'TOPIK', pt: 'CELPE-Bras' }; // kỳ thi theo ngôn ngữ ≠ en (tên riêng, không dịch)
+  const ENX = ['ielts', 'ieltsgt', 'toeic', 'toefl'];
+  const xdesc = () => ({ ielts: tr('Du học, định cư – 4 kỹ năng, band 0–9'), ieltsgt: tr('Định cư, làm việc – viết thư ở Task 1'), toeic: tr('Công sở – Nghe & Đọc, 10–990 điểm'), toefl: tr('Du học Mỹ – bản 2026, band 1–6'), general: tr('Nói chuyện hằng ngày, chưa cần chứng chỉ') });
+  const radio = (on, attrs, inner) => `<li class="tlp-li"><button type="button" class="tlp-row${on ? ' on' : ''}" role="radio" aria-checked="${on}" ${attrs}>${inner}<span class="tlp-tick" aria-hidden="true">${on ? '✓' : ''}</span></button></li>`;
+  const grp = (id, label, body) => `<section class="tlp-sec"><h3 class="tlp-lab" id="${id}">${esc(label)}</h3><ul class="tlp-list" role="radiogroup" aria-labelledby="${id}">${body}</ul></section>`;
+  async function exam() {
+    if (!g.App || !App.EXAMS) return; const X = App.EXAMS, st = await stats(), cur = T().cur(), P = { tl: cur, ex: App.exam() };
+    const lang = k => { const on = k === P.tl, s = st[k] || { n: 0, k: 0 }, pct = s.n ? Math.round(100 * s.k / s.n) : 0;
+      return `<li class="tlp-li"><button type="button" class="tlp-row tlp-lang${on ? ' on' : ''}" role="radio" aria-checked="${on}" data-xtl="${k}">${flag(k)}<span class="tlp-body"><span class="tlp-name" translate="no" lang="${k}">${esc(T().table(k).name)}</span><span class="tlp-bar" aria-hidden="true"><i style="width:${pct}%"></i></span><span class="tlp-cnt">${esc(tr('{n} từ đã học', { n: s.n }))}</span></span><span class="tlp-tick" aria-hidden="true">${on ? '✓' : ''}</span></button></li>`; };
+    const ex = (k, name, sub, on) => radio(on, `data-xex="${k}"`, `<span class="tlp-body"><span class="tlp-name" translate="no">${esc(name)}</span><span class="tlp-sub">${esc(sub)}</span></span>`);
+    const soon = () => ORDER.filter(k => EXAMS[k] && !T().avail().includes(k) && T().TABLE[k]).map(k => { const got = list(NKEY).includes(k);
+      return `<li class="tlp-row soon" data-tl="${k}">${flag(k)}<div class="tlp-body"><span class="tlp-name" translate="no">${esc(EXAMS[k])}</span><span class="tlp-sub" translate="no" lang="${k}">${esc(T().table(k).name)}</span><span class="tlp-pill">${esc(tr('Sắp ra mắt'))}</span></div><button type="button" class="tlp-notify" data-notify="${k}" aria-pressed="${got}"${got ? ' disabled' : ''}>${esc(got ? tr('Sẽ báo bạn khi có') : tr('Báo tôi khi có'))}</button></li>`; }).join('');
+    const body = () => { const en = P.tl === 'en', d = xdesc();
+      const exams = en ? ENX.map(k => ex(k, X[k].name, d[k], P.ex === k)).join('') : ex('lang', EXAMS[P.tl] || T().table(P.tl).name, SUB()[P.tl] || '', true);
+      const soonH = soon();
+      return grp('xpL', tr('Ngôn ngữ đang học'), ORDER.filter(k => T().avail().includes(k)).map(lang).join(''))
+        + grp('xpE', tr('Kỳ thi'), exams) + (en ? grp('xpG', tr('Hoặc chỉ học giao tiếp'), ex('general', X.general.name, d.general, P.ex === 'general')) : '')
+        + (soonH ? `<section class="tlp-sec"><h3 class="tlp-lab">${esc(tr('Sắp ra mắt'))}</h3><ul class="tlp-list">${soonH}</ul></section>` : ''); };
+    const box = UI.modal(`<div class="tlp-sheet tlp-xp"><div class="tlp-top-s"><div class="tlp-grab" aria-hidden="true"></div><div class="tlp-head"><h2 id="tlpT">${esc(tr('Bạn đang luyện kỳ thi nào?'))}</h2><button type="button" class="tlp-x" data-close aria-label="${esc(tr('Đóng'))}"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div></div><div class="tlp-xb" id="xpB"></div><div class="tlp-foot-s"><button type="button" class="btn primary tlp-done" id="xpDone">${esc(tr('Xong'))}</button></div></div>`, { v: 'sheet' });
+    box.setAttribute('aria-labelledby', 'tlpT');
+    const paintX = f => { const b = box.querySelector('#xpB'); b.innerHTML = body(); b.querySelectorAll('[data-xtl]').forEach(x => x.onclick = () => { P.tl = x.dataset.xtl; paintX('[data-xtl="' + P.tl + '"]'); });
+      b.querySelectorAll('[data-xex]').forEach(x => x.onclick = () => { if (x.dataset.xex !== 'lang') P.ex = x.dataset.xex; paintX('[data-xex="' + x.dataset.xex + '"]'); });
+      b.querySelectorAll('[data-notify]').forEach(x => x.onclick = () => notify(x.dataset.notify, x));
+      b.querySelectorAll('[role=radio]').forEach((r, i, all) => r.onkeydown = e => { const d = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0; const sib = [...all].filter(z => z.closest('ul') === r.closest('ul')); if (d) { e.preventDefault(); sib[(sib.indexOf(r) + d + sib.length) % sib.length].focus(); } });
+      if (f) { const n = b.querySelector(f); if (n) n.focus({ preventScroll: true }); } };
+    paintX();
+    box.querySelector('#xpDone').onclick = () => { const was = T().cur();
+      if (P.tl === 'en' && P.ex !== App.exam()) { if (was !== 'en') T().set('en'); close(); App.setExam(P.ex); paint(); }
+      else if (P.tl !== was) choose(P.tl); else close(); };
+    addEventListener('hashchange', close, { once: true });
+  }
   // nút cờ: cờ + tên rút gọn không cần – chỉ cờ + mũi tên (khung §5d: một icon/pill, ≥ 44 px, aria nêu ngôn ngữ hiện tại)
   const btnHtml = () => `${T().table(T().cur()).em}<span class="tlp-chev" aria-hidden="true">▾</span>`;
   const label = () => `${tr('Ngôn ngữ đang học')}: ${T().table(T().cur()).name}`;
@@ -86,5 +120,5 @@
   function tabs() { document.querySelectorAll('#bnav [data-tab], #nav [data-route]').forEach(a => { const k = a.dataset.tab || a.dataset.route; if (/^(vocab|skills|tests)$/.test(k)) a.setAttribute('href', T().routeFor(k) || '#/' + k); }); }
   function boot() { top(); announce(); tabs(); if (!boot.w) { boot.w = 1; addEventListener('lk:tl', paint); addEventListener('lk:tl', tabs); document.addEventListener('click', onChip);
     const A = g.App; if (A) { const prev = A.afterRoute; A.afterRoute = name => { if (prev) prev(name); try { explore(name); } catch (e) { /* bỏ qua */ } }; explore((location.hash.match(/^#\/?([a-z-]+)/) || [])[1]); } } }
-  g.TLPick = { open, head, card, boot, top, paint, tabs, courses, notify, choose };
+  g.TLPick = { open, head, card, boot, top, paint, tabs, courses, notify, choose, exam };
 })(typeof self !== 'undefined' ? self : this);

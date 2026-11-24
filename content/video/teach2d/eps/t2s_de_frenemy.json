@@ -1,0 +1,148 @@
+{
+ "id": "t2s_de_frenemy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 83,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We smile, but we compete!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Frenemy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A friend who is also a rival.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She's my frenemy, always competing with me.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "key": "frenemy",
+  "forms": [
+   "frenemies"
+  ],
+  "ipa": "/ˈfrenəmi/",
+  "mean": "A friend who is also a rival.",
+  "define": "Someone who acts friendly but competes with you.",
+  "vi": "Bạn mà như đối thủ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "She's my frenemy, always competing with me."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"frenemy\" is…",
+   "options": [
+    "a pet",
+    "friend and rival"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your best friend your 'frenemy'.",
+   "why": "It suggests you secretly dislike her."
+  },
+  "l1": "Frenemy",
+  "l1_hook": "Wir lächeln, aber wir sind 'frenemy'!",
+  "l1_ex": "Sie ist meine \"frenemy\", immer im Wettbewerb mit mir.",
+  "right": "frenemy",
+  "native": {
+   "hook": "Was heißt “frenemy”?",
+   "tip": "“frenemy” = Frenemy. Beispiel: “She's my frenemy, always competing with me.”",
+   "caption": "Was heißt “frenemy”?\n“frenemy” = Frenemy.\nBeispiel: “She's my frenemy, always competing with me.” (Sie ist meine \"frenemy\", immer im Wettbewerb mit mir.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “frenemy” = Frenemy. “She's my frenemy, always competing with me.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "We smile, but we compete!"
+ },
+ "src": {
+  "slang": "frenemy"
+ },
+ "lang": "de",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Was heißt “frenemy”?",
+  "keyword": "frenemy",
+  "value": "“frenemy” = Frenemy. Beispiel: “She's my frenemy, always competing with me.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “frenemy”?",
+    "description": "“frenemy” = Frenemy. Beispiel: “She's my frenemy, always competing with me.”\n\nWas heißt “frenemy”?\n“frenemy” = Frenemy.\nBeispiel: “She's my frenemy, always competing with me.” (Sie ist meine \"frenemy\", immer im Wettbewerb mit mir.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "frenemy",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “frenemy”?\n“frenemy” = Frenemy.\nBeispiel: “She's my frenemy, always competing with me.” (Sie ist meine \"frenemy\", immer im Wettbewerb mit mir.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “frenemy”?\n\n“frenemy” = Frenemy. Beispiel: “She's my frenemy, always competing with me.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “frenemy”? “frenemy” = Frenemy. Beispiel: “She's my frenemy, always competing with me.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “frenemy” = Frenemy. “She's my frenemy, always competing with me.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

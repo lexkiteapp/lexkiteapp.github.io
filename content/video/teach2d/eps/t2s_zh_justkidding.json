@@ -1,0 +1,148 @@
+{
+ "id": "t2s_zh_justkidding",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 51,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I ate your cake!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Just kidding!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I was only joking.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I ate your cake! Just kidding.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "just kidding",
+  "forms": [
+   "JK"
+  ],
+  "ipa": "/dʒʌst ˈkɪdɪŋ/",
+  "mean": "I was only joking.",
+  "define": "Used after a joke to show you didn't mean it.",
+  "vi": "Đùa thôi mà",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Joking with a friend",
+   "text": "I ate your cake! Just kidding."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm serious",
+    "I'm joking"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'just kidding' after a serious insult.",
+   "why": "It doesn't erase hurt feelings."
+  },
+  "l1": "开玩笑的",
+  "l1_hook": "我吃了你的蛋糕！\"just kidding\"",
+  "l1_ex": "我吃了你的蛋糕！just kidding。",
+  "right": "just kidding",
+  "native": {
+   "hook": "“just kidding”是什么意思？",
+   "tip": "“just kidding” = 开玩笑的. 例句: “I ate your cake! Just kidding.”",
+   "caption": "“just kidding”是什么意思？\n“just kidding” = 开玩笑的.\n例句: “I ate your cake! Just kidding.” (我吃了你的蛋糕！just kidding。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “just kidding” = 开玩笑的. “I ate your cake! Just kidding.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I ate your cake!"
+ },
+ "src": {
+  "slang": "just kidding"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“just kidding”是什么意思？",
+  "keyword": "just kidding",
+  "value": "“just kidding” = 开玩笑的. 例句: “I ate your cake! Just kidding.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“just kidding”是什么意思？",
+    "description": "“just kidding” = 开玩笑的. 例句: “I ate your cake! Just kidding.”\n\n“just kidding”是什么意思？\n“just kidding” = 开玩笑的.\n例句: “I ate your cake! Just kidding.” (我吃了你的蛋糕！just kidding。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "just kidding",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“just kidding”是什么意思？\n“just kidding” = 开玩笑的.\n例句: “I ate your cake! Just kidding.” (我吃了你的蛋糕！just kidding。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“just kidding”是什么意思？\n\n“just kidding” = 开玩笑的. 例句: “I ate your cake! Just kidding.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“just kidding”是什么意思？ “just kidding” = 开玩笑的. 例句: “I ate your cake! Just kidding.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “just kidding” = 开玩笑的. “I ate your cake! Just kidding.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

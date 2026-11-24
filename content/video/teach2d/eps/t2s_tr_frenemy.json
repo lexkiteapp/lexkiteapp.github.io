@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_frenemy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 83,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We smile, but we compete!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Frenemy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A friend who is also a rival.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She's my frenemy, always competing with me.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "key": "frenemy",
+  "forms": [
+   "frenemies"
+  ],
+  "ipa": "/ˈfrenəmi/",
+  "mean": "A friend who is also a rival.",
+  "define": "Someone who acts friendly but competes with you.",
+  "vi": "Bạn mà như đối thủ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "She's my frenemy, always competing with me."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"frenemy\" is…",
+   "options": [
+    "a pet",
+    "friend and rival"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your best friend your 'frenemy'.",
+   "why": "It suggests you secretly dislike her."
+  },
+  "l1": "düşman dost",
+  "l1_hook": "Gülümseriz ama rekabet ederiz! (\"frenemy\")",
+  "l1_ex": "O benim \"frenemy\"im, her zaman benimle rekabet ediyor.",
+  "right": "frenemy",
+  "native": {
+   "hook": "“frenemy” ne demek?",
+   "tip": "“frenemy” = düşman dost. Örnek: “She's my frenemy, always competing with me.”",
+   "caption": "“frenemy” ne demek?\n“frenemy” = düşman dost.\nÖrnek: “She's my frenemy, always competing with me.” (O benim \"frenemy\"im, her zaman benimle rekabet ediyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “frenemy” = düşman dost. “She's my frenemy, always competing with me.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "We smile, but we compete!"
+ },
+ "src": {
+  "slang": "frenemy"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“frenemy” ne demek?",
+  "keyword": "frenemy",
+  "value": "“frenemy” = düşman dost. Örnek: “She's my frenemy, always competing with me.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“frenemy” ne demek?",
+    "description": "“frenemy” = düşman dost. Örnek: “She's my frenemy, always competing with me.”\n\n“frenemy” ne demek?\n“frenemy” = düşman dost.\nÖrnek: “She's my frenemy, always competing with me.” (O benim \"frenemy\"im, her zaman benimle rekabet ediyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "frenemy",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“frenemy” ne demek?\n“frenemy” = düşman dost.\nÖrnek: “She's my frenemy, always competing with me.” (O benim \"frenemy\"im, her zaman benimle rekabet ediyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“frenemy” ne demek?\n\n“frenemy” = düşman dost. Örnek: “She's my frenemy, always competing with me.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“frenemy” ne demek? “frenemy” = düşman dost. Örnek: “She's my frenemy, always competing with me.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “frenemy” = düşman dost. “She's my frenemy, always competing with me.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

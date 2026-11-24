@@ -1,0 +1,135 @@
+{
+ "id": "t2s_digin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 86,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dinner's ready. Who's hungry?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dig in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start eating now.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dinner is ready, so dig in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "dig in",
+  "forms": [],
+  "ipa": "/ˈdɪɡ ˈɪn/",
+  "mean": "Start eating now.",
+  "define": "Used to invite people to begin eating.",
+  "vi": "Ăn đi nào",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "food",
+  "example": {
+   "ctx": "Serving dinner",
+   "text": "Dinner is ready, so dig in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dig in\" means…",
+   "options": [
+    "dig a hole",
+    "start eating"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell guests to 'dig in' before the host.",
+   "why": "Formal dinners wait for the host."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dinner's ready. Who's hungry?"
+ },
+ "src": {
+  "slang": "dig in"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"dig in\" mean?",
+  "keyword": "dig in",
+  "value": "Dig in = Start eating now. Example: \"Dinner is ready, so dig in!\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"dig in\" mean?",
+    "description": "Dig in = Start eating now. Example: \"Dinner is ready, so dig in!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "dig in",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"dig in\" mean?\n\nDig in = Start eating now. Example: \"Dinner is ready, so dig in!\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"dig in\" mean?\n\nDig in = Start eating now. Example: \"Dinner is ready, so dig in!\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"dig in\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell guests to 'dig in' before the host. Formal dinners wait for the host. Real example: \"Dinner is ready, so dig in!\" More real English slang, free: {link}"
+ }
+}

@@ -1,0 +1,152 @@
+{
+ "id": "t2s_th_rainingcatsanddogs",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 98,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look outside! Grab an umbrella!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Raining cats and dogs!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Raining very hard.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "It's raining cats and dogs!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "raining cats and dogs",
+  "forms": [
+   "rain cats and dogs"
+  ],
+  "ipa": "/ˈreɪnɪŋ ˈkæts ən ˈdɔːɡz/",
+  "mean": "Raining very hard.",
+  "define": "An idiom for very heavy rain.",
+  "vi": "Mưa như trút",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Looking out a window",
+   "text": "It's raining cats and dogs!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "very heavy rain",
+    "animals fall"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't look for real animals when it's 'raining cats and dogs'.",
+   "why": "It's an idiom for heavy rain."
+  },
+  "l1": "ฝนตกหนัก",
+  "l1_hook": "ดูข้างนอก! เตรียมร่มไว้ เพราะกำลัง \"raining cats and dogs\"",
+  "l1_ex": "มันกำลัง \"raining cats and dogs\"!",
+  "right": "raining cats and dogs",
+  "native": {
+   "hook": "“raining…” แปลว่าอะไร?",
+   "tip": "“raining cats and dogs” = ฝนตกหนัก. ตัวอย่าง: “It's raining cats and dogs!”",
+   "caption": "“raining…” แปลว่าอะไร?\n“raining cats and dogs” = ฝนตกหนัก.\nตัวอย่าง: “It's raining cats and dogs!” (มันกำลัง \"raining cats and dogs\"!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “raining cats and dogs” = ฝนตกหนัก. “It's raining cats and dogs!” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look outside! Grab an umbrella!"
+ },
+ "src": {
+  "slang": "raining cats and dogs"
+ },
+ "lang": "th",
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“raining…” แปลว่าอะไร?",
+  "keyword": "raining cats and dogs",
+  "value": "“raining cats and dogs” = ฝนตกหนัก. ตัวอย่าง: “It's raining cats and dogs!”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“raining…” แปลว่าอะไร?",
+    "description": "“raining cats and dogs” = ฝนตกหนัก. ตัวอย่าง: “It's raining cats and dogs!”\n\n“raining…” แปลว่าอะไร?\n“raining cats and dogs” = ฝนตกหนัก.\nตัวอย่าง: “It's raining cats and dogs!” (มันกำลัง \"raining cats and dogs\"!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "raining cats and dogs",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“raining…” แปลว่าอะไร?\n“raining cats and dogs” = ฝนตกหนัก.\nตัวอย่าง: “It's raining cats and dogs!” (มันกำลัง \"raining cats and dogs\"!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“raining…” แปลว่าอะไร?\n\n“raining cats and dogs” = ฝนตกหนัก. ตัวอย่าง: “It's raining cats and dogs!”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“raining…” แปลว่าอะไร? “raining cats and dogs” = ฝนตกหนัก. ตัวอย่าง: “It's raining cats and dogs!” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “raining cats and dogs” = ฝนตกหนัก. “It's raining cats and dogs!” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

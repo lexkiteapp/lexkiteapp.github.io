@@ -1,0 +1,135 @@
+{
+ "id": "t2s_neat",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 259,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at this card trick!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Neat!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Cool and nice.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That's a neat trick!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "neat",
+  "forms": [],
+  "ipa": "/ˈniːt/",
+  "mean": "Cool and nice.",
+  "define": "Used to say something is pleasant or interesting.",
+  "vi": "Hay đó, xịn đó",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Seeing a magic trick",
+   "text": "That's a neat trick!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Neat\" here means…",
+   "options": [
+    "messy",
+    "cool"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's messy room 'neat'.",
+   "why": "Neat means tidy or cool, so it confuses."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at this card trick!"
+ },
+ "src": {
+  "slang": "neat"
+ },
+ "est": {
+  "words": 15,
+  "seconds": 9.9,
+  "wpm": 90
+ },
+ "publish": {
+  "title": "What does \"neat\" mean?",
+  "keyword": "neat",
+  "value": "Neat = Cool and nice. Example: \"That's a neat trick!\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"neat\" mean?",
+    "description": "Neat = Cool and nice. Example: \"That's a neat trick!\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "neat",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"neat\" mean?\n\nNeat = Cool and nice. Example: \"That's a neat trick!\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"neat\" mean?\n\nNeat = Cool and nice. Example: \"That's a neat trick!\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"neat\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a friend's messy room 'neat'. Neat means tidy or cool, so it confuses. Real example: \"That's a neat trick!\" More real English slang, free: {link}"
+ }
+}

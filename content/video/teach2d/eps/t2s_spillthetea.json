@@ -1,0 +1,134 @@
+{
+ "id": "t2s_spillthetea",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 158,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, what happened at lunch?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Spill the tea!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Tell me the gossip.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Spill the tea about the school trip!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "data": {
+  "key": "spill the tea",
+  "forms": [
+   "spilled the tea",
+   "spilling the tea"
+  ],
+  "ipa": "/ˈspɪl ðə ˈtiː/",
+  "mean": "Tell me the gossip.",
+  "define": "To share juicy news about other people.",
+  "vi": "Kể drama đi, hóng quá",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "drama",
+  "example": {
+   "ctx": "At lunch with friends",
+   "text": "Spill the tea about the school trip!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Spill the tea\" means…",
+   "options": [
+    "drop a drink",
+    "share gossip"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't ask your teacher to 'spill the tea'.",
+   "why": "It's gossip talk, too casual."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wait, what happened at lunch?"
+ },
+ "src": {
+  "slang": "spill the tea"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"spill the tea\" mean?",
+  "keyword": "spill the tea",
+  "value": "Spill the tea = Tell me the gossip. Example: \"Spill the tea about the school trip!\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"spill the tea\" mean?",
+    "description": "Spill the tea = Tell me the gossip. Example: \"Spill the tea about the school trip!\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "spill the tea",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"spill the tea\" mean?\n\nSpill the tea = Tell me the gossip. Example: \"Spill the tea about the school trip!\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"spill the tea\" mean?\n\nSpill the tea = Tell me the gossip. Example: \"Spill the tea about the school trip!\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"spill the tea\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't ask your teacher to 'spill the tea'. It's gossip talk, too casual. Real example: \"Spill the tea about the school trip!\" More real English slang, free: {link}"
+ }
+}

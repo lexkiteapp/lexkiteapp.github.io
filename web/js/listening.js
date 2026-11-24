@@ -169,7 +169,7 @@
     if (!all.includes(cur)) { try { cur = +localStorage.getItem('vb.listenT') || 0; } catch (e) { cur = 0; } }
     if (!all.includes(cur)) cur = all[0] || 1;
     try { localStorage.setItem('vb.listenT', cur); } catch (e) { /* bỏ qua */ }
-    const tabs = all.length > 1 ? `<div class="tabs" style="display:inline-flex;flex-wrap:wrap;margin-bottom:1rem">${all.map(n => `<a class="${n === cur ? 'on' : ''}" href="#/listening?t=${n}" style="padding:.45rem .8rem;border-radius:10px;font-weight:700;text-decoration:none;color:inherit;${n === cur ? 'background:var(--surface);box-shadow:var(--shadow-sm)' : ''}">Test ${n}${(state.game.listenBest || {})[n] != null ? ' ✓' : ''}</a>`).join('')}</div>` : '';
+    const tabs = all.length > 1 ? `<div class="tabs" style="margin-bottom:1rem">${all.map(n => `<a class="${n === cur ? 'on' : ''}" href="#/listening?t=${n}" ${n === cur ? 'aria-current="page"' : ''}>Test ${n}${(state.game.listenBest || {})[n] != null ? ' ✓' : ''}</a>`).join('')}</div>` : '';
     const done = state.game.listenDone || {};
     const best = state.game.listenBest || {};
     view.innerHTML = `
@@ -183,13 +183,14 @@
           <div class="row between"><span class="chip">Part ${p.part} · ${PART()[p.part]}</span>${done[p.id] != null ? `<span class="chip ok">✓ ${done[p.id]}/10</span>` : ''}</div>
           <h3 style="margin:.5rem 0 .2rem">${esc(p.title)}</h3><div class="small muted">${p.titleVi && I18N.lang() === 'vi' ? esc(p.titleVi) + ' · ' : ''}${esc(p.topic || '')}</div>
           <div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div>
-          <div class="card-acts"><a class="btn sm primary" href="#/listen/${p.id}">${UI.icon('target')} ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Nghe 1 lần')}</a><a class="btn sm" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả')}</a></div></div>`).join('')}</div></div>`).join('')}
+          <div class="card-acts"><a class="btn sm" href="#/listen/${p.id}">${UI.icon('target')} ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Nghe 1 lần')}</a><a class="btn sm" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả')}</a></div></div>`).join('')}</div></div>`).join('')}
       <div class="card"><h3>${UI.icon('lightbulb')} ${t('Mẹo làm bài Listening')}</h3><ul class="small">
         <li>${t('<b>Đọc trước câu hỏi</b> trong thời gian chờ: gạch chân từ khóa, đoán loại từ cần điền (số, tên, danh từ…).')}</li>
         <li>${t('<b>Cẩn thận bẫy “đổi ý”</b>: người nói hay nói một đáp án rồi sửa lại (“sorry, I mean…”). Đáp án là thông tin cuối cùng.')}</li>
         <li>${t('<b>Paraphrase</b>: câu hỏi hiếm khi dùng đúng từ trong bài nghe – hãy nghe ý, không chỉ nghe từ.')}</li>
         <li>${t('<b>Giới hạn từ</b>: “ONE WORD AND/OR A NUMBER” mà viết 2 từ là sai cả câu. Chú ý chính tả và số nhiều.')}</li>
         <li>${t('<b>Chép chính tả</b> 10 phút mỗi ngày là cách nhanh nhất để nghe ra từng âm, nối âm và nuốt âm.')}</li></ul></div>`;
+    const onTab = view.querySelector('.tabs a.on'); if (onTab && onTab.scrollIntoView) onTab.scrollIntoView({ inline: 'center', block: 'nearest' }); // Test đang chọn luôn nằm trong vùng thấy (hàng tab cuộn ngang)
   };
 
   // ================= 1 PHẦN: LUYỆN TẬP / THI THẬT =================

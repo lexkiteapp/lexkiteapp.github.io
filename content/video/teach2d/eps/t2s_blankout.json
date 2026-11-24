@@ -1,0 +1,133 @@
+{
+ "id": "t2s_blankout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 38,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stage lights on. My mind's empty!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Blank out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly forget everything.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I blanked out in the middle of my speech.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "blank out",
+  "forms": [
+   "blanked out"
+  ],
+  "ipa": "/ˈblæŋk ˈaʊt/",
+  "mean": "Suddenly forget everything.",
+  "define": "To suddenly forget what you wanted to say or know.",
+  "vi": "Đầu óc trống rỗng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Talking after a speech",
+   "text": "I blanked out in the middle of my speech."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"blank out\" is to…",
+   "options": [
+    "clean a board",
+    "suddenly forget"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'blank out' about a paper.",
+   "why": "It means suddenly forgetting."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stage lights on. My mind's empty!"
+ },
+ "src": {
+  "slang": "blank out"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"blank out\" mean?",
+  "keyword": "blank out",
+  "value": "Blank out = Suddenly forget everything. Example: \"I blanked out in the middle of my speech.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"blank out\" mean?",
+    "description": "Blank out = Suddenly forget everything. Example: \"I blanked out in the middle of my speech.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "blank out",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"blank out\" mean?\n\nBlank out = Suddenly forget everything. Example: \"I blanked out in the middle of my speech.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"blank out\" mean?\n\nBlank out = Suddenly forget everything. Example: \"I blanked out in the middle of my speech.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"blank out\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'blank out' about a paper. It means suddenly forgetting. Real example: \"I blanked out in the middle of my speech.\" More real English slang, free: {link}"
+ }
+}

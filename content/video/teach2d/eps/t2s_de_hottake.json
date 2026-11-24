@@ -1,0 +1,148 @@
+{
+ "id": "t2s_de_hottake",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 32,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pineapple pizza is the best!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hot take!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A strong, surprising opinion.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Here's my hot take: pineapple belongs on pizza.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "hot take",
+  "forms": [
+   "hot takes"
+  ],
+  "ipa": "/ˈhɑːt ˈteɪk/",
+  "mean": "A strong, surprising opinion.",
+  "define": "An opinion that is strong and often unpopular.",
+  "vi": "Quan điểm gây tranh cãi",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Chatting about food",
+   "text": "Here's my hot take: pineapple belongs on pizza."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"hot take\" is…",
+   "options": [
+    "a hot drink",
+    "a bold opinion"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call plain facts a 'hot take'.",
+   "why": "It means a bold, debatable opinion."
+  },
+  "l1": "heißer Kommentar",
+  "l1_hook": "Ananaspizza ist das Beste! \"hot take\"",
+  "l1_ex": "Hier ist mein \"hot take\": Ananas gehört auf Pizza.",
+  "right": "hot take",
+  "native": {
+   "hook": "Was heißt “hot take”?",
+   "tip": "“hot take” = heißer Kommentar. Beispiel: “Here's my hot take: pineapple belongs on pizza.”",
+   "caption": "Was heißt “hot take”?\n“hot take” = heißer Kommentar.\nBeispiel: “Here's my hot take: pineapple belongs on pizza.” (Hier ist mein \"hot take\": Ananas gehört auf Pizza.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “hot take” = heißer Kommentar. “Here's my hot take: pineapple belongs on pizza.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pineapple pizza is the best!"
+ },
+ "src": {
+  "slang": "hot take"
+ },
+ "lang": "de",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Was heißt “hot take”?",
+  "keyword": "hot take",
+  "value": "“hot take” = heißer Kommentar. Beispiel: “Here's my hot take: pineapple belongs on pizza.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “hot take”?",
+    "description": "“hot take” = heißer Kommentar. Beispiel: “Here's my hot take: pineapple belongs on pizza.”\n\nWas heißt “hot take”?\n“hot take” = heißer Kommentar.\nBeispiel: “Here's my hot take: pineapple belongs on pizza.” (Hier ist mein \"hot take\": Ananas gehört auf Pizza.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "hot take",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “hot take”?\n“hot take” = heißer Kommentar.\nBeispiel: “Here's my hot take: pineapple belongs on pizza.” (Hier ist mein \"hot take\": Ananas gehört auf Pizza.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “hot take”?\n\n“hot take” = heißer Kommentar. Beispiel: “Here's my hot take: pineapple belongs on pizza.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “hot take”? “hot take” = heißer Kommentar. Beispiel: “Here's my hot take: pineapple belongs… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “hot take” = heißer Kommentar. “Here's my hot take: pineapple belongs on pizza.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}
