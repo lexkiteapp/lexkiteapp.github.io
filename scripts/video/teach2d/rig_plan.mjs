@@ -86,8 +86,8 @@ export function schedule(T, lines, B) {
     else if (prev && isQuiz(prev)) { at(s - 0.1, 'emo', 'praise', 'answer'); at(s + 0.05, 'gesture', 'nod', 'answer'); }
     else if (l.id === 'c') at(s - 0.1, 'emo', 'encourage', 'cta');
     else {   // v3 (audit 24/11 #1): every beat has its own look – cycle through BEAT_EMO, never the same as the previous beat's
-      const last = [...ev].reverse().find(e => e.kind === 'emo'), pick = BEAT_EMO.filter(n => !last || n !== last.name);
-      at(s - 0.1, 'emo', pick[beat++ % pick.length], 'beat');
+      const last = [...ev].reverse().find(e => e.kind === 'emo'), used = new Set(ev.filter(e => e.kind === 'emo').map(e => e.name)), pick = BEAT_EMO.filter(n => !last || n !== last.name), fresh = pick.filter(n => !used.has(n));   // unused faces first: looks >= beats
+      at(s - 0.1, 'emo', (fresh.length ? fresh : pick)[beat++ % (fresh.length || pick.length)], 'beat');
     }
     // head emphasis inside every beat (neck procedure, works while speaking – a pose image would cover the mouth): bob on the middle of the line
     if (wEnd(l) - wStart(l) > 0.8) at(wStart(l) + 0.4 * (wEnd(l) - wStart(l)), 'gesture', i % 2 ? 'nod' : 'bob', 'emphasis');
