@@ -38,18 +38,18 @@
   const ic = id => `<svg class="i" aria-hidden="true" focusable="false"><use href="#i-${id}"/></svg>`;
   S.hubCss = () => { if (document.getElementById('stHbCss')) return; const s = document.createElement('style'); s.id = 'stHbCss';
     s.textContent = `.hb{position:sticky;top:0;z-index:40;width:100%;box-sizing:border-box;padding:env(safe-area-inset-top,0px) 16px 6px;background:color-mix(in srgb,var(--bg) 94%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);color:var(--text)}
-.hb-r{display:flex;align-items:center;gap:4px;height:44px}.hb-r2{margin-top:2px;gap:6px}
+.hb-r{display:flex;align-items:center;gap:4px}.hb-r2{margin-top:2px;gap:6px}
 .hb-b{flex:none;position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;padding:0;border:0;background:none;color:var(--heading);font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .hb-b .i{width:22px;height:22px}.hb-logo img{width:32px;height:32px;border-radius:9px;display:block}
 .hb-s{flex:1;min-width:0;overflow:hidden;display:flex;align-items:center;gap:8px;height:44px;margin:0;padding:0 14px;border:0;background:none;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-align:start}
-.hb-s{container-type:inline-size}@container (max-width:84px){.hb-s em{display:none}.hb-s span{justify-content:center;padding:0}}
 .hb-s span{flex:1;min-width:0;height:36px;display:flex;align-items:center;gap:8px;padding:0 14px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-2);overflow:hidden;white-space:nowrap}.hb-s .i{width:18px;height:18px;flex:none}.hb-s em{flex:1;min-width:0;font-style:normal;overflow:hidden;text-overflow:ellipsis}
 .hb-av i{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:var(--primary);color:#fff;font:800 15px/1 inherit;font-style:normal;overflow:hidden;box-shadow:0 0 0 3px var(--surface-2)}.hb-av img{width:100%;height:100%;object-fit:cover;display:block}.hb-av .i{width:20px;height:20px;color:#fff}
 .hb-c{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;min-height:44px;color:var(--text);text-decoration:none;-webkit-tap-highlight-color:transparent}
 .hb-c>span{max-width:100%;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:6px;height:32px;padding:0 10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-2);font-size:12px;line-height:14px;font-weight:800;letter-spacing:.02em;white-space:nowrap}
 .hb-c .i{width:16px;height:16px;color:var(--heading)}.hb-c .st-fl{flex:none}.hb-c b{font-weight:800;overflow:hidden;text-overflow:ellipsis}
 .hb .notif-dot{position:absolute;top:6px;inset-inline-end:6px}.hb .hidden{display:none}
-.hb-r2{height:auto}.hb-c{flex-direction:column;gap:2px;min-height:56px;padding:6px 2px;border:1px solid var(--line-2);border-radius:14px;background:var(--surface-2)}.hb-c>span{height:auto;padding:0;border:0;background:none;font-size:15px}.hb-l{font-size:11px;line-height:13px;font-weight:600;font-style:normal;color:var(--muted);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* cờ ngôn ngữ đang học (TLPick.head): phủ lên đuôi ô tra từ – không chiếm chỗ ⇒ hàng 1 giữ đúng khe mẫu Stitch; vùng chạm 44 px */
+.hb-r{position:relative}.hb-r>.hb-logo{order:0}.hb-r>.hb-s{order:1}.hb-r>.tlp-hd{order:2;margin-inline:-44px 0;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;background:none;box-shadow:none;font-size:18px;z-index:1}.hb-r>.hb-b:not(.hb-logo){order:3}
 @media (max-width:359px){.hb-c>span{padding:0 6px;gap:4px}}
 @media (min-width:1024px){.hb{display:none!important}}
 @media (max-width:1023px){#view>.hb{margin:-1rem -1rem 12px;width:auto}}
@@ -57,14 +57,14 @@
 @media (max-width:1023px){.hb~header{display:none!important}.hb~main.pt-14{padding-top:8px!important}body.hb-on .topbar{display:none!important}body.hb-on.v2-gs .topbar{display:flex!important;position:fixed;inset:0 0 auto;z-index:60;padding:.5rem .75rem}body.hb-on.v2-gs .topbar>:not(.gsearch){display:none}body.hb-on.v2-gs .gsearch{max-width:none}}`;
     document.head.appendChild(s); };
   S.hubbar = (d, chips = true) => { S.hubCss(); const h = d.hdr || S.hdr(), u = (self.App && App.state && App.state.user) || null, nm = (u && (u.displayName || u.email)) || '', L = (self.I18N && I18N.lang ? I18N.lang() : 'vi').toUpperCase();
-    const chip = (k, href, id, val, lab, icon, sh) => `<a class="hb-c" href="${esc(href)}" aria-label="${esc(lab + ': ' + val)}" data-hdr="${k}"><span>${icon || ic(id)}<b>${esc(val)}</b></span><i class="hb-l">${esc(sh)}</i></a>`;
+    const chip = (k, href, id, val, lab, icon) => `<a class="hb-c" href="${esc(href)}" aria-label="${esc(lab + ': ' + val)}" data-hdr="${k}"><span>${icon || ic(id)}<b>${esc(val)}</b></span></a>`;
     const av = u && u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : nm ? esc((nm.trim()[0] || 'L').toUpperCase()) : ic('user');
     return `<header class="hb"><div class="hb-r"><a class="hb-b hb-logo" href="#/home" aria-label="Lexkite"><img src="icons/icon.svg?v=3" width="32" height="32" alt=""></a>`
-      + `<button type="button" class="hb-s" data-act="search" title="${esc(t('Tra từ'))}" aria-label="${esc(t('Tra từ'))}"><span>${ic('search')}<em>${esc(t('Tra từ…'))}</em></span></button>`
+      + `<button type="button" class="hb-s" data-act="search" aria-label="${esc(t('Tra từ'))}"><span>${ic('search')}<em>${esc(t('Tra từ…'))}</em></span></button>`
       + `<button type="button" class="hb-b" data-act="notif" aria-label="${esc(t('Thông báo'))}">${ic('bell')}<span data-notif-badge class="hidden"></span></button>`
       + `<button type="button" class="hb-b" data-act="lang" aria-haspopup="dialog" aria-label="${esc(t('Chọn ngôn ngữ giao diện') + ' (' + L + ')')}">${ic('globe')}</button>`
       + `<a class="hb-b hb-av" href="#/me" aria-label="${esc(t('Tài khoản'))}"><i>${av}</i></a></div>`
-      + (chips ? `<div class="hb-r hb-r2">${chip('exam', '#/goal', 'graduation-cap', h.exam, t('Mức sẵn sàng thi'), 0, t('Kỳ thi'))}${chip('streak', '#/streak', '', h.streak, t('Chuỗi ngày học'), S.flame(S.flameState(h.streak), 18), t('Chuỗi ngày'))}${chip('xp', '#/league', 'zap', h.xp, t('Tổng XP'), 0, 'XP')}${chip('goal', '#/stats', 'goal', h.goal, t('Mục tiêu hôm nay'), 0, t('Mục tiêu ngày'))}</div>` : '') + `</header>`; };
+      + (chips ? `<div class="hb-r hb-r2">${chip('exam', '#/goal', 'graduation-cap', h.exam, t('Mức sẵn sàng thi'))}${chip('streak', '#/streak', '', h.streak, t('Chuỗi ngày học'), S.flame(S.flameState(h.streak), 18))}${chip('xp', '#/league', 'zap', h.xp, t('Tổng XP'))}${chip('goal', '#/stats', 'goal', h.goal, t('Mục tiêu hôm nay'))}</div>` : '') + `</header>`; };
   // Nối nút cho màn không tự nối (Hôm nay đã nối trong ux1.js).
   S.hubWire = root => { const h = root.querySelector('.hb'); if (!h) return; if (self.Target && Target.LANGS.length > 1) App.need('tlpick').then(() => TLPick.head(h)).catch(() => {}); // cờ tl: mọi màn
     if (window.Ux1 && Ux1.headBtns) Ux1.headBtns(h); else h.querySelectorAll('[data-act="search"]').forEach(b => b.addEventListener('click', () => { location.hash = '#/dict'; }));
