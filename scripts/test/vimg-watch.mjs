@@ -1,6 +1,7 @@
 // vimg-watch: đỏ ≥ 2 lượt liền, 48 giờ không ảnh dù fill chạy thật; hết nghĩa vẽ được KHÔNG báo đỏ. Không gọi mạng.
 import assert from 'node:assert/strict';
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
+import { writeQueue } from '../lib/review-queue.mjs';
 import { streak, addedOf, verdict, wordSpeed } from '../ci/vimg-watch.mjs';
 const N = Date.parse('2026-11-12T06:00:00Z'), r = (c, h) => ({ status: 'completed', conclusion: c, event: 'schedule', created_at: new Date(N - h * 36e5).toISOString() });
 assert.equal(streak([r('failure', 1), r('failure', 5), r('success', 9)]), 2); assert.equal(streak([r('success', 1), r('failure', 5)]), 0);
@@ -20,7 +21,7 @@ assert.equal(verdict({ runs: {}, commits: [c(2, 5), c(10, 7), c(30, 9)], realSce
 // dòng tốc độ (13/11): từ/ngày theo lô, ảnh/ngày 7 ngày so đích 300, cỡ hàng duyệt
 { const d = fs.mkdtempSync(path.join(os.tmpdir(), 'vw-')); fs.mkdirSync(path.join(d, 'content/lexicon/expand'), { recursive: true }); fs.mkdirSync(path.join(d, 'content/qa'), { recursive: true });
   fs.writeFileSync(path.join(d, 'content/lexicon/expand/20261112-r1.json'), JSON.stringify({ n: 23 })); fs.writeFileSync(path.join(d, 'content/lexicon/expand/20261112.json'), JSON.stringify({ n: 7 })); fs.writeFileSync(path.join(d, 'content/lexicon/expand/20261107.json'), JSON.stringify({ n: 100 }));
-  fs.writeFileSync(path.join(d, 'content/qa/review-queue.json'), JSON.stringify({ items: [{ src: 'lexicon-expand' }, { src: 'lexicon-expand' }, { src: 'khac' }] }));
+  writeQueue(d, { items: [{ src: 'lexicon-expand', batch: 'b1' }, { src: 'lexicon-expand', batch: 'b2' }, { src: 'khac' }] });
   const sp = wordSpeed(d, N); assert.deepEqual(sp, { w1: 30, w7: 130, queue: 2 });
   const line = verdict({ runs: {}, commits: [c(2, 5)], realScene: 0, now: N, speed: sp }).info.find(x => /^Tốc độ/.test(x)); assert.match(line, /từ xuất 30\/ngày/); assert.match(line, /CHƯA ĐẠT/); assert.match(line, /hàng duyệt lexicon-expand 2 mục/);
   assert.equal(wordSpeed(path.join(d, 'nope'), N).queue, null); fs.rmSync(d, { recursive: true, force: true }); }

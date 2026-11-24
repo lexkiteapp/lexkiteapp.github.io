@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ar_frenemy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 83,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We smile, but we compete!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Frenemy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A friend who is also a rival.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She's my frenemy, always competing with me.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "key": "frenemy",
+  "forms": [
+   "frenemies"
+  ],
+  "ipa": "/ˈfrenəmi/",
+  "mean": "A friend who is also a rival.",
+  "define": "Someone who acts friendly but competes with you.",
+  "vi": "Bạn mà như đối thủ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "She's my frenemy, always competing with me."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"frenemy\" is…",
+   "options": [
+    "a pet",
+    "friend and rival"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your best friend your 'frenemy'.",
+   "why": "It suggests you secretly dislike her."
+  },
+  "l1": "صديق عدائي",
+  "l1_hook": "نبتسم، لكننا نتنافس!",
+  "l1_ex": "إنها \"frenemy\" بالنسبة لي، وتتنافس معي دائماً.",
+  "right": "frenemy",
+  "native": {
+   "hook": "ما معنى “frenemy”؟",
+   "tip": "“frenemy” = صديق عدائي. مثال: “She's my frenemy, always competing with me.”",
+   "caption": "ما معنى “frenemy”؟\n“frenemy” = صديق عدائي.\nمثال: “She's my frenemy, always competing with me.” (إنها \"frenemy\" بالنسبة لي، وتتنافس معي دائماً.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “frenemy” = صديق عدائي. “She's my frenemy, always competing with me.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "We smile, but we compete!"
+ },
+ "src": {
+  "slang": "frenemy"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "ما معنى “frenemy”؟",
+  "keyword": "frenemy",
+  "value": "“frenemy” = صديق عدائي. مثال: “She's my frenemy, always competing with me.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “frenemy”؟",
+    "description": "“frenemy” = صديق عدائي. مثال: “She's my frenemy, always competing with me.”\n\nما معنى “frenemy”؟\n“frenemy” = صديق عدائي.\nمثال: “She's my frenemy, always competing with me.” (إنها \"frenemy\" بالنسبة لي، وتتنافس معي دائماً.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "frenemy",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “frenemy”؟\n“frenemy” = صديق عدائي.\nمثال: “She's my frenemy, always competing with me.” (إنها \"frenemy\" بالنسبة لي، وتتنافس معي دائماً.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “frenemy”؟\n\n“frenemy” = صديق عدائي. مثال: “She's my frenemy, always competing with me.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “frenemy”؟ “frenemy” = صديق عدائي. مثال: “She's my frenemy, always competing with me.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “frenemy” = صديق عدائي. “She's my frenemy, always competing with me.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

@@ -47,6 +47,8 @@
 "Mục tiêu {s}":"目标 {s}",
 "Nghe chậm hơn":"慢速播放",
 "Nghe, chọn ảnh":"听音选图",
+"Ngày mai ôn {n} từ để nhớ lâu":"明天要复习的单词：{n} 个",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"明天：下一课已准备好",
 "Những từ bạn hay quên":"你常忘的单词",
 "Nói câu này":"说出这句",
 "Nói hay hơn":"更好的说法",

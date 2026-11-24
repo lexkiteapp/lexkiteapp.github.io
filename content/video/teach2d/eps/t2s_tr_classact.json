@@ -1,0 +1,150 @@
+{
+ "id": "t2s_tr_classact",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 55,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He thanked everyone, even rivals!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Class act!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A person with great manners.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Our coach is a real class act.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "class act",
+  "forms": [],
+  "ipa": "/ˈklæs ˈækt/",
+  "mean": "A person with great manners.",
+  "define": "Someone who behaves with style and kindness.",
+  "vi": "Người lịch thiệp",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "praise",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "Our coach is a real class act."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "A \"class act\" is…",
+   "options": [
+    "a polite, graceful person",
+    "a school play"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'class act' about a school class.",
+   "why": "It praises someone's manners."
+  },
+  "l1": "örnek insan",
+  "l1_hook": "Rakipleri bile, herkese teşekkür etti! \"class act\"",
+  "l1_ex": "Koçumuz gerçek bir \"class act\".",
+  "right": "class act",
+  "native": {
+   "hook": "“class act” ne demek?",
+   "tip": "“class act” = örnek insan. Örnek: “Our coach is a real class act.”",
+   "caption": "“class act” ne demek?\n“class act” = örnek insan.\nÖrnek: “Our coach is a real class act.” (Koçumuz gerçek bir \"class act\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “class act” = örnek insan. “Our coach is a real class act.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He thanked everyone, even rivals!"
+ },
+ "src": {
+  "slang": "class act"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 21,
+  "seconds": 11.9,
+  "wpm": 106
+ },
+ "publish": {
+  "title": "“class act” ne demek?",
+  "keyword": "class act",
+  "value": "“class act” = örnek insan. Örnek: “Our coach is a real class act.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“class act” ne demek?",
+    "description": "“class act” = örnek insan. Örnek: “Our coach is a real class act.”\n\n“class act” ne demek?\n“class act” = örnek insan.\nÖrnek: “Our coach is a real class act.” (Koçumuz gerçek bir \"class act\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "class act",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“class act” ne demek?\n“class act” = örnek insan.\nÖrnek: “Our coach is a real class act.” (Koçumuz gerçek bir \"class act\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“class act” ne demek?\n\n“class act” = örnek insan. Örnek: “Our coach is a real class act.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“class act” ne demek? “class act” = örnek insan. Örnek: “Our coach is a real class act.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “class act” = örnek insan. “Our coach is a real class act.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

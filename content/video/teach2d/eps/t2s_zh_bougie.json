@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_bougie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 53,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She only drinks fancy tea!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bougie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fancy, and a bit too proud.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coffee shop is so bougie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "bougie",
+  "forms": [],
+  "ipa": "/ˈbuːʒi/",
+  "mean": "Fancy, and a bit too proud.",
+  "define": "Liking expensive or fancy things, sometimes in a showy way.",
+  "vi": "Sang chảnh, làm màu",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "money",
+  "example": {
+   "ctx": "Visiting a new café",
+   "text": "This coffee shop is so bougie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bougie\" means…",
+   "options": [
+    "very cheap",
+    "fancy and showy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your host 'bougie' at dinner.",
+   "why": "It can sound snobbish and rude."
+  },
+  "l1": "高档的",
+  "l1_hook": "她只喝高档茶！\"bougie\"",
+  "l1_ex": "这家咖啡店太 bougie 了。",
+  "right": "bougie",
+  "native": {
+   "hook": "“bougie”是什么意思？",
+   "tip": "“bougie” = 高档的. 例句: “This coffee shop is so bougie.”",
+   "caption": "“bougie”是什么意思？\n“bougie” = 高档的.\n例句: “This coffee shop is so bougie.” (这家咖啡店太 bougie 了。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “bougie” = 高档的. “This coffee shop is so bougie.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She only drinks fancy tea!"
+ },
+ "src": {
+  "slang": "bougie"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“bougie”是什么意思？",
+  "keyword": "bougie",
+  "value": "“bougie” = 高档的. 例句: “This coffee shop is so bougie.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“bougie”是什么意思？",
+    "description": "“bougie” = 高档的. 例句: “This coffee shop is so bougie.”\n\n“bougie”是什么意思？\n“bougie” = 高档的.\n例句: “This coffee shop is so bougie.” (这家咖啡店太 bougie 了。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "bougie",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“bougie”是什么意思？\n“bougie” = 高档的.\n例句: “This coffee shop is so bougie.” (这家咖啡店太 bougie 了。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bougie”是什么意思？\n\n“bougie” = 高档的. 例句: “This coffee shop is so bougie.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bougie”是什么意思？ “bougie” = 高档的. 例句: “This coffee shop is so bougie.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “bougie” = 高档的. “This coffee shop is so bougie.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

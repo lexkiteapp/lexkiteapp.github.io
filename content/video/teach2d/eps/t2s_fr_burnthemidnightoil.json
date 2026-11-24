@@ -1,0 +1,149 @@
+{
+ "id": "t2s_fr_burnthemidnightoil",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 57,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Still working at two a.m.?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Burn the midnight oil!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Work very late.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We burned the midnight oil last night.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "burn the midnight oil",
+  "forms": [
+   "burning the midnight oil",
+   "burned the midnight oil"
+  ],
+  "ipa": "/bɜːrn ðə ˈmɪdnaɪt ˈɔɪl/",
+  "mean": "Work very late.",
+  "define": "To keep working late into the night.",
+  "vi": "Thức khuya cày việc",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Preparing for a big test",
+   "text": "We burned the midnight oil last night."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means to work…",
+   "options": [
+    "with real oil",
+    "late at night"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say it about lighting candles.",
+   "why": "It means working very late."
+  },
+  "l1": "travailler tard",
+  "l1_hook": "Tu travailles encore à 2h du matin ? \"burn the midnight oil\".",
+  "l1_ex": "Nous avons « burn the midnight oil » hier soir.",
+  "right": "burn the midnight oil",
+  "native": {
+   "hook": "Que veut dire « burn… » ?",
+   "tip": "“burn the midnight oil” = travailler tard. Exemple: “We burned the midnight oil last night.”",
+   "caption": "Que veut dire « burn… » ?\n“burn the midnight oil” = travailler tard.\nExemple: “We burned the midnight oil last night.” (Nous avons « burn the midnight oil » hier soir.)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “burn the midnight oil” = travailler tard. “We burned the midnight oil last night.” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Still working at two a.m.?"
+ },
+ "src": {
+  "slang": "burn the midnight oil"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Que veut dire « burn… » ?",
+  "keyword": "burn the midnight oil",
+  "value": "“burn the midnight oil” = travailler tard. Exemple: “We burned the midnight oil last night.”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « burn… » ?",
+    "description": "“burn the midnight oil” = travailler tard. Exemple: “We burned the midnight oil last night.”\n\nQue veut dire « burn… » ?\n“burn the midnight oil” = travailler tard.\nExemple: “We burned the midnight oil last night.” (Nous avons « burn the midnight oil » hier soir.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "burn the midnight oil",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « burn… » ?\n“burn the midnight oil” = travailler tard.\nExemple: “We burned the midnight oil last night.” (Nous avons « burn the midnight oil » hier soir.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « burn… » ?\n\n“burn the midnight oil” = travailler tard. Exemple: “We burned the midnight oil last night.”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « burn… » ? “burn the midnight oil” = travailler tard. Exemple: “We burned the midnigh… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “burn the midnight oil” = travailler tard. “We burned the midnight oil last night.” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

@@ -8,6 +8,7 @@ import { isMain } from '../../lib/is-main.mjs';
 import fs from 'fs';
 import { execFileSync } from 'child_process';
 import { doneWords } from './lib.mjs';
+import { gz, gunz, qText } from '../../lib/review-queue.mjs';
 
 const NONE = Symbol('none');
 const eq = (a, b) => a === b || (a !== NONE && b !== NONE && JSON.stringify(a) === JSON.stringify(b));
@@ -38,14 +39,16 @@ export function merge3(base, ours, theirs) {
 
 // giữ đúng định dạng tệp (thụt 1 / dòng mỗi mục kiểu lô chờ) để diff gọn
 export function fmt(v, like) {
+  if (like && like.startsWith('{"items":[\n') && Array.isArray(v.items)) return qText(v.items);
   const m = /^[[{]\n( +)\S/.exec(like || '');
   if (m) return JSON.stringify(v, null, m[1].length) + '\n';
   return JSON.stringify(v).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n';
 }
 
 const parse = t => { try { return t == null ? NONE : JSON.parse(t); } catch { return undefined; } };
-const read = p => (fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : null);
-const atBase = (ref, f) => { try { return execFileSync('git', ['show', `${ref}:${f}`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 28 }); } catch { return null; } };
+// tệp .gz (hàng duyệt tách lô): giải nén để gộp JSON, nén lại khi ghi
+const read = p => (fs.existsSync(p) ? (p.endsWith('.gz') ? gunz(fs.readFileSync(p)) : fs.readFileSync(p, 'utf8')) : null);
+const atBase = (ref, f) => { try { const b = execFileSync('git', ['show', `${ref}:${f}`], { stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 28 }); return f.endsWith('.gz') ? gunz(b) : b.toString('utf8'); } catch { return null; } };
 
 /** gỡ khỏi retry mọi mục doneWords() đã tính (khoá từ#loại); lũy đẳng. → 1 nếu có ghi */
 export function reconcileRetry(f, done = doneWords) {
@@ -64,7 +67,7 @@ if (isMain(import.meta.url)) {
     if (o === undefined || t === undefined || b === undefined) out = oT == null ? NONE : oT; // không phải JSON → bản lượt
     else { const v = merge3(b, o, t); if (isObj(v) && isObj(v.items) && typeof v.n === 'number') v.n = Object.keys(v.items).length; // lô chờ: n = số mục sau gộp
       out = v === NONE ? NONE : eq(v, o) ? oT : eq(v, t) ? tT : fmt(v, oT || tT); }
-    if (out === NONE) { if (tT != null) fs.unlinkSync(f); } else if (out !== tT) { fs.mkdirSync(f.replace(/\/[^/]*$/, ''), { recursive: true }); fs.writeFileSync(f, out); n++; }
+    if (out === NONE) { if (tT != null) fs.unlinkSync(f); } else if (out !== tT) { fs.mkdirSync(f.replace(/\/[^/]*$/, ''), { recursive: true }); fs.writeFileSync(f, f.endsWith('.gz') ? gz(out) : out); n++; }
   }
   // 13/11 (main đỏ: e122220be – 594 mục vừa vào hàng duyệt/đã xuất vẫn nằm trong retry/words.json → test + doneWords): sau gộp 3 chiều, mục đã xử lý (xuất/chờ soát/hàng duyệt) KHÔNG còn ở retry
   n += reconcileRetry(files.find(f => /retry\/words\.json$/.test(f)));

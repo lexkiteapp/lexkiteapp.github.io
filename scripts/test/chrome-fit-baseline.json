@@ -1,0 +1,26 @@
+{
+ "_": "Route cũ còn nội dung cuối bị thanh dưới che (chrome-fit.mjs luật 2) – chỉ giảm, không thêm",
+ "cover": [
+  "#/grammar@390",
+  "#/grammar@768",
+  "#/ideas@390",
+  "#/ideas@768",
+  "#/skill/listening@390",
+  "#/tests@390",
+  "#/topic/awl1@390",
+  "#/verb/go@390"
+ ],
+ "prim": [
+  "#/cambridge@390",
+  "#/cambridge@768",
+  "#/dictation@768",
+  "#/letters@390",
+  "#/letters@768",
+  "#/listen@768",
+  "#/listening@768",
+  "#/toeic-r@768",
+  "#/toeic-sw@390",
+  "#/toeic-sw@768",
+  "#/toeic@768"
+ ]
+}

@@ -1,0 +1,152 @@
+{
+ "id": "t2s_hi_dogtired",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 97,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "That hike felt endless!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Dog tired!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Totally exhausted.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm dog tired after that long hike.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "dog tired",
+  "forms": [
+   "dog-tired"
+  ],
+  "ipa": "/ˈdɔːɡ ˈtaɪɚd/",
+  "mean": "Totally exhausted.",
+  "define": "Used when you are so tired you can barely move.",
+  "vi": "Mệt rã rời",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "After a school sports day",
+   "text": "I'm dog tired after that long hike."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Dog tired\" means…",
+   "options": [
+    "tired of dogs",
+    "very tired"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your pet 'dog tired' literally.",
+   "why": "It's an idiom for exhaustion."
+  },
+  "l1": "चूर-चूर थका हुआ",
+  "l1_hook": "वह ट्रेक अंतहीन जैसा लगा! मैं \"dog tired\" हूँ।",
+  "l1_ex": "मैं \"dog tired\" हूँ, उस लंबी ट्रेक के बाद।",
+  "right": "dog tired",
+  "native": {
+   "hook": "“dog tired” का मतलब क्या है?",
+   "tip": "“dog tired” = चूर-चूर थका हुआ. उदाहरण: “I'm dog tired after that long hike.”",
+   "caption": "“dog tired” का मतलब क्या है?\n“dog tired” = चूर-चूर थका हुआ.\nउदाहरण: “I'm dog tired after that long hike.” (मैं \"dog tired\" हूँ, उस लंबी ट्रेक के बाद।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “dog tired” = चूर-चूर थका हुआ. “I'm dog tired after that long hike.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "That hike felt endless!"
+ },
+ "src": {
+  "slang": "dog tired"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“dog tired” का मतलब क्या है?",
+  "keyword": "dog tired",
+  "value": "“dog tired” = चूर-चूर थका हुआ. उदाहरण: “I'm dog tired after that long hike.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "“dog tired” का मतलब क्या है?",
+    "description": "“dog tired” = चूर-चूर थका हुआ. उदाहरण: “I'm dog tired after that long hike.”\n\n“dog tired” का मतलब क्या है?\n“dog tired” = चूर-चूर थका हुआ.\nउदाहरण: “I'm dog tired after that long hike.” (मैं \"dog tired\" हूँ, उस लंबी ट्रेक के बाद।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "dog tired",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“dog tired” का मतलब क्या है?\n“dog tired” = चूर-चूर थका हुआ.\nउदाहरण: “I'm dog tired after that long hike.” (मैं \"dog tired\" हूँ, उस लंबी ट्रेक के बाद।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“dog tired” का मतलब क्या है?\n\n“dog tired” = चूर-चूर थका हुआ. उदाहरण: “I'm dog tired after that long hike.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“dog tired” का मतलब क्या है? “dog tired” = चूर-चूर थका हुआ. उदाहरण: “I'm dog tired after that long hike… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “dog tired” = चूर-चूर थका हुआ. “I'm dog tired after that long hike.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

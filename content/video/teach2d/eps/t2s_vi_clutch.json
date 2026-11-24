@@ -1,0 +1,150 @@
+{
+ "id": "t2s_vi_clutch",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 69,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last second goal wins it!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Clutch!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Great at the key moment.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That last-minute goal was so clutch.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "clutch",
+  "forms": [],
+  "ipa": "/ˈklʌtʃ/",
+  "mean": "Great at the key moment.",
+  "define": "Used when someone does well at an important time.",
+  "vi": "Cứu nguy đúng lúc",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Watching a game",
+   "text": "That last-minute goal was so clutch."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Clutch\" describes…",
+   "options": [
+    "a bag",
+    "a perfect key moment"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'clutch' about a small purse.",
+   "why": "Here it means great under pressure."
+  },
+  "l1": "Cứu nguy đúng lúc",
+  "l1_hook": "Bàn thắng phút chót quyết định luôn!",
+  "l1_ex": "Bàn thắng phút chót đó clutch quá.",
+  "right": "clutch",
+  "native": {
+   "hook": "“clutch” nghĩa là gì?",
+   "tip": "“clutch” = Cứu nguy đúng lúc. Ví dụ: “That last-minute goal was so clutch.”",
+   "caption": "“clutch” nghĩa là gì?\n“clutch” = Cứu nguy đúng lúc.\nVí dụ: “That last-minute goal was so clutch.” (Bàn thắng phút chót đó clutch quá.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “clutch” = Cứu nguy đúng lúc. “That last-minute goal was so clutch.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Last second goal wins it!"
+ },
+ "src": {
+  "slang": "clutch"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“clutch” nghĩa là gì?",
+  "keyword": "clutch",
+  "value": "“clutch” = Cứu nguy đúng lúc. Ví dụ: “That last-minute goal was so clutch.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“clutch” nghĩa là gì?",
+    "description": "“clutch” = Cứu nguy đúng lúc. Ví dụ: “That last-minute goal was so clutch.”\n\n“clutch” nghĩa là gì?\n“clutch” = Cứu nguy đúng lúc.\nVí dụ: “That last-minute goal was so clutch.” (Bàn thắng phút chót đó clutch quá.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "clutch",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“clutch” nghĩa là gì?\n“clutch” = Cứu nguy đúng lúc.\nVí dụ: “That last-minute goal was so clutch.” (Bàn thắng phút chót đó clutch quá.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“clutch” nghĩa là gì?\n\n“clutch” = Cứu nguy đúng lúc. Ví dụ: “That last-minute goal was so clutch.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“clutch” nghĩa là gì? “clutch” = Cứu nguy đúng lúc. Ví dụ: “That last-minute goal was so clutch.” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “clutch” = Cứu nguy đúng lúc. “That last-minute goal was so clutch.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

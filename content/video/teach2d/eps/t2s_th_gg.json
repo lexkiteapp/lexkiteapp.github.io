@@ -1,0 +1,150 @@
+{
+ "id": "t2s_th_gg",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 107,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The match just ended. Respect?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "GG!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Good game.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "GG, that was a fun match!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "GG",
+  "forms": [],
+  "ipa": "/ˌdʒiː ˈdʒiː/",
+  "mean": "Good game.",
+  "define": "Said politely after a match ends.",
+  "vi": "Chơi hay lắm",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "After an online match",
+   "text": "GG, that was a fun match!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "GG means…",
+   "options": [
+    "go go",
+    "good game"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't type 'GG' to your boss after a project.",
+   "why": "It's gamer slang for games."
+  },
+  "l1": "เกมที่ดี",
+  "l1_hook": "เกมเพิ่งจบแล้ว, \"GG\"",
+  "l1_ex": "\"GG\", สนุกมาก!",
+  "right": "GG",
+  "native": {
+   "hook": "“GG” แปลว่าอะไร?",
+   "tip": "“GG” = เกมที่ดี. ตัวอย่าง: “GG, that was a fun match!”",
+   "caption": "“GG” แปลว่าอะไร?\n“GG” = เกมที่ดี.\nตัวอย่าง: “GG, that was a fun match!” (\"GG\", สนุกมาก!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “GG” = เกมที่ดี. “GG, that was a fun match!” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The match just ended. Respect?"
+ },
+ "src": {
+  "slang": "GG"
+ },
+ "lang": "th",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "“GG” แปลว่าอะไร?",
+  "keyword": "GG",
+  "value": "“GG” = เกมที่ดี. ตัวอย่าง: “GG, that was a fun match!”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "“GG” แปลว่าอะไร?",
+    "description": "“GG” = เกมที่ดี. ตัวอย่าง: “GG, that was a fun match!”\n\n“GG” แปลว่าอะไร?\n“GG” = เกมที่ดี.\nตัวอย่าง: “GG, that was a fun match!” (\"GG\", สนุกมาก!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "GG",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“GG” แปลว่าอะไร?\n“GG” = เกมที่ดี.\nตัวอย่าง: “GG, that was a fun match!” (\"GG\", สนุกมาก!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“GG” แปลว่าอะไร?\n\n“GG” = เกมที่ดี. ตัวอย่าง: “GG, that was a fun match!”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“GG” แปลว่าอะไร? “GG” = เกมที่ดี. ตัวอย่าง: “GG, that was a fun match!” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “GG” = เกมที่ดี. “GG, that was a fun match!” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}
