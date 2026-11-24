@@ -50,4 +50,6 @@ sql.prepare("INSERT OR REPLACE INTO yt_quota (day, units) VALUES (?, 50000)").ru
 r = await api('stats'); ok(r.s === 429 && r.j.error === 'quota-breaker', 'đã dùng ≥ 80 % hạn mức → cầu dao 429');
 const forged = await Y.onRequestPost({ request: new Request('https://lexkite.com/api/youtube', { method: 'POST', body: '{"op":"stats"}', headers: { 'CF-Connecting-IP': '10.2.0.1' } }), env: ENV });
 ok(forged.status !== 200, 'không chữ ký → không đọc được');
+{ const src = (await import('node:fs')).readFileSync('functions/api/youtube.js', 'utf8'), st = src.slice(src.indexOf('async stats(db'), src.indexOf('async purged(db'));
+  ok(/Promise\.all\(\(await channelsOk\(db\)\)\.map\(one_\)\)/.test(st) && /db\.batch\(/.test(st) && !/for \(const v of videos\) if \(!v\.missing\) await run\(/.test(st), 'stats: kênh chạy song song + ghi snapshot theo lô (không tuần tự → không 524 > 100 s)'); }
 if (fails) process.exit(1); console.log('yt-stats-op ok', n);
