@@ -990,11 +990,7 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'AI có sẵn trong Chrome (trên máy, riêng tư)': 'Chrome built-in AI (on-device, private)',
   'Gemini – chấm chi tiết như giám khảo': 'Gemini – examiner-style feedback',
   'AI của Chrome đã sẵn sàng': 'Chrome AI is ready',
-  // ← en/xcore.js
-  'Mức sẵn sàng thi': 'Exam readiness',
-  'Mục tiêu hôm nay': "Today's goal",
   // ← en/hubs.js
-  'Giao tiếp & nền tảng, chưa thi chứng chỉ': 'Everyday English & foundations, no exam yet',
   'Còn {n} lượt chấm AI miễn phí hôm nay': '{n} free AI gradings left today',
   'AI chấm Writing & Speaking miễn phí của Lexkite': "Lexkite's free AI grading for Writing & Speaking",
   '3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa': '3 a day, 5 when signed in – no key needed',

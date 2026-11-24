@@ -23,6 +23,7 @@
 'Định cư, làm việc – viết thư ở Task 1': 'Migration & work – letter writing in Task 1',
 'Công sở – Nghe & Đọc, 10–990 điểm': 'Workplace – Listening & Reading, 10–990',
 'Du học Mỹ – bản 2026, band 1–6': 'Study in the US – 2026 format, band 1–6',
+'Giao tiếp & nền tảng, chưa thi chứng chỉ': 'Everyday English & foundations, no exam yet',
 'Học từ mới, ôn đúng lúc sắp quên và tra cứu nhanh.': 'Learn new words, review right before you forget, look things up fast.',
 'Ôn {n} thẻ hôm nay': 'Review {n} cards today',
 'Ôn đúng lúc sắp quên giúp nhớ lâu gấp nhiều lần': 'Reviewing just before you forget makes words stick for much longer',
