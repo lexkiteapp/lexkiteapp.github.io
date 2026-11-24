@@ -37,11 +37,11 @@ export async function fcmToken(env, now) {
 }
 /** Câu theo ngôn ngữ giao diện; thiếu → en (không bao giờ vi cho người không-vi). */
 export const copyOf = (lang, kind) => ((COPY[lang] || COPY.en)[kind] || COPY.en[kind] || COPY.en.back);
-const ROUTE = { back: '#/review', back3: '#/review', back7: '#/review', miss: '#/home', week: '#/stats', fixed: '#/home' }; // fixed: mở app → nút Báo lỗi hỏi trạng thái ngay (report-pill)
+const ROUTE = { back: '#/review', back3: '#/review', back7: '#/review', save: '#/review', miss: '#/home', week: '#/stats', fixed: '#/home' }; // fixed: mở app → nút Báo lỗi hỏi trạng thái ngay (report-pill)
 /** Tin FCM HTTP v1. x.token (thiết bị) hoặc x.topic (chỉ CI dry-run validate_only, scripts/ci/fcm-dryrun.mjs). */
 export function fcmMessage(x) {
   const id = /^LX-\d{4,10}$/.test(x.rid || '') ? x.rid : '', [title, body] = copyOf(x.lang, x.kind).map(s => s.replace('{id}', id).replace(/\s{2,}/g, ' '));
-  const tag = x.kind === 'fixed' ? 'lk-fixed' : 'lk-remind', to = x.topic ? { topic: x.topic } : { token: x.token };
+  const tag = x.kind === 'fixed' ? 'lk-fixed' : x.kind === 'save' ? 'lk-save' : 'lk-remind', to = x.topic ? { topic: x.topic } : { token: x.token };
   return { message: { ...to, notification: { title, body }, data: { route: ROUTE[x.kind] || '#/review', tpl: 'r_' + x.kind, ...(id ? { rid: id } : {}) },
     android: { priority: 'normal', ttl: '14400s', collapse_key: tag, notification: { tag } },
     apns: { headers: { 'apns-priority': '5', 'apns-expiration': String(Math.floor(Date.now() / 1000) + 14400), 'apns-collapse-id': tag }, payload: { aps: { sound: 'default', 'thread-id': tag } } } } };

@@ -1,5 +1,9 @@
 {
  "vi": {
+  "save": [
+   "Chỉ cần 5 phút giữ chuỗi 🔥",
+   "Vài thẻ là đủ – Kit đợi bạn!"
+  ],
   "back3": [
    "Kit nhớ bạn rồi 🐦",
    "Quay lại nhẹ nhàng nhé – chỉ vài từ thôi."
@@ -26,6 +30,10 @@
   ]
  },
  "en": {
+  "save": [
+   "Just 5 minutes to keep your streak 🔥",
+   "A few cards is enough – Kit is waiting!"
+  ],
   "back3": [
    "Kit is thinking of you 🐦",
    "Come back gently – just a few words."
@@ -52,6 +60,10 @@
   ]
  },
  "es": {
+  "save": [
+   "Solo 5 minutos para mantener tu racha 🔥",
+   "Unas tarjetas bastan: ¡Kit te espera!"
+  ],
   "back3": [
    "Kit te echa de menos 🐦",
    "Vuelve con calma: solo unas palabras."
@@ -78,6 +90,10 @@
   ]
  },
  "pt": {
+  "save": [
+   "Só 5 minutos para manter sua sequência 🔥",
+   "Alguns cartões bastam – o Kit está esperando!"
+  ],
   "back3": [
    "O Kit sente sua falta 🐦",
    "Volte com calma – só algumas palavras."
@@ -104,6 +120,10 @@
   ]
  },
  "fr": {
+  "save": [
+   "Seulement 5 minutes pour garder votre série 🔥",
+   "Quelques cartes suffisent – Kit vous attend !"
+  ],
   "back3": [
    "Kit pense à vous 🐦",
    "Revenez en douceur – juste quelques mots."
@@ -130,6 +150,10 @@
   ]
  },
  "de": {
+  "save": [
+   "Nur 5 Minuten, um Ihre Serie zu halten 🔥",
+   "Ein paar Karten genügen – Kit wartet!"
+  ],
   "back3": [
    "Kit vermisst Sie 🐦",
    "Kommen Sie ganz entspannt zurück – nur ein paar Wörter."
@@ -156,6 +180,10 @@
   ]
  },
  "id": {
+  "save": [
+   "Cukup 5 menit untuk menjaga rentetanmu 🔥",
+   "Beberapa kartu sudah cukup – Kit menunggu!"
+  ],
   "back3": [
    "Kit kangen kamu 🐦",
    "Kembali pelan-pelan ya – cukup beberapa kata."
@@ -182,6 +210,10 @@
   ]
  },
  "th": {
+  "save": [
+   "แค่ 5 นาทีก็รักษาสถิติต่อเนื่องไว้ได้ 🔥",
+   "แค่ไม่กี่การ์ดก็พอ – Kit รออยู่นะ!"
+  ],
   "back3": [
    "Kit คิดถึงคุณนะ 🐦",
    "กลับมาแบบสบาย ๆ นะ – แค่ไม่กี่คำ"
@@ -208,6 +240,10 @@
   ]
  },
  "zh": {
+  "save": [
+   "只需 5 分钟，就能守住连续学习 🔥",
+   "几张卡片就够了——Kit 在等你！"
+  ],
   "back3": [
    "Kit 想你啦 🐦",
    "轻松回来吧——只需几个词。"
@@ -234,6 +270,10 @@
   ]
  },
  "ja": {
+  "save": [
+   "あと5分で連続日数をキープ 🔥",
+   "カード数枚でOK。Kitが待ってるよ！"
+  ],
   "back3": [
    "Kitはあなたに会いたいな 🐦",
    "気軽に戻ってきてね。数語だけでOK。"
@@ -260,6 +300,10 @@
   ]
  },
  "ko": {
+  "save": [
+   "5분이면 연속 학습을 지킬 수 있어요 🔥",
+   "카드 몇 장이면 충분해요. Kit이 기다려요!"
+  ],
   "back3": [
    "Kit이 보고 싶어요 🐦",
    "부담 없이 돌아오세요. 몇 단어만 봐도 돼요."
@@ -286,6 +330,10 @@
   ]
  },
  "hi": {
+  "save": [
+   "अपनी लगातार सीखने की श्रृंखला बचाने के लिए बस 5 मिनट 🔥",
+   "कुछ कार्ड काफ़ी हैं – Kit इंतज़ार कर रहा है!"
+  ],
   "back3": [
    "Kit को आपकी याद आ रही है 🐦",
    "आराम से लौटिए – बस कुछ शब्द।"
@@ -312,6 +360,10 @@
   ]
  },
  "ar": {
+  "save": [
+   "5 دقائق فقط للحفاظ على سلسلتك 🔥",
+   "بضع بطاقات تكفي – Kit ينتظرك!"
+  ],
   "back3": [
    "Kit يفتقدك 🐦",
    "عُد بهدوء – بضع كلمات فقط."
@@ -338,6 +390,10 @@
   ]
  },
  "ru": {
+  "save": [
+   "Всего 5 минут, чтобы сохранить серию 🔥",
+   "Хватит нескольких карточек – Kit ждёт!"
+  ],
   "back3": [
    "Kit скучает по тебе 🐦",
    "Возвращайся не спеша – всего несколько слов."
@@ -364,6 +420,10 @@
   ]
  },
  "tr": {
+  "save": [
+   "Serini korumak için sadece 5 dakika 🔥",
+   "Birkaç kart yeter – Kit bekliyor!"
+  ],
   "back3": [
    "Kit seni özledi 🐦",
    "Yavaşça geri dön – sadece birkaç kelime."
