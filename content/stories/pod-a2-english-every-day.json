@@ -1,0 +1,213 @@
+{
+  "id": "pod-a2-english-every-day",
+  "kind": "podcast",
+  "level": "A2",
+  "title": "English Every Day",
+  "summary": "Ama and Carlos share simple habits that help them practise English every day.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 2",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos sitting on a sofa with headphones and a notebook, a bright living room, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 115,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Small Habits",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Hi Carlos! Welcome to our show about learning English."
+        },
+        {
+          "who": "B",
+          "text": "Thanks, Ama. Today we talk about small daily habits."
+        },
+        {
+          "who": "A",
+          "text": "I think habits are more important than long lessons."
+        },
+        {
+          "who": "B",
+          "text": "I agree. I study for only fifteen minutes every morning."
+        },
+        {
+          "who": "A",
+          "text": "What do you do in those fifteen minutes?"
+        },
+        {
+          "who": "B",
+          "text": "I read a short article and write three new words in my notebook."
+        },
+        {
+          "who": "A",
+          "text": "That is a great idea. I like to listen to songs."
+        },
+        {
+          "who": "B",
+          "text": "Do you understand the words?"
+        },
+        {
+          "who": "A",
+          "text": "Not always, but I look up the new words later."
+        },
+        {
+          "who": "B",
+          "text": "Do you ever sing along?"
+        },
+        {
+          "who": "A",
+          "text": "Yes, I sing in the shower! My neighbours are not happy."
+        }
+      ],
+      "words": [
+        "habit",
+        "article",
+        "song",
+        "shower",
+        "sing",
+        "understand"
+      ],
+      "quiz": [
+        {
+          "q": "How long does Carlos study each morning?",
+          "options": [
+            "Fifteen minutes",
+            "One hour",
+            "Three minutes"
+          ],
+          "answer": 0,
+          "explain": "He says he studies for only fifteen minutes every morning."
+        },
+        {
+          "q": "What does Carlos write in his notebook?",
+          "options": [
+            "Three new words",
+            "A short story",
+            "Song titles"
+          ],
+          "answer": 0,
+          "explain": "He reads an article and writes three new words."
+        },
+        {
+          "q": "What does Ama like to do?",
+          "options": [
+            "Read the news",
+            "Listen to songs",
+            "Watch long films"
+          ],
+          "answer": 1,
+          "explain": "Ama says she likes to listen to songs."
+        }
+      ]
+    },
+    {
+      "title": "Mistakes Are Fine",
+      "sentences": [
+        {
+          "who": "B",
+          "text": "Ama, I am sometimes afraid to speak because I make mistakes."
+        },
+        {
+          "who": "A",
+          "text": "Everybody makes mistakes, Carlos. That is how we learn."
+        },
+        {
+          "who": "B",
+          "text": "But people may laugh at me."
+        },
+        {
+          "who": "A",
+          "text": "Most people are kind. They want to help you."
+        },
+        {
+          "who": "B",
+          "text": "Do you have any advice for me?"
+        },
+        {
+          "who": "A",
+          "text": "Start with a friend. Talk about your day for five minutes."
+        },
+        {
+          "who": "B",
+          "text": "That sounds easy. Maybe I can call my cousin in Canada."
+        },
+        {
+          "who": "A",
+          "text": "Perfect! He can correct you gently."
+        },
+        {
+          "who": "B",
+          "text": "And after the call, I will write down the new phrases."
+        },
+        {
+          "who": "A",
+          "text": "Good plan. Come back and tell us how it goes."
+        },
+        {
+          "who": "B",
+          "text": "I will. Thanks for listening, everybody!"
+        }
+      ],
+      "words": [
+        "mistake",
+        "afraid",
+        "laugh",
+        "advice",
+        "cousin",
+        "correct",
+        "phrase"
+      ],
+      "quiz": [
+        {
+          "q": "Why is Carlos afraid to speak?",
+          "options": [
+            "He has no friends",
+            "He makes mistakes",
+            "He has no time"
+          ],
+          "answer": 1,
+          "explain": "He is afraid because he makes mistakes."
+        },
+        {
+          "q": "Who can help Carlos practise?",
+          "options": [
+            "His cousin in Canada",
+            "His teacher at school",
+            "His neighbour"
+          ],
+          "answer": 0,
+          "explain": "Carlos plans to call his cousin in Canada."
+        },
+        {
+          "q": "What will Carlos do after the call?",
+          "options": [
+            "Sing a song",
+            "Write down new phrases",
+            "Watch a film"
+          ],
+          "answer": 1,
+          "explain": "He says he will write down the new phrases."
+        }
+      ]
+    }
+  ]
+}

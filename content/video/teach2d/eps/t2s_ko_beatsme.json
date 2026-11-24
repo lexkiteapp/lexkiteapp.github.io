@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_beatsme",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 13,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where did the key go?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Beats me!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I have no idea.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Where's the key? Beats me.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "beats me",
+  "forms": [],
+  "ipa": "/ˈbiːts ˈmiː/",
+  "mean": "I have no idea.",
+  "define": "Used when you don't know the answer.",
+  "vi": "Chịu, không biết",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Looking for something",
+   "text": "Where's the key? Beats me."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I hit it",
+    "I don't know"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'beats me' to a client's question.",
+   "why": "It sounds careless and unprofessional."
+  },
+  "l1": "전혀 모르겠어",
+  "l1_hook": "열쇠가 어디로 갔지? 'beats me'",
+  "l1_ex": "열쇠가 어디 있지? \"beats me\".",
+  "right": "beats me",
+  "native": {
+   "hook": "“beats me” 무슨 뜻일까요?",
+   "tip": "“beats me” = 전혀 모르겠어. 예문: “Where's the key? Beats me.”",
+   "caption": "“beats me” 무슨 뜻일까요?\n“beats me” = 전혀 모르겠어.\n예문: “Where's the key? Beats me.” (열쇠가 어디 있지? \"beats me\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “beats me” = 전혀 모르겠어. “Where's the key? Beats me.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where did the key go?"
+ },
+ "src": {
+  "slang": "beats me"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“beats me” 무슨 뜻일까요?",
+  "keyword": "beats me",
+  "value": "“beats me” = 전혀 모르겠어. 예문: “Where's the key? Beats me.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“beats me” 무슨 뜻일까요?",
+    "description": "“beats me” = 전혀 모르겠어. 예문: “Where's the key? Beats me.”\n\n“beats me” 무슨 뜻일까요?\n“beats me” = 전혀 모르겠어.\n예문: “Where's the key? Beats me.” (열쇠가 어디 있지? \"beats me\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "beats me",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“beats me” 무슨 뜻일까요?\n“beats me” = 전혀 모르겠어.\n예문: “Where's the key? Beats me.” (열쇠가 어디 있지? \"beats me\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“beats me” 무슨 뜻일까요?\n\n“beats me” = 전혀 모르겠어. 예문: “Where's the key? Beats me.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“beats me” 무슨 뜻일까요? “beats me” = 전혀 모르겠어. 예문: “Where's the key? Beats me.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “beats me” = 전혀 모르겠어. “Where's the key? Beats me.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

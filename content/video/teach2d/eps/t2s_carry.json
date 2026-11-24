@@ -1,0 +1,138 @@
+{
+ "id": "t2s_carry",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 50,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She won the match alone!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Carry!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Help the team win.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Mia carried us in the final round.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "carry",
+  "forms": [
+   "carried",
+   "carrying"
+  ],
+  "ipa": "/ˈkæri/",
+  "mean": "Help the team win.",
+  "define": "To lead a team to victory with great skill.",
+  "vi": "Gánh team",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Playing a team game",
+   "text": "Mia carried us in the final round."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"carry\" a team is to…",
+   "options": [
+    "help it win",
+    "lift it up"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'she carried us' about a lazy teammate.",
+   "why": "It praises someone who did the work."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She won the match alone!"
+ },
+ "src": {
+  "slang": "carry"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"carry\" mean?",
+  "keyword": "carry",
+  "value": "Carry = Help the team win. Example: \"Mia carried us in the final round.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"carry\" mean?",
+    "description": "Carry = Help the team win. Example: \"Mia carried us in the final round.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "carry",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"carry\" mean?\n\nCarry = Help the team win. Example: \"Mia carried us in the final round.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"carry\" mean?\n\nCarry = Help the team win. Example: \"Mia carried us in the final round.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"carry\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: help it win. \"Mia carried us in the final round.\" More real English slang, free: {link}"
+ }
+}

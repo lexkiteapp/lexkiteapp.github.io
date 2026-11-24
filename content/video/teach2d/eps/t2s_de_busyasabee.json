@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_busyasabee",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 40,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No free time this week!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Busy as a bee!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very busy and active.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm busy as a bee this week.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "busy as a bee",
+  "forms": [],
+  "ipa": "/ˈbɪzi əz ə ˈbiː/",
+  "mean": "Very busy and active.",
+  "define": "Used when someone is busy working.",
+  "vi": "Bận túi bụi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about a week",
+   "text": "I'm busy as a bee this week."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "fond of flowers",
+    "very busy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'busy as a bee' about a lazy afternoon.",
+   "why": "It means very busy."
+  },
+  "l1": "bis über beide Ohren beschäftigt",
+  "l1_hook": "Keine Freizeit diese Woche!",
+  "l1_ex": "Ich bin diese Woche \"busy as a bee\".",
+  "right": "busy as a bee",
+  "native": {
+   "hook": "Was heißt “busy as a bee”?",
+   "tip": "“busy as a bee” = bis über beide Ohren beschäftigt. Beispiel: “I'm busy as a bee this week.”",
+   "caption": "Was heißt “busy as a bee”?\n“busy as a bee” = bis über beide Ohren beschäftigt.\nBeispiel: “I'm busy as a bee this week.” (Ich bin diese Woche \"busy as a bee\".)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “busy as a bee” = bis über beide Ohren beschäftigt. “I'm busy as a bee this week.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "No free time this week!"
+ },
+ "src": {
+  "slang": "busy as a bee"
+ },
+ "lang": "de",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Was heißt “busy as a bee”?",
+  "keyword": "busy as a bee",
+  "value": "“busy as a bee” = bis über beide Ohren beschäftigt. Beispiel: “I'm busy as a bee this week.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “busy as a bee”?",
+    "description": "“busy as a bee” = bis über beide Ohren beschäftigt. Beispiel: “I'm busy as a bee this week.”\n\nWas heißt “busy as a bee”?\n“busy as a bee” = bis über beide Ohren beschäftigt.\nBeispiel: “I'm busy as a bee this week.” (Ich bin diese Woche \"busy as a bee\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "busy as a bee",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “busy as a bee”?\n“busy as a bee” = bis über beide Ohren beschäftigt.\nBeispiel: “I'm busy as a bee this week.” (Ich bin diese Woche \"busy as a bee\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “busy as a bee”?\n\n“busy as a bee” = bis über beide Ohren beschäftigt. Beispiel: “I'm busy as a bee this week.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “busy as a bee”? “busy as a bee” = bis über beide Ohren beschäftigt. Beispiel: “I'm busy as… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “busy as a bee” = bis über beide Ohren beschäftigt. “I'm busy as a bee this week.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

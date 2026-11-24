@@ -1,0 +1,149 @@
+{
+ "id": "t2s_ar_comedownwith",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 60,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My throat hurts. Uh-oh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Come down with!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start to get sick.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I think I'm coming down with a cold.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "data": {
+  "key": "come down with",
+  "forms": [
+   "came down with",
+   "coming down with"
+  ],
+  "ipa": "/ˈkʌm ˈdaʊn wɪð/",
+  "mean": "Start to get sick.",
+  "define": "To begin to feel ill with something like a cold.",
+  "vi": "Bắt đầu bị ốm",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a friend",
+   "text": "I think I'm coming down with a cold."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you're…",
+   "options": [
+    "falling down",
+    "getting sick"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say you 'came down with' a gift.",
+   "why": "It means starting to get sick."
+  },
+  "l1": "يُصاب بـ",
+  "l1_hook": "حلقي يؤلمني. أووه! يبدو أنني على وشك أن \"come down with\" مرضا ما!",
+  "l1_ex": "أعتقد أنني بدأت \"come down with\" زكام.",
+  "right": "come down with",
+  "native": {
+   "hook": "ما معنى “come down with”؟",
+   "tip": "“come down with” = يُصاب بـ. مثال: “I think I'm coming down with a cold.”",
+   "caption": "ما معنى “come down with”؟\n“come down with” = يُصاب بـ.\nمثال: “I think I'm coming down with a cold.” (أعتقد أنني بدأت \"come down with\" زكام.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “come down with” = يُصاب بـ. “I think I'm coming down with a cold.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My throat hurts. Uh-oh!"
+ },
+ "src": {
+  "slang": "come down with"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "ما معنى “come down with”؟",
+  "keyword": "come down with",
+  "value": "“come down with” = يُصاب بـ. مثال: “I think I'm coming down with a cold.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “come down with”؟",
+    "description": "“come down with” = يُصاب بـ. مثال: “I think I'm coming down with a cold.”\n\nما معنى “come down with”؟\n“come down with” = يُصاب بـ.\nمثال: “I think I'm coming down with a cold.” (أعتقد أنني بدأت \"come down with\" زكام.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "come down with",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “come down with”؟\n“come down with” = يُصاب بـ.\nمثال: “I think I'm coming down with a cold.” (أعتقد أنني بدأت \"come down with\" زكام.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “come down with”؟\n\n“come down with” = يُصاب بـ. مثال: “I think I'm coming down with a cold.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “come down with”؟ “come down with” = يُصاب بـ. مثال: “I think I'm coming down with a cold… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “come down with” = يُصاب بـ. “I think I'm coming down with a cold.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

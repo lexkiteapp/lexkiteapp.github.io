@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ar_boredstiff",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 28,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two hours of the same slides!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bored stiff!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely bored.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I was bored stiff in that class.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "bored stiff",
+  "forms": [],
+  "ipa": "/ˈbɔːrd ˈstɪf/",
+  "mean": "Extremely bored.",
+  "define": "Used when something is very dull.",
+  "vi": "Chán muốn xỉu",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Leaving a long class",
+   "text": "I was bored stiff in that class."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "very strong",
+    "very bored"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell the speaker you're 'bored stiff'.",
+   "why": "It's rude to say directly."
+  },
+  "l1": "مملّ جدًا",
+  "l1_hook": "ساعتان من الشرائح نفسها، \"bored stiff\"",
+  "l1_ex": "كنت \"bored stiff\" في تلك الحصة.",
+  "right": "bored stiff",
+  "native": {
+   "hook": "ما معنى “bored stiff”؟",
+   "tip": "“bored stiff” = مملّ جدًا. مثال: “I was bored stiff in that class.”",
+   "caption": "ما معنى “bored stiff”؟\n“bored stiff” = مملّ جدًا.\nمثال: “I was bored stiff in that class.” (كنت \"bored stiff\" في تلك الحصة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “bored stiff” = مملّ جدًا. “I was bored stiff in that class.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Two hours of the same slides!"
+ },
+ "src": {
+  "slang": "bored stiff"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "ما معنى “bored stiff”؟",
+  "keyword": "bored stiff",
+  "value": "“bored stiff” = مملّ جدًا. مثال: “I was bored stiff in that class.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “bored stiff”؟",
+    "description": "“bored stiff” = مملّ جدًا. مثال: “I was bored stiff in that class.”\n\nما معنى “bored stiff”؟\n“bored stiff” = مملّ جدًا.\nمثال: “I was bored stiff in that class.” (كنت \"bored stiff\" في تلك الحصة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "bored stiff",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “bored stiff”؟\n“bored stiff” = مملّ جدًا.\nمثال: “I was bored stiff in that class.” (كنت \"bored stiff\" في تلك الحصة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “bored stiff”؟\n\n“bored stiff” = مملّ جدًا. مثال: “I was bored stiff in that class.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “bored stiff”؟ “bored stiff” = مملّ جدًا. مثال: “I was bored stiff in that class.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “bored stiff” = مملّ جدًا. “I was bored stiff in that class.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

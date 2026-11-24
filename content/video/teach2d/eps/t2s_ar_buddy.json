@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ar_buddy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 68,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who studies with you every night?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Buddy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A close friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's my study buddy.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "buddy",
+  "forms": [
+   "buddies"
+  ],
+  "ipa": "/ˈbʌdi/",
+  "mean": "A close friend.",
+  "define": "A friendly word for a friend.",
+  "vi": "Bạn thân, anh bạn",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Introducing a friend",
+   "text": "He's my study buddy."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"buddy\" is…",
+   "options": [
+    "a bud",
+    "a friend"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'buddy' to an angry stranger.",
+   "why": "It sounds sarcastic, not friendly."
+  },
+  "l1": "رفيق",
+  "l1_hook": "من يدرس معك كل ليلة؟",
+  "l1_ex": "إنه الـ \"buddy\" الخاص بي في الدراسة.",
+  "right": "buddy",
+  "native": {
+   "hook": "ما معنى “buddy”؟",
+   "tip": "“buddy” = رفيق. مثال: “He's my study buddy.”",
+   "caption": "ما معنى “buddy”؟\n“buddy” = رفيق.\nمثال: “He's my study buddy.” (إنه الـ \"buddy\" الخاص بي في الدراسة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “buddy” = رفيق. “He's my study buddy.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who studies with you every night?"
+ },
+ "src": {
+  "slang": "buddy"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "ما معنى “buddy”؟",
+  "keyword": "buddy",
+  "value": "“buddy” = رفيق. مثال: “He's my study buddy.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “buddy”؟",
+    "description": "“buddy” = رفيق. مثال: “He's my study buddy.”\n\nما معنى “buddy”؟\n“buddy” = رفيق.\nمثال: “He's my study buddy.” (إنه الـ \"buddy\" الخاص بي في الدراسة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "buddy",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “buddy”؟\n“buddy” = رفيق.\nمثال: “He's my study buddy.” (إنه الـ \"buddy\" الخاص بي في الدراسة.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “buddy”؟\n\n“buddy” = رفيق. مثال: “He's my study buddy.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “buddy”؟ “buddy” = رفيق. مثال: “He's my study buddy.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “buddy” = رفيق. “He's my study buddy.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

@@ -22,7 +22,7 @@ const ONB = { 'sbx.settings': JSON.stringify({ onboarded: true }) };
 const see = (page, s, timeout = 15000) => page.waitForSelector(s, { state: 'visible', timeout }).then(() => true).catch(() => false);
 const hashIs = (page, re, timeout = 8000) => page.waitForFunction(r => new RegExp(r).test(location.hash), re.source, { timeout }).then(() => true).catch(() => false);
 const steps = async page => { for (let i = 0; i < 8 && !(await page.$('#go')); i++) { await page.click('#obNext'); await sleep(200); } };
-const answerPlacement = async page => { await page.click('#go'); for (let i = 0; i < 30 && !(await page.$('.pl-result')); i++) { const o = page.locator('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (await o.count()) await o.nth(i % 2).click().catch(() => {}); await sleep(450); } };
+const answerPlacement = async page => { await page.click('#go'); await page.waitForSelector('.pl-wrap .option', { timeout: 30000 }); /* #1942: Bắt đầu chờ gói words+grammar; màn giới thiệu cũng có class .pl-result */ for (let i = 0; i < 30 && !(await page.$('.pl-result .pl-rings')); i++) { const o = page.locator('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (await o.count()) await o.nth(i % 2).click().catch(() => {}); await sleep(450); } };
 
 // ---- 0. App iOS/Android (Capacitor) mở lần đầu: Welcome, không bao giờ vào/hiện blog (chủ 5/11) ----
 {

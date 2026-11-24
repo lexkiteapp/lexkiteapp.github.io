@@ -1,0 +1,131 @@
+{
+ "id": "t2s_cooked",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 52,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I forgot my notes. Uh-oh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cooked!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm in trouble or out of luck.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I forgot my notes. I'm cooked.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "cooked",
+  "forms": [],
+  "ipa": "/ˈkʊkt/",
+  "mean": "I'm in trouble or out of luck.",
+  "define": "Used jokingly when a situation looks bad for you.",
+  "vi": "Toang rồi",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Before a test",
+   "text": "I forgot my notes. I'm cooked."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"I'm cooked\" here means…",
+   "options": [
+    "I'm dinner",
+    "I'm in trouble"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'I'm cooked' when you merely feel sleepy.",
+   "why": "It means you're in real trouble."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I forgot my notes. Uh-oh!"
+ },
+ "src": {
+  "slang": "cooked"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"cooked\" mean?",
+  "keyword": "cooked",
+  "value": "Cooked = I'm in trouble or out of luck. Example: \"I forgot my notes. I'm cooked.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cooked\" mean?",
+    "description": "Cooked = I'm in trouble or out of luck. Example: \"I forgot my notes. I'm cooked.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "cooked",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cooked\" mean?\n\nCooked = I'm in trouble or out of luck. Example: \"I forgot my notes. I'm cooked.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"cooked\" mean?\n\nCooked = I'm in trouble or out of luck. Example: \"I forgot my notes. I'm cooked.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cooked\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'I'm cooked' when you merely feel sleepy. It means you're in real trouble. Real example: \"I forgot my notes. I'm cooked.\" More real English slang, free: {link}"
+ }
+}

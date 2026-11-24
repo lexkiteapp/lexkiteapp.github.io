@@ -339,8 +339,8 @@ items: [
 explain: "Người đàn ông nói đơn hàng là cho \"our company's anniversary lunch\" (bữa trưa kỷ niệm thành lập công ty). Không có dịp nào khác như ra mắt sản phẩm, tiệc nghỉ hưu hay tiệc khách hàng được nhắc đến." },
 { n: 36, lv: "B1", q: "What does the man want to change about his order?", options: ["The number of meals", "The delivery date", "The menu items", "The payment method"], a: 0, cue: "we'll need a hundred meals",
 explain: "Vì có thêm 20 nhân viên từ chi nhánh Leeds, anh nói \"we'll need a hundred meals\" (cần 100 suất ăn thay vì 80) → thay đổi số lượng suất ăn. Ngày giao, món ăn và cách thanh toán không đổi." },
-{ n: 37, lv: "B2", q: "What will the woman do?", options: ["Offer a discount", "Visit the Leeds branch", "Add a note about the desserts", "Waive a delivery fee"], a: 2, cue: "I'll add a note to the order",
-explain: "Anh nhờ đóng món tráng miệng riêng trong thùng lạnh; cô đáp \"I'll add a note to the order\" (tôi sẽ ghi chú vào đơn hàng). Phí giao hàng còn tăng khoảng 15 đô la chứ không được miễn, và cô không giảm giá hay đến Leeds." },
+{ n: 37, lv: "B2", q: "What will the woman do?", options: ["Waive the shipping charge", "Inspect the Leeds branch", "Add a note about the desserts", "Provide a special discount"], a: 2, cue: "I'll add a note to the order",
+explain: "Người nói đáp \"I'll add a note to the order\" khi được nhờ đóng gói món tráng miệng riêng, nên chọn đáp án về việc thêm ghi chú. Cô không đề cập đến việc giảm giá hay miễn phí giao hàng." },
 ] },
 { type: 'mcq', instr: g.TQL[18],
 items: [
@@ -407,8 +407,8 @@ explain: "Cô nhờ \"confirm the caterer's final headcount by Friday\" (xác nh
 ] },
 { type: 'mcq', instr: g.TQL[25],
 items: [
-{ n: 59, lv: "B1", q: g.TQL[66], options: ["A product was not included in a delivery.", "An invoice is incorrect.", "A driver arrived late.", "A price has increased."], a: 0, cue: "the allergy tablets we ordered aren't in it",
-explain: "Corinne nói lô hàng đã đến nhưng \"the allergy tablets we ordered aren't in it\" (thuốc dị ứng đã đặt không có trong đó) → thiếu một mặt hàng trong chuyến giao. Giá cao hơn chỉ là điều kiện của nhà cung cấp khác." },
+{ n: 59, lv: "B1", q: g.TQL[66], options: ["A product was not included in a delivery.", "The invoice was sent to the wrong address.", "The delivery truck broke down on the way.", "The payment deadline has been extended."], a: 0, cue: "the allergy tablets we ordered aren't in it",
+explain: "Các diễn giả nói rằng các viên thuốc dị ứng đã đặt không có trong lô hàng, vì vậy vấn đề là thiếu một mặt hàng trong giao nhận, không phải lỗi hóa đơn." },
 { n: 60, lv: "B1", q: "What does Joy offer to do?", options: ["Cancel a recent order", "Contact a different supplier", "Reorganize a storage shelf", "Return a damaged shipment"], a: 1, cue: "I can try Westbrook Pharma",
 explain: "Joy nói \"I can try Westbrook Pharma\", thể hiện việc cô ấy đề nghị liên hệ với một nhà cung cấp khác (B)." },
 { n: 61, lv: "B2", q: "What will Alberto do?", options: ["Order additional boxes", "Post a notice limiting purchases", "Verify the packing list again", "Contact a delivery driver"], a: 1, cue: "I'll put a sign by the shelf saying the tablets are limited to one box per customer",
@@ -416,11 +416,11 @@ explain: "Alberto nói “I'll put a sign by the shelf saying the tablets are li
 ] },
 { type: 'mcq', instr: g.TQL[26],
 items: [
-{ n: 62, lv: "B2", q: "What problem does the woman mention?", options: ["A venue has been double-booked.", "A volunteer is ill.", "A speaker cannot travel to a conference.", "Some forms are missing."], a: 2, cue: "Dr. Santoro's flight was canceled",
+{ n: 62, lv: "B2", q: "What problem does the woman mention?", options: ["The conference room is under renovation.", "The registration desk is understaffed.", "A speaker cannot travel to a conference.", "The catering schedule was not confirmed."], a: 2, cue: "Dr. Santoro's flight was canceled",
 explain: "Yvette nói \"Dr. Santoro's flight was canceled\" (chuyến bay của tiến sĩ Santoro bị hủy) nên bà không thể phát biểu khai mạc → diễn giả không thể đến hội nghị." },
 { n: 63, lv: "C1", q: "What does the man imply when he says, \"we've sold over two hundred tickets\"?", options: ["A room may be too small.", "More volunteers are needed.", "Ticket prices should be lowered.", "A sales report is wrong."], a: 0, cue: "we've sold over two hundred tickets",
 explain: "Căn phòng nhỏ chỉ chứa 150 người, trong khi đã bán hơn 200 vé → anh ngụ ý phòng có thể không đủ chỗ. Chị đáp bằng cách phát trực tiếp sang sảnh chính." },
-{ n: 64, lv: "B2", q: "What does the woman ask the man to do?", options: ["Stream a speech online", "Rent a larger room", "Contact Dr. Santoro", "Make sure attendees are informed of a change"], a: 3, cue: "tell attendees about the change",
+{ n: 64, lv: "B2", q: "What does the woman ask the man to do?", options: ["Coordinate the audio‑visual setup for the conference", "Reserve additional seating for the expected participants", "Forward the updated schedule to all registered guests", "Make sure attendees are informed of a change"], a: 3, cue: "tell attendees about the change",
 explain: "Cô nhờ anh bảo đảm tình nguyện viên ở quầy đăng ký \"tell attendees about the change\" (báo cho người tham dự về thay đổi). Phát trực tiếp là kế hoạch của cô, còn in biển là việc anh tự nói thêm." },
 ] },
 { type: 'mcq', instr: g.TQL[27],
@@ -429,8 +429,8 @@ items: [
 explain: "Người đàn ông báo cáo rằng hệ thống sưởi không hoạt động bình thường (\"the heating ... hasn't worked properly\"), do đó (B) là đáp án đúng." },
 { n: 66, lv: "B2", q: "What does the woman say is the cause of the problem?", options: ["A faulty control panel", "A blocked vent", "A broken boiler", "A power failure"], a: 0, cue: "The problem is the thermostat control panel",
 explain: "Cô loại trừ nồi hơi (\"it's fine\") rồi nói \"The problem is the thermostat control panel\" (vấn đề là bảng điều khiển nhiệt) cần thay bo mạch → bảng điều khiển bị lỗi." },
-{ n: 67, lv: "B2", q: "What will the woman do tomorrow?", options: ["Install a circuit board", "Inspect the boiler", "Meet some visitors", "Bring some portable heaters"], a: 3, cue: "I'll bring a few portable heaters tomorrow",
-explain: "Cô nói \"I'll bring a few portable heaters tomorrow\" (ngày mai tôi sẽ mang vài chiếc lò sưởi di động). Lắp bo mạch dự kiến vào thứ Năm, còn nồi hơi cô đã kiểm tra rồi." },
+{ n: 67, lv: "B2", q: "What will the woman do tomorrow?", options: ["Repair the air conditioner", "Calibrate the pressure gauge", "Schedule a maintenance check", "Bring some portable heaters"], a: 3, cue: "I'll bring a few portable heaters tomorrow",
+explain: "Cô ấy nói sẽ mang vài chiếc lò sưởi di động vào ngày mai, vì vậy hành động của cô là mang thiết bị sưởi chứ không phải sửa máy lạnh, hiệu chuẩn đồng hồ áp suất hay lên lịch kiểm tra." },
 ] },
 { type: 'mcq', instr: g.TQL[28],
 items: [
@@ -543,7 +543,7 @@ script: [
 groups: [
 { type: 'mcq', instr: g.TQL[29],
 items: [
-{ n: 71, lv: "B1", q: "What type of event is being held?", options: ["A professional conference", "A trade show", "A job fair", "A product launch"], a: 0, cue: "welcome to the Northfield Customer Service Summit",
+{ n: 71, lv: "B1", q: "What type of event is being held?", options: ["A professional conference", "A scientific symposium", "A corporate workshop", "A marketing webinar"], a: 0, cue: "welcome to the Northfield Customer Service Summit",
 explain: "Người nói chào mừng mọi người đến \"the Northfield Customer Service Summit\" (hội nghị thượng đỉnh về dịch vụ khách hàng), có các phiên diễn giả và ứng dụng đánh giá phiên → một hội nghị chuyên môn. Không có gian hàng trưng bày hay tuyển dụng." },
 { n: 72, lv: "B2", q: "What do listeners need in order to enter the rooms?", options: ["Printed schedules", "Meal tickets", "Event T-shirts", "Name badges"], a: 3, cue: "name badges are required to enter any room",
 explain: "Người nói nhắc \"name badges are required to enter any room\" (cần thẻ tên để vào mọi phòng) và hướng dẫn nhận thẻ ở quầy đăng ký. Lịch trình có trong ứng dụng, không nói về vé ăn hay áo thun." },
@@ -563,8 +563,8 @@ explain: "Bà nhờ \"call me back … by Tuesday\" (gọi lại trước thứ 
 items: [
 { n: 77, lv: "B2", q: "What does the speaker say about the food?", options: ["It is made with local ingredients.", "It is prepared by a famous chef.", "It is imported from overseas.", "It is low in calories."], a: 0, cue: "every dish is made with ingredients from local farms",
 explain: "Quảng cáo nói mọi món đều làm từ \"ingredients from local farms\" (nguyên liệu từ các trang trại địa phương). \"Famous\" chỉ dùng cho món cá hồi xông khói, không nói về đầu bếp." },
-{ n: 78, lv: "B2", q: "What is new at the restaurant?", options: ["A delivery service", "A second location", "A cooking class", "An outdoor seating area"], a: 3, cue: "Our patio is now open",
-explain: "\"Our patio is now open\" (sân hiên đã mở cửa) → khu ngồi ngoài trời mới. Quảng cáo không nhắc đến giao hàng, chi nhánh thứ hai hay lớp nấu ăn." },
+{ n: 78, lv: "B2", q: "What is new at the restaurant?", options: ["A new menu", "A private dining room", "A live music performance", "An outdoor seating area"], a: 3, cue: "Our patio is now open",
+explain: "Thông báo cho biết sân hiên đã mở, nghĩa là nhà hàng có khu ngồi ngoài trời mới, không phải dịch vụ giao hàng, phòng ăn riêng hay buổi biểu diễn âm nhạc." },
 { n: 79, lv: "B2", q: "How can listeners receive a free drink?", options: ["By ordering food online", "By mentioning the ad when ordering a weekday lunch special", "By buying a salad on the weekend", "By joining a loyalty program"], a: 1, cue: "mention this ad when you order any lunch special on a weekday",
 explain: "Ưu đãi dành cho người nghe: \"mention this ad when you order any lunch special on a weekday\" (nhắc đến quảng cáo khi gọi suất ăn trưa trong tuần) sẽ được tặng đồ uống. Không có điều kiện đặt trực tuyến hay thẻ thành viên." },
 ] },
@@ -572,7 +572,7 @@ explain: "Ưu đãi dành cho người nghe: \"mention this ad when you order an
 items: [
 { n: 80, lv: "B1", q: "Who most likely is the speaker?", options: ["A librarian", "A professor", "A tour guide", "A career advisor"], a: 2, cue: "I'll be your guide today",
 explain: "Người nói tự giới thiệu \"I'll be your guide today\" (hôm nay tôi sẽ là hướng dẫn viên) và dẫn khách đi tham quan tòa nhà. Cố vấn nghề nghiệp chỉ là những người làm việc trong trung tâm hướng nghiệp." },
-{ n: 81, lv: "B2", q: "What does the speaker say about the building?", options: ["It is reserved for faculty.", "It will open next year.", "Paperwork can be handled in one location.", "Its study rooms cannot be booked."], a: 2, cue: "you can handle most paperwork in one place",
+{ n: 81, lv: "B2", q: "What does the speaker say about the building?", options: ["The building houses only administrative offices.", "Renovations are scheduled to begin next month.", "Paperwork can be handled in one location.", "All classrooms require reservation at least two weeks."], a: 2, cue: "you can handle most paperwork in one place",
 explain: "Tầng trệt có văn phòng đào tạo và trung tâm hỗ trợ tài chính, nên \"you can handle most paperwork in one place\" (có thể làm hầu hết giấy tờ ở một nơi). Phòng học còn đặt được trực tuyến trước một tuần." },
 { n: 82, lv: "B2", q: "What does the speaker warn the listeners about?", options: ["A noisy construction area", "A locked emergency door", "A overcrowded elevator", "A recently polished floor"], a: 3, cue: "the floor is being polished today",
 explain: "Bà dặn cẩn thận khi đi cầu thang vì \"the floor is being polished today\" (sàn đang được đánh bóng hôm nay) → cảnh báo sàn mới đánh bóng, có thể trơn. Không có khu thi công hay cửa khóa." },
@@ -624,7 +624,7 @@ explain: "Sân ga hai đang đóng để dọn dẹp nên hành khách \"follow 
 ] },
 { type: 'mcq', instr: g.TQL[14],
 items: [
-{ n: 98, lv: "B2", q: "Why is the speaker calling?", options: ["To cancel a reservation", "To request a payment", "To advertise some new rooms", "To respond to a booking inquiry"], a: 3, cue: "returning your call about booking the lodge",
+{ n: 98, lv: "B2", q: "Why is the speaker calling?", options: ["To confirm the availability of conference rooms", "To arrange transportation for the event attendees", "To provide details about catering options", "To respond to a booking inquiry"], a: 3, cue: "returning your call about booking the lodge",
 explain: "Tamara nói bà gọi lại \"returning your call about booking the lodge\" (gọi lại về việc đặt nhà nghỉ) cho kỳ tập huấn của công ty → trả lời một yêu cầu đặt phòng." },
 { n: 99, lv: "B2", q: g.TQL[77], options: ["The room rates have increased.", "A meeting room is unavailable.", "All rooms are fully booked.", "The shuttle is not running."], a: 1, cue: "the meeting room with the projector is already reserved on Saturday",
 explain: "Bà nói \"the meeting room with the projector is already reserved on Saturday\" (phòng họp có máy chiếu đã được đặt vào thứ Bảy) nên phải dùng phòng nhỏ hơn. Phòng nghỉ vẫn còn trống và có xe đưa đón mới." },

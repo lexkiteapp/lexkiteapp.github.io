@@ -1,0 +1,148 @@
+{
+ "id": "t2s_es_justkidding",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 51,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I ate your cake!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Just kidding!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I was only joking.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I ate your cake! Just kidding.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "just kidding",
+  "forms": [
+   "JK"
+  ],
+  "ipa": "/dʒʌst ˈkɪdɪŋ/",
+  "mean": "I was only joking.",
+  "define": "Used after a joke to show you didn't mean it.",
+  "vi": "Đùa thôi mà",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Joking with a friend",
+   "text": "I ate your cake! Just kidding."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm serious",
+    "I'm joking"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'just kidding' after a serious insult.",
+   "why": "It doesn't erase hurt feelings."
+  },
+  "l1": "es broma",
+  "l1_hook": "«Just kidding», dije mientras le decía: «¡Me comí tu pastel!»",
+  "l1_ex": "¡Me comí tu pastel! \"just kidding\".",
+  "right": "just kidding",
+  "native": {
+   "hook": "¿Qué significa “just kidding”?",
+   "tip": "“just kidding” = es broma. Ejemplo: “I ate your cake! Just kidding.”",
+   "caption": "¿Qué significa “just kidding”?\n“just kidding” = es broma.\nEjemplo: “I ate your cake! Just kidding.” (¡Me comí tu pastel! \"just kidding\".)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “just kidding” = es broma. “I ate your cake! Just kidding.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I ate your cake!"
+ },
+ "src": {
+  "slang": "just kidding"
+ },
+ "lang": "es",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "¿Qué significa “just kidding”?",
+  "keyword": "just kidding",
+  "value": "“just kidding” = es broma. Ejemplo: “I ate your cake! Just kidding.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “just kidding”?",
+    "description": "“just kidding” = es broma. Ejemplo: “I ate your cake! Just kidding.”\n\n¿Qué significa “just kidding”?\n“just kidding” = es broma.\nEjemplo: “I ate your cake! Just kidding.” (¡Me comí tu pastel! \"just kidding\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "just kidding",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “just kidding”?\n“just kidding” = es broma.\nEjemplo: “I ate your cake! Just kidding.” (¡Me comí tu pastel! \"just kidding\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “just kidding”?\n\n“just kidding” = es broma. Ejemplo: “I ate your cake! Just kidding.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “just kidding”? “just kidding” = es broma. Ejemplo: “I ate your cake! Just kidding.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “just kidding” = es broma. “I ate your cake! Just kidding.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

@@ -1,0 +1,37 @@
+# Nén KHÔNG MẤT ĐIỂM ẢNH ảnh chuẩn snapshot native (iOS 81 MB + Android 52 MB ≈ 133 MB của cây repo 605 MB, trần 600 MB).
+# oxipng chỉ ghi lại luồng nén PNG + bỏ khối phụ (strip safe) – pixel giống hệt nên ngưỡng so ảnh, số ảnh tối thiểu, nội dung KHÔNG đổi.
+# Chạy tay SAU khi các PR native đang mở merge (chạm hàng nghìn tệp nhị phân → dễ xung đột). Đo trước/sau trong tóm tắt, rồi đẩy nhánh snapshot-optimize.
+name: Snapshot optimize
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: snapshot-optimize
+  cancel-in-progress: false
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Đo trước
+        run: |
+          D='native/ios/LexkiteKit/Tests/LKSnapshotTests/__Snapshots__ native/android/app/src/test/snapshots'
+          echo "BEFORE=$(du -sk $D | awk '{s+=$1} END{print s}')" >> "$GITHUB_ENV"
+          find $D -name '*.png' | wc -l > /tmp/n_before
+      - name: oxipng (lossless)
+        run: |
+          bash scripts/ci/apt-install.sh oxipng
+          find native/ios/LexkiteKit/Tests/LKSnapshotTests/__Snapshots__ native/android/app/src/test/snapshots -name '*.png' -print0 \
+            | xargs -0 -n 40 -P 4 oxipng -o4 --strip safe -q
+      - name: Đo sau + đẩy nhánh
+        run: |
+          D='native/ios/LexkiteKit/Tests/LKSnapshotTests/__Snapshots__ native/android/app/src/test/snapshots'
+          AFTER=$(du -sk $D | awk '{s+=$1} END{print s}')
+          [ "$(find $D -name '*.png' | wc -l)" = "$(cat /tmp/n_before)" ] || { echo "::error::số ảnh đổi"; exit 1; }
+          echo "### Ảnh chuẩn native: $((BEFORE/1024)) MB → $((AFTER/1024)) MB (lossless, $(cat /tmp/n_before) ảnh)" >> "$GITHUB_STEP_SUMMARY"
+          git config user.name 'github-actions[bot]'; git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout -b snapshot-optimize; git add -A native
+          git commit -qm "[CF-Pages-Skip] Ảnh chuẩn snapshot native: oxipng lossless $((BEFORE/1024)) → $((AFTER/1024)) MB" || { echo "không đổi"; exit 0; }
+          git push -f origin snapshot-optimize

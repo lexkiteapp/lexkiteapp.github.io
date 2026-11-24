@@ -1,0 +1,148 @@
+{
+ "id": "t2s_vi_itsgiving",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 84,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "That coat looks like old movies!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "It's giving!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "It has the vibe of…",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That coat is giving old movie star.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "it's giving",
+  "forms": [
+   "giving"
+  ],
+  "ipa": "/ɪts ˈɡɪvɪŋ/",
+  "mean": "It has the vibe of…",
+  "define": "Used to say that something reminds you of a style or mood.",
+  "vi": "Nhìn là thấy vibe này",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "That coat is giving old movie star."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"It's giving\" means…",
+   "options": [
+    "it gives a gift",
+    "it has the vibe of"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'it's giving' to a job interviewer.",
+   "why": "It's trendy slang, too informal."
+  },
+  "l1": "Nhìn là thấy vibe này",
+  "l1_hook": "Cái áo khoác nhìn như phim cổ điển!",
+  "l1_ex": "Cái áo khoác này it's giving ngôi sao phim xưa.",
+  "right": "it's giving",
+  "native": {
+   "hook": "“it's giving” nghĩa là gì?",
+   "tip": "“it's giving” = Nhìn là thấy vibe này. Ví dụ: “That coat is giving old movie star.”",
+   "caption": "“it's giving” nghĩa là gì?\n“it's giving” = Nhìn là thấy vibe này.\nVí dụ: “That coat is giving old movie star.” (Cái áo khoác này it's giving ngôi sao phim xưa.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “it's giving” = Nhìn là thấy vibe này. “That coat is giving old movie star.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "That coat looks like old movies!"
+ },
+ "src": {
+  "slang": "it's giving"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“it's giving” nghĩa là gì?",
+  "keyword": "it's giving",
+  "value": "“it's giving” = Nhìn là thấy vibe này. Ví dụ: “That coat is giving old movie star.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“it's giving” nghĩa là gì?",
+    "description": "“it's giving” = Nhìn là thấy vibe này. Ví dụ: “That coat is giving old movie star.”\n\n“it's giving” nghĩa là gì?\n“it's giving” = Nhìn là thấy vibe này.\nVí dụ: “That coat is giving old movie star.” (Cái áo khoác này it's giving ngôi sao phim xưa.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "it's giving",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“it's giving” nghĩa là gì?\n“it's giving” = Nhìn là thấy vibe này.\nVí dụ: “That coat is giving old movie star.” (Cái áo khoác này it's giving ngôi sao phim xưa.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“it's giving” nghĩa là gì?\n\n“it's giving” = Nhìn là thấy vibe này. Ví dụ: “That coat is giving old movie star.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“it's giving” nghĩa là gì? “it's giving” = Nhìn là thấy vibe này. Ví dụ: “That coat is giving old movie sta… #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “it's giving” = Nhìn là thấy vibe này. “That coat is giving old movie star.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

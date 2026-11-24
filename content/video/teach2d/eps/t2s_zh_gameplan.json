@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_gameplan",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 92,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Test tomorrow. Where do we start?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Game plan!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The plan for what to do.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "So, what's the game plan?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "game plan",
+  "forms": [],
+  "ipa": "/ˈɡeɪm ˈplæn/",
+  "mean": "The plan for what to do.",
+  "define": "A clear plan to reach a goal.",
+  "vi": "Kế hoạch hành động",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Talking before a project",
+   "text": "So, what's the game plan?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"game plan\" is…",
+   "options": [
+    "a video game",
+    "a clear plan"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a vague idea a 'game plan'.",
+   "why": "It means a clear plan."
+  },
+  "l1": "计划",
+  "l1_hook": "明天有考试，先制定\"game plan\"吧？",
+  "l1_ex": "那么，咱们的\"game plan\"是什么？",
+  "right": "game plan",
+  "native": {
+   "hook": "“game plan”是什么意思？",
+   "tip": "“game plan” = 计划. 例句: “So, what's the game plan?”",
+   "caption": "“game plan”是什么意思？\n“game plan” = 计划.\n例句: “So, what's the game plan?” (那么，咱们的\"game plan\"是什么？)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “game plan” = 计划. “So, what's the game plan?” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Test tomorrow. Where do we start?"
+ },
+ "src": {
+  "slang": "game plan"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“game plan”是什么意思？",
+  "keyword": "game plan",
+  "value": "“game plan” = 计划. 例句: “So, what's the game plan?”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "“game plan”是什么意思？",
+    "description": "“game plan” = 计划. 例句: “So, what's the game plan?”\n\n“game plan”是什么意思？\n“game plan” = 计划.\n例句: “So, what's the game plan?” (那么，咱们的\"game plan\"是什么？)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "game plan",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“game plan”是什么意思？\n“game plan” = 计划.\n例句: “So, what's the game plan?” (那么，咱们的\"game plan\"是什么？)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“game plan”是什么意思？\n\n“game plan” = 计划. 例句: “So, what's the game plan?”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“game plan”是什么意思？ “game plan” = 计划. 例句: “So, what's the game plan?” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “game plan” = 计划. “So, what's the game plan?” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}
