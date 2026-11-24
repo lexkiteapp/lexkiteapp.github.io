@@ -5,7 +5,7 @@
 name: Giọng đọc Truyện & podcast (Kokoro)
 on:
   push:
-    branches: [main, stories-audio2]   # stories-audio2: lượt thử dựng + nghe thử (gỡ khi gộp main); publish chỉ chạy trên main
+    branches: [main]
     paths: ['content/stories/**', 'scripts/stories/render-audio.mjs', '.github/workflows/stories-audio.yml']
   workflow_dispatch:
     inputs:
