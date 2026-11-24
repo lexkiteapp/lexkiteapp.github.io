@@ -32,6 +32,18 @@ if (!m) bad.push('index.html thiếu script nạp khung #/path'); else {
   eq(loads('http://localhost/app/#/path?x=1', {}), ['js/path-skel/en.js'], '#/path?query');
 }
 if (!html.includes('window.__lkSk=1;') || !/__lkSk\)\{try\{new P\(function\(q,o2\)/.test(rd('scripts/app-loader.mjs'))) bad.push('JS khung #/path phải chờ LCP rơi vào #lkPath – app-loader + script nạp + khung');
-if (!/!document\.getElementById\('lkHero'\) && !document\.getElementById\('lkPath'\)\) skel/.test(rd('web/js/app.js'))) bad.push('route() phải không thay khung #lkPath bằng khung chờ');
+if (!/!document\.getElementById\('lkHero'\) && !document\.getElementById\('lkPath'\) && !document\.getElementById\('lkDict'\)\) skel/.test(rd('web/js/app.js'))) bad.push('route() phải không thay khung #lkPath bằng khung chờ');
+{ // khung #/dict: đoạn mô tả đầu trang đúng chuỗi dịch của dict-page.js, 15 ngôn ngữ; chỉ vẽ ở #/dict; script nạp khớp ngôn ngữ; JS khung chờ LCP trong #lkDict
+  const SUBK = 'Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan', seen = new Set();
+  const runD = (l, hash = '#/dict/hello') => { const w = new jsdom.JSDOM('<body><main id="view"></main></body>', { url: 'http://localhost/app/' + hash, runScripts: 'outside-only', pretendToBeVisual: true }).window; w.eval(SK[`d-${l}.js`]); w.document.dispatchEvent(new w.Event('DOMContentLoaded')); return w.document; };
+  for (const l of LANGS) { const p = runD(l).querySelector('#lkDict p'); if (!p || !p.textContent.trim()) { bad.push(`dict ${l}: thiếu đoạn mô tả`); continue; } seen.add(p.textContent); if (l !== 'vi' && p.textContent === SUBK) bad.push(`dict ${l}: chưa dịch`); }
+  if (seen.size < 15) bad.push('dict: 15 ngôn ngữ phải có 15 bản khác nhau, có ' + seen.size);
+  if (runD('en', '#/dict').querySelector('#lkDict') === null || runD('en', '#/dictionary-x').querySelector('#lkDict') || runD('en', '#/home').querySelector('#lkDict')) bad.push('dict: chỉ vẽ ở #/dict và #/dict/<từ>');
+  const dm = html.match(/<script>\/\* #\/dict\[\/từ\] mở thẳng[\s\S]*?<\/script>/);
+  if (!dm) bad.push('index.html thiếu script nạp khung #/dict'); else { const ld = (url, lang = 'en-US') => { const w = new jsdom.JSDOM('<head></head><body><main id="view"></main></body>', { url, runScripts: 'outside-only' }).window; Object.defineProperty(w.navigator, 'languages', { value: [lang] }); const wr = []; w.document.write = x => wr.push(x); w.eval(dm[0].replace(/^<script>/, '').replace(/<\/script>$/, '')); return wr.map(x => (x.match(/src=([^>\s]+)/) || [])[1]).filter(Boolean); };
+    const eq = (a, b, m) => { if (JSON.stringify(a) !== JSON.stringify(b)) bad.push(`dict ${m}: ${JSON.stringify(a)} ≠ ${JSON.stringify(b)}`); };
+    eq(ld('http://localhost/app/#/dict/hello'), ['js/path-skel/d-en.js'], 'en'); eq(ld('http://localhost/app/#/dict', 'vi-VN'), ['js/path-skel/d-vi.js'], 'vi'); eq(ld('http://localhost/app/?hl=ja#/dict?x=1'), ['js/path-skel/d-ja.js'], '?hl'); eq(ld('http://localhost/app/#/path'), [], 'path không nạp khung dict'); eq(ld('http://localhost/app/#/dictx'), [], '#/dictx'); }
+  if (!/__lkSk&&\["#\/review","#\/dict","#\/me"\]/.test(rd('scripts/app-loader.mjs')) || !rd('scripts/app-loader.mjs').includes("closest('#lkPath,#lkDict')")) bad.push('app-loader: có khung tĩnh thì #/dict không nạp JS ngay – chờ LCP rơi vào #lkDict');
+}
 if (bad.length) { console.error('✗ path-skel:\n- ' + bad.join('\n- ')); process.exit(1); }
 console.log(`✓ path-skel: ${LANGS.length} ngôn ngữ · DOM khớp path-day.js · script nạp đúng điều kiện`);
