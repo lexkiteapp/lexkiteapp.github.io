@@ -21,7 +21,8 @@ for (const TZ of ['Asia/Ho_Chi_Minh', 'America/New_York', 'Asia/Kolkata', 'Pacif
   ok(p.length >= 7, `${TZ}: kế hoạch ${p.length} lời nhắc`);
   ok(p.every(x => { const d = new Date(x.at); return d.getHours() === 19 && d.getMinutes() === 30; }), `${TZ}: mọi lời nhắc lúc 19:30 giờ địa phương (30 phút trước giờ hay học 20:00) – ${p.map(x => new Date(x.at).toTimeString().slice(0, 5)).join(',')}`);
   ok(new Set(p.map(x => x.day)).size === p.length, `${TZ}: tối đa 1 lời nhắc/ngày`);
-  ok(JSON.stringify(p.map(x => x.d)) === JSON.stringify([0, 1, 2, 3, 5, 7, 10, 14]), `${TZ}: giãn cách sau 3 lần bỏ qua + dừng sau ngày 14: ${p.map(x => x.d)}`);
+  ok(JSON.stringify(p.map(x => x.d)) === JSON.stringify([0, 1, 2, 3, 5, 7, 14]), `${TZ}: giãn cách sau 3 lần bỏ qua (2 ngày/lần rồi 1 tuần) + dừng sau ngày 14: ${p.map(x => x.d)}`);
+  ok(p.find(x => x.d === 3).type === 'bk3' && p.find(x => x.d === 7).type === 'bk7' && !/mất chuỗi|sẽ mất|lost/i.test(p.filter(x => x.type === 'bk3' || x.type === 'bk7').map(x => x.title + x.body).join(' ')), `${TZ}: mốc quay lại ngày 3 và 7 có tin riêng, không dọa`);
   ok(p[p.length - 1].type === 'miss' && p.filter(x => x.type === 'miss').length === 1, `${TZ}: lời cuối "Kit nhớ bạn" đúng 1 lần ở ngày 14`);
   ok(p[0].type === 'streak', `${TZ}: chưa học hôm nay + có chuỗi → nhắc chuỗi sắp mất (${p[0].type})`);
   const win = p.filter(x => x.d <= 7).map(x => x.tpl); ok(new Set(win).size === win.length, `${TZ}: không lặp mẫu trong 7 ngày: ${win}`);
@@ -38,7 +39,7 @@ for (const TZ of ['Asia/Ho_Chi_Minh', 'America/New_York', 'Asia/Kolkata', 'Pacif
   ok(R.plan({ ...base, settings: { ...base.settings, reminderOn: false } }).length === 0, `${TZ}: tắt nhắc → không lên lịch`);
   const rm = R.plan({ ...base, remote: true }); ok(rm.every(x => x.d < 3 && x.type !== 'week'), `${TZ}: có FCM → lịch cục bộ chỉ 3 ngày đầu`);
   const ty = R.plan({ ...base, settings: { ...base.settings, remTypes: { streak: false, word: false, conf: false, week: false } } });
-  ok(ty.filter(x => x.type !== 'miss').every(x => x.type === 'due'), `${TZ}: lọc theo loại người dùng chọn`);
+  ok(ty.filter(x => x.type !== 'miss').every(x => ['due', 'bk3', 'bk7'].includes(x.type)), `${TZ}: lọc theo loại người dùng chọn`);
   const late = R.plan({ ...base, now: new Date(2026, 9, 28, 21, 0).getTime() }); ok(late[0].d === 1, `${TZ}: giờ hôm nay đã qua → bắt đầu từ mai`);
   // ---------- Nâng cấp 26/10: giờ theo phiên gần đây, giờ yên lặng 22–08, chuỗi chỉ buổi tối, mục tiêu ngày, giãn cách khi bị bỏ qua ----------
   const rec = ms => ms.map((m, i) => ({ day: key(new Date(now - (ms.length - i) * DAY)), m }));
@@ -83,9 +84,9 @@ for (const [tz, at, slot] of cases) {
 ok(S.slotFor(L, 'America/New_York', Date.UTC(2026, 9, 31, 12)) === 1410 && S.slotFor(L, 'America/New_York', Date.UTC(2026, 10, 1, 12)) === 30, 'New York: khung UTC dời theo DST');
 const r0 = { id: 'b'.repeat(32), tz: 'Asia/Kolkata', lmin: L, q1: 1320, q2: 420, std: 0, last: 0, done: 0, lang: 'ja' }, at0 = Date.UTC(2026, 9, 28, 14, 5);
 const back = d => S.pickDue([{ ...r0, k: 'web', ep: 'https://x.push.apple.com/a', act: S.localDay(at0, 'Asia/Kolkata') - d }], at0).web.length;
-ok([0, 1, 2, 3, 5, 7, 10, 14].every(d => back(d) === 1) && [4, 6, 8, 9, 11, 13, 15, 20].every(d => back(d) === 0), 'Web Push: giãn cách 1,2,3 → 5,7,10 → 14 rồi dừng');
+ok([0, 1, 2, 3, 5, 7, 14].every(d => back(d) === 1) && [4, 6, 8, 9, 10, 11, 13, 15, 20].every(d => back(d) === 0), 'Web Push: giãn cách 1,2,3 → 5,7 (2 ngày/lần) → 14 (1 tuần) rồi dừng');
 const fc = d => S.pickDue([{ ...r0, k: 'fcm', ep: 'tok_'.repeat(8), act: S.localDay(at0, 'Asia/Kolkata') - d }], at0);
-ok(fc(1).fcm.length === 0 && fc(3).fcm[0].kind === 'back' && fc(14).fcm[0].kind === 'miss' && fc(14).final.length === 1 && fc(3).fcm[0].lang === 'ja', 'FCM: chỉ kéo lại từ ngày 3, lời cuối ngày 14, giữ ngôn ngữ');
+ok(fc(1).fcm.length === 0 && fc(3).fcm[0].kind === 'back3' && fc(5).fcm[0].kind === 'back' && fc(7).fcm[0].kind === 'back7' && fc(10).fcm.length === 0 && fc(14).fcm[0].kind === 'miss' && fc(14).final.length === 1 && fc(3).fcm[0].lang === 'ja', 'FCM: chỉ kéo lại từ ngày 3, lời cuối ngày 14, giữ ngôn ngữ');
 ok(S.tzOk('Asia/Kolkata') === 'Asia/Kolkata' && S.tzOk('Nope/Zone') === 'UTC' && S.tzOk('x"; DROP') === 'UTC', 'tzOk chỉ nhận múi IANA hợp lệ');
 ok(S.PUSH_HOST.test('https://fcm.googleapis.com/fcm/send/abc') && S.PUSH_HOST.test('https://web.push.apple.com/QAB') && !S.PUSH_HOST.test('https://evil.com/fcm.googleapis.com/') && !S.PUSH_HOST.test('http://fcm.googleapis.com/x'), 'chống SSRF: chỉ máy chủ push thật');
 // ---------- Worker: câu FCM theo ngôn ngữ, rơi về en ----------
@@ -147,7 +148,7 @@ ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'
   const nw = R.plan({ ...b, now: morn, next: nx }), wk = nw.filter(x => x.d <= 7);
   ok(nw.some(x => x.type === 'path' && /Travel/.test(x.title) && x.url === nx.url), 'người mới: mẫu "bài đang học dở" kèm tên bài + liên kết sâu');
   ok(nw.some(x => x.type === 'gstart' && /20/.test(x.title)), 'người mới: mẫu mục tiêu ngày ({g} thẻ)');
-  ok(wk.every(x => x.tpl !== 'gen1' && ['path', 'gstart', 'conf', 'week', 'streak'].includes(x.type)) && new Set(wk.map(x => x.tpl)).size === wk.length, 'người mới: không câu chung chung, không lặp mẫu 7 ngày: ' + wk.map(x => x.tpl));
+  ok(wk.every(x => x.tpl !== 'gen1' && ['path', 'gstart', 'conf', 'week', 'streak', 'bk3', 'bk7'].includes(x.type)) && new Set(wk.map(x => x.tpl)).size === wk.length, 'người mới: không câu chung chung, không lặp mẫu 7 ngày: ' + wk.map(x => x.tpl));
   ok(!R.plan({ ...b, now: morn, next: { u: 'X', url: 'javascript:alert(1)' } }).some(x => x.type === 'path'), 'bài đang dở: liên kết không phải #/ bị bỏ');
   ok(!R.plan({ ...b, now: morn, next: nx, settings: { ...b.settings, remTypes: { path: false, goal: false } } }).some(x => x.type === 'path' || x.type === 'gstart'), 'tắt loại "Bài đang học"/"Mục tiêu" → không dùng mẫu người mới');
   ok(!R.plan({ ...b, now: morn, cards: [card('cope', morn - DAY, '')] }).some(x => x.type === 'gstart'), 'người đã có thẻ đến hạn → không chen mẫu mục tiêu người mới');
@@ -220,5 +221,10 @@ ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'
 }
 // Gia sư 1-1 (lời nhắc giọng gia sư dùng chung lịch này) – chạy kèm vì package.json đang bị nhiều PR mở giữ; chuyển thẳng vào npm test khi rảnh
 { const { spawnSync } = await import('node:child_process'); const r = spawnSync(process.execPath, ['scripts/test/tutor.mjs'], { stdio: 'inherit' }); ok(r.status === 0, 'scripts/test/tutor.mjs xanh'); }
+// 24/11: số liệu theo giờ địa phương (shown_h/open_h) + nhóm loại tin ở Quản trị; mốc quay lại 3/7 có câu 15 ngôn ngữ cho FCM
+{ const src = fs.readFileSync(new URL('../../functions/api/push.js', import.meta.url), 'utf8'), adm = fs.readFileSync(new URL('../../web/js/admin-push.js', import.meta.url), 'utf8');
+  ok(/x\[0\] \+ '_h:' \+ hh/.test(src) && /request\.cf && request\.cf\.timezone/.test(src), 'ev: đếm theo giờ địa phương (shown_h/open_h) từ múi giờ yêu cầu');
+  ok(/shown\|open\)_h:/.test(adm) && /Mốc quay lại 3\/7 ngày/.test(adm) && /'Theo giờ địa phương': 'By local hour'/.test(adm), 'Quản trị: bảng theo loại tin + theo giờ (có EN)');
+  for (const l of Object.keys(W.copyOf ? { vi: 1, en: 1, ja: 1, ar: 1, de: 1 } : {})) ok(W.copyOf(l, 'back3')[0] && W.copyOf(l, 'back7')[1] && (l === 'vi' || !/[ạảấầậđ]/.test(W.copyOf(l, 'back3').join('') + W.copyOf(l, 'back7').join(''))), `FCM ${l}: có câu mốc quay lại 3/7 đúng ngôn ngữ`); }
 console.log(fail ? `✗ reminders: ${fail}/${n} lỗi` : `✓ reminders: ${n} kiểm`);
 process.exit(fail ? 1 : 0);

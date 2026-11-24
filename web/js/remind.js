@@ -7,7 +7,7 @@
  * – Hỏi quyền mềm SAU bài học đầu tiên (không bao giờ lúc mở app), hỏi tối đa 1 lần; tắt/đổi trong Cài đặt. */
 (function (g) {
   'use strict';
-  const DAY = 864e5, SEQ = [0, 1, 2, 3, 5, 7, 10, 14], FINAL = 14, NOREP = 7;
+  const DAY = 864e5, SEQ = [0, 1, 2, 3, 5, 7, 14], FINAL = 14, NOREP = 7;
   const TYPES = ['due', 'word', 'streak', 'conf', 'week', 'goal', 'path'], EVE = 17 * 60, BACKOFF = 3;
   // Giọng: ấm, khích lệ, không dọa mất chuỗi/trách móc (docs/specs/notifications.md; scripts/test/notify-tone.mjs chặn từ dọa)
   // Mẫu câu theo loại (khóa tiếng Việt → I18N; biến {n} số thẻ, {w} từ, {c} câu ngữ cảnh, {s} chuỗi ngày, {d} số ngày học trong tuần)
@@ -21,10 +21,13 @@
     // Người mới (chưa có thẻ đến hạn / từ kèm câu): bài đang học dở trên lộ trình ({u} tên bài) và mục tiêu ngày ({g} thẻ) thay cho câu chung chung gen1
     path: [['ls1', 'Bài “{u}” đang chờ bạn', 'Bạn đang học dở – thêm 5 phút cho bước tiếp theo.'], ['ls2', 'Học tiếp “{u}” nhé?', 'Bước tiếp theo đã sẵn sàng. 5 phút là đủ.']],
     gstart: [['gs1', 'Mục tiêu hôm nay: {g} thẻ', 'Bắt đầu nhẹ nhàng – 5 phút là đủ.'], ['gs2', '{g} thẻ hôm nay – bạn làm được!', 'Học một chút mỗi ngày là nhớ lâu.']],
+    // Mốc quay lại sau 3 / 7 ngày vắng (ấm, có lý do cụ thể, không dọa mất chuỗi) – ngày 14 là lời cuối 'miss'
+    bk3: [['bk3a', 'Kit nhớ bạn rồi 🐦', '{n} từ đang chờ ôn – 3 phút là đủ.'], ['bk3b', 'Kit nhớ bạn rồi 🐦', 'Quay lại nhẹ nhàng nhé – chỉ vài từ thôi.']],
+    bk7: [['bk7a', 'Vẫn còn nguyên những gì bạn đã học', 'Ôn vài thẻ, 2 phút thôi – Kit ở đây cùng bạn.'], ['bk7b', 'Bắt đầu lại chuỗi chỉ từ một thẻ', 'Mỗi ngày một ít là đủ – nhẹ nhàng thôi nhé.']],
     miss: [['ms1', 'Kit sẽ tạm ngừng nhắc bạn 🐦', 'Để không làm phiền bạn. Quay lại lúc nào cũng được – mọi thứ bạn đã học vẫn ở đây.']],
     gen: [['gen1', 'Đến giờ học với Kit rồi!', 'Mở Lexkite để ôn vài từ nhé.']],
   };
-  const ROUTE = { gstart: '#/home', path: '#/home', due: '#/review', streak: '#/review', conf: '#/confidence', week: '#/stats', goal: '#/review', miss: '#/home', gen: '#/review' };
+  const ROUTE = { gstart: '#/home', path: '#/home', due: '#/review', streak: '#/review', conf: '#/confidence', week: '#/stats', goal: '#/review', bk3: '#/review', bk7: '#/review', miss: '#/home', gen: '#/review' };
   const toMin = s => { const m = /^(\d{1,2}):(\d{2})$/.exec(String(s || '')); return m ? Math.min(23, +m[1]) * 60 + Math.min(59, +m[2]) : -1; };
   const hm = n => String(Math.floor(n / 60) % 24).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0');
   const keyOf = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
@@ -97,6 +100,7 @@
       if (lastKept != null && dayN(day) - lastKept < 2) continue; // giãn cách sau nhiều lần bỏ qua
       let type;
       if (d === FINAL) type = 'miss';
+      else if ((d === 3 || d === 7) && types.length) type = d === 3 ? 'bk3' : 'bk7'; // mốc quay lại: 1 tin ấm/mốc (bk3 chỉ nhắc số từ khi thật sự có thẻ đến hạn)
       else if (d === 0 && partial) type = 'goal';
       else {
         const cand = [];
@@ -109,14 +113,14 @@
         if (!type) continue;                       // người dùng tắt hết loại
       }
       // Mẫu: chưa dùng trong 7 ngày (theo lịch sử + kế hoạch này); hết thì lấy mẫu dùng lâu nhất
-      const lim = keyOf(new Date(addDays(at, -NOREP))), list = TPL[type];
+      const lim = keyOf(new Date(addDays(at, -NOREP))), list = type === 'bk3' && !dueBy(base + DAY - 1) ? TPL.bk3.slice(1) : TPL[type];
       const pick = list.find(([id]) => !used.has(id) || used.get(id) <= lim) || list.slice().sort((a, b) => { const x = used.get(a[0]) || '', y = used.get(b[0]) || ''; return x < y ? -1 : x > y ? 1 : 0; })[0]; // khóa ngày YYYY-MM-DD (ASCII) → so chuỗi thường cho cùng thứ tự localeCompare mà không khởi tạo ICU Collator (~50 ms CPU mobile)
       used.set(pick[0], day);
       const v = { n: 0, s: st, d: 0, w: '', c: '', g: goal, r: Math.max(0, goal - done), u: '' };
       let url = ROUTE[type];
       if (type === 'path') { v.u = String(x.next.u).slice(0, 40); url = x.next.url; }
       if (type === 'gstart' && x.next && /^#\/[\w/?=&%~.-]*$/.test(x.next.url || '')) url = x.next.url;
-      if (type === 'due') v.n = dueBy(base + DAY - 1);
+      if (type === 'due' || type === 'bk3') v.n = dueBy(base + DAY - 1);
       if (type === 'goal') v.n = done;
       if (type === 'word') {
         const c = ctxCards[(d + out.length) % ctxCards.length], cx = String(c.ctx || c.contexts[0].text).replace(/\s+/g, ' ').trim();
