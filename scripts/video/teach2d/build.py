@@ -48,6 +48,7 @@ if EP['template'] in ('rule', 'band') and o.format == 'short':   # Spell->Sound 
     _x = int(FMT['W'] * (1 - PZ['right'])); FMT = dict(FMT, region=[FMT['region'][0], FMT['region'][1], min(FMT['region'][2], _x), FMT['region'][3]], cap=[FMT['cap'][0], FMT['cap'][1], min(FMT['cap'][2], _x), FMT['cap'][3]], safe=[FMT['safe'][0], FMT['safe'][1], min(FMT['safe'][2], _x), FMT['safe'][3]])
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
+MINF = 0.4 if EP['template'] == 'l1' else 0.3   # first-card min height (share of the card region); l1: the lone mistake bubble must fill the frame (layout_fill)
 REEL = EP['template'] in ('slang', 'guess3', 'levels3', 'scorecard', 'l1')
 if REEL:   # v3 (audit 24/11 #3 empty frames): the few cards of a 7-13 s reel were small in a 826 px region (pilot t2s_ace: 70 % bare background at 2-3 s) -> bigger text, bigger cards
     S.update({k: round(S[k] * (1.12 if EP['template'] == 'l1' else 1.25 if o.format == 'short' else 1.2)) for k in ('body', 'sub', 'chip', 'ipa', 'pill')})
@@ -180,8 +181,8 @@ class Card:
         n.setdefault('id', nid(n['type'][0])); n['box'] = [n['box'][0], s.y, n['box'][2], s.y + h]; s.rows.append(n); s.y += h + gap; return n
     def place(s, t_in, t_out=None, slot='a', k='soft'):
         h = s.y - GAP + PAD + LEDGE
-        if REEL and o.format == 'short' and s.y0 == RY0 and h < 0.3 * (RY1 - RY0):   # v3: a lone first card never looks lost in the region: min height 30 %, rows centred
-            dy = (0.3 * (RY1 - RY0) - h) / 2
+        if REEL and o.format == 'short' and s.y0 == RY0 and h < MINF * (RY1 - RY0):   # v3: a lone first card never looks lost in the region: min height 30 %, rows centred
+            dy = (MINF * (RY1 - RY0) - h) / 2
             for n in s.rows: n['box'] = [n['box'][0], n['box'][1] + dy, n['box'][2], n['box'][3] + dy]
             h += 2 * dy
         s.box = [s.x0, s.y0, s.x0 + s.w, s.y0 + h]
@@ -436,14 +437,15 @@ def T_l1():
     def ch(runs, sz, **kw):
         c = Card(0, **kw); return 2 * PAD + LEDGE + sum(round(sz * 1.22) + 6 for _ in c.wrap(runs, sz)) - 6
     for sb, st in [(60, 48), (54, 44), (50, 40), (46, 36), (42, 34)]:
-        if ch([[D['wrong'], 'x']], sb, w=RW - 70, badge='cross', t_badge=0) + ch([[D['right'], 'x']], sb, x0=RX0 + 70, w=RW - 70, badge='check', t_badge=0) + ch(tip, st) + 60 <= RY1 - RY0 - 4: break
+        if max(ch([[D['wrong'], 'x']], sb, w=RW - 70, badge='cross', t_badge=0) + ch([[D['right'], 'x']], sb, x0=RX0 + 70, w=RW - 70, badge='check', t_badge=0) + 30, ch(tip, st)) <= RY1 - RY0 - 4: break
     title([[N['hook'], 'coral']], 84, RY0 + 120, None, t_h, hook=True, rtl=rtl)
     c = Card(RY0, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=start('w')); c.tail = 'l'   # the hook headline leaves at t_h, so the bubbles reuse its space (as in T_mistake)
-    tn = c.text([[D['wrong'], 'onbad']], sb, start('w')); b1 = c.place(start('w'), t_out, 'a')
+    t_pair = start('y') - 0.15   # v3: the wrong / right bubbles leave when the tip card arrives, the tip then owns the region (a 3-card stack left the first bubble tiny: layout_fill)
+    tn = c.text([[D['wrong'], 'onbad']], sb, start('w')); b1 = c.place(start('w'), t_pair, 'a')
     strike_on(tn, D['strike'], at('w', D['strike'].split()[0]) + 0.15)
     c = Card(b1[3] + 30, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=at('r', 'better')); c.tail = 'r'
-    c.text([[D['right'], 'ongood']], sb, at('r', 'better')); b2 = c.place(at('r', 'better'), t_out, 'b')
-    c = Card(b2[3] + 30, tone='card'); c.text(tip, st, start('y'), **(dict(align='r', extra=dict(rtl=True)) if rtl else {})); c.place(start('y'), t_out, 'c')
+    c.text([[D['right'], 'ongood']], sb, at('r', 'better')); c.place(at('r', 'better'), t_pair, 'b')
+    c = Card(RY0, tone='card'); c.text(tip, st, start('y'), **(dict(align='r', extra=dict(rtl=True)) if rtl else {})); c.place(start('y'), t_out, 'c')
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
     save_card([[[D['right'], 'good']], [[D['memory'], 'muted']]], start('sh'), start('c') - 0.2)
     end_card()
