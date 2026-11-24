@@ -41,4 +41,5 @@ Engine v3: kịch bản JSON chuẩn → 5–6 khuôn tham số hoá khoá theo 
 | 5 Phụ đề | Đã sửa: wide có phụ đề đốt vào, bám từ, không đè đầu; cổng `caption_full` + `caption_sync` cả wide. |
 | 6 Hook | Hook là thẻ lớn từ khung 0; chưa là chữ giữa khung "pop" theo spec riêng. |
 | 7–10 | Không đụng (nhịp cảnh, đa ngữ RTL/CJK, chồng lớp ổn ở 3 pilot; Motion v2 có sẵn). |
-Việc còn lại: (a) l1 vi short trượt `layout_fill` (16 khoảnh khắc thưa, cần ≤ 8) – thẻ "sai" đứng một mình ~3 s; (b) thân nhân vật động; (c) lấp vùng phải-dưới cho slang.
+Kết quả cổng (CI run 45404319164 slang + scorecard, 45415702359 l1; commit fabe3e7ae0): 6/6 bản (3 pilot × short + wide) score 100, `viral_score` 100, `ypp` pass (giống nhất 0,03–0,20). l1 vi short phải đổi bố cục T_l1 (bong bóng sai/đúng rời khi thẻ mẹo vào, thẻ đầu cao ≥ 45 % vùng) để qua `layout_fill`.
+Còn hạn chế nhìn thấy (8 khung l1 short): vùng phải-dưới trống dưới thẻ, thẻ quiz vẫn nhỏ, giáo viên một tư thế thân (chỉ đổi mặt/gật đầu), phụ đề nhỏ cạnh giáo viên. Việc tiếp: thân nhân vật động (cử chỉ tay trong khi nói cần ảnh không che miệng), lấp vùng phải-dưới.
