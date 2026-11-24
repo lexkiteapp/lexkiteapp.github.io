@@ -29,3 +29,16 @@ Màu teal/tím/cam đúng bộ Kit: không thấy lỗi lệch màu. Nhạc/gi�
 
 ## Việc kế tiếp (đã giao điều phối)
 Engine v3: kịch bản JSON chuẩn → 5–6 khuôn tham số hoá khoá theo Stitch → sinh hàng loạt CI → cổng số cho mọi video + agent chấm mẫu (đầu mỗi khuôn × ngôn ngữ, sau đó 1/20) → gom 15 khuôn cũ về spec.
+
+## Sau v3 (engine `video/v3-engine`, 3 pilot CI: slang EN `t2s_ace`, l1 vi `t2_l1_vi_a_little`, scorecard `t2sc_001`)
+> Chấm bằng mắt 8 khung/video (5 %…97 %) trên artifact CI run 45342244509/45385591136, đối chiếu 10 lỗi của bản kiểm. Kết quả QC: xem docs/VIDEO-V3.md (cổng).
+| # | Lỗi | Sau v3 |
+|---|---|---|
+| 1 Đứng im | Cải thiện một phần: mỗi nhịp đổi nét mặt + gật/lắc đầu, có cử chỉ tay (thumbs-up) ở khoảng lặng; thân vẫn một tư thế phần lớn video (ảnh tay che miệng nên chỉ dùng khi im). Cổng `pose_variety` đo nét mặt/tư thế, chưa đo thân. |
+| 2 CTA yếu | Đã sửa: màn kết duy nhất đủ icon + "Practice…" + QR + lexkite.com ở short/wide, mọi khuôn (kể cả scorecard, trước đó trống). Lỗi mới bắt được và sửa: nhãn nút bị cắt ("Practice and find your level"). |
+| 3 Nền trống | Cải thiện: hook là thẻ poster lớn, chữ thẻ +25 % ở reel; cổng `layout_fill`. Còn: thẻ giữa video vẫn nhỏ so với khung ở slang/l1, vùng phải-dưới còn trống. |
+| 4 Chữ nhỏ | Cải thiện ở reel (+25 %); phụ đề vẫn nhỏ (58 px) và cạnh giáo viên. |
+| 5 Phụ đề | Đã sửa: wide có phụ đề đốt vào, bám từ, không đè đầu; cổng `caption_full` + `caption_sync` cả wide. |
+| 6 Hook | Hook là thẻ lớn từ khung 0; chưa là chữ giữa khung "pop" theo spec riêng. |
+| 7–10 | Không đụng (nhịp cảnh, đa ngữ RTL/CJK, chồng lớp ổn ở 3 pilot; Motion v2 có sẵn). |
+Việc còn lại: (a) l1 vi short trượt `layout_fill` (16 khoảnh khắc thưa, cần ≤ 8) – thẻ "sai" đứng một mình ~3 s; (b) thân nhân vật động; (c) lấp vùng phải-dưới cho slang.
