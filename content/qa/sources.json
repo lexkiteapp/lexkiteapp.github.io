@@ -7,7 +7,8 @@
    "id": "stories",
    "paths": [
     "content/stories",
-    "web/js/stories"
+    "web/js/stories",
+    "web/cpack/stories"
    ],
    "owner": "claude",
    "gen": false,
@@ -249,7 +250,10 @@
     "format"
    ],
    "delegate": [
-    "content-qa/exam-format-check.mjs"
+    "content-qa/exam-format-check.mjs",
+    "target/exam-es-check.mjs",
+    "target/exam-es-check.mjs --tl fr",
+    "test/fr-exam.mjs"
    ]
   },
   {
@@ -304,6 +308,25 @@
     "test/es-practice.mjs"
    ],
    "_note": "Gói luyện tập tiếng TBN W2b (spanish-course.md §10): dựng từ content/target/es/{drills,gx}; drill-pack --check = khớp nguồn + đủ 15 ngôn ngữ + ví dụ TBN nguyên văn, CI thêm LanguageTool 0 lỗi (--lt)"
+  },
+  {
+   "id": "target-fr-drills",
+   "paths": [
+    "web/cpack/fr"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "target/drill-pack.mjs --tl fr --check",
+    "test/fr-practice.mjs",
+    "test/fr-pron.mjs",
+    "test/fr-path.mjs"
+   ],
+   "_note": "Gói luyện tập + lộ trình ngày tiếng Pháp W2/W4 (french-course.md §10): CÙNG engine es (drill-lib TLP, path-lib buildPath(T)), dựng từ content/target/fr/{drills,gx,seed,core-*,calls,path-ui}; drill-pack --tl fr --check = khớp nguồn (gồm dy/wd/cl) + đủ 15 ngôn ngữ + ví dụ Pháp nguyên văn, CI thêm LanguageTool fr 0 lỗi (--lt) + tu ⟂ vous; calls-check --tl fr = 24 cuộc gọi A1–C1, một xưng hô mỗi cuộc, CI thêm LanguageTool 0 lỗi"
   },
   {
    "id": "writing",
@@ -569,6 +592,7 @@
   "web/cpack/mail-app": "MÃ email nhắc học (mail.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/mail-digest.mjs",
   "web/cpack/ret-app": "MÃ giao diện thẻ trang chủ quay lại + tổng kết tuần (cards.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/retention.mjs",
   "web/cpack/es-app": "MÃ giao diện bài phát âm TBN (pron-ui.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/cpack/es (nguồn px), test scripts/test/es-pron.mjs",
+  "web/cpack/game": "MÃ giao diện màn kết mini-game chung (game-end.js, gói lười gend) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/game-end.mjs",
   "web/cpack/play-app": "MÃ giao diện Thử thách 60 giây (play-blitz.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/play-blitz.mjs",
   "web/cpack/importdeck-app": "MÃ giao diện Nhập tài liệu → bộ thẻ (importdeck.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/importdeck.mjs",
   "web/cpack/outcomes-app": "MÃ giao diện bài đo (outcomes.js, outcomes-core.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu đề ở web/cpack/outcomes (nguồn 'outcomes'), test scripts/test/outcomes.mjs",

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_es_makesnosense",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 101,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rules changed again. Why?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Makes no sense!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That is illogical or confusing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This game rule makes no sense.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "makes no sense",
+  "forms": [],
+  "ipa": "/ˈmeɪks noʊ ˈsens/",
+  "mean": "That is illogical or confusing.",
+  "define": "Used when something doesn't seem logical.",
+  "vi": "Chẳng hợp lý",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Reading new rules",
+   "text": "This game rule makes no sense."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means it's…",
+   "options": [
+    "delicious",
+    "illogical"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'makes no sense' about your boss's plan.",
+   "why": "It sounds too blunt."
+  },
+  "l1": "no tiene lógica",
+  "l1_hook": "Las reglas cambiaron otra vez. ¿Por qué? \"makes no sense\"",
+  "l1_ex": "Esta regla del juego \"makes no sense\".",
+  "right": "makes no sense",
+  "native": {
+   "hook": "¿Qué significa “makes no sense”?",
+   "tip": "“makes no sense” = no tiene lógica. Ejemplo: “This game rule makes no sense.”",
+   "caption": "¿Qué significa “makes no sense”?\n“makes no sense” = no tiene lógica.\nEjemplo: “This game rule makes no sense.” (Esta regla del juego \"makes no sense\".)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “makes no sense” = no tiene lógica. “This game rule makes no sense.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Rules changed again. Why?"
+ },
+ "src": {
+  "slang": "makes no sense"
+ },
+ "lang": "es",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "¿Qué significa “makes no sense”?",
+  "keyword": "makes no sense",
+  "value": "“makes no sense” = no tiene lógica. Ejemplo: “This game rule makes no sense.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “makes no sense”?",
+    "description": "“makes no sense” = no tiene lógica. Ejemplo: “This game rule makes no sense.”\n\n¿Qué significa “makes no sense”?\n“makes no sense” = no tiene lógica.\nEjemplo: “This game rule makes no sense.” (Esta regla del juego \"makes no sense\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "makes no sense",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “makes no sense”?\n“makes no sense” = no tiene lógica.\nEjemplo: “This game rule makes no sense.” (Esta regla del juego \"makes no sense\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “makes no sense”?\n\n“makes no sense” = no tiene lógica. Ejemplo: “This game rule makes no sense.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “makes no sense”? “makes no sense” = no tiene lógica. Ejemplo: “This game rule makes no sens… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “makes no sense” = no tiene lógica. “This game rule makes no sense.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

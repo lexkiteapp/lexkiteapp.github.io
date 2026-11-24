@@ -4,7 +4,10 @@
 // Dùng: node scripts/test/ms-icons.mjs        Sinh lại ms-paths.js: python3 scripts/build-ms-icons.py
 import fs from 'fs'; import vm from 'vm'; import path from 'path'; import { JSDOM } from 'jsdom';
 const rd = f => fs.readFileSync(f, 'utf8'), bad = [];
-const ctx = { window: {} }; vm.runInNewContext(rd('web/fonts/ms-paths.js'), ctx); const P = ctx.window.MSP;
+const ctx = { window: {} }; vm.runInNewContext(rd('web/fonts/ms-paths.js'), ctx);
+const pOnly = Object.keys(ctx.window.MSP || {}).join(); // ms-paths.js = họ Outlined (nạp trước LCP); ms-paths-r.js = họ Rounded (chỉ nạp khi có icon Rounded) – gộp lại chỉ ở đây
+vm.runInNewContext(rd('web/fonts/ms-paths-r.js'), ctx); const P = ctx.window.MSP;
+if (pOnly !== 'o,of') { console.error('✗ ms-paths.js phải chỉ chứa họ Outlined (o, of); Rounded ở ms-paths-r.js – nhận ' + pOnly); process.exit(1); }
 if (!P || !P.o || !P.r) { console.error('✗ ms-paths.js: thiếu bảng o/r'); process.exit(1); }
 const walk = (d, o = []) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); e.isDirectory() ? walk(p, o) : /\.(js|html)$/.test(e.name) && o.push(p); } return o; };
 const files = [...walk('web/js'), ...fs.readdirSync('web/app').filter(f => f.endsWith('.html')).map(f => 'web/app/' + f)].filter(f => !f.endsWith('ms-paths.js') && !f.includes('web/js/i18n/'));

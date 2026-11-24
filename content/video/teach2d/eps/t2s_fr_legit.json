@@ -1,0 +1,146 @@
+{
+ "id": "t2s_fr_legit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 70,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is this shop real?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Legit!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Real and good, not fake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This shop is legit, my sister bought shoes there.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "legit",
+  "forms": [],
+  "ipa": "/ləˈdʒɪt/",
+  "mean": "Real and good, not fake.",
+  "define": "Short for legitimate; used for things that are real, true or really good.",
+  "vi": "Xịn thật, đáng tin",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Checking an online shop",
+   "text": "This shop is legit, my sister bought shoes there."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Legit\" means…",
+   "options": [
+    "very fast",
+    "real and trusted"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'legit' in a legal document.",
+   "why": "Use 'legitimate' in formal writing."
+  },
+  "l1": "réel",
+  "l1_hook": "Ce magasin est‑il \"legit\" ?",
+  "l1_ex": "Ce magasin est \"legit\", ma sœur y a acheté des chaussures.",
+  "right": "legit",
+  "native": {
+   "hook": "Que veut dire « legit » ?",
+   "tip": "“legit” = réel. Exemple: “This shop is legit, my sister bought shoes there.”",
+   "caption": "Que veut dire « legit » ?\n“legit” = réel.\nExemple: “This shop is legit, my sister bought shoes there.” (Ce magasin est \"legit\", ma sœur y a acheté des chaussures.)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “legit” = réel. “This shop is legit, my sister bought shoes there.” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is this shop real?"
+ },
+ "src": {
+  "slang": "legit"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Que veut dire « legit » ?",
+  "keyword": "legit",
+  "value": "“legit” = réel. Exemple: “This shop is legit, my sister bought shoes there.”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « legit » ?",
+    "description": "“legit” = réel. Exemple: “This shop is legit, my sister bought shoes there.”\n\nQue veut dire « legit » ?\n“legit” = réel.\nExemple: “This shop is legit, my sister bought shoes there.” (Ce magasin est \"legit\", ma sœur y a acheté des chaussures.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "legit",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « legit » ?\n“legit” = réel.\nExemple: “This shop is legit, my sister bought shoes there.” (Ce magasin est \"legit\", ma sœur y a acheté des chaussures.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « legit » ?\n\n“legit” = réel. Exemple: “This shop is legit, my sister bought shoes there.”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « legit » ? “legit” = réel. Exemple: “This shop is legit, my sister bought shoes there… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “legit” = réel. “This shop is legit, my sister bought shoes there.” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

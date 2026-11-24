@@ -136,8 +136,8 @@
         });
       };
     };
-    $$('.pmic').forEach(b => mic(b, x.words[+b.dataset.k].w, $(`[data-s="${b.dataset.k}"]`), s => { scores[b.dataset.k] = Math.max(scores[b.dataset.k] || 0, s); if (s >= 65) App.reward({ spoken: 1, xp: 2 }); save(); }));
-    $$('.smic').forEach(b => mic(b, x.sentences[+b.dataset.k], $(`[data-ss="${b.dataset.k}"]`), s => { if (s >= 70) App.reward({ spoken: 2, xp: 4 }); }));
+    $$('.pmic').forEach(b => mic(b, x.words[+b.dataset.k].w, $(`[data-s="${b.dataset.k}"]`), s => { scores[b.dataset.k] = Math.max(scores[b.dataset.k] || 0, s); if (s >= Game.XPR.pass) App.reward({ spoken: 1, xp: Game.xpFor('say', { score: s }) }); save(); }));
+    $$('.smic').forEach(b => mic(b, x.sentences[+b.dataset.k], $(`[data-ss="${b.dataset.k}"]`), s => { if (s >= 70) App.reward({ spoken: 2, xp: Game.xpFor('say', { score: s }) }); }));
 
     // Trò chơi nghe – phân biệt cặp từ
     const sp = $('#startPairs');
@@ -152,9 +152,9 @@
         if (r >= rounds.length) {
           const pct = Math.round(ok / rounds.length * 100);
           box.innerHTML = `<div class="feedback ${pct >= 75 ? 'ok' : 'no'}" style="position:static" data-lesson-done><b>${t('Nghe đúng {ok}/{n}', { ok, n: rounds.length })}</b> – ${pct >= 75 ? t('tai bạn đã phân biệt tốt!') : t('nghe chậm lại từng cặp và thử lần nữa.')} <button class="btn sm" id="startPairs2">↺ ${t('Chơi lại')}</button></div>`;
-          App.reward({ quizzes: 1, pron: 1, xp: 5 + ok * 2 });
+          App.reward({ quizzes: 1, pron: 1, xp: Game.xpFor('set', { right: ok, total: rounds.length }) });
           $('#startPairs2').onclick = sp.onclick;
-          Sfx.finish({ pct, xp: 5 + ok * 2, good: 75, el: box });
+          Sfx.finish({ pct, xp: Game.xpFor('set', { right: ok, total: rounds.length }), good: 75, el: box });
           return;
         }
         const { p, ans } = rounds[r];
@@ -184,9 +184,9 @@
       const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = `${okk ? '✅' : '❌'} ${esc(q.explain)}`;
       if (qa === x.quiz.length) {
         const pct = Math.round(qr / qa * 100);
-        await App.reward({ quizzes: 1, pron: 1, perfect: pct === 100 ? 1 : 0, xp: 8 + qr * 3 });
+        await App.reward({ quizzes: 1, pron: 1, perfect: pct === 100 ? 1 : 0, xp: Game.xpFor('set', { right: qr, total: qa, mode: 'type' }) });
         state.game = await Game.mutate(g => { g.pronDone = { ...(g.pronDone || {}), [x.id]: Math.max(pct, (g.pronDone || {})[x.id] || 0) }; });
-        Sfx.finish({ pct, xp: 8 + qr * 3, el: item.parentNode });
+        Sfx.finish({ pct, xp: Game.xpFor('set', { right: qr, total: qa, mode: 'type' }), el: item.parentNode });
       }
     }));
   }

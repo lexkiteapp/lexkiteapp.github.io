@@ -160,7 +160,7 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 40, q: 'According to paragraph E, what is the most serious problem for night-train operators?',
-options: ['Few passengers are willing to travel at night.', 'New sleeping carriages are scarce and slow to arrive.', 'Airlines have bought the rights to many routes.', 'Some governments have banned cross-border trains.'],
+options: ['Track maintenance costs have risen dramatically.', 'New sleeping carriages are scarce and slow to arrive.', 'Flight ticket prices are dropping faster than expected.', 'Border control delays disrupt the tight schedules.'],
 a: 1, cue: 'Perhaps the most serious problem is a shortage of modern sleeping carriages' },
 ] },
 ],

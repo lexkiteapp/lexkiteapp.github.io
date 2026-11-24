@@ -548,8 +548,9 @@ const CLI_OPS = {
     await db.prepare('CREATE TABLE IF NOT EXISTS yt_stats (day TEXT, video_id TEXT, channel_id TEXT, views INTEGER, likes INTEGER, comments INTEGER, PRIMARY KEY (day, video_id))').run();
     const day = new Date().toISOString().slice(0, 10), channels = [], videos = [], errors = [];
     const rows = await all(db, "SELECT clip, video_id, channel_id, privacy, publish_at, title FROM yt_queue WHERE video_id IS NOT NULL AND video_id != ''");
-    for (const ch of await channelsOk(db)) {
-      let at; try { at = await accessToken(env, db, ch); } catch (e) { errors.push({ channel_id: ch.channel_id, error: e.code || 'token' }); continue; }
+    const one_ = async ch => {   // 24/11: kênh chạy SONG SONG (tuần tự 17 kênh × ≥3 lệnh gọi → quá 100 s → Cloudflare 524, social-metrics đỏ 2 ngày)
+      const channels = [], videos = [], errors = [];
+      let at; try { at = await accessToken(env, db, ch); } catch (e) { errors.push({ channel_id: ch.channel_id, error: e.code || 'token' }); return { channels, videos, errors }; }
       const h = { headers: { Authorization: 'Bearer ' + at } };
       const cr = await gfetch('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + encodeURIComponent(ch.channel_id), h); await spend(db, QUOTA.list);
       const cj = cr.ok ? await cr.json().catch(() => ({})) : {}, st = ((cj.items || [])[0] || {}).statistics || {};
@@ -566,8 +567,14 @@ const CLI_OPS = {
         }
         for (const id of part) if (!seen.has(id)) videos.push({ video_id: id, clip: (mine.find(x => x.video_id === id) || {}).clip, channel_id: ch.channel_id, missing: true, views: 0, likes: 0, comments: 0 }); // removed / blocked → alert
       }
+      return { channels, videos, errors };
+    };
+    const res_ = await Promise.all((await channelsOk(db)).map(one_));
+    for (const r_ of res_) { channels.push(...r_.channels); videos.push(...r_.videos); errors.push(...r_.errors); }
+    if (b.snapshot !== false) {   // một lượt D1 cho 50 dòng (mỗi video một lệnh = hàng trăm lượt chờ)
+      const ins = db.prepare('INSERT INTO yt_stats (day, video_id, channel_id, views, likes, comments) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(day, video_id) DO UPDATE SET views = excluded.views, likes = excluded.likes, comments = excluded.comments'), vs = videos.filter(v => !v.missing);
+      for (let i = 0; i < vs.length; i += 50) await db.batch(vs.slice(i, i + 50).map(v => ins.bind(day, v.video_id, v.channel_id, v.views, v.likes, v.comments)));
     }
-    if (b.snapshot !== false) for (const v of videos) if (!v.missing) await run(db, 'INSERT INTO yt_stats (day, video_id, channel_id, views, likes, comments) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(day, video_id) DO UPDATE SET views = excluded.views, likes = excluded.likes, comments = excluded.comments', day, v.video_id, v.channel_id, v.views, v.likes, v.comments);
     if (b.snapshot !== false) { try { await setupMgr(db); await ingestYouTube(db, videos); } catch (e) { errors.push({ error: 'ingest' }); } } // vào bảng Phân tích + trọng số tuần sau
     const prev = {}; for (const [d, n] of [[7, 'w'], [30, 'm']]) for (const r of await all(db, 'SELECT video_id, views FROM yt_stats WHERE day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(?, ?))', day, `-${d} day`)) (prev[r.video_id] = prev[r.video_id] || {})[n] = r.views;
     for (const v of videos) { const p = prev[v.video_id] || {}; v.d7 = p.w == null ? null : v.views - p.w; v.d30 = p.m == null ? null : v.views - p.m; }

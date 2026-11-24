@@ -100,9 +100,13 @@ R.lex = await page.evaluate(() => (window.Lex ? Lex.stats() : null)); // mảnh 
 await page.evaluate(() => { location.hash = '#/home'; }); await sleep(2500);
 await page.evaluate(() => { window.__lt.length = 0; });
 if (await page.locator('#gq').count()) {
+  // ≤1023 px thanh trên cũ (có #gq) bị ẩn từ khi màn Hôm nay dùng khung Stitch v2 → người dùng thật mở ô tra bằng nút kính lúp (data-act=search); gõ vào #gq ẩn thì không có sự kiện nào
+  if (!(await page.locator('#gq').isVisible())) { const sb = page.locator('[data-act="search"]').first(); if (await sb.count()) { await sb.click(); await sleep(800); } }
+  await page.evaluate(() => { window.__lt.length = 0; }); // đo tác vụ dài CHỈ lúc gõ (mở ô tra = bật lớp v2-gs, không thuộc phép gõ)
   await page.evaluate(() => document.querySelector('#gq').focus()); await page.keyboard.type('sustainab', { delay: 60 }); await sleep(1500);
   R.typingLongTasks = await page.evaluate(() => window.__lt.filter(x => x.d > 50).map(x => Math.round(x.d)));
-  R.suggestOk = await page.evaluate(() => { const a = [...document.querySelectorAll('#suggest a b')].map(b => b.textContent.toLowerCase()); return a.length > 0 && a.every(x => x.startsWith('sustainab')); });
+  R.suggestList = await page.evaluate(() => [...document.querySelectorAll('#suggest a b')].map(b => b.textContent.toLowerCase())); // in ra để chẩn đoán khi đỏ
+  R.suggestOk = R.suggestList.length > 0 && R.suggestList.every(x => x.startsWith('sustainab'));
 } else R.typingLongTasks = ['#gq không có'];
 
 // ---------- 4) Offline: trang mới cùng hồ sơ (IndexedDB còn) → từ đã tra vẫn hiện khi mất mạng ----------
@@ -162,7 +166,7 @@ if (R.warmMs > T.warm) fails.push(`tra ấm ${R.warmMs} ms > ${T.warm}`);
 if (R.coldMs > T.cold) fails.push(`tra lạnh ${R.coldMs} ms > ${T.cold}`);
 if (R.perLookupKB * 1024 > T.perLookup) fails.push(`mỗi lần tra ${R.perLookupKB} KB > 5 KB`);
 if ((R.typingLongTasks || []).length > T.longTasks) fails.push(`tác vụ dài khi gõ: ${R.typingLongTasks}`);
-if (R.suggestOk === false) fails.push('gợi ý không khớp chữ đang gõ');
+if (R.suggestOk === false) fails.push('gợi ý không khớp chữ đang gõ: ' + JSON.stringify(R.suggestList));
 if (R.offlineOk === false || typeof R.offlineOk === 'string') fails.push('offline: không tra được từ đã lưu');
 for (const c of R.consistency) if (!c.ok) fails.push(`nhất quán "${c.w}": ${c.bad.join('; ')}`);
 if (hasShards && !(R.lex && R.lex.version !== 'local' && R.lex.net > 0)) fails.push(`Lex không dùng mảnh: ${JSON.stringify(R.lex)}`);

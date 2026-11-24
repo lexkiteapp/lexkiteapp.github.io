@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "French pronunciation",
+  "pk": "Pick a sound to practice",
+  "ex": "Listen to examples",
+  "pp": "Minimal pairs",
+  "dc": "Dictation",
+  "sy": "Say it",
+  "qp": "Which word do you hear?",
+  "qd": "Type what you hear",
+  "qs": "Tap the mic and say the word",
+  "mic": "Tap to speak",
+  "hd": "I heard: “{h}”",
+  "rt": "Didn't catch that. Try again.",
+  "sk": "Skip",
+  "nm": "No microphone here. Practice with pairs or dictation instead.",
+  "tp": "Tip"
+ },
+ "tp": {
+  "nasal": {
+   "t": "Nasal vowels: an, on, in",
+   "x": "In “bon”, “blanc” and “vin” the n is not a consonant: it only sends the vowel through your nose. Do not touch the tongue to the roof of your mouth. Three sounds: on /ɔ̃/ with round lips (“bon”), an /ɑ̃/ with the mouth open (“blanc”), in /ɛ̃/ with spread lips (“vin”). “bon” and “banc” are two different words."
+  },
+  "uou": {
+   "t": "u and ou are different",
+   "x": "French u /y/: say “ee” with the tongue forward, then round your lips as for “oo”: “tu”, “rue”. ou /u/ is a plain “oo”: “tout”, “roue”. One sound changes the word: “vu” (seen) and “vous” (you), “dessus” (above) and “dessous” (below)."
+  },
+  "r": {
+   "t": "The French r",
+   "x": "The French r /ʁ/ is made at the back of the throat, like a soft, gentle gargle: the tip of the tongue rests behind the lower teeth and the back of the tongue rises. Try “rue”, “rouge” and “merci”. Do not roll it and do not curl the tongue. Compare “rue” and “lue”."
+  },
+  "emuet": {
+   "t": "The mute e",
+   "x": "At the end of a word the letter e is silent: “porte”, “table”. In short words it is a quick, rounded /ə/: “je”, “demain”. Inside a word it often drops: “samedi” sounds like “samdi”. But a silent e still matters: it makes the last consonant heard, as in “petit” and “petite”, “grand” and “grande”."
+  },
+  "eai": {
+   "t": "é, è and ai",
+   "x": "é /e/ is closed: lips spread, mouth almost shut, like a short “ay” with no glide: “été”, “café”. è, ê and ai /ɛ/ are more open, like the “e” in “bed”: “père”, “tête”, “lait”. The accent shows the sound. Dictation accepts missing accents (é è ê ç) but reminds you of them."
+  },
+  "eu": {
+   "t": "eu: two sounds",
+   "x": "eu has two sounds. At the end of a syllable it is closed /ø/: say “e” with your lips rounded as for “o”: “deux”, “peu”. Before a pronounced consonant, especially r, it is open /œ/: “heure”, “fleur”. Compare “peu” and “peur”, “jeu” and “jeune”."
+  },
+  "liaison": {
+   "t": "Linking and liaison",
+   "x": "French words flow together. A pronounced final consonant moves onto the next vowel (enchaînement). A silent final consonant is pronounced before a vowel (liaison): s and x become /z/, d becomes /t/. “les amis” sounds like /lezami/ and “vous avez” like /vuzave/. That is what separates “ils ont” from “ils sont”. No liaison before an aspirated h: “les héros”."
+  },
+  "semi": {
+   "t": "Short glides: j, w, ɥ",
+   "x": "Before a vowel, i, ou and u become quick glides inside one syllable. i is /j/ like the English “y”: “fille”. ou is /w/ like “w”: “oui”. u is /ɥ/, the lips of /y/ gliding: “huit”, “lui”, “nuit”. “huit” is one syllable, not “u-it”. Compare “loue” and “lui”, “fil” and “fille”."
+  }
+ }
+}

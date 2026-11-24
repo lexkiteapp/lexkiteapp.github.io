@@ -8,7 +8,7 @@
   // Ngôn ngữ đích ≠ en (c.tl = 'es'…): so khớp/đếm từ trên chữ đã bỏ dấu + hạ chữ thường (regex nhánh viết không dấu, `\b` của JS chỉ hiểu ASCII);
   // sửa ngữ pháp / nhầm cặp âm là luật riêng của tiếng Anh nên bỏ qua; độ trôi chảy dùng bảng đệm/liên từ của ngôn ngữ đó.
   const fold = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  const TLX = { es: { fill: /\b(e+h+|e+m+|m{2,}|o sea)\b/g, link: /\b(porque|pero|entonces|aunque|ademas|tambien|por ejemplo|cuando|mientras|sin embargo|por eso|ya que|asi que|ademas)\b/ } };
+  const TLX = { es: { fill: /\b(e+h+|e+m+|m{2,}|o sea)\b/g, link: /\b(porque|pero|entonces|aunque|ademas|tambien|por ejemplo|cuando|mientras|sin embargo|por eso|ya que|asi que|ademas)\b/ }, fr: { fill: /\b(e+u+h+|heu+|m{2,}|bah|ben)\b/g, link: /\b(parce que|puisque|car|mais|donc|alors|pourtant|cependant|quand|lorsque|pendant que|par exemple|aussi|ensuite|ainsi|d'abord|en effet|d'ailleurs|par contre|c'est pourquoi|bien que|meme si)\b/ } };
 
   // ---------- Đồ thị ----------
   function prep(c) {

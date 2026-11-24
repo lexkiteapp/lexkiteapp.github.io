@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "B1",
+ "items": [
+  {
+   "id": 711867,
+   "au": "Archibald",
+   "s": "Tu ___ la musique classique, n'est-ce pas ?",
+   "a": "aimes",
+   "o": [
+    "aime",
+    "aimes",
+    "aimons"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2023557,
+   "au": "sacredceltic",
+   "s": "Ne te fais pas de souci, je ___ t'aider.",
+   "a": "vais",
+   "o": [
+    "vais",
+    "va",
+    "vas"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 373151,
+   "au": "sysko",
+   "s": "Tu ___ mieux de ne pas boire autant de café si tard le soir.",
+   "a": "ferais",
+   "o": [
+    "ferions",
+    "ferais",
+    "ferait"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13039668,
+   "au": "Rafik",
+   "s": "J'___ hâte de connaître la suite de l'histoire.",
+   "a": "ai",
+   "o": [
+    "a",
+    "ai",
+    "as"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12545124,
+   "au": "LdjuherTaqvaylit",
+   "s": "Demandez-lui s'il ___ venir avec nous.",
+   "a": "veut",
+   "o": [
+    "voulons",
+    "veut",
+    "veux"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1836488,
+   "au": "sacredceltic",
+   "s": "Savez-vous depuis combien de temps ils ___ mariés ?",
+   "a": "sont",
+   "o": [
+    "es",
+    "sont",
+    "suis"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 6958661,
+   "au": "felix63",
+   "s": "Si je n'avais rien dit, vous ___ traversé la rue.",
+   "a": "auriez",
+   "o": [
+    "auriez",
+    "aurais",
+    "aurait"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13467549,
+   "au": "anzart",
+   "s": "Je ___ que nous avons commis une faute.",
+   "a": "crois",
+   "o": [
+    "croyons",
+    "crois",
+    "croit"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1389909,
+   "au": "sacredceltic",
+   "s": "Je ne peux pas vous dire combien de fois je ___ venu ici.",
+   "a": "suis",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11968790,
+   "au": "Fenrir",
+   "s": "Ils ___ dans de mauvaises conditions de vie.",
+   "a": "vivent",
+   "o": [
+    "vivent",
+    "vis",
+    "vit"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3004893,
+   "au": "nimfeo",
+   "s": "Nous ___ cherché l'enfant qui s'était perdu dans la forêt.",
+   "a": "avons",
+   "o": [
+    "avons",
+    "ai",
+    "as"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11972971,
+   "au": "lbdx",
+   "s": "Elle ___ assise sur une mine d'or.",
+   "a": "est",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11467481,
+   "au": "felix63",
+   "s": "Nous ___ la station-service à gauche devant nous.",
+   "a": "voyons",
+   "o": [
+    "vois",
+    "voit",
+    "voyons"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1947545,
+   "au": "sacredceltic",
+   "s": "Tu ___ la plus belle femme qu'il m'ait été donné de voir.",
+   "a": "es",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1800079,
+   "au": "sacredceltic",
+   "s": "J'___ que tout va bien pour lui.",
+   "a": "espère",
+   "o": [
+    "espérons",
+    "espère",
+    "espères"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11624906,
+   "au": "Aiji",
+   "s": "J'___ fait exactement ce que tu as fait.",
+   "a": "aurais",
+   "o": [
+    "aurions",
+    "aurais",
+    "aurait"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 602030,
+   "au": "sysko",
+   "s": "Un jour elle ___ payer pour ce qu'elle a fait.",
+   "a": "devra",
+   "o": [
+    "devra",
+    "devrai",
+    "devras"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 473872,
+   "au": "qdii",
+   "s": "J'___ l'intention de passer te voir, mais j'étais assez occupé cette semaine.",
+   "a": "avais",
+   "o": [
+    "avais",
+    "avait",
+    "avions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11537948,
+   "au": "Igider",
+   "s": "Nous ___ très bien comment fonctionne le monde.",
+   "a": "savons",
+   "o": [
+    "savons",
+    "sais",
+    "sait"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 7700405,
+   "au": "Maxence",
+   "s": "Tu ___ marcher sur la pointe des pieds pour le voir.",
+   "a": "devras",
+   "o": [
+    "devra",
+    "devras",
+    "devrai"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 8238500,
+   "au": "Rovo",
+   "s": "Cet animal ne travaille que pour la récompense.",
+   "k": "l"
+  },
+  {
+   "id": 133936,
+   "au": "sacredceltic",
+   "s": "Ce que je crois, c'est qu'elle n'a jamais dit de mensonge.",
+   "k": "l"
+  },
+  {
+   "id": 8899818,
+   "au": "Julien_PDC",
+   "s": "Il a une peau très claire, il a attrapé un coup de soleil.",
+   "k": "l"
+  },
+  {
+   "id": 12609203,
+   "au": "LdjuherTaqvaylit",
+   "s": "Elle a juré de la chasser de la maison.",
+   "k": "l"
+  },
+  {
+   "id": 1047999,
+   "au": "sacredceltic",
+   "s": "Jamais n'ai-je vu si belle rivière.",
+   "k": "l"
+  },
+  {
+   "id": 11576331,
+   "au": "carlosalberto",
+   "s": "Je le fais parce que j'aime le faire.",
+   "k": "l"
+  },
+  {
+   "id": 15127,
+   "au": "Vortarulo",
+   "s": "Je vous en prie, mettez-vous à l'aise.",
+   "k": "l"
+  },
+  {
+   "id": 1951116,
+   "au": "sacredceltic",
+   "s": "Je n'arrive pas à croire que je te dise ça.",
+   "k": "l"
+  },
+  {
+   "id": 452357,
+   "au": "sacredceltic",
+   "s": "Mon père est resté sans emploi pendant un an.",
+   "k": "l"
+  },
+  {
+   "id": 2074106,
+   "au": "sacredceltic",
+   "s": "Je ne suis pas sûre qu'il l'ait vu.",
+   "k": "l"
+  },
+  {
+   "id": 12523232,
+   "au": "LdjuherTaqvaylit",
+   "s": "Il n'a pas besoin de témoins, tout est clair.",
+   "k": "l"
+  },
+  {
+   "id": 12584727,
+   "au": "anzart",
+   "s": "À peine s'est-elle mise debout que je me suis levé à mon tour.",
+   "k": "l"
+  }
+ ]
+}

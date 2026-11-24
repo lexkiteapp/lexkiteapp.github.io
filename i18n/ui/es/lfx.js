@@ -1,6 +1,6 @@
 /* UI es – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {
-"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Esto parece demasiado fácil para ti. ¿Probamos preguntas más difíciles (escribir en vez de elegir) para ganar XP extra?",
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhớ lâu hơn nhé?":"Esto parece demasiado fácil para ti. ¿Quieres preguntas más difíciles (escribir en vez de elegir) para recordar más tiempo?",
 "Bật lại":"Reactivar",
 "Chuỗi dài nhất":"Mejor racha",
 "Câu khó · +{n} XP":"Pregunta difícil · +{n} XP",

@@ -9915,44 +9915,6 @@ egoistic	ok	ok
 centroid	ok	ok
 thrombus	ok	ok
 erythrocyte	ok	cut_wordis:"Arithrocyte" 1.13s · cut_wordis:"Arithrocyte" 0.95s · dot100:"Arithrocyte" 0.90s · cut_wordis100:"Arithrocyte" 1.03s · cut_wordis100:"Arithrocyte" 0.89s · cut_next:"Arithrocyte" 0.95s · cut_next:"Hrythrocyte" 0.83s · plain095:"Arithrocyte" 0.95s · dot090:"Arithrocyte" 1.05s
-symbiotically	ok	ok
-pronounceable	ok	ok
-transliterate	ok	ok
-semipermeable	ok	ok
-closedown	ok	ok
-urinalysis	ok	cut_wordis: câu mang: "The word is, your analysis." · dot100:"Your analysis" 0.99s · cut_wordis100: câu mang: "The word is, your analysis." · cut_next: câu mang: "Next word, your analysis." · plain095:"Your analysis." 0.99s · dot090:"Your analysis." 1.05s
-depolarize	ok	ok
-mucilaginous	ok	ok
-collectivize	ok	ok
-misapply	ok	ok
-precast	ok	ok
-sailplane	ok	ok
-clast	cut_wordis: câu mang: "The word is clasty." · dot100:"Classed." 0.67s · cut_wordis100: câu mang: "The word is classed." · cut_next: câu mang: "Next word, Eclasti." · plain095:"Clursed." 0.64s · dot090:"Eglast." 0.74s	cut_wordis: câu mang: "The word is classed." · dot100:"Glassed." 0.66s · cut_wordis100: câu mang: "The word is classed." · cut_next: câu mang: "Next word, classed." · plain095:"At last." 0.66s · dot090:"Classed" 0.74s
-erythropoiesis	ok	ok
-axil	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.69s · cut_wordis100: câu mang: "The word is axial." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.65s · dot090:"Axle" 0.80s	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.62s · cut_wordis100: câu mang: "The word is axel." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.63s · dot090:"Axle" 0.74s
-taxonomist	ok	ok
-retaliate	ok	ok
-alimony	ok	ok
-incoherent	ok	ok
-workmanship	ok	ok
-credence	ok	ok
-henceforth	ok	ok
-indignation	ok	ok
-orthography	ok	ok
-parallelism	ok	ok
-conflagration	ok	ok
-electrophoresis	ok	ok
-bicker	ok	ok
-rectification	ok	ok
-eavesdrop	ok	ok
-superconductivity	ok	ok
-emanate	ok	ok
-phonetics	ok	ok
-falsify	ok	ok
-gasification	ok	ok
-anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
-porpoise	ok	ok
-systematics	ok	ok
 subclavian	ok	ok
 incorporeal	ok	ok
 spermatogenesis	ok	ok
@@ -9967,7 +9929,6 @@ maceration	ok	ok
 eucalypt	ok	ok
 pterosaur	ok	ok
 dishwater	ok	ok
-amphoteric	ok	ok
 interdependency	ok	ok
 conciseness	ok	ok
 spermicide	ok	ok
@@ -10056,3 +10017,45 @@ mycologist	ok	ok
 artilleryman	cut_wordis:"It's artillerymen." 1.01s · cut_wordis:"Artillerimmon" 0.94s · dot100:"artilleryman's" 1.04s · cut_wordis100:"It's artillerymen." 0.92s · cut_wordis100:"Artillerimmon" 0.88s · cut_next:"Artillerimmon" 0.94s · cut_next:"Tillerimmon" 0.78s · plain095:"Artillerymans" 1.04s · dot090:"Artille	cut_wordis: câu mang: "The word is artilleramen." · dot100:"Artilleramen" 0.85s · cut_wordis100: câu mang: "The word is artilleramen." · cut_next:"Artilleramen" 0.85s · cut_next:"Tillerimmon" 0.72s · plain095:"Artilleramen" 0.88s · dot090:"Artilleriman" 0.93s
 geometer	ok	ok
 antiparticle	ok	ok
+symbiotically	ok	ok
+pronounceable	ok	ok
+transliterate	ok	ok
+semipermeable	ok	ok
+closedown	ok	ok
+urinalysis	ok	cut_wordis: câu mang: "The word is, your analysis." · dot100:"Your analysis" 0.99s · cut_wordis100: câu mang: "The word is, your analysis." · cut_next: câu mang: "Next word, your analysis." · plain095:"Your analysis." 0.99s · dot090:"Your analysis." 1.05s
+depolarize	ok	ok
+mucilaginous	ok	ok
+collectivize	ok	ok
+misapply	ok	ok
+precast	ok	ok
+sailplane	ok	ok
+clast	cut_wordis: câu mang: "The word is clasty." · dot100:"Classed." 0.67s · cut_wordis100: câu mang: "The word is classed." · cut_next: câu mang: "Next word, Eclasti." · plain095:"Clursed." 0.64s · dot090:"Eglast." 0.74s	cut_wordis: câu mang: "The word is classed." · dot100:"Glassed." 0.66s · cut_wordis100: câu mang: "The word is classed." · cut_next: câu mang: "Next word, classed." · plain095:"At last." 0.66s · dot090:"Classed" 0.74s
+erythropoiesis	ok	ok
+axil	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.69s · cut_wordis100: câu mang: "The word is axial." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.65s · dot090:"Axle" 0.80s	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.62s · cut_wordis100: câu mang: "The word is axel." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.63s · dot090:"Axle" 0.74s
+taxonomist	ok	ok
+perfumer	ok	ok
+adverb	ok	ok
+abstinence	ok	ok
+bacteriology	ok	ok
+retaliate	ok	ok
+alimony	ok	ok
+incoherent	ok	ok
+workmanship	ok	ok
+credence	ok	ok
+henceforth	ok	ok
+indignation	ok	ok
+orthography	ok	ok
+parallelism	ok	ok
+conflagration	ok	ok
+electrophoresis	ok	ok
+bicker	ok	ok
+rectification	ok	ok
+eavesdrop	ok	ok
+superconductivity	ok	ok
+emanate	ok	ok
+phonetics	ok	ok
+falsify	ok	ok
+gasification	ok	ok
+anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
+porpoise	ok	ok
+systematics	ok	ok

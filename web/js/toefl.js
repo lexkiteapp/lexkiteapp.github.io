@@ -71,7 +71,7 @@
       ${SECTIONS.map(s => `<h2 style="margin-top:1.4rem">${s.ic} <span lang="en" translate="no">${s.name}</span></h2>
         <div class="grid auto">${s.tasks.map(k => { const T = TASKS[k], n = countTask(k); return `<div class="card"><span class="chip">${T.ic} <span lang="en" translate="no">${s.name}</span></span>${b[k] != null ? ` <span class="chip ok">🏆 ${b[k]}%</span>` : ''}
           <h3 style="margin:.5rem 0 .2rem">${esc(T.name)}</h3><div class="small muted">${T.desc}</div><div class="tiny muted" style="margin-top:.3rem">${n ? esc(unitWord(k, n)) : t('Đang cập nhật.')}</div>
-          <div class="row" style="margin-top:.6rem"><a class="btn sm primary" href="#/toefl-p/${k}">🎯 ${t('Luyện tập')}</a></div></div>`; }).join('')}</div>`).join('')}
+          <div class="row" style="margin-top:.6rem"><a class="btn sm" href="#/toefl-p/${k}">🎯 ${t('Luyện tập')}</a></div></div>`; }).join('')}</div>`).join('')}
       <div class="card" style="margin-top:1.2rem"><h3 style="margin-top:0">📏 ${t('Về điểm số trong ứng dụng')}</h3>
         <p class="small" style="margin:.2rem 0">${t('Sau mỗi bài trắc nghiệm, ứng dụng hiển thị tỉ lệ đúng và một <b>band ước tính</b> (1–6) để bạn theo dõi tiến bộ. Đây là quy đổi tuyến tính trên bộ đề tự biên soạn – <b>không phải</b> thang điểm chính thức và không tương đương điểm thi thật của ETS.')}</p>
         <p class="small muted" style="margin:.2rem 0">${t('Writing và Speaking: tự đối chiếu với bài mẫu và checklist; có thể nhờ AI nhận xét bài viết (tùy chọn).')}</p></div>
@@ -125,7 +125,7 @@
     view.innerHTML = `<a href="#/toefl" class="small">← TOEFL iBT</a>
       <div class="page-head" style="margin-top:.4rem"><div><div class="tiny muted">${sec.ic} <span lang="en" translate="no">${sec.name}</span></div><h1 style="margin:.2rem 0">${T.ic} ${esc(T.name)}</h1><p class="muted small" style="margin:0">${T.desc}</p></div></div>
       ${window.QT ? QT.box(task === 'sentence' ? 'sentenceB' : task, true) : ''}
-      <div class="row" style="margin-bottom:1rem">${sec.tasks.map(k => `<a class="btn sm ${k === task ? 'primary' : ''}" href="#/toefl-p/${k}">${TASKS[k].ic} ${esc(TASKS[k].name)}</a>`).join('')}</div>
+      <div class="row" style="margin-bottom:1rem">${sec.tasks.map(k => `<a class="chip ${k === task ? 'on' : ''}" ${k === task ? 'aria-current="page"' : ''} style="min-height:44px;display:inline-flex;align-items:center" href="#/toefl-p/${k}">${TASKS[k].ic} ${esc(TASKS[k].name)}</a>`).join('')}</div>
       ${perPage && sets.length > 1 ? `<div class="tabs" style="display:inline-flex;margin-bottom:1rem">${sets.map(n => `<a class="${n === cur ? 'on' : ''}" href="#/toefl-p/${task}?s=${n}" style="padding:.45rem .9rem;border-radius:10px;font-weight:700;text-decoration:none;color:inherit;${n === cur ? 'background:var(--surface);box-shadow:var(--shadow-sm)' : ''}">${t('Bộ {n}', { n })}</a>`).join('')}</div>` : ''}
       <div id="tfBody"></div>`;
     const body = $('#tfBody');
@@ -165,7 +165,7 @@
   let pageT0 = 0; // mốc mở trang luyện → giây/câu (ước tính)
   async function finish(task, right, total, stat) {
     if (window.QT) { const sk = { reading: 'fr', listening: 'fl', writing: 'fw' }[secOf(task).key]; if (sk) await QT.recordRaw(sk, task === 'sentence' ? 'sentenceB' : task, right, total, pageT0 ? Math.min(10800, Math.round((Date.now() - pageT0) / 1000)) : 0); }
-    await App.reward({ quizzes: 1, [stat]: 1, xp: 10 + right * 2 });
+    await App.reward({ quizzes: 1, [stat]: 1, xp: Game.xpFor('set', { right, total }) });
     await saveBest(task, total ? right / total : 0);
     const r = $('#tRes'); if (!r) return;
     r.innerHTML = resultHtml(right, total);
@@ -306,7 +306,7 @@
         <div class="card" style="margin:1rem 0 0"><h3 style="margin-top:0">🔤 ${t('Từ nên dùng')}</h3><div>${u.vocab.map(v => `<span class="chip" style="white-space:normal;max-width:100%;color:inherit">${esc(v)}</span>`).join('')}</div></div>` : ''}`;
       const upd = () => { const a = $$('[data-ck]:checked').length, b = u.checklist.length; $('#ckRes').innerHTML = `<b>${t('Đạt {a}/{b} tiêu chí', { a, b })}</b>`; };
       $$('[data-ck]').forEach(x => x.onchange = upd); upd();
-      if (!rewarded && wc(ta.value) >= minW) { rewarded = true; App.reward({ xp: 10 }); }
+      if (!rewarded && wc(ta.value) >= minW) { rewarded = true; App.reward({ xp: Game.xpFor('essay') }); }
       $('#wOut').scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
     const ai = $('#wAI');
@@ -327,7 +327,7 @@ Return ONLY JSON: {"score": number (holistic task score on a 0-5 scale, may use 
           ${(r.improvements || []).length ? `<div class="small"><b>🎯 ${t('Cần cải thiện')}</b><ul>${r.improvements.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
           ${(r.errors || []).length ? `<div class="small"><b>✏️ ${t('Lỗi cần sửa')}</b>${r.errors.map(x => `<div style="margin:.3rem 0">❌ <s>${esc(x.quote)}</s> → ✅ <b>${esc(x.fix)}</b><div class="tiny muted">${esc(x.why || '')}</div></div>`).join('')}</div>` : ''}
           <div class="tiny muted" style="margin-top:.4rem">${t('Nhận xét do AI tạo, chỉ để tham khảo – không phải điểm chính thức của ETS.')}</div></div>`;
-        App.reward({ xp: 5 });
+        App.reward({ xp: Game.xpFor('step') });
       } catch (e) {
         out.innerHTML = `<div class="card small">❌ ${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'BAD_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`;
         const k = $('[data-k]', out); if (k) k.onclick = () => AI.keyDialog(go);
@@ -358,7 +358,7 @@ Return ONLY JSON: {"score": number (holistic task score on a 0-5 scale, may use 
             scores[k] = score; txt.style.filter = '';
             row.classList.remove('ok', 'no', 'half'); row.classList.add(score >= 85 ? 'ok' : score >= 60 ? 'half' : 'no');
             fb.innerHTML = `<b style="color:${score >= 85 ? 'var(--good)' : score >= 60 ? 'var(--hard)' : 'var(--again)'}">${t('{score}% giống mẫu', { score })}</b> · ${t('máy nghe: “{heard}”', { heard: esc(heard) })} ${audio ? `<audio controls src="${audio}" style="height:30px;vertical-align:middle"></audio>` : ''}<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(s.tip)}</div>`;
-            App.reward({ spoken: 1, xp: 2 });
+            App.reward({ spoken: 1, xp: Game.xpFor('say', { score }) });
             const done = Object.keys(scores).length;
             if (done === u.sentences.length) { const avg = Math.round(Object.values(scores).reduce((a, b) => a + b, 0) / done); $('#tRes').innerHTML = `<div class="feedback ${avg >= 80 ? 'ok' : 'no'}" style="position:static"><b>${t('Hoàn thành · trung bình {pct}% giống mẫu', { pct: avg })}</b><div class="tiny muted">${t('Độ giống do máy nhận dạng giọng nói ước tính – chỉ để tham khảo.')}</div></div>`; saveBest(task, avg / 100); }
           },
@@ -395,7 +395,7 @@ Return ONLY JSON: {"score": number (holistic task score on a 0-5 scale, may use 
         const ok = await record(secs, left => { const c = $('#ivClock'); if (c) { c.textContent = mmss(left); c.classList.toggle('warn', left <= 10); } }, url => {
           btn.classList.remove('rec'); const h = $('#ivHint'); if (h) h.textContent = t('Đã ghi âm – nghe lại và so với câu trả lời mẫu.');
           const a = $('#ivAudio'); if (a && url) a.innerHTML = `<audio controls src="${url}"></audio>`;
-          App.reward({ spoken: 1, xp: 5 });
+          App.reward({ spoken: 1, xp: Game.xpFor('say') });
         });
         if (ok) { btn.classList.add('rec'); $('#ivHint').textContent = '🔴 ' + t('Đang ghi âm – bấm lần nữa để dừng'); }
       };

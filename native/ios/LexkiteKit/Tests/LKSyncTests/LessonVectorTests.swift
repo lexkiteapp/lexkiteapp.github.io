@@ -76,7 +76,8 @@ enum LessonVectorCheck {
             if let p = c["perWord"]?.double { o.perWord = Int(p) }
             if c["match"]?.truthy == false, c["match"] != nil { o.match = false }
             let img = c["img"]?.truthy == true, gl = c["gloss"]?.truthy == true, vi = c["mean"]?.string == "vi"
-            if img { o.hasImg = { w, _ in cx.imgWords.contains(w) } }
+            if c["img"]?.string == "all" { o.hasImg = { _, _ in true } } else if img { o.hasImg = { w, _ in cx.imgWords.contains(w) } }
+            o.lpic = c["lpic"]?.truthy == true; o.mpic = c["mpic"]?.truthy == true
             if gl { o.gloss = { _, en in cx.gloss[en] ?? "" } }
             o.mean = { vi ? $0.vi : "" }
             let items = LessonEngine.build(picks(cx, pc), o)

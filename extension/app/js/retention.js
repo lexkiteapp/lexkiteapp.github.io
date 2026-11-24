@@ -285,7 +285,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   // Giải thích chuỗi (#retHelp): luật thật của app – ngày nào học là giữ chuỗi, băng tự dùng, mốc có rương, tất cả miễn phí
   function helpHtml() {
     const row = (ic, s) => `<li class="flex items-start gap-2.5 py-[0.375rem]"><span class="material-symbols-rounded fill text-xl ${V.ic}" aria-hidden="true">${ic}</span><span class="${V.body}">${esc(s)}</span></li>`;
-    return `<div class="v2s-streak"><div class="st v2 v2-streak"><h2 class="${V.lab} pb-[0.5rem]">${esc(t('Chuỗi ngày học'))}</h2><ul>${row('local_fire_department', t('Học ít nhất 1 bài mỗi ngày để giữ chuỗi.'))}${row('ac_unit', t('Lỡ một ngày? Lượt đóng băng tự giữ chuỗi cho bạn.'))}${row('featured_seasonal_and_gifts', t('Mỗi mốc 3, 7, 14, 30… ngày được 1 rương quà.'))}${row('volunteer_activism', t('Tất cả đều miễn phí – không cần trả tiền để giữ chuỗi.'))}</ul></div></div>`;
+    return `<div class="v2s-streak"><div class="st v2 v2-streak"><h2 class="${V.lab} pb-[0.5rem]">${esc(t('Chuỗi ngày học'))}</h2><ul>${row('local_fire_department', t('Có XP hoặc ôn thẻ trong ngày là giữ được chuỗi.'))}${row('ac_unit', t('Lỡ một ngày? Lượt đóng băng tự giữ chuỗi cho bạn.'))}${row('featured_seasonal_and_gifts', t('Mỗi mốc 3, 7, 14, 30… ngày được 1 rương quà.'))}${row('volunteer_activism', t('Tất cả đều miễn phí – không cần trả tiền để giữ chuỗi.'))}</ul></div></div>`;
   }
   let mOff = 0; // tháng đang xem trên lịch (0 = tháng này, âm = tháng trước)
   function v2Data(o) {
@@ -371,7 +371,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   // ---------- Khởi động ----------
   if (on()) { css(); applyFrame(); }
   if (on() && g.StreakUI && !g.StreakUI._retWrapped) { g.StreakUI.showSavedModal = () => Ret.thaw(); g.StreakUI._retWrapped = 1; } // màn "đã cứu chuỗi" → nghi thức rã băng (cùng cờ đã xem streak_saved_seen)
-  g.addEventListener('lexkite:practice-done', () => setTimeout(check, 1200));
+  for (const e of ['practice-done', 'lesson-done']) g.addEventListener('lexkite:' + e, () => setTimeout(check, 1200));
   const toPage = e => { if (on() && e.target && e.target.closest && e.target.closest('#streakPill') && (e.type === 'click' || e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); location.hash = '#/streak'; } };
   document.addEventListener('click', toPage); document.addEventListener('keydown', toPage);
   const pill = document.getElementById('streakPill'); if (pill && on()) { pill.style.cursor = 'pointer'; pill.setAttribute('role', 'link'); pill.tabIndex = 0; }

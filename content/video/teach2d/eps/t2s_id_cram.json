@@ -1,0 +1,153 @@
+{
+ "id": "t2s_id_cram",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 76,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Exam tomorrow. I haven't studied!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cram!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Study at the last minute.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I must cram for math.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "cram",
+  "forms": [
+   "cramming",
+   "crammed"
+  ],
+  "ipa": "/ˈkræm/",
+  "mean": "Study at the last minute.",
+  "define": "To study many things quickly just before a test.",
+  "vi": "Học nhồi nhét",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Waiting outside class",
+   "text": "I must cram for math."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"cram\" is to…",
+   "options": [
+    "sleep in class",
+    "study at the last minute"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'cram' for a three-year course.",
+   "why": "Cramming only works for short tests."
+  },
+  "l1": "belajar mendadak",
+  "l1_hook": "Ujian besok. Aku belum belajar! \"cram\"",
+  "l1_ex": "Aku harus \"cram\" untuk matematika.",
+  "right": "cram",
+  "native": {
+   "hook": "Apa arti “cram”?",
+   "tip": "“cram” = belajar mendadak. Contoh: “I must cram for math.”",
+   "caption": "Apa arti “cram”?\n“cram” = belajar mendadak.\nContoh: “I must cram for math.” (Aku harus \"cram\" untuk matematika.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “cram” = belajar mendadak. “I must cram for math.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Exam tomorrow. I haven't studied!"
+ },
+ "src": {
+  "slang": "cram"
+ },
+ "lang": "id",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Apa arti “cram”?",
+  "keyword": "cram",
+  "value": "“cram” = belajar mendadak. Contoh: “I must cram for math.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “cram”?",
+    "description": "“cram” = belajar mendadak. Contoh: “I must cram for math.”\n\nApa arti “cram”?\n“cram” = belajar mendadak.\nContoh: “I must cram for math.” (Aku harus \"cram\" untuk matematika.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "cram",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “cram”?\n“cram” = belajar mendadak.\nContoh: “I must cram for math.” (Aku harus \"cram\" untuk matematika.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “cram”?\n\n“cram” = belajar mendadak. Contoh: “I must cram for math.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “cram”? “cram” = belajar mendadak. Contoh: “I must cram for math.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “cram” = belajar mendadak. “I must cram for math.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

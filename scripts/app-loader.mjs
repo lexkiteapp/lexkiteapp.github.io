@@ -5,6 +5,7 @@
 // DOMContentLoaded (app.js khởi động lúc đó) và — nếu sự kiện load thật đã qua — phát lại load (heal.js, native.js, ads.js).
 // Dùng: node scripts/app-loader.mjs [dist/app/index.html]   ·   --check: chỉ kiểm tra bản đã biến đổi
 import fs from 'fs';
+import path from 'path';
 const f = process.argv.slice(2).find(a => !a.startsWith('--')) || 'dist/app/index.html';
 let html = fs.readFileSync(f, 'utf8');
 const TAG = /^[ \t]*<script(?: defer)? src="([^"]+)"><\/script>\n/gm;
@@ -25,6 +26,7 @@ html = html.replace(TAG, '').replace(FONT, '');
 // → Lighthouse (Lantern) tính 330 KB JS vào LCP. Có Paint Timing: chờ mục first-contentful-paint (đã hiện) rồi mới nạp; dự phòng 3 s (tab nền không vẽ).
 // Không có Paint Timing (trình duyệt cũ): như cũ rAF → setTimeout, dự phòng 300 ms.
 // Font web: nạp sau khi TRANG ĐẦU đã vẽ (sự kiện lk:drawn của app.js, dự phòng 6 s) – 70–135 KB font không giành băng thông với JS khung; chữ vẽ trước bằng font dự phòng khớp số đo (--font).
+// #/path có khung tĩnh (js/path-skel, __lkSk): JS khung chờ tới khi LCP rơi vào khung (#lkPath) rồi mới nạp (đo 22/11: JS nạp ngay sau FCP, ~70 ms trước khi chữ khung được ghi là LCP → Lantern tính cả request JS vào LCP 2,4–3,9 s) – nạp ngay sau FCP thì Lighthouse tính các request đó vào LCP của khung (2,4–4,1 s); dự phòng 3 s như cũ.
 // #/review, #/dict, #/me mở thẳng: LCP là nội dung thật (cần khung app) → nạp JS NGAY, không chờ FCP (đo mobile-qa 21/11). KHÔNG áp cho path/practice/home: LCP của chúng là khung chào tĩnh, JS nạp sớm làm LCP xấu đi (path 1,7→2,7 s, practice 1,7→8,7 s).
 const boot = `<script id="lk-boot">(function(){var S=${JSON.stringify(order)},F=${JSON.stringify(font)},d=document,w=window,done=0,fd=0;
 function fonts(){if(fd)return;fd=1;F.forEach(function(u){var l=d.createElement('link');l.rel='stylesheet';l.href=u;d.head.appendChild(l)})}
@@ -34,10 +36,14 @@ S.forEach(function(u){var s=d.createElement('script');s.src=u;s.async=false;s.on
 w.addEventListener('load',function(){w.__lkLoaded=1});
 var h=w.location.hash;if(["#/review","#/dict","#/me"].some(function(p){return h.indexOf(p)===0&&(h.length===p.length||"/?".indexOf(h.charAt(p.length))>=0)})){go();return}
 var P=w.PerformanceObserver,fcp=P&&P.supportedEntryTypes&&P.supportedEntryTypes.indexOf('paint')>=0;
-if(fcp){try{new P(function(l,o){if(l.getEntriesByName('first-contentful-paint').length){o.disconnect();setTimeout(go,0)}}).observe({type:'paint',buffered:true})}catch(e){fcp=0}}
+if(fcp){try{new P(function(l,o){if(l.getEntriesByName('first-contentful-paint').length){o.disconnect();if(w.__lkSk){try{new P(function(q,o2){q.getEntries().forEach(function(e){if(e.element&&e.element.closest&&e.element.closest('#lkPath')){o2.disconnect();setTimeout(go,0)}})}).observe({type:'largest-contentful-paint',buffered:true})}catch(e){setTimeout(go,0)}}else setTimeout(go,0)}}).observe({type:'paint',buffered:true})}catch(e){fcp=0}}
 if(!fcp&&w.requestAnimationFrame)requestAnimationFrame(function(){setTimeout(go,0)});setTimeout(go,fcp?3000:300)})()</script>
 `;
 if (!html.includes('</body>')) { console.error('✗ app-loader: thiếu </body>'); process.exit(1); }
 html = html.replace(/(<noscript><nav[\s\S]*?<\/noscript>\n)?<\/body>/, m => boot + m);
 fs.writeFileSync(f, html);
+{ // khung tĩnh #/path (scripts/lib/path-skel.mjs): sinh lúc dựng bản phát hành, ghi cạnh js/ của bản dựng – KHÔNG nằm trong web/js (ngân sách byte người học)
+  const { buildSkeletons } = await import('./lib/path-skel.mjs'), d = path.join(path.dirname(f), '..', 'js', 'path-skel'); fs.mkdirSync(d, { recursive: true });
+  for (const [n, c] of Object.entries(buildSkeletons())) fs.writeFileSync(path.join(d, n), c);
+}
 console.log('✓ app-loader: ' + order.length + ' file JS (+ font) nạp sau lần vẽ đầu → ' + f);

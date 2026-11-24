@@ -1,0 +1,150 @@
+{
+ "id": "t2s_zh_awesome",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 17,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You got us free tickets?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Awesome!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Really great.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You got us free tickets? That's awesome!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "awesome",
+  "forms": [],
+  "ipa": "/ˈɔːsəm/",
+  "mean": "Really great.",
+  "define": "Used to say that something is excellent or very enjoyable.",
+  "vi": "Tuyệt vời, đỉnh",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "praise",
+  "example": {
+   "ctx": "Hearing good news",
+   "text": "You got us free tickets? That's awesome!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Awesome\" means…",
+   "options": [
+    "a little boring",
+    "really great"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'awesome' about sad news.",
+   "why": "It sounds sarcastic or cruel."
+  },
+  "l1": "棒极了",
+  "l1_hook": "你给我们弄到免费票了？\"awesome\"",
+  "l1_ex": "你给我们弄到免费票了？那真是\"awesome\"！",
+  "right": "awesome",
+  "native": {
+   "hook": "“awesome”是什么意思？",
+   "tip": "“awesome” = 棒极了. 例句: “You got us free tickets? That's awesome!”",
+   "caption": "“awesome”是什么意思？\n“awesome” = 棒极了.\n例句: “You got us free tickets? That's awesome!” (你给我们弄到免费票了？那真是\"awesome\"！)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “awesome” = 棒极了. “You got us free tickets? That's awesome!” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You got us free tickets?"
+ },
+ "src": {
+  "slang": "awesome"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“awesome”是什么意思？",
+  "keyword": "awesome",
+  "value": "“awesome” = 棒极了. 例句: “You got us free tickets? That's awesome!”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "“awesome”是什么意思？",
+    "description": "“awesome” = 棒极了. 例句: “You got us free tickets? That's awesome!”\n\n“awesome”是什么意思？\n“awesome” = 棒极了.\n例句: “You got us free tickets? That's awesome!” (你给我们弄到免费票了？那真是\"awesome\"！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "awesome",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“awesome”是什么意思？\n“awesome” = 棒极了.\n例句: “You got us free tickets? That's awesome!” (你给我们弄到免费票了？那真是\"awesome\"！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“awesome”是什么意思？\n\n“awesome” = 棒极了. 例句: “You got us free tickets? That's awesome!”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“awesome”是什么意思？ “awesome” = 棒极了. 例句: “You got us free tickets? That's awesome!” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “awesome” = 棒极了. “You got us free tickets? That's awesome!” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

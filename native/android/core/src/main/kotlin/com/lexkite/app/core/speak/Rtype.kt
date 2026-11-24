@@ -1,5 +1,6 @@
 package com.lexkite.app.core.speak
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.skills.Part
 import com.lexkite.app.core.skills.Qx
 import com.lexkite.app.core.skills.Reward
@@ -74,7 +75,7 @@ object Rtype {
         for ((n, r) in res) if (!r.ok) list = Mistakes.log(list, jo("kind" to "reading", "q" to Tr("{title} – câu {n}: {q}", mapOf("title" to u.title, "n" to n.toString(), "q" to r.q)).json(), "answer" to r.answer,
             "given" to (if (r.given.isEmpty()) jo("k" to "(bỏ trống)") else r.given), "explain" to explain.go(u.testId).go(n.toString()).gs("why"), "ref" to ""), now, tx)
         val (cr, ct) = stat(g, u.kind); val pct = jsRound(cr * 100.0 / ct)
-        return Checked(res, right, tot, pct, right.toDouble() / tot >= 0.75, Tr("<b>{r}/{n} câu đúng</b> · tỉ lệ tích lũy dạng này: {p}%", mapOf("r" to right, "n" to tot, "p" to pct)), g, list, Reward(mapOf("quizzes" to 1, "readings" to 1), 5 + right * 2))
+        return Checked(res, right, tot, pct, right.toDouble() / tot >= 0.75, Tr("<b>{r}/{n} câu đúng</b> · tỉ lệ tích lũy dạng này: {p}%", mapOf("r" to right, "n" to tot, "p" to pct)), g, list, Reward(mapOf("quizzes" to 1, "readings" to 1), RewardRules.xp("set", right = right, total = tot)))
     }
     /** The explanation of question [n] of a unit (`why`, paragraph letter, key phrases), or null. */
     fun explanation(pack: Pack, u: RtypeUnit, n: Int): JsonObject? = pack.explain.go(u.testId).go(n.toString())

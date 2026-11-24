@@ -73,7 +73,7 @@ public enum Rtype {
     }
     /// The "(bỏ trống)" of the mistakes book and its question key (web `I18N.tk` keys; shared with the Vietnamese sync keys)
     static let blank = "(bỏ trống)", mistakeQ = "{title} – câu {n}: {q}"
-    /// "Kiểm tra": `game.rtype[kind] += {r, t}`, `game.qstat["ir:<kind>"]`, a mistake for each wrong question, `reward({quizzes:1, readings:1, xp: 5 + 2·right})`.
+    /// "Kiểm tra": `game.rtype[kind] += {r, t}`, `game.qstat["ir:<kind>"]`, a mistake for each wrong question, `reward({quizzes:1, readings:1, xp: set(right, total)})`.
     /// `explain` = the test's `READ_EXPLAIN[test.id]` ({ "<n>": {why} }).
     public static func check(_ u: Unit, answers: QAnswers, explain: JSON, game: JSON, mistakes: [JSON], now: Int64) -> Outcome {
         let res = QE.collect(u.part, answers), list = res.keys.sorted().compactMap { res[$0] }
@@ -89,7 +89,7 @@ public enum Rtype {
             log = MistakesEngine.log(log, mistake(u, q, why: explain[String(q.n)]?.s("why") ?? ""), now: now)
         }
         return Outcome(results: list, right: right, total: total, cumulative: (r, t), pct: t > 0 ? Vocab.round(Double(r) / Double(t) * 100) : 0,
-                       ok: total > 0 && Double(right) / Double(total) >= goalRatio, reward: ["quizzes": 1, "readings": 1, "xp": 5 + right * 2], game: g, mistakes: log)
+                       ok: total > 0 && Double(right) / Double(total) >= goalRatio, reward: ["quizzes": 1, "readings": 1, "xp": RewardRules.xp("set", right: right, total: total)], game: g, mistakes: log)
     }
     public static func mistake(_ u: Unit, _ r: QResult, why: String) -> JSON {
         let q = JSON.obj([("k", .string(mistakeQ)), ("v", .obj([("title", .string(u.title)), ("n", .string(String(r.n))), ("q", .string(r.q))]))])

@@ -235,7 +235,7 @@ final class StudyReviewModel {
         let ctx = JSON.obj([("text", .string(text)), ("title", .string("Câu của tôi")), ("at", .number(Double(core.now())))])
         c["contexts"] = .array(Array(([ctx] + c.list("contexts")).prefix(5)))
         persist(c)
-        bundle.game = StudyGame.apply(bundle.game, StudyDelta(xp: 5), now: core.now(), clock: core.clock)
+        bundle.game = StudyGame.apply(bundle.game, StudyDelta(xp: RewardRules.xp("answer", mode: "write")), now: core.now(), clock: core.clock)
         let g = bundle.game
         Task { await core.commit(VocabEdit(game: g)) }
         sentenceState = .saved

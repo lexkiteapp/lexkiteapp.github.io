@@ -1,7 +1,7 @@
 /* 🌟 Trang giới thiệu #/welcome (tải lười – gói 'welcome', app.js routes.welcome chỉ còn chuyển hướng + gọi module; chuỗi hero vẫn ở en.js vì gen-hero đọc).
  * Khung = Stitch: web/js/st/v2/welcome.js (< 1024 px) · welcome-desk.js (≥ 1024 px), chọn bằng matchMedia, đổi khung khi qua mốc mà giữ trạng thái thẻ thử. Khung đầu #lkHero do gen-hero vẽ cùng số đo (LCP, không nhảy), mount thay nó.
  * Giữ nguyên id: #wCard #wFront #wBack #wDone #wSay #wKit [data-wg] #loginW #loginH .w-nav [data-wjump] #wFeats. Luật chuyển hướng + đăng nhập: docs/specs/welcome.md
- * @icons school style format_quote mic sports_esports extension menu_book graphic_eq assignment auto_stories schema smart_display language travel_explore */
+ * @icons school style format_quote mic sports_esports extension menu_book graphic_eq flag auto_stories schema smart_display language travel_explore */
 (function (g) {
   const App = g.App, { state, view } = App, { $, $$, esc, speak } = UI;
   const DESK = '(min-width:1024px)', pose = p => (g.Chars ? Chars.slot('ama', { pose: p, size: g.matchMedia && matchMedia(DESK).matches ? 'xl' : 'l' }) : ''); // chỗ giáo viên chung (bệ, cỡ chuẩn): điện thoại ô 200×170 → l, máy tính ô cao 240 → xl
@@ -9,7 +9,7 @@
   let st = null, mq = null; // trạng thái thẻ thử qua được lần vẽ lại khi đổi khung
   const data = k => {
     const P = S => g.ST2.P[k](t, esc)[S], blog = App.blogUrl ? App.blogUrl() : '/vi/blog/', L = I18N.LANGS[I18N.lang()], desk = k === 'welcome-desk';
-    const F = desk ? ['menu_book', 'style', 'auto_stories', 'mic', 'sports_esports', 'extension', 'schema', 'graphic_eq', 'assignment'] : ['school', 'style', 'format_quote', 'mic', 'sports_esports', 'extension', 'menu_book', 'graphic_eq', 'assignment'];
+    const F = desk ? ['menu_book', 'style', 'auto_stories', 'mic', 'sports_esports', 'extension', 'schema', 'graphic_eq', 'flag'] : ['school', 'style', 'format_quote', 'mic', 'sports_esports', 'extension', 'menu_book', 'graphic_eq', 'flag'];
     const feats = [
       [t('6.800+ từ IELTS, TOEIC & TOEFL'), t('NGSL, 570 từ học thuật AWL, 1.250 từ TOEIC, chủ đề IELTS, phrasal verb, collocation band 7+')],
       [t('Flashcard FSRS như Anki'), t('Thuật toán ghi nhớ hiện đại nhất nhắc bạn ôn đúng lúc sắp quên')],
@@ -54,6 +54,9 @@
     if (mq && mq.addEventListener && mq.removeEventListener) { const my = st, on = () => { if (st !== my) return; App.loadCss('css/st-v2-' + (mq.matches ? 'welcome-desk' : 'welcome') + '.css').then(() => { if (st === my && $('#wCard')) render(); }); };
       mq.addEventListener('change', on); App.onCleanup(() => mq.removeEventListener('change', on)); }
     render();
+    // phễu (hit.js ONB_EV): chỉ người thật – chạm/phím/cuộn hoặc trang hiện ≥ 5 s (lọc máy mở rồi đóng ngay)
+    if (App.habTrack) { const E = ['pointerdown', 'keydown', 'scroll'], on = () => { off(); App.habTrack('onb_welcome'); }, off = () => { clearTimeout(tm); E.forEach(e => removeEventListener(e, on, true)); }, tm = setTimeout(() => document.visibilityState === 'visible' && on(), 5e3);
+      E.forEach(e => addEventListener(e, on, { capture: true, passive: true })); App.onCleanup(off); }
   }
   g.Welcome = { draw };
 })(self);

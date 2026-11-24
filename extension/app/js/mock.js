@@ -76,13 +76,13 @@
         <div class="card">
           <h2 style="margin-top:0">⚙️ ${t('Chọn đề')}</h2>
           <div class="mk-skills">${SKILLS().map(([k, em, n, d]) => `<label class="mk-skill"><input type="checkbox" value="${k}" checked> <span class="em">${em}</span><div><b>${n}</b><div class="tiny muted">${d}</div></div></label>`).join('')}</div>
+          <button class="btn primary lg block" id="mkGo" style="margin-top:1rem">${t('Bắt đầu thi')}</button><!-- CTA chính ngay dưới danh sách kỹ năng: không còn dưới nếp gập sau 2 ô chọn đề -->
           <div class="grid g2" style="margin-top:.8rem">
             <label class="field"><span class="small">${t('Đề Listening')}</span><select class="input" id="mkL">${lt.map(n => `<option value="${n}">Test ${n}</option>`).join('')}</select></label>
             <label class="field"><span class="small">${t('Đề Reading')}</span><select class="input" id="mkR">${rt.length ? `<optgroup label="Academic">${rtA.map(n => `<option value="${n}">Test ${n}</option>`).join('')}</optgroup>${rtG.length ? `<optgroup label="General Training">${rtG.map(n => `<option value="${n}">General ${n - 100}</option>`).join('')}</optgroup>` : ''}` : `<option value="">${t('Đang cập nhật')}</option>`}</select></label>
           </div>
           ${rtG.length ? `<div class="tip small" style="margin-top:.6rem">✉️ ${t('Thi IELTS General Training? Chọn đề Reading “General” – Writing Task 1 sẽ là viết thư.')}</div>` : ''}
           <div class="tiny muted" style="margin-top:.5rem">${t('Writing & Speaking chọn ngẫu nhiên từ {a} đề Task 2, {b} đề Task 1 và {c} chủ đề Speaking.', { a: (window.WRITE_PROMPTS || []).length, b: (App.task1 ? App.task1.SETS.length : 0), c: (App.speakBank || []).length })}</div>
-          <button class="btn primary lg block" id="mkGo" style="margin-top:1rem">${t('Bắt đầu thi')}</button>
           <div class="tiny muted" style="margin-top:.5rem">🎧 ${t('Đeo tai nghe')} · 🎙️ ${t('cho phép micro (Speaking)')} · ${t('nên dùng Chrome/Edge trên máy tính.')}</div>
         </div>
         <div class="card">
@@ -179,13 +179,13 @@
             <div class="card mk-pass" id="mkPass"></div>
             <div class="card mk-qs" id="mkQs">${tst.passages.map((p, k) => `<div class="mk-qp" data-p="${k}" ${k ? 'hidden' : ''}><div class="tiny muted">Reading Passage ${p.n} · ${t('Câu {a}–{b}', { a: QE.numsOf(p)[0], b: QE.numsOf(p).slice(-1)[0] })}</div>${QE.questionsHtml(p)}</div>`).join('')}</div>
           </div>
-          <div class="mk-nav"><div class="row">${tst.passages.map((p, k) => `<button class="btn sm ${k ? '' : 'primary'}" data-go="${k}">Passage ${p.n}</button>`).join('')}<button class="btn sm" id="mkHl">🖍 ${t('Tô sáng')}</button></div><div class="mk-qmap" id="mkMap">${tst.passages.flatMap((p, k) => QE.numsOf(p).map(q => `<button data-q="${q}" data-pk="${k}" aria-label="${esc(t('Câu {n}', { n: q }))}" aria-pressed="false">${q}</button>`)).join('')}</div><button class="btn primary" id="mkSubmit">${t('Nộp bài Reading')}</button></div>`;
+          <div class="mk-nav"><div class="row">${tst.passages.map((p, k) => `<button class="chip ${k ? '' : 'on'}" style="min-height:44px;cursor:pointer" data-go="${k}">Passage ${p.n}</button>`).join('')}<button class="btn sm" id="mkHl">🖍 ${t('Tô sáng')}</button></div><div class="mk-qmap" id="mkMap">${tst.passages.flatMap((p, k) => QE.numsOf(p).map(q => `<button data-q="${q}" data-pk="${k}" aria-label="${esc(t('Câu {n}', { n: q }))}" aria-pressed="false">${q}</button>`)).join('')}</div><button class="btn primary" id="mkSubmit">${t('Nộp bài Reading')}</button></div>`;
         bindQuit(); QE.bind($('#mkQs'));
         const show = k => {
           cur = k; const p = tst.passages[k];
           $('#mkPass').innerHTML = `<h2 style="margin-top:0">${esc(p.title)}</h2>${p.paras.map(x => `<p><b class="mk-pk">${esc(x.k)}</b> ${esc(x.t)}</p>`).join('')}`;
           $$('.mk-qp').forEach(el => el.hidden = +el.dataset.p !== k);
-          $$('[data-go]').forEach(b => b.classList.toggle('primary', +b.dataset.go === k));
+          $$('[data-go]').forEach(b => b.classList.toggle('on', +b.dataset.go === k));
           $('#mkPass').scrollTop = 0;
         };
         // Giữ phần tô sáng khi chuyển bài
@@ -311,7 +311,7 @@
       await Store.set('mocks', hist.slice(0, 30));
       const L = M.detail.listening, R = M.detail.reading, W = M.detail.writing, S = M.detail.speaking;
       [L, R].forEach((x, j) => x && Object.entries(x.res).filter(([, r]) => !r.ok).forEach(([n, r]) => App.logMistake && App.logMistake({ kind: j ? 'reading' : 'listening', q: I18N.tk('Thi thử – câu {n}: {q}', { n, q: r.q }), answer: r.answer, given: r.given || I18N.tk('(bỏ trống)'), explain: r.cue ? I18N.tk('Tham khảo: “…{cue}…”', { cue: r.cue }) : '', ref: j ? '' : r.ref })));
-      await App.reward({ quizzes: M.order.length, listens: L ? 4 : 0, readings: R ? 3 : 0, writes: W ? 2 : 0, xp: 40 + got.length * 30 });
+      await App.reward({ quizzes: M.order.length, listens: L ? 4 : 0, readings: R ? 3 : 0, writes: W ? 2 : 0, xp: Game.xpFor('exam', { sections: got.length }) });
       if (overall >= 6.5) { Sfx.win(); confetti(160); }
       const sheet = res => `<div class="lsheet">${Object.keys(res).map(Number).sort((a, b) => a - b).map(n => `<div class="${res[n].ok ? 'ok' : 'no'}"><b>${n}</b> ${res[n].ok ? '✓' : '✗'} <span>${esc(res[n].answer)}</span>${!res[n].ok && res[n].given ? `<span class="tiny muted">${t('(bạn: {a})', { a: esc(res[n].given) })}</span>` : ''}</div>`).join('')}</div>`;
       const crit = c => `<div class="mk-crit">${Object.entries(c || {}).map(([k, v]) => `<div><span class="tiny muted">${esc(k)}</span><b>${v}</b></div>`).join('')}</div>`;

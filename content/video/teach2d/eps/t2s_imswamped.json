@@ -1,0 +1,137 @@
+{
+ "id": "t2s_imswamped",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 171,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Seventeen tasks, one afternoon!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "I'm swamped!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I have too much to do.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Sorry, I'm swamped with homework.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "pose": {
+  "clip": "concern",
+  "after": "h"
+ },
+ "data": {
+  "key": "I'm swamped",
+  "forms": [
+   "swamped"
+  ],
+  "ipa": "/aɪm ˈswɑːmpt/",
+  "mean": "I have too much to do.",
+  "define": "Used to say you are extremely busy with work or tasks.",
+  "vi": "Ngập đầu công việc",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Replying to a coworker",
+   "text": "Sorry, I'm swamped with homework."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"I'm swamped\" means you are…",
+   "options": [
+    "very busy",
+    "very wet"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'I'm swamped' when you're bored.",
+   "why": "It means too much to do."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Seventeen tasks, one afternoon!"
+ },
+ "src": {
+  "slang": "I'm swamped"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "What does \"I'm swamped\" mean?",
+  "keyword": "I'm swamped",
+  "value": "I'm swamped = I have too much to do. Example: \"Sorry, I'm swamped with homework.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"I'm swamped\" mean?",
+    "description": "I'm swamped = I have too much to do. Example: \"Sorry, I'm swamped with homework.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "I'm swamped",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"I'm swamped\" mean?\n\nI'm swamped = I have too much to do. Example: \"Sorry, I'm swamped with homework.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"I'm swamped\" mean?\n\nI'm swamped = I have too much to do. Example: \"Sorry, I'm swamped with homework.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"I'm swamped\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: very busy. \"Sorry, I'm swamped with homework.\" More real English slang, free: {link}"
+ }
+}

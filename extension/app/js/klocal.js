@@ -7,14 +7,14 @@
   const VER = 'v1.0-1939ad2'; // = commit Hugging Face onnx-community/Kokoro-82M-v1.0-ONNX được chép lên R2 (scripts/cdn/kokoro-model.mjs)
   const HOSTS = [`https://audio.lexkite.com/kokoro/${VER}/`];
   const SHA = { 'onnx/model_quantized.onnx': 'fbae9257e1e05ffc727e951ef9b9c98418e6d79f1c9b6b13bd59f5c9028a1478' };
-  const RTF_MAX = 0.6, FREE_MIN = 300 * 2 ** 20, MODEL_MB = 92, CACHES = ['transformers-cache', 'kokoro-voices', 'lk-kl-audio'], IDLE_MS = 10 * 60e3, GEN_TIMEOUT = 8000, WARM_TIMEOUT = 30000, PROBE_DAYS = 30, LRU = 300, AUDIO_CACHE = 'lk-kl-audio';
+  const RTF_MAX = 0.6, FREE_MIN = 300 * 2 ** 20, MODEL_MB = 92, CACHES = ['transformers-cache', 'kokoro-voices', 'lk-kl-audio'], IDLE_MS = 10 * 60e3, GEN_TIMEOUT = 8000, WARM_TIMEOUT = 30000, LRU = 300, AUDIO_CACHE = 'lk-kl-audio';
   const P = {
     // Cấp máy: 'wasm' | 'off'. e = { ios, mem, cores, probe, user, iosFlag }
     tier(e) { return P.offWhy(e) ? 'off' : 'wasm'; },
     // Vì sao máy bị 'off' ('' = không off): user | probe | ios | mem | cores – để đo từng nhóm trong số đếm giọng máy (LX-1004)
     offWhy(e) {
       if (e.user === 'off') return 'user';
-      if (e.probe && e.probe.v === VER && e.probe.off && Date.now() - e.probe.at < PROBE_DAYS * 864e5) return 'probe';
+      if (e.probe && e.probe.v === VER && e.probe.off && Date.now() - e.probe.at < P.probeDays(e.probe) * 864e5) return 'probe';
       if (e.ios && !e.iosFlag) return 'ios';
       if (e.mem != null && e.mem < 4) return 'mem';
       if (e.cores != null && e.cores < 4) return 'cores';
@@ -45,6 +45,14 @@
     // Lỗi khác (crash/worker) → null: không đánh dấu máy yếu.
     probeRecord(genMs, durMs, now) { const rtf = +(genMs / durMs).toFixed(2); return { v: VER, at: now, off: !P.rtfOk(genMs, durMs), rtf }; },
     probeFail(err, now) { return err && err.message === 'timeout' ? { v: VER, at: now, off: true, rtf: null, why: 'timeout' } : null; },
+    // Đo lại sớm khi kết quả có thể do lúc đo (22/11, chủ: máy trượt được thử lại sớm hơn): sát ngưỡng (RTF ≤ 0,9) 3 ngày · timeout (máy có thể đang bận) 7 ngày ·
+    // chậm rõ 14 ngày (trước: mọi trường hợp 30 ngày). Ngưỡng RTF_MAX KHÔNG đổi – máy chậm vẫn không dùng Kokoro sinh trực tiếp (giật).
+    probeDays: r => (r.rtf == null ? 7 : r.rtf <= 0.9 ? 3 : 14),
+    // Đo công bằng: lấy TRUNG VỊ RTF của các câu đo (sau câu làm nóng) – một lần máy bận/GC không quyết thay cả máy
+    median: a => { const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length ? (b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2) : NaN; },
+    // Nhóm RTF cho số đo phân bố máy thật (beacon vo 'kp_<nhóm>'): quyết định bước sau (WebGPU / sinh nền) bằng số, không đoán
+    rtfBucket: r => (r == null ? 'to' : r <= 0.6 ? 'r06' : r <= 1 ? 'r10' : r <= 1.5 ? 'r15' : r <= 2.5 ? 'r25' : 'rhi'),
+    PROBE_TEXTS: ['This is a quick check of the voice on your device.', 'She usually takes the bus to work in the morning.', 'Could you tell me where the nearest station is?'],
     // PCM float32 → WAV 16-bit, đỉnh chuẩn về −1 dBFS (đồng mức file dựng sẵn)
     wav(pcm, sr) {
       let peak = 0; for (let i = 0; i < pcm.length; i++) { const a = Math.abs(pcm[i]); if (a > peak) peak = a; }
@@ -64,6 +72,7 @@
 
   const ls = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* bỏ qua */ } } };
   const LA = () => g.LKAudio || null, note = (k, i) => { const a = LA(); if (a) a.note(k, i); };
+  const kp = r => { const a = LA(); if (a && a.src) a.src('p', P.rtfBucket(r)); }; // phân bố RTF máy thật → beacon vo (audio.js)
   const stat = (k, v) => { const a = LA(); if (!a) return; if (v == null) a.stats[k] = (a.stats[k] || 0) + 1; else a.stats[k] = v; };
   const bucket = () => { let b = ls.get('lk.kb'); if (b == null || isNaN(+b) || +b < 0 || +b > 99) { b = String(Math.floor(Math.random() * 100)); ls.set('lk.kb', b); } return +b; };
   const cfg = () => { try { return JSON.parse(ls.get('lk.cfg') || '{}').v || {}; } catch (e) { return {}; } };
@@ -124,17 +133,22 @@
       if (d.type === 'loaded') {
         if (navigator.storage && navigator.storage.persist && P.persistOk(navigator.userAgent)) navigator.storage.persist().catch(() => {});
         state = 'probe'; stat('kl_load_ms', Date.now() - t0);
-        // Lần sinh đầu gồm khởi động phiên ONNX → làm nóng 1 câu ngắn (timeout rộng) rồi mới đo RTF công bằng; vượt = máy quá chậm
-        const t1 = { v: 0 };
-        gen('Hi.', 'af_heart', 1, WARM_TIMEOUT).then(() => { t1.v = performance.now(); return gen('This is a quick check of the voice on your device.', 'af_heart', 1); }).then(a => {
-          const genMs = performance.now() - t1.v, durMs = 1000 * new Float32Array(a.pcm).length / a.sr, rec = P.probeRecord(genMs, durMs, Date.now()), ok = !rec.off;
+        // Lần sinh đầu gồm khởi động phiên ONNX → làm nóng 1 câu ngắn (timeout rộng), rồi đo 3 câu lấy TRUNG VỊ RTF; vượt = máy quá chậm.
+        // Chỉ đo khi tab hiện suốt lượt đo: tab ẩn (trình duyệt hãm CPU/timer) → bỏ kết quả, không ghi máy chậm, lần sau đo lại.
+        let hid = document.hidden; const onVis = () => { if (document.hidden) hid = true; }; document.addEventListener('visibilitychange', onVis);
+        const rtfs = [], one = i => { const t1 = performance.now(); return gen(P.PROBE_TEXTS[i], 'af_heart', 1).then(a => { rtfs.push((performance.now() - t1) / (1000 * new Float32Array(a.pcm).length / a.sr)); }); };
+        const end = () => document.removeEventListener('visibilitychange', onVis);
+        gen('Hi.', 'af_heart', 1, WARM_TIMEOUT).then(() => one(0)).then(() => one(1)).then(() => one(2)).then(() => {
+          end(); if (hid) { kill('hidden'); emit(); return; } // state về idle: phiên sau (tab hiện) đo lại
+          const rec = P.probeRecord(P.median(rtfs), 1, Date.now()), ok = !rec.off;
           ls.set('lk.kl.probe', JSON.stringify(rec));
-          stat('kl_rtf', rec.rtf);
+          stat('kl_rtf', rec.rtf); kp(rec.rtf);
           if (ok) { state = 'ready'; cached = true; ls.set('lk.kl.ok', VER); stat('kl_tier', 'wasm'); } else { kill('slow'); state = 'off'; stat('kl_tier', 'off'); }
           emit();
         }).catch(e => {
+          end(); if (hid) { kill('hidden'); emit(); return; }
           const rec = P.probeFail(e, Date.now());
-          if (rec) { ls.set('lk.kl.probe', JSON.stringify(rec)); stat('kl_tier', 'off'); } else note('kl', 'probe ' + e.message);
+          if (rec) { ls.set('lk.kl.probe', JSON.stringify(rec)); stat('kl_tier', 'off'); kp(null); } else note('kl', 'probe ' + e.message);
           kill('probe'); state = 'off'; emit();
         });
       }
