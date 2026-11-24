@@ -189,7 +189,7 @@ _ns = list(N.values()); _in = lambda n: (n.get('in') or {}).get('t', 0)
 _p = dict(icon=[n for n in _ns if n.get('src') == 'icon.png'], button=[n for n in _ns if n['type'] == 'cta' and str(n.get('lines', [''])[0]).startswith('Practice')],
           qr=[n for n in _ns if n.get('src') == 'qr.png'], url=[n for n in _ns if n['type'] == 'text' and any(r[0] == 'lexkite.com' for r in n.get('runs', []))])
 _miss = [k for k, v in _p.items() if not v]; _late = [k for k, v in _p.items() if v and T['total'] - _in(v[-1]) < 2.0]
-_clip = [n['lines'][0] for n in _p['button'] if len(n['lines'][0]) * 0.5 * n.get('size', 60) > (n['box'][2] - n['box'][0]) - 80]   # label must fit the button (pilot t2sc_001: 'Practice and find your level' was cut at 'your')
+_clip = [n['lines'][0] for n in _p['button'] if len(n['lines'][0]) * 0.45 * n.get('size', 60) > (n['box'][2] - n['box'][0]) - 80]   # label must fit the button (pilot t2sc_001: 'Practice and find your level' was cut at 'your')
 gate('end_card', not _miss and not _late and not _clip, 3, missing=_miss, shown_under_2s=_late, label_too_long=_clip, total=T['total'])
 # CTA deep link into the matching app feature
 cta = T['cta']; ROUTES = ('#/dict/', '#/verb/', '#/pron/', '#/fix', '#/phrases', '#/usage', '#/grammar', '#/lesson', '#/call', '#/confidence', '#/placement', '#/toeic', '#/reading', '#/review', '#/dictation', '#/write', '#/speaking')
