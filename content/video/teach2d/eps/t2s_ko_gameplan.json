@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_gameplan",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 92,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Test tomorrow. Where do we start?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Game plan!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The plan for what to do.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "So, what's the game plan?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "game plan",
+  "forms": [],
+  "ipa": "/ˈɡeɪm ˈplæn/",
+  "mean": "The plan for what to do.",
+  "define": "A clear plan to reach a goal.",
+  "vi": "Kế hoạch hành động",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Talking before a project",
+   "text": "So, what's the game plan?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"game plan\" is…",
+   "options": [
+    "a video game",
+    "a clear plan"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a vague idea a 'game plan'.",
+   "why": "It means a clear plan."
+  },
+  "l1": "전략",
+  "l1_hook": "내일 시험이야. 어디서부터 ‘game plan’을 세워야 할까?",
+  "l1_ex": "그럼, ‘game plan’이 뭐야?",
+  "right": "game plan",
+  "native": {
+   "hook": "“game plan” 무슨 뜻일까요?",
+   "tip": "“game plan” = 전략. 예문: “So, what's the game plan?”",
+   "caption": "“game plan” 무슨 뜻일까요?\n“game plan” = 전략.\n예문: “So, what's the game plan?” (그럼, ‘game plan’이 뭐야?)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “game plan” = 전략. “So, what's the game plan?” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Test tomorrow. Where do we start?"
+ },
+ "src": {
+  "slang": "game plan"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“game plan” 무슨 뜻일까요?",
+  "keyword": "game plan",
+  "value": "“game plan” = 전략. 예문: “So, what's the game plan?”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "“game plan” 무슨 뜻일까요?",
+    "description": "“game plan” = 전략. 예문: “So, what's the game plan?”\n\n“game plan” 무슨 뜻일까요?\n“game plan” = 전략.\n예문: “So, what's the game plan?” (그럼, ‘game plan’이 뭐야?)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "game plan",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“game plan” 무슨 뜻일까요?\n“game plan” = 전략.\n예문: “So, what's the game plan?” (그럼, ‘game plan’이 뭐야?)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“game plan” 무슨 뜻일까요?\n\n“game plan” = 전략. 예문: “So, what's the game plan?”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“game plan” 무슨 뜻일까요? “game plan” = 전략. 예문: “So, what's the game plan?” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “game plan” = 전략. “So, what's the game plan?” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

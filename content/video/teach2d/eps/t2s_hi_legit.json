@@ -1,0 +1,146 @@
+{
+ "id": "t2s_hi_legit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 70,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is this shop real?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Legit!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Real and good, not fake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This shop is legit, my sister bought shoes there.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "legit",
+  "forms": [],
+  "ipa": "/ləˈdʒɪt/",
+  "mean": "Real and good, not fake.",
+  "define": "Short for legitimate; used for things that are real, true or really good.",
+  "vi": "Xịn thật, đáng tin",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Checking an online shop",
+   "text": "This shop is legit, my sister bought shoes there."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Legit\" means…",
+   "options": [
+    "very fast",
+    "real and trusted"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'legit' in a legal document.",
+   "why": "Use 'legitimate' in formal writing."
+  },
+  "l1": "असली",
+  "l1_hook": "क्या यह दुकान \"legit\" है?",
+  "l1_ex": "यह दुकान \"legit\" है, मेरी बहन ने वहाँ जूते खरीदे थे।",
+  "right": "legit",
+  "native": {
+   "hook": "“legit” का मतलब क्या है?",
+   "tip": "“legit” = असली. उदाहरण: “This shop is legit, my sister bought shoes there.”",
+   "caption": "“legit” का मतलब क्या है?\n“legit” = असली.\nउदाहरण: “This shop is legit, my sister bought shoes there.” (यह दुकान \"legit\" है, मेरी बहन ने वहाँ जूते खरीदे थे।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “legit” = असली. “This shop is legit, my sister bought shoes there.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is this shop real?"
+ },
+ "src": {
+  "slang": "legit"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“legit” का मतलब क्या है?",
+  "keyword": "legit",
+  "value": "“legit” = असली. उदाहरण: “This shop is legit, my sister bought shoes there.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“legit” का मतलब क्या है?",
+    "description": "“legit” = असली. उदाहरण: “This shop is legit, my sister bought shoes there.”\n\n“legit” का मतलब क्या है?\n“legit” = असली.\nउदाहरण: “This shop is legit, my sister bought shoes there.” (यह दुकान \"legit\" है, मेरी बहन ने वहाँ जूते खरीदे थे।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "legit",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“legit” का मतलब क्या है?\n“legit” = असली.\nउदाहरण: “This shop is legit, my sister bought shoes there.” (यह दुकान \"legit\" है, मेरी बहन ने वहाँ जूते खरीदे थे।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“legit” का मतलब क्या है?\n\n“legit” = असली. उदाहरण: “This shop is legit, my sister bought shoes there.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“legit” का मतलब क्या है? “legit” = असली. उदाहरण: “This shop is legit, my sister bought shoes there.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “legit” = असली. “This shop is legit, my sister bought shoes there.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

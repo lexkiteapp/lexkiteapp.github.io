@@ -7,7 +7,8 @@
    "id": "stories",
    "paths": [
     "content/stories",
-    "web/js/stories"
+    "web/js/stories",
+    "web/cpack/stories"
    ],
    "owner": "claude",
    "gen": false,
