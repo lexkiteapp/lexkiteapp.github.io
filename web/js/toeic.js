@@ -51,7 +51,7 @@
           <div class="tiny muted" style="margin-top:.5rem">${t('Nguồn:')} TOEIC Service List 1.2 © Browne & Culligan, CC BY-SA 4.0.</div>
         </div>
       </div>
-      <a class="card hover" href="#/toeic-sw" style="display:block;margin-top:1rem;text-decoration:none;color:inherit"><div class="row between"><div><h3 style="margin:0">🎙️ TOEIC Speaking & Writing</h3><div class="small muted" style="margin-top:.2rem">${t('Nói và viết theo các dạng bài của ETS: bài mẫu, tiêu chí chấm, chấm đọc to tự động.')}</div></div><span class="btn sm primary">${t('Luyện tập')} →</span></div></a>
+      <a class="card hover" href="#/toeic-sw" style="display:block;margin-top:1rem;text-decoration:none;color:inherit"><div class="row between"><div><h3 style="margin:0">🎙️ TOEIC Speaking & Writing</h3><div class="small muted" style="margin-top:.2rem">${t('Nói và viết theo các dạng bài của ETS: bài mẫu, tiêu chí chấm, chấm đọc to tự động.')}</div></div><span class="btn sm">${t('Luyện tập')} →</span></div></a>
       <h2 style="margin-top:1.4rem">🎯 ${t('Luyện theo Part')}</h2>${tabs}
       <h3 style="margin:.8rem 0 .4rem">🎧 <span lang="en" translate="no">Listening</span></h3>
       <div class="grid auto">${T().listening.filter(p => p.test === cur).map(p => `<div class="card"><span class="chip">Part ${p.part} · ${L_PART()[p.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${p.test} · ${esc(p.title)}</h3><div class="small muted">${App.listening ? t('{n} câu', { n: App.listening.qNums(p).length }) : ''}</div>
