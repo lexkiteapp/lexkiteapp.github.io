@@ -18,6 +18,6 @@ jobs:
         with: { ssh-key: "${{ secrets.BOT_DEPLOY_KEY }}" }   # khoá deploy (ruleset main cho bot đẩy thẳng) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: đo web/cpack (sau npm ci: gói sinh dựng như CI PR) + ghi mốc lên main
+      - name: "đo web/cpack (sau npm ci: gói sinh dựng như CI PR) + ghi mốc lên main"
         run: |
           COMMIT_REGEN_NO_EXT=1 bash scripts/ci/commit-regen.sh "Mốc web/cpack: ghi số đo sau gộp (cpack-floor)" "npm ci --no-audit --no-fund >/dev/null && node scripts/ci/cpack-ratchet.mjs" scripts/test/cpack-floor.json scripts/test/cpack-notes
