@@ -1,0 +1,147 @@
+{
+  "id": "b1-gift-of-the-magi",
+  "kind": "book",
+  "level": "B1",
+  "title": "The Gift of the Magi",
+  "summary": "A poor young couple each sell their most loved possession to buy a Christmas present for the other.",
+  "source": {
+    "type": "public-domain",
+    "work": "The Gift of the Magi",
+    "author": "O. Henry",
+    "published": 1905,
+    "authorDied": 1910,
+    "url": "https://www.gutenberg.org/ebooks/7256",
+    "note": "Retold from the plot in new B1 English by Lexkite; no sentences copied from the original text."
+  },
+  "license": "Adaptation CC BY 4.0 Lexkite; original story in the public domain",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: a young woman with short hair and a young man in a small warm apartment at Christmas, a wrapped gift between them, no text"
+  },
+  "audio": {
+    "wpm": 125,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Two Treasures",
+      "sentences": [
+        "Della counted her money three times, but the total was still only one dollar and eighty-seven cents.",
+        "Tomorrow was Christmas, and she wanted to buy a perfect present for her husband, Jim.",
+        "The couple were very poor, and they lived in a tiny flat with almost no furniture.",
+        "Still, each of them owned one treasure that they were proud of.",
+        "Jim had a gold watch that had once belonged to his father and his grandfather.",
+        "Della had long, brown hair that fell almost to her knees and shone like a waterfall.",
+        "She stood by the window for a while and cried quietly.",
+        "Then she wiped her face, put on her old coat, and hurried out of the door.",
+        "In a small shop, a woman agreed to buy her hair for twenty dollars.",
+        "Della did not hesitate, and the scissors did their work in a few minutes.",
+        "She searched the shops for hours and finally found a simple gold chain for Jim's watch.",
+        "It cost twenty-one dollars, and she paid for it with a smile."
+      ],
+      "words": [
+        "proud",
+        "furniture",
+        "hesitate",
+        "chain",
+        "belong",
+        "wipe"
+      ],
+      "quiz": [
+        {
+          "q": "Why was Della sad at the start of the story?",
+          "options": [
+            "She had too little money for a present.",
+            "She had lost her job.",
+            "She could not find her husband."
+          ],
+          "answer": 0,
+          "explain": "She counted her money and found she had only a little."
+        },
+        {
+          "q": "What did Della sell?",
+          "options": [
+            "Her coat",
+            "Her hair",
+            "Her ring"
+          ],
+          "answer": 1,
+          "explain": "A woman agreed to buy her long hair."
+        },
+        {
+          "q": "What did Della buy for Jim?",
+          "options": [
+            "A new watch",
+            "A pair of gloves",
+            "A gold chain"
+          ],
+          "answer": 2,
+          "explain": "She found a gold chain for his watch."
+        }
+      ]
+    },
+    {
+      "title": "The Surprise",
+      "sentences": [
+        "That evening Della waited nervously for Jim to come home.",
+        "She hoped that he would still think she was pretty without her long hair.",
+        "When he opened the door, he stopped and stared at her without saying a word.",
+        "His face showed neither anger nor disgust, only a strange, deep surprise.",
+        "Della ran to him and explained that she had sold her hair to buy him a gift.",
+        "\"Don't worry about it,\" Jim said softly, \"I love you just the same.\"",
+        "Then he took a small package from his pocket and put it on the table.",
+        "Inside the paper, Della found a set of beautiful combs for her hair.",
+        "She had wanted them for a long time, but she had never been able to afford them.",
+        "Now her hair was too short to wear them.",
+        "Jim laughed gently and told her that he had sold his watch to pay for them.",
+        "The two of them sat together in silence, and they both understood how much they loved each other."
+      ],
+      "words": [
+        "silence",
+        "stare",
+        "disgust",
+        "comb",
+        "afford",
+        "gently"
+      ],
+      "quiz": [
+        {
+          "q": "How did Jim react when he saw Della?",
+          "options": [
+            "He was angry.",
+            "He was deeply surprised.",
+            "He did not notice."
+          ],
+          "answer": 1,
+          "explain": "His face showed a deep surprise, not anger."
+        },
+        {
+          "q": "What did Jim buy for Della?",
+          "options": [
+            "Combs for her hair",
+            "A gold chain",
+            "A new coat"
+          ],
+          "answer": 0,
+          "explain": "He gave her a set of combs."
+        },
+        {
+          "q": "What had Jim sold?",
+          "options": [
+            "His coat",
+            "His gold watch",
+            "His furniture"
+          ],
+          "answer": 1,
+          "explain": "He sold his watch to pay for the combs."
+        }
+      ]
+    }
+  ]
+}
