@@ -637,8 +637,9 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
       const txt = h ? h.textContent.replace(/^[\p{Extended_Pictographic}\uFE0F\u200d\s]+/u, '').replace(/\s+/g, ' ').trim().slice(0, 70) : '';
       if (txt) { if (!titleBase) titleBase = document.title; document.title = txt + ' – Lexkite'; } else if (titleBase) document.title = titleBase;
       }
-      const a = document.activeElement, modalOpen = !!document.querySelector('#modal:not([hidden])');
-      if (routedOnce && !modalOpen && (!a || a === document.body || (a.closest && a.closest('#bnav, #nav, .side-foot, .crumb')))) view.focus({ preventScroll: true });
+      // focus() buộc tính style+bố cục NGAY trong tác vụ vẽ trang (hồ sơ CPU quality-sweep #53: focus 77–82 ms, RunTask 102–108 ms) → dời sang khung hình kế: trình duyệt tính bố cục một lần trong bước vẽ, tác vụ JS ngắn lại
+      const focusView = () => { const a = document.activeElement, modalOpen = !!document.querySelector('#modal:not([hidden])'); if (!modalOpen && (!a || a === document.body || (a.closest && a.closest('#bnav, #nav, .side-foot, .crumb')))) view.focus({ preventScroll: true }); };
+      if (routedOnce) requestAnimationFrame(() => { if (my === routeSeq) focusView(); });
       routedOnce = true;
     } catch (e) { /* không chặn việc vẽ trang */ }
   }
