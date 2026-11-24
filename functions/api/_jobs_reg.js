@@ -1601,6 +1601,20 @@ export const REG = {
    "minutes": 4,
    "est": {},
    "lease": false
+  },
+  {
+   "id": "teacher-motion",
+   "workflow": "teacher-motion.yml",
+   "cron": [
+    "17 21 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 25,
+   "est": {},
+   "lease": false
   }
  ]
 };
