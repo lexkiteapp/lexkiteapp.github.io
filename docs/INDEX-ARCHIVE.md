@@ -38,6 +38,7 @@
 - [KLING-PLAN.md](archive/KLING-PLAN.md) — Toàn văn cũ kế hoạch Kling; bản hiện hành VIDEO.md; đọc khi: tra kế hoạch Kling cũ
 - [LISTENING-CHANNEL-PLAN.md](archive/LISTENING-CHANNEL-PLAN.md) — Toàn văn cũ kế hoạch kênh nghe; bản hiện hành VIDEO.md; đọc khi: tra kế hoạch kênh nghe cũ
 - [METHODS-HISTORY.md](archive/METHODS-HISTORY.md) — Toàn văn METHODS.md trước khi rút gọn (22/10) và các bài học dài đã chuyển ra sau đó; đọc khi: tra bài học chi tiết (footage, matting, D1, điều phối)
+- [METHODS-LESSONS-2411.md](archive/METHODS-LESSONS-2411.md) — Dòng 'Lỗi đã mắc' cũ của METHODS.md §8 (tách nguyên văn 24/11); đọc khi: tra lỗi tháng 10 (Antigravity, add-on, credit).
 - [STORE-READINESS-HISTORY.md](archive/STORE-READINESS-HISTORY.md) — Mục đã xong/cũ của STORE-READINESS.md (nguyên văn 22/10); đọc khi: tra checklist store cũ
 - [VIDEO-CONTENT-PLAN.md](archive/VIDEO-CONTENT-PLAN.md) — Toàn văn cũ kế hoạch nội dung video; bản hiện hành VIDEO.md; đọc khi: tra kế hoạch nội dung cũ
 - [VIDEO-PIPELINE.md](archive/VIDEO-PIPELINE.md) — Toàn văn cũ pipeline video; bản hiện hành VIDEO.md; đọc khi: tra pipeline cũ
