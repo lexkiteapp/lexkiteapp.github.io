@@ -115,7 +115,7 @@ for l in EP['lines']:
     ws = [dict(w=x['w'], s=round(t + x['s'], 3), e=round(t + x['e'], 3)) for x in wj['words']]
     LINES[l['id']] = dict(l, t0=round(t, 3), t1=round(t + dur, 3), words=ws, wav=fn, interp=wj.get('interpolated', 0), whisper=wj.get('whisper', ''))
     SPEECH.append([ws[0]['s'], ws[-1]['e']]); t += dur + l['pause']
-TOTAL = round(max(t + (0.3 if EMBED else 0.6), LINES['c']['words'][0]['s'] + 2.9), 3)   # v3: end card on screen >= 2 s (qc.py end_card)
+TOTAL = round(max(LINES['c']['words'][0]['s'] + 2.15, list(LINES.values())[-1]['t1'] + 0.35), 3)   # v3: end card >= 2 s on screen (qc.py end_card), then 0.35 s after the last word (was: last pause + 0.6 s of dead tail)
 norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower().replace('’', "'"))
 
 
@@ -287,10 +287,10 @@ def end_card():
     CUES.append(dict(node=c.rows[-1]['id'], t=t_in, tag='Lexkite')); c.y += 110 + 16
     c.text([['100% FREE', 'accent']], S['body'], t_in, align='c')
     # v3 (audit 24/11 #2): ONE end card for every template and every format – icon + Lexkite, "Practice ..." button, QR, lexkite.com; never an empty half-card
-    t_btn = t_in + 0.35; label = CTA_LABEL.get(cta['area'], 'Practice free on Lexkite')
+    t_btn = t_in; label = CTA_LABEL.get(cta['area'], 'Practice free on Lexkite')
     c.add(dict(type='cta', lines=[label], size=S['body'], box=[PAD, 0, PAD + c.inner, 0], **{'in': cue(t_btn)}), 118)
-    q = 190 if EMBED else 220; c.add(dict(type='img', src='qr.png', radius=24, box=[PAD + (c.inner - q) / 2, 0, PAD + (c.inner + q) / 2, 0], **{'in': cue(t_btn + 0.15)}), q, gap=14)
-    c.text([['lexkite.com', 'muted']], S['sub'], t_btn + 0.3, align='c')
+    q = 190 if EMBED else 220; c.add(dict(type='img', src='qr.png', radius=24, box=[PAD + (c.inner - q) / 2, 0, PAD + (c.inner + q) / 2, 0], **{'in': cue(t_btn + 0.1)}), q, gap=14)
+    c.text([['lexkite.com', 'muted']], S['sub'], t_btn + 0.2, align='c')
     c.place(t_in, None, 'a')
 
 
