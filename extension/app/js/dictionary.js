@@ -11,9 +11,9 @@
   const t = (typeof self !== 'undefined' && self.t) || ((s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s));
   const cache = new Map();
 
-  const fetchJSON = async (url, ms = 8000) => {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), ms);
+  const fetchJSON = async (url, ms = 8000, signal) => {
+    const ctrl = new AbortController(), stop = () => ctrl.abort(), t = setTimeout(stop, ms);
+    if (signal) signal.aborted ? stop() : signal.addEventListener('abort', stop, { once: true });
     try {
       const r = await fetch(url, { signal: ctrl.signal });
       if (!r.ok) { ctrl.abort(); return null; } // hủy thân chưa đọc (thân treo giữ request)
@@ -246,8 +246,8 @@
     return { ipa: pick('UK'), ipaUS: pick('US'), entries, audioUK: aud.UK, audioUS: aud.US };
   }
 
-  async function myMemory(text, tl = 'vi', sl = 'en') {
-    const d = await fetchJSON(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${encodeURIComponent(sl)}|${encodeURIComponent(tl)}`);
+  async function myMemory(text, tl = 'vi', sl = 'en', signal) {
+    const d = await fetchJSON(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${encodeURIComponent(sl)}|${encodeURIComponent(tl)}`, 8000, signal);
     const t = d && d.responseData && d.responseData.translatedText;
     if (!t || /MYMEMORY WARNING|INVALID/i.test(t)) return '';
     return tl === 'vi' ? fixVi(t) : t.trim();
@@ -280,15 +280,19 @@
       return fixVi(await devTimed(localTr.translate(text)));
     } catch (e) { if (deviceHung) localTr = null; return ''; }
   }
-  async function translateVi(text) {
-    const dv = await onDeviceVi(text); if (dv && dv.trim()) return dv.trim(); // Translator trên máy (gói đã có sẵn) trước – nhanh, offline, không tốn lượt
-    const d = await fetchJSON(`${GTX}&dt=t&q=${encodeURIComponent(text)}`);
-    const t = d && fixVi((d.sentences || []).map(s => s.trans || '').join('').trim());
-    return t || (await onDeviceVi(text)) || myMemory(text, 'vi', 'en');
-  }
-
-  // Dịch sang ngôn ngữ bất kỳ (nghĩa cho người học quốc tế: es, ja, ar…) – có bộ nhớ đệm trong phiên
+  // Dịch song song, lấy bản đầu không rỗng; jobs = [[trễ ms, fn(signal)]…] (MyMemory có hạn mức ngày → trễ)
+  const TR_MS = 8000, MM_DELAY = 900;
+  const raceTr = (jobs, ms = TR_MS, signal) => new Promise(res => {
+    const ctrl = new AbortController(), T = []; let left = jobs.length, done = 0;
+    const fin = v => { if (!done) { done = 1; T.forEach(clearTimeout); ctrl.abort(); res(v); } };
+    if (signal) signal.aborted ? fin('') : signal.addEventListener('abort', () => fin(''), { once: true });
+    T.push(setTimeout(fin, ms, ''));
+    for (const [wait, fn] of jobs) T.push(setTimeout(() => done || Promise.resolve().then(() => fn(ctrl.signal)).catch(() => '').then(v => ((v = v && String(v).trim()) ? fin(v) : --left || fin(''))), wait));
+  });
+  const gtxTr = async (text, tl, sl, signal) => { const d = await fetchJSON((tl === 'vi' && sl === 'en' ? GTX : gtxURL(sl, tl, '&dj=1')) + `&dt=t&q=${encodeURIComponent(text)}`, 8000, signal); return (d && (d.sentences || []).map(x => x.trans || '').join('').trim()) || ''; };
+  const devReady = () => !!(localTr || onDevice.size) && !deviceHung;
   const trCache = new Map();
+  // Dịch sang ngôn ngữ bất kỳ (nghĩa cho người học quốc tế: es, ja, ar…) – có bộ nhớ đệm trong phiên
   // Chrome Translator API (dịch TRÊN MÁY – nhanh, offline, không giới hạn lượt). Chỉ dùng khi gói ngôn ngữ đã có sẵn
   // ('available'), không tự kích hoạt tải mô hình. Không có → trả null để dùng đường dịch cũ.
   const onDevice = new Map();
@@ -302,17 +306,14 @@
       const out = await devTimed(tr.translate(text)); return out && out.trim() ? out.trim() : null;
     } catch (e) { if (deviceHung) onDevice.clear(); return null; }
   }
-  async function translateTo(text, tl, sl = 'en') {
+  async function translateTo(text, tl, sl = 'en', opts = {}) {
     if (!text || !tl || tl === sl) return '';
-    if (tl === 'vi' && sl === 'en') return translateVi(text);
-    const k = sl + '|' + tl + '|' + text; if (trCache.has(k)) return trCache.get(k);
-    const dv = await deviceTranslate(text, tl, sl); if (dv) { trCache.set(k, dv); return dv; }
-    const d = await fetchJSON(`${gtxURL(sl, tl)}&dj=1&dt=t&q=${encodeURIComponent(text)}`);
-    let r = (d && (d.sentences || []).map(x => x.trans || '').join('').trim()) || '';
-    if (!r) r = await myMemory(text, tl, sl);
+    const vi = tl === 'vi' && sl === 'en', k = sl + '|' + tl + '|' + text; if (trCache.has(k)) return trCache.get(k);
+    const r = await raceTr([[0, () => (vi ? onDeviceVi(text) : deviceTranslate(text, tl, sl))], [devReady() ? 350 : 0, sg => gtxTr(text, tl, sl, sg).then(x => (vi ? fixVi(x) : x))], [MM_DELAY, sg => myMemory(text, tl, sl, sg)]], opts.ms, opts.signal);
     if (r) trCache.set(k, r);
     return r;
   }
+  const translateVi = (text, opts) => translateTo(text, 'vi', 'en', opts);
   // Dịch đoạn chưa rõ ngôn ngữ → { text, src, tl, same }: nguồn trùng đích → sang tiếng Anh; EN→EN → same; Google lỗi → hint + dự phòng
   const baseLang = l => String(l || '').toLowerCase().split('-')[0];
   async function translateAuto(text, tl = 'vi', hint = '') {

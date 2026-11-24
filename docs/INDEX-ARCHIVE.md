@@ -26,6 +26,7 @@
 - [pron-phoneme-plan.md](research/pron-phoneme-plan.md) — Kế hoạch R&D chấm phát âm từng âm vị kiểu ELSA, 100% miễn phí (wav2vec2 ONNX trên máy, GOP, P0–P3 + ước lượng token); đọc khi: làm chấm phát âm
 - [lesson-qa-1511.md](research/lesson-qa-1511.md) — Soát lỗi nội dung người học 15/11: chấm mù 574 mục, tỉ lệ lỗi theo loại/nguồn/ngôn ngữ, gốc lỗi (dịch máy dịch luôn ví dụ Anh, gói nghĩa cờ 0/1) và cổng chặn; đọc khi: sửa generator dịch, thêm nội dung đa ngôn ngữ
 - [beat-top-ux.md](research/beat-top-ux.md) — Đo bản live + bảng khoảng cách trải nghiệm vs Duolingo/Babbel/ELSA/Cake/Memrise, 5 P0; đọc khi: chọn việc nâng trải nghiệm (onboarding, Hôm nay→bài, CLS/LCP)
+- [ielts-format-coverage-2311.md](research/ielts-format-coverage-2311.md) — Độ phủ định dạng IELTS (Reading/Listening/Writing) so với format công khai, số đề/câu và khoảng trống; đọc khi: bổ sung dạng câu/đề IELTS
 - [ai-speaking-first.md](specs/ai-speaking-first.md) — Spec-lite 05/11: đưa Nói với AI (Call/Roleplay) lên 1 chạm, phản hồi mỗi lượt (sửa câu · vì sao · câu tự nhiên · phát âm), cổng độ trễ/độ đúng, 9 việc PR; đọc khi sửa lối vào hoặc chấm nói
 - [play-and-speak.md](specs/play-and-speak.md) — Spec-lite (chờ chủ duyệt) vừa học vừa chơi + luyện nói theo tình huống: kiểm kê, so app top, 9 tính năng, P0–P2, kế hoạch 40 tình huống × 12 mẫu câu, $0; đọc khi: làm luyện nói/mini-game nói/nhập vai
 

@@ -307,6 +307,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     handsfree: ['words', 'tsl', 'voice', 'handsfree'],
     home: ['words', 'streak'],
     ideas: 'writing',
+    interpret: 'interpret',
     irregular: ['vcore', 'irregular'],
     league: 'league',
     lesson: 'lesson',
@@ -399,6 +400,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     gend: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
+    interpret: ['css/interpret.css'],
     irregular: 'css/st-v2-irregular.css',
     irvdrill: 'css/st-v2-irregular-drill.css',
     lcard: 'css/lcard.css',
@@ -1246,7 +1248,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     const list = Object.values(state.cards);
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Sổ từ của bạn')}</h1>${list.length ? `<p class="muted">${t('{n} từ · {k} đã thuộc', { n: list.length, k: masteredCount() })}</p>` : ''}</div>
-        <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
+        <div class="row"><a class="btn primary" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><details class="deck-more"><summary class="btn">⋯ ${t('Thêm')}</summary><div class="row"><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></details></div></div>
       <div class="grid g4" style="margin-bottom:1rem">
         <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}" aria-label="${t('Tìm từ hoặc nghĩa…')}">
         <select class="input" id="filterTopic" aria-label="${t('Chọn bộ từ')}"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
