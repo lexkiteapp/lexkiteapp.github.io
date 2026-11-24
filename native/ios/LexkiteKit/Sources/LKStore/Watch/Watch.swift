@@ -87,10 +87,17 @@ public struct WatchHistory: Codable, Equatable, Sendable, Identifiable {
 }
 
 /// a note at a moment of a video (`wt.n.<id>`, ≤ 200, sorted by t)
-public struct WatchNote: Codable, Equatable, Sendable { public var t: Int; public var text: String }
+public struct WatchNote: Codable, Equatable, Sendable {
+    public var t: Int; public var text: String
+    public init(t: Int, text: String) { self.t = t; self.text = text }
+}
 
 /// The "pick" of the web (`wt.pick`): what the tapped card knew about the video (op=info only when it is unknown).
-public struct WatchPick: Codable, Equatable, Sendable { public var id: String; public var title = "", ch = "", topic = "" }
+public struct WatchPick: Codable, Equatable, Sendable {
+    public var id: String
+    public var title: String, ch: String, topic: String
+    public init(id: String, title: String = "", ch: String = "", topic: String = "") { self.id = id; self.title = title; self.ch = ch; self.topic = topic }
+}
 
 public enum Watch {
     public static let rates: [Double] = [0.5, 0.75, 0.9, 1, 1.25, 1.5]
