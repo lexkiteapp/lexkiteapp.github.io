@@ -1,0 +1,150 @@
+{
+ "id": "t2s_id_epicfail",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 90,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My cake collapsed. Everyone watched!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Epic fail!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A big, funny failure.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My cake fell flat. Total epic fail!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "epic fail",
+  "forms": [],
+  "ipa": "/ˌepɪk ˈfeɪl/",
+  "mean": "A big, funny failure.",
+  "define": "A mistake or failure that is so big it is almost funny.",
+  "vi": "Thất bại hoành tráng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Looking at a kitchen mess",
+   "text": "My cake fell flat. Total epic fail!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "An \"epic fail\" is a…",
+   "options": [
+    "great success",
+    "big failure"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's loss an 'epic fail'.",
+   "why": "It sounds like mocking them."
+  },
+  "l1": "kegagalan besar",
+  "l1_hook": "Kueku runtuh. Semua orang menonton! \"epic fail\"",
+  "l1_ex": "Kuenya datar. Total epic fail!",
+  "right": "epic fail",
+  "native": {
+   "hook": "Apa arti “epic fail”?",
+   "tip": "“epic fail” = kegagalan besar. Contoh: “My cake fell flat. Total epic fail!”",
+   "caption": "Apa arti “epic fail”?\n“epic fail” = kegagalan besar.\nContoh: “My cake fell flat. Total epic fail!” (Kuenya datar. Total epic fail!)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “epic fail” = kegagalan besar. “My cake fell flat. Total epic fail!” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My cake collapsed. Everyone watched!"
+ },
+ "src": {
+  "slang": "epic fail"
+ },
+ "lang": "id",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Apa arti “epic fail”?",
+  "keyword": "epic fail",
+  "value": "“epic fail” = kegagalan besar. Contoh: “My cake fell flat. Total epic fail!”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “epic fail”?",
+    "description": "“epic fail” = kegagalan besar. Contoh: “My cake fell flat. Total epic fail!”\n\nApa arti “epic fail”?\n“epic fail” = kegagalan besar.\nContoh: “My cake fell flat. Total epic fail!” (Kuenya datar. Total epic fail!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "epic fail",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “epic fail”?\n“epic fail” = kegagalan besar.\nContoh: “My cake fell flat. Total epic fail!” (Kuenya datar. Total epic fail!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “epic fail”?\n\n“epic fail” = kegagalan besar. Contoh: “My cake fell flat. Total epic fail!”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “epic fail”? “epic fail” = kegagalan besar. Contoh: “My cake fell flat. Total epic fail!” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “epic fail” = kegagalan besar. “My cake fell flat. Total epic fail!” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

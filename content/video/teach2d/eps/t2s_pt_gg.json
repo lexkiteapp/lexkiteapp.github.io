@@ -1,0 +1,150 @@
+{
+ "id": "t2s_pt_gg",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 107,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The match just ended. Respect?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "GG!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Good game.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "GG, that was a fun match!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "GG",
+  "forms": [],
+  "ipa": "/ˌdʒiː ˈdʒiː/",
+  "mean": "Good game.",
+  "define": "Said politely after a match ends.",
+  "vi": "Chơi hay lắm",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "After an online match",
+   "text": "GG, that was a fun match!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "GG means…",
+   "options": [
+    "go go",
+    "good game"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't type 'GG' to your boss after a project.",
+   "why": "It's gamer slang for games."
+  },
+  "l1": "bom jogo",
+  "l1_hook": "A partida acabou. GG?",
+  "l1_ex": "GG, foi uma partida divertida!",
+  "right": "GG",
+  "native": {
+   "hook": "O que significa “GG”?",
+   "tip": "“GG” = bom jogo. Exemplo: “GG, that was a fun match!”",
+   "caption": "O que significa “GG”?\n“GG” = bom jogo.\nExemplo: “GG, that was a fun match!” (GG, foi uma partida divertida!)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “GG” = bom jogo. “GG, that was a fun match!” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The match just ended. Respect?"
+ },
+ "src": {
+  "slang": "GG"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "O que significa “GG”?",
+  "keyword": "GG",
+  "value": "“GG” = bom jogo. Exemplo: “GG, that was a fun match!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “GG”?",
+    "description": "“GG” = bom jogo. Exemplo: “GG, that was a fun match!”\n\nO que significa “GG”?\n“GG” = bom jogo.\nExemplo: “GG, that was a fun match!” (GG, foi uma partida divertida!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "GG",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “GG”?\n“GG” = bom jogo.\nExemplo: “GG, that was a fun match!” (GG, foi uma partida divertida!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “GG”?\n\n“GG” = bom jogo. Exemplo: “GG, that was a fun match!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “GG”? “GG” = bom jogo. Exemplo: “GG, that was a fun match!” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “GG” = bom jogo. “GG, that was a fun match!” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

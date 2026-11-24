@@ -1,0 +1,149 @@
+{
+ "id": "t2s_zh_doomscroll",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 77,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Midnight. Still scrolling bad news!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Doomscroll!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Scroll bad news for too long.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Stop doomscrolling and go to sleep.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "doomscroll",
+  "forms": [
+   "doomscrolling",
+   "doomscrolled"
+  ],
+  "ipa": "/ˈduːmˌskroʊl/",
+  "mean": "Scroll bad news for too long.",
+  "define": "To keep reading sad online news without stopping.",
+  "vi": "Lướt tin xấu mãi",
+  "reg": "casual",
+  "region": "global",
+  "level": "C1",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Talking about bedtime",
+   "text": "Stop doomscrolling and go to sleep."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"doomscroll\" is to…",
+   "options": [
+    "keep reading bad news",
+    "scroll a book"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'doomscroll' about reading a recipe.",
+   "why": "It means endless bad news."
+  },
+  "l1": "灾难式刷屏",
+  "l1_hook": "午夜。仍在刷坏消息！\"doomscroll\"",
+  "l1_ex": "别再 doomscroll 了，去睡觉吧。",
+  "right": "doomscroll",
+  "native": {
+   "hook": "“doomscroll”是什么意思？",
+   "tip": "“doomscroll” = 灾难式刷屏. 例句: “Stop doomscrolling and go to sleep.”",
+   "caption": "“doomscroll”是什么意思？\n“doomscroll” = 灾难式刷屏.\n例句: “Stop doomscrolling and go to sleep.” (别再 doomscroll 了，去睡觉吧。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “doomscroll” = 灾难式刷屏. “Stop doomscrolling and go to sleep.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Midnight. Still scrolling bad news!"
+ },
+ "src": {
+  "slang": "doomscroll"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“doomscroll”是什么意思？",
+  "keyword": "doomscroll",
+  "value": "“doomscroll” = 灾难式刷屏. 例句: “Stop doomscrolling and go to sleep.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“doomscroll”是什么意思？",
+    "description": "“doomscroll” = 灾难式刷屏. 例句: “Stop doomscrolling and go to sleep.”\n\n“doomscroll”是什么意思？\n“doomscroll” = 灾难式刷屏.\n例句: “Stop doomscrolling and go to sleep.” (别再 doomscroll 了，去睡觉吧。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "doomscroll",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“doomscroll”是什么意思？\n“doomscroll” = 灾难式刷屏.\n例句: “Stop doomscrolling and go to sleep.” (别再 doomscroll 了，去睡觉吧。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“doomscroll”是什么意思？\n\n“doomscroll” = 灾难式刷屏. 例句: “Stop doomscrolling and go to sleep.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“doomscroll”是什么意思？ “doomscroll” = 灾难式刷屏. 例句: “Stop doomscrolling and go to sleep.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “doomscroll” = 灾难式刷屏. “Stop doomscrolling and go to sleep.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_foodie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 105,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She reviews every restaurant in town!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Foodie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A person who loves good food.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My sister is a total foodie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "foodie",
+  "forms": [],
+  "ipa": "/ˈfuːdi/",
+  "mean": "A person who loves good food.",
+  "define": "Someone who enjoys trying and talking about food.",
+  "vi": "Người mê ẩm thực",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "food",
+  "example": {
+   "ctx": "Talking about a new spot",
+   "text": "My sister is a total foodie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"foodie\" is…",
+   "options": [
+    "a food bag",
+    "someone who loves food"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a chef a 'foodie'.",
+   "why": "A chef cooks; a foodie loves eating."
+  },
+  "l1": "คนรักอาหาร",
+  "l1_hook": "เธอรีวิวทุกร้านอาหารในเมือง! เธอเป็น \"foodie\"",
+  "l1_ex": "พี่สาวของฉันเป็น \"foodie\" อย่างเต็มที่.",
+  "right": "foodie",
+  "native": {
+   "hook": "“foodie” แปลว่าอะไร?",
+   "tip": "“foodie” = คนรักอาหาร. ตัวอย่าง: “My sister is a total foodie.”",
+   "caption": "“foodie” แปลว่าอะไร?\n“foodie” = คนรักอาหาร.\nตัวอย่าง: “My sister is a total foodie.” (พี่สาวของฉันเป็น \"foodie\" อย่างเต็มที่.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “foodie” = คนรักอาหาร. “My sister is a total foodie.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She reviews every restaurant in town!"
+ },
+ "src": {
+  "slang": "foodie"
+ },
+ "lang": "th",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“foodie” แปลว่าอะไร?",
+  "keyword": "foodie",
+  "value": "“foodie” = คนรักอาหาร. ตัวอย่าง: “My sister is a total foodie.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“foodie” แปลว่าอะไร?",
+    "description": "“foodie” = คนรักอาหาร. ตัวอย่าง: “My sister is a total foodie.”\n\n“foodie” แปลว่าอะไร?\n“foodie” = คนรักอาหาร.\nตัวอย่าง: “My sister is a total foodie.” (พี่สาวของฉันเป็น \"foodie\" อย่างเต็มที่.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "foodie",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“foodie” แปลว่าอะไร?\n“foodie” = คนรักอาหาร.\nตัวอย่าง: “My sister is a total foodie.” (พี่สาวของฉันเป็น \"foodie\" อย่างเต็มที่.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“foodie” แปลว่าอะไร?\n\n“foodie” = คนรักอาหาร. ตัวอย่าง: “My sister is a total foodie.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“foodie” แปลว่าอะไร? “foodie” = คนรักอาหาร. ตัวอย่าง: “My sister is a total foodie.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “foodie” = คนรักอาหาร. “My sister is a total foodie.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

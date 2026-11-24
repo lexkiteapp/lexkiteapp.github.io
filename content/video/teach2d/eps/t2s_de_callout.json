@@ -1,0 +1,153 @@
+{
+ "id": "t2s_de_callout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 26,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She told everyone my mistake!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Call out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Point out someone's mistake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She called me out for being late.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "call out",
+  "forms": [
+   "called me out",
+   "called out"
+  ],
+  "ipa": "/ˈkɔːl ˈaʊt/",
+  "mean": "Point out someone's mistake.",
+  "define": "To say publicly that someone did something wrong.",
+  "vi": "Chỉ ra lỗi công khai",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a mistake",
+   "text": "She called me out for being late."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"call out\" is to…",
+   "options": [
+    "shout out",
+    "point out a mistake"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'call out' a coworker in front of the boss.",
+   "why": "Public correction embarrasses people."
+  },
+  "l1": "öffentlich kritisieren",
+  "l1_hook": "Sie hat allen meinen Fehler gezeigt! \"call out\"",
+  "l1_ex": "Sie hat mich dafür kritisiert („called me out“), dass ich zu spät war.",
+  "right": "call out",
+  "native": {
+   "hook": "Was heißt “call out”?",
+   "tip": "“call out” = öffentlich kritisieren. Beispiel: “She called me out for being late.”",
+   "caption": "Was heißt “call out”?\n“call out” = öffentlich kritisieren.\nBeispiel: “She called me out for being late.” (Sie hat mich dafür kritisiert („called me out“), dass ich zu spät war.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “call out” = öffentlich kritisieren. “She called me out for being late.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She told everyone my mistake!"
+ },
+ "src": {
+  "slang": "call out"
+ },
+ "lang": "de",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Was heißt “call out”?",
+  "keyword": "call out",
+  "value": "“call out” = öffentlich kritisieren. Beispiel: “She called me out for being late.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “call out”?",
+    "description": "“call out” = öffentlich kritisieren. Beispiel: “She called me out for being late.”\n\nWas heißt “call out”?\n“call out” = öffentlich kritisieren.\nBeispiel: “She called me out for being late.” (Sie hat mich dafür kritisiert („called me out“), dass ich zu spät war.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "call out",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “call out”?\n“call out” = öffentlich kritisieren.\nBeispiel: “She called me out for being late.” (Sie hat mich dafür kritisiert („called me out“), dass ich zu spät war.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “call out”?\n\n“call out” = öffentlich kritisieren. Beispiel: “She called me out for being late.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “call out”? “call out” = öffentlich kritisieren. Beispiel: “She called me out for being late… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “call out” = öffentlich kritisieren. “She called me out for being late.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ar_busyasabee",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 40,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No free time this week!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Busy as a bee!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very busy and active.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm busy as a bee this week.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "busy as a bee",
+  "forms": [],
+  "ipa": "/ˈbɪzi əz ə ˈbiː/",
+  "mean": "Very busy and active.",
+  "define": "Used when someone is busy working.",
+  "vi": "Bận túi bụi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about a week",
+   "text": "I'm busy as a bee this week."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "fond of flowers",
+    "very busy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'busy as a bee' about a lazy afternoon.",
+   "why": "It means very busy."
+  },
+  "l1": "مشغول كال نحل",
+  "l1_hook": "ليس لدي وقت فراغ هذا الأسبوع! أنا \"busy as a bee\".",
+  "l1_ex": "أنا \"busy as a bee\" هذا الأسبوع.",
+  "right": "busy as a bee",
+  "native": {
+   "hook": "ما معنى “busy as a bee”؟",
+   "tip": "“busy as a bee” = مشغول كال نحل. مثال: “I'm busy as a bee this week.”",
+   "caption": "ما معنى “busy as a bee”؟\n“busy as a bee” = مشغول كال نحل.\nمثال: “I'm busy as a bee this week.” (أنا \"busy as a bee\" هذا الأسبوع.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “busy as a bee” = مشغول كال نحل. “I'm busy as a bee this week.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "No free time this week!"
+ },
+ "src": {
+  "slang": "busy as a bee"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "ما معنى “busy as a bee”؟",
+  "keyword": "busy as a bee",
+  "value": "“busy as a bee” = مشغول كال نحل. مثال: “I'm busy as a bee this week.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “busy as a bee”؟",
+    "description": "“busy as a bee” = مشغول كال نحل. مثال: “I'm busy as a bee this week.”\n\nما معنى “busy as a bee”؟\n“busy as a bee” = مشغول كال نحل.\nمثال: “I'm busy as a bee this week.” (أنا \"busy as a bee\" هذا الأسبوع.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "busy as a bee",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “busy as a bee”؟\n“busy as a bee” = مشغول كال نحل.\nمثال: “I'm busy as a bee this week.” (أنا \"busy as a bee\" هذا الأسبوع.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “busy as a bee”؟\n\n“busy as a bee” = مشغول كال نحل. مثال: “I'm busy as a bee this week.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “busy as a bee”؟ “busy as a bee” = مشغول كال نحل. مثال: “I'm busy as a bee this week.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “busy as a bee” = مشغول كال نحل. “I'm busy as a bee this week.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

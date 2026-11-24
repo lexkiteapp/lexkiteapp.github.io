@@ -1,0 +1,148 @@
+{
+ "id": "t2s_de_chipin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 91,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Gift for her? Anyone?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Chip in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Give a bit of money to share.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's all chip in for her gift.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "chip in",
+  "forms": [
+   "chipped in"
+  ],
+  "ipa": "/ˈtʃɪp ɪn/",
+  "mean": "Give a bit of money to share.",
+  "define": "To give some money so a group can buy something.",
+  "vi": "Góp tiền chung",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Planning a gift",
+   "text": "Let's all chip in for her gift."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"chip in\" is to…",
+   "options": [
+    "eat chips",
+    "share the cost"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chip in' about potato chips.",
+   "why": "It means sharing the cost."
+  },
+  "l1": "einen Beitrag leisten",
+  "l1_hook": "Geschenk für sie? Wer will etwas beisteuern? \"chip in\"",
+  "l1_ex": "Lasst uns alle „chip in“ für ihr Geschenk.",
+  "right": "chip in",
+  "native": {
+   "hook": "Was heißt “chip in”?",
+   "tip": "“chip in” = einen Beitrag leisten. Beispiel: “Let's all chip in for her gift.”",
+   "caption": "Was heißt “chip in”?\n“chip in” = einen Beitrag leisten.\nBeispiel: “Let's all chip in for her gift.” (Lasst uns alle „chip in“ für ihr Geschenk.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “chip in” = einen Beitrag leisten. “Let's all chip in for her gift.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Gift for her? Anyone?"
+ },
+ "src": {
+  "slang": "chip in"
+ },
+ "lang": "de",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Was heißt “chip in”?",
+  "keyword": "chip in",
+  "value": "“chip in” = einen Beitrag leisten. Beispiel: “Let's all chip in for her gift.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “chip in”?",
+    "description": "“chip in” = einen Beitrag leisten. Beispiel: “Let's all chip in for her gift.”\n\nWas heißt “chip in”?\n“chip in” = einen Beitrag leisten.\nBeispiel: “Let's all chip in for her gift.” (Lasst uns alle „chip in“ für ihr Geschenk.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "chip in",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “chip in”?\n“chip in” = einen Beitrag leisten.\nBeispiel: “Let's all chip in for her gift.” (Lasst uns alle „chip in“ für ihr Geschenk.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “chip in”?\n\n“chip in” = einen Beitrag leisten. Beispiel: “Let's all chip in for her gift.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “chip in”? “chip in” = einen Beitrag leisten. Beispiel: “Let's all chip in for her gift.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “chip in” = einen Beitrag leisten. “Let's all chip in for her gift.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

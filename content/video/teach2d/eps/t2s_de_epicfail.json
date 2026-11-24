@@ -1,0 +1,150 @@
+{
+ "id": "t2s_de_epicfail",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 90,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "My cake collapsed. Everyone watched!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Epic fail!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A big, funny failure.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My cake fell flat. Total epic fail!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "pose": {
+  "clip": "laugh",
+  "after": "h"
+ },
+ "data": {
+  "key": "epic fail",
+  "forms": [],
+  "ipa": "/ˌepɪk ˈfeɪl/",
+  "mean": "A big, funny failure.",
+  "define": "A mistake or failure that is so big it is almost funny.",
+  "vi": "Thất bại hoành tráng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Looking at a kitchen mess",
+   "text": "My cake fell flat. Total epic fail!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "An \"epic fail\" is a…",
+   "options": [
+    "great success",
+    "big failure"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a friend's loss an 'epic fail'.",
+   "why": "It sounds like mocking them."
+  },
+  "l1": "großer Reinfall",
+  "l1_hook": "Mein Kuchen ist zusammengefallen. Alle haben zugesehen! \"epic fail\"",
+  "l1_ex": "Mein Kuchen ist flach geworden. Total \"epic fail\"!",
+  "right": "epic fail",
+  "native": {
+   "hook": "Was heißt “epic fail”?",
+   "tip": "“epic fail” = großer Reinfall. Beispiel: “My cake fell flat. Total epic fail!”",
+   "caption": "Was heißt “epic fail”?\n“epic fail” = großer Reinfall.\nBeispiel: “My cake fell flat. Total epic fail!” (Mein Kuchen ist flach geworden. Total \"epic fail\"!)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “epic fail” = großer Reinfall. “My cake fell flat. Total epic fail!” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "My cake collapsed. Everyone watched!"
+ },
+ "src": {
+  "slang": "epic fail"
+ },
+ "lang": "de",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Was heißt “epic fail”?",
+  "keyword": "epic fail",
+  "value": "“epic fail” = großer Reinfall. Beispiel: “My cake fell flat. Total epic fail!”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “epic fail”?",
+    "description": "“epic fail” = großer Reinfall. Beispiel: “My cake fell flat. Total epic fail!”\n\nWas heißt “epic fail”?\n“epic fail” = großer Reinfall.\nBeispiel: “My cake fell flat. Total epic fail!” (Mein Kuchen ist flach geworden. Total \"epic fail\"!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "epic fail",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “epic fail”?\n“epic fail” = großer Reinfall.\nBeispiel: “My cake fell flat. Total epic fail!” (Mein Kuchen ist flach geworden. Total \"epic fail\"!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “epic fail”?\n\n“epic fail” = großer Reinfall. Beispiel: “My cake fell flat. Total epic fail!”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “epic fail”? “epic fail” = großer Reinfall. Beispiel: “My cake fell flat. Total epic fail!” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “epic fail” = großer Reinfall. “My cake fell flat. Total epic fail!” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

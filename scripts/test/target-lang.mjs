@@ -65,7 +65,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   cfg({ es_course: '0' }); ok(T.enabled('es'), 'quản trị thấy es kể cả cờ es_course=0');
   cfg({ es_kill: '1' }); ok(!T.enabled('es') && T.enabled('fr'), 'es_kill=1 vẫn tắt es cho quản trị (công tắc khẩn)');
   ls.delete('lk.adm'); ok(!T.enabled('fr'), 'bỏ lk.adm → fr tắt lại');
-  ok(/lk\.adm/.test(rd('web/js/app.js')) && /App\.tlPick/.test(rd('web/js/hubs.js')) && /App\.tlPick = /.test(rd('web/js/settings.js')), 'App.isAdmin ghi lk.adm + chip kỳ thi có bộ chọn ngôn ngữ đích');
+  ok(/lk\.adm/.test(rd('web/js/app.js')) && /TLPick\.exam/.test(rd('web/js/hubs.js')) && /data-xtl/.test(rd('web/cpack/tl-app/tl-pick.js')), 'App.isAdmin ghi lk.adm + chip kỳ thi (TLPick.exam) có bộ chọn ngôn ngữ đích, ngôn ngữ đứng trước kỳ thi');
   // nút cờ đầu thanh trên (#tlBtn): có trong HTML, bấm mở App.tlMenu; chọn khóa → Target.set + về trang chủ khóa (es ↔ en)
   ok(/id="tlBtn"/.test(rd('web/app/index.html')) && /#tlBtn/.test(rd('web/js/hubs.js')) && /App\.tlMenu = /.test(rd('web/js/settings.js')), 'nút chọn khóa học ở đầu thanh trên + menu tải lười');
   ok(/Target\.set\(b\.dataset\.tl\)[^}]*location\.hash = Target\.homeOf\(b\.dataset\.tl\) \|\| '#\/home'/.test(rd('web/js/settings.js')), 'chọn khóa học → vào trang chủ khóa đó');

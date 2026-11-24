@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ru_bytheway",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 16,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Oh, one more thing!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "By the way!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Also, one more thing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "By the way, the party starts at seven.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "by the way",
+  "forms": [
+   "BTW"
+  ],
+  "ipa": "/baɪ ðə ˈweɪ/",
+  "mean": "Also, one more thing.",
+  "define": "Used to add a new, related thought in a talk.",
+  "vi": "Nhân tiện",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Texting a friend",
+   "text": "By the way, the party starts at seven."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"By the way\" adds…",
+   "options": [
+    "another thought",
+    "a road name"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't use 'by the way' for your main point.",
+   "why": "It signals a minor, extra comment."
+  },
+  "l1": "кстати",
+  "l1_hook": "О, ещё одна вещь! «by the way».",
+  "l1_ex": "«By the way», вечеринка начинается в семь.",
+  "right": "by the way",
+  "native": {
+   "hook": "Что значит «by the way»?",
+   "tip": "“by the way” = кстати. Пример: “By the way, the party starts at seven.”",
+   "caption": "Что значит «by the way»?\n“by the way” = кстати.\nПример: “By the way, the party starts at seven.” («By the way», вечеринка начинается в семь.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “by the way” = кстати. “By the way, the party starts at seven.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Oh, one more thing!"
+ },
+ "src": {
+  "slang": "by the way"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "Что значит «by the way»?",
+  "keyword": "by the way",
+  "value": "“by the way” = кстати. Пример: “By the way, the party starts at seven.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «by the way»?",
+    "description": "“by the way” = кстати. Пример: “By the way, the party starts at seven.”\n\nЧто значит «by the way»?\n“by the way” = кстати.\nПример: “By the way, the party starts at seven.” («By the way», вечеринка начинается в семь.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "by the way",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «by the way»?\n“by the way” = кстати.\nПример: “By the way, the party starts at seven.” («By the way», вечеринка начинается в семь.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «by the way»?\n\n“by the way” = кстати. Пример: “By the way, the party starts at seven.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «by the way»? “by the way” = кстати. Пример: “By the way, the party starts at seven.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “by the way” = кстати. “By the way, the party starts at seven.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

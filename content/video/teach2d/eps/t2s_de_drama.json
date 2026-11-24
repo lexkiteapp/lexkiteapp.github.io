@@ -1,0 +1,148 @@
+{
+ "id": "t2s_de_drama",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 64,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Group chat exploded over nothing!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Drama!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fuss and arguments about small things.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I don't want any drama this year.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "drama",
+  "forms": [
+   "dramatic"
+  ],
+  "ipa": "/ˈdrɑːmə/",
+  "mean": "Fuss and arguments about small things.",
+  "define": "Needless trouble or arguments between people.",
+  "vi": "Drama nổ trời",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about school",
+   "text": "I don't want any drama this year."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Drama\" here means…",
+   "options": [
+    "fuss and arguments",
+    "a theater play"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your friend's real problem 'drama'.",
+   "why": "It makes serious feelings sound silly."
+  },
+  "l1": "Drama",
+  "l1_hook": "Der Gruppenchat ist wegen Nichts explodiert, \"drama\"!",
+  "l1_ex": "Ich will dieses Jahr kein \"Drama\".",
+  "right": "drama",
+  "native": {
+   "hook": "Was heißt “drama”?",
+   "tip": "“drama” = Drama. Beispiel: “I don't want any drama this year.”",
+   "caption": "Was heißt “drama”?\n“drama” = Drama.\nBeispiel: “I don't want any drama this year.” (Ich will dieses Jahr kein \"Drama\".)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “drama” = Drama. “I don't want any drama this year.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Group chat exploded over nothing!"
+ },
+ "src": {
+  "slang": "drama"
+ },
+ "lang": "de",
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "Was heißt “drama”?",
+  "keyword": "drama",
+  "value": "“drama” = Drama. Beispiel: “I don't want any drama this year.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “drama”?",
+    "description": "“drama” = Drama. Beispiel: “I don't want any drama this year.”\n\nWas heißt “drama”?\n“drama” = Drama.\nBeispiel: “I don't want any drama this year.” (Ich will dieses Jahr kein \"Drama\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "drama",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “drama”?\n“drama” = Drama.\nBeispiel: “I don't want any drama this year.” (Ich will dieses Jahr kein \"Drama\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “drama”?\n\n“drama” = Drama. Beispiel: “I don't want any drama this year.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “drama”? “drama” = Drama. Beispiel: “I don't want any drama this year.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “drama” = Drama. “I don't want any drama this year.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

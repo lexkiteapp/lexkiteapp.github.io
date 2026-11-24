@@ -1,0 +1,146 @@
+{
+ "id": "t2s_es_bougie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 53,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She only drinks fancy tea!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bougie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fancy, and a bit too proud.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coffee shop is so bougie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "bougie",
+  "forms": [],
+  "ipa": "/ˈbuːʒi/",
+  "mean": "Fancy, and a bit too proud.",
+  "define": "Liking expensive or fancy things, sometimes in a showy way.",
+  "vi": "Sang chảnh, làm màu",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "money",
+  "example": {
+   "ctx": "Visiting a new café",
+   "text": "This coffee shop is so bougie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bougie\" means…",
+   "options": [
+    "very cheap",
+    "fancy and showy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your host 'bougie' at dinner.",
+   "why": "It can sound snobbish and rude."
+  },
+  "l1": "pijo",
+  "l1_hook": "¡Ella solo bebe té elegante!",
+  "l1_ex": "Esta cafetería es muy \"bougie\".",
+  "right": "bougie",
+  "native": {
+   "hook": "¿Qué significa “bougie”?",
+   "tip": "“bougie” = pijo. Ejemplo: “This coffee shop is so bougie.”",
+   "caption": "¿Qué significa “bougie”?\n“bougie” = pijo.\nEjemplo: “This coffee shop is so bougie.” (Esta cafetería es muy \"bougie\".)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “bougie” = pijo. “This coffee shop is so bougie.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She only drinks fancy tea!"
+ },
+ "src": {
+  "slang": "bougie"
+ },
+ "lang": "es",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "¿Qué significa “bougie”?",
+  "keyword": "bougie",
+  "value": "“bougie” = pijo. Ejemplo: “This coffee shop is so bougie.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “bougie”?",
+    "description": "“bougie” = pijo. Ejemplo: “This coffee shop is so bougie.”\n\n¿Qué significa “bougie”?\n“bougie” = pijo.\nEjemplo: “This coffee shop is so bougie.” (Esta cafetería es muy \"bougie\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "bougie",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “bougie”?\n“bougie” = pijo.\nEjemplo: “This coffee shop is so bougie.” (Esta cafetería es muy \"bougie\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “bougie”?\n\n“bougie” = pijo. Ejemplo: “This coffee shop is so bougie.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “bougie”? “bougie” = pijo. Ejemplo: “This coffee shop is so bougie.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “bougie” = pijo. “This coffee shop is so bougie.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}
