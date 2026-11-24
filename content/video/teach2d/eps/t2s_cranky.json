@@ -1,0 +1,131 @@
+{
+ "id": "t2s_cranky",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 104,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't talk to me yet!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cranky!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Grumpy and in a bad mood.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm cranky before breakfast.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "cranky",
+  "forms": [],
+  "ipa": "/ˈkræŋki/",
+  "mean": "Grumpy and in a bad mood.",
+  "define": "Describes someone tired or annoyed.",
+  "vi": "Cáu kỉnh",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about a child",
+   "text": "I'm cranky before breakfast."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cranky\" means…",
+   "options": [
+    "happy",
+    "grumpy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your boss 'cranky' in an email.",
+   "why": "It's too casual and insulting."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Don't talk to me yet!"
+ },
+ "src": {
+  "slang": "cranky"
+ },
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "What does \"cranky\" mean?",
+  "keyword": "cranky",
+  "value": "Cranky = Grumpy and in a bad mood. Example: \"I'm cranky before breakfast.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cranky\" mean?",
+    "description": "Cranky = Grumpy and in a bad mood. Example: \"I'm cranky before breakfast.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "cranky",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cranky\" mean?\n\nCranky = Grumpy and in a bad mood. Example: \"I'm cranky before breakfast.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"cranky\" mean?\n\nCranky = Grumpy and in a bad mood. Example: \"I'm cranky before breakfast.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cranky\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call your boss 'cranky' in an email. It's too casual and insulting. Real example: \"I'm cranky before breakfast.\" More real English slang, free: {link}"
+ }
+}

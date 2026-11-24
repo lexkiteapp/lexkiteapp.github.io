@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_itsgiving",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 84,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "That coat looks like old movies!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "It's giving!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "It has the vibe of…",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That coat is giving old movie star.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "it's giving",
+  "forms": [
+   "giving"
+  ],
+  "ipa": "/ɪts ˈɡɪvɪŋ/",
+  "mean": "It has the vibe of…",
+  "define": "Used to say that something reminds you of a style or mood.",
+  "vi": "Nhìn là thấy vibe này",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Shopping with a friend",
+   "text": "That coat is giving old movie star."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"It's giving\" means…",
+   "options": [
+    "it gives a gift",
+    "it has the vibe of"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'it's giving' to a job interviewer.",
+   "why": "It's trendy slang, too informal."
+  },
+  "l1": "havasını taşıyor",
+  "l1_hook": "O ceket eski filmlere benziyor! (\"it's giving\")",
+  "l1_ex": "O ceket \"it's giving\" eski film yıldızı gibi.",
+  "right": "it's giving",
+  "native": {
+   "hook": "“it's giving” ne demek?",
+   "tip": "“it's giving” = havasını taşıyor. Örnek: “That coat is giving old movie star.”",
+   "caption": "“it's giving” ne demek?\n“it's giving” = havasını taşıyor.\nÖrnek: “That coat is giving old movie star.” (O ceket \"it's giving\" eski film yıldızı gibi.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “it's giving” = havasını taşıyor. “That coat is giving old movie star.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "That coat looks like old movies!"
+ },
+ "src": {
+  "slang": "it's giving"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“it's giving” ne demek?",
+  "keyword": "it's giving",
+  "value": "“it's giving” = havasını taşıyor. Örnek: “That coat is giving old movie star.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“it's giving” ne demek?",
+    "description": "“it's giving” = havasını taşıyor. Örnek: “That coat is giving old movie star.”\n\n“it's giving” ne demek?\n“it's giving” = havasını taşıyor.\nÖrnek: “That coat is giving old movie star.” (O ceket \"it's giving\" eski film yıldızı gibi.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "it's giving",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“it's giving” ne demek?\n“it's giving” = havasını taşıyor.\nÖrnek: “That coat is giving old movie star.” (O ceket \"it's giving\" eski film yıldızı gibi.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“it's giving” ne demek?\n\n“it's giving” = havasını taşıyor. Örnek: “That coat is giving old movie star.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“it's giving” ne demek? “it's giving” = havasını taşıyor. Örnek: “That coat is giving old movie star.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “it's giving” = havasını taşıyor. “That coat is giving old movie star.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

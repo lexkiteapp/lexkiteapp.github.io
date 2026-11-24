@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_bigmood",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 18,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sleepy cat. Exactly my feelings!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Big mood!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's exactly how I feel.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That sleepy cat is a big mood.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "data": {
+  "key": "big mood",
+  "forms": [],
+  "ipa": "/ˈbɪɡ ˈmuːd/",
+  "mean": "That's exactly how I feel.",
+  "define": "Used when something matches your feeling perfectly.",
+  "vi": "Đúng tâm trạng luôn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Seeing a funny meme",
+   "text": "That sleepy cat is a big mood."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Big mood\" means…",
+   "options": [
+    "a large room",
+    "I relate"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'big mood' about someone's real tragedy.",
+   "why": "It sounds careless and dismissive."
+  },
+  "l1": "Đúng tâm trạng luôn",
+  "l1_hook": "Mèo ngủ gật. Y chang tâm trạng tui!",
+  "l1_ex": "Con mèo buồn ngủ đó là big mood.",
+  "right": "big mood",
+  "native": {
+   "hook": "“big mood” nghĩa là gì?",
+   "tip": "“big mood” = Đúng tâm trạng luôn. Ví dụ: “That sleepy cat is a big mood.”",
+   "caption": "“big mood” nghĩa là gì?\n“big mood” = Đúng tâm trạng luôn.\nVí dụ: “That sleepy cat is a big mood.” (Con mèo buồn ngủ đó là big mood.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “big mood” = Đúng tâm trạng luôn. “That sleepy cat is a big mood.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sleepy cat. Exactly my feelings!"
+ },
+ "src": {
+  "slang": "big mood"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“big mood” nghĩa là gì?",
+  "keyword": "big mood",
+  "value": "“big mood” = Đúng tâm trạng luôn. Ví dụ: “That sleepy cat is a big mood.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“big mood” nghĩa là gì?",
+    "description": "“big mood” = Đúng tâm trạng luôn. Ví dụ: “That sleepy cat is a big mood.”\n\n“big mood” nghĩa là gì?\n“big mood” = Đúng tâm trạng luôn.\nVí dụ: “That sleepy cat is a big mood.” (Con mèo buồn ngủ đó là big mood.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "big mood",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“big mood” nghĩa là gì?\n“big mood” = Đúng tâm trạng luôn.\nVí dụ: “That sleepy cat is a big mood.” (Con mèo buồn ngủ đó là big mood.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“big mood” nghĩa là gì?\n\n“big mood” = Đúng tâm trạng luôn. Ví dụ: “That sleepy cat is a big mood.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“big mood” nghĩa là gì? “big mood” = Đúng tâm trạng luôn. Ví dụ: “That sleepy cat is a big mood.” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “big mood” = Đúng tâm trạng luôn. “That sleepy cat is a big mood.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

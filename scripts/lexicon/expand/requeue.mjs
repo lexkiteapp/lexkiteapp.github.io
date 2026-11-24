@@ -8,11 +8,11 @@
 //   node scripts/lexicon/expand/requeue.mjs --pending <lô>      MỌI mục đạt cổng của lô chờ soát (soát mẫu trượt / sinh trước bản sửa) → làm lại; xoá tệp pending
 import fs from 'fs';
 import { ROOT, rd, wr } from '../lib.mjs';
-import { QUEUE, doneWords, hasGap, OTHER_POS, rescueSelect } from './lib.mjs';
+import { readQ, writeQ, doneWords, hasGap, OTHER_POS, rescueSelect } from './lib.mjs';
 const arg = n => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : null; };
 const GAPS = process.argv.includes('--gaps'), POS = process.argv.includes('--pos'), FUNNEL = process.argv.includes('--funnel'), BATCH = arg('--batch');
 const RETRY = 'content/lexicon/expand/retry/words.json';
-const q = JSON.parse(rd(QUEUE)), retry = fs.existsSync(new URL(RETRY, ROOT)) ? JSON.parse(rd(RETRY)) : { _doc: 'Từ làm lại ở lượt kế (lỗ dữ liệu nguồn – không vào hàng duyệt). job.mjs tự thêm/bớt.', items: [] };
+const q = readQ(), retry = fs.existsSync(new URL(RETRY, ROOT)) ? JSON.parse(rd(RETRY)) : { _doc: 'Từ làm lại ở lượt kế (lỗ dữ liệu nguồn – không vào hàng duyệt). job.mjs tự thêm/bớt.', items: [] };
 // --funnel (MỘT LẦN sau khi sửa gốc nguồn – 31/10 Wiktionary tiếng Việt + câu Wiktionary theo nghĩa khoá): mục CHỈ rớt vì vi và/hoặc thiếu câu người viết → làm lại; KHÔNG để trong lệnh mỗi lượt (trượt lại = lặp vô hạn)
 // --before (08/11): chỉ mục trượt TRƯỚC ngày nguồn mới vào (Common Voice 05/11) – mục trượt sau đó đã có đủ nguồn, làm lại = phí lượt
 const BEFORE = arg('--before');
@@ -31,6 +31,6 @@ const PEND = arg('--pending') && `content/lexicon/expand/pending/${arg('--pendin
 if (PEND && fs.existsSync(new URL(PEND, ROOT))) { out.push(...Object.keys(JSON.parse(rd(PEND)).items).filter(id => !DONE.has(id)).map(id => ({ id }))); fs.unlinkSync(new URL(PEND, ROOT)); }
 q.items = q.items.filter(x => !move(x) && !pickedIds.has(x.id)); // mục lỗ nguồn ĐÃ xuất/chờ soát ở lô khác (31/10: underwear#n, exceptionally#adv) = bản cũ thừa → bỏ khỏi hàng duyệt, không làm lại
 retry.items = [...new Set([...retry.items, ...out.map(x => x.id)])].sort();
-wr(QUEUE, JSON.stringify(q, null, 1) + '\n');
+writeQ(q);
 fs.mkdirSync(new URL('content/lexicon/expand/retry/', ROOT), { recursive: true }); wr(RETRY, JSON.stringify(retry, null, 1) + '\n');
 console.log(`✓ requeue: ${out.length} mục → ${RETRY} (${out.filter(x => (x.why || []).some(y => /^ipa/.test(y))).length} lỗ IPA) · hàng duyệt còn ${q.items.filter(x => x.src === 'lexicon-expand').length} mục lexicon-expand`);

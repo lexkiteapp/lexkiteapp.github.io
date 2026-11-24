@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_busyasabee",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 40,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No free time this week!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Busy as a bee!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very busy and active.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm busy as a bee this week.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "busy as a bee",
+  "forms": [],
+  "ipa": "/ˈbɪzi əz ə ˈbiː/",
+  "mean": "Very busy and active.",
+  "define": "Used when someone is busy working.",
+  "vi": "Bận túi bụi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about a week",
+   "text": "I'm busy as a bee this week."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "fond of flowers",
+    "very busy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'busy as a bee' about a lazy afternoon.",
+   "why": "It means very busy."
+  },
+  "l1": "Ocupado como uma abelha",
+  "l1_hook": "Sem tempo livre esta semana!",
+  "l1_ex": "Estou \"busy as a bee\" esta semana.",
+  "right": "busy as a bee",
+  "native": {
+   "hook": "O que significa “busy as a bee”?",
+   "tip": "“busy as a bee” = Ocupado como uma abelha. Exemplo: “I'm busy as a bee this week.”",
+   "caption": "O que significa “busy as a bee”?\n“busy as a bee” = Ocupado como uma abelha.\nExemplo: “I'm busy as a bee this week.” (Estou \"busy as a bee\" esta semana.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “busy as a bee” = Ocupado como uma abelha. “I'm busy as a bee this week.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "No free time this week!"
+ },
+ "src": {
+  "slang": "busy as a bee"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "O que significa “busy as a bee”?",
+  "keyword": "busy as a bee",
+  "value": "“busy as a bee” = Ocupado como uma abelha. Exemplo: “I'm busy as a bee this week.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “busy as a bee”?",
+    "description": "“busy as a bee” = Ocupado como uma abelha. Exemplo: “I'm busy as a bee this week.”\n\nO que significa “busy as a bee”?\n“busy as a bee” = Ocupado como uma abelha.\nExemplo: “I'm busy as a bee this week.” (Estou \"busy as a bee\" esta semana.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "busy as a bee",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “busy as a bee”?\n“busy as a bee” = Ocupado como uma abelha.\nExemplo: “I'm busy as a bee this week.” (Estou \"busy as a bee\" esta semana.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “busy as a bee”?\n\n“busy as a bee” = Ocupado como uma abelha. Exemplo: “I'm busy as a bee this week.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “busy as a bee”? “busy as a bee” = Ocupado como uma abelha. Exemplo: “I'm busy as a bee th… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “busy as a bee” = Ocupado como uma abelha. “I'm busy as a bee this week.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

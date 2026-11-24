@@ -1,0 +1,152 @@
+{
+ "id": "t2s_de_crushingit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 74,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "First week, already top seller!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Crushing it!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "You're doing great.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You're crushing it at your new job!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "crushing it",
+  "forms": [
+   "crush it"
+  ],
+  "ipa": "/ˈkrʌʃɪŋ ɪt/",
+  "mean": "You're doing great.",
+  "define": "Used when someone is doing really well at something.",
+  "vi": "Làm đỉnh quá",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "praise",
+  "example": {
+   "ctx": "Praising a friend",
+   "text": "You're crushing it at your new job!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Crushing it\" means…",
+   "options": [
+    "doing great",
+    "breaking it"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't tell a struggling friend 'crushing it' sarcastically.",
+   "why": "It sounds mocking."
+  },
+  "l1": "du rockst",
+  "l1_hook": "Erste Woche und schon Top-Verkäufer – du bist 'crushing it'!",
+  "l1_ex": "Du bist \"crushing it\" in deinem neuen Job!",
+  "right": "crushing it",
+  "native": {
+   "hook": "Was heißt “crushing it”?",
+   "tip": "“crushing it” = du rockst. Beispiel: “You're crushing it at your new job!”",
+   "caption": "Was heißt “crushing it”?\n“crushing it” = du rockst.\nBeispiel: “You're crushing it at your new job!” (Du bist \"crushing it\" in deinem neuen Job!)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “crushing it” = du rockst. “You're crushing it at your new job!” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "First week, already top seller!"
+ },
+ "src": {
+  "slang": "crushing it"
+ },
+ "lang": "de",
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Was heißt “crushing it”?",
+  "keyword": "crushing it",
+  "value": "“crushing it” = du rockst. Beispiel: “You're crushing it at your new job!”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “crushing it”?",
+    "description": "“crushing it” = du rockst. Beispiel: “You're crushing it at your new job!”\n\nWas heißt “crushing it”?\n“crushing it” = du rockst.\nBeispiel: “You're crushing it at your new job!” (Du bist \"crushing it\" in deinem neuen Job!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "crushing it",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “crushing it”?\n“crushing it” = du rockst.\nBeispiel: “You're crushing it at your new job!” (Du bist \"crushing it\" in deinem neuen Job!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “crushing it”?\n\n“crushing it” = du rockst. Beispiel: “You're crushing it at your new job!”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “crushing it”? “crushing it” = du rockst. Beispiel: “You're crushing it at your new job!” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “crushing it” = du rockst. “You're crushing it at your new job!” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

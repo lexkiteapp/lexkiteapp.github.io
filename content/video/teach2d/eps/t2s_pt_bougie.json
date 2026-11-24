@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_bougie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 53,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She only drinks fancy tea!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bougie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fancy, and a bit too proud.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coffee shop is so bougie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "bougie",
+  "forms": [],
+  "ipa": "/ˈbuːʒi/",
+  "mean": "Fancy, and a bit too proud.",
+  "define": "Liking expensive or fancy things, sometimes in a showy way.",
+  "vi": "Sang chảnh, làm màu",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "money",
+  "example": {
+   "ctx": "Visiting a new café",
+   "text": "This coffee shop is so bougie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bougie\" means…",
+   "options": [
+    "very cheap",
+    "fancy and showy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your host 'bougie' at dinner.",
+   "why": "It can sound snobbish and rude."
+  },
+  "l1": "chique",
+  "l1_hook": "Ela só bebe chá \"bougie\"!",
+  "l1_ex": "Esta cafeteria é tão \"bougie\".",
+  "right": "bougie",
+  "native": {
+   "hook": "O que significa “bougie”?",
+   "tip": "“bougie” = chique. Exemplo: “This coffee shop is so bougie.”",
+   "caption": "O que significa “bougie”?\n“bougie” = chique.\nExemplo: “This coffee shop is so bougie.” (Esta cafeteria é tão \"bougie\".)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “bougie” = chique. “This coffee shop is so bougie.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She only drinks fancy tea!"
+ },
+ "src": {
+  "slang": "bougie"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "O que significa “bougie”?",
+  "keyword": "bougie",
+  "value": "“bougie” = chique. Exemplo: “This coffee shop is so bougie.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “bougie”?",
+    "description": "“bougie” = chique. Exemplo: “This coffee shop is so bougie.”\n\nO que significa “bougie”?\n“bougie” = chique.\nExemplo: “This coffee shop is so bougie.” (Esta cafeteria é tão \"bougie\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "bougie",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “bougie”?\n“bougie” = chique.\nExemplo: “This coffee shop is so bougie.” (Esta cafeteria é tão \"bougie\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “bougie”?\n\n“bougie” = chique. Exemplo: “This coffee shop is so bougie.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “bougie”? “bougie” = chique. Exemplo: “This coffee shop is so bougie.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “bougie” = chique. “This coffee shop is so bougie.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

@@ -59,7 +59,10 @@ const latest = (dir, re, before) => fs.existsSync(dir) ? fs.readdirSync(dir).fil
 export function alerts(root, date, cur) {
   const dir = path.join(root, 'reports/seo'), out = [];
   const prevF = latest(dir, /^index-(\d{4}-\d{2}-\d{2})\.json$/, date)[0], prev = prevF && readJson(path.join(dir, prevF));
-  if (cur && prev?.summary?.estIndexed > 0 && cur.estIndexed < prev.summary.estIndexed * (1 - DROP))
+  // 24/11: mẫu URL Inspection đổi theo ngày (seed = ngày) → 4/343 so với 1/344 trúng là nhiễu (lượt bấm GSC vẫn tăng 89→92), không phải tụt thật.
+  // Có đủ số mẫu thì chỉ báo khi chênh tỉ lệ index có ý nghĩa (z ≥ 3, kiểm định hai tỉ lệ); thiếu số mẫu → luật cũ.
+  const sig = (a, b) => { if (!(a?.sampled > 0 && b?.sampled > 0)) return true; const p = (a.indexed + b.indexed) / (a.sampled + b.sampled), se = Math.sqrt(p * (1 - p) * (1 / a.sampled + 1 / b.sampled)); return se === 0 ? a.indexed !== b.indexed : (a.indexed / a.sampled - b.indexed / b.sampled) / se >= 3; };
+  if (cur && prev?.summary?.estIndexed > 0 && cur.estIndexed < prev.summary.estIndexed * (1 - DROP) && sig(prev.summary, cur))
     out.push(`Số trang index ước tính tụt ${prev.summary.estIndexed} → ${cur.estIndexed} (${prevF})`);
   const g = latest(dir, /^gsc-(\d{4}-\d{2}-\d{2})\.json$/, null).filter(f => f.slice(4, 14) <= date);
   if (!g.length) out.push('Chưa có báo cáo GSC nào trong reports/seo');

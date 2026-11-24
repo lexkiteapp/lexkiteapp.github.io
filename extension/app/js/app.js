@@ -324,7 +324,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     paraphrase: 'paraphrase',
     path: ['words', 'pathx'],
     phrases: 'writing',
-    placement: ['words', 'grammar', 'placement'],
+    placement: ['placement'], // màn giới thiệu vẽ ngay; words + grammar nạp nền / khi bấm Bắt đầu (placement.js warm)
     practice: ['words', 'tsl', 'lfx'],
     pron: 'pron',
     qstats: 'qstats',
@@ -343,6 +343,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     speak: 'pas',
     speaking: 'speak',
     stats: ['words', 'streak', 'statsp'],
+    stories: 'stories',
     streak: ['streak', 'ret'],
     style: 'quick',
     task1: 'writing',
@@ -414,6 +415,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     readings: 'css/exam.css',
     say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'],
     settings: ['css/adm.css', 'css/st-v2-settings.css'],
+    stories: 'css/stories.css',
     tlpick: ['css/tl-pick.css'],
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
@@ -1067,10 +1069,9 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   }
   App.personalCollections = personalCollections;
 
-  routes.topic = function (id, query, noX) {
+  routes.topic = function (id, query) {
     const tp = topicOf(id);
     if (!tp) return routes.library('', new URLSearchParams());
-    const xb = ['topicx', id].join('-'); if (!noX && window.LK_BUNDLES && LK_BUNDLES[xb]) return App.need('topicx', xb).then(() => (window.LK_TOPICX && LK_TOPICX[id] ? LK_TOPICX_UI.draw(tp, LK_TOPICX[id]) : routes.topic(id, query, true)), () => routes.topic(id, query, true)); // chủ đề sâu (docs/specs/topic-depth.md): gói lười; lỗi tải → trang cũ
     const levels = [...new Set(tp.words.map(w => w.level).filter(Boolean))].sort();
     const missing = () => tp.words.filter(w => !inDeck(w.word));
     const gname = (GROUPS.find(g => g.id === tp.group) || {}).name || '';
@@ -1245,7 +1246,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     const list = Object.values(state.cards);
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Sổ từ của bạn')}</h1>${list.length ? `<p class="muted">${t('{n} từ · {k} đã thuộc', { n: list.length, k: masteredCount() })}</p>` : ''}</div>
-        <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
+        <div class="row"><a class="btn primary" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><details class="deck-more"><summary class="btn">⋯ ${t('Thêm')}</summary><div class="row"><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></details></div></div>
       <div class="grid g4" style="margin-bottom:1rem">
         <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}" aria-label="${t('Tìm từ hoặc nghĩa…')}">
         <select class="input" id="filterTopic" aria-label="${t('Chọn bộ từ')}"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
@@ -1486,7 +1487,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   const bootDog = setTimeout(() => { if (state.game && routeSeq) return; if (!view.children.length || view.querySelector('[data-lkph]') || (!state.game && view.querySelector('#lkHero'))) errState(true, true); }, 8000); // khung chờ màn học (index.html data-lkph) = chưa vẽ
   App.ready = (async function init() {
     if (/[?&]demo=1/.test(location.search)) { await App.need('demo'); await App.seedDemo(); }
-    if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);
+    if (Store.sandbox) setTimeout(() => toast('🧪 Sandbox'), 800); /* ngắn: thông báo dài (~14 000 px²) lớn hơn đoạn mô tả đầu trang từ điển nên chiếm LCP đo ở CI (?sandbox=1) = 7,5 s dù người dùng thật không bao giờ thấy nó; bản ngắn nhỏ hơn mọi khối nội dung → LCP = nội dung thật */
     try { await load(); } finally { if (!state.game) state.game = await Game.get().catch(() => null); dataReady(); }
     document.addEventListener('error', e => {
       const img = e.target;

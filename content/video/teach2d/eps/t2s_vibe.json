@@ -1,0 +1,133 @@
+{
+ "id": "t2s_vibe",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 303,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "This place feels cozy!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Vibe!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The feeling or mood of a place.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I love the vibe in this little café.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "vibe",
+  "forms": [
+   "vibes"
+  ],
+  "ipa": "/ˈvaɪb/",
+  "mean": "The feeling or mood of a place.",
+  "define": "The mood or feeling you get from a person, place or thing.",
+  "vi": "Cảm giác, không khí",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Entering a new café",
+   "text": "I love the vibe in this little café."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"vibe\" is a…",
+   "options": [
+    "kind of bike",
+    "mood or feeling"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'vibe' in a legal contract.",
+   "why": "It's too vague and casual."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "This place feels cozy!"
+ },
+ "src": {
+  "slang": "vibe"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"vibe\" mean?",
+  "keyword": "vibe",
+  "value": "Vibe = The feeling or mood of a place. Example: \"I love the vibe in this little café.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"vibe\" mean?",
+    "description": "Vibe = The feeling or mood of a place. Example: \"I love the vibe in this little café.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "vibe",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"vibe\" mean?\n\nVibe = The feeling or mood of a place. Example: \"I love the vibe in this little café.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"vibe\" mean?\n\nVibe = The feeling or mood of a place. Example: \"I love the vibe in this little café.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"vibe\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'vibe' in a legal contract. It's too vague and casual. Real example: \"I love the vibe in this little cafe.\" More real English slang, free: {link}"
+ }
+}

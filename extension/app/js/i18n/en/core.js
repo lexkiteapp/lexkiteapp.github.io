@@ -100,6 +100,8 @@
 'Cần cho phép dùng micro – bấm biểu tượng 🎙️/🔒 trên thanh địa chỉ và chọn “Cho phép”.': 'Microphone access needed – click the 🎙️/🔒 icon in the address bar and choose “Allow”.',
 'Trình duyệt đang chặn nhận dạng giọng nói trên trang này.': 'Your browser is blocking speech recognition on this page.',
 'Không nghe thấy gì – bấm micro rồi đọc to, rõ ràng nhé.': 'Didn’t hear anything – tap the mic and speak loudly and clearly.',
+'Micro không thu được tiếng – kiểm tra đã chọn đúng micro và không bị tắt tiếng.': 'The mic is not picking up any sound – check that the right microphone is selected and not muted.',
+'Máy thu được giọng bạn nhưng dịch vụ nhận dạng của trình duyệt không trả lời – bấm micro lần nữa để dùng nhận dạng trên máy.': 'We recorded your voice, but the browser’s speech service did not respond – tap the mic again to use on-device recognition.',
 'Không tìm thấy micro – kiểm tra tai nghe/micro của máy.': 'No microphone found – check your headset or mic.',
 'Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).': 'Couldn’t reach the speech recognition service (internet required).',
 'Chưa chạy được nhận dạng giọng nói trên máy – kiểm tra Internet rồi bấm micro thử lại.': 'On-device speech recognition couldn’t start – check your internet, then tap the mic to try again.',

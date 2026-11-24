@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ja_bytheway",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 16,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Oh, one more thing!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "By the way!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Also, one more thing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "By the way, the party starts at seven.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "by the way",
+  "forms": [
+   "BTW"
+  ],
+  "ipa": "/baɪ ðə ˈweɪ/",
+  "mean": "Also, one more thing.",
+  "define": "Used to add a new, related thought in a talk.",
+  "vi": "Nhân tiện",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Texting a friend",
+   "text": "By the way, the party starts at seven."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"By the way\" adds…",
+   "options": [
+    "another thought",
+    "a road name"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't use 'by the way' for your main point.",
+   "why": "It signals a minor, extra comment."
+  },
+  "l1": "ところで",
+  "l1_hook": "あ、もうひとつだけ、by the way。",
+  "l1_ex": "by the way、パーティーは7時に始まるよ。",
+  "right": "by the way",
+  "native": {
+   "hook": "「by the way」ってどういう意味？",
+   "tip": "“by the way” = ところで. 例文: “By the way, the party starts at seven.”",
+   "caption": "「by the way」ってどういう意味？\n“by the way” = ところで.\n例文: “By the way, the party starts at seven.” (by the way、パーティーは7時に始まるよ。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “by the way” = ところで. “By the way, the party starts at seven.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Oh, one more thing!"
+ },
+ "src": {
+  "slang": "by the way"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 21,
+  "seconds": 11.2,
+  "wpm": 113
+ },
+ "publish": {
+  "title": "「by the way」ってどういう意味？",
+  "keyword": "by the way",
+  "value": "“by the way” = ところで. 例文: “By the way, the party starts at seven.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "「by the way」ってどういう意味？",
+    "description": "“by the way” = ところで. 例文: “By the way, the party starts at seven.”\n\n「by the way」ってどういう意味？\n“by the way” = ところで.\n例文: “By the way, the party starts at seven.” (by the way、パーティーは7時に始まるよ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "by the way",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「by the way」ってどういう意味？\n“by the way” = ところで.\n例文: “By the way, the party starts at seven.” (by the way、パーティーは7時に始まるよ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「by the way」ってどういう意味？\n\n“by the way” = ところで. 例文: “By the way, the party starts at seven.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「by the way」ってどういう意味？ “by the way” = ところで. 例文: “By the way, the party starts at seven.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “by the way” = ところで. “By the way, the party starts at seven.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}
