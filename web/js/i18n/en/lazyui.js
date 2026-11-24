@@ -345,8 +345,6 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 'Chỉ khi bạn nghỉ vài ngày, đúng giờ bạn hay học, tối đa 1 email mỗi ngày, hủy một chạm (khi đã đăng nhập)': 'Only after a few days away, at the time you usually study, at most 1 email a day, one-tap unsubscribe (when signed in)',
 'Cần đăng nhập để nhận email': 'Sign in to receive emails',
 'Báo cáo não bộ qua email': 'Weekly brain report via email',
-'Đo quảng cáo cài app (Meta)': 'Measure app-install ads (Meta)',
-'Chỉ khi bạn cài app từ quảng cáo Facebook hoặc Instagram: gửi mã cài đặt ẩn danh và việc bạn xong bài đầu tiên cho Meta để đo hiệu quả quảng cáo. Không gửi nội dung học. Tắt bất cứ lúc nào.': 'Only if you installed the app from a Facebook or Instagram ad: sends an anonymous install ID and the fact that you finished your first lesson to Meta, to measure ad results. No study content is sent. Turn off any time.',
 'Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)': 'Send an FSRS memory summary and words at risk of fading on Sunday morning (when signed in)',
 'Mục tiêu học': 'Study goals',
 '{n} từ mới/ngày': '{n} new words/day',

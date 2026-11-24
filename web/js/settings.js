@@ -139,7 +139,6 @@
         + row('Anki', `<span class="set-btns"><button type="button" class="btn sm" id="sAnkiOut">${t('Xuất sang Anki')}</button><button type="button" class="btn sm" id="sAnkiIn">${t('Nhập từ Anki')}</button></span>`)
         + row(t('Nhập sao lưu'), `<label class="btn sm">⬆️ ${t('Nhập sao lưu')}<input type="file" id="sImport" accept="application/json" hidden></label>`)
         + row(`<span class="danger-t">${t('Xóa toàn bộ dữ liệu học')}</span>`, `<button type="button" class="btn sm danger" id="sReset">${t('Xóa')}</button>`)
-        + (window.VBNative && VBNative.platform === 'android' ? tog('sMetaAds', (() => { try { return localStorage.getItem('lk.metaAds') === '1'; } catch (e) { return false; } })(), t('Đo quảng cáo cài app (Meta)'), t('Chỉ khi bạn cài app từ quảng cáo Facebook hoặc Instagram: gửi mã cài đặt ẩn danh và việc bạn xong bài đầu tiên cho Meta để đo hiệu quả quảng cáo. Không gửi nội dung học. Tắt bất cứ lúc nào.')) : '')
         + (window.Ads && Ads.on() ? row(t('Quyền riêng tư & quảng cáo'), `<button type="button" class="btn sm" id="sAdPriv">${t('Đổi lựa chọn đồng ý')}</button>`, t('Quảng cáo cá nhân hóa, cookie quảng cáo và quyền “không bán/chia sẻ dữ liệu” – đổi hoặc rút lại bất cứ lúc nào.')) : '') // GDPR/CCPA: rút lại đồng ý dễ như khi đồng ý (docs/ADS.md §3)
       )}
       ${sec('help', UI.icon('info') + t('Pháp lý & hỗ trợ'), row(t('Pháp lý & hỗ trợ'), `<span class="set-btns"><a class="btn sm" href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a class="btn sm" href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a class="btn sm" href="#/contact">${t('Liên hệ')}</a><a class="btn sm" id="sBlog" href="${App.blogHref(0)}"${xt}>${UI.icon('newspaper')} ${t('Blog')}</a><a class="btn sm" href="${App.aboutUrl()}"${xt}>${t('Trang giới thiệu')}</a></span>`))}
@@ -182,7 +181,6 @@
     $('#sQ1').onchange = e => { s.quietStart = e.target.value || '22:00'; save(); };
     $('#sQ2').onchange = e => { s.quietEnd = e.target.value || '08:00'; save(); };
     $('#sCap').oninput = e => { s.sessionCap = +e.target.value; $('#vCap').textContent = s.sessionCap || t('Không giới hạn'); save(); };
-    if ($('#sMetaAds')) $('#sMetaAds').onchange = e => { try { localStorage.setItem('lk.metaAds', e.target.checked ? '1' : '0'); } catch (x) { /* bỏ qua */ } };
     $('#sMailRem').onchange = $('#sDigest').onchange = async e => { const k = e.target.id === 'sDigest' ? 'emailDigest' : 'emailRemind'; s[k] = e.target.checked; save(); if (App.need) await App.need('remind').catch(() => {}); if (!(window.Remind && await Remind.mailSync(true)) && s[k]) { e.target.checked = s[k] = false; save(); toast(t('Cần đăng nhập để nhận email')); } };
     const fillVoices = () => {
       if (!$('#sVoice')) return; // đã rời trang Cài đặt

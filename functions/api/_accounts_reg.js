@@ -119,33 +119,6 @@ export const ROWS = [
   "note": ""
  },
  {
-  "id": "pages-meta-capi",
-  "service": "Meta Conversions API cho app (quảng cáo cài app)",
-  "account": "Meta · Lexkite",
-  "store": "pages",
-  "names": [
-   "META_CAPI_TOKEN",
-   "META_INSTALL_REFERRER_KEY"
-  ],
-  "scope": "Graph API /<dataset>/events – INSTALL + ACTIVATE (docs/META-ADS.md); chỉ chạy khi cờ ads_meta_capi = 1",
-  "manage": "https://developers.facebook.com/apps/",
-  "expires": "",
-  "note": "App Meta LexKite 1319410583645611, dataset 902190262917017 (ID công khai, trong _meta_capi.js). Chủ tạo token CAPI + dán khoá Install Referrer bằng wrangler pages secret put"
- },
- {
-  "id": "github-meta-capi",
-  "service": "Meta Conversions API (nguồn secret)",
-  "account": "GitHub · lexkiteapp",
-  "store": "github",
-  "names": [
-   "META_CAPI_TOKEN"
-  ],
-  "scope": "Bản gốc của token CAPI; .github/workflows/meta-capi-setup.yml chép sang Pages",
-  "manage": "https://developers.facebook.com/apps/",
-  "expires": "",
-  "note": "System user Conversions API, dataset 902190262917017"
- },
- {
   "id": "pages-meta",
   "service": "Meta (Facebook/Instagram)",
   "account": "Meta · Lexkite",

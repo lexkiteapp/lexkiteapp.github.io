@@ -29,7 +29,7 @@
 | AI người dùng trên máy chủ: chuỗi model, golden, giám sát | `AI-CHAIN.md` |
 | Add-on Chrome / Edge | `CWS-RULES.md` (+ `CWS-FEATURED.md`) · `EDGE-SUBMIT.md` |
 | **Link cài mọi kênh (nguồn duy nhất)** | `infra/install-links.json`: sửa ở đây, `url` rỗng = chưa có listing, điền 1 dòng là hiện; rồi `node scripts/build-install-links.mjs && node scripts/build-landing.mjs`, `bash scripts/build-extension.sh`. Web đọc qua `web/js/ext-config.js` (tự sinh), Node/Functions/video qua `functions/api/_install_links.js`. Test CI `scripts/test/install-links.mjs` đỏ khi có link cửa hàng viết cứng lệch nguồn. Luật video: `VIDEO.md`. |
-| Mobile & cửa hàng · quảng cáo | `STORE-READINESS.md` · `INSTALL-GROWTH.md` · `ADS.md` · đo quảng cáo cài app Meta: `META-ADS.md` |
+| Mobile & cửa hàng · quảng cáo | `STORE-READINESS.md` · `INSTALL-GROWTH.md` · `ADS.md` |
 | Video: nguồn sự thật (+ luật dựng §9) | `VIDEO.md` · `VIDEO-QC.md` · `VIDEO-SCALE-PLAN.md` · `VIDEO-SERIES.md` · `VIDEO-TEMPLATES.md` · `AUTOMATION.md` |
 | Video: lưu trữ · kho tài nguyên · chấm điểm · xem trong admin · YouTube | `VIDEO-STORAGE.md` · `ASSET-LIBRARY.md` · `MEDIA-QA-RUBRIC.md` · `SHORTS-ACCESS.md` · `YOUTUBE-SETUP.md` · `YOUTUBE-AUDIT.md` |
 | App iOS/Android native (SwiftUI + Compose), parity, một nguồn sinh mã | `specs/native-apps.md` |

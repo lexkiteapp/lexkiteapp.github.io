@@ -113,11 +113,6 @@
     P.App.addListener('appUrlOpen', e => openDeep(e && e.url));
     window.addEventListener('load', () => { P.App.getLaunchUrl && P.App.getLaunchUrl().then(r => openDeep(r && r.url)).catch(() => {}); });
   }
-  // 📣 Đo cài/kích hoạt quảng cáo Meta (docs/META-ADS.md): chỉ Android có Install Referrer; mã ở mobile/meta-attr.js (build-mobile.sh chép vào app Android, KHÔNG vào web/extension)
-  if (P.InstallReferrer && !(function () { try { return localStorage.getItem('lk.ir') === '-' || localStorage.getItem('lk.metaAds') === '0'; } catch (e) { return true; } })()) {
-    const ma = f => (window.MetaAttr ? Promise.resolve() : new Promise((ok, no) => { const e = document.createElement('script'); e.src = 'js/meta-attr.js'; e.onload = ok; e.onerror = no; document.head.appendChild(e); })).then(() => MetaAttr[f]()).catch(() => {});
-    window.addEventListener('load', () => setTimeout(() => ma('install'), 4000)); window.addEventListener('lexkite:first-win', () => ma('activate'));
-  }
   // window.open(url ngoài) trong WKWebView của Capacitor iOS KHÔNG làm gì (đã kiểm E2E: Chính sách, Điều khoản, blog, lexkite.com…).
   // Chuyển trang chính sang url ngoài → Capacitor chặn lại và mở bằng trình duyệt hệ thống, app giữ nguyên trang đang xem.
   const wOpen = g.open;
