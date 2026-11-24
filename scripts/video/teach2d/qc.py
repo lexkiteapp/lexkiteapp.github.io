@@ -13,10 +13,11 @@ sys.path.insert(0, f'{ROOT}/scripts/video/motion'); sys.path.insert(0, f'{ROOT}/
 import core as C  # noqa: E402
 sys.path.insert(0, HERE); import pace as P  # noqa: E402
 import lipsync_gate as LG  # noqa: E402
+import v3_gates as V3  # noqa: E402
 from overlay_gates import contrast as _cr, bank_ipa, stress_index  # noqa: E402
 def contrast(a, b): return _cr(*[[int(x[i:i + 2], 16) for i in (1, 3, 5)] for x in (a, b)])
 ap = argparse.ArgumentParser(); ap.add_argument('--timeline', required=True); ap.add_argument('--video'); ap.add_argument('--sheet'); ap.add_argument('--out')
-o = ap.parse_args(); T = json.load(open(o.timeline)); TH = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json'))[T['theme']]
+o = ap.parse_args(); T = json.load(open(o.timeline)); LOOKS = BEATS = None; TH = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json'))[T['theme']]
 REG = json.load(open(f'{ROOT}/web/teach/characters.json')); R = {}; N = {n['id']: n for n in T['nodes']}
 norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower().replace('’', "'"))
 def gate(name, ok, w=1, **kw): R[name] = dict(ok=bool(ok), w=w, **kw)
@@ -82,6 +83,7 @@ if T.get('host') == 'rig':   # TeacherRig host: the mouth is the episode's own v
         fr_ = json.load(open(rg['frames']))['frames']; look = lambda f: (fr_[min(len(fr_) - 1, f)].get('emo'), fr_[min(len(fr_) - 1, f)].get('pose'))
         ls_ = sorted(L.values(), key=lambda v: v['t0']); same = [v['text'][:24] for a_, v in zip(ls_, ls_[1:]) if look(int((a_['words'][0]['s'] + 0.2) * fps)) == look(int((v['words'][0]['s'] + 0.3) * fps))]
         kinds = {look(f) for f in range(len(fr_))}; need = min(len(ls_), 8)
+        LOOKS, BEATS = len(kinds), len(ls_)
         gate('pose_variety', len(kinds) >= need and not same, 3, looks=len(kinds), beats=len(ls_), need=need, unchanged_at=same[:4])
 else: gate('mouth', not miss and not long_talk, 3, words_without_talk=miss[:5], talk_in_silence=long_talk[:5], segments=len(T['segs']))
 # hook
@@ -220,6 +222,18 @@ if o.video:
         ts = [round((x['t0'] + x['t1']) / 2, 2) for x in L.values()]
         sel = '+'.join(f'between(t\\,{t - 0.02}\\,{t + 0.02})' for t in ts)
         subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.video, '-vf', f"select='{sel}',scale={W // 3}:-2,tile={len(ts)}x1", '-frames:v', '1', '-q:v', '3', o.sheet], check=True)
+# v3 native_script (audit 24/11 #8): Arabic-script text is right-to-left and never mixed with Latin in one node; CJK / Hangul text is >= 44 px (the brand fonts have no such glyphs, Chromium falls back to Noto CJK / Arabic)
+_ar, _cjk, _bad_s = re.compile('[\u0600-\u06ff\u0750-\u077f]'), re.compile('[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]'), []
+for n in T['nodes']:
+    tx = ' '.join(r_[0] for r_ in n.get('runs') or []) if n.get('runs') else ''
+    if _ar.search(tx) and (not n.get('rtl') or re.search('[A-Za-z]', tx)): _bad_s.append(dict(id=n['id'], why='arabic must be rtl and Latin-free', text=tx[:30]))
+    if _cjk.search(tx) and n.get('size', 99) < 44: _bad_s.append(dict(id=n['id'], why='cjk text < 44 px', size=n.get('size')))
+gate('native_script', not _bad_s, 2, bad=_bad_s[:4])
+# v3 viral_score (>= 95, each criterion scored) and ypp (duplicate / value / disclosure / rights): below 95 or any ypp reason = not published, not banked
+_epf = f"{ROOT}/content/video/teach2d/eps/{T['ep']}.json"; _ep = json.load(open(_epf)) if os.path.exists(_epf) else {}
+_vs = V3.viral_score(T, _ep, R, LOOKS, BEATS); gate('viral_score', _vs['ok'], 3, score=_vs['score'], parts=_vs['parts'], notes=_vs['notes'], need=V3.PASS)
+_pol = json.load(open(f'{ROOT}/content/video/teach2d/ypp.json')); _yp = V3.ypp(T, _ep, _pol, _pol)
+gate('ypp', _yp['ok'], 3, why=_yp['why'], similarity=_yp['similarity'], most_similar=_yp['most_similar'])
 tot = sum(g['w'] for g in R.values()); score = round(100 * sum(g['w'] for g in R.values() if g['ok']) / tot, 1)
 res = dict(ep=T['ep'], format=T['format'], theme=T['theme'], score=score, ok=score >= 90 and all(g['ok'] for g in R.values()), gates=R)
 if o.out: json.dump(res, open(o.out, 'w'), indent=1)

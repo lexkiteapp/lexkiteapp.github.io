@@ -22,6 +22,10 @@
 | `caption_sync` | chạy cả wide (trước chỉ short) |
 | `layout_fill` | ≤ 50 % safe-box trống ở mọi khoảnh khắc 0,25 s (cho phép ≤ 10 % khoảnh khắc: chuyển cảnh) |
 | `dead_band` | dải phẳng ≥ 8 % chiều cao (giữ nguyên) |
+| `viral_score` ≥ 95 | 7 tiêu chí in riêng trong QC (trọng số): hook 20 (nói xong ≤ 1,5 s, ≤ 6 từ, pop khung 0), giữ người xem 20 (nhịp hình ≤ 5 s, có câu hỏi mở + phần thưởng), giá trị học 15 (từ khoá nói + hiện + ví dụ + hành động), giọng 10 (≤ 150 wpm), biến hoá 15 (looks ≥ beats, ≥ 4 loại phần tử, ≥ 3 thẻ), tiêu đề/thumbnail 10, CTA 10 |
+| `ypp` | không gần trùng kịch bản (Jaccard 3-từ < 0,55 cùng ngôn ngữ, gồm cả dữ kiện hiện hình); có giá trị giáo dục riêng; cờ tổng hợp/AI = true và made-for-kids = false (content/video/teach2d/ypp.json – upload phải gửi); nhạc/giọng/giáo viên ∈ registry (nhạc tự tổng hợp, Kokoro, rig 2D), không footage ngoài |
+| `native_script` | chữ Ả Rập rtl và không lẫn Latin; CJK ≥ 44 px (phông Noto fallback có sẵn) |
+Dưới 95 / có lý do ypp: không đăng, không vào bank (bank.py + autopub_gate đã chặn mọi cổng đỏ).
 Giữ nguyên: `contrast` ≥ 4,5:1, `layout` (không đè), `hook`, `min_text`, `platform_zones`…
 
 ## Quy trình chấm mẫu bằng agent

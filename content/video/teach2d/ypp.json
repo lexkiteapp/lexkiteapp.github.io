@@ -1,0 +1,8 @@
+{
+  "_note": "Channel policy + rights registry read by qc.py gate `ypp` (scripts/video/teach2d/v3_gates.py). Upload tools must send synthetic_media_disclosure=true and made_for_kids=false on every platform that has the flag (YouTube altered/synthetic content + audience setting). Music is synthesised in-house (mix.py), voices are Kokoro (web/teach/characters.json), the teacher is the own 2D rig: no third-party footage, no licensed track.",
+  "synthetic_media_disclosure": true,
+  "made_for_kids": false,
+  "music": ["lofi-warm", "pop-bright", "quiz-pulse", "chill-keys", "night-drive", "upbeat-claps"],
+  "voices": ["af_bella", "am_fenrir"],
+  "teachers": ["ama", "carlos"]
+}
