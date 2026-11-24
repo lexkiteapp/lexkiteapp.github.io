@@ -19,7 +19,7 @@ const NOW = Date.UTC(2026, 0, 5, 9, 0, 0);
 export function starter() {
   const sb = { console, Math, JSON, t: s => s }; sb.self = sb; sb.globalThis = sb; sb.window = sb; vm.createContext(sb);
   // same files and order as web App.BUNDLES.words then .tsl (topic order = push order, which decides "first 3")
-  for (const f of ['data.js', 'lib/topics-more.js', 'lib/skills.js', 'lib/awl.js', 'lib/ngsl.js', 'lib/ngsl2.js', 'lib/office.js', 'lib/tsl-a.js', 'lib/tsl-b.js', '../cpack/lib/domain-a.js', '../cpack/lib/domain-b.js', '../cpack/lib/exam-vocab.js', '../cpack/lib/exam-vocab2.js', '../cpack/lib/exam-vocab3.js', 'lib/nawl.js', 'lib/bsl.js'])
+  for (const f of ['data.js', 'lib/topics-more.js', '../cpack/lib/skills.js', '../cpack/lib/awl.js', 'lib/ngsl.js', 'lib/ngsl2.js', 'lib/office.js', '../cpack/lib/tsl-a.js', '../cpack/lib/tsl-b.js', '../cpack/lib/domain-a.js', '../cpack/lib/domain-b.js', '../cpack/lib/exam-vocab.js', '../cpack/lib/exam-vocab2.js', '../cpack/lib/exam-vocab3.js', 'lib/nawl.js', 'lib/bsl.js'])
     vm.runInContext(fs.readFileSync(R('web/js/' + f), 'utf8'), sb, { filename: 'web/js/' + f });
   const TOPICS = sb.IELTS_DATA.TOPICS;
 
