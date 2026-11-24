@@ -1,0 +1,150 @@
+{
+ "id": "t2s_de_fire",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 93,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at my new sneakers!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Fire!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's really cool.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Those sneakers are fire!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "fire",
+  "forms": [],
+  "ipa": "/ˈfaɪɚ/",
+  "mean": "That's really cool.",
+  "define": "Slang for something excellent or stylish.",
+  "vi": "Quá đỉnh",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "praise",
+  "example": {
+   "ctx": "Seeing a friend's shoes",
+   "text": "Those sneakers are fire!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Fire\" means…",
+   "options": [
+    "dangerous",
+    "excellent"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't yell 'fire' in a crowded room.",
+   "why": "People will panic, not praise."
+  },
+  "l1": "geil",
+  "l1_hook": "Schau dir meine neuen Sneaker an! 'fire'!",
+  "l1_ex": "Die Sneaker sind \"fire\"!",
+  "right": "fire",
+  "native": {
+   "hook": "Was heißt “fire”?",
+   "tip": "“fire” = geil. Beispiel: “Those sneakers are fire!”",
+   "caption": "Was heißt “fire”?\n“fire” = geil.\nBeispiel: “Those sneakers are fire!” (Die Sneaker sind \"fire\"!)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “fire” = geil. “Those sneakers are fire!” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at my new sneakers!"
+ },
+ "src": {
+  "slang": "fire"
+ },
+ "lang": "de",
+ "est": {
+  "words": 15,
+  "seconds": 9.9,
+  "wpm": 90
+ },
+ "publish": {
+  "title": "Was heißt “fire”?",
+  "keyword": "fire",
+  "value": "“fire” = geil. Beispiel: “Those sneakers are fire!”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “fire”?",
+    "description": "“fire” = geil. Beispiel: “Those sneakers are fire!”\n\nWas heißt “fire”?\n“fire” = geil.\nBeispiel: “Those sneakers are fire!” (Die Sneaker sind \"fire\"!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "fire",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “fire”?\n“fire” = geil.\nBeispiel: “Those sneakers are fire!” (Die Sneaker sind \"fire\"!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “fire”?\n\n“fire” = geil. Beispiel: “Those sneakers are fire!”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “fire”? “fire” = geil. Beispiel: “Those sneakers are fire!” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “fire” = geil. “Those sneakers are fire!” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_goodasnew",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 79,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One nap, and I'm better!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Good as new!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fully better again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "After a nap, I feel good as new.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "good as new",
+  "forms": [],
+  "ipa": "/ˈɡʊd əz ˈnuː/",
+  "mean": "Fully better again.",
+  "define": "Used when something or someone is completely fixed or healthy.",
+  "vi": "Khỏe như mới",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a repair",
+   "text": "After a nap, I feel good as new."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "very old",
+    "fully fixed"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a broken phone 'good as new'.",
+   "why": "It means fully repaired or healed."
+  },
+  "l1": "完全康复",
+  "l1_hook": "小睡一下，我就 \"good as new\"！",
+  "l1_ex": "小睡后，我感觉 \"good as new\"。",
+  "right": "good as new",
+  "native": {
+   "hook": "“good as new”是什么意思？",
+   "tip": "“good as new” = 完全康复. 例句: “After a nap, I feel good as new.”",
+   "caption": "“good as new”是什么意思？\n“good as new” = 完全康复.\n例句: “After a nap, I feel good as new.” (小睡后，我感觉 \"good as new\"。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “good as new” = 完全康复. “After a nap, I feel good as new.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One nap, and I'm better!"
+ },
+ "src": {
+  "slang": "good as new"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“good as new”是什么意思？",
+  "keyword": "good as new",
+  "value": "“good as new” = 完全康复. 例句: “After a nap, I feel good as new.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“good as new”是什么意思？",
+    "description": "“good as new” = 完全康复. 例句: “After a nap, I feel good as new.”\n\n“good as new”是什么意思？\n“good as new” = 完全康复.\n例句: “After a nap, I feel good as new.” (小睡后，我感觉 \"good as new\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "good as new",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“good as new”是什么意思？\n“good as new” = 完全康复.\n例句: “After a nap, I feel good as new.” (小睡后，我感觉 \"good as new\"。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“good as new”是什么意思？\n\n“good as new” = 完全康复. 例句: “After a nap, I feel good as new.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“good as new”是什么意思？ “good as new” = 完全康复. 例句: “After a nap, I feel good as new.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “good as new” = 完全康复. “After a nap, I feel good as new.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

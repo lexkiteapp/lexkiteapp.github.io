@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_cooked",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 52,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I forgot my notes. Uh-oh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cooked!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm in trouble or out of luck.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I forgot my notes. I'm cooked.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "cooked",
+  "forms": [],
+  "ipa": "/ˈkʊkt/",
+  "mean": "I'm in trouble or out of luck.",
+  "define": "Used jokingly when a situation looks bad for you.",
+  "vi": "Toang rồi",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Before a test",
+   "text": "I forgot my notes. I'm cooked."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"I'm cooked\" here means…",
+   "options": [
+    "I'm dinner",
+    "I'm in trouble"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'I'm cooked' when you merely feel sleepy.",
+   "why": "It means you're in real trouble."
+  },
+  "l1": "Toang rồi",
+  "l1_hook": "Tui quên bài ghi chú rồi. Toang!",
+  "l1_ex": "Tui quên ghi chú rồi. I'm cooked.",
+  "right": "cooked",
+  "native": {
+   "hook": "“cooked” nghĩa là gì?",
+   "tip": "“cooked” = Toang rồi. Ví dụ: “I forgot my notes. I'm cooked.”",
+   "caption": "“cooked” nghĩa là gì?\n“cooked” = Toang rồi.\nVí dụ: “I forgot my notes. I'm cooked.” (Tui quên ghi chú rồi. I'm cooked.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “cooked” = Toang rồi. “I forgot my notes. I'm cooked.” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I forgot my notes. Uh-oh!"
+ },
+ "src": {
+  "slang": "cooked"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“cooked” nghĩa là gì?",
+  "keyword": "cooked",
+  "value": "“cooked” = Toang rồi. Ví dụ: “I forgot my notes. I'm cooked.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“cooked” nghĩa là gì?",
+    "description": "“cooked” = Toang rồi. Ví dụ: “I forgot my notes. I'm cooked.”\n\n“cooked” nghĩa là gì?\n“cooked” = Toang rồi.\nVí dụ: “I forgot my notes. I'm cooked.” (Tui quên ghi chú rồi. I'm cooked.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "cooked",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“cooked” nghĩa là gì?\n“cooked” = Toang rồi.\nVí dụ: “I forgot my notes. I'm cooked.” (Tui quên ghi chú rồi. I'm cooked.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cooked” nghĩa là gì?\n\n“cooked” = Toang rồi. Ví dụ: “I forgot my notes. I'm cooked.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cooked” nghĩa là gì? “cooked” = Toang rồi. Ví dụ: “I forgot my notes. I'm cooked.” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “cooked” = Toang rồi. “I forgot my notes. I'm cooked.” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

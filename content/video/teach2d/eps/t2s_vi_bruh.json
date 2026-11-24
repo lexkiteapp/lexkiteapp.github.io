@@ -1,0 +1,148 @@
+{
+ "id": "t2s_vi_bruh",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 56,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You forgot your homework again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bruh!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I can't believe it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Bruh, you forgot your homework again?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "bruh",
+  "forms": [
+   "bro"
+  ],
+  "ipa": "/ˈbrʌ/",
+  "mean": "I can't believe it.",
+  "define": "A short reaction to something silly or unbelievable.",
+  "vi": "Trời ơi, thiệt hả bro",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Reacting to a mistake",
+   "text": "Bruh, you forgot your homework again?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bruh\" shows…",
+   "options": [
+    "joy",
+    "disbelief"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'bruh' to your boss.",
+   "why": "It sounds disrespectful."
+  },
+  "l1": "Trời ơi, thiệt hả bro",
+  "l1_hook": "Bạn lại quên bài tập nữa hả?",
+  "l1_ex": "Bruh, bạn lại quên bài tập nữa hả?",
+  "right": "bruh",
+  "native": {
+   "hook": "“bruh” nghĩa là gì?",
+   "tip": "“bruh” = Trời ơi, thiệt hả bro. Ví dụ: “Bruh, you forgot your homework again?”",
+   "caption": "“bruh” nghĩa là gì?\n“bruh” = Trời ơi, thiệt hả bro.\nVí dụ: “Bruh, you forgot your homework again?” (Bruh, bạn lại quên bài tập nữa hả?)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “bruh” = Trời ơi, thiệt hả bro. “Bruh, you forgot your homework again?” Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You forgot your homework again?"
+ },
+ "src": {
+  "slang": "bruh"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“bruh” nghĩa là gì?",
+  "keyword": "bruh",
+  "value": "“bruh” = Trời ơi, thiệt hả bro. Ví dụ: “Bruh, you forgot your homework again?”",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“bruh” nghĩa là gì?",
+    "description": "“bruh” = Trời ơi, thiệt hả bro. Ví dụ: “Bruh, you forgot your homework again?”\n\n“bruh” nghĩa là gì?\n“bruh” = Trời ơi, thiệt hả bro.\nVí dụ: “Bruh, you forgot your homework again?” (Bruh, bạn lại quên bài tập nữa hả?)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "bruh",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“bruh” nghĩa là gì?\n“bruh” = Trời ơi, thiệt hả bro.\nVí dụ: “Bruh, you forgot your homework again?” (Bruh, bạn lại quên bài tập nữa hả?)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bruh” nghĩa là gì?\n\n“bruh” = Trời ơi, thiệt hả bro. Ví dụ: “Bruh, you forgot your homework again?”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bruh” nghĩa là gì? “bruh” = Trời ơi, thiệt hả bro. Ví dụ: “Bruh, you forgot your homework again?” #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “bruh” = Trời ơi, thiệt hả bro. “Bruh, you forgot your homework again?” Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

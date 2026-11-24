@@ -1,0 +1,133 @@
+{
+ "id": "t2s_unfollow",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 277,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "His posts are all complaints!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Unfollow!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stop following someone online.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I unfollowed him after too many posts.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "unfollow",
+  "forms": [
+   "unfollowed"
+  ],
+  "ipa": "/ʌnˈfɑːloʊ/",
+  "mean": "Stop following someone online.",
+  "define": "To stop seeing someone's posts.",
+  "vi": "Bỏ theo dõi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Cleaning your feed",
+   "text": "I unfollowed him after too many posts."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"unfollow\" is to…",
+   "options": [
+    "run away",
+    "stop following"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't announce you 'unfollowed' your friend publicly.",
+   "why": "It can hurt their feelings."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "His posts are all complaints!"
+ },
+ "src": {
+  "slang": "unfollow"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.7,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "What does \"unfollow\" mean?",
+  "keyword": "unfollow",
+  "value": "Unfollow = Stop following someone online. Example: \"I unfollowed him after too many posts.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"unfollow\" mean?",
+    "description": "Unfollow = Stop following someone online. Example: \"I unfollowed him after too many posts.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "unfollow",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"unfollow\" mean?\n\nUnfollow = Stop following someone online. Example: \"I unfollowed him after too many posts.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"unfollow\" mean?\n\nUnfollow = Stop following someone online. Example: \"I unfollowed him after too many posts.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"unfollow\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't announce you 'unfollowed' your friend publicly. It can hurt their feelings. Real example: \"I unfollowed him after too many posts.\" More real English slang, free: {link}"
+ }
+}

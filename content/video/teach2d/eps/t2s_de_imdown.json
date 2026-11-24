@@ -1,0 +1,152 @@
+{
+ "id": "t2s_de_imdown",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 100,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Bowling tonight, who's coming?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "I'm down!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm happy to join.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "We're going bowling tonight. Are you down?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "I'm down",
+  "forms": [
+   "down"
+  ],
+  "ipa": "/aɪm ˈdaʊn/",
+  "mean": "I'm happy to join.",
+  "define": "Used to say you agree to a plan or want to do it.",
+  "vi": "Tui chơi, tui đồng ý",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Making weekend plans",
+   "text": "We're going bowling tonight. Are you down?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"I'm down\" means…",
+   "options": [
+    "I'm very sad",
+    "I'll join you"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'I'm down' when you feel sad.",
+   "why": "It can also mean feeling low."
+  },
+  "l1": "Ich bin dabei",
+  "l1_hook": "Bowling heute Abend, wer kommt? („I'm down“ = ich bin dabei)",
+  "l1_ex": "Wir gehen heute Abend bowlen. Bist du dabei? „I'm down“.",
+  "right": "I'm down",
+  "native": {
+   "hook": "Was heißt “I'm down”?",
+   "tip": "“I'm down” = Ich bin dabei. Beispiel: “We're going bowling tonight. Are you down?”",
+   "caption": "Was heißt “I'm down”?\n“I'm down” = Ich bin dabei.\nBeispiel: “We're going bowling tonight. Are you down?” (Wir gehen heute Abend bowlen. Bist du dabei? „I'm down“.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “I'm down” = Ich bin dabei. “We're going bowling tonight. Are you down?” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Bowling tonight, who's coming?"
+ },
+ "src": {
+  "slang": "I'm down"
+ },
+ "lang": "de",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Was heißt “I'm down”?",
+  "keyword": "I'm down",
+  "value": "“I'm down” = Ich bin dabei. Beispiel: “We're going bowling tonight. Are you down?”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “I'm down”?",
+    "description": "“I'm down” = Ich bin dabei. Beispiel: “We're going bowling tonight. Are you down?”\n\nWas heißt “I'm down”?\n“I'm down” = Ich bin dabei.\nBeispiel: “We're going bowling tonight. Are you down?” (Wir gehen heute Abend bowlen. Bist du dabei? „I'm down“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I'm down",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “I'm down”?\n“I'm down” = Ich bin dabei.\nBeispiel: “We're going bowling tonight. Are you down?” (Wir gehen heute Abend bowlen. Bist du dabei? „I'm down“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “I'm down”?\n\n“I'm down” = Ich bin dabei. Beispiel: “We're going bowling tonight. Are you down?”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “I'm down”? “I'm down” = Ich bin dabei. Beispiel: “We're going bowling tonight. Are you down… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “I'm down” = Ich bin dabei. “We're going bowling tonight. Are you down?” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

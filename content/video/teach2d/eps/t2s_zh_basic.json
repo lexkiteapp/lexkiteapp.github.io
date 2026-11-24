@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_basic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 6,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza and a movie again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Basic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too ordinary, like everyone else.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My weekend plan is basic: pizza and a movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "basic",
+  "forms": [],
+  "ipa": "/ˈbeɪsɪk/",
+  "mean": "Too ordinary, like everyone else.",
+  "define": "Describes things that are very ordinary and popular. It can sound a bit mean.",
+  "vi": "Quá bình thường, đại trà",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Planning a weekend with friends",
+   "text": "My weekend plan is basic: pizza and a movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Basic\" in slang means…",
+   "options": [
+    "easy to learn",
+    "too ordinary"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your friend's gift 'basic' to her.",
+   "why": "It sounds like an insult."
+  },
+  "l1": "俗气的",
+  "l1_hook": "又是 pizza 和电影？太 basic 了。",
+  "l1_ex": "我的周末计划很 basic：pizza 和电影。",
+  "right": "basic",
+  "native": {
+   "hook": "“basic”是什么意思？",
+   "tip": "“basic” = 俗气的. 例句: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "“basic”是什么意思？\n“basic” = 俗气的.\n例句: “My weekend plan is basic: pizza and a movie.” (我的周末计划很 basic：pizza 和电影。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “basic” = 俗气的. “My weekend plan is basic: pizza and a movie.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza and a movie again?"
+ },
+ "src": {
+  "slang": "basic"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“basic”是什么意思？",
+  "keyword": "basic",
+  "value": "“basic” = 俗气的. 例句: “My weekend plan is basic: pizza and a movie.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“basic”是什么意思？",
+    "description": "“basic” = 俗气的. 例句: “My weekend plan is basic: pizza and a movie.”\n\n“basic”是什么意思？\n“basic” = 俗气的.\n例句: “My weekend plan is basic: pizza and a movie.” (我的周末计划很 basic：pizza 和电影。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "basic",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“basic”是什么意思？\n“basic” = 俗气的.\n例句: “My weekend plan is basic: pizza and a movie.” (我的周末计划很 basic：pizza 和电影。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“basic”是什么意思？\n\n“basic” = 俗气的. 例句: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“basic”是什么意思？ “basic” = 俗气的. 例句: “My weekend plan is basic: pizza and a movie.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “basic” = 俗气的. “My weekend plan is basic: pizza and a movie.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

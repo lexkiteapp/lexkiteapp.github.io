@@ -1,0 +1,135 @@
+{
+ "id": "t2s_norush",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 166,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can you send it today?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "No rush!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Take your time.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "No rush, send it tomorrow.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "no rush",
+  "forms": [],
+  "ipa": "/noʊ ˈrʌʃ/",
+  "mean": "Take your time.",
+  "define": "Used to say there is no hurry.",
+  "vi": "Không vội đâu",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Talking to a friend",
+   "text": "No rush, send it tomorrow."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"No rush\" means…",
+   "options": [
+    "hurry up",
+    "take your time"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'no rush' if it's urgent.",
+   "why": "People will take you literally."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can you send it today?"
+ },
+ "src": {
+  "slang": "no rush"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"no rush\" mean?",
+  "keyword": "no rush",
+  "value": "No rush = Take your time. Example: \"No rush, send it tomorrow.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"no rush\" mean?",
+    "description": "No rush = Take your time. Example: \"No rush, send it tomorrow.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "no rush",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"no rush\" mean?\n\nNo rush = Take your time. Example: \"No rush, send it tomorrow.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"no rush\" mean?\n\nNo rush = Take your time. Example: \"No rush, send it tomorrow.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"no rush\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'no rush' if it's urgent. People will take you literally. Real example: \"No rush, send it tomorrow.\" More real English slang, free: {link}"
+ }
+}

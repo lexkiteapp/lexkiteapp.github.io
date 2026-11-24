@@ -1,0 +1,131 @@
+{
+ "id": "t2s_clingy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 143,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She texts me every five minutes!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Clingy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too needy and always near.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My puppy is so clingy.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "clingy",
+  "forms": [],
+  "ipa": "/ˈklɪŋi/",
+  "mean": "Too needy and always near.",
+  "define": "Describes someone who wants too much attention.",
+  "vi": "Hay bám người",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "friends",
+  "example": {
+   "ctx": "Talking about a friend",
+   "text": "My puppy is so clingy."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Clingy\" means…",
+   "options": [
+    "too attached",
+    "very free"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call a friend 'clingy' to her face.",
+   "why": "It sounds hurtful."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She texts me every five minutes!"
+ },
+ "src": {
+  "slang": "clingy"
+ },
+ "est": {
+  "words": 19,
+  "seconds": 10.5,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "What does \"clingy\" mean?",
+  "keyword": "clingy",
+  "value": "Clingy = Too needy and always near. Example: \"My puppy is so clingy.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"clingy\" mean?",
+    "description": "Clingy = Too needy and always near. Example: \"My puppy is so clingy.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "clingy",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"clingy\" mean?\n\nClingy = Too needy and always near. Example: \"My puppy is so clingy.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"clingy\" mean?\n\nClingy = Too needy and always near. Example: \"My puppy is so clingy.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"clingy\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: too attached. \"My puppy is so clingy.\" More real English slang, free: {link}"
+ }
+}

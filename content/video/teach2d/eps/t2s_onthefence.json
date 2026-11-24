@@ -1,0 +1,131 @@
+{
+ "id": "t2s_onthefence",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 183,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Trip or no trip, hmm?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "On the fence!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I haven't decided yet.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm on the fence about the trip.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "key": "on the fence",
+  "forms": [],
+  "ipa": "/ɑːn ðə ˈfens/",
+  "mean": "I haven't decided yet.",
+  "define": "Used when you are unsure which option to choose.",
+  "vi": "Còn phân vân",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Choosing a gift",
+   "text": "I'm on the fence about the trip."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "sitting outside",
+    "undecided"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'on the fence' about a real fence.",
+   "why": "It means undecided."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Trip or no trip, hmm?"
+ },
+ "src": {
+  "slang": "on the fence"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"on the fence\" mean?",
+  "keyword": "on the fence",
+  "value": "On the fence = I haven't decided yet. Example: \"I'm on the fence about the trip.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"on the fence\" mean?",
+    "description": "On the fence = I haven't decided yet. Example: \"I'm on the fence about the trip.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "on the fence",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"on the fence\" mean?\n\nOn the fence = I haven't decided yet. Example: \"I'm on the fence about the trip.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"on the fence\" mean?\n\nOn the fence = I haven't decided yet. Example: \"I'm on the fence about the trip.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"on the fence\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'on the fence' about a real fence. It means undecided. Real example: \"I'm on the fence about the trip.\" More real English slang, free: {link}"
+ }
+}

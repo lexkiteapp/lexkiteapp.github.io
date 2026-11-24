@@ -1,0 +1,150 @@
+{
+ "id": "t2s_zh_comeagain",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 94,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry, the music's too loud!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Come again!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Please say that again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Come again? It's too loud here.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "come again",
+  "forms": [],
+  "ipa": "/ˈkʌm əˈɡen/",
+  "mean": "Please say that again.",
+  "define": "A casual way to ask someone to repeat.",
+  "vi": "Nói lại đi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Talking in a noisy café",
+   "text": "Come again? It's too loud here."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "visit again",
+    "say it again"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'come again' when you heard clearly.",
+   "why": "It sounds like a challenge."
+  },
+  "l1": "请再说一遍",
+  "l1_hook": "抱歉，音乐太吵了！\"come again\"",
+  "l1_ex": "“Come again?”这里太吵了。",
+  "right": "come again",
+  "native": {
+   "hook": "“come again”是什么意思？",
+   "tip": "“come again” = 请再说一遍. 例句: “Come again? It's too loud here.”",
+   "caption": "“come again”是什么意思？\n“come again” = 请再说一遍.\n例句: “Come again? It's too loud here.” (“Come again?”这里太吵了。)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “come again” = 请再说一遍. “Come again? It's too loud here.” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sorry, the music's too loud!"
+ },
+ "src": {
+  "slang": "come again"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“come again”是什么意思？",
+  "keyword": "come again",
+  "value": "“come again” = 请再说一遍. 例句: “Come again? It's too loud here.”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“come again”是什么意思？",
+    "description": "“come again” = 请再说一遍. 例句: “Come again? It's too loud here.”\n\n“come again”是什么意思？\n“come again” = 请再说一遍.\n例句: “Come again? It's too loud here.” (“Come again?”这里太吵了。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "come again",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“come again”是什么意思？\n“come again” = 请再说一遍.\n例句: “Come again? It's too loud here.” (“Come again?”这里太吵了。)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“come again”是什么意思？\n\n“come again” = 请再说一遍. 例句: “Come again? It's too loud here.”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“come again”是什么意思？ “come again” = 请再说一遍. 例句: “Come again? It's too loud here.” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “come again” = 请再说一遍. “Come again? It's too loud here.” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

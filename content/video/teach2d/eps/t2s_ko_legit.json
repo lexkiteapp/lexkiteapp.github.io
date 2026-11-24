@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_legit",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 70,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is this shop real?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Legit!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Real and good, not fake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This shop is legit, my sister bought shoes there.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "legit",
+  "forms": [],
+  "ipa": "/ləˈdʒɪt/",
+  "mean": "Real and good, not fake.",
+  "define": "Short for legitimate; used for things that are real, true or really good.",
+  "vi": "Xịn thật, đáng tin",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Checking an online shop",
+   "text": "This shop is legit, my sister bought shoes there."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Legit\" means…",
+   "options": [
+    "very fast",
+    "real and trusted"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'legit' in a legal document.",
+   "why": "Use 'legitimate' in formal writing."
+  },
+  "l1": "진짜인",
+  "l1_hook": "이 가게 진짜인가요?",
+  "l1_ex": "이 가게는 \"legit\"해요, 제 언니도 거기서 신발을 샀거든요.",
+  "right": "legit",
+  "native": {
+   "hook": "“legit” 무슨 뜻일까요?",
+   "tip": "“legit” = 진짜인. 예문: “This shop is legit, my sister bought shoes there.”",
+   "caption": "“legit” 무슨 뜻일까요?\n“legit” = 진짜인.\n예문: “This shop is legit, my sister bought shoes there.” (이 가게는 \"legit\"해요, 제 언니도 거기서 신발을 샀거든요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “legit” = 진짜인. “This shop is legit, my sister bought shoes there.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Is this shop real?"
+ },
+ "src": {
+  "slang": "legit"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“legit” 무슨 뜻일까요?",
+  "keyword": "legit",
+  "value": "“legit” = 진짜인. 예문: “This shop is legit, my sister bought shoes there.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“legit” 무슨 뜻일까요?",
+    "description": "“legit” = 진짜인. 예문: “This shop is legit, my sister bought shoes there.”\n\n“legit” 무슨 뜻일까요?\n“legit” = 진짜인.\n예문: “This shop is legit, my sister bought shoes there.” (이 가게는 \"legit\"해요, 제 언니도 거기서 신발을 샀거든요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "legit",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“legit” 무슨 뜻일까요?\n“legit” = 진짜인.\n예문: “This shop is legit, my sister bought shoes there.” (이 가게는 \"legit\"해요, 제 언니도 거기서 신발을 샀거든요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“legit” 무슨 뜻일까요?\n\n“legit” = 진짜인. 예문: “This shop is legit, my sister bought shoes there.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“legit” 무슨 뜻일까요? “legit” = 진짜인. 예문: “This shop is legit, my sister bought shoes there.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “legit” = 진짜인. “This shop is legit, my sister bought shoes there.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}
