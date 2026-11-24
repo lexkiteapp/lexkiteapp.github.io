@@ -343,6 +343,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     speak: 'pas',
     speaking: 'speak',
     stats: ['words', 'streak', 'statsp'],
+    stories: 'stories',
     streak: ['streak', 'ret'],
     style: 'quick',
     task1: 'writing',
@@ -414,6 +415,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     readings: 'css/exam.css',
     say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'],
     settings: ['css/adm.css', 'css/st-v2-settings.css'],
+    stories: 'css/stories.css',
     tlpick: ['css/tl-pick.css'],
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
@@ -1485,7 +1487,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   const bootDog = setTimeout(() => { if (state.game && routeSeq) return; if (!view.children.length || view.querySelector('[data-lkph]') || (!state.game && view.querySelector('#lkHero'))) errState(true, true); }, 8000); // khung chờ màn học (index.html data-lkph) = chưa vẽ
   App.ready = (async function init() {
     if (/[?&]demo=1/.test(location.search)) { await App.need('demo'); await App.seedDemo(); }
-    if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);
+    if (Store.sandbox) setTimeout(() => toast('🧪 Sandbox'), 800); /* ngắn: thông báo dài (~14 000 px²) lớn hơn đoạn mô tả đầu trang từ điển nên chiếm LCP đo ở CI (?sandbox=1) = 7,5 s dù người dùng thật không bao giờ thấy nó; bản ngắn nhỏ hơn mọi khối nội dung → LCP = nội dung thật */
     try { await load(); } finally { if (!state.game) state.game = await Game.get().catch(() => null); dataReady(); }
     document.addEventListener('error', e => {
       const img = e.target;

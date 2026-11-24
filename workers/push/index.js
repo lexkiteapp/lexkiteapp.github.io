@@ -37,7 +37,7 @@ export async function fcmToken(env, now) {
 }
 /** Câu theo ngôn ngữ giao diện; thiếu → en (không bao giờ vi cho người không-vi). */
 export const copyOf = (lang, kind) => ((COPY[lang] || COPY.en)[kind] || COPY.en[kind] || COPY.en.back);
-const ROUTE = { back: '#/review', miss: '#/home', week: '#/stats', fixed: '#/home' }; // fixed: mở app → nút Báo lỗi hỏi trạng thái ngay (report-pill)
+const ROUTE = { back: '#/review', back3: '#/review', back7: '#/review', miss: '#/home', week: '#/stats', fixed: '#/home' }; // fixed: mở app → nút Báo lỗi hỏi trạng thái ngay (report-pill)
 /** Tin FCM HTTP v1. x.token (thiết bị) hoặc x.topic (chỉ CI dry-run validate_only, scripts/ci/fcm-dryrun.mjs). */
 export function fcmMessage(x) {
   const id = /^LX-\d{4,10}$/.test(x.rid || '') ? x.rid : '', [title, body] = copyOf(x.lang, x.kind).map(s => s.replace('{id}', id).replace(/\s{2,}/g, ' '));

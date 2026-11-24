@@ -18,7 +18,7 @@ export function pairOk(bad, good, target) {
 }
 
 // Giám khảo: qa.j = { '<họ mô hình>:<tên>': điểm 1–5 }. Đạt khi ≥ 2 HỌ mô hình khác nhau (gemini · llama/wai-b · …), mọi điểm ≥ 4, lệch ≤ 1.
-// Không đạt → hàng duyệt (content/qa/review-queue.json), KHÔNG xuất.
+// Không đạt → hàng duyệt (content/qa/review-queue/<lô>.json.gz), KHÔNG xuất.
 export const family = k => String(k).split(':')[0].toLowerCase();
 export function agree(qa) {
   const j = (qa && qa.j) || {}, all = Object.keys(j).filter(k => Number.isFinite(+j[k]));

@@ -64,4 +64,9 @@
 "Vài thẻ hôm nay là nối dài thêm – Kit tin bạn!": "A few cards today keeps it growing – Kit believes in you!",
 "{n} từ đã đến lúc ôn": "{n} words are ready for review",
 "Thông báo đang bị chặn – bật lại trong cài đặt trang web của trình duyệt.": "Notifications are blocked – turn them back on in your browser's site settings.",
+"Kit nhớ bạn rồi 🐦": "Kit is thinking of you 🐦",
+"{n} từ đang chờ ôn – 3 phút là đủ.": "{n} words are waiting – 3 minutes is enough.",
+"Quay lại nhẹ nhàng nhé – chỉ vài từ thôi.": "Come back gently – just a few words.",
+"Vẫn còn nguyên những gì bạn đã học": "Everything you learned is still here",
+"Ôn vài thẻ, 2 phút thôi – Kit ở đây cùng bạn.": "Review a few cards, just 2 minutes – Kit is with you.",
 }); })(typeof self !== 'undefined' ? self : this);

@@ -26,7 +26,7 @@ import { limit } from './sync.js';
 import { readText, bodyFail } from './_body.js';
 
 const DAY = 864e5, MAX_SEND = 40;
-export const SEQ = [0, 1, 2, 3, 5, 7, 10, 14], FINAL = 14, REMOTE_FROM = 3; // trùng web/js/remind.js (test reminders.mjs đối chiếu)
+export const SEQ = [0, 1, 2, 3, 5, 7, 14], FINAL = 14, REMOTE_FROM = 3; // trùng web/js/remind.js (test reminders.mjs đối chiếu)
 // Chỉ dịch vụ push thật (chống SSRF: Worker chỉ POST tới các máy chủ này)
 export const PUSH_HOST = /^https:\/\/(fcm\.googleapis\.com|updates\.push\.services\.mozilla\.com|[a-z0-9.-]+\.push\.apple\.com|[a-z0-9.-]+\.notify\.windows\.com|push\.services\.mozilla\.com)\/[\w\-./:%~+=]+$/;
 export const EV = new Set(['shown', 'open', 'ask_show', 'ask_yes', 'ask_no', 'optin', 'optout']), TPL = /^[a-z0-9_]{0,12}$/;
@@ -122,7 +122,7 @@ export function pickDue(rows, now = Date.now(), max = MAX_SEND) {
     if (inQuiet(L.min, r.q1, r.q2)) continue;                            // giờ yên lặng theo giờ địa phương
     if (d < 0 || d > FINAL) continue;
     if (r.k === 'fcm') {
-      if (d >= REMOTE_FROM && SEQ.includes(d)) out.fcm.push({ id: r.id, token: r.ep, lang: r.lang || 'en', kind: d === FINAL ? 'miss' : 'back' });
+      if (d >= REMOTE_FROM && SEQ.includes(d)) out.fcm.push({ id: r.id, token: r.ep, lang: r.lang || 'en', kind: d === FINAL ? 'miss' : d === 3 ? 'back3' : d === 7 ? 'back7' : 'back' });
       else continue;
     } else {
       if (!SEQ.includes(d) || +r.std === today) continue;               // đã học hôm nay → không nhắc
@@ -195,7 +195,9 @@ export async function onRequestPost({ request, env }) {
     if (b.op === 'ev') {
       if (await limit('pev:' + await sha('ip|' + ip), 60, 3600)) return new Response(null, { status: 204 });
       const e = (Array.isArray(b.e) ? b.e : []).slice(0, 12).filter(x => Array.isArray(x) && EV.has(x[0]) && TPL.test(String(x[1] || '')));
-      if (e.length) await db.batch(e.map(([k, tpl, n]) => bump(db, day(now), k + (tpl ? ':' + tpl : ''), Math.max(1, Math.min(20, Math.floor(+n || 1))))));
+      // + theo GIỜ ĐỊA PHƯƠNG lúc hiện/mở (múi giờ của yêu cầu do Cloudflare báo – thiết bị gửi ngay khi hiện/mở nên giờ gửi ≈ giờ hiện/mở): shown_h:19 / open_h:19 → CTR theo khung giờ (Quản trị › Thông báo)
+      const hh = String(Math.floor(tzParts(now, tzOk(request.cf && request.cf.timezone)).min / 60)), nn = x => Math.max(1, Math.min(20, Math.floor(+x[2] || 1)));
+      if (e.length) await db.batch(e.flatMap(x => [bump(db, day(now), x[0] + (x[1] ? ':' + x[1] : ''), nn(x)), ...(x[0] === 'shown' || x[0] === 'open' ? [bump(db, day(now), x[0] + '_h:' + hh, nn(x))] : [])]));
       if (env.HITS && typeof env.HITS.writeDataPoint === 'function') try { for (const [k, tpl, n] of e) env.HITS.writeDataPoint({ blobs: ['ntf', k, String(tpl || '')], doubles: [+n || 1], indexes: ['ntf'] }); } catch (x) { /* AE tùy chọn */ }
       return new Response(null, { status: 204, headers: cors(request) });
     }

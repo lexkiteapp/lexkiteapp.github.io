@@ -1049,13 +1049,6 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .tl-f { display: none; }
 @media (max-width: 1023px) { .tl-f { display: inline; } }
 .exam-chip .chev { font-size: .7rem; color: var(--muted); }
-.exam-list { display: grid; gap: .5rem; margin-top: .8rem; }
-.exam-opt { display: flex; align-items: center; gap: .8rem; width: 100%; text-align: start; padding: .8rem 1rem; border: 1.5px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--text); font: inherit; cursor: pointer; transition: border-color .15s, background .15s; }
-@media (hover: hover) { .exam-opt:hover { background: var(--surface-3); } }
-.exam-opt.on { border-color: var(--primary); background: var(--primary-soft); }
-.exam-opt .em { font-size: 1.5rem; }
-.exam-opt small { display: block; color: var(--muted); font-size: .82rem; margin-top: .1rem; }
-.exam-opt .tick { margin-left: auto; color: var(--primary); font-weight: 800; }
 .hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: .8rem; }
 .hub-h { margin-top: 1.4rem; }
 .hub-card, .hub-hero { display: flex; align-items: center; gap: .9rem; color: var(--text); padding: 1rem 1.1rem; text-decoration: none; }
@@ -1493,6 +1486,9 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
   .st-fl[data-fl=active], .st-fl[data-fl=milestone] { transform-origin: 50% 100%; animation: stFlAll 1.6s ease-in-out infinite alternate; will-change: transform; }
   @keyframes stFlAll { from { transform: scale(1, 1); } to { transform: scale(.97, 1.04); } }
 }
+/* rà soát 23/11 (P0): khung Stitch dùng `fixed bottom-0 w-full` KHÔNG kèm left-0 → ở khổ > 390 px (768) thanh tab đứng ở vị trí tĩnh (lệch phải 189 px, mất tab "Tôi"); neo cả hai mép như #bnav. Nút "Học tiếp" của Phát âm chạm sát hai mép + dính thanh tab: lề 16 px, bo, chừa chỗ cuối trang */
+@media (max-width: 1023px) { body.v2on nav.fixed.bottom-0.w-full, body.v2on header.fixed.top-0.w-full { left: 0; right: 0; } }
+@media (max-width: 1023px) { .v2s-pron-hub { padding-bottom: calc(var(--sp-5) * 7 + env(safe-area-inset-bottom, 0px)); } .v2s-pron-hub div.fixed > div { padding-inline: var(--sp-4); padding-bottom: var(--sp-3); } .v2s-pron-hub button[data-href] { border-radius: var(--r-card, 18px); } }
 
 .deck-more { display: contents; } .deck-more > summary { list-style: none; cursor: pointer; } .deck-more > summary::-webkit-details-marker { display: none; } .deck-more[open] { display: block; flex-basis: 100%; } .deck-more > .row { margin-top: var(--sp-2); } /* Bộ thẻ: Học = CTA chính, còn lại gói vào ⋯ Thêm (docs/specs/chon-cta-khu-b.md) */
 /* Luyện tập (Stitch v2): tên ô ~22/30 px màu chữ chính (liên kết bao thẻ không san hô) – đúng mẫu practice */

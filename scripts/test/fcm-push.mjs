@@ -50,7 +50,7 @@ ok((await cfg()).fcm === false, 'cfg: nhịp fcm:0 → vẫn tắt');
 
 // (3) Worker có FCM_SA → nhịp → cfg bật; đúng giờ địa phương → 1 lời nhắc kéo lại
 r = await due(1);
-ok(r.j.fcm && r.j.fcm.length === 1 && r.j.fcm[0].kind === 'back' && r.j.fcm[0].lang === 'ja' && r.j.fcm[0].token === TOK, 'ngày 3 không mở app, 20:00 Tokyo → 1 FCM "back" (ja): ' + JSON.stringify(r.j));
+ok(r.j.fcm && r.j.fcm.length === 1 && r.j.fcm[0].kind === 'back3' && r.j.fcm[0].lang === 'ja' && r.j.fcm[0].token === TOK, 'ngày 3 không mở app, 20:00 Tokyo → 1 FCM "back3" (ja): ' + JSON.stringify(r.j));
 ok((await cfg()).fcm === true, 'cfg: Worker vừa báo gửi được → fcm = true');
 NOW += 10 * 60e3; r = await due(1);
 ok(!(r.j.fcm || []).length, '≤ 1/ngày: lượt cron kế tiếp không gửi lại');

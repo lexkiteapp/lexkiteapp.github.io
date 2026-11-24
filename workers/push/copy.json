@@ -1,5 +1,13 @@
 {
  "vi": {
+  "back3": [
+   "Kit nhớ bạn rồi 🐦",
+   "Quay lại nhẹ nhàng nhé – chỉ vài từ thôi."
+  ],
+  "back7": [
+   "Vẫn còn nguyên những gì bạn đã học",
+   "Ôn vài thẻ, 2 phút thôi – Kit ở đây cùng bạn."
+  ],
   "back": [
    "Đến giờ học với Kit rồi!",
    "Mở Lexkite để ôn vài từ nhé."
@@ -18,6 +26,14 @@
   ]
  },
  "en": {
+  "back3": [
+   "Kit is thinking of you 🐦",
+   "Come back gently – just a few words."
+  ],
+  "back7": [
+   "Everything you learned is still here",
+   "Review a few cards, just 2 minutes – Kit is with you."
+  ],
   "back": [
    "Time to study with Kit!",
    "Open Lexkite and review a few words."
@@ -36,6 +52,14 @@
   ]
  },
  "es": {
+  "back3": [
+   "Kit te echa de menos 🐦",
+   "Vuelve con calma: solo unas palabras."
+  ],
+  "back7": [
+   "Todo lo que aprendiste sigue aquí",
+   "Repasa unas tarjetas, solo 2 minutos: Kit está contigo."
+  ],
   "back": [
    "¡Hora de estudiar con Kit!",
    "Abre Lexkite y repasa unas palabras."
@@ -54,6 +78,14 @@
   ]
  },
  "pt": {
+  "back3": [
+   "O Kit sente sua falta 🐦",
+   "Volte com calma – só algumas palavras."
+  ],
+  "back7": [
+   "Tudo o que você aprendeu continua aqui",
+   "Revise alguns cartões, só 2 minutos – o Kit está com você."
+  ],
   "back": [
    "Hora de estudar com o Kit!",
    "Abra o Lexkite e revise algumas palavras."
@@ -72,6 +104,14 @@
   ]
  },
  "fr": {
+  "back3": [
+   "Kit pense à vous 🐦",
+   "Revenez en douceur – juste quelques mots."
+  ],
+  "back7": [
+   "Tout ce que vous avez appris est toujours là",
+   "Révisez quelques cartes, 2 minutes seulement – Kit est avec vous."
+  ],
   "back": [
    "C'est l'heure d'étudier avec Kit !",
    "Ouvrez Lexkite et révisez quelques mots."
@@ -90,6 +130,14 @@
   ]
  },
  "de": {
+  "back3": [
+   "Kit vermisst Sie 🐦",
+   "Kommen Sie ganz entspannt zurück – nur ein paar Wörter."
+  ],
+  "back7": [
+   "Alles, was Sie gelernt haben, ist noch da",
+   "Wiederholen Sie ein paar Karten, nur 2 Minuten – Kit ist bei Ihnen."
+  ],
   "back": [
    "Zeit zum Lernen mit Kit!",
    "Öffnen Sie Lexkite und wiederholen Sie ein paar Wörter."
@@ -108,6 +156,14 @@
   ]
  },
  "id": {
+  "back3": [
+   "Kit kangen kamu 🐦",
+   "Kembali pelan-pelan ya – cukup beberapa kata."
+  ],
+  "back7": [
+   "Semua yang sudah kamu pelajari masih ada",
+   "Ulas beberapa kartu, cukup 2 menit – Kit menemanimu."
+  ],
   "back": [
    "Waktunya belajar bareng Kit!",
    "Buka Lexkite dan ulang beberapa kata."
@@ -126,6 +182,14 @@
   ]
  },
  "th": {
+  "back3": [
+   "Kit คิดถึงคุณนะ 🐦",
+   "กลับมาแบบสบาย ๆ นะ – แค่ไม่กี่คำ"
+  ],
+  "back7": [
+   "ทุกอย่างที่คุณเรียนมายังอยู่ที่นี่",
+   "ทบทวนไม่กี่การ์ด แค่ 2 นาที – Kit อยู่เป็นเพื่อนคุณ"
+  ],
   "back": [
    "ถึงเวลาเรียนกับ Kit แล้ว!",
    "เปิด Lexkite แล้วทบทวนคำศัพท์สักหน่อย"
@@ -144,6 +208,14 @@
   ]
  },
  "zh": {
+  "back3": [
+   "Kit 想你啦 🐦",
+   "轻松回来吧——只需几个词。"
+  ],
+  "back7": [
+   "你学过的内容都还在",
+   "复习几张卡片，只要 2 分钟——Kit 陪着你。"
+  ],
   "back": [
    "该和 Kit 一起学习啦！",
    "打开 Lexkite 复习几个单词吧。"
@@ -162,6 +234,14 @@
   ]
  },
  "ja": {
+  "back3": [
+   "Kitはあなたに会いたいな 🐦",
+   "気軽に戻ってきてね。数語だけでOK。"
+  ],
+  "back7": [
+   "学んだことはそのまま残ってるよ",
+   "カードを数枚、2分だけ復習しよう。Kitがそばにいるよ。"
+  ],
   "back": [
    "Kitと勉強する時間だよ！",
    "Lexkiteを開いて単語をいくつか復習しよう。"
@@ -180,6 +260,14 @@
   ]
  },
  "ko": {
+  "back3": [
+   "Kit이 보고 싶어요 🐦",
+   "부담 없이 돌아오세요. 몇 단어만 봐도 돼요."
+  ],
+  "back7": [
+   "배운 내용은 그대로 남아 있어요",
+   "카드 몇 장만 2분 복습해요. Kit이 함께할게요."
+  ],
   "back": [
    "Kit과 공부할 시간이에요!",
    "Lexkite를 열고 단어 몇 개 복습해요."
@@ -198,6 +286,14 @@
   ]
  },
  "hi": {
+  "back3": [
+   "Kit को आपकी याद आ रही है 🐦",
+   "आराम से लौटिए – बस कुछ शब्द।"
+  ],
+  "back7": [
+   "आपने जो सीखा, वह सब यहीं है",
+   "कुछ कार्ड दोहराइए, बस 2 मिनट – Kit आपके साथ है।"
+  ],
   "back": [
    "Kit के साथ पढ़ने का समय!",
    "Lexkite खोलें और कुछ शब्द दोहराएँ।"
@@ -216,6 +312,14 @@
   ]
  },
  "ar": {
+  "back3": [
+   "Kit يفتقدك 🐦",
+   "عُد بهدوء – بضع كلمات فقط."
+  ],
+  "back7": [
+   "كل ما تعلّمته ما زال هنا",
+   "راجع بضع بطاقات في دقيقتين فقط – Kit معك."
+  ],
   "back": [
    "حان وقت الدراسة مع Kit!",
    "افتح Lexkite وراجع بضع كلمات."
@@ -234,6 +338,14 @@
   ]
  },
  "ru": {
+  "back3": [
+   "Kit скучает по тебе 🐦",
+   "Возвращайся не спеша – всего несколько слов."
+  ],
+  "back7": [
+   "Всё, что ты выучил(а), по-прежнему здесь",
+   "Повтори несколько карточек, всего 2 минуты – Kit рядом."
+  ],
   "back": [
    "Пора заниматься с Kit!",
    "Открой Lexkite и повтори пару слов."
@@ -252,6 +364,14 @@
   ]
  },
  "tr": {
+  "back3": [
+   "Kit seni özledi 🐦",
+   "Yavaşça geri dön – sadece birkaç kelime."
+  ],
+  "back7": [
+   "Öğrendiğin her şey burada",
+   "Birkaç kartı tekrar et, sadece 2 dakika – Kit yanında."
+  ],
   "back": [
    "Kit ile çalışma zamanı!",
    "Lexkite'ı aç ve birkaç kelime tekrar et."

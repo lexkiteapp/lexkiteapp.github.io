@@ -137,6 +137,7 @@ node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
 node scripts/test/tl-picker.mjs
+node scripts/test/exam-sheet.mjs
 node scripts/test/es-conjugate.mjs
 node scripts/test/fr-conjugate.mjs
 node scripts/test/sync-ctx.mjs
@@ -177,6 +178,7 @@ node scripts/test/accounts.mjs
 node scripts/test/ios-sign-patch.mjs
 node scripts/test/asc-signing.mjs
 node scripts/test/ai-pool.mjs
+node scripts/test/ai-share.mjs
 node scripts/test/ai-local.mjs
 node scripts/test/admin-prefs.mjs
 node scripts/test/mail-prefs.mjs
@@ -307,6 +309,7 @@ node scripts/test/pron-features.mjs
 node scripts/test/crashlytics.mjs
 node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
+node scripts/stories/build-lib.mjs --check
 node scripts/content-qa/exam-format-check.mjs
 node scripts/test/lesson-why.mjs
 node scripts/test/lesson-card.mjs
@@ -522,3 +525,4 @@ node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
 node scripts/test/select-cta-guard.mjs
 node scripts/test/lesson-lip-late.mjs
+node scripts/test/review-queue-size.mjs
