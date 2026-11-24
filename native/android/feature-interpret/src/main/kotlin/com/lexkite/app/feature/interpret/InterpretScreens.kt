@@ -129,7 +129,8 @@ fun TalkScreen(ui: TalkUi, a: TalkActions) {
         InterpretTabs("interpret", a.open)
         Column(Modifier.weight(1f).fillMaxWidth().padding(horizontal = LKSpacing.gutter, vertical = LKSpacing.spaceXs), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceXs)) {
             Half("b", ui, a, turned = true, modifier = Modifier.weight(1f))
-            Row(Modifier.fillMaxWidth().semantics { contentDescription = t(L10nKey.interpretLatest) }, horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.CenterVertically) {
+            val latestLabel = t(L10nKey.interpretLatest)
+            Row(Modifier.fillMaxWidth().semantics { contentDescription = latestLabel }, horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.CenterVertically) {
                 RoundAction("⇅", t(L10nKey.interpretSwap), true, a.swap)
                 RoundAction("🔊", t(L10nKey.lessonReplay), ui.hasLast, a.play)
                 RoundAction("🐢", t(L10nKey.lessonSlowShort), ui.hasLast, a.slow)
