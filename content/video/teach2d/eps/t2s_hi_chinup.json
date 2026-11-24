@@ -1,0 +1,150 @@
+{
+ "id": "t2s_hi_chinup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 85,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rough day, but tomorrow's coming!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Chin up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Stay brave and positive.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Chin up, tomorrow will be better.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "chin up",
+  "forms": [],
+  "ipa": "/ˈtʃɪn ˈʌp/",
+  "mean": "Stay brave and positive.",
+  "define": "Used to encourage someone who is sad.",
+  "vi": "Cố lên nào",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Cheering a friend",
+   "text": "Chin up, tomorrow will be better."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Chin up\" means…",
+   "options": [
+    "look up",
+    "stay positive"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'chin up' to someone crying hard.",
+   "why": "It can sound like 'stop feeling'."
+  },
+  "l1": "हौसला रखना",
+  "l1_hook": "कठिन दिन रहा, लेकिन कल आ रहा है!",
+  "l1_ex": "\"chin up\", कल बेहतर होगा।",
+  "right": "chin up",
+  "native": {
+   "hook": "“chin up” का मतलब क्या है?",
+   "tip": "“chin up” = हौसला रखना. उदाहरण: “Chin up, tomorrow will be better.”",
+   "caption": "“chin up” का मतलब क्या है?\n“chin up” = हौसला रखना.\nउदाहरण: “Chin up, tomorrow will be better.” (\"chin up\", कल बेहतर होगा।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “chin up” = हौसला रखना. “Chin up, tomorrow will be better.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Rough day, but tomorrow's coming!"
+ },
+ "src": {
+  "slang": "chin up"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“chin up” का मतलब क्या है?",
+  "keyword": "chin up",
+  "value": "“chin up” = हौसला रखना. उदाहरण: “Chin up, tomorrow will be better.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“chin up” का मतलब क्या है?",
+    "description": "“chin up” = हौसला रखना. उदाहरण: “Chin up, tomorrow will be better.”\n\n“chin up” का मतलब क्या है?\n“chin up” = हौसला रखना.\nउदाहरण: “Chin up, tomorrow will be better.” (\"chin up\", कल बेहतर होगा।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "chin up",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“chin up” का मतलब क्या है?\n“chin up” = हौसला रखना.\nउदाहरण: “Chin up, tomorrow will be better.” (\"chin up\", कल बेहतर होगा।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“chin up” का मतलब क्या है?\n\n“chin up” = हौसला रखना. उदाहरण: “Chin up, tomorrow will be better.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“chin up” का मतलब क्या है? “chin up” = हौसला रखना. उदाहरण: “Chin up, tomorrow will be better.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “chin up” = हौसला रखना. “Chin up, tomorrow will be better.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_gameplan",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 92,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Test tomorrow. Where do we start?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Game plan!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The plan for what to do.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "So, what's the game plan?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "game plan",
+  "forms": [],
+  "ipa": "/ˈɡeɪm ˈplæn/",
+  "mean": "The plan for what to do.",
+  "define": "A clear plan to reach a goal.",
+  "vi": "Kế hoạch hành động",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Talking before a project",
+   "text": "So, what's the game plan?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"game plan\" is…",
+   "options": [
+    "a video game",
+    "a clear plan"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a vague idea a 'game plan'.",
+   "why": "It means a clear plan."
+  },
+  "l1": "แผนการ",
+  "l1_hook": "สอบพรุ่งนี้ เราจะเริ่มจากตรงไหน? \"game plan\"",
+  "l1_ex": "แล้วเรามี game plan อย่างไร?",
+  "right": "game plan",
+  "native": {
+   "hook": "“game plan” แปลว่าอะไร?",
+   "tip": "“game plan” = แผนการ. ตัวอย่าง: “So, what's the game plan?”",
+   "caption": "“game plan” แปลว่าอะไร?\n“game plan” = แผนการ.\nตัวอย่าง: “So, what's the game plan?” (แล้วเรามี game plan อย่างไร?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “game plan” = แผนการ. “So, what's the game plan?” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Test tomorrow. Where do we start?"
+ },
+ "src": {
+  "slang": "game plan"
+ },
+ "lang": "th",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“game plan” แปลว่าอะไร?",
+  "keyword": "game plan",
+  "value": "“game plan” = แผนการ. ตัวอย่าง: “So, what's the game plan?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "“game plan” แปลว่าอะไร?",
+    "description": "“game plan” = แผนการ. ตัวอย่าง: “So, what's the game plan?”\n\n“game plan” แปลว่าอะไร?\n“game plan” = แผนการ.\nตัวอย่าง: “So, what's the game plan?” (แล้วเรามี game plan อย่างไร?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "game plan",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“game plan” แปลว่าอะไร?\n“game plan” = แผนการ.\nตัวอย่าง: “So, what's the game plan?” (แล้วเรามี game plan อย่างไร?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“game plan” แปลว่าอะไร?\n\n“game plan” = แผนการ. ตัวอย่าง: “So, what's the game plan?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“game plan” แปลว่าอะไร? “game plan” = แผนการ. ตัวอย่าง: “So, what's the game plan?” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “game plan” = แผนการ. “So, what's the game plan?” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

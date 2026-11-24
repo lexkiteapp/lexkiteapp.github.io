@@ -1,0 +1,148 @@
+{
+ "id": "t2s_id_frenemy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 83,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "We smile, but we compete!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Frenemy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A friend who is also a rival.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She's my frenemy, always competing with me.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "key": "frenemy",
+  "forms": [
+   "frenemies"
+  ],
+  "ipa": "/ˈfrenəmi/",
+  "mean": "A friend who is also a rival.",
+  "define": "Someone who acts friendly but competes with you.",
+  "vi": "Bạn mà như đối thủ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "She's my frenemy, always competing with me."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"frenemy\" is…",
+   "options": [
+    "a pet",
+    "friend and rival"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your best friend your 'frenemy'.",
+   "why": "It suggests you secretly dislike her."
+  },
+  "l1": "teman tapi musuh",
+  "l1_hook": "Kita tersenyum, tapi bersaing! \"Frenemy\".",
+  "l1_ex": "Dia adalah \"frenemy\" ku, selalu bersaing denganku.",
+  "right": "frenemy",
+  "native": {
+   "hook": "Apa arti “frenemy”?",
+   "tip": "“frenemy” = teman tapi musuh. Contoh: “She's my frenemy, always competing with me.”",
+   "caption": "Apa arti “frenemy”?\n“frenemy” = teman tapi musuh.\nContoh: “She's my frenemy, always competing with me.” (Dia adalah \"frenemy\" ku, selalu bersaing denganku.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “frenemy” = teman tapi musuh. “She's my frenemy, always competing with me.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "We smile, but we compete!"
+ },
+ "src": {
+  "slang": "frenemy"
+ },
+ "lang": "id",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Apa arti “frenemy”?",
+  "keyword": "frenemy",
+  "value": "“frenemy” = teman tapi musuh. Contoh: “She's my frenemy, always competing with me.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “frenemy”?",
+    "description": "“frenemy” = teman tapi musuh. Contoh: “She's my frenemy, always competing with me.”\n\nApa arti “frenemy”?\n“frenemy” = teman tapi musuh.\nContoh: “She's my frenemy, always competing with me.” (Dia adalah \"frenemy\" ku, selalu bersaing denganku.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "frenemy",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “frenemy”?\n“frenemy” = teman tapi musuh.\nContoh: “She's my frenemy, always competing with me.” (Dia adalah \"frenemy\" ku, selalu bersaing denganku.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “frenemy”?\n\n“frenemy” = teman tapi musuh. Contoh: “She's my frenemy, always competing with me.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “frenemy”? “frenemy” = teman tapi musuh. Contoh: “She's my frenemy, always competing with me.” #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “frenemy” = teman tapi musuh. “She's my frenemy, always competing with me.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "id": "t2s_tr_comeagain",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 94,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sorry, the music's too loud!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Come again!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Please say that again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Come again? It's too loud here.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "come again",
+  "forms": [],
+  "ipa": "/ˈkʌm əˈɡen/",
+  "mean": "Please say that again.",
+  "define": "A casual way to ask someone to repeat.",
+  "vi": "Nói lại đi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Talking in a noisy café",
+   "text": "Come again? It's too loud here."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "visit again",
+    "say it again"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'come again' when you heard clearly.",
+   "why": "It sounds like a challenge."
+  },
+  "l1": "ne dedin?",
+  "l1_hook": "Üzgünüm, müzik çok yüksek! \"Come again\"?",
+  "l1_ex": "\"Come again\"? Burada çok gürültülü.",
+  "right": "come again",
+  "native": {
+   "hook": "“come again” ne demek?",
+   "tip": "“come again” = ne dedin?. Örnek: “Come again? It's too loud here.”",
+   "caption": "“come again” ne demek?\n“come again” = ne dedin?.\nÖrnek: “Come again? It's too loud here.” (\"Come again\"? Burada çok gürültülü.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “come again” = ne dedin?. “Come again? It's too loud here.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sorry, the music's too loud!"
+ },
+ "src": {
+  "slang": "come again"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“come again” ne demek?",
+  "keyword": "come again",
+  "value": "“come again” = ne dedin?. Örnek: “Come again? It's too loud here.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“come again” ne demek?",
+    "description": "“come again” = ne dedin?. Örnek: “Come again? It's too loud here.”\n\n“come again” ne demek?\n“come again” = ne dedin?.\nÖrnek: “Come again? It's too loud here.” (\"Come again\"? Burada çok gürültülü.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "come again",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“come again” ne demek?\n“come again” = ne dedin?.\nÖrnek: “Come again? It's too loud here.” (\"Come again\"? Burada çok gürültülü.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“come again” ne demek?\n\n“come again” = ne dedin?. Örnek: “Come again? It's too loud here.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“come again” ne demek? “come again” = ne dedin?. Örnek: “Come again? It's too loud here.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “come again” = ne dedin?. “Come again? It's too loud here.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

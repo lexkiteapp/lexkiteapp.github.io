@@ -1,0 +1,146 @@
+{
+ "id": "t2s_fr_busyasabee",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 40,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No free time this week!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Busy as a bee!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Very busy and active.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm busy as a bee this week.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "busy as a bee",
+  "forms": [],
+  "ipa": "/ˈbɪzi əz ə ˈbiː/",
+  "mean": "Very busy and active.",
+  "define": "Used when someone is busy working.",
+  "vi": "Bận túi bụi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about a week",
+   "text": "I'm busy as a bee this week."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "fond of flowers",
+    "very busy"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'busy as a bee' about a lazy afternoon.",
+   "why": "It means very busy."
+  },
+  "l1": "très occupé",
+  "l1_hook": "Pas de temps libre cette semaine ! \"busy as a bee\"",
+  "l1_ex": "Je suis \"busy as a bee\" cette semaine.",
+  "right": "busy as a bee",
+  "native": {
+   "hook": "Que veut dire « busy as a bee » ?",
+   "tip": "“busy as a bee” = très occupé. Exemple: “I'm busy as a bee this week.”",
+   "caption": "Que veut dire « busy as a bee » ?\n“busy as a bee” = très occupé.\nExemple: “I'm busy as a bee this week.” (Je suis \"busy as a bee\" cette semaine.)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “busy as a bee” = très occupé. “I'm busy as a bee this week.” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "No free time this week!"
+ },
+ "src": {
+  "slang": "busy as a bee"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Que veut dire « busy as a bee » ?",
+  "keyword": "busy as a bee",
+  "value": "“busy as a bee” = très occupé. Exemple: “I'm busy as a bee this week.”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « busy as a bee » ?",
+    "description": "“busy as a bee” = très occupé. Exemple: “I'm busy as a bee this week.”\n\nQue veut dire « busy as a bee » ?\n“busy as a bee” = très occupé.\nExemple: “I'm busy as a bee this week.” (Je suis \"busy as a bee\" cette semaine.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "busy as a bee",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « busy as a bee » ?\n“busy as a bee” = très occupé.\nExemple: “I'm busy as a bee this week.” (Je suis \"busy as a bee\" cette semaine.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « busy as a bee » ?\n\n“busy as a bee” = très occupé. Exemple: “I'm busy as a bee this week.”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « busy as a bee » ? “busy as a bee” = très occupé. Exemple: “I'm busy as a bee this we… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “busy as a bee” = très occupé. “I'm busy as a bee this week.” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

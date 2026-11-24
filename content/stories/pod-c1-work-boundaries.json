@@ -1,0 +1,220 @@
+{
+  "id": "pod-c1-work-boundaries",
+  "kind": "podcast",
+  "level": "C1",
+  "title": "Setting Boundaries at Work",
+  "summary": "Ama and Carlos discuss how to protect their time without damaging their working relationships.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 2",
+    "author": "Lexkite",
+    "note": "Original dialogue written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos at a desk with a laptop and a closed door, a clock on the wall showing evening, calm mood, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 140,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "The Email That Never Stops",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Carlos, I have a confession to make: I answered work emails at midnight again last night."
+        },
+        {
+          "who": "B",
+          "text": "Honestly, Ama, I did the same thing, and I woke up feeling completely exhausted."
+        },
+        {
+          "who": "A",
+          "text": "The problem is that nobody asked us to do it, yet we both feel the pressure to reply immediately."
+        },
+        {
+          "who": "B",
+          "text": "Exactly. Our manager never sets a formal expectation, but the silence around the issue creates one anyway."
+        },
+        {
+          "who": "A",
+          "text": "I think the real solution is a clear boundary, something like a rule that I do not read messages after seven."
+        },
+        {
+          "who": "B",
+          "text": "That sounds sensible, but I am reluctant to try it because I worry people will think I am lazy."
+        },
+        {
+          "who": "A",
+          "text": "I understand that fear, although in my experience colleagues respect people who communicate their limits clearly."
+        },
+        {
+          "who": "B",
+          "text": "The trick is to be assertive without sounding defensive, which is harder than it seems."
+        },
+        {
+          "who": "A",
+          "text": "Maybe you could simply explain that you do your best thinking in the morning, after a proper rest."
+        },
+        {
+          "who": "B",
+          "text": "That is a much kinder way to say it, and it is also completely true."
+        },
+        {
+          "who": "A",
+          "text": "A working pattern is only sustainable if it leaves some space for your own life."
+        },
+        {
+          "who": "B",
+          "text": "Fine, I will test it for two weeks and tell you whether anyone even notices."
+        }
+      ],
+      "words": [
+        "boundary",
+        "reluctant",
+        "expectation",
+        "sensible",
+        "defensive",
+        "sustainable"
+      ],
+      "quiz": [
+        {
+          "q": "Why were Ama and Carlos feeling stressed?",
+          "options": [
+            "They had too many meetings.",
+            "They answered emails late at night.",
+            "Their manager was angry with them."
+          ],
+          "answer": 1,
+          "explain": "Both of them replied to work emails at midnight and felt overwhelmed."
+        },
+        {
+          "q": "What does Ama suggest as a clear boundary?",
+          "options": [
+            "Not reading messages after seven.",
+            "Working only on weekends.",
+            "Turning off the office phone forever."
+          ],
+          "answer": 0,
+          "explain": "She suggests a rule about not reading messages after seven."
+        },
+        {
+          "q": "Why is Carlos reluctant to try it?",
+          "options": [
+            "He worries colleagues will find him lazy.",
+            "He does not own a phone.",
+            "He prefers working at night."
+          ],
+          "answer": 0,
+          "explain": "He fears that people will think he is lazy."
+        }
+      ]
+    },
+    {
+      "title": "Saying No Politely",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Two weeks later, Carlos, how did your experiment go?"
+        },
+        {
+          "who": "B",
+          "text": "Better than I expected, Ama, and nobody complained about the change in my replies."
+        },
+        {
+          "who": "A",
+          "text": "That is encouraging, because saying no is the part I find most difficult."
+        },
+        {
+          "who": "B",
+          "text": "I used to accept every request, and then I felt a quiet anger towards the people who asked."
+        },
+        {
+          "who": "A",
+          "text": "Right, so how do you decline a task without sounding rude or unhelpful?"
+        },
+        {
+          "who": "B",
+          "text": "I start by acknowledging the request, then I explain my current workload, and finally I offer an alternative."
+        },
+        {
+          "who": "A",
+          "text": "An alternative, such as a later deadline, or help from someone else?"
+        },
+        {
+          "who": "B",
+          "text": "Yes, and sometimes I simply ask which task is the priority, so the manager decides."
+        },
+        {
+          "who": "A",
+          "text": "That is clever, because it turns a refusal into a conversation where everyone can negotiate."
+        },
+        {
+          "who": "B",
+          "text": "It also shows that you take the work seriously, which makes you look responsible, not difficult."
+        },
+        {
+          "who": "A",
+          "text": "Being diplomatic does not mean being weak, as long as you stay honest about what is possible."
+        },
+        {
+          "who": "B",
+          "text": "I will try that on Monday, and this time I will report back with real results."
+        }
+      ],
+      "words": [
+        "decline",
+        "workload",
+        "negotiate",
+        "acknowledge",
+        "priority",
+        "diplomatic"
+      ],
+      "quiz": [
+        {
+          "q": "How did Carlos feel when he accepted every request?",
+          "options": [
+            "Excited and proud",
+            "A quiet anger",
+            "Completely relaxed"
+          ],
+          "answer": 1,
+          "explain": "He says he felt a quiet anger toward the people who asked."
+        },
+        {
+          "q": "What is the first step when declining a task?",
+          "options": [
+            "Ignore the message.",
+            "Acknowledge the request.",
+            "Ask for more money."
+          ],
+          "answer": 1,
+          "explain": "He starts by acknowledging the request."
+        },
+        {
+          "q": "Why does asking about priorities work well?",
+          "options": [
+            "It lets the manager decide what matters most.",
+            "It ends the conversation quickly.",
+            "It proves the task is easy."
+          ],
+          "answer": 0,
+          "explain": "It turns a refusal into a conversation where the manager chooses the priority."
+        }
+      ]
+    }
+  ]
+}
