@@ -95,6 +95,7 @@
 - [I18N-PIPELINE.md](I18N-PIPELINE.md) — Quy trình 15 ngôn ngữ giao diện: nguồn chuẩn duy nhất, quy tắc thêm chữ mới, kiểm tra tự động, mở thêm ngôn ngữ, SEO/blog theo ngôn ngữ; đọc khi: MỌI việc thêm chữ giao diện
 - [AI-CHAIN.md](AI-CHAIN.md) — AI người dùng trên máy chủ (/api/ai): chuỗi Gemini Flash → Groq gpt-oss-120b → báo bận, bộ golden ai-golden.yml, đồng bộ khóa ai-keys-sync, giám sát tỉ lệ model; đọc khi: sửa ai.js/_aichain.js, thêm model, cảnh báo ai:weak.
 - [AI-LOCAL.md](AI-LOCAL.md) — AI có sẵn trong trình duyệt (Prompt/Translator/Detector/Proofreader…): trạng thái API, quy tắc tải, fallback máy chủ; đọc khi: thêm/sửa tính năng AI
+- [INTERPRET.md](INTERPRET.md) — Phiên dịch 2 người, miễn phí; đọc khi: sửa web/native Phiên dịch
 - [INFRA-RULES.md](INFRA-RULES.md) — Quy tắc tài nguyên hệ thống: mọi dịch vụ/Worker/lưu trữ phải đăng ký ở infra/resources.json; hiện trạng lưu trữ, ngưỡng nâng cấp, mail; đọc khi: thêm dịch vụ/host/Worker/lưu trữ mới
 - [INDEX.md](INDEX.md) — mục lục chuẩn này; đọc khi: tìm tài liệu hoặc thêm doc mới (phải thêm 1 dòng ở đây)
 - [JOBS.md](JOBS.md) — Sổ việc nền & điều phối, SINH TỰ ĐỘNG từ infra/jobs.json (không sửa tay): luật, tài nguyên, lịch UTC, đồ thị kho từ; đọc khi: thêm cron/CI nền
