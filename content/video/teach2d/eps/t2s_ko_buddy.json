@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ko_buddy",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 68,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who studies with you every night?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Buddy!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A close friend.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's my study buddy.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "buddy",
+  "forms": [
+   "buddies"
+  ],
+  "ipa": "/ˈbʌdi/",
+  "mean": "A close friend.",
+  "define": "A friendly word for a friend.",
+  "vi": "Bạn thân, anh bạn",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Introducing a friend",
+   "text": "He's my study buddy."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"buddy\" is…",
+   "options": [
+    "a bud",
+    "a friend"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'buddy' to an angry stranger.",
+   "why": "It sounds sarcastic, not friendly."
+  },
+  "l1": "친구",
+  "l1_hook": "매일 밤 당신과 함께 공부하는 사람은 누구인가요?",
+  "l1_ex": "그는 제 스터디 \"buddy\"예요.",
+  "right": "buddy",
+  "native": {
+   "hook": "“buddy” 무슨 뜻일까요?",
+   "tip": "“buddy” = 친구. 예문: “He's my study buddy.”",
+   "caption": "“buddy” 무슨 뜻일까요?\n“buddy” = 친구.\n예문: “He's my study buddy.” (그는 제 스터디 \"buddy\"예요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “buddy” = 친구. “He's my study buddy.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who studies with you every night?"
+ },
+ "src": {
+  "slang": "buddy"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "“buddy” 무슨 뜻일까요?",
+  "keyword": "buddy",
+  "value": "“buddy” = 친구. 예문: “He's my study buddy.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“buddy” 무슨 뜻일까요?",
+    "description": "“buddy” = 친구. 예문: “He's my study buddy.”\n\n“buddy” 무슨 뜻일까요?\n“buddy” = 친구.\n예문: “He's my study buddy.” (그는 제 스터디 \"buddy\"예요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "buddy",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“buddy” 무슨 뜻일까요?\n“buddy” = 친구.\n예문: “He's my study buddy.” (그는 제 스터디 \"buddy\"예요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“buddy” 무슨 뜻일까요?\n\n“buddy” = 친구. 예문: “He's my study buddy.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“buddy” 무슨 뜻일까요? “buddy” = 친구. 예문: “He's my study buddy.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “buddy” = 친구. “He's my study buddy.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

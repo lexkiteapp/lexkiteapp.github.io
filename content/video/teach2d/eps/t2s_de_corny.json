@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_corny",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 63,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dad's pun again. Seriously?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Corny!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Old-fashioned and silly.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Dad's jokes are so corny.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "cringe",
+ "data": {
+  "key": "corny",
+  "forms": [],
+  "ipa": "/ˈkɔːrni/",
+  "mean": "Old-fashioned and silly.",
+  "define": "Describes jokes that are so silly they're embarrassing.",
+  "vi": "Nhạt nhẽo, sến",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Listening to a joke",
+   "text": "Dad's jokes are so corny."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Corny\" means…",
+   "options": [
+    "silly",
+    "crunchy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your teacher's joke 'corny' out loud.",
+   "why": "It sounds rude, not playful."
+  },
+  "l1": "altbacken",
+  "l1_hook": "Dad's Wortspiel wieder. Ernsthaft? (\"corny\")",
+  "l1_ex": "Vaters Witze sind so \"corny\".",
+  "right": "corny",
+  "native": {
+   "hook": "Was heißt “corny”?",
+   "tip": "“corny” = altbacken. Beispiel: “Dad's jokes are so corny.”",
+   "caption": "Was heißt “corny”?\n“corny” = altbacken.\nBeispiel: “Dad's jokes are so corny.” (Vaters Witze sind so \"corny\".)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “corny” = altbacken. “Dad's jokes are so corny.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dad's pun again. Seriously?"
+ },
+ "src": {
+  "slang": "corny"
+ },
+ "lang": "de",
+ "est": {
+  "words": 15,
+  "seconds": 9.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Was heißt “corny”?",
+  "keyword": "corny",
+  "value": "“corny” = altbacken. Beispiel: “Dad's jokes are so corny.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “corny”?",
+    "description": "“corny” = altbacken. Beispiel: “Dad's jokes are so corny.”\n\nWas heißt “corny”?\n“corny” = altbacken.\nBeispiel: “Dad's jokes are so corny.” (Vaters Witze sind so \"corny\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "corny",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “corny”?\n“corny” = altbacken.\nBeispiel: “Dad's jokes are so corny.” (Vaters Witze sind so \"corny\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “corny”?\n\n“corny” = altbacken. Beispiel: “Dad's jokes are so corny.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “corny”? “corny” = altbacken. Beispiel: “Dad's jokes are so corny.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “corny” = altbacken. “Dad's jokes are so corny.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_countmeout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 54,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wanna go to the late show?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Count me out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I won't take part.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm tired, so count me out.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "count me out",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈaʊt/",
+  "mean": "I won't take part.",
+  "define": "Used to politely say you won't join a plan.",
+  "vi": "Đừng tính tui",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Declining an invitation",
+   "text": "I'm tired, so count me out."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'm leaving the country",
+    "I won't join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me out' to your boss's request.",
+   "why": "It sounds like a flat refusal."
+  },
+  "l1": "zähle mich nicht dazu",
+  "l1_hook": "Willst du zur Spätshow gehen? „count me out“.",
+  "l1_ex": "Ich bin müde, also \"count me out\".",
+  "right": "count me out",
+  "native": {
+   "hook": "Was heißt “count me out”?",
+   "tip": "“count me out” = zähle mich nicht dazu. Beispiel: “I'm tired, so count me out.”",
+   "caption": "Was heißt “count me out”?\n“count me out” = zähle mich nicht dazu.\nBeispiel: “I'm tired, so count me out.” (Ich bin müde, also \"count me out\".)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “count me out” = zähle mich nicht dazu. “I'm tired, so count me out.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wanna go to the late show?"
+ },
+ "src": {
+  "slang": "count me out"
+ },
+ "lang": "de",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Was heißt “count me out”?",
+  "keyword": "count me out",
+  "value": "“count me out” = zähle mich nicht dazu. Beispiel: “I'm tired, so count me out.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “count me out”?",
+    "description": "“count me out” = zähle mich nicht dazu. Beispiel: “I'm tired, so count me out.”\n\nWas heißt “count me out”?\n“count me out” = zähle mich nicht dazu.\nBeispiel: “I'm tired, so count me out.” (Ich bin müde, also \"count me out\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "count me out",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “count me out”?\n“count me out” = zähle mich nicht dazu.\nBeispiel: “I'm tired, so count me out.” (Ich bin müde, also \"count me out\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “count me out”?\n\n“count me out” = zähle mich nicht dazu. Beispiel: “I'm tired, so count me out.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “count me out”? “count me out” = zähle mich nicht dazu. Beispiel: “I'm tired, so count me ou… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “count me out” = zähle mich nicht dazu. “I'm tired, so count me out.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

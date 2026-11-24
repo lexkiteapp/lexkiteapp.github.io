@@ -1,0 +1,146 @@
+{
+ "id": "t2s_hi_goodasnew",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 79,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One nap, and I'm better!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Good as new!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fully better again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "After a nap, I feel good as new.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "good as new",
+  "forms": [],
+  "ipa": "/ˈɡʊd əz ˈnuː/",
+  "mean": "Fully better again.",
+  "define": "Used when something or someone is completely fixed or healthy.",
+  "vi": "Khỏe như mới",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a repair",
+   "text": "After a nap, I feel good as new."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "very old",
+    "fully fixed"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a broken phone 'good as new'.",
+   "why": "It means fully repaired or healed."
+  },
+  "l1": "बिल्कुल ठीक",
+  "l1_hook": "एक झपकी, और मैं फिर से \"good as new\" हूँ!",
+  "l1_ex": "एक झपकी के बाद, मैं \"good as new\" महसूस करता हूँ।",
+  "right": "good as new",
+  "native": {
+   "hook": "“good as new” का मतलब क्या है?",
+   "tip": "“good as new” = बिल्कुल ठीक. उदाहरण: “After a nap, I feel good as new.”",
+   "caption": "“good as new” का मतलब क्या है?\n“good as new” = बिल्कुल ठीक.\nउदाहरण: “After a nap, I feel good as new.” (एक झपकी के बाद, मैं \"good as new\" महसूस करता हूँ।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “good as new” = बिल्कुल ठीक. “After a nap, I feel good as new.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One nap, and I'm better!"
+ },
+ "src": {
+  "slang": "good as new"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“good as new” का मतलब क्या है?",
+  "keyword": "good as new",
+  "value": "“good as new” = बिल्कुल ठीक. उदाहरण: “After a nap, I feel good as new.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“good as new” का मतलब क्या है?",
+    "description": "“good as new” = बिल्कुल ठीक. उदाहरण: “After a nap, I feel good as new.”\n\n“good as new” का मतलब क्या है?\n“good as new” = बिल्कुल ठीक.\nउदाहरण: “After a nap, I feel good as new.” (एक झपकी के बाद, मैं \"good as new\" महसूस करता हूँ।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "good as new",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“good as new” का मतलब क्या है?\n“good as new” = बिल्कुल ठीक.\nउदाहरण: “After a nap, I feel good as new.” (एक झपकी के बाद, मैं \"good as new\" महसूस करता हूँ।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“good as new” का मतलब क्या है?\n\n“good as new” = बिल्कुल ठीक. उदाहरण: “After a nap, I feel good as new.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“good as new” का मतलब क्या है? “good as new” = बिल्कुल ठीक. उदाहरण: “After a nap, I feel good as new.” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “good as new” = बिल्कुल ठीक. “After a nap, I feel good as new.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

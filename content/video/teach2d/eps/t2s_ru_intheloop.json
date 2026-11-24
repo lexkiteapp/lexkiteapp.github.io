@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ru_intheloop",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 117,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Nobody told me the news!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "In the loop!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Knowing the latest news.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Keep me in the loop about the trip.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "data": {
+  "key": "in the loop",
+  "forms": [],
+  "ipa": "/ɪn ðə ˈluːp/",
+  "mean": "Knowing the latest news.",
+  "define": "Being included and informed about what's going on.",
+  "vi": "Được cập nhật tin",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "work-casual",
+  "example": {
+   "ctx": "Chatting at work",
+   "text": "Keep me in the loop about the trip."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"In the loop\" means…",
+   "options": [
+    "going in circles",
+    "up to date"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'in the loop' about a roller coaster.",
+   "why": "It means knowing the latest news."
+  },
+  "l1": "быть в курсе",
+  "l1_hook": "Никто не сказал мне новости, я не в «in the loop».",
+  "l1_ex": "Держи меня в «in the loop» по поводу поездки.",
+  "right": "in the loop",
+  "native": {
+   "hook": "Что значит «in the loop»?",
+   "tip": "“in the loop” = быть в курсе. Пример: “Keep me in the loop about the trip.”",
+   "caption": "Что значит «in the loop»?\n“in the loop” = быть в курсе.\nПример: “Keep me in the loop about the trip.” (Держи меня в «in the loop» по поводу поездки.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “in the loop” = быть в курсе. “Keep me in the loop about the trip.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Nobody told me the news!"
+ },
+ "src": {
+  "slang": "in the loop"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Что значит «in the loop»?",
+  "keyword": "in the loop",
+  "value": "“in the loop” = быть в курсе. Пример: “Keep me in the loop about the trip.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «in the loop»?",
+    "description": "“in the loop” = быть в курсе. Пример: “Keep me in the loop about the trip.”\n\nЧто значит «in the loop»?\n“in the loop” = быть в курсе.\nПример: “Keep me in the loop about the trip.” (Держи меня в «in the loop» по поводу поездки.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "in the loop",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «in the loop»?\n“in the loop” = быть в курсе.\nПример: “Keep me in the loop about the trip.” (Держи меня в «in the loop» по поводу поездки.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «in the loop»?\n\n“in the loop” = быть в курсе. Пример: “Keep me in the loop about the trip.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «in the loop»? “in the loop” = быть в курсе. Пример: “Keep me in the loop about the trip.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “in the loop” = быть в курсе. “Keep me in the loop about the trip.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

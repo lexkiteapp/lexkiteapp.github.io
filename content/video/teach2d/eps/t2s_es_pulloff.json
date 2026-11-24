@@ -1,0 +1,146 @@
+{
+ "id": "t2s_es_pulloff",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 103,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Who else wears that?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Pull off!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Succeed at wearing or doing something bold.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Not everyone can pull off that color.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "pull off",
+  "forms": [],
+  "ipa": "/ˈpʊl ˈɔːf/",
+  "mean": "Succeed at wearing or doing something bold.",
+  "define": "To manage something hard or bold, like a style.",
+  "vi": "Mặc hợp thần sầu",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Admiring an outfit",
+   "text": "Not everyone can pull off that color."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"pull off\" is to…",
+   "options": [
+    "succeed with style",
+    "remove it"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'pull off' when you mean 'remove'.",
+   "why": "It means succeeding with style."
+  },
+  "l1": "lograr",
+  "l1_hook": "¿Quién más lleva eso? \"pull off\"",
+  "l1_ex": "No todos pueden \"pull off\" ese color.",
+  "right": "pull off",
+  "native": {
+   "hook": "¿Qué significa “pull off”?",
+   "tip": "“pull off” = lograr. Ejemplo: “Not everyone can pull off that color.”",
+   "caption": "¿Qué significa “pull off”?\n“pull off” = lograr.\nEjemplo: “Not everyone can pull off that color.” (No todos pueden \"pull off\" ese color.)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “pull off” = lograr. “Not everyone can pull off that color.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Who else wears that?"
+ },
+ "src": {
+  "slang": "pull off"
+ },
+ "lang": "es",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "¿Qué significa “pull off”?",
+  "keyword": "pull off",
+  "value": "“pull off” = lograr. Ejemplo: “Not everyone can pull off that color.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “pull off”?",
+    "description": "“pull off” = lograr. Ejemplo: “Not everyone can pull off that color.”\n\n¿Qué significa “pull off”?\n“pull off” = lograr.\nEjemplo: “Not everyone can pull off that color.” (No todos pueden \"pull off\" ese color.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "pull off",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “pull off”?\n“pull off” = lograr.\nEjemplo: “Not everyone can pull off that color.” (No todos pueden \"pull off\" ese color.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “pull off”?\n\n“pull off” = lograr. Ejemplo: “Not everyone can pull off that color.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “pull off”? “pull off” = lograr. Ejemplo: “Not everyone can pull off that color.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “pull off” = lograr. “Not everyone can pull off that color.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}
