@@ -8,7 +8,7 @@
   const ls = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* riêng tư */ } } };
   const offNow = () => { try { const o = JSON.parse(ls.get(OFF_KEY) || '{}'), now = Date.now(); return { listen: (o.listen || 0) > now, speak: (o.speak || 0) > now }; } catch (e) { return {}; } };
   const setOff = k => { let o = {}; try { o = JSON.parse(ls.get(OFF_KEY) || '{}'); } catch (e) { /* hỏng → mới */ } o[k] = Date.now() + HOUR; ls.set(OFF_KEY, JSON.stringify(o)); };
-  const learnVi = () => (typeof nativeLang === 'function' ? nativeLang() === 'vi' : true); // ngôn ngữ nghĩa của người học
+  const learnVi = () => (typeof nativeLang === 'function' ? nativeLang() === 'vi' : true); // ngôn ngữ nghĩa của người học (meanLang/giao diện), KHÔNG phải Target.cur()
   const meanOf = c => (c ? (App.meanOf ? App.meanOf(c) : '') || (typeof I18N !== 'undefined' && I18N.meanLang && I18N.meanLang() !== 'vi' ? '' : c.vi) || c.def || '' : ''); // thẻ null (bài ghép cặp, card: null) → '' như App.meanOf
 
   // Bộ khởi đầu (người mới, chưa có thẻ) và bộ demo cho anh duyệt
@@ -89,7 +89,7 @@
   const PKEY = demo => (demo ? 'lk.lsn.path.demo' : 'lk.lsn.path');
   const pathN = demo => Math.max(0, parseInt(ls.get(PKEY(demo)) || '0', 10) || 0);
   const Q = demo => (demo ? '?demo=1' : '');
-  const SDKEY = demo => 'lk.lsn.sd' + (demo ? '.demo' : ''); // id truyện/radio đã học xong
+  const SDKEY = demo => 'lk.lsn.sd' + (demo ? '.demo' : ''); // id truyện/radio đã học xong (Hôm nay + lộ trình ưu tiên truyện chưa học)
   const sDone = demo => { try { const a = JSON.parse(ls.get(SDKEY(demo)) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } };
   const againGo = (xs, demo) => () => { if (xs) location.hash = '#/lesson/go' + Q(demo); else routes.lesson('go'); }; // truyện mở từ Hôm nay: bỏ ?story= để sang bài kế, không học lại đúng truyện vừa xong
   const KICON = { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'repeat', story: 'book-open', radio: 'audio-lines' };
@@ -117,13 +117,13 @@
     const prep = () => { if (window.LessonTeacher && LessonTeacher.prep) LessonTeacher.prep(); }, intent = e => { if (e.target.closest && e.target.closest('a[href*="#/lesson/go"]')) prep(); };
     if (arg) prep(); else { view.addEventListener('pointerdown', intent, true); view.addEventListener('focusin', intent, true); App.onCleanup(() => { view.removeEventListener('pointerdown', intent, true); view.removeEventListener('focusin', intent, true); }); }
     const demo = /[?&]demo=1\b/.test(location.hash);
-    if (/[?&]lvembed=[01]\b/.test(location.href)) lvOn(); // cờ thử trên URL bản đồ/Hôm nay → nhớ ngay
+    if (/[?&]lvembed=[01]\b/.test(location.href)) lvOn(); // cờ thử trên URL bản đồ/Hôm nay → nhớ ngay (chỉ localStorage, 0 tải video): nút Bắt đầu (#/lesson/go?demo=1) không mang theo tham số
     if (!demo && !(App.lessonOn && App.lessonOn())) { view.innerHTML = `<div class="card center"><p>${t('Bài học trộn đang thử nghiệm, sắp ra mắt.')}</p><a class="btn primary" href="#/home">${t('Quay về trang chủ')}</a></div>`; return; }
     if (window.I18N && I18N.whenReady) await I18N.whenReady();
     if (arg === 'go' && !demo && !/[?&]story=/.test(location.hash) && window.Ux1 && Ux1.needLevel && Ux1.needLevel() && !((state.game || {}).xp)) { location.hash = '#/home'; Ux1.levelInvite(() => { location.hash = '#/lesson/go'; }); return; } // bài đầu của người chọn kỳ thi: mời kiểm tra trình độ, Bỏ qua thì vào học ngay
     const cards = demo ? DEMO() : Object.values(state.cards || {});
-    const ux = !!(window.Ux1 && App.ux1On && App.ux1On()), has = { story: STORIES('story').length, radio: STORIES('radio').length }; let n = pathN(demo); if (ux && window.PathTrail && !(arg === 'go' && /[?&]story=/.test(location.hash))) { const h0 = location.hash, sq = ++pnSeq; await App.need('pnodes').catch(() => {}); if (sq !== pnSeq || location.hash !== h0) return; /* có lượt vẽ mới hơn trong lúc tải: đừng vẽ đè */ const m = PathTrail.skip(n, Ux1.unitAt); if (m !== n) { ls.set(PKEY(demo), String(m)); n = m; } } // 🧭 cờ ux1: chặng theo mục tiêu + trình độ
-    const redo = arg === 'go' && /[?&]redo=(\d+)/.test(location.hash) ? +RegExp.$1 : -1, xs = arg === 'go' && ((location.hash.match(/[?&]story=([\w-]+)/) || [])[1]), XS = xs ? (self.LESSON_STORIES || []).find(x => x.id === xs) : null; // Hôm nay v2: chạm thẻ truyện → mở đúng truyện đó
+    const ux = !!(window.Ux1 && App.ux1On && App.ux1On()), has = { story: STORIES('story').length, radio: STORIES('radio').length }; let n = pathN(demo); if (ux && window.PathTrail && !(arg === 'go' && /[?&]story=/.test(location.hash))) { const h0 = location.hash, sq = ++pnSeq; await App.need('pnodes').catch(() => {}); if (sq !== pnSeq || location.hash !== h0) return; /* có lượt vẽ mới hơn trong lúc tải: đừng vẽ đè */ const m = PathTrail.skip(n, Ux1.unitAt); if (m !== n) { ls.set(PKEY(demo), String(m)); n = m; } } // 🧭 cờ ux1: chặng theo mục tiêu + trình độ (docs/LEARNING-PATH.md)
+    const redo = arg === 'go' && /[?&]redo=(\d+)/.test(location.hash) ? +RegExp.$1 : -1, xs = arg === 'go' && ((location.hash.match(/[?&]story=([\w-]+)/) || [])[1]), XS = xs ? (self.LESSON_STORIES || []).find(x => x.id === xs) : null; // Hôm nay v2: chạm thẻ truyện → mở đúng truyện đó (ngoài lộ trình: không tính nút bản đồ)
     const plan = ux ? Ux1.plan(E, cards, has, n) : E.pathPlan(cards, Date.now(), has), node = XS ? { kind: XS.kind } : redo >= 0 ? { kind: PathTrail.SLOTS[redo % plan.length] } : plan[n % plan.length], wn = redo >= 0 ? redo : n; // Ôn lại nút đã xong: đúng từ của nút đó, không đẩy tiến độ
     if (arg !== 'go') return ux ? Ux1.map({ demo, plan, n }) : map(demo, plan, n);
     if (node.kind === 'exam') { ls.set(PKEY(demo), String(n + 1)); location.hash = Ux1.check(n).href; return; } // nút kiểm tra kỹ năng thi → module thi có sẵn
@@ -137,21 +137,20 @@
       pool0 = cards.concat(nearW); if (new Set(pool0.map(c => c.word)).size < 10) pool0 = pool0.concat(STARTER());
       const stg = state.settings || {}; lvlS = E.sentLevel(window.Ux1 && Ux1.level ? Ux1.level() : 2, App.exam ? App.exam() : '', (stg.goalPick || {}).target || stg.examTarget);
     }
-    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: pool0, near: nearW, level: lvlS, hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), lpic: true, mpic: true, gold: w => (self.LESSON_GOLD || {})[String(w || '').toLowerCase().trim()], only: node.kind === 'listen' ? E.KIND.listen.concat('lpic') : E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean, vi: nativeLang() === 'vi' });
+    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: pool0, near: nearW, level: lvlS, hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), lpic: true, mpic: true, dict: true, gold: w => (self.LESSON_GOLD || {})[String(w || '').toLowerCase().trim()], only: node.kind === 'listen' ? E.KIND.listen.concat('lpic', 'dict') : E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean, vi: nativeLang() === 'vi' });
     if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
     if (cardOn()) setTimeout(cardReady, 800);
     L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK, xs: !!XS || redo >= 0, s0: App.streak ? App.streak() : 0 };
     if (window.TeacherMood) moodSub(); else if (App.loadScript) App.loadScript('js/teacher-mood.js').then(moodSub).catch(() => {});
     if (window.LKAudio && LKAudio.offline.on()) LKAudio.offline.lesson(story || items, (state.settings || {}).accent); // 📥 gói offline đang bật → cất audio bài đang học
-    if (demo || /[?&]sandbox=1/.test(location.search)) App._lsn = L; // bài thử / sandbox: gác bố cục CI
+    if (demo || /[?&]sandbox=1/.test(location.search)) App._lsn = L; // bài thử / sandbox: gác bố cục CI (ux1-guard.mjs, qa-bot.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
     App.onCleanup(cleanup);
     const X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = (state.settings || {}).examTarget; // chip kỳ thi trên thẻ câu hỏi: "IELTS · Mục tiêu 7.5"
     document.body.classList.add('st'); App.onCleanup(() => document.body.classList.remove('st'));
-    const sh = { close: `#/lesson${Q(demo)}`, closeLabel: t('Thoát bài học'), title: KNAME(node.kind) || t('Bài học'), icon: { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio' }[node.kind] || 'star', barLabel: t('Tiến độ bài học'), chip: X ? X.short + (tg && (!window.LessonEx || LessonEx.targetOk(App.exam(), tg)) ? ' · ' + t('Mục tiêu {s}', { s: tg }) : '') : '', who: TNAME(L.who) + ' · ' + t('Giáo viên của bạn') };
-    sh.short = X ? X.short : '';
+    const sh = { close: `#/lesson${Q(demo)}`, closeLabel: t('Thoát bài học'), title: KNAME(node.kind) || t('Bài học'), icon: { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio' }[node.kind] || 'star', barLabel: t('Tiến độ bài học'), chip: X ? X.short + (tg ? ' · ' + t('Mục tiêu {s}', { s: tg }) : '') : '', who: TNAME(L.who) + ' · ' + t('Giáo viên của bạn') };
     L.title = sh.title; L.chip = sh.chip; // màn kết (lesson-complete) dùng lại
-    { const u = ux && window.Ux1 && Ux1.unitAt && !story ? Ux1.unitAt(wn, plan.length) : null; L.endChip = u ? u.name + ' · ' + t('Bài {a}/{b}', { a: wn % plan.length + 1, b: plan.length }) : sh.title; } // chip màn kết = chặng + số bài thật
+    { const u = ux && window.Ux1 && Ux1.unitAt && !story ? Ux1.unitAt(wn, plan.length) : null; L.endChip = u ? u.name + ' · ' + t('Bài {a}/{b}', { a: wn % plan.length + 1, b: plan.length }) : sh.title; } // chip màn kết = chặng + số bài thật (KHÔNG phải chip kỳ thi sh.chip của thẻ câu hỏi)
     L.sh = sh;
     if (V2) v2shell(sh);
     else if (DUO) { /* khung truyện dựng ở frame() theo từng bước */ }
@@ -178,10 +177,8 @@
   // 🧩 Stitch v2.1 lesson-question (cờ ux1): khung tự sinh, Ama (Chars+LessonTeacher, 2D) đứng sau thẻ đề bài đục
   const v2On = () => !!(window.ST2 && window.ST2['lesson-question'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
   const GRID = 'grid grid-cols-2 gap-[1rem] mb-[1rem] lsn-opts', FLOW = 'flex flex-col gap-3 mb-[1rem]', LET = 'ABCDEFGH';
-  const EXU = () => window.LessonEx && LessonEx.usable();
   const SLOW = 'absolute top-[1rem] right-[1.25rem] z-20 h-8 min-w-[44px] px-2 gap-1 flex items-center justify-center rounded-[9999px] active:scale-95 transition-transform lt:bg-[#FFFFFF] lt:text-[#0D6964] dk:bg-[#142328] dk:text-[#2BA39A] motion-reduce:transition-none after:absolute after:-inset-2 after:content-[\'\']';
   function v2shell(sh) {
-    if (EXU()) return LessonEx.shell(view, sh, L, App);
     const d = { close: sh.close, title: sh.title, pct: 0, combo: '', chip: sh.chip, play: t('Nghe lại'), who: sh.who,
       teacher: LessonTeacher.stage('lsnTch'), // sân khấu chuẩn: người to đứng sau thẻ đề bài (thẻ che hông) + bong bóng lời – lesson/teacher.js stage()
       slow: `<button id="lsnSlow" type="button" class="${SLOW}" hidden aria-label="${esc(t('Nghe chậm hơn'))}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">slow_motion_video</span><span class="text-[12px] font-bold" dir="ltr">0.75×</span></button>`,
@@ -224,7 +221,7 @@
     const chk = $('#lsnCheck'); chk.hidden = SPEAKS(it); chk.disabled = true;
     $('#lsnRep').onclick = () => { const cid = 'lesson:' + it.type + ':' + String(it.word || (it.card && it.card.word) || '').slice(0, 40); if (window.LexReportLoad) LexReportLoad().then(R => R.open({ cat: 'content', cid })).catch(() => {}); else window.open('#/report/new', '_blank'); };
   }
-  const VOICE = w => (window.Chars && Chars.voice ? Chars.voice(w || (L && L.who) || 'ama') : null); // giọng đúng của giáo viên đang nói
+  const VOICE = w => (window.Chars && Chars.voice ? Chars.voice(w || (L && L.who) || 'ama') : null); // giọng đúng của giáo viên đang nói (registry Chars) – thiếu file mp3 → giọng máy
 
   const say = (text, slow, who, onEnd, cap) => {
     if (!L) { if (cap) cap.all(); return; }
@@ -244,6 +241,7 @@
     pic: it.choice ? t('Đây là gì?') : t('Nói tên hình'),
     lpic: t('Nghe, chọn ảnh'),
     fix: t('Tìm từ sai'),
+    dict: t('Nghe và chép câu'),
     tr: t('Dịch câu này'),
     mean: t('Chọn từ đúng'),
     type: t('Gõ từ tiếng Anh'), // luôn có nghĩa/định nghĩa + độ dài + chữ đầu (không chỉ nghe)
@@ -252,7 +250,7 @@
     line: '',
   }[it.type]);
   const HINTABLE = it => it.type === 'gap' || it.type === 'mean' || it.type === 'q' || it.type === 'build' || it.type === 'tr' || it.type === 'type' || it.type === 'lpic' || it.type === 'fix' || (it.type === 'pic' && !!it.choice);
-  const LISTENS = it => !it.noAudio && (it.type === 'gap' || it.type === 'build' || it.type === 'say' || it.type === 'type' || it.type === 'lpic');
+  const LISTENS = it => !it.noAudio && (it.type === 'gap' || it.type === 'build' || it.type === 'say' || it.type === 'type' || it.type === 'lpic' || it.type === 'dict');
   const SPEAKS = it => it.type === 'say' || (it.type === 'pic' && !it.choice);
 
   function bar(cur) { // cur = câu đang hiện trên màn (sau khi chấm vẫn là câu VỪA làm, không nhảy sang nhãn câu kế)
@@ -292,15 +290,16 @@
     if (it.type === 'tr') sub = it.prompt;
     else if (it.type === 'mean') sub = meanOf(it.card);
     else if (it.type === 'type') sub = [it.mean, it.noAudio || !it.mean ? it.def : ''].filter(Boolean).join(' · '); // chỉ cho nghĩa; chữ đầu + số ký tự chỉ hiện khi bấm Gợi ý (trừ XP)
+    else if (it.type === 'dict') sub = it.prompt; // chép chính tả: chỉ cho bản dịch câu (không lộ chữ)
     else if (it.type === 'build') sub = it.prompt; // bản dịch CÂU (không bao giờ là định nghĩa của từ)
-    bub.innerHTML = tag + (L.v2 ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + (sub ? ST.lsnSub(sub, '') : ''); // v2: đề bài = lời giáo viên trong bong bóng
+    bub.innerHTML = tag + (L.v2 ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + (sub ? ST.lsnSub(sub, '') : ''); // v2: đề bài = lời giáo viên trong bong bóng (trình đọc màn hình đọc bản sr-only)
     if (L.v2 && L.teacher && L.teacher.line) L.teacher.line(TITLE(it));
     const V = L.v2, snd = LISTENS(it) && !V ? ST.lsnSnd({ play: t('Nghe lại'), slow: t('Nghe chậm hơn'), label: t('Mẫu âm thanh'), name: TNAME(it.who || L.who) }) : '';
-    const fill = (html, grid) => { if (V) body.className = grid ? GRID : FLOW; body.innerHTML = V && grid ? '' : html; }; // v2: lưới 2 cột cho trắc nghiệm
+    const fill = (html, grid) => { if (V) body.className = grid ? GRID : FLOW; body.innerHTML = V && grid ? '' : html; }; // v2: lưới 2 cột cho trắc nghiệm (bindItem vẽ thẻ), dạng khác = cột dọc cùng ô
     const audioText = it.type === 'gap' || it.type === 'build' ? it.sent : it.answer;
     if (it.type === 'line') return L.frame === 'duo' ? lineDuo(it) : line(it);
     if (it.type === 'video') return video(it);
-    const chat = $('#lsnChat'); if (chat) chat.hidden = true; // bài kiểm giữa truyện: ẩn lời thoại
+    const chat = $('#lsnChat'); if (chat) chat.hidden = true; // bài kiểm giữa truyện: ẩn lời thoại (không lộ đáp án)
     if (it.type === 'q') {
       bub.innerHTML = tag + (L.v2 && L.teacher && L.teacher.line ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + ST.lsnSub(it.prompt, 'en');
       fill(ST.lsnOpts(it.options), true);
@@ -308,13 +307,12 @@
       const T = it.blank.toks, sent = T.map((w, i) => (i === it.blank.i ? ST.GAP : i > it.blank.i && i < it.blank.i + it.blank.n ? '' : esc(w))).filter(Boolean).join(' ');
       if (V) bub.insertAdjacentHTML('beforeend', ST.lsnSent(sent)); // câu có chỗ trống nằm trong thẻ đề bài
       fill(V ? '' : snd + ST.lsnSent(sent) + ST.lsnOpts(it.options), true);
-    } else if (it.type === 'type') {
+    } else if (it.type === 'type' || it.type === 'dict') {
       fill(snd + ST.lsnIn(t('Câu trả lời của bạn')), false);
     } else if (it.type === 'match') {
       const L1 = E.shuffle(it.pairs.map((c, i) => i), Math.random), L2 = E.shuffle(it.pairs.map((c, i) => i), Math.random);
-      const W1 = it.pairs.map((p, i) => ({ i, t: p.word, pic: imgUrl(p.word, p.pos), ic: p.pos ? 'menu_book' : 'record_voice_over' })), M1 = it.pairs.map((p, i) => ({ i, t: p.mean || meanOf(p) })); L.mx = { W1, M1 };
-      if (V && EXU() && !it.pics) fill(LessonEx.match(L1.map(i => W1[i]), L2.map(i => M1[i])), false); // mpic (ghép từ ↔ ảnh) giữ khuôn ghép cặp cũ + mpTile
-      else { fill(ST.lsnMatch(L1.map(i => W1[i]), L2.map(i => M1[i])), false); if (it.pics) body.querySelectorAll('.lsn-match [data-s=m]').forEach(b => mpTile(b, it.pairs[+b.dataset.m])); } // mpic: cột phải = ảnh
+      fill(ST.lsnMatch(L1.map(i => ({ i, t: it.pairs[i].word })), L2.map(i => ({ i, t: it.pairs[i].mean || meanOf(it.pairs[i]) }))), false);
+      if (it.pics) body.querySelectorAll('.lsn-match [data-s=m]').forEach(b => mpTile(b, it.pairs[+b.dataset.m])); // mpic: cột phải = ảnh
     } else if (it.type === 'lpic') {
       fill(V ? '' : snd + ST.lsnOpts(it.options), true); // v2: bindItem vẽ 4 thẻ ảnh; v1: 4 hàng có ảnh thu nhỏ
       if (!V) body.querySelectorAll('.lsn-opt').forEach(b => lpTile(b, b.dataset.o, it));
@@ -334,7 +332,6 @@
     const foot = $('#lsnFoot'); foot.className = ST.FOOT;
     if (V) v2foot(it, foot); else foot.innerHTML = ST.lsnFoot({ skips: [LISTENS(it) ? ['lsnNoL', t('Không nghe được lúc này')] : null, SPEAKS(it) ? ['lsnNoS', t('Không nói được lúc này')] : null].filter(Boolean), check: SPEAKS(it) ? '' : t('Kiểm tra') });
     const slot = $('#lsnSndSlot'), sn = body.querySelector('.lsn-snd'); if (slot) { slot.innerHTML = ''; if (sn) slot.appendChild(sn); } // mẫu v2: 2 nút loa nằm trong bong bóng lời
-    if (V && window.LessonEx) LessonEx.decorate(it, { title: TITLE(it), short: L.sh.short, img: imgUrl });
     bindItem(it, audioText);
     if (LISTENS(it)) setTimeout(() => say(audioText, false, it.who), 250);
   }
@@ -359,7 +356,7 @@
     const root = ST2.mount(view, 'story-duo', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-story');
     root.style.opacity = '0'; const shown = () => { root.style.opacity = ''; }; root.addEventListener('pointerdown', () => { if (L) L.tapped = true; }, { capture: true, once: true });
     Promise.all([App.loadCss ? App.loadCss('css/story-stage.css') : 0, App.loadScript ? App.loadScript('js/lesson/story-stage.js') : 0]).catch(() => 0).then(() => { if (!L || L.dead || !window.StoryStage || !L.teachers) { shown(); return; } L.ss = StoryStage.attach(root, { say: (x, slow, who) => say(x, slow, who), teachers: () => L && L.teachers, vids: () => (L && L.vids) || {} }); const last = $('#lsnChat').lastElementChild; if (L.ss && last && last.dataset.who) L.ss.line(last, L.log[L.log.length - 1] || { who: last.dataset.who, sent: '' }); shown(); }); // khung hiện sau khi dòng đầu đã dựng 🔊/🐢 → không dịch bố cục (CLS 0)
-    setTimeout(shown, 4000); // dự phòng mạng chậm
+    setTimeout(shown, 4000); // dự phòng mạng chậm (CSS/JS lười chưa về): quá 4 s thì hiện luôn
     const chat = $('#lsnChat'); L.tl = { ama: chat.children[0], carlos: chat.children[1] }; L.tl.ama.remove(); L.tl.carlos.remove(); // 2 bong bóng mẫu = khuôn cho câu thoại mới
     const og = $('#lsnBody'); L.tplq = { on: og.children[0], off: og.children[1] }; og.textContent = ''; L.qblk = view.querySelector('.lsn-qblk'); L.qfootEl = view.querySelector('.lsn-qfoot'); L.qblk.style.display = og.style.display = 'none'; // khuôn thẻ đáp án (đã chọn / chưa) lấy từ mẫu; khối câu hỏi chỉ hiện ở bước kiểm
     chat.querySelectorAll('.lsn-ln button').forEach((b, i) => { b.onclick = () => say(L.log[i].sent, false, L.log[i].who); });
@@ -441,11 +438,10 @@
     };
     document.addEventListener('keydown', L.keyH);
     if (chk) { L.enterH = e => { if (e.key === 'Enter' && !e.isComposing && !(e.target.closest && e.target.closest('button,a,input,textarea,select,[role="button"]')) && chk.isConnected && !chk.disabled && !L.checked) { e.preventDefault(); chk.click(); } }; document.addEventListener('keydown', L.enterH); }
-    if (chk) chk.onclick = () => submit(it.type === 'build' || it.type === 'tr' ? L.tiles.map(i => it.tiles[i]) : it.type === 'type' ? ($('#lsnIn') || {}).value : L.pick);
+    if (chk) chk.onclick = () => submit(it.type === 'build' || it.type === 'tr' ? L.tiles.map(i => it.tiles[i]) : it.type === 'type' || it.type === 'dict' ? ($('#lsnIn') || {}).value : L.pick);
     const inp = $('#lsnIn');
     if (inp) { inp.oninput = () => { chk.disabled = !inp.value.trim(); }; inp.onkeydown = e => { if (e.key === 'Enter' && inp.value.trim()) chk.click(); }; setTimeout(() => inp.focus(), 50); }
-    if (it.type === 'match' && !it.pics && document.querySelector('.lsn-xframe .lsn-match.v2s-ex-match')) { if (chk) chk.hidden = true; LessonEx.matchBind(it, { say: w => say(w), submit, checked: () => L.checked }, L.mx.W1, L.mx.M1); }
-    else if (it.type === 'match') {
+    if (it.type === 'match') {
       // chạm 1 ô trái + 1 ô phải; đúng → cả 2 mờ đi, sai → rung và tính 1 lỗi; ghép xong cả 4 → chấm (0 lỗi = đúng)
       let sel = null, miss = 0, done = 0;
       if (chk) chk.hidden = true;
@@ -460,7 +456,7 @@
     }
     const og = $('#lsnBody.lsn-opts');
     if (L.v2 && og) { // khung Stitch: vẽ lại 4 thẻ A–D mỗi lần chọn (khuôn chưa chọn / đã chọn)
-      const paint = focus => { og.textContent = ''; it.options.filter(o => !L.gone.includes(o)).forEach((o, i) => { const b = v2opt(L.pick === o ? 'on' : 'off', i, o); b.onclick = () => { if (L.checked) return; L.pick = o; const g = $('#lsnGap'); if (g) g.textContent = o; if (chk) chk.disabled = false; paint(true); }; if (EXU() && it.type !== 'lpic') LessonEx.optSay(og, b, o, { say: w => say(w) }, it); else og.appendChild(b); if (focus && L.pick === o) setTimeout(() => b.focus(), 0); }); };
+      const paint = focus => { og.textContent = ''; it.options.filter(o => !L.gone.includes(o)).forEach((o, i) => { const b = v2opt(L.pick === o ? 'on' : 'off', i, o); b.onclick = () => { if (L.checked) return; L.pick = o; const g = $('#lsnGap'); if (g) g.textContent = o; if (chk) chk.disabled = false; paint(true); }; og.appendChild(b); if (focus && L.pick === o) setTimeout(() => b.focus(), 0); }); };
       paint(false);
     } else if (!L.v2) document.querySelectorAll('.lsn-opts .lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opts .lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
     const ans = $('#lsnAns'), bank = $('#lsnBank');
@@ -475,7 +471,7 @@
     on('lsnMic', () => {
       const out = $('#lsnHeard'), mic = $('#lsnMic'); if (L.checked) return;
       const lab = mic.querySelector('span:not(.material-symbols-outlined)'), retry = msg => { out.textContent = msg; if (lab) lab.textContent = t('Thử lại'); };
-      let fin = false; // mỗi lần chạm micro luôn kết thúc bằng câu trả lời hoặc lời nhắn rõ ràng + nút Thử lại
+      let fin = false; // mỗi lần chạm micro luôn kết thúc bằng câu trả lời hoặc lời nhắn rõ ràng + nút Thử lại (không bao giờ im lặng)
       mic.disabled = true; out.textContent = t('Đang nghe bạn nói…');
       L.rec = UI.recognize(it.answer, 'en-US', {
         result: ({ heard, score }) => { fin = true; mic.disabled = false; out.textContent = t('Bạn nói: {s}', { s: heard || '…' }); L.spoken++; L.micErr = 0; if (score >= 70) submit(score / 100, heard); else { L.tries = (L.tries || 0) + 1; if (L.tries >= 2) { L.tries = 0; submit(score / 100, heard); } else { out.textContent += ' · ' + t('Chưa rõ – thử lại nhé'); if (lab) lab.textContent = t('Thử lại'); } } },
@@ -542,6 +538,7 @@
   // 💬 Câu hỏi hiểu của truyện/radio (không có thẻ từ)
   const storyWhy = it => (!it.card && it.why ? `<div class="${ST.XP} lsn-swhy"><p class="m-0 font-bold">${UI.icon('lightbulb')} ${esc(t('Vì sao?'))}</p><p class="m-0" lang="en">${esc(it.why)}</p></div>` : '');
   // 🎨 Tấm phản hồi = mẫu Stitch "Instant Feedback & Band Booster"
+  const dictDiff = it => it.type === 'dict' && L.ans && !E.check(it, L.ans) ? `<p class="lsn-ddiff m-0 text-[15px] leading-5" lang="en">${E.diffWords(L.ans, it.answer).map(x => x.ok ? esc(x.w) : `<s class="font-bold">${esc(x.w)}</s>`).join(' ')}</p>` : ''; // chính tả: câu đã gõ, từ sai/thừa gạch ngang (cạnh đáp án đúng)
   function feedback(it, ok, heard) {
     if (L.v2 && window.ST2 && ST2['feedback-correct'] && ST2['feedback-wrong']) return feedbackV2(it, ok);
     const foot = $('#lsnFoot'), lv = view.querySelector('#lsn');
@@ -549,7 +546,7 @@
     foot.className = ST.SHEET + ' ' + (ok ? ST.SHEET_OK : ST.SHEET_BAD); if (lv) lv.classList.add('st-dim'); // phần câu hỏi lùi lại sau tấm (mẫu: opacity 40 %)
     const c = it.card, w = L.who === 'carlos' ? 'carlos' : 'ama';
     const coach = c ? ST.lsnCoach({ why: t('Vì sao?'), name: TNAME(L.who), role: t('Giáo viên của bạn'), head: ok ? t('Tuyệt!') : t('Đáp án'),
-      body: `${ok && it.type !== 'fix' ? '' : `<p class="m-0 font-body-md text-body-md text-primary font-bold"><b lang="en">${esc(it.type === 'fix' ? it.fixed : it.answer)}</b></p>`}<p class="m-0 font-headline-sm text-headline-sm text-on-surface leading-snug"><b lang="en">${esc(c.word)}</b> <span class="font-body-sm text-body-sm">${UI.pronHtml(c, { noEx: true })}</span></p><p class="m-0 font-body-md text-body-md text-on-surface-variant">${esc(meanOf(c))}</p>` }) : ''; // mẫu v2: từ (to) · phát âm · nghĩa (nhạt)
+      body: `${ok && it.type !== 'fix' ? '' : `<p class="m-0 font-body-md text-body-md text-primary font-bold"><b lang="en">${esc(it.type === 'fix' ? it.fixed : it.answer)}</b></p>${dictDiff(it)}`}<p class="m-0 font-headline-sm text-headline-sm text-on-surface leading-snug"><b lang="en">${esc(c.word)}</b> <span class="font-body-sm text-body-sm">${UI.pronHtml(c, { noEx: true })}</span></p><p class="m-0 font-body-md text-body-md text-on-surface-variant">${esc(meanOf(c))}</p>` }) : ''; // mẫu v2: từ (to) · phát âm · nghĩa (nhạt)
     foot.innerHTML = ST.lsnSheet({ ok, chips: chips(ok), coach, card: !!c, head: ok ? '✓ ' + t('Tuyệt!') : '✗ ' + (it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng')), answer: !c && !ok && it.type !== 'match' ? it.answer : '',
       why: c ? t('Vì sao?') : '', next: t('Tiếp tục') });
     if (c) $('#lsnWhy').onclick = () => explain(it);
@@ -589,7 +586,7 @@
   function v2optWrong(it, b, good, bad) {
     const w = b.querySelector(':scope > span'); if (!w) return;
     b.classList.remove('h-24'); b.classList.add('min-h-[6rem]');
-    const k = b.querySelector(':scope > div > span'); if (k) k.className = 'w-6 h-6 rounded-full flex items-center justify-center text-[13px] leading-[18px] font-bold ' + (good ? 'lt:bg-[#0D6964] lt:text-white dk:bg-[#2BA39A] dk:text-[#091518]' : bad ? 'lt:bg-[#b42814] lt:text-white dk:bg-[#F2553B] dk:text-[#2A0700]' : 'lt:bg-[#e6e9e8] lt:text-[#0F3D3E] dk:bg-[#1D323A] dk:text-[#EEF6F7]'); // chữ cái trong vòng tròn
+    const k = b.querySelector(':scope > div > span'); if (k) k.className = 'w-6 h-6 rounded-full flex items-center justify-center text-[13px] leading-[18px] font-bold ' + (good ? 'lt:bg-[#0D6964] lt:text-white dk:bg-[#2BA39A] dk:text-[#091518]' : bad ? 'lt:bg-[#b42814] lt:text-white dk:bg-[#F2553B] dk:text-[#2A0700]' : 'lt:bg-[#e6e9e8] lt:text-[#0F3D3E] dk:bg-[#1D323A] dk:text-[#EEF6F7]'); // chữ cái trong vòng tròn (Stitch; chữ tối trên san hô để đạt AA)
     w.className = 'block text-[22px] leading-[30px] tracking-tight font-bold ' + (good ? 'lt:text-[#0D6964] dk:text-[#EEF6F7]' : bad ? 'lt:text-[#b42814] dk:text-[#EEF6F7]' : 'lt:text-[#0F3D3E] dk:text-[#EEF6F7]');
     const box = document.createElement('div'); box.className = 'my-1 min-w-0'; w.replaceWith(box); box.appendChild(w);
     const m = optMean(it, b.dataset.o);
@@ -610,7 +607,7 @@
       a1: one ? '' : LB[ord[0]], a2: LB[ord[1]], acc1: ord[0], acc2: ord[1], url1: UI.audioFor(c, ord[0]), url2: UI.audioFor(c, ord[1]), ar1: one ? t('Chạm để nghe') : t(AR[ord[0]]), ar2: t(AR[ord[1]]), say: c.word } : { tlabel: '', word: '', ipa: '', mean: '', a1: '', a2: '', acc1: '', acc2: '', url1: '', url2: '', ar1: '', ar2: '', say: '' };
     boostOpen = false;
     const en = sentOf(it), box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : en ? `<div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
-    const extra = pills + (it.type === 'fix' ? `<p class="lsn-fixed m-0 text-[15px] leading-5 font-bold" lang="en">✓ ${esc(it.fixed)}</p>${it.note ? `<p class="m-0 text-[13px] leading-[18px]" lang="en">${esc(it.note)}</p>` : ''}` : '') + (en ? '<div id="lsnCard" class="lsn-fb"></div>' : '') + storyWhy(it);
+    const extra = pills + dictDiff(it) + (it.type === 'fix' ? `<p class="lsn-fixed m-0 text-[15px] leading-5 font-bold" lang="en">✓ ${esc(it.fixed)}</p>${it.note ? `<p class="m-0 text-[13px] leading-[18px]" lang="en">${esc(it.note)}</p>` : ''}` : '') + (en ? '<div id="lsnCard" class="lsn-fb"></div>' : '') + storyWhy(it);
     const q = { qkind: '', qpre: '', qpick: '', qpost: '' }; // đáp án chỉ hiện MỘT lần, ngay tại chỗ (viên tô màu trong câu / thẻ đáp án / ô nhập): không còn thẻ lặp câu trên cùng
     const d = Object.assign(ok ? { head: t('Đúng rồi!'), xp: last.retry ? '' : '+2 XP' } : { head: it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'), answer: it.type === 'match' ? '' : it.answer }, dict, q, { extra, boxes: box ? `<div class="lsn-fb flex flex-col gap-[0.5rem]">${box}</div>` : '' });
     const K = ok ? 'feedback-correct' : 'feedback-wrong', o2 = ST2[K](d);
@@ -634,7 +631,7 @@
   }
 
   // Thẻ kết quả (cpack/lesson/card.js, docs/specs/learn-card.md)
-  const sentOf = it => (it.type === 'gap' || it.type === 'build' || it.type === 'tr' ? it.sent || '' : it.type === 'q' ? it.prompt || '' : it.type === 'say' && /\s/.test(it.answer || '') ? it.answer : '');
+  const sentOf = it => (it.type === 'gap' || it.type === 'build' || it.type === 'tr' || it.type === 'dict' ? it.sent || '' : it.type === 'q' ? it.prompt || '' : it.type === 'say' && /\s/.test(it.answer || '') ? it.answer : '');
   const cardOn = () => { try { return ls.get('lk.lcard') !== '0'; } catch (e) { return true; } };
   let CARDP = null;
   const cardReady = () => CARDP || (CARDP = App.need('lcard').then(() => (window.LearnCard ? LearnCard.load(nativeLang()) : null)).catch(() => { CARDP = null; }));
@@ -737,7 +734,7 @@
     if (!L.xs) ls.set(PKEY(L.demo), String(pathN(L.demo) + 1)); // truyện mở từ Hôm nay (?story=) không đẩy nút bản đồ
     ls.set('lk.lsn.acc', String(s.accuracy)); // nút kế tiếp thích nghi theo bài này (ux1)
     if (L.story && L.story.id) { const a = sDone(L.demo); if (!a.includes(L.story.id)) ls.set(SDKEY(L.demo), JSON.stringify(a.concat(L.story.id))); }
-    if (L.story && !L.xs) ls.set(L.SK, String((parseInt(ls.get(L.SK) || '0', 10) || 0) + 1)); // truyện/radio kế tiếp lần sau // nút bản đồ xong
+    if (L.story && !L.xs) ls.set(L.SK, String((parseInt(ls.get(L.SK) || '0', 10) || 0) + 1)); // truyện/radio kế tiếp lần sau // nút bản đồ xong (demo: khóa riêng)
     try { if (window.Sfx) Sfx.win(); /* không pháo giấy: chuyển động tiết chế (chủ 28/10) */ } catch (e) { /* bỏ qua */ }
     let added = 0; const xp = Game.xpFor('set', { right: s.ok1, total: s.total, hints: L.hints || 0 }); // XP hiện cả ở bài thử (không ghi)
     if (!L.demo) {
@@ -756,7 +753,7 @@
     if (CV) return finishV2(s, xp, weak0(s), cheer);
     view.querySelector('#lsnBody').innerHTML = ''; if (L.v2) view.querySelector('#lsnBody').className = FLOW;
     $('#lsnBub').textContent = s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!');
-    const lv = view.querySelector('#lsn'); if (lv) lv.classList.add('st-end'); // 🎨 màn hoàn thành = khoảnh khắc ăn mừng
+    const lv = view.querySelector('#lsn'); if (lv) lv.classList.add('st-end'); // 🎨 màn hoàn thành = khoảnh khắc ăn mừng (web/js/st/lesson.js lsnEnd)
     const w = L.who === 'carlos' ? 'carlos' : 'ama', mins = Math.max(1, Math.round((Date.now() - L.t0) / 60000));
     view.querySelector('#lsnBody').innerHTML = ST.lsnEnd({ face: ST.tFace(w, s.accuracy >= 80 ? 'cheer' : 'encourage', 'absolute inset-0 w-full h-full object-contain object-bottom'),
       title: t('Hoàn thành bài học!'), sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'),

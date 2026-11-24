@@ -47,6 +47,7 @@
 "Mẹo nhớ:":"Astuce mémo :",
 "Mục tiêu {s}":"Objectif {s}",
 "Nghe chậm hơn":"Plus lentement",
+"Nghe và chép câu":"Écoutez et recopiez la phrase",
 "Nghe, chọn ảnh":"Écoutez, choisissez l'image",
 "Ngày mai ôn {n} từ để nhớ lâu":"À réviser demain : {n} mots",
 "Ngày mai: bài tiếp theo đã sẵn sàng":"Demain : votre prochaine leçon sera prête",

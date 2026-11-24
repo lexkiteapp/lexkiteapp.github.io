@@ -47,6 +47,7 @@
 "Mẹo nhớ:":"Truco para recordar:",
 "Mục tiêu {s}":"Meta {s}",
 "Nghe chậm hơn":"Más despacio",
+"Nghe và chép câu":"Escucha y copia la frase",
 "Nghe, chọn ảnh":"Escucha y elige la imagen",
 "Ngày mai ôn {n} từ để nhớ lâu":"Para repasar mañana: {n} palabras",
 "Ngày mai: bài tiếp theo đã sẵn sàng":"Mañana: tu próxima lección estará lista",

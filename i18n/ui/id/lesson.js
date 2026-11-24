@@ -47,6 +47,7 @@
 "Mẹo nhớ:":"Tips mengingat:",
 "Mục tiêu {s}":"Target {s}",
 "Nghe chậm hơn":"Lebih pelan",
+"Nghe và chép câu":"Dengar dan salin kalimatnya",
 "Nghe, chọn ảnh":"Dengar, pilih gambar",
 "Ngày mai ôn {n} từ để nhớ lâu":"Kata untuk diulas besok: {n}",
 "Ngày mai: bài tiếp theo đã sẵn sàng":"Besok: pelajaran berikutnya sudah siap",

@@ -47,6 +47,7 @@
 "Mẹo nhớ:":"Merkhilfe:",
 "Mục tiêu {s}":"Ziel {s}",
 "Nghe chậm hơn":"Langsamer",
+"Nghe và chép câu":"Satz hören und abschreiben",
 "Nghe, chọn ảnh":"Hör zu, wähle das Bild",
 "Ngày mai ôn {n} từ để nhớ lâu":"Morgen zu wiederholen: {n} Wörter",
 "Ngày mai: bài tiếp theo đã sẵn sàng":"Morgen: Ihre nächste Lektion ist bereit",
