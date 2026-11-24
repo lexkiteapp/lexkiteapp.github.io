@@ -123,6 +123,18 @@ for n in T['nodes']:   # nothing may stay on screen after the card it belongs to
         if ends and (not n.get('out') or n['out']['t'] > max(ends) + 0.05): prob.append(dict(id=n['id'], why='outlives its card', type=n['type']))
 seen = set(); prob = [p for p in prob if not (json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True) in seen or seen.add(json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True)))]
 gate('layout', not prob, 3, problems=prob[:8])
+# v3 layout_fill (audit 24/11 #3): at ANY sampled moment the safe box is filled – cards / titles / teacher / caption plate cover >= 1 - MAX_EMPTY of it (timeline geometry, theme-independent; a card in a tone close to the background still counts)
+MAX_EMPTY = 0.50; CELL = 24; sb = T['safe']; gx, gy = (sb[2] - sb[0]) // CELL + 1, (sb[3] - sb[1]) // CELL + 1; fill_bad = []
+for k_ in range(int(T['total'] * 4)):
+    t_ = k_ / 4 + 0.05; cov = set()
+    boxes = [n['box'] for n in T['nodes'] if not n.get('parent') and n['type'] not in ('confetti', 'backdrop') and not n.get('hidden') and alpha(n, t_) > 0.5 and (not n.get('out') or n['out']['t'] > t_)] + [T['body']]
+    if T.get('cap_box') and any(c['t0'] <= t_ < c['t1'] for c in T.get('caps', [])): boxes.append(T['cap_box'])
+    for b_ in boxes:
+        for gx_ in range(max(0, int((b_[0] - sb[0]) // CELL)), min(gx, int((b_[2] - sb[0]) // CELL) + 1)):
+            for gy_ in range(max(0, int((b_[1] - sb[1]) // CELL)), min(gy, int((b_[3] - sb[1]) // CELL) + 1)): cov.add((gx_, gy_))
+    e_ = 1 - len(cov) / (gx * gy)
+    if e_ > MAX_EMPTY: fill_bad.append(dict(t=round(t_, 2), empty_pct=round(100 * e_)))
+gate('layout_fill', len(fill_bad) <= max(1, 0.10 * int(T['total'] * 4)), 3, max_empty=MAX_EMPTY, bad_moments=len(fill_bad), worst=sorted(fill_bad, key=lambda x: -x['empty_pct'])[:4])
 # platform UI zones (Spell->Sound, docs/specs/spell-sound.md): the 9:16 short keeps every element out of the top 12 % (back / search icons), the bottom 22 % (caption + sound row) and the right 14 % (like / comment rail),
 # and shows at most 6 text rows at once. Defects seen in the reference reel (title under the icons, meaning chips under the rail, last row over the caption) must never ship.
 if T['template'] in ('rule', 'band') and T['format'] == 'short':
@@ -202,7 +214,7 @@ if o.video:
         if im.std() < 4: blank.append(i)
     gate('frames', min(hostvis) > 0.12 and not blank, 3, host_cover_min=min(hostvis), host_missing_s=[i / 4 for i, x in enumerate(hostvis) if x <= 0.12][:6], blank=blank)   # 4 samples / s
     from dead_band import check as _dead_band   # owner 19/11: no flat empty band >= 8 % of the frame height (scripts/video/tpl/dead_band.py), short + wide
-    _db = _dead_band((im.astype(np.float32).mean(2) for im in fr), empty=True); gate('dead_band', _db['ok'], 3, **{k: v for k, v in _db.items() if k != 'ok'})
+    _db = _dead_band(im.astype(np.float32).mean(2) for im in fr); gate('dead_band', _db['ok'], 3, **{k: v for k, v in _db.items() if k != 'ok'})
     if o.sheet:   # contact sheet: one frame per line (middle), for the review sheet
         ts = [round((x['t0'] + x['t1']) / 2, 2) for x in L.values()]
         sel = '+'.join(f'between(t\\,{t - 0.02}\\,{t + 0.02})' for t in ts)

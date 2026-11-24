@@ -148,7 +148,7 @@ ok(!/\['1st', 'accent'\]|\['2nd', 'accent'\]|f"…-\{o\[1\]\}-…"/.test(bsrc), 
   const bs = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/build.py'), 'utf8'), qs = fs.readFileSync(path.join(ROOT, 'scripts/video/teach2d/qc.py'), 'utf8');
   ok(/wide=dict\([^\n]*cap=\[96, 924, 1056, 1024\]/.test(bs.replace(/\n\s+/g, ' ')) || /cap=\[96, 924, 1056, 1024\]/.test(bs), 'v3: wide format burns captions (cap box set)');
   ok(!/if EMBED:\n\s+c\.text\(\[\['Next step/.test(bs) && /CTA_LABEL/.test(bs) && /qr\.png/.test(bs), 'v3: one end card (no embed "Next step" variant), Practice button + QR + lexkite.com');
-  for (const g of ['end_card', 'caption_full', 'pose_variety']) ok(new RegExp(`gate\\('${g}'`).test(qs), `v3: qc.py gate ${g}`);
+  for (const g of ['end_card', 'caption_full', 'pose_variety', 'layout_fill']) ok(new RegExp(`gate\\('${g}'`).test(qs), `v3: qc.py gate ${g}`);
   ok(!/if T\['format'\] == 'short':\n\s+capw/.test(qs), 'v3: caption_sync runs on wide too');
 }
 
