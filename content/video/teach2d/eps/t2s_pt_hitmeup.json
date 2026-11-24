@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_hitmeup",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 110,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Need help? I'm around!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Hit me up!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Send me a message.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Hit me up if you need help.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "hit me up",
+  "forms": [],
+  "ipa": "/ˈhɪt mi ˈʌp/",
+  "mean": "Send me a message.",
+  "define": "To contact someone by text or call.",
+  "vi": "Nhắn tui nhé",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Ending a chat",
+   "text": "Hit me up if you need help."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "hit me",
+    "message me"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'hit me up' to your professor.",
+   "why": "It's too casual for teachers."
+  },
+  "l1": "me dá um toque",
+  "l1_hook": "Precisa de ajuda? Estou por aqui! Hit me up.",
+  "l1_ex": "Hit me up se precisar de ajuda.",
+  "right": "hit me up",
+  "native": {
+   "hook": "O que significa “hit me up”?",
+   "tip": "“hit me up” = me dá um toque. Exemplo: “Hit me up if you need help.”",
+   "caption": "O que significa “hit me up”?\n“hit me up” = me dá um toque.\nExemplo: “Hit me up if you need help.” (Hit me up se precisar de ajuda.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “hit me up” = me dá um toque. “Hit me up if you need help.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Need help? I'm around!"
+ },
+ "src": {
+  "slang": "hit me up"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "O que significa “hit me up”?",
+  "keyword": "hit me up",
+  "value": "“hit me up” = me dá um toque. Exemplo: “Hit me up if you need help.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “hit me up”?",
+    "description": "“hit me up” = me dá um toque. Exemplo: “Hit me up if you need help.”\n\nO que significa “hit me up”?\n“hit me up” = me dá um toque.\nExemplo: “Hit me up if you need help.” (Hit me up se precisar de ajuda.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "hit me up",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “hit me up”?\n“hit me up” = me dá um toque.\nExemplo: “Hit me up if you need help.” (Hit me up se precisar de ajuda.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “hit me up”?\n\n“hit me up” = me dá um toque. Exemplo: “Hit me up if you need help.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “hit me up”? “hit me up” = me dá um toque. Exemplo: “Hit me up if you need help.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “hit me up” = me dá um toque. “Hit me up if you need help.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

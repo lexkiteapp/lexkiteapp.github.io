@@ -33,3 +33,19 @@ a.tl-chip[href]{display:inline-flex;align-items:center;gap:var(--sp-2);min-heigh
 .tlp-prep{max-width:560px;margin:var(--sp-6) auto;text-align:center;display:grid;gap:var(--sp-3);justify-items:center}.tlp-prep .tlp-flag{font-size:var(--fs-xl);width:auto}.tlp-prep h1{margin:0;color:var(--heading)}
 .tlp-back{display:inline-flex;align-items:center;justify-content:center;min-width:var(--tap,44px);min-height:var(--tap,44px);border-radius:50%;font-size:var(--fs-lg);text-decoration:none}
 .tlp-page{display:block}.tlp-page>.tlp-prep{margin-block:var(--sp-4)}
+/* Bảng chọn ngôn ngữ + kỳ thi (TLPick.exam): tiêu đề dính trên, "Xong" dính dưới; MỘT kiểu chọn (.on = nền accent-soft + ✓ + viền done); hover chỉ đổi nền, focus-visible là vòng riêng nên không bao giờ giống "đã chọn" */
+#modal .tlp-xp{padding:0;display:flex;flex-direction:column;min-height:0}
+.tlp-top-s{position:sticky;top:0;z-index:2;background:var(--surface);padding:var(--sp-2) var(--sp-4) var(--sp-1);border-radius:var(--r-xl) var(--r-xl) 0 0}
+.tlp-xb{padding:0 var(--sp-4)}
+.tlp-foot-s{position:sticky;bottom:0;z-index:2;background:var(--surface);padding:var(--sp-3) var(--sp-4) calc(var(--sp-3) + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+.tlp-done{width:100%;min-height:var(--tap,44px)}
+.tlp-sec{margin-top:var(--sp-4)}.tlp-sec:first-child{margin-top:var(--sp-2)}
+.tlp-lab{margin:0;font-size:var(--fs-xs);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--heading)}
+.tlp-sec .tlp-list{margin-top:var(--sp-2)}
+.tlp-xp #xpL+ul{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.tlp-xp .tlp-lang{min-height:72px;padding:var(--sp-2) var(--sp-3);gap:var(--sp-2)}.tlp-xp .tlp-lang .tlp-flag{width:32px;font-size:var(--fs-lg)}
+.tlp-xp .tlp-lang .tlp-tick{width:24px;height:24px}
+@media (hover:hover){button.tlp-row:not(.on):hover{background:var(--surface-2)}}
+button.tlp-row:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button.tlp-row:focus:not(:focus-visible){outline:none}
+.tlp-xp .tlp-row.on .tlp-tick{background:var(--done);color:var(--on-done)}

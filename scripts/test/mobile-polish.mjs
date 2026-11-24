@@ -98,6 +98,15 @@ ok((parseFloat(T.dataset.at) || 0) >= 148, 'màn vẽ lại khi toast đang hi�
 bar2.remove(); await tick(60);
 bar.remove(); w.UI.toast('Toast thường'); await tick(280); // câu mới khi toast đang hiện: câu cũ mờ trước rồi mới đổi chữ (không đổi cỡ khi còn thấy = 0 CLS)
 ok(!T.dataset.at && !T.style.getPropertyValue('--ty') && !T.style.bottom && !T.style.top, 'không vật cản → giữ vị trí CSS (đã gồm safe-area)');
+// 23/11 (Journey phone: toast "Huy hiệu mới: Cấp 5" đè "Học tiếp →"): đo theo BỐ CỤC, không theo rect đang chuyển động. Giả lập transform đang chạy: rect lệch lên trên nút, offset* vẫn ở đáy → toast phải né nút theo vị trí bố cục
+{ T.classList.remove('show'); T._msg = null; await tick(300);
+  const set = (k, v) => Object.defineProperty(T, k, { value: v, configurable: true });
+  set('offsetHeight', 48); set('offsetWidth', 300); set('offsetTop', 740 - 28 - 48); T.getBoundingClientRect = () => ({ top: 560, bottom: 608, left: 362, right: 662, width: 300, height: 48 });
+  const cta = w.document.createElement('a'); cta.className = 'chip'; cta.href = '#'; $('#view').appendChild(cta); cta.getBoundingClientRect = () => ({ top: 650, bottom: 700, left: 0, right: 1024, width: 1024, height: 50 });
+  w.UI.toast('Huy hiệu mới: Cấp 6'); await tick(120);
+  const bb = parseFloat(T.dataset.at) || 0, top = 740 - bb - 48, bot = 740 - bb;
+  ok(shown() && bb > 0 && (bot <= 650 || top >= 700), `rect đang chuyển động không làm toast đè nút (toast ${Math.round(top)}–${Math.round(bot)}, nút 650–700)`);
+  cta.remove(); ['offsetHeight', 'offsetWidth', 'offsetTop'].forEach(k => delete T[k]); delete T.getBoundingClientRect; T.classList.remove('show'); T._msg = null; await tick(300); }
 ok(/\.toast \{[^}]*bottom: calc\(28px \+ env\(safe-area-inset-bottom/.test(css), 'CSS toast tính safe-area');
 ok(/\.toast\.show \{[^}]*translateY\(var\(--ty/.test(css) && !/toastLift[\s\S]{0,1500}style\.(bottom|top) = [^'"]*\d/.test(fs.readFileSync(path.join(WEB, 'js/ui.js'), 'utf8')), 'toast né nút bằng transform (--ty), không đổi top/bottom lúc đang hiện → 0 CLS');
 

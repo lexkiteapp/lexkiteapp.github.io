@@ -1,0 +1,152 @@
+{
+ "id": "t2s_ru_flatbroke",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 109,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can I borrow ten dollars?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Flat broke!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I have no money left.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm flat broke until Friday.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "flat broke",
+  "forms": [
+   "broke"
+  ],
+  "ipa": "/ˈflæt ˈbroʊk/",
+  "mean": "I have no money left.",
+  "define": "Used when you have almost no money at all.",
+  "vi": "Cháy túi hoàn toàn",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Talking before payday",
+   "text": "I'm flat broke until Friday."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Flat broke\" means…",
+   "options": [
+    "no money",
+    "a broken phone"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'flat broke' about a broken phone.",
+   "why": "It means having no money."
+  },
+  "l1": "на мели",
+  "l1_hook": "Можно одолжить десять долларов?",
+  "l1_ex": "Я «flat broke» до пятницы.",
+  "right": "flat broke",
+  "native": {
+   "hook": "Что значит «flat broke»?",
+   "tip": "“flat broke” = на мели. Пример: “I'm flat broke until Friday.”",
+   "caption": "Что значит «flat broke»?\n“flat broke” = на мели.\nПример: “I'm flat broke until Friday.” (Я «flat broke» до пятницы.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “flat broke” = на мели. “I'm flat broke until Friday.” Больше практики бесплатно: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#учуанглийский",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can I borrow ten dollars?"
+ },
+ "src": {
+  "slang": "flat broke"
+ },
+ "lang": "ru",
+ "est": {
+  "words": 19,
+  "seconds": 11.2,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Что значит «flat broke»?",
+  "keyword": "flat broke",
+  "value": "“flat broke” = на мели. Пример: “I'm flat broke until Friday.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#учуанглийский",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Что значит «flat broke»?",
+    "description": "“flat broke” = на мели. Пример: “I'm flat broke until Friday.”\n\nЧто значит «flat broke»?\n“flat broke” = на мели.\nПример: “I'm flat broke until Friday.” (Я «flat broke» до пятницы.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "tags": [
+     "flat broke",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Что значит «flat broke»?\n“flat broke” = на мели.\nПример: “I'm flat broke until Friday.” (Я «flat broke» до пятницы.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Что значит «flat broke»?\n\n“flat broke” = на мели. Пример: “I'm flat broke until Friday.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#учуанглийский",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Что значит «flat broke»? “flat broke” = на мели. Пример: “I'm flat broke until Friday.” #английскийязык #английский #учуанглийский"
+   }
+  },
+  "first_comment": "Ответ: “flat broke” = на мели. “I'm flat broke until Friday.” Больше практики бесплатно: {link}",
+  "lang": "ru"
+ }
+}

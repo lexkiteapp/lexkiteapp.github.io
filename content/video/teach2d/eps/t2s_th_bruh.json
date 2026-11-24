@@ -1,0 +1,148 @@
+{
+ "id": "t2s_th_bruh",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 56,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You forgot your homework again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bruh!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I can't believe it.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Bruh, you forgot your homework again?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "bruh",
+  "forms": [
+   "bro"
+  ],
+  "ipa": "/ˈbrʌ/",
+  "mean": "I can't believe it.",
+  "define": "A short reaction to something silly or unbelievable.",
+  "vi": "Trời ơi, thiệt hả bro",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Reacting to a mistake",
+   "text": "Bruh, you forgot your homework again?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Bruh\" shows…",
+   "options": [
+    "joy",
+    "disbelief"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'bruh' to your boss.",
+   "why": "It sounds disrespectful."
+  },
+  "l1": "โธ่เอ๊ย",
+  "l1_hook": "bruh, ทำการบ้านลืมอีกแล้วหรือ?",
+  "l1_ex": "Bruh, คุณลืมการบ้านอีกแล้วหรือ?",
+  "right": "bruh",
+  "native": {
+   "hook": "“bruh” แปลว่าอะไร?",
+   "tip": "“bruh” = โธ่เอ๊ย. ตัวอย่าง: “Bruh, you forgot your homework again?”",
+   "caption": "“bruh” แปลว่าอะไร?\n“bruh” = โธ่เอ๊ย.\nตัวอย่าง: “Bruh, you forgot your homework again?” (Bruh, คุณลืมการบ้านอีกแล้วหรือ?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “bruh” = โธ่เอ๊ย. “Bruh, you forgot your homework again?” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You forgot your homework again?"
+ },
+ "src": {
+  "slang": "bruh"
+ },
+ "lang": "th",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“bruh” แปลว่าอะไร?",
+  "keyword": "bruh",
+  "value": "“bruh” = โธ่เอ๊ย. ตัวอย่าง: “Bruh, you forgot your homework again?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“bruh” แปลว่าอะไร?",
+    "description": "“bruh” = โธ่เอ๊ย. ตัวอย่าง: “Bruh, you forgot your homework again?”\n\n“bruh” แปลว่าอะไร?\n“bruh” = โธ่เอ๊ย.\nตัวอย่าง: “Bruh, you forgot your homework again?” (Bruh, คุณลืมการบ้านอีกแล้วหรือ?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "bruh",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“bruh” แปลว่าอะไร?\n“bruh” = โธ่เอ๊ย.\nตัวอย่าง: “Bruh, you forgot your homework again?” (Bruh, คุณลืมการบ้านอีกแล้วหรือ?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“bruh” แปลว่าอะไร?\n\n“bruh” = โธ่เอ๊ย. ตัวอย่าง: “Bruh, you forgot your homework again?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“bruh” แปลว่าอะไร? “bruh” = โธ่เอ๊ย. ตัวอย่าง: “Bruh, you forgot your homework again?” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “bruh” = โธ่เอ๊ย. “Bruh, you forgot your homework again?” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

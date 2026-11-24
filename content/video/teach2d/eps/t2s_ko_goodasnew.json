@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_goodasnew",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 79,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One nap, and I'm better!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Good as new!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Fully better again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "After a nap, I feel good as new.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "good as new",
+  "forms": [],
+  "ipa": "/ˈɡʊd əz ˈnuː/",
+  "mean": "Fully better again.",
+  "define": "Used when something or someone is completely fixed or healthy.",
+  "vi": "Khỏe như mới",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "Talking about a repair",
+   "text": "After a nap, I feel good as new."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "very old",
+    "fully fixed"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a broken phone 'good as new'.",
+   "why": "It means fully repaired or healed."
+  },
+  "l1": "완전히 회복된",
+  "l1_hook": "‘good as new’, 한 번 낮잠 자면 완전히 회복돼!",
+  "l1_ex": "잠을 잔 뒤에 나는 'good as new' 느낌이야.",
+  "right": "good as new",
+  "native": {
+   "hook": "“good as new” 무슨 뜻일까요?",
+   "tip": "“good as new” = 완전히 회복된. 예문: “After a nap, I feel good as new.”",
+   "caption": "“good as new” 무슨 뜻일까요?\n“good as new” = 완전히 회복된.\n예문: “After a nap, I feel good as new.” (잠을 잔 뒤에 나는 'good as new' 느낌이야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “good as new” = 완전히 회복된. “After a nap, I feel good as new.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One nap, and I'm better!"
+ },
+ "src": {
+  "slang": "good as new"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“good as new” 무슨 뜻일까요?",
+  "keyword": "good as new",
+  "value": "“good as new” = 완전히 회복된. 예문: “After a nap, I feel good as new.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“good as new” 무슨 뜻일까요?",
+    "description": "“good as new” = 완전히 회복된. 예문: “After a nap, I feel good as new.”\n\n“good as new” 무슨 뜻일까요?\n“good as new” = 완전히 회복된.\n예문: “After a nap, I feel good as new.” (잠을 잔 뒤에 나는 'good as new' 느낌이야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "good as new",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“good as new” 무슨 뜻일까요?\n“good as new” = 완전히 회복된.\n예문: “After a nap, I feel good as new.” (잠을 잔 뒤에 나는 'good as new' 느낌이야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“good as new” 무슨 뜻일까요?\n\n“good as new” = 완전히 회복된. 예문: “After a nap, I feel good as new.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“good as new” 무슨 뜻일까요? “good as new” = 완전히 회복된. 예문: “After a nap, I feel good as new.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “good as new” = 완전히 회복된. “After a nap, I feel good as new.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

@@ -172,7 +172,9 @@ jobs:
         run: |
           for r in fill:40069944527 pilot2:40059373319; do n=${r%%:*}; id=${r##*:}
             gh run download $id -R ${{ github.repository }} -D lab/$n || echo "::warning::không tải được artifact $id"; done
-          f=$(find lab/fill -type d -name raw | head -1); p=$(find lab/pilot2 -type d -name raw | head -1)
+          f=$(find lab/fill -type d -name raw 2>/dev/null | head -1); p=$(find lab/pilot2 -type d -name raw 2>/dev/null | head -1)
+          # 24/11: artifact tập gán nhãn hết hạn (giữ 90 ngày) → recal mặc định "1" làm đỏ cả lượt pilot/fill. Chỉ mode=calibrate mới bắt buộc; còn lại bỏ qua, giữ ngưỡng đã commit (vimg-judge-scene.json)
+          if [ -z "$f" ] || [ -z "$p" ]; then [ "$MODE" = calibrate ] && { echo "::error::artifact tập gán nhãn đã hết hạn – không hiệu chỉnh được"; exit 1; }; echo "::warning::bỏ qua hiệu chỉnh: artifact tập gán nhãn đã hết hạn (dùng ngưỡng đã commit)"; exit 0; fi
           cd scripts/vocab-img && python3 calibrate.py --img fill=$GITHUB_WORKSPACE/$f --img pilot2=$GITHUB_WORKSPACE/$p --write 2>&1 | tail -25 && mv calibration.json $GITHUB_WORKSPACE/
       - uses: actions/upload-artifact@v4
         if: always() && steps.lease.outputs.skip != '1'
@@ -606,6 +608,7 @@ jobs:
         run: |
           mkdir -p m/raw m/svg && for d in parts/*/; do cp -n $d/out/vimg-scene/raw/* m/raw/ 2>/dev/null || true; cp -n $d/out/vimg-scene/svg/* m/svg/ 2>/dev/null || true; cp -n $d/out/vimg-scene/*.json m/ 2>/dev/null || true
             for f in $d/out/vimg-scene/judge.local.a*.json; do [ ! -f "$f" ] || python3 -c "import json,sys,os;o='m/'+os.path.basename(sys.argv[1]);a=json.load(open(o)) if os.path.exists(o) else {};a.update(json.load(open(sys.argv[1])));json.dump(a,open(o,'w'))" $f; done; done
+          [ -f m/targets.json ] || { echo "::warning::không có việc nào chạy (lượt chuẩn bị bị bỏ qua hoặc thuê bị từ chối)"; exit 0; }
           python3 scripts/vocab-img/scene_final.py --dir m --sheet m/abstract-pilot.jpg
           node scripts/vocab-img/report.mjs --dir m | tail -c 1500   # tỷ lệ đạt theo ảnh + neuron/ảnh nhận (m/fill-report.json)
       - uses: actions/upload-artifact@v4

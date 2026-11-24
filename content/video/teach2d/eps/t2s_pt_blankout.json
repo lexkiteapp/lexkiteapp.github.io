@@ -1,0 +1,148 @@
+{
+ "id": "t2s_pt_blankout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 38,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stage lights on. My mind's empty!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Blank out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly forget everything.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I blanked out in the middle of my speech.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "blank out",
+  "forms": [
+   "blanked out"
+  ],
+  "ipa": "/ˈblæŋk ˈaʊt/",
+  "mean": "Suddenly forget everything.",
+  "define": "To suddenly forget what you wanted to say or know.",
+  "vi": "Đầu óc trống rỗng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Talking after a speech",
+   "text": "I blanked out in the middle of my speech."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"blank out\" is to…",
+   "options": [
+    "clean a board",
+    "suddenly forget"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'blank out' about a paper.",
+   "why": "It means suddenly forgetting."
+  },
+  "l1": "ficar em branco",
+  "l1_hook": "Luzes do palco acesas. Minha mente está vazia!",
+  "l1_ex": "Eu tive um \"blank out\" no meio do meu discurso.",
+  "right": "blank out",
+  "native": {
+   "hook": "O que significa “blank out”?",
+   "tip": "“blank out” = ficar em branco. Exemplo: “I blanked out in the middle of my speech.”",
+   "caption": "O que significa “blank out”?\n“blank out” = ficar em branco.\nExemplo: “I blanked out in the middle of my speech.” (Eu tive um \"blank out\" no meio do meu discurso.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “blank out” = ficar em branco. “I blanked out in the middle of my speech.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stage lights on. My mind's empty!"
+ },
+ "src": {
+  "slang": "blank out"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "O que significa “blank out”?",
+  "keyword": "blank out",
+  "value": "“blank out” = ficar em branco. Exemplo: “I blanked out in the middle of my speech.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “blank out”?",
+    "description": "“blank out” = ficar em branco. Exemplo: “I blanked out in the middle of my speech.”\n\nO que significa “blank out”?\n“blank out” = ficar em branco.\nExemplo: “I blanked out in the middle of my speech.” (Eu tive um \"blank out\" no meio do meu discurso.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "blank out",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “blank out”?\n“blank out” = ficar em branco.\nExemplo: “I blanked out in the middle of my speech.” (Eu tive um \"blank out\" no meio do meu discurso.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “blank out”?\n\n“blank out” = ficar em branco. Exemplo: “I blanked out in the middle of my speech.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “blank out”? “blank out” = ficar em branco. Exemplo: “I blanked out in the middle of my sp… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “blank out” = ficar em branco. “I blanked out in the middle of my speech.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}
