@@ -1,0 +1,150 @@
+{
+ "id": "t2s_pt_countmein",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 35,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Game night at my place!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Count me in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I want to join.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Game night? Count me in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "count me in",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈɪn/",
+  "mean": "I want to join.",
+  "define": "Used to say you will take part in a plan.",
+  "vi": "Tính tui vào nhé",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Replying to an invite",
+   "text": "Game night? Count me in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'll count",
+    "I'll join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me in' before checking the date.",
+   "why": "People will count on you."
+  },
+  "l1": "conta comigo",
+  "l1_hook": "Noite de jogos aqui em casa! \"count me in\"",
+  "l1_ex": "Noite de jogos? \"count me in\"!",
+  "right": "count me in",
+  "native": {
+   "hook": "O que significa “count me in”?",
+   "tip": "“count me in” = conta comigo. Exemplo: “Game night? Count me in!”",
+   "caption": "O que significa “count me in”?\n“count me in” = conta comigo.\nExemplo: “Game night? Count me in!” (Noite de jogos? \"count me in\"!)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “count me in” = conta comigo. “Game night? Count me in!” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Game night at my place!"
+ },
+ "src": {
+  "slang": "count me in"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "O que significa “count me in”?",
+  "keyword": "count me in",
+  "value": "“count me in” = conta comigo. Exemplo: “Game night? Count me in!”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “count me in”?",
+    "description": "“count me in” = conta comigo. Exemplo: “Game night? Count me in!”\n\nO que significa “count me in”?\n“count me in” = conta comigo.\nExemplo: “Game night? Count me in!” (Noite de jogos? \"count me in\"!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "count me in",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “count me in”?\n“count me in” = conta comigo.\nExemplo: “Game night? Count me in!” (Noite de jogos? \"count me in\"!)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “count me in”?\n\n“count me in” = conta comigo. Exemplo: “Game night? Count me in!”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “count me in”? “count me in” = conta comigo. Exemplo: “Game night? Count me in!” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “count me in” = conta comigo. “Game night? Count me in!” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

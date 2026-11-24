@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_gameplan",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 92,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Test tomorrow. Where do we start?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Game plan!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "The plan for what to do.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "So, what's the game plan?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "game plan",
+  "forms": [],
+  "ipa": "/ˈɡeɪm ˈplæn/",
+  "mean": "The plan for what to do.",
+  "define": "A clear plan to reach a goal.",
+  "vi": "Kế hoạch hành động",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Talking before a project",
+   "text": "So, what's the game plan?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"game plan\" is…",
+   "options": [
+    "a video game",
+    "a clear plan"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a vague idea a 'game plan'.",
+   "why": "It means a clear plan."
+  },
+  "l1": "plano de ação",
+  "l1_hook": "Prova amanhã. Qual é o nosso \"game plan\"?",
+  "l1_ex": "E aí, qual é o \"game plan\"?",
+  "right": "game plan",
+  "native": {
+   "hook": "O que significa “game plan”?",
+   "tip": "“game plan” = plano de ação. Exemplo: “So, what's the game plan?”",
+   "caption": "O que significa “game plan”?\n“game plan” = plano de ação.\nExemplo: “So, what's the game plan?” (E aí, qual é o \"game plan\"?)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “game plan” = plano de ação. “So, what's the game plan?” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Test tomorrow. Where do we start?"
+ },
+ "src": {
+  "slang": "game plan"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "O que significa “game plan”?",
+  "keyword": "game plan",
+  "value": "“game plan” = plano de ação. Exemplo: “So, what's the game plan?”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 15,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “game plan”?",
+    "description": "“game plan” = plano de ação. Exemplo: “So, what's the game plan?”\n\nO que significa “game plan”?\n“game plan” = plano de ação.\nExemplo: “So, what's the game plan?” (E aí, qual é o \"game plan\"?)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "game plan",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “game plan”?\n“game plan” = plano de ação.\nExemplo: “So, what's the game plan?” (E aí, qual é o \"game plan\"?)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “game plan”?\n\n“game plan” = plano de ação. Exemplo: “So, what's the game plan?”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “game plan”? “game plan” = plano de ação. Exemplo: “So, what's the game plan?” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “game plan” = plano de ação. “So, what's the game plan?” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

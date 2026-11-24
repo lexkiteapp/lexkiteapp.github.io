@@ -347,7 +347,7 @@ explain: 'Dev nói "I\'ll call Fulton Rentals right after this meeting" → gọ
 ] },
 { type: 'mcq', instr: g.TQL[18],
 items: [
-{ n: 38, q: g.TQL[44], options: ["A supplier's issue", 'A staff training session', 'Software for managing projects', 'Recruiting a new supervisor'], a: 2, cue: 'Our subscription to their project management software expires',
+{ n: 38, q: g.TQL[44], options: ["A supplier's invoice dispute", 'A quarterly performance review', 'Software for managing projects', 'Scheduling a staff training'], a: 2, cue: 'Our subscription to their project management software expires',
 explain: 'Cả cuộc hội thoại bàn về việc gia hạn hay đổi phần mềm quản lý dự án (Brightdesk → TaskHarbor) → C. "project management software" được diễn đạt lại thành "software for managing projects".' },
 { n: 39, q: 'What concern does the man express about changing programs?', options: ['The expense of equipment', 'A shortage of office space', 'The time needed to move files', 'A delayed project start'], a: 2, cue: 'moving all of our project files to a new system could take weeks',
 explain: 'Người đàn ông lo thời gian chuyển file; không phải chi phí đào tạo, không phải thiếu không gian lưu trữ, cũng không phải hạn chót bị bỏ lỡ.' },
@@ -602,8 +602,8 @@ items: [
 explain: 'Tổng đài sẽ mở đến 9 giờ tối thay vì đóng lúc 6 giờ → giờ làm việc dài hơn (D). Dù là tổng đài điện thoại, không có hệ thống điện thoại mới (A).' },
 { n: 81, q: 'Why is the change being made?', options: ['To cut operating costs', 'To compete with a rival', 'To respond to customer needs', 'To fill vacant job positions'], a: 2, cue: 'many of our customers can only call us after they finish work',
 explain: 'Khảo sát cho thấy nhiều khách chỉ gọi được sau giờ làm → thay đổi để đáp ứng nhu cầu khách hàng (C). Việc thêm ca làm tăng chi phí chứ không giảm (A sai).' },
-{ n: 82, q: g.TQL[62], options: ['Contact a colleague in human resources', 'Complete a survey', 'Attend a training session', 'Update their contact details'], a: 0, cue: 'please let Marco in human resources know by the end of next week',
-explain: '"let Marco in human resources know" (báo cho Marco ở phòng nhân sự) → liên hệ đồng nghiệp ở phòng nhân sự (A). Khảo sát là của khách hàng và đã được thực hiện, nên B sai.' },
+{ n: 82, q: g.TQL[62], options: ['Contact a colleague in human resources', 'Schedule a meeting with the manager', 'Submit a weekly report', 'Review the company handbook'], a: 0, cue: 'please let Marco in human resources know by the end of next week',
+explain: 'Người nói yêu cầu bạn thông báo cho Marco ở phòng nhân sự, do đó đáp án A là đúng; các lựa chọn khác không được nhắc tới trong đoạn hội thoại.' },
 ] },
 { type: 'mcq', instr: g.TQL[33],
 items: [
@@ -620,8 +620,8 @@ items: [
 explain: 'Quảng cáo cho "Saffron Street Cooking School" – trường dạy nấu ăn với các khóa học buổi tối. Nhà hàng chỉ là nơi các đầu bếp giảng dạy đang làm việc.' },
 { n: 87, q: 'What does the speaker say about the classes?', options: ['They are small.', 'They take place on weekends.', 'They are taught online.', 'They last one day.'], a: 0, cue: 'each class has no more than ten students',
 explain: 'Mỗi lớp không quá 10 học viên → lớp nhỏ, được quan tâm cá nhân. Lớp học vào buổi tối ("evening classes"), kéo dài 6 tuần, không phải cuối tuần hay một ngày.' },
-{ n: 88, q: 'How can listeners receive a free gift?', options: ['By calling the hotline now', 'By registering by a certain date', 'By sending a text message', 'By completing an online survey'], a: 1, cue: 'if you sign up before the end of March',
-explain: 'Người nghe được thông báo sẽ nhận được dao đầu bếp trị giá 50 USD khi đăng ký trước cuối tháng Ba, vì vậy cách nhận quà là đăng ký trong thời hạn quy định. Các phương án khác như mua chứng chỉ quà tặng, mang bạn đi hoặc truy cập website không liên quan đến việc nhận quà.' },
+{ n: 88, q: 'How can listeners receive a free gift?', options: ['By completing an online survey', 'By registering by a certain date', 'By calling the customer service line', 'By sending a confirmation email'], a: 1, cue: 'if you sign up before the end of March',
+explain: 'Đăng ký trước cuối tháng Ba sẽ được tặng dao đầu bếp trị giá 50 đô-la → đăng ký trước một thời hạn. Website chỉ để xem lịch học.' },
 ] },
 { type: 'mcq', instr: g.TQL[35],
 items: [

@@ -71,7 +71,7 @@
       ${SECTIONS.map(s => `<h2 style="margin-top:1.4rem">${s.ic} <span lang="en" translate="no">${s.name}</span></h2>
         <div class="grid auto">${s.tasks.map(k => { const T = TASKS[k], n = countTask(k); return `<div class="card"><span class="chip">${T.ic} <span lang="en" translate="no">${s.name}</span></span>${b[k] != null ? ` <span class="chip ok">🏆 ${b[k]}%</span>` : ''}
           <h3 style="margin:.5rem 0 .2rem">${esc(T.name)}</h3><div class="small muted">${T.desc}</div><div class="tiny muted" style="margin-top:.3rem">${n ? esc(unitWord(k, n)) : t('Đang cập nhật.')}</div>
-          <div class="row" style="margin-top:.6rem"><a class="btn sm primary" href="#/toefl-p/${k}">🎯 ${t('Luyện tập')}</a></div></div>`; }).join('')}</div>`).join('')}
+          <div class="row" style="margin-top:.6rem"><a class="btn sm" href="#/toefl-p/${k}">🎯 ${t('Luyện tập')}</a></div></div>`; }).join('')}</div>`).join('')}
       <div class="card" style="margin-top:1.2rem"><h3 style="margin-top:0">📏 ${t('Về điểm số trong ứng dụng')}</h3>
         <p class="small" style="margin:.2rem 0">${t('Sau mỗi bài trắc nghiệm, ứng dụng hiển thị tỉ lệ đúng và một <b>band ước tính</b> (1–6) để bạn theo dõi tiến bộ. Đây là quy đổi tuyến tính trên bộ đề tự biên soạn – <b>không phải</b> thang điểm chính thức và không tương đương điểm thi thật của ETS.')}</p>
         <p class="small muted" style="margin:.2rem 0">${t('Writing và Speaking: tự đối chiếu với bài mẫu và checklist; có thể nhờ AI nhận xét bài viết (tùy chọn).')}</p></div>
@@ -125,7 +125,7 @@
     view.innerHTML = `<a href="#/toefl" class="small">← TOEFL iBT</a>
       <div class="page-head" style="margin-top:.4rem"><div><div class="tiny muted">${sec.ic} <span lang="en" translate="no">${sec.name}</span></div><h1 style="margin:.2rem 0">${T.ic} ${esc(T.name)}</h1><p class="muted small" style="margin:0">${T.desc}</p></div></div>
       ${window.QT ? QT.box(task === 'sentence' ? 'sentenceB' : task, true) : ''}
-      <div class="row" style="margin-bottom:1rem">${sec.tasks.map(k => `<a class="btn sm ${k === task ? 'primary' : ''}" href="#/toefl-p/${k}">${TASKS[k].ic} ${esc(TASKS[k].name)}</a>`).join('')}</div>
+      <div class="row" style="margin-bottom:1rem">${sec.tasks.map(k => `<a class="chip ${k === task ? 'on' : ''}" ${k === task ? 'aria-current="page"' : ''} style="min-height:44px;display:inline-flex;align-items:center" href="#/toefl-p/${k}">${TASKS[k].ic} ${esc(TASKS[k].name)}</a>`).join('')}</div>
       ${perPage && sets.length > 1 ? `<div class="tabs" style="display:inline-flex;margin-bottom:1rem">${sets.map(n => `<a class="${n === cur ? 'on' : ''}" href="#/toefl-p/${task}?s=${n}" style="padding:.45rem .9rem;border-radius:10px;font-weight:700;text-decoration:none;color:inherit;${n === cur ? 'background:var(--surface);box-shadow:var(--shadow-sm)' : ''}">${t('Bộ {n}', { n })}</a>`).join('')}</div>` : ''}
       <div id="tfBody"></div>`;
     const body = $('#tfBody');

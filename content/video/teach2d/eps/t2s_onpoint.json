@@ -1,0 +1,135 @@
+{
+ "id": "t2s_onpoint",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 212,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Did I pick the right outfit?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "On point!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Perfect and exactly right.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Your hair is on point today.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "on point",
+  "forms": [],
+  "ipa": "/ɑːn ˈpɔɪnt/",
+  "mean": "Perfect and exactly right.",
+  "define": "Used for something that is perfectly done or stylish.",
+  "vi": "Chuẩn không cần chỉnh",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "praise",
+  "example": {
+   "ctx": "Complimenting a friend",
+   "text": "Your hair is on point today."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"On point\" means…",
+   "options": [
+    "perfectly done",
+    "pointing up"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'on point' about a sharp pencil.",
+   "why": "It means perfect and exactly right."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Did I pick the right outfit?"
+ },
+ "src": {
+  "slang": "on point"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.5,
+  "wpm": 104
+ },
+ "publish": {
+  "title": "What does \"on point\" mean?",
+  "keyword": "on point",
+  "value": "On point = Perfect and exactly right. Example: \"Your hair is on point today.\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"on point\" mean?",
+    "description": "On point = Perfect and exactly right. Example: \"Your hair is on point today.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "on point",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"on point\" mean?\n\nOn point = Perfect and exactly right. Example: \"Your hair is on point today.\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"on point\" mean?\n\nOn point = Perfect and exactly right. Example: \"Your hair is on point today.\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"on point\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Quiz answer: perfectly done. \"Your hair is on point today.\" More real English slang, free: {link}"
+ }
+}

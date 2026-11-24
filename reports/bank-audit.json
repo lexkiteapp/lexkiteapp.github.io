@@ -25,7 +25,7 @@
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 13.2,
+  "longestIsAnswerPct": 9.2,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -76,11 +76,11 @@
   "posSkew": 0.3,
   "noExplainPct": 0,
   "shortExplainPct": 0,
-  "explainNotMentionAnsPct": 42.5,
-  "templatedExplainPct": 6.1,
+  "explainNotMentionAnsPct": 42.6,
+  "templatedExplainPct": 5.1,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 8.9,
+  "longestIsAnswerPct": 7.6,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -105,7 +105,7 @@
   "templatedExplainPct": 12.8,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 9.9,
+  "longestIsAnswerPct": 8.3,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -165,7 +165,7 @@
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 15.7,
+  "longestIsAnswerPct": 15.5,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -192,7 +192,7 @@
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 20.2,
+  "longestIsAnswerPct": 19,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -250,11 +250,11 @@
   "posSkew": 0.8,
   "noExplainPct": 0,
   "shortExplainPct": 0,
-  "explainNotMentionAnsPct": 68.6,
+  "explainNotMentionAnsPct": 67.3,
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 12.8,
+  "longestIsAnswerPct": 7.5,
   "dupOptionPct": 0,
   "allAbovePct": 0
  }

@@ -1,0 +1,135 @@
+{
+ "id": "t2s_stellar",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 235,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Your report got top marks!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Stellar!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Outstanding and excellent.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You did a stellar job today.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "stellar",
+  "forms": [],
+  "ipa": "/ˈstelɚ/",
+  "mean": "Outstanding and excellent.",
+  "define": "Used for work or results that are really great.",
+  "vi": "Xuất sắc",
+  "reg": "neutral",
+  "region": "global",
+  "level": "C1",
+  "era": "evergreen",
+  "theme": "praise",
+  "example": {
+   "ctx": "Praising a report",
+   "text": "You did a stellar job today."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Stellar\" means…",
+   "options": [
+    "boring",
+    "outstanding"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a so-so job 'stellar'.",
+   "why": "It praises excellent work only."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Your report got top marks!"
+ },
+ "src": {
+  "slang": "stellar"
+ },
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"stellar\" mean?",
+  "keyword": "stellar",
+  "value": "Stellar = Outstanding and excellent. Example: \"You did a stellar job today.\" (everyday English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"stellar\" mean?",
+    "description": "Stellar = Outstanding and excellent. Example: \"You did a stellar job today.\" (everyday English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "stellar",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"stellar\" mean?\n\nStellar = Outstanding and excellent. Example: \"You did a stellar job today.\" (everyday English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"stellar\" mean?\n\nStellar = Outstanding and excellent. Example: \"You did a stellar job today.\" (everyday English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"stellar\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a so-so job 'stellar'. It praises excellent work only. Real example: \"You did a stellar job today.\" More real English slang, free: {link}"
+ }
+}

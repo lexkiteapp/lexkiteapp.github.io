@@ -355,8 +355,8 @@ items: [
 explain: '"we start moving Quenby Law\'s files to the cloud this Friday night" (tối thứ Sáu này bắt đầu chuyển dữ liệu của công ty luật Quenby lên đám mây) → chuyển dữ liệu khách hàng lên đám mây. Quenby Law là khách hàng, không phải văn phòng mới; "accounting database" chỉ là cơ sở dữ liệu, không liên quan tuyển kế toán.' },
 { n: 42, q: 'According to Yasmin, why will the task take longer than planned?', options: ['A database is larger than expected.', 'Some staff are on vacation.', 'The internet connection is slow.', 'A contract has not been signed.'], a: 0, cue: 'their old accounting database is much larger than we expected',
 explain: 'Yasmin cho biết "their old accounting database is much larger than we expected, so the move will take about two extra hours" → cơ sở dữ liệu lớn hơn dự kiến nên mất thêm khoảng hai giờ. Các lý do khác không được nhắc đến.' },
-{ n: 43, q: 'What does the man ask Greta to do?', options: ['Lead a training session', 'Test a database', 'Create a short reference guide', 'Contact the law firm'], a: 2, cue: 'Could you also put together a one-page guide that they can keep at their desks?',
-explain: 'Ewan đề nghị "put together a one-page guide that they can keep at their desks" (soạn một bản hướng dẫn một trang để nhân viên để ở bàn) → tạo tài liệu hướng dẫn ngắn. Các buổi đào tạo Greta đã tự lên lịch từ trước, không phải điều được yêu cầu – bẫy.' },
+{ n: 43, q: 'What does the man ask Greta to do?', options: ['Organize a training workshop', 'Validate the data repository', 'Create a short reference guide', 'Reach out to the legal office'], a: 2, cue: 'Could you also put together a one-page guide that they can keep at their desks?',
+explain: 'Đáp án C đúng vì yêu cầu là soạn một hướng dẫn ngắn một trang để nhân viên để trên bàn. Các lựa chọn còn lại liên quan tới tổ chức đào tạo, kiểm tra cơ sở dữ liệu hoặc liên lạc với công ty luật, không phù hợp.' },
 ] },
 { type: 'mcq', instr: g.TQL[20],
 items: [
@@ -398,7 +398,7 @@ explain: '"curly hair is actually her specialty" – tóc xoăn là chuyên môn
 items: [
 { n: 56, q: 'Why does the woman need a transcript?', options: ['To apply for a job', 'To transfer to another university', 'To apply to graduate school', 'To renew a license'], a: 2, cue: 'for a graduate school application',
 explain: 'Cô cần bảng điểm chính thức "for a graduate school application" → nộp hồ sơ cao học.' },
-{ n: 57, q: 'What problem does the woman mention?', options: ['Her graduation ceremony was postponed.', 'She cannot locate her student ID.', 'The tuition fee is too high.', 'She cannot access her online account.'], a: 3, cue: 'the portal says my account is locked',
+{ n: 57, q: 'What problem does the woman mention?', options: ['Her transcript has an error.', 'She lost her student ID card.', 'The fee is too high.', 'She cannot access her online account.'], a: 3, cue: 'the portal says my account is locked',
 explain: 'Tài khoản trên cổng thông tin cựu sinh viên bị khóa ("locked") → không truy cập được tài khoản. Cô vẫn nhớ mã sinh viên.' },
 { n: 58, q: 'What will the woman receive by e-mail?', options: ['A temporary password', 'A payment receipt', 'A copy of her transcript', 'An application form'], a: 0, cue: "You'll get an e-mail with a temporary password",
 explain: 'Cô sẽ nhận email có mật khẩu tạm thời. Bảng điểm được gửi qua bưu điện ("mailed"), không qua email.' },

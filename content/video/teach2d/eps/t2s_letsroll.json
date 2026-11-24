@@ -1,0 +1,137 @@
+{
+ "id": "t2s_letsroll",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 148,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Backpacks packed. Everyone ready?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Let's roll!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Let's get started.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Backpacks on, let's roll!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "let's roll",
+  "forms": [
+   "let's go"
+  ],
+  "ipa": "/ˈlets ˈroʊl/",
+  "mean": "Let's get started.",
+  "define": "Used to say it's time to start or leave.",
+  "vi": "Đi thôi nào",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Leaving for a trip",
+   "text": "Backpacks on, let's roll!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "let's lie down",
+    "let's start"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'let's roll' to start a serious meeting.",
+   "why": "It sounds too playful."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Backpacks packed. Everyone ready?"
+ },
+ "src": {
+  "slang": "let's roll"
+ },
+ "est": {
+  "words": 15,
+  "seconds": 9.9,
+  "wpm": 90
+ },
+ "publish": {
+  "title": "What does \"let's roll\" mean?",
+  "keyword": "let's roll",
+  "value": "Let's roll = Let's get started. Example: \"Backpacks on, let's roll!\" (casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"let's roll\" mean?",
+    "description": "Let's roll = Let's get started. Example: \"Backpacks on, let's roll!\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "let's roll",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"let's roll\" mean?\n\nLet's roll = Let's get started. Example: \"Backpacks on, let's roll!\" (casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"let's roll\" mean?\n\nLet's roll = Let's get started. Example: \"Backpacks on, let's roll!\" (casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"let's roll\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'let's roll' to start a serious meeting. It sounds too playful. Real example: \"Backpacks on, let's roll!\" More real English slang, free: {link}"
+ }
+}

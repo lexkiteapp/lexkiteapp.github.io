@@ -1,0 +1,146 @@
+{
+ "id": "t2s_tr_forsure",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 81,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can I count on you?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "For sure!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Yes, definitely.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pizza tonight? For sure!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "for sure",
+  "forms": [],
+  "ipa": "/fɚ ˈʃʊr/",
+  "mean": "Yes, definitely.",
+  "define": "Used to agree strongly.",
+  "vi": "Chắc chắn rồi",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Answering a plan",
+   "text": "Pizza tonight? For sure!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"For sure\" means…",
+   "options": [
+    "I'm not sure",
+    "definitely"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'for sure' if you might cancel.",
+   "why": "It sounds like a firm promise."
+  },
+  "l1": "kesinlikle",
+  "l1_hook": "Sana güvenebilir miyim? (\"for sure\")",
+  "l1_ex": "Bu akşam pizza? For sure!",
+  "right": "for sure",
+  "native": {
+   "hook": "“for sure” ne demek?",
+   "tip": "“for sure” = kesinlikle. Örnek: “Pizza tonight? For sure!”",
+   "caption": "“for sure” ne demek?\n“for sure” = kesinlikle.\nÖrnek: “Pizza tonight? For sure!” (Bu akşam pizza? For sure!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “for sure” = kesinlikle. “Pizza tonight? For sure!” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Can I count on you?"
+ },
+ "src": {
+  "slang": "for sure"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 15,
+  "seconds": 9.2,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“for sure” ne demek?",
+  "keyword": "for sure",
+  "value": "“for sure” = kesinlikle. Örnek: “Pizza tonight? For sure!”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“for sure” ne demek?",
+    "description": "“for sure” = kesinlikle. Örnek: “Pizza tonight? For sure!”\n\n“for sure” ne demek?\n“for sure” = kesinlikle.\nÖrnek: “Pizza tonight? For sure!” (Bu akşam pizza? For sure!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "for sure",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“for sure” ne demek?\n“for sure” = kesinlikle.\nÖrnek: “Pizza tonight? For sure!” (Bu akşam pizza? For sure!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“for sure” ne demek?\n\n“for sure” = kesinlikle. Örnek: “Pizza tonight? For sure!”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“for sure” ne demek? “for sure” = kesinlikle. Örnek: “Pizza tonight? For sure!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “for sure” = kesinlikle. “Pizza tonight? For sure!” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

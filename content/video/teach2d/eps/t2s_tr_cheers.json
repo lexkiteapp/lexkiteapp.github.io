@@ -1,0 +1,152 @@
+{
+ "id": "t2s_tr_cheers",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 106,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He held the door. Say thanks!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Cheers!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Thanks, or goodbye.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cheers for the lift!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "cheers",
+  "forms": [
+   "cheer"
+  ],
+  "ipa": "/ˈtʃɪrz/",
+  "mean": "Thanks, or goodbye.",
+  "define": "A British way to say thank you or goodbye.",
+  "vi": "Cảm ơn nha, tạm biệt",
+  "reg": "casual",
+  "region": "UK",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "Thanking a friend",
+   "text": "Cheers for the lift!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Cheers\" can mean…",
+   "options": [
+    "angry",
+    "thanks"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't expect Americans to understand 'cheers' as thanks.",
+   "why": "It's mostly British casual usage."
+  },
+  "l1": "teşekkürler",
+  "l1_hook": "Kapıyı tuttu. 'cheers' de!",
+  "l1_ex": "Taşıma için 'cheers'!",
+  "right": "cheers",
+  "native": {
+   "hook": "“cheers” ne demek?",
+   "tip": "“cheers” = teşekkürler. Örnek: “Cheers for the lift!”",
+   "caption": "“cheers” ne demek?\n“cheers” = teşekkürler.\nÖrnek: “Cheers for the lift!” (Taşıma için 'cheers'!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “cheers” = teşekkürler. “Cheers for the lift!” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He held the door. Say thanks!"
+ },
+ "src": {
+  "slang": "cheers"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 16,
+  "seconds": 10.3,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "“cheers” ne demek?",
+  "keyword": "cheers",
+  "value": "“cheers” = teşekkürler. Örnek: “Cheers for the lift!”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“cheers” ne demek?",
+    "description": "“cheers” = teşekkürler. Örnek: “Cheers for the lift!”\n\n“cheers” ne demek?\n“cheers” = teşekkürler.\nÖrnek: “Cheers for the lift!” (Taşıma için 'cheers'!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "cheers",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“cheers” ne demek?\n“cheers” = teşekkürler.\nÖrnek: “Cheers for the lift!” (Taşıma için 'cheers'!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cheers” ne demek?\n\n“cheers” = teşekkürler. Örnek: “Cheers for the lift!”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cheers” ne demek? “cheers” = teşekkürler. Örnek: “Cheers for the lift!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “cheers” = teşekkürler. “Cheers for the lift!” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

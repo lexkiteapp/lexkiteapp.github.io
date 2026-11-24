@@ -368,8 +368,8 @@ items: [
 explain: 'Cô gửi xe để "an oil change and brake inspection" (thay dầu và kiểm tra phanh) → bảo dưỡng định kỳ (routine maintenance). Bộ phận cần thay là má phanh, không phải lốp xe; không có chi tiết về bán xe hay sơn xe.' },
 { n: 45, q: 'What problem does the man mention?', options: ['A bill was miscalculated.', 'A mechanic is absent.', 'The shop is closing early.', 'A part is not in stock.'], a: 3, cue: "we don't have the right pads in stock for your model",
 explain: '"we don\'t have the right pads in stock for your model" (không có sẵn má phanh phù hợp với dòng xe của chị) → một phụ tùng đang hết hàng; phải đặt và chờ đến sáng thứ Năm. Hóa đơn, thợ máy vắng mặt hay giờ đóng cửa không được nhắc đến.' },
-{ n: 46, q: 'What does the man ask for?', options: ['A passport', "Her driver's license", 'Her email address', 'A membership card'], a: 1, cue: "I'll just need to make a copy of your driver's license",
-explain: 'Người đàn ông cần sao chụp bằng lái xe của cô để cấp xe thay thế, vì vậy anh yêu cầu bằng lái. Các lựa chọn khác như thẻ tín dụng, số điện thoại hay mẫu có chữ ký không liên quan tới yêu cầu.' },
+{ n: 46, q: 'What does the man ask for?', options: ['A credit card', "Her driver's license", 'Her email address', 'A membership card'], a: 1, cue: "I'll just need to make a copy of your driver's license",
+explain: 'Để cho mượn xe thay thế ("courtesy car"), anh cần "make a copy of your driver\'s license" (sao chụp bằng lái xe) → anh yêu cầu bằng lái của cô. Thẻ tín dụng, số điện thoại hay đơn có chữ ký không được nhắc đến.' },
 ] },
 { type: 'mcq', instr: g.TQL[21],
 items: [
@@ -436,7 +436,7 @@ explain: 'Cô yêu cầu Graeme "prepare a short report" về những gì hiệu
 ] },
 { type: 'mcq', instr: g.TQL[28],
 items: [
-{ n: 68, q: 'Who most likely is the man?', options: ['A piano teacher', 'A real estate agent', 'A moving company employee', 'A kitchen designer'], a: 2, cue: 'Thanks for coming to give us a quote for our move.',
+{ n: 68, q: 'Who most likely is the man?', options: ['A professional language tutor', 'A commercial insurance broker', 'A moving company employee', 'A residential interior decorator'], a: 2, cue: 'Thanks for coming to give us a quote for our move.',
 explain: 'Anh đến báo giá chuyển nhà, nói về đóng gói, xe tải, số chuyến → nhân viên công ty chuyển nhà.' },
 { n: 69, q: 'Why will there be an extra charge?', options: ['The move is on a weekend.', 'A piano must be moved.', 'The woman wants everything packed.', 'The distance is long.'], a: 1, cue: "We'll need an extra person for that",
 explain: 'Có đàn piano cần thêm một người khiêng nên phát sinh phụ phí. Cô chỉ nhờ đóng gói bếp, không phải toàn bộ nhà.' },
@@ -652,8 +652,8 @@ explain: 'Dùng mã CROSSROADS khi đăng ký sẽ được miễn phí tháng �
 items: [
 { n: 98, q: 'Who most likely are the listeners?', options: ['Front desk clerks', 'IT technicians', 'Hotel housekeepers', 'Maintenance workers'], a: 2, cue: 'When you finish cleaning a room',
 explain: 'Người nghe dọn dẹp phòng theo từng tầng, đánh dấu phòng sẵn sàng cho lễ tân → nhân viên buồng phòng khách sạn. Lễ tân và bảo trì là các bộ phận nhận thông tin.' },
-{ n: 99, q: 'What is one benefit of the new tablets?', options: ['Rooms can be prepared faster for early arrivals.', 'Guests can check in online.', 'Paper supplies will be cheaper.', 'Staff can choose their shifts.'], a: 0, cue: 'That should help us get rooms ready for early check-in guests much faster.',
-explain: 'Lễ tân thấy ngay phòng nào đã dọn xong, nên phòng cho khách nhận phòng sớm được chuẩn bị nhanh hơn. Khách không làm thủ tục trực tuyến.' },
+{ n: 99, q: 'What is one benefit of the new tablets?', options: ['Rooms can be prepared faster for early arrivals.', 'Guests can request extra towels via the tablet.', 'Housekeeping can track inventory more efficiently.', 'Management can schedule maintenance remotely.'], a: 0, cue: 'That should help us get rooms ready for early check-in guests much faster.',
+explain: 'Máy tính bảng cho phép nhân viên lễ tân theo dõi trạng thái dọn phòng ngay lập tức, giúp chuẩn bị phòng cho khách đến sớm nhanh hơn. Các lợi ích khác như giảm chi phí giấy hay thay đổi ca làm việc không được đề cập trong đoạn hội thoại.' },
 { n: 100, q: 'What are listeners asked to do?', options: ['Meet with Ines on Monday', 'Take photos of their rooms', 'Return their paper checklists', 'Sign up for a training session'], a: 3, cue: 'Please sign up for one of them on the sheet by the lockers.',
 explain: 'Nhân viên được đề nghị đăng ký một trong hai buổi tập huấn thứ Sáu trên tờ giấy cạnh tủ đồ → đăng ký buổi tập huấn.' },
 ] },

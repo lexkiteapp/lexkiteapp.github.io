@@ -49,7 +49,7 @@
     view.innerHTML = head('🎓 Cambridge English', t('Đề tự biên soạn đúng định dạng Cambridge từ A2 Key đến C2 Proficiency: Đọc & Viết, Nghe, Nói – có lời giải, bài mẫu và tiêu chí chấm.'))
       + LEVELS.map(([l, name]) => { const xs = tests().filter(x => x.level === l).sort((a, c) => a.n - c.n); return `<h2 style="margin-top:1.2rem">${esc(name)}</h2>`
         + (xs.length ? `<div class="grid auto">${xs.map(x => `<div class="card"><span class="chip">${l.toUpperCase()}</span> <b>${esc(x.title)}</b>
-          <div class="row" style="margin-top:.6rem;flex-wrap:wrap">${Object.entries(PAPERS).map(([k, [ic, nm]]) => `<a class="btn sm${k === 'rw' ? ' primary' : ''}" href="#/cambridge/${x.id}?p=${k}">${ic} ${PN(nm)}${b[x.id + ':' + k] != null ? ` · ${b[x.id + ':' + k]}%` : ''}</a>`).join('')}</div></div>`).join('')}</div>`
+          <div class="row" style="margin-top:.6rem;flex-wrap:wrap">${Object.entries(PAPERS).map(([k, [ic, nm]]) => `<a class="btn sm" href="#/cambridge/${x.id}?p=${k}">${ic} ${PN(nm)}${b[x.id + ':' + k] != null ? ` · ${b[x.id + ':' + k]}%` : ''}</a>`).join('')}</div></div>`).join('')}</div>`
           : `<div class="card empty-note"><p class="muted" style="margin:0">${t('Đang soạn đề cho cấp này.')}</p></div>`); }).join('')
       + `<p class="tiny muted" style="margin-top:1rem">${t('Điểm trong ứng dụng là tỉ lệ câu đúng để tự theo dõi, không phải điểm Cambridge English Scale chính thức.')}</p>`;
   };
@@ -57,7 +57,7 @@
   // ---------- Phòng thi ----------
   function paper(T, p) {
     if (!PAPERS[p]) p = 'rw';
-    const tabs = `<div class="row" role="tablist" style="flex-wrap:wrap;margin-bottom:.8rem">${Object.entries(PAPERS).map(([k, [ic, nm]]) => `<a role="tab" aria-selected="${k === p}" class="btn sm${k === p ? ' primary' : ''}" href="#/cambridge/${T.id}?p=${k}">${ic} ${PN(nm)}</a>`).join('')}</div>`;
+    const tabs = `<div class="tabs" role="tablist" style="margin-bottom:.8rem">${Object.entries(PAPERS).map(([k, [ic, nm]]) => `<a role="tab" aria-selected="${k === p}" class="${k === p ? 'on' : ''}" href="#/cambridge/${T.id}?p=${k}">${ic} ${PN(nm)}</a>`).join('')}</div>`;
     view.innerHTML = head(`🎓 ${esc(T.title)}`, `<a href="#/cambridge">← Cambridge English</a>`) + tabs + '<div id="camBody"></div>';
     const body = $('#camBody');
     if (p === 'speaking') return speaking(T, body);
@@ -79,7 +79,7 @@
       <p class="small"><b>${esc(x.prompt)}</b> <span class="muted">${t('Viết {n} từ trở lên.', { n: x.min_words })}</span></p>
       <textarea class="input" data-w="${k}" style="min-height:160px;line-height:1.6" spellcheck="false" aria-label="Part ${x.n}"></textarea><div class="tiny muted" data-wc="${k}">${t('{n} từ', { n: 0 })}</div><div data-wfb="${k}"></div>`;
     if (p === 'listening') return x.units.map((u, j) => { const g = groupOf(u.options ? { ...x, options: u.options } : x, u.items); groups.push([k, j, g]);
-      return `<div class="toeic-u" data-u="${k}-${j}">${u.title ? `<b>${esc(u.title)}</b>` : ''}<div class="row nowrap" style="margin:.4rem 0"><button class="btn sm primary" data-play="${k}-${j}">▶ ${t('Nghe')}</button><span class="tiny muted" data-now="${k}-${j}"></span></div>
+      return `<div class="toeic-u" data-u="${k}-${j}">${u.title ? `<b>${esc(u.title)}</b>` : ''}<div class="row nowrap" style="margin:.4rem 0"><button class="btn sm" data-play="${k}-${j}">▶ ${t('Nghe')}</button><span class="tiny muted" data-now="${k}-${j}"></span></div>
         ${x.type === 'matching' && (u.options || j === 0) && !(g.options || []).some(o => QE.label(o)) ? `<div class="lq-box">${(u.options || x.options).map(o => `<span>${esc(o)}</span>`).join('')}</div>` : ''}<div class="lq-wrap" data-g="${k}-${j}">${QE.questionsHtml({ groups: [g] })}</div>
         <details data-tr="${k}-${j}" hidden><summary class="small"><b>📜 ${t('Lời thoại (transcript)')}</b></summary>${u.script.filter(l => l.t).map(l => `<div class="small"><b>${esc((u.speakers[l.s] || {}).name || l.s)}:</b> ${esc(l.t)}</div>`).join('')}</details></div>`; }).join('');
     const lead = x.texts ? x.texts.map(y => `<div class="card" style="margin:.4rem 0"><b>${y.code} · ${esc(y.title)}</b>${passage(y.text)}</div>`).join('')

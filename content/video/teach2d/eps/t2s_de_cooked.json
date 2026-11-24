@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_cooked",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 52,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I forgot my notes. Uh-oh!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cooked!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm in trouble or out of luck.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I forgot my notes. I'm cooked.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "panic",
+ "data": {
+  "key": "cooked",
+  "forms": [],
+  "ipa": "/ˈkʊkt/",
+  "mean": "I'm in trouble or out of luck.",
+  "define": "Used jokingly when a situation looks bad for you.",
+  "vi": "Toang rồi",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Before a test",
+   "text": "I forgot my notes. I'm cooked."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"I'm cooked\" here means…",
+   "options": [
+    "I'm dinner",
+    "I'm in trouble"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'I'm cooked' when you merely feel sleepy.",
+   "why": "It means you're in real trouble."
+  },
+  "l1": "fertig",
+  "l1_hook": "Ich habe meine Notizen vergessen. Uh-oh! Das ist „cooked“.",
+  "l1_ex": "Ich habe meine Notizen vergessen. Ich bin \"cooked\".",
+  "right": "cooked",
+  "native": {
+   "hook": "Was heißt “cooked”?",
+   "tip": "“cooked” = fertig. Beispiel: “I forgot my notes. I'm cooked.”",
+   "caption": "Was heißt “cooked”?\n“cooked” = fertig.\nBeispiel: “I forgot my notes. I'm cooked.” (Ich habe meine Notizen vergessen. Ich bin \"cooked\".)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “cooked” = fertig. “I forgot my notes. I'm cooked.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "I forgot my notes. Uh-oh!"
+ },
+ "src": {
+  "slang": "cooked"
+ },
+ "lang": "de",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Was heißt “cooked”?",
+  "keyword": "cooked",
+  "value": "“cooked” = fertig. Beispiel: “I forgot my notes. I'm cooked.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “cooked”?",
+    "description": "“cooked” = fertig. Beispiel: “I forgot my notes. I'm cooked.”\n\nWas heißt “cooked”?\n“cooked” = fertig.\nBeispiel: “I forgot my notes. I'm cooked.” (Ich habe meine Notizen vergessen. Ich bin \"cooked\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "cooked",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “cooked”?\n“cooked” = fertig.\nBeispiel: “I forgot my notes. I'm cooked.” (Ich habe meine Notizen vergessen. Ich bin \"cooked\".)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “cooked”?\n\n“cooked” = fertig. Beispiel: “I forgot my notes. I'm cooked.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “cooked”? “cooked” = fertig. Beispiel: “I forgot my notes. I'm cooked.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “cooked” = fertig. “I forgot my notes. I'm cooked.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

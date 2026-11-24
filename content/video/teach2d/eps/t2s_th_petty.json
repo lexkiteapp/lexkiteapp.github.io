@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_petty",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 120,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He wants his cookie back?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Petty!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Upset about tiny, unimportant things.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Counting every cookie is petty, don't you think?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "petty",
+  "forms": [],
+  "ipa": "/ˈpeti/",
+  "mean": "Upset about tiny, unimportant things.",
+  "define": "Used for someone who makes a big deal out of small things.",
+  "vi": "Nhỏ nhen, chấp nhặt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a classmate",
+   "text": "Counting every cookie is petty, don't you think?"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Petty\" means worried about…",
+   "options": [
+    "big money",
+    "tiny things"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a real complaint 'petty'.",
+   "why": "It dismisses someone's genuine feelings."
+  },
+  "l1": "ช่างขี้เครียดเรื่องเล็ก",
+  "l1_hook": "เขาต้องการคุกกี้ของเขากลับมาหรือ? นั่นมัน 'petty' มากเลย!",
+  "l1_ex": "การนับคุกกี้ทุกอันเป็นเรื่อง \"petty\" ไม่ใช่หรือ?",
+  "right": "petty",
+  "native": {
+   "hook": "“petty” แปลว่าอะไร?",
+   "tip": "“petty” = ช่างขี้เครียดเรื่องเล็ก. ตัวอย่าง: “Counting every cookie is petty, don't you think?”",
+   "caption": "“petty” แปลว่าอะไร?\n“petty” = ช่างขี้เครียดเรื่องเล็ก.\nตัวอย่าง: “Counting every cookie is petty, don't you think?” (การนับคุกกี้ทุกอันเป็นเรื่อง \"petty\" ไม่ใช่หรือ?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “petty” = ช่างขี้เครียดเรื่องเล็ก. “Counting every cookie is petty, don't you think?” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He wants his cookie back?"
+ },
+ "src": {
+  "slang": "petty"
+ },
+ "lang": "th",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“petty” แปลว่าอะไร?",
+  "keyword": "petty",
+  "value": "“petty” = ช่างขี้เครียดเรื่องเล็ก. ตัวอย่าง: “Counting every cookie is petty, don't you think?”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“petty” แปลว่าอะไร?",
+    "description": "“petty” = ช่างขี้เครียดเรื่องเล็ก. ตัวอย่าง: “Counting every cookie is petty, don't you think?”\n\n“petty” แปลว่าอะไร?\n“petty” = ช่างขี้เครียดเรื่องเล็ก.\nตัวอย่าง: “Counting every cookie is petty, don't you think?” (การนับคุกกี้ทุกอันเป็นเรื่อง \"petty\" ไม่ใช่หรือ?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "petty",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“petty” แปลว่าอะไร?\n“petty” = ช่างขี้เครียดเรื่องเล็ก.\nตัวอย่าง: “Counting every cookie is petty, don't you think?” (การนับคุกกี้ทุกอันเป็นเรื่อง \"petty\" ไม่ใช่หรือ?)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“petty” แปลว่าอะไร?\n\n“petty” = ช่างขี้เครียดเรื่องเล็ก. ตัวอย่าง: “Counting every cookie is petty, don't you think?”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“petty” แปลว่าอะไร? “petty” = ช่างขี้เครียดเรื่องเล็ก. ตัวอย่าง: “Counting every cookie is petty, don't you t… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “petty” = ช่างขี้เครียดเรื่องเล็ก. “Counting every cookie is petty, don't you think?” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

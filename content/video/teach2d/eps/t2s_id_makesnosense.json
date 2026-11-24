@@ -1,0 +1,150 @@
+{
+ "id": "t2s_id_makesnosense",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 101,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rules changed again. Why?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Makes no sense!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That is illogical or confusing.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This game rule makes no sense.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "confused",
+ "pose": {
+  "clip": "thinking",
+  "after": "h"
+ },
+ "data": {
+  "key": "makes no sense",
+  "forms": [],
+  "ipa": "/ˈmeɪks noʊ ˈsens/",
+  "mean": "That is illogical or confusing.",
+  "define": "Used when something doesn't seem logical.",
+  "vi": "Chẳng hợp lý",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Reading new rules",
+   "text": "This game rule makes no sense."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means it's…",
+   "options": [
+    "delicious",
+    "illogical"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'makes no sense' about your boss's plan.",
+   "why": "It sounds too blunt."
+  },
+  "l1": "tidak masuk akal",
+  "l1_hook": "\"makes no sense\" - aturan berubah lagi. Kenapa?",
+  "l1_ex": "Aturan permainan ini \"makes no sense\".",
+  "right": "makes no sense",
+  "native": {
+   "hook": "Apa arti “makes no sense”?",
+   "tip": "“makes no sense” = tidak masuk akal. Contoh: “This game rule makes no sense.”",
+   "caption": "Apa arti “makes no sense”?\n“makes no sense” = tidak masuk akal.\nContoh: “This game rule makes no sense.” (Aturan permainan ini \"makes no sense\".)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “makes no sense” = tidak masuk akal. “This game rule makes no sense.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Rules changed again. Why?"
+ },
+ "src": {
+  "slang": "makes no sense"
+ },
+ "lang": "id",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Apa arti “makes no sense”?",
+  "keyword": "makes no sense",
+  "value": "“makes no sense” = tidak masuk akal. Contoh: “This game rule makes no sense.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “makes no sense”?",
+    "description": "“makes no sense” = tidak masuk akal. Contoh: “This game rule makes no sense.”\n\nApa arti “makes no sense”?\n“makes no sense” = tidak masuk akal.\nContoh: “This game rule makes no sense.” (Aturan permainan ini \"makes no sense\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "makes no sense",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “makes no sense”?\n“makes no sense” = tidak masuk akal.\nContoh: “This game rule makes no sense.” (Aturan permainan ini \"makes no sense\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “makes no sense”?\n\n“makes no sense” = tidak masuk akal. Contoh: “This game rule makes no sense.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “makes no sense”? “makes no sense” = tidak masuk akal. Contoh: “This game rule makes no sense… #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “makes no sense” = tidak masuk akal. “This game rule makes no sense.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

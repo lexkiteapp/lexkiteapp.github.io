@@ -290,6 +290,8 @@ if (maxCls > BUDGET.cls) fails.push(`CLS ${maxCls} > ${BUDGET.cls}`);
 if (maxInp > BUDGET.inp_ms) fails.push(`INP ${maxInp} ms > ${BUDGET.inp_ms}`);
 // LCP: trang vào đầu tiên (home) ≤ 2,5 s; mở thẳng trang sâu (#/review, #/dict…) phải khởi động cả khung app → ngân sách riêng lcp_deep_ms, chỉ được GIẢM
 for (const l of lh) { const cap = l.route === 'home' ? BUDGET.lcp_ms : BUDGET.lcp_deep_ms; if (l.lcp > cap) fails.push(`LCP ${l.route} ${l.lcp} ms > ${cap}`); }
+// Máy gác hồi quy LCP (chạy cả trên main sau mỗi lần merge – mobile-qa.yml push: main): mỗi route so với MỐC riêng (lcp_base, chỉ được GIẢM); xấu hơn > lcp_regress (×1,2) = ĐỎ → lỗi như ux1 bật mặc định (path 1,65 → 8,1 s) không lọt lần sau
+for (const l of lh) { const base = (BUDGET.lcp_base || {})[l.route.split(/[/?]/)[0]]; if (base && l.lcp > base * (BUDGET.lcp_regress || 1.2)) fails.push(`LCP ${l.route} ${l.lcp} ms xấu hơn mốc ${base} ms quá ${Math.round(((BUDGET.lcp_regress || 1.2) - 1) * 100)} % – tìm commit làm nặng đường tới LCP (docs/UX-PUBLIC.md › Luật LCP)`); }
 if (LH && maxTbt > BUDGET.tbt_ms) fails.push(`TBT ${maxTbt} ms > ${BUDGET.tbt_ms}`);
 if (pages < (VPS.length * ROUTES.length + UX1_ROUTES.length) * 0.9) fails.push(`chỉ soát được ${pages}/${VPS.length * ROUTES.length + UX1_ROUTES.length} trang`); // không cho xanh khi chạy rỗng
 if (perf.filter(p => p.inp !== null && p.n > 0).length < VPS.length) fails.push('không đo được INP (0 tương tác)');

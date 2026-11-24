@@ -1,0 +1,131 @@
+{
+ "id": "t2s_mid",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 138,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Everyone loves it. You?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Mid!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Just average, not good.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "The movie was mid, honestly.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "mid",
+  "forms": [],
+  "ipa": "/ˈmɪd/",
+  "mean": "Just average, not good.",
+  "define": "Used to say that something is only okay, not special.",
+  "vi": "Tầm tầm, chẳng có gì hay",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Leaving the movie theater",
+   "text": "The movie was mid, honestly."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Mid\" means something is…",
+   "options": [
+    "in the middle of town",
+    "just average"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't tell your boss the meeting was 'mid'.",
+   "why": "It sounds rude, not professional."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Everyone loves it. You?"
+ },
+ "src": {
+  "slang": "mid"
+ },
+ "est": {
+  "words": 16,
+  "seconds": 9.6,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"mid\" mean?",
+  "keyword": "mid",
+  "value": "Mid = Just average, not good. Example: \"The movie was mid, honestly.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"mid\" mean?",
+    "description": "Mid = Just average, not good. Example: \"The movie was mid, honestly.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Carlos\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "mid",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"mid\" mean?\n\nMid = Just average, not good. Example: \"The movie was mid, honestly.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"mid\" mean?\n\nMid = Just average, not good. Example: \"The movie was mid, honestly.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"mid\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't tell your boss the meeting was 'mid'. It sounds rude, not professional. Real example: \"The movie was mid, honestly.\" More real English slang, free: {link}"
+ }
+}
