@@ -9,7 +9,7 @@ import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
-export const MAX_PRS = 20, MAX_CMDS = 40, MARK = '<!-- gate-impact -->';
+export const MAX_PRS = 5, MAX_CMDS = 40, MARK = '<!-- gate-impact -->';
 export const GATE_RE = /^(scripts\/test\/|scripts\/lib\/[^/]*rules[^/]*$|scripts\/test\/ci-policy|scripts\/ci\/(required-gate|gate-[\w-]+|guards|shards)\.mjs$|\.github\/workflows\/|[^]*baseline[^/]*\.json$)/;
 export const isGateFile = f => GATE_RE.test(f);
 export const gateFiles = (changed = []) => changed.filter(isGateFile);

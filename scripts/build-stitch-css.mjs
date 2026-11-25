@@ -16,7 +16,10 @@ const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['w
 // Màn Stitch v2 (khung TỰ SINH bởi scripts/stitch-v2-convert.mjs – web/js/st/v2/<màn>.js): mỗi màn 1 nhóm = vỏ chung + khung màn + file gắn dữ liệu.
 //   Cấu hình Tailwind MẶC ĐỊNH thuần (như Stitch): tên màu/cỡ chữ/bo góc của Stitch đã được bộ chuyển đổi ra giá trị thật.
 const V2 = ['web/js/st/v2', 'web/cpack/st/v2'].filter(d => fs.existsSync(d)).flatMap(d => fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)));
-const V2F = k => (fs.existsSync(`web/cpack/st/v2/${k}.js`) ? `web/cpack/st/v2/${k}.js` : `web/js/st/v2/${k}.js`);
+// khung ghi ngoài web/js (bind.out, vd web/cpack/game/<màn>.js – gói lười một route) vẫn là màn v2: một nhóm CSS như mọi màn
+const V2OUT = Object.fromEntries((fs.existsSync('brand/stitch/v2/bind') ? fs.readdirSync('brand/stitch/v2/bind') : []).filter(f => f.endsWith('.json')).map(f => [f.slice(0, -5), JSON.parse(fs.readFileSync('brand/stitch/v2/bind/' + f, 'utf8')).out]).filter(x => x[1] && fs.existsSync(x[1])));
+V2.push(...Object.keys(V2OUT).filter(k => !V2.includes(k)));
+const V2F = k => V2OUT[k] || (fs.existsSync(`web/cpack/st/v2/${k}.js`) ? `web/cpack/st/v2/${k}.js` : `web/js/st/v2/${k}.js`);
 const V2DATA = {
   day: ['web/js/path-day.js'],
   dict: ['web/js/dict-page.js'],

@@ -19,7 +19,7 @@ on:
     inputs:
       limit: { description: 'Số câu mỗi shard', default: '1500' }
       shards: { description: 'Trần số shard (thực tế = min(trần, runner rảnh − 8, ⌈câu/200⌉), sàn 4 shard khi CI đầy)', default: '24' }
-      tl: { description: "'es' = chỉ câu tiếng TBN của bài luyện W2b (Kokoro fp32 + âm vị espeak es-419, giọng ef_dora); trống = lượt tiếng Anh như cũ", default: '' }
+      tl: { description: "'es' = chỉ câu tiếng TBN (bài luyện W2b + lộ trình + phát âm + đề; Kokoro fp32 + âm vị espeak es-419, giọng ef_dora) · 'fr' = chỉ câu tiếng Pháp (cùng nguồn; Piper fr_FR-siwis-medium = Ama, tl-voices.json require); trống = lượt tiếng Anh như cũ", default: '' }
       only_call_cues: { description: 'Chỉ sinh mốc khớp miệng (bỏ qua giọng còn thiếu khác)', type: boolean, default: false }
 permissions:
   contents: write
@@ -33,6 +33,7 @@ jobs:
     timeout-minutes: 10
     outputs:
       left: ${{ steps.c.outputs.left }}
+      engine: ${{ steps.c.outputs.engine }}
       cues: ${{ steps.c.outputs.cues }}
       shards: ${{ steps.c.outputs.shards }}
     steps:
@@ -45,6 +46,8 @@ jobs:
           left=$(node scripts/gen-audio.mjs ${TL:+--tl $TL} --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
           [ "$LX_IN1" = "true" ] && left=0
           echo "left=$left" >> "$GITHUB_OUTPUT"
+          # công cụ dựng theo bảng tl-voices.json (scripts/sentence-audio/engine.mjs): piper (fr) | kokoro (es, tiếng Anh)
+          echo "engine=$([ -n "$TL" ] && node scripts/sentence-audio/engine.mjs "$TL" || echo kokoro)" >> "$GITHUB_OUTPUT"
           # mốc khớp miệng câu giáo viên (Call + Truyện – docs/LESSON-ENGINE.md §Khớp miệng): job cues riêng, chạy song song với gen
           [ -n "$TL" ] && echo "cues=0" >> "$GITHUB_OUTPUT" || echo "cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
           # số shard động: min(24, 40 − job đang chạy/xếp hàng − 8 chừa cho check PR, ⌈còn / 500⌉) – scripts/ci/shards.mjs (chủ 1/11: dùng hết runner rảnh)
@@ -67,8 +70,10 @@ jobs:
         with: { node-version: 22 }
       - uses: ./.github/actions/setup-ffmpeg
       - name: Cài kokoro-js + ffmpeg (nén mp3 – ảnh máy chủ GitHub mới không còn sẵn ffmpeg)
+        if: ${{ needs.plan.outputs.engine != 'piper' }}
         run: bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
       - name: Đệm mô hình Kokoro giữa các lượt (đỡ tải lại ~90 MB, tránh lỗi mạng)
+        if: ${{ needs.plan.outputs.engine != 'piper' }}
         uses: actions/cache@v4
         with:
           path: /tmp/kk/node_modules/@huggingface/transformers/.cache
@@ -77,13 +82,23 @@ jobs:
         uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - name: G2P tiếng TBN (misaki EspeakG2P + espeak-ng đầy đủ – kokoro-js chỉ kèm espeak tiếng Anh)
-        if: ${{ github.event.inputs.tl != '' }}
+        if: ${{ github.event.inputs.tl != '' && needs.plan.outputs.engine != 'piper' }}
         run: pip install -q "misaki==0.9.4" "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4"
+      - name: Piper (giọng của bảng tl-voices.json khi dòng tl dùng Piper – fr_FR-siwis-medium; cùng bản với word-audio-tl.yml)
+        if: ${{ needs.plan.outputs.engine == 'piper' }}
+        run: pip install -q "piper-tts==1.8.0"
       - name: Tạo âm thanh
         env:
           TL: '${{ github.event.inputs.tl }}'
           LX_IN1: ${{ github.event.inputs.limit || '1500' }}
         run: AUDIO_MIN=150 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs ${TL:+--tl $TL} --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "$LX_IN1"
+      - name: Kiểm độ to của shard (Piper) – chuẩn hoá thử sang thư mục tạm rồi đo, lệch chuẩn −16 LUFS ±1 LU / đỉnh > −1 dBTP / lặng → đỏ (chuẩn không hạ; mp3 gốc giữ nguyên, bước publish chuẩn hoá như mọi lượt)
+        if: ${{ needs.plan.outputs.engine == 'piper' }}
+        run: |
+          [ -d .media-out/audio/l ] || { echo "shard không có file mới"; exit 0; }
+          node scripts/audio/loudness.mjs normalize .media-out/audio/l --out "$RUNNER_TEMP/norm"
+          node scripts/audio/loudness.mjs measure "$RUNNER_TEMP/norm" --out "$RUNNER_TEMP/norm.json"
+          node scripts/audio/loudness.mjs gate "$RUNNER_TEMP/norm.json"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
