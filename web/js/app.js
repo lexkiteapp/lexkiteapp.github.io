@@ -536,7 +536,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   const V2_ROUTES = new Set(['train', 'skills', 'me', 'say', 'goal']);
   // #/speak khi cờ tắt chuyển sang #/skills (màn v2 tràn khung): giữ v2pre ngay từ lúc chạm, không thì thanh trên hiện rồi ẩn (CLS 0,158 bản ar, quality-sweep #53). Cùng luật App.speakOn (speak/app.js) – chưa nạp gói nên không gọi được
   const speakFlag = () => { try { const f = localStorage.getItem('lk.speak'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.speak_pack; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
-  const HB_ROUTES = new Set(['vocab', 'library', 'tests']); // trang gắn thanh hub Stitch (ST2.hubbar/hubPage) lúc dựng xong: thanh trên cũ phải ẩn NGAY lúc chạm (class hbpre), không thì #view nhảy lên 56 px khi trang dựng (CLS 0,066 #/vocab #/tests #/library)
+  const HB_ROUTES = new Set(['vocab', 'library', 'tests', 'topic', 'deck', 'mistakes', 'stats']); // trang gắn thanh hub Stitch (ST2.hubbar/hubPage) lúc dựng xong: thanh trên cũ phải ẩn NGAY lúc chạm (class hbpre), không thì #view nhảy lên 56 px khi trang dựng (CLS 0,066 #/vocab #/tests #/library)
   // 🧈 Cuộn: docs/PERF-SCROLL.md
   const Scroll = (() => {
     const de = document.documentElement, pos = new Map(); let off = 0, seq = 0, cur = '', inputAt = 0, movedAt = 0;

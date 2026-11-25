@@ -30,7 +30,7 @@
         lvs: levels.length > 1 ? [{ l: '', label: t('Tất cả'), n: tp.words.length, on: !lv }].concat(levels.map(l => ({ l, label: l, n: tp.words.filter(w => w.level === l).length, on: l === lv }))) : [],
         rows: (more ? list.slice(0, PAGE) : list).map(w => {
           const mean = App.meanOf(w);
-          return { word: w.word, added: App.inDeck(w.word), emoji: w.emoji || '📘', wordH: `<a class="w hover:underline" href="#/dict/${encodeURIComponent(w.word)}">${esc(w.word)}</a>`, pos: posT(w.pos), level: w.level || '',
+          return { word: w.word, added: App.inDeck(w.word), emoji: w.emoji || '📘', wordH: `<a class="w hover:underline" style="display:inline-block;padding:12px 0;margin:-12px 0" href="#/dict/${encodeURIComponent(w.word)}">${esc(w.word)}</a>`, pos: posT(w.pos), level: w.level || '',
             ipaH: UI.ipaHtml(w, null, { cls: 'ipa-t', noEx: true }), mean, def: w.def && mean !== w.def ? w.def : '', exH: exH(w), col: (w.col || []).join(' · ') };
         }),
         more, moreL: t('Xem cả {n} từ', { n: list.length }),

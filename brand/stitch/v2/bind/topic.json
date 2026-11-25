@@ -145,6 +145,11 @@
      },
      "addClass": {
       ":scope": "min-h-11 min-w-11"
+     },
+     "cls": {
+      ":scope > span": {
+       "dk:text-[#A3B9B7]": "'dk:text-[#D3E2E0]'"
+      }
      }
     }
    }
@@ -204,6 +209,9 @@
        "data-added": "w.word",
        "type": "'button'"
       }
+     },
+     "addClass": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > button": "relative before:absolute before:-inset-3 before:content-['']"
      }
     },
     "add": {
@@ -252,6 +260,9 @@
        "data-topic": "d.id",
        "type": "'button'"
       }
+     },
+     "addClass": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > button": "relative before:absolute before:-inset-3 before:content-['']"
      }
     }
    }

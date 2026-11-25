@@ -436,7 +436,7 @@
   ":scope > div > main > section:nth-child(2) > div > button:nth-child(1)": "relative after:absolute after:-inset-2 after:content-['']",
   ":scope > div > main > section:nth-child(2) > div > button:nth-child(2)": "relative after:absolute after:-inset-2 after:content-['']",
   ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "rtl:rotate-[225deg]",
-  ":scope > div > main > section:nth-child(1) > div:nth-child(1)": "rounded-2xl overflow-x-clip border lt:bg-[#EAF6F4] lt:border-[#E6DCCB] dk:bg-[#162528] dk:border-[#213438]"
+  ":scope > div > main > section:nth-child(1) > div:nth-child(1)": "rounded-2xl ms-[18px] border lt:bg-[#EAF6F4] lt:border-[#E6DCCB] dk:bg-[#162528] dk:border-[#213438]"
  },
  "cls": {
   ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": {
