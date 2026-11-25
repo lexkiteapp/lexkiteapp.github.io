@@ -53,7 +53,7 @@ PZ = dict(top=0.12, bottom=0.22, right=0.14)   # platform UI zones of a 9:16 sho
 if EP['template'] in ('rule', 'band') and o.format == 'short':   # Spell->Sound / Band 5-9: nothing in the right rail (docs/specs/spell-sound.md): region + caption plate stop at 86 % of the width
     _x = int(FMT['W'] * (1 - PZ['right'])); FMT = dict(FMT, region=[FMT['region'][0], FMT['region'][1], min(FMT['region'][2], _x), FMT['region'][3]], cap=[FMT['cap'][0], FMT['cap'][1], min(FMT['cap'][2], _x), FMT['cap'][3]], safe=[FMT['safe'][0], FMT['safe'][1], min(FMT['safe'][2], _x), FMT['safe'][3]])
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
-S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
+S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56); S0 = dict(S)
 if o.format == 'short' and LAY0 != 'bubble': S['cap'] = 66   # v3 (audit 24/11 #4): bigger captions inside the safe box (bubble keeps 58: its caption plate is only 86 px tall)
 MINF = (0.55 if LAYOUT == 'bubble' else 0.45) if EP['template'] == 'l1' else 0.3   # first-card min height (share of the card region); l1: the lone mistake bubble must fill the frame (layout_fill)
 if REEL:   # v3 (audit 24/11 #3 empty frames): the few cards of a 7-13 s reel were small in a 826 px region (pilot t2s_ace: 70 % bare background at 2-3 s) -> bigger text, bigger cards
@@ -962,8 +962,17 @@ def T_levels3():
     end_card()
 
 
-dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, l1=T_l1, guess=T_guess, level=T_level,
-     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, slang=T_slang, guess3=T_guess3, levels3=T_levels3, scorecard=T_scorecard, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]()
+_TPL = dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, l1=T_l1, guess=T_guess, level=T_level,
+     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, slang=T_slang, guess3=T_guess3, levels3=T_levels3, scorecard=T_scorecard, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]
+if REEL and o.format == 'short' and EP['template'] != 'l1':   # v3 (eye review): cards as big as the region allows – try the largest text scale first, fall back when a card leaves the region
+    _keep = [len(x) for x in (NODES, CUES, IPA, PAIRS, SLOTS, PULSES)]
+    for _sc in (1.6, 1.5, 1.4, 1.3, 1.25):
+        S.update({k: round(S0[k] * _sc) for k in ('body', 'sub', 'chip', 'ipa', 'pill')})
+        try: _TPL(); break
+        except AssertionError:
+            if _sc == 1.25: raise
+            for _x, _n in zip((NODES, CUES, IPA, PAIRS, SLOTS, PULSES), _keep): del _x[_n:]
+else: _TPL()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
 BY = {n['id']: n for n in NODES}
