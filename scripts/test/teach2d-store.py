@@ -21,6 +21,7 @@ with tempfile.TemporaryDirectory() as t:
         os.makedirs(f'{art}/tv-{EP}-{fm}-1'); json.dump(dict(Q, score=score), open(f'{art}/tv-{EP}-{fm}-1/qc.json', 'w'))
     for f in (f'{EP}-short.mp4', f'{EP}-wide.mp4', f'{EP}-poster.jpg'): open(f'{bank}/{f}', 'wb').write(b'x')
     subprocess.run(['git', 'init', '-q', repo], check=True)
+    _G.REVIEW_F = f'{t}/review-log.json'; json.dump({EP: dict(score=95, by='fixture')}, open(_G.REVIEW_F, 'w'))   # v3: the first clip of a template x language needs an eye-review record >= 90 (autopub_gate.review_due)
     D = {EP: dict(state='banked', sha=dict(short='aa', wide='bb')), 'other': dict(state='failed', why=['x'])}
     json.dump(D, open(delta, 'w'))
     blocked = S.run_store(art, bank, delta, repo, 7, level_map={})
