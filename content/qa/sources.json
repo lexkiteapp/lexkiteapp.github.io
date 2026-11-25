@@ -585,6 +585,7 @@
   { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
  ],
  "skip": {
+  "web/cpack/diary-app": "MÃ giao diện Nhật ký giọng nói (diary.js) + bộ dựng video trên máy (diary-video.js) – không phải nội dung học; 3 câu cố định viết tay 8–18 từ (test scripts/test/voice-diary.mjs), thiết kế docs/specs/voice-diary.md",
   "web/cpack/interpret": "MÃ giao diện Phiên dịch (interpret.js, core.js) + câu nói mẫu du lịch 22 câu × 15 ngôn ngữ viết tay (phrases.js) dời khỏi web/js để vào ngân sách người học – không phải bộ nội dung học sinh tự động; kiểm bằng scripts/test/interpret.mjs (đủ 15 ngôn ngữ mỗi câu), thiết kế docs/INTERPRET.md", "web/cpack/score-app": "MÃ giao diện Thử thách nói 30 giây (score30.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; 8 đoạn đọc ngắn viết tay ≤ 30 từ (test scripts/test/score-card.mjs), thiết kế docs/specs/score-card.md",
   "web/cpack/st2": "MÃ khung 4 màn Stitch lười (topic, deck, mistakes, stats – TỰ SINH bởi scripts/stitch-v2-convert.mjs từ brand/stitch/v2) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + stitch-v2-convert.mjs --check",
   "web/cpack/ux1": "MÃ giao diện 4 màn Stitch lười (ux1-topic/deck/mistakes/stats, bao routes.<màn> sau cờ ux1) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; kiểm bởi scripts/test/ux1.mjs",

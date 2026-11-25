@@ -11,7 +11,7 @@ if [ ! -f "$MH" ]; then
 fi
 U=$(git diff --name-only --diff-filter=U)
 # Từ điển: nguồn i18n/ui (13 ngôn ngữ, mỗi khóa một dòng → giữ cả hai phía, fmt-stable sắp lại + bỏ khóa trùng) + web/js/i18n (en; gói khóa băm <lang> bị đè lại bằng i18n-pack ngay sau)
-for f in $U; do case "$f" in web/js/i18n/*.js|i18n/ui/*.js) sed -i '' '/^<<<<<<< /d;/^=======$/d;/^>>>>>>> /d' "$f"; git add "$f";; esac; done
+for f in $U; do case "$f" in web/js/i18n/*.js|i18n/ui/*.js) sed -i.bak '/^<<<<<<< /d;/^=======$/d;/^>>>>>>> /d' "$f"; rm -f "$f.bak"; git add "$f";; esac; done
 node scripts/fmt-stable.mjs >/dev/null; node scripts/i18n-pack.mjs >/dev/null; git add web/js/i18n i18n/ui
 U=$(git diff --name-only --diff-filter=U); [ -n "$U" ] && { echo "CONFLICT: $U"; exit 1; }
 R=$(NODE_PATH=$(npm root -g):$S/node_modules node scripts/test/smoke.js "$PWD/web" 2>&1 | tail -1); echo "smoke $R"

@@ -3,20 +3,21 @@
 import fs from 'fs';
 import { REG, starts } from '../test/jobs-check.mjs';
 
-const WRITE = process.argv.includes('--write');
-let drift = 0;
+const DERIVED = process.argv.includes('--derived');   // 25/11: CI/gen-sync chỉ dựng tệp SINH (_jobs_reg.js, JOBS.md) từ infra/jobs.json; KHÔNG đụng cron trong workflow (đó là nguồn của tác giả)
+const WRITE = process.argv.includes('--write'), WRITE_DER = WRITE || DERIVED, WRITE_WF = WRITE && !DERIVED;
+let drift = 0, wfDrift = 0;
 for (const j of REG.jobs.filter(j => j.workflow)) {
   const f = '.github/workflows/' + j.workflow; if (!fs.existsSync(f)) { console.log('· chưa có workflow ' + f); continue; }
   let s = fs.readFileSync(f, 'utf8'), i = 0;
   const n = (s.match(/^\s*-\s*cron:\s*'[^']+'/gm) || []).length;
   if (n && n !== j.cron.length) { console.error(`✗ ${j.id}: workflow có ${n} cron, sổ ${j.cron.length} – sửa tay`); process.exitCode = 1; continue; }
   const t = s.replace(/^(\s*-\s*cron:\s*)'[^']+'/gm, (m, a) => `${a}'${j.cron[i++]}'`);
-  if (t !== s) { drift++; console.log(`${WRITE ? '✎' : '≠'} ${j.id}: ${j.cron.join(' | ')}`); if (WRITE) fs.writeFileSync(f, t); }
+  if (t !== s) { drift++; wfDrift++; console.log(`${WRITE_WF ? '✎' : '≠'} ${j.id}: ${j.cron.join(' | ')}`); if (WRITE_WF) fs.writeFileSync(f, t); }
 }
 // functions/api/_jobs_reg.js (Pages Functions không import JSON được ổn định → sinh module JS)
 const regJs = `// SINH TỪ infra/jobs.json bởi scripts/jobs/gen.mjs — KHÔNG sửa tay\nexport const REG = ${JSON.stringify({ priorities: REG.priorities, resources: REG.resources, budget_caps: REG.budget_caps, reservations: REG.reservations || {}, jobs: REG.jobs }, null, 1)};\n`;
 const oldJs = fs.existsSync('functions/api/_jobs_reg.js') ? fs.readFileSync('functions/api/_jobs_reg.js', 'utf8') : '';
-if (oldJs !== regJs) { drift++; console.log(`${WRITE ? '✎' : '≠'} functions/api/_jobs_reg.js`); if (WRITE) fs.writeFileSync('functions/api/_jobs_reg.js', regJs); }
+if (oldJs !== regJs) { drift++; console.log(`${WRITE_DER ? '✎' : '≠'} functions/api/_jobs_reg.js`); if (WRITE_DER) fs.writeFileSync('functions/api/_jobs_reg.js', regJs); }
 // docs/JOBS.md
 const hh = m => String(Math.floor(m / 60) % 24).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
 const rows = REG.jobs.map(j => ({ j, t: Math.min(...j.cron.flatMap(starts).map(x => x % 1440)) })).sort((a, b) => a.t - b.t);
@@ -54,5 +55,6 @@ ${rows.map(({ j, t }) => `| ${hh(t)} | \`${j.id}\` | ${j.cron.map(c => '`' + c +
 Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: việc nền "đăng bài" trước, rồi dựng, lưu trữ (footage-archive 01:45 → drive-shorts → d1b-migrate 05:30), báo cáo.
 ${LEXG}`;
 const old = fs.existsSync('docs/JOBS.md') ? fs.readFileSync('docs/JOBS.md', 'utf8') : '';
-if (old !== md) { drift++; console.log(`${WRITE ? '✎' : '≠'} docs/JOBS.md`); if (WRITE) fs.writeFileSync('docs/JOBS.md', md); }
-if (!WRITE && drift) { console.error('✗ gen: sổ và workflow/docs lệch – chạy node scripts/jobs/gen.mjs --write'); process.exitCode = 1; } else console.log('✓ gen: ' + (WRITE ? 'đã ghi' : 'khớp'));
+if (old !== md) { drift++; console.log(`${WRITE_DER ? '✎' : '≠'} docs/JOBS.md`); if (WRITE_DER) fs.writeFileSync('docs/JOBS.md', md); }
+if (DERIVED) console.log('✓ gen --derived: ' + (drift - wfDrift ? 'đã dựng lại tệp sinh' : 'tệp sinh khớp') + (wfDrift ? ` · ⚠ ${wfDrift} workflow lệch cron so với infra/jobs.json (nguồn của PR – sửa cron khớp sổ, hoặc \`node scripts/jobs/gen.mjs --write\`)` : ''));
+else if (!WRITE && drift) { console.error('✗ gen: ' + (wfDrift ? 'cron trong workflow lệch infra/jobs.json (nguồn của PR) – sửa cho khớp hoặc chạy `node scripts/jobs/gen.mjs --write`' : 'tệp sinh (_jobs_reg.js, JOBS.md) lệch infra/jobs.json – CI dựng lại ở npm ci; local: `node scripts/jobs/gen.mjs --derived`')); process.exitCode = 1; } else console.log('✓ gen: ' + (WRITE ? 'đã ghi' : 'khớp'));

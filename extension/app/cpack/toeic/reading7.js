@@ -371,7 +371,7 @@ I dropped the package off at your Bayliss Road counter myself, so no pickup fee 
 Elowen Tregenza
 Tregenza Print Works`,
           groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following rate table and e-mail.', items: [
-            { n: 176, q: 'Which service did Ms. Tregenza most likely use?', options: ['Priority', 'Standard', 'Economy', 'Priority Plus'], a: 3, cue: 'I chose next-day delivery by 10:00 A.M.',
+            { n: 176, q: 'Which service did Ms. Tregenza most likely use?', options: ['Priority Express', 'Standard Plus', 'Economy Express', 'Priority Plus'], a: 3, cue: 'I chose next-day delivery by 10:00 A.M.',
               explain: 'Kết hợp hai văn bản: cô chọn "next-day delivery by 10:00 A.M." (giao ngày hôm sau trước 10 giờ sáng), khớp với dịch vụ "Priority Plus" trong bảng giá. "Priority" cũng giao ngày hôm sau nhưng không cam kết trước 10 giờ – bẫy.' },
             { n: 177, q: 'What problem does Ms. Tregenza describe?', options: ['A driver did not pick up a package.', 'A package was sent to the wrong city.', 'Some brochures were damaged.', 'A package arrived later than promised.'], a: 3, cue: 'the package was not delivered until 3:40 P.M. on March 3',
               explain: 'Gói hàng lẽ ra đến trước 10 giờ sáng nhưng "was not delivered until 3:40 P.M." (mãi 3 giờ 40 chiều mới giao) → giao trễ hơn cam kết. Cô tự mang hàng đến quầy nên không có chuyện tài xế không đến lấy; hàng không bị gửi nhầm hay hư hỏng.' },

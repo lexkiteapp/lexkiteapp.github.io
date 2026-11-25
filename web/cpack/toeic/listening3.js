@@ -575,8 +575,8 @@ items: [
 explain: '"Attention, shoppers. Greenway Supermarket…" → thông báo trong siêu thị (D). "bakery section" (quầy bánh mì) chỉ là một khu trong siêu thị – bẫy cho A.' },
 { n: 72, q: 'What does the speaker say about the self-checkout lanes?', options: ['They are new.', 'They are not available tonight.', 'They accept only cards.', 'They are located near the exit.'], a: 1, cue: 'our self-checkout lanes are closed tonight for maintenance',
 explain: '"closed tonight for maintenance" (đóng tối nay để bảo trì) → không sử dụng được tối nay (B). Không có thông tin về việc quầy mới, chỉ nhận thẻ hay vị trí của quầy.' },
-{ n: 73, q: 'According to the speaker, how can some listeners save money this week?', options: ['By being members of a rewards program', 'By shopping before 7 A.M.', 'By using a coupon', 'By paying in cash'], a: 0, cue: 'members of our rewards program will receive ten percent off all bakery items',
-explain: 'Thành viên chương trình khách hàng thân thiết được giảm 10% đồ bánh tuần này → A. "7 o\'clock" là giờ bắt đầu bán bánh mì mới ra lò, không phải điều kiện giảm giá – bẫy cho B.' },
+{ n: 73, q: 'According to the speaker, how can some listeners save money this week?', options: ['By being members of a rewards program', 'By arriving at the store before opening hours', 'By presenting a discount voucher at checkout', 'By settling the purchase with a credit card'], a: 0, cue: 'members of our rewards program will receive ten percent off all bakery items',
+explain: 'Khách hàng thành viên chương trình khách hàng thân thiết sẽ được giảm 10% đồ bánh tuần này, vì vậy cách tiết kiệm là "By being members of a rewards program". Các phương án còn lại không được đề cập trong đoạn quảng cáo.' },
 ] },
 { type: 'mcq', instr: g.TQL[30],
 items: [
@@ -656,8 +656,8 @@ items: [
 explain: 'Trong cuộc gọi, người nói nhắc rằng hộ chiếu của khách sẽ hết hạn vào tháng Bảy và cần được giải quyết, vì vậy mục A “To report a problem with a passport” là đáp án đúng. Các lựa chọn B, C, D đề cập đến việc nâng hạng ghế, phí hành lý hoặc bảo hiểm du lịch – những nội dung không được đề cập trong lời nói.' },
 { n: 99, q: 'What does the speaker recommend?', options: ['Booking a different route', 'Buying travel insurance', 'Renewing a document', 'Leaving earlier in May'], a: 2, cue: "I'd strongly recommend renewing it before you travel.",
 explain: 'Cô khuyên gia hạn (làm mới) hộ chiếu trước chuyến đi, có thể dùng dịch vụ làm nhanh khoảng hai tuần → gia hạn một giấy tờ.' },
-{ n: 100, q: 'What does the speaker say about the hotel in Porto?', options: ['It is fully booked.', 'It has given the listener a better room.', 'It requires a deposit.', 'It has changed its address.'], a: 1, cue: 'the hotel in Porto has upgraded you to a room with a river view, at no extra cost',
-explain: 'Khách sạn ở Porto nâng hạng miễn phí lên phòng nhìn ra sông → khách được phòng tốt hơn.' },
+{ n: 100, q: 'What does the speaker say about the hotel in Porto?', options: ['It is currently at full occupancy.', 'It has given the listener a better room.', 'It now requires a security deposit from guests.', 'It has relocated to a different downtown venue.'], a: 1, cue: 'the hotel in Porto has upgraded you to a room with a river view, at no extra cost',
+explain: 'Người nói nói rằng khách sạn đã nâng cấp phòng cho người nghe lên phòng có view sông, vì vậy đáp án đúng là "It has given the listener a better room". Các lựa chọn khác mô tả tình trạng đặt phòng, yêu cầu đặt cọc hoặc địa chỉ mới, không đúng với nội dung.' },
 ] },
 ],
 vocab: [

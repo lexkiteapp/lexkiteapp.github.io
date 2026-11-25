@@ -1,7 +1,7 @@
 // Test máy gác đúng page · ngôn ngữ · giờ (functions/api/_social_audit.js, chủ 23/11). Chạy: node scripts/test/social-audit.mjs
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { auditPosts, postViolation, clipLang } from '../../functions/api/_social_audit.js';
+import { auditPosts, postViolation, clipLang, purgeWrongLang, healChanCfg } from '../../functions/api/_social_audit.js';
 import { peakOk, peakSlot, zonedToMs, LANG_TZ, schedule, capCfg, normCfg } from '../../functions/api/_distribution.js';
 import { slotAt, YT_SLOTS, MAIN_SLOTS } from '../../functions/api/youtube.js';
 let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
@@ -43,4 +43,34 @@ ok(new Set(Object.keys(LANG_TZ).map(l => slotAt(0, 1, l, now0, 0).slice(11, 16))
   ok(/peakOk\(ms, tz\)/.test(au) && /peakSlot\(/.test(au), 'rebalanceDays dời bài lệch giờ vào giờ cao điểm');
   ok(/peakSlot\(/.test(yt) && /retime/.test(yt), 'op fill dời hàng chờ YouTube lệch giờ');
   ok(/audit\(14\)/.test(cv) && /bad2/.test(cv), 'social-coverage chạy audit và đỏ khi còn lệch'); }
+{ // purge: chỉ gỡ bài TƯƠNG LAI sai ngôn ngữ chưa lên nền tảng; bài đã đẩy/đã tải lên chỉ đếm
+  const { DatabaseSync } = await import('node:sqlite'), sql = new DatabaseSync(':memory:');
+  const db = { prepare: q => ({ bind: (...p) => ({ all: async () => ({ results: sql.prepare(q).all(...p) }), run: async () => sql.prepare(q).run(...p) }) }) };
+  for (const q of ['CREATE TABLE yt_chan_cfg (channel_id TEXT, cfg TEXT)', 'CREATE TABLE dist_ext (channel_id TEXT, platform TEXT, title TEXT, status TEXT)', 'CREATE TABLE yt_channel (channel_id TEXT, title TEXT, status TEXT)', 'CREATE TABLE dist_social (clip TEXT, channel_id TEXT, platform TEXT, slot_ms INTEGER, source TEXT, rule INTEGER, state TEXT, post_id TEXT, err TEXT, updated INTEGER)', 'CREATE TABLE yt_plan (clip TEXT, channel_id TEXT, slot_ms INTEGER)', 'CREATE TABLE yt_queue (clip TEXT, channel_id TEXT, status TEXT, publish_at TEXT)']) sql.exec(q);
+  const now = Date.parse('2026-12-01T00:00:00Z'), f = now + 864e5;
+  sql.prepare("INSERT INTO dist_ext VALUES ('gc-facebook_page-1','facebook_page','Lexkite.com','ok'), ('gc-facebook_page-2','facebook_page','Lexkite - Học Tiếng Anh','ok')").run();
+  sql.prepare("INSERT INTO yt_chan_cfg VALUES ('gc-facebook_page-1','{\"lang\":\"en\"}'), ('gc-facebook_page-2','{\"lang\":\"vi\"}')").run();
+  const ins = sql.prepare('INSERT INTO dist_social (clip, channel_id, platform, slot_ms, state) VALUES (?, ?, ?, ?, ?)');
+  ins.run('a', 'gc-facebook_page-1', 'facebook_page', f, 'planned'); ins.run('b', 'gc-facebook_page-1', 'facebook_page', f, 'planned'); ins.run('c', 'gc-facebook_page-1', 'facebook_page', f, 'pushed'); ins.run('d', 'gc-facebook_page-2', 'facebook_page', f, 'planned');
+  const clips = [{ id: 'a', lang: 'ja' }, { id: 'b', lang: 'en' }, { id: 'c', lang: 'de' }, { id: 'd', lang: 'vi' }];
+  const dry = await purgeWrongLang(db, clips, now, false); ok(dry.cancelled_social === 1 && dry.kept_pushed === 1 && !dry.apply && sql.prepare("SELECT COUNT(*) n FROM dist_social WHERE state = 'planned'").get().n === 3, 'purge dry-run: đếm, không ghi');
+  const run = await purgeWrongLang(db, clips, now, true), st = Object.fromEntries(sql.prepare('SELECT clip, state FROM dist_social').all().map(r => [r.clip, r.state]));
+  ok(run.cancelled_social === 1 && st.a === 'skipped' && st.b === 'planned' && st.c === 'pushed' && st.d === 'planned' && run.by_lang['ja→en'] === 1, 'purge: gỡ clip ja khỏi page EN; giữ en/vi đúng ngôn ngữ và bài đã đẩy'); }
+// audit không đếm bài đã gỡ khỏi lịch (state 'skipped' do purge/rebalance) – tránh báo lệch ảo sau purge
+ok(/state NOT IN \('failed', 'cancelled', 'skipped'\)/.test(fs.readFileSync('functions/api/_social_audit.js', 'utf8')), "auditDb bỏ bài state 'skipped' (đã gỡ khỏi lịch)");
+{ const xa = auditPosts({ now, chans: new Map([['a', { platform: 'youtube', title: 'Lexkite English', cfg: { lang: 'en', tz: 'America/New_York' } }], ['b', { platform: 'youtube', title: 'Lexkite app', cfg: { lang: 'en', tz: 'America/New_York' } }], ['c', { platform: 'tiktok', title: 'Lexkite', cfg: { lang: 'en', tz: 'America/New_York' } }]]), clips: new Map(), posts: [{ channel_id: 'a', clip: 'x1', ms: at('2026-12-02', '19:40') }, { channel_id: 'b', clip: 'x1', ms: at('2026-12-03', '19:40') }, { channel_id: 'c', clip: 'x1', ms: at('2026-12-02', '19:40') }] });
+  ok(xa.xchan_n === 1 && xa.xchan[0].platform === 'youtube' && xa.xchan[0].channels === 2 && !xa.summary['dup-clip'], 'đo trùng chéo kênh: cùng clip 2 kênh cùng nền tảng (khác nền tảng thì không) – chỉ báo, không vào n_bad'); }
+{ // heal: cấu hình kênh LƯU đúng ngôn ngữ + múi giờ thị trường (map-tz), giữ các trường khác
+  const { DatabaseSync } = await import('node:sqlite'), sql = new DatabaseSync(':memory:');
+  const db = { prepare: q => ({ bind: (...p) => ({ all: async () => ({ results: sql.prepare(q).all(...p) }), run: async () => sql.prepare(q).run(...p) }) }) };
+  for (const q of ['CREATE TABLE yt_chan_cfg (channel_id TEXT PRIMARY KEY, cfg TEXT, paused_reason TEXT, updated INTEGER)', 'CREATE TABLE dist_ext (channel_id TEXT, platform TEXT, title TEXT, status TEXT)', 'CREATE TABLE yt_channel (channel_id TEXT, title TEXT, status TEXT)']) sql.exec(q);
+  sql.prepare("INSERT INTO dist_ext VALUES ('gc-facebook_page-1','facebook_page','Lexkite.com','ok'), ('gc-youtube-27','youtube','Lexkite – Học Tiếng Anh','ok')").run();
+  sql.prepare("INSERT INTO yt_channel VALUES ('UCzh','Lexkite – 学英语','ok')").run();
+  sql.prepare("INSERT INTO yt_chan_cfg VALUES ('UCzh','{\"lang\":\"zh\",\"tz\":\"Asia/Taipei\",\"active\":0}','x',1)").run();
+  const d0 = await healChanCfg(db, false); ok(d0.fixed === 3 && !d0.apply && sql.prepare('SELECT COUNT(*) n FROM yt_chan_cfg').get().n === 1, 'heal dry-run: đếm 3 kênh lệch (trống ×2 + Taipei), không ghi');
+  const d1 = await healChanCfg(db, true), c = id => JSON.parse(sql.prepare('SELECT cfg FROM yt_chan_cfg WHERE channel_id = ?').get(id).cfg);
+  ok(d1.fixed === 3 && c('UCzh').tz === 'Asia/Shanghai' && c('UCzh').active === 0 && c('gc-youtube-27').tz === 'Asia/Ho_Chi_Minh' && c('gc-youtube-27').lang === 'vi' && c('gc-facebook_page-1').tz === 'America/New_York', 'heal apply: tz = múi giờ thị trường, lang theo tên kênh, giữ active=0');
+  ok((await healChanCfg(db, true)).fixed === 0, 'heal chạy lại → 0 (idempotent)'); }
+{ const ch = (id, plat, title) => [id, { platform: plat, title, cfg: { lang: 'en', tz: 'America/New_York' } }], xa = auditPosts({ now, chans: new Map([ch('UC1', 'youtube', 'Lexkite English'), ch('gc-youtube-25', 'youtube', 'Lexkite English'), ch('UC2', 'youtube', 'Lexkite app')]), clips: new Map(), posts: [{ channel_id: 'UC1', clip: 'y1', ms: at('2026-12-02', '19:40') }, { channel_id: 'gc-youtube-25', clip: 'y1', ms: at('2026-12-02', '19:40') }, { channel_id: 'UC1', clip: 'y2', ms: at('2026-12-02', '19:40') }, { channel_id: 'UC2', clip: 'y2', ms: at('2026-12-03', '19:40') }] });
+  ok(xa.xchan_n === 1 && xa.xchan[0].clip === 'y2', 'trùng chéo kênh gộp bí danh: UC… và gc-youtube-N cùng tên = MỘT kênh thật (y1 không tính), y2 trên 2 kênh thật (tính)'); }
 console.log(`✓ social-audit: ${n} kiểm`);

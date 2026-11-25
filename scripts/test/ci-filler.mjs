@@ -8,6 +8,7 @@ let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m)
 ok(capacity({ busy: 13, starved: 0 }) === 19, '13 busy → 40 − 13 − 8 = 19');
 ok(capacity({ busy: 32, starved: 0 }) === 0 && capacity({ busy: 35, starved: 0 }) === 0, 'busy ≥ 32 → 0');
 ok(capacity({ busy: 5, starved: 1 }) === 0, 'có job đói runner → 0');
+ok(capacity({ busy: 0, queued: 31 }) === 0 && capacity({ busy: 2, queued: 10 }) === 20 && capacity({ busy: 0, queued: 30 }) === 2, '25/11: > 30 job xếp hàng → không nạp việc nền (busy thấp cũng vậy)');
 // hồi quy 02/11 04:21Z: busy 20, queued 118 (đói 0) → mã cũ bơm 12 job (40/40, check PR #406/#418 không có runner) – phải 0
 ok(capacity({ busy: 20, queued: 118, starved: 0 }) === 0, '04:21Z busy 20 + queued 118 → 0 shard');
 ok(capacity({ busy: 20, queued: 5, starved: 0 }) === 7, 'busy + queued + shard ≤ 32 → 32 − 20 − 5 = 7');
