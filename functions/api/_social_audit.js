@@ -70,3 +70,18 @@ export async function purgeWrongLang(db, clipsArr, now = Date.now(), apply = fal
   }
   return out;
 }
+
+/** 25/11 (chủ: lịch đúng giờ cao điểm theo múi giờ thị trường): cấu hình kênh phải LƯU đúng ngôn ngữ + múi giờ thị trường (audit map-tz). Lịch đã ép múi giờ qua capCfg nhưng bản ghi thô (trống → mặc định NY, hoặc Taipei cho zh)
+ *  làm báo lệch và dễ bị công cụ khác đọc sai → ghi lại cfg = capCfg(normCfg({ ...cũ, lang })) cho mọi kênh còn lệch (giữ nguyên các trường khác: active, cửa sổ, vai trò). apply=false → chỉ đếm. */
+export async function healChanCfg(db, apply = false) {
+  const all = async (sql, ...p) => ((await db.prepare(sql).bind(...p).all()) || {}).results || [], out = { apply: !!apply, fixed: 0, ids: [] };
+  const raw = new Map(); for (const r of await all('SELECT channel_id, cfg FROM yt_chan_cfg')) { try { raw.set(r.channel_id, JSON.parse(r.cfg || '{}')); } catch (e) { raw.set(r.channel_id, {}); } }
+  const chans = [...(await all("SELECT channel_id, title FROM dist_ext WHERE status = 'ok'")).filter(c => !foreignAccount({ title: c.title })), ...(await all("SELECT channel_id, title FROM yt_channel WHERE status = 'ok'"))];
+  for (const c of chans) {
+    const cur = raw.get(c.channel_id) || {}, lang = normCfg(cur).lang || langOfChannel(c.title) || 'en', want = LANG_TZ[lang];
+    if (!want || (cur.tz === want && cur.lang === lang)) continue;
+    const next = capCfg(normCfg({ ...cur, lang, tz: want })); out.fixed++; out.ids.push(c.channel_id);
+    if (apply) await db.prepare('INSERT INTO yt_chan_cfg (channel_id, cfg, paused_reason, updated) VALUES (?, ?, ?, ?) ON CONFLICT(channel_id) DO UPDATE SET cfg = excluded.cfg, updated = excluded.updated').bind(c.channel_id, JSON.stringify(next), '', Date.now()).run();
+  }
+  return out;
+}
