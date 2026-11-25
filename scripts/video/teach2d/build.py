@@ -964,13 +964,14 @@ def T_levels3():
 
 _TPL = dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, l1=T_l1, guess=T_guess, level=T_level,
      grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, slang=T_slang, guess3=T_guess3, levels3=T_levels3, scorecard=T_scorecard, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]
-if REEL and o.format == 'short' and EP['template'] != 'l1':   # v3 (eye review): cards as big as the region allows – try the largest text scale first, fall back when a card leaves the region
+if REEL and EP['template'] != 'l1':   # v3 (eye review): cards as big as the region allows – try the largest text scale first, fall back when a card leaves the region
     _keep = [len(x) for x in (NODES, CUES, IPA, PAIRS, SLOTS, PULSES)]
-    for _sc in (1.6, 1.5, 1.4, 1.3, 1.25):
+    _SCS = (1.6, 1.5, 1.4, 1.3, 1.25) if o.format == 'short' else (1.5, 1.4, 1.3, 1.2)
+    for _sc in _SCS:
         S.update({k: round(S0[k] * _sc) for k in ('body', 'sub', 'chip', 'ipa', 'pill')})
         try: _TPL(); break
         except AssertionError:
-            if _sc == 1.25: raise
+            if _sc == _SCS[-1]: raise
             for _x, _n in zip((NODES, CUES, IPA, PAIRS, SLOTS, PULSES), _keep): del _x[_n:]
 else: _TPL()
 

@@ -251,7 +251,7 @@ function Captions({ caps, box, t, T, size = 58 }) {
       <div style={{ padding: '10px 26px', borderRadius: 24, textAlign: 'center', background: T.cap_plate, fontFamily: JAK, fontWeight: 800, fontSize: size, lineHeight: `${Math.round(size * 1.28)}px`, whiteSpace: 'pre',
         transform: `scale(${sc})`, transformOrigin: '50% 60%', boxShadow: `0 8px 0 ${T.ledge}` }}>
         {p.words.map((w, i) => <React.Fragment key={i}>{p.br && i === p.br ? <br /> : null}
-          <span style={{ display: 'inline-block', whiteSpace: 'pre', color: i === now ? T.cap_now : T.cap_ink, transform: i === now ? `scale(${1 + wordBump(t - Math.max(p.t0, p.words[i].s))})` : 'none', textShadow: `0 3px 0 ${T.ledge}` }}>{(i && i !== p.br ? ' ' : '') + w.w}</span></React.Fragment>)}</div>
+          <span style={{ display: 'inline-block', whiteSpace: 'pre', color: i === now ? T.cap_now : T.cap_ink, transform: i === now ? `translateY(${(-0.35 * 100 * wordBump(t - Math.max(p.t0, p.words[i].s))).toFixed(2)}px)` : 'none', textShadow: `0 3px 0 ${T.ledge}` }}>{(i && i !== p.br ? ' ' : '') + w.w}</span></React.Fragment>)}</div>
     </div>);
 }
 
