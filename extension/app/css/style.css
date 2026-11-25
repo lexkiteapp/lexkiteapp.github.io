@@ -715,7 +715,7 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 .sheet-ex mark { background: rgba(255,255,255,.25); color: #fff; border-radius: 4px; padding: 0 .15rem; }
 .sheet-ex .ctx-say { background: #fff; color: var(--brand-ink); border: 0; margin-left: .2rem; opacity: 1; }
 .sheet-tr { margin-top: .3rem; opacity: .9; font-style: italic; }
-.sheet-next { margin-top: 1rem; background: #fff !important; color: #111 !important; border: 0 !important; box-shadow: 0 4px 0 rgba(0,0,0,.15); font-weight: 800; }
+.sheet-next { margin-top: 1rem; background: rgba(0,0,0,.28) !important; color: #fff !important; border: 1px solid rgba(255,255,255,.6) !important; box-shadow: none; font-weight: 800; } /* banner gradient: nền tối + viền sáng (spec chon-cta-khu-b), không nền trắng chói */
 .study-wrap:has(.sheet-up) { padding-bottom: calc(var(--sheet-h, 280px) + 1rem); }
 /* Màn hình rộng có thanh bên: căn khung kết quả theo vùng nội dung (không theo cả cửa sổ) để thẳng hàng với thẻ học */
 @media (min-width: 1024px) { body:not(.bare):not(.focus) .sheet { left: var(--sidebar); } }
