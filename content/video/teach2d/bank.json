@@ -15085,6 +15085,240 @@
    ],
    "tries": 0
   },
+  "t2a_prog_breakfast_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "787a9dbc31757a41",
+    "wide": "20e18fcff78968d9"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_card_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "6b37780acadb3e7a",
+    "wide": "b6015e34cc9f6523"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_confidence_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "57aa31d8b923c721",
+    "wide": "a2a0fde413372ee5"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_food_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "8dd695afd8af3277",
+    "wide": "e36a1141fa0f27bb"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_friday_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "70cf8ebe1bd674eb",
+    "wide": "4cbb3e28f2ca84bb"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_garden_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "d84445fcbefeb139",
+    "wide": "29b5c889f94ddd82"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_journey_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a96935f21ac5e3fc",
+    "wide": "6b9a369d489be120"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_morning_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "d1d4ad8aeea5a8b7",
+    "wide": "9d41f8dc2567b728"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_repeat_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "bba9afd0a50f7dc0",
+    "wide": "40e463e6518f7c56"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_shopping_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "aeeec1348985a410",
+    "wide": "5873152da454417b"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_teacher_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "4dabfee936d18aa4",
+    "wide": "9126f979f51e6229"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_thanks_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "160e0b36e62fcdd1",
+    "wide": "d72b7b2038c269b8"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2a_prog_trip_1": {
+   "run": "45533215258",
+   "at": "2026-11-25T08:22Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "50827d849dd99f16",
+    "wide": "349b1d39d5490830"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
   "t2a_review_access": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",
