@@ -749,6 +749,7 @@
 "Nhập từ Anki":"นำเข้าจาก Anki",
 "Nhập từ bộ thẻ Anki":"นำเข้าจากสำรับ Anki ของคุณ",
 "Nhập từ văn bản, PDF, ePub, phụ đề":"นำเข้าจากข้อความ PDF ePub และคำบรรยาย",
+"Nhật ký giọng nói":"ไดอารี่เสียง",
 "Nhắc học":"การเตือน",
 "Nhắc học hằng ngày":"เตือนเรียนรายวัน",
 "Nhịp điệu":"จังหวะ",

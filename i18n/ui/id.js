@@ -749,6 +749,7 @@
 "Nhập từ Anki":"Impor dari Anki",
 "Nhập từ bộ thẻ Anki":"Diimpor dari dek Anki Anda",
 "Nhập từ văn bản, PDF, ePub, phụ đề":"Diimpor dari teks, PDF, ePub, dan subtitel",
+"Nhật ký giọng nói":"Buku harian suara",
 "Nhắc học":"Pengingat",
 "Nhắc học hằng ngày":"Pengingat harian",
 "Nhịp điệu":"Irama",

@@ -24,6 +24,7 @@
   "league": {"variant": "inner", "surface": ["leagues"]},
   "lesson": {"variant": "focus", "surface": ["lesson-question"]},
   "mediate": {"variant": "inner", "surface": ["mediate"]},
+  "interpret": {"variant": "inner", "surface": ["interpret"]},
   "letters": {"variant": "inner", "surface": ["verbs"]},
   "library": {"variant": "inner", "surface": ["library"]},
   "listen": {"variant": "inner", "surface": ["listening"]},

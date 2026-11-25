@@ -1137,6 +1137,8 @@
 (function (g) { Object.assign(g.I18N_DICT.en, {"Thoát bây giờ sẽ mất tiến độ bài này?": "Leave now and lose your progress in this lesson?", "Thoát bài?": "Leave this lesson?", "Tiến độ đã được lưu – lần sau bạn học tiếp từ đây.": "Your progress is saved – next time you'll pick up right here.", "Tiếp tục học": "Keep learning", "Thoát bài học": "Quit lesson"}); })(typeof self !== 'undefined' ? self : this);
 /* Thử thách nói 30 giây (lối vào ở Hôm nay/Luyện/kết quả Nói; màn: web/cpack/score30) */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Thử thách nói 30 giây": "30-second speaking challenge"}); })(typeof self !== 'undefined' ? self : this);
+/* Nhật ký giọng nói ngày 1 vs ngày 30 (lối vào ở Luyện/thẻ điểm 30 s/kết quả Nói; màn: web/cpack/diary-app) */
+(function (g) { Object.assign(g.I18N_DICT.en, {"Nhật ký giọng nói": "Voice diary"}); })(typeof self !== 'undefined' ? self : this);
 
 /* Chữ giao diện add-on (content/popup/background) – nguồn tiếng Anh để Actions dịch sang 13 ngôn ngữ khác */
 (function (g) { Object.assign(g.I18N_DICT.en, {

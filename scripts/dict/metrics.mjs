@@ -18,15 +18,17 @@ export async function collect({ gsc, token, date, urls, fetchImpl = fetch, rnd =
   for (const l of ENABLED) {
     const list = urls[l] || []; if (!list.length) continue;
     const rows = await q(range, { dimensionFilterGroups: [{ filters: [{ dimension: 'page', operator: 'contains', expression: `/${l}/${DICT_PATH[l]}/` }] }] });
-    const sample = [...list].sort(() => rnd() - 0.5).slice(0, SAMPLE); let idx = 0, cni = 0;
+    const sample = [...list].sort(() => rnd() - 0.5).slice(0, SAMPLE); let idx = 0, cni = 0, skipped = 0;
     for (const u of sample) {
-      const res = await fetchImpl('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', { method: 'POST', headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: JSON.stringify({ inspectionUrl: u, siteUrl: gsc.SITE }) });
+      let res; for (let t = 0; t < 3; t++) { res = await fetchImpl('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', { method: 'POST', headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: JSON.stringify({ inspectionUrl: u, siteUrl: gsc.SITE }) }); if (res.status < 500 && res.status !== 429) break; await new Promise(r => setTimeout(r, 1500 * (t + 1))); }
+      if (res.status >= 500 || res.status === 429) { skipped++; continue; } // 24/11: Google 500 thoáng qua làm đỏ dict-stage (#2034) → thử lại 3 lần, vẫn lỗi thì bỏ URL đó khỏi mẫu
       if (!res.ok) throw new Error(`urlInspection HTTP ${res.status}`);
       const s = ((await res.json()).inspectionResult || {}).indexStatusResult || {};
       if (s.verdict === 'PASS') idx++; else if (/crawled - currently not indexed/i.test(s.coverageState || '')) cni++;
     }
-    const k = list.length / sample.length;
-    langs[l] = { submitted: list.length, sampled: sample.length, indexed: Math.round(idx * k), crawledNotIndexed: Math.round(cni * k), impressions: tot(rows), clicks: rows.reduce((a, r) => a + (r.clicks || 0), 0), pagesWithImpressions: rows.length };
+    const n = sample.length - skipped; if (n <= 0) { console.warn(`⚠ dict-metrics ${l}: URL Inspection lỗi hết mẫu → bỏ ngôn ngữ này`); continue; }
+    const k = list.length / n;
+    langs[l] = { submitted: list.length, sampled: n, indexed: Math.round(idx * k), crawledNotIndexed: Math.round(cni * k), impressions: tot(rows), clicks: rows.reduce((a, r) => a + (r.clicks || 0), 0), pagesWithImpressions: rows.length };
   }
   const p = tot(prev);
   return { at: date, range, langs, siteImpressionsDelta: p ? (tot(cur) - p) / p : null };
