@@ -1,0 +1,131 @@
+{
+ "_doc": "Màn chơi Ô chữ mỗi ngày (#/practice/crossword, gói lười pgames; game-system P5). Stitch key1 2a7b46a4… (lưới 9×9) → bản sáng 'bright' (edit, cùng DOM), tối = scripts/stitch/dark-from-light.mjs game-crossword. d dựng bởi web/cpack/play-app/play-crossword.js: lưới (d.grid), thẻ gợi ý (nghĩa theo ngôn ngữ người học + câu ví dụ che từ), hàng chip gợi ý (d.chips), bàn chữ (d.keys). Kết quả = GameEnd (khung lesson-complete). Lưới/chip/bàn chữ: giữ ô mẫu Stitch trong khung; chỉ giữ 1 ô mẫu mỗi loại (data-v: solved/block/emptyN/empty/activeN/active/cursor, chipOk/chipCur/chipOpen, key); play-crossword.js đọc class từng loại ô mẫu (chặn, trống, đã giải, đang chọn, con trỏ) rồi dựng lưới thật – CSS luôn khớp Stitch.",
+ "i18n": {
+  "Hint: letter": "Gợi ý 1 chữ",
+  "Skip": "Bỏ qua",
+  "Candidate letters": "Chọn chữ",
+  "Check word": "Kiểm tra từ",
+  "Today": "Hôm nay",
+  "Close exercise": "Thoát",
+  "Play pronunciation": "Nghe phát âm",
+  "Delete character": "Xóa một chữ"
+ },
+ "keys": {},
+ "text": {
+  "Focus Drill Exercise": "t('Ô chữ mỗi ngày')",
+  "7 / 10": "d.count",
+  "Daily Crossword • IELTS Vocab": "d.src",
+  "+20 XP": "d.xpL",
+  "3 of 7 solved": "d.solved",
+  "43%": "d.pct + '%'",
+  "4 ACROSS • 6 LETTERS": "d.tag",
+  "IELTS B2": "d.level",
+  "nguồn năng lượng tái tạo": "d.clue",
+  "“Clean power generated from solar, wind, or natural kinetic forces.”": "d.ex",
+  "Del": "t('Xóa')",
+  "1 DN: HABIT": "''",
+  "2 AC: AFFECT": "''",
+  "3 AC: TASK": "''",
+  "4 AC: 6 LTRS": "''",
+  "5 DN: 5 LTRS": "''",
+  "6 DN: 4 LTRS": "''"
+ },
+ "attr": {
+  ":scope > div > header > div > button": {
+   "id": "'xwX'",
+   "href": "d.close",
+   "aria-label": "t('Thoát')"
+  },
+  ":scope > div > header > div > div > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > div > main > div > div:nth-child(3) > div": {
+   "id": "'xwGrid'",
+   "role": "'grid'",
+   "aria-label": "t('Ô chữ mỗi ngày')"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(1) > button": {
+   "id": "'xwSay'",
+   "aria-label": "t('Nghe phát âm')"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(1) > div > span:nth-child(2)": {
+   "id": "'xwLv'"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(2) > p:nth-child(2)": {
+   "lang": "'en'",
+   "id": "'xwEx'"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(3) > button:nth-child(1)": {
+   "id": "'xwHint'",
+   "type": "'button'"
+  },
+  ":scope > div > main > div > div:nth-child(4) > div:nth-child(3) > button:nth-child(2)": {
+   "id": "'xwSkip'",
+   "type": "'button'"
+  },
+  ":scope > div > main > div > div:nth-child(5)": {
+   "id": "'xwChips'"
+  },
+  ":scope > div > main > div > div:nth-child(6) > div:nth-child(1) > button": {
+   "id": "'xwDel'",
+   "type": "'button'",
+   "aria-label": "t('Xóa một chữ')"
+  },
+  ":scope > div > main > div > div:nth-child(6) > div:nth-child(2)": {
+   "id": "'xwKeys'"
+  },
+  ":scope > div > main > div > div:nth-child(7) > button": {
+   "id": "'xwCheck'",
+   "type": "'button'"
+  },
+  ":scope > div > main > div > div:nth-child(3) > div > div:nth-child(1)": {
+   "data-v": "'solved'"
+  },
+  ":scope > div > main > div > div:nth-child(3) > div > div:nth-child(2)": {
+   "data-v": "'block'"
+  },
+  ":scope > div > main > div > div:nth-child(3) > div > div:nth-child(18)": {
+   "data-v": "'emptyN'"
+  },
+  ":scope > div > main > div > div:nth-child(3) > div > div:nth-child(27)": {
+   "data-v": "'empty'"
+  },
+  ":scope > div > main > div > div:nth-child(3) > div > div:nth-child(39)": {
+   "data-v": "'activeN'"
+  },
+  ":scope > div > main > div > div:nth-child(3) > div > div:nth-child(40)": {
+   "data-v": "'active'"
+  },
+  ":scope > div > main > div > div:nth-child(3) > div > div:nth-child(41)": {
+   "data-v": "'cursor'"
+  },
+  ":scope > div > main > div > div:nth-child(5) > button:nth-child(1)": {
+   "data-v": "'chipOk'"
+  },
+  ":scope > div > main > div > div:nth-child(5) > button:nth-child(4)": {
+   "data-v": "'chipCur'"
+  },
+  ":scope > div > main > div > div:nth-child(5) > button:nth-child(5)": {
+   "data-v": "'chipOpen'"
+  },
+  ":scope > div > main > div > div:nth-child(6) > div:nth-child(2) > button:nth-child(1)": {
+   "data-v": "'key'"
+  }
+ },
+ "tag": {
+  ":scope > div > header > div > button": {
+   "to": "a"
+  }
+ },
+ "addClass": {
+  ":scope > div > header > div > button": "no-underline",
+  ":scope > div > main > div > div:nth-child(5)": "overflow-x-auto xw-chips"
+ },
+ "html": {},
+ "remove": [
+  ":scope > div > main > div > div:nth-child(3) > div > div:not([data-v])",
+  ":scope > div > main > div > div:nth-child(5) > button:not([data-v])",
+  ":scope > div > main > div > div:nth-child(6) > div:nth-child(2) > button:not([data-v])"
+ ],
+ "out": "web/cpack/game/game-crossword.js"
+}

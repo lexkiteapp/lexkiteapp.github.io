@@ -223,7 +223,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   cfg({ fr_course: true, fr_kill: '1' }); ok(!T.enabled('fr') && T.cur() === 'en', 'fr_kill=1 thắng cờ');
   ls.set('lk.esb', '9'); cfg({ fr_course_pct: '10' }); ok(T.enabled('fr'), 'fr_course_pct=10, nhóm 9 → bật'); ls.set('lk.esb', '10'); ok(!T.enabled('fr'), 'nhóm 10 → tắt'); cfg({ fr_course: '0', fr_course_pct: '100' }); ok(!T.enabled('fr'), 'fr_course=0 thắng pct');
   for (const k of ['fr_course', 'fr_course_pct', 'fr_kill']) ok(rd('functions/api/config.js').includes(`'${k}'`) && rd('functions/api/admin.js').includes(`'${k}'`), k + ' có trong PUBLIC_KEYS + CONFIG_KEYS');
-  ok(T.speechLang('fr') === 'fr-FR' && T.speechLangs('fr').join() === 'fr-FR,fr-CA,fr-BE' && T.recLang('fr', 'en-GB') === 'fr-FR' && T.kokoroVoice('fr-FR') === 'ff_siwis' && T.teacherVoice('ama', 'fr') === 'ff_siwis' && T.prefixFor('fr-CA') === 'fr', 'fr: fr-FR, dự phòng fr-CA/fr-BE, Kokoro ff_siwis');
+  ok(T.speechLang('fr') === 'fr-FR' && T.speechLangs('fr').join() === 'fr-FR,fr-CA,fr-BE' && T.recLang('fr', 'en-GB') === 'fr-FR' && T.kokoroVoice('fr-FR') === 'fr_siwis' && T.kokoroVoice('fr-BE') === 'fr_siwis' && T.teacherVoice('ama', 'fr') === 'fr_siwis' && T.teacherVoice('carlos', 'fr') === '' && T.prefixFor('fr-CA') === 'fr', 'fr: fr-FR, dự phòng fr-CA/fr-BE, giọng file Piper siwis (chỉ Ama)');
   const deck = readJSON(seedPath('fr')), err = validate(deck, { img: imgKeys() });
   ok(!err.length, 'seed fr đúng schema + cổng: ' + err.slice(0, 5).join(' | '));
   ok(deck.words.length === 30 && deck.tl === 'fr' && deck.variant === 'fr-FR', 'seed fr = 30 từ, fr-FR');
@@ -400,6 +400,48 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(C.FORMS.length === 20 && C.KNOWN.length >= 30 && C.KNOWN.some(v => v.vclass === 'irregular') && readJSON(seedPath('ja')).words.filter(w => w.pos === 'v').every(w => C.FORMS.every(f => c(w)[f].w && c(w)[f].k)), 'đủ 20 dạng cho mọi động từ seed');
   let thr = 0; try { c({ word: '猫', kana: 'ねこ', vclass: 'godan' }); } catch { thr = 1; } ok(thr, 'godan không tận cùng hàng u → lỗi (không đoán)');
   ok(/conj-ja-check\.mjs/.test(rd('.github/workflows/target-content.yml')), 'target-content: kiểm chéo chia ja ↔ Wiktionary trên PR'); }
+
+// W3 ja: bài phát âm (content/target/ja/pron.json) – cặp tối thiểu KHÁC âm hoặc KHÁC cao độ, IPA + dấu hạ SINH từ kana, gói px khớp nguồn, đủ 15 ngôn ngữ, ví dụ giữ nguyên chữ Nhật
+{ const J = await import('../target/ja-kana.mjs'), P = await import('../target/px-lib.mjs'), pr = readJSON('content/target/ja/pron.json'), R = pr.read, VN = /[ơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđă]/i;
+  ok(pr.topics.map(t => t.id).join() === P.TLX.ja.topics.join() && pr.topics.length === 8, 'ja pron: 8 chủ đề đúng thứ tự');
+  const used = new Set(pr.topics.flatMap(t => [...t.ex, ...t.dict, ...t.say, ...t.pairs.flatMap(p => p.split('/'))]));
+  ok([...used].every(w => R[w]) && Object.keys(R).every(w => used.has(w)), 'ja pron: mọi từ có read và mọi read được dùng');
+  ok(Object.entries(R).every(([w, [k, p]]) => J.isKana(k) && (J.hasKanji(w) ? J.ruby(w, k) : J.hira(w) === J.hira(k)) && Number.isInteger(p) && p >= 0 && p <= J.morae(k)), 'ja pron: kana khớp chữ (furigana), cao độ trong 0…mora');
+  const sig = w => J.ipa(R[w][0]) + '|' + R[w][1], bad = [];
+  for (const t of pr.topics) for (const p of t.pairs) { const [a, b] = p.split('/'); if (a === b || sig(a) === sig(b)) bad.push(p); }
+  ok(!bad.length, 'ja pron: mọi cặp tối thiểu KHÁC âm hoặc KHÁC cao độ (đồng âm đồng cao độ bị chặn)' + (bad.length ? ': ' + bad.join(', ') : ''));
+  const pitchPairs = pr.topics.find(t => t.id === 'pitch').pairs; ok(pitchPairs.every(p => { const [a, b] = p.split('/'); return J.ipa(R[a][0]) === J.ipa(R[b][0]) && R[a][1] !== R[b][1]; }), 'ja pron: chủ đề cao độ = cặp CÙNG âm KHÁC cao độ');
+  const longP = pr.topics.find(t => t.id === 'long').pairs.slice(0, 4); ok(longP.every(p => { const [a, b] = p.split('/'); return J.morae(R[a][0]) !== J.morae(R[b][0]) || J.ipa(R[a][0]) !== J.ipa(R[b][0]); }), 'ja pron: cặp trường âm khác độ dài');
+  ok(J.accentKana('はし', 1) === 'はꜜし' && J.accentKana('はし', 2) === 'はしꜜ' && J.accentKana('はし', 0) === 'はし' && J.accentKana('きょう', 1) === 'きょꜜう' && J.accentKana('びよういん', 2) === 'びよꜜういん', 'accentKana: dấu hạ sau mora, ゃゅょ đi cùng mora trước');
+  const src = P.buildPx('ja'); ok(src.topics.length === 8 && src.topics[5].p.every(p => p[1].includes('ꜜ') || p[3].includes('ꜜ')) && src.GX_LANGS.length === 15, 'buildPx ja: 8 chủ đề, IPA+dấu hạ sinh từ kana, 15 ngôn ngữ');
+  const en = readJSON('content/target/ja/px/en.json'), qt = s => (s.match(/[「“][^」”]*[」”]/g) || []).join(); let miss = [];
+  for (const l of src.GX_LANGS) { const d = readJSON(`content/target/ja/px/${l}.json`);
+    for (const k of P.PX_UI) if (!d.ui[k] || (l !== 'vi' && VN.test(d.ui[k]))) miss.push(`${l}.ui.${k}`);
+    for (const t of pr.topics) { const x = d.tp[t.id]; if (!x || !x.t || !x.x) miss.push(`${l}.tp.${t.id}`); else if (l !== 'vi' && VN.test(x.t + x.x)) miss.push(`${l}.tp.${t.id} lẫn tiếng Việt`); else if (!/[ぁ-んァ-ン一-龥]/.test(x.x)) miss.push(`${l}.tp.${t.id} thiếu ví dụ tiếng Nhật`); } }
+  ok(!miss.length, 'ja px: đủ 15 ngôn ngữ × 8 chủ đề + 15 nhãn, ví dụ tiếng Nhật giữ nguyên' + (miss.length ? ': ' + miss.slice(0, 6).join(', ') : ''));
+  void en; void qt;
+  try { execFileSync(process.execPath, ['scripts/target/px-pack.mjs', 'ja', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/packs/tl/ja/px* lệch nguồn: ' + String(e.stderr)); }
+  ok(!/px\.js|JAX/.test(rd('web/cpack/tl-app/tl-pick.js')) && /--pron/.test(rd('.github/workflows/target-content.yml')), 'gói px ja ngoài cpack; CI đối chiếu OpenJTalk'); }
+
+// W4 ja: 24 cuộc gọi – engine THẬT (web/js/call/engine.js, bảng TLX.ja): đi hết từng cuộc bằng câu mẫu, nhánh đúng chữ/kana/katakana/bán độ rộng, câu mẫu đạt min từ, gói khớp nguồn
+{ const evm = vm.createContext({ self: {} }); evm.self = evm; vm.runInContext(rd('web/js/call/engine.js'), evm); evm.CallX = { UNSAFE_X: {}, SAFE_SAY: {} }; vm.runInContext(rd('web/packs/tl/ja/cl.js'), evm); const E = evm.CallEngine; // bảng ja nằm trong gói cl.js (ngoài web/js)
+  const calls = fs.readdirSync('content/target/ja/calls').filter(f => /^calls-\d+\.json$/.test(f)).sort().flatMap(f => readJSON('content/target/ja/calls/' + f).map(c => ({ ...c, tl: 'ja' })));
+  ok(calls.length === 24 && new Set(calls.map(c => c.id)).size === 24 && ['A1', 'A2', 'B1', 'B2', 'C1'].every(l => calls.some(c => c.lv === l)), 'ja calls: 24 cuộc, id duy nhất, đủ A1–C1');
+  ok(calls.some(c => c.who === 'ama') && calls.some(c => c.who === 'carlos') && calls.filter(c => c.kind === 'role').length >= 10, 'ja calls: cả Ama và Carlos, ≥ 10 cuộc nhập vai (keigo theo vai ở B2/C1)');
+  let bad = [];
+  for (const c of calls) { E.prep(c); let id = c.start, hops = 0, seen = new Set();
+    while (id && hops++ < 30 && !seen.has(id)) { seen.add(id); const n = c.nodes[id]; if (!n) { bad.push(c.id + ' nút ' + id); break; }
+      for (const o of n.o) { const f = E.fluency(o, n, 0, 'ja'); if (f.short) bad.push(`${c.id}/${id}: câu mẫu ngắn (min ${n.min}, ${f.words} từ): ${o}`); }
+      const r = E.step(c, id, n.o[0]); id = r.next; }
+    if (seen.size !== Object.keys(c.nodes).length) bad.push(c.id + ': đi hết bằng câu mẫu không tới mọi nút (' + seen.size + '/' + Object.keys(c.nodes).length + ')'); }
+  ok(!bad.length, 'ja calls: đi hết từng cuộc bằng engine, câu mẫu đạt min' + (bad.length ? ': ' + bad.slice(0, 4).join(' | ') : ''));
+  const t = { id: 'ja-t', tl: 'ja', start: 'a', nodes: { a: { m: 'x。', o: ['あ。', 'い。', 'う。'], br: [['ねこ|犬|いぬ', '猫か犬', 'b'], ['ジュース', 'ジュース分岐', 'b']], re: '既定', next: 'b' }, b: { m: 'y。', o: ['あ。', 'い。', 'う。'], re: 'z' } } };
+  ok(E.step(t, 'a', 'わたしはネコが好きです').react === '猫か犬' && E.step(t, 'a', 'ｲﾇが すき').react === '猫か犬' && E.step(t, 'a', 'じゅーす').react === 'ジュース分岐' && E.step(t, 'a', 'ｼﾞｭｰｽ').react === 'ジュース分岐' && E.step(t, 'a', 'おちゃ').react === '既定', 'engine ja: nhánh khớp bất kể katakana/bán độ rộng/khoảng trắng; ー giữ nguyên');
+  ok(E.fluency('えーと、わたしは毎朝コーヒーを飲みます。', { min: 3 }, 0, 'ja').fillers === 1 && E.fluency('あ。', { min: 3 }, 0, 'ja').short === true && E.fluency('毎日、日本語を勉強していますから、少しだけ上手です。', {}, 0, 'ja').link === true, 'engine ja: từ đệm, quá ngắn, từ nối');
+  ok(E.recap({ ...t, words: ['ねこ', '犬'] }, [{ id: 'a', text: 'わたしは猫と犬がすきです' }]).used.includes('犬'), 'engine ja: từ mục tiêu đã dùng (so theo chuỗi)');
+  ok(/callja: \['packs\/tl\/ja\/cl\.js'\]/.test(rd('web/js/bundles.js')) && /ja: 'callja'/.test(rd('web/js/call.js')) && /SAFE_SAY\.ja = '楽しく/.test(rd('web/packs/tl/ja/cl.js')) && evm.CallX.UNSAFE_X.ja.test('死ね'), 'call.js/bundles.js: gói cuộc gọi ja nối vào (ngoài cpack)');
+  try { execFileSync(process.execPath, ['scripts/target/calls-pack.mjs', 'ja', '--check'], { stdio: 'pipe' }); execFileSync(process.execPath, ['scripts/target/calls-check.mjs', '--tl', 'ja'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'calls ja: ' + String(e.stderr || e.stdout)); }
+  ok(/calls-check\.mjs --tl \$\{\{ matrix\.tl \}\}|calls-check\.mjs --tl ja/.test(rd('.github/workflows/target-content.yml')), 'target-content: cổng cuộc gọi chạy cho ja'); }
 
 // ---------- 5) nối dây: shell nạp target.js trước core.js; package test ----------
 {

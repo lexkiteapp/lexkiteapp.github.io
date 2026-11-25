@@ -15,6 +15,12 @@ assert.equal(laneVerdict([run(null, 'in_progress')]).red, false, 'đang chạy �
 assert.equal(laneVerdict([]).red, false, 'chưa có check → chạy tiếp');
 assert.equal(laneVerdict([{ name: 'guard', status: 'completed', conclusion: 'failure' }]).red, false, 'check khác tên không tính');
 assert.equal(laneVerdict([run('failure', 'completed', '2026-11-06T01:00:00Z'), run('success', 'completed', '2026-11-06T02:00:00Z')]).red, false, 'lượt chạy lại xanh (mới nhất) thắng');
+// chạy lại cùng run: check failure/cancelled của attempt trước (cùng GITHUB_RUN_ID) bị bỏ; check của run khác vẫn tính
+const own = (c, id, t) => ({ ...run(c, 'completed', t), details_url: `https://github.com/o/r/actions/runs/${id}/job/9` });
+assert.equal(laneVerdict([own('failure', 777, '2026-11-06T03:00:00Z')], 'npm test', '777').red, false, 'attempt trước của CHÍNH run này không làm lane huỷ lượt chạy lại');
+assert.equal(laneVerdict([own('cancelled', 777, '2026-11-06T03:00:00Z'), own('failure', 555, '2026-11-06T02:00:00Z')], 'npm test', '777').red, true, 'run khác (cùng sha) đỏ vẫn huỷ');
+assert.equal(laneVerdict([own('failure', 7770, '2026-11-06T03:00:00Z')], 'npm test', '777').red, true, 'id chỉ trùng tiền tố → vẫn tính');
+assert.equal(laneVerdict([own('failure', 777, '2026-11-06T03:00:00Z')]).red, true, 'không có runId → như cũ');
 const HEAVY = ['stitch-diff', 'visual-qa', 'mobile-qa', 'web-sweep', 'scroll-perf', 'ux-cards', 'ux-shots'];
 for (const f of HEAVY) {
   const s = wf(f + '.yml');

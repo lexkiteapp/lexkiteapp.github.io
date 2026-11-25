@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Pronunciación del japonés",
+  "pk": "Elige un sonido para practicar",
+  "ex": "Escucha ejemplos",
+  "pp": "Pares mínimos",
+  "dc": "Dictado",
+  "sy": "Dilo tú",
+  "qp": "¿Qué palabra oyes?",
+  "qd": "Escribe lo que oyes",
+  "qs": "Toca el micrófono y di la palabra",
+  "mic": "Toca para hablar",
+  "hd": "Entendí: “{h}”",
+  "rt": "No te entendí. Inténtalo otra vez.",
+  "sk": "Omitir",
+  "nm": "Aquí no hay micrófono. Practica con pares o dictado.",
+  "tp": "Consejo"
+ },
+ "tp": {
+  "vow": {
+   "t": "Cinco vocales puras",
+   "x": "El japonés tiene cinco vocales cortas: a, i, u, e, o. Cada una es clara y estable, sin deslizarse. La u se dice con los labios planos y relajados, no redondeados: うえ, あお."
+  },
+  "long": {
+   "t": "Vocales largas",
+   "x": "Una vocal larga dura dos tiempos y puede cambiar el significado: おばさん (tía) frente a おばあさん (abuela). Mantén la vocal un tiempo completo más; ー en katakana y おう, えい en hiragana son largas."
+  },
+  "sokuon": {
+   "t": "っ pequeña (consonante doble)",
+   "x": "La っ pequeña es una pausa muda de un tiempo antes de la consonante siguiente: きて (ven) frente a きって (sello). Prepara la boca para el sonido siguiente, espera un tiempo y suéltalo."
+  },
+  "nn": {
+   "t": "ん es un tiempo completo",
+   "x": "ん cuenta como un tiempo propio. Suena como m antes de p, b, m (さんぽ), como n antes de t, d, n (せんせい) y como ng antes de k, g (にほんご). No te la comas: こな frente a こんな."
+  },
+  "yoon": {
+   "t": "ゃ ゅ ょ pequeñas",
+   "x": "Las ゃ ゅ ょ pequeñas se unen al kana anterior en UN solo tiempo: きょう (hoy, 2 tiempos) frente a きよう (hábil, 3 tiempos); びょういん (hospital) frente a びよういん (peluquería)."
+  },
+  "pitch": {
+   "t": "Acento tonal",
+   "x": "El japonés de Tokio usa tonos alto y bajo, no acento de intensidad. Palabras que se escriben igual pueden diferir solo en el tono: はꜜし (palillos, alto–bajo) frente a はしꜜ (puente, bajo–alto y luego baja). ꜜ marca dónde baja el tono."
+  },
+  "devoice": {
+   "t": "Vocales susurradas",
+   "x": "Entre consonantes sordas o al final de palabra, la i y la u suelen susurrarse: です suena casi como “des”, すき como “ski”, ひと como “hto”. Mantén el tiempo, solo quita la voz."
+  },
+  "tsu": {
+   "t": "つ frente a す",
+   "x": "つ es “ts” como en el inglés “cats”; す es una s simple. Toca la zona detrás de los dientes superiores y suelta: つき (luna) frente a すき (gustar)."
+  }
+ }
+}
