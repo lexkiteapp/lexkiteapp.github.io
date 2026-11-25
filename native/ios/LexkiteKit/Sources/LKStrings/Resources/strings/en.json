@@ -191,6 +191,7 @@
   "lesson.q.match": "Match the pairs",
   "lesson.q.mpic": "Match words to pictures",
   "lesson.q.fix": "Find the wrong word",
+  "lesson.q.dict": "Listen and write the sentence",
   "lesson.q.q": "Answer the question",
   "lesson.qn": "Question {a} of {b}",
   "lesson.combo": "COMBO ×{n}",
@@ -336,6 +337,7 @@
   "rev.test": "Test",
   "rev.pronunciation": "Pronunciation",
   "rev.gamesPractice": "Games & practice",
+  "rev.gameCrossword": "Daily crossword",
   "rev.pickAWordSource": "Pick a word source, then a practice mode. Every session earns XP and counts toward your daily quests.",
   "rev.wordSource": "Word source",
   "rev.mySentence": "My sentence",
@@ -3497,5 +3499,6 @@
   "speak.spk.lamViecNhom": "Teamwork",
   "speak.spk.duHocSongONuoc": "Studying and living abroad",
   "speak.spk.mayTinhInternetHangNgay": "Computers and the everyday internet",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
+  "speak.spk.nhatKyGiongNoi": "Voice diary"
 }

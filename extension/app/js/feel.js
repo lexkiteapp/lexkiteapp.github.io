@@ -8,8 +8,8 @@
   'use strict';
   const Sfx = g.Sfx; if (!Sfx || g.Feel) return;
   const rm = () => { if (g.Feel && !g.Feel.on) return true; try { return matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
-  const muted = () => (g.Core && g.Core.sfxOff) || (g.App && g.App.state && g.App.state.settings && g.App.state.settings.sfx === false);
-  const NAMES = ['tap', 'correct', 'wrong', 'combo', 'complete', 'streak'], VOL = { tap: 0.35, wrong: 0.6, complete: 0.8 };
+  const muted = () => Sfx.muted();
+  const NAMES = ['tap', 'correct', 'wrong', 'combo', 'complete', 'streak', 'pop'], VOL = { tap: 0.35, wrong: 0.6, complete: 0.8, pop: 0.6 };
   const base = (() => { const s = g.document && g.document.querySelector('script[src*="js/game.js"]'); return s ? s.getAttribute('src').replace(/js\/game\.js.*$/, '') : ''; })();
   let ctx = null, bus = null, loading = null; const bufs = {};
 
@@ -38,7 +38,7 @@
 
   // Ghi đè âm của Sfx: phát file; chưa giải mã xong → tiếng bíp cũ (cùng công thức game.js/streak-ui.js). Rung giữ nguyên.
   // Sfx.locked: streak-ui.js nạp sau không được ghi đè lại các khóa này.
-  const LOCK = ['correct', 'wrong', 'win', 'tap', 'combo', 'streak'], prev = {}, mine = {}; for (const k of LOCK) prev[k] = Sfx[k]; // tắt lớp → trả lại đúng hàm cũ
+  const LOCK = ['correct', 'wrong', 'win', 'tap', 'combo', 'streak', 'bubble'], prev = {}, mine = {}; for (const k of LOCK) prev[k] = Sfx[k]; // tắt lớp → trả lại đúng hàm cũ
   const semi = n => Math.pow(2, Math.min(7, Math.max(0, ((n || 3) - 3) / 2)) / 12); // combo càng dài cao độ càng lên (tối đa +7 bán cung)
   Sfx.extend((tone, buzz) => {
     const MAP = {
@@ -48,6 +48,7 @@
       tap: ['tap', 8, () => tone([480], 0.04, 'sine', 0.03)],
       combo: ['combo', 10, () => tone([660, 825], 0.08, 'triangle', 0.05), semi],
       streak: ['streak', 0, () => tone([523, 659, 784, 1047], 0.08, 'triangle', 0.06)],
+      bubble: ['pop', 0, () => prev.bubble()],
     };
     const out = {};
     for (const k in MAP) { const [n, p, fb, rate] = MAP[k]; out[k] = (...a) => { if (!play(n, { rate: rate ? rate(...a) : 1 })) fb(); if (p) buzz(p); }; }

@@ -3,6 +3,7 @@
  *   POST /api/challenge { op:'reply', id }                    → { plays }               (bạn đã làm xong bài này; đếm cho người tạo, 1 lượt/IP/giờ/id)
  *   GET  /api/challenge?id=<id>                               → { fl, pr, score, cefr, pid, lang, plays } | 404
  * Chống lạm dụng: tạo ≤ 5/giờ/IP + cổng người thật Turnstile (humanGate, tắt khi chưa cấu hình) ; đọc ≤ 120/phút/IP ; id 10 ký tự ngẫu nhiên (~10^15) ; thẻ giữ 90 ngày rồi dọn lười.
+ * Thẻ Nhật ký giọng nói: pid ≥ VD_PID0 (một câu ngắn thay vì đoạn 30 giây) – trang /c và app chuyển sang #/diary/c/<id>.
  * Công thức điểm/CEFR PHẢI khớp web/cpack/score-app/score30.js (test scripts/test/score-card.mjs so khớp). */
 import { limit } from './sync.js';
 import { humanGate } from './_human.js';
@@ -13,6 +14,7 @@ const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages
 const ALPHA = 'abcdefghjkmnpqrstuvwxyz23456789', KEEP = 90 * 864e5, LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 export const ID_RE = /^[a-hjkmnp-z2-9]{10}$/;
 export const PROMPTS = 8; // số đoạn đọc trong web/cpack/score-app/score30.js (pid 0..7)
+export const VD_PID0 = 100, VD_PROMPTS = 3; // 🎙️ Nhật ký giọng nói (docs/specs/voice-diary.md): pid 100..102 = câu cố định SENTENCES[pid-100] của web/cpack/diary-app/diary.js – cùng bảng sc_card, không đổi lược đồ
 const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Content-Type, X-Lexkite-Device, X-Lexkite-Human', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', Vary: 'Origin' } : {}; };
 const json = (req, status, data, cache = 'no-store') => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': cache, ...cors(req) } });
 
@@ -25,7 +27,7 @@ const int = (v, lo, hi) => { const n = Number(v); return Number.isInteger(n) && 
 /** Thẻ hợp lệ → { fl, pr, score, cefr, pid, lang } hoặc null. Điểm tổng & CEFR luôn tính lại ở đây. */
 export function cardOf(o) {
   if (!o || typeof o !== 'object') return null;
-  const fl = int(o.fl, 0, 100), pr = int(o.pr, 0, 100), pid = int(o.pid, 0, PROMPTS - 1);
+  const fl = int(o.fl, 0, 100), pr = int(o.pr, 0, 100), pid = int(o.pid, 0, PROMPTS - 1) ?? int(o.pid, VD_PID0, VD_PID0 + VD_PROMPTS - 1);
   if (fl === null || pr === null || pid === null) return null;
   const score = overall(fl, pr), lang = LANGS.includes(o.lang) ? o.lang : 'en';
   return { fl, pr, score, cefr: cefrOf(score), pid, lang };

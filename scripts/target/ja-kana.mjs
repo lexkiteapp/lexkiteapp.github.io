@@ -109,3 +109,22 @@ export function ruby(word, kana) {
 
 /** Chuẩn hoá để chấm câu trả lời gõ bằng IME: NFKC (bán độ rộng ｶﾅ → カナ), katakana → hiragana, bỏ khoảng trắng và dấu câu. */
 export const fold = s => hira(String(s || '').normalize('NFKC')).replace(/[\s\p{P}\p{S}]/gu, '');
+/** So CÁCH ĐỌC bất kể cách viết trường âm (たいよう = たいよー = タイヨー; がっこう = ガッコー) – cùng luật tl_kana.py fold (CI): う sau hàng o/u, い sau hàng e/i, nguyên âm lặp → ー. */
+export function longFold(s) {
+  let out = '', pv = '';
+  for (const c of fold(s)) {
+    const r = B[c] ? B[c][0] : SMALL_Y[c] ? SMALL_Y[c][0] : SMALL_V[c] ? SMALL_V[c][0] : '', v = r.slice(-1);
+    if ((c === 'う' && (pv === 'o' || pv === 'u')) || (c === 'い' && (pv === 'e' || pv === 'i')) || ('あいうえお'.includes(c) && v === pv)) { out += 'ー'; continue; }
+    out += c; if (/[aiueo]/.test(v)) pv = v;
+  }
+  return out;
+}
+/** Kana kèm dấu hạ giọng kiểu sách giáo khoa/OJAD: はꜜし (1), はしꜜ (2 = odaka), はし (0 = heiban, không dấu). Dấu đặt SAU mora hạ (ゃゅょ đi cùng mora trước). */
+export function accentKana(kana, p) {
+  if (!Number.isInteger(p) || p < 0 || p > morae(kana)) throw new Error(`cao độ ${p} ngoài 0…${morae(kana)}: ${kana}`);
+  if (p === 0) return kana;
+  let m = 0, out = '';
+  const cs = [...kana];
+  cs.forEach((c, i) => { out += c; const small = n => n && (SMALL_Y[hira(n)] || SMALL_V[hira(n)]); if (!small(c) && !small(cs[i + 1])) { m++; if (m === p) out += 'ꜜ'; } else if (small(c)) { m++; if (m === p) out += 'ꜜ'; } });
+  return out;
+}

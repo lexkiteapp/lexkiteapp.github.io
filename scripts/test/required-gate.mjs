@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { api, evaluate, gateDrift, applyDrift, applyWindow, gateFilesOf, inMergeWindow, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, probeOf, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
+import { api, evaluate, gateDrift, applyDrift, applyWindow, WINDOW_HOLD, gateFilesOf, inMergeWindow, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, probeOf, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 const cr = (name, status, conclusion, id = 1) => ({ name, status, conclusion, id });
@@ -100,6 +100,11 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(evaluate({ workflowRuns: [wr2('wip-guard', 'startup_failure', 7)] }).state === 'pending', 'chỉ có wip-guard hỏng, chưa có check thật nào → vẫn CHỜ, không xanh');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('gate-impact', 'cancelled', 7), wr2('npm test', 'success', 8)] }).state === 'success', 'gate-impact cancelled (concurrency) = tư vấn → không đỏ');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('gate-impact', 'failure', 7), wr2('npm test', 'success', 8)] }).state === 'failure', 'gate-impact failure thật vẫn đỏ');
+  { // 25/11 (#2039 "Chờ 8/40: check (2047, …)"): job con xếp hàng của workflow tư vấn gate-impact không được chặn PR khác
+    const adv = { ...wr2('gate-impact', null, 7), status: 'queued', check_suite_id: 900 }, jobq = { ...cr('check (2047, abc)', 'queued', null, 50), check_suite: { id: 900 } };
+    ok(evaluate({ checkRuns: [...base, jobq], workflowRuns: [adv, wr2('npm test', 'success', 8)] }).state === 'success', 'gate-impact còn xếp hàng + job con queued = tư vấn → không chặn');
+    ok(evaluate({ checkRuns: [...base, { ...jobq, check_suite: { id: 901 } }], workflowRuns: [adv, wr2('npm test', 'success', 8)] }).state === 'pending', 'job queued của workflow KHÁC vẫn chặn');
+    ok(evaluate({ checkRuns: [...base, { ...jobq, status: 'completed', conclusion: 'failure' }], workflowRuns: [{ ...adv, status: 'completed', conclusion: 'failure' }, wr2('npm test', 'success', 8)] }).state === 'failure', 'gate-impact failure thật (lượt đã xong) vẫn đỏ'); }
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('stitch-diff', 'success', 7), { ...wr2('stitch-diff', 'cancelled', 7), id: 9, run_number: 2 }, wr2('npm test', 'success', 8)] }).state === 'success', 'lượt huỷ mới hơn không che lượt xanh cùng head (20/11)');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('stitch-diff', 'failure', 7), { ...wr2('stitch-diff', 'cancelled', 7), id: 9, run_number: 2 }, wr2('npm test', 'success', 8)] }).state === 'failure', 'lượt huỷ mới hơn không che lượt ĐỎ thật cùng head');
 }
@@ -112,12 +117,13 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(checkWorkflow(y.replace('on:\n', 'on:\n  check_suite:\n    types: [completed]\n')).some(v => /check_suite/.test(v)), 'hồi quy: thêm lại check_suite → lỗi');
   ok(checkWorkflow(y.replace('on:\n', 'on:\n  pull_request:\n')).some(v => /pull_request/.test(v)), 'hồi quy: thêm pull_request (1 runner/commit) → lỗi');
   ok(checkWorkflow(y.replace('cancel-in-progress: false', 'cancel-in-progress: true')).length === 1, 'huỷ lượt đang canh → lỗi');
-  ok(checkWorkflow(y.replace('--watch 54', '--sweep')).some(v => /--watch/.test(v)), 'thiếu --watch → lỗi');
+  ok(checkWorkflow(y.replace('--watch 330', '--sweep')).some(v => /--watch/.test(v)), 'thiếu --watch → lỗi');
   ok(checkWorkflow(y.replace("CRON_WATCH: '1'", "CRON_WATCH: '0'")).some(v => /canh lịch cron/.test(v)), 'bỏ canh lịch cron độc lập → lỗi (hồi quy 02/11)');
   ok(!/^\s*paths(-ignore)?:/m.test(y.split('\njobs:')[0]), 'không paths-filter');
   const watch = +(y.match(/--watch (\d+)/) || [])[1], tmo = +(y.match(/timeout-minutes: (\d+)/) || [])[1], crons = (y.match(/cron: '([\d,]+) \* \* \* \*'/) || [, ''])[1].split(',').length;
   ok(watch < tmo && watch >= 60 / crons, `canh ${watch} phút < timeout ${tmo}, ≥ khoảng cách lịch ${60 / crons} phút (nối tiếp không hở)`);
-  ok(/group: required-gate-\$\{\{ inputs\.pr \|\| 'watch' \}\}/.test(y), 'dispatch theo PR nhóm riêng, không xếp sau bộ canh');
+  ok(/group: required-gate-\$\{\{ inputs\.pr \|\| format\('watch-\{0\}', inputs\.slot \|\| 'a'\) \}\}/.test(y), 'dispatch theo PR nhóm riêng; hai ô a/b luân phiên (lượt kế xếp hàng runner trong khi lượt trước còn chạy)');
+  ok(watch >= 300 && /GATE_SLOT: \$\{\{ inputs\.slot \}\}/.test(y) && /run-name: required-gate/.test(y), '25/11: lượt canh dài ≥ 300 phút + ô + tên lượt');
   ok(/statuses: write/.test(y) && !/contents: write/.test(y) && !/ref: \$\{\{/.test(y), 'quyền tối thiểu, không checkout mã PR');
   ok(new RegExp(`name: ${SELF_JOB}\\n`).test(y), `tên job = ${SELF_JOB}`);
   const pp = fs.readFileSync(new URL('../prepush.sh', import.meta.url), 'utf8');
@@ -224,6 +230,8 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
       await run(['--watch', '25'], { GATE_CHAIN_REF: 'main' }, P, () => {}, clock);
       ok(sent.filter(f => f === 'ci-filler.yml').length === 3 && sent.filter(f => f === 'd1-usage-watch.yml').length === 2, 'nhịp 25 phút: ci-filler 3 lần, d1-usage-watch 2 lần: ' + sent.join());
       ok(PACED['ci-filler.yml'] === 10, 'ci-filler 10 phút');
+      { const { cronsOf } = await import('./../ci/cron-watch.mjs'); // 24/11 (#580): workflow GitHub không chạy cron → nhịp ≥ khoảng cron thật (không dày hơn lịch), file phải còn dispatch được
+        for (const [f, gap] of Object.entries(PACED).filter(([f]) => !/^(ci-filler|ci-autopilot|d1-usage-watch)/.test(f))) { const y = fs.readFileSync('.github/workflows/' + f, 'utf8'); ok(/workflow_dispatch/.test(y) && cronsOf(y).length, f + ': có workflow_dispatch + cron'); ok(gap >= 1440, f + ': nhịp ≥ 1 ngày (khoảng cron)'); } }
       t = 0; const dry = []; await run(['--watch', '25', '--dry'], { GATE_CHAIN_REF: 'main' }, { ...P, dispatchFile: async f => dry.push(f) }, () => {}, clock); ok(!dry.length, '--dry không làm nhịp');
       t = 0; const lg = []; await run(['--watch', '5'], { GATE_CHAIN_REF: 'main' }, { ...P, lastRun: async () => { throw new Error('502'); } }, m => lg.push(m), clock); ok(lg.some(m => /nhịp .*502/.test(m)), 'lỗi API nhịp: cảnh báo, bộ canh vẫn chạy'); }
     // lượt tự nối kẹt queued (3/11 07:48Z, 21:25Z): dispatch lại; 'pending' (chờ concurrency) là khoẻ
@@ -231,6 +239,15 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
     { const go = async st => { const d = []; t = 0; const lg = []; await run(['--watch', '20'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async () => d.push(t), dispatchRuns: async () => d.map(x => ({ status: st, created_at: new Date(x).toISOString() })) }, m => lg.push(m), clock); return { d, lg }; };
       const a = await go('pending'); ok(a.d.length === 1 && a.lg.some(m => /đã sống/.test(m)), 'lượt nối pending: không dispatch lại: ' + a.d.length);
       const b = await go('queued'); ok(b.d.length === 1 + CHAIN_RETRIES && b.d[1] - b.d[0] >= CHAIN_CHECK_MS && b.lg.some(m => /vẫn kẹt|chưa xác nhận/.test(m)), 'lượt nối kẹt: dispatch lại đúng trần rồi báo: ' + b.d.length); }
+    // 25/11 lượt canh dài + hai ô: dispatch lượt kế (ô còn lại) khi còn ≤ 45 phút; lượt ngắn giữ 6 phút/không ô; lượt `schedule` thoát khi đã có bộ canh khác
+    { const d = []; t = 0; await run(['--watch', '200'], { GATE_CHAIN_REF: 'main', GATE_SLOT: 'a' }, { ...A, dispatchSelf: async (ref, slot) => d.push([ref, slot, t]) }, () => {}, clock);
+      ok(d.length === 1 && d[0][1] === 'b' && d[0][2] >= (200 - 45) * 60e3 && d[0][2] < 200 * 60e3 - 40 * 60e3, 'canh dài ô a → nối ô b khi còn ≤ 45 phút: ' + JSON.stringify(d));
+      const d3 = []; t = 0; await run(['--watch', '200'], { GATE_CHAIN_REF: 'main', GATE_SLOT: 'b' }, { ...A, dispatchSelf: async (ref, slot) => d3.push(slot) }, () => {}, clock); ok(d3[0] === 'a', 'ô b nối ô a');
+      const d4 = []; t = 0; await run(['--watch', '20'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async (ref, slot) => d4.push(slot) }, () => {}, clock); ok(d4.length === 1 && d4[0] === undefined, 'lượt ngắn: không ô (cách cũ)'); }
+    { let calls = 0, lg = []; t = 0; const out = await run(['--watch', '20'], { GATE_EVENT: 'schedule', GATE_RUN_ID: '9', GITHUB_RUN_ID: '9' }, { ...A, otherWatchers: async () => [{ id: 7, status: 'in_progress' }], recentRuns: async () => { calls++; return []; } }, m => lg.push(m), clock);
+      ok(calls === 0 && lg.some(m => /đã có bộ canh khác/.test(m)), 'lượt lịch: thoát ngay khi đã có bộ canh khác sống (không canh song song)');
+      let c2 = 0; t = 0; await run(['--watch', '3'], { GATE_EVENT: 'schedule' }, { ...A, otherWatchers: async () => [], recentRuns: async () => { c2++; return []; } }, () => {}, clock); ok(c2 > 0, 'lượt lịch khi chưa có bộ canh khác: canh bình thường');
+      let c3 = 0; t = 0; await run(['--watch', '3'], { GATE_EVENT: 'workflow_dispatch' }, { ...A, otherWatchers: async () => [{ id: 7, status: 'in_progress' }], recentRuns: async () => { c3++; return []; } }, () => {}, clock); ok(c3 > 0, 'lượt nối (dispatch) luôn canh dù lượt trước còn sống (chồng ≤ 45 phút)'); }
     const d2 = []; t = 0;
     await run(['--watch', '20', '--dry'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async () => d2.push(1) }, () => {}, clock);
     ok(!d2.length, '--dry không tự nối');
@@ -330,10 +347,11 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   { const at = h => Date.UTC(2026, 10, 17, h, 30), gf = gateFilesOf([F('.github/workflows/x.yml', 'added'), F('scripts/test/old.mjs', 'removed'), F('scripts/test/brand-new.mjs', 'added'), F('scripts/test/ci.mjs'), F('web/js/app.js')]);
     ok(gf.length === 2 && gf.includes('.github/workflows/x.yml') && gf.includes('scripts/test/ci.mjs'), 'khung merge: tệp cổng của PR = workflow + test sửa; bỏ xoá/test mới/mã thường');
     ok(inMergeWindow(at(2)) && !inMergeWindow(at(1)) && !inMergeWindow(at(3)) && !inMergeWindow(at(14)), 'khung merge = 02:00–03:00Z (09–10 VN)');
-    const w = applyWindow(green, gf, at(14));
+    ok(WINDOW_HOLD === false && applyWindow(green, gf, at(14)).state === 'success', '25/11: khung TẮT mặc định – PR đổi tệp cổng, gate xanh → merge ngay');
+    const w = applyWindow(green, gf, at(14), [], true);
     ok(w.state === 'pending' && /khung merge cổng 09–10 VN/.test(w.description), 'PR đổi tệp cổng, gate xanh, ngoài khung → pending "chờ khung merge cổng 09–10 VN"');
-    ok(applyWindow(green, gf, at(2)).state === 'success', 'trong khung → vẫn xanh');
-    ok(applyWindow(green, gf, at(14), ['main-red-fix']).state === 'success' && applyWindow(green, gf, at(14), ['ui']).state === 'pending' && applyWindow({ ...green, state: 'failure' }, gf, at(14), ['main-red-fix']).state === 'failure', 'nhãn main-red-fix (sửa main đỏ) → không bị khung giữ; nhãn khác vẫn chờ; gate đỏ vẫn đỏ');
+    ok(applyWindow(green, gf, at(2), [], true).state === 'success', 'trong khung → vẫn xanh');
+    ok(applyWindow(green, gf, at(14), ['main-red-fix'], true).state === 'success' && applyWindow(green, gf, at(14), ['ui'], true).state === 'pending' && applyWindow({ ...green, state: 'failure' }, gf, at(14), ['main-red-fix'], true).state === 'failure', 'nhãn main-red-fix (sửa main đỏ) → không bị khung giữ; nhãn khác vẫn chờ; gate đỏ vẫn đỏ');
     ok(applyWindow(green, [], at(14)).state === 'success' && applyWindow({ ...green, state: 'failure' }, gf, at(14)).state === 'failure', 'PR thường / gate đỏ → không đụng');
   }
   ok(applyDrift(green, []).state === 'success' && applyDrift({ ...green, state: 'failure' }, ['scripts/i18n-qa.mjs']).state === 'failure' && applyDrift({ ...green, state: 'pending' }, ['x']).state === 'pending', 'không đổi cổng → vẫn xanh; đỏ/chờ không bị đụng');

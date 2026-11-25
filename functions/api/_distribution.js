@@ -6,9 +6,15 @@ const MIN = 60e3, DAY = 864e5;
 export const SOCIAL_DAY_MAX = 3; // trần tuyệt đối (kênh CHÍNH); kênh bản ngữ luôn 1 – xem dayCapOf
 /** Chủ 18/11: kênh CHÍNH (tiếng Anh: Lexkite English FB/IG/TikTok/YouTube) 2–3 bài/ngày, giãn ≥ 4 giờ; kênh bản ngữ 1 bài/ngày. MỘT nguồn cho planner, bước gửi và dời bài. */
 export const MAIN_DAY = { min: 2, max: 3, gap_min: 240 }, NATIVE_DAY = 1;
+/** Giờ cao điểm theo giờ ĐỊA PHƯƠNG của thị trường (chủ 23/11: đăng đúng giờ người học online – nghỉ trưa + tối). MỘT nguồn: planner YouTube, schedule() social, máy gác _social_audit.js. Dung sai ±30 phút (jitter ±20). */
+export const PEAK_WINDOWS = [['11:30', '14:00'], ['17:30', '22:30']];
+export const peakOk = (ms, tz, tol = 30) => { const [h, m] = localHM(ms, tz).split(':').map(Number), t = h * 60 + m, mm = x => +x.slice(0, 2) * 60 + +x.slice(3); return PEAK_WINDOWS.some(([f, e]) => t >= mm(f) - tol && t <= mm(e) + tol); };
 export const isMainLang = lang => !lang || lang === 'en';
 export const dayCapOf = (lang, cap) => isMainLang(lang) ? Math.min(MAIN_DAY.max, Math.max(MAIN_DAY.min, Math.floor(+cap) || 0)) : NATIVE_DAY;
-export const capCfg = c => c.role === 'embed' ? c : { ...c, daily_cap: dayCapOf(c.lang, c.daily_cap), min_gap_min: gapOf(c.lang, c.min_gap_min) };
+/** Kênh social: trần bài/ngày + giãn theo loại kênh; 23/11 thêm GIỜ CAO ĐIỂM (PEAK_WINDOWS) và MÚI GIỜ THỊ TRƯỜNG của ngôn ngữ kênh (LANG_TZ) – cấu hình cũ lệch (09–21 h, múi NY mặc định cho page tiếng Việt…) không còn đẻ ra bài sai giờ. */
+export const capCfg = c => c.role === 'embed' ? c : { ...c, daily_cap: dayCapOf(c.lang, c.daily_cap), min_gap_min: gapOf(c.lang, c.min_gap_min), windows: peakWindows(c.windows), tz: c.lang && LANG_TZ[c.lang] ? LANG_TZ[c.lang] : c.tz };
+/** Cửa sổ đăng của chủ ∩ giờ cao điểm (khung nằm ngoài cao điểm bị cắt; không còn gì → cả giờ cao điểm). */
+export const peakWindows = ws => { const mm = x => +x.slice(0, 2) * 60 + +x.slice(3), f = m => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0'), out = []; for (const w of ws || []) for (const [a, b] of PEAK_WINDOWS) { const lo = Math.max(mm(w.from), mm(a)), hi = Math.min(mm(w.to), mm(b)); if (hi > lo) out.push({ from: f(lo), to: f(hi) }); } return out.length ? out : PEAK_WINDOWS.map(([from, to]) => ({ from, to })); };
 export const gapOf = (lang, gap) => isMainLang(lang) ? Math.max(MAIN_DAY.gap_min, Math.floor(+gap) || 0) : Math.max(0, Math.floor(+gap) || 0);
 export const DEFAULT_CFG = { role: 'social', types: [], topics: [], skills: [], cefr: [], regions: [], lang: '', daily_cap: 2, min_gap_min: 240, windows: [{ from: '09:00', to: '21:00' }], tz: 'America/New_York', active: 1 };
 const list = v => (Array.isArray(v) ? v : typeof v === 'string' ? v.split(/[,\s]+/) : []).map(x => String(x).trim()).filter(Boolean);
@@ -29,7 +35,7 @@ export function blockOf(cfg, clip) {
   if (cfg.topics.length && !cfg.topics.some(t => t === clip.topic || t === clip.sub)) return 'topic';
   if (cfg.skills.length && !cfg.skills.includes(clip.skill)) return 'skill';
   if (cfg.cefr.length && !cfg.cefr.includes(String(clip.cefr || '').toUpperCase())) return 'cefr';
-  if (cfg.lang && String(cfg.lang).toLowerCase() !== 'en' && String(clip.lang || 'en').toLowerCase() !== String(cfg.lang).toLowerCase()) return 'lang'; // page EN chung nhận mọi ngôn ngữ (fallback); page ngôn ngữ riêng chỉ nhận đúng ngôn ngữ // page tiếng X chỉ nhận clip cho người học tiếng X (EN chung nhận clip 'en')
+  if (cfg.role !== 'embed' && cfg.lang && String(cfg.lang).toLowerCase() !== String(clip.lang || 'en').toLowerCase()) return 'lang'; // 24/11 (chủ: đăng sai ngôn ngữ page): MỌI page/kênh (kể cả EN chung) chỉ nhận đúng ngôn ngữ của nó – hết fallback 'EN nhận mọi ngôn ngữ'; kênh embed (host bài học) được miễn // page tiếng X chỉ nhận clip cho người học tiếng X (EN chung nhận clip 'en')
   return '';
 }
 export const allowed = (cfg, clip) => !blockOf(cfg, clip);
@@ -95,8 +101,15 @@ export function implicitSocialRules(allRules, cfgs) {
     (own[k] = own[k] || []).push(id);   // 22/11: nhiều page cùng ngôn ngữ (vd 2 page Facebook tiếng Việt) chia nhau clip theo băm id thay vì chỉ page đầu (page thứ hai 0/30 ngày)
   }
   const ownRules = Object.entries(own).flatMap(([k, ids]) => ids.map((id, i) => ({ cond: ids.length > 1 ? { lang: k.split('|')[1], shard: `${i}/${ids.length}` } : { lang: k.split('|')[1] }, channel_id: id, active: 1 })));
-  for (const ids of Object.values(en)) ids.forEach((id, i) => general.push({ cond: ids.length > 1 ? { shard: `${i}/${ids.length}` } : {}, channel_id: id, active: 1 }));
+  for (const ids of Object.values(en)) ids.forEach((id, i) => general.push({ cond: ids.length > 1 ? { lang: 'en', shard: `${i}/${ids.length}` } : { lang: 'en' }, channel_id: id, active: 1 }));   // 24/11: page EN chung chỉ nhận clip EN (trước: cond {} = mọi ngôn ngữ → clip ja/de/ru lên IG/TikTok/FB tiếng Anh)
   return [...ownRules, ...general];
+}
+/** Giờ cao điểm còn trống trong NGÀY địa phương `date` (cách mọi giờ đã có `taken` ≥ gapMs): lưới 10 phút trong PEAK_WINDOWS, bắt đầu từ vị trí băm của `seed` (kênh) để các kênh không trùng phút; null nếu hết chỗ. Dùng để SỬA bài lệch giờ đã xếp (rebalanceDays, op fill). */
+export function peakSlot(date, tz, seed, taken = [], gapMs = 0) {
+  const cand = []; for (const [f, t] of PEAK_WINDOWS) for (let x = zonedToMs(date, f, tz), e = zonedToMs(date, t, tz); x <= e; x += 10 * MIN) cand.push(x);
+  const o = Math.floor(hash(String(seed)) * cand.length);
+  for (let i = 0; i < cand.length; i++) { const x = cand[(o + i) % cand.length]; if (!taken.some(q => Math.abs(q - x) < gapMs)) return x; }
+  return null;
 }
 /** Tài khoản không phải của Lexkite trong workspace GrabCast (OAuth Meta kéo kèm Page/IG "Grabcast.click" vào ws4, 05/11) hoặc bị tạm dừng đăng → không bao giờ là đích autopilot. */
 export const foreignAccount = a => /grab\s*cast/i.test([a && a.name, a && a.title, a && a.username, a && a.handle].filter(Boolean).join(' '));

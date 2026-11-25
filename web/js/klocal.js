@@ -7,7 +7,7 @@
   const VER = 'v1.0-1939ad2'; // = commit Hugging Face onnx-community/Kokoro-82M-v1.0-ONNX được chép lên R2 (scripts/cdn/kokoro-model.mjs)
   const HOSTS = [`https://audio.lexkite.com/kokoro/${VER}/`];
   const SHA = { 'onnx/model_quantized.onnx': 'fbae9257e1e05ffc727e951ef9b9c98418e6d79f1c9b6b13bd59f5c9028a1478' };
-  const RTF_MAX = 0.6, FREE_MIN = 300 * 2 ** 20, MODEL_MB = 92, CACHES = ['transformers-cache', 'kokoro-voices', 'lk-kl-audio'], IDLE_MS = 10 * 60e3, GEN_TIMEOUT = 8000, WARM_TIMEOUT = 30000, LRU = 300, AUDIO_CACHE = 'lk-kl-audio';
+  const RTF_MAX = 0.6, FREE_MIN = 300 * 2 ** 20, MODEL_MB = 92, CACHES = ['transformers-cache', 'kokoro-voices', 'lk-kl-audio'], IDLE_MS = 10 * 60e3, GEN_TIMEOUT = 8000, WARM_TIMEOUT = 30000, LRU = 300, AUDIO_CACHE = 'lk-kl-audio', BG_RTF = 2.5, BG_MAX = 20, BG_TIMEOUT = 25000;
   const P = {
     // Cấp máy: 'wasm' | 'off'. e = { ios, mem, cores, probe, user, iosFlag }
     tier(e) { return P.offWhy(e) ? 'off' : 'wasm'; },
@@ -52,6 +52,12 @@
     median: a => { const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length ? (b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2) : NaN; },
     // Nhóm RTF cho số đo phân bố máy thật (beacon vo 'kp_<nhóm>'): quyết định bước sau (WebGPU / sinh nền) bằng số, không đoán
     rtfBucket: r => (r == null ? 'to' : r <= 0.6 ? 'r06' : r <= 1 ? 'r10' : r <= 1.5 ? 'r15' : r <= 2.5 ? 'r25' : 'rhi'),
+    // Tầng SINH NỀN (23/11, đo thật: wasm đơn luồng RTF ≈ 1,45 trên máy mạnh → gần như không máy nào sinh trực tiếp được): máy bị đo chậm (RTF > 0,6)
+    // nhưng ≤ BG_RTF thì câu vừa rơi giọng máy được sinh sẵn LÚC RẢNH vào lk-kl-audio → lần sau phát Kokoro từ cache ngay (không chờ, không giật).
+    bgOk: e => P.offWhy(e) === 'probe' && e.probe.rtf != null && e.probe.rtf <= BG_RTF,
+    // Chỉ sinh nền khi: tab hiện, không tiết kiệm dữ liệu, pin đang sạc hoặc ≥ 50 % (không biết pin → được), mạng cho tải lại mô hình nếu cache bị xóa (netWhy)
+    bgIdle: n => !n.hidden && !n.saveData && (n.charging !== false || n.level == null || n.level >= 0.5),
+    BG_RTF, BG_MAX,
     PROBE_TEXTS: ['This is a quick check of the voice on your device.', 'She usually takes the bus to work in the morning.', 'Could you tell me where the nearest station is?'],
     // PCM float32 → WAV 16-bit, đỉnh chuẩn về −1 dBFS (đồng mức file dựng sẵn)
     wav(pcm, sr) {
@@ -157,10 +163,14 @@
   }
   // Âm đã sinh: Cache Storage, khóa giả theo giọng + băm văn bản, LRU
   const ckey = (v, t) => `/__kl/${VER}/${v}/${P.fnv(t)}.wav`; // khóa giả cùng gốc (không bao giờ gọi mạng)
+  // Khóa đã có trong cache (đồng bộ cho UI.tts: phát Kokoro từ cache ngay cả khi máy không sinh trực tiếp được)
+  const have = new Set(), path = r => { try { return new URL(r.url || r).pathname; } catch (e) { return ''; } };
+  if ('caches' in g) caches.open(AUDIO_CACHE).then(c => c.keys()).then(ks => ks.forEach(k => have.add(path(k)))).catch(() => {});
+  const hasAll = (parts, v) => parts.length > 0 && parts.every(t => have.has(ckey(v, t)));
   async function fromCache(v, t) { try { const c = await caches.open(AUDIO_CACHE), r = await c.match(ckey(v, t)); return r ? r.blob() : null; } catch (e) { return null; } }
   async function toCache(v, t, buf) {
-    try { const c = await caches.open(AUDIO_CACHE); await c.put(ckey(v, t), new Response(buf, { headers: { 'Content-Type': 'audio/wav' } }));
-      const keys = await c.keys(); for (const k of P.evict(keys, LRU)) await c.delete(k); } catch (e) { /* bỏ qua */ }
+    try { const c = await caches.open(AUDIO_CACHE); await c.put(ckey(v, t), new Response(buf, { headers: { 'Content-Type': 'audio/wav' } })); have.add(ckey(v, t));
+      const keys = await c.keys(); for (const k of P.evict(keys, LRU)) { have.delete(path(k)); await c.delete(k); } } catch (e) { /* bỏ qua */ }
   }
   async function blobFor(v, t, speed) {
     const hit = 'caches' in g ? await fromCache(v, t) : null; if (hit) return hit;
@@ -170,10 +180,12 @@
   }
   let cur = 0, curH = null;
   function speak(parts, o = {}) {
-    if (state !== 'ready' || !worker || !LA() || !parts.length) return false;
-    const my = ++cur, v = o.voice || 'af_heart', t0 = performance.now(), urls = [];
-    worker.postMessage({ type: 'cancel' });
-    const jobs = parts.map(() => null), job = i => jobs[i] || (jobs[i] = blobFor(v, parts[i], 1));
+    const v = o.voice || 'af_heart', live = state === 'ready' && !!worker;
+    if (!LA() || !parts.length || !(live || hasAll(parts, v))) return false; // không sinh trực tiếp được → chỉ phát khi MỌI câu đã có trong cache
+    const my = ++cur, t0 = performance.now(), urls = [];
+    if (live) worker.postMessage({ type: 'cancel' });
+    const one = t => (live ? blobFor(v, t, 1) : fromCache(v, t).then(b => b || Promise.reject(new Error('miss'))));
+    const jobs = parts.map(() => null), job = i => jobs[i] || (jobs[i] = one(parts[i]));
     const done = () => urls.forEach(u => URL.revokeObjectURL(u));
     const play = i => {
       if (my !== cur) return done();
@@ -192,8 +204,43 @@
     play(0);
     return true;
   }
+  // Sinh nền: hàng câu (giọng, câu) vừa rơi giọng máy trên máy chậm → worker riêng (không đụng worker/state trực tiếp), từng câu một, vào cache rồi tắt
+  const bgQ = [], bgSeen = new Set(); let bgw = null, bgReady = false, bgBusy = false, bgDone = 0, bgStop = false, bgT = 0;
+  const bgKill = () => { clearTimeout(bgT); if (bgw) { try { bgw.terminate(); } catch (e) { /* bỏ qua */ } } bgw = null; bgReady = false; bgBusy = false; };
+  const bgFail = why => { bgStop = true; bgKill(); note('kl', 'bg ' + why); }; // lỗi/quá chậm lúc này → thôi sinh nền cả phiên
+  async function bgEnv() { let bat = {}; try { if (navigator.getBattery) bat = await navigator.getBattery(); } catch (e) { /* bỏ qua */ }
+    const c = navigator.connection || {}; return { hidden: document.hidden, saveData: c.saveData, charging: bat.charging, level: bat.level, net: P.netWhy({ saveData: c.saveData, eff: c.effectiveType, type: c.type, metered: c.metered, mobile: isMobile(), cell: ls.get('lk.kl.cell') === '1', free: null, hidden: document.hidden, cached: false }) }; }
+  function bgRun() { // từng câu một; hết hàng → giữ worker 60 s (câu mới tới khỏi nạp lại mô hình) rồi tắt
+    const job = bgQ.shift(); if (!job || bgStop || document.hidden) { bgBusy = false; clearTimeout(bgT); bgT = setTimeout(bgKill, 60e3); if (job) bgQ.unshift(job); return; }
+    if (have.has(ckey(job.v, job.t))) { bgRun(); return; }
+    bgBusy = true; const id = ++seq, to = setTimeout(() => bgFail('timeout'), BG_TIMEOUT);
+    bgw.onmessage = ({ data: d }) => {
+      if (d.type === 'audio' && d.id === id) { clearTimeout(to); if (bgStop) return; toCache(job.v, job.t, P.wav(new Float32Array(d.pcm), d.sr)).then(() => { bgDone++; stat('kl_bg', bgDone); bgRun(); }); }
+      else if ((d.type === 'err' && d.id === id) || d.type === 'fail') { clearTimeout(to); bgFail(d.error || d.type); }
+    };
+    bgw.postMessage({ type: 'gen', id, text: job.t, voice: job.v, speed: 1 });
+  }
+  async function bgPump() {
+    if (bgBusy || bgStop || !bgQ.length || !P.remote(cfg(), bucket()) || !P.bgOk(env())) return;
+    if (bgw && bgReady) { clearTimeout(bgT); bgRun(); return; }
+    if (bgw) return; // đang nạp
+    const n = await bgEnv(); if (!P.bgIdle(n) || n.net) { clearTimeout(bgT); bgT = setTimeout(bgPump, 60e3); return; } // chưa rảnh/pin yếu/mạng không cho → thử lại sau
+    if (bgw || bgBusy) return;
+    try { bgw = EXT ? frameWorker() : new Worker('js/klocal-worker.js', { type: 'module' }); } catch (e) { bgFail('worker'); return; }
+    bgBusy = true; bgw.onerror = () => bgFail('crash');
+    bgw.onmessage = ({ data: d }) => { if (d.type === 'loaded') { bgReady = true; bgRun(); } else if (d.type === 'fail') bgFail('load ' + d.error); };
+    bgw.postMessage({ type: 'load', hosts: HOSTS, sha: SHA });
+  }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && bgQ.length && !bgBusy) bgPump(); });
+  // UI.tts gọi khi một câu tiếng Anh vừa rơi giọng máy: máy hợp tầng sinh nền → xếp hàng (≤ BG_MAX câu/phiên, ≤ 220 ký tự/câu như KVoice.split), bơm lúc rảnh
+  function later(parts, v) {
+    if (bgStop || !P.bgOk(env())) return;
+    for (const t of parts) { const k = ckey(v, t); if (bgSeen.size >= BG_MAX || !t || t.length > 220 || bgSeen.has(k) || have.has(k)) continue; bgSeen.add(k); bgQ.push({ v, t }); }
+    if (!bgBusy && bgQ.length) { clearTimeout(bgT); bgT = setTimeout(() => (g.requestIdleCallback ? requestIdleCallback(bgPump, { timeout: 10e3 }) : bgPump()), 3000); }
+  }
   g.KLocal = {
     ready: () => state === 'ready' && !!worker,
+    hasAll, later, // có sẵn trong cache (phát được ngay) · xếp câu vừa rơi giọng máy cho sinh nền
     offWhy: () => !P.remote(cfg(), bucket()) ? 'remote' : P.offWhy(env()) || (state === 'off' ? 'state' : ''), // nhãn con của lý do 'off' (chỉ để đếm)
     allowed: () => state !== 'off' && allowed(), // false = máy/nền tảng/công tắc không cho Kokoro trên máy (đếm lý do 'off')
     state: () => state,
@@ -209,7 +256,7 @@
     return n;
   }
   async function wipe() {
-    g.KLocal.stop(); kill('wipe'); cached = false; pct = 0; ['lk.kl.ok', 'lk.kl.probe'].forEach(k => { try { localStorage.removeItem(k); } catch (e) { /* bỏ qua */ } });
+    g.KLocal.stop(); kill('wipe'); bgStop = true; bgKill(); bgQ.length = 0; have.clear(); cached = false; pct = 0; ['lk.kl.ok', 'lk.kl.probe'].forEach(k => { try { localStorage.removeItem(k); } catch (e) { /* bỏ qua */ } });
     if ('caches' in g) for (const name of P.CACHES) { try { await caches.delete(name); } catch (e) { /* bỏ qua */ } }
   }
   function settingsUI(box) {
