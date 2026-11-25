@@ -339,6 +339,7 @@ node scripts/test/shell-lazy.mjs
 node scripts/test/css-lazy.mjs
 node scripts/test/ux1-route-bundles.mjs
 node scripts/test/path-skel.mjs
+node scripts/test/native-lazy.mjs
 node scripts/test/build-hash.mjs
 node scripts/test/self-fonts.mjs
 node scripts/test/video-pron.mjs
@@ -350,6 +351,8 @@ node scripts/test/lesson-drag.mjs
 node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
+node scripts/test/tr-race.mjs
+node scripts/test/tr-packs.mjs
 node scripts/test/ci-policy.mjs
 node scripts/test/ffmpeg-setup-policy.mjs
 node scripts/test/scroll-boot.mjs
@@ -406,6 +409,9 @@ node scripts/test/cpack.mjs
 node scripts/test/scan-roots.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
+node scripts/test/speak-pre-cls.mjs
+node scripts/test/route-longtask.mjs
+node scripts/test/sweep-longtask-scope.mjs
 node scripts/test/st-web-i18n.mjs
 node scripts/test/store-submit.mjs
 node scripts/store/release-notes.mjs --check
@@ -481,6 +487,7 @@ node scripts/test/yt-stats-op.mjs
 node scripts/test/social-stats-ui.mjs
 node scripts/test/l1-notes.mjs
 node scripts/test/qengine-flag.mjs
+node scripts/test/qengine-norm.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
 node scripts/test/workflow-injection.mjs
@@ -524,6 +531,8 @@ node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
 node scripts/test/gt-bands.mjs
+node scripts/test/meta-attr.mjs
+node scripts/test/social-audit.mjs
 node scripts/test/select-cta-guard.mjs
 node scripts/test/lesson-lip-late.mjs
 node scripts/test/review-queue-size.mjs

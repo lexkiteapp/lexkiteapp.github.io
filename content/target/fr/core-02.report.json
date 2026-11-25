@@ -1,0 +1,672 @@
+{
+  "at": "2026-11-22T06:09:51.334Z",
+  "accepted": 66,
+  "rejected": [
+    {
+      "form": "mais",
+      "word": "mais",
+      "why": [
+        "LanguageTool: PLACE_DE_LA_VIRGULE:  mais – Une virgule est conseillée dans ce contexte."
+      ]
+    },
+    {
+      "form": "je",
+      "word": "je",
+      "why": [
+        "LanguageTool: ELISION: Je habite – « Je habite » s’élide en « J’habite »."
+      ]
+    },
+    {
+      "form": "on",
+      "word": "on",
+      "why": [
+        "dịch ngược lệch: ja",
+        "cổng: on: nghĩa ja sai chữ viết:  me"
+      ]
+    },
+    {
+      "form": "au",
+      "word": "à",
+      "why": [
+        "giám khảo A: The entry key is 'au' but the word field is 'à'. The IPA 'o' is for 'à', not 'au' (which is /o/ or /o/ depending on context, but usually distinct from the preposition alone in this context if treated as a contraction). More critically, the word field should match the key or the contraction 'au' should be the primary form if that's the target. However, looking at the IPA 'o' for 'à', it is correct for the preposition. The issue is the mismatch between key 'au' and word 'à'. If the item is meant to teach 'au', the word should be 'au'. If it's 'à', the key should be 'à'. Given the example uses 'au', the word field 'à' is inconsistent with the example and key.",
+        "giám khảo B: lemma should be \"au\" not \"à\"; IPA matches \"au\" but word field is wrong",
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "ouais",
+      "why": "skip: nonstandard"
+    },
+    {
+      "form": "tous",
+      "word": "tous",
+      "why": [
+        "giám khảo B: Pronoun 'tous' is pronounced /tus/, not /tu/ (which is the determiner/adjective pronunciation)."
+      ]
+    },
+    {
+      "form": "ca",
+      "why": "skip: spelling variant of ça (missing cedilla)"
+    },
+    {
+      "form": "sera",
+      "word": "être",
+      "why": [
+        "giám khảo A: IPA missing the initial vowel symbol (should be /ɛtʁ/); otherwise entry fine.",
+        "dịch ngược lệch: id,ar"
+      ]
+    },
+    {
+      "form": "gars",
+      "word": "gars",
+      "why": [
+        "giám khảo A: IPA missing the final uvular r (should be /ɡaʁ/)."
+      ]
+    },
+    {
+      "form": "merde",
+      "why": "skip: vulgar"
+    },
+    {
+      "form": "elles",
+      "word": "elle",
+      "why": [
+        "dịch ngược lệch: th"
+      ]
+    },
+    {
+      "form": "passer",
+      "word": "passer",
+      "why": [
+        "giám khảo A: IPA \"pase\" is incorrect; should be /pas.e/.",
+        "dịch ngược lệch: vi"
+      ]
+    },
+    {
+      "form": "vient",
+      "word": "venir",
+      "why": [
+        "giám khảo A: IPA \"vəniʁ\" lacks the schwa and proper segmentation; standard is /və.niʁ/."
+      ]
+    },
+    {
+      "form": "cas",
+      "word": "cas",
+      "why": [
+        "giám khảo B: Japanese gloss contains a typo ('me/場合' instead of '場合')."
+      ]
+    },
+    {
+      "form": "pensais",
+      "word": "penser",
+      "why": [
+        "giám khảo B: Japanese gloss contains a typo (' thinks/考える' instead of '考える')."
+      ]
+    },
+    {
+      "form": "aucun",
+      "word": "aucun",
+      "why": [
+        "giám khảo A: IPA \"okɛ̃\" uses ɛ instead of œ; correct is /okœ̃/."
+      ]
+    },
+    {
+      "form": "plutôt",
+      "word": "plutôt",
+      "why": [
+        "dịch ngược lệch: vi,id,th,zh,ar,tr"
+      ]
+    },
+    {
+      "form": "près",
+      "word": "près",
+      "why": [
+        "cổng: près: nghĩa ko sai chữ viết: gakkaun"
+      ]
+    },
+    {
+      "form": "équipe",
+      "word": "équipe",
+      "why": [
+        "cổng: équipe: nghĩa ar sai chữ viết: fariq"
+      ]
+    },
+    {
+      "form": "sécurité",
+      "word": "sécurité",
+      "why": [
+        "giám khảo A: Gloss contains a Japanese entry that is actually English ('safe'), violating multilingual gloss accuracy.",
+        "giám khảo B: Japanese gloss ' safe' contains a leading space and is not a standard word form (should be 安全 or セキュリティ).",
+        "dịch ngược lệch: ja",
+        "cổng: sécurité: nghĩa ja sai chữ viết:  safe"
+      ]
+    },
+    {
+      "form": "fête",
+      "word": "fête",
+      "why": [
+        "dịch ngược lệch: ru"
+      ]
+    },
+    {
+      "form": "pouvais",
+      "word": "pouvoir",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "voit",
+      "word": "voir",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "penser",
+      "word": "penser",
+      "why": [
+        "giám khảo B: Japanese gloss is ' thinks' (grammatically incorrect and includes a space), and Vietnamese gloss 'nthink' is a typo.",
+        "cổng: penser: nghĩa ja sai chữ viết:  thinks; penser: câu ví dụ không chứa \"penser\""
+      ]
+    },
+    {
+      "form": "rentrer",
+      "word": "rentrer",
+      "why": [
+        "dịch ngược lệch: vi,es,pt,hi,ar,ru"
+      ]
+    },
+    {
+      "form": "facile",
+      "word": "facile",
+      "why": [
+        "giám khảo A: IPA \"fasil\" is not the standard French pronunciation (/fas.il/)."
+      ]
+    },
+    {
+      "form": "pire",
+      "word": "pire",
+      "why": [
+        "giám khảo A: IPA \"piʁ\" is not the standard French pronunciation (/pɪʁ/)."
+      ]
+    },
+    {
+      "form": "arrêtez",
+      "word": "arrêter",
+      "why": [
+        "giám khảo A: Lemma/key mismatch: key is \"arrêtez\" but entry word is \"arrêter\"; lemma should match key."
+      ]
+    },
+    {
+      "form": "fous",
+      "word": "fou",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "montrer",
+      "word": "montrer",
+      "why": [
+        "cổng: montrer: nghĩa ja sai chữ viết:  me show"
+      ]
+    },
+    {
+      "form": "verre",
+      "word": "verre",
+      "why": [
+        "dịch ngược lệch: vi,zh,ja,ko"
+      ]
+    },
+    {
+      "form": "sors",
+      "word": "sortir",
+      "why": [
+        "giám khảo A: IPA incomplete (missing /tiʁ/ for infinitive)",
+        "giám khảo B: IPA 'sɔʁ' is incorrect for the verb 'sortir' (should be /sɔʁtiʁ/); 'sɔʁ' corresponds to the noun 'sort' (fate) or the conjugated form 'sors' (which is not the headword)."
+      ]
+    },
+    {
+      "form": "plait",
+      "word": "plaire",
+      "why": [
+        "giám khảo A: IPA missing final /ʁ/; example uses fixed phrase but IPA incorrect",
+        "giám khảo B: Example 'S'il vous plaît' uses the interjection 'plaît' (or 's'il vous plaît' as a fixed phrase), not the verb 'plaire' in a meaningful context demonstrating the verb's meaning 'to please'. The example does not illustrate the headword 'plaire' as a verb.",
+        "dịch ngược lệch: id"
+      ]
+    },
+    {
+      "form": "pouvait",
+      "word": "pouvoir",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "carte",
+      "word": "carte",
+      "why": [
+        "LanguageTool: CONF_N_V: peux payez – Un infinitif semble plus approprié."
+      ]
+    },
+    {
+      "form": "grâce",
+      "word": "grâce",
+      "why": [
+        "giám khảo A: IPA uses non‑standard [ɑ] instead of [a]; example missing required \"que\" and is slightly ungrammatical.",
+        "giám khảo B: Part of speech is incorrect; 'grâce' is a noun, not a preposition (the prepositional phrase is 'grâce à')."
+      ]
+    },
+    {
+      "form": "ressemble",
+      "word": "ressembler",
+      "why": [
+        "giám khảo A: IPA missing final vowel /e/ (should be ʁəsɑ̃ble)"
+      ]
+    },
+    {
+      "form": "anniversaire",
+      "word": "anniversaire",
+      "why": [
+        "dịch ngược lệch: pt"
+      ]
+    },
+    {
+      "form": "contrôle",
+      "word": "contrôle",
+      "why": [
+        "giám khảo A: IPA uses /o/ instead of /ɔ/ (should be kɔ̃tʁɔl)"
+      ]
+    },
+    {
+      "form": "absolument",
+      "word": "absolument",
+      "why": [
+        "giám khảo B: Japanese gloss ' meizaku' is incorrect (should be 絶対に or similar); standard French IPA is typically /absolymɑ̃/.",
+        "cổng: absolument: nghĩa ja sai chữ viết:  meizaku"
+      ]
+    },
+    {
+      "form": "david",
+      "why": "skip: proper noun"
+    },
+    {
+      "form": "jolie",
+      "word": "joli",
+      "why": [
+        "dịch ngược lệch: ja"
+      ]
+    },
+    {
+      "form": "gauche",
+      "word": "gauche",
+      "why": [
+        "giám khảo B: Example 'Tournez à la main gauche' is unnatural/incorrect; standard is 'Tournez à gauche' or 'à main gauche' (without 'la')."
+      ]
+    },
+    {
+      "form": "pied",
+      "word": "pied",
+      "why": [
+        "dịch ngược lệch: ru"
+      ]
+    },
+    {
+      "form": "pareil",
+      "word": "pareil",
+      "why": [
+        "dịch ngược lệch: ar"
+      ]
+    },
+    {
+      "form": "tenir",
+      "word": "tenir",
+      "why": [
+        "cổng: tenir: nghĩa ru sai chữ viết: derzhat'"
+      ]
+    },
+    {
+      "form": "mike",
+      "why": "skip: proper name"
+    },
+    {
+      "form": "ie",
+      "why": "skip: nonstandard"
+    },
+    {
+      "form": "folle",
+      "word": "fou",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "télé",
+      "word": "télé",
+      "why": [
+        "cổng: télé: exForm thừa"
+      ]
+    },
+    {
+      "form": "droite",
+      "word": "droite",
+      "why": [
+        "cổng: droite: exForm thừa"
+      ]
+    },
+    {
+      "form": "centre",
+      "word": "centre",
+      "why": [
+        "cổng: centre: exForm thừa"
+      ]
+    },
+    {
+      "form": "certain",
+      "word": "certain",
+      "why": [
+        "cổng: certain: exForm thừa"
+      ]
+    },
+    {
+      "form": "compagnie",
+      "word": "compagnie",
+      "why": [
+        "cổng: compagnie: exForm thừa"
+      ]
+    },
+    {
+      "form": "adresse",
+      "word": "adresse",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: adresse? – Le point d’interrogation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "emmener",
+      "word": "emmener",
+      "why": [
+        "giám khảo B: Wrong IPA: initial vowel in 'emmener' is nasal /ɑ̃.mə.ne/, not oral /a.me.ne/."
+      ]
+    },
+    {
+      "form": "présente",
+      "word": "présent",
+      "why": [
+        "giám khảo B: IPA gives the feminine form /pʁe.zɑ̃t/ instead of the lemma's masculine citation form /pʁe.zɑ̃/."
+      ]
+    },
+    {
+      "form": "fbi",
+      "why": "skip: non standard"
+    },
+    {
+      "form": "voir",
+      "word": "voir",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "pouvoir",
+      "word": "pouvoir",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "aller",
+      "word": "aller",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "mettre",
+      "word": "mettre",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "propre",
+      "word": "propre",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "avion",
+      "word": "avion",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "dire",
+      "word": "dire",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    }
+  ],
+  "tried": [
+    "je",
+    "un",
+    "on",
+    "mais",
+    "y",
+    "au",
+    "ils",
+    "ici",
+    "où",
+    "son",
+    "chose",
+    "aussi",
+    "tous",
+    "peu",
+    "besoin",
+    "vu",
+    "trop",
+    "ouais",
+    "femme",
+    "depuis",
+    "sera",
+    "ca",
+    "passé",
+    "cet",
+    "maman",
+    "papa",
+    "gars",
+    "famille",
+    "pu",
+    "partir",
+    "merde",
+    "elles",
+    "passer",
+    "porte",
+    "vient",
+    "cas",
+    "question",
+    "pensais",
+    "aucun",
+    "vont",
+    "compris",
+    "endroit",
+    "yeux",
+    "point",
+    "pardon",
+    "enfin",
+    "mis",
+    "mari",
+    "plutôt",
+    "jouer",
+    "docteur",
+    "semaine",
+    "près",
+    "équipe",
+    "sécurité",
+    "presque",
+    "fou",
+    "fête",
+    "numéro",
+    "autant",
+    "penser",
+    "rentrer",
+    "facile",
+    "propre",
+    "lit",
+    "voit",
+    "pire",
+    "perdre",
+    "arrêtez",
+    "pouvais",
+    "montrer",
+    "verre",
+    "moyen",
+    "seconde",
+    "fous",
+    "simple",
+    "sors",
+    "visage",
+    "rapport",
+    "plait",
+    "devait",
+    "pouvait",
+    "intérieur",
+    "carte",
+    "écoutez",
+    "sac",
+    "grâce",
+    "tirer",
+    "force",
+    "cru",
+    "ressemble",
+    "connaissez",
+    "soeur",
+    "anniversaire",
+    "contrôle",
+    "absolument",
+    "avion",
+    "stupide",
+    "porter",
+    "or",
+    "jolie",
+    "gauche",
+    "suivre",
+    "pied",
+    "pareil",
+    "tenir",
+    "sortie",
+    "disait",
+    "david",
+    "lettre",
+    "folle",
+    "prêts",
+    "mike",
+    "envoie",
+    "télé",
+    "droite",
+    "ie",
+    "centre",
+    "certain",
+    "compagnie",
+    "enfer",
+    "lieutenant",
+    "emmener",
+    "soin",
+    "époque",
+    "combat",
+    "public",
+    "garçons",
+    "adresse",
+    "présente",
+    "lequel",
+    "héros",
+    "assis",
+    "tenez",
+    "vin",
+    "fbi",
+    "témoin",
+    "danse",
+    "sérieusement",
+    "empêcher"
+  ],
+  "spot": [
+    "maman",
+    "moyen",
+    "connaître",
+    "enfer"
+  ],
+  "stats": {
+    "used": {
+      "lexai": 0,
+      "gc": 0,
+      "cf2": 0,
+      "cfLeak": 0,
+      "cf2Dead": [],
+      "gem": 13,
+      "groq": 43
+    },
+    "budget": {
+      "lexai": 0,
+      "gc": 10000,
+      "cf2": 0
+    },
+    "by": {
+      "gem|gemini-3.8-flash": {
+        "ok": 3,
+        "fail": 34,
+        "bad": 0
+      },
+      "gem|gemini-3.6-flash": {
+        "ok": 10,
+        "fail": 2,
+        "bad": 0
+      },
+      "groq|openai/gpt-oss-120b": {
+        "ok": 23,
+        "fail": 2,
+        "bad": 0
+      },
+      "lexai|gemma-3-27b-it": {
+        "ok": 0,
+        "fail": 1,
+        "bad": 0
+      },
+      "groq|qwen/qwen3.8-27b": {
+        "ok": 20,
+        "fail": 0,
+        "bad": 0
+      },
+      "lexai|gemini-3.5-flash": {
+        "ok": 0,
+        "fail": 38,
+        "bad": 0
+      },
+      "gem|gemini-3.7-flash": {
+        "ok": 0,
+        "fail": 3,
+        "bad": 0
+      }
+    },
+    "keys": {
+      "gem": {
+        "size": 85,
+        "live": 37,
+        "parked": {
+          "day": 30,
+          "minute": 16,
+          "auth": 2
+        }
+      },
+      "groq": {
+        "size": 109,
+        "live": 109,
+        "parked": {}
+      }
+    }
+  },
+  "wiktFlags": []
+}

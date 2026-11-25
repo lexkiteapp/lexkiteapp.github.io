@@ -12,5 +12,5 @@ const pako = createRequire(import.meta.url)('./pako-deflate.min.cjs');
 export const gzSize = buf => pako.gzip(buf, { level: 9 }).length;
 
 export const swShell = (web = 'web') => { const sw = fs.readFileSync(`${web}/sw.js`, 'utf8'); return [...(sw.match(/const SHELL = \[([\s\S]*?)\];/) || [, ''])[1].matchAll(/'([^']+)'/g)].map(m => m[1]).filter(u => u !== './').map(u => u.endsWith('/') ? u + 'index.html' : u); }; // '/app/' = web/app/index.html
-export const eagerFiles = (web = 'web') => { const h = fs.readFileSync(`${web}/app/index.html`, 'utf8'); return [...h.matchAll(/<script\b[^>]*\bsrc="([^"]+)"|<link\b[^>]*\brel="stylesheet"[^>]*\bhref="([^"]+)"/g)].map(m => m[1] || m[2]).filter(u => !/^(https?:)?\/\//.test(u)).map(u => '/' + u.replace(/^\/+/, '').replace(/[?#].*$/, '')); };
+export const eagerFiles = (web = 'web') => { const h = fs.readFileSync(`${web}/app/index.html`, 'utf8').replace(/<!--lknat-->[\s\S]*?<!--\/lknat-->/, ''); return [...h.matchAll(/<script\b[^>]*\bsrc="([^"]+)"|<link\b[^>]*\brel="stylesheet"[^>]*\bhref="([^"]+)"/g)].map(m => m[1] || m[2]).filter(u => !/^(https?:)?\/\//.test(u)).map(u => '/' + u.replace(/^\/+/, '').replace(/[?#].*$/, '')); };
 export const firstLoadFiles = (web = 'web') => [...new Set([...swShell(web), ...eagerFiles(web)])];
