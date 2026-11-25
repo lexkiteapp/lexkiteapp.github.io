@@ -1,0 +1,117 @@
+{
+ "id": "t2a_prog_weekend_1",
+ "template": "progress",
+ "series": "Day 1 vs Day 30",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "voice-diary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Day one. Day thirty.",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "Las weeken... we wisit my grandmoder.",
+   "pause": 2.29
+  },
+  {
+   "id": "k",
+   "text": "Thirty days later!",
+   "pause": 0.35
+  },
+  {
+   "id": "b",
+   "text": "Last weekend we visited my grandmother.",
+   "pause": 0.4
+  },
+  {
+   "id": "w",
+   "text": "Same sentence. Just a little practice every day.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "id": "weekend",
+  "day1": "Las weeken... we wisit my grandmoder.",
+  "day30": "Last weekend we visited my grandmother.",
+  "marks": [
+   "Last",
+   "weekend",
+   "visited",
+   "grandmother"
+  ],
+  "s1": 42,
+  "s30": 87,
+  "sample": true
+ },
+ "cta": {
+  "area": "voice-diary",
+  "route": "#/diary",
+  "link": "https://lexkite.com/app/#/diary",
+  "say": "Start your voice diary"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Day one. Day thirty."
+ },
+ "src": {
+  "progress": "weekend"
+ },
+ "est": {
+  "words": 33,
+  "seconds": 20.3,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Day 1 vs Day 30: \"Last weekend we visited my grandmother\"",
+  "keyword": "Day 1 vs Day 30",
+  "value": "Day 30: \"Last weekend we visited my grandmother.\" Day 1 slipped on: last, weekend, visited, grandmother. Sample progress, same sentence.",
+  "hashtags": [
+   "#englishspeaking",
+   "#pronunciation",
+   "#learnenglish",
+   "#voicediary",
+   "#progress"
+  ],
+  "link": "https://lexkite.com/app/#/diary",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Day 1 vs Day 30: \"Last weekend we visited my grandmother\"",
+    "description": "Day 30: \"Last weekend we visited my grandmother.\" Day 1 slipped on: last, weekend, visited, grandmother. Sample progress, same sentence.\n\nStart your voice diary, free: https://lexkite.com/app/#/diary\n\nSeries: Day 1 vs Day 30 · Teacher: Carlos\n\n#englishspeaking #pronunciation #learnenglish #voicediary #progress",
+    "tags": [
+     "Day 1 vs Day 30",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Day 1 vs Day 30: \"Last weekend we visited my grandmother\"\n\nDay 30: \"Last weekend we visited my grandmother.\" Day 1 slipped on: last, weekend, visited, grandmother. Sample progress, same sentence.\n\nStart your voice diary, free: https://lexkite.com/app/#/diary"
+   },
+   "instagram": {
+    "caption": "Day 1 vs Day 30: \"Last weekend we visited my grandmother\"\n\nDay 30: \"Last weekend we visited my grandmother.\" Day 1 slipped on: last, weekend, visited, grandmother. Sample progress, same sentence.\n\nStart your voice diary: link in bio.",
+    "hashtags": [
+     "#englishspeaking",
+     "#pronunciation",
+     "#learnenglish",
+     "#voicediary",
+     "#progress"
+    ]
+   },
+   "tiktok": {
+    "caption": "Day 1 vs Day 30: \"Last weekend we visited my grandmother\" #englishspeaking #pronunciation #learnenglish"
+   }
+  },
+  "first_comment": "Say it: \"Last weekend we visited my grandmother.\" Record yourself today and again in 30 days to hear your own progress (free): {link}"
+ }
+}
