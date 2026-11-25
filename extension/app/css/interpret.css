@@ -1,5 +1,5 @@
 /* Phiên dịch (#/interpret) – Tactile (Stitch "Lexkite" sáng/tối): chỉ dùng biến màu có sẵn; nửa trên xoay 180°; RTL theo dir của từng nửa. Tải lười cùng gói interpret. */
-.ip{display:flex;flex-direction:column;gap:var(--sp-3);padding:0 max(0px,calc((100% - 760px)/2)) var(--sp-4)}
+.ip{display:flex;flex-direction:column;gap:var(--sp-3);--ipw:760px;padding:0 max(0px,calc((100% - var(--ipw))/2)) var(--sp-4)}
 .ip-bar{display:flex;align-items:center;gap:var(--sp-2)}.ip-bar h1{font-family:var(--font-display);font-size:var(--fs-lg);margin:0;display:flex;align-items:center;gap:var(--sp-2)}
 .ip-back{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;color:var(--text)}
 .ip-tabs,.ip-chips{display:flex;gap:var(--sp-2);flex-wrap:wrap}.ip-tabs .chip,.ip-chips .chip{min-height:40px;display:inline-flex;align-items:center;text-decoration:none}
