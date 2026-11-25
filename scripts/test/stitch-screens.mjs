@@ -72,6 +72,7 @@ export const V2REF = {
   call: 'teacher-call',
   complete: 'lesson-complete',
   day: 'day',
+  diary: 'say-front', // 🎙️ Nhật ký giọng nói (web/cpack/diary-app/diary.js): cùng khung Stitch say-front như màn score, thân riêng
   dict: 'dict',
   feedback: 'feedback-correct',
   'feedback-wrong': 'feedback-wrong-full',
@@ -163,5 +164,5 @@ export const FINAL = [
   { stitch: 'story-duo', k: 'story', ready: '.lsn-qblk ~ #lsnBody .lsn-opt, .lsn-qblk + #lsnBody .lsn-opt', teacher: ['talk', 'listen'], duo: true, speaks: true },
 ];
 export const READY = Object.fromEntries(FINAL.filter(f => f.k && f.ready).map(f => [f.k, f.ready]));
-Object.assign(READY, { score: '.s30 .txt', 'speak-sit': '.v2s-pas-sit', 'speak-drill': '.v2s-pas-drill', 'onb-goal': '.v2s-onb-goal', 'onb-level': '.v2s-onb-level', 'onb-target': '.v2s-onb-target', 'onb-pace': '.v2s-onb-pace', 'onb-ready': '.v2s-onb-ready', welcome: ':is(.v2s-welcome, .v2s-welcome-desk)', 'welcome-desk': ':is(.v2s-welcome, .v2s-welcome-desk)' }); // welcome: điện thoại/máy tính cùng route, chọn khung theo độ rộng // 2 màn Nói (cờ lk.speak=1): trang lỗi/không tải gói = ĐỎ, không xanh giả
+Object.assign(READY, { diary: '.vd .txt', score: '.s30 .txt', 'speak-sit': '.v2s-pas-sit', 'speak-drill': '.v2s-pas-drill', 'onb-goal': '.v2s-onb-goal', 'onb-level': '.v2s-onb-level', 'onb-target': '.v2s-onb-target', 'onb-pace': '.v2s-onb-pace', 'onb-ready': '.v2s-onb-ready', welcome: ':is(.v2s-welcome, .v2s-welcome-desk)', 'welcome-desk': ':is(.v2s-welcome, .v2s-welcome-desk)' }); // welcome: điện thoại/máy tính cùng route, chọn khung theo độ rộng // 2 màn Nói (cờ lk.speak=1): trang lỗi/không tải gói = ĐỎ, không xanh giả
 

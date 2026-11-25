@@ -12,6 +12,8 @@
     pas: ['js/i18n/en/v2.js', 'js/i18n/en/speak.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/pas-sit.js', 'js/st/v2/pas-drill.js', 'js/characters.js', 'js/speak/data.js', 'js/speak/score.js', 'js/speak/app.js'], // 🎙️ Play & Speak (cờ speak_pack, docs/specs/play-and-speak.md)
     pron: ['js/i18n/en/pron.js', 'cpack/pron/sounds.js', 'cpack/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/st/v2/runtime.js', 'js/st/v2/pron-hub.js', 'js/pron.js'],
     score30: ['js/i18n/en/score30.js', 'js/speak/score.js', 'cpack/score-app/score30.js'], // 🎤 Thử thách nói 30 giây + thẻ điểm + link /c/<id> (docs/specs/score-card.md)
+    diary: ['js/i18n/en/score30.js', 'js/i18n/en/diary.js', 'js/speak/score.js', 'cpack/score-app/score30.js', 'cpack/diary-app/diary.js'], // 🎙️ Nhật ký giọng nói: thu 1 câu ở mốc 0/7/14/30/60/90 ngày, chấm bằng Speak.score+Score30.grade, lưu IndexedDB trên máy (docs/specs/voice-diary.md)
+    diaryvid: ['js/lib/save-file.js', 'js/characters.js', 'cpack/diary-app/diary-video.js'], // 🎬 dựng video 9:16 trước/sau trên máy – chỉ khi bấm Chia sẻ
     shadow: ['js/speak/score.js', 'js/pron/shadow.js'], // Nói đuổi liên tục (nút trong pron/rhythm.js)
     words: ['js/lib/topics-more.js', 'cpack/lib/skills.js', 'cpack/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'cpack/readings/hl.js', 'js/choice-kit.js', 'js/exam-clock.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
@@ -89,7 +91,7 @@
     placement: ['js/placement.js'], // 🧭 Kiểm tra đầu vào thích ứng (ước tính band + khoảng tin cậy)
     outcome: ['js/i18n/en/outcomes.js', 'js/writecheck-rules.js', 'cpack/outcomes/forms.js', 'cpack/outcomes-app/outcomes-core.js', 'cpack/outcomes-app/outcomes.js'],
     // 🇪🇸 Luyện tiếng TBN (spanish-course.md W2b); dữ liệu cpack/es
-    espr: ['js/i18n/en/espr.js', 'js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'cpack/st/v2/ex-frame.js', 'cpack/st/v2/ex-match.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/qengine.js', 'cpack/es/dr.js', 'cpack/es/px.js', 'js/espr.js', 'cpack/es-app/pron-ui.js'],
+    espr: ['js/i18n/en/espr.js', 'js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/qengine.js', 'cpack/es/dr.js', 'cpack/es/px.js', 'js/espr.js', 'cpack/es-app/pron-ui.js'],
     frpx: ['cpack/fr/px.js'], // chủ đề + cặp tối thiểu + IPA phát âm tiếng Pháp (cpack/es-app/pron-ui.js chung engine es; french-course.md W3)
     frpr: ['cpack/fr/dr.js'], // câu hỏi luyện tiếng Pháp (js/espr.js chung engine es; french-course.md W2)
     calles: ['cpack/es/cl.js'],
@@ -129,7 +131,7 @@
     u1lg: ['js/st/v2/leagues.js'],
     u1ex: ['js/st/v2/exam-readiness.js'],
     u1me: ['js/st/v2/me.js', 'js/ux1-me.js'],
-    lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'cpack/st/v2/ex-frame.js', 'cpack/st/v2/ex-match.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'cpack/lesson/ex.js', 'js/lesson/ui.js'],
+    lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'js/lesson/ui.js'],
     lgold: ['cpack/lesson/gold.js'],
     trfast: ['cpack/tr-fast.js'], // dịch câu (phrases.js nạp)
     dayv2: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/day.js', 'js/characters.js'], // 📅 Khung Stitch v2 của trang buổi học #/day/N (path-day.js page)

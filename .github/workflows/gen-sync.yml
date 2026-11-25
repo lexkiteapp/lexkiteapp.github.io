@@ -1,12 +1,14 @@
 # ci-policy: queue – bot commit bản sinh tuần tự sau mỗi lần gộp; huỷ lượt đang đẩy sẽ bỏ dở bản sinh của lần gộp trước
 # Bản sinh KHÔNG commit trong PR (scripts/lib/generated.mjs; cổng scripts/test/gen-pr-clean.mjs) → hết xung đột mỗi khi main đi tiếp. Sau mỗi lần gộp vào main workflow này
 # dựng lại gói dịch web/js/i18n + web/cpack/lesson/pn-* + extension/app từ NGUỒN và commit lên main (push-main.sh: lấy main mới nhất, sinh lại, [skip ci]),
+# Cùng bot: bản sinh native (scripts/native/gen.mjs → native/shared/gen, native/ios|android generated, web/data/*-pack*.json). Trên PR, gen.mjs --check + native-m2-vectors DỰNG LẠI từ nguồn PR rồi kiểm nội dung
+# (không so byte với bản commit) → PR không cần/được commit các tệp này; trên main (push) so byte nghiêm ngặt = cổng cuối của job này.
 # rồi cổng khớp nguồn (ext-sync + i18n-pack) kiểm bản ĐÃ commit – không dựng lại trước khi kiểm. Site đúng ngay cả khi bot chưa kịp chạy: scripts/build-web.sh tự chạy i18n-pack.
 name: gen-sync
 on:
   push:
     branches: [main]
-    paths: ['i18n/ui/**', 'web/**', '!web/js/i18n/**', '!web/cpack/lesson/pn-*.js', 'extension/**', '!extension/app/**', 'scripts/i18n-pack.mjs', 'scripts/lib/i18n-pack.mjs', 'scripts/build-extension.sh', 'scripts/gen-academic.mjs', 'scripts/gen-newtab.mjs', 'web/js/i18n/en/**', '.github/workflows/gen-sync.yml']
+    paths: ['i18n/ui/**', 'web/**', '!web/js/i18n/**', '!web/cpack/lesson/pn-*.js', 'extension/**', '!extension/app/**', 'native/shared/*.json', 'brand/stitch/**', 'scripts/native/**', 'scripts/i18n-langs.txt', 'content/**', 'scripts/i18n-pack.mjs', 'scripts/lib/i18n-pack.mjs', 'scripts/build-extension.sh', 'scripts/gen-academic.mjs', 'scripts/gen-newtab.mjs', 'web/js/i18n/en/**', '.github/workflows/gen-sync.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,9 +24,10 @@ jobs:
         with: { node-version: 22 }
       - name: dựng lại bản sinh từ nguồn + commit lên main
         run: |
-          bash scripts/ci/commit-regen.sh "Bản sinh - gói dịch + extension/app khớp nguồn (gen-sync)" "node scripts/i18n-pack.mjs" web/js/i18n web/cpack/i18n web/cpack/lesson extension/app   # web/cpack/i18n: i18n-pack ghi tlui-*.js ở đây; thiếu → extension/app (build từ web/) lệch web/ vĩnh viễn → ext-sync đỏ mọi lượt (24/11)
+          bash scripts/ci/commit-regen.sh "Bản sinh - gói dịch + extension/app khớp nguồn (gen-sync)" "node scripts/i18n-pack.mjs && node scripts/native/gen.mjs" web/js/i18n web/cpack/i18n web/cpack/lesson extension/app web/data native   # web/cpack/i18n: i18n-pack ghi tlui-*.js ở đây; thiếu → extension/app (build từ web/) lệch web/ vĩnh viễn → ext-sync đỏ mọi lượt (24/11)
       - name: cổng khớp nguồn (bản đã commit = bản dựng từ nguồn)
         run: |
           git fetch -q origin main && git reset -q --hard origin/main
           node scripts/test/ext-sync.mjs
           node scripts/test/i18n-pack.mjs
+          node scripts/native/gen.mjs --check   # bản native đã commit = bản dựng từ nguồn (push main: so byte nghiêm ngặt)

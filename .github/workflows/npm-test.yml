@@ -52,7 +52,15 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - name: nhánh gốc cho báo cáo khung app theo module (shell-size.mjs so Δ cùng bản Node)
         run: git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main || true
+      # 25/11 cache kết quả ĐẠT theo hash input từng test (scripts/lib/test-cache.mjs): sổ nhỏ per-shard, khóa mới mỗi lượt (luôn ghi), khôi phục lượt mới nhất (PR đọc được sổ của main).
+      # Độ phủ không đổi: input đổi / không chứng minh được input → test chạy; lượt đêm `npm-test-nightly.yml` chạy đầy đủ KHÔNG cache để bắt dò input sai.
+      - uses: actions/cache@v4
+        with:
+          path: .test-cache
+          key: tpl-v1-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: tpl-v1-${{ matrix.shard }}-
       - name: npm test – phần ${{ matrix.shard }}/8
+        env: { TEST_CACHE_FILE: '.test-cache/ledger.json' }
         run: node scripts/test/run-suite.mjs --shard=${{ matrix.shard }}/8
   test:
     name: npm test
