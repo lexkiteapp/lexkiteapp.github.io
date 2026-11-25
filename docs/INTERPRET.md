@@ -23,3 +23,8 @@ Mỗi bản dịch: nghe lại · nghe chậm (0,55×) · lưu Sổ từ (cụm 
 ## Quy tắc
 Không API trả phí; không gửi lịch sử đi đâu; chuỗi giao diện theo I18N-PIPELINE (en nguồn ở `i18n/en/interpret.js`, 13 ngôn ngữ do bot dịch); RTL theo `dir` từng nửa; chữ ngoài đọc qua `esc()`.
 Thiết kế: Stitch project 7268539912208977707, design system "Lexkite" (sáng/tối). Màn Phiên dịch tạo bằng Stitch bị quá giờ 23/11 (2 lần, không ra màn) → bản đầu dựng bằng token Tactile có sẵn; khi Stitch trả màn thì đối chiếu (docs/STITCH-WEB.md).
+
+## Native Android (Compose, `:feature-interpret`)
+Route `interpret[/phrases[/<nhóm>]|/history|/recap/<id>]` từ thẻ ở hub Kỹ năng (không vào tab chính). Lõi thuần `core/interpret/Interpret.kt` (cùng luật `core.js`, lịch sử cùng khuôn `lk.interp.v1`); màn + VM + route ở `feature-interpret`; nối dây ở `MainActivity.interpretEnv`.
+Nhận giọng = `SpeechInput` (SpeechRecognizer); dịch = ML Kit Translation 17.0.3 (gói ~30 MB/ngôn ngữ, **chỉ tải khi bấm "Tải gói dùng offline"**, `requireWifi`; ngoài tiếng Anh thì cần cả gói tiếng Anh vì ML Kit dịch qua tiếng Anh; `translate` không bao giờ tự tải); dò bên nói = ML Kit Language ID (gói sẵn trong thư viện); đọc = `TextToSpeech`. Quyền: chỉ RECORD_AUDIO, xin khi bấm micro.
+Câu mẫu: **một nguồn** `web/cpack/interpret/phrases.js` → `node scripts/native/gen.mjs` → `native/shared/gen/interpret/phrases.json` (asset Android, iOS dùng chung). Chuỗi: id `interpret.*` trong `native/shared/strings.json` (bản dịch tay 13 ngôn ngữ ở `scripts/i18n-fixed.json` + `i18n/ui/<lang>/interpret.js`). Mục parity `P14`; test `InterpretTest` (+ `parity_P14`) và `InterpretSnapshotTest` (en/vi/ar/de × sáng/tối).
