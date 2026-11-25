@@ -129,8 +129,11 @@ async function journey(w, theme) {
     steps.push({ name, ms: Date.now() - t0 });
   };
   // hộp "Lên cấp N!" bật trễ sau khi cộng XP → che nút đang bấm; người dùng thật bấm "Awesome!" rồi đi tiếp
-  const levelUp = async () => { const b = page.locator('#modal:not([hidden]) #modalBox button[data-close]').first(); if (await b.isVisible().catch(() => false)) { await b.click().catch(() => {}); await sleep(400); } };
-  const click = async (sel, wait = 450) => { await levelUp(); const l = page.locator(sel).first(); await l.waitFor({ state: 'visible', timeout: 10000 }); await l.click({ timeout: 8000 }); await sleep(wait); };
+  const levelUp = async () => { const b = page.locator('#modal:not([hidden]) #modalBox button[data-close]').first(); if (await b.isVisible().catch(() => false)) { await b.click().catch(() => {}); await sleep(400); return true; } return false; };
+  const click = async (sel, wait = 450) => { await levelUp(); const l = page.locator(sel).first(); await l.waitFor({ state: 'visible', timeout: 10000 });
+    // Tờ mời cài app (install-sheet) hiện 6 s sau bài học – có thể bật GIỮA lúc bấm: người dùng thật bấm "Để sau" rồi bấm tiếp ⇒ chỉ thử lại khi vừa gỡ được một hộp thoại che; lỗi khác vẫn đỏ
+    for (let a = 0; ; a++) { try { await l.click({ timeout: a ? 8000 : 2500 }); break; } catch (e) { if (a || !(await levelUp())) throw e; } }
+    await sleep(wait); };
   const has = sel => page.locator(sel).first().isVisible().catch(() => false);
 
   await step('onboarding', async () => {

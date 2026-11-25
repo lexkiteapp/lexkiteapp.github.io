@@ -560,6 +560,8 @@ export function createPool(opts = {}) {
         h.gem.probe = { n, day }; }
       log('[ai-pool] sức khỏe ' + JSON.stringify(h)); return h;
     },
+    /** ms tới lúc tuyến nghỉ SỚM NHẤT hết nghỉ (0 = không tuyến nào đang nghỉ) – để việc nền lùi đúng cầu dao/Retry-After thay vì chờ mù */
+    nextReadyMs: () => { const t = [...cool.values()].filter(x => x > now()).map(x => x - now()); return t.length ? Math.min(...t) : 0; },
     stats: () => ({ used: { ...used }, budget: { ...budget }, by: JSON.parse(JSON.stringify(stats)), keys: { gem: GEM.stats(), groq: GROQ.stats() } }),
     /** ghi nhật ký ai đã trả lời (reports/ai-pool-<job>.json) */
     report(job, file = `reports/ai-pool-${job}.json`) { try { fs.mkdirSync('reports', { recursive: true }); fs.writeFileSync(file, JSON.stringify({ job, at: new Date(now()).toISOString(), ...api.stats() }, null, 1)); } catch { /* bỏ */ } },
