@@ -25,7 +25,8 @@ function counter() { const c = { taps: 0, trail: [] }; c.tap = async (sel, wait 
 // nút chính hero trang giới thiệu (khung Stitch: data-cta=start, trỏ #/welcome/setup) – scripts/test/probe-cta.mjs khóa nó khớp landing dựng thật, cùng bộ chọn với journey-e2e
 const CTA = '[data-cta=start], .ctas a.btn.lg';
 const ANSWER = ['#known', '#gotIt', '.option[data-k]:not([data-k="-1"])', '.choice:not([disabled])'];
-const NEXT = ['a.path-cta', '.dayv2-steps a[data-step="learn"]:not(.ok)', '.dayv2-steps a[data-step]:not(.ok)', '#view a.btn.primary', '#view button.btn.primary'];
+// 24/11 (#1255): trang chủ v2 'Hôm nay' (today/today-new/today-desk, Stitch) KHÔNG còn a.path-cta / .dayv2-steps: nút chính là [data-cont][data-href] (runtime.js bắt click → location.hash) → 'today' đỏ 8 lượt (không tới bài hôm nay từ #/home)
+const NEXT = ['a.path-cta', '#view [data-cont][data-href]', '.dayv2-steps a[data-step="learn"]:not(.ok)', '.dayv2-steps a[data-step]:not(.ok)', '#view a.btn.primary', '#view button.btn.primary'];
 async function answered() { // màn học có câu trả lời được chấp nhận (thẻ "đã biết"/đáp án đúng/qua thẻ kế)
   return page.evaluate(() => !!document.querySelector('.option.correct, .choice.correct, .study-wrap .celebrate') || (window.__lkAns || 0) > 0).catch(() => false);
 }
