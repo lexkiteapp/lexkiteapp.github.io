@@ -175,7 +175,8 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
 {
   const src = fs.readFileSync(new URL('../lib/ai-pool.mjs', import.meta.url), 'utf8').replace(/^\s*\/\/.*$/gm, '');
   ok(!/env\.AI\b|CLOUDFLARE_API_TOKEN|CF_AI_TOKEN(?!_2)|CF_ACCOUNT_ID|CF_ACCOUNT(?!_2)/.test(src), 'không tham chiếu Workers AI / token tài khoản chính');
-  ok(Object.values(CHAINS).flat().every(r => ['gem', 'groq', 'lexai', 'gc-cf', 'cf2', 'gc-gemini', 'gc-groq', 'gc-vision', 'studio', 'cf2-vision'].includes(r)), 'chuỗi chỉ gồm tuyến được phép');
+  ok(['gen', 'judgeA', 'judgeB'].every(k => CHAINS[k].indexOf('cf2') > -1 && CHAINS[k].indexOf('cf2') < CHAINS[k].indexOf('gc-groq') && CHAINS[k].indexOf('gc-groq') < CHAINS[k].indexOf('gc-gemini')), 'chuỗi nền: Workers AI kho CF_POOL (cf2) trước GrabCast – dành ngân sách DB GrabCast cho đăng bài (25/11)');
+ok(Object.values(CHAINS).flat().every(r => ['gem', 'groq', 'lexai', 'gc-cf', 'cf2', 'gc-gemini', 'gc-groq', 'gc-vision', 'studio', 'cf2-vision'].includes(r)), 'chuỗi chỉ gồm tuyến được phép');
   const lx = fs.readFileSync(new URL('../../functions/api/lexai.js', import.meta.url), 'utf8');
   ok(/stripBackgroundAI\(env\)/.test(lx) && !/env\.AI\.run/.test(lx), 'lexai: không gọi env.AI (tài khoản chính)');
 }
