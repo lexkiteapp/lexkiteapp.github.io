@@ -38,7 +38,7 @@ export const areaOf = (id, eco = loadEcosystem()) => (eco.areas || []).find(a =>
 const HOME = 'https://lexkite.com/', normCta = t => String(t).toLowerCase().replace(/[^a-z0-9.]+/g, ' ').trim();
 // Kiểm chính ecosystem.json: link https://lexkite.com/…, route /app/#/<r> có routes.<r> trong web/js, trang công khai có bản build (dist/) hoặc script build sinh ra, CTA ≤ 6 từ + lexkite.com
 let routeSrc = null;
-const appRoutes = () => routeSrc || (routeSrc = (function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : e.name.endsWith('.js') ? [fs.readFileSync(path.join(d, e.name), 'utf8')] : []); })(path.join(ROOT, 'web/js')).join('\n'));
+const appRoutes = () => routeSrc || (routeSrc = (function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : e.name.endsWith('.js') ? [fs.readFileSync(path.join(d, e.name), 'utf8')] : []); })(path.join(ROOT, 'web/js')).concat(fs.existsSync(path.join(ROOT, 'web/cpack')) ? (function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : /-app\//.test(path.join(d, e.name)) && e.name.endsWith('.js') ? [fs.readFileSync(path.join(d, e.name), 'utf8')] : []); })(path.join(ROOT, 'web/cpack')) : []).join('\n'));   // + màn tải lười của gói cpack/*-app (vd. #/diary: web/cpack/diary-app/diary.js)
 const hasRoute = r => new RegExp(`routes(?:\\.${r.replace(/-/g, '_')}|\\[['"]${r}['"]\\])\\s*=`).test(appRoutes());
 export function checkEcosystem(eco = loadEcosystem()) {
   const errs = [], ids = new Set(), E = (a, m) => errs.push(`ecosystem ${a.id || '?'}: ${m}`);
