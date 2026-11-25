@@ -7,7 +7,7 @@ import { gitContext, hashOf, loadLedger, canSkip, recordPass, flagFalsePass } fr
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const SUITE = process.env.SUITE_FILE ? path.resolve(process.env.SUITE_FILE) : path.join(ROOT, 'scripts/test/suite.txt');   // SUITE_FILE: bộ nhỏ để thử cục bộ (không chạy cả suite trên máy)
 export const readSuite = (file = SUITE) => fs.readFileSync(file, 'utf8').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
-export const FAST_RE = /^node scripts\/(vi-lint|ext-syntax|i18n-missing|test\/(ci-policy|ci-triage|syntax-check|comment-code|unit|suite-shards|workflow-yaml))\.m?js\b/;
+export const FAST_RE = /^node scripts\/(vi-lint|ext-syntax|i18n-missing|test\/(ci-policy|ci-triage|syntax-check|comment-code|unit|suite-shards|workflow-yaml|no-conflict-markers))\.m?js\b/;
 // Chú thích lỗi CI: mỗi test đỏ in `::error file=…::<test>: <lý do ngắn>` + ghi bảng tóm tắt vào job summary (không chỉ "exit 1").
 export const TAIL_MAX = 6000;
 export const scriptOf = c => (c.match(/(?:^|\s)((?:\.\/)?[\w./-]+\.(?:m?js|py|sh|cjs|ts))\b/) || [])[1]?.replace(/^\.\//, '') || 'package.json';
