@@ -162,7 +162,7 @@
   const stars = () => { try { return JSON.parse(ls.get('lk.ux1.st') || '{}'); } catch (e) { return {}; } }; // sao thật mỗi nút đã học (lesson/ui.js ghi khi xong bài)
   function map(o) {
     const { demo, plan: P, n } = o;
-    // W7b: đang học ngôn ngữ đích ≠ en → "Hôm nay" = lộ trình ngày của chính ngôn ngữ đó (không vẽ lộ trình IELTS/TOEIC tiếng Anh); ?en=1 = xem bản tiếng Anh
+    // W7b: ngôn ngữ đích ≠ en → Hôm nay = lộ trình ngày của ngôn ngữ đó; ?en=1 = bản tiếng Anh
     const tlHome = !demo && window.Target && Target.cur() !== 'en' && !/[?&]en=1\b/.test(location.hash) ? Target.homeOf(Target.cur()) : '';
     if (tlHome) { location.replace(tlHome); return; }
     const fresh = !demo && n === 0 && !((state.game || {}).xp > 0) && !!(self.ST2 && ST2['today-new'] && ST2.path); // người mới (chưa xong bài nào, 0 XP) → Hôm nay v2 trống: bước 1 = chọn mục tiêu (pick)
@@ -184,7 +184,7 @@
     const coach = who === 'ama' ? 'Carlos' : 'Ama', placed = !!(state.settings || {}).placement;
     const chips = [u.words.length ? { icon: 'local_library', text: `${have}/${u.words.length}`, title: t('Kiến thức đã có') } : null, placed ? null : { href: '#/placement', icon: 'explore', text: t('Kiểm tra trình độ') }].filter(Boolean);
     if (self.ST2 && ST2.path) { // 🎨 Stitch v2 "Learning Path" – khung tự sinh (web/js/st/v2/path.js · css/st-v2-path.css), chỉ gắn dữ liệu thật ở đây
-      // Hướng dẫn chặng (nút "Guide" có sẵn trong mẫu Stitch path) mở bảng giữ ĐỦ tính năng cũ của màn Học mà mẫu không vẽ: câu "Bạn sẽ…", kiến thức đã có, thẻ kỳ thi + thi thử, kiểm tra trình độ, đổi mục tiêu
+      // Hướng dẫn chặng (nút "Guide" của mẫu path): bảng giữ đủ tính năng cũ của màn Học.
       const guide = root => { const g = root.querySelector('[data-act="guide"]'); if (g) g.addEventListener('click', e => { e.preventDefault();
         const ch = chips.map(c => c.href ? `<a class="btn sm" href="${c.href}">${ic(c.icon === 'explore' ? 'compass' : 'library')} ${esc(c.text)}</a>` : `<span class="chip" title="${esc(c.title || '')}">${ic('library')} ${esc(c.text)} · ${esc(c.title || '')}</span>`).join(' ');
         const box = UI.modal(`<div class="ux1-guide"><p class="muted small">${esc(t('Chặng học {n}', { n: u.no }))} · ${esc(X.short)}</p><h2>${esc(u.name)}</h2>${CAN()[u.id] ? `<p class="ux1-unit-tip">${esc(CAN()[u.id])}</p>` : ''}${examCard('')}<p>${ch}</p><p><a class="btn" href="#/lesson?pick=1">${ic('target')} ${t('Đổi mục tiêu')}</a></p></div>`);
@@ -211,7 +211,7 @@
   }
 
   // ---------- 🏠 Home v2 "Hôm nay" (docs/HOME-V2.md · khung Stitch tự sinh web/js/st/v2/today*.js) ----------
-  // Chỉ dữ liệu THẬT; khối không có dữ liệu → data-show=0 → gỡ (không hiện số giả). Điện thoại: today / today-new · máy tính ≥ 1024 px: today-desk + cột phải today-rail.
+  // Chỉ dữ liệu THẬT (khối không dữ liệu → gỡ). Điện thoại: today/today-new · ≥ 1024 px: today-desk + today-rail.
   const DSK = () => matchMedia('(min-width: 1024px)').matches;
   const MINS = { ielts: 165, ieltsgt: 165, toeic: 120, toefl: 120 };
   const PLAN_TTL = 30e3; let planC = null; // nhớ 30 s; đổi kỳ thi / vừa học → tính lại
@@ -246,7 +246,7 @@
       p: { items, count: t('{n} việc', { n: tot }), done: `${dn}/${tot}`, ring: `${tot ? (88 * dn / tot).toFixed(1) : 0}, 88`, left: tot - dn },
       wk: { days, n: `${wn}/7`, n2: t('{a}/7 đã xong', { a: wn }) }, lg };
   }
-  // 🏆 Giải đấu thật (Sync.league): vá chữ vào thẻ có sẵn ([data-lg]) – không có tài khoản/chưa tham gia → thẻ ẩn (cột phải: thẻ giải đấu cũ thay vào)
+  // 🏆 Giải đấu thật (Sync.league): vá chữ vào [data-lg]; chưa tham gia → thẻ ẩn.
   async function fillLeague(root, legacy) {
     let v = null;
     try { await App.need('league'); if (window.Sync && Sync.authed) await Sync.authed(); if (window.Sync && Sync.user && Sync.league && window.League) { const res = await Sync.league('me');
@@ -261,7 +261,7 @@
   const prune = root => root.querySelectorAll('[data-show="0"]').forEach(x => x.remove());
   // Một lối nhắc ôn: kế hoạch còn việc ôn → gỡ khối "phai dần" + số trên ô Từ cần ôn (ô vẫn dẫn tới #/review)
   const oneReview = d => { if (d.p.items.some(x => x.href === '#/review' && x.tag !== '✓')) { d.r.due = 0; d.q.dueN = 0; } };
-  // Đầu màn Hôm nay trên điện thoại (thanh trên của app ẩn dưới 1024 px): dùng lại đúng ô tìm #gq, bảng #notifBtn, nút sáng/tối và bộ chọn kỳ thi – không viết chức năng thứ hai
+  // Đầu Hôm nay trên điện thoại: dùng lại ô tìm #gq, #notifBtn, nút sáng/tối, bộ chọn kỳ thi.
   const headBtns = root => { const el = id => document.getElementById(id), on = (a, f) => root.querySelectorAll(`[data-act="${a}"]`).forEach(b => b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); f(); }));
     on('search', () => { const i = el('gq'); if (!i) return; document.body.classList.add('v2-gs'); i.focus(); i.addEventListener('blur', () => setTimeout(() => { if (!i.parentNode.contains(document.activeElement)) document.body.classList.remove('v2-gs'); }, 300), { once: true }); });
     on('notif', () => { const n = el('notifBtn'); if (n) n.click(); });
@@ -316,7 +316,7 @@
     return root;
   }
   // Đổi cỡ màn qua mốc 1024 px khi đang ở Hôm nay → vẽ lại đúng khung (điện thoại ↔ máy tính)
-  try { matchMedia('(min-width: 1024px)').addEventListener('change', () => { if (on() && document.querySelector('.v2s-today, .v2s-today-desk') && App.route) App.route(); }); } catch (e) { /* trình duyệt cũ */ }
+  try { matchMedia('(min-width: 1024px)').addEventListener('change', () => { if (on() && document.querySelector('.v2s-today, .v2s-today-desk') && App.route) (matchMedia('(min-width: 1024px)').matches && !ST2['today-desk'] ? App.need('u1home').catch(() => {}) : Promise.resolve()).then(() => App.route()); }); } catch (e) { /* trình duyệt cũ */ }
 
   // ---------- Cột phải (máy tính ≥ 1024 px) ----------
   function rail() {
@@ -374,7 +374,7 @@
       mock: { title: mockName, chip: mins ? t('{n} phút', { n: mins }) : Xe.short, cta: t('Bắt đầu'), href: MOCK[ex] || '#/mock', aria: t('Bắt đầu thi thử {x}', { x: Xe.short }) } };
     ST2.mount(view, 'practice', d, 'skills');
   }
-  // 🎨 Stitch v2 "Review" (hub Ôn): số thẻ đến hạn, trí nhớ, bộ thẻ theo nguồn; nút Bắt đầu mở phiên ôn thật (#/review → study.js). study.js gọi khi vào bằng thanh tab (#/review?hub=1).
+  // 🎨 Stitch v2 "Review" (hub Ôn): nút Bắt đầu mở phiên ôn thật (#/review → study.js).
   const ORI_IC = { youtube: 'smart_display', web: 'language', reading: 'auto_stories', dict: 'search', library: 'local_library', anki: 'style' }; // @icons smart_display language auto_stories search local_library style
   function reviewHub() {
     document.body.classList.remove('focus');

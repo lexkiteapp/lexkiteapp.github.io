@@ -146,6 +146,9 @@ const runCombo = async (P) => {
 };
 const combos = [P0, await mk(390, 'dark'), await mk(1280, 'light'), await mk(1280, 'dark')];
 await Promise.all(combos.map(runCombo));
+// (khai báo TRƯỚC khối ux1 bên dưới – trước đây đặt sau nên có sai lệch hub là sập 'Cannot access D before initialization' thay vì báo)
+const dev = []; // { route, combo, prop, got, want }
+const D = (route, combo, prop, got, want) => dev.push({ route, combo, prop, got: String(got), want: String(want) });
 // Cờ ux1 BẬT: cả 5 tab hub phải dùng CÙNG MỘT thanh hub chung (header.hb, hàng 1 = SPEC.hubTop, sát đỉnh) – một biến thể hub duy nhất (docs/DESIGN-SYSTEM.md §5d)
 const PU = await mk(390, 'light', '1');
 for (const r of ['home', 'vocab', 'skills', 'tests', 'me']) { await go(PU, target(r)); let m; try { m = await PU.page.evaluate(probe, SPEC); } catch (e) { m = { error: String(e.message).slice(0, 120) }; }
@@ -153,8 +156,6 @@ for (const r of ['home', 'vocab', 'skills', 'tests', 'me']) { await go(PU, targe
   else { if (t.h !== SPEC.hubTop) D(r, 'ux1', 'hub.same-bar.h', t.h, SPEC.hubTop); if (t.y > 1) D(r, 'ux1', 'hub.same-bar.y', t.y, 0); } }
 
 // ---------- chấm ----------
-const dev = []; // { route, combo, prop, got, want }
-const D = (route, combo, prop, got, want) => dev.push({ route, combo, prop, got: String(got), want: String(want) });
 for (const r of unknown) D(r, '-', 'variant', 'chưa có trong frame-variants.json', 'hub|inner|focus');
 for (const r of stale) D(r, '-', 'variant', 'route không còn trong app', 'xóa khỏi frame-variants.json');
 const mode = arr => { const c = {}; arr.forEach(v => { if (v !== undefined && v !== null && v !== '') c[v] = (c[v] || 0) + 1; }); return Object.entries(c).sort((a, b) => b[1] - a[1])[0]?.[0]; };

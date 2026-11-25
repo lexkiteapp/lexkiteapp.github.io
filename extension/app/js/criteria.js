@@ -652,7 +652,7 @@
           <div class="row" style="gap:.9rem;align-items:center">
             ${window.Kit ? `<div class="kit-cele" style="flex-shrink:0" aria-hidden="true">${Kit.svg('think', 64, true)}</div>` : ''}
             <div>
-              <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em">IELTS Writing · Speaking</div>
+              <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em">${t('IELTS Writing')} · ${t('IELTS Speaking')}</div>
               <h1 style="margin:.15rem 0 .25rem">${UI.icon('chart-column')} ${t('Tiêu chí chấm IELTS')}</h1>
               <p class="muted small" style="margin:0">${t('Nắm vững 4 tiêu chí chấm Writing & Speaking từ band 4–9 và cách nâng band bài thi thực tế.')}</p>
               <p class="tiny muted" style="margin:.25rem 0 0">${t('Diễn giải từ bảng mô tả band công khai của IELTS, không phải văn bản chính thức – bản gốc xem tại ielts.org.')}</p>
