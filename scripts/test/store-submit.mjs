@@ -95,7 +95,9 @@ t('payload App Store Connect đúng dạng JSON:API', () => {
   assert.deepEqual(P.attachBuild('B'), { data: { type: 'builds', id: 'B' } });
   assert.deepEqual(P.encryption('B').data.attributes, { usesNonExemptEncryption: false });
   assert.deepEqual(P.whatsNew('L', 'hi'), { data: { type: 'appStoreVersionLocalizations', id: 'L', attributes: { whatsNew: 'hi' } } });
-  assert.deepEqual(P.phased('V'), { data: { type: 'appStoreVersionPhasedReleases', attributes: { phasedReleaseState: 'INACTIVE' }, relationships: { appStoreVersion: { data: { type: 'appStoreVersions', id: 'V' } } } } });
+  assert.equal(P.phased, undefined); // luật chủ: ship 100 %, không bật phased release
+  assert.deepEqual(P.phasedState('PH', 'COMPLETE'), { data: { type: 'appStoreVersionPhasedReleases', id: 'PH', attributes: { phasedReleaseState: 'COMPLETE' } } });
+  assert.deepEqual(P.releaseRequest('V'), { data: { type: 'appStoreVersionReleaseRequests', relationships: { appStoreVersion: { data: { type: 'appStoreVersions', id: 'V' } } } } });
   assert.deepEqual(P.submission('A').data.attributes, { platform: 'IOS' });
   assert.deepEqual(P.submissionItem('S', 'V').data.relationships, { reviewSubmission: { data: { type: 'reviewSubmissions', id: 'S' } }, appStoreVersion: { data: { type: 'appStoreVersions', id: 'V' } } });
   assert.deepEqual(P.submit('S'), { data: { type: 'reviewSubmissions', id: 'S', attributes: { submitted: true } } });

@@ -132,7 +132,7 @@
         { n: 22, q: "How did his parents feel in the end?", options: ["They were still unhappy.", "They accepted his decision.", "They gave him some money."], a: 1, cue: "they changed their minds when they saw how hard I worked", explain: "They \"changed their minds\" – they were no longer against his plan. Money from them is not mentioned." },
         { n: 23, q: "Where did the money for the shop come from?", options: ["from his savings", "from his parents", "from a bank loan"], a: 0, cue: "Mostly from my savings", explain: "He says \"mostly from my savings\", money he earned working in a café. A neighbour lent tools, not money." },
         { n: 24, q: "What does Marco find most difficult?", options: ["repairing vintage motorcycles", "working night shifts", "dealing with unhappy customers"], a: 2, cue: "talking to customers who are in a bad mood", explain: "Marco cho biết phần khó nhất trong công việc là phải đối phó với khách hàng buồn bực, vì anh nói rõ ‘khó nhất là nói chuyện với khách hàng…’. Câu ‘repairing old bicycles’ không đúng vì sửa xe không phải là khó khăn." },
-        { n: 25, q: "What is Marco planning to do?", options: ["open a second shop", "go back to university", "teach a class for teenagers"], a: 2, cue: "start a free class for teenagers", explain: "He wants to \"start a free class for teenagers\" and is talking to the town council about it." },
+        { n: 25, q: "What is Marco planning to do?", options: ["expand the current shop", "enroll in a postgraduate program", "teach a class for teenagers"], a: 2, cue: "start a free class for teenagers", explain: "He wants to \"start a free class for teenagers\" and is talking to the town council about it." },
       ] },
     ] },
   ] },

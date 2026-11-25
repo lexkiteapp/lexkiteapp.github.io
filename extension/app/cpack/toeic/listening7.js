@@ -398,7 +398,7 @@ explain: '"curly hair is actually her specialty" – tóc xoăn là chuyên môn
 items: [
 { n: 56, q: 'Why does the woman need a transcript?', options: ['To apply for a job', 'To transfer to another university', 'To apply to graduate school', 'To renew a license'], a: 2, cue: 'for a graduate school application',
 explain: 'Cô cần bảng điểm chính thức "for a graduate school application" → nộp hồ sơ cao học.' },
-{ n: 57, q: 'What problem does the woman mention?', options: ['Her transcript has an error.', 'She lost her student ID card.', 'The fee is too high.', 'She cannot access her online account.'], a: 3, cue: 'the portal says my account is locked',
+{ n: 57, q: 'What problem does the woman mention?', options: ['Her graduation ceremony was postponed.', 'She cannot locate her student ID.', 'The tuition fee is too high.', 'She cannot access her online account.'], a: 3, cue: 'the portal says my account is locked',
 explain: 'Tài khoản trên cổng thông tin cựu sinh viên bị khóa ("locked") → không truy cập được tài khoản. Cô vẫn nhớ mã sinh viên.' },
 { n: 58, q: 'What will the woman receive by e-mail?', options: ['A temporary password', 'A payment receipt', 'A copy of her transcript', 'An application form'], a: 0, cue: "You'll get an e-mail with a temporary password",
 explain: 'Cô sẽ nhận email có mật khẩu tạm thời. Bảng điểm được gửi qua bưu điện ("mailed"), không qua email.' },
