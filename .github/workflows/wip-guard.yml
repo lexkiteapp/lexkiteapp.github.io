@@ -1,14 +1,15 @@
 # ci-policy: all-paths – gác mọi PR mới mở (đếm số PR đang mở), không liên quan đường dẫn
-# 06/11 máy gác WIP: PR mới mở khi > 15 PR đang mở → nhãn `frozen` + 1 comment (trừ nhãn `main-red` / `p0`). Chủ: "finish before start".
+# 06/11 máy gác WIP: PR mới mở khi > 15 PR đang mở → nhãn `frozen` + 1 comment (trừ nhãn `main-red` / `main-red-fix` / `p0`); gắn nhãn miễn trừ sau → tự gỡ `frozen` (24/11). Chủ: "finish before start".
 # pull_request_target: chạy bản workflow/script của main, KHÔNG checkout mã PR (không chạy mã không tin cậy); chỉ đọc API + gắn nhãn/comment.
 name: wip-guard
 on:
   pull_request_target:
-    types: [opened, reopened]
+    types: [opened, reopened, labeled]
 permissions: { contents: read, pull-requests: write, issues: write }
 concurrency: { group: "wip-guard-${{ github.event.pull_request.number }}", cancel-in-progress: true }
 jobs:
   wip:
+    if: github.event.action != 'labeled' || (contains(fromJSON('["main-red","main-red-fix","p0"]'), github.event.label.name) && contains(github.event.pull_request.labels.*.name, 'frozen'))
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

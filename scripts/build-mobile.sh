@@ -12,6 +12,8 @@ mkdir -p mobile/www
 # (hubs.js sameSite=false → URL tuyệt đối; seo-twin tắt trong app). Giữ file HTML ngay dưới /<mã>/ (privacy, terms…). Chỉ loại 15 mã ngôn ngữ – KHÔNG dùng /[a-z][a-z]/ vì trùng js/, ar…
 LANG_EX=(); for l in ar de en es fr hi id ja ko pt ru th tr vi zh; do LANG_EX+=(--exclude "/$l/*/"); done
 rsync -a --delete --exclude 'sw.js' --exclude 'audio/' --exclude '_headers' --exclude 'admin.html' --exclude 'packs/' --exclude '/samples/' --exclude '/tu-vung/' --exclude '/ngu-phap/' --exclude '/viet-thu/' --exclude '/phat-am/' --exclude '/og/' --exclude '/screenshots/' --exclude 'data/lex/[a-z][a-z]/' --exclude 'js/admin.js' --exclude 'js/admin-*.js' --exclude 'js/lib/dist-rules.js' --exclude 'css/admin.css' --exclude 'js/vendor/jsvectormap/' --exclude 'css/vendor/jsvectormap.min.css' --exclude '/app/' "${LANG_EX[@]}" dist/ mobile/www/
+# Đo cài/kích hoạt quảng cáo Meta (docs/META-ADS.md): mã chỉ-app, KHÔNG nằm trong web/js (web/add-on không tải) – native.js nạp khi có Install Referrer của Meta
+cp mobile/meta-attr.js mobile/www/js/meta-attr.js
 # App web ở web/app/index.html (bản gốc <script defer> – dist/app/index.html đã đổi sang nạp JS sau lần vẽ đầu chỉ cho web, scripts/app-loader.mjs; dist/index.html là trang giới thiệu tĩnh) → app gốc mở thẳng app học ở www/index.html; bỏ khối <!--base--> (gốc của app là www/)
 cp web/app/index.html mobile/www/index.html && perl -0pi -e 's#<!--base-->.*?<!--/base-->##s; s#<!--lkpre-->.*?<!--/lkpre-->##s' mobile/www/index.html
 # Đăng nhập gốc (Google/Apple): bật theo file cấu hình Firebase có mặt (GoogleService-Info.plist / google-services.json)

@@ -1,0 +1,647 @@
+{
+  "at": "2026-11-22T05:49:35.631Z",
+  "accepted": 26,
+  "rejected": [
+    {
+      "form": "les",
+      "word": "le",
+      "why": [
+        "giám khảo A: Word field should be \"les\" not \"le\"; IPA given for \"le\" instead of /le/; lemma mismatch.",
+        "dịch ngược lệch: zh,ru"
+      ]
+    },
+    {
+      "form": "des",
+      "word": "un",
+      "why": [
+        "giám khảo A: Word field incorrectly \"un\"; should be \"des\"; lemma mismatch despite correct IPA."
+      ]
+    },
+    {
+      "form": "mon",
+      "word": "mon",
+      "why": [
+        "dịch ngược lệch: id"
+      ]
+    },
+    {
+      "form": "es",
+      "word": "être",
+      "why": [
+        "dịch ngược lệch: vi,id,th,zh,ja,ko",
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "vas",
+      "word": "aller",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: -y! – Le point d’exclamation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "oh",
+      "word": "oh",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: regarde! – Le point d’exclamation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "jamais",
+      "word": "jamais",
+      "why": [
+        "dịch ngược lệch: vi,id,th",
+        "cổng: jamais: thiếu nghĩa vi; jamais: thiếu nghĩa id; jamais: thiếu nghĩa th; jamais: ngôn ngữ nghĩa lạ it"
+      ]
+    },
+    {
+      "form": "ta",
+      "word": "ton",
+      "why": [
+        "dịch ngược lệch: vi,id,th",
+        "cổng: ton: thiếu nghĩa vi; ton: thiếu nghĩa id; ton: thiếu nghĩa th; ton: ngôn ngữ nghĩa lạ it"
+      ]
+    },
+    {
+      "form": "notre",
+      "word": "notre",
+      "why": [
+        "giám khảo B: Arabic gloss mistranslates possessive 'our' as pronoun 'we' (نحن instead of لنا/خاصتنا)",
+        "dịch ngược lệch: vi,id,th,ar",
+        "cổng: notre: thiếu nghĩa vi; notre: thiếu nghĩa id; notre: thiếu nghĩa th; notre: ngôn ngữ nghĩa lạ it"
+      ]
+    },
+    {
+      "form": "aller",
+      "word": "aller",
+      "why": [
+        "dịch ngược lệch: vi,id,th,ar",
+        "cổng: aller: thiếu nghĩa vi; aller: thiếu nghĩa id; aller: thiếu nghĩa th; aller: ngôn ngữ nghĩa lạ it"
+      ]
+    },
+    {
+      "form": "avant",
+      "word": "avant",
+      "why": [
+        "dịch ngược lệch: vi,id,th",
+        "cổng: avant: thiếu nghĩa vi; avant: thiếu nghĩa id; avant: thiếu nghĩa th; avant: ngôn ngữ nghĩa lạ it"
+      ]
+    },
+    {
+      "form": "aux",
+      "word": "aux",
+      "why": [
+        "dịch ngược lệch: vi,id,th",
+        "cổng: aux: thiếu nghĩa vi; aux: thiếu nghĩa id; aux: thiếu nghĩa th; aux: ngôn ngữ nghĩa lạ it"
+      ]
+    },
+    {
+      "form": "viens",
+      "word": "venir",
+      "why": [
+        "dịch ngược lệch: vi,id,th,ar",
+        "cổng: venir: thiếu nghĩa vi; venir: thiếu nghĩa id; venir: thiếu nghĩa th; venir: ngôn ngữ nghĩa lạ it"
+      ]
+    },
+    {
+      "form": "chez",
+      "word": "chez",
+      "why": [
+        "dịch ngược lệch: vi,id,th",
+        "cổng: chez: thiếu nghĩa vi; chez: thiếu nghĩa id; chez: thiếu nghĩa th; chez: ngôn ngữ nghĩa lạ it"
+      ]
+    },
+    {
+      "form": "enfants",
+      "word": "enfant",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "vois",
+      "word": "voir",
+      "why": [
+        "giám khảo B: IPA missing final /ʁ/ (should be /vwaʁ/)"
+      ]
+    },
+    {
+      "form": "toute",
+      "word": "tout",
+      "why": [
+        "giám khảo B: IPA incorrect (should be /tu/, not /tut/)"
+      ]
+    },
+    {
+      "form": "air",
+      "word": "air",
+      "why": [
+        "cổng: air: nghĩa ar sai chữ viết: hawaa'"
+      ]
+    },
+    {
+      "form": "regarde",
+      "word": "regarder",
+      "why": [
+        "giám khảo B: IPA missing final /e/ (should be /ʁəɡaʁde/)",
+        "dịch ngược lệch: vi,es,pt,de,th,zh,ja,ko,hi,tr"
+      ]
+    },
+    {
+      "form": "trois",
+      "word": "trois",
+      "why": [
+        "cổng: trois: nghĩa ja sai chữ viết: 3"
+      ]
+    },
+    {
+      "form": "hommes",
+      "word": "homme",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "aurait",
+      "word": "avoir",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "puis",
+      "word": "puis",
+      "why": [
+        "cổng: puis: nghĩa ru sai chữ viết: zatem, potom"
+      ]
+    },
+    {
+      "form": "demande",
+      "word": "demande",
+      "why": [
+        "cổng: demande: nghĩa ru sai chữ viết: prosb'a, zapros"
+      ]
+    },
+    {
+      "form": "frère",
+      "word": "frère",
+      "why": [
+        "cổng: frère: nghĩa ru sai chữ viết: brat"
+      ]
+    },
+    {
+      "form": "devrait",
+      "word": "devoir",
+      "why": [
+        "dịch ngược lệch: vi,de,ko,ru",
+        "cổng: devoir: nghĩa ru sai chữ viết: doltzen"
+      ]
+    },
+    {
+      "form": "revoir",
+      "word": "revoir",
+      "why": [
+        "dịch ngược lệch: zh",
+        "cổng: revoir: nghĩa ru sai chữ viết: snova uvidet'"
+      ]
+    },
+    {
+      "form": "euh",
+      "why": "skip: filler speech sound"
+    },
+    {
+      "form": "donner",
+      "word": "donner",
+      "why": [
+        "giám khảo A: IPA should be [dɔne] not \"done\"; otherwise fine."
+      ]
+    },
+    {
+      "form": "première",
+      "word": "premier",
+      "why": [
+        "giám khảo A: Lemma given as \"premier\" while entry is for feminine \"première\"; mismatch."
+      ]
+    },
+    {
+      "form": "aimerais",
+      "word": "aimer",
+      "why": [
+        "giám khảo A: Lemma is \"aimer\" but entry describes the conditional form \"aimerais\"; mismatch."
+      ]
+    },
+    {
+      "form": "hey",
+      "why": "skip: interjection"
+    },
+    {
+      "form": "serai",
+      "word": "être",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "penses",
+      "word": "penser",
+      "why": [
+        "giám khảo B: Japanese gloss ' thinks' is ungrammatical/incorrect (should be 考える or similar).",
+        "cổng: penser: nghĩa ja sai chữ viết:  thinks"
+      ]
+    },
+    {
+      "form": "appelé",
+      "word": "appeler",
+      "why": [
+        "giám khảo A: IPA missing schwa (/ap.le/ expected), otherwise fine."
+      ]
+    },
+    {
+      "form": "souviens",
+      "word": "souvenir",
+      "why": [
+        "giám khảo A: IPA missing schwa (/suv(ə)niʁ/ expected)."
+      ]
+    },
+    {
+      "form": "voyez",
+      "word": "voir",
+      "why": [
+        "LanguageTool: VOIR_REGARDER: Voyez – Une autre structure semble plus appropriée."
+      ]
+    },
+    {
+      "form": "travailler",
+      "word": "travailler",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: travailler: câu ví dụ không chứa \"travailler\""
+      ]
+    },
+    {
+      "form": "entrer",
+      "word": "entrer",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: entrer: câu ví dụ không chứa \"entrer\""
+      ]
+    },
+    {
+      "form": "agent",
+      "word": "agent",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "lieu",
+      "word": "lieu",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "difficile",
+      "word": "difficile",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "impossible",
+      "word": "impossible",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "bizarre",
+      "word": "bizarre",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "coeur",
+      "word": "cœur",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "calme",
+      "word": "calme",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "cul",
+      "why": "skip: vulgar"
+    },
+    {
+      "form": "soyez",
+      "word": "être",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "mr",
+      "word": "Monsieur",
+      "why": [
+        "LanguageTool: TITRE_M: Mr Martin – Mr correspond à « mister » en anglais. Monsieur s’abrège M."
+      ]
+    },
+    {
+      "form": "courant",
+      "word": "courant",
+      "why": [
+        "cổng: courant: nghĩa ja sai chữ viết:  flow"
+      ]
+    },
+    {
+      "form": "mlle",
+      "word": "Mademoiselle",
+      "why": [
+        "giám khảo A: IPA \"madmwazɛl\" is non‑standard for \"Mademoiselle\"; abbreviation handling inconsistent.",
+        "cổng: Mademoiselle: câu ví dụ không chứa \"Mademoiselle\""
+      ]
+    },
+    {
+      "form": "seigneur",
+      "word": "seigneur",
+      "why": [
+        "dịch ngược lệch: es,pt,ru"
+      ]
+    },
+    {
+      "form": "sam",
+      "why": "skip: proper name"
+    },
+    {
+      "form": "sort",
+      "word": "sort",
+      "why": [
+        "giám khảo B: 'sort' is a masculine noun ('le sort'), but gender is listed as 'f'."
+      ]
+    },
+    {
+      "form": "grave",
+      "word": "grave",
+      "why": [
+        "dịch ngược lệch: ar"
+      ]
+    },
+    {
+      "form": "patron",
+      "word": "patron",
+      "why": [
+        "dịch ngược lệch: tr"
+      ]
+    },
+    {
+      "form": "york",
+      "why": "skip: proper name"
+    },
+    {
+      "form": "heureuse",
+      "word": "heureux",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "seras",
+      "word": "être",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "petits",
+      "word": "petit",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "être",
+      "word": "être",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "pouvoir",
+      "word": "pouvoir",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "chose",
+      "word": "chose",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "quelque",
+      "word": "quelque",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "comprendre",
+      "word": "comprendre",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "femme",
+      "word": "femme",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "faire",
+      "word": "faire",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "aller",
+      "word": "aller",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    }
+  ],
+  "tried": [
+    "vous",
+    "les",
+    "des",
+    "si",
+    "mon",
+    "as",
+    "être",
+    "es",
+    "peux",
+    "par",
+    "jamais",
+    "oh",
+    "ta",
+    "notre",
+    "aller",
+    "avant",
+    "aux",
+    "viens",
+    "chez",
+    "vas",
+    "vois",
+    "toute",
+    "choses",
+    "moins",
+    "air",
+    "regarde",
+    "trois",
+    "travail",
+    "quelques",
+    "enfants",
+    "aurait",
+    "puis",
+    "sens",
+    "comprends",
+    "sang",
+    "hommes",
+    "demande",
+    "frère",
+    "devrait",
+    "revoir",
+    "donner",
+    "dont",
+    "première",
+    "matin",
+    "devant",
+    "droit",
+    "aimerais",
+    "gros",
+    "hier",
+    "euh",
+    "femmes",
+    "hey",
+    "penses",
+    "appelé",
+    "font",
+    "capitaine",
+    "souviens",
+    "bientôt",
+    "retour",
+    "serai",
+    "voyez",
+    "cœur",
+    "courant",
+    "meurtre",
+    "mlle",
+    "allé",
+    "seigneur",
+    "cul",
+    "retard",
+    "soyez",
+    "mr",
+    "sort",
+    "grave",
+    "groupe",
+    "sam",
+    "effet",
+    "noël",
+    "long",
+    "patron",
+    "ordre",
+    "ailleurs",
+    "petits",
+    "devriez",
+    "york",
+    "libre",
+    "rencontré",
+    "pars",
+    "seras",
+    "devais",
+    "balle",
+    "heureuse"
+  ],
+  "spot": [
+    "bientôt",
+    "ordre"
+  ],
+  "stats": {
+    "used": {
+      "lexai": 0,
+      "gc": 0,
+      "cf2": 0,
+      "cfLeak": 0,
+      "cf2Dead": [],
+      "gem": 9,
+      "groq": 31
+    },
+    "budget": {
+      "lexai": 0,
+      "gc": 10000,
+      "cf2": 0
+    },
+    "by": {
+      "gem|gemini-3.8-flash": {
+        "ok": 0,
+        "fail": 29,
+        "bad": 0
+      },
+      "gem|gemini-3.6-flash": {
+        "ok": 8,
+        "fail": 1,
+        "bad": 0
+      },
+      "groq|openai/gpt-oss-120b": {
+        "ok": 16,
+        "fail": 1,
+        "bad": 0
+      },
+      "groq|qwen/qwen3.8-27b": {
+        "ok": 15,
+        "fail": 0,
+        "bad": 0
+      },
+      "lexai|gemini-3.5-flash": {
+        "ok": 0,
+        "fail": 31,
+        "bad": 0
+      },
+      "gem|gemini-3.7-flash": {
+        "ok": 1,
+        "fail": 3,
+        "bad": 0
+      }
+    },
+    "keys": {
+      "gem": {
+        "size": 85,
+        "live": 37,
+        "parked": {
+          "day": 30,
+          "minute": 16,
+          "auth": 2
+        }
+      },
+      "groq": {
+        "size": 109,
+        "live": 109,
+        "parked": {}
+      }
+    }
+  },
+  "wiktFlags": []
+}
