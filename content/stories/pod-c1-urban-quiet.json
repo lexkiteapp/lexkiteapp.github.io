@@ -1,0 +1,204 @@
+{
+  "id": "pod-c1-urban-quiet",
+  "kind": "podcast",
+  "level": "C1",
+  "title": "The Case for Quiet Cities",
+  "summary": "Ama and Carlos discuss how constant urban noise affects concentration and wellbeing, and what ordinary people can do about it.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 5",
+    "author": "Lexkite",
+    "note": "Original dialogue written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos sitting on a rooftop terrace at dusk, city skyline softly glowing behind them, one holding a cup, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 140,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "The Hidden Cost of Noise",
+      "words": [
+        "constant",
+        "exposure",
+        "concentrate",
+        "fatigue",
+        "chronic",
+        "overlook"
+      ],
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Carlos, I moved to the city centre last month, and I honestly cannot concentrate with all this traffic."
+        },
+        {
+          "who": "B",
+          "text": "You are not imagining it, Ama, because constant noise places a surprising strain on the brain."
+        },
+        {
+          "who": "A",
+          "text": "But I thought people simply got used to it after a while."
+        },
+        {
+          "who": "B",
+          "text": "Partly, yes, but studies suggest that long exposure still raises stress levels even when you stop noticing the sound."
+        },
+        {
+          "who": "A",
+          "text": "So my body is reacting even when my mind has switched off?"
+        },
+        {
+          "who": "B",
+          "text": "Precisely, and that is why chronic noise is linked to poor sleep and a kind of background fatigue."
+        },
+        {
+          "who": "A",
+          "text": "That would explain why I feel exhausted by four in the afternoon."
+        },
+        {
+          "who": "B",
+          "text": "It might, and it is an effect that many city planners still overlook when they design busy streets."
+        },
+        {
+          "who": "A",
+          "text": "I suppose we tend to treat noise as an annoyance rather than a health issue."
+        },
+        {
+          "who": "B",
+          "text": "Exactly, and that attitude is slowly beginning to change."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What problem does Ama mention first?",
+          "options": [
+            "She cannot find a flat.",
+            "She struggles to concentrate in the noisy centre.",
+            "She dislikes her new job."
+          ],
+          "answer": 1,
+          "explain": "I moved to the city centre last month, and I honestly cannot concentrate with all this traffic."
+        },
+        {
+          "q": "According to Carlos, what happens even when people stop noticing noise?",
+          "options": [
+            "Their stress levels still rise.",
+            "Their hearing improves.",
+            "The noise gets quieter."
+          ],
+          "answer": 0,
+          "explain": "Long exposure still raises stress levels even when you stop noticing the sound."
+        },
+        {
+          "q": "What do city planners often do, according to Carlos?",
+          "options": [
+            "Measure every street",
+            "Overlook the effect of noise",
+            "Ban all traffic"
+          ],
+          "answer": 1,
+          "explain": "It is an effect that many city planners still overlook when they design busy streets."
+        }
+      ]
+    },
+    {
+      "title": "Small Ways to Find Calm",
+      "words": [
+        "deliberately",
+        "reduce",
+        "echo",
+        "route",
+        "schedule",
+        "silence"
+      ],
+      "sentences": [
+        {
+          "who": "A",
+          "text": "So what can an ordinary person do, apart from moving to the countryside?"
+        },
+        {
+          "who": "B",
+          "text": "You can start by creating a small sanctuary at home, a room where you deliberately keep things quiet."
+        },
+        {
+          "who": "A",
+          "text": "I could insulate the window, although that sounds expensive."
+        },
+        {
+          "who": "B",
+          "text": "Not necessarily, because thick curtains and a few rugs can reduce the echo surprisingly well."
+        },
+        {
+          "who": "A",
+          "text": "And what about when I am walking outside, where I cannot control anything?"
+        },
+        {
+          "who": "B",
+          "text": "Try choosing a route through a park, since even a short green stretch makes the walk far more pleasant."
+        },
+        {
+          "who": "A",
+          "text": "That is a lovely idea, and it would give me a reason to walk more."
+        },
+        {
+          "who": "B",
+          "text": "It would, and some people also schedule ten silent minutes each day, with no phone and no music."
+        },
+        {
+          "who": "A",
+          "text": "Ten minutes of silence feels almost radical in a city like this."
+        },
+        {
+          "who": "B",
+          "text": "Perhaps, but it may be the cheapest form of rest you will ever find."
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What does Carlos suggest creating at home?",
+          "options": [
+            "A small quiet sanctuary",
+            "A recording studio",
+            "A larger kitchen"
+          ],
+          "answer": 0,
+          "explain": "You can start by creating a small sanctuary at home, a room where you deliberately keep things quiet."
+        },
+        {
+          "q": "How can curtains and rugs help?",
+          "options": [
+            "They reduce the echo.",
+            "They block all light.",
+            "They make rooms warmer only."
+          ],
+          "answer": 0,
+          "explain": "Thick curtains and a few rugs can reduce the echo surprisingly well."
+        },
+        {
+          "q": "What daily habit does Carlos recommend?",
+          "options": [
+            "Ten silent minutes",
+            "An hour of loud music",
+            "A long phone call"
+          ],
+          "answer": 0,
+          "explain": "Some people also schedule ten silent minutes each day, with no phone and no music."
+        }
+      ]
+    }
+  ]
+}

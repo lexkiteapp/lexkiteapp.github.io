@@ -40,6 +40,7 @@ node scripts/test/i18n-english.mjs
 node scripts/test/tsc-check.mjs
 node scripts/test/unit.mjs
 node scripts/test/syntax-check.mjs
+node scripts/test/no-conflict-markers.mjs
 node scripts/blog-pipeline.mjs gate
 node scripts/test/ci-header-scope.mjs
 node scripts/test/feel.mjs
@@ -534,6 +535,7 @@ node scripts/stitch-v2-convert.mjs --check
 node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
+node scripts/test/gt-bands.mjs
 node scripts/test/qengine-types.mjs
 node scripts/test/meta-attr.mjs
 node scripts/test/social-audit.mjs

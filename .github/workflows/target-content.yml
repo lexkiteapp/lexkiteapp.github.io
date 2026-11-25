@@ -41,12 +41,15 @@ jobs:
       - name: IPA espeak-ng tự kiểm trên seed (es, fr)
         if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' }}
         run: pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && TL=${{ matrix.tl }} python3 scripts/target/tl_ipa_fill.py --self
-      - name: Cao độ + cách đọc seed ↔ OpenJTalk (ja, khớp 100 %)
+      - name: Cao độ + cách đọc seed + bài phát âm W3 ↔ OpenJTalk (ja, khớp 100 %) + gói px
         if: ${{ matrix.tl == 'ja' }}
-        run: pip install -q "pyopenjtalk==0.4.1" && python3 scripts/target/tl_ja_fill.py --self
+        run: pip install -q "pyopenjtalk==0.4.1" && python3 scripts/target/tl_ja_fill.py --self && python3 scripts/target/tl_ja_fill.py --pron && node scripts/target/px-pack.mjs ja --check
       - name: Wiktionary trên seed (es, fr, ja)
         if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' || matrix.tl == 'ja' }}
         run: node scripts/target/wikt-check.mjs --tl ${{ matrix.tl }} --self
+      - name: Chia động từ ja ↔ Wiktionary (conj-ja.mjs, khớp 100 %)
+        if: ${{ matrix.tl == 'ja' }}
+        run: node scripts/target/conj-ja-check.mjs
       - name: Chia vị từ ↔ Wiktionary (ko, khớp 100 % – 24 dạng × vị từ bộ từ + 57 mẫu đủ 11 lớp)
         if: ${{ matrix.tl == 'ko' }}
         run: node scripts/target/conj-check.mjs --tl ko
