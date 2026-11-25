@@ -536,3 +536,4 @@ node scripts/test/select-cta-guard.mjs
 node scripts/test/home-cta-one.mjs
 node scripts/test/lesson-lip-late.mjs
 node scripts/test/review-queue-size.mjs
+node scripts/test/interpret-frame.mjs
