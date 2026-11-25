@@ -15,7 +15,18 @@ const run = l => { const w = new jsdom.JSDOM('<body><main id="view"></main></bod
 for (const l of LANGS) { const d = run(l), ds = d.querySelectorAll('#lkPath details.dp-stage'); if (ds.length !== 5 || !ds[0].open || ds[1].open) bad.push(`${l}: khung phải có 5 chặng, chặng 0 mở`); if (!d.querySelector('#lkPath h1')?.textContent.trim() || [...d.querySelectorAll('.stage-cando')].some(x => x.textContent.length < 8)) bad.push(`${l}: thiếu chữ`); if (l !== 'vi' && d.querySelector('h2').textContent.includes('Chặng')) bad.push(`${l}: chữ chưa dịch`); if (!d.getElementById('lkPathCss')) bad.push(`${l}: thiếu style`); }
 { const w = new jsdom.JSDOM('<body><main id="view"><p>x</p></main></body>', { url: 'http://localhost/app/#/path', runScripts: 'outside-only', pretendToBeVisual: true }).window; w.eval(SK['en.js']); w.document.dispatchEvent(new w.Event('DOMContentLoaded')); if (w.document.getElementById('lkPath')) bad.push('không được đè #view đã có nội dung'); }
 { const w = new jsdom.JSDOM('<body><main id="view"></main></body>', { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true }).window; w.eval(SK['en.js']); w.document.dispatchEvent(new w.Event('DOMContentLoaded')); if (w.document.getElementById('lkPath')) bad.push('chỉ vẽ ở #/path'); }
-const html = rd('web/app/index.html'), m = html.match(/<script>\/\* #\/path mở thẳng[\s\S]*?<\/script>/);
+// #/placement: màn giới thiệu – 15 ngôn ngữ, có chữ, nút Bắt đầu đặt cờ __lkPlGo; chuỗi/DOM khớp placement.js
+{ const src = rd('web/js/placement.js');
+  for (const c of ['<div class="study-wrap pl-wrap"><div class="card pl-result">', '<div class="pl-em" aria-hidden="true">🧭</div>', '<h2 class="pl-h">', '<p class="small muted">', '<div class="pl-cta"><button class="btn primary lg block" id="go">']) if (!src.includes(c)) bad.push(`placement.js đổi DOM màn giới thiệu (${c}) – cập nhật scripts/lib/path-skel.mjs`);
+  for (const l of LANGS) { const w = new jsdom.JSDOM('<body><main id="view"></main></body>', { url: 'http://localhost/app/#/placement', runScripts: 'outside-only', pretendToBeVisual: true }).window;
+    w.eval(SK[`pl-${l}.js`]); w.document.dispatchEvent(new w.Event('DOMContentLoaded')); const d = w.document, go = d.querySelector('#lkPath #go');
+    if (!d.querySelector('#lkPath .pl-h')?.textContent.trim() || !go || !d.querySelector('#lkPath p b') || !d.getElementById('lkPlCss')) bad.push(`pl-${l}: thiếu tiêu đề/nút/đoạn mô tả/style`);
+    if (l !== 'vi' && /Kiểm tra|Bắt đầu/.test(d.getElementById('view').textContent)) bad.push(`pl-${l}: chữ chưa dịch`);
+    if (go) { go.click(); if (!w.__lkPlGo || !go.disabled) bad.push(`pl-${l}: bấm Bắt đầu phải đặt __lkPlGo + khoá nút`); } }
+  { const w = new jsdom.JSDOM('<body><main id="view"><div class="study-top lk-exitbar" data-lkph>x</div></main></body>', { url: 'http://localhost/app/#/placement', runScripts: 'outside-only', pretendToBeVisual: true }).window; w.eval(SK['pl-en.js']); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    if (!w.document.getElementById('lkPath') || w.document.querySelector('[data-lkph]')) bad.push('placement: khung phải thay khung chờ thoát (data-lkph) của script đầu trang (#/placement là màn tập trung)'); }
+  if (!/__lkPlGo\) \{ window\.__lkPlGo = 0; \$\('#go'\)\.click\(\)/.test(src)) bad.push('placement.js phải tự bấm Bắt đầu khi __lkPlGo'); }
+const html = rd('web/app/index.html'), m = html.match(/<script>\/\* #\/path \(và #\/placement\) mở thẳng[\s\S]*?<\/script>/);
 if (!m) bad.push('index.html thiếu script nạp khung #/path'); else {
   const loads = (url, store, lang = 'en-US') => { const dom = new jsdom.JSDOM('<head></head><body><main id="view"></main></body>', { url, runScripts: 'outside-only', pretendToBeVisual: true }), w = dom.window; Object.defineProperty(w.navigator, 'languages', { value: [lang] });
     for (const [k, v] of Object.entries(store)) w.localStorage.setItem(k, v); const wr = []; w.document.write = x => wr.push(x); w.eval(m[0].replace(/^<script>/, '').replace(/<\/script>$/, '')); return wr.map(x => (x.match(/src=([^>\s]+)/) || [])[1]).filter(Boolean); };
@@ -28,6 +39,9 @@ if (!m) bad.push('index.html thiếu script nạp khung #/path'); else {
   eq(loads('http://localhost/app/#/path', { 'ielts.settings': JSON.stringify({ tracks: { cur: 'comm' } }) }), [], 'track comm → không nạp');
   eq(loads('http://localhost/app/#/path', { 'ielts.settings': JSON.stringify({ tracks: { cur: 'ielts' } }) }), ['js/path-skel/en.js'], 'track ielts → nạp');
   eq(loads('http://localhost/app/?sandbox=1#/path', { 'sbx.settings': JSON.stringify({ exam: 'general' }) }), [], 'sandbox đọc sbx.settings');
+  eq(loads('http://localhost/app/#/placement', {}), ['js/path-skel/pl-en.js'], 'placement → pl-en');
+  eq(loads('http://localhost/app/#/placement', {}, 'vi-VN'), ['js/path-skel/pl-vi.js'], 'placement vi');
+  eq(loads('http://localhost/app/#/placement', { 'ielts.settings': '{"exam":"toeic"}' }), ['js/path-skel/pl-en.js'], 'placement: mọi người dùng');
   eq(loads('http://localhost/app/#/home', {}), [], 'chỉ #/path');
   eq(loads('http://localhost/app/#/path?x=1', {}), ['js/path-skel/en.js'], '#/path?query');
 }
