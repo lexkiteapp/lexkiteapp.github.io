@@ -1,0 +1,180 @@
+{
+  "id": "a1-sam-rainy-day",
+  "kind": "book",
+  "level": "A1",
+  "title": "Sam and the Rainy Day",
+  "summary": "Sam wants to play outside, but the rain comes, so Sam and Ama find a fun game.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original story written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "kit",
+      "ama"
+    ],
+    "scene": "Flat 2D illustration: a boy at a window watching rain, a yellow umbrella by the door, no text"
+  },
+  "audio": {
+    "wpm": 100,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Rain!",
+      "sentences": [
+        "Sam wakes up in the morning.",
+        "He looks out of the window.",
+        "The sky is grey.",
+        "It is raining.",
+        "Sam wants to play outside.",
+        "He is not happy.",
+        "He sits on the sofa."
+      ],
+      "words": [
+        "window",
+        "sky",
+        "rain",
+        "sofa"
+      ],
+      "quiz": [
+        {
+          "q": "What is the weather today?",
+          "options": [
+            "Sunny",
+            "Rainy",
+            "Snowy"
+          ],
+          "answer": 1,
+          "explain": "The story says, \"It is raining.\""
+        },
+        {
+          "q": "What does Sam want to do?",
+          "options": [
+            "Play outside",
+            "Go to bed",
+            "Cook lunch"
+          ],
+          "answer": 0,
+          "explain": "The story says, \"Sam wants to play outside.\""
+        },
+        {
+          "q": "Where does Sam sit?",
+          "options": [
+            "On the sofa",
+            "In the garden",
+            "On a bus"
+          ],
+          "answer": 0,
+          "explain": "The story says, \"He sits on the sofa.\""
+        }
+      ]
+    },
+    {
+      "title": "A New Game",
+      "sentences": [
+        "Ama comes to the house.",
+        "She has a yellow umbrella.",
+        "\"Do not be sad, Sam,\" she says.",
+        "\"Let us make a boat.\"",
+        "Ama has some paper.",
+        "They fold the paper together.",
+        "The boat is small and blue."
+      ],
+      "words": [
+        "umbrella",
+        "paper",
+        "fold",
+        "boat"
+      ],
+      "quiz": [
+        {
+          "q": "What does Ama have in her hand?",
+          "options": [
+            "A yellow umbrella",
+            "A red hat",
+            "A big book"
+          ],
+          "answer": 0,
+          "explain": "The story says, \"She has a yellow umbrella.\""
+        },
+        {
+          "q": "What do they make?",
+          "options": [
+            "A cake",
+            "A boat",
+            "A house"
+          ],
+          "answer": 1,
+          "explain": "Ama says, \"Let us make a boat.\""
+        },
+        {
+          "q": "What colour is the boat?",
+          "options": [
+            "Blue",
+            "Green",
+            "Black"
+          ],
+          "answer": 0,
+          "explain": "The story says, \"The boat is small and blue.\""
+        }
+      ]
+    },
+    {
+      "title": "Boat on the Road",
+      "sentences": [
+        "The rain stops after lunch.",
+        "Sam and Ama go outside.",
+        "There is a lot of water on the road.",
+        "Sam puts the boat in the water.",
+        "The boat moves slowly.",
+        "Sam laughs and jumps.",
+        "It is a happy day."
+      ],
+      "words": [
+        "road",
+        "water",
+        "laugh",
+        "jump"
+      ],
+      "quiz": [
+        {
+          "q": "When does the rain stop?",
+          "options": [
+            "After lunch",
+            "At night",
+            "Before breakfast"
+          ],
+          "answer": 0,
+          "explain": "The story says, \"The rain stops after lunch.\""
+        },
+        {
+          "q": "Where does Sam put the boat?",
+          "options": [
+            "In the water",
+            "In a bag",
+            "On a tree"
+          ],
+          "answer": 0,
+          "explain": "The story says, \"Sam puts the boat in the water.\""
+        },
+        {
+          "q": "How does Sam feel at the end?",
+          "options": [
+            "Sad",
+            "Happy",
+            "Tired"
+          ],
+          "answer": 1,
+          "explain": "The story says, \"It is a happy day.\""
+        }
+      ]
+    }
+  ]
+}
