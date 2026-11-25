@@ -1507,3 +1507,8 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
 .v2s-today button[class*="F59E0B"], .v2s-today-desk button[class*="F59E0B"], .v2s-path button[class*="F59E0B"] { background: var(--cta-grad) !important; color: var(--cta-ink) !important; box-shadow: var(--hi), var(--cta-shadow) !important; border: 0 !important; }
 .v2s-today button[class*="F59E0B"] *, .v2s-today-desk button[class*="F59E0B"] *, .v2s-path button[class*="F59E0B"] * { color: var(--cta-ink) !important; }
 /* /home-cta-one */
+/* Vùng chạm ≥ 44 px cho liên kết chữ đứng riêng (audit "trung": Vì sao? 22 px, ← Ngữ pháp 22 px, Chuyển sang Task 1 18 px, email liên hệ 18 px). ::after mở vùng chạm, KHÔNG đổi bố cục nhìn thấy; dùng lại token --tap của khối pointer:coarse ở trên. */
+@media (pointer: coarse) {
+  .row.between > a.small, .page-head p.muted > a[href^="#/"], p.small.muted > a[href^="mailto:"] { position: relative; }
+  .row.between > a.small::after, .page-head p.muted > a[href^="#/"]::after, p.small.muted > a[href^="mailto:"]::after { content: ""; position: absolute; inset: calc((100% - var(--tap, 2.8rem)) / 2) -.25rem; min-height: var(--tap, 2.8rem); }
+}
