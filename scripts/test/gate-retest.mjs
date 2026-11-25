@@ -12,6 +12,8 @@ ok(!retestPlan(['scripts/test/story-stage.mjs', '.github/workflows/x.yml'], SUIT
 ok(retestPlan(['scripts/test/suite.txt', 'scripts/test/story-stage.mjs'], SUITE, ['scripts/test/story-stage.mjs', 'scripts/ci/x.mjs']).cmds.join() === 'node scripts/test/story-stage.mjs', 'suite.txt + test cùng drift → chạy lại các dòng suite của test PR đụng (không lặp)');
 ok(retestPlan(['scripts/test/suite.txt'], SUITE, ['scripts/test/perf-flake.mjs']).cmds[0] === 'node scripts/test/perf-flake.mjs --x', 'suite.txt → giữ đối số của main cho test PR đụng');
 ok(!retestPlan(['scripts/test/suite.txt'], SUITE).ok && !retestPlan(['scripts/test/suite.txt'], SUITE, ['web/a.js']).ok, 'suite.txt mà không biết/không có test PR đụng → cách cũ');
+ok(retestPlan(['scripts/test/budget.notes.json', 'scripts/test/story-stage.mjs'], SUITE).cmds.join() === 'node scripts/test/story-stage.mjs', 'tệp ghi chú (*.notes.json) + test → chỉ chạy lại test, không bắt gộp main');
+ok(!retestPlan(['scripts/test/budget.json', 'scripts/test/story-stage.mjs'], SUITE).ok && !retestPlan(['scripts/test/budget.notes.json'], SUITE).ok, 'tệp dữ liệu ngưỡng thật vẫn cách cũ; chỉ ghi chú (không lệnh) → cách cũ an toàn');
 ok(!retestPlan([], SUITE).ok && !retestPlan(['scripts/test/learn-flow.mjs'], '').ok, 'rỗng / không có suite → cách cũ');
 ok(!retestPlan(Array.from({ length: MAX_CMDS + 1 }, (_, i) => `scripts/test/t${i}.mjs`), Array.from({ length: MAX_CMDS + 1 }, (_, i) => `node scripts/test/t${i}.mjs`).join('\n')).ok, `quá ${MAX_CMDS} test → cách cũ`);
 // verdict
