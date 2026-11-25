@@ -142,7 +142,9 @@ export const inMergeWindow = (now = Date.now()) => { const h = new Date(now).get
 export const gateFilesOf = (files = []) => files.filter(f => f.status !== 'removed' && (GATE_WORKFLOW.test(f.filename) || GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added'))).map(f => f.filename);
 /** 21/11: PR gắn nhãn `main-red-fix` (chỉ điều phối gắn; sửa để mở main đang đỏ) không bị giữ bởi khung — main đỏ thì mọi PR đều kẹt, không chờ 24h. */
 export const WINDOW_EXEMPT_LABEL = 'main-red-fix';
-export const applyWindow = (res, gateFiles = [], now = Date.now(), labels = []) => res.state === 'success' && gateFiles.length && !inMergeWindow(now) && !labels.includes(WINDOW_EXEMPT_LABEL)
+/** 25/11 (chủ: "làm luôn đừng đợi tới giờ hay khung"): TẮT giữ khung – PR đổi tệp cổng mà mọi check xanh được merge ngay; drift (applyDrift) vẫn bắt PR phải gộp lại main khi cổng đổi, nên an toàn. Bật lại = true. */
+export const WINDOW_HOLD = false;
+export const applyWindow = (res, gateFiles = [], now = Date.now(), labels = [], hold = WINDOW_HOLD) => hold && res.state === 'success' && gateFiles.length && !inMergeWindow(now) && !labels.includes(WINDOW_EXEMPT_LABEL)
   ? { ...res, state: 'pending', description: `Chờ khung merge cổng 09–10 VN (PR đổi tệp cổng: ${gateFiles.slice(0, 2).map(f => f.split('/').pop()).join(', ')}${gateFiles.length > 2 ? ` +${gateFiles.length - 2}` : ''})`.slice(0, 140), window: true }
   : res;
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
