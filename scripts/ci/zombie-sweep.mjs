@@ -5,11 +5,13 @@
 //   node scripts/ci/zombie-sweep.mjs [--dry]. Test: scripts/test/zombie-sweep.mjs · lịch: zombie-sweep.yml (infra/jobs.json).
 import { pathToFileURL } from 'node:url';
 export const MIN_AGE_MIN = 30;
+/** Tuổi theo attempt hiện tại (run_started_at), không theo created_at của lượt gốc – chạy lại không bị huỷ oan (26/11). */
+const t0 = r => Date.parse(r.run_started_at || r.created_at);
 /** Lượt zombie (thuần): queued, tuổi > minAge, 0 job. jobsOf(id) → mảng job. */
 export async function findZombies(runs, jobsOf, now = Date.now(), minAge = MIN_AGE_MIN) {
   const out = [];
   for (const r of runs) {
-    if (r.status !== 'queued' || now - Date.parse(r.created_at) <= minAge * 60e3) continue;
+    if (r.status !== 'queued' || now - t0(r) <= minAge * 60e3) continue;
     if (!((await jobsOf(r.id)) || []).length) out.push(r);
   }
   return out;
