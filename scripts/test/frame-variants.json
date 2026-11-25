@@ -12,6 +12,7 @@
   "criteria": {"variant": "inner", "surface": ["writing"]},
   "day": {"variant": "inner", "surface": ["vocab-path"]},
   "deck": {"variant": "inner", "surface": ["deck"]},
+  "diary": {"variant": "inner", "surface": []},
   "dict": {"variant": "inner", "surface": ["dict"]},
   "dictation": {"variant": "inner", "surface": ["listening"]},
   "fix": {"variant": "inner", "surface": ["writing"]},
