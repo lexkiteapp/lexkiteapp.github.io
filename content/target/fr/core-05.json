@@ -1,0 +1,538 @@
+{
+  "v": 1,
+  "tl": "fr",
+  "variant": "fr-FR",
+  "status": "reviewed",
+  "source": {
+    "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 fr_50k",
+    "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/fr/fr_50k.txt",
+    "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+  },
+  "words": [
+    {
+      "word": "oui",
+      "pos": "interj",
+      "ipa": "wi",
+      "gl": {
+        "en": "yes",
+        "fr": "oui",
+        "es": "sí",
+        "pt": "sim",
+        "de": "ja",
+        "vi": "vâng",
+        "id": "ya",
+        "th": "ใช่",
+        "zh": "是",
+        "ja": "はい",
+        "ko": "예",
+        "hi": "हाँ",
+        "ar": "نعم",
+        "ru": "да",
+        "tr": "evet"
+      },
+      "ex": {
+        "fr": "Oui, je comprends.",
+        "en": "Yes, I understand."
+      },
+      "rank": 54,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.6-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "se",
+      "pos": "pron",
+      "ipa": "sə",
+      "gl": {
+        "en": "oneself (reflexive)",
+        "fr": "se",
+        "es": "se",
+        "pt": "se",
+        "de": "sich",
+        "vi": "mình",
+        "id": "diri",
+        "th": "ตัวเอง",
+        "zh": "自己",
+        "ja": "自分",
+        "ko": "자신",
+        "hi": "खुद",
+        "ar": "نفسه",
+        "ru": "себя",
+        "tr": "kendi"
+      },
+      "ex": {
+        "fr": "Il se lève tôt.",
+        "en": "He gets up early."
+      },
+      "rank": 62,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.6-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ],
+        "ipaFix": true
+      }
+    },
+    {
+      "word": "alors",
+      "pos": "adv",
+      "ipa": "alɔʁ",
+      "gl": {
+        "en": "then/so",
+        "fr": "alors",
+        "es": "entonces",
+        "pt": "então",
+        "de": "dann",
+        "vi": "thì",
+        "id": "kemudian",
+        "th": "แล้ว",
+        "zh": "然后",
+        "ja": "それで",
+        "ko": "그때",
+        "hi": "तो",
+        "ar": "إذن",
+        "ru": "тогда",
+        "tr": "o zaman"
+      },
+      "ex": {
+        "fr": "Alors, nous partons.",
+        "en": "So, we are leaving."
+      },
+      "rank": 87,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.6-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "merci",
+      "pos": "interj",
+      "ipa": "mɛʁsi",
+      "gl": {
+        "vi": "cảm ơn",
+        "en": "thank you",
+        "es": "gracias",
+        "pt": "obrigado",
+        "fr": "merci",
+        "de": "danke",
+        "id": "terima kasih",
+        "th": "ขอบคุณ",
+        "zh": "谢谢",
+        "ja": "ありがとう",
+        "ko": "감사합니다",
+        "hi": "धन्यवाद",
+        "ar": "شكرا",
+        "ru": "спасибо",
+        "tr": "teşekkür ederim"
+      },
+      "ex": {
+        "fr": "Merci beaucoup pour votre aide.",
+        "en": "Thank you very much for your help."
+      },
+      "rank": 95,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "monde",
+      "pos": "n",
+      "gender": "m",
+      "plural": "mondes",
+      "ipa": "mɔ̃d",
+      "gl": {
+        "vi": "thế giới",
+        "en": "world",
+        "es": "mundo",
+        "pt": "mundo",
+        "fr": "monde",
+        "de": "Welt",
+        "id": "dunia",
+        "th": "โลก",
+        "zh": "世界",
+        "ja": "世界",
+        "ko": "세계 / 세상",
+        "hi": "दुनिया",
+        "ar": "عالم",
+        "ru": "мир",
+        "tr": "dünya"
+      },
+      "ex": {
+        "fr": "Il aime voyager dans le monde entier.",
+        "en": "He likes to travel all over the world."
+      },
+      "rank": 136,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "père",
+      "pos": "n",
+      "gender": "m",
+      "plural": "pères",
+      "ipa": "pɛʁ",
+      "gl": {
+        "vi": "bố",
+        "en": "father",
+        "es": "padre",
+        "pt": "pai",
+        "fr": "père",
+        "de": "Vater",
+        "id": "ayah",
+        "th": "พ่อ",
+        "zh": "父亲",
+        "ja": "父",
+        "ko": "아버지",
+        "hi": "पिता",
+        "ar": "أب",
+        "ru": "отец",
+        "tr": "baba"
+      },
+      "ex": {
+        "fr": "Mon père travaille à Paris.",
+        "en": "My father works in Paris."
+      },
+      "rank": 146,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "bon",
+      "pos": "adj",
+      "ipa": "bɔ̃",
+      "gl": {
+        "vi": "tốt",
+        "en": "good",
+        "es": "buena",
+        "pt": "boa",
+        "fr": "bon",
+        "de": "gut",
+        "id": "baik / bagus",
+        "th": "ดี",
+        "zh": "好的",
+        "ja": "良い",
+        "ko": "좋은",
+        "hi": "अच्छा",
+        "ar": "جيد",
+        "ru": "хорошая",
+        "tr": "iyi"
+      },
+      "ex": {
+        "fr": "Passez une bonne journée !",
+        "en": "Have a good day!"
+      },
+      "exForm": "bonne",
+      "rank": 172,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "ipaAi": "bɔn"
+      }
+    },
+    {
+      "word": "idée",
+      "pos": "n",
+      "gender": "f",
+      "plural": "idées",
+      "ipa": "ide",
+      "gl": {
+        "vi": "ý tưởng",
+        "en": "idea",
+        "es": "idea",
+        "pt": "ideia",
+        "fr": "idée",
+        "de": "Idee",
+        "id": "ide",
+        "th": "ความคิด",
+        "zh": "想法",
+        "ja": "考え",
+        "ko": "아이디어",
+        "hi": "विचार",
+        "ar": "فكرة",
+        "ru": "идея",
+        "tr": "fikir"
+      },
+      "ex": {
+        "fr": "J'ai une bonne idée.",
+        "en": "I have a good idea."
+      },
+      "rank": 263,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ],
+        "spot": true
+      }
+    },
+    {
+      "word": "demain",
+      "pos": "adv",
+      "ipa": "dəmɛ̃",
+      "gl": {
+        "vi": "ngày mai",
+        "en": "tomorrow",
+        "es": "mañana",
+        "pt": "amanhã",
+        "fr": "demain",
+        "de": "morgen",
+        "id": "besok",
+        "th": "พรุ่งนี้",
+        "zh": "明天",
+        "ja": "明日",
+        "ko": "내일",
+        "hi": "कल",
+        "ar": "غداً",
+        "ru": "завтра",
+        "tr": "yarın"
+      },
+      "ex": {
+        "fr": "Nous partirons demain.",
+        "en": "We will leave tomorrow."
+      },
+      "rank": 274,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "nouveau",
+      "pos": "adj",
+      "ipa": "nuvo",
+      "gl": {
+        "vi": "mới",
+        "en": "new",
+        "es": "nuevo",
+        "pt": "novo",
+        "fr": "nouveau",
+        "de": "neu",
+        "id": "baru",
+        "th": "ใหม่",
+        "zh": "新的",
+        "ja": "新しい",
+        "ko": "새로운",
+        "hi": "नया",
+        "ar": "جديد",
+        "ru": "новый",
+        "tr": "yeni"
+      },
+      "ex": {
+        "fr": "C'est un nouveau livre.",
+        "en": "It is a new book."
+      },
+      "rank": 298,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "police",
+      "pos": "n",
+      "gender": "f",
+      "plural": "polices",
+      "ipa": "polis",
+      "gl": {
+        "vi": "cảnh sát",
+        "en": "police",
+        "es": "policía",
+        "pt": "polícia",
+        "fr": "police",
+        "de": "Polizei",
+        "id": "polisi",
+        "th": "ตำรวจ",
+        "zh": "警察",
+        "ja": "警察",
+        "ko": "경찰",
+        "hi": "पुलिस",
+        "ar": "شرطة",
+        "ru": "полиция",
+        "tr": "polis"
+      },
+      "ex": {
+        "fr": "La police arrive rapidement.",
+        "en": "The police arrive quickly."
+      },
+      "rank": 322,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ],
+        "ipaAi": "pɔ.lis"
+      }
+    },
+    {
+      "word": "laisser",
+      "pos": "v",
+      "ipa": "lɛse",
+      "gl": {
+        "vi": "để lại",
+        "en": "to leave (something)",
+        "es": "dejar",
+        "pt": "deixar",
+        "fr": "laisser",
+        "de": "lassen",
+        "id": "membiarkan",
+        "th": "ปล่อย",
+        "zh": "让",
+        "ja": "させる",
+        "ko": "두다",
+        "hi": "छोड़ना",
+        "ar": "يترك",
+        "ru": "оставлять",
+        "tr": "bırakmak"
+      },
+      "ex": {
+        "fr": "Laissez votre message après le bip.",
+        "en": "Leave your message after the beep."
+      },
+      "exForm": "Laissez",
+      "rank": 330,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "heure",
+      "pos": "n",
+      "gender": "f",
+      "plural": "heures",
+      "h": "muet",
+      "ipa": "œʁ",
+      "gl": {
+        "vi": "giờ",
+        "en": "hour",
+        "es": "hora",
+        "pt": "hora",
+        "fr": "heure",
+        "de": "Stunde",
+        "id": "jam",
+        "th": "ชั่วโมง",
+        "zh": "小时",
+        "ja": "時間",
+        "ko": "시간",
+        "hi": "घंटा",
+        "ar": "ساعة",
+        "ru": "час",
+        "tr": "saat"
+      },
+      "ex": {
+        "fr": "Les heures passent vite.",
+        "en": "The hours pass quickly."
+      },
+      "exForm": "heures",
+      "rank": 340,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    }
+  ]
+}

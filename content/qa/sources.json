@@ -586,9 +586,10 @@
  ],
  "skip": {
   "web/cpack/diary-app": "MÃ giao diện Nhật ký giọng nói (diary.js) + bộ dựng video trên máy (diary-video.js) – không phải nội dung học; 3 câu cố định viết tay 8–18 từ (test scripts/test/voice-diary.mjs), thiết kế docs/specs/voice-diary.md",
-  "web/cpack/score-app": "MÃ giao diện Thử thách nói 30 giây (score30.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; 8 đoạn đọc ngắn viết tay ≤ 30 từ (test scripts/test/score-card.mjs), thiết kế docs/specs/score-card.md",
+  "web/cpack/interpret": "MÃ giao diện Phiên dịch (interpret.js, core.js) + câu nói mẫu du lịch 22 câu × 15 ngôn ngữ viết tay (phrases.js) dời khỏi web/js để vào ngân sách người học – không phải bộ nội dung học sinh tự động; kiểm bằng scripts/test/interpret.mjs (đủ 15 ngôn ngữ mỗi câu), thiết kế docs/INTERPRET.md", "web/cpack/score-app": "MÃ giao diện Thử thách nói 30 giây (score30.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; 8 đoạn đọc ngắn viết tay ≤ 30 từ (test scripts/test/score-card.mjs), thiết kế docs/specs/score-card.md",
   "web/cpack/tl-app": "MÃ giao diện bảng chọn ngôn ngữ đang học (tl-pick.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; chữ qua t() (gói i18n), thiết kế docs/specs/target-language.md",
   "web/cpack/irregular": "MÃ giao diện bảng động từ bất quy tắc (table.js, drill.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/js/irv + content/verbs (nguồn irregular-verbs, kiểm bởi scripts/test/verbs.mjs); giao diện kiểm bởi scripts/test/irregular-ui.mjs",
+  "web/cpack/qe": "MÃ chuẩn hóa đáp án điền từ IELTS (norm.js: Anh/Mỹ, số chữ ↔ số, gạch nối) tải lười cùng gói đề – không phải nội dung học; test scripts/test/qengine-norm.mjs",
   "web/cpack/qstats": "MÃ giao diện dải tỉ lệ đúng 8 tuần của #/qstats (week.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/qwk.mjs",
   "web/cpack/mail-app": "MÃ email nhắc học (mail.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/mail-digest.mjs",
   "web/cpack/ret-app": "MÃ giao diện thẻ trang chủ quay lại + tổng kết tuần (cards.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/retention.mjs",

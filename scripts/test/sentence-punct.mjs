@@ -1,6 +1,7 @@
 // Cổng dấu câu + viết hoa của MỌI câu tiếng Anh dạng bài (docs/specs/learn-card.md): lỗi mới → đỏ; ngoại lệ phải ghi lý do trong content/lesson/card/punct-exceptions.json.
 // Chạy: node scripts/test/sentence-punct.mjs  (--list in hết để sửa). Sửa bằng dữ liệu/bộ sinh, không vá màn.
 import fs from 'node:fs';
+import { lexFiles } from '../lib/lex-files.mjs';
 import path from 'node:path';
 import vm from 'node:vm';
 const R = '.', J = f => JSON.parse(fs.readFileSync(path.join(R, f), 'utf8'));
@@ -25,7 +26,7 @@ const add = (name, s) => { s = String(s || '').trim(); if (s) (src[name] = src[n
 globalThis.t = globalThis.t || (s => s);
 const g = {};
 new Function('self', fs.readFileSync('web/js/data.js', 'utf8'))(g);
-for (const f of fs.readdirSync('web/js/lib').sort()) if (/\.js$/.test(f) && !/^notes/.test(f)) { try { new Function('self', fs.readFileSync('web/js/lib/' + f, 'utf8'))(g); } catch (e) { /* tệp phụ */ } }
+for (const p of lexFiles(f => !/^notes/.test(f))) { try { new Function('self', fs.readFileSync(p, 'utf8'))(g); } catch (e) { /* tệp phụ */ } } // web/js/lib + web/cpack/lib (scripts/lib/lex-files.mjs)
 for (const tp of g.IELTS_DATA.TOPICS) for (const w of tp.words || []) add('ex', w.ex);
 // 2) Truyện/Radio + câu hỏi
 for (const s of J('content/lesson/stories.json').items) { s.lines.forEach(l => add('stories', l.en)); (s.checks || []).filter(c => c.type === 'q').forEach(c => add('stories-q', c.q)); }
