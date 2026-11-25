@@ -3,6 +3,9 @@
 * Loaded with the screens' lazy bundles (utopic/udeck/umist/ustat), not with the first-load ux1 bundle.
 */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+// nhãn chip lọc + nút chia sẻ của Sổ từ (bản đầy đủ nằm trong gói lười khác, không nạp cùng màn)
+'Chia sẻ': 'Share',
+'Nguồn': 'Source',
 // Thư viện + Bộ từ (Stitch v2.1, web/js/ux1-lib.js · ux1-topic.js) – khóa viết tay (en/v2.js do bộ chuyển tự sinh, không ghi vào đó)
 'Xem cả {n} từ': 'View all {n} words',
 // Sổ từ (Stitch v2.1 deck, web/js/ux1-deck.js)
