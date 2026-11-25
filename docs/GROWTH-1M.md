@@ -1,5 +1,8 @@
 # Kế hoạch 1 triệu người dùng – 24/11/2026 → 23/02/2027
 
+> TL;DR: Kế hoạch 1 triệu người dùng 24/11/2026→23/02/2027: mốc 60k/300k/1M, kênh, người phụ trách từng kênh, cổng tuần 4, nhật ký thứ Hai.
+> Đọc khi: chọn việc tăng trưởng (SEO, video, app) hoặc báo tiến độ theo mục tiêu.
+
 Một nguồn duy nhất cho mục tiêu này. SEO chi tiết: docs/SEO-GROWTH-PLAN.md. Video: docs/VIDEO.md. File này chỉ giữ **con số, kênh, người phụ trách, mốc tuần**. Điều phối đọc file này mỗi nhịp.
 
 ## 1. Định nghĩa và phép tính
