@@ -2,6 +2,7 @@
 // Máy gác luật 1 video/kênh/ngày: kênh-ngày trống trong NEAR_DAYS (7) ngày tới → ĐỎ (exit 1) + issue social-alert; trống ở ngày 8–30 → cảnh báo issue (không đỏ). Dùng: node scripts/social/coverage.mjs
 import { driveCliKey, driveSign } from '../video/library.mjs';
 import { alert } from './alert.mjs';
+import { run as audit } from './audit.mjs';
 
 const BASE = String(process.env.LEXKITE_API_BASE || 'https://lexkite.com').replace(/\/+$/, ''), key = driveCliKey();
 const ranges = days => { const out = []; let a = null, b = null; for (const d of days) { if (a && Date.parse(d) - Date.parse(b) === 864e5) { b = d; continue; } if (a) out.push(a === b ? a : a + '..' + b); a = b = d; } if (a) out.push(a === b ? a : a + '..' + b); return out; };
@@ -39,5 +40,6 @@ if (process.argv[1] && /(^|[\\/])coverage\.mjs$/.test(process.argv[1])) {
   const nr = near(jj);
   if (nr.length) { const m = matrix(jj, nr); console.error(`✗ ${nr.length} kênh có ngày TRỐNG trong ${NEAR_DAYS} ngày tới (luật 1 video/kênh/ngày):\n` + m); if (process.env.GITHUB_STEP_SUMMARY) (await import('node:fs')).appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### ✗ Ngày trống ${NEAR_DAYS} ngày tới\n` + m + '\n'); await alert({ k: 'coverage-near', text: `✗ ${nr.length} kênh có ngày trống trong ${NEAR_DAYS} ngày tới SAU khi tự lấp (${JSON.stringify(fillNote && fillNote.skipped || {})}) – kho clip bản ngữ không đủ, cần dựng thêm:\n\n` + m, at: Date.now() }); }
   if (idle.length) console.error(`✗ ${idle.length} kênh không có bài trong 24 giờ qua`);
-  if (nr.length || idle.length) process.exit(1);
+  const bad2 = await audit(14);   // 23/11: đúng page · ngôn ngữ · giờ cao điểm (cùng máy gác, đỏ khi còn lệch)
+  if (nr.length || idle.length || bad2) process.exit(1);
 }

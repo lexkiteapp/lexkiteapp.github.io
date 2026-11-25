@@ -67,5 +67,7 @@ for (const f of fs.readdirSync('.github/workflows').filter(f => f.endsWith('.yml
 }
 { const sn = fs.readFileSync('.github/workflows/say-native.yml', 'utf8');
   ok(/PIPESTATUS\[0\]/.test(sn) && /khoá liên tiếp 429/.test(sn) && /hết quota AI/.test(sn) && /exit 0/.test(sn), 'say-native: hết quota AI (429 hàng loạt, 0 nghĩa giữ được) → kết thúc trung tính, không đỏ PR');
+  ok(/timeout-minutes: 34/.test(sn) && /--max-min "\$LX_MAX"/.test(sn), 'say-native: bước dịch có hạn riêng < 40 phút của job + trần phút ngắn hơn trên nhánh');
+  ok(/AbortSignal\.timeout/.test(fs.readFileSync('scripts/lib/ai-pool.mjs', 'utf8')), 'ai-pool: mỗi lần fetch có hạn (socket treo không kéo job tới timeout)');
   ok(/^\s*schedule:/m.test(sn) && byWf['say-native.yml'] && (byWf['say-native.yml'].resources || []).includes('gemini'), 'say-native có lịch bù trên main + khai tài nguyên gemini trong sổ'); }
 console.log(`✓ ai-share: ${n} kiểm tra đạt (việc nền ≤ 60 % quota, cầu dao 429, canary AI, content-factory không đốt quota)`);

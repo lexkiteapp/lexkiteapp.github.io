@@ -279,6 +279,7 @@ App.cpackI18n.rhythm = { es: 'cpack/i18n/rhythm-es.js', pt: 'cpack/i18n/rhythm-p
 App.cpackI18n.qtips = { es: 'cpack/i18n/qtips-es.js', pt: 'cpack/i18n/qtips-pt.js', fr: 'cpack/i18n/qtips-fr.js', de: 'cpack/i18n/qtips-de.js', id: 'cpack/i18n/qtips-id.js', th: 'cpack/i18n/qtips-th.js', zh: 'cpack/i18n/qtips-zh.js', ja: 'cpack/i18n/qtips-ja.js', ko: 'cpack/i18n/qtips-ko.js', hi: 'cpack/i18n/qtips-hi.js', ar: 'cpack/i18n/qtips-ar.js', ru: 'cpack/i18n/qtips-ru.js', tr: 'cpack/i18n/qtips-tr.js' }; // mẹo làm bài thi (cpack/i18n/qtips-<lang>.js, tải cùng gói màn thi/nghe/đọc; dời khỏi web/js để nhường chỗ ngân sách người học)
 App.cpackI18n.tlui = { es: 'cpack/i18n/tlui-es.js', pt: 'cpack/i18n/tlui-pt.js', fr: 'cpack/i18n/tlui-fr.js', de: 'cpack/i18n/tlui-de.js', id: 'cpack/i18n/tlui-id.js', th: 'cpack/i18n/tlui-th.js', zh: 'cpack/i18n/tlui-zh.js', ja: 'cpack/i18n/tlui-ja.js', ko: 'cpack/i18n/tlui-ko.js', ru: 'cpack/i18n/tlui-ru.js', tr: 'cpack/i18n/tlui-tr.js', ar: 'cpack/i18n/tlui-ar.js', hi: 'cpack/i18n/tlui-hi.js' };
 App.cpackI18n.lcardui = { es: 'cpack/i18n/lcardui-es.js', pt: 'cpack/i18n/lcardui-pt.js', fr: 'cpack/i18n/lcardui-fr.js', de: 'cpack/i18n/lcardui-de.js', id: 'cpack/i18n/lcardui-id.js', th: 'cpack/i18n/lcardui-th.js', zh: 'cpack/i18n/lcardui-zh.js', ja: 'cpack/i18n/lcardui-ja.js', ko: 'cpack/i18n/lcardui-ko.js', hi: 'cpack/i18n/lcardui-hi.js', ar: 'cpack/i18n/lcardui-ar.js', ru: 'cpack/i18n/lcardui-ru.js', tr: 'cpack/i18n/lcardui-tr.js' }; // mẹo làm bài thi (cpack/i18n/lcardui-<lang>.js, tải cùng gói màn thi/nghe/đọc; dời khỏi web/js để nhường chỗ ngân sách người học)
+App.cpackI18n.diary = { es: 'cpack/i18n/diary-es.js', pt: 'cpack/i18n/diary-pt.js', fr: 'cpack/i18n/diary-fr.js', de: 'cpack/i18n/diary-de.js', id: 'cpack/i18n/diary-id.js', th: 'cpack/i18n/diary-th.js', zh: 'cpack/i18n/diary-zh.js', ja: 'cpack/i18n/diary-ja.js', ko: 'cpack/i18n/diary-ko.js', hi: 'cpack/i18n/diary-hi.js', ar: 'cpack/i18n/diary-ar.js', ru: 'cpack/i18n/diary-ru.js', tr: 'cpack/i18n/diary-tr.js' }; // 🎙️ Nhật ký giọng nói (cpack/i18n/diary-<lang>.js, tải cùng gói diary; ngoài byte người học)
 App.esGx = { en: 'cpack/es/gx-en.js', vi: 'cpack/es/gx-vi.js', es: 'cpack/es/gx-es.js', pt: 'cpack/es/gx-pt.js', fr: 'cpack/es/gx-fr.js', de: 'cpack/es/gx-de.js', id: 'cpack/es/gx-id.js', th: 'cpack/es/gx-th.js', zh: 'cpack/es/gx-zh.js', ja: 'cpack/es/gx-ja.js', ko: 'cpack/es/gx-ko.js', hi: 'cpack/es/gx-hi.js', ar: 'cpack/es/gx-ar.js', ru: 'cpack/es/gx-ru.js', tr: 'cpack/es/gx-tr.js' }; // giải thích ngữ pháp TBN theo ngôn ngữ người học, tải lười 1 gói (js/espr.js)
 App.frGx = { en: 'cpack/fr/gx-en.js', vi: 'cpack/fr/gx-vi.js', es: 'cpack/fr/gx-es.js', pt: 'cpack/fr/gx-pt.js', fr: 'cpack/fr/gx-fr.js', de: 'cpack/fr/gx-de.js', id: 'cpack/fr/gx-id.js', th: 'cpack/fr/gx-th.js', zh: 'cpack/fr/gx-zh.js', ja: 'cpack/fr/gx-ja.js', ko: 'cpack/fr/gx-ko.js', hi: 'cpack/fr/gx-hi.js', ar: 'cpack/fr/gx-ar.js', ru: 'cpack/fr/gx-ru.js', tr: 'cpack/fr/gx-tr.js' }; // giải thích ngữ pháp tiếng Pháp theo ngôn ngữ người học (js/espr.js TLC.fr, french-course.md W2)
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
@@ -298,6 +299,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     criteria: 'criteria',
     day: ['words', 'pathx', 'dayv2'],
     deck: 'words',
+    diary: 'diary', // 🎙️ Nhật ký giọng nói ngày 1 vs ngày 30 (docs/specs/voice-diary.md)
     dict: ['vcore', 'uidx', 'dictp'],
     dictation: ['listening', 'toeic'],
     fix: ['fixer', 'uidx'],
@@ -307,6 +309,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     handsfree: ['words', 'tsl', 'voice', 'handsfree'],
     home: ['words', 'streak'],
     ideas: 'writing',
+    interpret: 'interpret',
     irregular: ['vcore', 'irregular'],
     league: 'league',
     lesson: 'lesson',
@@ -343,6 +346,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     speak: 'pas',
     speaking: 'speak',
     stats: ['words', 'streak', 'statsp'],
+    stories: 'stories',
     streak: ['streak', 'ret'],
     style: 'quick',
     task1: 'writing',
@@ -398,6 +402,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     gend: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
+    interpret: ['css/interpret.css'],
     irregular: 'css/st-v2-irregular.css',
     irvdrill: 'css/st-v2-irregular-drill.css',
     lcard: 'css/lcard.css',
@@ -414,6 +419,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     readings: 'css/exam.css',
     say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'],
     settings: ['css/adm.css', 'css/st-v2-settings.css'],
+    stories: 'css/stories.css',
     tlpick: ['css/tl-pick.css'],
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
@@ -526,6 +532,8 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     return (m ? tp && tp.words && tp.words.length : /^(deck|due|weak|forgetting|phrases)$/.test(src)) ? ['words', 'tsl'] : [];
   };
   const V2_ROUTES = new Set(['train', 'skills', 'me', 'say', 'goal']);
+  // #/speak khi cờ tắt chuyển sang #/skills (màn v2 tràn khung): giữ v2pre ngay từ lúc chạm, không thì thanh trên hiện rồi ẩn (CLS 0,158 bản ar, quality-sweep #53). Cùng luật App.speakOn (speak/app.js) – chưa nạp gói nên không gọi được
+  const speakFlag = () => { try { const f = localStorage.getItem('lk.speak'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.speak_pack; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
   const HB_ROUTES = new Set(['vocab', 'library', 'tests']); // trang gắn thanh hub Stitch (ST2.hubbar/hubPage) lúc dựng xong: thanh trên cũ phải ẩn NGAY lúc chạm (class hbpre), không thì #view nhảy lên 56 px khi trang dựng (CLS 0,066 #/vocab #/tests #/library)
   // 🧈 Cuộn: docs/PERF-SCROLL.md
   const Scroll = (() => {
@@ -570,7 +578,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
     document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); document.documentElement.classList.remove('lk-fo'); // màn học mở thẳng từ link: gỡ lớp ẩn khung của script đầu trang (data-lkf) khi route() đã đặt focus
     // v2pre = #view không đệm (màn Stitch tràn khung). Đang hiện màn v2 mà đi sang trang thường: GIỮ v2pre tới khi nội dung mới thay vào, không thì màn cũ dịch ~26 px lúc đệm quay lại (CLS sweep #/speak)
-    const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && document.body.classList.contains('v2pre'), first0 = view.firstElementChild;
+    const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'speak' && !speakFlag()) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && document.body.classList.contains('v2pre'), first0 = view.firstElementChild;
     if (!holdPre) document.body.classList.toggle('v2pre', preNow);
     document.body.classList.toggle('hbpre', ux1 && HB_ROUTES.has(name));
     try { localStorage.setItem('lk.ux1c', ux1 ? '1' : '0'); } catch (e) { /* bỏ qua */ }
@@ -610,7 +618,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
       setTimeout(() => { if (my === routeSeq) document.body.classList.remove('v2pre'); }, 1500);
       if (backY && my === routeSeq) Scroll.restore(backY, () => my === routeSeq);
       if (late.length) App.calm(() => App.need(...late).catch(() => {}), 2500); // sau lần vẽ đầu (kể cả khi đã sang trang khác: gói dùng chung)
-      if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); if (drawnRes) { const r = drawnRes; drawnRes = null; afterPaint(() => { r(); dispatchEvent(new Event('lk:drawn')); }); } }
+      if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle, my); if (App.afterRoute) App.afterRoute(name); if (drawnRes) { const r = drawnRes; drawnRes = null; afterPaint(() => { r(); dispatchEvent(new Event('lk:drawn')); }); } }
       if (sf.length) afterPaint(() => (name === 'review' ? later : idle)(() => App.need(...sf).then(() => dispatchEvent(new Event('lk:soft'))).catch(() => {})));
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
@@ -624,15 +632,16 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   // Đổi trang (SPA) cho trình đọc màn hình: tiêu đề tab theo h1 của trang + đưa focus về vùng nội dung khi bấm từ thanh điều hướng
   // (không cướp focus của hộp thoại/ô nhập; lần mở đầu tiên giữ nguyên). Kiểu Babbel/Duolingo web: Tab tiếp theo vào thẳng nội dung trang.
   let titleBase = '', routedOnce = false;
-  function a11yRoute(name, preTitle) {
+  function a11yRoute(name, preTitle, my) {
     try {
       if (document.title !== preTitle) { if (!titleBase) titleBase = preTitle; } else { // trang tự đặt tiêu đề riêng (vd. Cách dùng từ) → giữ
       const h = name && name !== 'home' && view.querySelector('.page-head h1, h1');
       const txt = h ? h.textContent.replace(/^[\p{Extended_Pictographic}\uFE0F\u200d\s]+/u, '').replace(/\s+/g, ' ').trim().slice(0, 70) : '';
       if (txt) { if (!titleBase) titleBase = document.title; document.title = txt + ' – Lexkite'; } else if (titleBase) document.title = titleBase;
       }
-      const a = document.activeElement, modalOpen = !!document.querySelector('#modal:not([hidden])');
-      if (routedOnce && !modalOpen && (!a || a === document.body || (a.closest && a.closest('#bnav, #nav, .side-foot, .crumb')))) view.focus({ preventScroll: true });
+      // focus() buộc tính style+bố cục NGAY trong tác vụ vẽ trang (hồ sơ CPU quality-sweep #53: focus 77–82 ms, RunTask 102–108 ms) → dời sang khung hình kế: trình duyệt tính bố cục một lần trong bước vẽ, tác vụ JS ngắn lại
+      const focusView = () => { const a = document.activeElement, modalOpen = !!document.querySelector('#modal:not([hidden])'); if (!modalOpen && (!a || a === document.body || (a.closest && a.closest('#bnav, #nav, .side-foot, .crumb')))) view.focus({ preventScroll: true }); };
+      if (routedOnce) requestAnimationFrame(() => { if (my === routeSeq) focusView(); });
       routedOnce = true;
     } catch (e) { /* không chặn việc vẽ trang */ }
   }
@@ -689,6 +698,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   // Bật dần (như ret, docs/LEARNING-PATH.md §Phát hành): ux1 "0" tắt / "1" bật hết / nhóm lk.ub < ux1_pct; chốt 1 lần/lượt tải
   // Đo D1/D7: App.ux1Arm() 'on' | 'off' (đối chứng cùng cỡ: lk.ub ∈ [50, 50+pct)) | '' → ux1Track gửi 1 lần/máy seen, d1 (chuỗi ≥ 2), d7 (chuỗi ≥ 7) → ext_events 'ux1:ux1_<arm>_<ev>' (functions/api/hit.js UX1_EV)
   const ux1Cfg = () => { try { return JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}; } catch (e) { return {}; } };
+  App.vdOn = () => String(ux1Cfg().vd_kill) !== '1'; // 🎙️ Nhật ký giọng nói: công tắc khẩn /api/config vd_kill='1' ẩn mọi lối vào (docs/specs/voice-diary.md)
   const ux1B = () => { try { let b = localStorage.getItem('lk.ub'); if (b == null || isNaN(+b) || +b < 0 || +b > 99) { b = String(Math.floor(Math.random() * 100)); localStorage.setItem('lk.ub', b); } return +b; } catch (e) { return 99; } };
   const ux1All = v => v === true || v === '1' || v === 'true', ux1Off = v => v === false || v === '0' || v === 'false';
   App.ux1Arm = () => { const c = ux1Cfg(), p = +c.ux1_pct; if (ux1All(c.ux1) || ux1Off(c.ux1) || !(p > 0 && p <= 50)) return ''; const b = ux1B(); return b < p ? 'on' : b >= 50 && b < 50 + p ? 'off' : ''; };
@@ -1244,7 +1254,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     const list = Object.values(state.cards);
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Sổ từ của bạn')}</h1>${list.length ? `<p class="muted">${t('{n} từ · {k} đã thuộc', { n: list.length, k: masteredCount() })}</p>` : ''}</div>
-        <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
+        <div class="row"><a class="btn primary" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><details class="deck-more"><summary class="btn">⋯ ${t('Thêm')}</summary><div class="row"><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></details></div></div>
       <div class="grid g4" style="margin-bottom:1rem">
         <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}" aria-label="${t('Tìm từ hoặc nghĩa…')}">
         <select class="input" id="filterTopic" aria-label="${t('Chọn bộ từ')}"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
@@ -1485,7 +1495,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   const bootDog = setTimeout(() => { if (state.game && routeSeq) return; if (!view.children.length || view.querySelector('[data-lkph]') || (!state.game && view.querySelector('#lkHero'))) errState(true, true); }, 8000); // khung chờ màn học (index.html data-lkph) = chưa vẽ
   App.ready = (async function init() {
     if (/[?&]demo=1/.test(location.search)) { await App.need('demo'); await App.seedDemo(); }
-    if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);
+    if (Store.sandbox) setTimeout(() => toast('🧪 Sandbox'), 800); /* ngắn: thông báo dài (~14 000 px²) lớn hơn đoạn mô tả đầu trang từ điển nên chiếm LCP đo ở CI (?sandbox=1) = 7,5 s dù người dùng thật không bao giờ thấy nó; bản ngắn nhỏ hơn mọi khối nội dung → LCP = nội dung thật */
     try { await load(); } finally { if (!state.game) state.game = await Game.get().catch(() => null); dataReady(); }
     document.addEventListener('error', e => {
       const img = e.target;

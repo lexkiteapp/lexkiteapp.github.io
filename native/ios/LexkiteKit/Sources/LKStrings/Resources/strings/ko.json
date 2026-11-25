@@ -191,6 +191,7 @@
   "lesson.q.match": "짝 맞추기",
   "lesson.q.mpic": "단어와 그림 짝짓기",
   "lesson.q.fix": "틀린 단어 찾기",
+  "lesson.q.dict": "듣고 문장 받아쓰기",
   "lesson.q.q": "질문에 답하세요",
   "lesson.qn": "{a}/{b}번 문제",
   "lesson.combo": "COMBO ×{n}",
@@ -3497,5 +3498,6 @@
   "speak.spk.lamViecNhom": "팀워크",
   "speak.spk.duHocSongONuoc": "해외 유학과 생활",
   "speak.spk.mayTinhInternetHangNgay": "컴퓨터와 일상 속 인터넷",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
+  "speak.spk.nhatKyGiongNoi": "음성 일기"
 }

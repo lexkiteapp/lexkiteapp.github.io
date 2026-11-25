@@ -31,10 +31,13 @@ const REGISTRY_FILES = [...new Set(REGISTRIES.map(r => r.file))];
 export const TAKE_MAIN = ['docs/CODEMAP.md', 'docs/codemap.json', 'content/pipeline/SCORE.md', 'content/pipeline/LEARN.md', 'content/pipeline/WORLD.md', 'docs/QA-BACKLOG.md',
   'reports/content-score.json', 'reports/learnability.json'];
 export const LEGAL_PAGE = /^web\/(?:[a-z]{2}\/)?(?:privacy|terms|schools|credits)\.html$/; // scripts/build-legal.mjs
+export const NATIVE_GEN = /^native\/(shared\/gen\/|ios\/LexkiteKit\/Sources\/LK\w+\/Generated\/|android\/[\w-]+\/src\/main\/kotlin\/com\/lexkite\/app\/[\w/]*generated\/)/;
 // Tệp sinh CÓ cổng khớp nguồn trên PR → lấy main rồi chạy lại đúng lệnh sinh trên nguồn đã gộp (regenCmds).
 export const REGEN = [
   { re: /^(docs\/JOBS\.md|infra\/jobs\.json|infra\/lexicon-consumers\.json)$/, cmd: ['node', 'scripts/jobs/gen.mjs', '--write'] },
   { re: /^docs\/DESIGN-SYSTEM\.md$/, cmd: ['node', 'scripts/build-tokens.mjs'] },
+  // 25/11: native sinh từ native/shared/strings.json + web (scripts/native/gen.mjs; cổng `gen.mjs --check` trong npm test): L10nKey.kt/.swift, Tokens, gen/** xung đột mỗi khi hai PR thêm chuỗi → lấy main rồi sinh lại từ nguồn đã gộp
+  { re: NATIVE_GEN, cmd: ['node', 'scripts/native/gen.mjs'] },
   { re: LEGAL_PAGE, cmd: ['node', 'scripts/build-legal.mjs'] }, // 15/11: web/<lang>/{privacy,terms,schools,credits}.html (15 ngôn ngữ × 4) xung đột mỗi lần đổi chân trang
 ];
 export const UNION = ['scripts/test/suite.txt', 'docs/INDEX.md']; // danh sách chỉ thêm dòng: gộp union + khử trùng (docs-budget vẫn kiểm INDEX)
@@ -242,7 +245,7 @@ export function regenCmds(steps) { // steps: [{ f }] tệp đổi so với nhán
   if (any(/^web\/css\/st-/) || fs_.includes('scripts/build-stitch-css.mjs')) cmds.push(['node', 'scripts/build-stitch-css.mjs']);
   return cmds;
 }
-const REGEN_PATHS = ['docs/JOBS.md', 'infra/jobs.json', 'infra/lexicon-consumers.json', 'docs/DESIGN-SYSTEM.md', 'i18n/ui', 'web/css', ...REGISTRY_FILES];
+const REGEN_PATHS = ['native/shared/gen', 'native/ios/LexkiteKit/Sources', 'native/android', 'web/data', 'docs/JOBS.md', 'infra/jobs.json', 'infra/lexicon-consumers.json', 'docs/DESIGN-SYSTEM.md', 'i18n/ui', 'web/css', ...REGISTRY_FILES];
 export function regen(steps) {
   if (!steps.length) return '';
   for (const c of regenCmds(steps)) { try { execFileSync(c[0], c.slice(1), { stdio: ['ignore', 'ignore', 'pipe'], encoding: 'utf8' }); } catch (e) { return `${c.join(' ')}: ${String(e.stderr || e.message).trim().split('\n').pop()}`; } }

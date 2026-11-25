@@ -191,6 +191,7 @@
   "lesson.q.match": "配对",
   "lesson.q.mpic": "单词配图片",
   "lesson.q.fix": "找出错词",
+  "lesson.q.dict": "听写这个句子",
   "lesson.q.q": "回答问题",
   "lesson.qn": "第 {a}/{b} 题",
   "lesson.combo": "COMBO ×{n}",
@@ -3497,5 +3498,6 @@
   "speak.spk.lamViecNhom": "团队合作",
   "speak.spk.duHocSongONuoc": "留学与海外生活",
   "speak.spk.mayTinhInternetHangNgay": "电脑与日常上网",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
+  "speak.spk.nhatKyGiongNoi": "语音日记"
 }
