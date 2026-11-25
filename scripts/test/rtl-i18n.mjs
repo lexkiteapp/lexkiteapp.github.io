@@ -20,6 +20,7 @@ const idx = rd('../../web/app/index.html'), stc = rd('../../web/css/st-home.css'
 ok(/html:not\(\.ms-ok\)\s*\.material-symbols-outlined\s*\{[^}]*color:\s*transparent/.test(stc), 'st-home.css thiếu html:not(.ms-ok) .material-symbols-outlined { color: transparent }');
 ok(/classList\.add\('ms-ok'\)/.test(idx) && /\.load\('1em "Material Symbols Outlined"'\)/.test(idx) && /setTimeout\(k,\s*8000\)/.test(idx), 'app/index.html thiếu script gắn html.ms-ok (font.load + timeout 8 s)');
 ok(/font-display:\s*block/.test(stc.match(/@font-face\{[^}]*Material Symbols Outlined[^}]*\}/)?.[0] || ''), 'st-home.css: @font-face Material Symbols Outlined phải font-display:block');
+ok(/const SKIP = [^\n]*\.material-symbols-outlined,\.material-symbols-rounded,/.test(ui), 'ui.js SKIP phải bỏ qua cả .material-symbols-outlined và .material-symbols-rounded (bọc tên ligature trong <bdi> làm icon lệch/tràn nút ở RTL)');
 ok(!/fonts\.check\(/.test(ui), 'ui.js rtlFix không được phụ thuộc fonts.check (icon có hướng luôn gắn .i-dir)');
 
 // (b)

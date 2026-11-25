@@ -592,12 +592,12 @@
   // Icon UI: 1 bộ Lucide, sprite #lk-sprite (docs/DESIGN-SYSTEM.md)
   const DIRI = /^((keyboard_)?(arrow|chevrons?|move|skip|step|navigate|corner_(up|down))_(\w*_)?(left|right|back|forward|next|before)(_ios)?|undo_?2?|redo_?2?|reply|forward|send|log_?(in|out)|(first|last)_page)$/;
   const icon = (n, cls) => { if (DIRI.test(n.replace(/-/g, '_')) && !/\bi-dir\b/.test(cls || '')) cls = ((cls || '') + ' i-dir').trim(); return `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`; };
-  const SKIP = '[dir=ltr],bdi,svg,script,style,textarea,input,select,pre,code,kbd,[contenteditable],[data-noicon],.material-symbols-outlined,.i,.ipa,.ex,.entry-word,.ctx,.lq-item';
+  const SKIP = '[dir=ltr],bdi,svg,script,style,textarea,input,select,pre,code,kbd,[contenteditable],[data-noicon],.material-symbols-outlined,.material-symbols-rounded,.i,.ipa,.ex,.entry-word,.ctx,.lq-item';
   const VIL = /[ăâđêôơưĂÂĐÊÔƠƯ\u1EA0-\u1EF9]/, AN = /[A-Za-z0-9]/;
   const LC = 'A-Za-z0-9\u00C0-\u024F', LAT = new RegExp(`[“"‘']?[+\\-−]?[${LC}][${LC}+\\-–−.,:;/%()&·!?~=×…'’“” ]*[${LC}%)?!.\\-”"’']`, 'g');
   const rtlFix = root => {
     const d = document; if (d.documentElement.dir !== 'rtl') return;
-    root.querySelectorAll('.material-symbols-outlined:not(.i-dir)').forEach(e => DIRI.test(e.textContent.trim()) && e.classList.add('i-dir'));
+    root.querySelectorAll('.material-symbols-outlined:not(.i-dir),.material-symbols-rounded:not(.i-dir)').forEach(e => DIRI.test(e.textContent.trim()) && e.classList.add('i-dir'));
     const w = d.createTreeWalker(root, 4), hits = []; let n;
     while ((n = w.nextNode())) AN.test(n.nodeValue) && hits.push(n);
     for (const x of hits) {
