@@ -340,6 +340,7 @@ node scripts/test/shell-lazy.mjs
 node scripts/test/css-lazy.mjs
 node scripts/test/ux1-route-bundles.mjs
 node scripts/test/path-skel.mjs
+node scripts/test/native-lazy.mjs
 node scripts/test/build-hash.mjs
 node scripts/test/self-fonts.mjs
 node scripts/test/video-pron.mjs
@@ -409,6 +410,9 @@ node scripts/test/cpack.mjs
 node scripts/test/scan-roots.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
+node scripts/test/speak-pre-cls.mjs
+node scripts/test/route-longtask.mjs
+node scripts/test/sweep-longtask-scope.mjs
 node scripts/test/st-web-i18n.mjs
 node scripts/test/store-submit.mjs
 node scripts/store/release-notes.mjs --check
