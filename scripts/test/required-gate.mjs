@@ -100,6 +100,11 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(evaluate({ workflowRuns: [wr2('wip-guard', 'startup_failure', 7)] }).state === 'pending', 'chỉ có wip-guard hỏng, chưa có check thật nào → vẫn CHỜ, không xanh');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('gate-impact', 'cancelled', 7), wr2('npm test', 'success', 8)] }).state === 'success', 'gate-impact cancelled (concurrency) = tư vấn → không đỏ');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('gate-impact', 'failure', 7), wr2('npm test', 'success', 8)] }).state === 'failure', 'gate-impact failure thật vẫn đỏ');
+  { // 25/11 (#2039 "Chờ 8/40: check (2047, …)"): job con xếp hàng của workflow tư vấn gate-impact không được chặn PR khác
+    const adv = { ...wr2('gate-impact', null, 7), status: 'queued', check_suite_id: 900 }, jobq = { ...cr('check (2047, abc)', 'queued', null, 50), check_suite: { id: 900 } };
+    ok(evaluate({ checkRuns: [...base, jobq], workflowRuns: [adv, wr2('npm test', 'success', 8)] }).state === 'success', 'gate-impact còn xếp hàng + job con queued = tư vấn → không chặn');
+    ok(evaluate({ checkRuns: [...base, { ...jobq, check_suite: { id: 901 } }], workflowRuns: [adv, wr2('npm test', 'success', 8)] }).state === 'pending', 'job queued của workflow KHÁC vẫn chặn');
+    ok(evaluate({ checkRuns: [...base, { ...jobq, status: 'completed', conclusion: 'failure' }], workflowRuns: [{ ...adv, status: 'completed', conclusion: 'failure' }, wr2('npm test', 'success', 8)] }).state === 'failure', 'gate-impact failure thật (lượt đã xong) vẫn đỏ'); }
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('stitch-diff', 'success', 7), { ...wr2('stitch-diff', 'cancelled', 7), id: 9, run_number: 2 }, wr2('npm test', 'success', 8)] }).state === 'success', 'lượt huỷ mới hơn không che lượt xanh cùng head (20/11)');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('stitch-diff', 'failure', 7), { ...wr2('stitch-diff', 'cancelled', 7), id: 9, run_number: 2 }, wr2('npm test', 'success', 8)] }).state === 'failure', 'lượt huỷ mới hơn không che lượt ĐỎ thật cùng head');
 }

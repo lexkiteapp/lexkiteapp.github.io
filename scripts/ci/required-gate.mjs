@@ -34,8 +34,12 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   const items = [];
   // check-run: lấy bản mới nhất theo tên (API filter=latest đã làm, làm lại cho chắc khi gộp nhiều trang/bộ)
   const cr = new Map();
+  // 25/11: workflow CHỈ TƯ VẤN (gate-impact) có job con `check #N` xếp hàng hàng giờ (nhóm concurrency toàn cục) → required-gate coi là pending, PR không gộp được (#2039: "Chờ 8/40: check (2047, …)").
+  // Check-run thuộc lượt của workflow tư vấn (cùng check_suite) không bao giờ chặn cổng: bỏ khỏi danh sách (workflow-level được trung hoà ở dưới).
+  const advSuites = new Set(workflowRuns.filter(r => ADVISORY_CANCEL.has(r.name) && r.check_suite_id != null).map(r => r.check_suite_id));
   for (const c of checkRuns) {
     if (c.name === SELF_JOB) continue;
+    if (c.check_suite && advSuites.has(c.check_suite.id)) continue;
     const prev = cr.get(c.name);
     if (!prev || (c.id || 0) > (prev.id || 0)) cr.set(c.name, c);
   }
@@ -57,8 +61,8 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   for (const r of wr.values()) {
     const isInfra = INFRA_STARTUP.has(r.name) && r.conclusion === 'startup_failure';
     if (isInfra) infra.push(r.name);
-    const advCancel = ADVISORY_CANCEL.has(r.name) && r.conclusion === 'cancelled';
-    items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: (isInfra || advCancel) ? 'neutral' : r.conclusion, runId: r.id, attempt: r.run_attempt });
+    const advCancel = ADVISORY_CANCEL.has(r.name) && (r.conclusion === 'cancelled' || r.status !== 'completed');   // tư vấn: huỷ hoặc còn xếp hàng → trung hoà
+    items.push({ name: 'workflow: ' + r.name, status: advCancel ? 'completed' : r.status, conclusion: (isInfra || advCancel) ? 'neutral' : r.conclusion, runId: r.id, attempt: r.run_attempt });
   }
   // commit status: mới nhất theo context, bỏ chính mình
   const st = new Map();
