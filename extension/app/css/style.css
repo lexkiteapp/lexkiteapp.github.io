@@ -1503,3 +1503,7 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
 .v2s-me button[role="switch"] { height: 44px; border-block: 8px solid transparent; background-clip: padding-box; margin-block: -8px; box-sizing: border-box; }
 .v2s-me :is(a, button).text-start.inline-flex { min-width: 44px; min-height: 44px; }
 .v2s-practice .skill-card h4 > a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; margin-block: -8px; }
+/* home-cta-one */
+.v2s-today button[class*="F59E0B"], .v2s-today-desk button[class*="F59E0B"], .v2s-path button[class*="F59E0B"] { background: var(--cta-grad) !important; color: var(--cta-ink) !important; box-shadow: var(--hi), var(--cta-shadow) !important; border: 0 !important; }
+.v2s-today button[class*="F59E0B"] *, .v2s-today-desk button[class*="F59E0B"] *, .v2s-path button[class*="F59E0B"] * { color: var(--cta-ink) !important; }
+/* /home-cta-one */
