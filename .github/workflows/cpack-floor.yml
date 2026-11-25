@@ -1,0 +1,23 @@
+# ci-policy: queue – bot ghi mốc tuần tự sau mỗi lần gộp; huỷ lượt đang đẩy sẽ bỏ dở mốc của lần gộp trước
+# Mốc web/cpack (scripts/test/cpack-floor.json) do bot giữ sau mỗi lần gộp vào main – PR không sửa budget.cpackTotal nữa (hết xung đột budget.json). docs/CI-RUNNERS.md › Trần web/cpack.
+name: cpack-floor
+on:
+  push:
+    branches: [main]
+    paths: ['web/cpack/**', 'i18n/ui/**', 'scripts/lib/cpack-floor.mjs', 'scripts/ci/cpack-ratchet.mjs', '.github/workflows/cpack-floor.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency: { group: cpack-floor, cancel-in-progress: false }
+jobs:
+  ratchet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: "${{ secrets.BOT_DEPLOY_KEY }}" }   # khoá deploy (ruleset main cho bot đẩy thẳng) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: "đo web/cpack (sau npm ci: gói sinh dựng như CI PR) + ghi mốc lên main"
+        run: |
+          COMMIT_REGEN_NO_EXT=1 bash scripts/ci/commit-regen.sh "Mốc web/cpack: ghi số đo sau gộp (cpack-floor)" "npm ci --no-audit --no-fund >/dev/null && node scripts/ci/cpack-ratchet.mjs" scripts/test/cpack-floor.json scripts/test/cpack-notes
