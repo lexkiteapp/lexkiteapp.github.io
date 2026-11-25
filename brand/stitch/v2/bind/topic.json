@@ -108,7 +108,7 @@
    "bind": {
     "on": {
      "addClass": {
-      ":scope": "on"
+      ":scope": "on min-h-11 min-w-11"
      },
      "attr": {
       ":scope": {
@@ -122,6 +122,11 @@
      },
      "html": {
       ":scope > span": "e(r.n)"
+     },
+     "cls": {
+      ":scope > span": {
+       "opacity-90": "'opacity-100'"
+      }
      }
     },
     "off": {
@@ -137,6 +142,9 @@
      },
      "html": {
       ":scope > span": "e(r.n)"
+     },
+     "addClass": {
+      ":scope": "min-h-11 min-w-11"
      }
     }
    }

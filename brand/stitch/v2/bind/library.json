@@ -449,6 +449,14 @@
   "in": "t('Nhập')",
   "Anki": "'Anki'"
  },
+ "cls": {
+  ":scope > main > div:nth-child(1) > div > div > span:nth-child(1)": {
+   "text-[#26100A]": "'text-white'"
+  },
+  ":scope > main > div:nth-child(1) > button": {
+   "lt:text-[#26100A]": "'lt:text-white'"
+  }
+ },
  "recolor": {
   "text-[#F2553B]": "lt:text-[#B53A22] dk:text-[#FF8A73]",
   "lt:bg-[#F2553B]": "lt:bg-[#C8432B]",
