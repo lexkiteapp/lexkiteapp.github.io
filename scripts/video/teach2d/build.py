@@ -38,19 +38,24 @@ LAYOUTS = dict(   # same cards / timing; only where the card region, captions an
     corner=dict(region=[60, 324, 960, 1150], cap=[60, 1168, 960, 1282], host_h=640, host_cx=540),
     side=dict(region=[60, 324, 960, 1150], cap=[510, 1180, 960, 1420], cap_rows=2, host_h=760, host_cx=260),
     bubble=dict(region=[60, 324, 960, 1396], cap=[60, 1410, 610, 1496], host_h=744, host_cx=None, bubble=[632, 1440, 1032, 1840]))
-FMT = dict(short=dict(W=1080, H=1920, chip=[60, 236], safe=[48, 232, 960, 1497], **LAYOUTS[o.layout or 'corner']),
+REEL = EP['template'] in ('slang', 'guess3', 'levels3', 'scorecard', 'l1')
+LAY0 = o.layout or 'corner'
+if REEL and o.format == 'short' and LAY0 == 'corner':   # v3 (eye review 24/11 #3): reels use ONE big-teacher layout; 'corner' (small centred teacher under a full-width caption) left dead bands on both sides
+    LAY0 = 'side'
+if REEL and LAY0 == 'side':   # bigger teacher (source clip allows host_h up to 960 px: k <= 1.0), cards stop above the head, 3-row 66 px captions right of the head (head x1 + 24 px gap + beat-motion margin < cap x0)
+    LAYOUTS['side'] = dict(region=[60, 324, 960, 1090], cap=[560, 1170, 960, 1450], cap_rows=3, host_h=860, host_cx=245)
+FMT = dict(short=dict(W=1080, H=1920, chip=[60, 236], safe=[48, 232, 960, 1497], **LAYOUTS[LAY0]),
            wide=dict(W=1920, H=1080, region=[96, 150, 1056, 904], chip=[96, 70], safe=[60, 48, 1860, 1032], cap=[96, 924, 1056, 1024],   # v3 (audit 24/11 #5): burned karaoke captions in the wide cut too, under the card region, left of the teacher
             host_h=960, host_cx=1460))[o.format]
-LAYOUT = (o.layout or 'corner') if o.format == 'short' else 'wide'
+LAYOUT = LAY0 if o.format == 'short' else 'wide'
 SOCIAL = o.format == 'short'   # owner 29/10: social shorts get the cinematic layer (hook punch, camera push / cuts, whoosh + music); lesson embeds stay calm
 PZ = dict(top=0.12, bottom=0.22, right=0.14)   # platform UI zones of a 9:16 short (back / search icons, caption + sound row, like / comment rail): qc.py platform_zones gate
 if EP['template'] in ('rule', 'band') and o.format == 'short':   # Spell->Sound / Band 5-9: nothing in the right rail (docs/specs/spell-sound.md): region + caption plate stop at 86 % of the width
     _x = int(FMT['W'] * (1 - PZ['right'])); FMT = dict(FMT, region=[FMT['region'][0], FMT['region'][1], min(FMT['region'][2], _x), FMT['region'][3]], cap=[FMT['cap'][0], FMT['cap'][1], min(FMT['cap'][2], _x), FMT['cap'][3]], safe=[FMT['safe'][0], FMT['safe'][1], min(FMT['safe'][2], _x), FMT['safe'][3]])
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
-if o.format == 'short' and (o.layout or 'corner') != 'bubble': S['cap'] = 66   # v3 (audit 24/11 #4): bigger captions inside the safe box (bubble keeps 58: its caption plate is only 86 px tall)
+if o.format == 'short' and LAY0 != 'bubble': S['cap'] = 66   # v3 (audit 24/11 #4): bigger captions inside the safe box (bubble keeps 58: its caption plate is only 86 px tall)
 MINF = (0.55 if LAYOUT == 'bubble' else 0.45) if EP['template'] == 'l1' else 0.3   # first-card min height (share of the card region); l1: the lone mistake bubble must fill the frame (layout_fill)
-REEL = EP['template'] in ('slang', 'guess3', 'levels3', 'scorecard', 'l1')
 if REEL:   # v3 (audit 24/11 #3 empty frames): the few cards of a 7-13 s reel were small in a 826 px region (pilot t2s_ace: 70 % bare background at 2-3 s) -> bigger text, bigger cards
     S.update({k: round(S[k] * (1.12 if EP['template'] == 'l1' else 1.25 if o.format == 'short' else 1.2)) for k in ('body', 'sub', 'chip', 'ipa', 'pill')})
 PAD, GAP, LEDGE, RADIUS = 40, 24, 10, 44
@@ -892,12 +897,18 @@ def T_scorecard():
     D = EP['data']; series_chip(); s, n = D['score'], D['right']; hw = EP['hook']['text'].split()
     title([[' '.join(hw[:-2]) + ' ', 'ink'], [' '.join(hw[-2:]), 'primary']], 96, RY0 + 120, None, start('k') - 0.3, hook=True)   # every card / title leaves 0.3 s before the next one's word (the soft entrance starts 0.12 s before it)
     t_k, t_ch, t_c = start('k'), start('ch'), start('c'); t_sc = at('k', 2); step = (t_sc - t_k - 0.1) / len(D['items'])
-    c = Card(RY0); chip(c, 'SAMPLE ANSWERS', t_k); c.lp = PAD + 62   # rows leave the left column to the check / cross
-    for i, it in enumerate(D['items']):
-        t_i = t_k + 0.1 + i * step; right = it['pick'] == it['answer']; a, b = it['stem'].split('___'); pk = it['options'][it['pick']] + re.match(r'\S*', b)[0]
-        y0 = c.y; nn = c.text([[a, 'ink'], [pk, 'good' if right else 'bad'], [b[len(re.match(r'\S*', b)[0]):], 'ink']], 40, t_i, gap=14); by = y0 + (nn[0]['box'][3] - nn[0]['box'][1] - 56) / 2
-        c.rows.append(dict(id=nid('b'), type='check' if right else 'cross', box=[PAD, by, PAD + 56, by + 56], **{'in': cue(t_i, 'pop' if right else 'soft')}))
-    c.lp = PAD; c.text([[str(s), 'coral'], ['/100', 'ink']], S['big'], t_sc, align='c'); c.text([[f"{n} right × {D['pts']} points", 'muted']], S['sub'], at('k', 3), align='c')
+    def sheet(sz):   # v3 (eye review 24/11 #4 / ghost card): the 5 sample answers at the largest size that fits; every row is on screen within 0.4 s of the card (only the check / cross follow the voice count)
+        c = Card(RY0); chip(c, 'SAMPLE ANSWERS', t_k); c.lp = PAD + 62   # rows leave the left column to the check / cross
+        for i, it in enumerate(D['items']):
+            t_i = t_k + 0.1 + i * step; t_r = t_k + 0.05 + i * 0.08; right = it['pick'] == it['answer']; a, b = it['stem'].split('___'); pk = it['options'][it['pick']] + re.match(r'\S*', b)[0]
+            y0 = c.y; nn = c.text([[a, 'ink'], [pk, 'good' if right else 'bad'], [b[len(re.match(r'\S*', b)[0]):], 'ink']], sz, t_r, gap=14); by = y0 + (nn[0]['box'][3] - nn[0]['box'][1] - 56) / 2
+            c.rows.append(dict(id=nid('b'), type='check' if right else 'cross', box=[PAD, by, PAD + 56, by + 56], **{'in': cue(t_i, 'pop' if right else 'soft')}))
+        c.lp = PAD; c.text([[str(s), 'coral'], ['/100', 'ink']], S['big'], t_sc, align='c'); c.text([[f"{n} right × {D['pts']} points", 'muted']], S['sub'], at('k', 3), align='c')
+        return c
+    for sz in (54, 50, 46, 42, 40):
+        n_cues = len(CUES); c = sheet(sz)
+        if c.y - GAP + PAD + LEDGE <= RY1 - RY0 - 4: break
+        del CUES[n_cues:]
     c.place(t_k, t_ch - 0.3, 'a')
     c = Card(RY0); chip(c, 'YOUR TURN', t_ch); c.text([[('Match ' if s == 100 else 'Beat '), 'ink'], [f'{s}/100', 'coral'], ['?', 'ink']], S['big'], t_ch, align='c')
     c.text([['Take the free level test', 'muted']], S['sub'], at('ch', 'Take'), align='c'); c.place(t_ch, t_c - 0.3, 'a')
@@ -1034,7 +1045,7 @@ if BB:   # round call window: head + shoulders centred, head ~55 % of the window
     x0, y0 = (BB[0] + BB[2]) / 2 - cx, BB[1] + 0.44 * D - cy; box = [round(x0, 1), round(y0, 1), round(x0 + hw, 1), round(y0 + HG['h'] * k, 1)]
 else: box = [round(FMT['host_cx'] - hw / 2, 1), H - FMT['host_h'], round(FMT['host_cx'] + hw / 2, 1), H]
 HOST = dict(who=EP['teacher'], **(dict(rig='host_rig.webm') if RIG else dict(talk='host_talk.webm', listen='host_listen.webm')), box=box, segs=SEG, xfade=4, len=LEN, bubble=BB)
-HM = dict(scale=0.035, rot=1.2, bob=5, pop=0.5, lean=0.9, breath=2.4)   # body motion per beat (TeachShort HostBody); qc.py gate host_motion checks these numbers
+HM = dict(scale=0.05, rot=2.4, bob=6, pop=0.5, lean=0.9, breath=2.4)   # body motion per beat (TeachShort HostBody); qc.py gate host_motion checks these numbers
 if not BB: HOST.update(motion=HM, beats=[int(round(v['t0'] * o.fps)) for v in sorted(LINES.values(), key=lambda v: v['t0'])], pivot=[round(box[0] + (hb[0] + hb[2]) / 2 * k, 1), round(box[1] + hb[1] * k, 1)])
 if 'pose' in LEN: HOST['pose'] = 'host_pose.webm'   # react reaction pose (TeachShort.jsx plays host[seg.clip])
 # ---- camera (social shorts): push-in on the hook, then a hard cut to a new framing at every sentence start, slow push inside each shot.

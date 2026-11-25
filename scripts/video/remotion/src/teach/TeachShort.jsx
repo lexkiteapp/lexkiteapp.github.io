@@ -153,7 +153,7 @@ function Body({ n, t, w, h, T }) {
         <circle cx={w / 2} cy={h / 2} r={r} stroke={T.ring_fg} strokeWidth="9" fill="none" strokeLinecap="round" strokeDasharray={C} strokeDashoffset={C * (1 - rem)} transform={`rotate(-90 ${w / 2} ${h / 2})`} />
         <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle" fontFamily={JAK} fontWeight="800" fontSize={n.size} fill={T.ring_ink}>{t >= t1 ? '✓' : d}</text></svg>; }
     case 'strike': { const p = pose(n, t).p;
-      return <div style={{ position: 'absolute', left: 0, top: 0, height: h, width: w * p, background: '#F2553B', borderRadius: h / 2 }} />; }
+      return <div style={{ position: 'absolute', left: 0, top: 0, height: h, width: w * p, background: '#FFF4E8', borderRadius: h / 2, boxShadow: '0 3px 0 rgba(58,13,6,.55)' }} />; }   // v3: a crisp light stroke (the coral one vanished on the red mistake bubble and read as noise)
     case 'dot': { const [cur, , m] = state(n, t), on = cur === 'hit' ? m : 0;
       return <div style={{ width: w, height: h, borderRadius: '50%', background: n.big ? mixc(T.dot_off, T.dot_on, on) : T.dot_off, boxShadow: n.big && on ? `0 0 ${16 * on}px ${T.dot_on}` : 'none' }} />; }
     case 'backdrop':
