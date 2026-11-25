@@ -387,6 +387,20 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(!vi.cols.includes('gender') && w0[col('kana')] === 'たべる' && w0[col('gl')] === 'ăn' && w0[col('vclass')] === 'ichidan' && w0[col('exForm')] === '食べます', 'gói ja: cột theo dữ liệu (không gender), nghĩa đúng ngôn ngữ');
   try { execFileSync(process.execPath, ['scripts/target/tl-pack.mjs', 'ja', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/packs/tl/ja lệch nguồn: ' + String(e.stderr)); } }
 
+// W2 ja: bộ chia (conj-ja.mjs) – ichidan/godan/bất quy tắc, chữ + kana song song, ngoại lệ 行く/ある/kính ngữ, (…)来る/〜する; kiểm chéo Wiktionary ở CI
+{ const C = await import('../target/conj-ja.mjs'), c = v => C.conjugate(v), wk = (v, f) => { const x = c(v)[f]; return x.w + '/' + x.k; };
+  const tabe = { word: '食べる', kana: 'たべる', vclass: 'ichidan' }, kaku = { word: '書く', kana: 'かく', vclass: 'godan' }, kuru = { word: '来る', kana: 'くる', vclass: 'irregular' };
+  ok(wk(tabe, 'masu') === '食べます/たべます' && wk(tabe, 'te') === '食べて/たべて' && wk(tabe, 'nai') === '食べない/たべない' && wk(tabe, 'pot') === '食べられる/たべられる' && wk(tabe, 'imp') === '食べろ/たべろ' && wk(tabe, 'ba') === '食べれば/たべれば', 'ichidan 食べる');
+  ok(wk(kaku, 'masu') === '書きます/かきます' && wk(kaku, 'te') === '書いて/かいて' && wk(kaku, 'ta') === '書いた/かいた' && wk(kaku, 'nai') === '書かない/かかない' && wk(kaku, 'vol') === '書こう/かこう' && wk(kaku, 'pot') === '書ける/かける' && wk(kaku, 'ba') === '書けば/かけば', 'godan 書く');
+  const te = (word, kana) => C.form({ word, kana, vclass: 'godan' }, 'te').k;
+  ok([['買う', 'かう', 'かって'], ['待つ', 'まつ', 'まって'], ['帰る', 'かえる', 'かえって'], ['飲む', 'のむ', 'のんで'], ['遊ぶ', 'あそぶ', 'あそんで'], ['死ぬ', 'しぬ', 'しんで'], ['泳ぐ', 'およぐ', 'およいで'], ['話す', 'はなす', 'はなして'], ['行く', 'いく', 'いって']].every(([w, k, t]) => te(w, k) === t), 'て形 đủ 9 đuôi godan + ngoại lệ 行く→行って');
+  ok(C.form({ word: '買う', kana: 'かう', vclass: 'godan' }, 'nai').k === 'かわない' && C.form({ word: 'ある', kana: 'ある', vclass: 'godan' }, 'nai').k === 'ない' && C.form({ word: 'いらっしゃる', kana: 'いらっしゃる', vclass: 'godan' }, 'masu').k === 'いらっしゃいます', 'う→わ, ある→ない, いらっしゃいます');
+  ok(wk(kuru, 'nai') === '来ない/こない' && wk(kuru, 'masu') === '来ます/きます' && wk(kuru, 'ba') === '来れば/くれば' && wk(kuru, 'imp') === '来い/こい' && wk({ word: '持って来る', kana: 'もってくる', vclass: 'irregular' }, 'te') === '持って来て/もってきて', '来る đổi cách đọc gốc, (…)来る');
+  ok(wk({ word: 'する', kana: 'する', vclass: 'irregular' }, 'pot') === 'できる/できる' && wk({ word: '勉強する', kana: 'べんきょうする', vclass: 'irregular' }, 'masu') === '勉強します/べんきょうします' && wk({ word: '勉強する', kana: 'べんきょうする', vclass: 'irregular' }, 'zu') === '勉強せず/べんきょうせず', 'する / 〜する');
+  ok(C.FORMS.length === 20 && C.KNOWN.length >= 30 && C.KNOWN.some(v => v.vclass === 'irregular') && readJSON(seedPath('ja')).words.filter(w => w.pos === 'v').every(w => C.FORMS.every(f => c(w)[f].w && c(w)[f].k)), 'đủ 20 dạng cho mọi động từ seed');
+  let thr = 0; try { c({ word: '猫', kana: 'ねこ', vclass: 'godan' }); } catch { thr = 1; } ok(thr, 'godan không tận cùng hàng u → lỗi (không đoán)');
+  ok(/conj-ja-check\.mjs/.test(rd('.github/workflows/target-content.yml')), 'target-content: kiểm chéo chia ja ↔ Wiktionary trên PR'); }
+
 // ---------- 5) nối dây: shell nạp target.js trước core.js; package test ----------
 {
   const html = rd('web/app/index.html'), a = html.indexOf('js/target.js'), b = html.indexOf('js/core.js');
