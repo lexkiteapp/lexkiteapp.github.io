@@ -461,6 +461,7 @@ node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
 node scripts/test/es-pron.mjs
 node scripts/test/fr-pron.mjs
+node scripts/test/tl-audio.mjs
 node scripts/test/es-path.mjs
 node scripts/test/tl-day-routes.mjs
 node scripts/test/ext-version.mjs
