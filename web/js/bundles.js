@@ -36,7 +36,7 @@
     goal: ['js/i18n/en/goal.js', 'js/st/common.js', 'js/st/goal.js', 'js/goal.js'],
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
     listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8].map(n => `js/listen/test${n}.js`), 'cpack/listen/test9.js', 'cpack/listen/test10.js', 'cpack/listen/test11.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/exam-clock.js', 'js/listening.js'],
-    writing: ['js/i18n/en/ideast.js', 'cpack/write/task2-more.js', 'cpack/write/task2-more4.js', 'cpack/write/task1-more.js', 'js/write/task1-more2.js', 'cpack/write/task1-more3.js', 'cpack/write/ideas.js', 'js/write.js', 'js/task1.js', 'cpack/write/models.js', 'cpack/write/models2.js', 'cpack/write/models3.js', 'cpack/write/models4.js', 'cpack/write/models5.js', 'cpack/write/models8.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js', 'js/phrases-model.js'],
+    writing: ['js/i18n/en/ideast.js', 'cpack/write/task2-more.js', 'cpack/write/task2-more4.js', 'cpack/write/task1-more.js', 'js/write/task1-more2.js', 'cpack/write/task1-more3.js', 'cpack/write/ideas.js', 'js/write.js', 'js/task1.js', 'cpack/write/models.js', 'cpack/write/models2.js', 'cpack/write/models3.js', 'cpack/write/models4.js', 'cpack/write/models5.js', 'cpack/write/models8.js', 'js/write/gt-letters.js', 'cpack/write/gt-bands.js', 'js/letters.js', 'js/ideas.js', 'js/phrases-model.js'],
     mock: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/readtest/_i.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'cpack/readtest/gt3.js', 'cpack/readtest/gt6.js', 'cpack/readtest/rt11.js', 'cpack/readtest/rt12.js', 'js/mock.js', 'js/rtype.js', 'js/speech-session.js'],
     dist: ['js/distract.js'],
     lcard: ['js/i18n/en/lcardui.js', 'cpack/lesson/why.js', 'cpack/lesson/card.js'],
@@ -96,6 +96,7 @@
     frpr: ['cpack/fr/dr.js'], // câu hỏi luyện tiếng Pháp (js/espr.js chung engine es; french-course.md W2)
     calles: ['cpack/es/cl.js'],
     callfr: ['cpack/fr/cl.js'], // 24 cuộc gọi AI tiếng Pháp A1–C1 (french-course.md W4; js/call.js chọn theo tl)
+    callja: ['packs/tl/ja/cl.js'], // cuộc gọi ja (japanese-course.md W4), ngoài cpack
     esx: ['cpack/es-app/exam-ui.js'],
     esday: ['cpack/es/dy.js', 'cpack/es-app/day-ui.js'], // từ lộ trình: web/packs/<tl>/*.json (day-ui tự tải)
     frday: ['cpack/fr/dy.js', 'cpack/es-app/day-ui.js'], // lộ trình ngày tiếng Pháp: CÙNG day-ui.js (bảng TLD theo tl)
@@ -113,6 +114,7 @@
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
     interpret: ['js/i18n/en/interpret.js', 'cpack/interpret/core.js', 'cpack/interpret/interpret.js'], // 🗣️ Phiên dịch (#/interpret, docs/INTERPRET.md): đối mặt 2 ngôn ngữ, miễn phí trên máy; câu mẫu cpack/interpret tải khi mở "Câu mẫu"
     gend: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-complete.js', 'cpack/game/game-end.js'], // 🏁 màn kết mini-game chung (khung Stitch lesson-complete, docs/specs/game-system.md P3)
+    pxw: ['js/i18n/en/rhythm.js', 'js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'cpack/game/game-crossword.js', 'cpack/play-app/xw-core.js', 'cpack/play-app/play-crossword.js'], // 🧩 Ô chữ mỗi ngày (game-system P5; khung Stitch game-crossword)
     pgames: ['js/i18n/en/rhythm.js', 'js/study-games.js', 'js/pron/coach.js', 'cpack/play-app/play-blitz.js', 'cpack/play-app/play-rhythm.js'], // ⚡ Thử thách 60 giây (docs/specs/play-learn.md)
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
     swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
