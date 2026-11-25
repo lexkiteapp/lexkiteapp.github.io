@@ -43,4 +43,5 @@ ok(/approved_by = 'probe', approved_at = 1/.test(yt), 'probe có approved_at nh�
   ok(/'uploading', 'done'/.test(body) && /peakOk\(ms, tz\)/.test(body) && /peakSlot\(/.test(body), 'retime: chỉ hàng đã tải lên có giờ lệch giờ cao điểm → xếp lại vào giờ cao điểm thị trường');
   ok(/cur\.privacyStatus !== 'private'/.test(body) && /not-scheduled/.test(body) && /\.\.\.cur, privacyStatus: 'private', publishAt: to/.test(body), 'retime: chỉ video còn private + publishAt tương lai, giữ nguyên các trường status khác (không công khai)');
   ok(/QUOTA\.update \+ QUOTA\.reserve/.test(body) && /apply = b\.apply === true/.test(body) && /'retime'/.test(yt) && QUOTA.update === 50, 'retime: đếm hạn mức 50/lần + chừa dự trữ, mặc định chỉ liệt kê (apply mới ghi), nằm trong WRITE (ký HMAC)'); }
+ok(/CLI_OPS\.retime = ADMIN_OPS\.retime; CLI_OPS\.wronglive = ADMIN_OPS\.wronglive/.test(yt), 'retime/wronglive gọi được bằng CLI ký HMAC (không chỉ phiên admin)');
 console.log(`✓ yt-fill: ${n} kiểm`);

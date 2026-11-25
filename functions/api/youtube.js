@@ -732,6 +732,8 @@ const CLI_OPS = {
     return { ok: true };
   },
 };
+// 26/11: retime/wronglive là việc hàng loạt do CLI ký HMAC chạy (không có phiên admin) – cùng hàm với bản admin, vẫn qua WRITE + kiểm hạn mức.
+CLI_OPS.retime = ADMIN_OPS.retime; CLI_OPS.wronglive = ADMIN_OPS.wronglive;
 const DANGER = new Set(['disconnect']); // revoke + delete a channel → sign-in ≤ 15 min old (same rule as drive.js)
 const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged', 'fill', 'retime', 'wronglive', 'autoq', 'probe']);
 
