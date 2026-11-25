@@ -48,8 +48,8 @@ const ctx = await chromium.launchPersistentContext(prof, {
 // Không route được fetch từ SW add-on (cờ route SW làm hỏng SW MV3, #416) → vá self.fetch trong SW, cùng dữ liệu với route của trang. Hàm thật: test img-api.mjs.
 const IMG_SRC = 'https://img.example.com/e2e/photo.png', IMG_BYTES = fs.readFileSync('web/icons/icon-128.png');
 const IMG_REPLY = { src: IMG_SRC, link: IMG_SRC, license: 'CC0', title: 'e2e', creator: 'e2e', via: 'e2e' };
-// Chỉ mock đường dẫn trang gọi khi chạy bình thường; /api khác vẫn 503 và vẫn làm đỏ test: lỗi console thật không bị che
-await noProd(ctx, { api: url => (url.pathname === '/api/notices' ? { notices: [] } : url.pathname === '/api/img' ? IMG_REPLY : null) }); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
+// Chỉ mock đường dẫn trang gọi khi chạy bình thường (24/11: + /api/push?op=cfg – remind.js hỏi cấu hình nhắc học ở màn #/welcome → 503 offline làm đỏ quality-sweep cả 3 ngôn ngữ add-on); /api khác vẫn 503 và vẫn làm đỏ test: lỗi console thật không bị che
+await noProd(ctx, { api: url => (url.pathname === '/api/notices' ? { notices: [] } : url.pathname === '/api/img' ? IMG_REPLY : url.pathname === '/api/push' && url.searchParams.get('op') === 'cfg' ? { on: false, pct: 0, fcm: false, s2: true } : null) }); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
 await ctx.route(IMG_SRC, r => r.fulfill({ contentType: 'image/png', body: IMG_BYTES }));
 // Khung Kokoro của add-on (#1813: klocal.js nhúng https://lexkite.com/kl.html) – KHÔNG phụ thuộc bản prod đã deploy chưa (e2e chạy ngay sau gộp, Pages deploy theo lô 3 giờ → prod chưa có kl.html → trả '/' kèm X-Frame-Options → "Refused to frame" đỏ giả).
 // Phục vụ từ web/ của PR với ĐÚNG header khối `/kl*` của web/_headers (có frame-ancestors chrome-extension:) → đồng thời kiểm luôn header cho phép add-on nhúng.

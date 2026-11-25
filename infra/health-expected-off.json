@@ -1,4 +1,23 @@
 {
  "_doc": "Workflow CỐ Ý tắt: { owner, due (YYYY-MM-DD, quá hạn = đỏ), why }. Không có ở đây mà tắt = đỏ trên health-board.",
- "video": { "owner": "chủ", "due": "2026-12-31", "why": "tắt tay – đọc docs/VIDEO.md + handoff video trước khi bật lại" }
+ "video": {
+  "owner": "chủ",
+  "due": "2026-12-31",
+  "why": "tắt tay – đọc docs/VIDEO.md + handoff video trước khi bật lại"
+ },
+ "script-bank": {
+  "owner": "điều phối",
+  "due": "2026-12-15",
+  "why": "tắt tay từ 24/10 21:50 (cùng phút với vocab-img); kho kịch bản tạm dừng, không sinh thêm tới khi việc video khác xong – điều phối xác nhận rồi bật lại hoặc gỡ cron"
+ },
+ "video-tpl1b": {
+  "owner": "video-daily-fix",
+  "due": "2026-12-15",
+  "why": "đã khai paused trong infra/jobs.json (chỉ dispatch, chờ chủ duyệt lô 1 – docs/VIDEO-TEMPLATES.md §9); GitHub đang để disabled_manually"
+ },
+ "vocab-img": {
+  "owner": "health-guard (kho từ/ảnh/nội dung)",
+  "due": "2026-12-15",
+  "why": "tắt tay từ 24/10 21:50 (cùng phút với script-bank) dù jobs.json ghi paused:false – ảnh nghĩa chạy qua vocab-img-scene; xác nhận bật lại hoặc đặt paused:true"
+ }
 }

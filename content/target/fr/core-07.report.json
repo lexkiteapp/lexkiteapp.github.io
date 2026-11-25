@@ -1,0 +1,1536 @@
+{
+  "at": "2026-11-22T06:30:59.083Z",
+  "accepted": 127,
+  "rejected": [
+    {
+      "form": "la",
+      "word": "la",
+      "why": [
+        "dịch ngược lệch: vi,id,zh,ja,ko,hi,ru,tr"
+      ]
+    },
+    {
+      "form": "ai",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "allez",
+      "word": "aller",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: -vous! – Le point d’exclamation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "très",
+      "word": "très",
+      "why": [
+        "dịch ngược lệch: id,th",
+        "cổng: très: thiếu nghĩa id; très: thiếu nghĩa th; très: ngôn ngữ nghĩa lạ it; très: ngôn ngữ nghĩa lạ nl"
+      ]
+    },
+    {
+      "form": "sa",
+      "word": "son",
+      "why": [
+        "giám khảo A: Lemma 'son' is the masculine form; the entry key and example use 'sa' (feminine). The lemma should match the specific form being taught or be the base 'son/sa'. Additionally, the IPA 'sa' is correct for 'sa', but the lemma 'son' has IPA 'sɔ̃'. Mismatch between lemma and entry key/IPA.",
+        "giám khảo B: Headword is 'sa', but the word field says 'son' (mismatch).",
+        "dịch ngược lệch: vi,id,th",
+        "cổng: son: thiếu nghĩa id; son: thiếu nghĩa th; son: ngôn ngữ nghĩa lạ it; son: ngôn ngữ nghĩa lạ nl"
+      ]
+    },
+    {
+      "form": "encore",
+      "word": "encore",
+      "why": [
+        "dịch ngược lệch: id,th",
+        "cổng: encore: thiếu nghĩa id; encore: thiếu nghĩa th; encore: ngôn ngữ nghĩa lạ it; encore: ngôn ngữ nghĩa lạ nl"
+      ]
+    },
+    {
+      "form": "vie",
+      "word": "vie",
+      "why": [
+        "dịch ngược lệch: id,th",
+        "cổng: vie: thiếu nghĩa id; vie: thiếu nghĩa th; vie: ngôn ngữ nghĩa lạ it; vie: ngôn ngữ nghĩa lạ nl"
+      ]
+    },
+    {
+      "form": "parce",
+      "word": "parce",
+      "why": [
+        "giám khảo A: The word 'parce' is not a standalone conjunction; it is part of 'parce que'. The lemma should be 'parce que' or the entry should reflect that it is a fixed phrase. Listing it as a standalone conjunction is linguistically incorrect.",
+        "giám khảo B: 'parce' is not a standalone conjunction in French (it only exists in 'parce que').",
+        "dịch ngược lệch: id,th",
+        "cổng: parce: thiếu nghĩa id; parce: thiếu nghĩa th; parce: ngôn ngữ nghĩa lạ it; parce: ngôn ngữ nghĩa lạ nl"
+      ]
+    },
+    {
+      "form": "après",
+      "word": "après",
+      "why": [
+        "dịch ngược lệch: id,th",
+        "cổng: après: thiếu nghĩa id; après: thiếu nghĩa th; après: ngôn ngữ nghĩa lạ it; après: ngôn ngữ nghĩa lạ nl"
+      ]
+    },
+    {
+      "form": "leur",
+      "word": "leur",
+      "why": [
+        "dịch ngược lệch: id,th",
+        "cổng: leur: thiếu nghĩa id; leur: thiếu nghĩa th; leur: ngôn ngữ nghĩa lạ it; leur: ngôn ngữ nghĩa lạ nl"
+      ]
+    },
+    {
+      "form": "mal",
+      "word": "mal",
+      "why": [
+        "dịch ngược lệch: id,th",
+        "cổng: mal: thiếu nghĩa id; mal: thiếu nghĩa th; mal: ngôn ngữ nghĩa lạ it; mal: ngôn ngữ nghĩa lạ nl"
+      ]
+    },
+    {
+      "form": "mieux",
+      "word": "mieux",
+      "why": [
+        "dịch ngược lệch: id,th",
+        "cổng: mieux: thiếu nghĩa id; mieux: thiếu nghĩa th; mieux: ngôn ngữ nghĩa lạ it; mieux: ngôn ngữ nghĩa lạ nl"
+      ]
+    },
+    {
+      "form": "savoir",
+      "word": "savoir",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "aider",
+      "word": "aider",
+      "why": [
+        "giám khảo A: IPA incorrect (should be /e.de/)"
+      ]
+    },
+    {
+      "form": "pourrait",
+      "word": "pouvoir",
+      "why": [
+        "giám khảo A: Lemma does not match key; entry word should be 'pourrait' or key should be 'pouvoir'"
+      ]
+    },
+    {
+      "form": "appelle",
+      "word": "appeler",
+      "why": [
+        "giám khảo A: Lemma does not match key; entry word should be 'appelle' or key should be 'appeler'"
+      ]
+    },
+    {
+      "form": "parle",
+      "word": "parler",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "mec",
+      "word": "mec",
+      "why": [
+        "giám khảo B: Example uses 'mec' which is heavy slang/colloquial, violating the neutral register constraint.",
+        "cổng: mec: câu ví dụ lệch chuẩn fr (vosotros/leísmo/từ vùng): Ce mec est très sympa."
+      ]
+    },
+    {
+      "form": "coup",
+      "word": "coup",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "importe",
+      "word": "importer",
+      "why": [
+        "giám khảo A: IPA missing final schwa for infinitive; entry mixes lemma \"importer\" with form \"importe\" causing inconsistency."
+      ]
+    },
+    {
+      "form": "fini",
+      "word": "finir",
+      "why": [
+        "giám khảo A: IPA given as \"fini\" is not phonetic transcription; should be [fi.niʁ] for \"finir\". Form handling ambiguous."
+      ]
+    },
+    {
+      "form": "place",
+      "word": "place",
+      "why": [
+        "dịch ngược lệch: pt,id,hi,ar,ru,tr",
+        "cổng: place: nghĩa ar sai chữ viết: place"
+      ]
+    },
+    {
+      "form": "attention",
+      "word": "attention",
+      "why": [
+        "giám khảo B: IPA is incorrect (atɑ̃sjɔ̃ is for 'attention' in some dialects or a typo, standard is atɑ̃sjɔ̃? No, standard is atɑ̃sjɔ̃? Actually standard is [atɑ̃sjɔ̃] is wrong, it's [atɑ̃sjɔ̃]... wait. Standard IPA for attention is [atɑ̃sjɔ̃]. Let me re-verify. A-T-T-E-N-T-I-O-N. /atɑ̃sjɔ̃/. The provided IPA is 'atɑ̃sjɔ̃'. This looks correct. Wait, let me check the other items. Ah, 'vieux' example is nonsense. Let's look at 'attention' again. Is the IPA standard? Yes. Is the gloss correct? Yes. Is the example natural? Yes. Why did I flag it? Let me check 'voici'. Pos is 'prep'. 'Voici' is a demonstrative pronoun/verb, not a preposition. That's a POS error. Let's check 'vieux'. Example: 'Il habite dans un vieux livre d'histoire.' (He lives in an old history book). This is semantically absurd/unnatural. Let's check 'venez'. Word is 'venir', exForm 'venez'. This is acceptable if the deck uses inflected forms, but usually lemma is expected. However, the prompt says 'lemma or part of speech wrong'. 'venez' is not the lemma. The entry key is 'venez' but word is 'venir'. The key is 'venez'. The entry word is 'venir'. This is inconsistent. But usually 'k' is the ID. Let's look at 'aura'. Key 'aura', word 'avoir'. Same issue. Let's look at 'espère'. Key 'espère', word 'espérer'. Same issue. The prompt asks to review the deck. If the key is the inflected form but the entry is the lemma, is that an error? The prompt says 'keyed by each item's k'. The item has 'word': 'venir'. If the user expects the key to match the word, it's a mismatch. But often decks use the surface form as key. However, 'voici' has pos 'prep'. 'Voici' is not a preposition. It is a demonstrative. That is a clear POS error. 'vieux' example is clearly bad. 'attention' IPA: [atɑ̃sjɔ̃]. The provided IPA is 'atɑ̃sjɔ̃'. This is correct. Wait, is 'attention' feminine? Yes. Plural 'attentions'. Yes. So 'attention' might be ok. Let's re-read the 'vieux' example. 'Il habite dans un vieux livre d'histoire.' This is definitely not natural spoken French. It's a surreal sentence. So 'vieux' is false. 'voici' pos is 'prep'. False. 'venez', 'aura', 'espère' have keys that are inflected forms while the word is the lemma. Is this an error? The prompt says 'lemma ... wrong'. The lemma is provided in 'word'. The key is just an ID. I will assume the key is just an ID. So 'venez' entry is for 'venir'. Is 'venir' correct? Yes. Is the example 'Venez ici' natural? Yes. So 'venez' might be ok. 'aura' entry for 'avoir'. Example 'Il y aura...'. Natural. 'espère' entry for 'espérer'. Example 'J'espère...'. Natural. So the main errors are 'voici' (POS) and 'vieux' (Example). Let's check 'attention' again. IPA: atɑ̃sjɔ̃. Standard is [atɑ̃sjɔ̃]. Correct. Gloss: 'sự chú ý' (attention). Correct. Example: 'Faites attention...'. Correct. So 'attention' is ok. 'premier': adj. IPA pʁəmje. Correct. Example natural. Ok. 'chambre': n, f. IPA ʃɑ̃bʁ. Correct. Example natural. Ok. 'mourir': v. IPA muʁiʁ. Correct. Example natural. Ok. 'jeune': adj. IPA ʒœn. Correct. Example natural. Ok. So only 'voici' and 'vieux' are bad? Let's check 'voici' again. 'Voici' is often classified as a demonstrative pronoun or a verb (present of voir? No, it's a fixed expression). Calling it a 'prep' is definitely wrong. Let's check 'vieux' again. 'Il habite dans un vieux livre d'histoire.' This is not a natural sentence. It's a hallucination. So 'vieux' is false. Are there any other subtle errors? 'venez' key vs 'venir' word. If the deck is for learners, having the key as the inflected form might be confusing, but the entry itself is for the lemma 'venir'. The prompt says 'keyed by each item's k'. It doesn't say k must equal word. It says 'lemma ... wrong'. The lemma is 'venir'. That is correct. So I will mark 'venez', 'aura', 'espère' as ok, assuming the key is just an identifier. Wait, looking at 'attention', the key is 'attention' and word is 'attention'. 'voici' key 'voici' word 'voici'. 'premier' key 'premier' word 'premier'. 'vieux' key 'vieux' word 'vieux'. 'chambre' key 'chambre' word 'chambre'. 'mourir' key 'mourir' word 'mourir'. 'jeune' key 'jeune' word 'jeune'. The ones with mismatched keys are 'venez' (word venir), 'espère' (word espérer), 'aura' (word avoir). This inconsistency suggests a potential error in the deck structure, but strictly speaking, the *entry* for 'venir' is correct. The prompt asks to review the *items*. If the item is identified by 'venez' but contains data for 'venir', is the item wrong? The prompt says 'lemma ... wrong'. The lemma in the entry is 'venir'. That is the correct lemma for the word 'venez'. So the entry is correct. The key is just a label. I will treat them as ok. So 'voici' (POS error) and 'vieux' (Example error) are the failures. Let's double check 'attention' IPA. [atɑ̃sjɔ̃]. The provided string is 'atɑ̃sjɔ̃'. This is correct. Let's double check 'vieux' IPA. [vjø]. Correct. Let's double check 'voici' IPA. [vwasi]. Correct. So 'voici' fails on POS. 'vieux' fails on Example. All others seem fine.",
+        "dịch ngược lệch: th"
+      ]
+    },
+    {
+      "form": "voici",
+      "word": "voici",
+      "why": [
+        "giám khảo A: POS should be adverb/demonstrative, IPA not standard French IPA notation.",
+        "giám khảo B: Part of speech is incorrect; 'voici' is a demonstrative pronoun/verb, not a preposition."
+      ]
+    },
+    {
+      "form": "vieux",
+      "word": "vieux",
+      "why": [
+        "giám khảo A: Example sentence is unnatural (living inside a book).",
+        "giám khảo B: Example sentence is semantically absurd and unnatural ('He lives in an old history book').",
+        "dịch ngược lệch: ko",
+        "cổng: vieux: lẫn tiếng Việt ở ko; vieux: nghĩa ko sai chữ viết: nối"
+      ]
+    },
+    {
+      "form": "venez",
+      "word": "venir",
+      "why": [
+        "giám khảo A: IPA missing final consonant /ʁ}, otherwise other data fine."
+      ]
+    },
+    {
+      "form": "chambre",
+      "word": "chambre",
+      "why": [
+        "dịch ngược lệch: es,pt,de,id,zh,ja,ko,hi,ar,ru,tr"
+      ]
+    },
+    {
+      "form": "aura",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "madame",
+      "word": "madame",
+      "why": [
+        "giám khảo A: Turkish gloss is nonsense (\"hภาพ\"), not a translation of \"madame\"; gloss error makes entry invalid.",
+        "giám khảo B: Turkish gloss contains a Thai character ('hภาพ') instead of the correct Turkish text ('hanım' or 'bayan').",
+        "dịch ngược lệch: ja,tr"
+      ]
+    },
+    {
+      "form": "ait",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "exactement",
+      "word": "exactement",
+      "why": [
+        "dịch ngược lệch: id,th,hi"
+      ]
+    },
+    {
+      "form": "parents",
+      "word": "parent",
+      "why": [
+        "dịch ngược lệch: th"
+      ]
+    },
+    {
+      "form": "pensé",
+      "word": "penser",
+      "why": [
+        "dịch ngược lệch: ar"
+      ]
+    },
+    {
+      "form": "cours",
+      "word": "cours",
+      "why": [
+        "giám khảo B: Russian gloss 'urs' is incorrect (should be 'курс'); 'urs' is German for bear.",
+        "dịch ngược lệch: th,hi,ar,ru,tr",
+        "cổng: cours: nghĩa ru sai chữ viết: urs"
+      ]
+    },
+    {
+      "form": "abord",
+      "word": "abord",
+      "why": [
+        "giám khảo A: Example uses adverbial \"D'abord\" instead of the noun \"abord\"; mismatched usage.",
+        "giám khảo B: Example uses 'D'abord' (first) which is a different lexical unit/sense than the headword 'abord' (approach/access). The gloss 'approach' does not match the example usage.",
+        "dịch ngược lệch: es,pt,de,th,hi"
+      ]
+    },
+    {
+      "form": "garder",
+      "word": "garder",
+      "why": [
+        "giám khảo B: Japanese gloss is ' keeps' (English text with a space) instead of a Japanese translation.",
+        "cổng: garder: nghĩa ja sai chữ viết:  keeps"
+      ]
+    },
+    {
+      "form": "route",
+      "word": "route",
+      "why": [
+        "giám khảo B: Hindi gloss 'সड़ক' is in Bengali script, not Devanagari."
+      ]
+    },
+    {
+      "form": "faisait",
+      "word": "faire",
+      "why": [
+        "giám khảo A: IPA for \"faire\" is wrong (should be /fɛʁ/); entry mismatches form."
+      ]
+    },
+    {
+      "form": "the",
+      "word": "thé",
+      "why": [
+        "dịch ngược lệch: ar",
+        "cổng: thé: nghĩa ar sai chữ viết: ชาย"
+      ]
+    },
+    {
+      "form": "appris",
+      "word": "apprendre",
+      "why": [
+        "dịch ngược lệch: ru"
+      ]
+    },
+    {
+      "form": "âge",
+      "word": "âge",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: âge? – Le point d’interrogation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "rencontrer",
+      "word": "rencontrer",
+      "why": [
+        "dịch ngược lệch: es,pt,tr"
+      ]
+    },
+    {
+      "form": "messieurs",
+      "word": "monsieur",
+      "why": [
+        "giám khảo A: Key is 'messieurs' but entry word is 'monsieur'; inconsistent key/word pair for a plural-specific entry.",
+        "giám khảo B: Headword is lemmatized to singular 'monsieur' with singular IPA /mə.sjø/, but glosses, example, and key are plural 'messieurs'",
+        "cổng: monsieur: câu ví dụ không chứa \"monsieur\""
+      ]
+    },
+    {
+      "form": "occuper",
+      "word": "occuper",
+      "why": [
+        "dịch ngược lệch: id,th"
+      ]
+    },
+    {
+      "form": "avaient",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi",
+        "cổng: avoir: câu ví dụ không chứa \"avoir\""
+      ]
+    },
+    {
+      "form": "su",
+      "word": "savoir",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "savait",
+      "word": "savoir",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "situation",
+      "word": "situation",
+      "why": [
+        "giám khảo A: IPA should be [sitɥazjɔ̃] with /z/, not /s/",
+        "cổng: situation: nghĩa ko sai chữ viết: situación"
+      ]
+    },
+    {
+      "form": "oncle",
+      "word": "oncle",
+      "why": [
+        "dịch ngược lệch: th"
+      ]
+    },
+    {
+      "form": "médecin",
+      "word": "médecin",
+      "why": [
+        "giám khảo A: IPA missing the schwa; should be [medəsɛ̃]"
+      ]
+    },
+    {
+      "form": "dedans",
+      "word": "dedans",
+      "why": [
+        "giám khảo A: Example unnatural; \"entrez dedans\" is not idiomatic French"
+      ]
+    },
+    {
+      "form": "pieds",
+      "word": "pied",
+      "why": [
+        "dịch ngược lệch: ru"
+      ]
+    },
+    {
+      "form": "moitié",
+      "word": "moitié",
+      "why": [
+        "giám khảo A: IPA \"mwatje\" lacks proper vowel symbol; should be [mwɑtje]"
+      ]
+    },
+    {
+      "form": "devenu",
+      "word": "devenir",
+      "why": [
+        "giám khảo A: IPA \"dəvnjyl\" is incorrect for \"devenir\""
+      ]
+    },
+    {
+      "form": "joli",
+      "word": "joli",
+      "why": [
+        "cổng: joli: câu ví dụ không chứa \"joli\""
+      ]
+    },
+    {
+      "form": "tueur",
+      "word": "tueur",
+      "why": [
+        "giám khảo A: IPA \"tyœʁ\" uses non‑standard symbol; should be [tɥœʁ]"
+      ]
+    },
+    {
+      "form": "normal",
+      "word": "normal",
+      "why": [
+        "cổng: normal: câu ví dụ không chứa \"normal\""
+      ]
+    },
+    {
+      "form": "joué",
+      "word": "jouer",
+      "why": [
+        "giám khảo B: Indonesian gloss contains a typo ('bเล่น' instead of 'bermain')."
+      ]
+    },
+    {
+      "form": "travers",
+      "word": "travers",
+      "why": [
+        "giám khảo A: Entry is for noun but example uses preposition; gloss gives wrong sense (breadth).",
+        "giám khảo B: Example uses 'à travers' (preposition) but the headword is the noun 'travers' (breadth/defect); the example does not use the headword in its nominal sense.",
+        "dịch ngược lệch: es,pt,de,id,th"
+      ]
+    },
+    {
+      "form": "mecs",
+      "word": "mec",
+      "why": [
+        "dịch ngược lệch: es,pt,de"
+      ]
+    },
+    {
+      "form": "viennent",
+      "word": "venir",
+      "why": [
+        "giám khảo A: IPA incorrect; should be /və.niʁ/"
+      ]
+    },
+    {
+      "form": "coupable",
+      "word": "coupable",
+      "why": [
+        "giám khảo A: IPA incorrect; should be /ku.pabl/"
+      ]
+    },
+    {
+      "form": "paris",
+      "word": "pari",
+      "why": [
+        "dịch ngược lệch: hi",
+        "cổng: pari: exForm thừa"
+      ]
+    },
+    {
+      "form": "allée",
+      "word": "allée",
+      "why": [
+        "dịch ngược lệch: vi,pt,de,ja,ru,tr"
+      ]
+    },
+    {
+      "form": "récupérer",
+      "word": "récupérer",
+      "why": [
+        "dịch ngược lệch: pt,ko"
+      ]
+    },
+    {
+      "form": "fiche",
+      "word": "fiche",
+      "why": [
+        "dịch ngược lệch: vi,es,pt,de,ja,ru"
+      ]
+    },
+    {
+      "form": "pourriez",
+      "word": "pouvoir",
+      "why": [
+        "dịch ngược lệch: vi,id,th,zh,ja,ko,hi,ar,ru,tr"
+      ]
+    },
+    {
+      "form": "entrée",
+      "word": "entrée",
+      "why": [
+        "dịch ngược lệch: ar"
+      ]
+    },
+    {
+      "form": "règles",
+      "word": "règle",
+      "why": [
+        "dịch ngược lệch: es,pt,de,id,hi,ar,ru"
+      ]
+    },
+    {
+      "form": "plupart",
+      "word": "plupart",
+      "why": [
+        "giám khảo A: Plural form given as \"pluparts\" is incorrect; \"plupart\" is invariable.",
+        "giám khảo B: Plural 'pluparts' is incorrect; 'la plupart' is invariable."
+      ]
+    },
+    {
+      "form": "hum",
+      "why": "skip: interjection noise"
+    },
+    {
+      "form": "anglais",
+      "word": "anglais",
+      "why": [
+        "giám khảo A: IPA missing the /ɡ/ sound",
+        "giám khảo B: Japanese gloss contains an extraneous English word ('profit')."
+      ]
+    },
+    {
+      "form": "dérange",
+      "word": "déranger",
+      "why": [
+        "giám khảo A: IPA omits final vowel of infinitive"
+      ]
+    },
+    {
+      "form": "paraît",
+      "word": "paraître",
+      "why": [
+        "giám khảo A: IPA given for conjugated form, not for lemma \"paraître\""
+      ]
+    },
+    {
+      "form": "revient",
+      "word": "revenir",
+      "why": [
+        "giám khảo A: IPA given for conjugated form, not for lemma \"revenir\""
+      ]
+    },
+    {
+      "form": "jimmy",
+      "why": "skip: proper noun"
+    },
+    {
+      "form": "ayez",
+      "word": "avoir",
+      "why": [
+        "giám khảo A: IPA wrong (should be [aje]), entry word mismatches form; otherwise fine.",
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "découvrir",
+      "word": "découvrir",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "will",
+      "why": "skip: not standard french"
+    },
+    {
+      "form": "espace",
+      "word": "espace",
+      "why": [
+        "giám khảo A: IPA should be [e] not [ɛ]; given /ɛspas/ is incorrect",
+        "cổng: espace: nghĩa ja sai chữ viết:  space; espace: nghĩa ar sai chữ viết: space"
+      ]
+    },
+    {
+      "form": "ennemi",
+      "word": "ennemi",
+      "why": [
+        "giám khảo A: IPA wrong: missing nasal vowel and schwa, should be [ɑ̃.nə.mi]"
+      ]
+    },
+    {
+      "form": "durant",
+      "word": "durant",
+      "why": [
+        "dịch ngược lệch: th"
+      ]
+    },
+    {
+      "form": "série",
+      "word": "série",
+      "why": [
+        "cổng: série: nghĩa ja sai chữ viết:  series"
+      ]
+    },
+    {
+      "form": "raisons",
+      "word": "raison",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "vouliez",
+      "word": "vouloir",
+      "why": [
+        "giám khảo A: IPA for \"vouloir\" is wrong (should be /vu.lwaʁ/)."
+      ]
+    },
+    {
+      "form": "mienne",
+      "word": "mien",
+      "why": [
+        "giám khảo A: IPA for \"mien\" should be /mjɛ̃/, not /mjɛn/."
+      ]
+    },
+    {
+      "form": "quitte",
+      "word": "quitter",
+      "why": [
+        "giám khảo A: IPA for \"quitter\" is incorrect (should be /ki.tɛ/ or /ki.tje/)."
+      ]
+    },
+    {
+      "form": "jake",
+      "why": "skip: proper noun"
+    },
+    {
+      "form": "chier",
+      "why": "skip: vulgar"
+    },
+    {
+      "form": "dise",
+      "word": "dire",
+      "why": [
+        "giám khảo A: IPA \"diz\" is incorrect; should be /diʁ/. Other fields fine."
+      ]
+    },
+    {
+      "form": "oubliez",
+      "word": "oublier",
+      "why": [
+        "giám khảo A: IPA \"ublije\" is non‑standard; correct IPA is /ublje/. Other data correct.",
+        "giám khảo B: Example sentence is semantically incorrect/unnatural: 'N'oubliez pas vos clés sur la table' implies leaving keys on the table, but 'oublier' usually implies losing or forgetting to take them. A natural phrasing would be 'N'oubliez pas de prendre vos clés' or 'Ne laissez pas vos clés sur la table'."
+      ]
+    },
+    {
+      "form": "bouger",
+      "word": "bouger",
+      "why": [
+        "cổng: bouger: câu ví dụ không chứa \"bouger\""
+      ]
+    },
+    {
+      "form": "afin",
+      "word": "afin",
+      "why": [
+        "giám khảo B: Part of speech is incorrect. 'Afin' is an adverb (or conjunction when followed by 'de'), not a preposition. It requires 'de' to introduce an infinitive clause (afin de), whereas prepositions like 'pour' do not."
+      ]
+    },
+    {
+      "form": "robert",
+      "why": "skip: proper noun"
+    },
+    {
+      "form": "moindre",
+      "word": "moindre",
+      "why": [
+        "dịch ngược lệch: es,pt,hi,ru"
+      ]
+    },
+    {
+      "form": "rapidement",
+      "word": "rapidement",
+      "why": [
+        "giám khảo A: IPA missing the schwa (/ə/) and not fully standard"
+      ]
+    },
+    {
+      "form": "certaine",
+      "word": "certain",
+      "why": [
+        "giám khảo A: IPA lacks the nasal vowel and is not the standard /sɛʁ.tɛ̃/"
+      ]
+    },
+    {
+      "form": "couper",
+      "word": "couper",
+      "why": [
+        "cổng: couper: câu ví dụ không chứa \"couper\""
+      ]
+    },
+    {
+      "form": "dépend",
+      "word": "dépendre",
+      "why": [
+        "giám khảo A: IPA incomplete, missing initial /d/ and final /ʁ/"
+      ]
+    },
+    {
+      "form": "labo",
+      "word": "labo",
+      "why": [
+        "giám khảo B: IPA is incorrect; 'labo' is pronounced /labo/ with a clear /o/, not /labo/ (which implies a nasal or different vowel depending on interpretation, but standard IPA for the word is /labo/). More critically, the IPA provided in the JSON is 'labo' which is not standard IPA notation (should be /labo/). Also, 'labo' is informal/slang, but the prompt allows it if natural. The main error is the IPA format."
+      ]
+    },
+    {
+      "form": "adn",
+      "word": "ADN",
+      "why": [
+        "giám khảo B: IPA is incorrect. 'ADN' is pronounced /a.de.n/ (three syllables), not /adeɛn/ (which looks like a diphthong or incorrect vowel). Also, the Portuguese gloss 'DNAM' is a typo for 'ADN' or 'DNA'.",
+        "dịch ngược lệch: ar",
+        "cổng: ADN: nghĩa zh sai chữ viết: DNA; ADN: nghĩa ja sai chữ viết: DNA; ADN: nghĩa ko sai chữ viết: DNA; ADN: nghĩa vi = nguyên từ fr"
+      ]
+    },
+    {
+      "form": "pourraient",
+      "word": "pouvoir",
+      "why": [
+        "giám khảo A: IPA \"puʁɛ\" does not match the verb \"pouvoir\" nor the form \"pourraient\"; lemma/IPA mismatch.",
+        "dịch ngược lệch: tr",
+        "cổng: pouvoir: thiếu nghĩa tr"
+      ]
+    },
+    {
+      "form": "champ",
+      "word": "champ",
+      "why": [
+        "cổng: champ: nghĩa ru sai chữ viết: pole"
+      ]
+    },
+    {
+      "form": "malin",
+      "word": "malin",
+      "why": [
+        "dịch ngược lệch: ru"
+      ]
+    },
+    {
+      "form": "chris",
+      "why": "skip: proper noun"
+    },
+    {
+      "form": "amoureuse",
+      "word": "amoureux",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "cache",
+      "word": "cacher",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "apporte",
+      "word": "apporter",
+      "why": [
+        "giám khảo A: IPA missing final vowel (should be /apɔʁte/)",
+        "giám khảo B: Example sentence is unnatural and semantically incoherent ('He hides something from me and brings a gift' is not a standard collocation or logical sequence for a learner example)."
+      ]
+    },
+    {
+      "form": "poche",
+      "word": "poche",
+      "why": [
+        "dịch ngược lệch: vi,de,th"
+      ]
+    },
+    {
+      "form": "univers",
+      "word": "univers",
+      "why": [
+        "giám khảo A: IPA incorrect (should be /ynivɛʁ/)"
+      ]
+    },
+    {
+      "form": "piège",
+      "word": "piège",
+      "why": [
+        "giám khảo A: IPA vowel wrong (should be /pjeʒ/ not /pjɛʒ/)"
+      ]
+    },
+    {
+      "form": "regardes",
+      "word": "regarder",
+      "why": [
+        "giám khảo A: IPA missing final vowel (should be /ʁəɡaʁde/)",
+        "dịch ngược lệch: id,ja,ko,hi"
+      ]
+    },
+    {
+      "form": "enlève",
+      "word": "enlever",
+      "why": [
+        "giám khảo A: IPA missing the schwa and syllable breaks; correct IPA should be /ɑ̃.lə.ve/"
+      ]
+    },
+    {
+      "form": "répète",
+      "word": "répéter",
+      "why": [
+        "cổng: répéter: exForm thừa"
+      ]
+    },
+    {
+      "form": "no",
+      "why": "skip: not French"
+    },
+    {
+      "form": "crétin",
+      "why": "skip: offensive"
+    },
+    {
+      "form": "appels",
+      "word": "appel",
+      "why": [
+        "cổng: appel: câu ví dụ không chứa \"appel\""
+      ]
+    },
+    {
+      "form": "dira",
+      "word": "dire",
+      "why": [
+        "cổng: dire: câu ví dụ không chứa \"dire\""
+      ]
+    },
+    {
+      "form": "lisa",
+      "why": "skip: proper noun"
+    },
+    {
+      "form": "angleterre",
+      "why": "skip: proper noun"
+    },
+    {
+      "form": "saviez",
+      "word": "savoir",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "aveugle",
+      "word": "aveugle",
+      "why": [
+        "cổng: aveugle: câu ví dụ không chứa \"aveugle\""
+      ]
+    },
+    {
+      "form": "commun",
+      "word": "commun",
+      "why": [
+        "dịch ngược lệch: id,th"
+      ]
+    },
+    {
+      "form": "moments",
+      "word": "moment",
+      "why": [
+        "dịch ngược lệch: id,th"
+      ]
+    },
+    {
+      "form": "my",
+      "why": "skip: foreign word"
+    },
+    {
+      "form": "chicago",
+      "why": "skip: proper noun"
+    },
+    {
+      "form": "emploi",
+      "word": "emploi",
+      "why": [
+        "dịch ngược lệch: de"
+      ]
+    },
+    {
+      "form": "véritable",
+      "word": "véritable",
+      "why": [
+        "giám khảo B: German gloss 'echeckbox' is a typo/nonsense; should be 'echter' or 'wahr'.",
+        "dịch ngược lệch: de",
+        "cổng: véritable: nghĩa hi sai chữ viết: assli"
+      ]
+    },
+    {
+      "form": "engagé",
+      "word": "engagé",
+      "why": [
+        "dịch ngược lệch: ru"
+      ]
+    },
+    {
+      "form": "logique",
+      "word": "logique",
+      "why": [
+        "dịch ngược lệch: id"
+      ]
+    },
+    {
+      "form": "annie",
+      "why": "skip: proper name"
+    },
+    {
+      "form": "louis",
+      "why": "skip: proper name"
+    },
+    {
+      "form": "william",
+      "why": "skip: proper name"
+    },
+    {
+      "form": "rock",
+      "word": "rock",
+      "why": [
+        "giám khảo A: Plural \"rocks\" is non‑standard for the uncountable noun rock in French"
+      ]
+    },
+    {
+      "form": "plaisante",
+      "word": "plaisanter",
+      "why": [
+        "dịch ngược lệch: pt"
+      ]
+    },
+    {
+      "form": "cesse",
+      "word": "cesse",
+      "why": [
+        "giám khảo A: Part of speech mismatched (noun vs verb) and English gloss \"cease\" is a verb, not the noun meaning \"cessation\"."
+      ]
+    },
+    {
+      "form": "sage",
+      "word": "sage",
+      "why": [
+        "dịch ngược lệch: vi"
+      ]
+    },
+    {
+      "form": "paroles",
+      "word": "parole",
+      "why": [
+        "cổng: parole: nghĩa ar sai chữ viết: kalam"
+      ]
+    },
+    {
+      "form": "e",
+      "why": "skip: not a word"
+    },
+    {
+      "form": "bye",
+      "why": "skip: non-French"
+    },
+    {
+      "form": "supplie",
+      "why": "skip: non-standard"
+    },
+    {
+      "form": "vive",
+      "word": "vivre",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: musique! – Le point d’exclamation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "champagne",
+      "word": "champagne",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: champagne: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "fusil",
+      "word": "fusil",
+      "why": [
+        "giám khảo B: Pronunciation error: final 'l' is silent in 'fusil' (/fy.zi/, not /fyzil/)",
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: fusil: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "voila",
+      "word": "voilà",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: voilà: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "rapports",
+      "word": "rapport",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: rapport: thiếu nghĩa vi; rapport: câu ví dụ không chứa \"rapport\""
+      ]
+    },
+    {
+      "form": "passait",
+      "word": "passer",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: passer: thiếu nghĩa vi; passer: câu ví dụ không chứa \"passer\""
+      ]
+    },
+    {
+      "form": "chèque",
+      "word": "chèque",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: chèque: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "tim",
+      "why": "skip: proper name"
+    },
+    {
+      "form": "soyons",
+      "word": "être",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "juge",
+      "word": "juge",
+      "why": [
+        "wiktionary: giống mf ↔ m"
+      ]
+    },
+    {
+      "form": "être",
+      "word": "être",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "votre",
+      "word": "votre",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "trouver",
+      "word": "trouver",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "dernier",
+      "word": "dernier",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "payer",
+      "word": "payer",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "question",
+      "word": "question",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "écouter",
+      "word": "écouter",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "croire",
+      "word": "croire",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "rêve",
+      "word": "rêve",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "perdre",
+      "word": "perdre",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "doigt",
+      "word": "doigt",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "cool",
+      "word": "cool",
+      "why": [
+        "duyệt tay: từ vay tiếng Anh, không thêm giá trị Pháp ngữ"
+      ]
+    },
+    {
+      "form": "okay",
+      "word": "okay",
+      "why": [
+        "duyệt tay: từ vay tiếng Anh"
+      ]
+    },
+    {
+      "form": "virer",
+      "word": "virer",
+      "why": [
+        "duyệt tay: thân mật/suồng sã"
+      ]
+    }
+  ],
+  "tried": [
+    "la",
+    "ne",
+    "ai",
+    "bien",
+    "plus",
+    "était",
+    "sais",
+    "votre",
+    "quand",
+    "comment",
+    "très",
+    "sa",
+    "allez",
+    "encore",
+    "vie",
+    "parce",
+    "après",
+    "leur",
+    "mal",
+    "mieux",
+    "quel",
+    "autres",
+    "savoir",
+    "raison",
+    "aider",
+    "peur",
+    "trouver",
+    "pourrait",
+    "appelle",
+    "voiture",
+    "parle",
+    "tard",
+    "mec",
+    "coup",
+    "importe",
+    "fini",
+    "dernière",
+    "mois",
+    "arrivé",
+    "place",
+    "attention",
+    "voici",
+    "premier",
+    "vieux",
+    "venez",
+    "chambre",
+    "espère",
+    "aura",
+    "mourir",
+    "jeune",
+    "chef",
+    "madame",
+    "mains",
+    "ait",
+    "exactement",
+    "parents",
+    "pensé",
+    "cours",
+    "ainsi",
+    "instant",
+    "mot",
+    "abord",
+    "plaisir",
+    "garder",
+    "route",
+    "drôle",
+    "ceci",
+    "faisait",
+    "payer",
+    "café",
+    "the",
+    "musique",
+    "questions",
+    "cool",
+    "gentil",
+    "appris",
+    "bras",
+    "surtout",
+    "morts",
+    "ecoute",
+    "rencontrer",
+    "reçu",
+    "messieurs",
+    "début",
+    "cher",
+    "occuper",
+    "âge",
+    "avaient",
+    "bout",
+    "voyage",
+    "situation",
+    "oncle",
+    "battre",
+    "sale",
+    "okay",
+    "sympa",
+    "médecin",
+    "croyez",
+    "savait",
+    "su",
+    "expliquer",
+    "dedans",
+    "pieds",
+    "espèce",
+    "moitié",
+    "devenu",
+    "joli",
+    "poser",
+    "tueur",
+    "normal",
+    "offre",
+    "joué",
+    "juge",
+    "lu",
+    "pourtant",
+    "travers",
+    "signifie",
+    "voler",
+    "décision",
+    "clé",
+    "mecs",
+    "viennent",
+    "coupable",
+    "paris",
+    "allée",
+    "retourne",
+    "amoureux",
+    "gouvernement",
+    "récupérer",
+    "fiche",
+    "pourriez",
+    "jeter",
+    "opération",
+    "entrée",
+    "règles",
+    "vérifier",
+    "environ",
+    "rêves",
+    "plupart",
+    "éviter",
+    "hum",
+    "deuxième",
+    "anglais",
+    "dérange",
+    "vide",
+    "code",
+    "défense",
+    "paraît",
+    "revient",
+    "aimais",
+    "planète",
+    "danser",
+    "jimmy",
+    "honnête",
+    "ayez",
+    "rose",
+    "réalité",
+    "découvrir",
+    "attendais",
+    "pierre",
+    "espace",
+    "will",
+    "ennemi",
+    "victimes",
+    "épouser",
+    "ancien",
+    "durant",
+    "jambes",
+    "série",
+    "couteau",
+    "sentiments",
+    "excellent",
+    "permis",
+    "cible",
+    "vouliez",
+    "piste",
+    "raisons",
+    "mienne",
+    "quitte",
+    "mêmes",
+    "pleurer",
+    "dise",
+    "oubliez",
+    "bouger",
+    "mentir",
+    "afin",
+    "jake",
+    "intention",
+    "signal",
+    "chier",
+    "costume",
+    "moindre",
+    "robert",
+    "rapidement",
+    "certaine",
+    "couper",
+    "dépend",
+    "agents",
+    "menace",
+    "méchant",
+    "labo",
+    "voulons",
+    "adn",
+    "fermé",
+    "caché",
+    "ministre",
+    "pourraient",
+    "champ",
+    "article",
+    "malin",
+    "chris",
+    "cache",
+    "jardin",
+    "apporte",
+    "poche",
+    "univers",
+    "amoureuse",
+    "piège",
+    "traces",
+    "regardes",
+    "enlève",
+    "bâtiment",
+    "habite",
+    "paradis",
+    "conscience",
+    "perd",
+    "doigt",
+    "joindre",
+    "invités",
+    "répète",
+    "douche",
+    "no",
+    "appels",
+    "semblant",
+    "acte",
+    "détective",
+    "dira",
+    "crétin",
+    "atteindre",
+    "leçon",
+    "aveugle",
+    "saviez",
+    "lisa",
+    "bague",
+    "genoux",
+    "commun",
+    "sport",
+    "virer",
+    "moments",
+    "angleterre",
+    "emploi",
+    "my",
+    "véritable",
+    "sommeil",
+    "repos",
+    "engagé",
+    "dieux",
+    "différentes",
+    "logique",
+    "chicago",
+    "pistolet",
+    "réponses",
+    "annie",
+    "normale",
+    "rock",
+    "louis",
+    "william",
+    "physique",
+    "permission",
+    "casser",
+    "plaisante",
+    "souvenez",
+    "dessous",
+    "cesse",
+    "quiconque",
+    "oreille",
+    "sage",
+    "canon",
+    "criminel",
+    "paroles",
+    "e",
+    "bye",
+    "supplie",
+    "vive",
+    "enfuir",
+    "tien",
+    "traité",
+    "murs",
+    "réputation",
+    "tim",
+    "soyons",
+    "département",
+    "gaffe",
+    "médecins"
+  ],
+  "spot": [
+    "cher",
+    "bâtiment",
+    "invité",
+    "douche",
+    "sport",
+    "repos",
+    "souvenir",
+    "criminel"
+  ],
+  "stats": {
+    "used": {
+      "lexai": 0,
+      "gc": 0,
+      "cf2": 0,
+      "cfLeak": 0,
+      "cf2Dead": [],
+      "gem": 29,
+      "groq": 94
+    },
+    "budget": {
+      "lexai": 0,
+      "gc": 10000,
+      "cf2": 0
+    },
+    "by": {
+      "gem|gemini-3.8-flash": {
+        "ok": 3,
+        "fail": 37,
+        "bad": 0
+      },
+      "groq|openai/gpt-oss-120b": {
+        "ok": 56,
+        "fail": 3,
+        "bad": 0
+      },
+      "lexai|gemma-3-27b-it": {
+        "ok": 0,
+        "fail": 2,
+        "bad": 0
+      },
+      "groq|qwen/qwen3.8-27b": {
+        "ok": 38,
+        "fail": 0,
+        "bad": 0
+      },
+      "lexai|gemini-3.5-flash": {
+        "ok": 0,
+        "fail": 38,
+        "bad": 0
+      },
+      "gem|gemini-3.7-flash": {
+        "ok": 0,
+        "fail": 7,
+        "bad": 0
+      },
+      "gem|gemini-3.6-flash": {
+        "ok": 26,
+        "fail": 1,
+        "bad": 0
+      }
+    },
+    "keys": {
+      "gem": {
+        "size": 85,
+        "live": 37,
+        "parked": {
+          "day": 30,
+          "auth": 2,
+          "minute": 16
+        }
+      },
+      "groq": {
+        "size": 109,
+        "live": 108,
+        "parked": {
+          "auth": 1
+        }
+      }
+    }
+  },
+  "wiktFlags": [
+    "ne: từ loại adv ↔ particle"
+  ]
+}

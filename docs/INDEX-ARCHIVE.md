@@ -54,6 +54,8 @@
 - [archive/ROADMAP-2026-10.md](archive/ROADMAP-2026-10.md) — Lộ trình thương mại hóa 14/10, hiện trạng đã cũ; trạng thái store xem STORE-READINESS.md. Đọc khi: tra lịch sử.
 - [archive/AI-PLAN-2026-10.md](archive/AI-PLAN-2026-10.md) — Kế hoạch AI miễn phí nhiều tầng 15/10; hiện hành xem AI-LOCAL.md và EXPLAIN.md. Đọc khi: tra lịch sử.
 - [archive/CI-RUNNERS-QUEUE-1611.md](archive/CI-RUNNERS-QUEUE-1611.md) — Đo hàng chờ 16/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo hàng chờ cũ.
+- [archive/CI-RUNNERS-0511.md](archive/CI-RUNNERS-0511.md) — Số đo hàng chờ 05/11 + cron bị bỏ 3/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo/nhật ký cũ.
+- [archive/CI-RUNNERS-DO-HANG-CHO-AUDIO.md](archive/CI-RUNNERS-DO-HANG-CHO-AUDIO.md) — Đo hàng chờ 20/11 + audio.yml nhanh 14/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo/lý do chia shard audio.
 - [archive/CI-RUNNERS-LUOT-THUA-0211.md](archive/CI-RUNNERS-LUOT-THUA-0211.md) — Lượt thừa 2/11: chính sách + số đo (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra lý do luật concurrency/timeout đầu tiên.
 - [specs/teacher-rive-rig.md](specs/teacher-rive-rig.md) — Rig 2D Ama/Carlos kiểu Rive (TeacherRig: speak/setEmotion/gesture), vì sao không .riv, cổng khớp môi ±33 ms/khớp xương/fps/alpha, kế hoạch gesture bank chờ duyệt credit; đọc khi: thêm cử chỉ/biểu cảm hoặc gắn giáo viên vào màn mới
 - [specs/video-production-v2.md](specs/video-production-v2.md) — Video v2: giáo viên Teach2D vẽ bằng TeacherRig (viseme của voice.wav, cổng lipsync_rig ±33 ms), khối publish 4 nền tảng từ kịch bản, dọn video rác có cách ly; đọc khi: sửa lớp giáo viên video, metadata đăng bài, dọn video
@@ -64,3 +66,6 @@
 - [research/latent-bugs-1611.md](research/latent-bugs-1611.md) — Soát lỗi tiềm ẩn trên main 16/11 (6 vùng, kiểm lại độc lập, nhóm theo chủ vùng, 2 P0 + 6 P1); đọc khi: nhận việc sửa lỗi trong vùng của mình
 - [specs/top1-upgrade-plan.md](specs/top1-upgrade-plan.md) — Kế hoạch lên top 1 từ kiểm toán CI 18/11 (so Duolingo/Speak/ELSA/Cake theo hành trình; UI/UX, nội dung, tính năng; thước đo, thứ tự); đọc khi: chọn việc nâng chất lượng, vẽ màn Stitch mới
 - [specs/stitch-v2-group-b.md](specs/stitch-v2-group-b.md) — Port 5 màn Stitch v2 nhóm B (Thư viện, Bộ từ, Chủ đề, Sổ lỗi sai, Tiến độ) từ #247, mỗi màn một PR; đọc khi làm màn nhóm B
+- [SEO-AUDIT-1211.md](archive/SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
+- [SEO-AUDIT-1511.md](archive/SEO-AUDIT-1511.md) — Soát live blog/từ R2/đề thi: lỗi + mức ưu tiên, đã sửa gì; đọc khi: làm SEO, sitemap, lastmod hoặc trang từ R2.
+- [SEO-GROWTH-PLAN-1710.md](archive/SEO-GROWTH-PLAN-1710.md) — Lưu trữ: kế hoạch SEO 17/10 (nhịp đăng, nội dung theo nước) + kế hoạch lên top 14/11; đọc khi: tra lại kế hoạch cũ

@@ -1,0 +1,939 @@
+{
+  "at": "2026-11-22T05:59:44.483Z",
+  "accepted": 51,
+  "rejected": [
+    {
+      "form": "a",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "me",
+      "word": "me",
+      "why": [
+        "dịch ngược lệch: vi,id,th"
+      ]
+    },
+    {
+      "form": "tout",
+      "word": "tout",
+      "why": [
+        "dịch ngược lệch: vi,de,zh,ja,tr"
+      ]
+    },
+    {
+      "form": "comme",
+      "word": "comme",
+      "why": [
+        "giám khảo A: Part of speech mislabeled; \"comme\" is a conjunction/adverb, not a preposition."
+      ]
+    },
+    {
+      "form": "lui",
+      "word": "lui",
+      "why": [
+        "dịch ngược lệch: vi,id,th"
+      ]
+    },
+    {
+      "form": "sont",
+      "word": "être",
+      "why": [
+        "dịch ngược lệch: vi"
+      ]
+    },
+    {
+      "form": "ton",
+      "word": "ton",
+      "why": [
+        "dịch ngược lệch: ar"
+      ]
+    },
+    {
+      "form": "même",
+      "word": "même",
+      "why": [
+        "dịch ngược lệch: pt"
+      ]
+    },
+    {
+      "form": "êtes",
+      "word": "être",
+      "why": [
+        "dịch ngược lệch: vi,ar"
+      ]
+    },
+    {
+      "form": "dois",
+      "word": "devoir",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "étais",
+      "word": "être",
+      "why": [
+        "dịch ngược lệch: vi,ar"
+      ]
+    },
+    {
+      "form": "aime",
+      "word": "aimer",
+      "why": [
+        "giám khảo A: IPA \"eme\" is not proper French IPA; should be [e.me] or [ɛmɛ].",
+        "dịch ngược lệch: ar,ru,tr"
+      ]
+    },
+    {
+      "form": "cela",
+      "word": "cela",
+      "why": [
+        "dịch ngược lệch: tr"
+      ]
+    },
+    {
+      "form": "nos",
+      "word": "notre",
+      "why": [
+        "giám khảo A: Lemma given as \"notre\" instead of \"nos\"; gender field unnecessary; entry inconsistent.",
+        "dịch ngược lệch: id"
+      ]
+    },
+    {
+      "form": "ah",
+      "word": "ah",
+      "why": [
+        "dịch ngược lệch: ru"
+      ]
+    },
+    {
+      "form": "savez",
+      "word": "savoir",
+      "why": [
+        "giám khảo A: IPA \"save\" is incorrect for \"savoir\"; lemma IPA should be [savwaʁ]; otherwise fine."
+      ]
+    },
+    {
+      "form": "sommes",
+      "word": "être",
+      "why": [
+        "giám khảo A: IPA missing nasal vowel; should be [sɔ̃m]."
+      ]
+    },
+    {
+      "form": "serait",
+      "word": "être",
+      "why": [
+        "dịch ngược lệch: vi,id,zh,ko,hi,ar"
+      ]
+    },
+    {
+      "form": "chance",
+      "word": "chance",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "hein",
+      "word": "hein",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: hein: từ mở đầu bằng h thiếu cờ h (muet|aspire)"
+      ]
+    },
+    {
+      "form": "combien",
+      "word": "combien",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "contre",
+      "word": "contre",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "amour",
+      "word": "amour",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "prends",
+      "word": "prendre",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "aide",
+      "word": "aide",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "car",
+      "word": "car",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "chaque",
+      "word": "chaque",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "bébé",
+      "word": "bébé",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả"
+      ]
+    },
+    {
+      "form": "étaient",
+      "word": "être",
+      "why": [
+        "giám khảo B: IPA for être incorrect (should be /ɛtʁ/)",
+        "dịch ngược lệch: vi"
+      ]
+    },
+    {
+      "form": "attendez",
+      "word": "attendre",
+      "why": [
+        "giám khảo B: IPA for attendre missing final /ʁ/"
+      ]
+    },
+    {
+      "form": "beau",
+      "word": "beau",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "dessus",
+      "word": "dessus",
+      "why": [
+        "giám khảo A: Example is ungrammatical; 'dessus' requires 'sur' (e.g., 'sur la table') or is used as a pronoun, not directly before a noun.",
+        "giám khảo B: Ungrammatical French: 'dessus' is an adverb and cannot take a direct object like 'la table' ('sur la table' or 'au-dessus de la table')."
+      ]
+    },
+    {
+      "form": "ira",
+      "word": "aller",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "ensuite",
+      "word": "ensuite",
+      "why": [
+        "LanguageTool: VIRG_NON_TROUVEE:  nous – Une virgule est requise."
+      ]
+    },
+    {
+      "form": "mauvais",
+      "word": "mauvais",
+      "why": [
+        "cổng: mauvais: nghĩa ko sai chữ viết: nappeun; mauvais: nghĩa ru sai chữ viết: plohoj"
+      ]
+    },
+    {
+      "form": "film",
+      "word": "film",
+      "why": [
+        "cổng: film: nghĩa ko sai chữ viết: yeonghwa; film: nghĩa ru sai chữ viết: fil'm"
+      ]
+    },
+    {
+      "form": "entendre",
+      "word": "entendre",
+      "why": [
+        "cổng: entendre: nghĩa ko sai chữ viết: deul-li-da; entendre: nghĩa ru sai chữ viết: slyshat'; entendre: câu ví dụ không chứa \"entendre\""
+      ]
+    },
+    {
+      "form": "rendre",
+      "word": "rendre",
+      "why": [
+        "cổng: rendre: nghĩa ko sai chữ viết: dol-lyeo-ju-da; rendre: nghĩa ru sai chữ viết: vozvrashchat'"
+      ]
+    },
+    {
+      "form": "attend",
+      "word": "attendre",
+      "why": [
+        "cổng: attendre: nghĩa ko sai chữ viết: gi-da-ri-da; attendre: nghĩa ru sai chữ viết: zhdat'"
+      ]
+    },
+    {
+      "form": "état",
+      "word": "état",
+      "why": [
+        "cổng: état: nghĩa ko sai chữ viết: sang-tae; état: nghĩa ru sai chữ viết: sostoyanie"
+      ]
+    },
+    {
+      "form": "inquiète",
+      "word": "inquiéter",
+      "why": [
+        "giám khảo A: IPA non‑standard and lemma mismatches key; entry should be \"inquiéter\" with proper IPA /ɛ̃.kjɛ.te/",
+        "cổng: inquiéter: nghĩa ko sai chữ viết: geogjeong-ha-da; inquiéter: nghĩa ru sai chữ viết: bespokoit'"
+      ]
+    },
+    {
+      "form": "pensez",
+      "word": "penser",
+      "why": [
+        "cổng: penser: nghĩa ko sai chữ viết: seng-gak-ha-da; penser: nghĩa ru sai chữ viết: dumat'"
+      ]
+    },
+    {
+      "form": "jack",
+      "why": "skip: proper noun"
+    },
+    {
+      "form": "new",
+      "why": "skip: foreign word"
+    },
+    {
+      "form": "doute",
+      "word": "doute",
+      "why": [
+        "giám khảo B: Noun gender is wrong; 'doute' is feminine (la doute), not masculine."
+      ]
+    },
+    {
+      "form": "ferais",
+      "word": "faire",
+      "why": [
+        "giám khảo A: IPA inaccurate for conditional form (should be /fəʁɛ/), other data fine."
+      ]
+    },
+    {
+      "form": "laissez",
+      "word": "laisser",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "envoyé",
+      "word": "envoyer",
+      "why": [
+        "giám khảo A: Key 'envoyé' does not match entry word 'envoyer'; key should be the lemma."
+      ]
+    },
+    {
+      "form": "venue",
+      "word": "venir",
+      "why": [
+        "giám khảo A: Key 'venue' does not match entry word 'venir'; key should be the lemma.",
+        "cổng: venir: câu ví dụ không chứa \"venir\""
+      ]
+    },
+    {
+      "form": "certains",
+      "word": "certain",
+      "why": [
+        "giám khảo A: Key 'certains' does not match entry word 'certain'; key should be the lemma.",
+        "cổng: certain: câu ví dụ không chứa \"certain\""
+      ]
+    },
+    {
+      "form": "promis",
+      "word": "promettre",
+      "why": [
+        "giám khảo A: Key 'promis' does not match entry word 'promettre'; key should be the lemma.",
+        "cổng: promettre: câu ví dụ không chứa \"promettre\""
+      ]
+    },
+    {
+      "form": "seront",
+      "word": "être",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "utiliser",
+      "word": "utiliser",
+      "why": [
+        "giám khảo A: IPA not in standard French format (missing brackets/segments)"
+      ]
+    },
+    {
+      "form": "retourner",
+      "word": "retourner",
+      "why": [
+        "giám khảo A: IPA incorrect (wrong consonant and missing segmentation)"
+      ]
+    },
+    {
+      "form": "idiot",
+      "word": "idiot",
+      "why": [
+        "giám khảo A: IPA not in standard French format"
+      ]
+    },
+    {
+      "form": "décidé",
+      "word": "décider",
+      "why": [
+        "giám khảo A: IPA not in standard French format"
+      ]
+    },
+    {
+      "form": "photos",
+      "word": "photo",
+      "why": [
+        "giám khảo A: IPA not in standard French format"
+      ]
+    },
+    {
+      "form": "surprise",
+      "word": "surprise",
+      "why": [
+        "giám khảo A: IPA not in standard French format"
+      ]
+    },
+    {
+      "form": "terminé",
+      "word": "terminer",
+      "why": [
+        "giám khảo A: IPA not in standard French format"
+      ]
+    },
+    {
+      "form": "disais",
+      "word": "dire",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "vieille",
+      "word": "vieux",
+      "why": [
+        "giám khảo B: Korean gloss contains a Devanagari character (न) instead of Hangul (오)."
+      ]
+    },
+    {
+      "form": "ll",
+      "why": "skip: not a standard French word"
+    },
+    {
+      "form": "foutre",
+      "why": "skip: vulgar"
+    },
+    {
+      "form": "bonnes",
+      "word": "bon",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: bon: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "classe",
+      "word": "classe",
+      "why": [
+        "dịch ngược lệch: vi,th,ko",
+        "cổng: classe: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "visite",
+      "word": "visite",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: visite: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "vivant",
+      "word": "vivant",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: vivant: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "ouvrir",
+      "word": "ouvrir",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: ouvrir: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "monte",
+      "word": "monter",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: monter: thiếu nghĩa vi; monter: câu ví dụ không chứa \"monter\""
+      ]
+    },
+    {
+      "form": "flic",
+      "word": "flic",
+      "why": [
+        "giám khảo B: Slang register ('flic') violates the policy against heavy slang in learner decks.",
+        "dịch ngược lệch: vi",
+        "cổng: flic: thiếu nghĩa vi; flic: câu ví dụ lệch chuẩn fr (vosotros/leísmo/từ vùng): Le flic a arrêté le voleur."
+      ]
+    },
+    {
+      "form": "ordres",
+      "word": "ordre",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: ordre: thiếu nghĩa vi; ordre: câu ví dụ không chứa \"ordre\""
+      ]
+    },
+    {
+      "form": "ia",
+      "why": "skip: not a French word"
+    },
+    {
+      "form": "responsable",
+      "word": "responsable",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: responsable: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "diable",
+      "word": "diable",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: diable: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "préfère",
+      "word": "préférer",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: préférer: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "cerveau",
+      "word": "cerveau",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: cerveau: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "connu",
+      "word": "connu",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: connu: thiếu nghĩa vi; connu: nghĩa en có ký tự lạ"
+      ]
+    },
+    {
+      "form": "cacher",
+      "word": "cacher",
+      "why": [
+        "giám khảo B: The IPA for 'cacher' (/kaʃe/) is incorrectly given as /ʃase/ (which corresponds to 'chasser').",
+        "dịch ngược lệch: vi",
+        "cổng: cacher: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "prise",
+      "word": "prise",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: prise: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "sent",
+      "word": "sentir",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: sentir: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "exemple",
+      "word": "exemple",
+      "why": [
+        "dịch ngược lệch: vi",
+        "cổng: exemple: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "pute",
+      "why": "skip: vulgar"
+    },
+    {
+      "form": "sept",
+      "word": "sept",
+      "why": [
+        "cổng: sept: nghĩa ja sai chữ viết: 7"
+      ]
+    },
+    {
+      "form": "félicitations",
+      "word": "félicitation",
+      "why": [
+        "giám khảo A: Lemma given as singular félicitation instead of plural félicitations; IPA not standard.",
+        "dịch ngược lệch: th"
+      ]
+    },
+    {
+      "form": "excuse",
+      "word": "excuse",
+      "why": [
+        "giám khảo A: IPA missing the /k/ sound (should be /ɛk.sy.z/); otherwise fine.",
+        "cổng: excuse: câu ví dụ không chứa \"excuse\""
+      ]
+    },
+    {
+      "form": "avenir",
+      "word": "avenir",
+      "why": [
+        "giám khảo A: IPA incorrect (missing schwa and vowel quality); otherwise correct."
+      ]
+    },
+    {
+      "form": "fric",
+      "word": "fric",
+      "why": [
+        "giám khảo B: Uses heavy slang ('fric') which is explicitly prohibited by the review criteria.",
+        "cổng: fric: câu ví dụ lệch chuẩn fr (vosotros/leísmo/từ vùng): Il a gagné beaucoup de fric cette année."
+      ]
+    },
+    {
+      "form": "and",
+      "why": "skip: not French"
+    },
+    {
+      "form": "radio",
+      "word": "radio",
+      "why": [
+        "cổng: radio: nghĩa vi = nguyên từ fr"
+      ]
+    },
+    {
+      "form": "vêtements",
+      "word": "vêtement",
+      "why": [
+        "cổng: vêtement: câu ví dụ không chứa \"vêtement\""
+      ]
+    },
+    {
+      "form": "jane",
+      "why": "skip: proper name"
+    },
+    {
+      "form": "ha",
+      "why": "skip: interjection"
+    },
+    {
+      "form": "gens",
+      "word": "gens",
+      "why": [
+        "wiktionary: giống mf ↔ m"
+      ]
+    },
+    {
+      "form": "aller",
+      "word": "aller",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "croire",
+      "word": "croire",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "perdre",
+      "word": "perdre",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "être",
+      "word": "être",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "dire",
+      "word": "dire",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "laisser",
+      "word": "laisser",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "prêt",
+      "word": "prêt",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "baiser",
+      "word": "baiser",
+      "why": [
+        "duyệt tay: nghĩa tục (động từ), mơ hồ cho người học đại chúng"
+      ]
+    }
+  ],
+  "tried": [
+    "que",
+    "a",
+    "pour",
+    "me",
+    "tout",
+    "va",
+    "comme",
+    "lui",
+    "sont",
+    "ton",
+    "juste",
+    "même",
+    "êtes",
+    "toujours",
+    "dois",
+    "étais",
+    "crois",
+    "aime",
+    "ans",
+    "mort",
+    "gens",
+    "cela",
+    "nos",
+    "nuit",
+    "seul",
+    "ah",
+    "savez",
+    "plaît",
+    "sommes",
+    "serait",
+    "étaient",
+    "donné",
+    "perdu",
+    "sois",
+    "demandé",
+    "attendez",
+    "belle",
+    "mme",
+    "bureau",
+    "beau",
+    "vérité",
+    "journée",
+    "dessus",
+    "guerre",
+    "dites",
+    "mariage",
+    "vue",
+    "garde",
+    "laissé",
+    "plan",
+    "mauvais",
+    "film",
+    "entendre",
+    "ensuite",
+    "rendre",
+    "attend",
+    "état",
+    "ira",
+    "inquiète",
+    "pensez",
+    "problèmes",
+    "doute",
+    "hôpital",
+    "esprit",
+    "changé",
+    "jack",
+    "partout",
+    "roi",
+    "ferais",
+    "new",
+    "devenir",
+    "pièce",
+    "faux",
+    "envoyé",
+    "venue",
+    "certains",
+    "général",
+    "promis",
+    "laissez",
+    "incroyable",
+    "utiliser",
+    "prête",
+    "paix",
+    "retourner",
+    "idiot",
+    "décidé",
+    "photos",
+    "surprise",
+    "seront",
+    "terminé",
+    "cadeau",
+    "disais",
+    "lumière",
+    "vraie",
+    "ignore",
+    "vieille",
+    "doucement",
+    "laquelle",
+    "loi",
+    "bar",
+    "bonnes",
+    "classe",
+    "visite",
+    "vivant",
+    "ll",
+    "ouvrir",
+    "monte",
+    "foutre",
+    "flic",
+    "ordres",
+    "responsable",
+    "diable",
+    "préfère",
+    "cerveau",
+    "connu",
+    "ia",
+    "cacher",
+    "prise",
+    "sent",
+    "exemple",
+    "sept",
+    "quitté",
+    "félicitations",
+    "pute",
+    "ramener",
+    "secours",
+    "excuse",
+    "avenir",
+    "fric",
+    "banque",
+    "radio",
+    "revenu",
+    "baiser",
+    "and",
+    "église",
+    "sol",
+    "vêtements",
+    "tante",
+    "proche",
+    "ravi",
+    "quartier",
+    "tourne",
+    "venus",
+    "meilleurs",
+    "glace",
+    "nul",
+    "jane",
+    "ha",
+    "informations",
+    "énergie"
+  ],
+  "spot": [
+    "que",
+    "plan",
+    "lumière"
+  ],
+  "stats": {
+    "used": {
+      "lexai": 0,
+      "gc": 0,
+      "cf2": 0,
+      "cfLeak": 0,
+      "cf2Dead": [],
+      "gem": 15,
+      "groq": 51
+    },
+    "budget": {
+      "lexai": 0,
+      "gc": 10000,
+      "cf2": 0
+    },
+    "by": {
+      "gem|gemini-3.8-flash": {
+        "ok": 2,
+        "fail": 24,
+        "bad": 0
+      },
+      "groq|openai/gpt-oss-120b": {
+        "ok": 27,
+        "fail": 1,
+        "bad": 0
+      },
+      "groq|qwen/qwen3.8-27b": {
+        "ok": 24,
+        "fail": 0,
+        "bad": 0
+      },
+      "gem|gemini-3.7-flash": {
+        "ok": 0,
+        "fail": 3,
+        "bad": 0
+      },
+      "gem|gemini-3.6-flash": {
+        "ok": 13,
+        "fail": 7,
+        "bad": 0
+      },
+      "lexai|gemini-3.5-flash": {
+        "ok": 0,
+        "fail": 33,
+        "bad": 0
+      }
+    },
+    "keys": {
+      "gem": {
+        "size": 85,
+        "live": 37,
+        "parked": {
+          "day": 30,
+          "auth": 2,
+          "minute": 16
+        }
+      },
+      "groq": {
+        "size": 109,
+        "live": 109,
+        "parked": {}
+      }
+    }
+  },
+  "wiktFlags": []
+}
