@@ -48,8 +48,8 @@
 .hb-c>span{max-width:100%;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:6px;height:32px;padding:0 10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-2);font-size:12px;line-height:14px;font-weight:800;letter-spacing:.02em;white-space:nowrap}
 .hb-c .i{width:16px;height:16px;color:var(--heading)}.hb-c .st-fl{flex:none}.hb-c b{font-weight:800;overflow:hidden;text-overflow:ellipsis}
 .hb .notif-dot{position:absolute;top:6px;inset-inline-end:6px}.hb .hidden{display:none}
-/* cờ ngôn ngữ đang học (TLPick.head): phủ lên đuôi ô tra từ – không chiếm chỗ ⇒ hàng 1 giữ đúng khe mẫu Stitch; vùng chạm 44 px */
-.hb-r{position:relative}.hb-r>.hb-logo{order:0}.hb-r>.hb-s{order:1}.hb-r>.tlp-hd{order:2;margin-inline:-44px 0;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;background:none;box-shadow:none;font-size:18px;z-index:1}.hb-r>.hb-b:not(.hb-logo){order:3}
+/* cờ ngôn ngữ đang học (TLPick.head): ô riêng 44 px sau ô tra từ (ô tra co lại, không chồng nút) */
+.hb-r{position:relative}.hb-r>.hb-logo{order:0}.hb-r>.hb-s{order:1}.hb-r>.tlp-hd{order:2;flex:none;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;background:none;box-shadow:none;font-size:18px;z-index:1}.hb-r>.hb-b:not(.hb-logo){order:3}
 @media (max-width:359px){.hb-c>span{padding:0 6px;gap:4px}}
 @media (min-width:1024px){.hb{display:none!important}}
 @media (max-width:1023px){#view>.hb{margin:-1rem -1rem 12px;width:auto}}
