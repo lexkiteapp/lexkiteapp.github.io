@@ -1,0 +1,332 @@
+{
+  "at": "2026-11-22T06:00:26.334Z",
+  "accepted": 13,
+  "rejected": [
+    {
+      "form": "le",
+      "word": "le",
+      "why": [
+        "dịch ngược lệch: zh,ja,ko,hi,ru,tr",
+        "cổng: le: nghĩa th sai chữ viết: the"
+      ]
+    },
+    {
+      "form": "il",
+      "word": "il",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "elle",
+      "word": "elle",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "avec",
+      "word": "avec",
+      "why": [
+        "dịch ngược lệch: zh,ja,ko"
+      ]
+    },
+    {
+      "form": "cette",
+      "word": "ce",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "ces",
+      "word": "ce",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "fais",
+      "word": "faire",
+      "why": [
+        "giám khảo A: IPA given for lemma \"faire\" is incomplete (missing /ʁ/)."
+      ]
+    },
+    {
+      "form": "faut",
+      "word": "falloir",
+      "why": [
+        "giám khảo A: IPA corresponds to the form \"faut\" but lemma is \"falloir\"; should be /falwaʁ/."
+      ]
+    },
+    {
+      "form": "eu",
+      "word": "avoir",
+      "why": [
+        "giám khảo A: IPA given for lemma \"avoir\" is wrong (\"y\" is for past participle \"eu\").",
+        "dịch ngược lệch: vi,hi"
+      ]
+    },
+    {
+      "form": "veut",
+      "word": "vouloir",
+      "why": [
+        "giám khảo A: IPA given for lemma \"vouloir\" is wrong (\"vø\" is for the form \"veut\")."
+      ]
+    },
+    {
+      "form": "bonjour",
+      "word": "bonjour",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: va? – Le point d’interrogation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "tes",
+      "word": "ton",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: ton: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "soit",
+      "word": "soit",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: soit: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "monsieur",
+      "word": "monsieur",
+      "why": [
+        "giám khảo B: Thai gloss คุณนาย means 'ma'am/lady' instead of 'mister'.",
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: monsieur: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "voulais",
+      "word": "vouloir",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: vouloir: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "problème",
+      "word": "problème",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: problème: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "attends",
+      "word": "attendre",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: attendre: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "toutes",
+      "word": "tout",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: tout: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "sait",
+      "word": "savoir",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: savoir: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "seule",
+      "word": "seul",
+      "why": [
+        "dịch ngược lệch: dịch ngược không trả",
+        "cổng: seul: thiếu nghĩa vi"
+      ]
+    },
+    {
+      "form": "amis",
+      "word": "ami",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "heure",
+      "word": "heure",
+      "why": [
+        "cổng: heure: câu ví dụ không chứa \"heure\""
+      ]
+    },
+    {
+      "form": "nouvelle",
+      "word": "nouveau",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "type",
+      "word": "type",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: -tu? – Le point d’interrogation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "ce",
+      "word": "ce",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "dire",
+      "word": "dire",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "voir",
+      "word": "voir",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "connaître",
+      "word": "connaître",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "devoir",
+      "word": "devoir",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    }
+  ],
+  "tried": [
+    "le",
+    "il",
+    "ce",
+    "elle",
+    "avec",
+    "oui",
+    "se",
+    "dit",
+    "cette",
+    "alors",
+    "merci",
+    "voir",
+    "ces",
+    "fais",
+    "faut",
+    "monde",
+    "père",
+    "eu",
+    "veut",
+    "bonne",
+    "bonjour",
+    "idée",
+    "demain",
+    "connais",
+    "heure",
+    "nouveau",
+    "amis",
+    "devrais",
+    "police",
+    "laisse",
+    "heures",
+    "leurs",
+    "façon",
+    "type",
+    "tiens",
+    "minutes",
+    "nouvelle",
+    "terre",
+    "croire",
+    "filles",
+    "voulait"
+  ],
+  "spot": [
+    "idée"
+  ],
+  "stats": {
+    "used": {
+      "lexai": 0,
+      "gc": 0,
+      "cf2": 0,
+      "cfLeak": 0,
+      "cf2Dead": [],
+      "gem": 4,
+      "groq": 16
+    },
+    "budget": {
+      "lexai": 0,
+      "gc": 10000,
+      "cf2": 0
+    },
+    "by": {
+      "gem|gemini-3.8-flash": {
+        "ok": 1,
+        "fail": 30,
+        "bad": 0
+      },
+      "gem|gemini-3.6-flash": {
+        "ok": 3,
+        "fail": 3,
+        "bad": 0
+      },
+      "groq|openai/gpt-oss-120b": {
+        "ok": 6,
+        "fail": 0,
+        "bad": 0
+      },
+      "groq|qwen/qwen3.8-27b": {
+        "ok": 10,
+        "fail": 0,
+        "bad": 0
+      },
+      "lexai|gemini-3.5-flash": {
+        "ok": 0,
+        "fail": 34,
+        "bad": 0
+      },
+      "gem|gemini-3.7-flash": {
+        "ok": 0,
+        "fail": 6,
+        "bad": 0
+      }
+    },
+    "keys": {
+      "gem": {
+        "size": 85,
+        "live": 37,
+        "parked": {
+          "day": 30,
+          "minute": 16,
+          "auth": 2
+        }
+      },
+      "groq": {
+        "size": 109,
+        "live": 109,
+        "parked": {}
+      }
+    }
+  },
+  "wiktFlags": []
+}
