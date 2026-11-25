@@ -1,7 +1,7 @@
 // Hồi quy máy gác CI (06/11): mỗi ý phải ĐỎ trên code cũ (không có hàm / không có bước trong workflow).
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import { laneVerdict, issueAction, mainRedNeeded, wipVerdict, touchesWeb, webStall, WIP_MAX, staleCi, staleCiRun } from '../ci/guards.mjs';
+import { laneVerdict, issueAction, mainRedNeeded, wipVerdict, touchesWeb, webStall, WIP_MAX, staleCi, staleCiRun, yieldByRun, yieldStreak, yieldStreakRun, yieldMarker } from '../ci/guards.mjs';
 import { splitUndeployed } from '../ops/smoke.mjs';
 import { lowHeadroom } from '../lib/headroom.mjs';
 const wf = f => fs.readFileSync(`.github/workflows/${f}`, 'utf8');
@@ -75,4 +75,28 @@ assert.ok(/verified: '\$\{\{ steps\.smoke\.outputs\.verified/.test(pr) && (pr.ma
   assert.ok(!calls.some(([m, p]) => m === 'POST' && /\/issues\/[2-7]\//.test(p)), 'không đụng issue khác');
   assert.ok(/staleCiRun\(gh, \+now\)/.test(fs.readFileSync('scripts/ci/triage.mjs', 'utf8')), 'ci-triage sweep gọi stale-ci mỗi giờ');
 }
-console.log('✓ ci-guards: stale-ci p0 · làn nhanh (7 workflow nặng) · main-red · ngân sách vàng · wip-guard · chỉ số web/ hằng ngày');
+
+// 7) yield-streak (24/11): xanh mà sản lượng ≈ 0 N lượt liền → issue yield-zero mỗi workflow; hồi → đóng
+{
+  const row = (run, n, t) => ({ run, n, t: `2026-11-${t}T00:00:00Z` });
+  const shards = [row('1', 0, '20'), row('1', 3, '20'), row('2', 1, '21'), row('2', 2, '21'), row('3', 0, '22'), row('4', 5, '23')];
+  assert.deepEqual(yieldByRun(shards).map(r => [r.run, r.n]), [['1', 3], ['2', 3], ['3', 0], ['4', 5]], 'gộp shard cùng run');
+  assert.equal(yieldStreak(shards, 10).dead, true, '3 lượt cuối (3,0,5) đều < 10 → chết');
+  assert.equal(yieldStreak(shards, 5).dead, false, 'lượt 4 = 5 ≥ minRun → không chết');
+  assert.equal(yieldStreak(shards.slice(0, 3), 10).dead, false, 'chưa đủ 3 lượt → chưa kết luận');
+  assert.equal(yieldStreak(shards, 0).dead, false, 'minRun 0 = tắt');
+  const calls = []; let open = [];
+  const call = async (p, o = {}) => { calls.push([o.method || 'GET', p]); return p.startsWith('/issues?') ? open : null; };
+  const floors = { a: { minRun: 10, unit: 'mục' }, b: { floor: 3 } };
+  let r = await yieldStreakRun(call, floors, () => shards);
+  assert.deepEqual(r.map(x => x.act), ['create'], 'chỉ workflow có minRun; chết + chưa có issue → tạo');
+  open = [{ number: 7, title: 'x', body: yieldMarker('a') + 'cũ' }];
+  r = await yieldStreakRun(call, floors, () => shards);
+  assert.equal(r[0].act, 'update'); assert.ok(calls.some(c => c[0] === 'PATCH' && c[1] === '/issues/7'), 'cập nhật issue cũ');
+  r = await yieldStreakRun(call, floors, () => [...shards, row('5', 40, '24'), row('6', 40, '24')]);
+  assert.equal(r[0].act, 'close'); assert.ok(calls.some(c => c[1] === '/issues/7/comments'), 'hồi → đóng kèm comment');
+  assert.ok(/guards\.mjs yield-streak/.test(wf('health-board.yml')), 'health-board.yml gọi yield-streak');
+  const fl = JSON.parse(fs.readFileSync('infra/yield-floors.json', 'utf8'));
+  assert.ok(fl['lexicon-expand'].minRun > 0 && fl['vocab-img-scene'].minRun > 0, 'hai workflow sản xuất có minRun');
+}
+console.log('✓ ci-guards: stale-ci p0 · làn nhanh (7 workflow nặng) · main-red · ngân sách vàng · wip-guard · chỉ số web/ hằng ngày · yield-streak');

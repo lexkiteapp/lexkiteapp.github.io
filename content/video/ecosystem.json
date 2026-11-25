@@ -21,7 +21,8 @@
   { "id": "ielts", "label": "IELTS full mock test", "link": "https://lexkite.com/app/#/mock", "route": "mock", "cta": "Try an IELTS mock on lexkite.com" },
   { "id": "toefl", "label": "TOEFL practice", "link": "https://lexkite.com/app/#/toefl", "route": "toefl", "cta": "Practice TOEFL free on lexkite.com" },
   { "id": "toeic", "label": "TOEIC practice", "link": "https://lexkite.com/app/#/toeic", "route": "toeic", "cta": "Practice TOEIC free on lexkite.com" },
-  { "id": "placement", "label": "Placement test", "link": "https://lexkite.com/app/#/placement", "route": "placement", "cta": "Check your level on lexkite.com" }
+  { "id": "placement", "label": "Placement test", "link": "https://lexkite.com/app/#/placement", "route": "placement", "cta": "Check your level on lexkite.com" },
+  { "id": "voice-diary", "label": "Voice diary", "link": "https://lexkite.com/app/#/diary", "route": "diary", "cta": "Start your voice diary on lexkite.com" }
  ],
  "genericCta": [
   "Learn real English free on lexkite.com",
