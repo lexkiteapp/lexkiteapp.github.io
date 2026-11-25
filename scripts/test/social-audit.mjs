@@ -56,4 +56,6 @@ ok(new Set(Object.keys(LANG_TZ).map(l => slotAt(0, 1, l, now0, 0).slice(11, 16))
   const dry = await purgeWrongLang(db, clips, now, false); ok(dry.cancelled_social === 1 && dry.kept_pushed === 1 && !dry.apply && sql.prepare("SELECT COUNT(*) n FROM dist_social WHERE state = 'planned'").get().n === 3, 'purge dry-run: đếm, không ghi');
   const run = await purgeWrongLang(db, clips, now, true), st = Object.fromEntries(sql.prepare('SELECT clip, state FROM dist_social').all().map(r => [r.clip, r.state]));
   ok(run.cancelled_social === 1 && st.a === 'skipped' && st.b === 'planned' && st.c === 'pushed' && st.d === 'planned' && run.by_lang['ja→en'] === 1, 'purge: gỡ clip ja khỏi page EN; giữ en/vi đúng ngôn ngữ và bài đã đẩy'); }
+// audit không đếm bài đã gỡ khỏi lịch (state 'skipped' do purge/rebalance) – tránh báo lệch ảo sau purge
+ok(/state NOT IN \('failed', 'cancelled', 'skipped'\)/.test(fs.readFileSync('functions/api/_social_audit.js', 'utf8')), "auditDb bỏ bài state 'skipped' (đã gỡ khỏi lịch)");
 console.log(`✓ social-audit: ${n} kiểm`);
