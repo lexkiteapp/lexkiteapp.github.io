@@ -35,7 +35,8 @@
   // Cuộn xuống → ẩn (nhường chỗ đọc), cuộn lên/về đầu trang → hiện lại; đổi trang → mốc cuộn mới
   var off = false, lastY = w.scrollY || 0;
   var setOff = function (v) { if (v !== off) { off = v; b.classList.toggle('off', v); } };
-  w.addEventListener('hashchange', function () { off = false; (w.requestAnimationFrame || setTimeout)(function () { lastY = w.scrollY || 0; }); });
+  // Đổi trang: mốc cuộn về 0 ngay (route() cuộn lên đầu); không đọc scrollY trong rAF (buộc bố cục 51 ms, hồ sơ CPU quality-sweep #53)
+  w.addEventListener('hashchange', function () { off = false; lastY = 0; });
   w.addEventListener('scroll', function () { var y = w.scrollY || 0, dy = y - lastY; if (Math.abs(dy) < 8) return; setOff(dy > 0 && y > 80); lastY = y; }, { passive: true });
   b.addEventListener('focus', function () { setOff(false); }); // phím Tab tới nút → luôn hiện
   // Đang gõ (bàn phím ảo che nửa màn hình) → ẩn, không đè ô nhập
