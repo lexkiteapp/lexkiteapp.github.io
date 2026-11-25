@@ -401,6 +401,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   let thr = 0; try { c({ word: '猫', kana: 'ねこ', vclass: 'godan' }); } catch { thr = 1; } ok(thr, 'godan không tận cùng hàng u → lỗi (không đoán)');
   ok(/conj-ja-check\.mjs/.test(rd('.github/workflows/target-content.yml')), 'target-content: kiểm chéo chia ja ↔ Wiktionary trên PR'); }
 
+<<<<<<< HEAD
 // W3 ja: bài phát âm (content/target/ja/pron.json) – cặp tối thiểu KHÁC âm hoặc KHÁC cao độ, IPA + dấu hạ SINH từ kana, gói px khớp nguồn, đủ 15 ngôn ngữ, ví dụ giữ nguyên chữ Nhật
 { const J = await import('../target/ja-kana.mjs'), P = await import('../target/px-lib.mjs'), pr = readJSON('content/target/ja/pron.json'), R = pr.read, VN = /[ơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđă]/i;
   ok(pr.topics.map(t => t.id).join() === P.TLX.ja.topics.join() && pr.topics.length === 8, 'ja pron: 8 chủ đề đúng thứ tự');
@@ -443,6 +444,8 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   try { execFileSync(process.execPath, ['scripts/target/calls-pack.mjs', 'ja', '--check'], { stdio: 'pipe' }); execFileSync(process.execPath, ['scripts/target/calls-check.mjs', '--tl', 'ja'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'calls ja: ' + String(e.stderr || e.stdout)); }
   ok(/calls-check\.mjs --tl \$\{\{ matrix\.tl \}\}|calls-check\.mjs --tl ja/.test(rd('.github/workflows/target-content.yml')), 'target-content: cổng cuộc gọi chạy cho ja'); }
 
+=======
+>>>>>>> dcea36418c93783467968e756fffb238a6dbe206
 // ---------- 5) nối dây: shell nạp target.js trước core.js; package test ----------
 {
   const html = rd('web/app/index.html'), a = html.indexOf('js/target.js'), b = html.indexOf('js/core.js');

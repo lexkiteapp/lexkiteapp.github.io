@@ -23,7 +23,7 @@ O=(-y -qq --no-install-recommends -o Acquire::Retries=3 -o Acquire::http::Timeou
 export DEBIAN_FRONTEND=noninteractive
 log=$(mktemp "${TMPDIR:-/tmp}/apt-install.XXXXXX"); t0=$SECONDS
 mirror() { for f in /etc/apt/sources.list /etc/apt/sources.list.d/*.sources /etc/apt/sources.list.d/*.list; do
-  [ -f "$f" ] && $SUDO sed -i -e 's#http://azure\.archive\.ubuntu\.com#http://archive.ubuntu.com#g' -e 's#http://[a-z0-9-]*\.ec2\.archive\.ubuntu\.com#http://archive.ubuntu.com#g' -e 's#mirror+file:/etc/apt/apt-mirrors\.txt#http://archive.ubuntu.com/ubuntu/#g' "$f"; done; $SUDO rm -rf /var/lib/apt/lists/partial 2>/dev/null; echo "apt: đổi mirror → archive.ubuntu.com"; }
+  [ -f "$f" ] && $SUDO sed -i.bak -e 's#http://azure\.archive\.ubuntu\.com#http://archive.ubuntu.com#g' -e 's#http://[a-z0-9-]*\.ec2\.archive\.ubuntu\.com#http://archive.ubuntu.com#g' -e 's#mirror+file:/etc/apt/apt-mirrors\.txt#http://archive.ubuntu.com/ubuntu/#g' "$f"; $SUDO rm -f "$f.bak"; done; $SUDO rm -rf /var/lib/apt/lists/partial 2>/dev/null; echo "apt: đổi mirror → archive.ubuntu.com"; }
 # chỉ mục apt trống/cũ (runner mới) → update trước, không phí 1 lượt "Unable to locate package"
 apt-cache show "${need[0]}" >/dev/null 2>&1 || $SUDO timeout "$TO" "$APT" update -qq -o Acquire::Retries=3 >"$log" 2>&1 || { echo "::warning::apt-get update lỗi"; tail -5 "$log"; }
 # 19/11: tải trước .deb (cả phụ thuộc) qua nhiều mirror có trần chậm vào cache – apt install bên dưới không phải chạm mirror mặc định (xem apt-prefetch.sh)
