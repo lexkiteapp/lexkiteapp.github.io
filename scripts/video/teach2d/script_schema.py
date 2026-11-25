@@ -1,6 +1,5 @@
 """Standard Teach2D script JSON (docs/VIDEO-V3.md "Schema"): the one shape every template's episode (content/video/teach2d/eps/*.json, written by gen.py) must have.
 validate(ep) -> list of problems ([] = ok). Pure; scripts/test/teach2d-script-schema.py runs it over every episode."""
-import re
 LANGS = {'en', 'ar', 'de', 'es', 'fr', 'hi', 'id', 'ja', 'ko', 'pt', 'ru', 'th', 'tr', 'vi', 'zh'}   # the 15 page languages (docs/I18N-PIPELINE.md)
 TEACHERS, VOICES = {'ama', 'carlos'}, {'af_bella', 'am_fenrir'}
 BEATS = (3, 8)   # teaching lines between the hook ('h') and the CTA ('c'): slang / guess3 / levels3 / scorecard 3, review / band 5, l1 / mistake 6 ... rule 8
