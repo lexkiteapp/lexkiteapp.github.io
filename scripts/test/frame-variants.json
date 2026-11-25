@@ -24,6 +24,7 @@
   "league": {"variant": "inner", "surface": ["leagues"]},
   "lesson": {"variant": "focus", "surface": ["lesson-question"]},
   "mediate": {"variant": "inner", "surface": ["mediate"]},
+  "interpret": {"variant": "inner", "surface": ["interpret"]},
   "letters": {"variant": "inner", "surface": ["verbs"]},
   "library": {"variant": "inner", "surface": ["library"]},
   "listen": {"variant": "inner", "surface": ["listening"]},
@@ -80,7 +81,6 @@
   "vocab": {"variant": "hub", "surface": ["hub-vocab"]},
   "watch": {"variant": "inner", "surface": ["listening"]},
   "stories": {"variant": "inner", "surface": ["listening"]},
-  "interpret": {"variant": "inner", "surface": []},
   "welcome": {"variant": "focus", "surface": ["welcome"]},
   "write": {"variant": "focus", "surface": ["writing"]}
  }

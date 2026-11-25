@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import { readJSON, coreFiles, seedPath, kaikki } from './lib.mjs';
 import { TL_GEN } from './tl-gen.mjs';
+import { longFold } from './ja-kana.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const TL = arg('tl', 'es'), G = TL_GEN[TL], SELF = process.argv.includes('--self');
@@ -19,6 +20,10 @@ async function check(w) {
   const E = await entries(w.word), mine = E.filter(e => (POS[w.pos] || []).includes(e.pos));
   if (!E.length) return { bad: 'không có trang Wiktionary' };
   if (!mine.length) return { flag: `từ loại ${w.pos} ↔ ${[...new Set(E.map(e => e.pos))].join('/')}` };
+  if (w.kana) { // ja: cách đọc Wiktionary (sounds.other / dạng hiragana·katakana) – lệch = gắn cờ (danh sách JLPT + OpenJTalk là cổng chính, japanese-course.md §5.2)
+    const rd = new Set(mine.flatMap(e => [...(e.sounds || []).map(x => x.other), ...(e.forms || []).filter(f => (f.tags || []).some(t => /hiragana|katakana/.test(t))).map(f => f.form)]).filter(Boolean).map(longFold));
+    return rd.size && !rd.has(longFold(w.kana)) ? { flag: `cách đọc ${w.kana} ↔ ${[...rd].slice(0, 3).join('/')}` } : {};
+  }
   if (w.pos !== 'n') return {};
   const g = new Set(mine.flatMap(e => [...genderOf(e)])), pl = new Set(mine.flatMap(e => [...pluralsOf(e)]));
   if (g.size && !g.has(w.gender)) return { bad: `giống ${w.gender} ↔ ${[...g].join('/')}` };

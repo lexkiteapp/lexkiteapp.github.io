@@ -716,7 +716,7 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 .sheet-ex mark { background: rgba(255,255,255,.25); color: #fff; border-radius: 4px; padding: 0 .15rem; }
 .sheet-ex .ctx-say { background: #fff; color: var(--brand-ink); border: 0; margin-left: .2rem; opacity: 1; }
 .sheet-tr { margin-top: .3rem; opacity: .9; font-style: italic; }
-.sheet-next { margin-top: 1rem; background: #fff !important; color: #111 !important; border: 0 !important; box-shadow: 0 4px 0 rgba(0,0,0,.15); font-weight: 800; }
+.sheet-next { margin-top: 1rem; background: rgba(0,0,0,.28) !important; color: #fff !important; border: 1px solid rgba(255,255,255,.6) !important; box-shadow: none; font-weight: 800; } /* banner gradient: nền tối + viền sáng (spec chon-cta-khu-b), không nền trắng chói */
 .study-wrap:has(.sheet-up) { padding-bottom: calc(var(--sheet-h, 280px) + 1rem); }
 /* Màn hình rộng có thanh bên: căn khung kết quả theo vùng nội dung (không theo cả cửa sổ) để thẳng hàng với thẻ học */
 @media (min-width: 1024px) { body:not(.bare):not(.focus) .sheet { left: var(--sidebar); } }
@@ -1504,3 +1504,7 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
 .v2s-me button[role="switch"] { height: 44px; border-block: 8px solid transparent; background-clip: padding-box; margin-block: -8px; box-sizing: border-box; }
 .v2s-me :is(a, button).text-start.inline-flex { min-width: 44px; min-height: 44px; }
 .v2s-practice .skill-card h4 > a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; margin-block: -8px; }
+/* home-cta-one */
+.v2s-today button[class*="F59E0B"], .v2s-today-desk button[class*="F59E0B"], .v2s-path button[class*="F59E0B"] { background: var(--cta-grad) !important; color: var(--cta-ink) !important; box-shadow: var(--hi), var(--cta-shadow) !important; border: 0 !important; }
+.v2s-today button[class*="F59E0B"] *, .v2s-today-desk button[class*="F59E0B"] *, .v2s-path button[class*="F59E0B"] * { color: var(--cta-ink) !important; }
+/* /home-cta-one */
