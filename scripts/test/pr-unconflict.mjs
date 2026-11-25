@@ -26,6 +26,11 @@ assert.equal(merge3({ a: 1 }, { a: 2 }, { a: 3 }), null, 'hai phía sửa cùng 
 assert.deepEqual(merge3({ a: 1 }, { a: 2 }, { a: 2 }), { a: 2 }, 'cùng sửa giống nhau → nhận');
 assert.deepEqual(regenCmds([{ f: 'docs/CODEMAP.md' }]), []);
 assert.deepEqual(plan(['content/pipeline/LEARN.md', 'content/pipeline/SCORE.md', 'docs/JOBS.md']).map(s => s.how), ['main', 'main', 'main'], '#985: báo cáo sinh lấy main');
+for (const f of ['native/android/design/src/main/kotlin/com/lexkite/app/i18n/generated/L10nKey.kt', 'native/ios/LexkiteKit/Sources/LKStrings/Generated/L10nKey.swift', 'native/shared/gen/strings/de.json']) {
+  assert.deepEqual(plan([f]), [{ f, how: 'main' }], f + ': xung đột tệp native sinh → lấy main');   // 25/11: L10nKey.kt xung đột lặp lại trên ~13 PR
+  assert.deepEqual(regenCmds([{ f }]).map(c => c.join(' ')), ['node scripts/native/gen.mjs'], f + ': rồi sinh lại từ nguồn đã gộp');
+}
+assert.equal(plan(['native/shared/strings.json']), null, 'native/shared/strings.json là NGUỒN → người gỡ');
 assert.deepEqual(regenCmds([{ f: 'docs/JOBS.md' }]).map(c => c.join(' ')), ['node scripts/jobs/gen.mjs --write'], 'tệp có cổng khớp nguồn → sinh lại');
 assert.deepEqual(regenCmds([{ f: 'content/pipeline/LEARN.md' }]), [], 'báo cáo do bot main sinh → chỉ lấy main');
 assert.deepEqual(regenCmds([{ f: 'i18n/ui/de/ux1.js' }]).map(c => c.join(' ')), ['node scripts/fmt-stable.mjs'], 'gói dịch + extension/app không dựng/commit trong PR');

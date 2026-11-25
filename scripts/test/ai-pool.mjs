@@ -227,5 +227,20 @@ for (const f of ['../lexicon/expand/job.mjs', '../explain/job.mjs', '../scriptba
     if (url.includes('generativelanguage')) return J({ candidates: [{ content: { parts: [{ text: JSON.stringify({ 'apple#n': { s: 5 } }) }] } }] });
     if (url === LX) return J({ gemini: 0 }); throw new Error('unexpected ' + url); };
   const P = createPool({ fetch: f, env: { GEMINI_POOL: G }, lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: () => {}, sleep: async ms => { slept += ms; }, now: () => 1e12, prompt: async r => ({ sys: 'S', user: JSON.stringify(r.items) }) });
-  const g = await P.gen({ mode: 'lxdef', items: ITEMS }, { chain: ['gem'] }); ok(g && g.route === 'gem' && n503 === 3 && slept >= 32e3, 'gem 503 quá tải: chờ rồi thử lại (không rơi ngay sang giám khảo yếu)'); }
+  const g = await P.gen({ mode: 'lxdef', items: ITEMS }, { chain: ['gem'] }); ok(g && g.route === 'gem' && n503 === 3 && slept >= 24e3 && slept <= 40e3, 'gem 503 quá tải: chờ rồi thử lại (không rơi ngay sang giám khảo yếu)'); }
+// 23/11 (ja lô 1): Groq 400 json_validate_failed làm mất giám khảo → khôi phục từ failed_generation / thử lại 1 lần không ép JSON; parseJSON bền; lexai hết ngân sách chỉ ghi chú
+{ const Q = 'gsk_' + 'q'.repeat(30), good = { 'apple#n': { s: 5, def: 'a fruit' } }, bad = fg => new Response(JSON.stringify({ error: { message: 'Failed to generate JSON. Please adjust your prompt. See \'failed_generation\' for more details.', type: 'invalid_request_error', code: 'json_validate_failed', ...(fg ? { failed_generation: fg } : {}) } }), { status: 400 });
+  const run = async mode => { let hits = 0, noFmt = 0, user2 = ''; const logs = [];
+    const f = async (url, init = {}) => { const b = init.body ? JSON.parse(init.body) : {};
+      if (url.endsWith('api.groq.com/openai/v1/models')) return J({ data: [{ id: 'openai/gpt-oss-120b' }] });
+      if (url.includes('api.groq.com/openai/v1/chat/completions')) { hits++; if (b.response_format) return mode === 'fg' ? bad('Sure! Here it is:\n```json\n' + JSON.stringify(good) + '\n```\nHope that helps {ok}') : bad(null);
+        noFmt++; user2 = b.messages[1].content; return J({ choices: [{ message: { content: '```json\n' + JSON.stringify(good) + '\n```' } }] }); }
+      throw new Error('unexpected ' + url); };
+    const P = createPool({ fetch: f, env: { GROQ_POOL: Q }, lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: l => logs.push(l), sleep: async () => {}, prompt: async r => ({ sys: 'S', user: JSON.stringify(r.items) }) });
+    return { j: await P.judge({ mode: 'lxjudge', items: ITEMS }, { chain: ['groq'] }), hits, noFmt, user2, logs }; };
+  const a = await run('fg'); ok(a.j && a.j.out['apple#n'].s === 5 && a.hits === 1, 'groq 400 json_validate_failed có failed_generation (rào ```json + lời đuôi có {}) → khôi phục ngay, không gọi thêm');
+  const b = await run('nofg'); ok(b.j && b.j.out['apple#n'].s === 5 && b.hits === 2 && b.noFmt === 1 && /ONLY one valid JSON/.test(b.user2) && b.logs.some(l => /thử lại 1 lần không ép JSON/.test(l)), 'groq 400 không có failed_generation → thử lại 1 lần không ép JSON + nhắc JSON-only, vẫn ra kết quả'); }
+{ let calls = 0; const f = async url => { if (url === LX) { calls++; return J({ gemini: 0 }); } throw new Error('x'); }, logs = [];
+  const P = createPool({ fetch: f, env: {}, lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: l => logs.push(l), sleep: async () => {}, budget: { lexai: 0 }, prompt: async r => ({ sys: 'S', user: '[]' }) });
+  await P.judge({ mode: 'lxjudge', items: ITEMS }, { chain: ['lexai'] }); ok(logs.some(l => /ℹ lxjudge lexai: hết ngân sách/.test(l)) && !logs.some(l => /✗ lxjudge lexai/.test(l)), 'lexai hết ngân sách → ghi chú ℹ, không phải ✗ lỗi'); }
 console.log(`✓ ai-pool test: ${n} kiểm tra`);

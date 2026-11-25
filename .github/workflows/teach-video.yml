@@ -56,7 +56,7 @@ jobs:
           # 15/11: các kiểm dưới đây độc lập nhau → chạy song song (mỗi nhóm giữ nguyên lệnh), đợi hết rồi đỏ nếu BẤT KỲ nhóm nào đỏ (không bỏ kiểm nào)
           pids=(); names=()
           run() { n="$1"; shift; ( "$@" ) >"/tmp/pq-$n.log" 2>&1 & pids+=($!); names+=("$n"); }
-          run gen   bash -c 'python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-roots.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py && python3 scripts/test/teach2d-store-cards.py && python3 scripts/test/teach2d-rules.py && python3 scripts/test/teach2d-band.py && python3 scripts/test/teach2d-slang.py && python3 scripts/test/dead-band.py'   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
+          run gen   bash -c 'python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-roots.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py && python3 scripts/test/teach2d-store-cards.py && python3 scripts/test/teach2d-rules.py && python3 scripts/test/teach2d-band.py && python3 scripts/test/teach2d-progress.py && python3 scripts/test/teach2d-slang.py && python3 scripts/test/dead-band.py'   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
           run mix   bash -c 'python3 scripts/video/teach2d/mix.py --check && python3 scripts/test/teach2d-mix.py'   # 0-credit build bank: mix.json regenerates identically, 0 repeats in the window, diversity >= 70
           # 16/11: gtx (dịch ngược miễn phí) đổi bản dịch giữa các lần chạy → hàng sát ngưỡng lúc đạt lúc trượt, đỏ cả PR không đụng hàng đó (t2_l1_ja_hard). PR: dịch ngược online CHỈ hàng PR thêm/sửa (kiểm tĩnh vẫn mọi hàng); main/dispatch + lịch đêm (native-qa-nightly.yml) chạy đủ.
           QA_SCOPE=""; B="${BASE:-main}"; if { [ "$EV" = pull_request ] || [ "$EV" = workflow_dispatch ]; } && git fetch -q --depth=1 origin "$B"; then QA_SCOPE="--online-changed=origin/$B"; fi   # 19/11: dispatch dịch ngược cả ~1750 hàng = 19,6 phút > trần 20 phút (run 44445334700 bị huỷ) → cũng chỉ hàng đổi so với main; cổng tĩnh vẫn chạy mọi hàng; cron/schedule vẫn dịch ngược hết
@@ -168,7 +168,7 @@ jobs:
           for A in dark dusk light; do [ $A = $TH ] && continue   # the other looks, for the owner's colour pick (stills only)
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --theme $A --public $O/pub_$A --out $O/props_$A.json; done
           LAY=$(python3 -c "import json;print((json.load(open('content/video/teach2d/mix.json'))['mix'].get(json.load(open('$E'))['id']) or {}).get('layout','corner'))")
-          RULE=$(python3 -c "import json;print(json.load(open('$E'))['template'] in ('rule','band'))")   # rule has ONE layout (corner): no layout variants to build or still
+          RULE=$(python3 -c "import json;print(json.load(open('$E'))['template'] in ('rule','band','progress'))")   # rule has ONE layout (corner): no layout variants to build or still
           if [ ${{ matrix.fmt }} = short ] && [ $RULE = False ]; then for L in corner side bubble; do [ $L = $LAY ] && continue   # the other layouts (owner 29/10: show layout variety) – stills only
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format short --layout $L --public $O/pub_lay_$L --out $O/props_lay_$L.json; done; fi
           # pass 2: the rig on this timeline (same voice clock in every look/layout) -> rig.webm + rig.frames.json, then into every pub dir
