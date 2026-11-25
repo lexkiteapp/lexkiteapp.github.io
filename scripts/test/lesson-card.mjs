@@ -1,5 +1,6 @@
 // Test thuần thẻ kết quả (docs/specs/learn-card.md): kho mẫu câu, chấm xếp câu khi câu có dấu, nối lại câu từ token, regex nhanh. Phần giao diện: lesson.mjs mục G.
 import fs from 'node:fs';
+import { lexFiles } from '../lib/lex-files.mjs';
 import { execFileSync } from 'node:child_process';
 await import('../../web/js/lesson/engine.js'); await import('../../web/cpack/lesson/card.js');
 const E = globalThis.LessonEngine, C = globalThis.LearnCard;
@@ -13,7 +14,7 @@ ok(C.goodTr('  Hello!  ', 'hello') === '' && C.goodTr('Xin chào', 'hello') === 
 ok(JSON.stringify(C.altParts('Can I have [a small tea], please?')) === JSON.stringify(['Can I have ', 'a small tea', ', please?']), 'đánh dấu phần đổi');
 // mọi câu dạng bài: nối token = đúng câu; chấm xếp câu đúng khi câu có dấu, viết hoa, dấu nháy, gạch nối
 globalThis.t = s => s; const g = {}; new Function('self', fs.readFileSync('web/js/data.js', 'utf8'))(g);
-for (const f of fs.readdirSync('web/js/lib').sort()) if (/\.js$/.test(f) && !/^notes/.test(f)) { try { new Function('self', fs.readFileSync('web/js/lib/' + f, 'utf8'))(g); } catch (e) { /* tệp phụ */ } }
+for (const p of lexFiles(f => !/^notes/.test(f))) { try { new Function('self', fs.readFileSync(p, 'utf8'))(g); } catch (e) { /* tệp phụ */ } } // web/js/lib + web/cpack/lib (scripts/lib/lex-files.mjs)
 const sents = []; for (const tp of g.IELTS_DATA.TOPICS) for (const w of tp.words || []) if (w.ex) sents.push(String(w.ex).trim());
 for (const s of JSON.parse(fs.readFileSync('content/lesson/stories.json', 'utf8')).items) s.lines.forEach(l => sents.push(l.en));
 let bad = 0, slow = 0;
