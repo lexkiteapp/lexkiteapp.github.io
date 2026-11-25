@@ -124,7 +124,7 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
   ok(!en.find(x => x.platform === 'instagram'), 'clip EN không vào IG tiếng Nhật (không có IG EN → bỏ, không đăng sai ngôn ngữ)');
   ok(D.routeAll(imp, cfgs, { id: 'c0' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-b2', 'clip không có lang = en');
   const vi = D.routeAll(imp, cfgs, { id: 'c2', lang: 'vi' }, null);
-  ok(vi.length === 2 && vi.find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-c3' && vi.find(x => x.platform === 'tiktok').channel_id === 'gc-tiktok-t1' && !vi.find(x => x.platform === 'instagram'), 'clip VI → FB page Tiếng Việt; TikTok chỉ có kênh EN → fallback EN; không vào IG tiếng Nhật');
+  ok(vi.length === 1 && vi.find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-c3' && !vi.find(x => x.platform === 'tiktok') && !vi.find(x => x.platform === 'instagram'), 'clip VI → FB page Tiếng Việt; TikTok chỉ có kênh EN → KHÔNG nhận clip VI (24/11); không vào IG tiếng Nhật');
   ok(D.blockOf(cfgs['gc-facebook_page-a1'], { lang: 'en' }) === 'lang' && D.blockOf(cfgs['gc-facebook_page-a1'], { lang: 'es' }) === '', 'blockOf chặn sai ngôn ngữ cả với luật tay của chủ');
   ok(D.blockOf(D.normCfg({}), {}) === '', 'kênh YouTube mặc định (en) vẫn nhận clip không có lang');
   const exp = D.explain([{ cond: {}, channel_id: 'gc-facebook_page-a1', active: 1 }], cfgs, { id: 'c3', lang: 'en' }, null);
@@ -142,10 +142,11 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
 {
   const n = c => D.normCfg(c), one = { 'gc-facebook_page-111': n({ lang: D.langOfChannel('Lexkite.com') || 'en' }), 'gc-tiktok-222': n({ lang: D.langOfChannel('lexkitecom') || 'en' }) };
   const imp = D.implicitSocialRules([], one);
-  for (const lang of ['en', 'vi', 'ja', undefined]) {
+  for (const lang of ['en', undefined]) {
     const r = D.routeAll(imp, one, { id: 'c', lang }, null);
-    ok(r.length === 2 && r.find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-111', `clip ${lang || '(trống)'} → page EN chung khi chưa có page riêng`);
+    ok(r.length === 2 && r.find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-111', `clip ${lang || '(trống)'} → page EN chung`);
   }
+  for (const lang of ['vi', 'ja']) ok(D.routeAll(imp, one, { id: 'c', lang }, null).length === 0, `24/11: clip ${lang} KHÔNG lên page/TikTok EN chung (chủ: đăng sai ngôn ngữ) – không có page ${lang} thì không đăng`);
   const both = { ...one, 'gc-facebook_page-333': n({ lang: 'vi' }) }, imp2 = D.implicitSocialRules([], both);
   ok(D.routeAll(imp2, both, { id: 'c', lang: 'vi' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-333', 'có page tiếng Việt → clip vi vào page riêng (đứng trước page chung)');
   ok(D.routeAll(imp2, both, { id: 'c', lang: 'en' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-111', 'clip en vẫn vào page chung');
