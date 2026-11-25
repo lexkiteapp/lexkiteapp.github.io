@@ -317,6 +317,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
     if (name === 'practice') return arg === 'speak' ? ['skills', 'pron'] : ['vocab', 'practice'];
     if (name === 'skill') return ['skills', 'skill-' + arg];
     if (name === 'cbt' && arg && arg.includes(',')) return ['tests', 'tests'];
+    if (name === 'interpret') return ['skills', 'skills']; // Phiên dịch: Kỹ năng (Back → #/skills)
     if (name === 'stories') return ['skills', 'skill-listening']; // Truyện & podcast: Kỹ năng › Nghe (docs/STORIES.md)
     if (SKILL_OF[name]) return ['skills', 'skill-' + SKILL_OF[name]];
     if (name === 'toefl-p') return ['skills', 'skill-' + (TOEFL_SK[arg] || 'reading')];
