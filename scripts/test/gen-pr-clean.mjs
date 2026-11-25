@@ -11,6 +11,7 @@ import { isGenerated, offenders } from '../lib/generated.mjs';
 for (const f of ['web/js/i18n/de.js', 'web/js/i18n/de/ux1.js', 'web/js/i18n/zh/lazyui.js', 'web/cpack/lesson/pn-fr.js', 'extension/app/js/app.js', 'extension/app/index.html', 'docs/CODEMAP.md', 'docs/codemap.json']) assert.ok(isGenerated(f), f);
 for (const f of ['web/js/i18n/en.js', 'web/js/i18n/en/core.js', 'i18n/ui/de/ux1.js', 'web/js/app.js', 'web/cpack/lesson/stories.js', 'extension/manifest.json', 'web/css/st-v2-today.css', 'docs/METHODS.md', 'docs/codemap-notes.md']) assert.ok(!isGenerated(f), f);
 assert.deepEqual(offenders(['web/js/app.js', 'extension/app/js/app.js']), ['extension/app/js/app.js']);
+assert.deepEqual(offenders(['docs/JOBS.md', 'functions/api/_jobs_reg.js', 'infra/jobs.json']), ['docs/JOBS.md', 'functions/api/_jobs_reg.js'], '25/11: sổ việc sinh (JOBS.md, _jobs_reg.js) không commit trong PR; infra/jobs.json là NGUỒN');
 
 const git = (cwd, ...a) => execFileSync('git', a, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 if (process.env.GITHUB_EVENT_NAME === 'pull_request') {
