@@ -1,0 +1,20 @@
+# Đưa bản iOS mới nhất tới 100 % người dùng ngay (luật chủ 16/11: ship 100 %, không phát hành theo phần trăm).
+# PENDING_DEVELOPER_RELEASE → tạo release request; phased release đang chạy → COMPLETE. Mặc định chạy thử (chỉ đọc).
+name: Store release 100
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run: { description: 'Chạy thử (chỉ đọc)', type: boolean, default: true }
+permissions: { contents: read }
+concurrency: { group: store-submit, cancel-in-progress: false }
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: App Store Connect – phát hành 100 %
+        env: { ASC_KEY_ID: '${{ secrets.ASC_KEY_ID }}', ASC_ISSUER_ID: '${{ secrets.ASC_ISSUER_ID }}', ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}' }
+        run: node scripts/store/asc-submit.mjs release ${{ inputs.dry_run && '--dry-run' || '' }} | tee "$RUNNER_TEMP/rel.txt"; cat "$RUNNER_TEMP/rel.txt" >> "$GITHUB_STEP_SUMMARY"
