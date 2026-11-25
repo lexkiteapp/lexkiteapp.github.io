@@ -1,0 +1,258 @@
+{
+  "at": "2026-11-22T05:58:40.435Z",
+  "accepted": 22,
+  "rejected": [
+    {
+      "form": "une",
+      "word": "un",
+      "why": [
+        "giám khảo A: Lemma is 'un' (masculine) but key is 'une' (feminine); entry should be for 'une'.",
+        "giám khảo B: Key is 'une' with feminine IPA /yn/ and feminine gloss/example, but lemma is given as masculine 'un'.",
+        "dịch ngược lệch: vi,th,ja,ko,hi,ar,ru",
+        "cổng: un: câu ví dụ không chứa \"un\""
+      ]
+    },
+    {
+      "form": "moi",
+      "word": "moi",
+      "why": [
+        "dịch ngược lệch: vi,es,pt,id,th,zh,ja,ko,hi,ar,ru,tr"
+      ]
+    },
+    {
+      "form": "rien",
+      "word": "rien",
+      "why": [
+        "dịch ngược lệch: id,zh"
+      ]
+    },
+    {
+      "form": "ont",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "deux",
+      "word": "deux",
+      "why": [
+        "cổng: deux: nghĩa ja sai chữ viết: 2"
+      ]
+    },
+    {
+      "form": "avais",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "arrête",
+      "word": "arrêter",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: parler! – Le point d’exclamation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "quelle",
+      "word": "quel",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: -il? – Le point d’interrogation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "eh",
+      "word": "eh",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: ici! – Le point d’exclamation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "avons",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi",
+        "cổng: avoir: câu ví dụ không chứa \"avoir\""
+      ]
+    },
+    {
+      "form": "aurais",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi",
+        "cổng: avoir: câu ví dụ không chứa \"avoir\""
+      ]
+    },
+    {
+      "form": "histoire",
+      "word": "histoire",
+      "why": [
+        "dịch ngược lệch: vi,es,pt,de,id,ru"
+      ]
+    },
+    {
+      "form": "aucune",
+      "word": "aucun",
+      "why": [
+        "giám khảo A: IPA wrong (should be [okœ̃]), lemma mismatches key (word is \"aucun\" not \"aucune\"), missing gender info."
+      ]
+    },
+    {
+      "form": "aller",
+      "word": "aller",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "penser",
+      "word": "penser",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "devoir",
+      "word": "devoir",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "venir",
+      "word": "venir",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "rester",
+      "word": "rester",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    }
+  ],
+  "tried": [
+    "pas",
+    "et",
+    "une",
+    "nous",
+    "non",
+    "moi",
+    "quoi",
+    "toi",
+    "rien",
+    "vais",
+    "ont",
+    "vraiment",
+    "deux",
+    "quelque",
+    "accord",
+    "sans",
+    "avais",
+    "pense",
+    "doit",
+    "vos",
+    "fille",
+    "avons",
+    "jour",
+    "argent",
+    "moment",
+    "aurais",
+    "fils",
+    "eh",
+    "quelle",
+    "arrête",
+    "pendant",
+    "venir",
+    "tant",
+    "super",
+    "ensemble",
+    "rester",
+    "histoire",
+    "seulement",
+    "eux",
+    "aucune",
+    "savais",
+    "corps",
+    "pouvoir",
+    "main",
+    "vers",
+    "cause",
+    "dirait",
+    "fin",
+    "prêt",
+    "celui"
+  ],
+  "spot": [
+    "pas",
+    "vraiment"
+  ],
+  "stats": {
+    "used": {
+      "lexai": 0,
+      "gc": 0,
+      "cf2": 0,
+      "cfLeak": 0,
+      "cf2Dead": [],
+      "gem": 4,
+      "groq": 16
+    },
+    "budget": {
+      "lexai": 0,
+      "gc": 10000,
+      "cf2": 0
+    },
+    "by": {
+      "gem|gemini-3.8-flash": {
+        "ok": 2,
+        "fail": 23,
+        "bad": 0
+      },
+      "groq|openai/gpt-oss-120b": {
+        "ok": 7,
+        "fail": 0,
+        "bad": 0
+      },
+      "groq|qwen/qwen3.8-27b": {
+        "ok": 9,
+        "fail": 0,
+        "bad": 0
+      },
+      "lexai|gemini-3.5-flash": {
+        "ok": 0,
+        "fail": 32,
+        "bad": 0
+      },
+      "gem|gemini-3.7-flash": {
+        "ok": 1,
+        "fail": 9,
+        "bad": 0
+      },
+      "gem|gemini-3.6-flash": {
+        "ok": 1,
+        "fail": 1,
+        "bad": 0
+      }
+    },
+    "keys": {
+      "gem": {
+        "size": 85,
+        "live": 37,
+        "parked": {
+          "day": 30,
+          "minute": 16,
+          "auth": 2
+        }
+      },
+      "groq": {
+        "size": 109,
+        "live": 109,
+        "parked": {}
+      }
+    }
+  },
+  "wiktFlags": []
+}

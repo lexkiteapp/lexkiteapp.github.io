@@ -3,7 +3,7 @@
 // (c) App.frX khớp gói trong thư mục; (d) jsdom: chưa có đề → trạng thái rõ; có gói (dữ liệu tạm trong test) → danh sách → Đọc → Nghe → Viết (rubric giữ dấu nháy) → kết quả /25 + quy tắc 50/100.
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module'; import jsdom from 'jsdom';
 import { build, buildExam, hasSrc, EX_LV, EXT } from '../target/exam-es-lib.mjs';
-import * as FR from '../target/conj-fr.mjs';
+import * as FR from '../target/conj-fr.mjs'; import { coreFiles } from '../target/lib.mjs';
 const require = createRequire(import.meta.url), WEB = 'web';
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.error('✗', m); } else console.log('✓', m); };
 const rd = f => JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -23,9 +23,12 @@ const out = build(tsv, freq, 'fr'), a1 = out.A1.items, cz = a1.filter(i => i.k =
 ok(cz.length >= 5 && ls.length >= 1, `engine fr: có câu điền từ (${cz.length}) + câu nghe (${ls.length})`);
 ok(!a1.some(i => /\btue\b/.test(i.s)) && !a1.some(i => /Tu parles avec vous/.test(i.s)), 'engine fr: loại câu có từ cấm và câu trộn tu ⟂ vous');
 ok(cz.every(i => new Set(i.o).size === 3 && i.o.includes(i.a) && (i.s.match(/___/g) || []).length === 1 && i.id >= 1000 && i.au), 'engine fr: 3 phương án khác nhau gồm đáp án, một chỗ khuyết, id + tác giả Tatoeba');
-const seed = rd('content/target/fr/seed.json').words, gen = Object.fromEntries(seed.filter(w => w.pos === 'n').map(w => [w.word, w.gender]));
-const verbCz = cz.filter(i => !(i.a in gen)), nounCz = cz.filter(i => i.a in gen);
-const sameVerb = (a, o) => FR.KNOWN.some(v => ['pres', 'impf', 'fut', 'cond', 'ps'].some(t => { try { const f = FR.form(v, t); return f.includes(o) && f.includes(a); } catch (e) { return false; } }));
+// CÙNG nguồn với engine (seed + mọi lô core-NN của W1): kho lớn dần theo lô → test không giả định chỉ có seed 30 từ
+const deck = [rd('content/target/fr/seed.json'), ...coreFiles('fr').map(rd)].flatMap(d => d.words), gen = Object.fromEntries(deck.filter(w => w.pos === 'n').map(w => [w.word, w.gender]));
+const deckVerbs = [...new Set(deck.filter(w => w.pos === 'v').map(w => w.word.replace(/^(se |s')/, '')))];
+// câu bẫy danh từ = mọi phương án là danh từ trong kho; còn lại là bẫy động từ (đồng hình như "lit" – giường / lire – không bị xếp nhầm)
+const nounCz = cz.filter(i => i.o.every(o => o in gen)), verbCz = cz.filter(i => !nounCz.includes(i));
+const sameVerb = (a, o) => [...new Set([...FR.KNOWN, ...deckVerbs])].some(v => ['pres', 'impf', 'fut', 'cond', 'ps'].some(t => { try { const f = FR.form(v, t); return f.includes(o) && f.includes(a); } catch (e) { return false; } }));
 ok(verbCz.length >= 2 && verbCz.every(i => /(^|[^\p{L}])(je|j|tu|il|elle|on|nous|vous|ils|elles)\s*['’]?\s*___/iu.test(i.s) && i.o.filter(o => o !== i.a).every(o => sameVerb(i.a, o))), `engine fr: bẫy động từ = dạng cùng động từ ở ngôi khác, sau đại từ chủ ngữ (${verbCz.length} câu)`);
 ok(nounCz.every(i => i.o.every(o => o === i.a || (gen[o] && gen[o] !== gen[i.a]))), `engine fr: bẫy danh từ = giống ngược (${nounCz.length} câu)`);
 ok(EXT.es.D === 'content/exams/es/' && EXT.fr.G === 'FRX' && EXT.fr.iso3 === 'fra', 'bảng EXT có es + fr');

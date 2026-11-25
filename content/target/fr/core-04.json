@@ -1,0 +1,892 @@
+{
+  "v": 1,
+  "tl": "fr",
+  "variant": "fr-FR",
+  "status": "reviewed",
+  "source": {
+    "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 fr_50k",
+    "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/fr/fr_50k.txt",
+    "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+  },
+  "words": [
+    {
+      "word": "pas",
+      "pos": "adv",
+      "ipa": "pa",
+      "gl": {
+        "vi": "không",
+        "en": "not",
+        "es": "no",
+        "pt": "não",
+        "fr": "pas",
+        "de": "nicht",
+        "id": "tidak",
+        "th": "ไม่",
+        "zh": "不",
+        "ja": "ない",
+        "ko": "아니오",
+        "hi": "नहीं",
+        "ar": "ليس",
+        "ru": "не",
+        "tr": "değil"
+      },
+      "ex": {
+        "fr": "Je ne sais pas.",
+        "en": "I don't know."
+      },
+      "rank": 4,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ],
+        "spot": true
+      }
+    },
+    {
+      "word": "et",
+      "pos": "conj",
+      "ipa": "e",
+      "gl": {
+        "vi": "và",
+        "en": "and",
+        "es": "y",
+        "pt": "e",
+        "fr": "et",
+        "de": "und",
+        "id": "dan",
+        "th": "และ",
+        "zh": "和",
+        "ja": "と",
+        "ko": "그리고",
+        "hi": "और",
+        "ar": "و",
+        "ru": "и",
+        "tr": "ve"
+      },
+      "ex": {
+        "fr": "Il aime le chocolat et la vanille.",
+        "en": "He likes chocolate and vanilla."
+      },
+      "rank": 13,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "nous",
+      "pos": "pron",
+      "ipa": "nu",
+      "gl": {
+        "vi": "chúng tôi",
+        "en": "we",
+        "es": "nosotros",
+        "pt": "nós",
+        "fr": "nous",
+        "de": "wir",
+        "id": "kami",
+        "th": "เรา",
+        "zh": "我们",
+        "ja": "私たち",
+        "ko": "우리",
+        "hi": "हम",
+        "ar": "نحن",
+        "ru": "мы",
+        "tr": "biz"
+      },
+      "ex": {
+        "fr": "Nous allons au cinéma.",
+        "en": "We are going to the cinema."
+      },
+      "rank": 34,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "non",
+      "pos": "interj",
+      "ipa": "nɔ̃",
+      "gl": {
+        "vi": "không",
+        "en": "no",
+        "es": "no",
+        "pt": "não",
+        "fr": "non",
+        "de": "nein",
+        "id": "tidak",
+        "th": "ไม่",
+        "zh": "不",
+        "ja": "いいえ",
+        "ko": "아니요",
+        "hi": "नहीं",
+        "ar": "لا",
+        "ru": "нет",
+        "tr": "hayır"
+      },
+      "ex": {
+        "fr": "Non, je ne veux pas.",
+        "en": "No, I don't want to."
+      },
+      "rank": 42,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "quoi",
+      "pos": "pron",
+      "ipa": "kwa",
+      "gl": {
+        "vi": "cái gì",
+        "en": "what",
+        "es": "qué",
+        "pt": "o que",
+        "fr": "quoi",
+        "de": "was",
+        "id": "apa",
+        "th": "อะไร",
+        "zh": "什么",
+        "ja": "何",
+        "ko": "뭐",
+        "hi": "क्या",
+        "ar": "ماذا",
+        "ru": "что",
+        "tr": "ne"
+      },
+      "ex": {
+        "fr": "À quoi pensez-vous ?",
+        "en": "What are you thinking about?"
+      },
+      "rank": 61,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "toi",
+      "pos": "pron",
+      "ipa": "twa",
+      "gl": {
+        "vi": "bạn",
+        "en": "you (obj)",
+        "es": "tú",
+        "pt": "você",
+        "fr": "toi",
+        "de": "dich",
+        "id": "kamu",
+        "th": "คุณ",
+        "zh": "你",
+        "ja": "あなた",
+        "ko": "너",
+        "hi": "तुम",
+        "ar": "أنت",
+        "ru": "тебя",
+        "tr": "sen"
+      },
+      "ex": {
+        "fr": "C'est pour toi.",
+        "en": "It's for you."
+      },
+      "rank": 69,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "vraiment",
+      "pos": "adv",
+      "ipa": "vʁɛmɑ̃",
+      "gl": {
+        "vi": "thực sự",
+        "en": "really",
+        "es": "realmente",
+        "pt": "realmente",
+        "fr": "vraiment",
+        "de": "wirklich",
+        "id": "sungguh",
+        "th": "จริงๆ",
+        "zh": "真正地",
+        "ja": "本当に",
+        "ko": "정말로",
+        "hi": "वास्तव में",
+        "ar": "حقا",
+        "ru": "действительно",
+        "tr": "gerçekten"
+      },
+      "ex": {
+        "fr": "Ce livre est vraiment intéressant.",
+        "en": "This book is really interesting."
+      },
+      "rank": 102,
+      "qa": {
+        "gen": "gemini-3.8-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "spot": true
+      }
+    },
+    {
+      "word": "quelque",
+      "pos": "det",
+      "ipa": "kɛlk",
+      "gl": {
+        "vi": "nào đó",
+        "en": "some",
+        "es": "algún",
+        "pt": "algum",
+        "fr": "quelque",
+        "de": "irgendein",
+        "id": "suatu",
+        "th": "บาง",
+        "zh": "某",
+        "ja": "何らかの",
+        "ko": "어떤",
+        "hi": "कोई",
+        "ar": "بعض",
+        "ru": "какой-то",
+        "tr": "bazı"
+      },
+      "ex": {
+        "fr": "Il habite ici depuis quelque temps.",
+        "en": "He has lived here for some time."
+      },
+      "rank": 118,
+      "qa": {
+        "gen": "gemini-3.8-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          4,
+          5
+        ],
+        "ipaFix": true
+      }
+    },
+    {
+      "word": "accord",
+      "pos": "n",
+      "gender": "m",
+      "plural": "accords",
+      "ipa": "akɔʁ",
+      "gl": {
+        "vi": "sự đồng ý",
+        "en": "agreement",
+        "es": "acuerdo",
+        "pt": "acordo",
+        "fr": "accord",
+        "de": "Einigung",
+        "id": "persetujuan",
+        "th": "ข้อตกลง",
+        "zh": "协议",
+        "ja": "合意",
+        "ko": "동의",
+        "hi": "सहमति",
+        "ar": "اتفاق",
+        "ru": "согласие",
+        "tr": "anlaşma"
+      },
+      "ex": {
+        "fr": "Nous sommes d'accord avec votre proposition.",
+        "en": "We agree with your proposal."
+      },
+      "rank": 126,
+      "qa": {
+        "gen": "gemini-3.8-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "sans",
+      "pos": "prep",
+      "ipa": "sɑ̃",
+      "gl": {
+        "vi": "không có",
+        "en": "without",
+        "es": "sin",
+        "pt": "sem",
+        "fr": "sans",
+        "de": "ohne",
+        "id": "tanpa",
+        "th": "ปราศจาก",
+        "zh": "没有",
+        "ja": "なしで",
+        "ko": "없이",
+        "hi": "बिना",
+        "ar": "بدون",
+        "ru": "без",
+        "tr": "-siz"
+      },
+      "ex": {
+        "fr": "Il prend son thé sans sucre.",
+        "en": "He takes his tea without sugar."
+      },
+      "rank": 135,
+      "qa": {
+        "gen": "gemini-3.8-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "votre",
+      "pos": "det",
+      "ipa": "votʁ",
+      "gl": {
+        "vi": "của các bạn",
+        "en": "your",
+        "es": "sus",
+        "pt": "seus",
+        "fr": "votre",
+        "de": "eure",
+        "id": "milik Anda",
+        "th": "ของคุณ",
+        "zh": "你们的",
+        "ja": "あなた方の",
+        "ko": "당신들의",
+        "hi": "आपका",
+        "ar": "خاصتكم",
+        "ru": "ваши",
+        "tr": "sizin"
+      },
+      "ex": {
+        "fr": "Prenez vos manteaux, il fait froid.",
+        "en": "Take your coats, it is cold."
+      },
+      "exForm": "vos",
+      "rank": 171,
+      "qa": {
+        "gen": "gemini-3.8-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "ipaAi": "vɔtʁ"
+      }
+    },
+    {
+      "word": "fille",
+      "pos": "n",
+      "gender": "f",
+      "plural": "filles",
+      "ipa": "fij",
+      "gl": {
+        "vi": "cô gái",
+        "en": "girl",
+        "es": "niña",
+        "pt": "menina",
+        "fr": "fille",
+        "de": "Mädchen",
+        "id": "gadis",
+        "th": "เด็กผู้หญิง",
+        "zh": "女孩",
+        "ja": "女の子",
+        "ko": "소녀",
+        "hi": "लड़की",
+        "ar": "فتاة",
+        "ru": "девочка",
+        "tr": "kız"
+      },
+      "ex": {
+        "fr": "La fille lit un livre.",
+        "en": "The girl reads a book."
+      },
+      "rank": 179,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.7-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "jour",
+      "pos": "n",
+      "gender": "m",
+      "plural": "jours",
+      "ipa": "ʒuʁ",
+      "gl": {
+        "vi": "ngày",
+        "en": "day",
+        "es": "día",
+        "pt": "dia",
+        "fr": "jour",
+        "de": "Tag",
+        "id": "hari",
+        "th": "วัน",
+        "zh": "天",
+        "ja": "日",
+        "ko": "날",
+        "hi": "दिन",
+        "ar": "يوم",
+        "ru": "день",
+        "tr": "gün"
+      },
+      "ex": {
+        "fr": "Il y a sept jours dans une semaine.",
+        "en": "There are seven days in a week."
+      },
+      "rank": 197,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.7-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      },
+      "exForm": "jours"
+    },
+    {
+      "word": "argent",
+      "pos": "n",
+      "gender": "m",
+      "plural": "argents",
+      "ipa": "aʁʒɑ̃",
+      "gl": {
+        "vi": "tiền",
+        "en": "money",
+        "es": "dinero",
+        "pt": "dinheiro",
+        "fr": "argent",
+        "de": "Geld",
+        "id": "uang",
+        "th": "เงิน",
+        "zh": "钱",
+        "ja": "お金",
+        "ko": "돈",
+        "hi": "पैसा",
+        "ar": "مال",
+        "ru": "деньги",
+        "tr": "para"
+      },
+      "ex": {
+        "fr": "Il a beaucoup d'argent.",
+        "en": "He has a lot of money."
+      },
+      "rank": 205,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.7-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "moment",
+      "pos": "n",
+      "gender": "m",
+      "plural": "moments",
+      "ipa": "momɑ̃",
+      "gl": {
+        "vi": "khoảnh khắc",
+        "en": "moment",
+        "es": "momento",
+        "pt": "momento",
+        "fr": "moment",
+        "de": "Moment",
+        "id": "momen",
+        "th": "ช่วงเวลา",
+        "zh": "时刻",
+        "ja": "瞬間",
+        "ko": "순간",
+        "hi": "क्षण",
+        "ar": "لحظة",
+        "ru": "момент",
+        "tr": "an"
+      },
+      "ex": {
+        "fr": "Attends un moment, s'il te plaît.",
+        "en": "Wait a moment, please."
+      },
+      "rank": 213,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.7-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ],
+        "ipaAi": "mɔmɑ̃"
+      }
+    },
+    {
+      "word": "fils",
+      "pos": "n",
+      "gender": "m",
+      "plural": "fils",
+      "ipa": "fil",
+      "gl": {
+        "vi": "con trai",
+        "en": "son",
+        "es": "hijo",
+        "pt": "filho",
+        "fr": "fils",
+        "de": "Sohn",
+        "id": "anak laki-laki",
+        "th": "ลูกชาย",
+        "zh": "儿子",
+        "ja": "息子",
+        "ko": "아들",
+        "hi": "बेटा",
+        "ar": "ابن",
+        "ru": "сын",
+        "tr": "oğul"
+      },
+      "ex": {
+        "fr": "Mon fils joue au football.",
+        "en": "My son plays football."
+      },
+      "rank": 229,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.7-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ],
+        "ipaAi": "fis"
+      }
+    },
+    {
+      "word": "pendant",
+      "pos": "prep",
+      "ipa": "pɑ̃dɑ̃",
+      "gl": {
+        "vi": "trong khi",
+        "en": "during",
+        "es": "durante",
+        "pt": "durante",
+        "fr": "pendant",
+        "de": "während",
+        "id": "selama",
+        "th": "ระหว่าง",
+        "zh": "在……期间",
+        "ja": "〜の間",
+        "ko": "~ 동안",
+        "hi": "के दौरान",
+        "ar": "أثناء",
+        "ru": "во время",
+        "tr": "boyunca"
+      },
+      "ex": {
+        "fr": "Il a plu pendant toute la nuit.",
+        "en": "It rained all night."
+      },
+      "rank": 262,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "tant",
+      "pos": "adv",
+      "ipa": "tɑ̃",
+      "gl": {
+        "vi": "nhiều đến thế",
+        "en": "so much",
+        "es": "tanto",
+        "pt": "tanto",
+        "fr": "tant",
+        "de": "so viel",
+        "id": "begitu banyak",
+        "th": "มากขนาดนี้",
+        "zh": "如此多",
+        "ja": "そんなに",
+        "ko": "그렇게 많이",
+        "hi": "इतना",
+        "ar": "كثيراً",
+        "ru": "столько",
+        "tr": "o kadar"
+      },
+      "ex": {
+        "fr": "J'ai tant de choses à faire aujourd'hui.",
+        "en": "I have so many things to do today."
+      },
+      "rank": 281,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "super",
+      "pos": "adj",
+      "ipa": "sypɛʁ",
+      "gl": {
+        "vi": "tuyệt vời",
+        "en": "great",
+        "es": "genial",
+        "pt": "ótimo",
+        "fr": "super",
+        "de": "super",
+        "id": "hebat",
+        "th": "เยี่ยม",
+        "zh": "棒",
+        "ja": "すばらしい",
+        "ko": "최고의",
+        "hi": "शानदार",
+        "ar": "رائع",
+        "ru": "супер",
+        "tr": "harika"
+      },
+      "ex": {
+        "fr": "C'est une idée super !",
+        "en": "That's a great idea!"
+      },
+      "rank": 289,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "ensemble",
+      "pos": "adv",
+      "ipa": "ɑ̃sɑ̃bl",
+      "gl": {
+        "vi": "cùng nhau",
+        "en": "together",
+        "es": "juntos",
+        "pt": "juntos",
+        "fr": "ensemble",
+        "de": "zusammen",
+        "id": "bersama",
+        "th": "ด้วยกัน",
+        "zh": "一起",
+        "ja": "一緒に",
+        "ko": "함께",
+        "hi": "साथ में",
+        "ar": "معاً",
+        "ru": "вместе",
+        "tr": "birlikte"
+      },
+      "ex": {
+        "fr": "Nous allons au cinéma ensemble ce soir.",
+        "en": "We are going to the cinema together tonight."
+      },
+      "rank": 297,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "seulement",
+      "pos": "adv",
+      "ipa": "sølmɑ̃",
+      "gl": {
+        "vi": "chỉ",
+        "en": "only",
+        "es": "solo",
+        "pt": "somente",
+        "fr": "seulement",
+        "de": "nur",
+        "id": "hanya",
+        "th": "เท่านั้น",
+        "zh": "只",
+        "ja": "〜だけ",
+        "ko": "오직",
+        "hi": "केवल",
+        "ar": "فقط",
+        "ru": "только",
+        "tr": "sadece"
+      },
+      "ex": {
+        "fr": "J'ai seulement cinq minutes.",
+        "en": "I only have five minutes."
+      },
+      "rank": 321,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ],
+        "ipaAi": "sœlmɑ̃"
+      }
+    },
+    {
+      "word": "eux",
+      "pos": "pron",
+      "ipa": "ø",
+      "gl": {
+        "vi": "họ (nam)",
+        "en": "them",
+        "es": "ellos",
+        "pt": "eles",
+        "fr": "eux",
+        "de": "sie",
+        "id": "mereka",
+        "th": "พวกเขา",
+        "zh": "他们",
+        "ja": "彼ら",
+        "ko": "그들",
+        "hi": "वे",
+        "ar": "هم",
+        "ru": "они",
+        "tr": "onlar"
+      },
+      "ex": {
+        "fr": "Je pars en vacances avec eux.",
+        "en": "I am going on holiday with them."
+      },
+      "rank": 329,
+      "qa": {
+        "gen": "gemini-3.6-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    }
+  ]
+}

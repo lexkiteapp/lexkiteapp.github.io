@@ -28,12 +28,11 @@
   if (node) { module.exports = core; return; }
 
   const D = g.document;
-  const SFX = 'sfx/pop.mp3', JS = 'js/'; // như teach/, js/ khác: tương đối theo <base> của app (add-on: extension/app/)
+  const JS = 'js/'; // như teach/, js/ khác: tương đối theo <base> của app (add-on: extension/app/)
   const rm = () => { try { return g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
   const lite = () => { try { const c = navigator.connection; return !!(c && (c.saveData || /2g/.test(c.effectiveType || ''))); } catch (e) { return false; } };
   // trình duyệt tự động hóa (CI) giữ chữ đứng yên như SayText cũ – cổng riêng bật lại bằng localStorage lk.tb = 1
   const bot = () => { try { return !!navigator.webdriver && store.get('lk.tb') !== '1'; } catch (e) { return false; } };
-  const muted = () => (g.Core && g.Core.sfxOff) || (g.App && g.App.state && g.App.state.settings && g.App.state.settings.sfx === false);
   const tr = s => (typeof g.t === 'function' ? g.t(s) : s);
 
   const CSS = `.tb-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
@@ -152,7 +151,7 @@
       const kd = e => { if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return; if (e.target.closest && e.target.closest('.tb-snd')) return finish(); e.preventDefault(); finish(); };
       if (bubble) { bubble.addEventListener('click', kd); bubble.addEventListener('keydown', kd); bubble.tabIndex = 0; bubble.setAttribute('role', 'group'); }
       off = () => { if (bubble) { bubble.removeEventListener('click', kd); bubble.removeEventListener('keydown', kd); bubble.removeAttribute('tabindex'); bubble.removeAttribute('role'); } };
-      if (!muted()) { try { const a = new Audio(SFX); a.dataset.lkMix = '1'; a.volume = 0.6; const p = a.play(); if (p && p.catch) p.catch(() => {}); } catch (e) { /* trình duyệt chặn tự phát – im lặng */ } }
+      try { g.Sfx.bubble(); } catch (e) { /* bỏ qua */ }
       paint(0); typeStep();
     }
     if (useRig) { const idle = g.requestIdleCallback || (f => setTimeout(f, 200)); idle(() => { if (!dead) ensureRig(); }); }

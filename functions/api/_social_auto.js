@@ -11,8 +11,9 @@
 import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
 import { setupDist, DIST, clipOf, socialSetup, socialChannels } from './distribution.js';
 import { previewClip, pickPreviewClip, PREVIEW_CLIP_RE } from './_social_preview.js';
-import { isCardClip, foreignAccount, pausedAccount, extAccount, localDate, LANG_TZ, langOfChannel, dayCapOf, gapOf } from './_distribution.js';
+import { isCardClip, foreignAccount, pausedAccount, extAccount, localDate, LANG_TZ, langOfChannel, dayCapOf, gapOf, peakOk, peakSlot } from './_distribution.js';
 import { setup as ytSetup, chanCfg } from './youtube.js';
+import { postViolation } from './_social_audit.js';
 import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
 import { manifest, signed } from './admin-shorts.js';
@@ -85,9 +86,14 @@ export async function rebalanceDays(db, now, capOver = 0, horizonDays = 120, sto
     for (const r of list) {
       if (fixed(r) || r.slot_ms < now) continue;
       const d = day(r.slot_ms), clash = ms => times.some(t => Math.abs(t - ms) < gap);
-      if ((cnt[d] || 0) < cap && !clash(r.slot_ms)) { cnt[d] = (cnt[d] || 0) + 1; times.push(r.slot_ms); continue; }
+      if ((cnt[d] || 0) < cap && !clash(r.slot_ms)) {
+        let ms = r.slot_ms;
+        if (!capOver && !peakOk(ms, tz)) { const np = peakSlot(d, tz, ch, times, gap); if (np != null && np > now + 15 * 6e4) { await run(db, "UPDATE dist_social SET slot_ms = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'planned'", np, now, r.clip, r.channel_id); ms = np; moved++; } } // 23/11: bài đã xếp lệch giờ → dời vào giờ cao điểm địa phương CÙNG ngày
+        cnt[d] = (cnt[d] || 0) + 1; times.push(ms); continue;
+      }
       let ms = r.slot_ms, k = 0; do { ms += 864e5; k++; } while (k <= horizonDays && ((cnt[day(ms)] || 0) >= cap || clash(ms)));
       if (k > horizonDays) continue;
+      if (!capOver && !peakOk(ms, tz)) { const np = peakSlot(day(ms), tz, ch, times, gap); if (np != null) ms = np; }
       await run(db, "UPDATE dist_social SET slot_ms = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'planned'", ms, now, r.clip, r.channel_id);
       times.push(ms); cnt[day(ms)] = (cnt[day(ms)] || 0) + 1; moved++;
     }
@@ -533,6 +539,10 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       const a = (await getAccounts()).find(x => String(x.id) === String(r.account_id));
       if (!a) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'account-gone' }); continue; }
       const h = healthOf(a, []); if (h.state === 'reconnect' || h.state === 'limit') { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: h.state }); continue; }
+      { // CỔNG đúng page/ngôn ngữ/giờ (chủ 23/11, _social_audit.js): sai ngôn ngữ page → không đăng (đánh dấu lỗi để người xem); giờ cao điểm do bộ xếp lịch + rebalanceDays giữ, audit/CI báo nếu còn lệch
+        const x = (await chanCfg(db, r.channel_id).catch(() => ({ cfg: {} }))).cfg || {}, lang = (x.lang || langOfChannel(a.name || a.title || '') || 'en').toLowerCase(), v = postViolation({ lang, tz: LANG_TZ[lang] || x.tz }, c._it || c, r.slot_ms);
+        if (v && v.code === 'wrong-lang') { await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: 'gate-wrong-lang' }); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'gate-wrong-lang' }); continue; }
+      }
       done++;
       const p = platOf(a), P = PLAT[p] || {}, acc = { id: a.id, p, kind: (a.kinds || []).includes(P.kind) ? P.kind : ((a.kinds || [])[0] || P.kind) };
       const meta = r.meta || {};

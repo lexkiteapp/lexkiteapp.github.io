@@ -177,6 +177,8 @@
   // tap/streak/shimmer/combo: nạp lười (streak-ui.js, Sfx.extend)
   for (const k of ['tap', 'streak', 'shimmer', 'combo']) Sfx[k] = () => {};
   Sfx.haptic = ev => buzz(HAPTIC[ev] || HAPTIC.soft);
+  Sfx.muted = isMuted; // một công tắc tiếng; bubble = pop bong bóng giáo viên (feel.js ghi đè bằng mp3 đã giải mã)
+  Sfx.bubble = () => { if (isMuted()) return; try { const a = new Audio('sfx/pop.mp3'); a.dataset.lkMix = '1'; a.volume = 0.6; const p = a.play(); if (p && p.catch) p.catch(() => {}); } catch (e) { /* chặn tự phát */ } };
   Sfx.haptics = on => { if (on === undefined) return hapOn(); try { g.localStorage.setItem('vb.haptics', on ? '1' : '0'); } catch (e) { /* bỏ qua */ } if (on) buzz(HAPTIC.correct); return !!on; };
   Sfx.HAPTIC = HAPTIC; Sfx.daypart = daypart;
   Sfx.extend = f => { const o = f(tone, buzz); for (const k of Sfx.locked || []) delete o[k]; Object.assign(Sfx, o); };
