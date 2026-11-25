@@ -18,3 +18,5 @@
 @media (prefers-reduced-motion:no-preference){.lsn-wires .new path{stroke-dasharray:1;stroke-dashoffset:1;animation:lsnW .2s ease-out forwards}}@keyframes lsnW{to{stroke-dashoffset:0}}
 .lsn-xframe .lsn-ans .lsn-tile,.lsn-xframe .lsn-slot{min-height:44px;height:44px}.lsn-fx .lsn-xframe .lsn-ans>button,.lsn-fx .lsn-xframe .lsn-bank>button{min-height:44px}.lsn-xframe .lsn-tile{transition:transform .12s,box-shadow .12s}.lsn-xframe .lsn-tile.used{visibility:visible!important;color:transparent!important;background:transparent!important;border-style:dashed!important;box-shadow:none!important;opacity:.45;pointer-events:none}.lsn-xframe .lsn-tile.used *{visibility:hidden}
 .lsn-slots{display:flex;flex-wrap:wrap;justify-content:center;gap:calc(var(--sp-1)*1.5)}.lsn-slots .lsn-slot{width:36px;min-width:36px;font-weight:800;color:var(--text)}.lsn-slots .lsn-slot b{font-weight:800}
+/* khung ex: nút Nghe lại giữ cỡ cũ – luật story-stage.css (Nghe lại cả hàng thẻ chừa chỗ 0.75×) làm hàng thẻ tràn ra ngoài màn (#lsnSlow, #lsnIn ra ngoài) */
+.lsn-v2 .lsn-xframe .lsn-qcard #lsnPlay{width:calc(100% - 4.75rem);margin-right:0}
