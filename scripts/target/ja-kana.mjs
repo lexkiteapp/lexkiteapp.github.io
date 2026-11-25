@@ -119,3 +119,12 @@ export function longFold(s) {
   }
   return out;
 }
+/** Kana kèm dấu hạ giọng kiểu sách giáo khoa/OJAD: はꜜし (1), はしꜜ (2 = odaka), はし (0 = heiban, không dấu). Dấu đặt SAU mora hạ (ゃゅょ đi cùng mora trước). */
+export function accentKana(kana, p) {
+  if (!Number.isInteger(p) || p < 0 || p > morae(kana)) throw new Error(`cao độ ${p} ngoài 0…${morae(kana)}: ${kana}`);
+  if (p === 0) return kana;
+  let m = 0, out = '';
+  const cs = [...kana];
+  cs.forEach((c, i) => { out += c; const small = n => n && (SMALL_Y[hira(n)] || SMALL_V[hira(n)]); if (!small(c) && !small(cs[i + 1])) { m++; if (m === p) out += 'ꜜ'; } else if (small(c)) { m++; if (m === p) out += 'ꜜ'; } });
+  return out;
+}

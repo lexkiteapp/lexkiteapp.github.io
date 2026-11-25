@@ -22,6 +22,7 @@
 4. **Một engine âm/rung**: `tone()` là dự phòng có chủ đích khi mp3 chưa giải mã (không phải engine thứ 2); còn lại: rung trong lesson/ui.js qua `Sfx.haptic` (chờ #1830), máy nhịp của game nhịp giữ AudioContext riêng (cần chính xác thời gian).
    - **✅ PR P4**: một công tắc tiếng `Sfx.muted` (game.js) cho feel.js + teacher-bubble.js; tiếng pop bong bóng qua `Sfx.bubble` (feel.js phát từ bộ đệm mp3, chưa giải mã → HTMLAudio); rung lesson/ui.js đã qua `Sfx.haptic`. Máy gác: haptics.mjs (không `new Audio`/`settings.sfx` riêng trong feel/teacher-bubble).
 5. **Áp vào mọi dạng bài + mini-game** và thêm 3 game còn thiếu (ô chữ → ghép tranh → cờ câu đố) theo `play-community-1211.md`, mỗi game nạp lười < 30 KB.
+   - **P5a 🧩 Ô chữ mỗi ngày ✅ PR này**: `#/practice/crossword` (gói lười `pxw`): lưới 9×9 dựng từ từ của người học (đến hạn → yếu → sổ từ; cùng ngày cùng lưới, `xw-core.js` thuần), gợi ý = nghĩa + câu ví dụ che từ, bàn chữ 12 phím + bàn phím thật, gợi ý chữ / bỏ qua; SRS chỉ thẻ đến hạn (Good / Hard có gợi ý / Again bỏ qua + sổ lỗi); kết quả GameEnd + lưới chia sẻ 🟩🟨⬜. Khung Stitch `game-crossword` (key1 2a7b46a4…, sáng 'bright', tối = dark-from-light). Test `play-crossword.mjs`.
 
 ## Luật không đổi
 Không tim/năng lượng; không đếm ngược ép; không khoá sau quảng cáo; nhắc ≤ 1/ngày, giờ yên 22–08, backoff 3 (notifications.md); i18n 15 ngôn ngữ; khung app ≤ 374 KB gz (phần game lười); không cắt tính năng/test/ngưỡng.
