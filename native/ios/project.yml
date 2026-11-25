@@ -67,6 +67,8 @@ targets:
         UISupportedInterfaceOrientations~iphone: [UIInterfaceOrientationPortrait]
         UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
         ITSAppUsesNonExemptEncryption: false
+        # Meta app-install ads measurement (docs/META-ADS.md): SKAdNetwork only – no SDK, no ATT prompt; same ids as scripts/mobile-ads.mjs SKAN_META
+        SKAdNetworkItems: [{ SKAdNetworkIdentifier: v9wttpbfk9.skadnetwork }, { SKAdNetworkIdentifier: n38lu8286q.skadnetwork }]
         # P07 #/handsfree keeps playing with the screen locked (audio chained on ended, lock-screen controls)
         UIBackgroundModes: [audio]
         # P03 speaking exercises: asked on the first tap of the microphone button; "Can't speak now" keeps the lesson usable without it
