@@ -170,7 +170,7 @@ for n in T['nodes']:   # Stitch components with their own fills (candy tiles, be
         cr = contrast(TH.get(fg, fg), TH.get(bg, bg))
         if cr < need(sz): low.append(dict(id=n['id'], type=n['type'], fg=fg, bg=bg, cr=cr, need=need(sz)))
 pairs = [('chip', TH['chip_ink'], TH['chip_bg'], 40), ('pill', TH['ink'], TH['pill'], 56), ('pill-right', TH['ink'], TH['good_bg'], 56), ('pill-dim', TH['muted'], TH['pill'], 56),
-         ('caption', TH['cap_ink'], rgb(TH['cap_plate'], TH['bg2']), 58), ('caption-now', TH['cap_now'], rgb(TH['cap_plate'], TH['bg2']), 58), ('cta', TH['cta_ink'], TH['cta_a'], 60), ('ring', TH['ring_ink'], TH['ring_bg'], 54)]
+         ('caption', TH['cap_ink'], rgb(TH['cap_plate'], TH['bg2']), T.get('cap_size', 58)), ('caption-now', TH['cap_now'], rgb(TH['cap_plate'], TH['bg2']), T.get('cap_size', 58)), ('cta', TH['cta_ink'], TH['cta_a'], 60), ('ring', TH['ring_ink'], TH['ring_bg'], 54)]
 for name, fg, bg, sz in pairs:
     cr = contrast(fg, bg)
     if cr < need(sz): low.append(dict(id=name, cr=cr, need=need(sz)))
@@ -216,6 +216,8 @@ if o.video:
         crop = im[hx[1]:hx[3], hx[0]:hx[2]].astype(int); diff = (np.abs(crop - bgc).sum(2) > 60).mean(); hostvis.append(round(float(diff), 3))
         if im.std() < 4: blank.append(i)
     gate('frames', min(hostvis) > 0.12 and not blank, 3, host_cover_min=min(hostvis), host_missing_s=[i / 4 for i, x in enumerate(hostvis) if x <= 0.12][:6], blank=blank)   # 4 samples / s
+    _g = [im.astype(np.float32).mean(2) for im in fr]; _fv = [float(np.abs(_g[i + 4] - _g[i]).mean()) for i in range(len(_g) - 4)]   # v3 frame_variety: no 1-s window of a static picture (audit #7 / #10)
+    _st = sum(1 for v in _fv if v < 3.0) / max(1, len(_fv)); gate('frame_variety', _st <= 0.35, 2, static_share=round(_st, 2), mean_change=round(sum(_fv) / max(1, len(_fv)), 1), floor=3.0, max_static=0.35)
     from dead_band import check as _dead_band   # owner 19/11: no flat empty band >= 8 % of the frame height (scripts/video/tpl/dead_band.py), short + wide
     _db = _dead_band(im.astype(np.float32).mean(2) for im in fr); gate('dead_band', _db['ok'], 3, **{k: v for k, v in _db.items() if k != 'ok'})
     if o.sheet:   # contact sheet: one frame per line (middle), for the review sheet
@@ -229,6 +231,10 @@ for n in T['nodes']:
     if _ar.search(tx) and (not n.get('rtl') or re.search('[A-Za-z]', tx)): _bad_s.append(dict(id=n['id'], why='arabic must be rtl and Latin-free', text=tx[:30]))
     if _cjk.search(tx) and n.get('size', 99) < 44: _bad_s.append(dict(id=n['id'], why='cjk text < 44 px', size=n.get('size')))
 gate('native_script', not _bad_s, 2, bad=_bad_s[:4])
+# v3 host_motion + caption_size (audit 24/11 #1/#4/#10, eye review 78-85): the teacher's body pops + leans on every beat (pivot = top of the head) and the captions are big inside the safe box
+_hm = T.get('host_motion') or {}; _bub = T.get('layout') == 'bubble'   # bubble layout frames the clip in a round window: no body motion there (and it keeps the small caption plate)
+gate('host_motion', _bub or (_hm.get('scale', 0) >= 0.03 and _hm.get('rot', 0) >= 1.0 and _hm.get('beats', 0) >= len(T['lines']) and _hm.get('bob', 0) >= 4), 2, layout=T.get('layout'), motion=_hm, lines=len(T['lines']))
+gate('caption_size', T['format'] != 'short' or T.get('cap_size', 0) >= (58 if _bub else 64), 2, cap_size=T.get('cap_size'), layout=T.get('layout'))
 # v3 viral_score (>= 95, each criterion scored) and ypp (duplicate / value / disclosure / rights): below 95 or any ypp reason = not published, not banked
 _epf = f"{ROOT}/content/video/teach2d/eps/{T['ep']}.json"; _ep = json.load(open(_epf)) if os.path.exists(_epf) else {}
 _vs = V3.viral_score(T, _ep, R, LOOKS, BEATS); gate('viral_score', _vs['ok'], 3, score=_vs['score'], parts=_vs['parts'], notes=_vs['notes'], need=V3.PASS)

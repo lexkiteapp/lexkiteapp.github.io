@@ -36,7 +36,7 @@ TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carri
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)
     corner=dict(region=[60, 324, 960, 1150], cap=[60, 1168, 960, 1282], host_h=640, host_cx=540),
-    side=dict(region=[60, 324, 960, 1150], cap=[510, 1196, 960, 1364], cap_rows=2, host_h=760, host_cx=260),
+    side=dict(region=[60, 324, 960, 1150], cap=[510, 1180, 960, 1420], cap_rows=2, host_h=760, host_cx=260),
     bubble=dict(region=[60, 324, 960, 1396], cap=[60, 1410, 610, 1496], host_h=744, host_cx=None, bubble=[632, 1440, 1032, 1840]))
 FMT = dict(short=dict(W=1080, H=1920, chip=[60, 236], safe=[48, 232, 960, 1497], **LAYOUTS[o.layout or 'corner']),
            wide=dict(W=1920, H=1080, region=[96, 150, 1056, 904], chip=[96, 70], safe=[60, 48, 1860, 1032], cap=[96, 924, 1056, 1024],   # v3 (audit 24/11 #5): burned karaoke captions in the wide cut too, under the card region, left of the teacher
@@ -48,6 +48,7 @@ if EP['template'] in ('rule', 'band') and o.format == 'short':   # Spell->Sound 
     _x = int(FMT['W'] * (1 - PZ['right'])); FMT = dict(FMT, region=[FMT['region'][0], FMT['region'][1], min(FMT['region'][2], _x), FMT['region'][3]], cap=[FMT['cap'][0], FMT['cap'][1], min(FMT['cap'][2], _x), FMT['cap'][3]], safe=[FMT['safe'][0], FMT['safe'][1], min(FMT['safe'][2], _x), FMT['safe'][3]])
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
+if o.format == 'short' and (o.layout or 'corner') != 'bubble': S['cap'] = 66   # v3 (audit 24/11 #4): bigger captions inside the safe box (bubble keeps 58: its caption plate is only 86 px tall)
 MINF = (0.55 if LAYOUT == 'bubble' else 0.45) if EP['template'] == 'l1' else 0.3   # first-card min height (share of the card region); l1: the lone mistake bubble must fill the frame (layout_fill)
 REEL = EP['template'] in ('slang', 'guess3', 'levels3', 'scorecard', 'l1')
 if REEL:   # v3 (audit 24/11 #3 empty frames): the few cards of a 7-13 s reel were small in a 826 px region (pilot t2s_ace: 70 % bare background at 2-3 s) -> bigger text, bigger cards
@@ -1033,10 +1034,12 @@ if BB:   # round call window: head + shoulders centred, head ~55 % of the window
     x0, y0 = (BB[0] + BB[2]) / 2 - cx, BB[1] + 0.44 * D - cy; box = [round(x0, 1), round(y0, 1), round(x0 + hw, 1), round(y0 + HG['h'] * k, 1)]
 else: box = [round(FMT['host_cx'] - hw / 2, 1), H - FMT['host_h'], round(FMT['host_cx'] + hw / 2, 1), H]
 HOST = dict(who=EP['teacher'], **(dict(rig='host_rig.webm') if RIG else dict(talk='host_talk.webm', listen='host_listen.webm')), box=box, segs=SEG, xfade=4, len=LEN, bubble=BB)
+HM = dict(scale=0.035, rot=1.2, bob=5, pop=0.5, lean=0.9, breath=2.4)   # body motion per beat (TeachShort HostBody); qc.py gate host_motion checks these numbers
+if not BB: HOST.update(motion=HM, beats=[int(round(v['t0'] * o.fps)) for v in sorted(LINES.values(), key=lambda v: v['t0'])], pivot=[round(box[0] + (hb[0] + hb[2]) / 2 * k, 1), round(box[1] + hb[1] * k, 1)])
 if 'pose' in LEN: HOST['pose'] = 'host_pose.webm'   # react reaction pose (TeachShort.jsx plays host[seg.clip])
 # ---- camera (social shorts): push-in on the hook, then a hard cut to a new framing at every sentence start, slow push inside each shot.
 # Scale is anchored at the top of the teacher's head, so the head never rises into the captions; source pixels never exceed 1.0x.
-SHOTS = []; CAP_GAP = 12   # px between the zoomed head box and the caption band (qc.py layout 'caption band on the head')
+SHOTS = []; CAP_GAP = 24   # px between the zoomed head box and the caption band (qc.py layout 'caption band on the head')
 if SOCIAL and not BB:
     ox, oy = box[0] + (hb[0] + hb[2]) / 2 * k, box[1] + hb[1] * k; side = LAYOUT == 'side'
     FR = dict(push=[(0, 1.0, 0), (1, 1.07, 60), (2, 1.07, -60)], mirror=[(0, 1.0, 0), (1, 1.07, -60), (2, 1.07, 60)], calm=[(0, 1.0, 0), (1, 1.03, 0), (2, 1.05, 0)],
@@ -1058,6 +1061,7 @@ else:
     if SHOTS:   # the head box in every framing (QC keeps cards / captions off all of them)
         cx_, cy_ = HOST['cam']['ox'], HOST['cam']['oy']; hs = [[cx_ + (x - cx_) * sh_[q] + sh_['dx'], cy_ + (y - cy_) * sh_[q]] for sh_ in SHOTS for q in ('s0', 's1') for x, y in ((HEAD[0], HEAD[1]), (HEAD[2], HEAD[3]))]
         HEAD = [min(p_[0] for p_ in hs), min(p_[1] for p_ in hs), max(p_[0] for p_ in hs), max(p_[1] for p_ in hs)]
+    if HOST.get('motion'): mg = HM['scale'] / 2 * (HEAD[2] - HEAD[0]) + 6; HEAD = [HEAD[0] - mg, HEAD[1] - 6, HEAD[2] + mg, HEAD[3]]   # the beat pop / lean / bob must not reach the captions
 
 # ---------------- audio: voice track (-16 LUFS) + soft synth ticks (countdown 3-2-1, answer chime) after loudnorm ----------------
 os.makedirs(o.public, exist_ok=True); SR = 48000
@@ -1148,14 +1152,14 @@ if EP['template'] in ('guess', 'guess3'):   # picture from content/lexicon/img.j
     from PIL import Image as _I; _I.open(raw_).convert('RGBA').save(f'{o.public}/pic.png'); os.remove(raw_)
 
 # ---------------- props + QC timeline ----------------
-props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, canvas=int(MIX.get('canvas', 0)), layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')
+props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, canvas=int(MIX.get('canvas', 0)), layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], capSize=S['cap'], host=HOST, audio='voice.wav')
 json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, nf=NF, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
                lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause'],
                               quiz=bool(v.get('quiz')), repeat=bool(v.get('repeat'))) for k, v in LINES.items()},
                host='rig' if RIG else 'registry', rig=dict(frames=f'{o.host}/rig.frames.json', vo=o.vo) if RIG else None, pose=EP.get('pose'), expr=EP.get('expr'), exprs=EP.get('exprs'), mix=MIX or None,
                speech=SPEECH, segs=SEG, host_xfade=HOST['xfade'], host_len=LEN, head=[round(v, 1) for v in HEAD], body=[round(v, 1) for v in BODY], cues=CUES, ipa=IPA, slots=SLOTS, sfx=SFX, vtt=VTT,
-               voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], cta=EP['cta'], nodes=NODES, caps=CAPS),
+               voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], cta=EP['cta'], nodes=NODES, caps=CAPS, cap_size=S['cap'], host_motion=dict(HOST.get('motion') or {}, beats=len(HOST.get('beats') or []))),
           open(o.out + '.timeline.json', 'w'), indent=0)
 if EMBED:   # captions + chapters as WebVTT (translatable, one cue per line)
     ts = lambda x: f'{int(x // 3600):02d}:{int(x % 3600 // 60):02d}:{x % 60:06.3f}'

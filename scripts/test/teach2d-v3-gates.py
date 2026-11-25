@@ -39,7 +39,10 @@ e3 = dict(EPL, publish=dict(EPL['publish'], value='short')); assert not V.ypp(T,
 # registry == what the engine really uses
 mix = open(f'{ROOT}/scripts/video/teach2d/mix.py').read(); assert json.loads(re.search(r"music=(\[[^\]]*\])", mix).group(1).replace("'", '"')) == pol['music'], 'ypp.json music == mix.py music'
 ppl = json.load(open(f'{ROOT}/web/teach/characters.json'))['people']; assert sorted(pol['teachers']) == sorted(ppl) and sorted(pol['voices']) == sorted(p['voice']['video'] for p in ppl.values()), 'ypp.json teachers / voices == characters.json'
-q = open(f'{ROOT}/scripts/video/teach2d/qc.py').read(); assert "gate('viral_score'" in q and "gate('ypp'" in q and "gate('native_script'" in q
+q = open(f'{ROOT}/scripts/video/teach2d/qc.py').read(); assert "gate('viral_score'" in q and "gate('ypp'" in q and "gate('native_script'" in q and all(f"gate('{g}'" in q for g in ('host_motion', 'caption_size', 'frame_variety'))
+jsx = open(f'{ROOT}/scripts/video/remotion/src/teach/TeachShort.jsx').read(); bld = open(f'{ROOT}/scripts/video/teach2d/build.py').read()
+assert 'function HostBody' in jsx and 'host.motion' in jsx and 'size = 58' in jsx and 'capSize' in jsx, 'TeachShort: body motion per beat + caption size prop'
+assert re.search(r"HM = dict\(scale=0\.035, rot=1\.2, bob=5", bld) and "S['cap'] = 66" in bld and 'cap_size=S' in bld, 'build.py: motion numbers (>= the qc gate floors) + caption size 66 in the timeline'
 
 # news / cine lessons: same gates on the lesson spec (qc_gate.py wires them)
 NL = {i: dict(id=i, who=w, text=t) for i, w, t in [('h', 'ama', 'Need help at the bank?'), ('1', 'ama', "I'd like to open an account."), ('2', 'carlos', 'Open an account. Good!'), ('3', 'ama', 'Can I withdraw some cash?'), ('4', 'carlos', 'Withdraw means take money out.'),

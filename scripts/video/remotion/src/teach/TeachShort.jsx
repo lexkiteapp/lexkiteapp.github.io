@@ -197,14 +197,24 @@ const Canvas = ({ T, w, h, tint, v = 0, t = 0 }) => (   // Stitch Kit canvas: fl
 function Host({ host, f, T }) {   // speech-gated segments; bubble layout = the same clip framed in a round Kit call window
   if (!host.bubble) {   // social camera: push / cut per shot, scale anchored at the top of the head (head never rises into the captions)
     const c = host.cam, sh = c ? c.shots.find(x => f >= x.f0 && f < x.f1) || c.shots[c.shots.length - 1] : null;
-    if (!sh) return <HostClips host={host} f={f} ox={0} oy={0} />;
+    if (!sh) return <HostBody host={host} f={f}><HostClips host={host} f={f} ox={0} oy={0} /></HostBody>;
     const p = clamp01((f - sh.f0) / Math.max(1, sh.f1 - sh.f0)), sc = sh.s0 + (sh.s1 - sh.s0) * (sh === c.shots[0] ? easeOut(p) : p);
-    return <div style={{ position: 'absolute', inset: 0, transformOrigin: `${c.ox}px ${c.oy}px`, transform: `translateX(${sh.dx}px) scale(${sc})` }}><HostClips host={host} f={f} ox={0} oy={0} /></div>;
+    return <div style={{ position: 'absolute', inset: 0, transformOrigin: `${c.ox}px ${c.oy}px`, transform: `translateX(${sh.dx}px) scale(${sc})` }}><HostBody host={host} f={f}><HostClips host={host} f={f} ox={0} oy={0} /></HostBody></div>;
   }
   const [b0, b1, b2, b3] = host.bubble;
   return <div style={{ position: 'absolute', left: b0, top: b1, width: b2 - b0, height: b3 - b1, borderRadius: '50%', overflow: 'hidden', boxSizing: 'border-box',
     background: `radial-gradient(circle at 50% 40%, ${T.tile} 0%, ${T.card} 70%)`, border: `8px solid ${T.primary}`, boxShadow: `0 10px 0 ${T.ledge}` }}>
     <HostClips host={host} f={f} ox={b0 + 8} oy={b1 + 8} /></div>;
+}
+
+// v3 body motion (audit 24/11 #1/#10): the teacher's body moves on every beat (line start): a scale pop + a lean, pivoting on the TOP of the head (the head never climbs into the captions),
+// plus a slow breathing bob. host.motion = { scale, rot, bob, pop, lean, breath } from build.py (the QC gate `host_motion` reads the same numbers); closed form per frame.
+function HostBody({ host, f, children }) {
+  const M = host.motion, B = host.beats; if (!M || !B || !host.pivot) return children;
+  let i = -1; for (let k = 0; k < B.length && B[k] <= f; k++) i = k;
+  const tau = i < 0 ? 9 : (f - B[i]) / 30, pop = tau < M.pop ? Math.sin(Math.PI * tau / M.pop) : 0, lean = tau < M.lean ? Math.sin(Math.PI * tau / M.lean) : 0;
+  return <div style={{ position: 'absolute', inset: 0, transformOrigin: `${host.pivot[0]}px ${host.pivot[1]}px`,
+    transform: `translateY(${(M.bob * Math.sin(2 * Math.PI * f / 30 / M.breath)).toFixed(2)}px) rotate(${((i % 2 ? 1 : -1) * M.rot * lean).toFixed(3)}deg) scale(${(1 + M.scale * pop).toFixed(4)})` }}>{children}</div>;
 }
 
 function HostClips({ host, f, ox, oy }) {   // the incoming clip fades in on top over xfade frames while the outgoing one keeps playing underneath
@@ -233,19 +243,19 @@ export const capScale = tau => {   // tau = seconds since the beat appeared
   return 1;
 };
 export const wordBump = tau => (tau < 0 || tau > CAP_POP.bounce ? 0 : CAP_POP.bump * Math.sin(Math.PI * tau / CAP_POP.bounce));
-function Captions({ caps, box, t, T }) {
+function Captions({ caps, box, t, T, size = 58 }) {
   const p = caps.find(c => t >= c.t0 && t < c.t1); if (!p || !box) return null;
   const now = p.words.filter(w => t >= w.s - 0.02).length - 1, a = clamp01((t - p.t0) / 0.06), sc = capScale(t - p.t0);
   return (
     <div style={{ position: 'absolute', left: box[0], top: box[1], width: box[2] - box[0], height: box[3] - box[1], display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: a }}>
-      <div style={{ padding: '10px 26px', borderRadius: 24, textAlign: 'center', background: T.cap_plate, fontFamily: JAK, fontWeight: 800, fontSize: 58, lineHeight: '74px', whiteSpace: 'pre',
+      <div style={{ padding: '10px 26px', borderRadius: 24, textAlign: 'center', background: T.cap_plate, fontFamily: JAK, fontWeight: 800, fontSize: size, lineHeight: `${Math.round(size * 1.28)}px`, whiteSpace: 'pre',
         transform: `scale(${sc})`, transformOrigin: '50% 60%', boxShadow: `0 8px 0 ${T.ledge}` }}>
         {p.words.map((w, i) => <React.Fragment key={i}>{p.br && i === p.br ? <br /> : null}
           <span style={{ display: 'inline-block', whiteSpace: 'pre', color: i === now ? T.cap_now : T.cap_ink, transform: i === now ? `scale(${1 + wordBump(t - Math.max(p.t0, p.words[i].s))})` : 'none', textShadow: `0 3px 0 ${T.ledge}` }}>{(i && i !== p.br ? ' ' : '') + w.w}</span></React.Fragment>)}</div>
     </div>);
 }
 
-export const TeachShort = ({ nodes = [], caps = [], capBox = null, host = null, theme = 'dark', tint = null, canvas = 0, audio = null, w = 1080, h = 1920 }) => {
+export const TeachShort = ({ nodes = [], caps = [], capBox = null, capSize = 58, host = null, theme = 'dark', tint = null, canvas = 0, audio = null, w = 1080, h = 1920 }) => {
   useFonts();
   const f = useCurrentFrame(), { fps } = useVideoConfig(), t = f / fps, T = THEMES[theme] || THEMES.dark;
   const kids = {}; for (const n of nodes) if (n.parent) (kids[n.parent] = kids[n.parent] || []).push(n);
@@ -255,7 +265,7 @@ export const TeachShort = ({ nodes = [], caps = [], capBox = null, host = null, 
       {host ? <Host host={host} f={f} T={T} /> : null}
       {audio ? <Audio src={staticFile(audio)} /> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} T={T} />)}</AbsoluteFill>
-      <Captions caps={caps} box={capBox} t={t} T={T} />
+      <Captions caps={caps} box={capBox} t={t} T={T} size={capSize} />
     </AbsoluteFill>
   );
 };
