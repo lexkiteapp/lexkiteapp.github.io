@@ -44,3 +44,26 @@ export async function auditDb(db, clipsArr, now = Date.now(), days = 14, back = 
   for (const r of await all("SELECT clip, channel_id, publish_at FROM yt_queue WHERE channel_id IS NOT NULL AND status IN ('queued', 'uploading', 'done') AND publish_at BETWEEN ? AND ?", iso, isoHi)) { const ms = Date.parse(r.publish_at); if (ms) posts.push({ clip: r.clip, channel_id: r.channel_id, ms }); }
   return auditPosts({ posts, chans, clips: new Map((clipsArr || []).map(i => [i.id, i])), now, days, back });
 }
+
+/** 24/11 (chủ: đăng sai ngôn ngữ page): GỠ bài TƯƠNG LAI lên SAI NGÔN NGỮ kênh khỏi lịch để bộ lấp (autofill/fill) thay bằng tập đúng ngôn ngữ.
+ *  Chỉ chạm bài chưa lên nền tảng: dist_social 'planned' → 'skipped' (err purge-wrong-lang), yt_plan xoá, yt_queue 'queued'/'failed' xoá.
+ *  Bài ĐÃ đẩy GrabCast ('pushed') hoặc ĐÃ tải lên YouTube ('done'/'uploading') chỉ ĐẾM (cần API nền tảng để gỡ/dời), không đụng. apply=false → chỉ đếm (dry-run). */
+export async function purgeWrongLang(db, clipsArr, now = Date.now(), apply = false) {
+  const all = async (sql, ...p) => ((await db.prepare(sql).bind(...p).all()) || {}).results || [], run = (sql, ...p) => db.prepare(sql).bind(...p).run();
+  const cfg = new Map(); for (const r of await all('SELECT channel_id, cfg FROM yt_chan_cfg')) { try { cfg.set(r.channel_id, JSON.parse(r.cfg || '{}')); } catch (e) { /* mặc định */ } }
+  const lang = new Map();
+  for (const c of await all("SELECT channel_id, title FROM dist_ext WHERE status = 'ok'")) lang.set(c.channel_id, (normCfg(cfg.get(c.channel_id) || {}).lang || langOfChannel(c.title) || 'en'));
+  for (const c of await all("SELECT channel_id, title FROM yt_channel WHERE status = 'ok'")) lang.set(c.channel_id, (normCfg(cfg.get(c.channel_id) || {}).lang || langOfChannel(c.title) || 'en'));
+  const clips = new Map((clipsArr || []).map(i => [i.id, i])), wrong = r => lang.has(r.channel_id) && clipLang(clips.get(r.clip) || { id: r.clip }) !== lang.get(r.channel_id), lo = now + 15 * 60e3;
+  const out = { apply: !!apply, cancelled_social: 0, removed_plan: 0, removed_queue: 0, kept_pushed: 0, kept_uploaded: 0, by_lang: {} }, seen = (r, k) => { out[k]++; const key = clipLang(clips.get(r.clip) || { id: r.clip }) + '→' + lang.get(r.channel_id); out.by_lang[key] = (out.by_lang[key] || 0) + 1; };
+  for (const r of (await all("SELECT clip, channel_id, state FROM dist_social WHERE slot_ms > ? AND state IN ('planned', 'pushed')", lo)).filter(wrong)) {
+    if (r.state === 'pushed') { out.kept_pushed++; continue; }
+    seen(r, 'cancelled_social'); if (apply) await run("UPDATE dist_social SET state = 'skipped', err = 'purge-wrong-lang', updated = ? WHERE clip = ? AND channel_id = ? AND state = 'planned'", now, r.clip, r.channel_id);
+  }
+  for (const r of (await all('SELECT clip, channel_id FROM yt_plan WHERE slot_ms > ?', lo)).filter(wrong)) { seen(r, 'removed_plan'); if (apply) await run('DELETE FROM yt_plan WHERE clip = ? AND channel_id = ?', r.clip, r.channel_id); }
+  for (const r of (await all("SELECT clip, channel_id, status, publish_at FROM yt_queue WHERE channel_id IS NOT NULL AND publish_at > ? AND status IN ('queued', 'failed', 'uploading', 'done')", new Date(lo).toISOString())).filter(wrong)) {
+    if (r.status === 'uploading' || r.status === 'done') { out.kept_uploaded++; continue; }
+    seen(r, 'removed_queue'); if (apply) await run("DELETE FROM yt_queue WHERE clip = ? AND channel_id = ? AND status IN ('queued', 'failed')", r.clip, r.channel_id);
+  }
+  return out;
+}
