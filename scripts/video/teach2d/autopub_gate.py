@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Teach2D auto-publish gate (docs/specs/video-autopublish.md §2.1): may this banked episode leave CI for the shorts store and the social autopilot?
 Pure: gate(ep, entry, qc, ...) -> dict(ok, why[], cefr). A clip with any reason is never published; the reasons go to bank.json `publish_block` and PUBLISH.md.
-Reasons: template:<status> (not approved in the book) · qc<90:short|wide · gate:<name> · native-qa (lang≠en, l1-qa.json) · teacher∉{ama,carlos} · wpm>150 · publish:<publish.py check> · topic · cefr · dup"""
+Reasons: review:first|every20 (eye-review sample, v3) · template:<status> (not approved in the book) · qc<90:short|wide · gate:<name> · native-qa (lang≠en, l1-qa.json) · teacher∉{ama,carlos} · wpm>150 · publish:<publish.py check> · topic · cefr · dup"""
 import json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import publish as PUBLISH   # noqa: E402
@@ -43,7 +43,20 @@ def topic_ok(ep, area_map):
     return bool(a) and cta.get('link') == pub.get('link') and route_seg(cta.get('route')) == route_seg(a.get('route'))
 
 
-def gate(ep, entry, qc, levels, area_map, posted=()):
+REVIEW_EVERY = 20   # docs/VIDEO-V3.md: eye review of the FIRST clip of every template x language, then every 20th clip of that pair
+REVIEW_F = f'{ROOT}/content/video/teach2d/review-log.json'
+
+
+def review_due(ep, posted, reviews):
+    """None when no eye review is needed, else 'first' / 'every20'. posted = ids already in the store (same pair = same template + page language, read from eps/<id>.json)."""
+    key = lambda e: (e.get('template'), e.get('lang') or 'en'); me = key(ep); n = 0
+    for pid in posted:
+        f = f'{ROOT}/content/video/teach2d/eps/{pid}.json'
+        if pid != ep.get('id') and os.path.exists(f) and key(json.load(open(f))) == me: n += 1
+    return 'first' if n == 0 else 'every20' if (n + 1) % REVIEW_EVERY == 0 else None
+
+
+def gate(ep, entry, qc, levels, area_map, posted=(), reviews=None):
     """qc = {'short': qc.json, 'wide': qc.json}; levels = {word: CEFR}; posted = [{id, sha:{...}, title}] of clips already in the store."""
     why = []
     for fm in ('short', 'wide'):
@@ -63,4 +76,7 @@ def gate(ep, entry, qc, levels, area_map, posted=()):
     if not level or (ep.get('cefr') and ep['cefr'] != level): why.append('cefr')
     shas = set((entry.get('sha') or {}).values()); title = ' '.join(norm(pub.get('title')))
     if any(p.get('id') != ep.get('id') and (shas & set((p.get('sha') or {}).values()) or ' '.join(norm(p.get('title'))) == title) for p in posted): why.append('dup')
+    if reviews is not None:   # the eye review (agent reading 8 frames, MEDIA-QA-RUBRIC) is recorded in review-log.json {ep: {score, by, at}}; < 90 or missing blocks the clip
+        due = review_due(ep, [p.get('id') for p in posted], reviews); r = reviews.get(ep.get('id')) or {}
+        if due and not (r.get('score') or 0) >= MIN: why.append(f'review:{due}')
     return dict(ok=not why, why=why, cefr=level)

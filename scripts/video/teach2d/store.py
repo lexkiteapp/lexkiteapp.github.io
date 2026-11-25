@@ -46,7 +46,7 @@ def run_store(art, bank_dir, delta, repo, run, sha='', level_map=None):
     D = json.load(open(delta)); L = level_map if level_map is not None else levels(); A = GATE.areas(); posted = posted_of(repo); new = []
     for id_, r in D.items():
         if r.get('state') != 'banked': continue
-        ep = json.load(open(f'{EPS}/{id_}.json')); qc = qc_of(art, id_); g = GATE.gate(ep, r, qc, L, A, posted)
+        ep = json.load(open(f'{EPS}/{id_}.json')); qc = qc_of(art, id_); g = GATE.gate(ep, r, qc, L, A, posted, json.load(open(GATE.REVIEW_F)) if os.path.exists(GATE.REVIEW_F) else {})
         if not g['ok']: r['publish_block'] = g['why']; print('blocked', id_, g['why']); continue
         r.pop('publish_block', None); e = store_one(repo, ep, r, qc, g['cefr'], bank_dir, run, sha)
         posted.append(dict(id=id_, sha=r['sha'], title=ep['publish']['title']))
