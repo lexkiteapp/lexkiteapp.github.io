@@ -3,7 +3,7 @@
  "sites": {
   "web/js/ui.js": { "engine": "UI.tts/UI.speak + nút data-saysent (đường đọc chung, ưu tiên Kokoro)" },
   "web/js/audio.js": { "engine": "LKAudio: phát file, mở khóa âm thanh iOS bằng câu rỗng" },
-  "web/cpack/stories/ui.js": { "groups": [], "dynamic": "câu truyện/podcast (content/stories) đọc từng câu qua UI.tts giọng Ama/Carlos; file Kokoro dựng sẵn + mốc câu là PR kế (docs/STORIES.md §6) – chưa có file thì UI.tts rơi về engine đọc động" },
+  "web/cpack/stories/ui.js": { "groups": [], "dynamic": "câu truyện/podcast (content/stories) đọc từng câu qua UI.tts giọng Ama/Carlos; file Kokoro dựng sẵn từng chương + mốc câu do stories-audio.yml (scripts/stories/render-audio.mjs) – chương chưa có file hoặc file lỗi thì UI.tts rơi về engine đọc động" },
   "web/js/lesson/teacher.js": { "engine": "LessonTeacher.say → UI.tts giọng nhân vật" },
   "web/js/grammar.js": { "groups": ["grammar", "gold-examples"] },
   "web/cpack/irregular/table.js": { "groups": ["irregular"], "dynamic": "dạng đơn lẻ (went, gone) đọc qua UI.speak: phần lớn chưa có file riêng, rơi về engine đọc động" },
