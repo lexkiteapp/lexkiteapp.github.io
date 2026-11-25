@@ -1,0 +1,262 @@
+{
+  "at": "2026-11-22T05:46:51.868Z",
+  "accepted": 11,
+  "rejected": [
+    {
+      "form": "à",
+      "word": "à",
+      "why": [
+        "dịch ngược lệch: th,zh,ko,ru"
+      ]
+    },
+    {
+      "form": "ça",
+      "word": "ça",
+      "why": [
+        "dịch ngược lệch: ru,tr"
+      ]
+    },
+    {
+      "form": "dans",
+      "word": "dans",
+      "why": [
+        "giám khảo A: Example 'Le livre est dans la table' is unnatural; standard French uses 'sur la table' for objects on a surface or 'dans la boîte' for containers. 'Dans la table' implies inside the wood.",
+        "giám khảo B: 'Dans la table' is unnatural/incorrect French in normal contexts (should be 'sur la table' unless it's literally inside a drawer/compartment of the table).",
+        "dịch ngược lệch: zh,ja"
+      ]
+    },
+    {
+      "form": "suis",
+      "word": "être",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "ma",
+      "word": "mon",
+      "why": [
+        "dịch ngược lệch: id"
+      ]
+    },
+    {
+      "form": "là",
+      "word": "là",
+      "why": [
+        "giám khảo A: Example 'Je suis là' translates to 'I am here', but the gloss for 'là' is 'there'. While 'là' can mean 'here' in context, the mismatch between the specific gloss 'there' and the translation 'here' is confusing. Better example: 'Le livre est là' (The book is there)."
+      ]
+    },
+    {
+      "form": "avez",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "bon",
+      "word": "bon",
+      "why": [
+        "dịch ngược lệch: vi,id,th,ja,ko"
+      ]
+    },
+    {
+      "form": "avoir",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: hi"
+      ]
+    },
+    {
+      "form": "avait",
+      "word": "avoir",
+      "why": [
+        "dịch ngược lệch: ja,ko,hi,ar"
+      ]
+    },
+    {
+      "form": "ses",
+      "word": "son",
+      "why": [
+        "giám khảo A: Lemma given as \"son\" and IPA \"sɔ̃\" correspond to singular form; the entry is for \"ses\" which should have IPA [se] and lemma \"son\" is misleading.",
+        "dịch ngược lệch: vi,de,hi"
+      ]
+    },
+    {
+      "form": "nom",
+      "word": "nom",
+      "why": [
+        "LanguageTool: FRENCH_WHITESPACE: nom? – Le point d’interrogation est précédé d’une espace fine insécable."
+      ]
+    },
+    {
+      "form": "dis",
+      "word": "dire",
+      "why": [
+        "giám khảo B: English translation 'You say the truth' is unidiomatic; standard English is 'You tell the truth.'"
+      ]
+    },
+    {
+      "form": "reste",
+      "word": "rester",
+      "why": [
+        "giám khảo B: IPA for 'rester' is incorrect (/ʁɛstʁ/ instead of /ʁɛste/)."
+      ]
+    },
+    {
+      "form": "dû",
+      "word": "devoir",
+      "why": [
+        "giám khảo B: IPA for 'devoir' is incorrect (/dœvwaʁ/ instead of /dəvwaʁ/).",
+        "dịch ngược lệch: es,pt"
+      ]
+    },
+    {
+      "form": "petite",
+      "word": "petit",
+      "why": [
+        "trùng lemma"
+      ]
+    },
+    {
+      "form": "ok",
+      "word": "ok",
+      "why": [
+        "wiktionary: không có trang Wiktionary"
+      ]
+    },
+    {
+      "form": "faire",
+      "word": "faire",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "pouvoir",
+      "word": "pouvoir",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    },
+    {
+      "form": "prendre",
+      "word": "prendre",
+      "why": [
+        "trùng lemma giữa shard"
+      ]
+    }
+  ],
+  "tried": [
+    "est",
+    "à",
+    "ça",
+    "dans",
+    "suis",
+    "fait",
+    "sur",
+    "ma",
+    "là",
+    "avez",
+    "bon",
+    "avoir",
+    "peut",
+    "temps",
+    "avait",
+    "donc",
+    "personne",
+    "ses",
+    "ok",
+    "beaucoup",
+    "dis",
+    "voilà",
+    "prendre",
+    "nom",
+    "reste",
+    "passe",
+    "trouvé",
+    "dû",
+    "tête",
+    "vite",
+    "hé",
+    "jours",
+    "petite",
+    "sortir",
+    "allons",
+    "sous",
+    "partie",
+    "genre",
+    "mettre",
+    "longtemps"
+  ],
+  "spot": [
+    "passer"
+  ],
+  "stats": {
+    "used": {
+      "lexai": 0,
+      "gc": 0,
+      "cf2": 0,
+      "cfLeak": 0,
+      "cf2Dead": [],
+      "gem": 3,
+      "groq": 13
+    },
+    "budget": {
+      "lexai": 0,
+      "gc": 10000,
+      "cf2": 0
+    },
+    "by": {
+      "gem|gemini-3.8-flash": {
+        "ok": 1,
+        "fail": 33,
+        "bad": 0
+      },
+      "groq|openai/gpt-oss-120b": {
+        "ok": 5,
+        "fail": 0,
+        "bad": 0
+      },
+      "groq|qwen/qwen3.8-27b": {
+        "ok": 8,
+        "fail": 0,
+        "bad": 0
+      },
+      "lexai|gemini-3.5-flash": {
+        "ok": 0,
+        "fail": 33,
+        "bad": 0
+      },
+      "gem|gemini-3.7-flash": {
+        "ok": 1,
+        "fail": 1,
+        "bad": 0
+      },
+      "gem|gemini-3.6-flash": {
+        "ok": 1,
+        "fail": 0,
+        "bad": 0
+      }
+    },
+    "keys": {
+      "gem": {
+        "size": 85,
+        "live": 37,
+        "parked": {
+          "day": 30,
+          "auth": 2,
+          "minute": 16
+        }
+      },
+      "groq": {
+        "size": 109,
+        "live": 109,
+        "parked": {}
+      }
+    }
+  },
+  "wiktFlags": [
+    "voilà: từ loại adv ↔ verb/prep"
+  ]
+}

@@ -26,17 +26,25 @@ def run(query, tries=4):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('--words'); ap.add_argument('--cands'); ap.add_argument('--first'); ap.add_argument('--out', required=True); ap.add_argument('--merge'); ap.add_argument('--limit', type=int, default=0)
+    ap = argparse.ArgumentParser(); ap.add_argument('--words'); ap.add_argument('--cands'); ap.add_argument('--first'); ap.add_argument('--out', required=True); ap.add_argument('--merge'); ap.add_argument('--limit', type=int, default=0); ap.add_argument('--skip'); ap.add_argument('--rotate', type=int, default=0)
     a = ap.parse_args()
     ok = lambda w: re.fullmatch(r"[a-z][a-z' -]{1,30}", w)
     if a.words: ws = sorted({l.strip().lower() for l in open(a.words, encoding='utf8') if ok(l.strip().lower())})
     else:  # candidates.json (pick_words.py): danh từ; mục retry (--first) lên đầu rồi theo thứ tự tần suất
-        ws = []
+        ws = []; first = set()
         for k in (json.load(open(a.first, encoding='utf8')).get('items', []) if a.first and __import__('os').path.exists(a.first) else []):
             w, _, p = str(k).partition('#')
-            if p == 'n': ws.append(w.lower())
+            if p == 'n': ws.append(w.lower()); first.add(w.lower())
         ws += [e['w'].lower() for e in json.load(open(a.cands, encoding='utf8'))['items'] if e.get('pos') == 'n']
         ws = list(dict.fromkeys(w for w in ws if ok(w)))
+        # 24/11 (lexicon-expand: mỗi lượt hỏi CÙNG 2.400 từ đầu → 56 có nhãn, chỉ 18 khoá mới, 3.000+ danh từ cuối danh sách không bao giờ được hỏi): bỏ từ ĐÃ có nhãn trong --skip
+        # (wikidata-vi.json, job.mjs gộp sẵn – hỏi lại vô ích) rồi xoay phần còn lại theo --rotate (số ngày trong năm): mỗi ngày một cửa sổ --limit khác. Từ retry (--first) vẫn đứng đầu.
+        if a.skip and __import__('os').path.exists(a.skip):
+            have = {k.partition('#')[0] for k in json.load(open(a.skip, encoding='utf8'))}; ws = [w for w in ws if w not in have]
+        if a.rotate and a.limit and len(ws) > a.limit:
+            nf = sum(1 for w in ws[:a.limit] if w in first)
+            rest = ws[nf:]; o = (a.rotate * (a.limit - nf)) % len(rest) if rest else 0
+            ws = ws[:nf] + rest[o:] + rest[:o]
     if a.limit: ws = ws[:a.limit]
     out = json.load(open(a.merge, encoding='utf8')) if a.merge and __import__('os').path.exists(a.merge) else {}
     new = hit = 0

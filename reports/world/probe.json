@@ -1,10 +1,10 @@
 {
- "at": "2026-11-23T11:11:37.765Z",
+ "at": "2026-11-25T01:01:14.149Z",
  "lang": "en",
  "device": "Pixel 7",
  "firstRun": {
   "ok": true,
-  "seconds": 5.9,
+  "seconds": 5.7,
   "taps": 9,
   "trail": [
    "[data-cta=start], .ctas a.btn.lg",
@@ -19,8 +19,13 @@
   ]
  },
  "today": {
-  "ok": false,
-  "err": "không tới bài hôm nay từ /app/?sandbox=1&hl=en#/home"
+  "ok": true,
+  "taps": 1,
+  "trail": [
+   "#view [data-cont][data-href]"
+  ],
+  "at": ".study-wrap",
+  "route": "/app/?sandbox=1&hl=en#/placement"
  },
  "errors": []
 }

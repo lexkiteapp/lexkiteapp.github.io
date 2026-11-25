@@ -38,6 +38,7 @@
 - [KLING-PLAN.md](archive/KLING-PLAN.md) — Toàn văn cũ kế hoạch Kling; bản hiện hành VIDEO.md; đọc khi: tra kế hoạch Kling cũ
 - [LISTENING-CHANNEL-PLAN.md](archive/LISTENING-CHANNEL-PLAN.md) — Toàn văn cũ kế hoạch kênh nghe; bản hiện hành VIDEO.md; đọc khi: tra kế hoạch kênh nghe cũ
 - [METHODS-HISTORY.md](archive/METHODS-HISTORY.md) — Toàn văn METHODS.md trước khi rút gọn (22/10) và các bài học dài đã chuyển ra sau đó; đọc khi: tra bài học chi tiết (footage, matting, D1, điều phối)
+- [METHODS-LESSONS-2411.md](archive/METHODS-LESSONS-2411.md) — Dòng 'Lỗi đã mắc' cũ của METHODS.md §8 (tách nguyên văn 24/11); đọc khi: tra lỗi tháng 10 (Antigravity, add-on, credit).
 - [STORE-READINESS-HISTORY.md](archive/STORE-READINESS-HISTORY.md) — Mục đã xong/cũ của STORE-READINESS.md (nguyên văn 22/10); đọc khi: tra checklist store cũ
 - [VIDEO-CONTENT-PLAN.md](archive/VIDEO-CONTENT-PLAN.md) — Toàn văn cũ kế hoạch nội dung video; bản hiện hành VIDEO.md; đọc khi: tra kế hoạch nội dung cũ
 - [VIDEO-PIPELINE.md](archive/VIDEO-PIPELINE.md) — Toàn văn cũ pipeline video; bản hiện hành VIDEO.md; đọc khi: tra pipeline cũ
@@ -54,6 +55,7 @@
 - [archive/ROADMAP-2026-10.md](archive/ROADMAP-2026-10.md) — Lộ trình thương mại hóa 14/10, hiện trạng đã cũ; trạng thái store xem STORE-READINESS.md. Đọc khi: tra lịch sử.
 - [archive/AI-PLAN-2026-10.md](archive/AI-PLAN-2026-10.md) — Kế hoạch AI miễn phí nhiều tầng 15/10; hiện hành xem AI-LOCAL.md và EXPLAIN.md. Đọc khi: tra lịch sử.
 - [archive/CI-RUNNERS-QUEUE-1611.md](archive/CI-RUNNERS-QUEUE-1611.md) — Đo hàng chờ 16/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo hàng chờ cũ.
+- [archive/CI-RUNNERS-0511.md](archive/CI-RUNNERS-0511.md) — Số đo hàng chờ 05/11 + cron bị bỏ 3/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo/nhật ký cũ.
 - [specs/teacher-rive-rig.md](specs/teacher-rive-rig.md) — Rig 2D Ama/Carlos kiểu Rive (TeacherRig: speak/setEmotion/gesture), vì sao không .riv, cổng khớp môi ±33 ms/khớp xương/fps/alpha, kế hoạch gesture bank chờ duyệt credit; đọc khi: thêm cử chỉ/biểu cảm hoặc gắn giáo viên vào màn mới
 - [specs/video-production-v2.md](specs/video-production-v2.md) — Video v2: giáo viên Teach2D vẽ bằng TeacherRig (viseme của voice.wav, cổng lipsync_rig ±33 ms), khối publish 4 nền tảng từ kịch bản, dọn video rác có cách ly; đọc khi: sửa lớp giáo viên video, metadata đăng bài, dọn video
 - [specs/me-settings-ux.md](specs/me-settings-ux.md) — Tôi + Cài đặt gọn: mục lục nhóm có giá trị hiện tại, trang con #/settings/<mục>, gom liên kết đọc thêm; đọc khi sửa settings.js/ux1-me.js
