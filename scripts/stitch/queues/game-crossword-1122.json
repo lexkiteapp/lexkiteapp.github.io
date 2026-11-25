@@ -1,0 +1,25 @@
+[
+ {
+  "id": "game-crossword",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Lexkite – English learning app (IELTS · TOEIC · TOEFL · CEFR) shipped in 15 UI languages incl. German, Russian, Vietnamese, Arabic (RTL): design every label for +40% longer text, wrap instead of truncating, never shrink buttons. Use the project design system (Lexkite Kit / Tactile Gamified Prep): Plus Jakarta Sans, deep teal #0F3D3E brand, coral CTA with tactile bottom ledge, cream light background, rounded 16-24px cards. App shell: mobile bottom tab bar with exactly 5 tabs Today, Vocab, Skills, Tests, Me; desktop left sidebar with the same 5 items. No hearts or lives anywhere. No photos and no drawn people: where the teacher appears, leave an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama or Carlos is inserted by code). Material Symbols Rounded icons. Every tap target at least 44x44 px, text contrast at least 4.5:1, icons at least 3:1. Realistic content, no lorem ipsum.\n\nScreen (mobile 390px, light theme, inner learning screen – NO bottom tab bar): \"Daily crossword\" mini-game built from the learner's own review words. Top bar: close X button (44px) on the left, a slim progress bar \"3 of 7 words\", a small chip with a calendar icon \"Today's puzzle\". Main: a 9x9 crossword grid in a rounded card, white letter cells with thin borders, black/blocked cells as soft teal-tinted squares, tiny clue numbers in cell corners, the active word highlighted in pale coral with the cursor cell in solid coral outline, some solved words filled in teal letters with a subtle check tint. Below the grid: a clue bar card showing \"4 Across · 6 letters\" and the clue in the learner's language \"nguồn năng lượng tái tạo\" with a speaker icon button to hear the word after solving, and two small text buttons \"Hint: show a letter\" and \"Skip\". Then a horizontally scrollable row of clue chips (1 Across, 2 Down, 3 Across…, solved ones with a check). Bottom: a primary coral tactile button \"Check word\". Leave room for the phone keyboard (the device keyboard types letters). Friendly, calm, no timer pressure, no hearts. Quality bar (hard): every text at least 4.5:1 contrast in this theme (no light-grey or low-opacity small text, no white text on light chips); every button, link, chip, icon button and input at least 44 px tall with clear spacing; icons only from the Material Symbols set with real names; no horizontal overflow at 390 px; in the dark theme no white or very light cards or panels. Frame (Lexkite §5d): phone 390 px; top bar is one of three fixed variants – hub screen: title left + one icon action right, with the 5 bottom tabs; inner screen: back arrow (44 px) + title, no bottom tabs; lesson/focus screen: close X (44 px) top left + slim progress bar, no tabs, one full-width primary button pinned at the bottom. 16 px side gutter, one primary button per screen."
+ },
+ {
+  "id": "game-crossword",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "game-crossword/light",
+  "prompt": "Convert this exact screen to the dark theme. Keep the identical layout, components and every text string. Page background #10191B, cards #172427, raised surfaces #1E2F33, primary text #E8F1F0, secondary text #A9BDBB, brand teal accents lightened for contrast; keep the coral CTA. Text contrast at least 4.5:1, icon contrast at least 3:1, no large light panels or white cards. Quality bar (hard): every text at least 4.5:1 contrast in this theme (no light-grey or low-opacity small text, no white text on light chips); every button, link, chip, icon button and input at least 44 px tall with clear spacing; icons only from the Material Symbols set with real names; no horizontal overflow at 390 px; in the dark theme no white or very light cards or panels."
+ },
+ {
+  "id": "game-crossword",
+  "mode": "bright",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "game-crossword/light",
+  "prompt": "Convert this exact screen to the LIGHT theme \"Bright Day\" of the Lexkite Kit design system. Keep the identical layout, 9x9 grid, components and every text string. Page background warm cream #FFF7EA, cards white #FFFFFF with soft beige borders #EADEC8 and a 3px tactile bottom ledge #D8CFBC, primary text deep teal #0F3D3E, secondary text #5A6D6C. Blocked crossword cells: soft beige #EADEC8 squares (never black). Empty letter cells: white with beige border. Solved cells: pale teal #E3F8F5 with deep teal #12514D letters. Active word cells: pale coral #FFEAE5 with the cursor cell outlined in coral #F2553B. Keep the coral-to-amber gradient CTA with dark text #26100A (contrast 4.5:1). Remove the round profile avatar from the top bar (keep only the close X, the progress bar and the counter). Text contrast at least 4.5:1, icons at least 3:1, every tap target at least 44 px."
+ }
+]
