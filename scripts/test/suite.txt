@@ -33,6 +33,7 @@ node scripts/test/i18n-single.mjs
 node scripts/test/i18n-pack.mjs
 node scripts/test/fmt-stable.mjs
 node scripts/test/gen-guard.mjs
+node scripts/test/gen-pool-fallback.mjs
 node scripts/test/stray-files.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
@@ -40,6 +41,7 @@ node scripts/test/i18n-english.mjs
 node scripts/test/tsc-check.mjs
 node scripts/test/unit.mjs
 node scripts/test/syntax-check.mjs
+node scripts/test/no-conflict-markers.mjs
 node scripts/blog-pipeline.mjs gate
 node scripts/test/ci-header-scope.mjs
 node scripts/test/feel.mjs
@@ -312,6 +314,7 @@ node scripts/test/pron-features.mjs
 node scripts/test/crashlytics.mjs
 node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
+node scripts/test/stories-chip.mjs
 node scripts/stories/build-lib.mjs --check
 node scripts/content-qa/exam-format-check.mjs
 node scripts/test/lesson-why.mjs
@@ -460,6 +463,7 @@ node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
 node scripts/test/es-pron.mjs
 node scripts/test/fr-pron.mjs
+node scripts/test/tl-audio.mjs
 node scripts/test/es-path.mjs
 node scripts/test/tl-day-routes.mjs
 node scripts/test/ext-version.mjs
@@ -534,6 +538,8 @@ node scripts/stitch-v2-convert.mjs --check
 node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
+node scripts/test/play-crossword.mjs
+node scripts/test/gt-bands.mjs
 node scripts/test/qengine-types.mjs
 node scripts/test/meta-attr.mjs
 node scripts/test/social-audit.mjs
@@ -541,3 +547,5 @@ node scripts/test/select-cta-guard.mjs
 node scripts/test/home-cta-one.mjs
 node scripts/test/lesson-lip-late.mjs
 node scripts/test/review-queue-size.mjs
+node scripts/test/interpret-frame.mjs
+node scripts/test/test-cache.mjs

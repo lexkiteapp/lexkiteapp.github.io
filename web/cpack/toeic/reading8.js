@@ -111,7 +111,7 @@ If a patient's coverage cannot be confirmed, notify the billing office -----(138
               explain: 'Đoạn nói về quá khứ ("In the past ... was") → mệnh đề quan hệ chia quá khứ "caused" (đã gây ra). "causing" và "to cause" không làm động từ chính của mệnh đề quan hệ "which"; "will cause" là tương lai nên sai thì.' },
             { n: 137, q: '(137)', options: ['The new procedure should add very little time to each patient\'s check-in.', 'The clinic\'s parking garage will be closed for maintenance next month.', 'Dr. Menon is scheduled to attend a conference for two weeks in April.', 'Billing statements will now be mailed on a weekly basis.'], a: 0, cue: 'each check takes about two minutes', lv: 'C1',
               explain: 'Câu sau nói "each check takes about two minutes" (mỗi lần kiểm tra mất khoảng hai phút) → câu trống cần nêu ý chung rằng quy trình mới tốn ít thời gian: "should add very little time". Các câu về bãi đỗ xe, lịch nghỉ của bác sĩ và in hóa đơn màu đều lạc đề.' },
-            { n: 138, q: '(138)', options: ['quickly', 'promptly', 'speedily', 'immediately'], a: 1, cue: 'notify the billing office', lv: 'B1',
+            { n: 138, q: '(138)', options: ['swiftly', 'promptly', 'speedily', 'instantly'], a: 1, cue: 'notify the billing office', lv: 'B1',
               explain: 'Cần trạng từ bổ nghĩa cho động từ "notify" → "promptly" (kịp thời, ngay). "prompt" là tính từ/động từ; "promptness" là danh từ; "prompted" là phân từ.' }
           ] } ] },
         { title: 'Advertisement', lv: 'B1', text:
@@ -165,8 +165,8 @@ Irene Bakshi [9:50 A.M.]: Good. I'll call Halden's dispatcher and then e-mail yo
           groups: [ { type: 'mcq', instr: 'Questions 147-148 refer to the following text-message chain.', items: [
             { n: 147, q: 'What problem does Mr. Wieczorek report?', options: ['A truck arrived at the correct dock but was delayed.', 'A shipment contains fewer pallets than listed.', 'A driver reported a delay due to traffic.', 'Some pallets were misplaced during loading.'], a: 1, cue: 'the paperwork lists 40 pallets and I count only 36', lv: 'B1',
               explain: 'Ông Wieczorek nói giấy tờ ghi 40 pallet nhưng ông chỉ đếm được 36 ("the paperwork lists 40 pallets and I count only 36") → lô hàng thiếu pallet. Xe đã vào đúng Dock 3, không ai nói mất giấy tờ và không có pallet hư hại.' },
-            { n: 148, q: 'At 9:47 A.M., what does Ms. Bakshi most likely mean when she writes, "Please don\'t sign the receipt yet"?', options: ['She needs a different form for the receipt.', 'She plans to inspect the pallets herself.', 'She wants to confirm the delivery details before accepting it.', 'She thinks the driver is at the wrong address.'], a: 2, cue: 'Please don\'t sign the receipt yet.', lv: 'B2',
-              explain: 'Cô Bakshi chưa hề được báo về việc giao hàng chia đợt ("Nobody told me about a split delivery"), nên cô muốn xác nhận chi tiết rồi mới nhận hàng; ký biên nhận sẽ coi như đã nhận đủ. Cô không nhắc đến mẫu biên nhận khác, việc tự kiểm hàng hay sai địa chỉ.' }
+            { n: 148, q: 'At 9:47 A.M., what does Ms. Bakshi most likely mean when she writes, "Please don\'t sign the receipt yet"?', options: ['She wants to use another paperwork template for the receipt.', 'She intends to check the pallets personally before signing.', 'She wants to confirm the delivery details before accepting it.', 'She believes the truck has arrived at an incorrect location.'], a: 2, cue: 'Please don\'t sign the receipt yet.', lv: 'B2',
+              explain: 'Vì cô Bakshi chưa được thông báo về việc giao hàng chia đợt nên cô muốn xác nhận chi tiết trước khi ký biên nhận. Câu “She plans to inspect the pallets herself” không phù hợp vì cô không đề cập đến việc tự kiểm hàng mà chỉ muốn chờ thông tin đầy đủ.' }
           ] } ] },
         { title: 'Notice', lv: 'B1', text:
 `NOTICE TO GUESTS – The Larkspur Inn
@@ -195,7 +195,7 @@ After three months of renovations, our Pelham Road store is back – larger, bri
 
 Offers are valid on September 13 only and cannot be combined with other discounts.`,
           groups: [ { type: 'mcq', instr: 'Questions 151-152 refer to the following advertisement.', items: [
-            { n: 151, q: 'What is indicated about the cookware discount?', options: ['It can be combined with other offers.', 'It lasts through the whole weekend.', 'It is limited to one set for each shopper.', 'It requires a store membership.'], a: 2, cue: 'one set per customer', lv: 'B1',
+            { n: 151, q: 'What is indicated about the cookware discount?', options: ['It applies only to cookware sets on sale.', 'It expires at the end of the day.', 'It is limited to one set for each shopper.', 'It is limited to purchases over $100.'], a: 2, cue: 'one set per customer', lv: 'B1',
               explain: 'Giảm 30% bộ nồi chảo nhưng "one set per customer" (mỗi khách một bộ) → có giới hạn số lượng. Quảng cáo nói ưu đãi chỉ có ngày 13/9 và không cộng gộp; không nhắc đến thẻ thành viên hay cả cuối tuần.' },
             { n: 152, q: 'What must customers do to enter the drawing?', options: ['Fill out a form at the checkout', 'Spend at least $60', 'Attend a cooking demonstration', 'Show a knife-sharpening voucher'], a: 0, cue: 'entry forms are at the checkout', lv: 'B1',
               explain: 'Muốn tham gia rút thăm chỉ cần điền phiếu: "entry forms are at the checkout" (phiếu ở quầy thanh toán) và "No purchase necessary" (không cần mua hàng). Mức 60 đô chỉ áp dụng cho phiếu mài dao; xem trình diễn hay phiếu mài dao không bắt buộc.' }
