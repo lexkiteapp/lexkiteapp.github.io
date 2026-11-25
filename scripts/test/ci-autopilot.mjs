@@ -1,7 +1,7 @@
 // Kiểm ci-autopilot (scripts/ci/autopilot.mjs + .github/workflows/ci-autopilot.yml): ngân sách runner, phân loại hạ tầng, quyết định theo PR (KHÔNG bao giờ gộp khi đỏ), nhật ký 24 h,
 // và workflow giữ concurrency + timeout + không workflow_run (fan-out) + không bỏ qua check.
 import fs from 'node:fs';
-import { stuckQueued, needsKick, STUCK_QUEUE_MIN, NO_CHECK_MIN, UPDATE_BEHIND, behindOf, budget, isInfraJob, shouldRerun, decide, tally, parseLog, renderIssue, BUSY_MAX, KEEP_FREE, TOTAL, MAX_RERUN_ATTEMPT, isPriority, isRecent, MAX_UPDATES, QUEUE_MAX, UPDATE_GAP_H, updatedRecently } from '../ci/autopilot.mjs';
+import { staleQueued, STALE_QUEUE_H, UNFIXABLE_H, MAX_STALE_PER_TICK, stuckQueued, needsKick, STUCK_QUEUE_MIN, NO_CHECK_MIN, UPDATE_BEHIND, behindOf, budget, isInfraJob, shouldRerun, decide, tally, parseLog, renderIssue, BUSY_MAX, KEEP_FREE, TOTAL, MAX_RERUN_ATTEMPT, isPriority, isRecent, MAX_UPDATES, QUEUE_MAX, UPDATE_GAP_H, updatedRecently } from '../ci/autopilot.mjs';
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
 // --- ngân sách: chừa ≥ 16 runner trống, chỉ nạp khi busy < 24
@@ -75,6 +75,16 @@ ok(/process\.env\.AUTOPILOT_MERGE_TOKEN/.test(src) && /mergeToken && merges < MA
   ok(!needsKick(pr, info, [{ k: 'kick', n: 7, t: ago(60) }], now) && needsKick(pr, info, [{ k: 'kick', n: 7, t: ago(400) }, { k: 'kick', n: 8, t: ago(10) }], now), 'mỗi PR kích ≤ 1 lần/3 giờ');
   const src = fs.readFileSync('scripts/ci/autopilot.mjs', 'utf8');
   ok(/unstickQueued/.test(src) && /needsKick\(pr, await headInfo/.test(src) && /--allow-empty/.test(src), 'main() nối huỷ xếp hàng + kích CI'); }
+
+
+// --- 25/11 lượt queued > 6 giờ (mọi sự kiện) bị huỷ; > 7 ngày = không gỡ được qua API, không thử lại mỗi nhịp
+{ const now = Date.parse('2026-11-25T12:00:00Z'), ago = h => new Date(now - h * 3600e3).toISOString(), R = (id, h, status = 'queued') => ({ id, status, created_at: ago(h) });
+  const r = staleQueued([R(1, STALE_QUEUE_H + 1), R(2, STALE_QUEUE_H - 1), R(3, 30), R(4, UNFIXABLE_H + 5), R(5, 10, 'in_progress'), R(6, 8)], now);
+  ok(r.todo.join() === '3,6,1' && r.dead === 1, 'huỷ lượt queued > 6 giờ (cũ nhất trước); lượt > 7 ngày tách riêng: ' + JSON.stringify(r));
+  const many = Array.from({ length: 40 }, (_, i) => R(100 + i, 10 + i));
+  ok(staleQueued(many, now).todo.length === MAX_STALE_PER_TICK, `mỗi nhịp tối đa ${MAX_STALE_PER_TICK} lượt`);
+  const src = fs.readFileSync('scripts/ci/autopilot.mjs', 'utf8');
+  ok(/force-cancel/.test(src) && /sweepStale\(token, dry, now\)/.test(src), 'main() huỷ rồi force-cancel khi cancel không ăn'); }
 
 if (fail) { console.error(`ci-autopilot: ${fail} lỗi`); process.exit(1); }
 console.log('ci-autopilot: OK');

@@ -139,6 +139,27 @@ async function rerunInfra(token, pr, dry) {
   return n;
 }
 
+// 25/11 (điều phối: 175 lượt queued, 89 lượt chờ > 1 giờ, cũ nhất 26/10): lượt BẤT KỲ queued > STALE_QUEUE_H giờ → huỷ; cancel không ăn (vẫn queued sau vài giây) → huỷ cưỡng bức (endpoint thứ hai).
+// Lượt 0 job mà cả hai cách đều 409 (zombie > 24 giờ, DELETE cũng 403) chỉ GitHub Support gỡ được → đếm riêng, không thử lại mỗi nhịp (UNFIXABLE_H).
+export const STALE_QUEUE_H = 6, UNFIXABLE_H = 24 * 7, MAX_STALE_PER_TICK = 10;
+/** Lượt queued quá STALE_QUEUE_H giờ (thuần), cũ nhất trước; lượt quá UNFIXABLE_H giờ tách riêng (không thể gỡ qua API). */
+export function staleQueued(runs, now = Date.now()) {
+  const old = (runs || []).filter(r => r.status === 'queued' && now - Date.parse(r.created_at) > STALE_QUEUE_H * 3600e3).sort((a, b) => Date.parse(a.created_at) - Date.parse(b.created_at));
+  const dead = old.filter(r => now - Date.parse(r.created_at) > UNFIXABLE_H * 3600e3);
+  return { todo: old.filter(r => !dead.includes(r)).slice(0, MAX_STALE_PER_TICK).map(r => r.id), dead: dead.length };
+}
+/** Huỷ lượt queued quá hạn: cancel → (vẫn queued) huỷ cưỡng bức. Trả { cancelled, hard, dead }. */
+async function sweepStale(token, dry, now, sleep = ms => new Promise(r => setTimeout(r, ms))) {
+  const runs = (await call(token, 'GET', `/repos/${REPO}/actions/runs?status=queued&per_page=100`)).body?.workflow_runs || [];
+  const { todo, dead } = staleQueued(runs, now); let cancelled = 0, hard = 0;
+  for (const id of todo) {
+    if (dry) { cancelled++; continue; }
+    await call(token, 'POST', `/repos/${REPO}/actions/runs/${id}/cancel`); await sleep(3000);
+    if ((await call(token, 'GET', `/repos/${REPO}/actions/runs/${id}`)).body?.status !== 'queued') { cancelled++; continue; }
+    if ((await call(token, 'POST', `/repos/${REPO}/actions/runs/${id}/force-cancel`)).ok) hard++;
+  }
+  return { cancelled, hard, dead };
+}
 /** Huỷ lượt PR xếp hàng quá lâu của head này; trả số lượt đã huỷ (409 = lượt ma 0 job, để ci-triage xoá). */
 async function unstickQueued(token, pr, dry, now) {
   const runs = (await call(token, 'GET', `/repos/${REPO}/actions/runs?head_sha=${pr.sha}&status=queued&per_page=100`)).body?.workflow_runs || [];
@@ -167,6 +188,7 @@ export async function main({ dry = process.argv.includes('--dry') } = {}) {
   if (!dry) await ensureLabels(token);
   let left = budget(m.busy, m.queued), merges = 0, kicks = 0;
   const ready = [], stuck = [], mark = (k, n) => events.push({ k, n, t: new Date().toISOString() });
+  if (left >= 0) { const st = await sweepStale(token, dry, now); if (st.cancelled + st.hard) { mark('cancel', 0); log.push(`lượt queued > ${STALE_QUEUE_H} giờ: huỷ ${st.cancelled}, huỷ cưỡng bức ${st.hard}`); } if (st.dead) log.push(`${st.dead} lượt queued > ${UNFIXABLE_H / 24} ngày không gỡ được qua API (cần GitHub Support)`); }
   const decided = [];
   for (const pr of prs) {   // cũ nhất trước (GraphQL ASC)
     let d = decide(pr);
