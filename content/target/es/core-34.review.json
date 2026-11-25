@@ -1,0 +1,967 @@
+{
+ "fixed": [
+  {
+   "word": "legal",
+   "field": "gl.id",
+   "from": "legal",
+   "to": "sah",
+   "why": "id \"legal\" lệch (là \"hợp pháp\" → sah)"
+  },
+  {
+   "word": "alegría",
+   "field": "gl.id",
+   "from": "kebahagiaan",
+   "to": "sukacita",
+   "why": "id trùng nghĩa felicidad (\"kebahagiaan\")"
+  },
+  {
+   "word": "aparentemente",
+   "field": "gl.vi",
+   "from": "có vẻ",
+   "to": "dường như",
+   "why": "vi tự nhiên hơn"
+  },
+  {
+   "word": "cola",
+   "field": "gl.tr",
+   "from": "queue",
+   "to": "kuyruk",
+   "why": "tr \"queue\" là tiếng Anh; zh \"队列\" lệch"
+  },
+  {
+   "word": "cola",
+   "field": "gl.zh",
+   "from": "队列",
+   "to": "队",
+   "why": "tr \"queue\" là tiếng Anh; zh \"队列\" lệch"
+  },
+  {
+   "word": "encargo",
+   "field": "gl.vi",
+   "from": "đơn hàng",
+   "to": "đơn đặt hàng",
+   "why": "vi chính xác hơn"
+  },
+  {
+   "word": "viajar",
+   "field": "gl.vi",
+   "from": "du lịch",
+   "to": "đi du lịch",
+   "why": "vi động từ tự nhiên"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.es",
+   "from": "estación del año entre otoño y primavera",
+   "to": "invierno",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.en",
+   "from": "season of the year between autumn and spring",
+   "to": "winter",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.pt",
+   "from": "estação do ano entre o outono e a primavera",
+   "to": "inverno",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.fr",
+   "from": "saison entre l'automne et le printemps",
+   "to": "hiver",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.de",
+   "from": "Jahreszeit zwischen Herbst und Frühling",
+   "to": "Winter",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.id",
+   "from": "musim antara musim gugur dan musim semi",
+   "to": "musim dingin",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.th",
+   "from": "ฤดูที่อยู่ระหว่างฤดูใบไม้ร่วงและฤดูใบไม้ผลิ",
+   "to": "ฤดูหนาว",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.zh",
+   "from": "秋季和春季之间的季节",
+   "to": "冬天",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.ja",
+   "from": "秋と春の間の季節",
+   "to": "冬",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.ko",
+   "from": "가을과 봄 사이의 계절",
+   "to": "겨울",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.hi",
+   "from": "शरद और वसंत के बीच का मौसम",
+   "to": "सर्दी",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.ar",
+   "from": "الموسم بين الخريف والربيع",
+   "to": "الشتاء",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.ru",
+   "from": "время года между осенью и весной",
+   "to": "зима",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "invierno",
+   "field": "gl.tr",
+   "from": "sonbahar ve bahar arasındaki mevsim",
+   "to": "kış",
+   "why": "Gloss cả 14 ngôn ngữ là câu định nghĩa, không phải từ"
+  },
+  {
+   "word": "comportamiento",
+   "field": "gl.es",
+   "from": "modo de actuar",
+   "to": "conducta",
+   "why": "en/fr/de là định nghĩa; vi \"cách hành xử\" nên \"hành vi\""
+  },
+  {
+   "word": "comportamiento",
+   "field": "gl.en",
+   "from": "way of acting",
+   "to": "behavior",
+   "why": "en/fr/de là định nghĩa; vi \"cách hành xử\" nên \"hành vi\""
+  },
+  {
+   "word": "comportamiento",
+   "field": "gl.fr",
+   "from": "mode d'agir",
+   "to": "comportement",
+   "why": "en/fr/de là định nghĩa; vi \"cách hành xử\" nên \"hành vi\""
+  },
+  {
+   "word": "comportamiento",
+   "field": "gl.de",
+   "from": "Verhaltensweise",
+   "to": "Verhalten",
+   "why": "en/fr/de là định nghĩa; vi \"cách hành xử\" nên \"hành vi\""
+  },
+  {
+   "word": "comportamiento",
+   "field": "gl.vi",
+   "from": "cách hành xử",
+   "to": "hành vi",
+   "why": "en/fr/de là định nghĩa; vi \"cách hành xử\" nên \"hành vi\""
+  },
+  {
+   "word": "oso",
+   "field": "gl.es",
+   "from": "mamífero grande de pelaje espeso",
+   "to": "oso",
+   "why": "es/en/fr/de là định nghĩa thay vì từ"
+  },
+  {
+   "word": "oso",
+   "field": "gl.en",
+   "from": "large mammal with thick fur",
+   "to": "bear",
+   "why": "es/en/fr/de là định nghĩa thay vì từ"
+  },
+  {
+   "word": "oso",
+   "field": "gl.fr",
+   "from": "mammifère grand avec une fourrure épaisse",
+   "to": "ours",
+   "why": "es/en/fr/de là định nghĩa thay vì từ"
+  },
+  {
+   "word": "oso",
+   "field": "gl.de",
+   "from": "großes Säugetier mit dichtem Fell",
+   "to": "Bär",
+   "why": "es/en/fr/de là định nghĩa thay vì từ"
+  },
+  {
+   "word": "popular",
+   "field": "gl.ar",
+   "from": "شعبي",
+   "to": "مشهور",
+   "why": "ar \"شعبي\" = dân gian"
+  },
+  {
+   "word": "terreno",
+   "field": "gl.vi",
+   "from": "đất, khu vực",
+   "to": "mảnh đất",
+   "why": "vi hai nghĩa; ru \"территория\" lệch"
+  },
+  {
+   "word": "terreno",
+   "field": "gl.en",
+   "from": "land, ground",
+   "to": "land",
+   "why": "vi hai nghĩa; ru \"территория\" lệch"
+  },
+  {
+   "word": "terreno",
+   "field": "gl.ru",
+   "from": "территория",
+   "to": "участок",
+   "why": "vi hai nghĩa; ru \"территория\" lệch"
+  },
+  {
+   "word": "cubierta",
+   "field": "gl.en",
+   "from": "cover, deck",
+   "to": "cover",
+   "why": "Câu ví dụ là bìa sách; nhiều ngữ dịch \"nắp/phủ\""
+  },
+  {
+   "word": "cubierta",
+   "field": "gl.pt",
+   "from": "cobertura",
+   "to": "capa",
+   "why": "Câu ví dụ là bìa sách; nhiều ngữ dịch \"nắp/phủ\""
+  },
+  {
+   "word": "cubierta",
+   "field": "gl.de",
+   "from": "Abdeckung",
+   "to": "Einband",
+   "why": "Câu ví dụ là bìa sách; nhiều ngữ dịch \"nắp/phủ\""
+  },
+  {
+   "word": "cubierta",
+   "field": "gl.id",
+   "from": "penutup",
+   "to": "sampul",
+   "why": "Câu ví dụ là bìa sách; nhiều ngữ dịch \"nắp/phủ\""
+  },
+  {
+   "word": "cubierta",
+   "field": "gl.th",
+   "from": "ฝาปิด",
+   "to": "ปก",
+   "why": "Câu ví dụ là bìa sách; nhiều ngữ dịch \"nắp/phủ\""
+  },
+  {
+   "word": "cubierta",
+   "field": "gl.ko",
+   "from": "덮개",
+   "to": "표지",
+   "why": "Câu ví dụ là bìa sách; nhiều ngữ dịch \"nắp/phủ\""
+  },
+  {
+   "word": "cubierta",
+   "field": "gl.ru",
+   "from": "покрытие",
+   "to": "обложка",
+   "why": "Câu ví dụ là bìa sách; nhiều ngữ dịch \"nắp/phủ\""
+  },
+  {
+   "word": "literalmente",
+   "field": "gl.vi",
+   "from": "nghĩa đen",
+   "to": "theo nghĩa đen",
+   "why": "vi dạng trạng từ"
+  },
+  {
+   "word": "suelto",
+   "field": "gl.es",
+   "from": "no apretado",
+   "to": "flojo",
+   "why": "es là định nghĩa; ru \"свободный\" lệch"
+  },
+  {
+   "word": "suelto",
+   "field": "gl.ru",
+   "from": "свободный",
+   "to": "ослабленный",
+   "why": "es là định nghĩa; ru \"свободный\" lệch"
+  },
+  {
+   "word": "experto",
+   "field": "gl.es",
+   "from": "persona con amplio conocimiento",
+   "to": "especialista",
+   "why": "es là định nghĩa"
+  },
+  {
+   "word": "organización",
+   "field": "gl.es",
+   "from": "grupo con un fin",
+   "to": "asociación",
+   "why": "es là định nghĩa"
+  },
+  {
+   "word": "mina",
+   "field": "gl.es",
+   "from": "excavación para extraer minerales",
+   "to": "mina",
+   "why": "es là định nghĩa"
+  },
+  {
+   "word": "delicioso",
+   "field": "gl.es",
+   "from": "muy sabroso",
+   "to": "sabroso",
+   "why": "es là định nghĩa"
+  },
+  {
+   "word": "tele",
+   "field": "gl.es",
+   "from": "televisión (coloquial)",
+   "to": "televisión",
+   "why": "es có chú thích trong ngoặc"
+  },
+  {
+   "word": "gasolina",
+   "field": "gl.hi",
+   "from": "गैसोलीन",
+   "to": "पेट्रोल",
+   "why": "hi \"गैसोलीन\" phiên âm"
+  },
+  {
+   "word": "consciente",
+   "field": "gl.es",
+   "from": "que tiene conocimiento de algo",
+   "to": "consciente",
+   "why": "vi \"có biết\" cụt; es định nghĩa"
+  },
+  {
+   "word": "consciente",
+   "field": "gl.vi",
+   "from": "có biết",
+   "to": "nhận thức được",
+   "why": "vi \"có biết\" cụt; es định nghĩa"
+  },
+  {
+   "word": "consciente",
+   "field": "gl.ru",
+   "from": "осознанный",
+   "to": "осознающий",
+   "why": "vi \"có biết\" cụt; es định nghĩa"
+  },
+  {
+   "word": "alquiler",
+   "field": "gl.es",
+   "from": "pago por usar una vivienda o local",
+   "to": "renta",
+   "why": "es/en là định nghĩa"
+  },
+  {
+   "word": "alquiler",
+   "field": "gl.en",
+   "from": "rent payment",
+   "to": "rent",
+   "why": "es/en là định nghĩa"
+  },
+  {
+   "word": "pieza",
+   "field": "gl.es",
+   "from": "parte o elemento de algo",
+   "to": "parte",
+   "why": "es/en định nghĩa; vi \"một phần\" mơ hồ"
+  },
+  {
+   "word": "pieza",
+   "field": "gl.en",
+   "from": "part or piece",
+   "to": "piece",
+   "why": "es/en định nghĩa; vi \"một phần\" mơ hồ"
+  },
+  {
+   "word": "pieza",
+   "field": "gl.vi",
+   "from": "một phần",
+   "to": "bộ phận",
+   "why": "es/en định nghĩa; vi \"một phần\" mơ hồ"
+  },
+  {
+   "word": "renunciar",
+   "field": "gl.es",
+   "from": "dejar o abandonar algo voluntariamente",
+   "to": "dimitir",
+   "why": "es/en định nghĩa; id \"menyerah\" lệch"
+  },
+  {
+   "word": "renunciar",
+   "field": "gl.en",
+   "from": "to give up voluntarily",
+   "to": "to give up",
+   "why": "es/en định nghĩa; id \"menyerah\" lệch"
+  },
+  {
+   "word": "renunciar",
+   "field": "gl.id",
+   "from": "menyerah",
+   "to": "melepaskan",
+   "why": "es/en định nghĩa; id \"menyerah\" lệch"
+  },
+  {
+   "word": "refugio",
+   "field": "gl.es",
+   "from": "lugar que protege del peligro",
+   "to": "abrigo",
+   "why": "es là định nghĩa"
+  },
+  {
+   "word": "celoso",
+   "field": "gl.vi",
+   "from": "jealous",
+   "to": "ghen tuông",
+   "why": "vi để nguyên tiếng Anh \"jealous\""
+  },
+  {
+   "word": "territorio",
+   "field": "gl.vi",
+   "from": "territory",
+   "to": "lãnh thổ",
+   "why": "vi để nguyên tiếng Anh"
+  },
+  {
+   "word": "disfrutar",
+   "field": "gl.vi",
+   "from": "enjoy",
+   "to": "tận hưởng",
+   "why": "vi để nguyên tiếng Anh"
+  },
+  {
+   "word": "disfrutar",
+   "field": "gl.en",
+   "from": "enjoy",
+   "to": "to enjoy",
+   "why": "vi để nguyên tiếng Anh"
+  },
+  {
+   "word": "moto",
+   "field": "gl.vi",
+   "from": "motorcycle",
+   "to": "xe máy",
+   "why": "vi để nguyên tiếng Anh"
+  },
+  {
+   "word": "tono",
+   "field": "gl.vi",
+   "from": "giọng",
+   "to": "giọng điệu",
+   "why": "vi \"giọng\" lệch; ja \"音色\"=âm sắc"
+  },
+  {
+   "word": "tono",
+   "field": "gl.ja",
+   "from": "音色",
+   "to": "トーン",
+   "why": "vi \"giọng\" lệch; ja \"音色\"=âm sắc"
+  },
+  {
+   "word": "crema",
+   "field": "gl.de",
+   "from": "Sahne",
+   "to": "Creme",
+   "why": "de \"Sahne\" = kem tươi (nấu ăn), ví dụ là kem socola"
+  },
+  {
+   "word": "cultura",
+   "field": "ex.es",
+   "from": "La cultura mexicana es muy diversa.",
+   "to": "La cultura de mi país es muy diversa.",
+   "why": "Ví dụ có tính từ quốc gia cụ thể, đổi trung tính"
+  },
+  {
+   "word": "cultura",
+   "field": "ex.en",
+   "from": "Mexican culture is very diverse.",
+   "to": "The culture of my country is very diverse.",
+   "why": "Ví dụ có tính từ quốc gia cụ thể, đổi trung tính"
+  },
+  {
+   "word": "bota",
+   "field": "gl.vi",
+   "from": "đôi ủng",
+   "to": "giày bốt",
+   "why": "Câu \"una bota\" (một chiếc) không tự nhiên"
+  },
+  {
+   "word": "bota",
+   "field": "gl.ru",
+   "from": "ботинок",
+   "to": "сапог",
+   "why": "Câu \"una bota\" (một chiếc) không tự nhiên"
+  },
+  {
+   "word": "bota",
+   "field": "gl.ar",
+   "from": "حذاء",
+   "to": "جزمة",
+   "why": "Câu \"una bota\" (một chiếc) không tự nhiên"
+  },
+  {
+   "word": "bota",
+   "field": "ex.es",
+   "from": "Compré una bota de cuero.",
+   "to": "Compré unas botas de cuero.",
+   "why": "Câu \"una bota\" (một chiếc) không tự nhiên"
+  },
+  {
+   "word": "bota",
+   "field": "ex.en",
+   "from": "I bought a leather boot.",
+   "to": "I bought some leather boots.",
+   "why": "Câu \"una bota\" (một chiếc) không tự nhiên"
+  },
+  {
+   "word": "placa",
+   "field": "gl.vi",
+   "from": "bảng",
+   "to": "biển số",
+   "why": "Gloss \"plate/tấm\" không khớp câu ví dụ (biển số xe)"
+  },
+  {
+   "word": "placa",
+   "field": "gl.en",
+   "from": "plate",
+   "to": "license plate",
+   "why": "Gloss \"plate/tấm\" không khớp câu ví dụ (biển số xe)"
+  },
+  {
+   "word": "placa",
+   "field": "gl.de",
+   "from": "Platte",
+   "to": "Schild",
+   "why": "Gloss \"plate/tấm\" không khớp câu ví dụ (biển số xe)"
+  },
+  {
+   "word": "placa",
+   "field": "gl.id",
+   "from": "pelat",
+   "to": "pelat nomor",
+   "why": "Gloss \"plate/tấm\" không khớp câu ví dụ (biển số xe)"
+  },
+  {
+   "word": "placa",
+   "field": "gl.th",
+   "from": "แผ่น",
+   "to": "ป้ายทะเบียน",
+   "why": "Gloss \"plate/tấm\" không khớp câu ví dụ (biển số xe)"
+  },
+  {
+   "word": "placa",
+   "field": "gl.zh",
+   "from": "板",
+   "to": "车牌",
+   "why": "Gloss \"plate/tấm\" không khớp câu ví dụ (biển số xe)"
+  },
+  {
+   "word": "placa",
+   "field": "gl.ja",
+   "from": "プレート",
+   "to": "ナンバープレート",
+   "why": "Gloss \"plate/tấm\" không khớp câu ví dụ (biển số xe)"
+  },
+  {
+   "word": "placa",
+   "field": "gl.ko",
+   "from": "플레이트",
+   "to": "번호판",
+   "why": "Gloss \"plate/tấm\" không khớp câu ví dụ (biển số xe)"
+  },
+  {
+   "word": "placa",
+   "field": "gl.hi",
+   "from": "प्लेट",
+   "to": "नंबर प्लेट",
+   "why": "Gloss \"plate/tấm\" không khớp câu ví dụ (biển số xe)"
+  },
+  {
+   "word": "placa",
+   "field": "gl.ru",
+   "from": "пластина",
+   "to": "номерной знак",
+   "why": "Gloss \"plate/tấm\" không khớp câu ví dụ (biển số xe)"
+  },
+  {
+   "word": "joya",
+   "field": "gl.vi",
+   "from": "đá quý",
+   "to": "đồ trang sức",
+   "why": "vi \"đá quý\" là gema"
+  },
+  {
+   "word": "vía",
+   "field": "gl.vi",
+   "from": "đường",
+   "to": "đường ray",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.en",
+   "from": "road",
+   "to": "track",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.de",
+   "from": "Weg",
+   "to": "Gleis",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.id",
+   "from": "jalan",
+   "to": "rel",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.th",
+   "from": "ถนน",
+   "to": "ราง",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.zh",
+   "from": "道路",
+   "to": "轨道",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.ja",
+   "from": "道路",
+   "to": "線路",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.ko",
+   "from": "길",
+   "to": "선로",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.hi",
+   "from": "मार्ग",
+   "to": "पटरी",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.ar",
+   "from": "طريق",
+   "to": "سكة",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.ru",
+   "from": "дорога",
+   "to": "путь",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "vía",
+   "field": "gl.tr",
+   "from": "yol",
+   "to": "ray",
+   "why": "Gloss \"road\" không khớp câu ví dụ (đường ray tàu)"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.vi",
+   "from": "kháng lực",
+   "to": "sức bền",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.en",
+   "from": "resistance",
+   "to": "endurance",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.fr",
+   "from": "résistance",
+   "to": "endurance",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.de",
+   "from": "Widerstand",
+   "to": "Ausdauer",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.id",
+   "from": "resistansi",
+   "to": "ketahanan",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.th",
+   "from": "ความต้านทาน",
+   "to": "ความอดทน",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.zh",
+   "from": "阻力",
+   "to": "耐力",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.ja",
+   "from": "抵抗",
+   "to": "持久力",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.ko",
+   "from": "저항",
+   "to": "지구력",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.hi",
+   "from": "प्रतिरोध",
+   "to": "सहनशक्ति",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.ar",
+   "from": "مقاومة",
+   "to": "تحمل",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.ru",
+   "from": "сопротивление",
+   "to": "выносливость",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "gl.tr",
+   "from": "direnç",
+   "to": "dayanıklılık",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "ex.es",
+   "from": "La resistencia del material es alta.",
+   "to": "Los atletas tienen mucha resistencia.",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "resistencia",
+   "field": "ex.en",
+   "from": "The material's resistance is high.",
+   "to": "Athletes have a lot of endurance.",
+   "why": "vi \"kháng lực\" không phải thuật ngữ; chọn nghĩa sức bền, đồng bộ câu ví dụ"
+  },
+  {
+   "word": "desconocido",
+   "field": "gl.vi",
+   "from": "không biết",
+   "to": "không rõ",
+   "why": "vi \"không biết\" là động từ"
+  },
+  {
+   "word": "ensayo",
+   "field": "gl.vi",
+   "from": "bài viết",
+   "to": "bài tiểu luận",
+   "why": "vi \"bài viết\" mơ hồ; zh \"散文\" khác"
+  },
+  {
+   "word": "ensayo",
+   "field": "gl.zh",
+   "from": "散文",
+   "to": "论文",
+   "why": "vi \"bài viết\" mơ hồ; zh \"散文\" khác"
+  },
+  {
+   "word": "ensayo",
+   "field": "gl.ko",
+   "from": "수필",
+   "to": "에세이",
+   "why": "vi \"bài viết\" mơ hồ; zh \"散文\" khác"
+  },
+  {
+   "word": "sonar",
+   "field": "gl.vi",
+   "from": "phát ra âm",
+   "to": "vang lên",
+   "why": "vi \"phát ra âm\" cụt"
+  },
+  {
+   "word": "demanda",
+   "field": "ex.es",
+   "from": "La empresa presentó una demanda contra el ex‑empleado.",
+   "to": "La empresa presentó una demanda contra el exempleado.",
+   "why": "Ký tự gạch nối không ngắt trong ex.es"
+  },
+  {
+   "word": "perfil",
+   "field": "gl.vi",
+   "from": "hồ sơ",
+   "to": "hồ sơ cá nhân",
+   "why": "vi \"hồ sơ\" mơ hồ"
+  },
+  {
+   "word": "vendar",
+   "field": "gl.id",
+   "from": "menutup luka",
+   "to": "membalut",
+   "why": "id \"menutup luka\" là câu"
+  },
+  {
+   "word": "grano",
+   "field": "gl.ja",
+   "from": "粒子",
+   "to": "穀粒",
+   "why": "ja \"粒子\"=hạt vật lý; ar số nhiều"
+  },
+  {
+   "word": "grano",
+   "field": "gl.ar",
+   "from": "حبوب",
+   "to": "حبة",
+   "why": "ja \"粒子\"=hạt vật lý; ar số nhiều"
+  },
+  {
+   "word": "izquierdo",
+   "field": "gl.ar",
+   "from": "يسار",
+   "to": "أيسر",
+   "why": "ar \"يسار\" là danh từ"
+  },
+  {
+   "word": "bota",
+   "field": "exForm",
+   "from": null,
+   "to": "botas",
+   "why": "exForm theo ví dụ số nhiều"
+  }
+ ],
+ "dropped": [
+  {
+   "word": "sentado",
+   "why": "Phân từ của sentarse, không phải lemma chuẩn"
+  },
+  {
+   "word": "sexual",
+   "why": "Nội dung nhạy cảm (tình dục)"
+  },
+  {
+   "word": "amante",
+   "why": "Nghĩa mơ hồ (người tình/người yêu thích), ví dụ nhạy cảm"
+  },
+  {
+   "word": "droga",
+   "why": "Nội dung nhạy cảm (ma túy), vi \"thuốc\" mơ hồ"
+  },
+  {
+   "word": "contentar",
+   "why": "Không tự nhiên/ít dùng ở es-419, ví dụ gượng"
+  },
+  {
+   "word": "parado",
+   "why": "Nghĩa \"thất nghiệp\" đặc thù Tây Ban Nha (không đúng es-419), phân từ của parar"
+  },
+  {
+   "word": "hecha",
+   "why": "Dạng nữ của phân từ hacer, không phải lemma"
+  },
+  {
+   "word": "virgen",
+   "why": "Nhạy cảm/tôn giáo, ví dụ có tên riêng"
+  },
+  {
+   "word": "bolo",
+   "why": "Từ vựng không chuẩn es-419 (nghĩa dao rựa gần như chỉ ở Philippines), nghĩa mơ hồ (bolo = ky bowling)"
+  },
+  {
+   "word": "pasta",
+   "why": "Nghĩa \"tiền\" là tiếng lóng Tây Ban Nha, es-419 pasta = món mì; nghĩa mơ hồ"
+  },
+  {
+   "word": "vega",
+   "why": "Từ địa lý hiếm, hay là tên riêng"
+  },
+  {
+   "word": "nacido",
+   "why": "Phân từ của nacer, không phải lemma"
+  },
+  {
+   "word": "bombo",
+   "why": "Đa nghĩa (trống lớn/thổi phồng), ít dùng"
+  },
+  {
+   "word": "judío",
+   "why": "Nhạy cảm (sắc tộc/tôn giáo), ví dụ có tên lễ hội riêng"
+  },
+  {
+   "word": "paliza",
+   "why": "Nội dung nhạy cảm (bạo lực)"
+  },
+  {
+   "word": "salvado",
+   "why": "Phân từ của salvar, không phải lemma"
+  },
+  {
+   "word": "secretar",
+   "why": "Động từ hiếm, chỉ gặp dạng secretan; không phù hợp người học"
+  },
+  {
+   "word": "colorar",
+   "why": "Không phải từ chuẩn thường dùng; chuẩn là colorear"
+  }
+ ]
+}

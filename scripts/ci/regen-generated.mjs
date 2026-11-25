@@ -28,4 +28,5 @@ const run = (c, a) => execFileSync(c, a, { cwd: ROOT, stdio: ['ignore', 'ignore'
 run('node', ['scripts/i18n-pack.mjs']);
 run('bash', ['scripts/build-extension.sh']);   // chạy lại i18n-pack (idempotent) rồi chép web/ → extension/app
 try { run('git', ['checkout', '-q', '--', 'extension/academic.json']); } catch { /* không phải kho git / không đổi */ } // như prepush: bỏ thay đổi phụ
-console.log('✓ regen-generated: gói dịch + extension/app dựng lại từ nguồn');
+if (fs.existsSync(path.join(ROOT, 'scripts/jobs/gen.mjs'))) run('node', ['scripts/jobs/gen.mjs', '--derived']);   // docs/JOBS.md + functions/api/_jobs_reg.js từ infra/jobs.json (25/11)
+console.log('✓ regen-generated: gói dịch + extension/app + sổ việc dựng lại từ nguồn');

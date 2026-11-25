@@ -401,6 +401,28 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   let thr = 0; try { c({ word: '猫', kana: 'ねこ', vclass: 'godan' }); } catch { thr = 1; } ok(thr, 'godan không tận cùng hàng u → lỗi (không đoán)');
   ok(/conj-ja-check\.mjs/.test(rd('.github/workflows/target-content.yml')), 'target-content: kiểm chéo chia ja ↔ Wiktionary trên PR'); }
 
+// W3 ja: bài phát âm (content/target/ja/pron.json) – cặp tối thiểu KHÁC âm hoặc KHÁC cao độ, IPA + dấu hạ SINH từ kana, gói px khớp nguồn, đủ 15 ngôn ngữ, ví dụ giữ nguyên chữ Nhật
+{ const J = await import('../target/ja-kana.mjs'), P = await import('../target/px-lib.mjs'), pr = readJSON('content/target/ja/pron.json'), R = pr.read, VN = /[ơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđă]/i;
+  ok(pr.topics.map(t => t.id).join() === P.TLX.ja.topics.join() && pr.topics.length === 8, 'ja pron: 8 chủ đề đúng thứ tự');
+  const used = new Set(pr.topics.flatMap(t => [...t.ex, ...t.dict, ...t.say, ...t.pairs.flatMap(p => p.split('/'))]));
+  ok([...used].every(w => R[w]) && Object.keys(R).every(w => used.has(w)), 'ja pron: mọi từ có read và mọi read được dùng');
+  ok(Object.entries(R).every(([w, [k, p]]) => J.isKana(k) && (J.hasKanji(w) ? J.ruby(w, k) : J.hira(w) === J.hira(k)) && Number.isInteger(p) && p >= 0 && p <= J.morae(k)), 'ja pron: kana khớp chữ (furigana), cao độ trong 0…mora');
+  const sig = w => J.ipa(R[w][0]) + '|' + R[w][1], bad = [];
+  for (const t of pr.topics) for (const p of t.pairs) { const [a, b] = p.split('/'); if (a === b || sig(a) === sig(b)) bad.push(p); }
+  ok(!bad.length, 'ja pron: mọi cặp tối thiểu KHÁC âm hoặc KHÁC cao độ (đồng âm đồng cao độ bị chặn)' + (bad.length ? ': ' + bad.join(', ') : ''));
+  const pitchPairs = pr.topics.find(t => t.id === 'pitch').pairs; ok(pitchPairs.every(p => { const [a, b] = p.split('/'); return J.ipa(R[a][0]) === J.ipa(R[b][0]) && R[a][1] !== R[b][1]; }), 'ja pron: chủ đề cao độ = cặp CÙNG âm KHÁC cao độ');
+  const longP = pr.topics.find(t => t.id === 'long').pairs.slice(0, 4); ok(longP.every(p => { const [a, b] = p.split('/'); return J.morae(R[a][0]) !== J.morae(R[b][0]) || J.ipa(R[a][0]) !== J.ipa(R[b][0]); }), 'ja pron: cặp trường âm khác độ dài');
+  ok(J.accentKana('はし', 1) === 'はꜜし' && J.accentKana('はし', 2) === 'はしꜜ' && J.accentKana('はし', 0) === 'はし' && J.accentKana('きょう', 1) === 'きょꜜう' && J.accentKana('びよういん', 2) === 'びよꜜういん', 'accentKana: dấu hạ sau mora, ゃゅょ đi cùng mora trước');
+  const src = P.buildPx('ja'); ok(src.topics.length === 8 && src.topics[5].p.every(p => p[1].includes('ꜜ') || p[3].includes('ꜜ')) && src.GX_LANGS.length === 15, 'buildPx ja: 8 chủ đề, IPA+dấu hạ sinh từ kana, 15 ngôn ngữ');
+  const en = readJSON('content/target/ja/px/en.json'), qt = s => (s.match(/[「“][^」”]*[」”]/g) || []).join(); let miss = [];
+  for (const l of src.GX_LANGS) { const d = readJSON(`content/target/ja/px/${l}.json`);
+    for (const k of P.PX_UI) if (!d.ui[k] || (l !== 'vi' && VN.test(d.ui[k]))) miss.push(`${l}.ui.${k}`);
+    for (const t of pr.topics) { const x = d.tp[t.id]; if (!x || !x.t || !x.x) miss.push(`${l}.tp.${t.id}`); else if (l !== 'vi' && VN.test(x.t + x.x)) miss.push(`${l}.tp.${t.id} lẫn tiếng Việt`); else if (!/[ぁ-んァ-ン一-龥]/.test(x.x)) miss.push(`${l}.tp.${t.id} thiếu ví dụ tiếng Nhật`); } }
+  ok(!miss.length, 'ja px: đủ 15 ngôn ngữ × 8 chủ đề + 15 nhãn, ví dụ tiếng Nhật giữ nguyên' + (miss.length ? ': ' + miss.slice(0, 6).join(', ') : ''));
+  void en; void qt;
+  try { execFileSync(process.execPath, ['scripts/target/px-pack.mjs', 'ja', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/packs/tl/ja/px* lệch nguồn: ' + String(e.stderr)); }
+  ok(!/px\.js|JAX/.test(rd('web/cpack/tl-app/tl-pick.js')) && /--pron/.test(rd('.github/workflows/target-content.yml')), 'gói px ja ngoài cpack; CI đối chiếu OpenJTalk'); }
+
 // ---------- 5) nối dây: shell nạp target.js trước core.js; package test ----------
 {
   const html = rd('web/app/index.html'), a = html.indexOf('js/target.js'), b = html.indexOf('js/core.js');
