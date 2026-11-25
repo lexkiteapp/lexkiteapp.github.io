@@ -383,7 +383,7 @@
 "Gợi ý: <b>{hint}</b>":"İpucu: <b>{hint}</b>",
 "Gửi":"Gönder",
 "Gửi tin nhắn":"Mesajı gönder",
-"Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí":"Two people, two languages: speak, translate, learn new words – free",
+"Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí":"İki kişi, iki dil: konuşun, çevirin, yeni kelimeler öğrenin – ücretsiz",
 "Hay nhầm với":"Çoğu zaman karıştırılıyor",
 "Hay đi với":"Birlikte kullanılır",
 "Health – lối sống, y tế, dinh dưỡng":"Sağlık – yaşam tarzı, sağlık hizmetleri, beslenme",

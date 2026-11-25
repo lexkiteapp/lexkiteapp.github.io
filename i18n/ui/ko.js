@@ -383,7 +383,7 @@
 "Gợi ý: <b>{hint}</b>":"힌트: <b>{hint}</b>",
 "Gửi":"보내기",
 "Gửi tin nhắn":"보내기",
-"Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí":"Two people, two languages: speak, translate, learn new words – free",
+"Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí":"두 사람, 두 언어: 말하고, 통역하고, 새 단어를 배우세요 – 무료",
 "Hay nhầm với":"종종 혼동됨",
 "Hay đi với":"자주 쓰는 짝",
 "Health – lối sống, y tế, dinh dưỡng":"건강 – 라이프 스타일, 건강 관리, 영양",

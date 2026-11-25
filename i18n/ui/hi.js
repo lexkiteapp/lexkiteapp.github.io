@@ -383,7 +383,7 @@
 "Gợi ý: <b>{hint}</b>":"संकेत: <b>{hint}</b>",
 "Gửi":"भेजें",
 "Gửi tin nhắn":"संदेश भेजें",
-"Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí":"Two people, two languages: speak, translate, learn new words – free",
+"Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí":"दो लोग, दो भाषाएँ: बोलें, अनुवाद करें, नए शब्द सीखें – मुफ़्त",
 "Hay nhầm với":"अक्सर भ्रमित होते हैं",
 "Hay đi với":"साथ आता है",
 "Health – lối sống, y tế, dinh dưỡng":"स्वास्थ्य - जीवनशैली, स्वास्थ्य देखभाल, पोषण",

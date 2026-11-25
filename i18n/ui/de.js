@@ -383,7 +383,7 @@
 "Gợi ý: <b>{hint}</b>":"Hinweis: <b>{hint}</b>",
 "Gửi":"Senden",
 "Gửi tin nhắn":"Nachricht senden",
-"Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí":"Two people, two languages: speak, translate, learn new words – free",
+"Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí":"Zwei Personen, zwei Sprachen: sprechen, übersetzen, neue Wörter lernen – kostenlos",
 "Hay nhầm với":"Oft verwechselt mit",
 "Hay đi với":"Passt zu",
 "Health – lối sống, y tế, dinh dưỡng":"Gesundheit – Lebensstil, Gesundheitsversorgung, Ernährung",
