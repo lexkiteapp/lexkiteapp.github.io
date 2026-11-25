@@ -1,9 +1,9 @@
 // Tạo file âm thanh chất lượng cao cho bài nghe IELTS/TOEIC bằng Kokoro-82M (Apache-2.0), chạy trên máy, miễn phí.
-// Dùng: NODE_PATH=<thư mục có kokoro-js> NODE_USE_ENV_PROXY=1 node scripts/gen-audio.mjs [--limit N] [--shard i/N] [--index-only]
+// Dùng: NODE_PATH=<thư mục có kokoro-js> NODE_USE_ENV_PROXY=1 node scripts/gen-audio.mjs [--limit N] [--shard i/N] [--index-only] [--tl es|fr]
 //   --shard i/N: chỉ câu thứ i, i+N… (khóa sắp xếp cố định) – audio.yml chạy ma trận song song · --index-only: chỉ gộp mp3 đã có trong AUDIO_OUT vào chỉ mục
 // Kết quả: .media-out/audio/l/<khóa>.mp3 (mono 64 kbps từ 31/10 – câu cũ 40 kbps; câu mới qua cổng ASR sentence-audio-asr.yml, AUDIO_OUT đổi được) → scripts/media/push.mjs đẩy lên kho media (infra/media-repos.json, KHÔNG vào repo chính)
 //   + web/js/listen/audio-index.js (khóa đã có = chỉ mục cũ ∪ file mới). Bỏ qua khóa đã có trong chỉ mục → chạy lại an toàn.
-import fs from 'node:fs'; import { collect } from './sentence-audio/corpus.mjs'; import { collectEs } from './sentence-audio/corpus-es.mjs'; import { renderEs } from './sentence-audio/render-es.mjs'; import { sortedJobs, partitionJobs } from './sentence-audio/partition.mjs'; import { readIndex, writeIndex as writeIndex2 } from './sentence-audio/lib.mjs'; import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module';
+import fs from 'node:fs'; import { collect } from './sentence-audio/corpus.mjs'; import { collectTl, TL_AUDIO } from './sentence-audio/corpus-tl.mjs'; import { renderTl } from './sentence-audio/render-tl.mjs'; import { sortedJobs, partitionJobs } from './sentence-audio/partition.mjs'; import { readIndex, writeIndex as writeIndex2 } from './sentence-audio/lib.mjs'; import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module';
 const require = createRequire(process.env.NODE_PATH ? process.env.NODE_PATH.split(':')[0] + '/' : import.meta.url);
 const OUT = process.env.AUDIO_OUT || '.media-out/audio/l', TMP = (process.env.TMPDIR || '/tmp') + '/vb-tts.wav';
 const A = process.argv, opt = (k, d) => { const i = A.indexOf('--' + k); return i > 0 ? A[i + 1] : d; };
@@ -11,11 +11,12 @@ const limit = A.includes('--index-only') ? 0 : +opt('limit', Infinity), [si, sn]
 fs.mkdirSync(OUT, { recursive: true });
 const { have: HAVE, s2: HAVE_S2 } = readIndex();
 const has = k => HAVE.has(k) || fs.existsSync(`${OUT}/${k}.mp3`);
-const ES = opt('tl', '') === 'es'; // --tl es: chỉ câu tiếng TBN (Kokoro + âm vị espeak es-419, render-es.mjs) – lượt tiếng Anh không đổi
-const { jobs: ALL, parts } = ES ? collectEs() : collect(), jobs = partitionJobs(sortedJobs(ALL, has), si, sn);
+const TL = opt('tl', ''); // --tl es|fr: chỉ câu của ngôn ngữ đích (công cụ theo scripts/word-audio/tl-voices.json: es Kokoro + espeak es-419, fr Piper siwis – render-tl.mjs) – lượt tiếng Anh không đổi
+if (TL && !TL_AUDIO.includes(TL)) { console.error(`✗ --tl ${TL}: chưa có corpus âm thanh (có: ${TL_AUDIO.join(', ')})`); process.exit(1); }
+const { jobs: ALL, parts } = TL ? collectTl(TL) : collect(), jobs = partitionJobs(sortedJobs(ALL, has), si, sn);
 const writeIndex = () => { const keys = new Set([...HAVE, ...fs.readdirSync(OUT).filter(f => f.endsWith('.mp3') && !f.includes('-')).map(f => f.slice(0, -4))]); writeIndex2(keys, HAVE_S2); return keys.size; };
 console.log(`${parts.length} phần nghe · cần tạo ${jobs.size} câu${sn > 1 ? ` (shard ${si}/${sn})` : ''}`);
-if (jobs.size && limit > 0 && ES) await renderEs(jobs, { OUT, TMP, limit, writeIndex, require });
+if (jobs.size && limit > 0 && TL) await renderTl(TL, jobs, { OUT, TMP, limit, writeIndex, require });
 else if (jobs.size && limit > 0) {
   // phonemizer (emscripten) nuốt lỗi và in cả mã nguồn 1 dòng khổng lồ → tự in lỗi ngắn gọn trước
   for (const ev of ['uncaughtException', 'unhandledRejection']) process.prependListener(ev, e => console.error(`✗ ${ev}: ${e && (e.cause ? (e.cause.code || e.cause.message) + ' · ' : '') + (e && e.message)}`));
