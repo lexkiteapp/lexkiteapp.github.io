@@ -157,7 +157,7 @@ Nguồn: `reviewNotes` trong `store/apple/listing.json` (chữ từng ngôn ng�
 - **Chạy:** Actions → "Store submit" (`store-submit.yml`): `app` capacitor|native, `platform` both|ios|android, `bump` patch|minor, `dry_run` (mặc định BẬT = chỉ đọc). Dòng trạng thái cho điều phối: annotation `STORE-SUBMIT app=… ios=… android=…` của job `report`.
 - **Version/build:** `scripts/store/version.mjs` – bump từ bản lớn nhất đã dùng (App Store Connect / Play + tag `store-<platform>-<ver>`), dùng tiếp bản đang sửa được; build = max + 1 (native sàn 10000 iOS / 200000 Android). Không bao giờ dùng lại.
 - **Build:** workflow tái dùng `store-build-ios.yml` / `store-build-android.yml` (cũng do `ios-testflight.yml`, `android.yml` gọi). App native: native-release gọi cùng hai workflow này với `app: native`.
-- **iOS:** `scripts/store/asc-submit.mjs` (client `scripts/lib/asc-api.mjs`, JWT ES256) – tạo/nâng appStoreVersion, chờ build VALID, khai mã hoá false, gắn build, What's New mọi locale, AFTER_APPROVAL + phased release 7 ngày, reviewSubmission → Submit. Khoá cần vai trò **App Manager hoặc Admin**.
+- **iOS:** `scripts/store/asc-submit.mjs` (client `scripts/lib/asc-api.mjs`, JWT ES256) – tạo/nâng appStoreVersion, chờ build VALID, khai mã hoá false, gắn build, What's New mọi locale, AFTER_APPROVAL (ship 100 %, không phased release; `release` đưa bản mới nhất tới 100 % ngay), reviewSubmission → Submit. Khoá cần vai trò **App Manager hoặc Admin**.
 - **Android:** `scripts/store/play-api.mjs` – production 1 % + ghi chú mọi ngôn ngữ listing; `store-rollout.yml` hằng ngày tăng 5 → 20 → 50 → 100 % (≥ 24 giờ/bậc, Play vitals crash ≤ 1,09 %, ANR ≤ 0,47 %; vitals không đọc được → theo lịch). Cần secret `PLAY_SERVICE_ACCOUNT_JSON` (Play Console → Users and permissions → tài khoản dịch vụ, quyền Release to production + View app information; bật Google Play Android Developer API + Play Developer Reporting API) – thiếu → bỏ qua Android kèm notice.
 - **Ghi chú phát hành:** `scripts/store/release-notes.mjs` – commit từ tag store gần nhất → vùng tính năng `store/release-notes/areas.json` → câu tiếng Việt (khóa i18n, nhóm `storenotes`) → 15 ngôn ngữ qua pipeline i18n (`web/js/i18n/en/storenotes.js` + `scripts/i18n-fixed.json`), ≤ 4000 (App Store) / ≤ 500 (Play). Câu mới: thêm vào areas.json + en/storenotes.js + i18n-fixed.json; `--check` trong `npm test`.
 
@@ -176,6 +176,13 @@ Làm CÙNG LÚC, trước khi gửi duyệt bản build có `ADS_NATIVE=1`:
 5. **app-ads.txt:** đổi `pub-0000000000000000` (web/app-ads.txt, build ghi đè từ `web/js/ads/config.js`) → AdMob → Apps → app-ads.txt status "Verified". Điền trang web của nhà phát triển `https://lexkite.com` trong Play Console + App Store Connect (AdMob đọc app-ads.txt từ đó).
 6. **Niêm yết:** mô tả đã đổi sang "Không quảng cáo trong lúc học, làm quiz hay thi" (`store/apple/listing.json`, đẩy bằng `node scripts/asc-upload.mjs --only text`); Play: bật nhãn "Contains ads".
 7. Thay mã THỬ bằng mã thật trong `web/js/ads/config.js` (`native.testing: false`) CHỈ ở bản phát hành; bản dev/CI giữ mã thử.
+
+### G. Khi bật đo quảng cáo Meta (bản Android đầu tiên có plugin Install Referrer – docs/META-ADS.md)
+Làm CÙNG LÚC với bản đó (mặc định TẮT; chỉ gửi khi người dùng bật hoặc – nếu chủ chọn – ngoài EEA/UK/CH):
+1. **Play Data safety:** *Device or other IDs* (mã cài đặt ngẫu nhiên, không phải Advertising ID): Collected + **Shared** (Meta) – **Optional**, mục đích Advertising or marketing + Analytics; *App activity → App interactions* (xong bài đầu tiên): Shared (Meta) – Optional, Advertising or marketing. Ghi chú: chỉ khi người dùng đồng ý, chỉ khi cài từ quảng cáo Meta.
+2. **Play → App content → Ads:** không đổi (app không hiển thị quảng cáo mới); Advertising ID declaration: **không** dùng AD_ID.
+3. **App Store Privacy:** iOS không gửi dữ liệu nào (SKAdNetwork do Apple xử lý) → **không đổi nhãn**, Tracking = None, `NSPrivacyTracking=false`, không ATT. Chỉ khi sau này thêm đo ACTIVATE trên iOS mới cập nhật.
+4. Chính sách quyền riêng tư (mục 7 + bảng bên thứ ba) và công tắc "Đo quảng cáo cài app (Meta)" đã có 15 ngôn ngữ trong PR này.
 
 ### F. Đánh giá cửa hàng (chỉ đọc)
 - Actions → **Store reviews** (`store-reviews.yml`, thứ Hai 08:20 VN + chạy tay): `scripts/store/reviews.mjs` kéo đánh giá App Store (App Store Connect API, khoá ASC_* sẵn có) + Google Play (Android Publisher API) → artifact `store-reviews` + tóm tắt (≤ 2 sao lên đầu, không ghi tên người đánh giá). Test: `scripts/test/store-reviews.mjs`.

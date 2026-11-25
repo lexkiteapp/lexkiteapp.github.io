@@ -1,0 +1,63 @@
+# ci-policy: no-gen – chỉ chạy bộ test trên main, không dựng/đọc bản sinh riêng ngoài npm ci (GEN_REGEN)
+# Lượt đêm KHÔNG cache của `npm test` (25/11, cache kết quả đạt theo hash input – scripts/lib/test-cache.mjs): chạy ĐẦY ĐỦ mọi test trên main để bắt test mà dò input sai (đỏ dù sổ từng cho đạt cùng hash)
+# → đánh dấu test đó "bad" (hết cache), ghi lại sổ, mở issue nhãn `test-cache`. Lịch GitHub hay không chạy → cron-watch bù dispatch.
+name: npm test nightly (không cache)
+on:
+  schedule:
+    - cron: '23 20 * * *'
+  workflow_dispatch:
+# ci-policy: matrix – 8 shard như npm-test.yml (cùng cách chia, cùng sổ per-shard)
+permissions: { contents: read }
+env: { GEN_REGEN: '1' }
+concurrency: { group: npm-test-nightly, cancel-in-progress: false }
+jobs:
+  shard:
+    name: nightly shard ${{ matrix.shard }}/8
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6, 7, 8]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - run: git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main || true
+      - uses: actions/cache@v4
+        with:
+          path: .test-cache
+          key: tpl-v1-${{ matrix.shard }}-nightly-${{ github.run_id }}
+          restore-keys: tpl-v1-${{ matrix.shard }}-
+      - name: npm test – đầy đủ, KHÔNG bỏ qua test nào (ghi lại sổ)
+        env: { TEST_CACHE_FILE: '.test-cache/ledger.json', NO_TEST_CACHE: '1' }
+        run: node scripts/test/run-suite.mjs --shard=${{ matrix.shard }}/8
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cache-false-pass-${{ matrix.shard }}
+          path: .test-cache/cache-false-pass.txt
+          if-no-files-found: ignore
+          retention-days: 7
+  report:
+    needs: shard
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions: { contents: read, issues: write, actions: read }
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: cache-false-pass-*
+          path: fp
+          merge-multiple: true
+        continue-on-error: true
+      - name: issue khi có test dò input sai
+        env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}', RUN: '${{ github.run_id }}' }
+        run: |
+          if ! ls fp/cache-false-pass.txt >/dev/null 2>&1 || [ ! -s fp/cache-false-pass.txt ]; then echo "không có test nào dò input sai"; exit 0; fi
+          list=$(sed 's/\t.*//' fp/cache-false-pass.txt | sort -u | sed 's/^/- `/; s/$/`/')
+          body="Lượt đêm không cache (run $RUN) thấy test ĐỎ dù sổ từng cho đạt cùng hash input → test dò input thiếu. Test bị đánh dấu không cache nữa. Sửa dò input (scripts/lib/test-cache.mjs: DENY/chuỗi trỏ tệp) hoặc sửa test:\n\n$list"
+          gh label create test-cache --color 5319e7 --repo "$REPO" 2>/dev/null || true
+          gh issue create --repo "$REPO" --label test-cache --title "npm test cache: test dò input sai ($(date -u +%F))" --body "$(printf "$body")"

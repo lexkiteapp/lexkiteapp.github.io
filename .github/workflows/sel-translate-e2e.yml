@@ -1,0 +1,70 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# E2E bảng bôi đen → "Dịch" (Playwright): mạng chậm/chặn từng nguồn, thời gian tới chữ dịch (câu có sẵn p95 ≤ 300 ms, câu tự do ≤ 2,5 s),
+# bảng không che định nghĩa, 390/1280 × sáng/tối, đóng bằng Esc/bấm ngoài. Kèm ảnh TRƯỚC (nhánh gốc) / SAU để chủ duyệt – scripts/test/sel-translate-e2e.mjs.
+name: E2E dịch vùng chọn
+on:
+  push:
+    branches: [main]
+    paths: [web/js/phrases.js, web/cpack/tr-fast.js, web/js/dictionary.js, web/packs/tr/**, scripts/test/sel-translate-e2e.mjs, .github/workflows/sel-translate-e2e.yml]
+  pull_request:
+    paths: [web/js/phrases.js, web/cpack/tr-fast.js, web/js/dictionary.js, web/packs/tr/**, scripts/test/sel-translate-e2e.mjs, .github/workflows/sel-translate-e2e.yml]
+  workflow_dispatch:
+    inputs:
+      before: { description: 'Commit "trước" (trống = origin/main)', required: false, default: '' }
+permissions:
+  contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
+concurrency: { group: 'sel-translate-e2e-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  gate:
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
+  e2e:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: ./.github/actions/gen-if-needed   # luật 18
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
+      - name: Playwright
+        timeout-minutes: 15
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Ảnh TRƯỚC (nhánh gốc, chỉ chụp)
+        continue-on-error: true
+        env: { BEFORE: '${{ github.event.inputs.before || github.event.pull_request.base.sha }}' }
+        run: |
+          B="${BEFORE:-origin/main}"
+          git worktree add -q ../before "$B"
+          (cd ../before/web && python3 -m http.server 8081 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/sel-translate-e2e.mjs http://localhost:8081 out/sel-translate before
+      - name: SAU + cổng
+        run: |
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/sel-translate-e2e.mjs http://localhost:8080 out/sel-translate after --gate
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: sel-translate, path: out/sel-translate, retention-days: 14 }

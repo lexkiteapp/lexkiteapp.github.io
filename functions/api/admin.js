@@ -32,7 +32,7 @@ export const ghApi = async (env, u, f = fetch) => {
   return r.json();
 };
 // Quảng cáo (docs/ADS.md): cờ công khai + khóa chỉ quản trị (eCPM ước tính USD/1000 lượt, ngưỡng cổng giữ chân %, cỡ mẫu tối thiểu, checklist sẵn sàng)
-const ADS_KEYS = [...ADS_PUBLIC, 'ads_ecpm_web', 'ads_ecpm_android', 'ads_ecpm_ios', 'ads_guard_pct', 'ads_guard_min', 'ads_ready']; // ads_ready = JSON trạng thái nhập tay của thẻ "Sẵn sàng bật quảng cáo" (duyệt AdSense/AdMob, IRS, CMP…) – không phải cờ, không tới /api/config
+const ADS_KEYS = [...ADS_PUBLIC, 'ads_ecpm_web', 'ads_ecpm_android', 'ads_ecpm_ios', 'ads_guard_pct', 'ads_guard_min', 'ads_ready', 'ads_meta_capi']; // ads_meta_capi = '1' bật chuyển lượt cài/kích hoạt sang Meta CAPI (functions/api/_meta_capi.js; KHÔNG công khai ở /api/config) // ads_ready = JSON trạng thái nhập tay của thẻ "Sẵn sàng bật quảng cáo" (duyệt AdSense/AdMob, IRS, CMP…) – không phải cờ, không tới /api/config
 const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', 'es_course', 'es_course_pct', 'es_kill', 'fr_course', 'fr_course_pct', 'fr_kill', 'ja_course', 'ja_course_pct', 'ja_kill', 'ko_course', 'ko_course_pct', 'ko_kill', 'importdeck', 'rem_lsn', 'ret_tmr', ...ADS_KEYS];
 const DAY = 86400e3;
 // Ngôn ngữ giao diện quản trị: máy khách gửi ui: 'vi' | 'en' (thiếu = 'vi', tương thích cũ) – chỉ áp cho vài câu hiển thị
@@ -45,6 +45,7 @@ const json = (req, status, data) => new Response(JSON.stringify(data), { status,
 const QUOTA_WARN = 70, QUOTA_CRIT = 90;
 const FREE = { dbBytes: 500 * 1024 * 1024, writesDay: 100000, readsDay: 5000000, authMau: 50000, aiDay: 400 };
 let ready = false;
+CONFIG_KEYS.push('vd_kill'); // 🎙️ công tắc khẩn Nhật ký giọng nói (functions/api/config.js, docs/specs/voice-diary.md) – dòng riêng, không đụng dòng CONFIG_KEYS nhiều PR cùng sửa
 
 // Đếm dòng: bảng nhật ký/lớn dùng MAX(rowid) (đọc 1 dòng, ước lượng) thay COUNT(*) quét cả bảng (23/10: admin_log 27 lượt × 14,5k dòng); cả bản đồ giữ ≥ 10 phút ở bộ nhớ isolate + Cache API biên.
 const BIG_TABLES = new Set(['admin_log', 'drive_files', 'drive_audit', 'key_audit', 'quota_audit', 'api_key_events', 'sessions', 'errors', 'pageviews', 'sync_log']);

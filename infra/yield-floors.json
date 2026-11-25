@@ -1,4 +1,4 @@
 {
- "lexicon-expand": { "floor": 40, "windowH": 48, "unit": "word#pos nhận", "note": "mục tiêu 20k word#pos – docs/LEXICON.md" },
- "vocab-img-scene": { "floor": 30, "windowH": 48, "unit": "ảnh đạt", "note": "mục tiêu 20k ảnh – docs/VOCAB-IMG-STYLE.md" }
+ "lexicon-expand": { "floor": 40, "windowH": 48, "unit": "word#pos nhận", "minRun": 10, "note": "mục tiêu 20k word#pos – docs/LEXICON.md; 23/11: hết ứng viên đủ nguồn người viết (vi + 2 câu) – xem log bước «Sinh + 2 giám khảo + cổng» dòng «lọc trước AI»" },
+ "vocab-img-scene": { "floor": 30, "windowH": 48, "unit": "ảnh đạt", "minRun": 5, "note": "mục tiêu 20k ảnh – docs/VOCAB-IMG-STYLE.md; trần thật = số nghĩa trong kho (lexicon-expand); bước plan in «nghĩa cảnh thiếu ảnh có thể vẽ»" }
 }

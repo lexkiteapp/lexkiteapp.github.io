@@ -6,6 +6,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 let bad = 0; const ok = (c, m) => { if (!c) { bad++; console.log('✗ ' + m); } else console.log('✓ ' + m); };
 const css = rd('web/css/style.css');
 ok(/:is\(\.tabs > :is\(button, a\), \.chip\):is\(\.on, \[aria-pressed="true"\], \[aria-selected="true"\]\)\s*\{[^}]*box-shadow: inset 0 0 0 2px var\(--done\)/.test(css), 'style.css: một khối .on (vòng teal 2px inset) cho tab/chip');
+const sn = (css.match(/\n\.sheet-next\s*\{([^}]*)\}/) || [])[1] || '';
+ok(sn && !/background:\s*#fff/i.test(sn) && /border:\s*1px solid rgba\(255,\s*255,\s*255/.test(sn), '.sheet-next: nền tối + viền sáng trên banner gradient (không nền trắng chói)');
 const hov = [...css.matchAll(/([^{}]*):hover\s*\{([^}]*)\}/g)].filter(m => /chip|\.tabs/.test(m[1]));
 ok(hov.length > 0 && hov.every(m => !/border|outline/.test(m[2])), `hover của chip/tab chỉ đổi nền (không đổi viền): ${hov.filter(m => /border|outline/.test(m[2])).map(m => m[1].trim().slice(-40)).join(' · ') || 'đạt'}`);
 const DONE = ['web/js/call.js', 'web/js/pron/shadow.js', 'web/js/pron/rhythm.js', 'web/js/listening.js', 'web/js/criteria.js', 'web/js/tracks.js', 'web/js/phrases-model.js', 'web/js/toeic.js', 'web/js/toefl.js', 'web/js/cambridge.js', 'web/js/mock.js'];

@@ -1,0 +1,3416 @@
+{
+ "date": "2026-11-25",
+ "site": "sc-domain:lexkite.com",
+ "range": {
+  "startDate": "2026-10-26",
+  "endDate": "2026-11-22"
+ },
+ "prevRange": {
+  "startDate": "2026-09-28",
+  "endDate": "2026-10-25"
+ },
+ "rows": {
+  "qpc": 312,
+  "qp": 261,
+  "pageCur": 372,
+  "pagePrev": 2755
+ },
+ "thresholds": {
+  "days": 28,
+  "lagDays": 3,
+  "rowLimit": 25000,
+  "maxPages": 20,
+  "gapMinImpr": 50,
+  "matchKw": 0.8,
+  "matchQ": 0.5,
+  "weakPos": 30,
+  "sdMin": 8,
+  "sdMax": 30,
+  "sdMinImpr": 100,
+  "lowCtrRatio": 0.75,
+  "canMinImpr": 50,
+  "canPageMin": 10,
+  "canPageShare": 0.1,
+  "decPrevMin": 100,
+  "decDrop": 0.4,
+  "decAbsMin": 50,
+  "keepDays": 182,
+  "titleMax": 60,
+  "titleMaxCjk": 32,
+  "descMin": 70,
+  "descMax": 160
+ },
+ "totals": {
+  "current": {
+   "clicks": 86,
+   "impressions": 839,
+   "ctr": 0.1025,
+   "position": 34.1
+  },
+  "previous": {
+   "clicks": 24,
+   "impressions": 10108,
+   "ctr": 0.0024,
+   "position": 33.5
+  }
+ },
+ "gaps": [],
+ "striking": [],
+ "cannibal": [],
+ "declines": [
+  {
+   "page": "https://lexkite.com/ar/words/circumstance",
+   "lang": "ar",
+   "slug": null,
+   "prevImpressions": 36,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 9.1,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/ar/words/fee",
+   "lang": "ar",
+   "slug": null,
+   "prevImpressions": 44,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 8.5,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/ar/words/found",
+   "lang": "ar",
+   "slug": null,
+   "prevImpressions": 62,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 9.7,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/ar/words/guarantee",
+   "lang": "ar",
+   "slug": null,
+   "prevImpressions": 31,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 9.8,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/ar/words/infer",
+   "lang": "ar",
+   "slug": null,
+   "prevImpressions": 65,
+   "impressions": 1,
+   "change": -0.9846,
+   "prevPosition": 10,
+   "position": 11,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Hạng giữ nguyên mà hiển thị giảm: nhu cầu theo mùa hoặc mất truy vấn phụ – xem lại truy vấn trong GSC"
+  },
+  {
+   "page": "https://lexkite.com/ar/words/integrity",
+   "lang": "ar",
+   "slug": null,
+   "prevImpressions": 45,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 9.8,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/ar/words/relevant",
+   "lang": "ar",
+   "slug": null,
+   "prevImpressions": 46,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 10,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/ar/words/revolution",
+   "lang": "ar",
+   "slug": null,
+   "prevImpressions": 31,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 7.5,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/ar/words/seek",
+   "lang": "ar",
+   "slug": null,
+   "prevImpressions": 35,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 11.6,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/ar/words/status",
+   "lang": "ar",
+   "slug": null,
+   "prevImpressions": 39,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 8.9,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/en/blog/academic-word-list/",
+   "lang": "en",
+   "slug": "academic-word-list",
+   "prevImpressions": 35,
+   "impressions": 1,
+   "change": -0.9714,
+   "prevPosition": 46.9,
+   "position": 2,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Hạng giữ nguyên mà hiển thị giảm: nhu cầu theo mùa hoặc mất truy vấn phụ – xem lại truy vấn trong GSC"
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/",
+   "lang": "en",
+   "slug": null,
+   "prevImpressions": 140,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 63.7,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/en/words/restoration",
+   "lang": "en",
+   "slug": null,
+   "prevImpressions": 36,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 78.6,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/en/words/rsvp",
+   "lang": "en",
+   "slug": null,
+   "prevImpressions": 34,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 82.9,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/ja/blog/eitango-oboekata/",
+   "lang": "ja",
+   "slug": "eitango-oboekata",
+   "prevImpressions": 45,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 40.8,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/criteria",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 92,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 9,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/detect",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 84,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 8.9,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/mode",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 85,
+   "impressions": 1,
+   "change": -0.9882,
+   "prevPosition": 11.2,
+   "position": 8,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Hạng giữ nguyên mà hiển thị giảm: nhu cầu theo mùa hoặc mất truy vấn phụ – xem lại truy vấn trong GSC"
+  },
+  {
+   "page": "https://lexkite.com/th/words/prime",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 33,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 11.6,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/regime",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 34,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 10.3,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/relevant",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 43,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 11.1,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/secure",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 67,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 9.6,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/stable",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 42,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 11,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/status",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 50,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 8.9,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/vision",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 49,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 10.4,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/visual",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 48,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 10.2,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/volume",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 58,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 10.3,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/th/words/voluntary",
+   "lang": "th",
+   "slug": null,
+   "prevImpressions": 31,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 10,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  },
+  {
+   "page": "https://lexkite.com/vi/words/this-is-because",
+   "lang": "vi",
+   "slug": null,
+   "prevImpressions": 36,
+   "impressions": 0,
+   "change": -1,
+   "prevPosition": 9.1,
+   "position": 0,
+   "prevClicks": 0,
+   "clicks": 0,
+   "gain": 0,
+   "hint": "Mất hẳn hiển thị: kiểm trang còn 200/index được (URL Inspection), có bị noindex/301/canonical nhầm"
+  }
+ ],
+ "dictQueue": [
+  {
+   "term": "cosmos",
+   "impressions": 2,
+   "clicks": 0,
+   "queries": [
+    "cosmos definition"
+   ]
+  },
+  {
+   "term": "dress up",
+   "impressions": 2,
+   "clicks": 0,
+   "queries": [
+    "define dress up"
+   ]
+  },
+  {
+   "term": "rational",
+   "impressions": 2,
+   "clicks": 0,
+   "queries": [
+    "rational meaning",
+    "rational meaning in english"
+   ]
+  },
+  {
+   "term": "recession",
+   "impressions": 2,
+   "clicks": 0,
+   "queries": [
+    "recession meaning"
+   ]
+  },
+  {
+   "term": "abstract",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "abstract meaning in hindi"
+   ]
+  },
+  {
+   "term": "academy",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "academy แปลว่า"
+   ]
+  },
+  {
+   "term": "artefacts",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "artefacts meaning"
+   ]
+  },
+  {
+   "term": "assume",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "assume meaning"
+   ]
+  },
+  {
+   "term": "conceive",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "conceive meaning in english"
+   ]
+  },
+  {
+   "term": "consent",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "consent meaning"
+   ]
+  },
+  {
+   "term": "detect",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "define detect"
+   ]
+  },
+  {
+   "term": "format",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "define format"
+   ]
+  },
+  {
+   "term": "demonstrate",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "demonstrate meaning in hindi"
+   ]
+  },
+  {
+   "term": "developmental",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "developmental definition"
+   ]
+  },
+  {
+   "term": "domestication",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "domestication meaning in english"
+   ]
+  },
+  {
+   "term": "ethic",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "ethic definition"
+   ]
+  },
+  {
+   "term": "eye vision",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "eye vision meaning in hindi"
+   ]
+  },
+  {
+   "term": "famine",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "famine definition"
+   ]
+  },
+  {
+   "term": "feudal",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "feudal meaning"
+   ]
+  },
+  {
+   "term": "forerunner",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "forerunner definition"
+   ]
+  },
+  {
+   "term": "germinate",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "germinate meaning"
+   ]
+  },
+  {
+   "term": "get over",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "get over meaning"
+   ]
+  },
+  {
+   "term": "grievance",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "grievance meaning"
+   ]
+  },
+  {
+   "term": "in response to",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "in response to meaning"
+   ]
+  },
+  {
+   "term": "inconclusive",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "inconclusive meaning"
+   ]
+  },
+  {
+   "term": "inhibit",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "inhibit meaning"
+   ]
+  },
+  {
+   "term": "je m incline",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "je m incline définition"
+   ]
+  },
+  {
+   "term": "keep me posted",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "keep me posted meaning"
+   ]
+  },
+  {
+   "term": "look up to",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "look up to nghĩa là gì"
+   ]
+  },
+  {
+   "term": "moreover",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "moreover meaning in bengali"
+   ]
+  },
+  {
+   "term": "offsets",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "offsets meaning in tamil"
+   ]
+  },
+  {
+   "term": "parallel",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "parallel meaning in english"
+   ]
+  },
+  {
+   "term": "prosperity",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "prosperity definition"
+   ]
+  },
+  {
+   "term": "regime",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "regime meaning"
+   ]
+  },
+  {
+   "term": "rivarly",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "rivarly meaning"
+   ]
+  },
+  {
+   "term": "staple",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "staple meaning"
+   ]
+  },
+  {
+   "term": "still persist",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "still persist meaning in hindi"
+   ]
+  },
+  {
+   "term": "tanson",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "tanson meaning"
+   ]
+  },
+  {
+   "term": "underlie",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "underlie meaning"
+   ]
+  },
+  {
+   "term": "visible",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "visible แปลว่า"
+   ]
+  },
+  {
+   "term": "warranty",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "warranty meaning"
+   ]
+  },
+  {
+   "term": "workforce",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "workforce meaning"
+   ]
+  },
+  {
+   "term": "conflict",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "معنى conflict"
+   ]
+  }
+ ],
+ "priority": [],
+ "pages": [
+  {
+   "page": "https://lexkite.com/",
+   "clicks": 72,
+   "impressions": 106,
+   "position": 4.2
+  },
+  {
+   "page": "https://lexkite.com/en/",
+   "clicks": 11,
+   "impressions": 44,
+   "position": 1.8
+  },
+  {
+   "page": "https://lexkite.com/en/blog/topic/tu-vung/",
+   "clicks": 0,
+   "impressions": 19,
+   "position": 2.4
+  },
+  {
+   "page": "https://lexkite.com/en/words/artificial",
+   "clicks": 0,
+   "impressions": 19,
+   "position": 7.2
+  },
+  {
+   "page": "https://lexkite.com/vi/words/translation",
+   "clicks": 0,
+   "impressions": 19,
+   "position": 16.9
+  },
+  {
+   "page": "https://lexkite.com/fr/",
+   "clicks": 0,
+   "impressions": 18,
+   "position": 8.3
+  },
+  {
+   "page": "https://lexkite.com/en/words/rational",
+   "clicks": 0,
+   "impressions": 14,
+   "position": 78.1
+  },
+  {
+   "page": "https://lexkite.com/en/words/parallel",
+   "clicks": 0,
+   "impressions": 9,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/vi/terms",
+   "clicks": 0,
+   "impressions": 9,
+   "position": 3.1
+  },
+  {
+   "page": "https://lexkite.com/en/blog/about/",
+   "clicks": 0,
+   "impressions": 8,
+   "position": 2.8
+  },
+  {
+   "page": "https://lexkite.com/en/blog/how-to-learn-ielts-vocabulary/",
+   "clicks": 0,
+   "impressions": 8,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/",
+   "clicks": 0,
+   "impressions": 8,
+   "position": 3.4
+  },
+  {
+   "page": "https://lexkite.com/es/words/thesis",
+   "clicks": 0,
+   "impressions": 8,
+   "position": 9.9
+  },
+  {
+   "page": "https://lexkite.com/pt/words/complement",
+   "clicks": 0,
+   "impressions": 8,
+   "position": 24.9
+  },
+  {
+   "page": "https://lexkite.com/ru/words/minimise",
+   "clicks": 0,
+   "impressions": 8,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/grammar/reported-speech",
+   "clicks": 0,
+   "impressions": 7,
+   "position": 12.6
+  },
+  {
+   "page": "https://lexkite.com/en/words/leisure",
+   "clicks": 0,
+   "impressions": 7,
+   "position": 86
+  },
+  {
+   "page": "https://lexkite.com/en/words/qualitative",
+   "clicks": 0,
+   "impressions": 7,
+   "position": 21.9
+  },
+  {
+   "page": "https://lexkite.com/fr/words/vision",
+   "clicks": 0,
+   "impressions": 7,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/tr/words/prime",
+   "clicks": 0,
+   "impressions": 7,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/ex-toefl-lecture",
+   "clicks": 0,
+   "impressions": 6,
+   "position": 1.8
+  },
+  {
+   "page": "https://lexkite.com/de/words/ongoing",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 9.2
+  },
+  {
+   "page": "https://lexkite.com/de/words/refine",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 7.8
+  },
+  {
+   "page": "https://lexkite.com/en/words/diligently",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/words/stand-out",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/schools",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 5.2
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/the/ielts/",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 5.8
+  },
+  {
+   "page": "https://lexkite.com/ar/words/insight",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 4.8
+  },
+  {
+   "page": "https://lexkite.com/de/words/revolution",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 77
+  },
+  {
+   "page": "https://lexkite.com/en/words/competitive",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 85.8
+  },
+  {
+   "page": "https://lexkite.com/en/words/export",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 94.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/in-comparison",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 35.3
+  },
+  {
+   "page": "https://lexkite.com/en/words/policy",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 86.8
+  },
+  {
+   "page": "https://lexkite.com/pt/words/infer",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/pt/words/protocol",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 81.8
+  },
+  {
+   "page": "https://lexkite.com/ru/",
+   "clicks": 2,
+   "impressions": 3,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/speaking/trang-web-ung-dung",
+   "clicks": 1,
+   "impressions": 3,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/en/blog/topic/phuong-phap/",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 2.7
+  },
+  {
+   "page": "https://lexkite.com/en/privacy",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 4.7
+  },
+  {
+   "page": "https://lexkite.com/en/words/artefact",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 59
+  },
+  {
+   "page": "https://lexkite.com/en/words/composer",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 88.7
+  },
+  {
+   "page": "https://lexkite.com/en/words/confine",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 88.7
+  },
+  {
+   "page": "https://lexkite.com/en/words/discount",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 87.3
+  },
+  {
+   "page": "https://lexkite.com/en/words/reveal",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/en/words/surveillance",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 95
+  },
+  {
+   "page": "https://lexkite.com/en/words/sustain",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 92
+  },
+  {
+   "page": "https://lexkite.com/en/words/welfare",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 64
+  },
+  {
+   "page": "https://lexkite.com/es/words/formula",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 75
+  },
+  {
+   "page": "https://lexkite.com/fr/words/reverse",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/ja/",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 52.3
+  },
+  {
+   "page": "https://lexkite.com/pt/words/overseas",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 9.3
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/ex-toefl-campus",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 7.3
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/cach-hoc-tu-vung-ielts-hieu-qua/",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/the/writing/",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 1
+  },
+  {
+   "page": "https://lexkite.com/ar/conversations/new-friends",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/ar/words/emphasis",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 70.5
+  },
+  {
+   "page": "https://lexkite.com/ar/words/random",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 63
+  },
+  {
+   "page": "https://lexkite.com/de/words/amend",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/de/words/clarify",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 75
+  },
+  {
+   "page": "https://lexkite.com/de/words/explicit",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 73.5
+  },
+  {
+   "page": "https://lexkite.com/de/words/integral",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 59.5
+  },
+  {
+   "page": "https://lexkite.com/de/words/outcome",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 62.5
+  },
+  {
+   "page": "https://lexkite.com/de/words/unify",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 70.5
+  },
+  {
+   "page": "https://lexkite.com/en/blog/linking-words-for-ielts-writing/",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 1
+  },
+  {
+   "page": "https://lexkite.com/en/blog/tag/flashcards/",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 7.5
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/trang-web-ung-dung",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 5.5
+  },
+  {
+   "page": "https://lexkite.com/en/terms",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/en/words/accent",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 71
+  },
+  {
+   "page": "https://lexkite.com/en/words/accommodation",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 83
+  },
+  {
+   "page": "https://lexkite.com/en/words/assist",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 88
+  },
+  {
+   "page": "https://lexkite.com/en/words/captivity",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 81
+  },
+  {
+   "page": "https://lexkite.com/en/words/collaboratively",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 78
+  },
+  {
+   "page": "https://lexkite.com/en/words/contaminate",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 97.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/cosmos",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/en/words/dress-up",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 94
+  },
+  {
+   "page": "https://lexkite.com/en/words/drop-off",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 55.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/erosion",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/words/fluent",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 91
+  },
+  {
+   "page": "https://lexkite.com/en/words/in-stock",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 95
+  },
+  {
+   "page": "https://lexkite.com/en/words/insulating",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 81.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/launch-a-campaign",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 3.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/magma",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 63.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/mosaic",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 83
+  },
+  {
+   "page": "https://lexkite.com/en/words/motive",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/words/muggy",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 64
+  },
+  {
+   "page": "https://lexkite.com/en/words/multilingual",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 90
+  },
+  {
+   "page": "https://lexkite.com/en/words/nutrition",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 88
+  },
+  {
+   "page": "https://lexkite.com/en/words/organic",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 52
+  },
+  {
+   "page": "https://lexkite.com/en/words/plateau",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 73.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/recession",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 93.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/rivalry",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 81.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/scenario",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 78.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/seismic",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 42
+  },
+  {
+   "page": "https://lexkite.com/en/words/sign-up-for",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 52.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/status",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 4.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/tuition",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 63
+  },
+  {
+   "page": "https://lexkite.com/en/words/upon-request",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 67.5
+  },
+  {
+   "page": "https://lexkite.com/en/words/witty",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 70
+  },
+  {
+   "page": "https://lexkite.com/es/words/core",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 30.5
+  },
+  {
+   "page": "https://lexkite.com/es/words/register",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 78
+  },
+  {
+   "page": "https://lexkite.com/hi/words/mutual",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 64
+  },
+  {
+   "page": "https://lexkite.com/hi/words/vision",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 50
+  },
+  {
+   "page": "https://lexkite.com/ja/words/virtual",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/ko/",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 31
+  },
+  {
+   "page": "https://lexkite.com/ko/conversations/escalating",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 12
+  },
+  {
+   "page": "https://lexkite.com/pt/words/consequent",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 48.5
+  },
+  {
+   "page": "https://lexkite.com/pt/words/grant",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 76
+  },
+  {
+   "page": "https://lexkite.com/pt/words/reverse",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 79.5
+  },
+  {
+   "page": "https://lexkite.com/pt/words/transfer",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/tr/conversations/new-friends",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 8.5
+  },
+  {
+   "page": "https://lexkite.com/vi/words/organic",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 75.5
+  },
+  {
+   "page": "https://lexkite.com/ar/words/conduct",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 99
+  },
+  {
+   "page": "https://lexkite.com/ar/words/conflict",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 12
+  },
+  {
+   "page": "https://lexkite.com/ar/words/infer",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/ar/words/integral",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 3
+  },
+  {
+   "page": "https://lexkite.com/ar/words/protocol",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 56
+  },
+  {
+   "page": "https://lexkite.com/ar/words/scheme",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/ar/words/sector",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/de/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/de/words/alter",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 60
+  },
+  {
+   "page": "https://lexkite.com/de/words/assure",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 75
+  },
+  {
+   "page": "https://lexkite.com/de/words/enhance",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 93
+  },
+  {
+   "page": "https://lexkite.com/de/words/guideline",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 46
+  },
+  {
+   "page": "https://lexkite.com/de/words/insert",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 58
+  },
+  {
+   "page": "https://lexkite.com/de/words/minimise",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/de/words/reside",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 88
+  },
+  {
+   "page": "https://lexkite.com/de/words/restore",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 47
+  },
+  {
+   "page": "https://lexkite.com/de/words/scenario",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 38
+  },
+  {
+   "page": "https://lexkite.com/de/words/status",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 49
+  },
+  {
+   "page": "https://lexkite.com/en/blog/academic-word-list/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/en/blog/ielts-collocations/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/en/blog/spaced-repetition-for-language-learning/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/blog/tag/vocabulary/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/conversations/presenting",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 70
+  },
+  {
+   "page": "https://lexkite.com/en/conversations/renting",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/en/conversations/salary",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/english-level-test/a1/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 92
+  },
+  {
+   "page": "https://lexkite.com/en/pronunciation/ay-diphthong",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/pronunciation/voiced-th-sound",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 50
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p51",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p55",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/am-nhac",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/toeic-part-5-practice/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 91
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/awl1",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/awl2",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/awl4",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/awl5",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/awl6",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/awl7",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/awl8",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 3
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/dom-log",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 1
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/ex-ielts-gt-life",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/ngsl2",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/ngsl3",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/ngsl6",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/toeic1",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/words/a-ripple-effect",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 56
+  },
+  {
+   "page": "https://lexkite.com/en/words/additive",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 96
+  },
+  {
+   "page": "https://lexkite.com/en/words/adequate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 87
+  },
+  {
+   "page": "https://lexkite.com/en/words/aggregate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 93
+  },
+  {
+   "page": "https://lexkite.com/en/words/ambitious",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 52
+  },
+  {
+   "page": "https://lexkite.com/en/words/apparent",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 97
+  },
+  {
+   "page": "https://lexkite.com/en/words/assess",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 90
+  },
+  {
+   "page": "https://lexkite.com/en/words/assume",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 95
+  },
+  {
+   "page": "https://lexkite.com/en/words/autopay",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 81
+  },
+  {
+   "page": "https://lexkite.com/en/words/campsite",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 91
+  },
+  {
+   "page": "https://lexkite.com/en/words/carry-on-2",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 82
+  },
+  {
+   "page": "https://lexkite.com/en/words/cease",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 87
+  },
+  {
+   "page": "https://lexkite.com/en/words/co-signer",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 94
+  },
+  {
+   "page": "https://lexkite.com/en/words/collapse",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 87
+  },
+  {
+   "page": "https://lexkite.com/en/words/colonise",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 74
+  },
+  {
+   "page": "https://lexkite.com/en/words/compound",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 94
+  },
+  {
+   "page": "https://lexkite.com/en/words/conceive",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 91
+  },
+  {
+   "page": "https://lexkite.com/en/words/conflict",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 42
+  },
+  {
+   "page": "https://lexkite.com/en/words/consent",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 88
+  },
+  {
+   "page": "https://lexkite.com/en/words/consolidate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/words/crossroads",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 75
+  },
+  {
+   "page": "https://lexkite.com/en/words/debatable",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 49
+  },
+  {
+   "page": "https://lexkite.com/en/words/deny",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 85
+  },
+  {
+   "page": "https://lexkite.com/en/words/detect",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 46
+  },
+  {
+   "page": "https://lexkite.com/en/words/developmental",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 91
+  },
+  {
+   "page": "https://lexkite.com/en/words/display",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 84
+  },
+  {
+   "page": "https://lexkite.com/en/words/domestication",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 90
+  },
+  {
+   "page": "https://lexkite.com/en/words/dynamic",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 93
+  },
+  {
+   "page": "https://lexkite.com/en/words/dynasty",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 46
+  },
+  {
+   "page": "https://lexkite.com/en/words/epidemic",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/en/words/ethic",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 97
+  },
+  {
+   "page": "https://lexkite.com/en/words/eviction",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 74
+  },
+  {
+   "page": "https://lexkite.com/en/words/expand",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 85
+  },
+  {
+   "page": "https://lexkite.com/en/words/expose",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 60
+  },
+  {
+   "page": "https://lexkite.com/en/words/extinction",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 85
+  },
+  {
+   "page": "https://lexkite.com/en/words/extract",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 89
+  },
+  {
+   "page": "https://lexkite.com/en/words/famine",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 97
+  },
+  {
+   "page": "https://lexkite.com/en/words/feudal",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 98
+  },
+  {
+   "page": "https://lexkite.com/en/words/figure-out",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 86
+  },
+  {
+   "page": "https://lexkite.com/en/words/forerunner",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 77
+  },
+  {
+   "page": "https://lexkite.com/en/words/format",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 90
+  },
+  {
+   "page": "https://lexkite.com/en/words/forthcoming",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 85
+  },
+  {
+   "page": "https://lexkite.com/en/words/from-scratch",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 97
+  },
+  {
+   "page": "https://lexkite.com/en/words/fundraiser",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 68
+  },
+  {
+   "page": "https://lexkite.com/en/words/gender",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 99
+  },
+  {
+   "page": "https://lexkite.com/en/words/generally-speaking",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 83
+  },
+  {
+   "page": "https://lexkite.com/en/words/germinate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 86
+  },
+  {
+   "page": "https://lexkite.com/en/words/get-over",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 83
+  },
+  {
+   "page": "https://lexkite.com/en/words/grievance",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 94
+  },
+  {
+   "page": "https://lexkite.com/en/words/guild",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 46
+  },
+  {
+   "page": "https://lexkite.com/en/words/habitat",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 90
+  },
+  {
+   "page": "https://lexkite.com/en/words/hands-on",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 93
+  },
+  {
+   "page": "https://lexkite.com/en/words/hybrid",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/en/words/i-reckon",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/words/in-advance",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 73
+  },
+  {
+   "page": "https://lexkite.com/en/words/in-response-to",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/en/words/inconclusive",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 67
+  },
+  {
+   "page": "https://lexkite.com/en/words/incorporate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/en/words/infer",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 97
+  },
+  {
+   "page": "https://lexkite.com/en/words/inhibit",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 87
+  },
+  {
+   "page": "https://lexkite.com/en/words/jargon",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 90
+  },
+  {
+   "page": "https://lexkite.com/en/words/keep-me-posted",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 95
+  },
+  {
+   "page": "https://lexkite.com/en/words/landlord",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 58
+  },
+  {
+   "page": "https://lexkite.com/en/words/launch",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 74
+  },
+  {
+   "page": "https://lexkite.com/en/words/lead-to",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 56
+  },
+  {
+   "page": "https://lexkite.com/en/words/legal",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/en/words/light-year",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 99
+  },
+  {
+   "page": "https://lexkite.com/en/words/long-standing",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 88
+  },
+  {
+   "page": "https://lexkite.com/en/words/magnificent",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 96
+  },
+  {
+   "page": "https://lexkite.com/en/words/malnutrition",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 79
+  },
+  {
+   "page": "https://lexkite.com/en/words/manual",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 58
+  },
+  {
+   "page": "https://lexkite.com/en/words/moreover",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 72
+  },
+  {
+   "page": "https://lexkite.com/en/words/must-have",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 100
+  },
+  {
+   "page": "https://lexkite.com/en/words/nerve-racking",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 38
+  },
+  {
+   "page": "https://lexkite.com/en/words/networking",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 98
+  },
+  {
+   "page": "https://lexkite.com/en/words/non-refundable",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 82
+  },
+  {
+   "page": "https://lexkite.com/en/words/obtain",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/words/occupy",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 92
+  },
+  {
+   "page": "https://lexkite.com/en/words/on-behalf-of",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 54
+  },
+  {
+   "page": "https://lexkite.com/en/words/orient",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/en/words/outsource",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 58
+  },
+  {
+   "page": "https://lexkite.com/en/words/over-the-period",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 33
+  },
+  {
+   "page": "https://lexkite.com/en/words/paradigm",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/en/words/participate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 96
+  },
+  {
+   "page": "https://lexkite.com/en/words/persuasive",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 90
+  },
+  {
+   "page": "https://lexkite.com/en/words/practitioner",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 91
+  },
+  {
+   "page": "https://lexkite.com/en/words/predator",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 70
+  },
+  {
+   "page": "https://lexkite.com/en/words/prohibit",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 98
+  },
+  {
+   "page": "https://lexkite.com/en/words/prosperity",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 100
+  },
+  {
+   "page": "https://lexkite.com/en/words/publicity",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 50
+  },
+  {
+   "page": "https://lexkite.com/en/words/push-back",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 84
+  },
+  {
+   "page": "https://lexkite.com/en/words/redundancy",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 70
+  },
+  {
+   "page": "https://lexkite.com/en/words/regime",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 81
+  },
+  {
+   "page": "https://lexkite.com/en/words/reject",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 58
+  },
+  {
+   "page": "https://lexkite.com/en/words/release",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 78
+  },
+  {
+   "page": "https://lexkite.com/en/words/resolve",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 86
+  },
+  {
+   "page": "https://lexkite.com/en/words/revise",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/words/skyline",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 74
+  },
+  {
+   "page": "https://lexkite.com/en/words/sole",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/en/words/specifications",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 92
+  },
+  {
+   "page": "https://lexkite.com/en/words/stable",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 92
+  },
+  {
+   "page": "https://lexkite.com/en/words/staple",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 88
+  },
+  {
+   "page": "https://lexkite.com/en/words/sustainable",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 59
+  },
+  {
+   "page": "https://lexkite.com/en/words/symphony",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 85
+  },
+  {
+   "page": "https://lexkite.com/en/words/thought-provoking",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 53
+  },
+  {
+   "page": "https://lexkite.com/en/words/to-be-honest",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 91
+  },
+  {
+   "page": "https://lexkite.com/en/words/to-date",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 84
+  },
+  {
+   "page": "https://lexkite.com/en/words/tournament",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 1
+  },
+  {
+   "page": "https://lexkite.com/en/words/tranquil",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/en/words/turn-up",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/en/words/underlie",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 79
+  },
+  {
+   "page": "https://lexkite.com/en/words/verify",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 80
+  },
+  {
+   "page": "https://lexkite.com/en/words/vibrant",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 51
+  },
+  {
+   "page": "https://lexkite.com/en/words/vocabulary",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 72
+  },
+  {
+   "page": "https://lexkite.com/en/words/warranty",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 97
+  },
+  {
+   "page": "https://lexkite.com/en/words/weather-permitting",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 68
+  },
+  {
+   "page": "https://lexkite.com/en/words/without-further-ado",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 57
+  },
+  {
+   "page": "https://lexkite.com/en/words/woodland",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 99
+  },
+  {
+   "page": "https://lexkite.com/en/words/workforce",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 89
+  },
+  {
+   "page": "https://lexkite.com/es/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/es/blog/como-aprender-vocabulario-en-ingles/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 100
+  },
+  {
+   "page": "https://lexkite.com/es/blog/falsos-amigos-ingles-espanol/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/es/words/aid",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 68
+  },
+  {
+   "page": "https://lexkite.com/es/words/commodity",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 55
+  },
+  {
+   "page": "https://lexkite.com/es/words/compound",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/es/words/criteria",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/es/words/debate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 55
+  },
+  {
+   "page": "https://lexkite.com/es/words/domain",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 81
+  },
+  {
+   "page": "https://lexkite.com/es/words/emerge",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 86
+  },
+  {
+   "page": "https://lexkite.com/es/words/insert",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 67
+  },
+  {
+   "page": "https://lexkite.com/es/words/inspect",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 56
+  },
+  {
+   "page": "https://lexkite.com/es/words/logic",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 73
+  },
+  {
+   "page": "https://lexkite.com/es/words/overseas",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/es/words/rational",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 70
+  },
+  {
+   "page": "https://lexkite.com/es/words/regime",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 100
+  },
+  {
+   "page": "https://lexkite.com/es/words/submit",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 73
+  },
+  {
+   "page": "https://lexkite.com/es/words/sustain",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 58
+  },
+  {
+   "page": "https://lexkite.com/fr/blog/apprendre-anglais-seul/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/fr/blog/faux-amis-anglais-francais/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/fr/blog/phrasal-verbs-anglais-essentiels/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/fr/words/derive",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 74
+  },
+  {
+   "page": "https://lexkite.com/fr/words/diminish",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 95
+  },
+  {
+   "page": "https://lexkite.com/fr/words/external",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 47
+  },
+  {
+   "page": "https://lexkite.com/fr/words/extract",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 55
+  },
+  {
+   "page": "https://lexkite.com/fr/words/incidence",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/fr/words/incline",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 75
+  },
+  {
+   "page": "https://lexkite.com/fr/words/income",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 98
+  },
+  {
+   "page": "https://lexkite.com/fr/words/modify",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 29
+  },
+  {
+   "page": "https://lexkite.com/fr/words/presume",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 80
+  },
+  {
+   "page": "https://lexkite.com/hi/blog/daily-routine-english-sentences/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/hi/words/abstract",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 75
+  },
+  {
+   "page": "https://lexkite.com/hi/words/adequate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 55
+  },
+  {
+   "page": "https://lexkite.com/hi/words/demonstrate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 63
+  },
+  {
+   "page": "https://lexkite.com/hi/words/discriminate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 52
+  },
+  {
+   "page": "https://lexkite.com/hi/words/distort",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 62
+  },
+  {
+   "page": "https://lexkite.com/hi/words/mechanism",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 52
+  },
+  {
+   "page": "https://lexkite.com/hi/words/parallel",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 53
+  },
+  {
+   "page": "https://lexkite.com/hi/words/persist",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 54
+  },
+  {
+   "page": "https://lexkite.com/hi/words/preliminary",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 58
+  },
+  {
+   "page": "https://lexkite.com/hi/words/rational",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 57
+  },
+  {
+   "page": "https://lexkite.com/hi/words/thesis",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 54
+  },
+  {
+   "page": "https://lexkite.com/hi/words/vary",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 56
+  },
+  {
+   "page": "https://lexkite.com/ja/conversations/disagreeing",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 74
+  },
+  {
+   "page": "https://lexkite.com/ja/conversations/shopping",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 52
+  },
+  {
+   "page": "https://lexkite.com/ja/words/encounter",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 77
+  },
+  {
+   "page": "https://lexkite.com/ja/words/interval",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 90
+  },
+  {
+   "page": "https://lexkite.com/ja/words/occupy",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 52
+  },
+  {
+   "page": "https://lexkite.com/ko/conversations/complaints",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 59
+  },
+  {
+   "page": "https://lexkite.com/ko/conversations/presenting",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 94
+  },
+  {
+   "page": "https://lexkite.com/ko/words/criteria",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/word-formation",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/pt/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/pt/words/attitude",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 52
+  },
+  {
+   "page": "https://lexkite.com/pt/words/aware",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 99
+  },
+  {
+   "page": "https://lexkite.com/pt/words/bias",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 56
+  },
+  {
+   "page": "https://lexkite.com/pt/words/commission",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/pt/words/comprise",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 62
+  },
+  {
+   "page": "https://lexkite.com/pt/words/gender",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 70
+  },
+  {
+   "page": "https://lexkite.com/pt/words/neutral",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 26
+  },
+  {
+   "page": "https://lexkite.com/pt/words/notion",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 83
+  },
+  {
+   "page": "https://lexkite.com/pt/words/offset",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 58
+  },
+  {
+   "page": "https://lexkite.com/pt/words/overlap",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 47
+  },
+  {
+   "page": "https://lexkite.com/pt/words/passive",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 49
+  },
+  {
+   "page": "https://lexkite.com/pt/words/publication",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 66
+  },
+  {
+   "page": "https://lexkite.com/pt/words/recover",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 71
+  },
+  {
+   "page": "https://lexkite.com/pt/words/select",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 27
+  },
+  {
+   "page": "https://lexkite.com/pt/words/sequence",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 56
+  },
+  {
+   "page": "https://lexkite.com/pt/words/so-called",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 71
+  },
+  {
+   "page": "https://lexkite.com/pt/words/tension",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 49
+  },
+  {
+   "page": "https://lexkite.com/pt/words/trace",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 73
+  },
+  {
+   "page": "https://lexkite.com/pt/words/voluntary",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 52
+  },
+  {
+   "page": "https://lexkite.com/ru/words/relevant",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/ru/words/simulate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 68
+  },
+  {
+   "page": "https://lexkite.com/samples/p44",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/samples/p54",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/th/words/academy",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 12
+  },
+  {
+   "page": "https://lexkite.com/th/words/mode",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/th/words/visible",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/tr/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 3
+  },
+  {
+   "page": "https://lexkite.com/tr/words/advocate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 56
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/dom-log",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/academic-word-list-awl/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/gioi-thieu/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 1
+  },
+  {
+   "page": "https://lexkite.com/vi/conversations/bank",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 1
+  },
+  {
+   "page": "https://lexkite.com/vi/words/campaign",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/vi/words/export",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 73
+  },
+  {
+   "page": "https://lexkite.com/vi/words/insight",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 3
+  },
+  {
+   "page": "https://lexkite.com/vi/words/interpret",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/vi/words/look-up-to",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 100
+  },
+  {
+   "page": "https://lexkite.com/vi/words/masterpiece",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 50
+  },
+  {
+   "page": "https://lexkite.com/vi/words/migrate",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 54
+  },
+  {
+   "page": "https://lexkite.com/vi/words/nectar",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 94
+  },
+  {
+   "page": "https://lexkite.com/vi/words/submit",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 97
+  },
+  {
+   "page": "https://lexkite.com/vi/words/transcribe",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 79
+  },
+  {
+   "page": "https://lexkite.com/zh/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  }
+ ],
+ "cpm": {
+  "tiers": {
+   "high": {
+    "clicks": 30,
+    "impressions": 391,
+    "position": 40.9,
+    "clickShare": 0.3614,
+    "imprShare": 0.5784
+   },
+   "vn": {
+    "clicks": 36,
+    "impressions": 87,
+    "position": 14.1,
+    "clickShare": 0.4337,
+    "imprShare": 0.1287
+   },
+   "other": {
+    "clicks": 17,
+    "impressions": 198,
+    "position": 53.9,
+    "clickShare": 0.2048,
+    "imprShare": 0.2929
+   }
+  },
+  "week": {
+   "cur": {
+    "high": {
+     "clicks": 21,
+     "impressions": 26,
+     "position": 1.7,
+     "clickShare": 0.6176,
+     "imprShare": 0.5778
+    },
+    "vn": {
+     "clicks": 3,
+     "impressions": 4,
+     "position": 1,
+     "clickShare": 0.0882,
+     "imprShare": 0.0889
+    },
+    "other": {
+     "clicks": 10,
+     "impressions": 15,
+     "position": 1,
+     "clickShare": 0.2941,
+     "imprShare": 0.3333
+    }
+   },
+   "prev": {
+    "high": {
+     "clicks": 5,
+     "impressions": 21,
+     "position": 11.9,
+     "clickShare": 0.3125,
+     "imprShare": 0.5122
+    },
+    "vn": {
+     "clicks": 5,
+     "impressions": 10,
+     "position": 1.4,
+     "clickShare": 0.3125,
+     "imprShare": 0.2439
+    },
+    "other": {
+     "clicks": 6,
+     "impressions": 10,
+     "position": 10.2,
+     "clickShare": 0.375,
+     "imprShare": 0.2439
+    }
+   }
+  },
+  "countries": [
+   {
+    "country": "vnm",
+    "tier": "vn",
+    "clicks": 36,
+    "impressions": 87,
+    "position": 14.1
+   },
+   {
+    "country": "fra",
+    "tier": "high",
+    "clicks": 19,
+    "impressions": 28,
+    "position": 16.5
+   },
+   {
+    "country": "pak",
+    "tier": "other",
+    "clicks": 7,
+    "impressions": 16,
+    "position": 21.3
+   },
+   {
+    "country": "twn",
+    "tier": "high",
+    "clicks": 3,
+    "impressions": 6,
+    "position": 2.2
+   },
+   {
+    "country": "nzl",
+    "tier": "high",
+    "clicks": 2,
+    "impressions": 3,
+    "position": 31.3
+   },
+   {
+    "country": "irn",
+    "tier": "other",
+    "clicks": 2,
+    "impressions": 2,
+    "position": 1
+   },
+   {
+    "country": "kaz",
+    "tier": "other",
+    "clicks": 2,
+    "impressions": 2,
+    "position": 2
+   },
+   {
+    "country": "usa",
+    "tier": "high",
+    "clicks": 1,
+    "impressions": 184,
+    "position": 23.6
+   },
+   {
+    "country": "gbr",
+    "tier": "high",
+    "clicks": 1,
+    "impressions": 51,
+    "position": 78.7
+   },
+   {
+    "country": "jpn",
+    "tier": "high",
+    "clicks": 1,
+    "impressions": 9,
+    "position": 55.7
+   },
+   {
+    "country": "aus",
+    "tier": "high",
+    "clicks": 1,
+    "impressions": 8,
+    "position": 57.9
+   },
+   {
+    "country": "egy",
+    "tier": "other",
+    "clicks": 1,
+    "impressions": 8,
+    "position": 21.9
+   },
+   {
+    "country": "kor",
+    "tier": "high",
+    "clicks": 1,
+    "impressions": 7,
+    "position": 34.7
+   },
+   {
+    "country": "sgp",
+    "tier": "high",
+    "clicks": 1,
+    "impressions": 5,
+    "position": 53.2
+   },
+   {
+    "country": "chn",
+    "tier": "other",
+    "clicks": 1,
+    "impressions": 4,
+    "position": 3.5
+   },
+   {
+    "country": "bhr",
+    "tier": "other",
+    "clicks": 1,
+    "impressions": 1,
+    "position": 1
+   },
+   {
+    "country": "geo",
+    "tier": "other",
+    "clicks": 1,
+    "impressions": 1,
+    "position": 1
+   },
+   {
+    "country": "lva",
+    "tier": "other",
+    "clicks": 1,
+    "impressions": 1,
+    "position": 1
+   },
+   {
+    "country": "omn",
+    "tier": "other",
+    "clicks": 1,
+    "impressions": 1,
+    "position": 1
+   },
+   {
+    "country": "bra",
+    "tier": "other",
+    "clicks": 0,
+    "impressions": 41,
+    "position": 64.3
+   },
+   {
+    "country": "deu",
+    "tier": "high",
+    "clicks": 0,
+    "impressions": 18,
+    "position": 68
+   },
+   {
+    "country": "ind",
+    "tier": "other",
+    "clicks": 0,
+    "impressions": 18,
+    "position": 66.9
+   },
+   {
+    "country": "phl",
+    "tier": "other",
+    "clicks": 0,
+    "impressions": 13,
+    "position": 76.9
+   },
+   {
+    "country": "sau",
+    "tier": "high",
+    "clicks": 0,
+    "impressions": 12,
+    "position": 33
+   },
+   {
+    "country": "bgd",
+    "tier": "other",
+    "clicks": 0,
+    "impressions": 10,
+    "position": 50.3
+   },
+   {
+    "country": "can",
+    "tier": "high",
+    "clicks": 0,
+    "impressions": 10,
+    "position": 68.1
+   },
+   {
+    "country": "mex",
+    "tier": "other",
+    "clicks": 0,
+    "impressions": 10,
+    "position": 63.3
+   },
+   {
+    "country": "rou",
+    "tier": "other",
+    "clicks": 0,
+    "impressions": 10,
+    "position": 77
+   },
+   {
+    "country": "zaf",
+    "tier": "other",
+    "clicks": 0,
+    "impressions": 10,
+    "position": 68.8
+   },
+   {
+    "country": "che",
+    "tier": "high",
+    "clicks": 0,
+    "impressions": 8,
+    "position": 73
+   }
+  ]
+ },
+ "thresholdsEffective": {
+  "scale": 0.2,
+  "gapMinImpr": 20,
+  "sdMinImpr": 20,
+  "canMinImpr": 20,
+  "canPageMin": 5,
+  "decPrevMin": 30,
+  "decAbsMin": 15
+ },
+ "noBaseline": false,
+ "visits": {
+  "from": "2026-10-29",
+  "to": "2026-11-25",
+  "perDay28": {
+   "search": 6.8,
+   "google": 5.4,
+   "high": 4.5,
+   "vn": 0.9,
+   "other": 1.4
+  },
+  "perDay7": {
+   "search": 13.3,
+   "google": 11.1,
+   "high": 9.4,
+   "vn": 1.6,
+   "other": 2.3
+  },
+  "last7": [
+   {
+    "day": "2026-11-19",
+    "search": 43,
+    "google": 42,
+    "high": 41,
+    "vn": 0,
+    "other": 2
+   },
+   {
+    "day": "2026-11-20",
+    "search": 9,
+    "google": 7,
+    "high": 2,
+    "vn": 2,
+    "other": 5
+   },
+   {
+    "day": "2026-11-21",
+    "search": 7,
+    "google": 7,
+    "high": 4,
+    "vn": 3,
+    "other": 0
+   },
+   {
+    "day": "2026-11-22",
+    "search": 8,
+    "google": 6,
+    "high": 3,
+    "vn": 4,
+    "other": 1
+   },
+   {
+    "day": "2026-11-23",
+    "search": 10,
+    "google": 7,
+    "high": 5,
+    "vn": 0,
+    "other": 5
+   },
+   {
+    "day": "2026-11-24",
+    "search": 3,
+    "google": 2,
+    "high": 3,
+    "vn": 0,
+    "other": 0
+   },
+   {
+    "day": "2026-11-25",
+    "search": 13,
+    "google": 7,
+    "high": 8,
+    "vn": 2,
+    "other": 3
+   }
+  ]
+ },
+ "visitsError": ""
+}
