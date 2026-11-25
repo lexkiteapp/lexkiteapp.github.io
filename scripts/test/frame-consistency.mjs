@@ -139,8 +139,6 @@ const unknown = ROUTES.filter(r => !VAR.routes[r]);
 const stale = Object.keys(VAR.routes).filter(r => !SRC_ROUTES.includes(r) && !live.routes.includes(r));
 
 const res = {}; // res[route][w-theme] = probe
-const dev = []; // { route, combo, prop, got, want }
-const D = (route, combo, prop, got, want) => dev.push({ route, combo, prop, got: String(got), want: String(want) });
 const runCombo = async (P) => {
   for (const r of ROUTES) { await go(P, target(r));
     let m; try { m = await P.page.evaluate(probe, SPEC); } catch (e) { m = { error: String(e.message).slice(0, 120) }; }
