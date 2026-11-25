@@ -112,12 +112,13 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(checkWorkflow(y.replace('on:\n', 'on:\n  check_suite:\n    types: [completed]\n')).some(v => /check_suite/.test(v)), 'hồi quy: thêm lại check_suite → lỗi');
   ok(checkWorkflow(y.replace('on:\n', 'on:\n  pull_request:\n')).some(v => /pull_request/.test(v)), 'hồi quy: thêm pull_request (1 runner/commit) → lỗi');
   ok(checkWorkflow(y.replace('cancel-in-progress: false', 'cancel-in-progress: true')).length === 1, 'huỷ lượt đang canh → lỗi');
-  ok(checkWorkflow(y.replace('--watch 54', '--sweep')).some(v => /--watch/.test(v)), 'thiếu --watch → lỗi');
+  ok(checkWorkflow(y.replace('--watch 330', '--sweep')).some(v => /--watch/.test(v)), 'thiếu --watch → lỗi');
   ok(checkWorkflow(y.replace("CRON_WATCH: '1'", "CRON_WATCH: '0'")).some(v => /canh lịch cron/.test(v)), 'bỏ canh lịch cron độc lập → lỗi (hồi quy 02/11)');
   ok(!/^\s*paths(-ignore)?:/m.test(y.split('\njobs:')[0]), 'không paths-filter');
   const watch = +(y.match(/--watch (\d+)/) || [])[1], tmo = +(y.match(/timeout-minutes: (\d+)/) || [])[1], crons = (y.match(/cron: '([\d,]+) \* \* \* \*'/) || [, ''])[1].split(',').length;
   ok(watch < tmo && watch >= 60 / crons, `canh ${watch} phút < timeout ${tmo}, ≥ khoảng cách lịch ${60 / crons} phút (nối tiếp không hở)`);
-  ok(/group: required-gate-\$\{\{ inputs\.pr \|\| 'watch' \}\}/.test(y), 'dispatch theo PR nhóm riêng, không xếp sau bộ canh');
+  ok(/group: required-gate-\$\{\{ inputs\.pr \|\| format\('watch-\{0\}', inputs\.slot \|\| 'a'\) \}\}/.test(y), 'dispatch theo PR nhóm riêng; hai ô a/b luân phiên (lượt kế xếp hàng runner trong khi lượt trước còn chạy)');
+  ok(watch >= 300 && /GATE_SLOT: \$\{\{ inputs\.slot \}\}/.test(y) && /run-name: required-gate/.test(y), '25/11: lượt canh dài ≥ 300 phút + ô + tên lượt');
   ok(/statuses: write/.test(y) && !/contents: write/.test(y) && !/ref: \$\{\{/.test(y), 'quyền tối thiểu, không checkout mã PR');
   ok(new RegExp(`name: ${SELF_JOB}\\n`).test(y), `tên job = ${SELF_JOB}`);
   const pp = fs.readFileSync(new URL('../prepush.sh', import.meta.url), 'utf8');
@@ -233,6 +234,15 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
     { const go = async st => { const d = []; t = 0; const lg = []; await run(['--watch', '20'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async () => d.push(t), dispatchRuns: async () => d.map(x => ({ status: st, created_at: new Date(x).toISOString() })) }, m => lg.push(m), clock); return { d, lg }; };
       const a = await go('pending'); ok(a.d.length === 1 && a.lg.some(m => /đã sống/.test(m)), 'lượt nối pending: không dispatch lại: ' + a.d.length);
       const b = await go('queued'); ok(b.d.length === 1 + CHAIN_RETRIES && b.d[1] - b.d[0] >= CHAIN_CHECK_MS && b.lg.some(m => /vẫn kẹt|chưa xác nhận/.test(m)), 'lượt nối kẹt: dispatch lại đúng trần rồi báo: ' + b.d.length); }
+    // 25/11 lượt canh dài + hai ô: dispatch lượt kế (ô còn lại) khi còn ≤ 45 phút; lượt ngắn giữ 6 phút/không ô; lượt `schedule` thoát khi đã có bộ canh khác
+    { const d = []; t = 0; await run(['--watch', '200'], { GATE_CHAIN_REF: 'main', GATE_SLOT: 'a' }, { ...A, dispatchSelf: async (ref, slot) => d.push([ref, slot, t]) }, () => {}, clock);
+      ok(d.length === 1 && d[0][1] === 'b' && d[0][2] >= (200 - 45) * 60e3 && d[0][2] < 200 * 60e3 - 40 * 60e3, 'canh dài ô a → nối ô b khi còn ≤ 45 phút: ' + JSON.stringify(d));
+      const d3 = []; t = 0; await run(['--watch', '200'], { GATE_CHAIN_REF: 'main', GATE_SLOT: 'b' }, { ...A, dispatchSelf: async (ref, slot) => d3.push(slot) }, () => {}, clock); ok(d3[0] === 'a', 'ô b nối ô a');
+      const d4 = []; t = 0; await run(['--watch', '20'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async (ref, slot) => d4.push(slot) }, () => {}, clock); ok(d4.length === 1 && d4[0] === undefined, 'lượt ngắn: không ô (cách cũ)'); }
+    { let calls = 0, lg = []; t = 0; const out = await run(['--watch', '20'], { GATE_EVENT: 'schedule', GATE_RUN_ID: '9', GITHUB_RUN_ID: '9' }, { ...A, otherWatchers: async () => [{ id: 7, status: 'in_progress' }], recentRuns: async () => { calls++; return []; } }, m => lg.push(m), clock);
+      ok(calls === 0 && lg.some(m => /đã có bộ canh khác/.test(m)), 'lượt lịch: thoát ngay khi đã có bộ canh khác sống (không canh song song)');
+      let c2 = 0; t = 0; await run(['--watch', '3'], { GATE_EVENT: 'schedule' }, { ...A, otherWatchers: async () => [], recentRuns: async () => { c2++; return []; } }, () => {}, clock); ok(c2 > 0, 'lượt lịch khi chưa có bộ canh khác: canh bình thường');
+      let c3 = 0; t = 0; await run(['--watch', '3'], { GATE_EVENT: 'workflow_dispatch' }, { ...A, otherWatchers: async () => [{ id: 7, status: 'in_progress' }], recentRuns: async () => { c3++; return []; } }, () => {}, clock); ok(c3 > 0, 'lượt nối (dispatch) luôn canh dù lượt trước còn sống (chồng ≤ 45 phút)'); }
     const d2 = []; t = 0;
     await run(['--watch', '20', '--dry'], { GATE_CHAIN_REF: 'main' }, { ...A, dispatchSelf: async () => d2.push(1) }, () => {}, clock);
     ok(!d2.length, '--dry không tự nối');
