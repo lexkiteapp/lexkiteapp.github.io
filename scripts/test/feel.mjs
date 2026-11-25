@@ -11,6 +11,7 @@ function boot({ muted = false, reduced = false } = {}) {
   // Bản sao đúng hành vi Sfx.extend của game.js (khóa Sfx.locked)
   const Sfx = { correct: () => calls.tone.push('old'), tap: () => {} };
   Sfx.extend = f => { const o = f(tone, buzz); for (const k of Sfx.locked || []) delete o[k]; Object.assign(Sfx, o); };
+  Sfx.muted = () => muted; // công tắc tiếng chung của game.js (feel.js đọc Sfx.muted)
   const g = {
     Sfx, Core: { sfxOff: muted }, addEventListener() {}, matchMedia: () => ({ matches: reduced }),
     document: { querySelector: () => null, documentElement: { lang: 'en' } }, performance: { now: () => 0 }, requestAnimationFrame: () => {},

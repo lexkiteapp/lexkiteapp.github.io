@@ -131,6 +131,7 @@ jobs:
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}   # thêm họ mô hình cho giám khảo B khi Gemini 429 (như content-factory)
           AI_POOL_GC_MAX: '600'
+          AI_GEM_MAX: '150'   # es: ≤ 150 lượt Gemini/lượt chạy (chỉ chấm), chừa hạn mức ngày cho fr/ja – lịch: chạy ngay sau 08:00 UTC
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
         run: node scripts/target/gen.mjs --tl "$TL" --n $LX_IN1 --shard "${{ matrix.k }}/$SHARDS" $LX_IN2
