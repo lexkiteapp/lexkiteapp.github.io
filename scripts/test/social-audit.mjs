@@ -1,7 +1,7 @@
 // Test máy gác đúng page · ngôn ngữ · giờ (functions/api/_social_audit.js, chủ 23/11). Chạy: node scripts/test/social-audit.mjs
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { auditPosts, postViolation, clipLang, purgeWrongLang } from '../../functions/api/_social_audit.js';
+import { auditPosts, postViolation, clipLang, purgeWrongLang, dedupePlan } from '../../functions/api/_social_audit.js';
 import { peakOk, peakSlot, zonedToMs, LANG_TZ, schedule, capCfg, normCfg } from '../../functions/api/_distribution.js';
 import { slotAt, YT_SLOTS, MAIN_SLOTS } from '../../functions/api/youtube.js';
 let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
@@ -60,4 +60,13 @@ ok(new Set(Object.keys(LANG_TZ).map(l => slotAt(0, 1, l, now0, 0).slice(11, 16))
 ok(/state NOT IN \('failed', 'cancelled', 'skipped'\)/.test(fs.readFileSync('functions/api/_social_audit.js', 'utf8')), "auditDb bỏ bài state 'skipped' (đã gỡ khỏi lịch)");
 { const xa = auditPosts({ now, chans: new Map([['a', { platform: 'youtube', title: 'Lexkite English', cfg: { lang: 'en', tz: 'America/New_York' } }], ['b', { platform: 'youtube', title: 'Lexkite app', cfg: { lang: 'en', tz: 'America/New_York' } }], ['c', { platform: 'tiktok', title: 'Lexkite', cfg: { lang: 'en', tz: 'America/New_York' } }]]), clips: new Map(), posts: [{ channel_id: 'a', clip: 'x1', ms: at('2026-12-02', '19:40') }, { channel_id: 'b', clip: 'x1', ms: at('2026-12-03', '19:40') }, { channel_id: 'c', clip: 'x1', ms: at('2026-12-02', '19:40') }] });
   ok(xa.xchan_n === 1 && xa.xchan[0].platform === 'youtube' && xa.xchan[0].channels === 2 && !xa.summary['dup-clip'], 'đo trùng chéo kênh: cùng clip 2 kênh cùng nền tảng (khác nền tảng thì không) – chỉ báo, không vào n_bad'); }
+{ // dedupe: yt_plan trùng clip / trùng ngày với hàng tải yt_queue → xoá dòng kế hoạch (hàng tải thắng), không đụng dòng hợp lệ
+  const { DatabaseSync } = await import('node:sqlite'), sql = new DatabaseSync(':memory:');
+  const db = { prepare: q => ({ bind: (...p) => ({ all: async () => ({ results: sql.prepare(q).all(...p) }), run: async () => sql.prepare(q).run(...p) }) }) };
+  for (const q of ['CREATE TABLE yt_chan_cfg (channel_id TEXT, cfg TEXT)', 'CREATE TABLE yt_queue (clip TEXT, channel_id TEXT, status TEXT, publish_at TEXT)', 'CREATE TABLE yt_plan (clip TEXT, channel_id TEXT, slot_ms INTEGER, source TEXT)']) sql.exec(q);
+  const nowD = Date.parse('2026-12-01T00:00:00Z'), d1 = nowD + 864e5, d2 = nowD + 2 * 864e5;
+  sql.prepare("INSERT INTO yt_queue VALUES ('a','UC1','queued',?), ('b','UC1','done',?)").run(new Date(d1 + 17 * 36e5).toISOString(), new Date(d2 + 17 * 36e5).toISOString());
+  const pl = sql.prepare("INSERT INTO yt_plan VALUES (?, 'UC1', ?, ?)"); pl.run('a', d2 + 18 * 36e5, 'auto'); pl.run('c', d1 + 20 * 36e5, 'auto'); pl.run('d', nowD + 3 * 864e5 + 18 * 36e5, 'auto'); pl.run('e', d1 + 19 * 36e5, 'manual');
+  const dry = await dedupePlan(db, nowD, false); ok(dry.dup_clip === 1 && dry.over_day === 1 && dry.removed === 2 && sql.prepare('SELECT COUNT(*) n FROM yt_plan').get().n === 4, 'dedupe dry-run: 1 trùng clip + 1 trùng ngày, không ghi');
+  await dedupePlan(db, nowD, true); ok(JSON.stringify(sql.prepare('SELECT clip FROM yt_plan ORDER BY clip').all().map(r => r.clip)) === '["d","e"]', 'dedupe apply: giữ dòng hợp lệ + dòng thủ công, xoá 2 dòng trùng'); }
 console.log(`✓ social-audit: ${n} kiểm`);
