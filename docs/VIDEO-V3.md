@@ -3,8 +3,16 @@
 > TL;DR: v3 không phải dây chuyền mới. Mọi khuôn (slang, l1, band, guess3, levels3, scorecard…) đi qua cùng `gen.py → build.py → rig_host → qc.py → TeachShort.jsx` (CI `teach-video.yml`, xem `VIDEO-TEACH2D.md`); v3 thêm thành phần chung + cổng số cho 10 lỗi trong `research/video-audit-2411.md`.
 > Đọc khi: thêm/sửa khuôn video, đổi `build.py` / `qc.py` / `rig_plan.mjs`, chấm mẫu.
 
+## Khuôn (spec duy nhất)
+Mọi khuôn là một hàm `T_<khuôn>` trong `build.py` dùng chung `Card` / `title` / `end_card` / cổng qc; KHÔNG có dây chuyền riêng. Khuôn + pilot + điểm: slang (t2s_ace), l1 (t2_l1_vi_a_little; ar/ja: t2_l1_ar_afraidfrom, t2_l1_ja_agree), scorecard (t2sc_001) đã đạt viral/ypp 100 short+wide; guess3, levels3, call, dictation, grammar, guess, level, mistake, native, pair, pattern, phrasal, prep, react, review, stress, toeic, usuk, verbs, band, roots, rule: pilot trong batch CI `v3-all-templates` (kết quả ghi bên dưới khi xong). news/cine/motion-drill là engine khác (docs/VIDEO.md): dùng cùng `viral_score`/`ypp` khi cắm vào, chưa gộp trong đợt này.
+
+## Lấy mẫu chấm mắt (CI)
+Video ĐẦU TIÊN của mỗi cặp khuôn × ngôn ngữ trang, sau đó cứ 20 video của cặp đó thì chấm 1 (`autopub_gate.review_due`). Agent Sonnet đọc ảnh ghép 8 khung (artifact `tv-review`, rubric MEDIA-QA-RUBRIC thang C) và ghi `content/video/teach2d/review-log.json` `{ep: {score, by, at}}`; thiếu bản ghi hoặc <90 → lý do `review:first|every20`, video không đăng (store.py). Mọi video còn lại đã bị cổng số chặn <90 (qc) / <95 (viral_score) / ypp.
+
 ## Schema kịch bản (một episode JSON, `content/video/teach2d/eps/*.json`, do `gen.py` sinh)
 `template`, `teacher`, `voice`, `hook {line,text}` (≤ 6 từ, nói xong ≤ 2,2 s), `lines[]` = 3–5 nhịp dạy + ví dụ (`id`, `text`, `pause`) + dòng `c` cuối (CTA, "… lexkite.com"), `cta {area,route,link}`, `data` (nội dung khuôn), tuỳ chọn `exprs`/`expr`/`pose`/`native` (L1). Tổng ≤ 150 từ/phút (cổng `pace`).
+
+Schema máy kiểm: `scripts/video/teach2d/script_schema.py` (test `teach2d-script-schema.py` chạy trên cả 3764 tập; 15 ngôn ngữ trang en/ar/de/es/fr/hi/id/ja/ko/pt/ru/th/tr/vi/zh, bản địa hoá qua `content/video/teach2d/l1/<lang>.json` + native-qa). 3–5 "nhịp" = thẻ trên màn; số câu dạy giữa hook và CTA là 3–8 tuỳ khuôn. Nợ đã biết: 42 hàng l1 có hook nói >6 từ (`schema-known.json`) – không qua được cổng hook nên không lên bank; sửa hàng nguồn rồi xoá khỏi danh sách.
 
 ## Thành phần v3
 - **Beat → look** (`rig_plan.mjs` `schedule`): mỗi nhịp một nét mặt/tư thế khác nhịp trước (`BEAT_EMO` xoay vòng, không lặp liền kề) + gật/lắc đầu nhấn ở giữa câu (`nod`/`bob`, thủ tục cổ nên không che miệng); ảnh tư thế (tay) vẫn chỉ trong im lặng ≥ 1,2 s.
