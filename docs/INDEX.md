@@ -35,7 +35,7 @@
 - [specs/band-upgrade.md](specs/band-upgrade.md) — series "Band 5→7→9": template band (một ý nâng 3 bậc IELTS, lý do + tiêu chí mỗi bậc), bands.json, hook L1 14 ngôn ngữ; đọc khi: thêm chủ đề band / sửa mẫu band
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
 - [specs/daily-reels.md](specs/daily-reels.md) — Spec reels hằng ngày tự động 12/11: 6 định dạng, chọn chủ đề → dựng → QC → lịch → số liệu; đọc khi: thêm template reels, đổi lịch đăng hằng ngày
-- [specs/upgrade-2026-11.md](specs/upgrade-2026-11.md) — Spec nâng cấp toàn diện 11/2026: 12 hạng mục chủ gửi 04/11 (top bar, linh vật, nhập tài liệu, Tab mới, đầu vào, shadowing, sổ lỗi, lượt AI, 1v1, kho cộng đồng) so main, 3 đợt; đọc khi: làm bất kỳ hạng mục nào trong đó
+- [specs/upgrade-2026-11.md](specs/upgrade-2026-11.md) — Spec nâng cấp toàn diện 11/2026: 12 hạng mục chủ gửi 04/11 (top bar, linh vật, nhập tài liệu, Tab mới, đầu vào, shadowing, sổ lỗi, lượt AI, 1v1, kho cộng…; đọc khi: làm bất kỳ hạng mục nào trong đó
 - [specs/import-to-deck.md](specs/import-to-deck.md) — Spec nhập PDF/ePub/link/phụ đề thành bộ thẻ FSRS riêng (đợt 3 upgrade-2026-11); đọc khi sửa anki.js, watch.js, api/ai.js hoặc bộ thẻ riêng
 - [specs/cambridge.md](specs/cambridge.md) — Định dạng đề Cambridge A2–C2 (web/cpack/cambridge/<cấp>/t<N>.js), màn #/cambridge, cổng exam-format-check + cambridge.mjs; đọc khi: viết/soát lô S-CAM hoặc sửa màn Cambridge
 - [specs/content-upgrade-2.md](specs/content-upgrade-2.md) — Nâng cấp nội dung Đợt 2 (05/11): 3 làn gộp/mở khoá/viết, cổng QC, thứ tự O2→O5→O3→O4→O6; đọc khi: mở phiên content-lead hoặc Sonnet viết lô
@@ -48,7 +48,7 @@
 - [specs/native-m4-write.md](specs/native-m4-write.md) — P09 viết native (`write.json`); đọc khi: port #/write #/task1 #/criteria
 - [specs/admin-audit.md](specs/admin-audit.md) — Kiểm toán Quản trị 05/11 (R1–R12, hub, kiểm kê tab); đọc khi: sửa /admin.html
 - [specs/admin-ia-v2.md](specs/admin-ia-v2.md) — Admin IA v2: menu 7 nhóm, quy tắc một chỗ, 3 đợt; đọc khi: sửa menu/banner admin
-- [specs/video-learn.md](specs/video-learn.md) — Spec "Học qua video": #/watch (chủ đề CEFR × mục tiêu, dán link, tìm), trình phát YouTube chính thức (A-B, tốc độ, ghi chú, lưu từ), /api/watch, add-on youtube.com; điều khoản YouTube đã kiểm; đọc khi: sửa watch*.js, functions/api/watch.js, phần YouTube của add-on
+- [specs/video-learn.md](specs/video-learn.md) — Spec "Học qua video": #/watch (chủ đề CEFR × mục tiêu, dán link, tìm), trình phát YouTube chính thức (A-B, tốc độ, ghi chú, lưu từ), /api/watch, add-on youtube.com;…; đọc khi: sửa watch*.js, functions/api/watch.js, phần YouTube của add-on
 - [welcome](specs/welcome.md) — màn chào + thiết lập lần đầu: ai thấy gì, đi đâu; đọc khi sửa welcome.js, onboard.js, gen-hero
 - [specs/kokoro-on-device.md](specs/kokoro-on-device.md) — Kokoro chạy trên máy (kokoro-js, Web Worker) cho chữ chưa có file dựng sẵn: cấp máy, tải lười, R2, cờ kl/kl_pct, lùi giọng máy; đọc khi: sửa web/js/klocal*.js, bật/tắt từ xa
 - [specs/community.md](specs/community.md) — Spec Cộng đồng người học 3/11: phòng học, chat, phòng nói WebRTC, mời bạn/bạn học, học chung, an toàn + tuổi, $0 (DO/D1/TURN), 7 đợt sau cờ `community`; đọc khi: làm bất kỳ phần nào của #/community
@@ -100,7 +100,7 @@
 - [INFRA-RULES.md](INFRA-RULES.md) — Quy tắc tài nguyên hệ thống: mọi dịch vụ/Worker/lưu trữ phải đăng ký ở infra/resources.json; hiện trạng lưu trữ, ngưỡng nâng cấp, mail; đọc khi: thêm dịch vụ/host/Worker/lưu trữ mới
 - [INDEX.md](INDEX.md) — mục lục chuẩn này; đọc khi: tìm tài liệu hoặc thêm doc mới (phải thêm 1 dòng ở đây)
 - [JOBS.md](JOBS.md) — Sổ việc nền & điều phối, SINH TỰ ĐỘNG từ infra/jobs.json (không sửa tay): luật, tài nguyên, lịch UTC, đồ thị kho từ; đọc khi: thêm cron/CI nền
-- [LESSON-ENGINE.md](LESSON-ENGINE.md) — Bài học trộn bài tập nhỏ #/lesson (nghe chọn từ, xếp câu, nói theo, ảnh→nói, dịch ô chữ): cá nhân hóa từ FSRS + add-on, lỗi cũ, COMBO, Giải thích 0 AI, Ama/Carlos sprite, cờ lesson_mix; đọc khi: sửa/mở rộng màn bài học
+- [LESSON-ENGINE.md](LESSON-ENGINE.md) — Bài học trộn bài tập nhỏ #/lesson (nghe chọn từ, xếp câu, nói theo, ảnh→nói, dịch ô chữ): cá nhân hóa từ FSRS + add-on, lỗi cũ, COMBO, Giải thích 0 AI, Ama/Carlos sprite, cờ…; đọc khi: sửa/mở rộng màn bài học
 - [LESSON-UX-V2.md](LESSON-UX-V2.md) — Bài học v2 kiểu Duolingo: gốc lỗi, ma trận dạng bài (đề → ô trả lời → gợi ý → chấm), luật nội dung CI, bản dịch câu 15 ngôn ngữ; đọc khi: sửa đề/gợi ý/dạng bài
 - [SAY-NATIVE.md](SAY-NATIVE.md) — Say it like a native: thẻ 2 mặt #/say (Stitch v2 say-front/back, Ama/Carlos 2D, nghĩa 15 ngôn ngữ trên CI, chia sẻ 1:1/4:5) + video react
 - [CALL.md](CALL.md) — Cuộc gọi Ama/Carlos #/call (kịch bản IELTS/TOEIC rẽ nhánh, nhận dạng trên máy, tổng kết sửa lỗi, luyện lại câu yếu) + nhịp câu/shadowing phát âm; đọc khi: sửa call*.js, pron/coach.js, pron/rhythm.js
@@ -128,17 +128,22 @@
 - [specs/funnel.md](specs/funnel.md) — Phễu kênh UTM → /go → app → bài đầu → D1/D7+, bảng Quản trị Kênh & mã bài; đọc khi: sửa _funnel.js, beacon at/fl, admin-channels.js.
 - [specs/referral.md](specs/referral.md) — Vòng giới thiệu: link mời, thưởng XP + đóng băng chuỗi hai phía, trần chống lạm dụng; đọc khi: sửa nút mời, api/ref.js.
 - [specs/score-card.md](specs/score-card.md) — Thử thách nói 30 giây: thẻ điểm Canvas + link /c/<id> so điểm với bạn, chấm bằng Speak.score; đọc khi: sửa score30, api/challenge.js, functions/c, sự kiện sc_*.
+<<<<<<< HEAD
 - [specs/voice-diary.md](specs/voice-diary.md) — Nhật ký giọng nói ngày 1 vs ngày 30: thu 1 câu ở mốc 0/7/14/30/60/90, chấm Speak.score, video 9:16 trên máy, link /c pid≥100; đọc khi: sửa cpack/diary-app, sự kiện vd_*, nhắc 'diary', vd_kill.
 - [SEO-AUDIT-1211.md](archive/SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
 - [SEO-AUDIT-1511.md](archive/SEO-AUDIT-1511.md) — Soát live blog/từ R2/đề thi: lỗi + mức ưu tiên, đã sửa gì; đọc khi: làm SEO, sitemap, lastmod hoặc trang từ R2.
 
+=======
+- [specs/voice-diary.md](specs/voice-diary.md) — Nhật ký giọng nói: thu 1 câu ở mốc 7–90 ngày, video 9:16 trên máy; đọc khi: sửa cpack/diary-app, vd_*.
+- [specs/voice-diary-video.md](specs/voice-diary-video.md) — Video Day 1 vs Day 30 (mẫu progress, 30 tập viết sẵn); đọc khi: sửa progress.json/T_progress.
+>>>>>>> dcea36418c93783467968e756fffb238a6dbe206
 - [specs/seo-topic-hubs.md](specs/seo-topic-hubs.md) — Spec trang chủ đề từ vựng /<lang>/words/topic/<id>: danh sách từ index được theo chủ đề, link ngược, thiết kế Stitch Kit; đọc khi: sửa khối chủ đề trong build-seo-pages.mjs
 - [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
-- [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
+- [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ;…; đọc khi: thêm/sửa thông báo/toast
 - [specs/exit-button.md](specs/exit-button.md) — Lối thoát mọi màn học: nút X/Quay lại ở top-bar, Esc, back hệ thống, vuốt iOS, hỏi nhẹ khi đang dở (module web/js/exit-guard.js); đọc khi: thêm màn học/route mới, sửa top-bar màn học, exit-sweep đỏ
 - [Khung học chung Next/Back + xếp câu, điền từ](specs/learn-flow-nav.md) — hiện trạng điều hướng ~30 màn học, Enter/thanh FOCUS, ChoiceKit tiles/accept, cổng nav-sweep; đọc khi thêm/sửa màn học hoặc nav-sweep đỏ
-- [specs/target-language.md](specs/target-language.md) — Ngôn ngữ đích (học tiếng Bồ Đào Nha pt-BR, thử): Target/tl khác ngôn ngữ nghĩa, khóa thẻ `pt:`, giọng theo bảng, Kokoro + espeak pt-br, bộ 30 từ mẫu, cờ pt_pilot; đọc khi: đụng thẻ/SRS, giọng, nội dung ngôn ngữ đích
+- [specs/target-language.md](specs/target-language.md) — Ngôn ngữ đích (học tiếng Bồ Đào Nha pt-BR, thử): Target/tl khác ngôn ngữ nghĩa, khóa thẻ `pt:`, giọng theo bảng, Kokoro + espeak pt-br, bộ 30 từ mẫu, cờ…; đọc khi: đụng thẻ/SRS, giọng, nội dung ngôn ngữ đích
 - [content-lots.md](content-lots.md) — Lô nội dung cho phiên Sonnet (lộ trình SCORE ≥ 95): file riêng, mẫu chuẩn, cổng, token, điểm/công; đọc khi mở/soát một lô nội dung
 - [specs/sense-v2.md](specs/sense-v2.md) — Mô hình nghĩa từ v2 (P0.2): nhiều nghĩa/từ#loại, CEFR theo nghĩa, ví dụ theo độ dài cấp, collocation, pattern, register, họ từ; cổng sense-check; đọc khi sửa/sinh content/lexicon/senses.json
 - [specs/mediation.md](specs/mediation.md) — Trung gian (O3): định dạng content/mediation/m<NN>.json gắn Can-do M.*, nguồn theo cấp, ý cần/ý bỏ, bài mẫu; cổng mediation-check; đọc khi viết/soát lô S-MED hoặc làm màn luyện trung gian
@@ -147,7 +152,7 @@
 - [specs/japanese-course.md](specs/japanese-course.md) — Khóa tiếng Nhật (tl `ja`, JLPT N5→N1) cho 14 ngôn ngữ: cùng engine es/fr, đặc thù chữ viết ở `scripts/target/ja-kana.mjs` (kana → romaji/IPA, mora, furigana, chấm IME), 8 đợt W0–W7; đọc khi đụng `content/target/ja/`.
 - [specs/korean-course.md](specs/korean-course.md) — Khóa tiếng Hàn (tl `ko`, TOPIK 1→6): như es/fr/ja, đặc thù ở `ko-hangul.mjs`; đọc khi đụng `content/target/ko/`.
 - [specs/spanish-exam-w5.md](specs/spanish-exam-w5.md) — W5 luyện định dạng DELE/SIELE (spec + trạng thái đợt 1); đọc khi làm thi thử TBN
-- [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau live; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
+- [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau…; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
 - [specs/content-private.md](specs/content-private.md) — Chuyển đề/lời giải/bài học/kho từ sang repo private lexkite-content ($0, runner public + deploy key, fixtures, cổng chống lộ); đọc khi: sửa dữ liệu nội dung, workflow sinh nội dung, build/deploy hoặc job đỏ content-leak
 - [REPORTS.md](REPORTS.md) — Báo lỗi người dùng (Report a problem): mã LX-xxxx, link #/report/<mã>, AI phân loại nền, ưu tiên và Claude Code xử lý; đọc khi: sửa luồng báo lỗi
 - [ROLLBACK.md](ROLLBACK.md) — Sao lưu & khôi phục nhanh: mục 0 làm đúng thứ tự khi có sự cố; rollback Pages, git, D1 Time Travel, app/add-on, kho âm thanh; đọc khi: CÓ SỰ CỐ hoặc cần khôi phục
