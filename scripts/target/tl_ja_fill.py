@@ -7,6 +7,18 @@ import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(HERE, '..', '..')
 sys.path.insert(0, os.path.join(ROOT, 'scripts', 'word-audio')); import tl_kana as K
 SELF = '--self' in sys.argv
+if '--pron' in sys.argv:   # W3: content/target/ja/pron.json read = {chữ: [kana, cao độ]} – cách đọc ↔ OpenJTalk phải khớp 100 % (lệch = ĐỎ); cao độ lệch chỉ BÁO (từ điển OpenJTalk có chỗ khác NHK – nguồn cao độ chính của bài là soát tay NHK + kaikki ở W3b)
+    P = json.load(open(os.path.join(ROOT, 'content', 'target', 'ja', 'pron.json')))['read']; bad = []; warn = []; n = 0
+    for w, (k, p) in P.items():
+        y = K.yomi(w); a = K.accent(w)
+        if K.fold(y) != K.fold(k): bad.append(f'{w}: kana {k} ↔ OpenJTalk {y}')
+        if a is not None and a[0] is not None:
+            n += 1
+            if a[0] != p: warn.append(f'{w}: cao độ {p} ↔ OpenJTalk {a[0]}')
+    txt = f"## Phát âm W3 ↔ OpenJTalk: {len(P) - len(bad)}/{len(P)} khớp (so cao độ {n} từ)\n" + '\n'.join(['- ✗ ' + b for b in bad] + ['- ⚑ ' + w for w in warn])
+    print(txt)
+    if os.environ.get('GITHUB_STEP_SUMMARY'): open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write(txt + '\n')
+    sys.exit(1 if bad else 0)
 f = os.path.join(ROOT, 'content', 'target', 'ja', 'seed.json') if SELF else next(a for a in sys.argv[1:] if a.endswith('.json'))
 deck = json.load(open(f)); n = {'ojt': 0, 'ai': 0, 'read': 0}; bad = []
 for w in deck['words']:

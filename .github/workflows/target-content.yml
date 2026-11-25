@@ -41,12 +41,18 @@ jobs:
       - name: IPA espeak-ng tự kiểm trên seed (es, fr)
         if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' }}
         run: pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && TL=${{ matrix.tl }} python3 scripts/target/tl_ipa_fill.py --self
-      - name: Cao độ + cách đọc seed ↔ OpenJTalk (ja, khớp 100 %)
+      - name: Cao độ + cách đọc seed + bài phát âm W3 ↔ OpenJTalk (ja, khớp 100 %) + gói px
         if: ${{ matrix.tl == 'ja' }}
-        run: pip install -q "pyopenjtalk==0.4.1" && python3 scripts/target/tl_ja_fill.py --self
+        run: pip install -q "pyopenjtalk==0.4.1" && python3 scripts/target/tl_ja_fill.py --self && python3 scripts/target/tl_ja_fill.py --pron && node scripts/target/px-pack.mjs ja --check
+      - name: Cuộc gọi AI ja – cổng chuẩn (thể lịch sự, không trộn, cấu trúc nút) + gói khớp nguồn
+        if: ${{ matrix.tl == 'ja' }}
+        run: node scripts/target/calls-check.mjs --tl ja && node scripts/target/calls-pack.mjs ja --check
       - name: Wiktionary trên seed (es, fr, ja)
         if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' || matrix.tl == 'ja' }}
         run: node scripts/target/wikt-check.mjs --tl ${{ matrix.tl }} --self
+      - name: Chia động từ ja ↔ Wiktionary (conj-ja.mjs, khớp 100 %)
+        if: ${{ matrix.tl == 'ja' }}
+        run: node scripts/target/conj-ja-check.mjs
       - name: Chia vị từ ↔ Wiktionary (ko, khớp 100 % – 24 dạng × vị từ bộ từ + 57 mẫu đủ 11 lớp)
         if: ${{ matrix.tl == 'ko' }}
         run: node scripts/target/conj-check.mjs --tl ko
@@ -128,6 +134,7 @@ jobs:
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}   # thêm họ mô hình cho giám khảo B khi Gemini 429 (như content-factory)
           AI_POOL_GC_MAX: '600'
+          AI_POOL_CF2_NEURONS: '120000'   # tuyến cf2 (Workers AI kho CF_POOL) dự phòng khi Groq/Gemini cùng 429; trần neuron/lượt, 4006 hết ngày tự nghỉ
           AI_GEM_MAX: '150'   # es: ≤ 150 lượt Gemini/lượt chạy (chỉ chấm), chừa hạn mức ngày cho fr/ja – lịch: chạy ngay sau 08:00 UTC
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'

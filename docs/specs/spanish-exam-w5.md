@@ -35,7 +35,7 @@ Kết quả: điểm theo thang SIELE (0–250/prueba, ước lượng) và "đ�
 - Route: mode mới của route practice `#/practice/esx` (không route mới – test frame-consistency); mã `web/cpack/es-app/exam-ui.js` dùng chung khung với `espr.js` (App.esQ/esFoot/esEnd).
 - Dữ liệu tải lười theo (cấp × phần): `cpack/es/x-<cấp>-<phần>.js` ~ 15–25 KB mỗi gói, nạp khi vào đúng phần; nhãn 15 ngôn ngữ ở `x-ui-<ngôn ngữ>.js` (~3 KB). Ngân sách mục tiêu: tổng W5 ≤ 300 KB cpack (đo `size-budget` trước khi đẩy); phần lớn nội dung (đoạn dài C1–C2) có thể dựng theo cấp dần qua nhiều PR nhỏ.
 - Đủ ≥ 2 đề mỗi cấp A1–C2 (spec §4): chia đợt A1–B1 (đợt 1) / B2–C2 (đợt 2) nếu vượt trần; mỗi đợt 1 PR.
-- Audio: `corpus-es.mjs` thêm câu đề nghe (một giọng/vai), dispatch audio.yml trên MAIN sau gộp.
+- Audio: `corpus-tl.mjs` thêm câu đề nghe (một giọng/vai), dispatch audio.yml trên MAIN sau gộp.
 
 ## 5. Cổng QC (CI, không nới)
 `scripts/target/exam-es-check.mjs`: lint es-419 mọi câu; nguồn Tatoeba có id + tác giả; mỗi câu hỏi có đáp án + căn cứ (câu trích nằm trong bài); distractor khác đáp án; đủ 15 ngôn ngữ nhãn, giữ chỗ `{n}`; spec DELE/SIELE khớp bảng §1 (giá trị chưa xác minh = `null`, cấm số đoán); LanguageTool 0 lỗi trên mọi câu tự viết (consigna); credits Tatoeba có mặt. Test jsdom `es-exam.mjs` (làm 1 phần → chấm → kết quả). Không hồi quy tiếng Anh (target-lang, ux1, cpack).

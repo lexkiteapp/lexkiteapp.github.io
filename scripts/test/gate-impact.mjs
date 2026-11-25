@@ -16,7 +16,7 @@ const repo = 'o/r', P = (n, o = {}) => ({ number: n, state: 'open', draft: false
 let s = selectPrs([P(5), P(1), P(2, { draft: true }), P(3, { head: { sha: 'x', repo: { full_name: 'f/r' } } }), P(9)], 9, repo);
 ok(s.prs.map(p => p.pr).join() === '1,5' && s.forks === 1, 'chọn PR: bỏ nháp, fork, chính nó; sắp theo số');
 s = selectPrs(Array.from({ length: 30 }, (_, i) => P(i + 1)), 99, repo);
-ok(s.prs.length === MAX_PRS && s.skipped === 10 && s.prs[0].pr === 11, 'trần số PR + báo phần vượt');
+ok(s.prs.length === MAX_PRS && s.skipped === 30 - MAX_PRS && s.prs[0].pr === 31 - MAX_PRS, 'trần số PR + báo phần vượt');
 ok(overlayOf(['scripts/test/a.mjs', 'scripts/test/b.mjs', 'web/z.js'], ['scripts/test/b.mjs']).join() === 'scripts/test/a.mjs', 'overlay giữ tệp PR kia đã đổi');
 const m = render([{ pr: 1, ok: true, bad: [] }, { pr: 2, ok: false, bad: [{ cmd: 'node scripts/test/a.mjs', tail: '✗ x' }] }, { pr: 3, ok: false, error: 'mạng', bad: [] }], { self: 7, cmds: ['c'], skipped: 0 });
 ok(!m.ok && m.red.length === 1 && m.md.includes(MARK) && m.md.includes('#2') && m.md.includes('Không đo được') && /#3/.test(m.md), 'báo cáo: đỏ + không đo được tách riêng');

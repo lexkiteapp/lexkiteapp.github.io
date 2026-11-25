@@ -57,6 +57,7 @@
 - [archive/CI-RUNNERS-QUEUE-1611.md](archive/CI-RUNNERS-QUEUE-1611.md) — Đo hàng chờ 16/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo hàng chờ cũ.
 - [archive/CI-RUNNERS-0511.md](archive/CI-RUNNERS-0511.md) — Số đo hàng chờ 05/11 + cron bị bỏ 3/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo/nhật ký cũ.
 - [archive/CI-RUNNERS-MEASURE-2411.md](archive/CI-RUNNERS-MEASURE-2411.md) — Số đo lượt thừa 1/11–5/11 + nhật ký zombie/nguồn kích ngoài 3/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo/nhật ký cũ.
+- [archive/CI-RUNNERS-0311.md](archive/CI-RUNNERS-0311.md) — Số đo bộ canh 3/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo cũ.
 - [specs/teacher-rive-rig.md](specs/teacher-rive-rig.md) — Rig 2D Ama/Carlos kiểu Rive (TeacherRig: speak/setEmotion/gesture), vì sao không .riv, cổng khớp môi ±33 ms/khớp xương/fps/alpha, kế hoạch gesture bank chờ duyệt credit; đọc khi: thêm cử chỉ/biểu cảm hoặc gắn giáo viên vào màn mới
 - [specs/video-production-v2.md](specs/video-production-v2.md) — Video v2: giáo viên Teach2D vẽ bằng TeacherRig (viseme của voice.wav, cổng lipsync_rig ±33 ms), khối publish 4 nền tảng từ kịch bản, dọn video rác có cách ly; đọc khi: sửa lớp giáo viên video, metadata đăng bài, dọn video
 - [specs/me-settings-ux.md](specs/me-settings-ux.md) — Tôi + Cài đặt gọn: mục lục nhóm có giá trị hiện tại, trang con #/settings/<mục>, gom liên kết đọc thêm; đọc khi sửa settings.js/ux1-me.js
