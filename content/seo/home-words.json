@@ -1,165 +1,200 @@
 {
  "es": [
   [
-   "detect",
-   "detect",
-   "detectar"
+   "thesis",
+   "thesis",
+   "tesis"
   ],
   [
-   "volume",
-   "volume",
-   "volumen"
+   "formula",
+   "formula",
+   "fórmula"
   ],
   [
-   "secure",
-   "secure",
-   "seguro"
+   "rational",
+   "rational",
+   "racional"
   ],
   [
-   "found",
-   "found",
-   "fundar"
+   "core",
+   "core",
+   "centro"
   ],
   [
-   "outcome",
-   "outcome",
-   "resultado"
+   "regime",
+   "regime",
+   "régimen"
   ],
   [
-   "vision",
-   "vision",
-   "visión"
+   "register",
+   "register",
+   "registrar"
   ],
   [
-   "status",
-   "status",
-   "estado"
+   "assume",
+   "assume",
+   "asumir"
   ],
   [
-   "criteria",
-   "criteria",
-   "criterios"
+   "commodity",
+   "commodity",
+   "producto"
   ],
   [
-   "mode",
-   "mode",
-   "modo"
+   "compound",
+   "compound",
+   "compuesto"
   ],
   [
-   "bond-over",
-   "bond over",
-   "conectar por algo en común"
+   "conflict",
+   "conflict",
+   "conflicto"
   ]
  ],
  "pt": [
   [
-   "detect",
-   "detect",
-   "descobrir"
+   "complement",
+   "complement",
+   "complementar"
   ],
   [
-   "secure",
-   "secure",
-   "seguro"
+   "infer",
+   "infer",
+   "inferir"
   ],
   [
-   "found",
-   "found",
-   "fundar"
+   "protocol",
+   "protocol",
+   "protocolo"
   ],
   [
-   "mode",
-   "mode",
-   "modo"
+   "overseas",
+   "overseas",
+   "no ultramar"
   ],
   [
-   "vision",
-   "vision",
-   "visão"
+   "consequent",
+   "consequent",
+   "consequente"
   ],
   [
-   "status",
-   "status",
-   "estado"
+   "grant",
+   "grant",
+   "concessão"
   ],
   [
-   "criteria",
-   "criteria",
-   "critérios"
+   "rational",
+   "rational",
+   "racional"
   ],
   [
-   "bond-over",
-   "bond over",
-   "criar laços por algo em comum"
+   "reverse",
+   "reverse",
+   "reverter"
   ],
   [
-   "scope",
-   "scope",
-   "escopo"
+   "transfer",
+   "transfer",
+   "transferir"
   ],
   [
-   "outcome",
-   "outcome",
-   "resultado"
+   "assume",
+   "assume",
+   "assumir"
   ]
  ],
  "fr": [
   [
-   "detect",
-   "detect",
-   "détecter"
+   "reverse",
+   "reverse",
+   "inverser"
   ],
   [
-   "secure",
-   "secure",
-   "sûr"
+   "rational",
+   "rational",
+   "rationnel"
   ],
   [
-   "found",
-   "found",
-   "fonder"
+   "assume",
+   "assume",
+   "supposer"
   ],
   [
-   "status",
-   "status",
-   "statut"
+   "conflict",
+   "conflict",
+   "conflit"
   ],
   [
-   "criteria",
-   "criteria",
-   "critères"
+   "derive",
+   "derive",
+   "dériver"
   ],
   [
-   "bond-over",
-   "bond over",
-   "se rapprocher grâce à"
+   "external",
+   "external",
+   "externe"
   ],
   [
-   "scope",
-   "scope",
-   "portée"
+   "incidence",
+   "incidence",
+   "incidence"
   ],
   [
-   "outcome",
-   "outcome",
-   "résultat"
+   "inhibit",
+   "inhibit",
+   "inhiber"
   ],
   [
-   "valid",
-   "valid",
-   "valide"
+   "modify",
+   "modify",
+   "modifier"
   ],
   [
-   "regime",
-   "regime",
-   "régime"
+   "parallel",
+   "parallel",
+   "parallèle"
   ]
  ],
  "de": [
   [
-   "detect",
-   "detect",
-   "ermitteln"
+   "ongoing",
+   "ongoing",
+   "fortlaufend"
+  ],
+  [
+   "refine",
+   "refine",
+   "verfeinern"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "klären"
+  ],
+  [
+   "explicit",
+   "explicit",
+   "explizit"
+  ],
+  [
+   "integral",
+   "integral",
+   "Integral-"
+  ],
+  [
+   "rational",
+   "rational",
+   "rational"
+  ],
+  [
+   "unify",
+   "unify",
+   "vereinheitlichen"
+  ],
+  [
+   "amend",
+   "amend",
+   "ändern"
   ],
   [
    "outcome",
@@ -167,71 +202,51 @@
    "Ergebnis"
   ],
   [
-   "volume",
-   "volume",
-   "Volumen"
-  ],
-  [
-   "secure",
-   "secure",
-   "sicher"
-  ],
-  [
-   "found",
-   "found",
-   "gründen"
-  ],
-  [
-   "criteria",
-   "criteria",
-   "Kriterien"
-  ],
-  [
-   "mode",
-   "mode",
-   "Modus"
-  ],
-  [
-   "bond-over",
-   "bond over",
-   "sich über etwas näherkommen"
-  ],
-  [
-   "scope",
-   "scope",
-   "Umfang"
-  ],
-  [
-   "valid",
-   "valid",
-   "gültig"
+   "cosmos",
+   "cosmos",
+   "Kosmos"
   ]
  ],
  "id": [
   [
-   "detect",
-   "detect",
-   "menemukan"
+   "rational",
+   "rational",
+   "rasional"
   ],
   [
-   "found",
-   "found",
-   "mendirikan"
+   "assume",
+   "assume",
+   "menganggap"
   ],
   [
-   "secure",
-   "secure",
-   "aman"
+   "conflict",
+   "conflict",
+   "konflik"
   ],
   [
-   "vision",
-   "vision",
-   "penglihatan"
+   "inhibit",
+   "inhibit",
+   "menghalangi"
   ],
   [
-   "criteria",
-   "criteria",
-   "kriteria"
+   "parallel",
+   "parallel",
+   "paralel"
+  ],
+  [
+   "regime",
+   "regime",
+   "rezim"
+  ],
+  [
+   "abstract",
+   "abstract",
+   "abstrak"
+  ],
+  [
+   "academy",
+   "academy",
+   "akademi"
   ],
   [
    "conceive",
@@ -239,36 +254,46 @@
    "memahami"
   ],
   [
-   "bond-over",
-   "bond over",
-   "menjadi akrab karena minat yang sama"
-  ],
-  [
-   "incline",
-   "incline",
-   "condong"
-  ],
-  [
-   "scope",
-   "scope",
-   "cakupan"
-  ],
-  [
-   "outcome",
-   "outcome",
-   "hasil"
+   "consent",
+   "consent",
+   "izin"
   ]
  ],
  "th": [
   [
-   "detect",
-   "detect",
-   "ตรวจจับ"
+   "rational",
+   "rational",
+   "มีเหตุผล"
   ],
   [
-   "criteria",
-   "criteria",
-   "เกณฑ์"
+   "academy",
+   "academy",
+   "วิทยาลัย"
+  ],
+  [
+   "visible",
+   "visible",
+   "มองเห็นได้"
+  ],
+  [
+   "assume",
+   "assume",
+   "สมมติ"
+  ],
+  [
+   "conflict",
+   "conflict",
+   "ศึก"
+  ],
+  [
+   "format",
+   "format",
+   "รูป"
+  ],
+  [
+   "inhibit",
+   "inhibit",
+   "ยับยั้ง"
   ],
   [
    "mode",
@@ -276,180 +301,140 @@
    "โหมด"
   ],
   [
-   "secure",
-   "secure",
-   "ปลอดภัย"
-  ],
-  [
-   "volume",
-   "volume",
-   "ปริมาณ"
-  ],
-  [
-   "vision",
-   "vision",
-   "วิสัยทัศน์"
-  ],
-  [
-   "status",
-   "status",
-   "สถานะ"
-  ],
-  [
-   "visual",
-   "visual",
-   "เกี่ยวกับสายตา"
-  ],
-  [
    "regime",
    "regime",
    "ระบบการปกครอง"
   ],
   [
-   "voluntary",
-   "voluntary",
-   "จงใจ"
+   "abstract",
+   "abstract",
+   "ซึ่งเข้าใจยาก"
   ]
  ],
  "zh": [
   [
-   "detect",
-   "detect",
-   "检测"
+   "rational",
+   "rational",
+   "合理的"
   ],
   [
-   "volume",
-   "volume",
-   "体积"
+   "assume",
+   "assume",
+   "承担"
   ],
   [
-   "secure",
-   "secure",
-   "安全"
+   "conflict",
+   "conflict",
+   "冲突"
   ],
   [
-   "found",
-   "found",
-   "成立"
+   "format",
+   "format",
+   "格式"
   ],
   [
-   "vision",
-   "vision",
-   "视力"
+   "regime",
+   "regime",
+   "政权"
   ],
   [
-   "status",
-   "status",
-   "地位"
+   "abstract",
+   "abstract",
+   "抽象的"
   ],
   [
-   "criteria",
-   "criteria",
-   "标准"
+   "academy",
+   "academy",
+   "学院"
   ],
   [
-   "mode",
-   "mode",
-   "模式"
+   "conceive",
+   "conceive",
+   "构想"
   ],
   [
-   "scope",
-   "scope",
-   "范围"
+   "consent",
+   "consent",
+   "同意"
   ],
   [
-   "outcome",
-   "outcome",
-   "结果"
+   "demonstrate",
+   "demonstrate",
+   "演示"
   ]
  ],
  "ja": [
   [
-   "detect",
-   "detect",
-   "見付ける"
+   "rational",
+   "rational",
+   "ラショナル"
   ],
   [
-   "volume",
-   "volume",
-   "音量"
+   "virtual",
+   "virtual",
+   "バーチャル"
   ],
   [
-   "secure",
-   "secure",
-   "安全な"
+   "cosmos",
+   "cosmos",
+   "コスモス"
   ],
   [
-   "found",
-   "found",
-   "設立する"
+   "assume",
+   "assume",
+   "決め込む"
   ],
   [
-   "vision",
-   "vision",
-   "ビジョン"
+   "conflict",
+   "conflict",
+   "コンフリクト"
   ],
   [
-   "status",
-   "status",
-   "地位"
+   "encounter",
+   "encounter",
+   "出会う"
   ],
   [
-   "criteria",
-   "criteria",
-   "基準"
+   "format",
+   "format",
+   "形式"
   ],
   [
-   "mode",
-   "mode",
-   "モード"
+   "inhibit",
+   "inhibit",
+   "阻害する"
   ],
   [
-   "bond-over",
-   "bond over",
-   "絆を深める"
+   "interval",
+   "interval",
+   "間隔"
   ],
   [
-   "scope",
-   "scope",
-   "範囲"
+   "occupy",
+   "occupy",
+   "占める"
   ]
  ],
  "ko": [
   [
-   "detect",
-   "detect",
-   "탐지하다"
+   "rational",
+   "rational",
+   "이성적인"
   ],
   [
-   "volume",
-   "volume",
-   "음량"
+   "cosmos",
+   "cosmos",
+   "우주"
   ],
   [
-   "secure",
-   "secure",
-   "안전"
+   "assume",
+   "assume",
+   "추정하다"
   ],
   [
-   "found",
-   "found",
-   "설립하다"
-  ],
-  [
-   "status",
-   "status",
-   "지위"
-  ],
-  [
-   "vision",
-   "vision",
-   "시력"
-  ],
-  [
-   "widespread",
-   "widespread",
-   "광범위한"
+   "conflict",
+   "conflict",
+   "갈등"
   ],
   [
    "criteria",
@@ -457,36 +442,51 @@
    "기준"
   ],
   [
-   "mode",
-   "mode",
-   "모드"
+   "format",
+   "format",
+   "형식"
   ],
   [
-   "bond-over",
-   "bond over",
-   "~을 계기로 친해지다"
+   "inhibit",
+   "inhibit",
+   "억제하다"
+  ],
+  [
+   "parallel",
+   "parallel",
+   "평행한"
+  ],
+  [
+   "regime",
+   "regime",
+   "정권"
+  ],
+  [
+   "abstract",
+   "abstract",
+   "추상적인"
   ]
  ],
  "hi": [
   [
-   "detect",
-   "detect",
-   "पता लगाना"
+   "rational",
+   "rational",
+   "तर्कसंगत"
   ],
   [
-   "volume",
-   "volume",
-   "आयतन"
+   "abstract",
+   "abstract",
+   "अमूर्त"
   ],
   [
-   "secure",
-   "secure",
-   "सुरक्षित"
+   "demonstrate",
+   "demonstrate",
+   "दिखाना"
   ],
   [
-   "found",
-   "found",
-   "स्थापना करना"
+   "mutual",
+   "mutual",
+   "आपसी"
   ],
   [
    "vision",
@@ -494,46 +494,71 @@
    "नज़र"
   ],
   [
-   "status",
-   "status",
-   "प्रतिष्ठा"
+   "adequate",
+   "adequate",
+   "सक्षम"
   ],
   [
-   "criteria",
-   "criteria",
-   "मानदंड"
+   "assume",
+   "assume",
+   "मान लेना"
   ],
   [
-   "mode",
-   "mode",
-   "साधन"
+   "conflict",
+   "conflict",
+   "टकराव"
   ],
   [
-   "scope",
-   "scope",
-   "क्षेत्र"
+   "discriminate",
+   "discriminate",
+   "भेद करना"
   ],
   [
-   "outcome",
-   "outcome",
-   "नतीजा"
+   "distort",
+   "distort",
+   "विकृत करना"
   ]
  ],
  "ar": [
   [
-   "found",
-   "found",
-   "أسس"
+   "insight",
+   "insight",
+   "تبصر"
   ],
   [
-   "detect",
-   "detect",
-   "كشف"
+   "conflict",
+   "conflict",
+   "صراع"
   ],
   [
-   "status",
-   "status",
-   "حالة"
+   "emphasis",
+   "emphasis",
+   "توكيد"
+  ],
+  [
+   "rational",
+   "rational",
+   "عقلاني"
+  ],
+  [
+   "random",
+   "random",
+   "بالصدفة"
+  ],
+  [
+   "cosmos",
+   "cosmos",
+   "كون"
+  ],
+  [
+   "assume",
+   "assume",
+   "افترض"
+  ],
+  [
+   "conduct",
+   "conduct",
+   "تصرف"
   ],
   [
    "infer",
@@ -541,138 +566,113 @@
    "استنتج"
   ],
   [
-   "fee",
-   "fee",
-   "رسوم التسجيل"
-  ],
-  [
-   "relevant",
-   "relevant",
-   "ذو صلة"
-  ],
-  [
-   "volume",
-   "volume",
-   "مقدار"
-  ],
-  [
-   "integrity",
-   "integrity",
-   "نزاهة"
-  ],
-  [
-   "secure",
-   "secure",
-   "مأمون"
-  ],
-  [
-   "convert",
-   "convert",
-   "تحول"
+   "regime",
+   "regime",
+   "نظام الحكم"
   ]
  ],
  "ru": [
   [
-   "detect",
-   "detect",
-   "обнаруживать"
+   "minimise",
+   "minimise",
+   "минимизировать"
   ],
   [
-   "volume",
-   "volume",
-   "объем"
+   "rational",
+   "rational",
+   "рациональный"
   ],
   [
-   "secure",
-   "secure",
-   "безопасный"
+   "assume",
+   "assume",
+   "предполагать"
   ],
   [
-   "found",
-   "found",
-   "основывать"
+   "conflict",
+   "conflict",
+   "конфликт"
   ],
   [
-   "vision",
-   "vision",
-   "зрение"
+   "format",
+   "format",
+   "формат"
   ],
   [
-   "status",
-   "status",
-   "статус"
+   "inhibit",
+   "inhibit",
+   "тормозить"
   ],
   [
-   "criteria",
-   "criteria",
-   "критерии"
+   "parallel",
+   "parallel",
+   "параллельный"
   ],
   [
-   "mode",
-   "mode",
+   "regime",
+   "regime",
    "режим"
   ],
   [
-   "scope",
-   "scope",
-   "рамки"
+   "simulate",
+   "simulate",
+   "моделировать"
   ],
   [
-   "outcome",
-   "outcome",
-   "исход"
+   "abstract",
+   "abstract",
+   "абстрактный"
   ]
  ],
  "tr": [
   [
-   "detect",
-   "detect",
-   "belirlemek"
+   "prime",
+   "prime",
+   "asal"
   ],
   [
-   "volume",
-   "volume",
-   "hacim"
+   "rational",
+   "rational",
+   "akılcı"
   ],
   [
-   "secure",
-   "secure",
-   "güvenli"
+   "assume",
+   "assume",
+   "üstlenmek"
   ],
   [
-   "found",
-   "found",
-   "kurmak"
+   "conflict",
+   "conflict",
+   "anlaşmazlık"
   ],
   [
-   "vision",
-   "vision",
-   "görüş"
+   "format",
+   "format",
+   "biçim"
   ],
   [
-   "status",
-   "status",
-   "durum"
+   "inhibit",
+   "inhibit",
+   "engellemek"
   ],
   [
-   "criteria",
-   "criteria",
-   "kriterler"
+   "parallel",
+   "parallel",
+   "paralel"
   ],
   [
-   "mode",
-   "mode",
-   "moda"
+   "regime",
+   "regime",
+   "rejim"
   ],
   [
-   "scope",
-   "scope",
-   "kapsam"
+   "abstract",
+   "abstract",
+   "soyut"
   ],
   [
-   "outcome",
-   "outcome",
-   "sonuç"
+   "academy",
+   "academy",
+   "akademi"
   ]
  ]
 }
