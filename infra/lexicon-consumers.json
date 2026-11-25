@@ -134,6 +134,9 @@
   "scripts/scriptbank/gold.mjs": {
    "skip": "bộ mẫu vàng cố định từ bộ viết tay"
   },
+  "scripts/stories/render-audio.mjs": {
+   "skip": "loadAll ở đây đọc content/stories/*.json (truyện/podcast), KHÔNG đọc kho từ; chỉ trùng tên hàm với loadAll của kho"
+  },
   "scripts/vocab-img/cards.mjs": {
    "what": "thẻ nghĩa vimg",
    "via": "dist/lexicon.json",

@@ -1,0 +1,204 @@
+{
+  "id": "pod-b2-sleep-and-focus",
+  "kind": "podcast",
+  "level": "B2",
+  "title": "Sleep, Focus and Good Evenings",
+  "summary": "Ama and Carlos talk about why sleep matters for concentration and how to build a calmer evening routine.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 8",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos sitting on a sofa in a dim living room with a lamp, a book and a cup of tea, a crescent moon in the window, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 135,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Why Sleep Matters",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Carlos, you look exhausted today. Did you sleep badly again?"
+        },
+        {
+          "who": "B",
+          "text": "Yes, I only slept five hours. I was answering emails until midnight."
+        },
+        {
+          "who": "A",
+          "text": "That explains why you could not concentrate in the meeting this morning."
+        },
+        {
+          "who": "B",
+          "text": "Exactly. I read the same paragraph three times and understood nothing."
+        },
+        {
+          "who": "A",
+          "text": "Research suggests that tired people make more mistakes and remember less."
+        },
+        {
+          "who": "B",
+          "text": "I know, but I always tell myself that I will catch up at the weekend."
+        },
+        {
+          "who": "A",
+          "text": "Unfortunately, you cannot repay a sleep debt so easily."
+        },
+        {
+          "who": "B",
+          "text": "That is a depressing thought. What do you recommend, then?"
+        },
+        {
+          "who": "A",
+          "text": "Start with a fixed bedtime, even on Saturdays, so your body learns a rhythm."
+        },
+        {
+          "who": "B",
+          "text": "It sounds sensible, although I will probably find it difficult at first."
+        }
+      ],
+      "words": [
+        "mistake",
+        "concentrate",
+        "research",
+        "rhythm",
+        "sensible",
+        "debt"
+      ],
+      "quiz": [
+        {
+          "q": "Why was Carlos tired?",
+          "options": [
+            "He worked late on emails.",
+            "He was ill.",
+            "He travelled all night."
+          ],
+          "answer": 0,
+          "explain": "I was answering emails until midnight."
+        },
+        {
+          "q": "What does Ama say about a sleep debt?",
+          "options": [
+            "It disappears at the weekend.",
+            "It cannot be repaid easily.",
+            "It is a myth."
+          ],
+          "answer": 1,
+          "explain": "Unfortunately, you cannot repay a sleep debt so easily."
+        },
+        {
+          "q": "What does Ama suggest first?",
+          "options": [
+            "Drinking more coffee",
+            "Working less",
+            "A fixed bedtime"
+          ],
+          "answer": 2,
+          "explain": "Start with a fixed bedtime, even on Saturdays."
+        }
+      ]
+    },
+    {
+      "title": "A Calmer Evening",
+      "sentences": [
+        {
+          "who": "B",
+          "text": "Let us talk about the evenings. I usually scroll on my phone until I fall asleep."
+        },
+        {
+          "who": "A",
+          "text": "That is a common habit, but the bright screen keeps your brain alert."
+        },
+        {
+          "who": "B",
+          "text": "So should I switch the phone off completely?"
+        },
+        {
+          "who": "A",
+          "text": "Try to put it in another room an hour before bed, and read a paper book instead."
+        },
+        {
+          "who": "B",
+          "text": "An hour is a long time. What should I do with it?"
+        },
+        {
+          "who": "A",
+          "text": "Prepare your clothes for tomorrow, stretch a little, or simply drink a warm tea."
+        },
+        {
+          "who": "B",
+          "text": "I like that idea. It would also reduce the stress of the morning."
+        },
+        {
+          "who": "A",
+          "text": "Exactly. A short routine tells your mind that the day is over."
+        },
+        {
+          "who": "B",
+          "text": "Fine, I will try it for two weeks and tell you the result."
+        },
+        {
+          "who": "A",
+          "text": "Good luck. I expect you will notice a difference within a few days."
+        }
+      ],
+      "words": [
+        "alert",
+        "completely",
+        "prepare",
+        "stretch",
+        "reduce",
+        "routine"
+      ],
+      "quiz": [
+        {
+          "q": "Why is a bright screen a problem before bed?",
+          "options": [
+            "It keeps the brain alert.",
+            "It uses electricity.",
+            "It hurts the eyes only."
+          ],
+          "answer": 0,
+          "explain": "The bright screen keeps your brain alert."
+        },
+        {
+          "q": "What does Ama suggest instead of scrolling?",
+          "options": [
+            "Watching a film",
+            "Reading a paper book",
+            "Doing homework"
+          ],
+          "answer": 1,
+          "explain": "Read a paper book instead."
+        },
+        {
+          "q": "How long will Carlos try the new routine?",
+          "options": [
+            "One day",
+            "One month",
+            "Two weeks"
+          ],
+          "answer": 2,
+          "explain": "I will try it for two weeks."
+        }
+      ]
+    }
+  ]
+}

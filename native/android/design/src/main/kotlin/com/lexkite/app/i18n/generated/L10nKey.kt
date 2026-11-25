@@ -3534,7 +3534,8 @@ open class L10nKeys4 : L10nKeys3() {
 open class L10nKeys5 : L10nKeys4() {
     val speakSpkMayTinhInternetHangNgay = L10nKey("speak.spk.mayTinhInternetHangNgay")
     val speakSpkThuThachNoi30Giay = L10nKey("speak.spk.thuThachNoi30Giay")
-    protected fun keys5(): List<L10nKey> = listOf(speakSpkMayTinhInternetHangNgay, speakSpkThuThachNoi30Giay)
+    val speakSpkNhatKyGiongNoi = L10nKey("speak.spk.nhatKyGiongNoi")
+    protected fun keys5(): List<L10nKey> = listOf(speakSpkMayTinhInternetHangNgay, speakSpkThuThachNoi30Giay, speakSpkNhatKyGiongNoi)
 }
 
 object L10nLangs {

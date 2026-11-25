@@ -271,7 +271,7 @@
   const manifest = () => manP || (manP = loadScript('js/bundles.js').then(() => {
     const B = window.LK_BUNDLES; if (!B) { manP = null; throw new Error('bundles'); }
     BUNDLES = B; if (Store.isExtension) EXT_NO.forEach(n => { BUNDLES[n] = []; }); return B; }));
-  const EXT_NO = []; // (áp ở manifest() khi nạp js/bundles.js)  gói mà build-extension.sh loại khỏi add-on (CWS cấm mã tải từ xa; klocal đã chạy được qua khung lexkite.com/kl.html) → không nạp, khỏi 404 + nạp lại. Test: ext-bundles
+  const EXT_NO = ['callja']; // callja: add-on không có web/packs (áp ở manifest() khi nạp js/bundles.js)  gói mà build-extension.sh loại khỏi add-on (CWS cấm mã tải từ xa; klocal đã chạy được qua khung lexkite.com/kl.html) → không nạp, khỏi 404 + nạp lại. Test: ext-bundles
   const PAINT_FIRST = new Set(['home', 'review']), PAINT_LATE = new Set(['words']); // route vẽ trước khi có kho từ (mọi chỗ dùng kho đều có dự phòng: study.js libNorm/distractors, ux1 units = data.js)
 App.pathnPack = { es: 'cpack/lesson/pn-es.js', pt: 'cpack/lesson/pn-pt.js', fr: 'cpack/lesson/pn-fr.js', de: 'cpack/lesson/pn-de.js', id: 'cpack/lesson/pn-id.js', th: 'cpack/lesson/pn-th.js', zh: 'cpack/lesson/pn-zh.js', ja: 'cpack/lesson/pn-ja.js', ko: 'cpack/lesson/pn-ko.js', hi: 'cpack/lesson/pn-hi.js', ar: 'cpack/lesson/pn-ar.js', ru: 'cpack/lesson/pn-ru.js', tr: 'cpack/lesson/pn-tr.js' }; // bản dịch nội dung nút Lộ trình (nhóm i18n pathn, scripts/lib/i18n-pack.mjs), nạp cùng dữ liệu nút
 App.cpackI18n = { criteria: { es: 'cpack/i18n/criteria-es.js', pt: 'cpack/i18n/criteria-pt.js', fr: 'cpack/i18n/criteria-fr.js', de: 'cpack/i18n/criteria-de.js', id: 'cpack/i18n/criteria-id.js', th: 'cpack/i18n/criteria-th.js', zh: 'cpack/i18n/criteria-zh.js', ja: 'cpack/i18n/criteria-ja.js', ko: 'cpack/i18n/criteria-ko.js', hi: 'cpack/i18n/criteria-hi.js', ar: 'cpack/i18n/criteria-ar.js', ru: 'cpack/i18n/criteria-ru.js', tr: 'cpack/i18n/criteria-tr.js' }, confidence: { es: 'cpack/i18n/confidence-es.js', pt: 'cpack/i18n/confidence-pt.js', fr: 'cpack/i18n/confidence-fr.js', de: 'cpack/i18n/confidence-de.js', id: 'cpack/i18n/confidence-id.js', th: 'cpack/i18n/confidence-th.js', zh: 'cpack/i18n/confidence-zh.js', ja: 'cpack/i18n/confidence-ja.js', ko: 'cpack/i18n/confidence-ko.js', hi: 'cpack/i18n/confidence-hi.js', ar: 'cpack/i18n/confidence-ar.js', ru: 'cpack/i18n/confidence-ru.js', tr: 'cpack/i18n/confidence-tr.js' } }; // bản dịch nhóm criteria/confidence nằm ở web/cpack (scripts/lib/i18n-pack.mjs CPACK_I18N); build-cpack chỉ băm đường dẫn viết đủ chữ
@@ -279,6 +279,7 @@ App.cpackI18n.rhythm = { es: 'cpack/i18n/rhythm-es.js', pt: 'cpack/i18n/rhythm-p
 App.cpackI18n.qtips = { es: 'cpack/i18n/qtips-es.js', pt: 'cpack/i18n/qtips-pt.js', fr: 'cpack/i18n/qtips-fr.js', de: 'cpack/i18n/qtips-de.js', id: 'cpack/i18n/qtips-id.js', th: 'cpack/i18n/qtips-th.js', zh: 'cpack/i18n/qtips-zh.js', ja: 'cpack/i18n/qtips-ja.js', ko: 'cpack/i18n/qtips-ko.js', hi: 'cpack/i18n/qtips-hi.js', ar: 'cpack/i18n/qtips-ar.js', ru: 'cpack/i18n/qtips-ru.js', tr: 'cpack/i18n/qtips-tr.js' }; // mẹo làm bài thi (cpack/i18n/qtips-<lang>.js, tải cùng gói màn thi/nghe/đọc; dời khỏi web/js để nhường chỗ ngân sách người học)
 App.cpackI18n.tlui = { es: 'cpack/i18n/tlui-es.js', pt: 'cpack/i18n/tlui-pt.js', fr: 'cpack/i18n/tlui-fr.js', de: 'cpack/i18n/tlui-de.js', id: 'cpack/i18n/tlui-id.js', th: 'cpack/i18n/tlui-th.js', zh: 'cpack/i18n/tlui-zh.js', ja: 'cpack/i18n/tlui-ja.js', ko: 'cpack/i18n/tlui-ko.js', ru: 'cpack/i18n/tlui-ru.js', tr: 'cpack/i18n/tlui-tr.js', ar: 'cpack/i18n/tlui-ar.js', hi: 'cpack/i18n/tlui-hi.js' };
 App.cpackI18n.lcardui = { es: 'cpack/i18n/lcardui-es.js', pt: 'cpack/i18n/lcardui-pt.js', fr: 'cpack/i18n/lcardui-fr.js', de: 'cpack/i18n/lcardui-de.js', id: 'cpack/i18n/lcardui-id.js', th: 'cpack/i18n/lcardui-th.js', zh: 'cpack/i18n/lcardui-zh.js', ja: 'cpack/i18n/lcardui-ja.js', ko: 'cpack/i18n/lcardui-ko.js', hi: 'cpack/i18n/lcardui-hi.js', ar: 'cpack/i18n/lcardui-ar.js', ru: 'cpack/i18n/lcardui-ru.js', tr: 'cpack/i18n/lcardui-tr.js' }; // mẹo làm bài thi (cpack/i18n/lcardui-<lang>.js, tải cùng gói màn thi/nghe/đọc; dời khỏi web/js để nhường chỗ ngân sách người học)
+App.cpackI18n.diary = { es: 'cpack/i18n/diary-es.js', pt: 'cpack/i18n/diary-pt.js', fr: 'cpack/i18n/diary-fr.js', de: 'cpack/i18n/diary-de.js', id: 'cpack/i18n/diary-id.js', th: 'cpack/i18n/diary-th.js', zh: 'cpack/i18n/diary-zh.js', ja: 'cpack/i18n/diary-ja.js', ko: 'cpack/i18n/diary-ko.js', hi: 'cpack/i18n/diary-hi.js', ar: 'cpack/i18n/diary-ar.js', ru: 'cpack/i18n/diary-ru.js', tr: 'cpack/i18n/diary-tr.js' }; // 🎙️ Nhật ký giọng nói (cpack/i18n/diary-<lang>.js, tải cùng gói diary; ngoài byte người học)
 App.esGx = { en: 'cpack/es/gx-en.js', vi: 'cpack/es/gx-vi.js', es: 'cpack/es/gx-es.js', pt: 'cpack/es/gx-pt.js', fr: 'cpack/es/gx-fr.js', de: 'cpack/es/gx-de.js', id: 'cpack/es/gx-id.js', th: 'cpack/es/gx-th.js', zh: 'cpack/es/gx-zh.js', ja: 'cpack/es/gx-ja.js', ko: 'cpack/es/gx-ko.js', hi: 'cpack/es/gx-hi.js', ar: 'cpack/es/gx-ar.js', ru: 'cpack/es/gx-ru.js', tr: 'cpack/es/gx-tr.js' }; // giải thích ngữ pháp TBN theo ngôn ngữ người học, tải lười 1 gói (js/espr.js)
 App.frGx = { en: 'cpack/fr/gx-en.js', vi: 'cpack/fr/gx-vi.js', es: 'cpack/fr/gx-es.js', pt: 'cpack/fr/gx-pt.js', fr: 'cpack/fr/gx-fr.js', de: 'cpack/fr/gx-de.js', id: 'cpack/fr/gx-id.js', th: 'cpack/fr/gx-th.js', zh: 'cpack/fr/gx-zh.js', ja: 'cpack/fr/gx-ja.js', ko: 'cpack/fr/gx-ko.js', hi: 'cpack/fr/gx-hi.js', ar: 'cpack/fr/gx-ar.js', ru: 'cpack/fr/gx-ru.js', tr: 'cpack/fr/gx-tr.js' }; // giải thích ngữ pháp tiếng Pháp theo ngôn ngữ người học (js/espr.js TLC.fr, french-course.md W2)
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
@@ -286,7 +287,7 @@ App.frX = { lv: { A1: 'cpack/fr/x-A1.js', A2: 'cpack/fr/x-A2.js', B1: 'cpack/fr/
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
 App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-es.js', pt: 'cpack/fr/px-pt.js', fr: 'cpack/fr/px-fr.js', de: 'cpack/fr/px-de.js', id: 'cpack/fr/px-id.js', th: 'cpack/fr/px-th.js', zh: 'cpack/fr/px-zh.js', ja: 'cpack/fr/px-ja.js', ko: 'cpack/fr/px-ko.js', hi: 'cpack/fr/px-hi.js', ar: 'cpack/fr/px-ar.js', ru: 'cpack/fr/px-ru.js', tr: 'cpack/fr/px-tr.js' }; // gói phát âm tiếng Pháp W3 theo ngôn ngữ người học (cpack/es-app/pron-ui.js, bảng TLX): nhãn giao diện + giải thích 8 chủ đề
   // Màn Stitch (gói u1*) theo trang: ST2.<màn> được dò ở đúng trang đó; trang không có trong bảng (lesson, study, league, goal…) nạp đủ UX1_ALL như trước
-  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [] }; // path = bản đồ NGÀY (path-day.js, không dùng khung ST2.path của trang chủ)
+  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [], placement: [] }; // path = bản đồ NGÀY (path-day.js, không dùng khung ST2.path của trang chủ)
   const ROUTE_BUNDLE = {
     call: 'call',
     cambridge: ['listening', 'cambridge'],
@@ -298,6 +299,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     criteria: 'criteria',
     day: ['words', 'pathx', 'dayv2'],
     deck: 'words',
+    diary: 'diary', // 🎙️ Nhật ký giọng nói ngày 1 vs ngày 30 (docs/specs/voice-diary.md)
     dict: ['vcore', 'uidx', 'dictp'],
     dictation: ['listening', 'toeic'],
     fix: ['fixer', 'uidx'],
@@ -414,6 +416,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'],
     pron: 'css/st-v2-pron-hub.css',
     psheet: ['css/st-v2-path-sheet.css', 'css/path-sheet.css'],
+    pxw: ['css/st-v2-game-crossword.css'],
     readings: 'css/exam.css',
     say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'],
     settings: ['css/adm.css', 'css/st-v2-settings.css'],
@@ -696,6 +699,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   // Bật dần (như ret, docs/LEARNING-PATH.md §Phát hành): ux1 "0" tắt / "1" bật hết / nhóm lk.ub < ux1_pct; chốt 1 lần/lượt tải
   // Đo D1/D7: App.ux1Arm() 'on' | 'off' (đối chứng cùng cỡ: lk.ub ∈ [50, 50+pct)) | '' → ux1Track gửi 1 lần/máy seen, d1 (chuỗi ≥ 2), d7 (chuỗi ≥ 7) → ext_events 'ux1:ux1_<arm>_<ev>' (functions/api/hit.js UX1_EV)
   const ux1Cfg = () => { try { return JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}; } catch (e) { return {}; } };
+  App.vdOn = () => String(ux1Cfg().vd_kill) !== '1'; // 🎙️ Nhật ký giọng nói: công tắc khẩn /api/config vd_kill='1' ẩn mọi lối vào (docs/specs/voice-diary.md)
   const ux1B = () => { try { let b = localStorage.getItem('lk.ub'); if (b == null || isNaN(+b) || +b < 0 || +b > 99) { b = String(Math.floor(Math.random() * 100)); localStorage.setItem('lk.ub', b); } return +b; } catch (e) { return 99; } };
   const ux1All = v => v === true || v === '1' || v === 'true', ux1Off = v => v === false || v === '0' || v === 'false';
   App.ux1Arm = () => { const c = ux1Cfg(), p = +c.ux1_pct; if (ux1All(c.ux1) || ux1Off(c.ux1) || !(p > 0 && p <= 50)) return ''; const b = ux1B(); return b < p ? 'on' : b >= 50 && b < 50 + p ? 'off' : ''; };
@@ -983,6 +987,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
       ['learn', '🧠', t('Học thông minh'), t('Trắc nghiệm → gõ từ, thích ứng theo bạn'), 'var(--accent-soft)'],
       ['blitz', '⏱️', t('Thử thách 60 giây'), t('Ôn từ đến hạn, combo, thách đấu bạn bè'), 'var(--again-soft)'],
       ['rhythm', '🥁', t('Nhịp điệu'), t('Chạm đúng nhịp nhấn của câu tiếng Anh'), 'var(--primary-soft)'],
+      ['crossword', '🧩', t('Ô chữ mỗi ngày'), t('Từ của bạn đan thành ô chữ – mỗi ngày một ô mới'), 'var(--gold-soft)'],
       ['match', '⚡', t('Ghép thẻ'), t('Ghép từ với nghĩa thật nhanh'), 'var(--gold-soft)'],
       ['speak', '🎙️', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), 'var(--primary-soft)'],
       ['mcq', '🧩', t('Trắc nghiệm'), t('Chọn nghĩa đúng'), 'var(--good-soft)'],

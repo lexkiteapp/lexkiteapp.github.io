@@ -11,7 +11,7 @@ if (!all || !scr) { console.error('✗ ux1-route-bundles: không thấy UX1_ALL/
 const ALL = arr(all), SCR = Object.fromEntries([...scr.matchAll(/(\w+): \[([^\]]*)\]/g)].map(m => [m[1], arr(m[2])]));
 const u1 = Object.keys(B).filter(k => /^u1\w+$/.test(k)).sort();
 if (JSON.stringify([...ALL].sort()) !== JSON.stringify(u1)) bad.push(`UX1_ALL [${ALL}] ≠ gói u1* trong bundles.js [${u1}] – thêm gói mới phải vào UX1_ALL`);
-const WANT = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [] };
+const WANT = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [], placement: [] };
 for (const [r, w] of Object.entries(WANT)) if (JSON.stringify(SCR[r]) !== JSON.stringify(w)) bad.push(`trang ${r} phải nạp ${JSON.stringify(w)}, app.js đang ${JSON.stringify(SCR[r])}`);
 for (const r of Object.keys(SCR)) if (!(r in WANT)) bad.push(`trang ${r} thêm vào UX1_SCR mà chưa có trong bảng kỳ vọng của test này`);
 for (const [r, g] of Object.entries(SCR)) for (const x of g) if (!ALL.includes(x)) bad.push(`trang ${r}: gói ${x} không có trong UX1_ALL`);

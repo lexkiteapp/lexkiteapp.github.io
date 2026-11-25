@@ -35,7 +35,7 @@ export function blockOf(cfg, clip) {
   if (cfg.topics.length && !cfg.topics.some(t => t === clip.topic || t === clip.sub)) return 'topic';
   if (cfg.skills.length && !cfg.skills.includes(clip.skill)) return 'skill';
   if (cfg.cefr.length && !cfg.cefr.includes(String(clip.cefr || '').toUpperCase())) return 'cefr';
-  if (cfg.lang && String(cfg.lang).toLowerCase() !== 'en' && String(clip.lang || 'en').toLowerCase() !== String(cfg.lang).toLowerCase()) return 'lang'; // page EN chung nhận mọi ngôn ngữ (fallback); page ngôn ngữ riêng chỉ nhận đúng ngôn ngữ // page tiếng X chỉ nhận clip cho người học tiếng X (EN chung nhận clip 'en')
+  if (cfg.role !== 'embed' && cfg.lang && String(cfg.lang).toLowerCase() !== String(clip.lang || 'en').toLowerCase()) return 'lang'; // 24/11 (chủ: đăng sai ngôn ngữ page): MỌI page/kênh (kể cả EN chung) chỉ nhận đúng ngôn ngữ của nó – hết fallback 'EN nhận mọi ngôn ngữ'; kênh embed (host bài học) được miễn // page tiếng X chỉ nhận clip cho người học tiếng X (EN chung nhận clip 'en')
   return '';
 }
 export const allowed = (cfg, clip) => !blockOf(cfg, clip);
@@ -101,7 +101,7 @@ export function implicitSocialRules(allRules, cfgs) {
     (own[k] = own[k] || []).push(id);   // 22/11: nhiều page cùng ngôn ngữ (vd 2 page Facebook tiếng Việt) chia nhau clip theo băm id thay vì chỉ page đầu (page thứ hai 0/30 ngày)
   }
   const ownRules = Object.entries(own).flatMap(([k, ids]) => ids.map((id, i) => ({ cond: ids.length > 1 ? { lang: k.split('|')[1], shard: `${i}/${ids.length}` } : { lang: k.split('|')[1] }, channel_id: id, active: 1 })));
-  for (const ids of Object.values(en)) ids.forEach((id, i) => general.push({ cond: ids.length > 1 ? { shard: `${i}/${ids.length}` } : {}, channel_id: id, active: 1 }));
+  for (const ids of Object.values(en)) ids.forEach((id, i) => general.push({ cond: ids.length > 1 ? { lang: 'en', shard: `${i}/${ids.length}` } : { lang: 'en' }, channel_id: id, active: 1 }));   // 24/11: page EN chung chỉ nhận clip EN (trước: cond {} = mọi ngôn ngữ → clip ja/de/ru lên IG/TikTok/FB tiếng Anh)
   return [...ownRules, ...general];
 }
 /** Giờ cao điểm còn trống trong NGÀY địa phương `date` (cách mọi giờ đã có `taken` ≥ gapMs): lưới 10 phút trong PEAK_WINDOWS, bắt đầu từ vị trí băm của `seed` (kênh) để các kênh không trùng phút; null nếu hết chỗ. Dùng để SỬA bài lệch giờ đã xếp (rebalanceDays, op fill). */
