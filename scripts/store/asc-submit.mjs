@@ -6,7 +6,9 @@
 //       CHỈ ĐỌC: version kế tiếp (không dùng lại), số build kế tiếp, bản đang sửa được, bản đang chờ duyệt (chặn), ngôn ngữ, quyền khoá.
 //   node scripts/store/asc-submit.mjs submit --version 1.0.2 --build 58 --notes notes.json [--dry-run] [--wait-min 75]
 //       tạo/nâng appStoreVersion → chờ build VALID → khai mã hoá (false) → gắn build → "What's New" mọi ngôn ngữ → phát hành
-//       AFTER_APPROVAL + phased release 7 ngày → reviewSubmission → Submit. Chạy lại an toàn (idempotent từng bước).
+//       AFTER_APPROVAL, KHÔNG phased release (luật chủ: ship 100 %) → reviewSubmission → Submit. Chạy lại an toàn (idempotent từng bước).
+//   node scripts/store/asc-submit.mjs release [--dry-run]
+//       đưa bản mới nhất tới 100 % ngay: PENDING_DEVELOPER_RELEASE → appStoreVersionReleaseRequest; phased release ACTIVE/PAUSED → COMPLETE.
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { ascKeyFromEnv, createAsc } from '../lib/asc-api.mjs';
@@ -44,7 +46,8 @@ export const P = {
   attachBuild: buildId => ({ data: { type: 'builds', id: buildId } }),
   encryption: buildId => ({ data: { type: 'builds', id: buildId, attributes: { usesNonExemptEncryption: false } } }),
   whatsNew: (locId, whatsNew) => ({ data: { type: 'appStoreVersionLocalizations', id: locId, attributes: { whatsNew } } }),
-  phased: versionId => ({ data: { type: 'appStoreVersionPhasedReleases', attributes: { phasedReleaseState: 'INACTIVE' }, relationships: { appStoreVersion: rel('appStoreVersions', versionId) } } }),
+  releaseRequest: versionId => ({ data: { type: 'appStoreVersionReleaseRequests', relationships: { appStoreVersion: rel('appStoreVersions', versionId) } } }),
+  phasedState: (id, phasedReleaseState) => ({ data: { type: 'appStoreVersionPhasedReleases', id, attributes: { phasedReleaseState } } }),
   submission: appId => ({ data: { type: 'reviewSubmissions', attributes: { platform: 'IOS' }, relationships: { app: rel('apps', appId) } } }),
   submissionItem: (subId, versionId) => ({ data: { type: 'reviewSubmissionItems', relationships: { reviewSubmission: rel('reviewSubmissions', subId), appStoreVersion: rel('appStoreVersions', versionId) } } }),
   submit: subId => ({ data: { type: 'reviewSubmissions', id: subId, attributes: { submitted: true } } }),
@@ -85,7 +88,7 @@ async function plan(C, a) {
   const p = planFrom({ versions, builds, tags, app: arg(a, '--app', 'capacitor'), bump: arg(a, '--bump', 'patch') });
   // Quyền của khoá: đọc thử vài endpoint chỉ vai trò cao mới đọc được (chỉ GET, không ghi gì) – báo trong tóm tắt
   const probe = {};
-  for (const [k, path] of [['users', '/v1/users?limit=1'], ['reviewSubmissions', `/v1/reviewSubmissions?filter[app]=${APP_ID}&limit=1`], ['phased', versions[0] ? `/v1/appStoreVersions/${versions[0].id}/appStoreVersionPhasedRelease` : null]]) {
+  for (const [k, path] of [['users', '/v1/users?limit=1'], ['reviewSubmissions', `/v1/reviewSubmissions?filter[app]=${APP_ID}&limit=1`]]) {
     if (!path) continue;
     try { await C.get(path); probe[k] = 200; } catch (e) { probe[k] = e.status || 'err'; }
   }
@@ -148,10 +151,10 @@ async function submit(C, a) {
       if (l.attributes.whatsNew === t) log(`= ${l.attributes.locale} What's New`);
       else await write(`${l.attributes.locale} What's New (${noteLang(l.attributes.locale)}, ${[...t].length} ký tự)`, 'PATCH', `/v1/appStoreVersionLocalizations/${l.id}`, P.whatsNew(l.id, t));
     }
-    // 4) phát hành tự động sau khi duyệt + phased release (Apple tự tăng 1→2→5→10→20→50→100 % trong 7 ngày)
+    // 4) phát hành tự động sau khi duyệt, 100 % người dùng cùng lúc (luật chủ 16/11: không phát hành theo phần trăm)
     if (ver.attributes.releaseType !== 'AFTER_APPROVAL') await write('releaseType → AFTER_APPROVAL', 'PATCH', `/v1/appStoreVersions/${ver.id}`, P.patchVersion(ver.id, { releaseType: 'AFTER_APPROVAL' }));
     let ph = null; try { ph = (await C.get(`/v1/appStoreVersions/${ver.id}/appStoreVersionPhasedRelease`)).data; } catch (e) { if (e.status !== 404) throw e; }
-    if (ph) log(`= phased release ${ph.attributes.phasedReleaseState}`); else await write('phased release: BẬT (7 ngày)', 'POST', '/v1/appStoreVersionPhasedReleases', P.phased(ver.id));
+    if (ph) await write(`phased release ${ph.attributes.phasedReleaseState} → COMPLETE (100 %)`, 'PATCH', `/v1/appStoreVersionPhasedReleases/${ph.id}`, P.phasedState(ph.id, 'COMPLETE'));
   } else log('What\'s New + phased release: sau khi tạo version');
   // 5) nộp duyệt
   const subs = (await C.get(`/v1/reviewSubmissions?filter[app]=${APP_ID}&filter[platform]=IOS&limit=20`)).data;
@@ -163,7 +166,27 @@ async function submit(C, a) {
     if (!items.some(i => i.relationships?.appStoreVersion?.data?.id === ver.id)) await write(`reviewSubmissionItem: bản ${version}`, 'POST', '/v1/reviewSubmissionItems', P.submissionItem(sub.id, ver.id));
   }
   await write(`SUBMIT ${version} (${build}) for Review`, 'PATCH', `/v1/reviewSubmissions/${sub.id}`, P.submit(sub.id));
-  console.log(DRY ? '✓ dry-run xong – không ghi gì' : `✓ ĐÃ NỘP DUYỆT iOS ${version} (${build}) – phased release BẬT, tự phát hành sau khi Apple duyệt`);
+  console.log(DRY ? '✓ dry-run xong – không ghi gì' : `✓ ĐÃ NỘP DUYỆT iOS ${version} (${build}) – tự phát hành 100 % sau khi Apple duyệt`);
+}
+
+/** Đưa bản mới nhất tới 100 % người dùng ngay (luật chủ: ship 100 %). Idempotent; in trạng thái trước/sau, không in khoá. */
+async function release(C, a) {
+  const DRY = a.includes('--dry-run');
+  await loadApp(C);
+  const v = (await listVersions(C)).sort((x, y) => String(y.attributes.createdDate).localeCompare(String(x.attributes.createdDate)))[0];
+  if (!v) throw new Error('không có appStoreVersion');
+  const name = v.attributes.versionString, before = stateOf(v);
+  let ph = null; try { ph = (await C.get(`/v1/appStoreVersions/${v.id}/appStoreVersionPhasedRelease`)).data; } catch (e) { if (e.status !== 404) throw e; }
+  const phBefore = ph ? ph.attributes.phasedReleaseState : 'none';
+  console.log(`iOS ${name}: state=${before} phased=${phBefore}`);
+  const write = async (desc, method, path, body) => { console.log(`  ${DRY ? '[dry-run] ' : ''}${desc}`); if (!DRY) await C.api(method, path, body); };
+  if (before === 'PENDING_DEVELOPER_RELEASE') await write('tạo appStoreVersionReleaseRequest', 'POST', '/v1/appStoreVersionReleaseRequests', P.releaseRequest(v.id));
+  else if (ph && ['ACTIVE', 'PAUSED', 'INACTIVE'].includes(phBefore)) await write(`phased ${phBefore} → COMPLETE`, 'PATCH', `/v1/appStoreVersionPhasedReleases/${ph.id}`, P.phasedState(ph.id, 'COMPLETE'));
+  else console.log('  = không cần làm gì (đã 100 % hoặc chưa tới bước phát hành)');
+  if (DRY) return;
+  const v2 = (await C.get(`/v1/appStoreVersions/${v.id}`)).data;
+  let ph2 = 'none'; try { ph2 = (await C.get(`/v1/appStoreVersions/${v.id}/appStoreVersionPhasedRelease`)).data.attributes.phasedReleaseState; } catch (e) { if (e.status !== 404) throw e; }
+  console.log(`✓ iOS ${name}: state ${before} → ${stateOf(v2)} · phased ${phBefore} → ${ph2}`);
 }
 
 async function main() {
@@ -173,6 +196,7 @@ async function main() {
   const C = createAsc(key);
   if (cmd === 'plan') return plan(C, a);
   if (cmd === 'submit') return submit(C, a);
-  console.error('Dùng: asc-submit.mjs plan|submit …'); process.exit(2);
+  if (cmd === 'release') return release(C, a);
+  console.error('Dùng: asc-submit.mjs plan|submit|release …'); process.exit(2);
 }
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) main().catch(e => { console.log(`::error title=store-submit iOS::${e.message}`); process.exit(1); });

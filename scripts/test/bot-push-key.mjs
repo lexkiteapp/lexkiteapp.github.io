@@ -33,7 +33,7 @@ export function scanPrRevert(f, s) {
   return e;
 }
 // gộp main vào nhánh PR CÓ SẴN (pr-unconflict): không bao giờ đẩy main, không force-push
-export const PR_UPDATE = new Set(['scripts/pr-unconflict.mjs', 'scripts/ci/commit-regen-pr.sh']);
+export const PR_UPDATE = new Set(['scripts/pr-unconflict.mjs', 'scripts/ci/commit-regen-pr.sh', 'scripts/ci/autopilot.mjs']);   // autopilot: commit rỗng kích CI lên nhánh PR (25/11), không force, không main
 export function scanPrUpdate(f, s) {
   const e = [], pushes = s.split('\n').filter(l => /'push'|git push/.test(l) && !/^\s*(\/\/|#)/.test(l));
   if (/HEAD:main|refs\/heads\/main\b/.test(s)) e.push(`${f}: script cập nhật nhánh PR không được đẩy main`);
