@@ -105,6 +105,15 @@ function probe(mobile) {
     if (it.inline && it.e.closest('p,td,li,figcaption,dd,small,span')) continue; // WCAG 2.5.8: liên kết trong câu được miễn
     if (it.r.height < 44 || it.r.width < 44) add('touch-target', it.e, `${Math.round(it.r.width)}x${Math.round(it.r.height)}px "${(it.e.innerText || it.e.getAttribute('aria-label') || it.e.getAttribute('title') || '').trim().slice(0, 30)}"`);
   }
+  // Nút nằm TRONG ô nhập (xoá ×, hiện mật khẩu, micro): không phải 'đè' khi ô đã chừa chỗ bằng padding+viền đúng phía nút (dict v2: input pl-11 pr-11 ⟷ #qClear 44×44, 24/11 quality-sweep medium ×12).
+  // Vẫn báo nếu nút lòi ra ngoài ô hoặc ô KHÔNG chừa chỗ (chữ chạy dưới nút).
+  const adorned = (x, y) => {
+    const f = x.e.matches('input,textarea') ? x : y.e.matches('input,textarea') ? y : null, g = f === x ? y : x;
+    if (!f || !g.e.matches('button,[role=button]') || g.e.matches('input,textarea')) return false;
+    const fr = f.r, gr = g.r, cs = getComputedStyle(f.e), tol = 1.5, px = v => parseFloat(v) || 0;
+    if (gr.left < fr.left - tol || gr.right > fr.right + tol || gr.top < fr.top - tol || gr.bottom > fr.bottom + tol) return false;
+    return gr.left + gr.width / 2 >= fr.left + fr.width / 2 ? fr.right - gr.left <= px(cs.paddingRight) + px(cs.borderRightWidth) + tol : gr.right - fr.left <= px(cs.paddingLeft) + px(cs.borderLeftWidth) + tol;
+  };
   const cap = items.slice(0, 250);
   for (let i = 0; i < cap.length; i++) for (let j = i + 1; j < cap.length; j++) {
     const a = cap[i], b = cap[j]; if (a.fixed !== b.fixed || a.e.contains(b.e) || b.e.contains(a.e)) continue;
@@ -116,7 +125,7 @@ function probe(mobile) {
       if (ix <= 2 || iy <= 2) continue;
       if (ix * iy > 0.25 * Math.min(p.width * p.height, q.width * q.height) && !hit) hit = [ix, iy];
     }
-    if (hit) add('overlap', b.e, `${sel(a.e)} ⟷ ${sel(b.e)} (${Math.round(hit[0])}x${Math.round(hit[1])}px)`);
+    if (hit && !adorned(a, b)) add('overlap', b.e, `${sel(a.e)} ⟷ ${sel(b.e)} (${Math.round(hit[0])}x${Math.round(hit[1])}px)`);
   }
   return out;
 }
