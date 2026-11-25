@@ -2,7 +2,7 @@
 # Mỗi bậc ≥ 24 giờ (mốc = ngày của tag store-android-<ver> / store-android-<ver>-rollout-<pct>) VÀ Play vitals đạt
 # (crash do người dùng thấy ≤ 1,09 %, ANR ≤ 0,47 % – ngưỡng "bad behavior" của Play, API Play Developer Reporting).
 # Vitals xấu → GIỮ bậc + ::warning:: (không tự dừng bản). API vitals không truy cập được → tăng theo lịch + ::notice::.
-# Crashlytics chưa có API đọc công khai cho CI → dùng Play vitals (cùng nguồn sự cố trên Android). iOS: Apple tự tăng phased release 7 ngày.
+# Crashlytics chưa có API đọc công khai cho CI → dùng Play vitals (cùng nguồn sự cố trên Android). iOS: ship 100 % (store-release.yml), không phased release.
 # Chưa có secret PLAY_SERVICE_ACCOUNT_JSON → bỏ qua kèm notice.
 name: Store rollout (Play)
 on:
