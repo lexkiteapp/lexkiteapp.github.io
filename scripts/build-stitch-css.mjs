@@ -17,6 +17,9 @@ const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['w
 //   Cấu hình Tailwind MẶC ĐỊNH thuần (như Stitch): tên màu/cỡ chữ/bo góc của Stitch đã được bộ chuyển đổi ra giá trị thật.
 const CP2 = 'web/cpack/st2', v2file = k => fs.existsSync(`${CP2}/${k}.js`) ? `${CP2}/${k}.js` : `web/js/st/v2/${k}.js`; // nhóm B lười ở web/cpack/st2 (stitch-v2-convert CPK)
 const V2 = [...(fs.existsSync(CP2) ? fs.readdirSync(CP2).filter(f => f.endsWith('.js')).map(f => f.slice(0, -3)) : []), ...(fs.existsSync('web/js/st/v2') ? fs.readdirSync('web/js/st/v2').filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)) : [])];
+// khung ghi ngoài web/js (bind.out, vd web/cpack/game/<màn>.js – gói lười một route) vẫn là màn v2: một nhóm CSS như mọi màn
+const V2OUT = Object.fromEntries((fs.existsSync('brand/stitch/v2/bind') ? fs.readdirSync('brand/stitch/v2/bind') : []).filter(f => f.endsWith('.json')).map(f => [f.slice(0, -5), JSON.parse(fs.readFileSync('brand/stitch/v2/bind/' + f, 'utf8')).out]).filter(x => x[1] && fs.existsSync(x[1])));
+V2.push(...Object.keys(V2OUT).filter(k => !V2.includes(k)));
 const V2DATA = {
   day: ['web/js/path-day.js'],
   deck: ['web/cpack/ux1/deck.js'],
@@ -58,7 +61,7 @@ const V2DATA = {
   welcome: ['web/js/welcome.js'],
   'welcome-desk': ['web/js/welcome.js'],
 }; // file JS dựng dữ liệu d cho khung (class viết nguyên văn trong đó cũng được biên dịch)
-for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', v2file(k), ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
+for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', V2OUT[k] || v2file(k), ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
 GROUPS['v2-irregular'] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', 'web/cpack/irregular/table.js']; // 🔤 Động từ bất quy tắc: giao diện port tay từ Stitch brand/stitch/v2/irv-*
 GROUPS['v2-irregular-drill'] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', 'web/cpack/irregular/drill.js'];
 // Trang web tĩnh Stitch (lexkite.com – khung TỰ SINH brand/stitch/web/gen/<trang>.js – chỉ dùng lúc build, không triển khai trong web/ (size-budget), `stitch-v2-convert.mjs --web`): mỗi trang 1 nhóm w-<trang>, CSS được generator NHÚNG vào <style> (scripts/lib/st-web.mjs).

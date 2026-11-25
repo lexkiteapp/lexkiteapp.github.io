@@ -461,6 +461,7 @@ node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
 node scripts/test/es-pron.mjs
 node scripts/test/fr-pron.mjs
+node scripts/test/tl-audio.mjs
 node scripts/test/es-path.mjs
 node scripts/test/tl-day-routes.mjs
 node scripts/test/ext-version.mjs
@@ -535,6 +536,7 @@ node scripts/stitch-v2-convert.mjs --check
 node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
+node scripts/test/play-crossword.mjs
 node scripts/test/gt-bands.mjs
 node scripts/test/qengine-types.mjs
 node scripts/test/meta-attr.mjs
