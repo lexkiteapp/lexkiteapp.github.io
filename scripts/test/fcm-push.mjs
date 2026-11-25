@@ -109,6 +109,9 @@ ok(W.fcmResult(200) === 'ok' && W.fcmResult(404, '') === 'gone' && W.fcmResult(4
   ok(calls.filter(c => c[0].endsWith('/api/mail') && JSON.parse(c[1]).op === 'tick').length === 2, 'mỗi lượt cron gọi thêm /api/mail tick (email opt-in)'); }
 
 // ---------- Máy khách (web/js/remind.js phần app gốc, vm + giả lập Capacitor) ----------
+// 26/11: phần máy khách chạy theo đồng hồ CỐ ĐỊNH 10:00 giờ máy hôm nay – trước đây dùng giờ thật nên sau giờ nhắc trong ngày (≈20:00 UTC trên CI)
+// lịch chỉ còn 5 lượt (1,2,3,5,7) và test đỏ trên mọi PR vài giờ mỗi tối. Ngưỡng ≥6 lượt giữ nguyên.
+const CLIENT_NOW = (() => { const d = new Date(); d.setHours(10, 0, 0, 0); return d.getTime(); })(); Date.now = () => CLIENT_NOW;
 const RSRC = fs.readFileSync('web/js/remind.js', 'utf8');
 const pure = (() => { const g = { self: null, setTimeout, clearTimeout }; g.self = g; vm.runInNewContext(RSRC, g); return g.Remind; })();
 ok(!pure.fcmCapable(undefined) && !pure.fcmCapable({ Plugins: {} }) && !pure.fcmCapable({ Plugins: { FirebaseMessaging: {} }, isPluginAvailable: () => false }) && pure.fcmCapable({ Plugins: { FirebaseMessaging: {} }, isPluginAvailable: k => k === 'FirebaseMessaging' }),
