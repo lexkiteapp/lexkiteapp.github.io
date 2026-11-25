@@ -22,3 +22,8 @@ jobs:
       - name: Quét + cập nhật issue
         env: { GITHUB_TOKEN: '${{ github.token }}' }
         run: node scripts/ops/health-board.mjs --issue
+      # 24/11: workflow XANH mà sản lượng < minRun N lượt liền (lexicon-expand 0–7 từ/lượt, vocab-img-scene 1–90 ảnh) → 1 issue `yield-zero` mỗi workflow, tự đóng khi hồi (guards.mjs yield-streak)
+      - name: Chuỗi sản lượng ≈ 0 → issue
+        if: always()
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: node scripts/ci/guards.mjs yield-streak

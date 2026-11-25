@@ -39,11 +39,22 @@ fr: { plural: true, hFlag: true, mix: { informal: INFORMAL.fr, formal: /(?<!\p{L
 // ja (japanese-course.md §2, §5, §8): không giống/số nhiều (noGender); câu không cách từ (sub); kana bắt buộc + romaji/IPA phải đúng bằng ja-kana.mjs sinh từ kana (một quy ước, không gõ tay lệch);
 // cao độ pitch = vị trí hạ 0…số mora; jlpt 5…1; động từ có vclass (ichidan|godan|irregular), tính từ có aclass (i|na) và khớp đuôi; câu ví dụ chính = thể lịch sự です/ます (end),
 // chữ Nhật thuần (lint: không chữ Latin/số Ả Rập/khoảng trắng/katakana bán độ rộng), kết thúc 。 hoặc ？
-ja: { noGender: true, sub: true, kana: true, end: /(です|ます|ました|ません|でした|ましょう|ませんか|ください|でしょう)か?[。？]$/u, lint: [/[A-Za-z0-9\s]/u, /[\uff61-\uff9f]/u] } };
+ja: { noGender: true, sub: true, kana: true, derive: deriveJa, end: /(です|ます|ました|ません|でした|ましょう|ませんか|ください|でしょう)か?[。？]$/u, lint: [/[A-Za-z0-9\s]/u, /[\uff61-\uff9f]/u] } };
 // ko (korean-course.md §2, §5, §8): không giống/số nhiều; từ đứng đầu 어절 (sub 'lead'); hangul: pron (표준 발음) + romaja (RR 2000) + IPA phải đúng bằng ko-hangul.mjs sinh từ chữ
 // (ngoại lệ theo từ khai ở pronX, không gõ tay lệch); topik 1…6; vị từ (v/adj) dạng từ điển …다 + lớp chia conj khớp hình thức gốc; hanja (tuỳ chọn) đủ số âm tiết;
 // câu ví dụ chính = 해요체 lịch sự (end …요. / …요?), chữ Hàn thuần (lint: không Latin, không Hán tự trong câu, không jamo rời/NFD)
 TL_RULES.ko = { noGender: true, sub: 'lead', hangul: true, end: /요[.?]$/u, lint: [/[A-Za-z]/u, /\p{Script=Han}/u, /[\u1100-\u11ff\u3131-\u318e]/u] };
+// gen.mjs (W1): cách đọc + cấp JLPT theo DANH SÁCH NGUỒN khi người soạn giữ đúng mục từ (hint = { kana, jlpt, en }); romaji + IPA SINH từ kana (không tin chữ AI gõ);
+// cao độ AI trả chỉ là chỗ giữ – bước CI tl_ja_fill.py ghi đè bằng OpenJTalk (khớp NHK 30/30 trên seed), ngoài 0…mora → 0 + qa.pitchAi để cổng không loại oan trước bước đó.
+function deriveJa(e, hint) {
+  const o = { ...e }; delete o.gender; delete o.plural;
+  if (hint && o.word === hint.form) { o.kana = hint.kana; o.jlpt = hint.jlpt; }
+  if (JA.isKana(o.kana)) {
+    try { o.romaji = JA.romaji(o.kana); o.ipa = JA.ipa(o.kana, { verb: o.pos === 'v' }); } catch { /* kana lạ → cổng báo */ }
+    if (!Number.isInteger(o.pitch) || o.pitch < 0 || o.pitch > JA.morae(o.kana)) { o.qa = { ...(o.qa || {}), pitchAi: o.pitch ?? null }; o.pitch = 0; }
+  }
+  return o;
+}
 const VCLASS = { ichidan: /[いきしちにひみりぎじびぴえけせてねへめれげぜべぺ]る$/u, godan: /[うくぐすつぬぶむる]$/u, irregular: /^(する|くる)$|する$/u };
 
 // trường hợp lệ của một mục (mọi tl; trường riêng bị chặn theo bảng trong validate) – gen.mjs lấy đúng các trường này từ người soạn

@@ -45,6 +45,7 @@ const json = (req, status, data) => new Response(JSON.stringify(data), { status,
 const QUOTA_WARN = 70, QUOTA_CRIT = 90;
 const FREE = { dbBytes: 500 * 1024 * 1024, writesDay: 100000, readsDay: 5000000, authMau: 50000, aiDay: 400 };
 let ready = false;
+CONFIG_KEYS.push('vd_kill'); // 🎙️ công tắc khẩn Nhật ký giọng nói (functions/api/config.js, docs/specs/voice-diary.md) – dòng riêng, không đụng dòng CONFIG_KEYS nhiều PR cùng sửa
 
 // Đếm dòng: bảng nhật ký/lớn dùng MAX(rowid) (đọc 1 dòng, ước lượng) thay COUNT(*) quét cả bảng (23/10: admin_log 27 lượt × 14,5k dòng); cả bản đồ giữ ≥ 10 phút ở bộ nhớ isolate + Cache API biên.
 const BIG_TABLES = new Set(['admin_log', 'drive_files', 'drive_audit', 'key_audit', 'quota_audit', 'api_key_events', 'sessions', 'errors', 'pageviews', 'sync_log']);
