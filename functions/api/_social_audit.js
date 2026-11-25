@@ -27,7 +27,7 @@ export function auditPosts({ posts, chans, clips, now = Date.now(), days = 14, b
     const it = clips.get(p.clip) || { id: p.clip }, v = postViolation(ch, it, p.ms); if (v) add(p, v.code, v.detail, ch);
     const k = p.channel_id + '|' + p.clip; if (seenClip.has(k)) add(p, 'dup-clip', 'cùng clip hai lần trên kênh', ch); seenClip.add(k);
     const t = norm(it.title), kt = p.channel_id + '|' + t; if (t && seenTitle.has(kt)) add(p, 'dup-title', 'trùng tiêu đề trên kênh', ch); seenTitle.add(kt);
-    if (p.clip) { const xk = ch.platform + '|' + p.clip; (xch.get(xk) || xch.set(xk, []).get(xk)).push({ channel_id: p.channel_id, title: ch.title, at: new Date(p.ms).toISOString() }); }
+    if (p.clip) { const xk = ch.platform + '|' + p.clip, real = norm(ch.title); (xch.get(xk) || xch.set(xk, []).get(xk)).push({ channel_id: real || p.channel_id, title: ch.title, at: new Date(p.ms).toISOString() }); }
     const d = localDate(p.ms, ch.tz), key = p.channel_id + '|' + d; per.set(key, (per.get(key) || 0) + 1);
   }
   for (const [key, n] of per) { const [id, d] = key.split('|'), ch = info.get(id), max = isMainLang(ch.lang) ? MAIN_DAY.max : 1; if (n > max) add({ channel_id: id, clip: '', ms: Date.parse(d + 'T12:00:00Z') }, 'over-day', `${n} bài ngày ${d} (tối đa ${max})`, ch); }
