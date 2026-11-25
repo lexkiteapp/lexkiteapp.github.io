@@ -5,6 +5,23 @@
 // extra (trường thêm người soạn phải trả), audit (tiêu chí loại thêm cho giám khảo), lt (mã LanguageTool; có = cổng §5.1 bắt buộc), kaikki (tên ngôn ngữ trên kaikki.org cho wikt-check.mjs).
 const FW = (code, file) => ({ name: `FrequencyWords (hermitdave) – OpenSubtitles 2018 ${file}`, url: `https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/${code}/${file}.txt`, license: 'CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec' });
 
+// Danh sách từ JLPT N5–N1 (open-anki-jlpt-decks, MIT; gốc danh sách của Jonathan Waller – tanos.co.uk, CC BY) – cột expression,reading,meaning,tags
+const JLPT = { name: 'open-anki-jlpt-decks (jamsinclair) – danh sách từ JLPT N5–N1 của Jonathan Waller (tanos.co.uk)', url: 'https://raw.githubusercontent.com/jamsinclair/open-anki-jlpt-decks/main/src/', license: 'MIT (bộ thẻ) / CC BY (danh sách tanos) – ghi công trong spec' };
+export const csvRows = txt => { const out = []; let row = [], f = '', q = false;
+  for (let i = 0; i < txt.length; i++) { const c = txt[i];
+    if (q) { if (c === '"' && txt[i + 1] === '"') { f += '"'; i++; } else if (c === '"') q = false; else f += c; }
+    else if (c === '"') q = true; else if (c === ',') { row.push(f); f = ''; } else if (c === '\n') { row.push(f); out.push(row); row = []; f = ''; } else if (c !== '\r') f += c; }
+  if (f || row.length) { row.push(f); out.push(row); } return out; };
+/** [{ form, rank, hint: { form, kana, jlpt, en } }] – N5 trước, giữ thứ tự tệp; trùng chữ giữa các cấp → giữ cấp thấp hơn (gặp trước). */
+export async function jlptCands(get = u => fetch(u).then(r => { if (!r.ok) throw new Error('JLPT ' + r.status + ' ' + u); return r.text(); })) {
+  const out = [], seen = new Set();
+  for (const n of [5, 4, 3, 2, 1]) for (const [expr, kana, en] of csvRows(await get(JLPT.url + 'n' + n + '.csv')).slice(1)) {
+    const form = String(expr || '').trim(), k = String(kana || '').split(/[、,;／/\s]+/)[0].trim(); // nhiều cách đọc → cách đầu (phổ biến nhất trong danh sách)
+    if (!form || seen.has(form) || !/^\p{L}+$/u.test(form)) continue; seen.add(form);
+    out.push({ form, rank: out.length + 1, hint: { form, kana: k || form, jlpt: n, en: String(en || '').trim() } });
+  }
+  return out;
+}
 export const TL_GEN = {
   pt: {
     variant: 'pt-BR', lang: 'Brazilian Portuguese', short: 'Portuguese', exLevel: 'A1', level: 'A1–A2', source: FW('pt_br', 'pt_br_50k'), kaikki: 'Portuguese', one: /^[aeéoà]$/,
@@ -31,7 +48,8 @@ export const TL_GEN = {
   // trả để đối chiếu, cổng validate() ép đúng quy ước); pitch = vị trí hạ kiểu NHK (0 = heiban); jlpt 5…1. Ứng viên W1 = danh sách JLPT (tự soạn theo cấp, JMdict kiểm chéo) –
   // FrequencyWords ja chỉ là thứ hạng phụ (OpenSubtitles tách từ kém); one = từ 1 chữ kanji (本, 犬…) hợp lệ.
   ja: {
-    variant: 'ja-JP', lang: 'standard Tokyo Japanese (hyōjungo)', short: 'Japanese', exLevel: 'JLPT N5–N4 (N3+ only if the word itself is N3+), polite desu/masu form', level: 'JLPT N5–N1 (A1–C2)', source: FW('ja', 'ja_full'), kaikki: 'Japanese', one: /^\p{Script=Han}$/u,
+    variant: 'ja-JP', lang: 'standard Tokyo Japanese (hyōjungo)', short: 'Japanese', exLevel: 'JLPT N5–N4 (N3+ only if the word itself is N3+), polite desu/masu form', level: 'JLPT N5–N1 (A1–C2)', kaikki: 'Japanese', one: /^\p{Script=Han}$/u,
+    source: JLPT, cands: jlptCands, lemma: false, // ứng viên = danh sách JLPT (đã là mục từ, có cách đọc) theo cấp N5 → N1; FrequencyWords ja (ja_full) tách từ kém – không dùng
     ipa: 'broad Tokyo IPA derived from the kana reading (ɯ, ɕ tɕ dʑ ɲ ç ɸ, palatal kʲ gʲ mʲ ɾʲ bʲ pʲ, ɾ, moraic n assimilated m/n/ɲ/ŋ/ɴ, geminate doubled consonant, long vowel ː incl. おう/えい), no pitch marks',
     extra: ', "kana": reading in hiragana (katakana for katakana words), "romaji": kana-faithful romaji as typed in an IME (おう = ou, ー doubles the vowel, ん before a vowel/y = n\'), "pitch": Tokyo pitch-accent downstep mora as in the NHK dictionary (0 = heiban), "jlpt": 5|4|3|2|1, "vclass": "ichidan"|"godan"|"irregular" ONLY for verbs, "aclass": "i"|"na" ONLY for adjectives; NO gender, NO plural',
     audit: 'reading (kana) wrong or not the common reading; pitch accent not the standard Tokyo (NHK) one; JLPT level clearly off; verb class or i/na class wrong; example is not natural standard Japanese, not in polite です/ます form, mixes plain and polite endings in the main clause, uses kanji beyond the learner level without need, or contains romaji/spaces',
