@@ -1167,7 +1167,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Why are you, not why you are!",
+        "hook_say": "Why are you late?",
         "wrong": "Why you are late?",
         "right": "Why are you late?",
         "strike": "you are",

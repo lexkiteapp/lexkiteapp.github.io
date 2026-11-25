@@ -2887,7 +2887,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "How to get or how do I?",
+        "hook_say": "Say how do I get!",
         "wrong": "How to get to the station?",
         "right": "How do I get to the station?",
         "strike": "How to get",
@@ -3287,7 +3287,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "In the bus or on the bus?",
+        "hook_say": "On the bus or in?",
         "wrong": "I am in the bus now.",
         "right": "I am on the bus now.",
         "strike": "in",

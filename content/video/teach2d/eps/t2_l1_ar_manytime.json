@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "How many time? Say how much time!",
+   "text": "Say how much time!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "ar",
  "est": {
-  "words": 54,
-  "seconds": 32.0,
-  "wpm": 101
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
  },
  "publish": {
   "title": "هل تقول “How many time”؟",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 48,
+  "script_words": 45,
   "platforms": {
    "youtube": {
     "title": "هل تقول “How many time”؟",

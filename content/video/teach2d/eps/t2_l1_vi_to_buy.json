@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Why do you go to the market?",
+   "text": "Why go to the market?",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "vi",
  "est": {
-  "words": 56,
-  "seconds": 33.0,
-  "wpm": 102
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
  },
  "publish": {
   "title": "“Để mua” ≠ “for buy”",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 50,
+  "script_words": 48,
   "platforms": {
    "youtube": {
     "title": "“Để mua” ≠ “for buy”",

@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Do not have to, not must not!",
+   "text": "Don't have to, not must not!",
    "pause": 0.42
   },
   {
@@ -98,8 +98,8 @@
  },
  "lang": "de",
  "est": {
-  "words": 60,
-  "seconds": 35.0,
+  "words": 59,
+  "seconds": 34.5,
   "wpm": 103
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 54,
+  "script_words": 53,
   "platforms": {
    "youtube": {
     "title": "„Nicht müssen“ ≠ „must not“!",

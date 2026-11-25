@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Not listen music. Say listen to music!",
+   "text": "Listen to music!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "vi",
  "est": {
-  "words": 49,
-  "seconds": 29.6,
-  "wpm": 99
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "“Nghe nhạc” mà thiếu “to”?",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 43,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "“Nghe nhạc” mà thiếu “to”?",

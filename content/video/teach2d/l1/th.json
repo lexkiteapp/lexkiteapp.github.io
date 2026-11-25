@@ -207,7 +207,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Say a or an before a job!",
+        "hook_say": "A or an before jobs!",
         "wrong": "She is teacher.",
         "right": "She is a teacher.",
         "strike": "teacher",
@@ -1567,7 +1567,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Do you like, not are you like!",
+        "hook_say": "Say do you like!",
         "wrong": "Are you like spicy food?",
         "right": "Do you like spicy food?",
         "strike": "Are",
@@ -1607,7 +1607,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "I don't have, not I not have!",
+        "hook_say": "Say I don't have!",
         "wrong": "I not have money.",
         "right": "I don't have money.",
         "strike": "not",
@@ -1927,7 +1927,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "Take the bus, not sit the bus!",
+        "hook_say": "Take the bus, not sit!",
         "wrong": "I sit the bus to work.",
         "right": "I take the bus to work.",
         "strike": "sit",
@@ -2327,7 +2327,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "My friend's book, not book of friend!",
+        "hook_say": "Say my friend's book!",
         "wrong": "This is book of my friend.",
         "right": "This is my friend's book.",
         "strike": "book of my friend",
@@ -2407,7 +2407,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "Say have been, not have ever been!",
+        "hook_say": "Say have been, not ever!",
         "wrong": "I have ever been to Japan.",
         "right": "I have been to Japan.",
         "strike": "ever",

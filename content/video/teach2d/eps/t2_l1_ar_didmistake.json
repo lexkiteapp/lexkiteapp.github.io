@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Did a mistake? Say made a mistake!",
+   "text": "Say made a mistake!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "ar",
  "est": {
-  "words": 44,
-  "seconds": 27.1,
-  "wpm": 97
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
  },
  "publish": {
   "title": "هل تقول “did a mistake”؟",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 38,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "هل تقول “did a mistake”؟",

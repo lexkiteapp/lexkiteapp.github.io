@@ -2047,7 +2047,7 @@
    "teacher": "ama",
    "theme": "dusk",
    "in": {
-    "hook_say": "Do not have to, not must not!",
+    "hook_say": "Don't have to, not must not!",
     "wrong": "You must not bring a gift.",
     "right": "You do not have to bring a gift.",
     "strike": "must not",
@@ -2887,7 +2887,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "I have lived here for two years!",
+    "hook_say": "For two years, not since!",
     "wrong": "I have lived here since two years.",
     "right": "I have lived here for two years.",
     "strike": "since",
@@ -3767,7 +3767,7 @@
    "teacher": "carlos",
    "theme": "dusk",
    "in": {
-    "hook_say": "I have an appointment with my dentist.",
+    "hook_say": "An appointment, not a date!",
     "wrong": "I have a date with my dentist.",
     "right": "I have an appointment with my dentist.",
     "strike": "a date",

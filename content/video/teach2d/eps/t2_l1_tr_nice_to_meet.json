@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Nice to meet you, not meet with!",
+   "text": "Nice to meet you!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "tr",
  "est": {
-  "words": 46,
-  "seconds": 28.1,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
  },
  "publish": {
   "title": "“Meet with” değil, “meet you”!",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 40,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "“Meet with” değil, “meet you”!",

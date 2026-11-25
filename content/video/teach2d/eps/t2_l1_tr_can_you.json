@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Can you swim? Not do you can!",
+   "text": "Say can you swim!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "tr",
  "est": {
-  "words": 43,
-  "seconds": 26.6,
-  "wpm": 97
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
  },
  "publish": {
   "title": "“Do you can” değil, “can you”!",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 37,
+  "script_words": 34,
   "platforms": {
    "youtube": {
     "title": "“Do you can” değil, “can you”!",

@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Used to waking, not used to wake!",
+   "text": "Used to waking, not wake!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "es",
  "est": {
-  "words": 55,
-  "seconds": 32.5,
-  "wpm": 102
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
  },
  "publish": {
   "title": "¿“Used to wake”? ¡Cuidado!",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 49,
+  "script_words": 47,
   "platforms": {
    "youtube": {
     "title": "¿“Used to wake”? ¡Cuidado!",

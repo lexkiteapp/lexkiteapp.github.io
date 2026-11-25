@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Why are you, not why you are!",
+   "text": "Why are you late?",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "zh",
  "est": {
-  "words": 48,
-  "seconds": 29.1,
-  "wpm": 99
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "疑问句里，are 要放在 you 前面！",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 42,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "疑问句里，are 要放在 you 前面！",

@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Age? Say I am, not I have!",
+   "text": "Say I am 25!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "fr",
  "est": {
-  "words": 52,
-  "seconds": 31.0,
-  "wpm": 101
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
  },
  "publish": {
   "title": "« J’ai 25 ans » = “I am 25”",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 46,
+  "script_words": 43,
   "platforms": {
    "youtube": {
     "title": "« J’ai 25 ans » = “I am 25”",

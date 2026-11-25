@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Not “I am agree.” Say “I agree!”",
+   "text": "Say I agree!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "es",
  "est": {
-  "words": 50,
-  "seconds": 30.0,
-  "wpm": 100
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
  },
  "publish": {
   "title": "“Estoy de acuerdo” = “I agree”",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 44,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "“Estoy de acuerdo” = “I agree”",

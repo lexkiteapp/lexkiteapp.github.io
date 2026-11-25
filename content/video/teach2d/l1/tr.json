@@ -887,7 +887,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "I come from, not I am coming!",
+        "hook_say": "I come from, not coming!",
         "wrong": "I am coming from Izmir.",
         "right": "I come from Izmir.",
         "strike": "am coming",
@@ -1487,7 +1487,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Say it is raining, not is raining!",
+        "hook_say": "Say it is raining!",
         "wrong": "Is raining today.",
         "right": "It is raining today.",
         "strike": "Is raining",
@@ -2007,7 +2007,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "On May 5, not in May 5!",
+        "hook_say": "On May 5, not in!",
         "wrong": "My birthday is in May 5.",
         "right": "My birthday is on May 5.",
         "strike": "in",
@@ -2087,7 +2087,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "Can you swim? Not do you can!",
+        "hook_say": "Say can you swim!",
         "wrong": "Do you can swim?",
         "right": "Can you swim?",
         "strike": "Do you can",
@@ -2247,7 +2247,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "Yes, I do, not yes, I have!",
+        "hook_say": "Yes, I do, not have!",
         "wrong": "Do you have a pen? Yes, I have.",
         "right": "Do you have a pen? Yes, I do.",
         "strike": "I have",
@@ -2487,7 +2487,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "A glass of water, not glass water!",
+        "hook_say": "A glass of water!",
         "wrong": "Can I have a glass water?",
         "right": "Can I have a glass of water?",
         "strike": "glass water",
@@ -2567,7 +2567,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Nice to meet you, not meet with!",
+        "hook_say": "Nice to meet you!",
         "wrong": "Nice to meet with you.",
         "right": "Nice to meet you.",
         "strike": "with",
@@ -2607,7 +2607,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "Where the bank is, not where is!",
+        "hook_say": "Where the bank is!",
         "wrong": "Can you tell me where is the bank?",
         "right": "Can you tell me where the bank is?",
         "strike": "where is the bank",

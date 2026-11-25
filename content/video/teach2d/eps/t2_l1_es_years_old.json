@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "I have 30 years? I am 30!",
+   "text": "Say I am thirty!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "es",
  "est": {
-  "words": 47,
-  "seconds": 28.6,
-  "wpm": 99
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
  },
  "publish": {
   "title": "¿“I have 30 years”? Es “I am”",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 41,
+  "script_words": 38,
   "platforms": {
    "youtube": {
     "title": "¿“I have 30 years”? Es “I am”",

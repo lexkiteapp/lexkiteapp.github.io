@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "How to get or how do I?",
+   "text": "Say how do I get!",
    "pause": 0.42
   },
   {
@@ -98,8 +98,8 @@
  },
  "lang": "ru",
  "est": {
-  "words": 54,
-  "seconds": 32.0,
+  "words": 52,
+  "seconds": 31.0,
   "wpm": 101
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 48,
+  "script_words": 46,
   "platforms": {
    "youtube": {
     "title": "«Как пройти?» — не “How to get”",

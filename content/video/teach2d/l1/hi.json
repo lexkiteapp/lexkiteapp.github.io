@@ -1570,7 +1570,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Say I have, not I am having!",
+        "hook_say": "I have, not I'm having!",
         "wrong": "I am having two brothers.",
         "right": "I have two brothers.",
         "strike": "am having",

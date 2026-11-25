@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Where you are? Say where are you!",
+   "text": "Say where are you!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "ar",
  "est": {
-  "words": 45,
-  "seconds": 27.6,
-  "wpm": 98
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
  },
  "publish": {
   "title": "هل تقول “Where you are”؟",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 39,
+  "script_words": 36,
   "platforms": {
    "youtube": {
     "title": "هل تقول “Where you are”؟",

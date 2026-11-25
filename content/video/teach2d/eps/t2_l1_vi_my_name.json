@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "My name Anna? Add one little word!",
+   "text": "My name is Anna!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "vi",
  "est": {
-  "words": 45,
-  "seconds": 27.6,
-  "wpm": 98
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
  },
  "publish": {
   "title": "Giới thiệu tên mà thiếu “is”?",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 39,
+  "script_words": 36,
   "platforms": {
    "youtube": {
     "title": "Giới thiệu tên mà thiếu “is”?",

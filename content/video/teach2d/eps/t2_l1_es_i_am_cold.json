@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "I am cold, not I have cold!",
+   "text": "Say I am cold!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "es",
  "est": {
-  "words": 41,
-  "seconds": 25.6,
-  "wpm": 96
+  "words": 38,
+  "seconds": 24.2,
+  "wpm": 94
  },
  "publish": {
   "title": "¿“I have cold”? ¡Error común!",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 35,
+  "script_words": 32,
   "platforms": {
    "youtube": {
     "title": "¿“I have cold”? ¡Error común!",

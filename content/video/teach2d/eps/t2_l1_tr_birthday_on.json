@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "On May 5, not in May 5!",
+   "text": "On May 5, not in!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "tr",
  "est": {
-  "words": 51,
-  "seconds": 30.5,
-  "wpm": 100
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
  },
  "publish": {
   "title": "Belli gün için “on” kullan!",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 45,
+  "script_words": 43,
   "platforms": {
    "youtube": {
     "title": "Belli gün için “on” kullan!",

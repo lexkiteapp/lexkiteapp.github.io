@@ -1728,7 +1728,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Did a mistake? Say made a mistake!",
+        "hook_say": "Say made a mistake!",
         "wrong": "I did a mistake.",
         "right": "I made a mistake.",
         "strike": "did",
@@ -1808,7 +1808,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Look to me? Say look at me!",
+        "hook_say": "Say look at me!",
         "wrong": "Look to me, please.",
         "right": "Look at me, please.",
         "strike": "to",
@@ -2128,7 +2128,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Car of my father? Say father's car!",
+        "hook_say": "Say father's car!",
         "wrong": "This is the car of my father.",
         "right": "This is my father's car.",
         "strike": "the car of my father",
@@ -2288,7 +2288,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Where you are? Say where are you!",
+        "hook_say": "Say where are you!",
         "wrong": "Where you are going?",
         "right": "Where are you going?",
         "strike": "you are",
@@ -2408,7 +2408,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "How many time? Say how much time!",
+        "hook_say": "Say how much time!",
         "wrong": "How many time do you need?",
         "right": "How much time do you need?",
         "strike": "many",
@@ -2488,7 +2488,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Say I want, not I am wanting!",
+        "hook_say": "I want, not I'm wanting!",
         "wrong": "I am wanting a coffee.",
         "right": "I want a coffee.",
         "strike": "am wanting",

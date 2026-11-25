@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "My friend's book, not book of friend!",
+   "text": "Say my friend's book!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "th",
  "est": {
-  "words": 51,
-  "seconds": 30.5,
-  "wpm": 100
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
  },
  "publish": {
   "title": "บอกเจ้าของ ใช้ 's!",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 45,
+  "script_words": 42,
   "platforms": {
    "youtube": {
     "title": "บอกเจ้าของ ใช้ 's!",

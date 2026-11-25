@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Go to home? Just say go home!",
+   "text": "Just say go home!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "es",
  "est": {
-  "words": 47,
-  "seconds": 28.6,
-  "wpm": 99
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
  },
  "publish": {
   "title": "¿“Go to home”? Di “go home”",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 41,
+  "script_words": 38,
   "platforms": {
    "youtube": {
     "title": "¿“Go to home”? Di “go home”",

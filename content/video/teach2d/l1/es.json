@@ -1167,7 +1167,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Go to home? Just say go home!",
+        "hook_say": "Just say go home!",
         "wrong": "I go to home at six.",
         "right": "I go home at six.",
         "strike": "to",
@@ -1447,7 +1447,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "I have 30 years? I am 30!",
+        "hook_say": "Say I am thirty!",
         "wrong": "I have thirty years.",
         "right": "I am thirty years old.",
         "strike": "have",
@@ -2527,7 +2527,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Not “I am agree.” Say “I agree!”",
+        "hook_say": "Say I agree!",
         "wrong": "I am agree with you.",
         "right": "I agree with you.",
         "strike": "am",
@@ -2687,7 +2687,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Used to waking, not used to wake!",
+        "hook_say": "Used to waking, not wake!",
         "wrong": "I am used to wake up early.",
         "right": "I am used to waking up early.",
         "strike": "wake",
@@ -2887,7 +2887,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "I am cold, not I have cold!",
+        "hook_say": "Say I am cold!",
         "wrong": "I have cold.",
         "right": "I am cold.",
         "strike": "have",
@@ -3167,7 +3167,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "On the bus, not in the bus!",
+        "hook_say": "On the bus, not in!",
         "wrong": "I am in the bus now.",
         "right": "I am on the bus now.",
         "strike": "in",

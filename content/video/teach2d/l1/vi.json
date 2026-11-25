@@ -487,7 +487,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Not listen music. Say listen to music!",
+        "hook_say": "Listen to music!",
         "wrong": "I listen music every day.",
         "right": "I listen to music every day.",
         "strike": "listen",
@@ -687,7 +687,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Not explain me. Explain it to me!",
+        "hook_say": "Explain it to me!",
         "wrong": "Can you explain me this word?",
         "right": "Can you explain this word to me?",
         "strike": "explain me",
@@ -887,7 +887,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "My name Anna? Add one little word!",
+        "hook_say": "My name is Anna!",
         "wrong": "My name Anna.",
         "right": "My name is Anna.",
         "strike": "name",
@@ -2247,7 +2247,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Why do you go to the market?",
+        "hook_say": "Why go to the market?",
         "wrong": "I went to the market for buy fruit.",
         "right": "I went to the market to buy fruit.",
         "strike": "for buy",
@@ -2728,7 +2728,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Is it good in or good at?",
+        "hook_say": "Good at or good in?",
         "wrong": "He is good in English.",
         "right": "He is good at English.",
         "strike": "in",
@@ -2970,7 +2970,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "Is it with bus or by bus?",
+        "hook_say": "With bus or by bus?",
         "wrong": "I go to work with bus.",
         "right": "I go to work by bus.",
         "strike": "with",

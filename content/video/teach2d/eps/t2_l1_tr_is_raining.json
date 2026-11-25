@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Say it is raining, not is raining!",
+   "text": "Say it is raining!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "tr",
  "est": {
-  "words": 43,
-  "seconds": 26.6,
-  "wpm": 97
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
  },
  "publish": {
   "title": "“It” demeyi unutma!",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 37,
+  "script_words": 34,
   "platforms": {
    "youtube": {
     "title": "“It” demeyi unutma!",

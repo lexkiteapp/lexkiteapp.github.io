@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Is it with bus or by bus?",
+   "text": "With bus or by bus?",
    "pause": 0.42
   },
   {
@@ -99,8 +99,8 @@
  },
  "lang": "vi",
  "est": {
-  "words": 49,
-  "seconds": 29.6,
+  "words": 47,
+  "seconds": 28.6,
   "wpm": 99
  },
  "publish": {
@@ -115,7 +115,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 43,
+  "script_words": 41,
   "platforms": {
    "youtube": {
     "title": "Đi “bằng” xe buýt nói sao?",

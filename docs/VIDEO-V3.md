@@ -12,7 +12,7 @@ Video ĐẦU TIÊN của mỗi cặp khuôn × ngôn ngữ trang, sau đó cứ 
 ## Schema kịch bản (một episode JSON, `content/video/teach2d/eps/*.json`, do `gen.py` sinh)
 `template`, `teacher`, `voice`, `hook {line,text}` (≤ 6 từ, nói xong ≤ 2,2 s), `lines[]` = 3–5 nhịp dạy + ví dụ (`id`, `text`, `pause`) + dòng `c` cuối (CTA, "… lexkite.com"), `cta {area,route,link}`, `data` (nội dung khuôn), tuỳ chọn `exprs`/`expr`/`pose`/`native` (L1). Tổng ≤ 150 từ/phút (cổng `pace`).
 
-Schema máy kiểm: `scripts/video/teach2d/script_schema.py` (test `teach2d-script-schema.py` chạy trên cả 3764 tập; 15 ngôn ngữ trang en/ar/de/es/fr/hi/id/ja/ko/pt/ru/th/tr/vi/zh, bản địa hoá qua `content/video/teach2d/l1/<lang>.json` + native-qa). 3–5 "nhịp" = thẻ trên màn; số câu dạy giữa hook và CTA là 3–8 tuỳ khuôn. Nợ đã biết: 42 hàng l1 có hook nói >6 từ (`schema-known.json`) – không qua được cổng hook nên không lên bank; sửa hàng nguồn rồi xoá khỏi danh sách.
+Schema máy kiểm: `scripts/video/teach2d/script_schema.py` (test `teach2d-script-schema.py` chạy trên cả 3764 tập; 15 ngôn ngữ trang en/ar/de/es/fr/hi/id/ja/ko/pt/ru/th/tr/vi/zh, bản địa hoá qua `content/video/teach2d/l1/<lang>.json` + native-qa). 3–5 "nhịp" = thẻ trên màn; số câu dạy giữa hook và CTA là 3–8 tuỳ khuôn. 42 hàng l1 từng có hook nói >6 từ đã viết lại ≤ 6 từ (25/11); `schema-known.json` rỗng.
 
 ## Thành phần v3
 - **Beat → look** (`rig_plan.mjs` `schedule`): mỗi nhịp một nét mặt/tư thế khác nhịp trước (`BEAT_EMO` xoay vòng, không lặp liền kề) + gật/lắc đầu nhấn ở giữa câu (`nod`/`bob`, thủ tục cổ nên không che miệng); ảnh tư thế (tay) vẫn chỉ trong im lặng ≥ 1,2 s.

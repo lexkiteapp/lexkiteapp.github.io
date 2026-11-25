@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Not explain me. Explain it to me!",
+   "text": "Explain it to me!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "vi",
  "est": {
-  "words": 52,
-  "seconds": 31.0,
-  "wpm": 101
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
  },
  "publish": {
   "title": "Đừng nói “explain me” nhé!",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 46,
+  "script_words": 43,
   "platforms": {
    "youtube": {
     "title": "Đừng nói “explain me” nhé!",

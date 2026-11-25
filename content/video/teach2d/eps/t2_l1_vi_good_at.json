@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Is it good in or good at?",
+   "text": "Good at or good in?",
    "pause": 0.42
   },
   {
@@ -99,9 +99,9 @@
  },
  "lang": "vi",
  "est": {
-  "words": 47,
-  "seconds": 28.6,
-  "wpm": 99
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "“Giỏi” đi với từ nhỏ nào?",
@@ -115,7 +115,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 41,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "“Giỏi” đi với từ nhỏ nào?",

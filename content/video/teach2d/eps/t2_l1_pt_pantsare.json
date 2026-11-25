@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Is it pants is or pants are?",
+   "text": "Pants is or pants are?",
    "pause": 0.42
   },
   {
@@ -98,8 +98,8 @@
  },
  "lang": "pt",
  "est": {
-  "words": 49,
-  "seconds": 29.6,
+  "words": 47,
+  "seconds": 28.6,
   "wpm": 99
  },
  "publish": {
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 43,
+  "script_words": 41,
   "platforms": {
    "youtube": {
     "title": "Você diz “is my pants”?",

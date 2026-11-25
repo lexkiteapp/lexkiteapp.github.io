@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Say I want, not I am wanting!",
+   "text": "I want, not I'm wanting!",
    "pause": 0.42
   },
   {
@@ -98,9 +98,9 @@
  },
  "lang": "ar",
  "est": {
-  "words": 47,
-  "seconds": 28.6,
-  "wpm": 99
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
  },
  "publish": {
   "title": "هل تقول “I am wanting”؟",
@@ -113,7 +113,7 @@
    "#lexkite"
   ],
   "link": "https://lexkite.com/app/#/fix",
-  "script_words": 41,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "هل تقول “I am wanting”؟",

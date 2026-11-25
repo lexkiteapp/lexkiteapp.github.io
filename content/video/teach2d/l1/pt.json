@@ -1007,7 +1007,7 @@
       "teacher": "carlos",
       "theme": "dusk",
       "in": {
-        "hook_say": "On the bus, not in the bus!",
+        "hook_say": "On the bus, not in!",
         "wrong": "I am in the bus now.",
         "right": "I am on the bus now.",
         "strike": "in the bus",
@@ -1838,7 +1838,7 @@
       "teacher": "ama",
       "theme": "dusk",
       "in": {
-        "hook_say": "Is it pants is or pants are?",
+        "hook_say": "Pants is or pants are?",
         "wrong": "Where is my pants?",
         "right": "Where are my pants?",
         "strike": "is my pants",
