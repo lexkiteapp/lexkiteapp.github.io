@@ -6,7 +6,7 @@
 import fs from 'fs';
 import { normUK } from './lexicon/ipa.mjs'; // IPA Anh chuẩn của app: bỏ (r) tùy chọn, đúng quy ước build-lexicon
 import { has as hasForm } from './lib/irregular.mjs';
-import { lexFiles } from './lib/lex-files.mjs';
+import { lexFiles, lexPath } from './lib/lex-files.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 const ID = process.argv[2], mi = process.argv.indexOf('--max'), MAX = mi > 0 ? +process.argv[mi + 1] : 400;
 const LISTS = {
@@ -134,6 +134,6 @@ for (let i = 0; i < good.length; i += 100) {
   js += `  add('${ID}${i / 100 + 1}', '${ID.toUpperCase()} ${i + 1}–${i + part.length}', '${L.emoji}', ${q(L.desc)}, [\n${part.map(r => '    [' + r.map(q).join(', ') + '],').join('\n')}\n  ], '${ID}');\n`;
 }
 js += '})(typeof self !== \'undefined\' ? self : this);\n';
-fs.writeFileSync(new URL(`web/js/lib/${ID}.js`, R), js);
+fs.writeFileSync(new URL(lexPath(`${ID}.js`), R), js); // chỗ thật của kho (web/cpack/lib nếu đã dời) – 25/11: ghi cứng web/js/lib làm bsl/nawl nhân đôi, người học +220 KB, main đỏ size-budget
 console.log(`✓ ${ID}: ${good.length} từ đạt chuẩn · ${bad.length} bị loại · còn ${LIST.filter(x => !cache[x.word.toLowerCase()]).length} chờ xử lý`);
 if (bad.length) console.log('  loại (ví dụ): ' + bad.slice(0, 8).join('; '));

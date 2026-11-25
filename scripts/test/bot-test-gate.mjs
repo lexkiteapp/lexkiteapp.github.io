@@ -27,6 +27,8 @@ for (const r of JSON.parse(fs.readFileSync(path.join(ROOT, MAP), 'utf8')).rules)
   const t = pickTests(['i18n/ui/de/report.js', 'web/js/i18n/de/report.js', 'functions/api/_report-i18n.js', 'web/i18n/backcheck.json'], real);
   assert.ok(t.includes('node scripts/i18n-qa.mjs --strict') && t.includes('node scripts/test/report.mjs'), 'ca c1ce1f2bc2: i18n-qa --strict + report.mjs');
   assert.ok(pickTests(['web/i18n/content/ar.json'], real).includes('node scripts/i18n-qa.mjs --strict'), 'web/i18n/** cũng được gác'); }
+{ const real = JSON.parse(fs.readFileSync(path.join(ROOT, MAP), 'utf8')).rules;   // 25/11: bot wordlists ghi bsl/nawl vào web/js/lib (đã dời cpack) → +220 KB người học, main đỏ size-budget không ai chặn
+  assert.ok(pickTests(['web/js/lib/nawl.js'], real).includes('node scripts/test/size-budget.mjs') && pickTests(['web/cpack/lib/bsl.js', 'web/packs/ko.json'], real).includes('node scripts/test/size-budget.mjs'), 'tệp web/js, web/cpack, web/packs đổi → size-budget trước khi bot đẩy'); }
 // 3) workflow [skip ci] phải qua máy gác
 assert.equal(ungated('run: git commit -m "x [skip ci]" && git push').length, 1, 'commit [skip ci] trần → vi phạm');
 assert.equal(ungated('run: git commit -m "x [skip ci]" && node scripts/ci/bot-test-gate.mjs --base HEAD~1 && git push').length, 0);

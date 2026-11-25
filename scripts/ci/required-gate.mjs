@@ -272,7 +272,9 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     // Mọi bất định (không phải PR cùng repo, lỗi API, dispatch lỗi, kết quả đỏ/lỗi thời) → {} = đòi gộp main như cũ; không bao giờ mở cổng khi chưa có kết quả ĐẠT cho đúng sha main hiện tại.
     retest: async (sha, drift) => {
       const suite = await call('/contents/scripts/test/suite.txt?ref=main'); if (!suite || suite.encoding !== 'base64') return {};
-      const plan = retestPlan(drift, Buffer.from(suite.content, 'base64').toString('utf8')); if (!plan.ok) return {};
+      let prFiles = null;
+      if (drift.includes(SUITE)) { const c = await call(`/compare/main...${sha}?per_page=100`); if (c && !(c.files && c.files.length >= 100)) prFiles = (c.files || []).map(x => x.filename); }   // suite.txt trong drift: cần biết PR đụng test nào
+      const plan = retestPlan(drift, Buffer.from(suite.content, 'base64').toString('utf8'), prFiles); if (!plan.ok) return {};
       const prs = await call(`/commits/${sha}/pulls`); if (!(prs || []).some(p => p.head && p.head.sha === sha && p.head.repo && p.head.repo.full_name === repo)) return {};   // chỉ PR cùng repo
       const main = (await call('/branches/main')).commit.sha, st = ((await call(`/commits/${sha}/status?per_page=100`)).statuses || []).find(x => x.context === RETEST_CONTEXT), v = retestVerdict(st, main);
       if (v === 'clear') return { clear: true };
@@ -293,7 +295,10 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     dispatchRuns: async () => (await call(`/actions/workflows/${path.basename(SELF_PATH)}/runs?event=workflow_dispatch&per_page=5`)).workflow_runs || [],
     lastRun: async file => ((await call(`/actions/workflows/${file}/runs?per_page=1`)).workflow_runs || [])[0] || null,
     dispatchFile: async (file, ref) => call(`/actions/workflows/${file}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
-    dispatchSelf: async ref => call(`/actions/workflows/${path.basename(SELF_PATH)}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
+    dispatchSelf: async (ref, slot) => call(`/actions/workflows/${path.basename(SELF_PATH)}/dispatches`, { method: 'POST', body: JSON.stringify({ ref, ...(slot ? { inputs: { slot } } : {}) }) }),
+    // bộ canh khác đang chạy/xếp hàng (tên lượt `required-gate watch …`, không phải lượt theo PR, không phải chính mình; lượt cron cũng tính là bộ canh sống)
+    otherWatchers: async self => (await Promise.all(['in_progress', 'queued'].map(async st => (await call(`/actions/workflows/${path.basename(SELF_PATH)}/runs?status=${st}&per_page=20`)).workflow_runs || []))).flat()
+      .filter(r => /^required-gate watch/.test(r.display_title || r.name || '') && String(r.id) !== String(self)),
     // thăm dò nhẹ cho sha đang pending: 1 trang check-runs (ETag → 304 không trừ hạn mức)
     probe: async sha => probeOf((await call(`/commits/${sha}/check-runs?filter=latest&per_page=100`)).check_runs || []),
     gateState: async sha => ((await call(`/commits/${sha}/status?per_page=100`)).statuses || []).find(s => s.context === CONTEXT),
@@ -370,12 +375,16 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
       log(`lịch cron: ${r.bad.length ? r.bad.map(b => `${b.file} (${b.why})`).join('; ') : 'mọi workflow đúng hạn'}${r.issue ? ` · issue ${r.issue}` : ''}`);
     } catch (e) { log('::warning::cron-watch lỗi (bộ canh vẫn chạy): ' + e.message); }
     let first = true, chained = !env.GATE_CHAIN_REF || dry;
-    const CHAIN_BEFORE = 6 * 60e3;   // còn ≤ 6 phút: xếp sẵn lượt kế tiếp (concurrency giữ nó chờ tới khi lượt này xong) – không phụ thuộc cron
+    // 25/11: lượt canh dài (330 phút) + HAI Ô luân phiên (a/b, mỗi ô một nhóm concurrency): lượt kế tiếp được dispatch khi còn 45 phút và xếp hàng runner TRONG KHI lượt này còn chạy
+    // → hàng chờ 133 lượt (25/11 04:14Z–04:51Z) không còn làm gate hở 37 phút. Lượt ngắn (≤ 90 phút, test/dry) giữ cách cũ: nối ở 6 phút cuối cùng một ô.
+    const longWatch = Number(arg('--watch')) > 90, CHAIN_BEFORE = (longWatch ? 45 : 6) * 60e3, slot = env.GATE_SLOT === 'b' ? 'b' : 'a', nextSlot = longWatch ? (slot === 'a' ? 'b' : 'a') : undefined;
+    // lượt `schedule` (lưới 17,47) mà đã có bộ canh khác sống (chạy hoặc đang xếp hàng) → thoát ngay, không chạy bộ canh thứ hai song song
+    if (env.GATE_EVENT === 'schedule' && A.otherWatchers && !dry) { try { const o = await A.otherWatchers(env.GITHUB_RUN_ID); if (o.length) { log(`• đã có bộ canh khác sống (${o.map(r => r.id + ':' + r.status).join(', ')}) – lượt lịch thoát`); return out; } } catch (e) { log('::warning::kiểm bộ canh khác: ' + e.message); } }
     const paceAt = new Map(); let chainAt = 0, chainTries = 0;
     while (clock.now() < end) {
       if (chainAt && A.dispatchRuns && clock.now() - chainAt >= CHAIN_CHECK_MS) try {
         if (chainAlive(await A.dispatchRuns(), chainAt)) { chainAt = 0; log('↻ lượt canh kế tiếp đã sống'); }
-        else if (chainTries++ < CHAIN_RETRIES) { await A.dispatchSelf(env.GATE_CHAIN_REF); chainAt = clock.now(); log(`::warning::lượt nối kẹt queued → dispatch lại (${chainTries}/${CHAIN_RETRIES})`); }
+        else if (chainTries++ < CHAIN_RETRIES) { await A.dispatchSelf(env.GATE_CHAIN_REF, nextSlot); chainAt = clock.now(); log(`::warning::lượt nối kẹt queued → dispatch lại (${chainTries}/${CHAIN_RETRIES})`); }
         else { chainAt = 0; log('::error::lượt nối vẫn kẹt sau khi dispatch lại – chờ lịch 17,47 / cron-kick (15 phút)'); }
       } catch (e) { log('::warning::kiểm lượt nối: ' + e.message); }
       if (env.GATE_CHAIN_REF && !dry && A.dispatchFile) for (const [file, gap] of Object.entries(PACED)) {
@@ -383,7 +392,7 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
         paceAt.set(file, clock.now() + 60e3);
         try { if (paceDue(await A.lastRun(file), gap, clock.now())) { await A.dispatchFile(file, env.GATE_CHAIN_REF); log(`⏱ nhịp ${file}: đã dispatch`); paceAt.set(file, clock.now() + gap * 60e3); } } catch (e) { log(`::warning::nhịp ${file}: ${e.message}`); }
       }
-      if (!chained && end - clock.now() <= CHAIN_BEFORE) { chained = true; try { await A.dispatchSelf(env.GATE_CHAIN_REF); chainAt = clock.now(); log('↻ đã xếp lượt canh kế tiếp'); } catch (e) { log('::warning::không tự nối được (lịch 17,47 vẫn là lưới): ' + e.message); } }
+      if (!chained && end - clock.now() <= CHAIN_BEFORE) { chained = true; try { await A.dispatchSelf(env.GATE_CHAIN_REF, nextSlot); chainAt = clock.now(); log('↻ đã xếp lượt canh kế tiếp'); } catch (e) { log('::warning::không tự nối được (lịch 17,47 vẫn là lưới): ' + e.message); } }
       // 15/11 (#1355, #1376 kẹt pending phải dispatch tay): 1 lỗi API (502/429) ném ra khỏi vòng làm bộ canh chết tới lượt nối kế (15–30 phút) → vòng nào lỗi thì ghi cảnh báo, chờ rồi thử lại
       let t, prs, shas;
       try { t = clock.now(); prs = (await A.openPrs()).filter(p => Date.parse(p.updated_at) >= since()); shas = [...new Set(prs.map(p => p.head.sha))]; }
