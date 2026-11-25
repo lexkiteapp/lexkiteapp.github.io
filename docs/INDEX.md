@@ -175,6 +175,7 @@
 - [VIDEO-MOTION](VIDEO-MOTION.md) — Stitch overlay cards + Remotion motion keyed to the voice; read before touching scripts/video/motion or the stitch-short composition
 - [VIDEO-TEACH2D](VIDEO-TEACH2D.md) — 5 teaching templates (2D registry teacher + Kit cards, short + lesson embed), QC before/after render, topic plan; read before any teaching video work
 - [VIDEO-V3](VIDEO-V3.md) — v3 engine on Teach2D: schema, shared components, numeric gates (pose, end card, captions, empty space), sample-review flow; read before changing build.py / qc.py
+- [video-audit-2411](research/video-audit-2411.md) — 24/11 real-render audit of 18 Teach2D videos (10 top defects) + the "Sau v3" result; read before judging video quality
 - [VIDEO-SERIES.md](VIDEO-SERIES.md) — 6 series video đánh số + bộ lọc chủ đề máy làm tốt + chuẩn pipeline quy mô lớn: lý do save/share, kho 10 tập đầu mỗi series, luật series, nhịp giảng; đọc khi: lên nội dung video
 - [VIDEO.md](VIDEO.md) — Nguồn sự thật video hiện hành: chiến lược (NEWS-ANCHOR), look v5, builder scripts/cine/, CI cine-render, lưu trữ, kho footage; đọc khi: mọi việc video
 - [VISUAL-LEARNING-PLAN.md](VISUAL-LEARNING-PLAN.md) — Kế hoạch ảnh học ngoài thẻ từ vựng: các ứng viên theo giá trị/công sức, giai đoạn 1 (24/10), luật cho mọi giai đoạn; đọc khi: thêm ảnh minh họa mới
