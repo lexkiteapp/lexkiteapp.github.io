@@ -1,8 +1,8 @@
 # NỘP STORE TỰ ĐỘNG (luật chủ 05/11): thay đổi cần duyệt store do CI nộp – build, tăng version, ghi chú 15 ngôn ngữ, nộp qua
-# App Store Connect API / Google Play Developer API, phát hành theo phần trăm. Chủ chỉ bấm logo/icon, tiền, điều khoản pháp lý.
+# App Store Connect API / Google Play Developer API, phát hành 100 % (luật chủ 16/11). Chủ chỉ bấm logo/icon, tiền, điều khoản pháp lý.
 #   plan (CHỈ ĐỌC): version + build kế tiếp từ App Store Connect / Play + tag store-* (không bao giờ dùng lại), ghi chú phát hành
 #   → build + ký + tải (workflow tái dùng store-build-ios.yml / store-build-android.yml – chung với ios-testflight.yml, android.yml)
-#   → iOS: scripts/store/asc-submit.mjs submit (What's New mọi ngôn ngữ, khai mã hoá, phased release 7 ngày, reviewSubmission)
+#   → iOS: scripts/store/asc-submit.mjs submit (What's New mọi ngôn ngữ, khai mã hoá, phát hành 100 %, reviewSubmission)
 #   → Android: scripts/store/play-api.mjs submit (production 1 %; store-rollout.yml tăng 5 → 20 → 50 → 100 % khi vitals đạt)
 #   → tag store-ios-<ver> / store-android-<ver> + tóm tắt + 1 dòng trạng thái "STORE-SUBMIT …" (annotation của job report).
 # dry_run = true (mặc định): chỉ chạy plan + đọc thử đường nộp, KHÔNG build, KHÔNG ghi gì lên store.
@@ -107,7 +107,7 @@ jobs:
         with: { node-version: 22 }
       - uses: actions/download-artifact@v4
         with: { name: store-notes }
-      - name: App Store Connect – version, build, What's New, phased release, nộp duyệt
+      - name: App Store Connect – version, build, What's New, nộp duyệt
         env: { ASC_KEY_ID: '${{ secrets.ASC_KEY_ID }}', ASC_ISSUER_ID: '${{ secrets.ASC_ISSUER_ID }}', ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}' }
         run: node scripts/store/asc-submit.mjs submit --version "$VER" --build "$BUILD" --notes notes-ios.json --wait-min 75
       - name: Tag store-ios-${{ needs.plan.outputs.ios_version }}
@@ -115,7 +115,7 @@ jobs:
           git config user.name lexkite-bot; git config user.email lexkite-bot@users.noreply.github.com
           git tag -a "store-ios-$VER" -m "App Store $VER ($BUILD) – ${APP}, nộp duyệt bởi store-submit run $GITHUB_RUN_ID" "$GITHUB_SHA"
           git push origin "store-ios-$VER" || echo "::warning::Không đẩy được tag store-ios-$VER – lần sau ghi chú sẽ tính lại từ tag trước"
-          echo "✓ iOS $VER ($BUILD) đã nộp duyệt · phased release BẬT · tag store-ios-$VER" >> "$GITHUB_STEP_SUMMARY"
+          echo "✓ iOS $VER ($BUILD) đã nộp duyệt · phát hành 100 % · tag store-ios-$VER" >> "$GITHUB_STEP_SUMMARY"
 
   android-build:
     needs: plan

@@ -6,6 +6,7 @@ cd "$(dirname "$0")/.."
 node scripts/build-tokens.mjs           # brand/tokens.json → :root CSS, add-on, icon.svg (docs/BRAND-RULES.md)
 node scripts/test/native-visual.mjs --self-test --write-fixtures >/dev/null   # token đổi → ảnh mẫu QC native sinh lại (không thì npm test đỏ "fixture lỗi thời")
 node scripts/native/gen.mjs >/dev/null && node scripts/native/gen.mjs --check | tail -1   # chuỗi/token web đổi (vd sau merge main) → file sinh native dựng lại; trước đây chỉ CI bắt (#721)
+node scripts/test/no-conflict-markers.mjs | tail -2   # dấu xung đột gộp lọt vào commit (25/11: #1907 #1909 #1893) – đỏ trong vài giây thay vì sau ~100 job CI
 node scripts/test/workflow-yaml.mjs | tail -2   # workflow YAML lỗi → run push "failure" 0 job, PR không sinh run (làn nhanh npm test cũng chạy)
 node scripts/test/json-dupkeys.mjs | tail -1   # khoá JSON trùng sau khi gộp tay (bind Stitch…): JSON.parse lặng lẽ lấy khoá sau
 node scripts/ci/required-gate.mjs --check  # gate = bộ canh lịch, không quay lại workflow_run (docs/CI-RUNNERS.md)
@@ -30,6 +31,7 @@ node scripts/test/ci-triage.mjs
 node scripts/test/ci-policy.mjs          # mọi workflow: timeout + concurrency + phạm vi (2/11)
 node scripts/content-qa/gate.mjs     # thư mục content/ mới → content/qa/sources.json
 node scripts/jobs/gen.mjs --write >/dev/null && node scripts/jobs/gen.mjs && node scripts/test/jobs-check.mjs   # workflow có lịch → infra/jobs.json
+git checkout -q -- docs/JOBS.md functions/api/_jobs_reg.js 2>/dev/null || true   # 2 tệp này là bản sinh: CI dựng + bot gen-sync commit, PR không commit (gen-pr-clean)
 # Test liên quan file đã đổi (vài giây – bắt lỗi trước push thay vì chờ CI 30–40 phút). Worktree thiếu node_modules → mượn của checkout chính.
 [[ -d node_modules ]] || { M="$(git worktree list --porcelain | sed -n 's/^worktree //p' | head -1)"; [[ -d "$M/node_modules" ]] && ln -s "$M/node_modules" node_modules; }
 node scripts/test/run-suite.mjs --affected
