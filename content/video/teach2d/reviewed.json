@@ -73392,6 +73392,696 @@
     "e": "The movie? Meh.",
     "c": "lexkite.com"
    }
+  },
+  "t2a_prog_weather_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bcb12f71321f",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Um... I tink... de wedder is... rilly nice today.",
+    "k": "Thirty days later!",
+    "b": "I think the weather is really nice today.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_friends_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "de0a95bd36d6",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Tree of my frens... um... live in de nort.",
+    "k": "Thirty days later!",
+    "b": "Three of my friends live in the north.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_coffee_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6366ab6091f8",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Uh... I wood like a... cup of cofi... pleas.",
+    "k": "Thirty days later!",
+    "b": "I would like a cup of coffee, please.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_village_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "94fadaa6bd39",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Wery few... um... people wisit dis wilage.",
+    "k": "Thirty days later!",
+    "b": "Very few people visit this village.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_hospital_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "53eb0f0b7ad0",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "She wok at a... big hospito... near de liba.",
+    "k": "Thirty days later!",
+    "b": "She works at a big hospital near the river.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_love_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cf60475b949c",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "I rilly lob... um... lerning Inglis... eveli day.",
+    "k": "Thirty days later!",
+    "b": "I really love learning English every day.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_phone_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "10dfdf3184d2",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "My broder wan... a new fone... for his birday.",
+    "k": "Thirty days later!",
+    "b": "My brother wants a new phone for his birthday.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_station_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a3e4401523ff",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Can you elp me... fine de tren station?",
+    "k": "Thirty days later!",
+    "b": "Can you help me find the train station?",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_school_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fc67e1068235",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "I usualy wok to skool... wit my sista.",
+    "k": "Thirty days later!",
+    "b": "I usually walk to school with my sister.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_cold_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "236ae71c7a73",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "De wedder was col... so we stay at hom.",
+    "k": "Thirty days later!",
+    "b": "The weather was cold, so we stayed at home.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_slowly_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4cebcdbed4ea",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Pleas spik... slowli... becos I am lerning.",
+    "k": "Thirty days later!",
+    "b": "Please speak slowly because I am learning.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_pets_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2d116d780d14",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "I hab tu cat... and wan smol dog.",
+    "k": "Thirty days later!",
+    "b": "I have two cats and one small dog.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_weekend_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "16eb1379e8d3",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Las weeken... we wisit my grandmoder.",
+    "k": "Thirty days later!",
+    "b": "Last weekend we visited my grandmother.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_bus_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "21e5844375d1",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Wat tim... does de nex bos leb?",
+    "k": "Thirty days later!",
+    "b": "What time does the next bus leave?",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_sorry_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f59d507a4a75",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "I sorry... I din understan... de question.",
+    "k": "Thirty days later!",
+    "b": "I'm sorry, I didn't understand the question.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_grammar_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "63b288138641",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "He tinks Inglis grama... is dificul but usful.",
+    "k": "Thirty days later!",
+    "b": "He thinks English grammar is difficult but useful.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_email_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8d523e9e2ea4",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Cood you sen me... de adres... by imeil?",
+    "k": "Thirty days later!",
+    "b": "Could you send me the address by email?",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_food_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "aafaa923778f",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "My fevrit food is... fresh fish... wit lice.",
+    "k": "Thirty days later!",
+    "b": "My favorite food is fresh fish with rice.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_trip_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e02a02709a53",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "We planin a shot trip... to de mountin.",
+    "k": "Thirty days later!",
+    "b": "We are planning a short trip to the mountains.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_thanks_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1b8039e98a74",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Tank you... for you elp... dis morning.",
+    "k": "Thirty days later!",
+    "b": "Thank you for your help this morning.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_shopping_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "19bc4e1b3b15",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "I nid to bai... som bred... and wegtabols.",
+    "k": "Thirty days later!",
+    "b": "I need to buy some bread and vegetables.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_garden_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fbbcf8b97201",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "De childen... are plaing in de garden.",
+    "k": "Thirty days later!",
+    "b": "The children are playing in the garden.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_card_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8677c9114e06",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Can I pai... wit my cledit car?",
+    "k": "Thirty days later!",
+    "b": "Can I pay with my credit card?",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_repeat_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "89718fca75ba",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "She ask me... to ripit... de hol sentens.",
+    "k": "Thirty days later!",
+    "b": "She asked me to repeat the whole sentence.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_journey_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "da4638f8bfaa",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "It was a... lon jurni... but we aribed safli.",
+    "k": "Thirty days later!",
+    "b": "It was a long journey, but we arrived safely.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_morning_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c4b7a223ce4a",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "I wood lik to... practis spikin... eveli morning.",
+    "k": "Thirty days later!",
+    "b": "I would like to practice speaking every morning.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_teacher_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a01631ffbf6d",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Our teacha gab us... tree nyu wods... todai.",
+    "k": "Thirty days later!",
+    "b": "Our teacher gave us three new words today.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_confidence_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b823eb129d80",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "Afta tirty dais... I spik wit mo confidens.",
+    "k": "Thirty days later!",
+    "b": "After thirty days, I speak with more confidence.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_breakfast_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cb3e55ec5047",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "We hat brekfas... togeder at seben.",
+    "k": "Thirty days later!",
+    "b": "We had breakfast together at seven.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_prog_friday_1": {
+   "template": "progress",
+   "hook": "Day one. Day thirty.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --progress-eps gates v1 (progress.json row == the episode · every mark inside the day-30 sentence · day-1 text is the same sentence respelled (<= 12 words) · spoken day-30 words level <= B1 NGSL, the respelled day-1 words are the lesson · hook = \"Day one. Day thirty.\" · no duplicate sentence · short 18-27 s)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "26ca6b03672a",
+   "script": {
+    "h": "Day one. Day thirty.",
+    "a": "De restaran is wery bizi... eveli nai.",
+    "k": "Thirty days later!",
+    "b": "The restaurant is very busy every night.",
+    "w": "Same sentence. Just a little practice every day.",
+    "c": "Save this. Free on lexkite.com."
+   }
   }
  }
 }

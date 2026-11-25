@@ -23,15 +23,17 @@ const T0 = Date.now(), MAX_MS = (+process.env.GEN_MAX_MIN || 100) * 60e3; // job
 const OUT = path.join(ROOT, 'content/target', TL), outFile = nextCoreFile(TL, SK), repFile = outFile.replace(/\.json$/, '.report.json');
 const LT = G.lt && process.env.LT_URL; if (G.lt && !DRY && !LT) { console.error('✗ thiếu LT_URL – cổng LanguageTool bắt buộc cho ' + TL); process.exit(2); }
 const ltErrors = text => ltErr(LT, G.lt, text); // LanguageTool: mọi lỗi = loại (lib.mjs)
+const R = TL_RULES[TL] || {}; // R.derive(mục, gợi ý nguồn): trường SINH từ trường gốc (ja: romaji/IPA từ kana, cách đọc + cấp JLPT theo danh sách nguồn) – trước cổng
 
 // ---------- 1) ứng viên theo tần suất ----------
-const txt = await (await fetch(SOURCE.url)).text();
+// bảng có cands(): nguồn ứng viên riêng (ja: danh sách JLPT N5→N1 có cách đọc + cấp → gợi ý hint cho người soạn); không có = danh sách tần suất FrequencyWords
+const fromList = G.cands ? await G.cands() : (await (await fetch(SOURCE.url)).text()).split('\n').map((l, i) => ({ form: l.split(' ')[0], rank: i + 1 }));
 const seed = new Set(readJSON(seedPath(TL)).words.map(w => w.word.toLowerCase()));
 const prev = coreFiles(TL).flatMap(f => readJSON(f).words); // lô trước: chỉ để chống trùng, KHÔNG ghi lại
 const have = new Set([...seed, ...prev.map(w => w.word.toLowerCase())]);
 // dạng đã từng bị loại/đã quy về lemma có trong report các lô trước → không gửi lại (tiết kiệm hạn mức ai-pool)
 const tried = new Set(coreFiles(TL).flatMap(f => { const rf = f.replace(/\.json$/, '.report.json'); return fs.existsSync(rf) ? (readJSON(rf).tried || []) : []; }));
-const cand = txt.split('\n').map((l, i) => ({ form: l.split(' ')[0], rank: i + 1 })).filter(x => /^\p{L}+$/u.test(x.form || '') && (x.form.length > 1 || G.one.test(x.form)) && !have.has(x.form.toLowerCase()) && !tried.has(x.form.toLowerCase())).filter((x, i) => i % SN === SK);
+const cand = fromList.filter(x => /^\p{L}+$/u.test(x.form || '') && (x.form.length > 1 || G.one.test(x.form)) && !have.has(x.form.toLowerCase()) && !tried.has(x.form.toLowerCase())).filter((x, i) => i % SN === SK);
 console.log(`ứng viên ${cand.length} (đã có ${have.size}) – nguồn ${SOURCE.name}`);
 if (DRY) { console.log(cand.slice(0, 40).map(x => x.rank + ':' + x.form).join(' ')); process.exit(cand.length ? 0 : 1); }
 
@@ -40,9 +42,9 @@ if (DRY) { console.log(cand.slice(0, 40).map(x => x.rank + ':' + x.form).join(' 
 // trang chỉ có tên riêng → bỏ. Không có trang → vẫn gửi AI (AI tự quy lemma, cổng trùng lemma giữ nguyên). Ngưỡng/cổng phía sau KHÔNG đổi.
 const lemmaQ = [], qSeen = new Set(); let ci = 0, skipped = { dup: 0, name: 0 };
 // bảng có strip (ko: tiểu từ dính sau danh từ) → bóc khi gốc cũng là dạng đứng riêng trong 50k dạng đầu (우리가 → 우리; 고양이 giữ nguyên vì 고양 không đứng riêng)
-const TOP = G.strip ? new Set(txt.split('\n').slice(0, 50000).map(l => l.split(' ')[0])) : null;
+const TOP = G.strip ? new Set(fromList.slice(0, 50000).map(x => x.form)) : null;
 const stripOf = (form, top = TOP) => { if (!G.strip) return form; const b = form.replace(G.strip, ''); return b && b !== form && top.has(b) ? b : form; };
-const lemmaOf = async form => { const f = stripOf(form); return lemmaFromEntries(f, G.kaikki ? await kaikki(G.kaikki, f) : []); };
+const lemmaOf = async form => { const f = stripOf(form); return G.lemma === false ? { lemmas: [f] } : lemmaFromEntries(f, G.kaikki ? await kaikki(G.kaikki, f) : []); }; // lemma:false = danh sách nguồn đã là mục từ (JLPT)
 async function fillQ(min) { // kéo dạng theo thứ hạng tới khi hàng lemma mới đủ min (6 yêu cầu kaikki song song)
   while (lemmaQ.length < min && ci < cand.length) {
     const part = cand.slice(ci, ci + 6); ci += 6;
@@ -52,7 +54,7 @@ async function fillQ(min) { // kéo dạng theo thứ hạng tới khi hàng lem
       tried.add(x.form.toLowerCase());
       if (res[j].name) { skipped.name++; rejected.push({ form: x.form, why: 'skip: tên riêng (Wiktionary)' }); return; }
       if (!L) { skipped.dup++; return; }
-      qSeen.add(L); lemmaQ.push({ k: L, form: L, rank: x.rank, ...(L !== x.form.toLowerCase() ? { seenAs: x.form } : {}) });
+      qSeen.add(L); lemmaQ.push({ k: L, form: L, rank: x.rank, ...(x.hint ? { hint: x.hint } : {}), ...(L !== x.form.toLowerCase() ? { seenAs: x.form } : {}) });
     });
   }
   return lemmaQ.splice(0, min);
@@ -63,7 +65,7 @@ const { createPool } = await import('../lib/ai-pool.mjs');
 const L15 = MEAN_LANGS.join(', ');
 // Lời nhắc theo bảng TL_GEN (pt cho ra đúng chuỗi cũ của lát 1)
 const SYS = {
-  lxgen: `You are a ${G.lang} lexicographer building an ${G.level} core deck for learners. For each item (a frequent word FORM), return the dictionary headword (lemma) and its single most frequent sense. JSON object keyed by item k: {"word": lemma, "pos": one of n|v|adj|adv|pron|prep|conj|num|interj|det${(TL_RULES[TL] || {}).noGender ? '' : ', "gender": "m"|"f"|"mf" ONLY for nouns'}${G.extra}, "ipa": ${G.ipa}, "gl": {${L15}} short glosses of THAT sense written natively in each language ("${TL}" = the headword itself), "ex": {"${TL}": natural short ${G.exLevel} sentence using the word, "en": faithful English translation}, "exForm": inflected form used in ex.${TL} ONLY if different from the lemma}. If the form is a proper name, interjection noise or not standard ${G.variant}, return {"skip": "reason"}.${G.rules ? ' ' + G.rules : ''}`,
+  lxgen: `You are a ${G.lang} lexicographer building an ${G.level} core deck for learners. For each item (a frequent word FORM), return the dictionary headword (lemma) and its single most frequent sense. JSON object keyed by item k: {"word": lemma, "pos": one of n|v|adj|adv|pron|prep|conj|num|interj|det${(TL_RULES[TL] || {}).noGender ? '' : ', "gender": "m"|"f"|"mf" ONLY for nouns'}${G.extra}, "ipa": ${G.ipa}, "gl": {${L15}} short glosses of THAT sense written natively in each language ("${TL}" = the headword itself), "ex": {"${TL}": natural short ${G.exLevel} sentence using the word, "en": faithful English translation}, "exForm": inflected form used in ex.${TL} ONLY if different from the lemma}. If the form is a proper name, interjection noise or not standard ${G.variant}, return {"skip": "reason"}. If an item has a "hint" (reading, level, English sense from the source list), keep exactly that headword, reading and sense.${G.rules ? ' ' + G.rules : ''}`,
   lxaudit: `You review a ${G.lang} learner deck. Return ONE JSON object keyed by each item's k: {"<k>": {"ok": true|false, "score": 1-5, "why": short reason}, …}. ok=false if ANY of: lemma or part of speech wrong; noun gender wrong; ${G.audit}; any gloss mistranslates the sense or is in the wrong language; example unnatural, not ${G.variant}, not using the word, or English translation unfaithful.`,
   lxfix: `You are the senior editor of a ${G.lang} learner deck. Each item k is a draft entry that FAILED review, with the reviewers' problems (and literal back-translations of glosses when they drifted). Fix ONLY what the problems point at, keeping the same headword and its single most frequent sense: correct pos/gender/plural/IPA (${G.ipa}), rewrite any gloss whose back-translation drifted so it means exactly the English gloss, written natively; rewrite the example if it is unnatural, not ${G.variant} or flagged by the grammar checker. Return ONE JSON object keyed by k with the FULL corrected entry in the same shape as the input (word, pos, gender/plural for nouns, ipa, gl, ex, exForm), or {"skip": "reason"} if the headword is not a good ${G.level} learner word.${G.rules ? ' ' + G.rules : ''}`,
   lxjudge: `Back-translation check. For each item k you get a ${G.short} word with its English gloss and glosses in other languages. Translate EACH non-English gloss back to English literally, then decide if it means the same as the English gloss for that sense. Return ONE JSON object keyed by each item's k: {"<k>": {"bt": {lang: english}, "same": {lang: true|false}}, …}.`,
@@ -83,15 +85,15 @@ async function patient(fn, what) { for (let t = 0; ; t++) { const r = await fn()
 // lấy trường người soạn trả theo bảng: es/fr/pt giữ đúng hình cũ (gender + plural chỉ danh từ, h); trường riêng tl (ja kana…, ko conj/topik/hanja/pronX) theo FIELDS;
 // trường SINH từ chữ (ko pron/romaja/ipa) do derive() ghi đè – lệch giữ ở qa.<trường>Ai
 const NOG = (TL_RULES[TL] || {}).noGender, XTRA = FIELDS.filter(k => !['word', 'pos', 'gender', 'plural', 'h', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa'].includes(k));
-const pick = e => derive({ word: e.word, pos: e.pos, ...(e.pos === 'n' && !NOG ? { gender: e.gender, ...(e.plural ? { plural: e.plural } : {}) } : {}), ...(e.h ? { h: e.h } : {}),
-  ...Object.fromEntries(XTRA.filter(k => e[k] !== undefined && e[k] !== null && !(k === 'conj' && e.pos !== 'v' && e.pos !== 'adj') && !(k === 'hanja' && !e[k])).map(k => [k, e[k]])), ipa: e.ipa, gl: e.gl, ex: e.ex, ...(e.exForm ? { exForm: e.exForm } : {}) }, TL);
+const pick = (e, hint) => { const o = derive({ word: e.word, pos: e.pos, ...(e.pos === 'n' && !NOG ? { gender: e.gender, ...(e.plural ? { plural: e.plural } : {}) } : {}), ...(e.h ? { h: e.h } : {}),
+  ...Object.fromEntries(XTRA.filter(k => e[k] !== undefined && e[k] !== null && !(k === 'conj' && e.pos !== 'v' && e.pos !== 'adj') && !(k === 'vclass' && e.pos !== 'v') && !(k === 'aclass' && e.pos !== 'adj') && !(k === 'hanja' && !e[k])).map(k => [k, e[k]])), ipa: e.ipa, gl: e.gl, ex: e.ex, ...(e.exForm ? { exForm: e.exForm } : {}) }, TL); return R.derive ? R.derive(o, hint) : o; }; // R.derive (ja): romaji/IPA từ kana + cách đọc/cấp JLPT theo danh sách nguồn
 for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   if (Date.now() - T0 > MAX_MS) { console.log('hết giờ lượt → ghi lô đã nhận (lượt sau nối tiếp)'); break; }
   const items = await fillQ(BATCH); if (!items.length) { console.log('hết ứng viên'); break; }
   if (gemUsed() >= GEM_MAX) { console.log(`ai-pool: đã dùng ${gemUsed()}/${GEM_MAX} lượt Gemini phần es → ghi lô (chừa hạn mức cho fr/ja)`); break; }
   const g = await patient(() => AI.gen({ mode: 'lxgen', items }, { chain: GEN_CHAIN }), 'soạn'); if (!g) { console.log('ai-pool: hết tuyến soạn sau khi chờ → dừng (lượt sau làm tiếp)'); break; }
   const draft = items.map(it => ({ it, e: g.out[it.k] })).filter(({ it, e }) => { if (!e || e.skip) { rejected.push({ form: it.form, why: e ? 'skip: ' + e.skip : 'không trả' }); return false; } return true; })
-    .map(({ it, e }) => ({ k: it.k, e: { ...pick(e), rank: it.rank } }));
+    .map(({ it, e }) => ({ k: it.k, hint: it.hint, e: { ...pick(e, it.hint), rank: it.rank } }));
   for (const it of items) tried.add(it.form.toLowerCase());
   for (let x = draft.length - 1; x >= 0; x--) if (seen.has(String(draft[x].e.word || '').toLowerCase())) { rejected.push({ form: draft[x].k, word: draft[x].e.word, why: ['trùng lemma'] }); draft.splice(x, 1); } // trước giám khảo: không tốn lượt
   // Chấm ĐỦ cổng (LanguageTool 0 lỗi → 2 giám khảo khác họ → dịch ngược → validate). null = ai-pool thiếu giám khảo (dừng lượt, không xuất mục chưa chấm).
@@ -129,9 +131,9 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   for (const x of r1.bad) if (!fixable.includes(x)) { rejected.push({ form: x.d.k, word: x.d.e.word, why: x.why }); if (x.why.some(w => /không trả/.test(w))) tried.delete(x.d.k.toLowerCase()); } // không trả = chưa chấm → lượt sau thử lại
   if (fixable.length) {
     const f = await AI.gen({ mode: 'lxgen', sys: SYS.lxfix, items: fixable.map(x => ({ k: x.d.k, entry: x.d.e, problems: x.why, ...(x.bt ? { backTranslations: x.bt } : {}) })) }, { chain: GEN_CHAIN });
-    const fixed = f ? fixable.map(x => { const e = f.out[x.d.k]; return e && !e.skip && e.word ? { k: x.d.k, e: { ...pick(e), rank: x.d.e.rank } } : null; }).filter(Boolean) : [];
+    const fixed = f ? fixable.map(x => { const e = f.out[x.d.k]; return e && !e.skip && e.word ? { k: x.d.k, e: { ...pick(e, x.d.hint), rank: x.d.e.rank } } : null; }).filter(Boolean) : [];
     if (f) fams.push(f.fam);
-    const r2 = fixed.length ? await patient(() => grade(fixed.map(x => ({ k: x.k, e: x.e }))), 'giám khảo bản sửa') : { ok: [], bad: [] };
+    const r2 = fixed.length ? await patient(() => grade(fixed.map(x => ({ k: x.k, e: x.e, hint: fixable.find(y => y.d.k === x.k).d.hint }))), 'giám khảo bản sửa') : { ok: [], bad: [] };
     take((r2 || { ok: [] }).ok, { fixed: f && f.model });
     const okK = new Set(((r2 || { ok: [] }).ok).map(o => o.d.k));
     if (fixed.length && !r2) { for (const x of fixable) tried.delete(x.d.k.toLowerCase()); } // thiếu giám khảo khác họ cho bản sửa = chưa chấm → lượt sau làm lại

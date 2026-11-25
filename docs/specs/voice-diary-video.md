@@ -1,0 +1,10 @@
+# Video "Day 1 vs Day 30" – lô 30 tập Teach2D (mẫu `progress`, 23/11)
+> TL;DR: cùng hình dạng lan truyền của Nhật ký giọng nói (`voice-diary.md`) nhưng là **tập viết sẵn**, dựng trên CI bằng dây chuyền Teach2D: Ama/Carlos 2D, giọng Kokoro thống nhất. KHÔNG dùng bản ghi người dùng thật (riêng tư); mọi điểm gắn nhãn SAMPLE.
+> Đọc khi: sửa `content/video/teach2d/progress.json`, `scripts/video/teach2d/progress.py`, `T_progress` trong build.py, series "Day 1 vs Day 30".
+
+- **Kịch bản** (18,7–19,7 s, 106 wpm): hook "Day one. Day thirty." → ngày 1: cùng câu nói ngập ngừng + sai âm thường gặp (viết lại theo cách đọc – Kokoro đọc đúng như chữ; từ sai gạch chân coral trên thẻ) → "Thirty days later!" → ngày 30: câu đúng, thẻ xanh ✓ → thẻ "+N" (điểm minh họa) → "Save this. Free on lexkite.com." + CTA `#/diary`.
+- **Dữ liệu** `content/video/teach2d/progress.json`: 30 câu A2–B1 ≤ 12 từ (`day30`, `day1`, `marks`, `s1`/`s30` ≥ 25 điểm cách nhau). Hàng kế hoạch `t2a_prog_<id>_1` trong `auto.json` (`gen.py --progress-eps N`), cổng: data · level (≤ B1 NGSL, từ viết lại của ngày 1 là bài học) · hook · trùng · 18–27 s; verdict máy ghi vào `reviewed.json`.
+- **Mẫu** `progress.py` (đăng ký `T['progress']`, planner, cổng) + `T_progress` (build.py, layout `corner` như rule/band, vùng phải chừa cho nút nền tảng). Giáo viên xen kẽ Ama/Carlos.
+- **QC & duyệt**: cổng `qc.py` như mọi mẫu (≥ 90 ngắn + ngang, phát âm/IPA/layout/contrast/lip-sync/âm lượng). Mẫu ở `draft` trong `approved.json` → tự duyệt bằng `approved_templates.py sync-bank` khi có tập ngắn + ngang đủ cổng (luật video 19/11). Test tĩnh `scripts/test/teach2d-progress.py` (trong `teach-video.yml` preqc).
+- **Đăng**: dây chuyền autopub/store sẵn có (1 video/kênh/ngày, kho ≥ 7 ngày × 15 kênh); khu vực `voice-diary` thêm vào `content/video/ecosystem.json` (route `#/diary`). Tiêu đề mỗi tập khác nhau ("Day 1 vs Day 30: <câu>"), bình luận đầu mời thu câu rồi thu lại sau 30 ngày.
+- **Riêng tư/trung thực**: dữ liệu là câu viết tay; không có lời chứng thực/giọng thật; chữ SAMPLE trên mọi điểm; ngày 1 chỉ minh họa lỗi thường gặp, không nhại giọng một quốc gia.
