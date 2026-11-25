@@ -51,7 +51,6 @@
   "resources": {"variant": "inner", "surface": ["info"]},
   "review": {"variant": "focus", "surface": ["review"]},
   "roleplay": {"variant": "inner", "surface": ["speaking"]},
-  "interpret": {"variant": "inner", "surface": ["speaking"]},
   "rtype": {"variant": "focus", "surface": ["games"]},
   "score": {"variant": "inner", "surface": ["speaking"]},
   "say": {"variant": "focus", "surface": []},
