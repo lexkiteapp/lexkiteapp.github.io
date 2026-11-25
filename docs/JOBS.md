@@ -117,6 +117,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 18:30 | `voice-misses` | `30 18 * * *` | render | d1_main, gh_minutes | 15 | d1_main_reads≈20000 | — |
 | 19:00 | `audio` | `0 19 * * *` | render | gh_minutes | 60 | — | — |
 | 19:17 | `audit-all` | `17 19 * * 1,4` | reports | gh_minutes | 300 | — | — |
+| 20:23 | `npm-test-nightly` | `23 20 * * *` | reports | gh_minutes | 30 | — | — |
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |
 | 21:00 | `wordlists` | `0 21 * * *` | render | gh_minutes | 20 | — | — |
 | 21:17 | `teacher-motion` | `17 21 * * *` | reports | gh_minutes | 25 | — | — |

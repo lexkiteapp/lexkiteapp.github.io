@@ -12,7 +12,7 @@ import { limit } from './sync.js';
 import { guardBackground } from './_d1guard.js';
 import { runAuto, autoStatus, autoFill } from './_social_auto.js';
 import { coverage } from './_social_cover.js';
-import { auditDb } from './_social_audit.js';
+import { auditDb, purgeWrongLang } from './_social_audit.js';
 import { manifest } from './admin-shorts.js';
 import { clipOf, socialSetup, setupDist } from './distribution.js';
 import { previewClip, previewText, pickPreviewClip, PREVIEW_CLIP_RE as CLIP_RE } from './_social_preview.js';
@@ -30,6 +30,7 @@ export async function onRequestPost({ request, env }) {
   if (b.op === 'status') return json(200, await autoStatus(env));
   if (b.op === 'autofill') { try { return json(200, await autoFill(env)); } catch (e) { return json(500, { error: 'autofill-error', cause: String((e && e.message) || e).slice(0, 80) }); } } // máy gác tự lấp (social-coverage): duyệt thêm + xếp lịch, 0 lượt GrabCast
   if (b.op === 'audit') { await setupDist(env.DB).catch(() => {}); try { return json(200, await auditDb(env.DB, ((await manifest(env)).items || []), Date.now(), Math.min(30, Math.max(1, +b.days || 14)), Math.min(14, Math.max(0, +b.back || 0)))); } catch (e) { return json(500, { error: 'audit-error', cause: String((e && e.message) || e).slice(0, 80) }); } } // máy gác đúng page/ngôn ngữ/giờ (_social_audit.js), chỉ đọc D1
+  if (b.op === 'purge') { await setupDist(env.DB).catch(() => {}); try { return json(200, await purgeWrongLang(env.DB, ((await manifest(env)).items || []), Date.now(), b.apply === true)); } catch (e) { return json(500, { error: 'purge-error', cause: String((e && e.message) || e).slice(0, 80) }); } } // gỡ bài TƯƠNG LAI sai ngôn ngữ (chưa lên nền tảng); apply=true mới ghi
   if (b.op === 'coverage') { await setupDist(env.DB).catch(() => {}); try { return json(200, await coverage(env.DB)); } catch (e) { return json(500, { error: 'coverage-error' }); } } // chỉ đọc D1, 0 lượt GrabCast
   if (b.op === 'preview') {
     if (b.clip != null && !CLIP_RE.test(String(b.clip))) return json(400, { error: 'bad-clip' });
