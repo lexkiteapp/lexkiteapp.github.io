@@ -11,7 +11,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
-export const WIP_MAX = 15, EXEMPT = ['main-red', 'p0'], NPM_TEST = 'npm test';
+export const WIP_MAX = 15, EXEMPT = ['main-red', 'main-red-fix', 'p0'], NPM_TEST = 'npm test';
 
 /** Làn nhanh (thuần): check-run `npm test` của cùng sha đã xong và đỏ → { red: true }. Chưa xong / chưa có / xanh → chạy tiếp (không chờ, không đoán). */
 export function laneVerdict(checkRuns, name = NPM_TEST) {
@@ -99,6 +99,8 @@ async function main() {
     const open = (await api('/pulls?state=open&per_page=100')).filter(p => p.number !== n).length;
     const v = wipVerdict({ openCount: open, labels });
     console.log('wip:', v.why);
+    // Nhãn miễn trừ gắn SAU khi đã bị đóng băng (vd main-red-fix, p0) → gỡ frozen để autopilot gộp được (chủ duyệt 24/11)
+    if (!v.freeze && labels.includes('frozen') && labels.some(l => EXEMPT.includes(l))) await api(`/issues/${n}/labels/frozen`, { method: 'DELETE' }).catch(e => console.log('::warning::unfreeze: ' + e.message));
     if (v.freeze) {
       await api(`/issues/${n}/labels`, { method: 'POST', body: { labels: ['frozen'] } });
       await api(`/issues/${n}/comments`, { method: 'POST', body: { body: `🧊 **frozen** – đang có ${open} PR mở (> ${WIP_MAX}). Gộp bớt PR cũ trước khi mở việc mới (docs/METHODS.md: finish before start). PR sửa main đỏ hoặc nhãn \`p0\` được miễn.` } });

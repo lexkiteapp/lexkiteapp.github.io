@@ -97,6 +97,16 @@ assert.ok(/onStart: \(\) => \{ LA\(\)\.src\('f'\)/.test(ui), 'UI.speak từ đơ
 // 🐢 chậm: phát CÙNG file Kokoro ở tốc độ thấp, giữ cao độ (không sang giọng máy)
 assert.ok(/el\.preservesPitch = true/.test(fs.readFileSync('web/js/audio.js', 'utf8')), 'LKAudio.play giữ cao độ khi phát chậm');
 assert.ok(/rate: slow \? 0\.7 : 1/.test(ui) && /data-slow/.test(ui), 'nút 🐢 từ/câu phát file Kokoro chậm 0,7×');
+// 23/11 tầng sinh nền: máy đo chậm nhưng RTF ≤ 2,5 → sinh sẵn câu vừa rơi giọng máy lúc rảnh; máy quá chậm/timeout/người dùng tắt/iOS → không
+{ const now = Date.now(), pr = rtf => ({ ...pc, probe: { v: P.VER, at: now, off: true, rtf } });
+  assert.deepEqual([pr(1.45), pr(2.5), pr(2.6), pr(null)].map(P.bgOk), [true, true, false, false], 'bgOk: chậm vừa → sinh nền; quá chậm/timeout → không');
+  assert.deepEqual([P.bgOk(pc), P.bgOk({ ...pr(1.45), user: 'off' }), P.bgOk({ ...pc, ios: true })], [false, false, false], 'bgOk: máy nhanh (sinh trực tiếp) / tắt / iOS → không');
+  assert.deepEqual([P.bgIdle({}), P.bgIdle({ hidden: true }), P.bgIdle({ saveData: true }), P.bgIdle({ charging: false, level: 0.3 }), P.bgIdle({ charging: false, level: 0.8 }), P.bgIdle({ charging: true, level: 0.1 })],
+    [true, false, false, false, true, true], 'bgIdle: tab hiện, không tiết kiệm dữ liệu, pin sạc hoặc ≥ 50 %');
+  assert.ok(P.BG_MAX <= 20, 'sinh nền ≤ 20 câu/phiên (không nóng máy)'); }
+assert.ok(/K\.hasAll\(splitSentences\(text\), kvoice\)/.test(ui) && /K\.later\(splitSentences\(text\), kvoice\)/.test(ui), 'ui.js: phát từ cache khi đủ câu + xếp hàng sinh nền khi rơi giọng máy');
+assert.ok(/live \|\| hasAll\(parts, v\)/.test(kl) && /fromCache\(v, t\)\.then\(b => b \|\| Promise\.reject/.test(kl), 'speak: không sinh trực tiếp được → chỉ phát khi mọi câu có trong cache');
+assert.ok(/bgStop = true; bgKill\(\); bgQ\.length = 0; have\.clear\(\)/.test(kl), 'Xóa khỏi máy: dừng sinh nền + quên cache');
 // Đo khi tab hiện: tab ẩn trong lúc đo → bỏ kết quả (không ghi máy chậm); số đo phân bố RTF qua LKAudio.src('p', nhóm)
 assert.ok(/document\.addEventListener\('visibilitychange', onVis\)/.test(kl) && /if \(hid\) \{ kill\('hidden'\)/.test(kl), 'probe: tab ẩn → bỏ kết quả, đo lại sau');
 assert.ok(/P\.median\(rtfs\)/.test(kl) && /a\.src\('p', P\.rtfBucket\(r\)\)/.test(kl), 'probe: trung vị + đếm nhóm RTF');

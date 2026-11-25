@@ -83,10 +83,16 @@
     if (o && o.action) { const b = document.createElement('button'); b.type = 'button'; b.className = 'toast-act'; b.textContent = o.action; b.onclick = () => { if (!t._msg || t._msg[2] !== o) return; toastHide(t); try { o.onAction && o.onAction(); } catch (e) { /* bỏ qua */ } }; t.append(' ', b); }
     if (!toastLift(t)) { t.textContent = ''; t._msg = null; t.classList.remove('act'); toastDefer([msg, ms, o]); return; }
     t.classList.add('show');
-    // màn vẽ lại → đặt lại chỗ, hết chỗ thì hoãn
-    const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg && !toastLift(t)) { const m = t._msg; toastHide(t); toastDefer(m); } }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
+    // màn vẽ lại / cuộn / đổi cỡ / hiệu ứng vào xong → nút có thể dịch xuống dưới toast → đặt lại chỗ, hết chỗ thì hoãn (toast không bao giờ nằm đè nút)
+    const relift = () => { if (t._msg && t.classList.contains('show') && !toastLift(t)) { const m = t._msg; toastHide(t); toastDefer(m); } };
+    if (!toast._mo) {
+      let q = 0; const sched = () => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; relift(); }); };
+      const v = document.getElementById('view'); if (v && g.MutationObserver) { toast._mo = new MutationObserver(sched); toast._mo.observe(v, { childList: true, subtree: true }); }
+      else toast._mo = 1;
+      ['scroll', 'resize', 'animationend', 'transitionend'].forEach(ev => g.addEventListener(ev, sched, { capture: true, passive: true }));
+    }
     // bố cục còn dịch mà DOM không đổi → soát lại sau 0,5 s
-    clearTimeout(toast._rc); toast._rc = setTimeout(() => { if (t._msg && t.classList.contains('show') && !toastLift(t)) { const m = t._msg; toastHide(t); toastDefer(m); } }, 5e2);
+    clearTimeout(toast._rc); toast._rc = setTimeout(relift, 5e2);
     toastTimer(t, ms);
   }
   // sau khi gỡ .show toast còn mờ dần 0,2 s (style.css .toast transition) → cờ _fd 230 ms: toastShow chờ hết mờ rồi mới đổi chữ (như đường _sw)
@@ -280,7 +286,8 @@
     if (!opts.noKl && /^en-/.test(accent) && prefs().hqVoice !== false && LA()) {
       const K = g.KLocal;
       why = !K ? 'load' : K.allowed && !K.allowed() ? 'off' : 'wait';
-      if (K && K.ready()) {
+      // Kokoro trên máy: sinh trực tiếp (máy đủ nhanh) HOẶC mọi câu đã sinh sẵn trong cache (tầng sinh nền của máy chậm – klocal.js later)
+      if (K && (K.ready() || (K.hasAll && K.hasAll(splitSentences(text), kvoice)))) {
         const my = ++speakSeq, pr = Math.min(1.3, Math.max(0.55, (rate || prefs().ttsRate || 0.92) / 0.95));
         if ('speechSynthesis' in g) speechSynthesis.cancel();
         const ok = K.speak(splitSentences(text), { voice: kvoice, rate: pr, gap: Math.round(SENT_GAP / pr), onSentence: opts.onSentence,
@@ -299,6 +306,7 @@
       // khóa câu chưa có file (băm, không văn bản) + trang → CI dựng sẵn file Kokoro cho câu hay rơi nhất (scripts/sentence-audio/misses.mjs)
       if (LA().miss && g.KVoice && /^en-/.test(accent) && why !== 'pref') { const rt = (/^#\/([a-z][a-z0-9-]*)/.exec(location.hash || '') || [])[1] || (g.Store && g.Store.isExtension ? 'ext' : 'home');
         for (const p of splitSentences(text)) { const k = g.KVoice.lineKey(kvoice, p); if (!g.LISTEN_AUDIO || !g.LISTEN_AUDIO.has(k)) LA().miss(k, rt); } }
+      if (why === 'off' && K && K.later && /^en-/.test(accent)) K.later(splitSentences(text), kvoice); // máy chậm: sinh sẵn lúc rảnh → lần sau Kokoro
     }
     const NT = nativeTTS();
     if (NT) {

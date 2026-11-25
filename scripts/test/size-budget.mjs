@@ -11,7 +11,7 @@ import path from 'path';
 import { readBundles } from '../lib/bundles.mjs';
 import { gzSize, firstLoadFiles, swShell } from '../lib/gz-canon.mjs'; // gzip chuẩn (pako = zlib gốc): cùng số trên máy & CI
 import { execFileSync } from 'child_process';
-import { lowHeadroom } from '../lib/headroom.mjs';
+import { lowHeadroom, TOTALJS_MAX_FREE_B } from '../lib/headroom.mjs';
 import { learnerBytes } from '../lib/js-budget.mjs'; // byte người học tải: bỏ mã chỉ quản trị + nguồn dựng en.js (đã gộp vào en.js)
 const B = 'scripts/test/budget.json', budget = JSON.parse(fs.readFileSync(B, 'utf8'));
 const gz = f => gzSize(fs.readFileSync(f)), kb = n => (n / 1024).toFixed(0) + ' KB';
@@ -69,7 +69,7 @@ let warn = -1; try { const out = execFileSync('node', ['scripts/test/content-che
 if (warn >= 0 && warn > budget.contentWarn) errs.push(`Cảnh báo nội dung tăng ${budget.contentWarn} → ${warn} – nội dung mới phải đủ phiên âm/ví dụ/lời giải (xem docs/CONTENT-RULES.md)`);
 if (process.argv.includes('--update') || (warn >= 0 && warn < budget.contentWarn)) { if (warn >= 0) budget.contentWarn = warn; fs.writeFileSync(B, JSON.stringify(budget, null, 2) + '\n'); }
 // 06/11: cảnh báo sớm mọi ngân sách (dư < 5 KB hoặc < 2 %) – máy gác budget-watch (scripts/ci/guards.mjs) đọc dòng HEADROOM: để mở issue
-const headroom = lowHeadroom([{ name: 'khung app (gz)', used: shellGz, cap: budget.shellGz }, { name: 'byte người học (web/js)', used: total, cap: budget.totalJs }, { name: 'cả kho web/js', used: LB.total, cap: budget.totalAll },
+const headroom = lowHeadroom([{ name: 'khung app (gz)', used: shellGz, cap: budget.shellGz }, { name: 'byte người học (web/js)', used: total, cap: budget.totalJs, maxFree: TOTALJS_MAX_FREE_B }, { name: 'cả kho web/js', used: LB.total, cap: budget.totalAll },
   { name: 'web/cpack', used: cpackRaw, cap: budget.cpackTotal }, { name: 'gói ngôn ngữ lớn nhất', used: Math.max(0, ...Object.values(LB.packs)), cap: budget.langPackMax }, { name: 'trang giới thiệu (gz)', used: landMax, cap: LAND_GZ }]);
 for (const h of headroom) console.log(`${process.env.GITHUB_ACTIONS ? '::warning::' : '⚠ '}size-budget: ${h.name} còn ${kb(h.free)} trống (${(100 * h.free / h.cap).toFixed(1)} %) – sắp hết ngân sách, rà dữ liệu thừa trước khi PR kế tiếp đỏ`);
 // 10/11: gói ngôn ngữ nào còn dư < 5 % langPackMax → cảnh báo sớm (cả 13 gói, không chỉ gói lớn nhất) để rời nhóm nặng sang web/cpack (CPACK_I18N, scripts/lib/i18n-pack.mjs) trước khi PR kế tiếp đỏ

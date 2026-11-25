@@ -299,7 +299,8 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
 export const CHAIN_CHECK_MS = 90e3, CHAIN_RETRIES = 2;
 /** Lượt nối dispatch từ `since` đã sống chưa (thuần). */
 export const chainAlive = (runs, since) => runs.some(r => Date.parse(r.created_at) >= since - 30e3 && r.status !== 'queued');
-export const PACED = { 'ci-filler.yml': 10, 'd1-usage-watch.yml': 20 };
+// 24/11 (#580): GitHub cũng không bao giờ chạy lịch của 5 workflow này (cron-watch: "CHƯA TỪNG có lượt schedule", đã đá disable→enable mà vẫn không; hàng chờ > 20 nên không dispatch bù) → cùng cách: bộ canh làm nhịp theo ĐÚNG khoảng cron của từng workflow (ngày/tuần), cron giữ làm lưới. video-junk chỉ liệt kê (dry-run), không xoá.
+export const PACED = { 'ci-filler.yml': 10, 'd1-usage-watch.yml': 20, 'tr-packs.yml': 1440, 'words-r2-sync.yml': 1440, 'say-native.yml': 1440, 'teacher-motion.yml': 1440, 'video-junk.yml': 10080 };
 /** Tới nhịp chưa (thuần): không có lượt đang chờ/chạy thật và lượt cuối đã quá khoảng lịch. */
 export const paceDue = (last, gapMin, now) => !last || (last.status === 'completed' || isZombie(last, now)) && now - Date.parse(last.created_at) >= gapMin * 6e4;
 /** Chạy lại các lượt workflow bị huỷ (res.cancelled); mỗi runId:attempt chỉ 1 lần mỗi lượt canh. */
