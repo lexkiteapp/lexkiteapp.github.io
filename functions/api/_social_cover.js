@@ -1,6 +1,6 @@
 /* Máy gác lịch đăng (owner 16/11: mỗi kênh đúng 1 video mỗi ngày, không ngày nào trống). Chỉ ĐỌC D1: 2 truy vấn (kênh + cấu hình) + 1 truy vấn lịch theo chỉ mục slot_ms.
  * gapsOf = hàm thuần (test); coverage = op 'coverage' của /api/social-auto, CI social-coverage.yml gọi mỗi ngày và mở issue nhãn social-alert khi có kênh-ngày trống. */
-import { localDate, normCfg, foreignAccount } from './_distribution.js';
+import { localDate, normCfg, capCfg, foreignAccount } from './_distribution.js';
 
 export const COVER_DAYS = 30;
 /** Số trang/kênh owner muốn phủ (16/11): 15 trang Facebook + 15 kênh YouTube theo ngôn ngữ, mỗi nơi 1 video/ngày. Thiếu kênh nối được → cũng là chỗ trống (450 trang-ngày/nền tảng). */
@@ -26,8 +26,8 @@ export async function coverage(db, now = Date.now(), days = COVER_DAYS) {
   for (const r of await all("SELECT channel_id, publish_at FROM yt_queue WHERE channel_id IS NOT NULL AND status IN ('queued', 'uploading', 'done') AND publish_at BETWEEN ? AND ?", new Date(now - 864e5).toISOString(), new Date(now + (days + 2) * 864e5).toISOString())) { const ms = Date.parse(r.publish_at); if (ms) (plan.get(r.channel_id) || plan.set(r.channel_id, []).get(r.channel_id)).push(ms); }
   const byTitle = new Map(ext.filter(c => c.platform === 'youtube').map(c => [norm(c.title), c])), used = new Set();
   const add = (id, platform, title, tz, ms) => { const miss = gapsOf(ms, tz, now, days); rows.push({ channel_id: id, platform, title, tz, have: days - miss.length, missing: miss, last24h: posted.get(id) || 0 }); };
-  for (const d of direct) { const cf = normCfg(cfg.get(d.channel_id) || {}); if (cf.active === 0) continue; const g = byTitle.get(norm(d.title)); if (g) used.add(g.channel_id); add(d.channel_id, 'youtube', d.title, cf.tz, [...(plan.get(d.channel_id) || []), ...(g ? slots.get(g.channel_id) || [] : [])]); rows[rows.length - 1].last24h += (g ? posted.get(g.channel_id) || 0 : 0) + (ytDone.get(d.channel_id) || 0); }
-  for (const c of ext) { if (used.has(c.channel_id)) continue; const cf = normCfg(cfg.get(c.channel_id) || {}); if (cf.active === 0) continue; add(c.channel_id, c.platform, c.title, cf.tz, slots.get(c.channel_id)); }
+  for (const d of direct) { const cf = capCfg(normCfg(cfg.get(d.channel_id) || {})); if (cf.active === 0) continue; const g = byTitle.get(norm(d.title)); if (g) used.add(g.channel_id); add(d.channel_id, 'youtube', d.title, cf.tz, [...(plan.get(d.channel_id) || []), ...(g ? slots.get(g.channel_id) || [] : [])]); rows[rows.length - 1].last24h += (g ? posted.get(g.channel_id) || 0 : 0) + (ytDone.get(d.channel_id) || 0); }
+  for (const c of ext) { if (used.has(c.channel_id)) continue; const cf = capCfg(normCfg(cfg.get(c.channel_id) || {})); if (cf.active === 0) continue; add(c.channel_id, c.platform, c.title, cf.tz, slots.get(c.channel_id)); }
   const per = {}; for (const r of rows) { const x = per[r.platform] || (per[r.platform] = { channels: 0, have: 0 }); x.channels++; x.have += r.have; }
   const platforms = Object.entries(EXPECT).map(([p, want]) => { const x = per[p] || { channels: 0, have: 0 }; return { platform: p, want, channels: x.channels, have: x.have, total: want * days, unconnected: Math.max(0, want - x.channels) }; });
   return { days, at: now, channels: rows.length, rows, platforms, short: rows.filter(r => r.missing.length).length, idle24: rows.filter(r => !r.last24h).length };
