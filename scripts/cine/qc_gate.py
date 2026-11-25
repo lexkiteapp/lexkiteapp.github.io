@@ -52,6 +52,12 @@ if shutil.which('tesseract') and all(os.path.exists(p_) for p_ in bgps):
         words += [r.split('\t')[11] for r in o if len(r.split('\t')) > 11 and r.split('\t')[10].replace('.', '', 1).lstrip('-').isdigit() and float(r.split('\t')[10]) >= 80 and re.fullmatch(r'[A-Za-z]{3,}', r.split('\t')[11] or '')]
     gate('bg_no_text', not words, words[:8], 4)
 else: gate('bg_no_text', False, 'tesseract or bg still missing', 4)
+# --- v3 gates (docs/VIDEO-V3.md): the same viral_score (>= 95) and ypp as Teach2D, measured on the lesson spec; below 95 / any ypp reason = not stored, not published
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'video', 'teach2d')); import v3_gates as V3
+try:
+    _bgs, _oth = V3.news_context(); _pol = json.load(open(f'{V3.ROOT}/content/video/teach2d/ypp.json')); _vs = V3.news_viral(sp, L, _bgs); _yp = V3.news_ypp(sp, L, _pol, _pol, _bgs, _oth)
+    gate('viral_score', _vs['ok'], dict(score=_vs['score'], parts=_vs['parts'], notes=_vs['notes']), 10); gate('ypp', _yp['ok'], _yp, 10)
+except Exception as e: gate('viral_score', False, f'v3 gates unavailable: {e}'[:200], 10)
 # --- score
 score = 100 - sum(g['weight'] for g in G.values() if not g['ok']); ok = all(g['ok'] for g in G.values())
 os.makedirs(f'{OUT}/qc', exist_ok=True)

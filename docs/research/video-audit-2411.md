@@ -43,3 +43,5 @@ Engine v3: kịch bản JSON chuẩn → 5–6 khuôn tham số hoá khoá theo 
 | 7–10 | Không đụng (nhịp cảnh, đa ngữ RTL/CJK, chồng lớp ổn ở 3 pilot; Motion v2 có sẵn). |
 Kết quả cổng (CI run 45404319164 slang + scorecard, 45415702359 l1; commit fabe3e7ae0): 6/6 bản (3 pilot × short + wide) score 100, `viral_score` 100, `ypp` pass (giống nhất 0,03–0,20). l1 vi short phải đổi bố cục T_l1 (bong bóng sai/đúng rời khi thẻ mẹo vào, thẻ đầu cao ≥ 45 % vùng) để qua `layout_fill`.
 Còn hạn chế nhìn thấy (8 khung l1 short): vùng phải-dưới trống dưới thẻ, thẻ quiz vẫn nhỏ, giáo viên một tư thế thân (chỉ đổi mặt/gật đầu), phụ đề nhỏ cạnh giáo viên. Việc tiếp: thân nhân vật động (cử chỉ tay trong khi nói cần ảnh không che miệng), lấp vùng phải-dưới.
+
+Chấm mắt độc lập (Sonnet, thang 10 lỗi, 25/11, review-log.json): slang t2s_ace short 78 / wide 80; l1 vi short 82 / wide 85 (đều <90 → theo luật mẫu chưa được đăng); scorecard chưa chấm lại (ảnh đã chấm là bản render cũ, 62/66, nhãn nút bị cắt đã sửa). Lỗi còn lại nhiều nhất: 3 nền trống, 4 chữ nhỏ, 7 khung giống nhau, 10 chuyển động ít (nhân vật đứng).

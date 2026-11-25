@@ -40,4 +40,19 @@ e3 = dict(EPL, publish=dict(EPL['publish'], value='short')); assert not V.ypp(T,
 mix = open(f'{ROOT}/scripts/video/teach2d/mix.py').read(); assert json.loads(re.search(r"music=(\[[^\]]*\])", mix).group(1).replace("'", '"')) == pol['music'], 'ypp.json music == mix.py music'
 ppl = json.load(open(f'{ROOT}/web/teach/characters.json'))['people']; assert sorted(pol['teachers']) == sorted(ppl) and sorted(pol['voices']) == sorted(p['voice']['video'] for p in ppl.values()), 'ypp.json teachers / voices == characters.json'
 q = open(f'{ROOT}/scripts/video/teach2d/qc.py').read(); assert "gate('viral_score'" in q and "gate('ypp'" in q and "gate('native_script'" in q
+
+# news / cine lessons: same gates on the lesson spec (qc_gate.py wires them)
+NL = {i: dict(id=i, who=w, text=t) for i, w, t in [('h', 'ama', 'Need help at the bank?'), ('1', 'ama', "I'd like to open an account."), ('2', 'carlos', 'Open an account. Good!'), ('3', 'ama', 'Can I withdraw some cash?'), ('4', 'carlos', 'Withdraw means take money out.'),
+      ('rp', 'ama', "Repeat: I'd like to open an account."), ('r', 'carlos', 'Tip: use I would like to.'), ('e', 'ama', 'Save this. Free on lexkite.com.')]}
+NS = dict(id='ns1', hook=dict(line='h', card='AT THE BANK?'), beats=[dict(who='ama', line='1', card=dict(kind='p', text="I'd like to open an account.", sub='open an account')), dict(who='carlos', line='2', card=None), dict(who='ama', line='3', card=dict(kind='p', text='Can I withdraw some cash?', sub='withdraw = take out')),
+      dict(who='carlos', line='4', card=None), dict(who='ama', line='rp', card=dict(kind='v', text='REPEAT', sub=None), repeat=True)], recap=dict(line='r'), end_line='e', est=24.0, bg='bank', cta='Practice bank English on lexkite.com', link='https://lexkite.com/app/#/toeic',
+      publish=dict(title='What to say at the bank in English', keyword='bank phrases open account', value='Open an account, withdraw cash, ask about a fee.'))
+nv = V.news_viral(NS, NL, {'bank'}); assert nv['ok'] and set(nv['parts']) == set(V.WEIGHTS), nv
+def nbad(mut, part):
+    sp = copy.deepcopy(NS); mut(sp); x = V.news_viral(sp, NL, {'bank'}); assert not x['ok'] and x['parts'][part] < 100, (part, x)
+nbad(lambda sp: sp.update(est=10.0), 'pace'); nbad(lambda sp: sp.update(cta='Roleplay this free'), 'cta'); nbad(lambda sp: sp.update(hook=dict(line='h', card=None)), 'hook')
+npol = dict(pol); nsh = {'x': V._shingles(' '.join(NL[i]['text'] for i in ('h', '1', '2', '3', '4', 'rp', 'r', 'e') if i != 'e')), 'ns1': set()}
+ny = V.news_ypp(NS, NL, pol, pol, {'bank'}, nsh); assert not ny['ok'] and 'near-duplicate' in ny['why'][0], ny
+assert V.news_ypp(NS, NL, pol, pol, {'bank'}, {})['ok'] and not V.news_ypp(NS, NL, pol, pol, {'hotel'}, {})['ok'], 'background must be in the own library'
+assert "gate('viral_score'" in open(f'{ROOT}/scripts/cine/qc_gate.py').read(), 'qc_gate.py wires the v3 gates'
 print('teach2d-v3-gates: OK')
