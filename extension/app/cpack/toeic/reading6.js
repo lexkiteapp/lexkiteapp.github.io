@@ -28,7 +28,7 @@
           explain: 'Cụm "By the time + hiện tại đơn" chỉ mốc hoàn tất trong tương lai nên động từ cần chia ở thì tương lai hoàn thành "will have reviewed". Các phương án như "is going to review" hay "would have reviewed" không diễn tả hành động hoàn tất trước một thời điểm tương lai.' },
         { n: 111, q: 'Guests who wish to ------- their stay should inform the front desk by 10:00 A.M.', options: ['exceed', 'increase', 'widen', 'extend'], a: 3, cue: '------- their stay',
           explain: '"extend one\'s stay" = ở thêm, kéo dài thời gian lưu trú – cụm kết hợp rất hay gặp trong khách sạn. "increase" (tăng số lượng), "widen" (mở rộng chiều ngang), "exceed" (vượt quá) không đi với "stay".' },
-        { n: 112, q: 'The supervisor ------- team achieved the highest output this quarter will receive an award.', options: ['who', 'which', 'whose', 'whom'], a: 2, cue: 'The supervisor ------- team',
+        { n: 112, q: 'The supervisor ------- team achieved the highest output this quarter will receive an award.', options: ['who', 'which', 'whom', 'where'], a: 2, cue: 'The supervisor ------- team',
           explain: 'Giữa danh từ "The supervisor" và danh từ "team" cần đại từ quan hệ chỉ sở hữu → "whose" (người giám sát mà đội của họ…). "who/whom" không đứng trước danh từ; "which" dùng cho vật.' },
         { n: 113, q: 'The new store layout is both attractive ------- easy for shoppers to navigate.', options: ['or', 'nor', 'and', 'but'], a: 2, cue: 'both attractive',
           explain: 'Cặp liên từ cố định "both … and …" (vừa … vừa …) → "and". "either" đi với "or"; "neither" đi với "nor"; "not only" đi với "but (also)".' },
@@ -151,8 +151,8 @@ We have chosen these early-morning hours to keep the -----(146)----- to our cust
           groups: [ { type: 'mcq', instr: 'Questions 143-146 refer to the following notice.', items: [
             { n: 143, q: '(143)', options: ['performing', 'performed', 'perform', 'performance'], a: 0, cue: 'we will be -------',
               explain: 'Thì tương lai tiếp diễn "will be + V-ing" diễn tả việc đang diễn ra trong một khoảng thời gian ở tương lai → "will be performing" (sẽ đang tiến hành bảo trì). "performed" tạo bị động – sai vì có tân ngữ "maintenance"; "perform" sai dạng sau "be"; "performance" là danh từ.' },
-            { n: 144, q: '(144)', options: ['normal', 'normally', 'normality', 'norm'], a: 1, cue: 'will continue to work',
-              explain: 'Cần trạng từ bổ nghĩa cho động từ "work" → "normally" (bình thường). "normal" là tính từ; "normality" và "norm" là danh từ.' },
+            { n: 144, q: '(144)', options: ['rarely', 'normally', 'frequently', 'usually'], a: 1, cue: 'will continue to work',
+              explain: 'Trong câu "Debit and credit cards will continue to work ____ at stores and cash machines" cần một trạng từ chỉ tần suất bình thường, vì vậy "normally" là đáp án đúng. Các đáp án sai như "rarely", "frequently" hay "usually" không phản ánh ý nghĩa "theo cách thông thường" và làm câu trở nên không hợp lý.' },
             { n: 145, q: '(145)', options: ['Online statements will become available on our portal within two weeks.', 'Account holders can still update their personal details at local branches.', 'Cardholders will receive alerts whenever unusual activity is detected.', 'Customers may also call our 24-hour phone line to check their balances.'], a: 3, cue: 'Debit and credit cards will continue to work',
               explain: 'Đoạn văn liệt kê các phương thức khách hàng vẫn có thể sử dụng trong thời gian bảo trì dịch vụ trực tuyến, nên câu tiếp theo hợp lý nhất là bổ sung phương thức kiểm tra số dư qua điện thoại với liên từ nối "also". Các phương án khác lạc đề hoặc đề cập đến dịch vụ trực tuyến vốn đang tạm ngưng.' },
             { n: 146, q: '(146)', options: ['inconvenience', 'inconveniently', 'inconvenient', 'inconvenienced'], a: 0, cue: 'to keep the -------',
@@ -422,7 +422,7 @@ Harriet Okonjo`,
               explain: 'Kết hợp hai văn bản: lấy tổng $470.00 trên hóa đơn, bỏ cây thay thế $120.00 (được bảo đảm miễn phí) và bớt một chậu gốm $45.00 (chỉ đặt một chậu theo e-mail) → 470 − 120 − 45 = $305.00. $350.00 chỉ trừ cây; $425.00 chỉ trừ chậu; $260.00 là riêng phí chăm sóc.' },
             { n: 184, q: 'In the e-mail, the word "settle" in paragraph 3 is closest in meaning to', options: ['calm', 'move', 'decide', 'pay'], a: 3, cue: 'I would like to settle the account before our accounts department closes its books on November 20.',
               explain: '"settle the account" nghĩa là thanh toán dứt điểm khoản nợ trên hóa đơn → "pay". Nghĩa "làm dịu" (calm), "định cư/chuyển đến" (move) hay "giải quyết, quyết định" (decide) không phù hợp với ngữ cảnh trả tiền hóa đơn.' },
-            { n: 185, q: 'What does Ms. Okonjo suggest about the second planter?', options: ['It may have been sent to a different customer.', 'It was damaged during delivery.', 'It was placed at the reception desk.', 'It is the wrong color.'], a: 0, cue: 'The second may have been delivered to another client by mistake',
+            { n: 185, q: 'What does Ms. Okonjo suggest about the second planter?', options: ['It may have been sent to a different customer.', 'It arrived with a cracked base during delivery.', 'It was left in the storage closet by the staff.', 'It is a different size than the one we ordered.'], a: 0, cue: 'The second may have been delivered to another client by mistake',
               explain: 'Bà viết "The second may have been delivered to another client by mistake" (chậu thứ hai có thể đã giao nhầm cho khách khác) và văn phòng chưa nhận được. Chậu đặt ở quầy lễ tân là chậu duy nhất bà đặt; không nhắc đến hư hỏng hay sai màu.' }
           ] } ] },
         { title: 'Article, Schedule and Memo', text:
