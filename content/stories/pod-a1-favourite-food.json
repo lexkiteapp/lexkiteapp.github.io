@@ -1,0 +1,185 @@
+{
+  "id": "pod-a1-favourite-food",
+  "kind": "podcast",
+  "level": "A1",
+  "title": "Favourite Food",
+  "summary": "Ama and Carlos talk about the food they like and a small dinner plan.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 4",
+    "author": "Lexkite",
+    "note": "Original dialogue written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos at a small kitchen table with soup, bread and fruit, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 100,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "What Do You Like?",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Carlos, what food do you like?"
+        },
+        {
+          "who": "B",
+          "text": "I like rice and chicken."
+        },
+        {
+          "who": "A",
+          "text": "Do you like soup?"
+        },
+        {
+          "who": "B",
+          "text": "Yes, I do. Soup is warm and nice."
+        },
+        {
+          "who": "A",
+          "text": "I like bread and cheese."
+        },
+        {
+          "who": "B",
+          "text": "Do you eat fruit?"
+        },
+        {
+          "who": "A",
+          "text": "Yes, I eat an apple every day."
+        },
+        {
+          "who": "B",
+          "text": "That is good for you."
+        }
+      ],
+      "words": [
+        "rice",
+        "chicken",
+        "soup",
+        "cheese",
+        "apple"
+      ],
+      "quiz": [
+        {
+          "q": "What does Carlos like?",
+          "options": [
+            "Rice and chicken",
+            "Bread and cheese",
+            "Fish and eggs"
+          ],
+          "answer": 0,
+          "explain": "Carlos says, \"I like rice and chicken.\""
+        },
+        {
+          "q": "What does Ama eat every day?",
+          "options": [
+            "A banana",
+            "An apple",
+            "An orange"
+          ],
+          "answer": 1,
+          "explain": "Ama says, \"I eat an apple every day.\""
+        },
+        {
+          "q": "What does Ama like with bread?",
+          "options": [
+            "Cheese",
+            "Butter",
+            "Jam"
+          ],
+          "answer": 0,
+          "explain": "Ama says, \"I like bread and cheese.\""
+        }
+      ]
+    },
+    {
+      "title": "Dinner Tonight",
+      "sentences": [
+        {
+          "who": "B",
+          "text": "Ama, what is for dinner tonight?"
+        },
+        {
+          "who": "A",
+          "text": "I make vegetable soup."
+        },
+        {
+          "who": "B",
+          "text": "Great! Do you have carrots?"
+        },
+        {
+          "who": "A",
+          "text": "Yes, I have two carrots and an onion."
+        },
+        {
+          "who": "B",
+          "text": "I can bring some bread."
+        },
+        {
+          "who": "A",
+          "text": "Thank you. Come at seven."
+        },
+        {
+          "who": "B",
+          "text": "Okay. I am hungry already!"
+        },
+        {
+          "who": "A",
+          "text": "Me too. See you tonight."
+        }
+      ],
+      "words": [
+        "dinner",
+        "vegetable",
+        "hungry",
+        "bring"
+      ],
+      "quiz": [
+        {
+          "q": "What does Ama make for dinner?",
+          "options": [
+            "Vegetable soup",
+            "Fried rice",
+            "A salad"
+          ],
+          "answer": 0,
+          "explain": "Ama says, \"I make vegetable soup.\""
+        },
+        {
+          "q": "What does Carlos bring?",
+          "options": [
+            "Fruit",
+            "Bread",
+            "Milk"
+          ],
+          "answer": 1,
+          "explain": "Carlos says, \"I can bring some bread.\""
+        },
+        {
+          "q": "When does Carlos come?",
+          "options": [
+            "At six",
+            "At seven",
+            "At eight"
+          ],
+          "answer": 1,
+          "explain": "Ama says, \"Come at seven.\""
+        }
+      ]
+    }
+  ]
+}

@@ -8,7 +8,7 @@ name: gen-sync
 on:
   push:
     branches: [main]
-    paths: ['i18n/ui/**', 'web/**', '!web/js/i18n/**', '!web/cpack/lesson/pn-*.js', 'extension/**', '!extension/app/**', 'native/shared/*.json', 'brand/stitch/**', 'scripts/native/**', 'scripts/i18n-langs.txt', 'content/**', 'scripts/i18n-pack.mjs', 'scripts/lib/i18n-pack.mjs', 'scripts/build-extension.sh', 'scripts/gen-academic.mjs', 'scripts/gen-newtab.mjs', 'web/js/i18n/en/**', '.github/workflows/gen-sync.yml']
+    paths: ['i18n/ui/**', 'web/**', '!web/js/i18n/**', '!web/cpack/lesson/pn-*.js', 'extension/**', '!extension/app/**', 'native/shared/*.json', 'brand/stitch/**', 'scripts/native/**', 'infra/jobs.json', 'infra/lexicon-consumers.json', 'scripts/jobs/gen.mjs', 'scripts/i18n-langs.txt', 'content/**', 'scripts/i18n-pack.mjs', 'scripts/lib/i18n-pack.mjs', 'scripts/build-extension.sh', 'scripts/gen-academic.mjs', 'scripts/gen-newtab.mjs', 'web/js/i18n/en/**', '.github/workflows/gen-sync.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -24,10 +24,11 @@ jobs:
         with: { node-version: 22 }
       - name: dựng lại bản sinh từ nguồn + commit lên main
         run: |
-          bash scripts/ci/commit-regen.sh "Bản sinh - gói dịch + extension/app khớp nguồn (gen-sync)" "node scripts/i18n-pack.mjs && node scripts/native/gen.mjs" web/js/i18n web/cpack/i18n web/cpack/lesson extension/app web/data native   # web/cpack/i18n: i18n-pack ghi tlui-*.js ở đây; thiếu → extension/app (build từ web/) lệch web/ vĩnh viễn → ext-sync đỏ mọi lượt (24/11)
+          bash scripts/ci/commit-regen.sh "Bản sinh - gói dịch + extension/app khớp nguồn (gen-sync)" "node scripts/i18n-pack.mjs && node scripts/native/gen.mjs && node scripts/jobs/gen.mjs --derived" web/js/i18n web/cpack/i18n web/cpack/lesson extension/app web/data native docs/JOBS.md functions/api/_jobs_reg.js   # web/cpack/i18n: i18n-pack ghi tlui-*.js ở đây; thiếu → extension/app (build từ web/) lệch web/ vĩnh viễn → ext-sync đỏ mọi lượt (24/11)
       - name: cổng khớp nguồn (bản đã commit = bản dựng từ nguồn)
         run: |
           git fetch -q origin main && git reset -q --hard origin/main
           node scripts/test/ext-sync.mjs
           node scripts/test/i18n-pack.mjs
+          node scripts/jobs/gen.mjs   # sổ việc đã commit = bản dựng từ infra/jobs.json
           node scripts/native/gen.mjs --check   # bản native đã commit = bản dựng từ nguồn (push main: so byte nghiêm ngặt)
