@@ -20,6 +20,7 @@
 import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
 import { healthVerdict, localDate, localHM, normCfg, capCfg, pickEmbed, validTz, LANG_TZ, zonedToMs, peakOk, peakSlot } from './_distribution.js';
 import { guardBg } from './_d1guard.js';
+import { clipLang } from './_social_audit.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
@@ -405,6 +406,32 @@ const ADMIN_OPS = {
     const ch = await channelRow(db, CHID.test(String(b.channel_id || '')) ? b.channel_id : '');
     return { rows: out, studio: ch ? `https://studio.youtube.com/channel/${ch.channel_id}/videos/upload?d=ud` : STUDIO, ...(await counts(db)) };
   },
+  /** 25/11 (chủ: video sai ngôn ngữ kênh đã lên): video ĐÃ lên kênh YouTube trực tiếp (yt_queue done, 7 ngày qua) mà clip KHÁC ngôn ngữ kênh → liệt kê (mặc định) hoặc `apply:true` chuyển sang PRIVATE (ẩn, KHÔNG xoá – đảo ngược được) qua videos.update,
+   *  ghi sổ vào yt_queue.err ('wrong-lang-hidden <ngày>'). 50 đơn vị/lần, `max` ≤ 40/lượt; chỉ đổi khi còn public/unlisted. b = { apply?, max?, days? (≤ 14, mặc định 7) }. */
+  async wronglive(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
+    const now = Date.now(), apply = b.apply === true, max = Math.min(40, Math.max(1, +b.max || 20)), days = Math.min(14, Math.max(1, +b.days || 7)), out = { apply, found: 0, hidden: [], skipped: [] };
+    const items = new Map(((await manifest(env)).items || []).map(i => [i.id, i])), rows = await all(db, "SELECT clip, channel_id, video_id, publish_at, err FROM yt_queue WHERE status = 'done' AND video_id IS NOT NULL AND channel_id IS NOT NULL AND publish_at BETWEEN ? AND ?", new Date(now - days * 864e5).toISOString(), new Date(now).toISOString());
+    const wrong = []; for (const r of rows) { const x = await chanCfg(db, r.channel_id); if (x.explicit_lang && x.cfg.lang && clipLang(items.get(r.clip) || { id: r.clip }) !== x.cfg.lang && !/wrong-lang-hidden/.test(r.err || '')) wrong.push(r); }
+    out.found = wrong.length;
+    for (const r of wrong.slice(0, max)) {
+      const item = { clip: r.clip, channel_id: r.channel_id, video_id: r.video_id, at: r.publish_at };
+      if (!apply) { out.hidden.push(item); continue; }
+      const q = await quotaInfo(db); if (q.left < QUOTA.update + QUOTA.reserve) { out.skipped.push({ clip: r.clip, why: 'quota' }); break; }
+      const ch = await channelRow(db, r.channel_id); if (!ch) { out.skipped.push({ clip: r.clip, why: 'not-connected' }); continue; }
+      try {
+        const at = await accessToken(env, db, ch), g = await gfetch(`https://www.googleapis.com/youtube/v3/videos?part=status&id=${encodeURIComponent(r.video_id)}`, { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
+        const cur = (((await g.json().catch(() => ({}))).items || [])[0] || {}).status;
+        if (!cur) { out.skipped.push({ clip: r.clip, why: 'not-found' }); continue; }
+        if (cur.privacyStatus !== 'private') {
+          const u = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status', { method: 'PUT', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json' }, body: JSON.stringify({ id: r.video_id, status: { ...cur, privacyStatus: 'private' } }) }); await spend(db, QUOTA.update);
+          if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); continue; }
+        }
+        await run(db, 'UPDATE yt_queue SET err = ?, updated = ? WHERE clip = ?', 'wrong-lang-hidden ' + new Date(now).toISOString().slice(0, 10), Date.now(), r.clip); out.hidden.push({ ...item, was: cur.privacyStatus });
+      } catch (e) { out.skipped.push({ clip: r.clip, why: 'error' }); }
+    }
+    out.quota = await quotaInfo(db); return { ok: true, ...out };
+  },
   /** 25/11 (chủ: lịch đúng giờ cao điểm thị trường): video ĐÃ tải lên (private + publishAt, status uploading/done) mà giờ hẹn lệch giờ cao điểm → đổi publishAt qua YouTube API (videos.update, 50 đơn vị/lần, chia lượt `max`).
    *  Chỉ video còn PRIVATE và publishAt ở tương lai > 1 giờ (đã công khai thì không đụng); giữ nguyên các trường status khác (đọc trước rồi gộp). apply=false → chỉ liệt kê. b = { apply?, max? (≤ 40, mặc định 20) }. */
   async retime(db, b, who, env) {
@@ -706,9 +733,8 @@ const CLI_OPS = {
   },
 };
 const DANGER = new Set(['disconnect']); // revoke + delete a channel → sign-in ≤ 15 min old (same rule as drive.js)
-const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged', 'fill', 'retime', 'autoq', 'probe']);
+const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged', 'fill', 'retime', 'wronglive', 'autoq', 'probe']);
 
-export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
 export async function onRequestPost({ request, env }) {
   let text; try { text = await readText(request, 32768); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }

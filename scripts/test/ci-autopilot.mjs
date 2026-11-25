@@ -86,5 +86,13 @@ ok(/process\.env\.AUTOPILOT_MERGE_TOKEN/.test(src) && /mergeToken && merges < MA
   const src = fs.readFileSync('scripts/ci/autopilot.mjs', 'utf8');
   ok(/force-cancel/.test(src) && /sweepStale\(token, dry, now\)/.test(src), 'main() huỷ rồi force-cancel khi cancel không ăn'); }
 
+// --- 26/11 chạy lại (rerun): created_at giữ của lượt gốc, run_started_at = attempt hiện tại → tuổi xếp hàng tính theo run_started_at (#2023 attempt 5 bị huỷ oan)
+{ const now = Date.parse('2026-11-25T12:00:00Z'), ago = m => new Date(now - m * 60e3).toISOString();
+  const rr = (id, createdMin, startMin) => ({ id, name: 'npm test', status: 'queued', event: 'pull_request', created_at: ago(createdMin), run_started_at: ago(startMin) });
+  ok(stuckQueued([rr(1, 500, 2)], now).length === 0, 'rerun: created_at cũ nhưng run_started_at mới → không huỷ (stuckQueued)');
+  ok(stuckQueued([rr(2, 500, STUCK_QUEUE_MIN + 1)], now).join() === '2', 'rerun xếp hàng thật > 45 phút theo run_started_at → vẫn huỷ');
+  ok(staleQueued([rr(3, 30 * 60, 5)], now).todo.length === 0, 'rerun: created_at 30 giờ trước, run_started_at 5 phút → không huỷ (staleQueued)');
+  ok(staleQueued([{ id: 4, status: 'queued', created_at: ago((STALE_QUEUE_H + 1) * 60) }], now).todo.join() === '4', 'không có run_started_at → dùng created_at như cũ'); }
+
 if (fail) { console.error(`ci-autopilot: ${fail} lỗi`); process.exit(1); }
 console.log('ci-autopilot: OK');
