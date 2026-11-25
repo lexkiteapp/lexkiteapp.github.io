@@ -72,6 +72,8 @@ function merge(L, D, RL, RD, doc) {
     // điểm dừng gradient: from-* tách lt:/dk: mà to-/via-* chung → Tailwind cho from-* đặt lại --tw-gradient-to (trong suốt) ở tầng lt:/dk: SAU to-* chung → gradient nhạt dần. Kéo to-/via-* chung theo cùng tầng.
     const varFrom = cl.some(c => /^from-/.test(c) && !sd.has(c)) || cd.some(c => /^from-/.test(c) && !sl.has(c)), stop = c => varFrom && /^(to|via)-/.test(c);
     const cls = [...cl.filter(c => sd.has(c) && !stop(c)), ...cl.filter(c => !sd.has(c) || stop(c)).map(c => 'lt:' + c), ...cd.filter(c => !sl.has(c) || stop(c)).map(c => 'dk:' + c)];
+    // màu vẽ SVG (stroke/fill) khác nhau giữa 2 bản (bản sáng class/currentColor, bản tối thuộc tính hex, hoặc ngược lại): thuộc tính chỉ lấy của bản sáng → bản tối mất màu (vòng 'đến hạn' Ôn rãnh trắng đặc). Đưa thành lớp lt:/dk: stroke-[#hex]/fill-[#hex] (CSS thắng thuộc tính).
+    for (const k of ['stroke', 'fill']) { const lv = L.getAttribute(k), dv = D.getAttribute(k), hex = v => /^#[0-9a-f]{3,8}$/i.test(v || ''); if (lv !== dv) { if (hex(dv)) cls.push(`dk:${k}-[${dv.toLowerCase()}]`); else if (hex(lv) && dv === 'currentColor') cls.push(`dk:${k}-current`); } /* bản sáng giữ nguyên thuộc tính (hex) → không cần lớp lt: (tiết kiệm byte gói ux1) */ }
     if (cls.length) out.setAttribute('class', cls.join(' '));
     for (const a of D.attributes) if (!out.hasAttribute(a.name) && !/^(class|style|on\w+|data-active-classes)$/i.test(a.name)) out.setAttribute(a.name, a.value); // thuộc tính chỉ bản tối có (aria…)
   } else { const c = classesOf(L, RL); if (c.length) out.setAttribute('class', c.join(' ')); }
@@ -208,9 +210,9 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
   const recolor = colorMap(bind), code = recolor(`(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${WEB ? `,\n footer: ${o.footer}` : ''}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n` +
     (o.protos.length ? `(self.ST2.P || (self.ST2.P = {}))[${JSON.stringify(k)}] = (t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({\n${o.protos.map(([n, h]) => ` ${JSON.stringify(n)}: d => ${h}`).join(',\n')} });\n` : '')), sk = shrink(code);
   const js = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs từ ${SRC}/${k}-light|dark.html + bind/${k}.json – KHÔNG sửa tay (sửa bind map rồi chạy lại). */\n` + (sk.head ? `{ ${sk.head}\n${sk.body}}\n` : sk.body);
-  const out = path.join(OUT, k + '.js');
+  const out = !WEB && bind.out ? bind.out : path.join(OUT, k + '.js'); // bind.out: khung màn của gói lười chỉ một route (vd web/cpack/game/) – không tính byte web/js
   if (CHECK) { if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== js) errs.push(`${k}: ${out} trôi so với Stitch/bind (chạy lại bộ chuyển)`); }
-  else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }
+  else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(path.dirname(out), { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }
 { const en = `/* English UI – ${WEB ? 'v2web (trang web Stitch' : 'v2 (màn Stitch v2'}: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {\n${Object.entries(enMap).sort().map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n')}\n}); })(typeof self !== 'undefined' ? self : this);\n`;
   if (CHECK) { if (!fs.existsSync(EN) || fs.readFileSync(EN, 'utf8') !== en) errs.push(`${EN} trôi`); } else if (!A.includes('--dump')) fs.writeFileSync(EN, en); } // --dump chỉ in sơ đồ: KHÔNG ghi en/v2.js (bỏ qua màn → mất khóa các màn khác)
 if (errs.length) { console.error('✗ stitch-v2-convert:\n  ' + errs.join('\n  ')); process.exit(1); }

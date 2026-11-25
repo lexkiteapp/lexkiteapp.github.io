@@ -1,14 +1,14 @@
 {
  "job": "say-native",
- "at": "2026-11-23T15:38:56.961Z",
+ "at": "2026-11-25T22:34:57.530Z",
  "used": {
-  "lexai": 1,
+  "lexai": 0,
   "gc": 0,
-  "cf2": 0,
+  "cf2": 1667,
   "cfLeak": 0,
   "cf2Dead": [],
-  "gem": 39,
-  "groq": 424
+  "gem": 0,
+  "groq": 11
  },
  "budget": {
   "lexai": 400,
@@ -16,33 +16,23 @@
   "cf2": 100000
  },
  "by": {
-  "gem|gemini-3.8-flash": {
-   "ok": 0,
-   "fail": 8,
-   "bad": 0
-  },
   "groq|openai/gpt-oss-120b": {
-   "ok": 291,
-   "fail": 1,
-   "bad": 0
-  },
-  "groq|qwen/qwen3.8-27b": {
-   "ok": 133,
+   "ok": 8,
    "fail": 0,
    "bad": 0
   },
-  "gem|gemini-3.7-flash": {
-   "ok": 0,
-   "fail": 4,
+  "groq|qwen/qwen3.8-27b": {
+   "ok": 3,
+   "fail": 1,
    "bad": 0
   },
-  "gem|gemini-3.6-flash": {
-   "ok": 39,
-   "fail": 7,
+  "cf2|@cf/meta/llama-3.3-70b-instruct-fp8-fast": {
+   "ok": 18,
+   "fail": 0,
    "bad": 0
   },
-  "lexai|gemini-3.6-flash": {
-   "ok": 1,
+  "cf2|@cf/openai/gpt-oss-120b": {
+   "ok": 25,
    "fail": 0,
    "bad": 0
   }
@@ -50,19 +40,13 @@
  "keys": {
   "gem": {
    "size": 85,
-   "live": 43,
-   "parked": {
-    "day": 24,
-    "auth": 2,
-    "minute": 16
-   }
+   "live": 85,
+   "parked": {}
   },
   "groq": {
    "size": 109,
-   "live": 108,
-   "parked": {
-    "auth": 1
-   }
+   "live": 109,
+   "parked": {}
   }
  }
 }
