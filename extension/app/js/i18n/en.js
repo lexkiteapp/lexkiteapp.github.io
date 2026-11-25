@@ -533,6 +533,8 @@
 // 🥁 Nhịp điệu – ô chế độ (app.js modeTiles + study.js MODES, khung app)
 "Nhịp điệu": "Rhythm",
 "Chạm đúng nhịp nhấn của câu tiếng Anh": "Tap to the stress beat of English sentences",
+"Ô chữ mỗi ngày": "Daily crossword",
+"Từ của bạn đan thành ô chữ – mỗi ngày một ô mới": "Your own words woven into a crossword – a new one every day",
 'Luyện tiếng Tây Ban Nha': 'Spanish practice', 'Luyện tiếng Pháp': 'French practice', 'Từ mới, ngữ pháp và cuộc gọi AI mỗi ngày': 'New words, grammar and an AI call every day', 'Luyện định dạng DELE/SIELE': 'DELE/SIELE format practice', 'Luyện định dạng DELF/DALF': 'DELF/DALF format practice', 'Đọc, nghe, viết, nói theo cấu trúc đề thi': 'Reading, listening, writing and speaking in the exam format', 'Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn': 'Verb conjugation and grammar, explained in your language',
 'Mini-test biến thể': 'Variant mini-test',
 }); })(typeof self !== 'undefined' ? self : this);
@@ -1135,6 +1137,8 @@
 (function (g) { Object.assign(g.I18N_DICT.en, {"Thoát bây giờ sẽ mất tiến độ bài này?": "Leave now and lose your progress in this lesson?", "Thoát bài?": "Leave this lesson?", "Tiến độ đã được lưu – lần sau bạn học tiếp từ đây.": "Your progress is saved – next time you'll pick up right here.", "Tiếp tục học": "Keep learning", "Thoát bài học": "Quit lesson"}); })(typeof self !== 'undefined' ? self : this);
 /* Thử thách nói 30 giây (lối vào ở Hôm nay/Luyện/kết quả Nói; màn: web/cpack/score30) */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Thử thách nói 30 giây": "30-second speaking challenge"}); })(typeof self !== 'undefined' ? self : this);
+/* Nhật ký giọng nói ngày 1 vs ngày 30 (lối vào ở Luyện/thẻ điểm 30 s/kết quả Nói; màn: web/cpack/diary-app) */
+(function (g) { Object.assign(g.I18N_DICT.en, {"Nhật ký giọng nói": "Voice diary"}); })(typeof self !== 'undefined' ? self : this);
 
 /* Chữ giao diện add-on (content/popup/background) – nguồn tiếng Anh để Actions dịch sang 13 ngôn ngữ khác */
 (function (g) { Object.assign(g.I18N_DICT.en, {

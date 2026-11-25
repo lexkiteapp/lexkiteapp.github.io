@@ -337,6 +337,7 @@
   "rev.test": "テスト",
   "rev.pronunciation": "発音練習",
   "rev.gamesPractice": "ゲームと練習",
+  "rev.gameCrossword": "毎日のクロスワード",
   "rev.pickAWordSource": "単語ソースを選択してから、練習モードを選択します。すべてのセッションで XP を獲得し、毎日のクエストにカウントされます。",
   "rev.wordSource": "単語の出典",
   "rev.mySentence": "自分の文",
@@ -3498,5 +3499,6 @@
   "speak.spk.lamViecNhom": "チームワーク",
   "speak.spk.duHocSongONuoc": "留学と海外生活",
   "speak.spk.mayTinhInternetHangNgay": "パソコンと日常のインターネット",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
+  "speak.spk.nhatKyGiongNoi": "ボイス日記"
 }

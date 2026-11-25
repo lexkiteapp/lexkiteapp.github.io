@@ -337,6 +337,7 @@
   "rev.test": "테스트",
   "rev.pronunciation": "발음 연습",
   "rev.gamesPractice": "게임과 연습",
+  "rev.gameCrossword": "오늘의 십자말풀이",
   "rev.pickAWordSource": "단어 소스를 선택한 다음 연습 모드를 선택하세요. 모든 세션은 XP를 획득하고 일일 퀘스트에 반영됩니다.",
   "rev.wordSource": "단어 출처",
   "rev.mySentence": "내 문장",
@@ -3498,5 +3499,6 @@
   "speak.spk.lamViecNhom": "팀워크",
   "speak.spk.duHocSongONuoc": "해외 유학과 생활",
   "speak.spk.mayTinhInternetHangNgay": "컴퓨터와 일상 속 인터넷",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
+  "speak.spk.nhatKyGiongNoi": "음성 일기"
 }

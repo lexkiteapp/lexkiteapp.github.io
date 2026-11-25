@@ -1,0 +1,190 @@
+{
+  "id": "c1-restorers-dilemma",
+  "kind": "book",
+  "level": "C1",
+  "title": "The Restorer's Dilemma",
+  "summary": "A conservator hired to clean a village mural finds an older painting hidden beneath it and must decide what to preserve.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original story written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama"
+    ],
+    "scene": "Flat 2D illustration: Ama on a small scaffold in a village hall, gently cleaning a faded mural with a soft brush, a hidden blue sky showing beneath, no text"
+  },
+  "audio": {
+    "wpm": 140,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "A Routine Commission",
+      "words": [
+        "restore",
+        "mural",
+        "decorate",
+        "fragile",
+        "gradually",
+        "reveal"
+      ],
+      "sentences": [
+        "The village council hired Ama to restore a mural that had decorated the town hall for nearly a century.",
+        "It showed a harvest festival, but the colours had faded so badly that the farmers looked like grey ghosts.",
+        "She expected a routine job of a few weeks, involving careful cleaning and a little repair.",
+        "On the first morning she tested a small corner with a damp cotton swab, working slowly because the plaster was fragile.",
+        "Gradually, the dull surface lifted to reveal a patch of unexpected blue beneath the dirt.",
+        "It was far too bright to belong to the harvest scene above it.",
+        "Ama paused, leaned closer, and noticed the faint outline of a sailing ship.",
+        "She realised that another painting lay underneath, and that someone had deliberately covered it.",
+        "For a long moment she simply stood there, unsure whether she had found a treasure or a problem."
+      ],
+      "quiz": [
+        {
+          "q": "What did the council ask Ama to do?",
+          "options": [
+            "Paint a new mural",
+            "Restore an old mural",
+            "Demolish the town hall"
+          ],
+          "answer": 1,
+          "explain": "The village council hired Ama to restore a mural that had decorated the town hall."
+        },
+        {
+          "q": "Why did the blue patch surprise her?",
+          "options": [
+            "It matched the harvest scene.",
+            "It was too bright to belong to that scene.",
+            "It was painted on glass."
+          ],
+          "answer": 1,
+          "explain": "It was far too bright to belong to the harvest scene above it."
+        },
+        {
+          "q": "What did Ama realise at the end of the chapter?",
+          "options": [
+            "The plaster was new.",
+            "Another painting lay underneath.",
+            "The council had lied about the date."
+          ],
+          "answer": 1,
+          "explain": "She realised that another painting lay underneath, and that someone had deliberately covered it."
+        }
+      ]
+    },
+    {
+      "title": "What the Archives Said",
+      "words": [
+        "archive",
+        "conceal",
+        "mayor",
+        "controversy",
+        "documentation",
+        "reluctant"
+      ],
+      "sentences": [
+        "That evening Ama visited the village archive, where an elderly clerk brought her a box of yellowing documentation.",
+        "The records showed that the first mural, a seascape, had been painted by a local fisherman's daughter.",
+        "It had been covered after only a year, following a long argument about whether the hall should display a seascape at all.",
+        "The mayor at the time had wanted something cheerful, and the sea reminded many families of those who never came home.",
+        "Ama felt a quiet sympathy for both sides of that old controversy.",
+        "The clerk seemed reluctant to say more, but she finally admitted that the painter's name had been scratched from every register.",
+        "Ama thought that erasing a name was a harsher way to conceal the past than erasing a picture.",
+        "She returned to the hall at dawn, determined to learn how much of the seascape had survived.",
+        "Under the lamp, the hidden ship looked like it was still sailing, undamaged by a hundred years of silence."
+      ],
+      "quiz": [
+        {
+          "q": "Who painted the first mural?",
+          "options": [
+            "A fisherman's daughter",
+            "The mayor",
+            "The clerk"
+          ],
+          "answer": 0,
+          "explain": "The records showed that the first mural, a seascape, had been painted by a local fisherman's daughter."
+        },
+        {
+          "q": "Why was the seascape covered?",
+          "options": [
+            "It was damaged by water.",
+            "There was an argument about displaying it.",
+            "Nobody could afford to keep it."
+          ],
+          "answer": 1,
+          "explain": "It had been covered after only a year, following a long argument about whether the hall should display a seascape at all."
+        },
+        {
+          "q": "How did the clerk behave?",
+          "options": [
+            "Eager and talkative",
+            "Hesitant about saying more",
+            "Angry with Ama"
+          ],
+          "answer": 1,
+          "explain": "The clerk seemed reluctant to say more."
+        }
+      ]
+    },
+    {
+      "title": "Two Pictures, One Wall",
+      "words": [
+        "preserve",
+        "compromise",
+        "unveil",
+        "heritage",
+        "legacy"
+      ],
+      "sentences": [
+        "Ama knew that she could not preserve both paintings in the way the council had imagined.",
+        "Removing the harvest scene would destroy a work that generations of villagers had grown to love.",
+        "Leaving the seascape hidden, however, would continue a silence that had lasted far too long.",
+        "After several sleepless nights she proposed a compromise: she would carefully open a narrow window in the upper layer.",
+        "Through it, visitors could glimpse the ship while the harvest scene remained largely intact.",
+        "A small plaque would honour the original painter by name, restoring what the old registers had taken away.",
+        "At the evening when the council came to unveil the result, the hall was unusually quiet.",
+        "An old woman, the painter's great-granddaughter, stood at the front and whispered her gratitude.",
+        "Ama understood then that the village's heritage was not a single picture, but a legacy made of two difficult stories."
+      ],
+      "quiz": [
+        {
+          "q": "What was Ama's compromise?",
+          "options": [
+            "She destroyed the harvest scene.",
+            "She opened a narrow window in the top layer.",
+            "She hid both paintings."
+          ],
+          "answer": 1,
+          "explain": "She would carefully open a narrow window in the upper layer."
+        },
+        {
+          "q": "What would the plaque do?",
+          "options": [
+            "Advertise the council",
+            "Honour the original painter by name",
+            "Warn visitors about the plaster"
+          ],
+          "answer": 1,
+          "explain": "A small plaque would honour the original painter by name."
+        },
+        {
+          "q": "Who thanked Ama at the unveiling?",
+          "options": [
+            "The mayor",
+            "The clerk",
+            "The painter's great-granddaughter"
+          ],
+          "answer": 2,
+          "explain": "An old woman, the painter's great-granddaughter, stood at the front and whispered her gratitude."
+        }
+      ]
+    }
+  ]
+}

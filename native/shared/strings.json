@@ -338,6 +338,7 @@
   "rev.test": "Bài kiểm tra",
   "rev.pronunciation": "Luyện phát âm",
   "rev.gamesPractice": "Trò chơi & bài tập",
+  "rev.gameCrossword": "Ô chữ mỗi ngày",
   "rev.pickAWordSource": "Chọn nguồn từ, rồi chọn cách luyện. Mỗi bài đều cộng XP và tính vào nhiệm vụ ngày.",
   "rev.wordSource": "Nguồn từ",
   "rev.mySentence": "Câu của tôi",
@@ -3499,5 +3500,6 @@
   "speak.spk.lamViecNhom": "Làm việc nhóm",
   "speak.spk.duHocSongONuoc": "Du học & Sống ở nước ngoài",
   "speak.spk.mayTinhInternetHangNgay": "Máy tính & Internet hằng ngày",
-  "speak.spk.thuThachNoi30Giay": "Thử thách nói 30 giây"
+  "speak.spk.thuThachNoi30Giay": "Thử thách nói 30 giây",
+  "speak.spk.nhatKyGiongNoi": "Nhật ký giọng nói"
 }

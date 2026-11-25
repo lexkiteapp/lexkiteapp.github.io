@@ -47,7 +47,7 @@ jobs:
       - name: Bổ sung phiên âm & ví dụ còn trống (chạy dần, có lưu đệm)
         run: |
           node scripts/fill-vocab.mjs --max 1000 --minutes 25 | tail -3
-          if ! node scripts/test/content-check.mjs > "$RUNNER_TEMP/cc.txt"; then tail -20 "$RUNNER_TEMP/cc.txt"; echo 'content-check lỗi → bỏ thay đổi kho từ lần này'; git checkout web/js/lib web/js/data.js; fi
+          if ! node scripts/test/content-check.mjs > "$RUNNER_TEMP/cc.txt"; then tail -20 "$RUNNER_TEMP/cc.txt"; echo 'content-check lỗi → bỏ thay đổi kho từ lần này'; git checkout web/js/lib web/cpack/lib web/js/data.js; fi
       # 26/10: gen-wordlist ghi dòng KHÔNG có IPA Mỹ → commit thẳng làm dict-consistency đỏ (759 dòng, Prod release + vocab-img-scene hỏng).
       # Luôn chuẩn hoá kho (IPA Mỹ, bản chép add-on, dist) + tab mới add-on rồi mới lưu; cổng còn đỏ → không commit.
       - name: Chuẩn hoá kho + tab mới add-on (docs/LEXICON.md)
@@ -57,9 +57,9 @@ jobs:
           node scripts/build-lexicon.mjs
       - name: Lưu kết quả (thử lại tối đa 5 lần)
         run: |
-          bash scripts/ci/push-main.sh "Kho từ theo kỳ thi: cập nhật tự động" web/js/lib web/js/data.js content/wordlists extension/app/js extension/nt
+          bash scripts/ci/push-main.sh "Kho từ theo kỳ thi: cập nhật tự động" web/js/lib web/cpack/lib web/js/data.js content/wordlists extension/app/js extension/app/cpack extension/nt
       - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh wordlists <nhánh>)
         uses: ./.github/actions/bot-output
         with:
           name: wordlists
-          paths: web/js/lib web/js/data.js content/wordlists extension/app/js extension/nt
+          paths: web/js/lib web/cpack/lib web/js/data.js content/wordlists extension/app/js extension/app/cpack extension/nt
