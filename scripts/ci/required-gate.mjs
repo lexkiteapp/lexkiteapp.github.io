@@ -272,7 +272,9 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     // Mọi bất định (không phải PR cùng repo, lỗi API, dispatch lỗi, kết quả đỏ/lỗi thời) → {} = đòi gộp main như cũ; không bao giờ mở cổng khi chưa có kết quả ĐẠT cho đúng sha main hiện tại.
     retest: async (sha, drift) => {
       const suite = await call('/contents/scripts/test/suite.txt?ref=main'); if (!suite || suite.encoding !== 'base64') return {};
-      const plan = retestPlan(drift, Buffer.from(suite.content, 'base64').toString('utf8')); if (!plan.ok) return {};
+      let prFiles = null;
+      if (drift.includes(SUITE)) { const c = await call(`/compare/main...${sha}?per_page=100`); if (c && !(c.files && c.files.length >= 100)) prFiles = (c.files || []).map(x => x.filename); }   // suite.txt trong drift: cần biết PR đụng test nào
+      const plan = retestPlan(drift, Buffer.from(suite.content, 'base64').toString('utf8'), prFiles); if (!plan.ok) return {};
       const prs = await call(`/commits/${sha}/pulls`); if (!(prs || []).some(p => p.head && p.head.sha === sha && p.head.repo && p.head.repo.full_name === repo)) return {};   // chỉ PR cùng repo
       const main = (await call('/branches/main')).commit.sha, st = ((await call(`/commits/${sha}/status?per_page=100`)).statuses || []).find(x => x.context === RETEST_CONTEXT), v = retestVerdict(st, main);
       if (v === 'clear') return { clear: true };

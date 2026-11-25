@@ -15,11 +15,13 @@ export const MAX_CMDS = 40;
 const TEST = /^scripts\/test\/[\w.-]+\.mjs$/;
 
 /** Hàm thuần: danh sách tệp drift + nội dung suite.txt → { ok, cmds }. ok=false khi có tệp drift KHÔNG chạy lại được (khác test trong suite) → dùng cách cũ. */
-export function retestPlan(drift = [], suiteText = '') {
+export function retestPlan(drift = [], suiteText = '', prFiles = null) {
   if (!drift.length) return { ok: false, cmds: [], why: 'không có drift' };
   const lines = String(suiteText).split('\n').map(l => l.trim()).filter(l => l.startsWith('node scripts/test/'));
   const cmds = [];
   for (const f of drift) {
+    // 25/11: suite.txt = DANH SÁCH test, không phải test. Nó vào drift khi PR đụng một test có trong danh sách → chạy lại đúng các dòng của main cho những test PR đụng (đủ biết đối số mới). Trước đây ok:false → #1802/#2079/#2095 đều bị đòi gộp main lặp lại (~100 job mỗi lần).
+    if (f === 'scripts/test/suite.txt' && prFiles) { const hit = lines.filter(l => prFiles.includes(l.split(/\s+/)[1])); if (!hit.length) return { ok: false, cmds: [], why: 'suite.txt đổi nhưng PR không đụng test nào trong danh sách' }; cmds.push(...hit); continue; }
     if (!TEST.test(f)) return { ok: false, cmds: [], why: `${f} không phải test trong suite` };
     const found = lines.filter(l => l.split(/\s+/)[1] === f);
     if (!found.length) return { ok: false, cmds: [], why: `${f} không có trong suite.txt` };
