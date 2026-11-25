@@ -70,3 +70,18 @@ web/data/lex-index.json
 dist-dict/
 .sa/
 reports/top1/
+
+# Tệp rác do `sed -i -e` (BSD/macOS tạo <tệp>-e) và sao lưu .bak/.orig/.rej – không bao giờ commit (scripts/test/stray-files.mjs gác)
+*.json-e
+*.js-e
+*.mjs-e
+*.sh-e
+*.yml-e
+*.md-e
+*.html-e
+*.css-e
+*.txt-e
+*.py-e
+*.bak
+*.orig
+*.rej
