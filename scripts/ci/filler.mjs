@@ -19,8 +19,9 @@ export const loadRegistry = (f = 'infra/ci-backlog.json') => JSON.parse(fs.readF
  *  cũng chiếm chỗ – 02/11 04:21Z busy 20, queued 118 (đói 0) mà vẫn bơm 12 job → 40/40, check PR không có runner.
  *  Không bao giờ dispatch khi có job đói runner (starved) hoặc check PR (pull_request) đang xếp hàng (prQueued). */
 export const JAM_RUNS = 20;   // 20/11: ≥ 20 lượt workflow (không phải zombie) đang queued = hàng chờ thật, dù job đã chờ > 45' bị STUCK_MS loại khỏi `queued` (busy thấp mà ~100 lượt xếp hàng vẫn bị bơm thêm)
+export const QUEUE_STOP = 30;   // 25/11: > 30 job đang xếp hàng = hàng chờ thật → không nạp việc nền thêm (dù busy thấp vì max-parallel/nhãn runner giữ job)
 export function capacity({ busy, queued = 0, starved = 0, prQueued = 0, queuedRuns = 0 }, { total = 40, reserve = 8 } = {}) {
-  if (starved > 0 || prQueued > 0 || queuedRuns >= JAM_RUNS) return 0;
+  if (starved > 0 || prQueued > 0 || queuedRuns >= JAM_RUNS || queued > QUEUE_STOP) return 0;
   return Math.max(0, total - reserve - busy - queued);
 }
 /** Số job một mục chiếm nếu dispatch với `free` chỗ (thuần): mục có shards_input → min(max_shards, free) (≥ min_shards, không thì 0); mục cố định → jobs nếu vừa. */
