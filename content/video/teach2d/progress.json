@@ -1,0 +1,399 @@
+{
+ "_note": "Day 1 vs Day 30 (docs/specs/voice-diary.md §video, 23/11): ca bản MINH HỌA viết sẵn – KHÔNG phải bản ghi người dùng thật (riêng tư). day1 = cùng câu nói ngập ngừng + sai âm thường gặp (viết lại theo cách đọc, tiếng Kokoro đọc đúng như chữ), day30 = câu đúng. marks = từ của day30 bị đọc sai ở day1 (gạch chân trên thẻ). s1/s30 = điểm minh họa, hiện kèm nhãn SAMPLE. Mọi câu A2–B1, ≤ 12 từ.",
+ "items": [
+  {
+   "id": "weather",
+   "day30": "I think the weather is really nice today.",
+   "day1": "Um... I tink... de wedder is... rilly nice today.",
+   "marks": [
+    "think",
+    "the",
+    "weather",
+    "really"
+   ],
+   "s1": 41,
+   "s30": 82
+  },
+  {
+   "id": "friends",
+   "day30": "Three of my friends live in the north.",
+   "day1": "Tree of my frens... um... live in de nort.",
+   "marks": [
+    "Three",
+    "friends",
+    "the",
+    "north"
+   ],
+   "s1": 48,
+   "s30": 87
+  },
+  {
+   "id": "coffee",
+   "day30": "I would like a cup of coffee, please.",
+   "day1": "Uh... I wood like a... cup of cofi... pleas.",
+   "marks": [
+    "would",
+    "coffee",
+    "please"
+   ],
+   "s1": 55,
+   "s30": 92
+  },
+  {
+   "id": "village",
+   "day30": "Very few people visit this village.",
+   "day1": "Wery few... um... people wisit dis wilage.",
+   "marks": [
+    "Very",
+    "visit",
+    "this",
+    "village"
+   ],
+   "s1": 44,
+   "s30": 85
+  },
+  {
+   "id": "hospital",
+   "day30": "She works at a big hospital near the river.",
+   "day1": "She wok at a... big hospito... near de liba.",
+   "marks": [
+    "works",
+    "hospital",
+    "the",
+    "river"
+   ],
+   "s1": 51,
+   "s30": 90
+  },
+  {
+   "id": "love",
+   "day30": "I really love learning English every day.",
+   "day1": "I rilly lob... um... lerning Inglis... eveli day.",
+   "marks": [
+    "really",
+    "love",
+    "learning",
+    "English",
+    "every"
+   ],
+   "s1": 58,
+   "s30": 83
+  },
+  {
+   "id": "phone",
+   "day30": "My brother wants a new phone for his birthday.",
+   "day1": "My broder wan... a new fone... for his birday.",
+   "marks": [
+    "brother",
+    "wants",
+    "phone",
+    "birthday"
+   ],
+   "s1": 47,
+   "s30": 88
+  },
+  {
+   "id": "breakfast",
+   "day30": "We had breakfast together at seven.",
+   "day1": "We hat brekfas... togeder at seben.",
+   "marks": [
+    "had",
+    "breakfast",
+    "together",
+    "seven"
+   ],
+   "s1": 54,
+   "s30": 93
+  },
+  {
+   "id": "station",
+   "day30": "Can you help me find the train station?",
+   "day1": "Can you elp me... fine de tren station?",
+   "marks": [
+    "help",
+    "find",
+    "the",
+    "train"
+   ],
+   "s1": 43,
+   "s30": 86
+  },
+  {
+   "id": "school",
+   "day30": "I usually walk to school with my sister.",
+   "day1": "I usualy wok to skool... wit my sista.",
+   "marks": [
+    "usually",
+    "walk",
+    "school",
+    "with",
+    "sister"
+   ],
+   "s1": 50,
+   "s30": 91
+  },
+  {
+   "id": "cold",
+   "day30": "The weather was cold, so we stayed at home.",
+   "day1": "De wedder was col... so we stay at hom.",
+   "marks": [
+    "The",
+    "weather",
+    "cold",
+    "stayed",
+    "home"
+   ],
+   "s1": 57,
+   "s30": 84
+  },
+  {
+   "id": "slowly",
+   "day30": "Please speak slowly because I am learning.",
+   "day1": "Pleas spik... slowli... becos I am lerning.",
+   "marks": [
+    "Please",
+    "speak",
+    "slowly",
+    "because"
+   ],
+   "s1": 46,
+   "s30": 89
+  },
+  {
+   "id": "pets",
+   "day30": "I have two cats and one small dog.",
+   "day1": "I hab tu cat... and wan smol dog.",
+   "marks": [
+    "have",
+    "two",
+    "cats",
+    "one",
+    "small"
+   ],
+   "s1": 53,
+   "s30": 82
+  },
+  {
+   "id": "weekend",
+   "day30": "Last weekend we visited my grandmother.",
+   "day1": "Las weeken... we wisit my grandmoder.",
+   "marks": [
+    "Last",
+    "weekend",
+    "visited",
+    "grandmother"
+   ],
+   "s1": 42,
+   "s30": 87
+  },
+  {
+   "id": "bus",
+   "day30": "What time does the next bus leave?",
+   "day1": "Wat tim... does de nex bos leb?",
+   "marks": [
+    "What",
+    "time",
+    "the",
+    "next",
+    "bus",
+    "leave"
+   ],
+   "s1": 49,
+   "s30": 92
+  },
+  {
+   "id": "sorry",
+   "day30": "I'm sorry, I didn't understand the question.",
+   "day1": "I sorry... I din understan... de question.",
+   "marks": [
+    "sorry",
+    "didn't",
+    "understand",
+    "the"
+   ],
+   "s1": 56,
+   "s30": 85
+  },
+  {
+   "id": "friday",
+   "day30": "The restaurant is very busy every night.",
+   "day1": "De restaran is wery bizi... eveli nai.",
+   "marks": [
+    "restaurant",
+    "very",
+    "busy",
+    "every"
+   ],
+   "s1": 45,
+   "s30": 90
+  },
+  {
+   "id": "grammar",
+   "day30": "He thinks English grammar is difficult but useful.",
+   "day1": "He tinks Inglis grama... is dificul but usful.",
+   "marks": [
+    "thinks",
+    "English",
+    "grammar",
+    "difficult"
+   ],
+   "s1": 52,
+   "s30": 83
+  },
+  {
+   "id": "email",
+   "day30": "Could you send me the address by email?",
+   "day1": "Cood you sen me... de adres... by imeil?",
+   "marks": [
+    "Could",
+    "send",
+    "the",
+    "address",
+    "email"
+   ],
+   "s1": 41,
+   "s30": 88
+  },
+  {
+   "id": "food",
+   "day30": "My favorite food is fresh fish with rice.",
+   "day1": "My fevrit food is... fresh fish... wit lice.",
+   "marks": [
+    "favorite",
+    "fish",
+    "with",
+    "rice"
+   ],
+   "s1": 48,
+   "s30": 93
+  },
+  {
+   "id": "trip",
+   "day30": "We are planning a short trip to the mountains.",
+   "day1": "We planin a shot trip... to de mountin.",
+   "marks": [
+    "planning",
+    "short",
+    "the",
+    "mountains"
+   ],
+   "s1": 55,
+   "s30": 86
+  },
+  {
+   "id": "thanks",
+   "day30": "Thank you for your help this morning.",
+   "day1": "Tank you... for you elp... dis morning.",
+   "marks": [
+    "Thank",
+    "help",
+    "this"
+   ],
+   "s1": 44,
+   "s30": 91
+  },
+  {
+   "id": "shopping",
+   "day30": "I need to buy some bread and vegetables.",
+   "day1": "I nid to bai... som bred... and wegtabols.",
+   "marks": [
+    "buy",
+    "bread",
+    "vegetables"
+   ],
+   "s1": 51,
+   "s30": 84
+  },
+  {
+   "id": "garden",
+   "day30": "The children are playing in the garden.",
+   "day1": "De childen... are plaing in de garden.",
+   "marks": [
+    "The",
+    "children",
+    "playing"
+   ],
+   "s1": 58,
+   "s30": 89
+  },
+  {
+   "id": "card",
+   "day30": "Can I pay with my credit card?",
+   "day1": "Can I pai... wit my cledit car?",
+   "marks": [
+    "pay",
+    "with",
+    "credit",
+    "card"
+   ],
+   "s1": 47,
+   "s30": 82
+  },
+  {
+   "id": "repeat",
+   "day30": "She asked me to repeat the whole sentence.",
+   "day1": "She ask me... to ripit... de hol sentens.",
+   "marks": [
+    "asked",
+    "repeat",
+    "whole",
+    "sentence"
+   ],
+   "s1": 54,
+   "s30": 87
+  },
+  {
+   "id": "journey",
+   "day30": "It was a long journey, but we arrived safely.",
+   "day1": "It was a... lon jurni... but we aribed safli.",
+   "marks": [
+    "long",
+    "journey",
+    "arrived",
+    "safely"
+   ],
+   "s1": 43,
+   "s30": 92
+  },
+  {
+   "id": "morning",
+   "day30": "I would like to practice speaking every morning.",
+   "day1": "I wood lik to... practis spikin... eveli morning.",
+   "marks": [
+    "would",
+    "practice",
+    "speaking",
+    "every"
+   ],
+   "s1": 50,
+   "s30": 85
+  },
+  {
+   "id": "teacher",
+   "day30": "Our teacher gave us three new words today.",
+   "day1": "Our teacha gab us... tree nyu wods... todai.",
+   "marks": [
+    "teacher",
+    "gave",
+    "three",
+    "words"
+   ],
+   "s1": 57,
+   "s30": 90
+  },
+  {
+   "id": "confidence",
+   "day30": "After thirty days, I speak with more confidence.",
+   "day1": "Afta tirty dais... I spik wit mo confidens.",
+   "marks": [
+    "thirty",
+    "speak",
+    "with",
+    "more",
+    "confidence"
+   ],
+   "s1": 46,
+   "s30": 83
+  }
+ ]
+}

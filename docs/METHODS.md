@@ -48,6 +48,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Bản xấu / mất dữ liệu: `docs/ROLLBACK.md` mục 0 (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá trên Kho Drive). Mỗi push `main` được gắn tag `prod-…` + smoke tự động (prod-release.yml); KHÔNG tự rollback – cần chủ OK.
 - **Trước MỖI lần push: `npm run prepush`** (tự dựng lại required-gate, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
 - Sau ship: kiểm LIVE (lexkite.com, API 403 với người lạ…). Báo anh ngắn gọn bằng tiếng Việt.
+- Bản sinh NATIVE (`scripts/native/gen.mjs`: native/shared/gen, native/ios|android generated, web/data/*-pack*.json): trên PR `gen.mjs --check` + `native-m2-vectors` DỰNG LẠI từ nguồn PR rồi kiểm nội dung (thiếu bản dịch, schema, sanity), KHÔNG so byte với bản commit → PR không cần commit chúng; bot `gen-sync` commit sau gộp, trên main/push so byte nghiêm ngặt (`--strict` ép trên PR). Tệp rác `*.json-e`/`.bak`: `scripts/test/stray-files.mjs` (dùng `sed -i.bak … && rm`, không `sed -i -e`).
 - `extension/app` + gói dịch `web/js/i18n`/`pn-*` KHÔNG commit trong PR (bot `gen-sync`; `regen-conflicts.mjs --strip`). `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
 
 ## 2b. Chống xung đột PR (chi tiết: `docs/specs/merge-queue.md`)
@@ -98,13 +99,9 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - App: ưu tiên chạy trên máy; tải theo bài; YouTube nhúng ảnh xem trước; ảnh AVIF/WebP.
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
-- Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
-- CDN media.lexkite.com đệm bản cũ, bỏ qua `?v=` → fetch theo `gitSha`.
+- Lỗi đã mắc (Antigravity, add-on, credit, CDN, test, secret, worktree) → nguyên văn `docs/archive/METHODS-LESSONS-2411.md`.
 - Không đăng nhập tài khoản thật để test; dùng `?sandbox=1`, fixture CI.
-- Không in/lưu token/khóa/mật khẩu; secret đổ thẳng từ file (`wrangler pages secret put`, GitHub API libsodium). Repo công khai.
-- Add-on: Chrome của anh nạp bản giải nén từ **thư mục dự án chính** `addon dictionary/extension` (ID lgjmm…), KHÔNG phải `~/lexkite-ext-live` → sau mỗi lần đẩy add-on: `git merge --ff-only` bản checkout chính rồi báo anh bấm ↻. Lỗi "Errors" cũ đến từ tab mở trước khi cập nhật (code mồ côi) → đóng tab cũ + Clear all.
-- Credit: 20/10 phí ~1.100 cr do làm cả lô trước khi duyệt định dạng → chỉ chi khi anh ghi rõ số cho đúng việc; trần từng hạng mục.
-- Worktree agent có thể bắt đầu từ lịch sử CŨ (origin cũ) → brief luôn ghi "làm trên main mới nhất của lexkiteapp".
+- Không in/lưu token/khóa/mật khẩu; secret đổ thẳng từ file.
 
 ## 9. Tài khoản & hạ tầng (chi tiết `docs/INFRA-RULES.md`, `docs/API-KEYS.md`)
 - Email chính thức: vintagezulilyjewelry@gmail.com (không dùng khieudinhthong cho Google). Domain lexkite.com; Firebase `lexkite-app` chỉ auth; dữ liệu đồng bộ ở D1 `lexkite-sync`.
