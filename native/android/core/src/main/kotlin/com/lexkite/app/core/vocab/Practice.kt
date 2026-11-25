@@ -11,11 +11,13 @@ import kotlin.random.Random
 
 /** qengine.js QE.norm: the comparison form of an exam/typed answer. */
 object Qe {
-    fun norm(s: String?): String {
+    /** qengine.js plain: norm without the leading-article strip (word counting keeps "the"). */
+    fun plain(s: String?): String {
         var x = (s ?: "").lowercase().replace(Regex("[’‘`]"), "'").replace(Regex("[£$€]"), "")
         x = x.replace(Regex("(\\d),(\\d{3})"), "$1$2").replace(Regex("[.,!?;:\"“”()]"), " ")
-        return WS_RUN.replace(x, " ").jsTrim().replace(Regex("^(the|a|an) "), "")
+        return WS_RUN.replace(x, " ").jsTrim()
     }
+    fun norm(s: String?): String = plain(s).replace(Regex("^(the|a|an) "), "")
 }
 
 /** choice-kit.js accept(): which typed answers count as right (case, curly quotes, contractions, optional one-slip typo). */

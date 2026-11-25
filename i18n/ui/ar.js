@@ -749,6 +749,7 @@
 "Nhập từ Anki":"استيراد من Anki",
 "Nhập từ bộ thẻ Anki":"مستوردة من رزم Anki الخاصة بك",
 "Nhập từ văn bản, PDF, ePub, phụ đề":"مستورد من نص وPDF وePub وترجمات",
+"Nhật ký giọng nói":"مذكرات الصوت",
 "Nhắc học":"التذكيرات",
 "Nhắc học hằng ngày":"تذكير يومي",
 "Nhịp điệu":"الإيقاع",

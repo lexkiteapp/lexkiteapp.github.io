@@ -749,6 +749,7 @@
 "Nhập từ Anki":"Anki에서 가져오기",
 "Nhập từ bộ thẻ Anki":"Anki 덱에서 가져온 단어",
 "Nhập từ văn bản, PDF, ePub, phụ đề":"텍스트, PDF, ePub, 자막에서 가져옴",
+"Nhật ký giọng nói":"음성 일기",
 "Nhắc học":"알림",
 "Nhắc học hằng ngày":"매일 알림",
 "Nhịp điệu":"리듬",

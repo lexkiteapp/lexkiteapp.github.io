@@ -749,6 +749,7 @@
 "Nhập từ Anki":"Anki'den al",
 "Nhập từ bộ thẻ Anki":"Anki destelerinden aktarıldı",
 "Nhập từ văn bản, PDF, ePub, phụ đề":"Metin, PDF, ePub ve altyazıdan içe aktarıldı",
+"Nhật ký giọng nói":"Ses günlüğü",
 "Nhắc học":"Hatırlatmalar",
 "Nhắc học hằng ngày":"Günlük hatırlatma",
 "Nhịp điệu":"Ritim",

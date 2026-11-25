@@ -749,6 +749,7 @@
 "Nhập từ Anki":"Anki से आयात",
 "Nhập từ bộ thẻ Anki":"आपके Anki डेक से आयात किए गए",
 "Nhập từ văn bản, PDF, ePub, phụ đề":"टेक्स्ट, PDF, ePub और सबटाइटल से आयात किया गया",
+"Nhật ký giọng nói":"वॉइस डायरी",
 "Nhắc học":"अनुस्मारक",
 "Nhắc học hằng ngày":"दैनिक अनुस्मारक",
 "Nhịp điệu":"लय",

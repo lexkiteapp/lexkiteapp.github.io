@@ -1,0 +1,116 @@
+{
+ "id": "t2a_prog_coffee_1",
+ "template": "progress",
+ "series": "Day 1 vs Day 30",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "voice-diary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Day one. Day thirty.",
+   "pause": 0.35
+  },
+  {
+   "id": "a",
+   "text": "Uh... I wood like a... cup of cofi... pleas.",
+   "pause": 2.86
+  },
+  {
+   "id": "k",
+   "text": "Thirty days later!",
+   "pause": 0.35
+  },
+  {
+   "id": "b",
+   "text": "I would like a cup of coffee, please.",
+   "pause": 0.4
+  },
+  {
+   "id": "w",
+   "text": "Same sentence. Just a little practice every day.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "id": "coffee",
+  "day1": "Uh... I wood like a... cup of cofi... pleas.",
+  "day30": "I would like a cup of coffee, please.",
+  "marks": [
+   "would",
+   "coffee",
+   "please"
+  ],
+  "s1": 55,
+  "s30": 92,
+  "sample": true
+ },
+ "cta": {
+  "area": "voice-diary",
+  "route": "#/diary",
+  "link": "https://lexkite.com/app/#/diary",
+  "say": "Start your voice diary"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Day one. Day thirty."
+ },
+ "src": {
+  "progress": "coffee"
+ },
+ "est": {
+  "words": 38,
+  "seconds": 23.3,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Day 1 vs Day 30: \"I would like a cup of coffee, please\"",
+  "keyword": "Day 1 vs Day 30",
+  "value": "Day 30: \"I would like a cup of coffee, please.\" Day 1 slipped on: would, coffee, please. Sample progress, same sentence.",
+  "hashtags": [
+   "#englishspeaking",
+   "#pronunciation",
+   "#learnenglish",
+   "#voicediary",
+   "#progress"
+  ],
+  "link": "https://lexkite.com/app/#/diary",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Day 1 vs Day 30: \"I would like a cup of coffee, please\"",
+    "description": "Day 30: \"I would like a cup of coffee, please.\" Day 1 slipped on: would, coffee, please. Sample progress, same sentence.\n\nStart your voice diary, free: https://lexkite.com/app/#/diary\n\nSeries: Day 1 vs Day 30 · Teacher: Ama\n\n#englishspeaking #pronunciation #learnenglish #voicediary #progress",
+    "tags": [
+     "Day 1 vs Day 30",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Day 1 vs Day 30: \"I would like a cup of coffee, please\"\n\nDay 30: \"I would like a cup of coffee, please.\" Day 1 slipped on: would, coffee, please. Sample progress, same sentence.\n\nStart your voice diary, free: https://lexkite.com/app/#/diary"
+   },
+   "instagram": {
+    "caption": "Day 1 vs Day 30: \"I would like a cup of coffee, please\"\n\nDay 30: \"I would like a cup of coffee, please.\" Day 1 slipped on: would, coffee, please. Sample progress, same sentence.\n\nStart your voice diary: link in bio.",
+    "hashtags": [
+     "#englishspeaking",
+     "#pronunciation",
+     "#learnenglish",
+     "#voicediary",
+     "#progress"
+    ]
+   },
+   "tiktok": {
+    "caption": "Day 1 vs Day 30: \"I would like a cup of coffee, please\" #englishspeaking #pronunciation #learnenglish"
+   }
+  },
+  "first_comment": "Say it: \"I would like a cup of coffee, please.\" Record yourself today and again in 30 days to hear your own progress (free): {link}"
+ }
+}
