@@ -8,6 +8,8 @@ import fs from 'fs';
 import path from 'path';
 const f = process.argv.slice(2).find(a => !a.startsWith('--')) || 'dist/app/index.html';
 let html = fs.readFileSync(f, 'utf8');
+// native.js = cầu nối app gốc (Capacitor): web/add-on bỏ qua hoàn toàn (~6 KB gz khung app) → bản WEB không nạp; app di động chép web/app/index.html (build-mobile.sh) nên VẪN có, chạy đồng bộ trước app.js. Khóa: scripts/test/native-lazy.mjs
+html = html.replace(/[ \t]*<!--lknat-->[\s\S]*?<!--\/lknat-->\n/, '');
 const TAG = /^[ \t]*<script(?: defer)? src="([^"]+)"><\/script>\n/gm;
 const srcs = [...html.matchAll(TAG)].map(m => m[1]);
 if (process.argv.includes('--check')) {
