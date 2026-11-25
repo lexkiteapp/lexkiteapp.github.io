@@ -175,5 +175,6 @@
       try { await warm(); } catch (e) { b.disabled = false; return; } // lỗi mạng → bấm lại
       prep(); if (App.holdRoute) App.holdRoute(); document.addEventListener('keydown', keys); ask(); // đang làm bài → boot không vẽ lại xóa tiến độ
     };
+    if (window.__lkPlGo) { window.__lkPlGo = 0; $('#go').click(); } // bấm Bắt đầu trên khung tĩnh (js/path-skel/pl-<lang>.js) trước khi app sẵn sàng → bắt đầu ngay
   };
 })();
