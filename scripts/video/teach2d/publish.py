@@ -42,6 +42,10 @@ def facts(ep):
         pcs = '; '.join(f"{x['w']} = {' + '.join(t_ for t_, k in x['parts'] if k != 'suf')}" for x in D['words'] if x['pre'])
         return (_fit(f'{R_} root: {lst}', f'{R_} root: {ws[0]} and {ws[1]}', f'One root, {len(ws)} words: {R_}'), f'{D["root"].lower()} root',
                 f'{R_} comes from {D["src_lang"]} "{D["src"]}" ({D["src_mean"]}). Words: {lst}.' + (f' {pcs}.' if pcs else ''))
+    if t == 'progress':   # Day 1 vs Day 30: the title carries the sentence (distinct per clip; long ones fall back to the slipped words / id), the value line = what day 1 slipped on + the day-30 sentence; scores are SAMPLE
+        s30 = D['day30'].rstrip('.?!'); slips = ', '.join(list(dict.fromkeys(m.lower() for m in D['marks'] if len(m) > 3))[:3])
+        return (_fit(f'Day 1 vs Day 30: "{s30}"', f'Day 1 vs Day 30: {s30}', f'Day 1 vs Day 30: {slips}', f'Day 1 vs Day 30: {D["id"]}'), 'Day 1 vs Day 30',
+                f'Day 30: "{D["day30"]}" Day 1 slipped on: {", ".join(dict.fromkeys(m.lower() for m in D["marks"]))}. Sample progress, same sentence.')
     if t == 'band':   # Band 5 -> 7 -> 9: the title names the topic, the value line gives the three sentences so the post is useful as text
         tp = D['topic'].replace('-', ' ').capitalize(); S_ = {x['band']: x['text'] for x in D['steps']}
         return _fit(f'IELTS band 5 to 9: {tp}', f'Band 5 to 9: {tp}', 'IELTS band 5 to 9'), 'ielts band 9', f'{tp}, three ways. Band 5: {S_[5]} Band 7: {S_[7]} Band 9: {S_[9]}'
@@ -95,6 +99,7 @@ def build(ep):
     title, kw, value = facts(ep)
     lvl = str(ep.get('cefr') or (ep.get('data') or {}).get('cefr') or '').lower()
     tags = list(dict.fromkeys(['#learnenglish', '#englishtips', AREA_TAG.get(ep['area'], '#speakenglish')] + ([f'#{lvl}english'] if re.fullmatch(r'[abc][12]', lvl) else []) + ['#englishteacher']))[:5]
+    if ep['template'] == 'progress': tags = ['#englishspeaking', '#pronunciation', '#learnenglish', '#voicediary', '#progress']
     if ep['template'] == 'slang': tags = ['#englishslang', '#learnenglish', '#slang', '#speakenglish', '#englishtips']
     link = ep['cta']['link']; say = ep['cta'].get('say') or 'Practice in the app'
     script = ' '.join(l['text'] for l in ep['lines'] if not l.get('quiz'))
@@ -117,6 +122,8 @@ def first_comment(ep, value):
     (+ the value line when it is plain English text – IPA / arrows would fail the en-only check), one {link} placeholder, 3 wordings rotated by id."""
     L = ep['lines']; qi = next((i for i, l in enumerate(L) if l.get('quiz')), None)
     a = (L[qi + 1]['text'] if qi is not None and qi + 1 < len(L) else value).strip()
+    if ep['template'] == 'progress':   # no quiz: invite the viewer to record the sentence (the in-app Voice Diary)
+        return re.sub(r' +', ' ', f'Say it: "{ep["data"]["day30"]}" Record yourself today and again in 30 days to hear your own progress (free): {{link}}')
     if ep['template'] == 'slang':   # the quiz / misuse card is silent: the first comment answers it (right option, or where not to use it) + the example
         D = ep['data']; q = D['quiz']; ex = D['example']['text']
         if D['variant'] == 'quiz': out = f'Quiz answer: {q["options"][q["answer"]].rstrip(".")}. "{ex}" More real English slang, free: {{link}}'
