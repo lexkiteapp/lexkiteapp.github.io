@@ -27,5 +27,9 @@ const pick = (probe.match(/const PICK = '([^']+)'/) || [])[1];
 ok(pick && /c\.tap\(PICK\)/.test(probe) && !/button\.trk-opt/.test(probe.replace(/^\s*\/\/.*$/gm, '')), 'probe chọn mục tiêu bằng const PICK (không bộ chọn viết cứng)');
 ok(je.includes(`h.click('${pick}')`), `PICK của probe (${pick}) trùng journey-e2e`);
 ok(/data-track=/.test(fs.readFileSync('web/js/onboard.js', 'utf8') + fs.readFileSync('web/js/tracks.js', 'utf8')), 'onboard/tracks còn render [data-track]');
+// 'today': trang chủ v2 (Hôm nay) đưa vào bài bằng nút [data-cont][data-href] – probe phải có bộ chọn đó trong NEXT và các khung today còn render nó
+ok(/const NEXT = \[[^\]]*'#view \[data-cont\]\[data-href\]'/.test(probe), "probe: NEXT có '#view [data-cont][data-href]' (nút chính trang chủ v2)");
+for (const f of ['today', 'today-new', 'today-desk']) ok(/data-href="\$\{e\([^)]*\)\}" data-cont=/.test(fs.readFileSync(`web/js/st/v2/${f}.js`, 'utf8')), `st/v2/${f}.js còn nút [data-href][data-cont]`);
+ok(/\.v2s-today-rail \[data-href\]|\.v2 \[data-href\]/.test(fs.readFileSync('web/js/st/v2/runtime.js', 'utf8')), 'runtime.js còn bắt click [data-href] của trang chủ v2');
 if (fail) process.exit(1);
 console.log('✓ probe-cta: bộ chọn nút chính của probe trúng landing dựng thật');
