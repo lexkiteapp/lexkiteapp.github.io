@@ -27,7 +27,7 @@ export function auditPosts({ posts, chans, clips, now = Date.now(), days = 14, b
     const it = clips.get(p.clip) || { id: p.clip }, v = postViolation(ch, it, p.ms); if (v) add(p, v.code, v.detail, ch);
     const k = p.channel_id + '|' + p.clip; if (seenClip.has(k)) add(p, 'dup-clip', 'cùng clip hai lần trên kênh', ch); seenClip.add(k);
     const t = norm(it.title), kt = p.channel_id + '|' + t; if (t && seenTitle.has(kt)) add(p, 'dup-title', 'trùng tiêu đề trên kênh', ch); seenTitle.add(kt);
-    if (p.clip) { const xk = ch.platform + '|' + p.clip; (xch.get(xk) || xch.set(xk, []).get(xk)).push({ channel_id: p.channel_id, title: ch.title, at: new Date(p.ms).toISOString() }); }
+    if (p.clip) { const xk = ch.platform + '|' + p.clip, real = norm(ch.title); (xch.get(xk) || xch.set(xk, []).get(xk)).push({ channel_id: real || p.channel_id, title: ch.title, at: new Date(p.ms).toISOString() }); }
     const d = localDate(p.ms, ch.tz), key = p.channel_id + '|' + d; per.set(key, (per.get(key) || 0) + 1);
   }
   for (const [key, n] of per) { const [id, d] = key.split('|'), ch = info.get(id), max = isMainLang(ch.lang) ? MAIN_DAY.max : 1; if (n > max) add({ channel_id: id, clip: '', ms: Date.parse(d + 'T12:00:00Z') }, 'over-day', `${n} bài ngày ${d} (tối đa ${max})`, ch); }
@@ -67,6 +67,36 @@ export async function purgeWrongLang(db, clipsArr, now = Date.now(), apply = fal
   for (const r of (await all("SELECT clip, channel_id, status, publish_at FROM yt_queue WHERE channel_id IS NOT NULL AND publish_at > ? AND status IN ('queued', 'failed', 'uploading', 'done')", new Date(lo).toISOString())).filter(wrong)) {
     if (r.status === 'uploading' || r.status === 'done') { out.kept_uploaded++; continue; }
     seen(r, 'removed_queue'); if (apply) await run("DELETE FROM yt_queue WHERE clip = ? AND channel_id = ? AND status IN ('queued', 'failed')", r.clip, r.channel_id);
+  }
+  return out;
+}
+
+/** 25/11 (audit dup-clip/dup-title/over-day trên kênh YouTube trực tiếp): kế hoạch `yt_plan` mà clip ĐÃ nằm trong `yt_queue` (queued/uploading/done) hoặc ngày đó kênh ĐÃ có bài trong hàng tải → bài trùng; hàng tải thắng, xoá dòng kế hoạch (chỉ nguồn 'auto', chỉ tương lai).
+ *  apply=false → chỉ đếm. Trả { apply, dup_clip, over_day, removed }. */
+export async function dedupePlan(db, now = Date.now(), apply = false) {
+  const all = async (sql, ...p) => ((await db.prepare(sql).bind(...p).all()) || {}).results || [], out = { apply: !!apply, dup_clip: 0, over_day: 0, removed: 0 };
+  const cfg = new Map(); for (const r of await all('SELECT channel_id, cfg FROM yt_chan_cfg')) { try { cfg.set(r.channel_id, JSON.parse(r.cfg || '{}')); } catch (e) { /* mặc định */ } }
+  const q = await all("SELECT clip, channel_id, publish_at FROM yt_queue WHERE channel_id IS NOT NULL AND status IN ('queued', 'uploading', 'done') AND publish_at > ?", new Date(now).toISOString());
+  const tzOf = id => capCfg(normCfg(cfg.get(id) || {})).tz, clips = new Set(q.map(r => r.clip)), days = new Set(q.map(r => r.channel_id + '|' + localDate(Date.parse(r.publish_at), tzOf(r.channel_id))));
+  for (const r of await all("SELECT clip, channel_id, slot_ms FROM yt_plan WHERE source = 'auto' AND slot_ms > ?", now + 15 * 60e3)) {
+    const dupClip = clips.has(r.clip), dupDay = !dupClip && days.has(r.channel_id + '|' + localDate(r.slot_ms, tzOf(r.channel_id)));
+    if (!dupClip && !dupDay) continue; out[dupClip ? 'dup_clip' : 'over_day']++; out.removed++;
+    if (apply) await db.prepare('DELETE FROM yt_plan WHERE clip = ? AND channel_id = ?').bind(r.clip, r.channel_id).run();
+  }
+  return out;
+}
+
+/** 25/11 (chủ: lịch đúng giờ cao điểm theo múi giờ thị trường): cấu hình kênh phải LƯU đúng ngôn ngữ + múi giờ thị trường (audit map-tz). Lịch đã ép múi giờ qua capCfg nhưng bản ghi thô (trống → mặc định NY, hoặc Taipei cho zh)
+ *  làm báo lệch và dễ bị công cụ khác đọc sai → ghi lại cfg = capCfg(normCfg({ ...cũ, lang })) cho mọi kênh còn lệch (giữ nguyên các trường khác: active, cửa sổ, vai trò). apply=false → chỉ đếm. */
+export async function healChanCfg(db, apply = false) {
+  const all = async (sql, ...p) => ((await db.prepare(sql).bind(...p).all()) || {}).results || [], out = { apply: !!apply, fixed: 0, ids: [] };
+  const raw = new Map(); for (const r of await all('SELECT channel_id, cfg FROM yt_chan_cfg')) { try { raw.set(r.channel_id, JSON.parse(r.cfg || '{}')); } catch (e) { raw.set(r.channel_id, {}); } }
+  const chans = [...(await all("SELECT channel_id, title FROM dist_ext WHERE status = 'ok'")).filter(c => !foreignAccount({ title: c.title })), ...(await all("SELECT channel_id, title FROM yt_channel WHERE status = 'ok'"))];
+  for (const c of chans) {
+    const cur = raw.get(c.channel_id) || {}, lang = normCfg(cur).lang || langOfChannel(c.title) || 'en', want = LANG_TZ[lang];
+    if (!want || (cur.tz === want && cur.lang === lang)) continue;
+    const next = capCfg(normCfg({ ...cur, lang, tz: want })); out.fixed++; out.ids.push(c.channel_id);
+    if (apply) await db.prepare('INSERT INTO yt_chan_cfg (channel_id, cfg, paused_reason, updated) VALUES (?, ?, ?, ?) ON CONFLICT(channel_id) DO UPDATE SET cfg = excluded.cfg, updated = excluded.updated').bind(c.channel_id, JSON.stringify(next), '', Date.now()).run();
   }
   return out;
 }

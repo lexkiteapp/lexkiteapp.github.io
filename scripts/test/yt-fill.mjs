@@ -2,7 +2,7 @@
 // Chạy: node scripts/test/yt-fill.mjs
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { fillPick, videoResource, PRIVACY } from '../../functions/api/youtube.js';
+import { fillPick, videoResource, PRIVACY, QUOTA } from '../../functions/api/youtube.js';
 let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
 const it = (id, lang, o = {}) => ({ id, lang, title: 't ' + id, qa: { status: 'pass' }, drive: { video: { fileId: 'f' } }, ...o });
 const items = [it('de-aaa', 'de'), it('de-bbb', 'de'), it('de-rej', 'de', { rejected: true }), it('de-qa', 'de', { qa: { status: 'fail' } }), it('de-pause', 'de', { paused: true }), it('de-notitle', 'de', { title: '' }), it('de-nomaster', 'de', { drive: null }), it('de-retired', 'de', { drive: { video: { retired: true } } }), it('vi-aaa', 'vi'), it('en-aaa', undefined), it('de-held', 'de'), it('de-used', 'de'), it('bad id!', 'de')];
@@ -39,4 +39,8 @@ ok(/approved_by = 'probe', approved_at = 1/.test(yt), 'probe có approved_at nh�
 { const wl = yt.slice(yt.indexOf('async wronglive(')), body2 = wl.slice(0, wl.indexOf('async sync('));
   ok(/clipLang\(items\.get\(r\.clip\)/.test(body2) && /cfg\.lang/.test(body2) && /status = 'done'/.test(body2), 'wronglive: video đã lên mà clip khác ngôn ngữ kênh');
   ok(/privacyStatus: 'private'/.test(body2) && !/privateStatus: 'public'|deleteVideo|method: 'DELETE'/.test(body2) && /wrong-lang-hidden/.test(body2) && /apply = b\.apply === true/.test(body2), 'wronglive: chỉ chuyển PRIVATE (không xoá), ghi sổ, mặc định chỉ liệt kê'); }
+{ const rt = yt.slice(yt.indexOf('async retime(')); const body = rt.slice(0, rt.indexOf('async sync('));
+  ok(/'uploading', 'done'/.test(body) && /peakOk\(ms, tz\)/.test(body) && /peakSlot\(/.test(body), 'retime: chỉ hàng đã tải lên có giờ lệch giờ cao điểm → xếp lại vào giờ cao điểm thị trường');
+  ok(/cur\.privacyStatus !== 'private'/.test(body) && /not-scheduled/.test(body) && /\.\.\.cur, privacyStatus: 'private', publishAt: to/.test(body), 'retime: chỉ video còn private + publishAt tương lai, giữ nguyên các trường status khác (không công khai)');
+  ok(/QUOTA\.update \+ QUOTA\.reserve/.test(body) && /apply = b\.apply === true/.test(body) && /'retime'/.test(yt) && QUOTA.update === 50, 'retime: đếm hạn mức 50/lần + chừa dự trữ, mặc định chỉ liệt kê (apply mới ghi), nằm trong WRITE (ký HMAC)'); }
 console.log(`✓ yt-fill: ${n} kiểm`);

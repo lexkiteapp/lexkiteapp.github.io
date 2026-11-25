@@ -432,6 +432,35 @@ const ADMIN_OPS = {
     }
     out.quota = await quotaInfo(db); return { ok: true, ...out };
   },
+  /** 25/11 (chủ: lịch đúng giờ cao điểm thị trường): video ĐÃ tải lên (private + publishAt, status uploading/done) mà giờ hẹn lệch giờ cao điểm → đổi publishAt qua YouTube API (videos.update, 50 đơn vị/lần, chia lượt `max`).
+   *  Chỉ video còn PRIVATE và publishAt ở tương lai > 1 giờ (đã công khai thì không đụng); giữ nguyên các trường status khác (đọc trước rồi gộp). apply=false → chỉ liệt kê. b = { apply?, max? (≤ 40, mặc định 20) }. */
+  async retime(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
+    const now = Date.now(), apply = b.apply === true, max = Math.min(40, Math.max(1, +b.max || 20)), out = { apply, candidates: 0, changed: [], skipped: [], quota_left: null };
+    const rows = await all(db, "SELECT clip, channel_id, video_id, publish_at, status FROM yt_queue WHERE status IN ('uploading', 'done') AND video_id IS NOT NULL AND channel_id IS NOT NULL AND publish_at > ? ORDER BY publish_at", new Date(now + 36e5).toISOString());
+    const todo = [];
+    for (const r of rows) {
+      const x = await chanCfg(db, r.channel_id), tz = x.cfg.tz, ms = Date.parse(r.publish_at); if (!tz || !ms || peakOk(ms, tz)) continue;
+      const np = peakSlot(localDate(ms, tz), tz, r.channel_id, [], 0); if (np == null || np <= now + 36e5) { out.skipped.push({ clip: r.clip, why: 'no-slot' }); continue; }
+      todo.push({ r, np });
+    }
+    out.candidates = todo.length;
+    for (const { r, np } of todo.slice(0, max)) {
+      const to = new Date(np).toISOString(), item = { clip: r.clip, channel_id: r.channel_id, video_id: r.video_id, from: r.publish_at, to };
+      if (!apply) { out.changed.push(item); continue; }
+      const q = await quotaInfo(db); out.quota_left = q.left; if (q.left < QUOTA.update + QUOTA.reserve) { out.skipped.push({ clip: r.clip, why: 'quota' }); break; }
+      const ch = await channelRow(db, r.channel_id); if (!ch) { out.skipped.push({ clip: r.clip, why: 'not-connected' }); continue; }
+      try {
+        const at = await accessToken(env, db, ch), g = await gfetch(`https://www.googleapis.com/youtube/v3/videos?part=status&id=${encodeURIComponent(r.video_id)}`, { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
+        const cur = (((await g.json().catch(() => ({}))).items || [])[0] || {}).status;
+        if (!cur || cur.privacyStatus !== 'private' || !cur.publishAt || Date.parse(cur.publishAt) <= now + 36e5) { out.skipped.push({ clip: r.clip, why: 'not-scheduled' }); continue; }
+        const u = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status', { method: 'PUT', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json' }, body: JSON.stringify({ id: r.video_id, status: { ...cur, privacyStatus: 'private', publishAt: to } }) }); await spend(db, QUOTA.update);
+        if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); continue; }
+        await run(db, 'UPDATE yt_queue SET publish_at = ?, updated = ? WHERE clip = ?', to, Date.now(), r.clip); out.changed.push(item);
+      } catch (e) { out.skipped.push({ clip: r.clip, why: 'error' }); }
+    }
+    out.quota = await quotaInfo(db); return { ok: true, ...out };
+  },
   async sync(db, b, who, env) { return syncChannel(env, db, { pages: b.full ? 40 : 4, only: CHID.test(String(b.channel_id || '')) ? b.channel_id : '' }); }, // "Chọn kênh YouTube" → only that channel
   /** Fallback: paste the YouTube link for a clip (verified on our channel when connected; otherwise trusted as unlisted). */
   async link(db, b, who, env) {
@@ -704,9 +733,8 @@ const CLI_OPS = {
   },
 };
 const DANGER = new Set(['disconnect']); // revoke + delete a channel → sign-in ≤ 15 min old (same rule as drive.js)
-const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged', 'fill', 'wronglive', 'autoq', 'probe']);
+const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged', 'fill', 'retime', 'wronglive', 'autoq', 'probe']);
 
-export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
 export async function onRequestPost({ request, env }) {
   let text; try { text = await readText(request, 32768); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
