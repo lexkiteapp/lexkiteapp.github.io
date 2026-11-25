@@ -73,7 +73,6 @@ export const IDLE_JS = `addEventListener('load',function(){var d=document,m=wind
 //   Dùng cho trang có ngân sách gzip cứng (landing ≤ 16 KB). html phải có đúng 1 <style>.
 export const blocks = s => { const out = []; let d = 0, st = 0; for (let i = 0; i < s.length; i++) { if (s[i] === '/' && s[i + 1] === '*') { i = s.indexOf('*/', i + 2) + 1; st = i + 1; continue; } if (s[i] === '{') d++; else if (s[i] === '}' && --d === 0) { out.push(s.slice(st, i + 1).trim()); st = i + 1; } } return out; };
 export const splitSel = s => { const r = []; let d = 0, a = 0; for (let i = 0; i < s.length; i++) { const c = s[i]; if (c === '\\') { i++; continue; } if (c === '(' || c === '[') d++; else if (c === ')' || c === ']') d--; else if (c === ',' && !d) { r.push(s.slice(a, i)); a = i + 1; } } r.push(s.slice(a)); return r.map(x => x.trim()).filter(Boolean); };
-const EXT_JS = ['site.js', 'site-ui.js', 'ext-cta.js', 'get-app.js']; // JS ngoài trang giới thiệu có thể bám lớp (querySelector/classList) mà trang không nhắc
 const CLS = /\.((?:\\.|[\w-])+)/g, unesc = s => s.replace(/\\(.)/g, '$1');
 export function compact(html) {
   const m = html.match(/<style>([\s\S]*?)<\/style>/); if (!m) return html;
@@ -96,11 +95,7 @@ export function compact(html) {
   const id = i => { const A = 'abcdefghijklmnopqrstuvwxyz', B = A + '0123456789'; let s = A[i % 26]; i = Math.floor(i / 26); while (i > 0) { i--; s += B[i % 36]; i = Math.floor(i / 36); } return s; };
   for (const c of names) { let k; do k = id(n++); while (taken.has(k)); map.set(c, k); }
   css = css.replace(CLS, (all, e) => { const k = map.get(unesc(e)); return k ? '.' + k : all; });
-  // Lớp CHẾT: có trong class="" nhưng không còn luật CSS nào (đã lọc ở trên), không được JS (trong trang hoặc 4 file JS ngoài trang giới thiệu) nhắc tới, không khớp [class*=] → bỏ khỏi HTML (vd shadow-[…], dk:group-hover:…: chiếm ~1 KB gzip/trang, KHÔNG đổi hiển thị vì không có luật nào áp dụng).
-  // Bỏ qua khi trang không có <style> hợp lệ; v2s-/material-symbols/data-* giữ nguyên như bước đổi tên.
-  const extJs = EXT_JS.map(f => { try { return fs.readFileSync(new URL('../../web/js/' + f, import.meta.url), 'utf8'); } catch (e) { return ''; } }).join('\n'), extWords = new Set(extJs.match(/[A-Za-z_][\w-]*/g) || []);
-  const dead = new Set([...used.keys()].filter(c => !inCss.has(c) && !words.has(c) && !extWords.has(c) && !/^v2s-|^material-symbols/.test(c) && !subs.some(x => c.includes(x))));
-  const re = s => s.replace(/(\sclass=")([^"]*)"/g, (_, a, v) => a + v.split(/\s+/).filter(c => c && !dead.has(c)).map(c => map.get(c) || c).join(' ') + '"');
+  const re = s => s.replace(/(\sclass=")([^"]*)"/g, (_, a, v) => a + v.split(/\s+/).filter(Boolean).map(c => map.get(c) || c).join(' ') + '"');
   const body = page.split(/(<script[^>]*>[\s\S]*?<\/script>)/).map((x, i) => i % 2 ? x : re(x)).join('');
   return body.replace('\u0000', () => '<style>' + css + '</style>');
 }
