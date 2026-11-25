@@ -59,4 +59,7 @@ ok(jobs.some(j => j.id === 'social-coverage' && j.workflow === 'social-coverage.
   const rw = runway(j); ok(WARN_DAYS === 14 && rw.map(r => r.title + r.left).join() === 'D2,A10', 'runway: kênh còn lịch ≤ 14 ngày được cảnh báo sớm (D còn 2, A còn 10), B/C chưa'); }
 ok(/runway\(jj\)/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')) && /coverage-runway/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'coverage.mjs mở issue cảnh báo sớm 14 ngày')
 ok(/near\(j\)/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')) && /coverage-near/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'coverage.mjs thoát 1 + mở issue khi gần trống');
+{ const { breakerStuck } = await import('../social/coverage.mjs'), now = 1e12;
+  ok(breakerStuck({ breaker: { until: now + 1, code: 'db_budget_guard', status: 503 }, gc_err_runs: 3 }, now) && !breakerStuck({ breaker: { until: now + 1 }, gc_err_runs: 2 }, now) && !breakerStuck({ breaker: { until: now - 1 }, gc_err_runs: 9 }, now) && !breakerStuck(null, now), 'breakerStuck: bật + ≥ 3 lượt lỗi liền mới báo; hết hạn / ít lượt / không có → không');
+  const cv = fs.readFileSync('scripts/social/coverage.mjs', 'utf8'); ok(/post-breaker-stuck/.test(cv) && /\|\| stuck\) process\.exit\(1\)/.test(cv), 'coverage.mjs: cầu dao kẹt → issue + thoát 1'); }
 console.log(`✓ social-coverage: ${n} kiểm`);
