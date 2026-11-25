@@ -15,8 +15,10 @@ import path from 'node:path';
 export const WIP_MAX = 15, EXEMPT = ['main-red', 'main-red-fix', 'p0'], NPM_TEST = 'npm test';
 
 /** Làn nhanh (thuần): check-run `npm test` của cùng sha đã xong và đỏ → { red: true }. Chưa xong / chưa có / xanh → chạy tiếp (không chờ, không đoán). */
-export function laneVerdict(checkRuns, name = NPM_TEST) {
-  const c = (checkRuns || []).filter(r => r && r.name === name).sort((a, b) => Date.parse(b.started_at || 0) - Date.parse(a.started_at || 0))[0];
+export function laneVerdict(checkRuns, name = NPM_TEST, runId = '') {
+  // Chạy lại (re-run): check của attempt TRƯỚC trong CÙNG run (details_url …/runs/<runId>/…) không phải bằng chứng đỏ của lượt này – nếu tính, lane huỷ chính run đang chạy lại, PR không xanh lại nếu không push commit mới (25/11).
+  const own = runId ? `/runs/${runId}/` : null;
+  const c = (checkRuns || []).filter(r => r && r.name === name && !(own && String(r.details_url || '').includes(own))).sort((a, b) => Date.parse(b.started_at || 0) - Date.parse(a.started_at || 0))[0];
   if (!c) return { red: false, why: 'chưa có check npm test' };
   if (c.status !== 'completed') return { red: false, why: 'npm test đang chạy' };
   return ['failure', 'timed_out', 'startup_failure'].includes(c.conclusion) ? { red: true, why: `npm test ${c.conclusion}` } : { red: false, why: `npm test ${c.conclusion}` };
@@ -112,7 +114,7 @@ async function main() {
     if (process.env.GITHUB_EVENT_NAME !== 'pull_request') return console.log('lane: không phải PR → chạy bình thường');
     const sha = process.env.HEAD_SHA;
     let v = { red: false, why: 'không đọc được' };
-    try { v = laneVerdict((await api(`/commits/${sha}/check-runs?per_page=100&check_name=${encodeURIComponent(NPM_TEST)}`)).check_runs); } catch (e) { console.log('::warning::lane: ' + e.message); }
+    try { v = laneVerdict((await api(`/commits/${sha}/check-runs?per_page=100&check_name=${encodeURIComponent(NPM_TEST)}`)).check_runs, NPM_TEST, process.env.GITHUB_RUN_ID); } catch (e) { console.log('::warning::lane: ' + e.message); }
     console.log(`lane: ${v.why}`);
     if (!v.red) return;
     console.log(`::notice::npm test đỏ trên ${String(sha).slice(0, 7)} → huỷ lượt nặng này (sửa npm test trước; đẩy commit mới sẽ chạy lại)`);
