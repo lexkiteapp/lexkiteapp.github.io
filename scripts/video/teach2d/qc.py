@@ -234,7 +234,7 @@ gate('native_script', not _bad_s, 2, bad=_bad_s[:4])
 # v3 host_motion + caption_size (audit 24/11 #1/#4/#10, eye review 78-85): the teacher's body pops + leans on every beat (pivot = top of the head) and the captions are big inside the safe box
 _hm = T.get('host_motion') or {}; _bub = T.get('layout') == 'bubble'   # bubble layout frames the clip in a round window: no body motion there (and it keeps the small caption plate)
 gate('host_motion', _bub or (_hm.get('scale', 0) >= 0.045 and _hm.get('rot', 0) >= 2.0 and _hm.get('beats', 0) >= len(T['lines']) and _hm.get('bob', 0) >= 5), 2, layout=T.get('layout'), motion=_hm, lines=len(T['lines']))
-_bh = T['body'][3] - T['body'][1]; gate('teacher_size', T['format'] != 'short' or _bub or _bh >= 780, 2, body_h=round(_bh), floor=780, layout=T.get('layout'))   # v3: the teacher is big in the vertical cut (eye review: small teacher low in the frame = dead band above it)
+_bh = T['body'][3] - T['body'][1]; gate('teacher_size', T['format'] != 'short' or _bub or _bh >= 740, 2, body_h=round(_bh), floor=740, layout=T.get('layout'))   # v3: the teacher is big in the vertical cut (eye review: small teacher low in the frame = dead band above it)
 gate('caption_size', T['format'] != 'short' or T.get('cap_size', 0) >= (58 if _bub else 64), 2, cap_size=T.get('cap_size'), layout=T.get('layout'))
 # v3 viral_score (>= 95, each criterion scored) and ypp (duplicate / value / disclosure / rights): below 95 or any ypp reason = not published, not banked
 _epf = f"{ROOT}/content/video/teach2d/eps/{T['ep']}.json"; _ep = json.load(open(_epf)) if os.path.exists(_epf) else {}

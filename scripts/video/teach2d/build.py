@@ -305,7 +305,7 @@ def end_card():
     # v3 (audit 24/11 #2): ONE end card for every template and every format – icon + Lexkite, "Practice ..." button, QR, lexkite.com; never an empty half-card
     t_btn = t_in; label = CTA_LABEL.get(cta['area'], 'Practice free')
     c.add(dict(type='cta', lines=[label], size=S['body'], box=[PAD, 0, PAD + c.inner, 0], **{'in': cue(t_btn)}), 118)
-    q = 190 if EMBED else 220; c.add(dict(type='img', src='qr.png', radius=24, box=[PAD + (c.inner - q) / 2, 0, PAD + (c.inner + q) / 2, 0], **{'in': cue(t_btn + 0.1)}), q, gap=14)
+    q = 190 if EMBED or RY1 - RY0 < 800 else 220; c.add(dict(type='img', src='qr.png', radius=24, box=[PAD + (c.inner - q) / 2, 0, PAD + (c.inner + q) / 2, 0], **{'in': cue(t_btn + 0.1)}), q, gap=14)
     c.text([['lexkite.com', 'muted']], S['sub'], t_btn + 0.2, align='c')
     c.place(t_in, None, 'a')
 
