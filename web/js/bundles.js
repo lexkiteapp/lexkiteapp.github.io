@@ -96,6 +96,7 @@
     frpr: ['cpack/fr/dr.js'], // câu hỏi luyện tiếng Pháp (js/espr.js chung engine es; french-course.md W2)
     calles: ['cpack/es/cl.js'],
     callfr: ['cpack/fr/cl.js'], // 24 cuộc gọi AI tiếng Pháp A1–C1 (french-course.md W4; js/call.js chọn theo tl)
+    callja: ['packs/tl/ja/cl.js'], // cuộc gọi ja (japanese-course.md W4), ngoài cpack
     esx: ['cpack/es-app/exam-ui.js'],
     esday: ['cpack/es/dy.js', 'cpack/es-app/day-ui.js'], // từ lộ trình: web/packs/<tl>/*.json (day-ui tự tải)
     frday: ['cpack/fr/dy.js', 'cpack/es-app/day-ui.js'], // lộ trình ngày tiếng Pháp: CÙNG day-ui.js (bảng TLD theo tl)
