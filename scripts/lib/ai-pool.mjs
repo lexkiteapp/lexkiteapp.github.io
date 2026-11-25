@@ -187,7 +187,8 @@ const parseJSON = t => { if (t && typeof t === 'object') return t; try { const s
  *  opts.log       (line) => void; opts.now() → ms; opts.sleep(ms)
  */
 export function createPool(opts = {}) {
-  const env = opts.env || process.env, F = opts.fetch || globalThis.fetch, now = opts.now || Date.now, sleep = opts.sleep || (ms => new Promise(r => setTimeout(r, ms)));
+  const env = opts.env || process.env, F = opts.fetch || ((u, o = {}) => globalThis.fetch(u, o.signal ? o : { ...o, signal: AbortSignal.timeout(+env.AI_POOL_FETCH_MS || 120e3) })),   // 24/11: socket treo = không bao giờ lỗi → job say-native chạm 40 phút; mỗi lần gọi có hạn 120 s (lỗi → 'net', pool thử tuyến kế)
+       now = opts.now || Date.now, sleep = opts.sleep || (ms => new Promise(r => setTimeout(r, ms)));
   const log = opts.log || (l => console.log(l));
   const LEXAI = opts.lexaiUrl || env.LEXAI_URL || 'https://lexkite.com/api/lexai';
   const GC = String(opts.gcBase || env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');

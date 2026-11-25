@@ -1,0 +1,1000 @@
+{
+ "v": 1,
+ "tl": "ko",
+ "_note": "Bài Hangul W1a (korean-course.md §2): jamo + tên + RR đầu/cuối + nhóm; nguyên âm + hướng (v dọc → phụ âm bên trái, h ngang → phụ âm bên trên, m ghép); 8 bài theo thứ tự dạy; cặp dễ lẫn (nghe phân biệt – ㅐ/ㅔ là đồng âm ở Seoul trẻ: chỉ dạy chính tả, không chấm nghe). pron/romaja/ipa của bài đọc SINH bằng scripts/target/ko-hangul.mjs (test ép khớp). Không có dữ liệu nét ở đây (W1a đợt 2, tự soạn).",
+ "consonants": [
+  {
+   "j": "ㄱ",
+   "name": "기역",
+   "rr": "g",
+   "rrFinal": "k",
+   "type": "plain",
+   "ipa": "k"
+  },
+  {
+   "j": "ㄴ",
+   "name": "니은",
+   "rr": "n",
+   "rrFinal": "n",
+   "type": "nasal",
+   "ipa": "n"
+  },
+  {
+   "j": "ㄷ",
+   "name": "디귿",
+   "rr": "d",
+   "rrFinal": "t",
+   "type": "plain",
+   "ipa": "t"
+  },
+  {
+   "j": "ㄹ",
+   "name": "리을",
+   "rr": "r",
+   "rrFinal": "l",
+   "type": "liquid",
+   "ipa": "ɾ"
+  },
+  {
+   "j": "ㅁ",
+   "name": "미음",
+   "rr": "m",
+   "rrFinal": "m",
+   "type": "nasal",
+   "ipa": "m"
+  },
+  {
+   "j": "ㅂ",
+   "name": "비읍",
+   "rr": "b",
+   "rrFinal": "p",
+   "type": "plain",
+   "ipa": "p"
+  },
+  {
+   "j": "ㅅ",
+   "name": "시옷",
+   "rr": "s",
+   "rrFinal": "t",
+   "type": "plain",
+   "ipa": "s"
+  },
+  {
+   "j": "ㅇ",
+   "name": "이응",
+   "rr": "",
+   "rrFinal": "ng",
+   "type": "silent",
+   "ipa": ""
+  },
+  {
+   "j": "ㅈ",
+   "name": "지읒",
+   "rr": "j",
+   "rrFinal": "t",
+   "type": "plain",
+   "ipa": "tɕ"
+  },
+  {
+   "j": "ㅊ",
+   "name": "치읓",
+   "rr": "ch",
+   "rrFinal": "t",
+   "type": "aspirated",
+   "ipa": "tɕʰ"
+  },
+  {
+   "j": "ㅋ",
+   "name": "키읔",
+   "rr": "k",
+   "rrFinal": "k",
+   "type": "aspirated",
+   "ipa": "kʰ"
+  },
+  {
+   "j": "ㅌ",
+   "name": "티읕",
+   "rr": "t",
+   "rrFinal": "t",
+   "type": "aspirated",
+   "ipa": "tʰ"
+  },
+  {
+   "j": "ㅍ",
+   "name": "피읖",
+   "rr": "p",
+   "rrFinal": "p",
+   "type": "aspirated",
+   "ipa": "pʰ"
+  },
+  {
+   "j": "ㅎ",
+   "name": "히읗",
+   "rr": "h",
+   "rrFinal": "t",
+   "type": "plain",
+   "ipa": "h"
+  },
+  {
+   "j": "ㄲ",
+   "name": "쌍기역",
+   "rr": "kk",
+   "rrFinal": "k",
+   "type": "tense",
+   "ipa": "k͈"
+  },
+  {
+   "j": "ㄸ",
+   "name": "쌍디귿",
+   "rr": "tt",
+   "type": "tense",
+   "ipa": "t͈"
+  },
+  {
+   "j": "ㅃ",
+   "name": "쌍비읍",
+   "rr": "pp",
+   "type": "tense",
+   "ipa": "p͈"
+  },
+  {
+   "j": "ㅆ",
+   "name": "쌍시옷",
+   "rr": "ss",
+   "rrFinal": "t",
+   "type": "tense",
+   "ipa": "s͈"
+  },
+  {
+   "j": "ㅉ",
+   "name": "쌍지읒",
+   "rr": "jj",
+   "type": "tense",
+   "ipa": "t͈ɕ"
+  }
+ ],
+ "vowels": [
+  {
+   "j": "ㅏ",
+   "rr": "a",
+   "dir": "v",
+   "ipa": "a"
+  },
+  {
+   "j": "ㅑ",
+   "rr": "ya",
+   "dir": "v",
+   "ipa": "ja"
+  },
+  {
+   "j": "ㅓ",
+   "rr": "eo",
+   "dir": "v",
+   "ipa": "ʌ"
+  },
+  {
+   "j": "ㅕ",
+   "rr": "yeo",
+   "dir": "v",
+   "ipa": "jʌ"
+  },
+  {
+   "j": "ㅗ",
+   "rr": "o",
+   "dir": "h",
+   "ipa": "o"
+  },
+  {
+   "j": "ㅛ",
+   "rr": "yo",
+   "dir": "h",
+   "ipa": "jo"
+  },
+  {
+   "j": "ㅜ",
+   "rr": "u",
+   "dir": "h",
+   "ipa": "u"
+  },
+  {
+   "j": "ㅠ",
+   "rr": "yu",
+   "dir": "h",
+   "ipa": "ju"
+  },
+  {
+   "j": "ㅡ",
+   "rr": "eu",
+   "dir": "h",
+   "ipa": "ɯ"
+  },
+  {
+   "j": "ㅣ",
+   "rr": "i",
+   "dir": "v",
+   "ipa": "i"
+  },
+  {
+   "j": "ㅐ",
+   "rr": "ae",
+   "dir": "v",
+   "ipa": "ɛ"
+  },
+  {
+   "j": "ㅒ",
+   "rr": "yae",
+   "dir": "v",
+   "ipa": "jɛ"
+  },
+  {
+   "j": "ㅔ",
+   "rr": "e",
+   "dir": "v",
+   "ipa": "e"
+  },
+  {
+   "j": "ㅖ",
+   "rr": "ye",
+   "dir": "v",
+   "ipa": "je"
+  },
+  {
+   "j": "ㅘ",
+   "rr": "wa",
+   "dir": "m",
+   "ipa": "wa"
+  },
+  {
+   "j": "ㅙ",
+   "rr": "wae",
+   "dir": "m",
+   "ipa": "wɛ"
+  },
+  {
+   "j": "ㅚ",
+   "rr": "oe",
+   "dir": "m",
+   "ipa": "we"
+  },
+  {
+   "j": "ㅝ",
+   "rr": "wo",
+   "dir": "m",
+   "ipa": "wʌ"
+  },
+  {
+   "j": "ㅞ",
+   "rr": "we",
+   "dir": "m",
+   "ipa": "we"
+  },
+  {
+   "j": "ㅟ",
+   "rr": "wi",
+   "dir": "m",
+   "ipa": "ɥi"
+  },
+  {
+   "j": "ㅢ",
+   "rr": "ui",
+   "dir": "m",
+   "ipa": "ɰi"
+  }
+ ],
+ "units": [
+  {
+   "id": "v1",
+   "jamo": [
+    "ㅏ",
+    "ㅓ",
+    "ㅗ",
+    "ㅜ",
+    "ㅡ",
+    "ㅣ"
+   ],
+   "read": [
+    {
+     "w": "아",
+     "pron": "아",
+     "romaja": "a",
+     "ipa": "a"
+    },
+    {
+     "w": "어",
+     "pron": "어",
+     "romaja": "eo",
+     "ipa": "ʌ"
+    },
+    {
+     "w": "오",
+     "pron": "오",
+     "romaja": "o",
+     "ipa": "o"
+    },
+    {
+     "w": "우",
+     "pron": "우",
+     "romaja": "u",
+     "ipa": "u"
+    },
+    {
+     "w": "으",
+     "pron": "으",
+     "romaja": "eu",
+     "ipa": "ɯ"
+    },
+    {
+     "w": "이",
+     "pron": "이",
+     "romaja": "i",
+     "ipa": "i"
+    },
+    {
+     "w": "아이",
+     "pron": "아이",
+     "romaja": "ai",
+     "ipa": "ai"
+    },
+    {
+     "w": "오이",
+     "pron": "오이",
+     "romaja": "oi",
+     "ipa": "oi"
+    },
+    {
+     "w": "우아",
+     "pron": "우아",
+     "romaja": "ua",
+     "ipa": "ua"
+    }
+   ]
+  },
+  {
+   "id": "c1",
+   "jamo": [
+    "ㄱ",
+    "ㄴ",
+    "ㄷ",
+    "ㄹ",
+    "ㅁ",
+    "ㅂ",
+    "ㅅ",
+    "ㅇ",
+    "ㅈ"
+   ],
+   "read": [
+    {
+     "w": "가",
+     "pron": "가",
+     "romaja": "ga",
+     "ipa": "ka"
+    },
+    {
+     "w": "나",
+     "pron": "나",
+     "romaja": "na",
+     "ipa": "na"
+    },
+    {
+     "w": "다",
+     "pron": "다",
+     "romaja": "da",
+     "ipa": "ta"
+    },
+    {
+     "w": "라",
+     "pron": "라",
+     "romaja": "ra",
+     "ipa": "ɾa"
+    },
+    {
+     "w": "마",
+     "pron": "마",
+     "romaja": "ma",
+     "ipa": "ma"
+    },
+    {
+     "w": "바",
+     "pron": "바",
+     "romaja": "ba",
+     "ipa": "pa"
+    },
+    {
+     "w": "사",
+     "pron": "사",
+     "romaja": "sa",
+     "ipa": "sa"
+    },
+    {
+     "w": "자",
+     "pron": "자",
+     "romaja": "ja",
+     "ipa": "tɕa"
+    },
+    {
+     "w": "나라",
+     "pron": "나라",
+     "romaja": "nara",
+     "ipa": "naɾa"
+    },
+    {
+     "w": "바다",
+     "pron": "바다",
+     "romaja": "bada",
+     "ipa": "pada"
+    },
+    {
+     "w": "모자",
+     "pron": "모자",
+     "romaja": "moja",
+     "ipa": "modʑa"
+    },
+    {
+     "w": "가구",
+     "pron": "가구",
+     "romaja": "gagu",
+     "ipa": "kaɡu"
+    },
+    {
+     "w": "어머니",
+     "pron": "어머니",
+     "romaja": "eomeoni",
+     "ipa": "ʌmʌni"
+    },
+    {
+     "w": "다리",
+     "pron": "다리",
+     "romaja": "dari",
+     "ipa": "taɾi"
+    }
+   ]
+  },
+  {
+   "id": "v2",
+   "jamo": [
+    "ㅑ",
+    "ㅕ",
+    "ㅛ",
+    "ㅠ"
+   ],
+   "read": [
+    {
+     "w": "야",
+     "pron": "야",
+     "romaja": "ya",
+     "ipa": "ja"
+    },
+    {
+     "w": "여",
+     "pron": "여",
+     "romaja": "yeo",
+     "ipa": "jʌ"
+    },
+    {
+     "w": "요",
+     "pron": "요",
+     "romaja": "yo",
+     "ipa": "jo"
+    },
+    {
+     "w": "유",
+     "pron": "유",
+     "romaja": "yu",
+     "ipa": "ju"
+    },
+    {
+     "w": "우유",
+     "pron": "우유",
+     "romaja": "uyu",
+     "ipa": "uju"
+    },
+    {
+     "w": "여우",
+     "pron": "여우",
+     "romaja": "yeou",
+     "ipa": "jʌu"
+    },
+    {
+     "w": "요리",
+     "pron": "요리",
+     "romaja": "yori",
+     "ipa": "joɾi"
+    },
+    {
+     "w": "이유",
+     "pron": "이유",
+     "romaja": "iyu",
+     "ipa": "iju"
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "jamo": [
+    "ㅊ",
+    "ㅋ",
+    "ㅌ",
+    "ㅍ",
+    "ㅎ"
+   ],
+   "read": [
+    {
+     "w": "차",
+     "pron": "차",
+     "romaja": "cha",
+     "ipa": "tɕʰa"
+    },
+    {
+     "w": "카",
+     "pron": "카",
+     "romaja": "ka",
+     "ipa": "kʰa"
+    },
+    {
+     "w": "타",
+     "pron": "타",
+     "romaja": "ta",
+     "ipa": "tʰa"
+    },
+    {
+     "w": "파",
+     "pron": "파",
+     "romaja": "pa",
+     "ipa": "pʰa"
+    },
+    {
+     "w": "하",
+     "pron": "하",
+     "romaja": "ha",
+     "ipa": "ha"
+    },
+    {
+     "w": "기차",
+     "pron": "기차",
+     "romaja": "gicha",
+     "ipa": "kitɕʰa"
+    },
+    {
+     "w": "치마",
+     "pron": "치마",
+     "romaja": "chima",
+     "ipa": "tɕʰima"
+    },
+    {
+     "w": "코",
+     "pron": "코",
+     "romaja": "ko",
+     "ipa": "kʰo"
+    },
+    {
+     "w": "토마토",
+     "pron": "토마토",
+     "romaja": "tomato",
+     "ipa": "tʰomatʰo"
+    },
+    {
+     "w": "포도",
+     "pron": "포도",
+     "romaja": "podo",
+     "ipa": "pʰodo"
+    },
+    {
+     "w": "하마",
+     "pron": "하마",
+     "romaja": "hama",
+     "ipa": "hama"
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "jamo": [
+    "ㄲ",
+    "ㄸ",
+    "ㅃ",
+    "ㅆ",
+    "ㅉ"
+   ],
+   "read": [
+    {
+     "w": "까",
+     "pron": "까",
+     "romaja": "kka",
+     "ipa": "k͈a"
+    },
+    {
+     "w": "따",
+     "pron": "따",
+     "romaja": "tta",
+     "ipa": "t͈a"
+    },
+    {
+     "w": "빠",
+     "pron": "빠",
+     "romaja": "ppa",
+     "ipa": "p͈a"
+    },
+    {
+     "w": "싸",
+     "pron": "싸",
+     "romaja": "ssa",
+     "ipa": "s͈a"
+    },
+    {
+     "w": "짜",
+     "pron": "짜",
+     "romaja": "jja",
+     "ipa": "t͈ɕa"
+    },
+    {
+     "w": "꼬리",
+     "pron": "꼬리",
+     "romaja": "kkori",
+     "ipa": "k͈oɾi"
+    },
+    {
+     "w": "토끼",
+     "pron": "토끼",
+     "romaja": "tokki",
+     "ipa": "tʰok͈i"
+    },
+    {
+     "w": "아빠",
+     "pron": "아빠",
+     "romaja": "appa",
+     "ipa": "ap͈a"
+    },
+    {
+     "w": "오빠",
+     "pron": "오빠",
+     "romaja": "oppa",
+     "ipa": "op͈a"
+    },
+    {
+     "w": "비싸요",
+     "pron": "비싸요",
+     "romaja": "bissayo",
+     "ipa": "pis͈ajo"
+    },
+    {
+     "w": "가짜",
+     "pron": "가짜",
+     "romaja": "gajja",
+     "ipa": "kat͈ɕa"
+    }
+   ]
+  },
+  {
+   "id": "v3",
+   "jamo": [
+    "ㅐ",
+    "ㅒ",
+    "ㅔ",
+    "ㅖ",
+    "ㅘ",
+    "ㅙ",
+    "ㅚ",
+    "ㅝ",
+    "ㅞ",
+    "ㅟ",
+    "ㅢ"
+   ],
+   "read": [
+    {
+     "w": "개",
+     "pron": "개",
+     "romaja": "gae",
+     "ipa": "kɛ"
+    },
+    {
+     "w": "게",
+     "pron": "게",
+     "romaja": "ge",
+     "ipa": "ke"
+    },
+    {
+     "w": "얘기",
+     "pron": "얘기",
+     "romaja": "yaegi",
+     "ipa": "jɛɡi"
+    },
+    {
+     "w": "시계",
+     "pron": "시계",
+     "romaja": "sigye",
+     "ipa": "ɕiɡje"
+    },
+    {
+     "w": "사과",
+     "pron": "사과",
+     "romaja": "sagwa",
+     "ipa": "saɡwa"
+    },
+    {
+     "w": "돼지",
+     "pron": "돼지",
+     "romaja": "dwaeji",
+     "ipa": "twɛdʑi"
+    },
+    {
+     "w": "회사",
+     "pron": "회사",
+     "romaja": "hoesa",
+     "ipa": "hwesa"
+    },
+    {
+     "w": "더워요",
+     "pron": "더워요",
+     "romaja": "deowoyo",
+     "ipa": "tʌwʌjo"
+    },
+    {
+     "w": "웨이터",
+     "pron": "웨이터",
+     "romaja": "weiteo",
+     "ipa": "weitʰʌ"
+    },
+    {
+     "w": "귀",
+     "pron": "귀",
+     "romaja": "gwi",
+     "ipa": "kɥi"
+    },
+    {
+     "w": "의자",
+     "pron": "의자",
+     "romaja": "uija",
+     "ipa": "ɰidʑa"
+    }
+   ]
+  },
+  {
+   "id": "b1",
+   "batchim": [
+    "ㄱ",
+    "ㄴ",
+    "ㄷ",
+    "ㄹ",
+    "ㅁ",
+    "ㅂ",
+    "ㅇ"
+   ],
+   "read": [
+    {
+     "w": "책",
+     "pron": "책",
+     "romaja": "chaek",
+     "ipa": "tɕʰɛk̚"
+    },
+    {
+     "w": "산",
+     "pron": "산",
+     "romaja": "san",
+     "ipa": "san"
+    },
+    {
+     "w": "곧",
+     "pron": "곧",
+     "romaja": "got",
+     "ipa": "kot̚"
+    },
+    {
+     "w": "물",
+     "pron": "물",
+     "romaja": "mul",
+     "ipa": "mul"
+    },
+    {
+     "w": "김",
+     "pron": "김",
+     "romaja": "gim",
+     "ipa": "kim"
+    },
+    {
+     "w": "밥",
+     "pron": "밥",
+     "romaja": "bap",
+     "ipa": "pap̚"
+    },
+    {
+     "w": "강",
+     "pron": "강",
+     "romaja": "gang",
+     "ipa": "kaŋ"
+    },
+    {
+     "w": "한국",
+     "pron": "한국",
+     "romaja": "hanguk",
+     "ipa": "hanɡuk̚"
+    },
+    {
+     "w": "친구",
+     "pron": "친구",
+     "romaja": "chingu",
+     "ipa": "tɕʰinɡu"
+    },
+    {
+     "w": "사랑",
+     "pron": "사랑",
+     "romaja": "sarang",
+     "ipa": "saɾaŋ"
+    },
+    {
+     "w": "음식",
+     "pron": "음식",
+     "romaja": "eumsik",
+     "ipa": "ɯmɕik̚"
+    },
+    {
+     "w": "부엌",
+     "pron": "부억",
+     "romaja": "bueok",
+     "ipa": "puʌk̚"
+    },
+    {
+     "w": "꽃",
+     "pron": "꼳",
+     "romaja": "kkot",
+     "ipa": "k͈ot̚"
+    },
+    {
+     "w": "옷",
+     "pron": "옫",
+     "romaja": "ot",
+     "ipa": "ot̚"
+    },
+    {
+     "w": "밖",
+     "pron": "박",
+     "romaja": "bak",
+     "ipa": "pak̚"
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "batchim": [
+    "ㄳ",
+    "ㄵ",
+    "ㄶ",
+    "ㄺ",
+    "ㄻ",
+    "ㄼ",
+    "ㄽ",
+    "ㄾ",
+    "ㄿ",
+    "ㅀ",
+    "ㅄ"
+   ],
+   "read": [
+    {
+     "w": "넋",
+     "pron": "넉",
+     "romaja": "neok",
+     "ipa": "nʌk̚"
+    },
+    {
+     "w": "앉다",
+     "pron": "안따",
+     "romaja": "anda",
+     "ipa": "ant͈a"
+    },
+    {
+     "w": "많다",
+     "pron": "만타",
+     "romaja": "manta",
+     "ipa": "mantʰa"
+    },
+    {
+     "w": "닭",
+     "pron": "닥",
+     "romaja": "dak",
+     "ipa": "tak̚"
+    },
+    {
+     "w": "삶",
+     "pron": "삼",
+     "romaja": "sam",
+     "ipa": "sam"
+    },
+    {
+     "w": "여덟",
+     "pron": "여덜",
+     "romaja": "yeodeol",
+     "ipa": "jʌdʌl"
+    },
+    {
+     "w": "외곬",
+     "pron": "외골",
+     "romaja": "oegol",
+     "ipa": "weɡol"
+    },
+    {
+     "w": "핥다",
+     "pron": "할따",
+     "romaja": "halda",
+     "ipa": "halt͈a"
+    },
+    {
+     "w": "읊다",
+     "pron": "읍따",
+     "romaja": "eupda",
+     "ipa": "ɯp̚t͈a"
+    },
+    {
+     "w": "싫다",
+     "pron": "실타",
+     "romaja": "silta",
+     "ipa": "ɕiltʰa"
+    },
+    {
+     "w": "값",
+     "pron": "갑",
+     "romaja": "gap",
+     "ipa": "kap̚"
+    },
+    {
+     "w": "읽어요",
+     "pron": "일거요",
+     "romaja": "ilgeoyo",
+     "ipa": "ilɡʌjo"
+    },
+    {
+     "w": "앉아요",
+     "pron": "안자요",
+     "romaja": "anjayo",
+     "ipa": "andʑajo"
+    },
+    {
+     "w": "닭이",
+     "pron": "달기",
+     "romaja": "dalgi",
+     "ipa": "talɡi"
+    }
+   ]
+  }
+ ],
+ "confusable": [
+  [
+   "ㅓ",
+   "ㅗ"
+  ],
+  [
+   "ㅐ",
+   "ㅔ"
+  ],
+  [
+   "ㄱ",
+   "ㄲ",
+   "ㅋ"
+  ],
+  [
+   "ㄷ",
+   "ㄸ",
+   "ㅌ"
+  ],
+  [
+   "ㅂ",
+   "ㅃ",
+   "ㅍ"
+  ],
+  [
+   "ㅅ",
+   "ㅆ"
+  ],
+  [
+   "ㅈ",
+   "ㅉ",
+   "ㅊ"
+  ],
+  [
+   "ㅡ",
+   "ㅜ"
+  ],
+  [
+   "ㅕ",
+   "ㅛ"
+  ]
+ ]
+}
