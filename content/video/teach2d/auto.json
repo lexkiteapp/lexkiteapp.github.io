@@ -38374,7 +38374,7 @@
     "region": "US",
     "l1": {
      "m": "sich vollstopfen",
-     "hook": "Die ganze Pizza ist weg! \\\"pig out\\\"",
+     "hook": "Die ganze Pizza ist weg! \"pig out\"",
      "ex": "Wir haben gestern Abend bei Pizza „pigged out“."
     }
    },
@@ -38637,7 +38637,7 @@
     "l1": {
      "m": "ausflippen",
      "hook": "Papa hat das unordentliche Zimmer gesehen!",
-     "ex": "Er ist wegen des chaotischen Zimmers ausgerastet. \\\"blow a fuse\\\""
+     "ex": "Er ist wegen des chaotischen Zimmers ausgerastet. \"blow a fuse\""
     }
    },
    "in": {
@@ -39530,7 +39530,7 @@
     "region": "US",
     "l1": {
      "m": "öffentlich kritisieren",
-     "hook": "Sie hat allen meinen Fehler gezeigt! \\\"call out\\\"",
+     "hook": "Sie hat allen meinen Fehler gezeigt! \"call out\"",
      "ex": "Sie hat mich dafür kritisiert („called me out“), dass ich zu spät war."
     }
    },
@@ -40320,7 +40320,7 @@
     "region": "global",
     "l1": {
      "m": "sich warm anziehen",
-     "hook": "Es ist eiskalt draußen. Bereit? \\\"bundle up\\\"",
+     "hook": "Es ist eiskalt draußen. Bereit? \"bundle up\"",
      "ex": "'Bundle up', es ist eiskalt draußen!"
     }
    },
@@ -40795,7 +40795,7 @@
     "l1": {
      "m": "führen",
      "hook": "Sie hat das Spiel allein gewonnen – ein echtes „carry“.",
-     "ex": "Mia hat uns in der letzten Runde zum Sieg getragen. \\\"carry\\\""
+     "ex": "Mia hat uns in der letzten Runde zum Sieg getragen. \"carry\""
     }
    },
    "in": {
@@ -42535,7 +42535,7 @@
     "l1": {
      "m": "Frenemy",
      "hook": "Wir lächeln, aber wir sind 'frenemy'!",
-     "ex": "Sie ist meine \\\"frenemy\\\", immer im Wettbewerb mit mir."
+     "ex": "Sie ist meine \"frenemy\", immer im Wettbewerb mit mir."
     }
    },
    "in": {
@@ -42588,7 +42588,7 @@
     "l1": {
      "m": "hat den Vibe von",
      "hook": "Dieser Mantel sieht aus wie alte Filme!",
-     "ex": "Dieser Mantel vermittelt den Look eines alten Filmstars. \\\"it's giving\\\""
+     "ex": "Dieser Mantel vermittelt den Look eines alten Filmstars. \"it's giving\""
     }
    },
    "in": {
@@ -42640,7 +42640,7 @@
     "l1": {
      "m": "Kopf hoch",
      "hook": "Schwieriger Tag, aber morgen kommt – 'chin up'!",
-     "ex": "\\\"Chin up\\\", morgen wird es besser."
+     "ex": "\"Chin up\", morgen wird es besser."
     }
    },
    "in": {
@@ -42692,7 +42692,7 @@
     "l1": {
      "m": "Los, essen!",
      "hook": "Das Abendessen ist fertig. Wer hat Hunger? 'dig in'!",
-     "ex": "Das Abendessen ist fertig, also \\\"dig in\\\"!"
+     "ex": "Das Abendessen ist fertig, also \"dig in\"!"
     }
    },
    "in": {
@@ -42744,7 +42744,7 @@
     "l1": {
      "m": "bis später",
      "hook": "Muss los, der Unterricht beginnt jetzt! 'catch you later'!",
-     "ex": "\\\"Catch you later\\\", ich muss gehen!"
+     "ex": "\"Catch you later\", ich muss gehen!"
     }
    },
    "in": {
@@ -53054,8 +53054,8 @@
     "region": "global",
     "l1": {
      "m": "ami(e) ennemi(e)",
-     "hook": "On sourit, mais on se fait concurrence, comme des \\\"frenemy\\\" !",
-     "ex": "C’est ma \\\"frenemy\\\", toujours en compétition avec moi."
+     "hook": "On sourit, mais on se fait concurrence, comme des \"frenemy\" !",
+     "ex": "C’est ma \"frenemy\", toujours en compétition avec moi."
     }
    },
    "in": {
@@ -53159,8 +53159,8 @@
     "region": "UK",
     "l1": {
      "m": "garde le moral",
-     "hook": "Journée difficile, mais demain arrive, alors \\\"chin up\\\" !",
-     "ex": "\\\"Chin up\\\", demain sera meilleur."
+     "hook": "Journée difficile, mais demain arrive, alors \"chin up\" !",
+     "ex": "\"Chin up\", demain sera meilleur."
     }
    },
    "in": {
@@ -53212,7 +53212,7 @@
     "l1": {
      "m": "passer à table",
      "hook": "Le dîner est prêt. Qui a faim ? \"dig in\"",
-     "ex": "Le dîner est prêt, alors \\\"dig in\\\" !"
+     "ex": "Le dîner est prêt, alors \"dig in\" !"
     }
    },
    "in": {
@@ -53263,8 +53263,8 @@
     "region": "US",
     "l1": {
      "m": "à plus tard",
-     "hook": "Je dois filer, le cours commence, \\\"catch you later\\\" !",
-     "ex": "\\\"Catch you later\\\", je dois y aller !"
+     "hook": "Je dois filer, le cours commence, \"catch you later\" !",
+     "ex": "\"Catch you later\", je dois y aller !"
     }
    },
    "in": {
@@ -60100,7 +60100,7 @@
     "l1": {
      "m": "keren",
      "hook": "Kamu dapat tiket gratis untuk kami? Itu 'awesome'.",
-     "ex": "Kamu dapat tiket gratis untuk kami? Itu \\\"awesome\\\"!"
+     "ex": "Kamu dapat tiket gratis untuk kami? Itu \"awesome\"!"
     }
    },
    "in": {
@@ -60152,7 +60152,7 @@
     "l1": {
      "m": "bener banget",
      "hook": "Kucing mengantuk. Itu 'big mood'.",
-     "ex": "Kucing mengantuk itu \\\"big mood\\\"."
+     "ex": "Kucing mengantuk itu \"big mood\"."
     }
    },
    "in": {
@@ -60259,7 +60259,7 @@
     "l1": {
      "m": "maraton menonton",
      "hook": "Akhir pekan hujan. Seluruh musim. Ayo 'binge-watch'!",
-     "ex": "Aku akan \\\"binge-watch\\\" acara ini sepanjang akhir pekan."
+     "ex": "Aku akan \"binge-watch\" acara ini sepanjang akhir pekan."
     }
    },
    "in": {
@@ -67413,8 +67413,8 @@
     "region": "US",
     "l1": {
      "m": "マジで",
-     "hook": "\\\"bruh\\\"、また宿題を忘れたの？",
-     "ex": "\\\"Bruh\\\"、また宿題を忘れたの？"
+     "hook": "\"bruh\"、また宿題を忘れたの？",
+     "ex": "\"Bruh\"、また宿題を忘れたの？"
     }
    },
    "in": {
@@ -67521,7 +67521,7 @@
     "l1": {
      "m": "クリックベイト",
      "hook": "『信じられない！』って本当？'clickbait'だね。",
-     "ex": "あのタイトルは純粋に \\\"clickbait\\\" だ。"
+     "ex": "あのタイトルは純粋に \"clickbait\" だ。"
     }
    },
    "in": {
@@ -67574,7 +67574,7 @@
     "l1": {
      "m": "今日はここまでにする",
      "hook": "みんな疲れたね。どうする？'call it a day'しようか。",
-     "ex": "疲れたから \\\"call it a day\\\" しよう。"
+     "ex": "疲れたから \"call it a day\" しよう。"
     }
    },
    "in": {
@@ -68205,7 +68205,7 @@
     "region": "global",
     "l1": {
      "m": "手加減して",
-     "hook": "私、初心者です。\\\"cut me some slack\\\"、優しくお願いします！",
+     "hook": "私、初心者です。\"cut me some slack\"、優しくお願いします！",
      "ex": "「Cut me some slack」、私は初心者です。"
     }
    },
@@ -69205,7 +69205,7 @@
     "region": "US",
     "l1": {
      "m": "作戦",
-     "hook": "明日テストです。どこから始めるか、\\\"game plan\\\" を決めましょうか？",
+     "hook": "明日テストです。どこから始めるか、\"game plan\" を決めましょうか？",
      "ex": "で、何が\"game plan\"？"
     }
    },
@@ -69363,8 +69363,8 @@
     "region": "global",
     "l1": {
      "m": "土砂降り",
-     "hook": "外を見て！傘を持って！ \\\"raining cats and dogs\\\" です。",
-     "ex": "今、\\\"raining cats and dogs\\\" です！"
+     "hook": "外を見て！傘を持って！ \"raining cats and dogs\" です。",
+     "ex": "今、\"raining cats and dogs\" です！"
     }
    },
    "in": {
@@ -87027,7 +87027,7 @@
     "l1": {
      "m": "ร่าเริงหน่อย",
      "hook": "เธอดูเศร้าเลย จะทำยังไงต่อ?",
-     "ex": "\\\"Cheer up\\\", เรากำลังกินพิซซ่า!"
+     "ex": "\"Cheer up\", เรากำลังกินพิซซ่า!"
     }
    },
    "in": {
@@ -87080,7 +87080,7 @@
     "l1": {
      "m": "อาหารปลอบใจ",
      "hook": "วันเศร้า? ซุปอุ่นๆ!",
-     "ex": "ซุปอุ่นคือ \\\"comfort food\\\" ของฉัน."
+     "ex": "ซุปอุ่นคือ \"comfort food\" ของฉัน."
     }
    },
    "in": {
@@ -87133,7 +87133,7 @@
     "l1": {
      "m": "เพื่อน",
      "hook": "ใครเรียนกับคุณทุกคืน?",
-     "ex": "เขาเป็น \\\"buddy\\\" ของฉันในการเรียน."
+     "ex": "เขาเป็น \"buddy\" ของฉันในการเรียน."
     }
    },
    "in": {
@@ -87185,7 +87185,7 @@
     "l1": {
      "m": "เด็ด",
      "hook": "ประตูในวินาทีสุดท้ายทำให้ชนะ!",
-     "ex": "ประตูในนาทีสุดท้ายนั้น \\\"clutch\\\" มาก."
+     "ex": "ประตูในนาทีสุดท้ายนั้น \"clutch\" มาก."
     }
    },
    "in": {
@@ -87237,7 +87237,7 @@
     "l1": {
      "m": "ของจริง",
      "hook": "ร้านนี้จริงหรือ?",
-     "ex": "ร้านนี้ \\\"legit\\\" นะ พี่สาวของฉันซื้อรองเท้าที่นั่น."
+     "ex": "ร้านนี้ \"legit\" นะ พี่สาวของฉันซื้อรองเท้าที่นั่น."
     }
    },
    "in": {
@@ -91912,8 +91912,8 @@
     "region": "US",
     "l1": {
      "m": "ya",
-     "hook": "\\\"Bruh\\\", ödevini yine unuttun mu?",
-     "ex": "\\\"Bruh\\\", ödevini yine unuttun mu?"
+     "hook": "\"Bruh\", ödevini yine unuttun mu?",
+     "ex": "\"Bruh\", ödevini yine unuttun mu?"
     }
    },
    "in": {
@@ -91965,8 +91965,8 @@
     "region": "global",
     "l1": {
      "m": "Bugünü burada bitirelim",
-     "hook": "Yorgunuz, şimdi ne yapacağız? \\\"Call it a day\\\" mı?",
-     "ex": "Yorgunuz, \\\"call it a day\\\" diyelim."
+     "hook": "Yorgunuz, şimdi ne yapacağız? \"Call it a day\" mı?",
+     "ex": "Yorgunuz, \"call it a day\" diyelim."
     }
    },
    "in": {
@@ -92175,7 +92175,7 @@
     "l1": {
      "m": "gerçek",
      "hook": "Bu dükkan legit mi?",
-     "ex": "Bu dükkan \\\"legit\\\", kız kardeşim oradan ayakkabı aldı."
+     "ex": "Bu dükkan \"legit\", kız kardeşim oradan ayakkabı aldı."
     }
    },
    "in": {
@@ -94278,8 +94278,8 @@
     "region": "US",
     "l1": {
      "m": "不骗你",
-     "hook": "全城最好的披萨，真的，\\\"no cap\\\"。",
-     "ex": "这家披萨是全城最好的，\\\"no cap\\\"。"
+     "hook": "全城最好的披萨，真的，\"no cap\"。",
+     "ex": "这家披萨是全城最好的，\"no cap\"。"
     }
    },
    "in": {
@@ -94330,8 +94330,8 @@
     "region": "US",
     "l1": {
      "m": "恼火的",
-     "hook": "他输了，然后闹别扭，\\\"salty\\\"。",
-     "ex": "他因为我赢了纸牌游戏而很\\\"salty\\\"。"
+     "hook": "他输了，然后闹别扭，\"salty\"。",
+     "ex": "他因为我赢了纸牌游戏而很\"salty\"。"
     }
    },
    "in": {
@@ -94383,8 +94383,8 @@
     "region": "US",
     "l1": {
      "m": "笑死了",
-     "hook": "猫跳进盒子里！\\\"I'm dead\\\"。",
-     "ex": "猫跳进盒子里，\\\"I'm dead\\\"！"
+     "hook": "猫跳进盒子里！\"I'm dead\"。",
+     "ex": "猫跳进盒子里，\"I'm dead\"！"
     }
    },
    "in": {
@@ -94436,8 +94436,8 @@
     "region": "US",
     "l1": {
      "m": "大吃特吃",
-     "hook": "整张披萨都没了！\\\"pig out\\\"。",
-     "ex": "我们昨晚大吃披萨，\\\"pig out\\\"。"
+     "hook": "整张披萨都没了！\"pig out\"。",
+     "ex": "我们昨晚大吃披萨，\"pig out\"。"
     }
    },
    "in": {
@@ -94488,8 +94488,8 @@
     "region": "US",
     "l1": {
      "m": "没问题",
-     "hook": "六点吃披萨，行吗？\\\"bet\\\"。",
-     "ex": "六点吃披萨？\\\"Bet\\\"。"
+     "hook": "六点吃披萨，行吗？\"bet\"。",
+     "ex": "六点吃披萨？\"Bet\"。"
     }
    },
    "in": {
@@ -99493,6 +99493,716 @@
    "in": {
     "key": "meh",
     "lang": "zh"
+   }
+  },
+  {
+   "id": "t2a_prog_weather_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:weather",
+   "hash": "bcb12f71321f",
+   "heads": [
+    "progress:weather"
+   ],
+   "taught": [
+    "um",
+    "tink",
+    "de",
+    "wedder",
+    "rilly",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "weather"
+   }
+  },
+  {
+   "id": "t2a_prog_friends_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:friends",
+   "hash": "de0a95bd36d6",
+   "heads": [
+    "progress:friends"
+   ],
+   "taught": [
+    "tree",
+    "frens",
+    "um",
+    "de",
+    "nort",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "friends"
+   }
+  },
+  {
+   "id": "t2a_prog_coffee_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:coffee",
+   "hash": "6366ab6091f8",
+   "heads": [
+    "progress:coffee"
+   ],
+   "taught": [
+    "uh",
+    "wood",
+    "cofi",
+    "pleas",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "coffee"
+   }
+  },
+  {
+   "id": "t2a_prog_village_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:village",
+   "hash": "94fadaa6bd39",
+   "heads": [
+    "progress:village"
+   ],
+   "taught": [
+    "wery",
+    "um",
+    "wisit",
+    "dis",
+    "wilage",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "village"
+   }
+  },
+  {
+   "id": "t2a_prog_hospital_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:hospital",
+   "hash": "53eb0f0b7ad0",
+   "heads": [
+    "progress:hospital"
+   ],
+   "taught": [
+    "wok",
+    "hospito",
+    "de",
+    "liba",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "hospital"
+   }
+  },
+  {
+   "id": "t2a_prog_love_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:love",
+   "hash": "cf60475b949c",
+   "heads": [
+    "progress:love"
+   ],
+   "taught": [
+    "rilly",
+    "lob",
+    "um",
+    "lerning",
+    "inglis",
+    "eveli",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "love"
+   }
+  },
+  {
+   "id": "t2a_prog_phone_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:phone",
+   "hash": "10dfdf3184d2",
+   "heads": [
+    "progress:phone"
+   ],
+   "taught": [
+    "broder",
+    "wan",
+    "fone",
+    "birday",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "phone"
+   }
+  },
+  {
+   "id": "t2a_prog_station_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:station",
+   "hash": "a3e4401523ff",
+   "heads": [
+    "progress:station"
+   ],
+   "taught": [
+    "elp",
+    "fine",
+    "de",
+    "tren",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "station"
+   }
+  },
+  {
+   "id": "t2a_prog_school_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:school",
+   "hash": "fc67e1068235",
+   "heads": [
+    "progress:school"
+   ],
+   "taught": [
+    "usualy",
+    "wok",
+    "skool",
+    "wit",
+    "sista",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "school"
+   }
+  },
+  {
+   "id": "t2a_prog_cold_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:cold",
+   "hash": "236ae71c7a73",
+   "heads": [
+    "progress:cold"
+   ],
+   "taught": [
+    "de",
+    "wedder",
+    "col",
+    "stay",
+    "hom",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "cold"
+   }
+  },
+  {
+   "id": "t2a_prog_slowly_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:slowly",
+   "hash": "4cebcdbed4ea",
+   "heads": [
+    "progress:slowly"
+   ],
+   "taught": [
+    "pleas",
+    "spik",
+    "slowli",
+    "becos",
+    "lerning",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "slowly"
+   }
+  },
+  {
+   "id": "t2a_prog_pets_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:pets",
+   "hash": "2d116d780d14",
+   "heads": [
+    "progress:pets"
+   ],
+   "taught": [
+    "hab",
+    "tu",
+    "cat",
+    "wan",
+    "smol",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "pets"
+   }
+  },
+  {
+   "id": "t2a_prog_weekend_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:weekend",
+   "hash": "16eb1379e8d3",
+   "heads": [
+    "progress:weekend"
+   ],
+   "taught": [
+    "las",
+    "weeken",
+    "wisit",
+    "grandmoder",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "weekend"
+   }
+  },
+  {
+   "id": "t2a_prog_bus_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:bus",
+   "hash": "21e5844375d1",
+   "heads": [
+    "progress:bus"
+   ],
+   "taught": [
+    "wat",
+    "tim",
+    "de",
+    "nex",
+    "bos",
+    "leb",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "bus"
+   }
+  },
+  {
+   "id": "t2a_prog_sorry_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:sorry",
+   "hash": "f59d507a4a75",
+   "heads": [
+    "progress:sorry"
+   ],
+   "taught": [
+    "din",
+    "understan",
+    "de",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "sorry"
+   }
+  },
+  {
+   "id": "t2a_prog_grammar_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:grammar",
+   "hash": "63b288138641",
+   "heads": [
+    "progress:grammar"
+   ],
+   "taught": [
+    "tinks",
+    "inglis",
+    "grama",
+    "dificul",
+    "usful",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "grammar"
+   }
+  },
+  {
+   "id": "t2a_prog_email_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:email",
+   "hash": "8d523e9e2ea4",
+   "heads": [
+    "progress:email"
+   ],
+   "taught": [
+    "cood",
+    "sen",
+    "de",
+    "adres",
+    "imeil",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "email"
+   }
+  },
+  {
+   "id": "t2a_prog_food_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:food",
+   "hash": "aafaa923778f",
+   "heads": [
+    "progress:food"
+   ],
+   "taught": [
+    "fevrit",
+    "wit",
+    "lice",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "food"
+   }
+  },
+  {
+   "id": "t2a_prog_trip_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:trip",
+   "hash": "e02a02709a53",
+   "heads": [
+    "progress:trip"
+   ],
+   "taught": [
+    "planin",
+    "shot",
+    "de",
+    "mountin",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "trip"
+   }
+  },
+  {
+   "id": "t2a_prog_thanks_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:thanks",
+   "hash": "1b8039e98a74",
+   "heads": [
+    "progress:thanks"
+   ],
+   "taught": [
+    "tank",
+    "elp",
+    "dis",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "thanks"
+   }
+  },
+  {
+   "id": "t2a_prog_shopping_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:shopping",
+   "hash": "19bc4e1b3b15",
+   "heads": [
+    "progress:shopping"
+   ],
+   "taught": [
+    "nid",
+    "bai",
+    "som",
+    "bred",
+    "wegtabols",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "shopping"
+   }
+  },
+  {
+   "id": "t2a_prog_garden_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:garden",
+   "hash": "fbbcf8b97201",
+   "heads": [
+    "progress:garden"
+   ],
+   "taught": [
+    "de",
+    "childen",
+    "plaing",
+    "de",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "garden"
+   }
+  },
+  {
+   "id": "t2a_prog_card_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:card",
+   "hash": "8677c9114e06",
+   "heads": [
+    "progress:card"
+   ],
+   "taught": [
+    "pai",
+    "wit",
+    "cledit",
+    "car",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "card"
+   }
+  },
+  {
+   "id": "t2a_prog_repeat_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:repeat",
+   "hash": "89718fca75ba",
+   "heads": [
+    "progress:repeat"
+   ],
+   "taught": [
+    "ask",
+    "ripit",
+    "de",
+    "hol",
+    "sentens",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "repeat"
+   }
+  },
+  {
+   "id": "t2a_prog_journey_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:journey",
+   "hash": "da4638f8bfaa",
+   "heads": [
+    "progress:journey"
+   ],
+   "taught": [
+    "lon",
+    "jurni",
+    "aribed",
+    "safli",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "journey"
+   }
+  },
+  {
+   "id": "t2a_prog_morning_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:morning",
+   "hash": "c4b7a223ce4a",
+   "heads": [
+    "progress:morning"
+   ],
+   "taught": [
+    "wood",
+    "lik",
+    "practis",
+    "spikin",
+    "eveli",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "morning"
+   }
+  },
+  {
+   "id": "t2a_prog_teacher_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:teacher",
+   "hash": "a01631ffbf6d",
+   "heads": [
+    "progress:teacher"
+   ],
+   "taught": [
+    "teacha",
+    "gab",
+    "tree",
+    "nyu",
+    "wods",
+    "todai",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "teacher"
+   }
+  },
+  {
+   "id": "t2a_prog_confidence_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:confidence",
+   "hash": "b823eb129d80",
+   "heads": [
+    "progress:confidence"
+   ],
+   "taught": [
+    "afta",
+    "tirty",
+    "dais",
+    "spik",
+    "wit",
+    "mo",
+    "confidens",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "confidence"
+   }
+  },
+  {
+   "id": "t2a_prog_breakfast_1",
+   "template": "progress",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:breakfast",
+   "hash": "cb3e55ec5047",
+   "heads": [
+    "progress:breakfast"
+   ],
+   "taught": [
+    "hat",
+    "brekfas",
+    "togeder",
+    "seben",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "breakfast"
+   }
+  },
+  {
+   "id": "t2a_prog_friday_1",
+   "template": "progress",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "voice-diary",
+   "point": "progress:friday",
+   "hash": "26ca6b03672a",
+   "heads": [
+    "progress:friday"
+   ],
+   "taught": [
+    "de",
+    "restaran",
+    "wery",
+    "bizi",
+    "eveli",
+    "nai",
+    "um",
+    "uh"
+   ],
+   "in": {
+    "id": "friday"
    }
   }
  ]

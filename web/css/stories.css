@@ -1,0 +1,59 @@
+/* 📚 Truyện & podcast (#/stories, #/story/…) – gói lười 'stories'. Chỉ token sẵn có (docs/DESIGN-SYSTEM.md §2) → tự đúng sáng/tối; chạm ≥ 44 px. */
+.st-lib, .st-reader { padding: 0 0 calc(var(--sp-6) * 3); } /* khung chung của app lo lề/độ rộng (frame-consistency) */
+.st-text, .st-list { max-width: 640px; }
+.st-goal, .st-cont, .st-res, .st-new-n { margin: var(--sp-3) 0; padding: var(--sp-3) var(--sp-4); }
+.st-bar { height: var(--sp-2); border-radius: var(--r-pill); background: var(--surface-3); overflow: hidden; margin-top: var(--sp-2); }
+.st-bar > i { display: block; height: 100%; background: var(--primary); border-radius: inherit; transition: width var(--dur-2) var(--ease-std); }
+.st-lvs { display: flex; gap: var(--sp-2); margin: var(--sp-3) 0; }
+.st-lvb { min-height: 44px; min-width: 52px; padding: 0 var(--sp-3); border: 1px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; font-weight: 700; }
+/* Chọn = nền --primary + chữ --primary-ink (đủ 4,5:1 sáng/tối). Phải thắng luật hover chung của chip (style.css: button.chip:not(.on,[aria-pressed]):hover → nền --surface-3) – nếu không, chip vừa bấm bị nền be + chữ trắng (1,26:1). */
+button.chip.st-lvb[aria-checked="true"], button.chip.st-lvb[aria-checked="true"]:hover { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+.st-list { display: grid; gap: var(--sp-3); margin-top: var(--sp-2); }
+.st-card, .st-cont { display: flex; gap: var(--sp-3); align-items: center; color: var(--text); min-height: 72px; }
+.st-info { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; flex: 1; }
+.st-info b { color: var(--heading); overflow-wrap: anywhere; }
+.st-meta { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+.st-meta .chip { display: inline-flex; align-items: center; gap: var(--sp-1); }
+.st-done { color: var(--primary); display: inline-flex; }
+.st-cover { position: relative; flex: none; width: 56px; height: 56px; border-radius: var(--r-md); background: var(--primary-soft); display: grid; place-items: center; overflow: hidden; color: var(--primary-text, var(--heading)); }
+.st-top { display: flex; align-items: center; gap: var(--sp-2); min-height: 56px; position: sticky; top: 0; background: var(--bg); z-index: 3; }
+.st-top .icon-btn { min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; }
+.st-ttl { display: flex; flex-direction: column; min-width: 0; }
+.st-ttl b { color: var(--heading); overflow-wrap: anywhere; }
+.st-text { display: grid; gap: var(--sp-2); margin-top: var(--sp-2); font-size: var(--fs-md); line-height: 1.75; }
+.st-s { display: flex; gap: var(--sp-1); align-items: flex-start; padding: var(--sp-1); border-radius: var(--r-sm); scroll-margin-top: 80px; }
+.st-s p { margin: 0; flex: 1; min-width: 0; padding-top: var(--sp-2); }
+.st-s.st-cur { background: var(--primary-soft); }
+.st-rp { flex: none; min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; background: none; border: 0; color: var(--muted); cursor: pointer; }
+.st-pod .st-av { flex: none; margin-top: var(--sp-1); }
+.st-w { all: unset; cursor: pointer; border-radius: var(--r-xs); color: inherit; }
+.st-w:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
+.st-w.st-new { text-decoration: underline; text-decoration-style: dotted; text-decoration-thickness: 2px; text-underline-offset: var(--sp-1); font-weight: 600; color: var(--heading); }
+.st-w.st-mine { background: var(--surface-3); }
+.st-hint { margin-top: var(--sp-4); }
+.st-player { position: sticky; bottom: 4.2rem; margin: var(--sp-4) 0; padding: var(--sp-3) var(--sp-4); z-index: 3; }
+.st-play { min-height: 44px; min-width: 110px; }
+.st-rate { display: flex; gap: var(--sp-1); }
+.st-rb { min-height: 44px; min-width: 52px; border: 1px solid var(--line); cursor: pointer; }
+.st-rb[aria-checked="true"] { background: var(--primary); color: var(--on-done, #fff); border-color: var(--primary); }
+.st-foot { display: flex; justify-content: center; margin: var(--sp-4) 0; }
+.st-foot .btn { min-height: 48px; width: 100%; }
+.st-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; max-width: 640px; margin: 0 auto; padding: var(--sp-4) var(--sp-4) calc(var(--sp-4) + env(safe-area-inset-bottom)); border-radius: var(--r-xl) var(--r-xl) 0 0; box-shadow: var(--elev-3); display: grid; gap: var(--sp-2); }
+.st-hw { font-size: var(--fs-lg); color: var(--heading); }
+.st-mean { font-size: var(--fs-md); font-weight: 600; }
+.st-ctx { margin: var(--sp-1) 0; padding-inline-start: var(--sp-3); border-inline-start: 3px solid var(--line); color: var(--muted); }
+.st-acts { display: flex; gap: var(--sp-3); }
+.st-acts .btn { flex: 1; min-height: 48px; }
+.st-q h2 { font-size: var(--fs-md); }
+.st-opts { display: grid; gap: var(--sp-2); margin: var(--sp-3) 0; }
+.st-opt { min-height: 48px; text-align: start; justify-content: flex-start; white-space: normal; }
+.st-opt.st-ok { border-color: var(--primary); background: var(--primary-soft); }
+.st-opt.st-bad { border-color: var(--line); text-decoration: line-through; }
+.st-fb { margin: var(--sp-2) 0; }
+.st-score { font-size: var(--fs-2xl); font-weight: 800; color: var(--heading); }
+.st-sum-acts { display: grid; gap: var(--sp-3); margin-top: var(--sp-4); }
+.st-sum-acts .btn { min-height: 48px; justify-content: center; }
+@media (prefers-reduced-motion: reduce) { .st-bar > i { transition: none; } }
+.st-cover .st-cav { position: absolute; inset: 0; width: 100%; height: 100%; display: grid; place-items: end center; }
+.st-cover .st-cav img, .st-cover .st-cav video { width: 100%; height: 100%; object-fit: contain; object-position: bottom; }
+.st-ck { position: absolute; inset-inline-end: 0; bottom: 0; display: grid; place-items: center; padding: var(--sp-1); border-radius: var(--r-md) 0 0 0; background: var(--surface); color: var(--primary-text, var(--heading)); }

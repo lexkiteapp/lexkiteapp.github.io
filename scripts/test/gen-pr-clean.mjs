@@ -8,9 +8,10 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
 import { isGenerated, offenders } from '../lib/generated.mjs';
 
-for (const f of ['web/js/i18n/de.js', 'web/js/i18n/de/ux1.js', 'web/js/i18n/zh/lazyui.js', 'web/cpack/lesson/pn-fr.js', 'extension/app/js/app.js', 'extension/app/index.html']) assert.ok(isGenerated(f), f);
-for (const f of ['web/js/i18n/en.js', 'web/js/i18n/en/core.js', 'i18n/ui/de/ux1.js', 'web/js/app.js', 'web/cpack/lesson/stories.js', 'extension/manifest.json', 'web/css/st-v2-today.css']) assert.ok(!isGenerated(f), f);
+for (const f of ['web/js/i18n/de.js', 'web/js/i18n/de/ux1.js', 'web/js/i18n/zh/lazyui.js', 'web/cpack/lesson/pn-fr.js', 'extension/app/js/app.js', 'extension/app/index.html', 'docs/CODEMAP.md', 'docs/codemap.json']) assert.ok(isGenerated(f), f);
+for (const f of ['web/js/i18n/en.js', 'web/js/i18n/en/core.js', 'i18n/ui/de/ux1.js', 'web/js/app.js', 'web/cpack/lesson/stories.js', 'extension/manifest.json', 'web/css/st-v2-today.css', 'docs/METHODS.md', 'docs/codemap-notes.md']) assert.ok(!isGenerated(f), f);
 assert.deepEqual(offenders(['web/js/app.js', 'extension/app/js/app.js']), ['extension/app/js/app.js']);
+assert.deepEqual(offenders(['docs/JOBS.md', 'functions/api/_jobs_reg.js', 'infra/jobs.json']), ['docs/JOBS.md', 'functions/api/_jobs_reg.js'], '25/11: sổ việc sinh (JOBS.md, _jobs_reg.js) không commit trong PR; infra/jobs.json là NGUỒN');
 
 const git = (cwd, ...a) => execFileSync('git', a, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 if (process.env.GITHUB_EVENT_NAME === 'pull_request') {
@@ -28,14 +29,15 @@ const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'gpc-')), w = (f, s) => { fs.m
 const g = (...a) => git(tmp, ...a), cwd0 = process.cwd();
 g('init', '-q', '-b', 'main'); g('config', 'user.email', 't@t'); g('config', 'user.name', 't'); g('config', 'commit.gpgsign', 'false');
 w('i18n/ui/de.js', 'src1'); w('web/js/i18n/de/ux1.js', 'gen-main'); w('web/js/i18n/en/core.js', 'en'); w('extension/app/js/a.js', 'ext-main'); w('extension/app/js/gone.js', 'old');
+w('docs/CODEMAP.md', 'map-main');
 g('add', '-A'); g('commit', '-qm', 'base');
-g('checkout', '-qb', 'pr'); w('i18n/ui/de.js', 'src2'); w('web/js/i18n/de/ux1.js', 'gen-pr'); w('web/js/i18n/en/core.js', 'en2'); w('extension/app/js/a.js', 'ext-pr'); w('extension/app/js/new.js', 'new'); fs.rmSync(path.join(tmp, 'extension/app/js/gone.js'));
+g('checkout', '-qb', 'pr'); w('docs/CODEMAP.md', 'map-pr'); w('i18n/ui/de.js', 'src2'); w('web/js/i18n/de/ux1.js', 'gen-pr'); w('web/js/i18n/en/core.js', 'en2'); w('extension/app/js/a.js', 'ext-pr'); w('extension/app/js/new.js', 'new'); fs.rmSync(path.join(tmp, 'extension/app/js/gone.js'));
 g('add', '-A'); g('commit', '-qm', 'pr');
 process.chdir(tmp);
-assert.equal(stripGenerated('main'), 4, 'de/ux1.js, a.js, new.js (xoá), gone.js (khôi phục)');
+assert.equal(stripGenerated('main'), 5, 'de/ux1.js, a.js, new.js (xoá), gone.js (khôi phục), CODEMAP.md');
 process.chdir(cwd0);
 const r = f => fs.readFileSync(path.join(tmp, f), 'utf8');
-assert.equal(r('web/js/i18n/de/ux1.js'), 'gen-main'); assert.equal(r('extension/app/js/a.js'), 'ext-main'); assert.equal(r('extension/app/js/gone.js'), 'old');
+assert.equal(r('docs/CODEMAP.md'), 'map-main', 'CODEMAP về bản main'); assert.equal(r('web/js/i18n/de/ux1.js'), 'gen-main'); assert.equal(r('extension/app/js/a.js'), 'ext-main'); assert.equal(r('extension/app/js/gone.js'), 'old');
 assert.ok(!fs.existsSync(path.join(tmp, 'extension/app/js/new.js')), 'tệp sinh PR thêm mới bị gỡ');
 assert.equal(r('i18n/ui/de.js'), 'src2', 'nguồn giữ nguyên'); assert.equal(r('web/js/i18n/en/core.js'), 'en2', 'en là nguồn, giữ nguyên');
 assert.equal(g('diff', '--cached', '--name-only', 'main').split('\n').filter(isGenerated).length, 0, 'sau strip không còn khác main ở tệp sinh');

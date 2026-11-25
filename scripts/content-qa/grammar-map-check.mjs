@@ -14,10 +14,11 @@ import { TL_RULES, ltErrors } from '../target/lib.mjs';
 import { TL_GEN } from '../target/tl-gen.mjs';
 import { TENSES as ES_TENSES } from '../target/conjugate.mjs';
 import { TENSES as FR_TENSES } from '../target/conj-fr.mjs';
+import { FORMS as JA_TENSES } from '../target/conj-ja.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const P = f => path.resolve(ROOT, f), rd = f => fs.readFileSync(P(f), 'utf8');
-const TL = arg('--tl'), TL_TENSES = { es: ES_TENSES, fr: FR_TENSES }, MIN_TL = 200;
+const TL = arg('--tl'), TL_TENSES = { es: ES_TENSES, fr: FR_TENSES, ja: JA_TENSES }, MIN_TL = 200;
 const INV = arg('--inv', TL ? `content/target/${TL}/grammar-inventory.json` : 'content/framework/grammar-inventory.json'), TGT = arg('--targets', 'content/pipeline/targets.json'), REPORT = arg('--report', TL ? `reports/grammar-inventory-${TL}.json` : 'reports/grammar-inventory.json');
 if (TL && !TL_TENSES[TL]) { console.log(`✗ tl "${TL}" chưa có bộ chia động từ / luật`); process.exit(2); }
 const LV = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], base = l => (String(l || '').match(/[ABC][12]/) || [])[0];

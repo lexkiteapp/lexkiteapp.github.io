@@ -271,6 +271,20 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 2
   },
+  "abstinence#n": {
+   "ex": "People may choose to practice abstinence for other reasons.",
+   "ps": "a person at a kitchen counter pushes a chocolate cake away with a determined face",
+   "sc": "a person at a kitchen counter pushes a chocolate cake away with a determined face",
+   "check": "Is the person refusing a tempting treat by pushing it away with a firm expression?",
+   "cap": "a person pushes a candy bar away with a firm expression",
+   "key": "a hand pushing away a candy bar; a determined facial expression",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "abstract art#n": {
    "ex": "Many visitors find abstract art difficult to interpret.",
    "ps": "a man stands before a bright, non‑representational painting, scratching his head",
@@ -2073,6 +2087,20 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "up": "e4"
+  },
+  "adverb#n": {
+   "ex": "When must an adverb be used?",
+   "ps": "a man runs fast while a woman walks slowly on a path",
+   "sc": "a man runs fast while a woman walks slowly on a path",
+   "check": "Is there a clear difference in the way the two people are moving?",
+   "cap": "two people moving differently on a path",
+   "key": "one person sprinting with long strides; the other person walking with short steps",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "adversary#n": {
    "ex": "He prepared to fight his adversary.",
@@ -5217,6 +5245,18 @@
    "tries": 3,
    "refix": 2
   },
+  "approach#v": {
+   "ex": "She approached the door cautiously.",
+   "ps": "a woman in a light coat steps slowly toward a closed wooden door, hand raised",
+   "sc": "a woman in a light coat steps slowly toward a closed wooden door, hand raised",
+   "check": "Is the person moving closer to the door?",
+   "cap": "a woman stepping toward a closed door",
+   "key": "woman stepping forward toward a closed door; her hand raised",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
   "appropriate#adj": {
    "ex": "Jeans are not appropriate for a job interview.",
    "ps": "a man in jeans and a woman in a suit sit at a table for an interview",
@@ -5672,6 +5712,18 @@
   "array#n": {
    "skip": "Concept is abstract programming data structure; cannot depict without symbols or",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "arrest#n": {
+   "ex": "No arrests have been made.",
+   "ps": "a police officer in a dark uniform places handcuffs on a suspect's wrists, both standing on a sidewalk",
+   "sc": "a police officer in a dark uniform places handcuffs on a suspect's wrists, both standing on a sidewalk",
+   "check": "Is the person being restrained with handcuffs?",
+   "cap": "a police officer cuffing a suspect on a sidewalk",
+   "key": "handcuffs on the suspect's wrists; police officer holding the handcuffs",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "arrival#n": {
    "ex": "We waited for the arrival of the train.",
@@ -7681,6 +7733,18 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 1
+  },
+  "bacteriology#n": {
+   "ex": "Bacteriology is the study of bacteria.",
+   "ps": "a scientist in a white lab coat examines a petri dish with many tiny red spots on a lab bench",
+   "sc": "a scientist in a white lab coat examines a petri dish with many tiny red spots on a lab bench",
+   "check": "Is the scientist looking at a dish with visible bacterial colonies?",
+   "cap": "a scientist examining a petri dish with colonies",
+   "key": "petri dish with visible bacterial colonies; scientist looking at the dish",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "bad#adj": {
    "ex": "The weather was so bad that the flight was cancelled.",
@@ -9904,8 +9968,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 9,
-   "badAt": "2026-11-21T19:45:45.028Z"
+   "e4bad": 10,
+   "badAt": "2026-11-25T08:22:44.678Z"
   },
   "boolean#n": {
    "ex": "The flag is stored as a boolean in the settings table.",
@@ -11173,8 +11237,8 @@
    "draw": 5,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-23T02:49:48.593Z"
+   "e4bad": 11,
+   "badAt": "2026-11-25T08:20:26.371Z"
   },
   "bush#n": {
    "ex": "How do you like my rose bushes?",
@@ -25198,8 +25262,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "desktop#n": {
-   "e4bad": 8,
-   "badAt": "2026-11-21T03:53:59.480Z"
+   "e4bad": 9,
+   "badAt": "2026-11-24T01:15:56.507Z"
   },
   "desolate#adj": {
    "ex": "Some of the routes go through more desolate landscapes.",
@@ -27441,8 +27505,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-23T03:24:39.021Z"
+   "e4bad": 11,
+   "badAt": "2026-11-25T07:43:32.108Z"
   },
   "distance#n": {
    "skip": "sentence refers to specific places; cannot depict without text or symbols",
@@ -27553,16 +27617,16 @@
   },
   "distraction#n": {
    "ex": "Mobile phones are a major distraction during long business meetings.",
-   "ps": "a man glances at his phone while a woman sits at a meeting table",
-   "sc": "a man glances at his phone while a woman sits at a meeting table",
-   "check": "Is someone looking at a phone during a meeting, distracting others?",
-   "cap": "a person checking a phone during a meeting",
-   "who": 2,
+   "ps": "a man in a meeting looks surprised as a brown dog jumps onto the table",
+   "sc": "a man in a meeting looks surprised as a brown dog jumps onto the table",
+   "check": "Is there something causing the people to look away from the meeting?",
+   "cap": "a man and a dog interrupt a business meeting",
+   "key": "a dog jumping onto a meeting table; the man's surprised face",
+   "who": 1,
    "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-23T02:49:57.186Z"
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "distractor#n": {
    "ex": "Read carefully because one option is a distractor.",
@@ -29212,8 +29276,8 @@
    "cap": "employees learning on computers in a meeting",
    "who": 2,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 9,
-   "badAt": "2026-11-21T19:45:45.028Z"
+   "e4bad": 10,
+   "badAt": "2026-11-24T01:17:31.135Z"
   },
   "eager#adj": {
    "ex": "The new staff members are eager to learn about our products.",
@@ -30566,12 +30630,22 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 9,
-   "badAt": "2026-11-21T19:45:45.028Z"
+   "e4bad": 10,
+   "badAt": "2026-11-24T01:17:31.135Z"
   },
   "email#v": {
-   "e4bad": 9,
-   "badAt": "2026-11-23T02:41:03.303Z"
+   "ex": "They didn't email me today.",
+   "ps": "a woman sits at a desk pressing a button on a glowing rectangular device with an antenna",
+   "sc": "a woman sits at a desk pressing a button on a glowing rectangular device with an antenna",
+   "check": "Is the person sending a message using electronic mail?",
+   "cap": "a person pressing a button on a glowing communication box",
+   "key": "a glowing rectangular device with an antenna; a person pressing a button on the device",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "embalmer#n": {
    "ex": "Military authorities also permitted private embalmers to work in military-controlled areas.",
@@ -48716,8 +48790,18 @@
    "tries": 2
   },
   "intercalary#adj": {
-   "e4bad": 1,
-   "badAt": "2026-11-23T02:49:59.966Z"
+   "ex": "The old intercalary month was abolished.",
+   "ps": "a row of twelve identical circles is followed by one extra circle of a different color",
+   "sc": "a row of twelve identical circles is followed by one extra circle of a different color",
+   "check": "Is there an extra circle added beyond a regular set of twelve circles?",
+   "cap": "a series of circles with one extra colored circle added",
+   "key": "a row of twelve identical circles; one extra circle of a different color",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "intercept#v": {
    "ex": "Customs officers intercepted the shipment at the port.",
@@ -53076,16 +53160,17 @@
   },
   "lioness#n": {
    "ex": "The lioness had three cubs.",
-   "ps": "a large tawny lioness lying beside three small golden cubs on a savanna",
-   "sc": "a large tawny lioness lying beside three small golden cubs on a savanna",
-   "check": "Is there a female lion with three cubs?",
-   "cap": "a mother lion resting with three cubs on the grass",
-   "key": "a large tawny female lion; three small golden cubs",
+   "ps": "a large tawny female lion lying on grass beside three small cubs",
+   "sc": "a large tawny female lion lying on grass beside three small cubs",
+   "check": "Is there a large tawny cat without a mane, accompanied by young cubs?",
+   "cap": "a tawny female cat resting with three tiny cubs",
+   "key": "a large tawny cat without a mane; three small cubs beside it",
    "who": 0,
    "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "lipstick#n": {
    "ex": "Wearing lipstick is against school rules.",
@@ -57552,8 +57637,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "missal#n": {
-   "e4bad": 4,
-   "badAt": "2026-11-21T19:45:45.029Z"
+   "e4bad": 5,
+   "badAt": "2026-11-24T01:14:59.141Z"
   },
   "missile#n": {
    "skip": "weapon content not allowed",
@@ -58191,8 +58276,17 @@
    "refix": 1
   },
   "monocyte#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-23T01:58:23.483Z"
+   "ex": "The monocytes in turn are formed from stem cells in the bone marrow.",
+   "ps": "a large pale round cell with a single kidney‑shaped dark nucleus floating in clear fluid",
+   "sc": "a large pale round cell with a single kidney‑shaped dark nucleus floating in clear fluid",
+   "check": "Is there a white blood cell with a single kidney‑shaped nucleus?",
+   "cap": "a single white blood cell with a distinctive nucleus in fluid",
+   "key": "a pale round cell; a kidney‑shaped dark nucleus inside the cell",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "monopolist#n": {
    "ex": "A monopolist is a sole firm in an industry.",
@@ -59080,8 +59174,17 @@
    "by": "openai/gpt-oss-120b"
   },
   "myocarditis#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-23T02:49:57.187Z"
+   "ex": "Myocarditis is inflammation of the heart muscle.",
+   "ps": "a doctor holds a red swollen heart model while a patient looks worried",
+   "sc": "a doctor holds a red swollen heart model while a patient looks worried",
+   "check": "Is the heart model shown as red and swollen, suggesting inflammation?",
+   "cap": "a doctor shows a swollen heart model to a worried patient",
+   "key": "a red swollen heart model; a doctor pointing at it while a patient looks worried",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "myopia#n": {
    "ex": "Myopia is categorized in two groups.",
@@ -66410,6 +66513,20 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "perfumer#n": {
+   "ex": "Sinclair is one of the youngest Master Perfumers active today.",
+   "ps": "a person holds a small bottle, inhales deeply, a bouquet of flowers nearby",
+   "sc": "a person holds a small bottle, inhales deeply, a bouquet of flowers nearby",
+   "check": "Is the person smelling a fragrance from a bottle?",
+   "cap": "a person holds a small bottle, inhales deeply, a bouquet of flowers nearby",
+   "key": "a person holding a small bottle and inhaling; a bouquet of flowers nearby",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
+  },
   "perhaps#adv": {
    "ex": "Perhaps we should leave earlier to avoid the traffic.",
    "sc": "person A and person B stand beside a parked car; person A holds the car door open while person B points toward a long line of stopped cars on the road ahead, both looking thoughtful",
@@ -66526,8 +66643,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "peripheral#n": {
-   "e4bad": 9,
-   "badAt": "2026-11-23T02:49:48.593Z"
+   "e4bad": 10,
+   "badAt": "2026-11-25T07:43:32.108Z"
   },
   "perishable goods#n": {
    "ex": "Perishable goods receive priority handling at the airport.",
@@ -74461,8 +74578,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-23T02:49:57.186Z"
+   "e4bad": 11,
+   "badAt": "2026-11-25T08:20:26.371Z"
   },
   "readjustment#n": {
    "ex": "A difficult period of economic readjustment started.",
@@ -77502,8 +77619,8 @@
    "refix": 1
   },
   "republish#v": {
-   "e4bad": 3,
-   "badAt": "2026-11-21T19:45:45.029Z"
+   "e4bad": 4,
+   "badAt": "2026-11-24T01:14:59.141Z"
   },
   "reputation management#n": {
    "ex": "Online reputation management includes replying politely to negative reviews.",
@@ -80966,17 +81083,17 @@
   },
   "scheduling conflict#n": {
    "ex": "I have a scheduling conflict: two of my required classes meet on Tuesday mornings.",
-   "ps": "a frustrated person holds two blank sheets, each marked with a big red circle at the same spot",
-   "sc": "a frustrated person holds two blank sheets, each marked with a big red circle at the same spot",
-   "check": "Is there a situation where two activities are scheduled for the same time?",
-   "cap": "a frustrated person holding two marked sheets side by side",
-   "key": "two blank sheets with big red circles at the same spot; the person's frustrated face",
+   "ps": "a man holds a basketball in one hand and a violin in the other, looking stressed",
+   "sc": "a man holds a basketball in one hand and a violin in the other, looking stressed",
+   "check": "Is the person trying to do two different activities at the same time?",
+   "cap": "a man juggling a ball and a violin, looking worried",
+   "key": "a basketball representing a sports activity; a violin representing a music activity",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "scheme#n": {
    "ex": "The council started a recycling scheme.",
@@ -92305,8 +92422,17 @@
    "by": "openai/gpt-oss-120b"
   },
   "thrombus#n": {
-   "e4bad": 3,
-   "badAt": "2026-11-21T19:45:34.974Z"
+   "ex": "A mural thrombus can affect any heart chamber.",
+   "ps": "a doctor holds a clear tube with a bright red clot inside, looking concerned",
+   "sc": "a doctor holds a clear tube with a bright red clot inside, looking concerned",
+   "check": "Is there a blood clot attached inside a vessel shown in the tube?",
+   "cap": "a doctor examining a tube containing a red clot",
+   "key": "bright red clot inside a clear tube; doctor's concerned face",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "throne#n": {
    "ex": "He approached the throne reverently.",
@@ -97573,17 +97699,17 @@
   },
   "variate#n": {
    "ex": "Assume a random variate has a distribution  .",
-   "ps": "a six-sided die is tossed in the air above a table",
-   "sc": "a six-sided die is tossed in the air above a table",
-   "check": "Is there a die being tossed that could show any number?",
-   "cap": "a die flying through the air above a table",
-   "key": "a six-sided die mid-air about to land; the die’s outcome is uncertain",
-   "who": 0,
+   "ps": "a man watches a large thermometer as the mercury level moves up and down unpredictably",
+   "sc": "a man watches a large thermometer as the mercury level moves up and down unpredictably",
+   "check": "Is there a quantity shown that changes unpredictably?",
+   "cap": "a person watches a thermometer's level rise and fall randomly",
+   "key": "a large thermometer with mercury moving up and down; a person watching the changing level",
+   "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "variation#n": {
    "ex": "There is a lot of variation in prices between shops.",

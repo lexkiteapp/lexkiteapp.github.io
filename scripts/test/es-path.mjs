@@ -9,7 +9,7 @@ const rj = f => JSON.parse(fs.readFileSync(f, 'utf8'));
 // (a) kế hoạch
 const { pts } = build(), px = buildPx().topics, P = buildPath(pts, px), W = pathWords();
 ok(P.days.length === pts.length && P.days.every((d, n) => d[2] === pts[n].id && d[3] === pts[n].level), `${P.days.length} ngày = ${pts.length} điểm ngữ pháp, mỗi điểm đúng 1 ngày, theo thứ tự cấp`);
-ok(P.days[0][0] === 0 && P.days.at(-1)[1] === W.length && P.days.every((d, n) => n === 0 || (d[0] === P.days[n - 1][1] && d[1] > d[0])), `từ phủ liên tục ${W.length} từ, ngày nào cũng có từ mới`);
+ok(P.days[0][0] === 0 && P.days.at(-1)[1] === Math.min(W.length, P.days.length * 8) && P.days.every((d, n) => n === 0 || (d[0] === P.days[n - 1][1] && d[1] > d[0])), `từ phủ liên tục ${P.days.at(-1)[1]}/${W.length} từ (≤ 8/ngày; phần sau vào Ôn tập qua "Từ mở rộng" của hub), ngày nào cũng có từ mới`);
 ok(P.days.length === P.plan.g.length && P.files['dy.js'].includes('ESX.dyp=function planDay'), 'dy.js mang đúng hàm planDay của path-lib (một nguồn, trình duyệt tính lại ngày)');
 const cids = P.days.map(d => d[6]).filter(Boolean);
 ok(new Set(cids).size === cids.length && cids.length === Math.min(P.calls.length, Math.floor(P.days.length / CALL_EVERY)) && cids.every(id => P.calls.some(c => c.id === id)), `cuộc gọi: ${cids.length} lần, mỗi cuộc đúng 1 lần, id có thật`);

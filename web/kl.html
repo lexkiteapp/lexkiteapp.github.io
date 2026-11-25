@@ -15,6 +15,7 @@
 <body>
 <script>
 (function () {
+  document.documentElement.style.backgroundColor = "Canvas"; // nền theo color-scheme sáng/tối (CSSOM – CSP không có style-src vẫn cho phép); web-sweep theme
   var OK = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|chrome-extension:\/\/[a-p]{32}|moz-extension:\/\/[0-9a-f-]{36})$/;
   var o = new URLSearchParams(location.search).get('o') || '';
   if (!OK.test(o) || window.parent === window || !window.Worker) return; // không được nhúng / origin lạ → không làm gì

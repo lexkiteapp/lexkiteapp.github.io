@@ -38377,7 +38377,7 @@
   "glosses": []
  },
  "t2s_tr_bruh": {
-  "ok": false,
+  "ok": true,
   "lang": "tr",
   "online": false,
   "gates": {
@@ -38387,7 +38387,7 @@
    "hashtags": true,
    "lengths": true,
    "comment": true,
-   "not_english": false
+   "not_english": true
   },
   "glosses": []
  },

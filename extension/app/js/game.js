@@ -94,8 +94,6 @@
     LEVEL_TITLES, BADGES, levelOf, questsFor, XPR, xpFor, repCut, weekDots, runOf,
     async get() { const s = await Store.get('game', null); return s ? { ...EMPTY(), ...s, total: { ...EMPTY().total, ...s.total } } : EMPTY(); },
 
-    // Ghi nhận hoạt động: Game.track({ reviews: 1, xp: 10 })
-    // một hàng đợi → không mất XP khi gọi đồng thời
     track(delta, ctx) { return (gameLock = gameLock.then(() => Game._track(delta, ctx), () => Game._track(delta, ctx))); },
     mutate(fn) { return (gameLock = gameLock.then(async () => { const s = await Game.get(); await fn(s); await Store.set('game', s); return s; })); },
     async _track(delta, ctx) {
@@ -108,7 +106,7 @@
         if (m in s.total) s.total[m] += v;
       }
       let gained = delta.xp || 0;
-      if (delta.src && gained) { // chống cày: lần 3–4 nửa, ≥5 tối đa 2; khóa xprep không đồng bộ
+      if (delta.src && gained) {
         const rp = await Store.get('xprep', null), q = rp && rp.k === k ? rp : { k, m: {} }, c = q.m[delta.src] = (q.m[delta.src] || 0) + 1;
         gained = delta.xp = repCut(gained, c); await Store.set('xprep', q); // sửa delta.xp → App.reward hiện số đã cắt
       }
@@ -174,9 +172,10 @@
     win: () => { tone([523, 659, 784, 1047], 0.12, 'triangle'); buzz(HAPTIC.done); },
     pop: () => tone([900], 0.04, 'square', 0.03),
   };
-  // tap/streak/shimmer/combo: nạp lười (streak-ui.js, Sfx.extend)
   for (const k of ['tap', 'streak', 'shimmer', 'combo']) Sfx[k] = () => {};
   Sfx.haptic = ev => buzz(HAPTIC[ev] || HAPTIC.soft);
+  Sfx.muted = isMuted; // một công tắc tiếng; bubble = pop bong bóng giáo viên (feel.js ghi đè bằng mp3 đã giải mã)
+  Sfx.bubble = () => { if (isMuted()) return; try { const a = new Audio('sfx/pop.mp3'); a.dataset.lkMix = '1'; a.volume = 0.6; const p = a.play(); if (p && p.catch) p.catch(() => {}); } catch (e) { /* chặn tự phát */ } };
   Sfx.haptics = on => { if (on === undefined) return hapOn(); try { g.localStorage.setItem('vb.haptics', on ? '1' : '0'); } catch (e) { /* bỏ qua */ } if (on) buzz(HAPTIC.correct); return !!on; };
   Sfx.HAPTIC = HAPTIC; Sfx.daypart = daypart;
   Sfx.extend = f => { const o = f(tone, buzz); for (const k of Sfx.locked || []) delete o[k]; Object.assign(Sfx, o); };
@@ -193,10 +192,6 @@
   try { const m = g.location && /[?&#]feel=([01])/.exec(g.location.search + g.location.hash); if (m) g.localStorage.setItem('vb.feel', m[1]); } catch (e) { /* bỏ qua */ }
   if (feelGet()) feelLoad();
 
-  // ---------- Phản hồi trả lời chung mọi bề mặt ----------
-  // Sfx.answer(ok, { el, answer, badge, exam }) → âm + rung + nảy/lắc el
-  //   + aria-live + combo 3/5/10/15… (lười streak+lfx); exam: im lặng
-  // Sfx.finish({ pct, xp, el, ms, good, exam }) → âm thắng + pháo giấy + thẻ số liệu
   let run = 0, t0 = Date.now(), at = '';
   const tt = (k, v) => (g.t ? g.t(k, v) : k);
   const route = () => { const h = g.location ? String(g.location.hash).split('?')[0] : ''; if (h !== at) { at = h; run = 0; t0 = Date.now(); } };
@@ -228,7 +223,7 @@
   // ---------- Pháo giấy ----------
   function confetti(n = 120) {
     if (typeof document === 'undefined') return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { // giảm chuyển động: chỉ Kit win mờ hiện, mốc lớn
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
       if (n < 80 || !g.Kit) return;
       const k = document.createElement('div'); k.className = 'cele-still'; k.setAttribute('aria-hidden', 'true'); k.innerHTML = g.Kit.svg('win', 88, false);
       document.body.appendChild(k); requestAnimationFrame(() => k.classList.add('on')); setTimeout(() => k.classList.remove('on'), 1100); setTimeout(() => k.remove(), 1500);

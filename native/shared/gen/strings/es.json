@@ -191,6 +191,7 @@
   "lesson.q.match": "Une las parejas",
   "lesson.q.mpic": "Une palabras e imágenes",
   "lesson.q.fix": "Encuentra el error",
+  "lesson.q.dict": "Escucha y copia la frase",
   "lesson.q.q": "Responde la pregunta",
   "lesson.qn": "Pregunta {a} de {b}",
   "lesson.combo": "COMBO ×{n}",
@@ -336,6 +337,7 @@
   "rev.test": "Prueba",
   "rev.pronunciation": "Pronunciación",
   "rev.gamesPractice": "Juegos y ejercicios",
+  "rev.gameCrossword": "Crucigrama diario",
   "rev.pickAWordSource": "Elige una fuente de palabras y luego un modo de práctica. Cada sesión gana XP y cuenta para tus misiones diarias.",
   "rev.wordSource": "Origen de la palabra",
   "rev.mySentence": "Mi frase",
@@ -3497,5 +3499,6 @@
   "speak.spk.lamViecNhom": "Trabajo en equipo",
   "speak.spk.duHocSongONuoc": "Estudiar y vivir en el extranjero",
   "speak.spk.mayTinhInternetHangNgay": "Ordenadores e internet cotidiano",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "Reto de hablar en 30 segundos",
+  "speak.spk.nhatKyGiongNoi": "Diario de voz"
 }

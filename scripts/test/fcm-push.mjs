@@ -38,7 +38,7 @@ ok(S.fcmLive(NOW - 600e3, NOW) && !S.fcmLive(NOW - 3 * 3600e3, NOW) && !S.fcmLiv
 ok(!(await cfg({})).fcm, 'cfg: không có D1 nội bộ → fcm tắt');
 
 // (2) chưa có nhịp (Worker cũ/thiếu FCM_SA) → app gốc giữ lịch cục bộ đủ chu kỳ
-ok((await cfg()).fcm === false, 'cfg: chưa có nhịp Worker → fcm = false (máy giữ lịch cục bộ 14 ngày)');
+ok((await cfg()).fcm === false, 'cfg: chưa có nhịp Worker → fcm = false (máy giữ lịch cục bộ 7 ngày)');
 const TOK = 'fcmtok_' + 'a'.repeat(40), TOK2 = 'fcmtok_' + 'b'.repeat(40);
 const sub = await post({ op: 'sub', k: 'fcm', token: TOK, lmin: 1200, q: [1320, 480], tz: 'Asia/Tokyo', lang: 'ja', st: 0 });
 ok(sub.s === 200 && /^[a-f0-9]{32}$/.test(sub.j.id), 'sub FCM nhận được khi cờ mặc định bật: ' + JSON.stringify(sub));
@@ -50,7 +50,7 @@ ok((await cfg()).fcm === false, 'cfg: nhịp fcm:0 → vẫn tắt');
 
 // (3) Worker có FCM_SA → nhịp → cfg bật; đúng giờ địa phương → 1 lời nhắc kéo lại
 r = await due(1);
-ok(r.j.fcm && r.j.fcm.length === 1 && r.j.fcm[0].kind === 'back' && r.j.fcm[0].lang === 'ja' && r.j.fcm[0].token === TOK, 'ngày 3 không mở app, 20:00 Tokyo → 1 FCM "back" (ja): ' + JSON.stringify(r.j));
+ok(r.j.fcm && r.j.fcm.length === 1 && r.j.fcm[0].kind === 'back3' && r.j.fcm[0].lang === 'ja' && r.j.fcm[0].token === TOK, 'ngày 3 không mở app, 20:00 Tokyo → 1 FCM "back3" (ja): ' + JSON.stringify(r.j));
 ok((await cfg()).fcm === true, 'cfg: Worker vừa báo gửi được → fcm = true');
 NOW += 10 * 60e3; r = await due(1);
 ok(!(r.j.fcm || []).length, '≤ 1/ngày: lượt cron kế tiếp không gửi lại');
@@ -61,7 +61,7 @@ ok((await cfg({ ...ENV, FCM_ON: '0' })).fcm === false && !((await due(1, { ...EN
 // (4) không trùng ngày với lịch cục bộ: ngày 0–2 (kể cả Chủ nhật) máy chủ KHÔNG gửi
 NOW = Date.UTC(2026, 10, 8, 11, 0); // Chủ nhật 08/11 20:00 Tokyo
 for (const d of [0, 1, 2]) { back(d); r = await due(1); ok(!(r.j.fcm || []).length, `ngày ${d} (CN) → lịch cục bộ lo, máy chủ không gửi thêm (trước 05/11: "tiến bộ tuần" trùng ngày)`); }
-back(14); r = await due(1); ok(r.j.fcm && r.j.fcm[0].kind === 'miss' && sql.prepare('SELECT done FROM push_subs WHERE id = ?').get(ID).done === 1, 'ngày 14 → lời cuối rồi dừng (done = 1)');
+back(7); r = await due(1); ok(r.j.fcm && r.j.fcm[0].kind === 'miss' && sql.prepare('SELECT done FROM push_subs WHERE id = ?').get(ID).done === 1, 'ngày 7 → lời cuối rồi dừng (done = 1)');
 
 // (5) giờ yên lặng địa phương: giờ nhắc lọt vào 22:00–08:00 → không bao giờ gửi
 const subQ = await post({ op: 'sub', k: 'fcm', token: 'fcmtok_' + 'q'.repeat(40), lmin: 1350, q: [1320, 480], tz: 'America/New_York', lang: 'en' });
@@ -109,6 +109,9 @@ ok(W.fcmResult(200) === 'ok' && W.fcmResult(404, '') === 'gone' && W.fcmResult(4
   ok(calls.filter(c => c[0].endsWith('/api/mail') && JSON.parse(c[1]).op === 'tick').length === 2, 'mỗi lượt cron gọi thêm /api/mail tick (email opt-in)'); }
 
 // ---------- Máy khách (web/js/remind.js phần app gốc, vm + giả lập Capacitor) ----------
+// 26/11: phần máy khách chạy theo đồng hồ CỐ ĐỊNH 10:00 giờ máy hôm nay – trước đây dùng giờ thật nên sau giờ nhắc trong ngày (≈20:00 UTC trên CI)
+// lịch chỉ còn 5 lượt (1,2,3,5,7) và test đỏ trên mọi PR vài giờ mỗi tối. Ngưỡng ≥6 lượt giữ nguyên.
+const CLIENT_NOW = (() => { const d = new Date(); d.setHours(10, 0, 0, 0); return d.getTime(); })(); Date.now = () => CLIENT_NOW;
 const RSRC = fs.readFileSync('web/js/remind.js', 'utf8');
 const pure = (() => { const g = { self: null, setTimeout, clearTimeout }; g.self = g; vm.runInNewContext(RSRC, g); return g.Remind; })();
 ok(!pure.fcmCapable(undefined) && !pure.fcmCapable({ Plugins: {} }) && !pure.fcmCapable({ Plugins: { FirebaseMessaging: {} }, isPluginAvailable: () => false }) && pure.fcmCapable({ Plugins: { FirebaseMessaging: {} }, isPluginAvailable: k => k === 'FirebaseMessaging' }),
@@ -138,15 +141,15 @@ async function app({ plugin = true, avail = true, fcm = true, token = TOK, hang 
   return { posts, sched, days, asked, fcm: ls.has('lk.fcm') ? JSON.parse(ls.get('lk.fcm')) : null };
 }
 let a = await app({ plugin: false });
-ok(a.sched.length >= 7 && Math.max(...a.days) >= 13 && !a.posts.some(p => p.op === 'sub') && !a.asked.length, 'bản iOS 1.0 (không plugin): lịch cục bộ đủ 14 ngày, không đăng ký FCM, không hỏi quyền: ' + a.days);
+ok(a.sched.length >= 6 && Math.max(...a.days) >= 7 && !a.posts.some(p => p.op === 'sub') && !a.asked.length, 'bản iOS 1.0 (không plugin): lịch cục bộ đủ 7 ngày, không đăng ký FCM, không hỏi quyền: ' + a.days);
 a = await app({ avail: false });
-ok(!a.posts.some(p => p.op === 'sub') && Math.max(...a.days) >= 13, 'plugin không khả dụng (isPluginAvailable) → chỉ lịch cục bộ');
+ok(!a.posts.some(p => p.op === 'sub') && Math.max(...a.days) >= 7, 'plugin không khả dụng (isPluginAvailable) → chỉ lịch cục bộ');
 a = await app();
 ok(a.posts.some(p => p.op === 'sub' && p.k === 'fcm' && p.token === TOK && p.tz && p.q) && a.fcm && a.fcm.tok === TOK && a.sched.length && Math.max(...a.days) <= 3, 'đủ điều kiện → đăng ký FCM, lịch cục bộ chỉ 3 ngày đầu: ' + a.days);
 a = await app({ fcm: false, saved: { id: 'd'.repeat(32), tok: TOK } });
-ok(a.posts.some(p => p.op === 'unsub' && p.id === 'd'.repeat(32)) && !a.fcm && Math.max(...a.days) >= 13, 'máy chủ thôi FCM (Worker mất FCM_SA) → hủy dòng cũ + lịch cục bộ đủ chu kỳ (không mất, không trùng)');
+ok(a.posts.some(p => p.op === 'unsub' && p.id === 'd'.repeat(32)) && !a.fcm && Math.max(...a.days) >= 7, 'máy chủ thôi FCM (Worker mất FCM_SA) → hủy dòng cũ + lịch cục bộ đủ chu kỳ (không mất, không trùng)');
 a = await app({ hang: true });
-ok(!a.posts.some(p => p.op === 'sub') && a.sched.length && Math.max(...a.days) >= 13, 'getToken treo (bản thiếu APNs) → hết giờ, lịch cục bộ vẫn lên đủ');
+ok(!a.posts.some(p => p.op === 'sub') && a.sched.length && Math.max(...a.days) >= 7, 'getToken treo (bản thiếu APNs) → hết giờ, lịch cục bộ vẫn lên đủ');
 a = await app({ on: false, saved: { id: 'd'.repeat(32), tok: TOK } });
 ok(a.posts.some(p => p.op === 'unsub' && p.id === 'd'.repeat(32)) && !a.fcm && !a.sched.length, 'tắt "Nhắc học" → hủy cả FCM máy chủ (một công tắc cho mọi kênh)');
 a = await app({ perm: 'denied', saved: { id: 'd'.repeat(32), tok: TOK } });

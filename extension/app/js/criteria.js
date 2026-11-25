@@ -652,7 +652,7 @@
           <div class="row" style="gap:.9rem;align-items:center">
             ${window.Kit ? `<div class="kit-cele" style="flex-shrink:0" aria-hidden="true">${Kit.svg('think', 64, true)}</div>` : ''}
             <div>
-              <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em">IELTS Writing · Speaking</div>
+              <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em">${t('IELTS Writing')} · ${t('IELTS Speaking')}</div>
               <h1 style="margin:.15rem 0 .25rem">${UI.icon('chart-column')} ${t('Tiêu chí chấm IELTS')}</h1>
               <p class="muted small" style="margin:0">${t('Nắm vững 4 tiêu chí chấm Writing & Speaking từ band 4–9 và cách nâng band bài thi thực tế.')}</p>
               <p class="tiny muted" style="margin:.25rem 0 0">${t('Diễn giải từ bảng mô tả band công khai của IELTS, không phải văn bản chính thức – bản gốc xem tại ielts.org.')}</p>
@@ -669,13 +669,13 @@
       <div class="card" style="margin-bottom:1.2rem;padding:.7rem .9rem;box-shadow:var(--shadow-sm);border-radius:14px">
         <div class="row between" style="flex-wrap:wrap;gap:.8rem;align-items:center">
           <div class="row" style="gap:.5rem" id="skillTabs">
-            <button class="btn sm ${isW ? 'primary' : 'ghost'}" data-skill="writing" style="font-weight:700;border-radius:10px">${UI.icon('pen-line')} ${t('IELTS Writing')}</button>
-            <button class="btn sm ${!isW ? 'primary' : 'ghost'}" data-skill="speaking" style="font-weight:700;border-radius:10px">${UI.icon('message-circle')} ${t('IELTS Speaking')}</button>
+            <button class="chip ${isW ? 'on' : ''}" aria-pressed="${isW}" data-skill="writing" style="cursor:pointer;font-weight:700;border-radius:10px;padding:.4rem .8rem">${UI.icon('pen-line')} ${t('IELTS Writing')}</button>
+            <button class="chip ${!isW ? 'on' : ''}" aria-pressed="${!isW}" data-skill="speaking" style="cursor:pointer;font-weight:700;border-radius:10px;padding:.4rem .8rem">${UI.icon('message-circle')} ${t('IELTS Speaking')}</button>
           </div>
           <div class="row" style="gap:.45rem;align-items:center;flex-wrap:wrap">
             <span class="tiny muted"><b>${t('Lọc band:')}</b></span>
             <div class="row" id="bandFilters" style="gap:.3rem;flex-wrap:wrap">
-              ${['all', '4', '5', '6', '7', '8', '9'].map(b => `<button class="chip ${curBandFilter === b ? 'active' : ''}" data-band="${b}" style="cursor:pointer;padding:.25rem .6rem;font-weight:700;font-size:.82rem;border-radius:8px;${curBandFilter === b ? 'background:var(--primary);color:var(--primary-ink);border-color:var(--primary)' : ''}">${b === 'all' ? t('Tất cả') : 'Band ' + b}</button>`).join('')}
+              ${['all', '4', '5', '6', '7', '8', '9'].map(b => `<button class="chip ${curBandFilter === b ? 'on' : ''}" data-band="${b}" aria-pressed="${curBandFilter === b}" style="cursor:pointer;padding:.25rem .6rem;font-weight:700;font-size:.82rem;border-radius:8px">${b === 'all' ? t('Tất cả') : 'Band ' + b}</button>`).join('')}
             </div>
           </div>
         </div>
@@ -737,9 +737,8 @@
             <div class="row" style="gap:.4rem" id="modelBandTabs">
               ${['5.0', '6.5', '8.0'].map(b => {
                 const on = curModelBand === b;
-                const bCol = b === '8.0' ? 'var(--accent-text)' : b === '6.5' ? 'var(--good-text)' : 'var(--gold-text)';
                 return `
-                <button class="btn sm ${on ? 'primary' : 'ghost'}" data-mband="${b}" style="font-weight:800;border-radius:10px;${on ? `background:${bCol};border-color:${bCol};color:var(--surface)` : ''}">
+                <button class="chip ${on ? 'on' : ''}" data-mband="${b}" aria-pressed="${on}" style="cursor:pointer;font-weight:800;border-radius:10px;padding:.4rem .8rem">
                   Band ${b}
                 </button>
                 `;
@@ -763,7 +762,7 @@
                 <div class="row" style="gap:.4rem;align-items:center">
                   <span class="chip lv" style="background:var(--primary);color:var(--primary-ink);font-weight:800">${curModel.band}</span>
                   <button class="btn sm ghost" id="crCopy" style="padding:.25rem .5rem" title="${t('Sao chép')}" aria-label="${t('Sao chép')}">${UI.icon('clipboard-list')}</button>
-                  ${!isW ? `<button class="btn sm primary" id="crTts" style="padding:.25rem .6rem">🔊 ${t('Phát âm')}</button>` : ''}
+                  ${!isW ? `<button class="btn sm" id="crTts" style="padding:.25rem .6rem">🔊 ${t('Phát âm')}</button>` : ''}
                 </div>
               </div>
               <div style="font-size:1rem;line-height:1.8;white-space:pre-wrap;font-family:var(--font);color:var(--text);flex:1;background:var(--surface);padding:1rem;border-radius:10px;border:1px solid var(--line)">

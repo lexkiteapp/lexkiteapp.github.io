@@ -55,7 +55,7 @@
   const TOEFL_T = (k, ic, n, d) => ['#/toefl-p/' + k, ic, n, d];
   const CONTENT = {
     listening: {
-      ielts: () => [['#/listening', UI.icon('headphones'), t('Luyện theo phần'), t('Part 1–4, có transcript và giải thích')], ['#/practice/listen', UI.icon('keyboard'), t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')], ['#/watch', UI.icon('monitor'), t('Học qua video'), t('Video YouTube theo chủ đề, lặp đoạn, lưu từ')]],
+      ielts: () => [['#/listening', UI.icon('headphones'), t('Luyện theo phần'), t('Part 1–4, có transcript và giải thích')], ['#/practice/listen', UI.icon('keyboard'), t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')], ['#/watch', UI.icon('monitor'), t('Học qua video'), t('Video YouTube theo chủ đề, lặp đoạn, lưu từ')], ['#/stories', UI.icon('book-open'), t('Truyện & podcast'), t('Đọc và nghe theo cấp A1–C1, chạm từ để học')]],
       toeic: () => [['#/toeic', UI.icon('briefcase'), t('TOEIC Part 1–4'), t('Mô tả tranh, hỏi – đáp, hội thoại, bài nói')], ['#/watch', UI.icon('monitor'), t('Học qua video'), t('Video YouTube theo chủ đề, lặp đoạn, lưu từ')]],
       toefl: () => [TOEFL_T('response', UI.icon('message-circle'), 'Listen and Choose a Response', t('Chọn câu đáp phù hợp')), TOEFL_T('conversation', UI.icon('users'), 'Listen to a Conversation', t('Hội thoại đời sống')), TOEFL_T('announcement', UI.icon('megaphone'), 'Listen to an Announcement', t('Thông báo trong trường')), TOEFL_T('talk', UI.icon('graduation-cap'), 'Listen to an Academic Talk', t('Bài giảng ngắn')), ['#/watch', UI.icon('monitor'), t('Học qua video'), t('Video YouTube theo chủ đề, lặp đoạn, lưu từ')]],
       general: () => [['#/listening', UI.icon('headphones'), t('Luyện nghe'), t('Bài nghe theo trình độ, có transcript')], ['#/practice/listen', UI.icon('keyboard'), t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')], ['#/watch', UI.icon('monitor'), t('Học qua video'), t('Video YouTube theo chủ đề, lặp đoạn, lưu từ')]],
@@ -64,7 +64,7 @@
       ielts: () => [['#/reading', UI.icon('newspaper'), t('Bài đọc theo trình độ'), t('30 bài, có thể làm ở chế độ thi trên máy')], ['#/rtype', UI.icon('target'), t('Luyện theo dạng câu hỏi'), t('True/False/Not Given, Matching, điền từ…')], ['#/paraphrase', UI.icon('repeat'), t('Luyện paraphrase'), t('Nhận ra cách bài đọc diễn đạt lại từ khóa câu hỏi')], ['#/cbt', UI.icon('monitor'), t('Đọc trên máy tính'), t('Giao diện như thi IELTS trên máy')]],
       toeic: () => [['#/toeic', UI.icon('briefcase'), t('TOEIC Part 5–7'), t('Điền câu, điền đoạn, đọc hiểu')]],
       toefl: () => [TOEFL_T('cw', UI.icon('puzzle'), 'Complete the Words', t('Điền chữ còn thiếu')), TOEFL_T('daily', UI.icon('smartphone'), 'Read in Daily Life', t('Tin nhắn, thông báo, email')), TOEFL_T('academic', UI.icon('library'), 'Read an Academic Passage', t('Đoạn văn học thuật ngắn'))],
-      general: () => [['#/reading', UI.icon('newspaper'), t('Bài đọc theo trình độ'), t('Đọc vừa sức, lưu từ mới kèm câu gốc')]],
+      general: () => [['#/reading', UI.icon('newspaper'), t('Bài đọc theo trình độ'), t('Đọc vừa sức, lưu từ mới kèm câu gốc')], ['#/stories', UI.icon('book-open'), t('Truyện & podcast'), t('Đọc và nghe theo cấp A1–C1, chạm từ để học')]],
     },
     writing: {
       ielts: () => [['#/task1', UI.icon('trending-up'), t('Task 1 – Biểu đồ'), t('Mô tả số liệu, có bài mẫu')], ['#/write', UI.icon('pen-line'), 'Writing Task 2', t('Viết luận, AI chấm theo 4 tiêu chí')], ['#/ideas', UI.icon('lightbulb'), t('Ngân hàng ý tưởng'), t('Ý tưởng và từ vựng theo chủ đề')], ['#/models', UI.icon('file-text'), t('Bài mẫu band 8'), t('Có đánh dấu cụm từ hay và từ nối')]],
@@ -81,6 +81,7 @@
   CONTENT.listening.ieltsgt = CONTENT.listening.ielts; CONTENT.reading.ieltsgt = CONTENT.reading.ielts; CONTENT.speaking.ieltsgt = CONTENT.speaking.ielts;
   const FIX = () => ['#/fix', UI.icon('pen-line'), t('Sửa ngữ pháp'), t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm')];
   const RP = () => ['#/roleplay', UI.icon('briefcase'), t('Roleplay công sở'), t('Đóng vai họp, phỏng vấn, đàm phán với AI')], CALL = () => ['#/call', UI.icon('phone'), t('Gọi Ama & Carlos'), t('Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng')];
+  const INTERP = () => ['#/interpret', UI.icon('globe'), t('Phiên dịch'), t('Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí')];
   const CONF = () => ['#/confidence', UI.icon('message-circle'), t('Giao tiếp tự tin'), t('Nói tự tin trong tình huống thật · 5–8 phút/bài')];
   const itemsFor = (sk, ex) => (CONTENT[sk][ex] || (() => null))();
   const tiles = list => list.map(([h, ic, n, d]) => card(h, ic, esc(n), d)).join('');
@@ -96,6 +97,7 @@
       + `<div class="hub-grid">${Object.keys(SK).map(skillCard).join('')}
         ${card('#/grammar', UI.icon('ruler'), t('Ngữ pháp'), t('Bài học ngắn kèm bài tập'), done.grammar ? t('{n} bài đã làm', { n: done.grammar }) : '')}
         ${card('#/pron', UI.icon('a-large-small'), t('Phát âm'), t('Âm khó, trọng âm, chấm phát âm từ'), done.pron ? t('{n} bài đã làm', { n: done.pron }) : '')}
+        ${card('#/interpret', UI.icon('globe'), t('Phiên dịch'), t('Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí'))}
         ${card('#/mediate', UI.icon('users'), t('Trung gian'), t('Chuyển ý từ nguồn tiếng Anh cho đúng người cần'), done.mediate ? t('{n} bài đã làm', { n: done.mediate }) : '')}</div>`
       + (off.length ? `<p class="small muted" style="margin-top:.8rem">${t('{exam} không thi {skills}.', { exam: EXAMS[ex].short, skills: off.map(k => SK[k].name()).join(', ') })} <a href="#/skill/${off[0]}">${t('Vẫn muốn luyện?')}</a></p>` : '')
       + (App.ux1On && App.ux1On() ? sect(t('Luyện'), card('#/train', UI.icon('zap'), t('Luyện'), t('Mọi bài luyện theo nhóm, luyện thi trước'))) : '')
@@ -105,7 +107,7 @@
 
   routes.skill = function (k) {
     if (!SK[k]) { location.replace(location.pathname + location.search + '#/skills'); return; }
-    const ex = App.exam(), mine = (x => k === 'speaking' ? [...(x || []), CONF(), RP(), CALL()] : k === 'writing' && x ? [...x, FIX()] : x)(itemsFor(k, ex));
+    const ex = App.exam(), mine = (x => k === 'speaking' ? [...(x || []), CONF(), RP(), CALL(), INTERP()] : k === 'writing' && x ? [...x, FIX()] : x)(itemsFor(k, ex));
     const others = Object.keys(EXAMS).filter(e => e !== ex && e !== 'general' && itemsFor(k, e) && !(e === 'ieltsgt' && ex === 'ielts' && k !== 'writing') && !(e === 'ielts' && ex === 'ieltsgt' && k !== 'writing'));
     view.innerHTML = head(UI.icon(SK[k].ic) + ' ' + SK[k].name(), mine ? t('Dạng bài {exam}', { exam: EXAMS[ex].name }) : t('{exam} không thi kỹ năng này – bạn vẫn có thể luyện theo kỳ thi khác bên dưới.', { exam: EXAMS[ex].short }), examBtn())
       + (mine ? `<div class="hub-grid">${tiles(mine)}</div>` : '')
@@ -307,6 +309,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
 
   // ---------- Bản đồ điều hướng: trang → [mục chính, mục con] (đánh dấu menu, đường dẫn "Kỹ năng › Nghe") ----------
   const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', watch: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', models: 'writing', speaking: 'speaking', roleplay: 'speaking', call: 'speaking', fix: 'writing', mediate: 'writing' };
+  SKILL_OF.diary = 'speaking'; // Nhật ký giọng nói: Kỹ năng › Nói (mục riêng một dòng – gen-guard)
   const TOEFL_SK = { cw: 'reading', daily: 'reading', academic: 'reading', response: 'listening', conversation: 'listening', announcement: 'listening', talk: 'listening', sentence: 'writing', email: 'writing', discussion: 'writing', repeat: 'speaking', interview: 'speaking' };
   App.navOf = (name, arg) => {
     if (!name || name === 'home' || name === 'tlprep') return ['home', 'home'];
@@ -315,6 +318,8 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
     if (name === 'practice') return arg === 'speak' ? ['skills', 'pron'] : ['vocab', 'practice'];
     if (name === 'skill') return ['skills', 'skill-' + arg];
     if (name === 'cbt' && arg && arg.includes(',')) return ['tests', 'tests'];
+    if (name === 'interpret') return ['skills', 'skills']; // Phiên dịch: Kỹ năng (Back → #/skills)
+    if (name === 'stories') return ['skills', 'skill-listening']; // Truyện & podcast: Kỹ năng › Nghe (docs/STORIES.md)
     if (SKILL_OF[name]) return ['skills', 'skill-' + SKILL_OF[name]];
     if (name === 'toefl-p') return ['skills', 'skill-' + (TOEFL_SK[arg] || 'reading')];
     if (['skills', 'grammar', 'pron', 'toeic', 'toefl', 'score'].includes(name)) return ['skills', name];

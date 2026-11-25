@@ -26,10 +26,10 @@ import { limit } from './sync.js';
 import { readText, bodyFail } from './_body.js';
 
 const DAY = 864e5, MAX_SEND = 40;
-export const SEQ = [0, 1, 2, 3, 5, 7, 10, 14], FINAL = 14, REMOTE_FROM = 3; // trùng web/js/remind.js (test reminders.mjs đối chiếu)
+export const SEQ = [0, 1, 2, 3, 5, 7], FINAL = 7, REMOTE_FROM = 3; // trùng web/js/remind.js (test reminders.mjs đối chiếu)
 // Chỉ dịch vụ push thật (chống SSRF: Worker chỉ POST tới các máy chủ này)
 export const PUSH_HOST = /^https:\/\/(fcm\.googleapis\.com|updates\.push\.services\.mozilla\.com|[a-z0-9.-]+\.push\.apple\.com|[a-z0-9.-]+\.notify\.windows\.com|push\.services\.mozilla\.com)\/[\w\-./:%~+=]+$/;
-export const EV = new Set(['shown', 'open', 'ask_show', 'ask_yes', 'ask_no', 'optin', 'optout']), TPL = /^[a-z0-9_]{0,12}$/;
+export const EV = new Set(['learn60', 'shown', 'open', 'ask_show', 'ask_yes', 'ask_no', 'optin', 'optout']), TPL = /^[a-z0-9_]{0,12}$/;
 const LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 const cors = req => { const o = req.headers.get('Origin') || ''; return /^(https:\/\/(lexkite\.com|[\w-]+\.lexkite\.pages\.dev|lexkite\.pages\.dev)|capacitor:\/\/localhost|https?:\/\/localhost(:\d+)?)$/.test(o) ? { 'Access-Control-Allow-Origin': o, Vary: 'Origin' } : {}; };
 const json = (req, status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req), ...extra } });
@@ -60,6 +60,44 @@ export function slotFor(lmin, tz, now = Date.now()) {
 }
 export const inQuiet = (n, q1, q2) => (q1 == null || q2 == null || q1 === q2 ? false : q1 < q2 ? n >= q1 && n < q2 : n >= q1 || n < q2);
 const day = t => new Date(t).toISOString().slice(0, 10);
+
+/* ── Tin 2 trong ngày "giữ chuỗi" (24/11; mẫu Duolingo) ── tối đa 2 tin/ngày; web + FCM dùng chung bộ lập lịch này, app/add-on dùng Remind.plan (cùng luật).
+ * Giờ tin 2 = giờ tin 1 + 150 phút, muộn nhất 60 phút trước giờ yên lặng, cách tin 1 ≥ 60 phút. Gửi khi: máy báo đủ điều kiện (two = chuỗi ≥ 2 hoặc đã mở thông báo gần đây), hôm nay CHƯA học, đã gửi tin 1 hôm nay,
+ * chưa gửi tin 2 hôm nay, không đang lùi (≤ 2 ngày kể từ lần mở app), cầu dao bật. */
+export const SAVE_GAP = 150, SAVE_MIN = 60, SAVE_PRE = 60;
+/** Phút địa phương của tin 2 (hoặc -1 nếu không có chỗ). Thuần – test. */
+export function l2Of(lmin, q1, q2) {
+  const cap = q1 != null && q2 != null && q1 !== q2 && q1 > lmin ? q1 - SAVE_PRE : 1439, m = Math.min(lmin + SAVE_GAP, cap);
+  return m - lmin >= SAVE_MIN && !inQuiet(m, q1, q2) ? m : -1;
+}
+/** Khung UTC (bội 10 phút) của tin 2, -1 nếu không có chỗ. */
+export const slot2Of = (lmin, q1, q2, tz, now) => { const l2 = l2Of(lmin, q1, q2); return l2 < 0 ? -1 : slotFor(l2, tz, now); };
+/** Cầu dao tin 2 (thuần – test): TẮT khi ≥ 200 tin 2 trong 7 ngày và tỉ lệ tắt thông báo > 3 % hoặc tăng hơn 1 điểm % so với 7 ngày trước đó. */
+export const s2Breaker = (sent7, un7, sentP, unP) => !(sent7 >= 200 && (un7 / sent7 > 0.03 || un7 / sent7 - (sentP > 0 ? unP / sentP : 0) > 0.01));
+export const s2Env = env => !/^(0|off|false)$/i.test(String((env && env.SAVE2_ON) ?? '1').trim());
+/** Chọn tin 2 đến lượt (thuần – test). rows: push_subs có two = 1. */
+export function pickSecond(rows, now = Date.now(), max = MAX_SEND) {
+  const out = { web: [], fcm: [] };
+  for (const r of rows) {
+    if (out.web.length + out.fcm.length >= max) break;
+    if (r.done || !r.two || !r.last) continue;
+    const L = tzParts(now, r.tz || 'UTC'), today = L.day, l2 = l2Of(+r.lmin || 0, r.q1, r.q2);
+    if (l2 < 0 || (L.min - l2 + 1440) % 1440 > 40 || inQuiet(L.min, r.q1, r.q2)) continue;   // đúng giờ ĐỊA PHƯƠNG của tin 2, ngoài giờ yên lặng
+    if (localDay(+r.last, r.tz || 'UTC') !== today || now - +r.last < SAVE_MIN * 60e3) continue; // tin 1 đã gửi HÔM NAY và cách ≥ 60 phút
+    if (+r.last2 && localDay(+r.last2, r.tz || 'UTC') === today) continue;                      // ≤ 1 tin 2/ngày
+    if (+r.std === today || today - (+r.act || 0) > 2) continue;                                // đã học hôm nay / đang lùi (≥ 3 lần bỏ qua)
+    if (r.k === 'fcm') out.fcm.push({ id: r.id, token: r.ep, lang: r.lang || 'en', kind: 'save' }); else out.web.push({ id: r.id, ep: r.ep });
+  }
+  return out;
+}
+let S2 = { at: 0, v: true };
+async function s2Live(db, env, now) {
+  if (!s2Env(env)) return false;
+  if (now - S2.at < 10 * 60e3) return S2.v;
+  const rows = (await db.prepare("SELECT day, k, n FROM ntf_daily WHERE day >= ? AND k IN ('sent:save', 'unsub2') LIMIT 60").bind(day(now - 14 * DAY)).all()).results || [], c = { s: 0, u: 0, ps: 0, pu: 0 }, d7 = day(now - 7 * DAY);
+  for (const r of rows) { const cur = r.day >= d7, key = r.k === 'sent:save' ? (cur ? 's' : 'ps') : (cur ? 'u' : 'pu'); c[key] += +r.n || 0; }
+  S2 = { at: now, v: s2Breaker(c.s, c.u, c.ps, c.pu) }; return S2.v;
+}
 
 /** Hàng đợi "Lỗi LX-xxxx đã được sửa" (functions/api/report.js pushFixed ghi khi phiếu sang Đã sửa): sid = id thiết bị push_subs, rid = id phiếu. */
 export const PUSH_NOW_SQL = 'CREATE TABLE IF NOT EXISTS push_now (sid TEXT NOT NULL, rid INTEGER NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (sid, rid)) WITHOUT ROWID';
@@ -94,6 +132,7 @@ export async function setupPush(db) {
     db.prepare(PUSH_NOW_SQL),
     db.prepare(META_SQL),
   ]);
+  for (const a of ['two INTEGER NOT NULL DEFAULT 0', 'slot2 INTEGER NOT NULL DEFAULT -1', 'last2 INTEGER NOT NULL DEFAULT 0']) { try { await db.prepare('ALTER TABLE push_subs ADD COLUMN ' + a).run(); } catch (e) { /* đã có cột */ } }
   READY = true;
 }
 // Nhịp Worker: ghi khi trạng thái đổi hoặc ≥ 30 phút (≤ 48 ghi/ngày/isolate) · đọc cho cfg: nhớ 5 phút/isolate (≤ 1 đọc D1 nội bộ/5 phút)
@@ -122,7 +161,7 @@ export function pickDue(rows, now = Date.now(), max = MAX_SEND) {
     if (inQuiet(L.min, r.q1, r.q2)) continue;                            // giờ yên lặng theo giờ địa phương
     if (d < 0 || d > FINAL) continue;
     if (r.k === 'fcm') {
-      if (d >= REMOTE_FROM && SEQ.includes(d)) out.fcm.push({ id: r.id, token: r.ep, lang: r.lang || 'en', kind: d === FINAL ? 'miss' : 'back' });
+      if (d >= REMOTE_FROM && SEQ.includes(d)) out.fcm.push({ id: r.id, token: r.ep, lang: r.lang || 'en', kind: d === FINAL ? 'miss' : d === 3 ? 'back3' : d === 5 ? 'back7' : 'back' });
       else continue;
     } else {
       if (!SEQ.includes(d) || +r.std === today) continue;               // đã học hôm nay → không nhắc
@@ -140,7 +179,9 @@ export async function onRequestGet({ request, env }) {
   const on = pct(env) > 0 && !!env.VAPID_PUBLIC && d1bReady(env);
   let fcm = false; // chỉ báo app gốc dùng FCM khi Worker THẬT SỰ gửi được – nếu không, máy giữ lịch cục bộ đủ chu kỳ (không mất lời nhắc ngày ≥ 3)
   if (fcmOn(env) && d1bReady(env)) try { const db = coordDb(env); await setupPush(db); fcm = await fcmReady(db, Date.now()); } catch (e) { fcm = false; }
-  return json(request, 200, { on, pct: pct(env), key: on ? env.VAPID_PUBLIC : '', fcm }, { 'Cache-Control': 'public, max-age=3600' });
+  let s2 = s2Env(env); // tin 2 "giữ chuỗi": công tắc khẩn SAVE2_ON='0' + cầu dao tự động theo tỉ lệ tắt thông báo (máy khách giữ lịch cục bộ theo cờ này)
+  if (s2 && d1bReady(env)) try { const db = coordDb(env); await setupPush(db); s2 = await s2Live(db, env, Date.now()); } catch (e) { /* không đo được → giữ bật */ }
+  return json(request, 200, { on, pct: pct(env), key: on ? env.VAPID_PUBLIC : '', fcm, s2 }, { 'Cache-Control': 'public, max-age=3600' });
 }
 
 export async function onRequestPost({ request, env }) {
@@ -156,7 +197,10 @@ export async function onRequestPost({ request, env }) {
       if (!env.PUSH_CRON_SECRET || cron !== env.PUSH_CRON_SECRET) return json(request, 401, { error: 'cron' });
       if (b.op === 'gone') {
         const ids = (Array.isArray(b.ids) ? b.ids : []).filter(x => /^[a-f0-9]{32}$/.test(x)).slice(0, MAX_SEND);
-        if (ids.length) await db.batch([db.prepare(`DELETE FROM push_subs WHERE id IN (${ids.map(() => '?').join(',')})`).bind(...ids), bump(db, day(now), 'gone', ids.length)]);
+        if (ids.length) {
+          const u2 = (await db.prepare(`SELECT COUNT(*) AS c FROM push_subs WHERE last2 > ? AND id IN (${ids.map(() => '?').join(',')})`).bind(now - DAY, ...ids).first()) || {}; // hệ điều hành báo thiết bị đã tắt ≤ 24 giờ sau tin 2 → cầu dao
+          await db.batch([db.prepare(`DELETE FROM push_subs WHERE id IN (${ids.map(() => '?').join(',')})`).bind(...ids), bump(db, day(now), 'gone', ids.length), ...(+u2.c ? [bump(db, day(now), 'unsub2', +u2.c)] : [])]);
+        }
         return json(request, 200, { ok: true, n: ids.length });
       }
       const fcmSend = fcmOn(env) && !!b.fcm; // Worker có FCM_SA + cờ không tắt
@@ -170,6 +214,14 @@ export async function onRequestPost({ request, env }) {
       const rows = (await db.prepare(`SELECT id, k, ep, tz, lmin, q1, q2, act, std, last, n, done, lang FROM push_subs WHERE (${where}) AND last < ? AND done = 0 LIMIT 120`).bind(...ranges.flat(), now - 20 * 3600e3).all()).results || [];
       const p = pickDue(rows.filter(r => (r.k === 'fcm' ? fcmSend : pct(env) > 0)), now);
       const ids = [...p.web, ...p.fcm].map(x => x.id);
+      // Tin 2 "giữ chuỗi": cùng cửa sổ 30 phút theo slot2; không trùng thiết bị vừa nhận tin 1 trong lượt này (≥ 60 phút giữ bởi pickSecond)
+      let s2 = { web: [], fcm: [] };
+      if (await s2Live(db, env, now).catch(() => true)) {
+        const r2 = (await db.prepare(`SELECT id, k, ep, tz, lmin, q1, q2, act, std, last, last2, two, done, lang FROM push_subs WHERE two = 1 AND done = 0 AND slot2 >= 0 AND (${where.replace(/slot/g, 'slot2')}) AND last2 < ? LIMIT 120`).bind(...ranges.flat(), now - 20 * 3600e3).all()).results || [];
+        s2 = pickSecond(r2.filter(r => !ids.includes(r.id) && (r.k === 'fcm' ? fcmSend : pct(env) > 0)), now, MAX_SEND - ids.length); // chỗ còn lại cho tin 2
+        const i2 = [...s2.web, ...s2.fcm].map(x => x.id);
+        if (i2.length) { await db.batch([bump(db, day(now), 'sent:save', i2.length), ...i2.map(id => db.prepare('UPDATE push_subs SET last2 = ? WHERE id = ?').bind(now, id))]); } // KHÔNG vào ids: tin 1 cập nhật last/n/slot, tin 2 chỉ last2
+      }
       // Báo "đã sửa" (≤ chỗ còn lại trong lượt): push rỗng như lời nhắc – SW hỏi trạng thái phiếu của máy rồi hiện "Lỗi LX-… đã được sửa"
       const fr = (await db.prepare('SELECT n.sid, n.rid, n.at, s.k, s.ep, s.tz, s.q1, s.q2, s.lang, s.last FROM push_now n LEFT JOIN push_subs s ON s.id = n.sid ORDER BY n.at LIMIT 60').all()).results || [];
       const fx = fr.length ? pickFixed(fr, env, now, MAX_SEND - ids.length, new Set(ids), fcmSend) : { web: [], fcm: [], drop: [] };
@@ -178,7 +230,7 @@ export async function onRequestPost({ request, env }) {
       if (fx.drop.length) await db.batch([...fx.drop.map(([sid, rid]) => db.prepare('DELETE FROM push_now WHERE sid = ? AND rid = ?').bind(sid, rid)), ...(fx.web.length + fx.fcm.length ? [bump(db, day(now), 'sent:fixed', fx.web.length + fx.fcm.length)] : []),
         ...(fresh.length ? [db.prepare(`UPDATE push_subs SET last = ? WHERE id IN (${fresh.map(() => '?').join(',')})`).bind(now, ...fresh)] : [])]);
       p.fcm = p.fcm.filter(x => !fxIds.has(x.id));
-      p.web.push(...fx.web); p.fcm.push(...fx.fcm);
+      p.web.push(...fx.web, ...s2.web); p.fcm.push(...fx.fcm, ...s2.fcm);
       if (ids.length) {
         const byId = new Map(rows.map(r => [r.id, r])), st = [bump(db, day(now), 'sent', ids.length)];
         for (const id of ids) { const r = byId.get(id); st.push(db.prepare('UPDATE push_subs SET last = ?, n = n + 1, slot = ? WHERE id = ?').bind(now, slotFor(+r.lmin || 0, r.tz || 'UTC', now + 3600e3), id)); } // tính lại khung UTC cho ngày mai (đổi giờ mùa hè)
@@ -195,7 +247,9 @@ export async function onRequestPost({ request, env }) {
     if (b.op === 'ev') {
       if (await limit('pev:' + await sha('ip|' + ip), 60, 3600)) return new Response(null, { status: 204 });
       const e = (Array.isArray(b.e) ? b.e : []).slice(0, 12).filter(x => Array.isArray(x) && EV.has(x[0]) && TPL.test(String(x[1] || '')));
-      if (e.length) await db.batch(e.map(([k, tpl, n]) => bump(db, day(now), k + (tpl ? ':' + tpl : ''), Math.max(1, Math.min(20, Math.floor(+n || 1))))));
+      // + theo GIỜ ĐỊA PHƯƠNG lúc hiện/mở (múi giờ của yêu cầu do Cloudflare báo – thiết bị gửi ngay khi hiện/mở nên giờ gửi ≈ giờ hiện/mở): shown_h:19 / open_h:19 → CTR theo khung giờ (Quản trị › Thông báo)
+      const hh = String(Math.floor(tzParts(now, tzOk(request.cf && request.cf.timezone)).min / 60)), nn = x => Math.max(1, Math.min(20, Math.floor(+x[2] || 1)));
+      if (e.length) await db.batch(e.flatMap(x => [bump(db, day(now), x[0] + (x[1] ? ':' + x[1] : ''), nn(x)), ...(x[0] === 'shown' || x[0] === 'open' ? [bump(db, day(now), x[0] + '_h:' + hh, nn(x))] : [])]));
       if (env.HITS && typeof env.HITS.writeDataPoint === 'function') try { for (const [k, tpl, n] of e) env.HITS.writeDataPoint({ blobs: ['ntf', k, String(tpl || '')], doubles: [+n || 1], indexes: ['ntf'] }); } catch (x) { /* AE tùy chọn */ }
       return new Response(null, { status: 204, headers: cors(request) });
     }
@@ -208,19 +262,26 @@ export async function onRequestPost({ request, env }) {
       // ro = "chỉ báo lỗi" (màn cảm ơn Báo lỗi): done = 1 → không bao giờ nhận lời nhắc học; thiết bị đã bật nhắc học → giữ nguyên lịch, chỉ đổi ngôn ngữ
       if (b.ro) { await db.batch([db.prepare('INSERT INTO push_subs (id, k, ep, slot, tz, lmin, q1, q2, act, std, last, n, done, lang, at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1320, 480, ?7, 0, 0, 0, 1, ?8, ?9) ON CONFLICT (id) DO UPDATE SET lang = ?8')
         .bind(id, k, ep, slotFor(lmin, tz, now), tz, lmin, today, lang, now), bump(db, day(now), 'subs:rep')]); return json(request, 200, { id }); }
-      await db.batch([db.prepare('INSERT INTO push_subs (id, k, ep, slot, tz, lmin, q1, q2, act, std, last, n, done, lang, at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, 0, 0, 0, ?11, ?12) ON CONFLICT (id) DO UPDATE SET slot = ?4, tz = ?5, lmin = ?6, q1 = ?7, q2 = ?8, act = ?9, std = MAX(std, ?10), n = 0, done = 0, lang = ?11')
-        .bind(id, k, ep, slotFor(lmin, tz, now), tz, lmin, q[0], q[1], today, b.st ? today : 0, lang, now), bump(db, day(now), 'subs:' + k)]);
+      await db.batch([db.prepare('INSERT INTO push_subs (id, k, ep, slot, tz, lmin, q1, q2, act, std, last, n, done, lang, at, two, slot2) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, 0, 0, 0, ?11, ?12, ?13, ?14) ON CONFLICT (id) DO UPDATE SET slot = ?4, tz = ?5, lmin = ?6, q1 = ?7, q2 = ?8, act = ?9, std = MAX(std, ?10), n = 0, done = 0, lang = ?11, two = ?13, slot2 = ?14')
+        .bind(id, k, ep, slotFor(lmin, tz, now), tz, lmin, q[0], q[1], today, b.st ? today : 0, lang, now, b.two ? 1 : 0, slot2Of(lmin, q[0], q[1], tz, now)), bump(db, day(now), 'subs:' + k)]);
       return json(request, 200, { id });
     }
     const id = /^[a-f0-9]{32}$/.test(b.id || '') ? b.id : ''; if (!id) return json(request, 400, { error: 'id' });
     if (b.op === 'touch') {
       const lmin = minOk(b.lmin), tz = tzOk(b.tz), today = localDay(now, tz), lang = LANGS.includes(b.lang) ? b.lang : null, q = Array.isArray(b.q) ? b.q.map(minOk) : [null, null];
       // tz/giờ/ngôn ngữ đổi (du lịch, đổi giao diện) → tính lại khung UTC ngay
-      const r = await db.prepare('UPDATE push_subs SET act = ?2, std = CASE WHEN ?3 THEN ?2 ELSE std END, n = 0, done = 0, tz = ?4, lmin = COALESCE(?5, lmin), slot = COALESCE(?6, slot), lang = COALESCE(?7, lang), q1 = COALESCE(?8, q1), q2 = COALESCE(?9, q2) WHERE id = ?1')
-        .bind(id, today, b.st ? 1 : 0, tz, lmin, lmin == null ? null : slotFor(lmin, tz, now), lang, q[0], q[1]).run();
+      const two = b.two ? 1 : 0, s2 = lmin == null ? null : slot2Of(lmin, q[0] ?? 1320, q[1] ?? 480, tz, now);
+      if (b.st) { // "học trong 60 phút sau tin 2" (đo riêng tin 2): lần học đầu hôm nay, tin 2 đã gửi ≤ 60 phút trước
+        const o = await db.prepare('SELECT last2, std, tz FROM push_subs WHERE id = ?').bind(id).first();
+        if (o && +o.last2 && +o.std !== today && now - +o.last2 <= 60 * 60e3 && now >= +o.last2) await bump(db, day(now), 'learn60:save').run();
+      }
+      const r = await db.prepare('UPDATE push_subs SET two = ?10, slot2 = COALESCE(?11, slot2), act = ?2, std = CASE WHEN ?3 THEN ?2 ELSE std END, n = 0, done = 0, tz = ?4, lmin = COALESCE(?5, lmin), slot = COALESCE(?6, slot), lang = COALESCE(?7, lang), q1 = COALESCE(?8, q1), q2 = COALESCE(?9, q2) WHERE id = ?1')
+        .bind(id, today, b.st ? 1 : 0, tz, lmin, lmin == null ? null : slotFor(lmin, tz, now), lang, q[0], q[1], two, s2).run();
       return json(request, 200, (r.meta && r.meta.changes === 0) ? { gone: 1 } : { ok: true });
     }
-    if (b.op === 'unsub') { await db.batch([db.prepare('DELETE FROM push_subs WHERE id = ?').bind(id), bump(db, day(now), 'unsub')]); return json(request, 200, { ok: true }); }
+    if (b.op === 'unsub') {
+      const o = await db.prepare('SELECT last2 FROM push_subs WHERE id = ?').bind(id).first(); // tắt thông báo ≤ 24 giờ sau tin 2 → tính vào tin 2 (cầu dao)
+      await db.batch([db.prepare('DELETE FROM push_subs WHERE id = ?').bind(id), bump(db, day(now), 'unsub'), ...(o && +o.last2 && now - +o.last2 <= DAY ? [bump(db, day(now), 'unsub2')] : [])]); return json(request, 200, { ok: true }); }
     return json(request, 400, { error: 'op' });
   } catch (e) {
     return json(request, 502, { error: String(e && e.message || e).slice(0, 120) });

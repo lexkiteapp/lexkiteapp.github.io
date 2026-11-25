@@ -6,10 +6,12 @@
  *   3. Check đỏ vì hạ tầng (runner mất, cài đặt/mạng/apt/playwright treo, bị huỷ) → chạy lại job hỏng, tối đa 2 lần/lượt (run_attempt ≤ 2).
  *   4. Check bắt buộc required-gate xanh + gộp được + không nhãn chặn → squash-merge. KHÔNG bao giờ gộp khi đỏ/đang chạy/thiếu status; không bỏ check nào.
  *      Gộp bằng github.token KHÔNG kích workflow push-main (deploy, codemap…) → chỉ gộp khi có secret AUTOPILOT_MERGE_TOKEN; không có thì gắn nhãn ready-to-merge + liệt kê để điều phối gộp.
+ *   5. (25/11) CI TREO: lượt PR `queued` > STUCK_QUEUE_MIN (45 phút) → huỷ (bộ canh required-gate chạy lại ≤ 4 lần); head KHÔNG có check nào > NO_CHECK_MIN (20 phút) → 1 commit rỗng bằng khoá deploy (≤ 1 lần/3 giờ) để pull_request kích CI.
  * Trạng thái: job summary + 1 issue ghim "CI autopilot" cập nhật tại chỗ (busy/queued, gộp/chạy lại/cập nhật 24 h, PR kẹt > 24 h + lý do).
  * Chạy: node scripts/ci/autopilot.mjs [--dry]. Test: scripts/test/ci-autopilot.mjs. Cùng chung luật với phiên khác (merge-captain…): chỉ đụng PR xanh hẳn hoặc hỏng hạ tầng rõ. */
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { execFileSync } from 'node:child_process';
 import { measure } from './filler.mjs';
 import { retry5xx } from '../lib/retry5xx.mjs';
 import { TAKE_MAIN } from '../pr-unconflict.mjs';
@@ -19,6 +21,16 @@ export const TOTAL = 40, KEEP_FREE = 16, BUSY_MAX = TOTAL - KEEP_FREE;   // 24: 
 export const UPDATE_BEHIND = false;
 export const QUEUE_MAX = 30, UPDATE_GAP_H = 3;   // 12/11 bão CI: hàng chờ > 30 → ngừng đẩy nhánh; mỗi PR tối đa 1 lần đẩy/3 giờ
 export const PER_PR = 4, MAX_UPDATES = 6, PRIORITY_H = 24, MAX_MERGES = 3, MAX_RERUN_ATTEMPT = 2, STUCK_H = 24, WINDOW_H = 24;
+// 25/11 (CI treo): PR "Chưa có check nào chạy trên commit này" (#1939 #1928), check xếp hàng hàng giờ.
+export const STUCK_QUEUE_MIN = 45, NO_CHECK_MIN = 20, KICK_GAP_H = 3, MAX_KICKS = 3, MAX_CANCELS = 6;
+const ADVISORY_WF = new Set(['gate-impact']);   // workflow tư vấn (nhóm concurrency toàn cục, xếp hàng là bình thường) – không huỷ
+/** Lượt PR xếp hàng quá lâu (thuần): status queued (không phải pending của concurrency), > STUCK_QUEUE_MIN phút, không phải workflow tư vấn → id cần huỷ. */
+/** Thời điểm lượt (attempt hiện tại) bắt đầu xếp hàng: run_started_at đổi theo từng lần chạy lại, created_at giữ nguyên của lượt gốc (25/11: #2023 attempt 5 vừa xếp hàng đã bị coi là >45′ rồi huỷ). */
+export const queuedAt = r => Date.parse(r.run_started_at || r.created_at);
+export const stuckQueued = (runs, now = Date.now()) => (runs || []).filter(r => r.status === 'queued' && r.event === 'pull_request' && !ADVISORY_WF.has(r.name) && now - queuedAt(r) > STUCK_QUEUE_MIN * 60e3).map(r => r.id);
+/** Head không có check nào (thuần): PR cùng repo, không draft, required-gate chưa có status, 0 check-run, commit đã > NO_CHECK_MIN phút, chưa đẩy trong KICK_GAP_H giờ. */
+export const needsKick = (pr, info, events, now = Date.now()) => !pr.draft && !pr.fork && pr.gate == null && info.checkTotal === 0 && info.runsTotal === 0 && now - Date.parse(info.commitDate) > NO_CHECK_MIN * 60e3
+  && !events.some(e => e.k === 'kick' && e.n === pr.number && now - Date.parse(e.t) < KICK_GAP_H * 3600e3);
 export const HOLD_LABELS = ['do-not-merge', 'frozen', 'hold', 'wip', 'blocked'];
 export const L_REBASE = 'needs-rebase', L_READY = 'ready-to-merge', ISSUE_TITLE = 'CI autopilot', ISSUE_LABEL = 'ci-autopilot';
 const INFRA_STEP = /\b(set up job|setup[- ]node|checkout|apt|apt-get|install|npm ci|npm install|playwright|download|upload artifact|cache|ffmpeg|wrangler|retry|network|curl)\b/i;
@@ -67,14 +79,14 @@ export function stuckReason(pr, d) {
 /** Nhật ký 24 h nhúng trong thân issue (thuần): lọc còn trong cửa sổ, đếm theo loại. */
 export function tally(events, now = Date.now()) {
   const keep = events.filter(e => now - Date.parse(e.t) <= WINDOW_H * 3600e3), n = k => keep.filter(e => e.k === k).length;
-  return { keep, merged: n('merge'), rerun: n('rerun'), updated: n('update'), conflicts: n('conflict'), ready: n('ready') };
+  return { keep, merged: n('merge'), rerun: n('rerun'), cancelled: n('cancel'), kicked: n('kick'), updated: n('update'), conflicts: n('conflict'), ready: n('ready') };
 }
 export const parseLog = body => { const m = /<!-- autopilot-log:(.*?) -->/s.exec(body || ''); try { return m ? JSON.parse(m[1]) : []; } catch { return []; } };
 export function renderIssue({ busy, queued, tallyR, stuck, ready, ts, dry, canMerge }) {
   const row = s => `| #${s.n} | ${s.age} h | ${s.reason} |`;
   return `Cập nhật ${ts}${dry ? ' (chạy thử)' : ''} · tự động mỗi 10 phút bởi \`ci-autopilot\` (cập nhật tại chỗ, không tạo issue mới).\n\n` +
     `**Runner** busy ${busy}/${TOTAL} (chừa ≥ ${KEEP_FREE} trống) · queued ${queued}\n\n` +
-    `**24 giờ qua:** gộp ${tallyR.merged} · chạy lại ${tallyR.rerun} · cập nhật nhánh ${tallyR.updated} · báo xung đột ${tallyR.conflicts}\n\n` +
+    `**24 giờ qua:** gộp ${tallyR.merged} · chạy lại ${tallyR.rerun} · huỷ xếp hàng ${tallyR.cancelled} · kích CI ${tallyR.kicked} · cập nhật nhánh ${tallyR.updated} · báo xung đột ${tallyR.conflicts}\n\n` +
     `**Sẵn sàng gộp (xanh hẳn)${canMerge ? '' : ' – chưa có AUTOPILOT_MERGE_TOKEN nên điều phối gộp tay'}:** ${ready.length ? ready.map(n => '#' + n).join(' ') : 'không'}\n\n` +
     `**PR kẹt > ${STUCK_H} giờ (${stuck.length}):**\n\n${stuck.length ? '| PR | Tuổi | Lý do |\n|---|---|---|\n' + stuck.map(row).join('\n') : 'không'}\n\n` +
     `<!-- autopilot-log:${JSON.stringify(tallyR.keep)} -->`;
@@ -129,6 +141,46 @@ async function rerunInfra(token, pr, dry) {
   return n;
 }
 
+// 25/11 (điều phối: 175 lượt queued, 89 lượt chờ > 1 giờ, cũ nhất 26/10): lượt BẤT KỲ queued > STALE_QUEUE_H giờ → huỷ; cancel không ăn (vẫn queued sau vài giây) → huỷ cưỡng bức (endpoint thứ hai).
+// Lượt 0 job mà cả hai cách đều 409 (zombie > 24 giờ, DELETE cũng 403) chỉ GitHub Support gỡ được → đếm riêng, không thử lại mỗi nhịp (UNFIXABLE_H).
+export const STALE_QUEUE_H = 6, UNFIXABLE_H = 24 * 7, MAX_STALE_PER_TICK = 10;
+/** Lượt queued quá STALE_QUEUE_H giờ (thuần), cũ nhất trước; lượt quá UNFIXABLE_H giờ tách riêng (không thể gỡ qua API). */
+export function staleQueued(runs, now = Date.now()) {
+  const old = (runs || []).filter(r => r.status === 'queued' && now - queuedAt(r) > STALE_QUEUE_H * 3600e3).sort((a, b) => queuedAt(a) - queuedAt(b));
+  const dead = old.filter(r => now - queuedAt(r) > UNFIXABLE_H * 3600e3);
+  return { todo: old.filter(r => !dead.includes(r)).slice(0, MAX_STALE_PER_TICK).map(r => r.id), dead: dead.length };
+}
+/** Huỷ lượt queued quá hạn: cancel → (vẫn queued) huỷ cưỡng bức. Trả { cancelled, hard, dead }. */
+async function sweepStale(token, dry, now, sleep = ms => new Promise(r => setTimeout(r, ms))) {
+  const runs = (await call(token, 'GET', `/repos/${REPO}/actions/runs?status=queued&per_page=100`)).body?.workflow_runs || [];
+  const { todo, dead } = staleQueued(runs, now); let cancelled = 0, hard = 0;
+  for (const id of todo) {
+    if (dry) { cancelled++; continue; }
+    await call(token, 'POST', `/repos/${REPO}/actions/runs/${id}/cancel`); await sleep(3000);
+    if ((await call(token, 'GET', `/repos/${REPO}/actions/runs/${id}`)).body?.status !== 'queued') { cancelled++; continue; }
+    if ((await call(token, 'POST', `/repos/${REPO}/actions/runs/${id}/force-cancel`)).ok) hard++;
+  }
+  return { cancelled, hard, dead };
+}
+/** Huỷ lượt PR xếp hàng quá lâu của head này; trả số lượt đã huỷ (409 = lượt ma 0 job, để ci-triage xoá). */
+async function unstickQueued(token, pr, dry, now) {
+  const runs = (await call(token, 'GET', `/repos/${REPO}/actions/runs?head_sha=${pr.sha}&status=queued&per_page=100`)).body?.workflow_runs || [];
+  let n = 0;
+  for (const id of stuckQueued(runs, now).slice(0, MAX_CANCELS)) if (dry || (await call(token, 'POST', `/repos/${REPO}/actions/runs/${id}/cancel`)).ok) n++;
+  return n;
+}
+/** Head không có check nào: đo thông tin cần cho needsKick (3 lời gọi nhẹ). */
+async function headInfo(token, sha) {
+  const [cr, runs, c] = await Promise.all([call(token, 'GET', `/repos/${REPO}/commits/${sha}/check-runs?per_page=1`), call(token, 'GET', `/repos/${REPO}/actions/runs?head_sha=${sha}&per_page=1`), call(token, 'GET', `/repos/${REPO}/commits/${sha}`)]);
+  return { checkTotal: cr.body?.total_count ?? -1, runsTotal: runs.body?.total_count ?? -1, commitDate: c.body?.commit?.committer?.date || new Date().toISOString() };
+}
+/** Commit rỗng bằng khoá deploy (push của github.token không kích CI) → sự kiện synchronize chạy lại CI của PR. */
+function kick(branch) {
+  const g = (...a) => execFileSync('git', a, { stdio: 'pipe' });
+  g('fetch', '-q', 'origin', `${branch}:refs/remotes/origin/${branch}`); g('checkout', '-q', '-f', '-B', 'kick', `origin/${branch}`);
+  g('commit', '-q', '--allow-empty', '-m', 'ci: kích lại CI (head không có check nào) [autopilot]'); g('push', '-q', 'origin', `HEAD:refs/heads/${branch}`);
+}
+
 export async function main({ dry = process.argv.includes('--dry') } = {}) {
   const token = process.env.GITHUB_TOKEN, mergeToken = process.env.AUTOPILOT_MERGE_TOKEN || '', now = Date.now(), ts = new Date(now).toISOString().slice(0, 16) + 'Z';
   const uc = await import('../pr-unconflict.mjs');
@@ -136,8 +188,9 @@ export async function main({ dry = process.argv.includes('--dry') } = {}) {
   const issues = (await call(token, 'GET', `/repos/${REPO}/issues?labels=${ISSUE_LABEL}&state=open&per_page=5`)).body || [];
   const issue = issues.find(i => i.title === ISSUE_TITLE), prev = parseLog(issue?.body);
   if (!dry) await ensureLabels(token);
-  let left = budget(m.busy, m.queued), merges = 0;
+  let left = budget(m.busy, m.queued), merges = 0, kicks = 0;
   const ready = [], stuck = [], mark = (k, n) => events.push({ k, n, t: new Date().toISOString() });
+  if (left >= 0) { const st = await sweepStale(token, dry, now); if (st.cancelled + st.hard) { mark('cancel', 0); log.push(`lượt queued > ${STALE_QUEUE_H} giờ: huỷ ${st.cancelled}, huỷ cưỡng bức ${st.hard}`); } if (st.dead) log.push(`${st.dead} lượt queued > ${UNFIXABLE_H / 24} ngày không gỡ được qua API (cần GitHub Support)`); }
   const decided = [];
   for (const pr of prs) {   // cũ nhất trước (GraphQL ASC)
     let d = decide(pr);
@@ -167,6 +220,8 @@ export async function main({ dry = process.argv.includes('--dry') } = {}) {
           mark('conflict', n);
         }
       } else if (pr.labels.includes(L_REBASE) && d.act !== 'conflict' && !dry) await call(token, 'DELETE', `/repos/${REPO}/issues/${n}/labels/${L_REBASE}`);
+      if (['wait', 'update'].includes(d.act) || pr.gate === 'PENDING') { const k = await unstickQueued(token, pr, dry, now); if (k) { mark('cancel', n); log.push(`#${n}: huỷ ${k} lượt xếp hàng > ${STUCK_QUEUE_MIN} phút (bộ canh chạy lại)`); } }
+      if (d.act === 'wait' && pr.gate == null && kicks < MAX_KICKS && needsKick(pr, await headInfo(token, pr.sha), [...prev, ...events], now)) { if (!dry) try { kick(pr.branch); } catch (e) { log.push(`#${n}: kích CI lỗi ${String(e.message).split('\n')[0]}`); continue; } kicks++; mark('kick', n); log.push(`#${n}: head không có check nào > ${NO_CHECK_MIN} phút → commit rỗng kích CI`); }
       if (d.act === 'triage-red' && left > 0 && isRecent(pr, now)) { const k = await rerunInfra(token, pr, dry); if (k) { left--; pr.infra = true; mark('rerun', n); log.push(`#${n}: chạy lại ${k} lượt (hạ tầng)`); } }
       if (UPDATE_BEHIND && d.act === 'update' && left > 0 && !pr.fork && isPriority(pr, now) && !updatedRecently([...prev, ...events], n, now)) { const r = dry ? 'dry' : uc.fix({ number: n, head: { ref: pr.branch } }, false); if (r === 'fixed') { left--; mark('update', n); log.push(`#${n}: gộp main vào nhánh`); } }
     }
