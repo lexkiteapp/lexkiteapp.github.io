@@ -53,6 +53,9 @@ jobs:
       - name: Chia vị từ ↔ Wiktionary (ko, khớp 100 % – 24 dạng × vị từ bộ từ + 57 mẫu đủ 11 lớp)
         if: ${{ matrix.tl == 'ko' }}
         run: node scripts/target/conj-check.mjs --tl ko
+      - name: Chia động từ ja ↔ Wiktionary (conj-ja.mjs, khớp 100 %)
+        if: ${{ matrix.tl == 'ja' }}
+        run: node scripts/target/conj-ja-check.mjs
       - name: Chia động từ ↔ Wiktionary (es, khớp 100 %)
         if: ${{ matrix.tl == 'es' }}
         run: node scripts/target/conj-check.mjs

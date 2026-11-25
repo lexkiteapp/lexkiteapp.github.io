@@ -10,5 +10,6 @@
 - **Mức**: 🔴 critical = đỏ 3/3 lượt gần nhất, hoặc sản lượng 0; 🟠 high = đỏ 2/3, tắt không chủ/quá hạn, dưới sàn, cron quá hạn; 🟡 warn = đỏ 1/3, thiếu bản ghi sản lượng khi chưa có lượt xanh.
 - **Tắt có chủ**: workflow cố ý tắt phải có dòng trong `infra/health-expected-off.json` (`owner`, `due`, `why`). Quá `due` = đỏ lại. Không tắt workflow để "sửa" lỗi.
 - **Sản lượng**: workflow sản xuất gọi `node scripts/ci/record-yield.mjs <id> <n> --unit <đơn vị>` trước bước commit (file `reports/yield/<id>.json` đi cùng commit dữ liệu). Sàn/cửa sổ khai ở `infra/yield-floors.json` (chỉ nâng, không hạ để qua cổng). Workflow có sàn mà không có bản ghi trong cửa sổ = cảnh báo/đỏ.
+- **Chuỗi xanh nhưng ≈ 0 (24/11)**: `minRun` ở `infra/yield-floors.json` = sàn MỖI LƯỢT (gộp các shard cùng run); 3 lượt liền dưới sàn → issue riêng nhãn `yield-zero` (marker `yield-streak:<id>`), tự đóng khi một lượt ≥ sàn. Máy gác: `node scripts/ci/guards.mjs yield-streak` (bước cuối health-board.yml); test: `scripts/test/ci-guards.mjs`.
 - **Job đỏ**: `health-board` thoát 1 khi có critical/high → điều phối thấy ở tab Actions + thông báo.
 - Test logic: `scripts/test/health-board.mjs` (trong `npm test`). Lõi thuần: `scripts/lib/health-board.mjs`.
