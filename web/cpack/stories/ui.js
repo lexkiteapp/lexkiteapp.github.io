@@ -80,7 +80,7 @@
     // --- trình phát: mỗi câu = một lượt UI.tts (đúng giọng Ama/Carlos), hoặc file audio + mốc câu khi có (audio.files/marks do CI dựng) ---
     const cur = i => { $$('.st-s.st-cur').forEach(e => e.classList.remove('st-cur')); const e = $(`.st-s[data-i="${i}"]`); if (e) { e.classList.add('st-cur'); e.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } const pr = $('#stProg'); if (pr) { const p = Math.round((i + 1) / sents.length * 100); pr.setAttribute('aria-valuenow', p); pr.firstElementChild.style.width = p + '%'; } };
     const setPlay = on => { const b = $('#stPlay'); if (b) { b.innerHTML = `${UI.icon(on ? 'pause' : 'play')} <span>${on ? t('Dừng') : t('Nghe')}</span>`; b.setAttribute('aria-pressed', String(on)); } };
-    const files = x.audio && x.audio.files && x.audio.files[ci], st0 = x.audio && x.audio.marks && x.audio.marks[ci], marks = st0 && st0.map((a, i) => [a, i + 1 < st0.length ? st0[i + 1] : a + 6]); // marks trong lib = giây bắt đầu từng câu
+    const files = x.audio && x.audio.files && x.audio.files[ci], mk0 = x.audio && x.audio.marks && x.audio.marks[ci], marks = mk0 && mk0.map((a, i) => [a, i + 1 < mk0.length ? mk0[i + 1] : a + 6]); // marks trong lib = giây bắt đầu từng câu
     let seq = 0, at = -1, playing = false, audio = null;
     const rate = () => LS.get('rate', 1);
     const stopNow = () => { seq++; playing = false; if (audio) { audio.pause(); audio = null; } if (UI.stopSpeak) UI.stopSpeak(); setPlay(false); };
