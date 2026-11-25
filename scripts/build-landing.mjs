@@ -8,7 +8,7 @@
 //   2) gợi ý ngôn ngữ (cuối <body>): trình duyệt/ app dùng ngôn ngữ khác trang đang xem → dải nhỏ, đóng được (chỉ người thật, sau khi vẽ).
 // Nội dung: content/landing/<lang>.json (en là gốc – khóa thiếu lấy từ en; vi viết riêng). Nhãn nhỏ dùng lại bản dịch app (web/js/i18n/<lang>.js).
 // Dùng: node scripts/build-landing.mjs [--check]   (--check: không ghi, báo lỗi nếu file trong web/ chưa dựng lại – chạy trong npm test)
-import { slimCss } from './lib/landing-slim.mjs';
+import { slimCss, dropDead } from './lib/landing-slim.mjs';
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -112,7 +112,7 @@ export function purgeCss(css, page) {
 }
 // Khung Stitch: CSS biên dịch cho cả nhóm trang → compact() (scripts/lib/st-web.mjs) chỉ giữ luật trang dùng, bỏ nhánh data-theme (trang tĩnh theo
 // prefers-color-scheme), bỏ biến --st-* thừa và đổi tên lớp Tailwind dài thành tên ngắn – không đổi hình, giữ landing ≤ 16 KB gzip.
-function renderPurged(lang) { return compact(themePage(renderFull(lang))); } // themePage (PR 303): chống nháy + luật màu theo nút giao diện → compact giữ nhánh [data-theme]
+function renderPurged(lang) { return dropDead(compact(themePage(renderFull(lang)))); } // themePage (PR 303): chống nháy + luật màu theo nút giao diện → compact giữ nhánh [data-theme]
 // ----- Thu gọn JS nội tuyến (terser: bỏ khoảng trắng/chú thích, đổi tên biến cục bộ – không đổi hành vi) sau khi đã lọc CSS (lọc CSS đọc tên lớp trong script
 // từ bản gốc). 27/10: ru 16489 B gzip trên Node 22 > 16384 → còn ≈ 16 000 B, không cắt nội dung/tính năng, không nâng ngân sách.
 // render() giữ đồng bộ: mọi đoạn script của 15 trang được thu gọn sẵn một lần lúc nạp module (await cấp cao nhất, xem MINI bên dưới).
