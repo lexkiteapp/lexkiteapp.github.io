@@ -12,7 +12,7 @@
 "COMBO ×{n}":"COMBO ×{n}",
 "Chuỗi hiện tại":"Aktuelle Serie",
 "Chưa có giải thích riêng cho từ này.":"Für dieses Wort gibt es noch keine extra Erklärung.",
-"Chưa phải":"Not this one",
+"Chưa phải":"Nicht dieses",
 "Chưa rõ – thử lại nhé":"Noch nicht klar – versuch es noch einmal",
 "Chạm để nghe":"Zum Anhören tippen",
 "Chạm để nói":"Tippen zum Sprechen",

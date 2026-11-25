@@ -20,7 +20,7 @@
 "Chào mừng đến Lexkite":"BIENVENUE SUR LEXKITE",
 "Chính xác":"Précision",
 "Chạm loa để nghe lại câu.":"Touchez le haut-parleur pour réécouter la phrase.",
-"Chạm một từ rồi chạm nghĩa để nối":"Tap a word and its translation to connect",
+"Chạm một từ rồi chạm nghĩa để nối":"Touchez un mot, puis sa signification, pour les relier",
 "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.":"Seulement 5 minutes par jour suffisent pour garder votre série.",
 "Chọn chữ":"Choisissez les lettres",
 "Chọn ngôn ngữ giao diện":"Choisir la langue",
