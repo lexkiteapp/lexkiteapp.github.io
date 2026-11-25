@@ -1,0 +1,188 @@
+{
+  "id": "a2-rainy-picnic",
+  "kind": "book",
+  "level": "A2",
+  "title": "The Rainy Picnic",
+  "summary": "Ama and her friend Tom plan a picnic in the park, but the rain comes and they find a fun new plan.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama"
+    ],
+    "scene": "Flat 2D illustration: Ama sitting under a big umbrella on a picnic blanket in a green park, light rain, no text"
+  },
+  "audio": {
+    "wpm": 115,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "A Sunny Plan",
+      "sentences": [
+        "On Friday evening, Ama looked at the weather on her phone.",
+        "The next day was going to be warm and sunny.",
+        "\"Let us have a picnic in the park,\" she told her friend Tom.",
+        "Tom loved the idea.",
+        "He wanted to bring sandwiches and juice.",
+        "Ama said she would make a big salad and bring a blanket.",
+        "They agreed to meet at the park gate at twelve.",
+        "That night, Ama was very happy and went to bed early."
+      ],
+      "words": [
+        "weather",
+        "picnic",
+        "sandwich",
+        "salad",
+        "blanket",
+        "gate"
+      ],
+      "quiz": [
+        {
+          "q": "What did Ama check on her phone?",
+          "options": [
+            "The time",
+            "The weather",
+            "The news"
+          ],
+          "answer": 1,
+          "explain": "Ama looked at the weather on her phone."
+        },
+        {
+          "q": "What will Tom bring?",
+          "options": [
+            "Sandwiches and juice",
+            "A salad",
+            "A blanket"
+          ],
+          "answer": 0,
+          "explain": "He wanted to bring sandwiches and juice."
+        },
+        {
+          "q": "Where will they meet?",
+          "options": [
+            "At Ama's house",
+            "At the park gate",
+            "At the market"
+          ],
+          "answer": 1,
+          "explain": "They agreed to meet at the park gate at twelve."
+        }
+      ]
+    },
+    {
+      "title": "Here Comes the Rain",
+      "sentences": [
+        "On Saturday, Ama woke up and heard a strange noise.",
+        "It was raining hard outside.",
+        "She called Tom at once.",
+        "\"The weather report was wrong,\" he said with a laugh.",
+        "\"Maybe we can wait a little,\" Ama said.",
+        "They waited for an hour, but the rain did not stop.",
+        "Ama put the salad and the blanket in a bag anyway.",
+        "Then she took her umbrella and walked to the park."
+      ],
+      "words": [
+        "rain",
+        "noise",
+        "report",
+        "blanket",
+        "umbrella",
+        "wait"
+      ],
+      "quiz": [
+        {
+          "q": "What did Ama hear when she woke up?",
+          "options": [
+            "A strange noise",
+            "Music",
+            "A phone call"
+          ],
+          "answer": 0,
+          "explain": "Ama woke up and heard a strange noise."
+        },
+        {
+          "q": "What did they do first?",
+          "options": [
+            "They went home",
+            "They waited for an hour",
+            "They ate lunch"
+          ],
+          "answer": 1,
+          "explain": "They waited for an hour, but the rain did not stop."
+        },
+        {
+          "q": "What did Ama take to the park?",
+          "options": [
+            "A bicycle",
+            "A bag and an umbrella",
+            "A football"
+          ],
+          "answer": 1,
+          "explain": "She put the salad and the blanket in a bag, then took her umbrella."
+        }
+      ]
+    },
+    {
+      "title": "Lunch Under the Roof",
+      "sentences": [
+        "At the park, Tom was waiting under a small roof near the lake.",
+        "He was wet, but he was smiling.",
+        "\"This is our new picnic place,\" he said.",
+        "Ama opened the blanket on the dry floor.",
+        "They ate sandwiches and salad while the rain made soft music on the roof.",
+        "A little girl came and sat next to them.",
+        "She had no lunch, so they shared their food with her.",
+        "It was the best picnic of the year."
+      ],
+      "words": [
+        "roof",
+        "wet",
+        "share",
+        "soft",
+        "dry",
+        "blanket"
+      ],
+      "quiz": [
+        {
+          "q": "Where did Tom wait?",
+          "options": [
+            "Under a small roof",
+            "Inside a shop",
+            "At the gate"
+          ],
+          "answer": 0,
+          "explain": "Tom was waiting under a small roof near the lake."
+        },
+        {
+          "q": "Who sat next to them?",
+          "options": [
+            "A little girl",
+            "Ama's mother",
+            "A teacher"
+          ],
+          "answer": 0,
+          "explain": "A little girl came and sat next to them."
+        },
+        {
+          "q": "Why did they share their food?",
+          "options": [
+            "The girl had no lunch",
+            "They had too much",
+            "It was a rule"
+          ],
+          "answer": 0,
+          "explain": "She had no lunch, so they shared their food with her."
+        }
+      ]
+    }
+  ]
+}
