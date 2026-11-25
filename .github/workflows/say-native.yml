@@ -58,10 +58,12 @@ jobs:
       - name: Translate + judge
         id: tr
         shell: bash
+        timeout-minutes: 34   # 24/11: dưới 40 của job → vượt giờ vẫn còn thời gian cho Build/Report/artifact (run 45214781314 bị huỷ cả job, mất báo cáo)
         env:
           LX_IN1: ${{ inputs.langs && format('--langs {0}', inputs.langs) || '' }}
           LX_IN2: ${{ inputs.redo == 'true' && '--redo' || '' }}
           LX_LINES: ${{ inputs.lines || '40' }}
+          LX_MAX: ${{ github.ref == 'refs/heads/main' && '30' || '15' }}   # nhánh PR: 15 phút là đủ cho phần nhánh đổi (chỉ nghĩa còn thiếu); phần còn lại do lượt bù trên main
           # 01/11: same pool order as lexicon-expand (run 41214894745 failed with only GrabCast + CF account 2): Gemini/Groq free-key pools → cf2 = CF_POOL rotation
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
@@ -75,7 +77,7 @@ jobs:
           AI_POOL_GC_MAX: '2000'
         run: |
           mkdir -p out/say-native
-          node scripts/say-native/translate.mjs $LX_IN1 $LX_IN2 --lines "${LX_LINES:-40}" 2>&1 | tee out/say-native/translate.log; rc=${PIPESTATUS[0]}
+          node scripts/say-native/translate.mjs $LX_IN1 $LX_IN2 --lines "${LX_LINES:-40}" --max-min "$LX_MAX" 2>&1 | tee out/say-native/translate.log; rc=${PIPESTATUS[0]}
           # 23/11: kho khoá Gemini/Groq hết quota (429 hàng loạt) KHÔNG phải lỗi của PR → kết thúc trung tính, ghi chú, lượt cron 13:11 UTC trên main làm lại. Không có nghĩa nào được giữ + chỉ thấy 429 = hết quota.
           if [ "$rc" != 0 ] && grep -qE 'khoá liên tiếp 429|mọi khoá đang nghỉ' out/say-native/translate.log && ! grep -qE '^say-native translate: kept [1-9]' out/say-native/translate.log; then
             echo "::notice title=hết quota AI::say-native: kho khoá đang 429 – kết thúc trung tính, lượt bù theo lịch (13:11 UTC) làm lại"; echo "- ⏸ hết quota AI (429 hàng loạt): không đo/dịch được, KHÔNG phải lỗi của PR – lượt bù chạy theo lịch" >> "$GITHUB_STEP_SUMMARY"; exit 0

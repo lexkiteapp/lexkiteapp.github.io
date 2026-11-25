@@ -1497,3 +1497,10 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
 .v2s-practice .skill-card h4 > a { color: inherit; text-decoration: none; }
 .v2s-practice :is(h1, h2, h3, h4, p) { margin: 0; } /* Tailwind preflight của mẫu = lề 0; lề h4/p chung của app làm thẻ cao hơn mẫu ~14 px */
 .v2s-exam-readiness :is(h1, h2, h3, h4, p) { margin: 0; } /* idem Luyện tập: lề h3/p chung của app làm thẻ gợi ý cao hơn mẫu ~12 px */
+/* Vùng chạm ≥ 44 px (quality-sweep #53): hộp thật dài ra, lề âm bù lại → bố cục không đổi (stitch-diff khoá pixel). Công tắc: viền trong suốt giữ nguyên viên thuốc 28 px. */
+.v2s-today-new button.w-full.text-center { display: flex; align-items: center; justify-content: center; min-height: 44px; margin-block: -10px; }
+.v2s-today-new a[class~="text-[11px]"][class~="font-extrabold"], .v2s-me a[class~="text-[13px]"][class~="leading-[18px]"] { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; margin-block: -13px; }
+.v2s-me button.w-9.h-9 { min-width: 44px; min-height: 44px; margin: -4px; }
+.v2s-me button[role="switch"] { height: 44px; border-block: 8px solid transparent; background-clip: padding-box; margin-block: -8px; box-sizing: border-box; }
+.v2s-me :is(a, button).text-start.inline-flex { min-width: 44px; min-height: 44px; }
+.v2s-practice .skill-card h4 > a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; margin-block: -8px; }
