@@ -36,4 +36,7 @@ const ytsrc = fs.readFileSync('scripts/video/yt-upload.mjs', 'utf8');
 ok(/Hàng đợi tải trống/.test(ytsrc) && /bỏ qua \$\{q\.id\}/.test(ytsrc), 'uploader in lý do khi hàng đợi trống / bỏ qua từng clip (không im 0)');
 ok(videoResource({ clip: 'x', privacy: 'private' }, { lang: 'de' }).snippet.defaultLanguage === 'de' && videoResource({ clip: 'x', privacy: 'private' }, { lang: 'zz!' }).snippet.defaultLanguage === 'en', 'ngôn ngữ video theo clip, giá trị lạ → en');
 ok(/approved_by = 'probe', approved_at = 1/.test(yt), 'probe có approved_at nhỏ nhất → được tải trước hàng fill');
+{ const wl = yt.slice(yt.indexOf('async wronglive(')), body2 = wl.slice(0, wl.indexOf('async sync('));
+  ok(/clipLang\(items\.get\(r\.clip\)/.test(body2) && /cfg\.lang/.test(body2) && /status = 'done'/.test(body2), 'wronglive: video đã lên mà clip khác ngôn ngữ kênh');
+  ok(/privacyStatus: 'private'/.test(body2) && !/privateStatus: 'public'|deleteVideo|method: 'DELETE'/.test(body2) && /wrong-lang-hidden/.test(body2) && /apply = b\.apply === true/.test(body2), 'wronglive: chỉ chuyển PRIVATE (không xoá), ghi sổ, mặc định chỉ liệt kê'); }
 console.log(`✓ yt-fill: ${n} kiểm`);
