@@ -30,6 +30,7 @@ node scripts/speak/build.mjs
 node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
 node scripts/test/i18n-single.mjs
+node scripts/test/rtl-i18n.mjs
 node scripts/test/i18n-pack.mjs
 node scripts/test/fmt-stable.mjs
 node scripts/test/gen-guard.mjs
