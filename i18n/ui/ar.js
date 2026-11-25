@@ -1390,7 +1390,7 @@
 "Đến Thi thử":"إلى الاختبارات التجريبية",
 "Đến giờ cất cánh rồi! 🪁":"الوقت للاقلاع! 🪁",
 "Đến hạn {date}":"مستحق {date}",
-"Đề A2 Key → C2 Proficiency: Đọc & Viết, Nghe, Nói":"اختبارات من A2 Key إلى C2 Proficiency: Reading & Writing وListening وSpeaking",
+"Đề A2 Key → C2 Proficiency: Đọc & Viết, Nghe, Nói":"اختبارات من A2 Key إلى C2 Proficiency: القراءة والكتابة والاستماع والتحدث",
 "Đề Listening":"اختبار الاستماع",
 "Đề Listening 40 câu":"اختبار الاستماع (40 سؤالاً)",
 "Đề Reading":"اختبار القراءة",
