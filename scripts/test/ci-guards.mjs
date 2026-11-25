@@ -47,6 +47,7 @@ assert.equal(wipVerdict({ openCount: WIP_MAX, labels: [] }).freeze, false, '15 P
 assert.equal(wipVerdict({ openCount: WIP_MAX + 1, labels: [] }).freeze, true, '16 PR mở → frozen');
 assert.equal(wipVerdict({ openCount: 40, labels: ['main-red'] }).freeze, false, 'main-red miễn trừ');
 assert.equal(wipVerdict({ openCount: 40, labels: ['p0'] }).freeze, false, 'p0 miễn trừ');
+assert.equal(wipVerdict({ openCount: 40, labels: ['main-red-fix'] }).freeze, false, 'main-red-fix miễn trừ (24/11)');
 const wg = wf('wip-guard.yml');
 assert.ok(/pull_request_target/.test(wg) && !/ref: \$\{\{ *github\.(head_ref|event\.pull_request\.head)/.test(wg), 'wip-guard không checkout mã PR');
 

@@ -368,15 +368,18 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
     ok(D.normCfg({ daily_cap: 9 }).daily_cap === 3 && Object.values(MGR.DEFAULT_RULES.perDay).every(v => v === 2) && MGR.DEFAULT_RULES.minGapH === 4 && MGR.cfgFor({ id: 'a', p: 'instagram', name: 'Lexkite - Aprende Inglés' }, MGR.cleanRules({})).daily_cap === 1 && MGR.cfgFor({ id: 'b', p: 'instagram', name: 'Lexkite.com' }, MGR.cleanRules({})).daily_cap === 2, 'planner: kênh chính 2/ngày, kênh bản ngữ 1/ngày');
     sql.exec("DELETE FROM dist_social; DELETE FROM dist_ext;");
     const ex = sql.prepare("INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES (?, 'instagram', ?, ?, 'ok', 1)"); ex.run('gc-instagram-9', '9', 'Lexkite.com'); ex.run('gc-instagram-8', '8', 'Lexkite - Aprende Inglés');
-    const base = Date.UTC(new Date(now).getUTCFullYear(), new Date(now).getUTCMonth(), new Date(now).getUTCDate() + 3, 16, 0), ins = (clip, ch, st, ms) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, ?, 'instagram', ?, 'auto', 0, ?, 1)").run(clip, ch, ms, st);
-    ins('k-pushed', 'gc-instagram-9', 'pushed', base); ins('k1', 'gc-instagram-9', 'planned', base + 5 * H); ins('k2', 'gc-instagram-9', 'planned', base + 6 * H); ins('k3', 'gc-instagram-9', 'planned', base + 7 * H);
-    ins('n1', 'gc-instagram-8', 'planned', base + H); ins('n2', 'gc-instagram-8', 'planned', base + 6 * H);
+    const NYZ = 'America/New_York', MXZ = 'America/Mexico_City', D3 = new Date(now + 3 * 864e5).toISOString().slice(0, 10), base = D.zonedToMs(D3, '12:00', NYZ), nbase = D.zonedToMs(D3, '12:30', MXZ), ins = (clip, ch, st, ms) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, ?, 'instagram', ?, 'auto', 0, ?, 1)").run(clip, ch, ms, st);
+    ins('k-pushed', 'gc-instagram-9', 'pushed', base); ins('k1', 'gc-instagram-9', 'planned', base + 6 * H); ins('k2', 'gc-instagram-9', 'planned', base + 7 * H); ins('k3', 'gc-instagram-9', 'planned', base + 8 * H);
+    ins('n1', 'gc-instagram-8', 'planned', nbase); ins('n2', 'gc-instagram-8', 'planned', nbase + 6 * H);
     const lday = (ms, tz) => new Intl.DateTimeFormat('en-CA', { timeZone: tz }).format(ms), NY = 'America/New_York', MX = 'America/Mexico_City';
     const moved = await A.rebalanceDays(DB, now), get = ch => sql.prepare('SELECT clip, slot_ms, state FROM dist_social WHERE channel_id = ? ORDER BY slot_ms').all(ch);
     const m = get('gc-instagram-9'), nv = get('gc-instagram-8'), cnt = (rows, tz) => Object.values(rows.reduce((a, r) => { const k = lday(r.slot_ms, tz); a[k] = (a[k] || 0) + 1; return a; }, {}));
     ok(moved === 3 && m.length === 4 && nv.length === 2 && Math.max(...cnt(m, NY)) === 2 && Math.max(...cnt(nv, MX)) === 1, 'kênh chính ≤ 2 bài/ngày, kênh bản ngữ ≤ 1 bài/ngày sau khi dời (không xóa clip)');
-    ok(m.find(r => r.clip === 'k-pushed').slot_ms === base && m.find(r => r.clip === 'k1').slot_ms === base + 5 * H && nv.find(r => r.clip === 'n1').slot_ms === base + H, 'bài đã gửi và bài trong trần giữ nguyên');
-    ok(m.every((r, i) => i === 0 || r.slot_ms - m[i - 1].slot_ms >= 4 * H) && m.filter(r => r.slot_ms > base + 20 * H).every(r => (r.slot_ms - base) % (24 * H) >= 5 * H - 1), 'bài dời giữ giờ trong ngày và cách bài khác ≥ 4h (kênh chính)');
+    ok(m.find(r => r.clip === 'k-pushed').slot_ms === base && m.find(r => r.clip === 'k1').slot_ms === base + 6 * H && nv.find(r => r.clip === 'n1').slot_ms === nbase, 'bài đã gửi và bài trong trần giữ nguyên');
+    ok(m.every((r, i) => i === 0 || r.slot_ms - m[i - 1].slot_ms >= 4 * H) && m.filter(r => r.slot_ms > base + 20 * H).every(r => (r.slot_ms - base) % (24 * H) >= 5 * H - 1 && D.peakOk(r.slot_ms, NYZ)), 'bài dời giữ giờ trong ngày và cách bài khác ≥ 4h (kênh chính)');
+    ins('late-night', 'gc-instagram-8', 'planned', D.zonedToMs(new Date(now + 9 * 864e5).toISOString().slice(0, 10), '03:00', MXZ));
+    ok(await A.rebalanceDays(DB, now) === 1 && D.peakOk(get('gc-instagram-8').find(r => r.clip === 'late-night').slot_ms, MXZ, 0), '23/11: bài planned lúc 03:00 giờ địa phương → dời vào giờ cao điểm CÙNG ngày');
+    sql.prepare("DELETE FROM dist_social WHERE clip = 'late-night'").run();
     ok(await A.rebalanceDays(DB, now) === 0, 'chạy lại không dời nữa (idempotent)');
   }
   // Xếp lịch tự động: slot lỡ quá 12 giờ được xếp lại, clip đã lên YouTube vẫn lên social
