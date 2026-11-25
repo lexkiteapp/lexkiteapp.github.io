@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Prononciation du japonais",
+  "pk": "Choisissez un son à travailler",
+  "ex": "Écouter des exemples",
+  "pp": "Paires minimales",
+  "dc": "Dictée",
+  "sy": "Répétez",
+  "qp": "Quel mot entendez-vous ?",
+  "qd": "Écrivez ce que vous entendez",
+  "qs": "Touchez le micro et dites le mot",
+  "mic": "Touchez pour parler",
+  "hd": "J’ai entendu : « {h} »",
+  "rt": "Je n’ai pas compris. Réessayez.",
+  "sk": "Passer",
+  "nm": "Pas de micro ici. Entraînez-vous avec les paires ou la dictée.",
+  "tp": "Astuce"
+ },
+ "tp": {
+  "vow": {
+   "t": "Cinq voyelles pures",
+   "x": "Le japonais a cinq voyelles brèves : a, i, u, e, o. Chacune est nette et stable, sans glissement. Le u se dit lèvres plates et détendues, sans les arrondir : うえ, あお."
+  },
+  "long": {
+   "t": "Voyelles longues",
+   "x": "Une voyelle longue dure deux temps et peut changer le sens : おばさん (tante) et おばあさん (grand-mère). Tenez la voyelle un temps entier de plus ; ー en katakana et おう, えい en hiragana sont longues."
+  },
+  "sokuon": {
+   "t": "Petit っ (consonne double)",
+   "x": "Le petit っ est une pause muette d’un temps avant la consonne suivante : きて (viens) et きって (timbre). Préparez la bouche pour le son suivant, attendez un temps, puis relâchez."
+  },
+  "nn": {
+   "t": "ん compte un temps entier",
+   "x": "ん compte comme un temps à part. Il sonne m devant p, b, m (さんぽ), n devant t, d, n (せんせい) et ng devant k, g (にほんご). Ne l’avalez pas : こな et こんな."
+  },
+  "yoon": {
+   "t": "Petits ゃ ゅ ょ",
+   "x": "Les petits ゃ ゅ ょ s’unissent au kana précédent en UN seul temps : きょう (aujourd’hui, 2 temps) et きよう (habile, 3 temps) ; びょういん (hôpital) et びよういん (salon de coiffure)."
+  },
+  "pitch": {
+   "t": "Accent de hauteur",
+   "x": "Le japonais de Tokyo utilise des hauteurs haute et basse, pas d’accent d’intensité. Deux mots écrits pareil peuvent ne différer que par la hauteur : はꜜし (baguettes, haut–bas) et はしꜜ (pont, bas–haut puis chute). ꜜ indique où la voix descend."
+  },
+  "devoice": {
+   "t": "Voyelles chuchotées",
+   "x": "Entre consonnes sourdes ou en fin de mot, i et u sont souvent chuchotés : です se dit presque « dess », すき presque « ski », ひと presque « hto ». Gardez le temps, retirez juste la voix."
+  },
+  "tsu": {
+   "t": "つ ou す",
+   "x": "つ se dit « ts » comme dans « tsar » ; す est un s simple. Touchez l’arrière des dents du haut avec la langue puis relâchez : つき (lune) et すき (aimer)."
+  }
+ }
+}
