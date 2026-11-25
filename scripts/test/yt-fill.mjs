@@ -50,4 +50,5 @@ ok(canManage({ scope: SCOPE }) && canManage({ scope: 'https://www.googleapis.com
 ok(/scope = excluded\.scope/.test(yt) && /ALTER TABLE yt_channel ADD COLUMN scope/.test(yt) && /manage: canManage/.test(yt), 'nối kênh lưu scope theo kênh; admin nhận cờ manage');
 const av = fs.readFileSync(new URL('../../web/js/admin-video.js', import.meta.url), 'utf8');
 ok(/x\.manage === false/.test(av) && /V\('Quyền cũ'\)/.test(av) && /V\('Nối lại'\)/.test(av) && /'Nối lại': 'Reconnect'/.test(av), 'admin: kênh quyền cũ hiện huy hiệu + nút Nối lại (data-connect), có bản EN');
+ok((yt.match(/need_scope = 'youtube\.force-ssl/g) || []).length === 2, 'retime/wronglive: 403 từ videos.update (thiếu scope) → dừng ngay, không đốt hạn mức');
 console.log(`✓ yt-fill: ${n} kiểm`);
