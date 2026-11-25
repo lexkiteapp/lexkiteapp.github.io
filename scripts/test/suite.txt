@@ -33,6 +33,7 @@ node scripts/test/i18n-single.mjs
 node scripts/test/i18n-pack.mjs
 node scripts/test/fmt-stable.mjs
 node scripts/test/gen-guard.mjs
+node scripts/test/stray-files.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
 node scripts/test/i18n-english.mjs
@@ -339,6 +340,7 @@ node scripts/test/shell-lazy.mjs
 node scripts/test/css-lazy.mjs
 node scripts/test/ux1-route-bundles.mjs
 node scripts/test/path-skel.mjs
+node scripts/test/native-lazy.mjs
 node scripts/test/build-hash.mjs
 node scripts/test/self-fonts.mjs
 node scripts/test/video-pron.mjs
@@ -408,6 +410,9 @@ node scripts/test/cpack.mjs
 node scripts/test/scan-roots.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
+node scripts/test/speak-pre-cls.mjs
+node scripts/test/route-longtask.mjs
+node scripts/test/sweep-longtask-scope.mjs
 node scripts/test/st-web-i18n.mjs
 node scripts/test/store-submit.mjs
 node scripts/store/release-notes.mjs --check
@@ -522,11 +527,14 @@ node scripts/test/dialog.mjs
 node scripts/test/main-no-cancel.mjs
 node scripts/test/workflow-startup.mjs
 node scripts/test/score-card.mjs
+node scripts/test/voice-diary.mjs
 node scripts/stitch-v2-convert.mjs --check
 node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
+node scripts/test/meta-attr.mjs
 node scripts/test/social-audit.mjs
 node scripts/test/select-cta-guard.mjs
+node scripts/test/home-cta-one.mjs
 node scripts/test/lesson-lip-late.mjs
 node scripts/test/review-queue-size.mjs

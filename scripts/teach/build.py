@@ -92,9 +92,13 @@ for who, P in R['people'].items():
 
     def eye_scores(cf, cm, a, z):   # độ mở mắt từng khung [a, z) trên khung 1× đã cắt (cùng phép ghép với ảnh tĩnh)
         import numpy as np
-        raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', cf, '-i', cm, '-filter_complex',
-                              f'[1:v]trim=start_frame={a}:end_frame={z},setpts=N/({F["fps"]}*TB),format=gray,crop={crop},{SC},{FA}[a];[0:v]trim=start_frame={a}:end_frame={z},setpts=N/({F["fps"]}*TB),crop={crop},{SC}[c];[c][a]alphamerge',
-                              '-fps_mode', 'passthrough', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], capture_output=True, check=True).stdout
+        gf = f'[1:v]trim=start_frame={a}:end_frame={z},setpts=N/({F["fps"]}*TB),format=gray,crop={crop},{SC},{FA}[a];[0:v]trim=start_frame={a}:end_frame={z},setpts=N/({F["fps"]}*TB),crop={crop},{SC}[c];[c][a]alphamerge'
+        raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', cf, '-i', cm, '-filter_complex', gf, '-fps_mode', 'passthrough', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], capture_output=True, check=True).stdout
+        if len(raw) % (W * H * 4):   # đầu ra ffmpeg không chia hết cỡ khung (23/11 CI: 128973416 B ≠ n×554×480×4) → nói rõ cỡ khung thật thay vì ValueError khó đọc
+            info = subprocess.run(['ffmpeg', '-v', 'info', '-i', cf, '-i', cm, '-filter_complex', gf, '-frames:v', '1', '-f', 'null', '-'], capture_output=True, text=True).stderr
+            print('\n'.join(l for l in info.splitlines() if 'Stream #' in l or 'Output #' in l or 'ffmpeg version' in l))
+            errs.append(f'{cf}: đầu ra {len(raw)} B không chia hết cỡ khung {W}x{H} rgba ({len(raw) / (W * H * 4):.2f} khung) – cỡ khung thật in ở dòng Stream phía trên')
+            return [0.0] * max(1, len(raw) // (W * H * 4))
         fr = np.frombuffer(raw, np.uint8).reshape(-1, H, W, 4)
         n = min(int(probe(x, 'nb_read_frames')) for x in (cf, cm)); want_n = min(z, n) - a
         if len(fr) != want_n: errs.append(f'{cf}: đo mắt {len(fr)} khung ≠ {want_n} – chỉ số khung lệch (fps/pts), không chọn ảnh được'); return [0.0] * want_n

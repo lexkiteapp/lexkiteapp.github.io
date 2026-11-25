@@ -29,7 +29,7 @@
   }
   const idOk = s => /^[a-hjkmnp-z2-9]{10}$/.test(s || '');
   /** Link thử thách: mã + ngôn ngữ + UTM (không dữ liệu cá nhân). */
-  const linkOf = (id, lang, medium) => `${SITE}/c/${id}?l=${lang || 'en'}&utm_source=share&utm_medium=${medium || 'link'}&utm_campaign=score30`;
+  const linkOf = (id, lang, medium, camp) => `${SITE}/c/${id}?l=${lang || 'en'}&utm_source=share&utm_medium=${medium || 'link'}&utm_campaign=${camp || 'score30'}`; // camp: voicediary (nhật ký giọng nói, cpack/diary-app)
 
   g.Score30 = { PROMPTS, grade, overall, cefrOf, idOk, linkOf };
   if (typeof App === 'undefined' || !App.routes) return; // nạp trong test thuần (không có app)
@@ -45,6 +45,7 @@
     if (r.status === 403 && j.error === 'human' && !again && body.op === 'create') return api(body, true);
     return r.ok ? j : { error: j.error || 'net' };
   })().catch(() => ({ error: 'net' }));
+  g.Score30.api = api; // dùng chung với Nhật ký giọng nói (cpack/diary-app/diary.js): tạo/đọc thẻ thách đấu cùng một chỗ
   const C = { teal: '#0F3D3E', teal2: '#17595A', coral: '#E5502F', apricot: '#FFB054', cream: '#FFF7EA', mint: '#2dd4bf' };
 
   // Thẻ ảnh 1080×1350 (căn giữa hết → đúng cả RTL)
@@ -125,7 +126,7 @@
     }
     box.innerHTML = `${cmp}<canvas id="s30cv" role="img" aria-label="${esc(T('Điểm {s}/100, trình độ {c}', { s: s.score, c: s.cefr }))}"></canvas>
       <p class="stats"><b>${esc(T('Điểm tổng'))}: ${s.score}/100 · ${s.cefr}</b><span>${esc(T('Lưu loát'))}: ${s.fl} · ${esc(T('Phát âm'))}: ${s.pr}</span><span class="muted" style="font-size:.85rem">${esc(T('Ước lượng CEFR – chỉ mang tính tham khảo'))}</span></p>
-      <div class="row"><button class="btn cta" id="s30sh" type="button">${esc(T('Thách bạn bè'))}</button><button class="btn" id="s30dl" type="button">${esc(T('Tải ảnh'))}</button><button class="btn" id="s30re" type="button">${esc(T('Làm lại'))}</button></div>`;
+      <div class="row"><button class="btn cta" id="s30sh" type="button">${esc(T('Thách bạn bè'))}</button><button class="btn" id="s30dl" type="button">${esc(T('Tải ảnh'))}</button><button class="btn" id="s30re" type="button">${esc(T('Làm lại'))}</button></div>${App.vdOn && !App.vdOn() ? '' : `<a class="btn ghost" href="#/diary">🎙️ ${esc(T('Nhật ký giọng nói'))}</a>`}`;
     const cv = $('#s30cv', box); paint(cv, s); let linkP = null;
     const mk = () => linkP || (linkP = api({ op: 'create', fl: s.fl, pr: s.pr, pid, lang: lang() }).then(j => { if (!j.id) { linkP = null; return ''; } return j.id; }));
     const text = u => T('Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}', { s: s.score, c: s.cefr, url: u });
