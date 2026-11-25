@@ -589,9 +589,7 @@
   const LC = 'A-Za-z0-9\u00C0-\u024F', LAT = new RegExp(`[“"‘']?[+\\-−]?[${LC}][${LC}+\\-–−.,:;/%()&·!?~=×…'’“” ]*[${LC}%)?!.\\-”"’']`, 'g');
   const rtlFix = root => {
     const d = document; if (d.documentElement.dir !== 'rtl') return;
-    let ok = 1; try { ok = !d.fonts || d.fonts.check('1em "Material Symbols Outlined"'); } catch (_) {}
-    if (ok) root.querySelectorAll('.material-symbols-outlined:not(.i-dir)').forEach(e => DIRI.test(e.textContent.trim()) && e.classList.add('i-dir'));
-    else if (d.fonts && !rtlFix.w) { rtlFix.w = 1; d.fonts.ready.then(() => rtlFix(d.body)); }
+    root.querySelectorAll('.material-symbols-outlined:not(.i-dir)').forEach(e => DIRI.test(e.textContent.trim()) && e.classList.add('i-dir'));
     const w = d.createTreeWalker(root, 4), hits = []; let n;
     while ((n = w.nextNode())) AN.test(n.nodeValue) && hits.push(n);
     for (const x of hits) {

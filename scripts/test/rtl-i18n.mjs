@@ -15,6 +15,13 @@ ok(/const rtlFix\b/.test(ui) && /documentElement\.dir !== 'rtl'/.test(ui) && /cr
 ok(new RegExp(dir || '$^').test('chevron_right'), 'DIRI thiếu chevron_right (Material)');
 ok(/bdi\[dir="ltr"\]\s*\{[^}]*unicode-bidi:\s*isolate/.test(css), 'style.css thiếu bdi[dir="ltr"] { unicode-bidi: isolate }');
 
+// (a2) font icon: tên ligature ("arrow_forward") không được lộ khi font chưa tải (mạng chậm) → html.ms-ok do index.html gắn, st-home.css ẩn chữ tới lúc đó
+const idx = rd('../../web/app/index.html'), stc = rd('../../web/css/st-home.css');
+ok(/html:not\(\.ms-ok\)\s*\.material-symbols-outlined\s*\{[^}]*color:\s*transparent/.test(stc), 'st-home.css thiếu html:not(.ms-ok) .material-symbols-outlined { color: transparent }');
+ok(/classList\.add\('ms-ok'\)/.test(idx) && /\.load\('1em "Material Symbols Outlined"'\)/.test(idx) && /setTimeout\(k,\s*8000\)/.test(idx), 'app/index.html thiếu script gắn html.ms-ok (font.load + timeout 8 s)');
+ok(/font-display:\s*block/.test(stc.match(/@font-face\{[^}]*Material Symbols Outlined[^}]*\}/)?.[0] || ''), 'st-home.css: @font-face Material Symbols Outlined phải font-display:block');
+ok(!/fonts\.check\(/.test(ui), 'ui.js rtlFix không được phụ thuộc fonts.check (icon có hướng luôn gắn .i-dir)');
+
 // (b)
 const load = u => { const g = {}; new Function('self', rd(u))(g); return g.I18N_DICT; };
 const LAZY = ((rd('../build-i18n.sh').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean);
