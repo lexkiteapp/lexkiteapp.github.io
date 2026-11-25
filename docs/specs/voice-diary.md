@@ -25,8 +25,5 @@ Ship 100 %; khẩn: `/api/config vd_kill='1'` → ẩn lối vào, `#/diary` bá
 
 ## Kiểm
 `scripts/test/voice-diary.mjs`: mốc/ngày (thuần), chọn bản, công thức thưởng, kịch bản video (thời lượng, khung), pid 100+ máy chủ ↔ client, trang `/c` biến thể nhật ký 15 ngôn ngữ, e2e jsdom (thu ngày 1 → giả đồng hồ +7 → thu → chia sẻ → mở link → so → bắt đầu nhật ký), nhắc `diary` (trần 1/ngày, giờ yên). i18n-qa, size-budget, stitch-diff (màn `diary`). Ảnh sáng/tối qua visual-qa.
-<<<<<<< HEAD
-=======
 
 Video Day 1 vs Day 30: xem [voice-diary-video.md](voice-diary-video.md).
->>>>>>> dcea36418c93783467968e756fffb238a6dbe206
