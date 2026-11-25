@@ -100,6 +100,11 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(evaluate({ workflowRuns: [wr2('wip-guard', 'startup_failure', 7)] }).state === 'pending', 'chỉ có wip-guard hỏng, chưa có check thật nào → vẫn CHỜ, không xanh');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('gate-impact', 'cancelled', 7), wr2('npm test', 'success', 8)] }).state === 'success', 'gate-impact cancelled (concurrency) = tư vấn → không đỏ');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('gate-impact', 'failure', 7), wr2('npm test', 'success', 8)] }).state === 'failure', 'gate-impact failure thật vẫn đỏ');
+  { // 25/11 (#2039 "Chờ 8/40: check (2047, …)"): job con xếp hàng của workflow tư vấn gate-impact không được chặn PR khác
+    const adv = { ...wr2('gate-impact', null, 7), status: 'queued', check_suite_id: 900 }, jobq = { ...cr('check (2047, abc)', 'queued', null, 50), check_suite: { id: 900 } };
+    ok(evaluate({ checkRuns: [...base, jobq], workflowRuns: [adv, wr2('npm test', 'success', 8)] }).state === 'success', 'gate-impact còn xếp hàng + job con queued = tư vấn → không chặn');
+    ok(evaluate({ checkRuns: [...base, { ...jobq, check_suite: { id: 901 } }], workflowRuns: [adv, wr2('npm test', 'success', 8)] }).state === 'pending', 'job queued của workflow KHÁC vẫn chặn');
+    ok(evaluate({ checkRuns: [...base, { ...jobq, status: 'completed', conclusion: 'failure' }], workflowRuns: [{ ...adv, status: 'completed', conclusion: 'failure' }, wr2('npm test', 'success', 8)] }).state === 'failure', 'gate-impact failure thật (lượt đã xong) vẫn đỏ'); }
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('stitch-diff', 'success', 7), { ...wr2('stitch-diff', 'cancelled', 7), id: 9, run_number: 2 }, wr2('npm test', 'success', 8)] }).state === 'success', 'lượt huỷ mới hơn không che lượt xanh cùng head (20/11)');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('stitch-diff', 'failure', 7), { ...wr2('stitch-diff', 'cancelled', 7), id: 9, run_number: 2 }, wr2('npm test', 'success', 8)] }).state === 'failure', 'lượt huỷ mới hơn không che lượt ĐỎ thật cùng head');
 }
@@ -225,7 +230,7 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
       ok(sent.filter(f => f === 'ci-filler.yml').length === 3 && sent.filter(f => f === 'd1-usage-watch.yml').length === 2, 'nhịp 25 phút: ci-filler 3 lần, d1-usage-watch 2 lần: ' + sent.join());
       ok(PACED['ci-filler.yml'] === 10, 'ci-filler 10 phút');
       { const { cronsOf } = await import('./../ci/cron-watch.mjs'); // 24/11 (#580): workflow GitHub không chạy cron → nhịp ≥ khoảng cron thật (không dày hơn lịch), file phải còn dispatch được
-        for (const [f, gap] of Object.entries(PACED).filter(([f]) => !/^(ci-filler|d1-usage-watch)/.test(f))) { const y = fs.readFileSync('.github/workflows/' + f, 'utf8'); ok(/workflow_dispatch/.test(y) && cronsOf(y).length, f + ': có workflow_dispatch + cron'); ok(gap >= 1440, f + ': nhịp ≥ 1 ngày (khoảng cron)'); } }
+        for (const [f, gap] of Object.entries(PACED).filter(([f]) => !/^(ci-filler|ci-autopilot|d1-usage-watch)/.test(f))) { const y = fs.readFileSync('.github/workflows/' + f, 'utf8'); ok(/workflow_dispatch/.test(y) && cronsOf(y).length, f + ': có workflow_dispatch + cron'); ok(gap >= 1440, f + ': nhịp ≥ 1 ngày (khoảng cron)'); } }
       t = 0; const dry = []; await run(['--watch', '25', '--dry'], { GATE_CHAIN_REF: 'main' }, { ...P, dispatchFile: async f => dry.push(f) }, () => {}, clock); ok(!dry.length, '--dry không làm nhịp');
       t = 0; const lg = []; await run(['--watch', '5'], { GATE_CHAIN_REF: 'main' }, { ...P, lastRun: async () => { throw new Error('502'); } }, m => lg.push(m), clock); ok(lg.some(m => /nhịp .*502/.test(m)), 'lỗi API nhịp: cảnh báo, bộ canh vẫn chạy'); }
     // lượt tự nối kẹt queued (3/11 07:48Z, 21:25Z): dispatch lại; 'pending' (chờ concurrency) là khoẻ
