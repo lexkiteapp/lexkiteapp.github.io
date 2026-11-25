@@ -16,5 +16,5 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: App Store Connect – phát hành 100 %
-        env: { ASC_KEY_ID: '${{ secrets.ASC_KEY_ID }}', ASC_ISSUER_ID: '${{ secrets.ASC_ISSUER_ID }}', ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}' }
-        run: node scripts/store/asc-submit.mjs release ${{ inputs.dry_run && '--dry-run' || '' }} | tee "$RUNNER_TEMP/rel.txt"; cat "$RUNNER_TEMP/rel.txt" >> "$GITHUB_STEP_SUMMARY"
+        env: { ASC_KEY_ID: '${{ secrets.ASC_KEY_ID }}', ASC_ISSUER_ID: '${{ secrets.ASC_ISSUER_ID }}', ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}', DRY: '${{ inputs.dry_run }}' }
+        run: node scripts/store/asc-submit.mjs release $([ "$DRY" = true ] && echo --dry-run) | tee "$RUNNER_TEMP/rel.txt"; cat "$RUNNER_TEMP/rel.txt" >> "$GITHUB_STEP_SUMMARY"
