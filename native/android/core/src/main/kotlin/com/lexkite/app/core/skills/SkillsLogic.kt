@@ -27,7 +27,7 @@ object Qx {
     fun label(o: String) = o.drop(code(o).length + 1)
     private val DIGIT_SEP = Regex("(\\d)[.:/](\\d)")
     /** Words counted against a limit: a number with a separator (7.45, 10:30, 1/11) is ONE. */
-    fun words(s: String?): Int = Qe.norm((s ?: "").replace(DIGIT_SEP, "$1$2")).split(' ').count { it.isNotEmpty() }
+    fun words(s: String?): Int = Qe.plain((s ?: "").replace(DIGIT_SEP, "$1$2")).split(' ').count { it.isNotEmpty() }
     class Gap(val ok: Boolean, val over: Boolean, val empty: Boolean)
     fun gradeGap(a: List<String>, limit: Int, given: String): Gap {
         if (given.isBlank()) return Gap(false, false, true)
