@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Japanese pronunciation",
+  "pk": "Pick a sound to practice",
+  "ex": "Listen to examples",
+  "pp": "Minimal pairs",
+  "dc": "Dictation",
+  "sy": "Say it",
+  "qp": "Which word do you hear?",
+  "qd": "Type what you hear",
+  "qs": "Tap the mic and say the word",
+  "mic": "Tap to speak",
+  "hd": "I heard: “{h}”",
+  "rt": "Didn't catch that. Try again.",
+  "sk": "Skip",
+  "nm": "No microphone here. Practice with pairs or dictation instead.",
+  "tp": "Tip"
+ },
+ "tp": {
+  "vow": {
+   "t": "Five pure vowels",
+   "x": "Japanese has five short vowels: a, i, u, e, o. Each is clear and steady, never gliding. U is said with flat, relaxed lips, not rounded like English “oo”: うえ, あお."
+  },
+  "long": {
+   "t": "Long vowels",
+   "x": "A long vowel lasts two beats and can change the meaning: おばさん (aunt) vs おばあさん (grandmother). Hold the vowel for one full extra beat; ー in katakana and おう, えい in hiragana are long."
+  },
+  "sokuon": {
+   "t": "Small っ (double consonant)",
+   "x": "Small っ is a silent one-beat pause before the next consonant: きて (come) vs きって (stamp). Shape your mouth for the next sound, wait one beat, then release."
+  },
+  "nn": {
+   "t": "ん is a full beat",
+   "x": "ん counts as its own beat. It sounds like m before p, b, m (さんぽ), n before t, d, n (せんせい) and ng before k, g (にほんご). Do not swallow it: こな vs こんな."
+  },
+  "yoon": {
+   "t": "Small ゃ ゅ ょ",
+   "x": "Small ゃ ゅ ょ join the kana before them into ONE beat: きょう (today, 2 beats) vs きよう (skillful, 3 beats); びょういん (hospital) vs びよういん (hair salon)."
+  },
+  "pitch": {
+   "t": "Pitch accent",
+   "x": "Tokyo Japanese uses high and low pitch, not stress. Words that look the same can differ only in pitch: はꜜし (chopsticks, high–low) vs はしꜜ (bridge, low–high, then a drop). ꜜ marks where the pitch falls."
+  },
+  "devoice": {
+   "t": "Whispered vowels",
+   "x": "Between voiceless consonants or at the end of a word, i and u are often whispered: です sounds close to “des”, すき to “ski”, ひと to “hto”. Keep the beat, just drop the voice."
+  },
+  "tsu": {
+   "t": "つ vs す",
+   "x": "つ is “ts” as in “cats”; す is a plain s. Touch the ridge behind your upper teeth, then release: つき (moon) vs すき (like)."
+  }
+ }
+}

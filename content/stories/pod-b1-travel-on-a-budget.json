@@ -1,0 +1,202 @@
+{
+  "id": "pod-b1-travel-on-a-budget",
+  "kind": "podcast",
+  "level": "B1",
+  "title": "Travel on a Budget",
+  "summary": "Ama and Carlos share simple ways to travel cheaply without missing the best parts of a trip.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 4",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos at a small table with a map, a backpack and a train ticket, bright window behind them, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 125,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "Planning Your Trip",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Welcome back, everyone! Today we are talking about travelling on a budget."
+        },
+        {
+          "who": "B",
+          "text": "I love this topic. Last summer I visited three countries for very little money."
+        },
+        {
+          "who": "A",
+          "text": "How did you do that? Flights are so expensive!"
+        },
+        {
+          "who": "B",
+          "text": "I booked my tickets early and I chose the cheapest days to travel."
+        },
+        {
+          "who": "A",
+          "text": "Smart. I usually check the prices every morning for a week."
+        },
+        {
+          "who": "B",
+          "text": "Also, I stayed in a hostel instead of a hotel, and I met lots of interesting people."
+        },
+        {
+          "who": "A",
+          "text": "Was it noisy at night?"
+        },
+        {
+          "who": "B",
+          "text": "Sometimes, but I took earplugs, so it was not a big problem."
+        },
+        {
+          "who": "A",
+          "text": "And what about food? Restaurants can cost a fortune."
+        },
+        {
+          "who": "B",
+          "text": "I bought fresh bread and fruit at the local market, and it was delicious."
+        }
+      ],
+      "words": [
+        "budget",
+        "book",
+        "hostel",
+        "expensive",
+        "market"
+      ],
+      "quiz": [
+        {
+          "q": "When did Ama book her tickets?",
+          "options": [
+            "Early",
+            "At the airport",
+            "On the day"
+          ],
+          "answer": 0,
+          "explain": "I booked my tickets early."
+        },
+        {
+          "q": "Where did Ama stay?",
+          "options": [
+            "In a hostel",
+            "In a tent",
+            "With family"
+          ],
+          "answer": 0,
+          "explain": "I stayed in a hostel instead of a hotel."
+        },
+        {
+          "q": "Where did she buy food?",
+          "options": [
+            "At a local market",
+            "At a fancy restaurant",
+            "On the plane"
+          ],
+          "answer": 0,
+          "explain": "I bought fresh bread and fruit at the local market."
+        }
+      ]
+    },
+    {
+      "title": "Saving Money on the Road",
+      "sentences": [
+        {
+          "who": "B",
+          "text": "Now, what about getting around once you arrive?"
+        },
+        {
+          "who": "A",
+          "text": "I walk as much as I can, because it is free and you see more of the city."
+        },
+        {
+          "who": "B",
+          "text": "For longer trips, I take the train or the bus instead of a taxi."
+        },
+        {
+          "who": "A",
+          "text": "Good idea. Many cities also sell a cheap pass for all public transport."
+        },
+        {
+          "who": "B",
+          "text": "Yes, and some museums are free on certain days."
+        },
+        {
+          "who": "A",
+          "text": "Do you always follow a strict plan?"
+        },
+        {
+          "who": "B",
+          "text": "No, I keep some free time, because the best moments are often a surprise."
+        },
+        {
+          "who": "A",
+          "text": "I agree. One evening I followed a small street to a tiny square full of music."
+        },
+        {
+          "who": "B",
+          "text": "That sounds wonderful. So, the main message is to plan a little and stay flexible."
+        },
+        {
+          "who": "A",
+          "text": "Exactly. Thanks for listening, and have a safe trip!"
+        }
+      ],
+      "words": [
+        "transport",
+        "museum",
+        "strict",
+        "flexible",
+        "surprise"
+      ],
+      "quiz": [
+        {
+          "q": "Why does Carlos walk a lot?",
+          "options": [
+            "It is free and you see more",
+            "He hates buses",
+            "He is training"
+          ],
+          "answer": 0,
+          "explain": "I walk as much as I can, because it is free and you see more of the city."
+        },
+        {
+          "q": "What do some cities sell?",
+          "options": [
+            "A cheap pass for public transport",
+            "Free taxis",
+            "Tickets for hostels"
+          ],
+          "answer": 0,
+          "explain": "Many cities also sell a cheap pass for all public transport."
+        },
+        {
+          "q": "What is the main message?",
+          "options": [
+            "Plan a little and stay flexible",
+            "Never leave home",
+            "Always book a hotel"
+          ],
+          "answer": 0,
+          "explain": "The main message is to plan a little and stay flexible."
+        }
+      ]
+    }
+  ]
+}
