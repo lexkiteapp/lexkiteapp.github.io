@@ -15,6 +15,13 @@
    "Lệch nhịp": "Off the beat",
    "Chạm đúng {a}/{b} từ nhấn": "Hit {a}/{b} stressed words",
    "Độ chính xác {n}%": "Accuracy {n}%",
-   "Từ nhấn bị lỡ": "Stressed words you missed"
+   "Từ nhấn bị lỡ": "Stressed words you missed",
+   "Đã giải {a}/{b}": "{a} of {b} solved",
+   "Từ của bạn": "Your words",
+   "ô trống": "empty cell",
+   "Giải xong từ này để nghe phát âm": "Solve this word to hear it",
+   "Mình giải ô chữ Lexkite hôm nay: {g}": "I solved today's Lexkite crossword: {g}",
+   "Xong ô chữ hôm nay!": "Today's crossword done!",
+   "Xóa một chữ": "Delete letter"
   });
 })(typeof self !== 'undefined' ? self : this);
