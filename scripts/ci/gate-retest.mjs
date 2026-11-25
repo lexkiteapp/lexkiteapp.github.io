@@ -13,6 +13,9 @@ export const CONTEXT = 'gate-retest';
 export const WORKFLOW = 'gate-retest.yml';
 export const MAX_CMDS = 40;
 const TEST = /^scripts\/test\/[\w.-]+\.mjs$/;
+// 25/11: tệp ghi chú/mô tả (*.notes.json, *.md) không có ngưỡng nào để test đọc → không làm đổi kết quả PR, bỏ qua (budget.notes.json làm #1802 bị đòi gộp main). Tệp dữ liệu khác (ngưỡng thật) vẫn theo cách cũ.
+const WORKFLOW_FILE = /^\.github\/workflows\/[\w.-]+\.ya?ml$/, POLICY = 'scripts/test/ci-policy.mjs';
+export const NOTES = /^scripts\/test\/[\w./-]+(\.notes\.json|\.md)$/;
 
 /** Hàm thuần: danh sách tệp drift + nội dung suite.txt → { ok, cmds }. ok=false khi có tệp drift KHÔNG chạy lại được (khác test trong suite) → dùng cách cũ. */
 export function retestPlan(drift = [], suiteText = '', prFiles = null) {
@@ -21,12 +24,16 @@ export function retestPlan(drift = [], suiteText = '', prFiles = null) {
   const cmds = [];
   for (const f of drift) {
     // 25/11: suite.txt = DANH SÁCH test, không phải test. Nó vào drift khi PR đụng một test có trong danh sách → chạy lại đúng các dòng của main cho những test PR đụng (đủ biết đối số mới). Trước đây ok:false → #1802/#2079/#2095 đều bị đòi gộp main lặp lại (~100 job mỗi lần).
+    if (NOTES.test(f)) continue;
+    // 26/11: workflow main đổi → chạy lại ci-policy (kiểm tĩnh mọi workflow, overlay đã đưa workflow bản main lên head PR) thay cho bắt gộp main. Tên giả '(>300 tệp đổi)' không khớp → cách cũ.
+    if (WORKFLOW_FILE.test(f)) { const pol = lines.filter(l => l.split(/\s+/)[1] === POLICY); if (!pol.length) return { ok: false, cmds: [], why: 'không có ci-policy trong suite' }; cmds.push(...pol); continue; }
     if (f === 'scripts/test/suite.txt' && prFiles) { const hit = lines.filter(l => prFiles.includes(l.split(/\s+/)[1])); if (!hit.length) return { ok: false, cmds: [], why: 'suite.txt đổi nhưng PR không đụng test nào trong danh sách' }; cmds.push(...hit); continue; }
     if (!TEST.test(f)) return { ok: false, cmds: [], why: `${f} không phải test trong suite` };
     const found = lines.filter(l => l.split(/\s+/)[1] === f);
     if (!found.length) return { ok: false, cmds: [], why: `${f} không có trong suite.txt` };
     cmds.push(...found);
   }
+  if (!cmds.length) return { ok: false, cmds: [], why: 'chỉ có tệp ghi chú – không có lệnh để chạy lại' };
   if (cmds.length > MAX_CMDS) return { ok: false, cmds: [], why: `quá ${MAX_CMDS} test` };
   return { ok: true, cmds: [...new Set(cmds)] };
 }
@@ -45,7 +52,7 @@ export function verdict(status, mainSha) {
 /** Hàm thuần: tệp main đổi (mainChanged) trừ tệp PR cũng đổi (prChanged), chỉ trong scripts/ → danh sách ghi đè lên head PR (test + thư viện nó nhập). */
 export function overlayFiles(mainChanged = [], prChanged = []) {
   const pr = new Set(prChanged);
-  return mainChanged.filter(f => /^scripts\//.test(f) && !pr.has(f));
+  return mainChanged.filter(f => /^(scripts\/|\.github\/workflows\/)/.test(f) && !pr.has(f));
 }
 
 const sh = (cmd, args, opt = {}) => execFileSync(cmd, args, { encoding: 'utf8', maxBuffer: 1 << 26, stdio: ['ignore', 'pipe', 'pipe'], ...opt });
@@ -60,7 +67,7 @@ async function main() {
     const base = sh('git', ['merge-base', 'HEAD', main]).trim();
     const mainChanged = sh('git', ['diff', '--name-only', base, main]).split('\n').filter(Boolean), prChanged = sh('git', ['diff', '--name-only', base, 'HEAD']).split('\n').filter(Boolean);
     const ov = overlayFiles(mainChanged, prChanged); console.log(`overlay ${ov.length} tệp scripts/ từ main@${tagOf(main)} (PR cũng đổi ${prChanged.length} tệp – giữ nguyên)`);
-    for (let i = 0; i < ov.length; i += 100) { try { sh('git', ['checkout', main, '--', ...ov.slice(i, i + 100)]); } catch (e) { /* tệp bị xoá ở main: bỏ qua */ } }
+    for (let i = 0; i < ov.length; i += 100) { const part = ov.slice(i, i + 100); try { sh('git', ['checkout', main, '--', ...part]); } catch (e) { for (const f of part) { try { sh('git', ['checkout', main, '--', f]); } catch { /* tệp bị xoá ở main: bỏ qua từng tệp (không để 1 tệp xoá bỏ cả lô) */ } } } }
     const results = [];
     for (const c of cmds) {
       const [bin, ...args] = c.split(/\s+/), t0 = Date.now();
