@@ -1,4 +1,6 @@
 {
- "_note": "Episodes allowed to violate scripts/video/teach2d/script_schema.py (none: the 42 l1 hooks were rewritten to <= 6 words 25/11). scripts/test/teach2d-script-schema.py fails on any new violation and when this list is stale.",
- "known": []
+ "_note": "Episodes allowed to violate scripts/video/teach2d/script_schema.py. t2_l1_fr_age_am keeps its 7-word spoken hook: its native tip / caption quote French « j’ai 25 ans » which the free back-translation (native-qa --online) turns into English, so ANY edit of that row turns backcheck_meaning red (25/11 runs 45630870908, 45633648785); the native text needs a rewrite first. The other 41 long l1 hooks were rewritten to <= 6 words. teach2d-script-schema.py fails on a new violation and when this list is stale.",
+ "known": [
+  "t2_l1_fr_age_am"
+ ]
 }
