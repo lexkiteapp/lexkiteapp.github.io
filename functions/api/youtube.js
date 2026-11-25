@@ -425,7 +425,7 @@ const ADMIN_OPS = {
         if (!cur) { out.skipped.push({ clip: r.clip, why: 'not-found' }); continue; }
         if (cur.privacyStatus !== 'private') {
           const u = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status', { method: 'PUT', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json' }, body: JSON.stringify({ id: r.video_id, status: { ...cur, privacyStatus: 'private' } }) }); await spend(db, QUOTA.update);
-          if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); continue; }
+          if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); if (u.status === 403) { out.need_scope = 'youtube.force-ssl (token chỉ có upload+readonly: videos.update bị từ chối) – dừng để khỏi đốt hạn mức'; break; } continue; }
         }
         await run(db, 'UPDATE yt_queue SET err = ?, updated = ? WHERE clip = ?', 'wrong-lang-hidden ' + new Date(now).toISOString().slice(0, 10), Date.now(), r.clip); out.hidden.push({ ...item, was: cur.privacyStatus });
       } catch (e) { out.skipped.push({ clip: r.clip, why: 'error' }); }
@@ -455,7 +455,7 @@ const ADMIN_OPS = {
         const cur = (((await g.json().catch(() => ({}))).items || [])[0] || {}).status;
         if (!cur || cur.privacyStatus !== 'private' || !cur.publishAt || Date.parse(cur.publishAt) <= now + 36e5) { out.skipped.push({ clip: r.clip, why: 'not-scheduled' }); continue; }
         const u = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status', { method: 'PUT', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json' }, body: JSON.stringify({ id: r.video_id, status: { ...cur, privacyStatus: 'private', publishAt: to } }) }); await spend(db, QUOTA.update);
-        if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); continue; }
+        if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); if (u.status === 403) { out.need_scope = 'youtube.force-ssl (token chỉ có upload+readonly: videos.update bị từ chối) – dừng để khỏi đốt hạn mức'; break; } continue; }
         await run(db, 'UPDATE yt_queue SET publish_at = ?, updated = ? WHERE clip = ?', to, Date.now(), r.clip); out.changed.push(item);
       } catch (e) { out.skipped.push({ clip: r.clip, why: 'error' }); }
     }
