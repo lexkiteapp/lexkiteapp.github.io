@@ -605,7 +605,7 @@
     foot.hidden = false; foot.className = 'lsn-fv2 ' + (ok ? 'ok' : 'bad');
     if (L.teacher && L.teacher.pose) L.teacher.pose(L.pose || (ok ? 'cheer' : 'concern'));
     const PILL = 'inline-flex items-center gap-1 min-h-[28px] px-3 rounded-[9999px] border border-white/60 text-white text-[11px] leading-[14px] tracking-[0.04em] font-bold';
-    const pills = (combo >= 3 ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">bolt</span>${esc(t('COMBO ×{n}', { n: combo }))}</span>` : '');
+    const pills = (!ok && streak > 0 ? `<span class="${PILL}">${esc(t('Chuỗi {n} ngày', { n: streak }))}</span>` : '') + (combo >= 3 ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">bolt</span>${esc(t('COMBO ×{n}', { n: combo }))}</span>` : '');
     // Thẻ từ điển + nút Vì sao? = khuôn Stitch v2.1 "dict" (brand/stitch/v2/feedback-*-light.html); chỉ gắn dữ liệu thật: giáo viên · từ · IPA (2 giọng khác nhau → cả 2) · 2 loa đúng giọng · nghĩa
     const ord = UI.accOrder ? UI.accOrder() : ['en-GB', 'en-US'], LB = { 'en-GB': 'UK', 'en-US': 'US' }, AR = { 'en-GB': 'Nghe giọng Anh–Anh', 'en-US': 'Nghe giọng Anh–Mỹ' };
     const ip = a => (c ? UI.ipaHtml(c, a, { noEx: true }) : ''), i1 = ip(ord[0]), i2 = ip(ord[1]), one = !i2 || E.sameVoice(i1, i2); // UK = US → MỘT loa + MỘT IPA, không nhãn UK/US
@@ -622,7 +622,7 @@
     const xp = foot.querySelector('.lsn-xpp'); if (xp && !d.xp) xp.hidden = true; const an = foot.querySelector('.lsn-ans'); if (an && !d.answer) an.hidden = true;
     if (!c) foot.querySelectorAll(en ? '.lsn-dict' : '.lsn-dict,.lsn-whyrow').forEach(x => x.remove());
     v2optMark(it, ok);
-    if (an && ($('#lsnBody.lsn-opts') || (c && same(it.answer, c.word)))) an.hidden = true; // đáp án đã hiện ở thẻ đáp án / dòng từ → không nhắc lần hai
+    if (ok && an && ($('#lsnBody.lsn-opts') || (c && same(it.answer, c.word)))) an.hidden = true; // đáp án đã hiện ở thẻ đáp án / dòng từ → không nhắc lần hai
     const nx = $('#lsnNext'); if (nx && nx.parentElement) nx.parentElement.classList.add('lsn-nextrow');
     if (one && c) { const b2 = foot.querySelector('.lsn-dict button:nth-child(2)'); if (b2) b2.remove(); } // chỉ một nút loa khi UK = US
     const inp = $('#lsnIn'); if (inp) { inp.readOnly = true; inp.classList.add(...(ok ? GAP_OK : GAP_BAD).split(' ')); } // gõ từ: khóa ô nhập + tô màu ngay tại đó
