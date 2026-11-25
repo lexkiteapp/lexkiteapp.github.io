@@ -259,5 +259,9 @@
   ":scope > div > main > div:nth-child(1) > button": {
    "text-white": "'text-[#2A0700]'"
   }
+ },
+ "addClass": {
+  ":scope > div > header > a": "min-h-11",
+  ":scope > div > main > section:nth-child(2) > div:nth-child(1) > a": "min-h-11"
  }
 }

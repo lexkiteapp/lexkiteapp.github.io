@@ -203,7 +203,7 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
       console.log(`${'  '.repeat(d)}${path} <${e.tagName.toLowerCase()}> ${cls}${al ? ` [${al}]` : ''}${tx ? ` "${tx.slice(0, 40)}"` : ''}`); [...e.children].forEach((c, i) => walk(c, d + 1, `${path}>${i + 1}`)); };
     walk(root, 0, '·'); continue; }
   const o = emit(root, bind, k);
-  if (bind.recolor && bind.src) for (const [f, to] of Object.entries(bind.recolor)) { // recolor {class mẫu: class thay}: đổi màu ĐỒNG LOẠT cả màn (sau cls) để đạt tương phản AA – chỉ màn khai báo; class không có trong khung = lỗi
+  if (bind.recolor) for (const [f, to] of Object.entries(bind.recolor)) { // recolor {class mẫu: class thay}: đổi màu ĐỒNG LOẠT cả màn (sau cls) để đạt tương phản AA – chỉ màn khai báo; class không có trong khung = lỗi
     const re = new RegExp(`(?<=[\\s"'\u0005])${f.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}(?=[\\s"'\u0006])`, 'g'); let n = 0; // token class của emit() nằm giữa \u0005…\u0006: bản thay nhiều class tách thành nhiều token
     const sub = (m, off, str) => (n++, str[off - 1] === '\u0005' ? to.split(' ').join('\u0006 \u0005') : to);
     for (const key of ['header', 'main', 'nav']) o[key] = o[key].replace(re, sub); o.parts = o.parts.map(([nm, h]) => [nm, h.replace(re, sub)]);

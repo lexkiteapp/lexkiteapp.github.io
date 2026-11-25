@@ -49,7 +49,7 @@
       if (retry) rows.sort((a, b) => (b.n || 1) - (a.n || 1)); // làm lại: câu sai nhiều lần nhất lên trước
       return {
         backL: t('Trở về trang trước'), title: t('Sổ lỗi sai'), countL: t('{n} lỗi cần xem lại', { n: open.length }), open: open.length,
-        tch: Chars.slot('ama', { pose: 'thinking', size: 's', lazy: false }), // teacher-pose-map: Ama "thinking" – chỗ giáo viên chuẩn (bệ + gờ đáy của Chars.slot)
+        tch: Chars.slot('ama', { pose: 'thinking', size: 'm', lazy: false }), // teacher-pose-map: Ama "thinking" – chỗ giáo viên chuẩn (bệ + gờ đáy của Chars.slot)
         desc: t('Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.'), who: t('Cô {name} • Lexkite', { name: Chars.name('ama') }),
         ctaHref: retry ? '#/mistakes' : '#/mistakes?retry=1', ctaIcon: retry ? 'list' : 'smart_toy', ctaL: retry ? t('Xem danh sách') : t('Làm lại lỗi sai'),
         forgetL: t('Ôn từ sắp quên'), clearL: t('Dọn lỗi đã sửa'), tabsL: t('Loại lỗi'), sayL: t('Phát âm'),
