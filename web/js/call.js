@@ -12,7 +12,7 @@
   const E = window.CallEngine;
   // Ngôn ngữ đích (Target.cur): 'en' = hành vi cũ từng byte; es → cuộc gọi gắn tl:'es' từ gói cpack/es/cl.js, giọng/ASR/lang theo bảng Target
   let TLC = 'en', ACCENT = 'en-US', TLG = 'en';
-  const TLB = { es: 'calles', fr: 'callfr' }, TLD = { es: 'esday', fr: 'frday' }; // gói cuộc gọi + gói lộ trình ngày theo tl (bundles.js; id 'fr-…' mở thẳng cuộc gọi fr)
+  const TLB = { es: 'calles', fr: 'callfr', ja: 'callja' }, TLD = { es: 'esday', fr: 'frday' }; // gói cuộc gọi + gói lộ trình ngày theo tl (bundles.js; id 'fr-…' mở thẳng cuộc gọi fr)
   const setTl = id => { const m = /^([a-z]{2})-/.exec(id || ''); TLC = m && TLB[m[1]] ? m[1] : window.Target ? Target.cur() : 'en'; ACCENT = TLC !== 'en' ? Target.accent('en-US', TLC) : 'en-US'; // id 'es-…' (từ lộ trình ngày) mở thẳng cuộc gọi es, không đổi ngôn ngữ đang học
     TLG = TLC === 'en' ? 'en' : TLC; };
   const callsNow = () => (window.CALLS || []).filter(x => (x.tl || 'en') === TLC);
@@ -31,6 +31,7 @@
   // An toàn: lời lẽ thô tục/nhạy cảm → giáo viên nhẹ nhàng đưa cuộc gọi về chủ đề, không lặp lại lời đó
   const UNSAFE_X = { es: /\b(mierda|puta|puto|joder|verga|pendej|cabron|coño|matar|suicid|droga|sexo|negrata)\w*/i, fr: /(^|[^\p{L}])(merde|putain|pute|connard|connasse|salope|enculé|encule|nique|baiser|tuer|suicid|drogue|sexe|nègre|negre)\p{L}*/iu };
   const SAFE_SAY = { es: 'Mantengamos la charla amable y en el tema.', fr: 'Gardons une conversation aimable et sur le sujet.' };
+  window.CallX = { UNSAFE_X, SAFE_SAY }; // gói ngôn ngữ (packs/tl/<tl>/cl.js) bổ sung bảng của nó
   const UNSAFE = { test: s => (UNSAFE_X[TLC] || /\b(fuck|shit|bitch|asshole|dick|sex|kill|suicide|drugs?|nigg|whore|slut)\w*/i).test(s) };
   // 🧩 Stitch v2.1 teacher-call (cờ ux1): khung tự sinh brand/stitch/v2/bind/teacher-call.json (ST2.mount → .v2s-teacher-call), giáo viên = c.who (Ama/Carlos) CHỈ qua Chars + LessonTeacher,
   // giọng = Chars.voice(who). Logic giữ nguyên CallEngine (nhánh, quyền riêng tư, lượt dài, gõ phím); trang cũ (.call-ov) làm dự phòng khi chưa bật cờ / thiếu khung.

@@ -124,6 +124,8 @@
 // 🥁 Nhịp điệu – ô chế độ (app.js modeTiles + study.js MODES, khung app)
 "Nhịp điệu": "Rhythm",
 "Chạm đúng nhịp nhấn của câu tiếng Anh": "Tap to the stress beat of English sentences",
+"Ô chữ mỗi ngày": "Daily crossword",
+"Từ của bạn đan thành ô chữ – mỗi ngày một ô mới": "Your own words woven into a crossword – a new one every day",
 'Luyện tiếng Tây Ban Nha': 'Spanish practice', 'Luyện tiếng Pháp': 'French practice', 'Từ mới, ngữ pháp và cuộc gọi AI mỗi ngày': 'New words, grammar and an AI call every day', 'Luyện định dạng DELE/SIELE': 'DELE/SIELE format practice', 'Luyện định dạng DELF/DALF': 'DELF/DALF format practice', 'Đọc, nghe, viết, nói theo cấu trúc đề thi': 'Reading, listening, writing and speaking in the exam format', 'Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn': 'Verb conjugation and grammar, explained in your language',
 'Mini-test biến thể': 'Variant mini-test',
 }); })(typeof self !== 'undefined' ? self : this);
