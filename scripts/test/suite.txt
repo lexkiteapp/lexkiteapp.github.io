@@ -40,6 +40,7 @@ node scripts/test/i18n-english.mjs
 node scripts/test/tsc-check.mjs
 node scripts/test/unit.mjs
 node scripts/test/syntax-check.mjs
+node scripts/test/no-conflict-markers.mjs
 node scripts/blog-pipeline.mjs gate
 node scripts/test/ci-header-scope.mjs
 node scripts/test/feel.mjs
