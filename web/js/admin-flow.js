@@ -17,10 +17,10 @@
     'Cập nhật {t}': 'Updated {t}', 'Mở {x}': 'Open {x}',
   };
   const STEPS = [
-    { tab: 'studio', n: 1, icon: '🎞️', t: 'Studio', k: 'Sản xuất' },
-    { tab: 'video', n: 2, icon: '🎬', t: 'Trung tâm video', k: 'Duyệt & lưu' },
-    { tab: 'dist', n: 3, icon: '🛰️', t: 'Kênh & phân phối', k: 'Phân phối' },
-    { tab: 'social', n: 4, icon: '📣', t: 'Đăng & hiệu quả', k: 'Đăng' },
+    { tab: 'studio', n: 1, icon: 'movie_creation', t: 'Studio', k: 'Sản xuất' },
+    { tab: 'video', n: 2, icon: 'video_library', t: 'Trung tâm video', k: 'Duyệt & lưu' },
+    { tab: 'dist', n: 3, icon: 'hub', t: 'Kênh & phân phối', k: 'Phân phối' },
+    { tab: 'social', n: 4, icon: 'share', t: 'Đăng & hiệu quả', k: 'Đăng' },
   ];
   const TABS = new Set(['studio', 'video', 'dist', 'social', 'drive']);
   let memo = null, inflight = null;
@@ -68,15 +68,15 @@
     return out;
   }
 
-  function html(m, tab, T, esc) {
+  function html(m, tab, T, esc, ic = () => '') { // ic: tên icon Material → SVG (admin.js navIc, cùng icon thanh bên)
     const steps = STEPS.map((s, i) => {
       const x = m[s.tab], cur = s.tab === tab;
       return `${i ? '<span class="flow-arr" aria-hidden="true">›</span>' : ''}<a class="flow-step st-${x.state}" href="#${s.tab}" data-flow="${s.tab}"${cur ? ' aria-current="step"' : ''} title="${esc(cur ? T('Bạn đang ở bước này') : fmt(T('Mở {x}'), { x: T(s.t) }))}">`
-        + `<span class="flow-n" aria-hidden="true">${s.n}</span><span class="flow-b"><span class="flow-k">${esc(T(s.k))}</span><span class="flow-t">${s.icon} ${esc(T(s.t))}</span>`
+        + `<span class="flow-n" aria-hidden="true">${s.n}</span><span class="flow-b"><span class="flow-k">${esc(T(s.k))}</span><span class="flow-t">${ic(s.icon)}<span>${esc(T(s.t))}</span></span>`
         + `<span class="flow-l tnum">${esc(x.line)}</span>${x.warn ? `<span class="flow-w">${esc(x.warn)}</span>` : ''}</span></a>`;
     }).join('');
     const dv = m.drive;
-    const drive = `<a class="flow-drive st-${dv.state}" href="#drive" data-flow="drive"${tab === 'drive' ? ' aria-current="page"' : ''}><span class="flow-t">🗄️ ${esc(T('Kho Drive'))}</span>`
+    const drive = `<a class="flow-drive st-${dv.state}" href="#drive" data-flow="drive"${tab === 'drive' ? ' aria-current="page"' : ''}><span class="flow-t">${ic('cloud_queue')}<span>${esc(T('Kho Drive'))}</span></span>`
       + `<span class="flow-l tnum">${esc(dv.line)}</span>${dv.pct != null ? `<span class="flow-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${dv.pct}" aria-label="${esc(T('Kho Drive'))}"><i style="width:${dv.pct}%"></i></span>` : ''}${dv.warn ? `<span class="flow-w">${esc(dv.warn)}</span>` : ''}</a>`;
     return `<div class="flow-steps">${steps}</div>${drive}`;
   }
@@ -99,7 +99,7 @@
     try {
       const d = await data(o.capi, o.force);
       if (el.dataset.tab !== tab) return; // đã sang mục khác
-      el.innerHTML = html(model(d, T), tab, T, esc);
+      el.innerHTML = html(model(d, T), tab, T, esc, o.ic);
     } catch (e) {
       if (el.dataset.tab !== tab) return;
       el.innerHTML = `<div class="flow-err" role="status">⚠️ ${esc(T('Không tải được số liệu luồng'))} <button type="button" class="btn sm" data-flow-retry>${esc(T('Thử lại'))}</button></div>`;

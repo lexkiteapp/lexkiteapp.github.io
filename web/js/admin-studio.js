@@ -4,7 +4,7 @@
  * Mọi thao tác ra ngoài (chạy GitHub Actions, đăng/lên lịch, hủy lịch) đều hỏi xác nhận. Khóa/bí mật chỉ ở máy chủ. Chữ tiếng Anh ở bảng EN. */
 (function () {
   const EN = {
-    '🎞️ Video Studio': '🎞️ Video Studio', 'Dây chuyền video tự động: kịch bản → dựng → chấm QA → kho GrabCast → lên lịch đăng.': 'Automatic video pipeline: script → render → QA → GrabCast storage → scheduled posts.',
+    'Dây chuyền video tự động: kịch bản → dựng → chấm QA → kho GrabCast → lên lịch đăng.': 'Automatic video pipeline: script → render → QA → GrabCast storage → scheduled posts.',
     '➕ Job mới': '➕ New job', '📥 Lấy từ hàng đợi': '📥 From queue', '🔄 Tải lại': '🔄 Reload', '⚙️ Cài đặt': '⚙️ Settings', 'Đang tải…': 'Loading…', 'Tự động': 'Auto mode',
     'Chủ đề video (vd: Đừng nói "I\'m agree"):': 'Video topic (e.g. Don\'t say "I\'m agree"):', 'Bài dài (YouTube 16:9)?': 'Long lesson (YouTube 16:9)?',
     'Ý tưởng': 'Idea', 'Kịch bản': 'Script', 'KB đã duyệt': 'Script OK', 'Đang dựng': 'Rendering', 'Chờ chấm': 'Needs QA', 'QA đạt': 'QA passed', 'QA chưa đạt': 'QA failed', 'Đã tải lên': 'Uploaded', 'Đã lên lịch': 'Scheduled', 'Đã đăng': 'Published',
@@ -34,7 +34,7 @@
   const ST = { idea: 'Ý tưởng', script: 'Kịch bản', script_ok: 'KB đã duyệt', rendering: 'Đang dựng', rendered: 'Chờ chấm', qa_ok: 'QA đạt', qa_fail: 'QA chưa đạt', uploaded: 'Đã tải lên', scheduled: 'Đã lên lịch', published: 'Đã đăng' };
   const HUE = { idea: '#94a3b8', script: '#a78bfa', script_ok: '#8b5cf6', rendering: '#f59e0b', rendered: '#eab308', qa_ok: '#22c55e', qa_fail: '#ef4444', uploaded: '#06b6d4', scheduled: '#0ea5e9', published: '#16a34a' };
   const CAST = ['mia', 'leo', 'ama', 'kit', 'diane', 'carlos'], BEATS = ['hook', 'situation', 'explain', 'example', 'tip', 'cta'];
-  const CSS = `.stu-head{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;margin-bottom:1rem}.stu-head h2{margin:0;font-size:1.25rem}.stu-acts{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  const CSS = `.stu-head{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;margin-bottom:1rem}.stu-acts{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
 .stu-sw{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;font-weight:600;cursor:pointer}
 .stu-board{display:grid;grid-template-columns:repeat(10,minmax(150px,1fr));gap:.6rem;overflow-x:auto;padding-bottom:.4rem;margin-bottom:1rem}
 .stu-col{background:var(--surface,#fff);border:1px solid var(--line,#e5e7eb);border-radius:12px;padding:.5rem;min-width:0;border-top:4px solid var(--h)}.stu-col h4{margin:0 0 .4rem;font-size:.8rem;display:flex;justify-content:space-between;gap:.3rem}
@@ -71,9 +71,10 @@
 
     Promise.all([stapi('list'), sapi('GET', 'posts', null, { query: { status: 'scheduled', limit: 50 } }).catch(() => null), stapi('assets').catch(() => null)]).then(([d, posts, as]) => {
       if (my !== gen || !box.isConnected) return;
+      d = { rows: [], statuses: [], counts: {}, done: 0, ...(d || {}) }; d.settings = { manualFirst: 0, ...(d.settings || {}) }; d.configured = d.configured || {}; // API thiếu trường → màn vẫn vẽ (R7), không văng "reading 'render'"
       const st = d.settings, cfg = d.configured, byS = s => d.rows.filter(r => r.status === s);
       const miss = [['GH_DISPATCH_TOKEN', cfg.render, 'chạy video.yml (PAT fine-grained, quyền Actions: write cho repo)'], ['STUDIO_CALLBACK_SECRET', cfg.callback, 'CI gọi lại – đặt cùng giá trị ở Cloudflare Pages và GitHub Actions'], ['GRABCAST_API_KEY', cfg.grabcast, 'đăng bài GrabCast (Pages + GitHub Actions)']].filter(x => !x[1]);
-      box.innerHTML = `<div class="stu-head"><div><h2>${S('🎞️ Video Studio')}</h2><p class="small muted" style="margin:.2rem 0 0">${S('Dây chuyền video tự động: kịch bản → dựng → chấm QA → kho GrabCast → lên lịch đăng.')}</p></div>
+      box.innerHTML = `<div class="stu-head"><div><p class="small muted" style="margin:0">${S('Dây chuyền video tự động: kịch bản → dựng → chấm QA → kho GrabCast → lên lịch đăng.')}</p></div>
         <div class="stu-acts"><label class="stu-sw"><input type="checkbox" id="stuAuto" ${st.auto ? 'checked' : ''}> ${S('Tự động')}</label><span class="pill ${d.done >= st.manualFirst ? 'ok' : 'warn'}">${S('Duyệt tay {d}/{n} video đầu', { d: Math.min(d.done, st.manualFirst), n: st.manualFirst })}</span>
         <button class="btn sm primary" id="stuNew">${S('➕ Job mới')}</button><button class="btn sm" id="stuQueue">${S('📥 Lấy từ hàng đợi')}</button><button class="btn ghost sm" id="stuSet">${S('⚙️ Cài đặt')}</button><button class="btn ghost sm" id="stuReload">${S('🔄 Tải lại')}</button></div></div>
         <p class="small stu-msg" id="stuMsg" role="status" aria-live="polite">${st.auto ? S('Tự động bật: video QA ≥ 90 tự lên lịch (sau {n} video duyệt tay).', { n: st.manualFirst }) : ''}</p>
@@ -88,7 +89,7 @@
       box.querySelector('#stuAuto').onchange = async e => { const on = e.target.checked; if (on && !await LXDialog.confirm(S('Bật chế độ tự động? Kịch bản AI hợp lệ sẽ tự dựng; video QA ≥ 90 tự lên lịch đăng công khai (sau {n} video duyệt tay).', { n: st.manualFirst }))) { e.target.checked = false; return; } try { await stapi('settingsSet', { settings: { auto: on } }); reload(); } catch (x) { e.target.checked = !on; msg(errMsg(x), 1); } };
       box.querySelector('#stuSet').onclick = () => settings(st);
       box.querySelector('.stu-board').onclick = e => { const b = e.target.closest('[data-id]'); if (b) detail(b.dataset.id); };
-    }).catch(e => { if (my === gen) box.innerHTML = `<p class="small stu-bad">✗ ${esc(errMsg(e))}</p>`; });
+    }).catch(e => { if (my !== gen) return; box.innerHTML = `<div class="err-box" role="alert"><span>⚠️ ${esc(errMsg(e))}</span><button type="button" class="btn sm" id="stuRetry">${S('Thử lại')}</button></div>`; box.querySelector('#stuRetry').onclick = reload; }); // lỗi = hộp lỗi chung + Thử lại (như mọi tab)
 
     function cal(rows, posts) {
       const days = Array.from({ length: 7 }, (_, i) => nyDay(Date.now() + i * 864e5)), items = {};

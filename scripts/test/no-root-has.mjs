@@ -11,5 +11,8 @@ const ui = fs.readFileSync('web/js/lesson/ui.js', 'utf8');
 if (/void\s+\w+\.offsetWidth/.test(ui)) fail('web/js/lesson/ui.js: `void x.offsetWidth` ép layout trong lượt chạm – dùng requestAnimationFrame');
 if (/void\s+view\.offsetWidth/.test(fs.readFileSync('web/js/app.js', 'utf8'))) fail('web/js/app.js: route() ép layout bằng `void view.offsetWidth` – khởi động lại hiệu ứng bằng requestAnimationFrame');
 if (!/watchFlags/.test(fs.readFileSync('web/js/ui.js', 'utf8'))) fail('web/js/ui.js: thiếu watchFlags (cờ data-has-*)');
+// 21/11 (Scroll perf main đỏ): ngọn lửa SVG (.st-fl, transform-box:fill-box, vô hạn) tính lại layout MỖI khung khi cuộn (~400 lần, 117–294 ms; --variant noanim → 2 lần). Các tuyến ux1 KHÔNG nạp lazy-ui.css (app.js LZCSS) nên luật tạm dừng ở đó không tới → runtime.js phải tự mang luật tạm dừng khi cuộn.
+const rt = fs.readFileSync('web/js/st/v2/runtime.js', 'utf8');
+if (!/\.lk-scrolling \.st-fl \.fl-mid[^{]*\{[^}]*animation-play-state:\s*paused/.test(rt)) fail('web/js/st/v2/runtime.js: ngọn lửa .st-fl chạy vô hạn mà thiếu `.lk-scrolling … {animation-play-state:paused}` (lazy-ui.css không nạp ở ux1) → layout mỗi khung khi cuộn');
 if (bad) process.exit(1);
 console.log('✓ no-root-has: không còn :has() hậu duệ ở html/body, lesson/ui.js không ép layout bằng offsetWidth');

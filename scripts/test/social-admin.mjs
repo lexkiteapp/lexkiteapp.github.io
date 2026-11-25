@@ -61,7 +61,7 @@ const code = fs.readFileSync(new URL('../../web/js/admin-social-mgr.js', import.
   ok(/min-height:44px/.test(m640) && /\.smg-tc thead\{display:none\}/.test(m640) && /\.smg-chs\{grid-template-columns:1fr\}/.test(m640), 'mobile ≤ 640px: thẻ xếp chồng, bảng → thẻ, chạm ≥ 44px');
   ok(!/\bCSS\.escape\b/.test(code) || !/const CSS = /.test(code), 'không còn hằng CSS che window.CSS (CSS.escape ở deep link duyệt bài từng lỗi)');
   const as = fs.readFileSync(new URL('../../web/js/admin-social.js', import.meta.url), 'utf8');
-  ok(/const TABS = \[\['queue', '🛰️ Autopilot & kênh'\]/.test(as) && /goBoard: id => \{ focusId = id; go\('board'\); \}/.test(as) && /yapi: h\.yapi/.test(as), 'admin-social.js: tab Autopilot & kênh đứng đầu, goBoard + yapi cho bảng Kênh');
+  ok(/const TABS = \[\['queue', 'Autopilot & kênh'\]/.test(as) && /goBoard: id => \{ focusId = id; go\('board'\); \}/.test(as) && /yapi: h\.yapi/.test(as), 'admin-social.js: tab Autopilot & kênh đứng đầu, goBoard + yapi cho bảng Kênh');
 }
 
 const jsdom = (await import('jsdom')).default, now = Date.now(), H = 36e5;
