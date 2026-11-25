@@ -31,6 +31,7 @@ node scripts/test/ci-triage.mjs
 node scripts/test/ci-policy.mjs          # mọi workflow: timeout + concurrency + phạm vi (2/11)
 node scripts/content-qa/gate.mjs     # thư mục content/ mới → content/qa/sources.json
 node scripts/jobs/gen.mjs --write >/dev/null && node scripts/jobs/gen.mjs && node scripts/test/jobs-check.mjs   # workflow có lịch → infra/jobs.json
+git checkout -q -- docs/JOBS.md functions/api/_jobs_reg.js 2>/dev/null || true   # 2 tệp này là bản sinh: CI dựng + bot gen-sync commit, PR không commit (gen-pr-clean)
 # Test liên quan file đã đổi (vài giây – bắt lỗi trước push thay vì chờ CI 30–40 phút). Worktree thiếu node_modules → mượn của checkout chính.
 [[ -d node_modules ]] || { M="$(git worktree list --porcelain | sed -n 's/^worktree //p' | head -1)"; [[ -d "$M/node_modules" ]] && ln -s "$M/node_modules" node_modules; }
 node scripts/test/run-suite.mjs --affected
