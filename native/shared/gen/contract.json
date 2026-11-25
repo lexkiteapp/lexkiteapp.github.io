@@ -482,20 +482,20 @@
       "files": [
         "web/js/data.js",
         "web/js/lib/topics-more.js",
-        "web/js/lib/skills.js",
-        "web/js/lib/awl.js",
+        "web/cpack/lib/skills.js",
+        "web/cpack/lib/awl.js",
         "web/js/lib/ngsl.js",
         "web/js/lib/ngsl2.js",
         "web/js/lib/office.js",
-        "web/js/lib/tsl-a.js",
-        "web/js/lib/tsl-b.js",
+        "web/cpack/lib/tsl-a.js",
+        "web/cpack/lib/tsl-b.js",
         "web/cpack/lib/domain-a.js",
         "web/cpack/lib/domain-b.js",
         "web/cpack/lib/exam-vocab.js",
         "web/cpack/lib/exam-vocab2.js",
         "web/cpack/lib/exam-vocab3.js",
-        "web/js/lib/nawl.js",
-        "web/js/lib/bsl.js"
+        "web/cpack/lib/nawl.js",
+        "web/cpack/lib/bsl.js"
       ],
       "entries": {
         "café": {

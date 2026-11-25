@@ -141,6 +141,9 @@ jobs:
           arch: x86_64
           target: google_apis
           profile: pixel_7
+          ram-size: 4096M   # mặc định 2560M: giả lập bị hệ điều hành giết giữa luồng (24/11: 'device emulator-5554 not found' sau khi hủy Google) – cùng cỡ journey-e2e
+          heap-size: 576M
+          emulator-boot-timeout: 420
           disable-animations: true
           script: |
             adb install -r lexkite.apk
