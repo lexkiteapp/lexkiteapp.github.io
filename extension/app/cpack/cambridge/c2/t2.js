@@ -112,7 +112,7 @@
           { s: "W", t: "You're right, and the panel did say they liked the core idea, which is encouraging." },
         ], items: [
           { n: 1, q: "What does the man think went wrong with the bid?", options: ["The science behind it was weak.", "The plan seemed unrealistic.", "The budget was too high."], a: 1, cue: "they questioned whether we could deliver in three years", explain: "He says the panel did not question the science but whether the team could deliver in three years." },
-          { n: 2, q: "What does the woman say about their approach?", options: ["A more modest proposal would not have passed the first round.", "The panel ignored their main idea.", "They should have asked for more time."], a: 0, cue: "if we'd been modest, we'd never have got past the first round", explain: "She says that a modest bid would not have got past the first round. She also notes that the panel liked the core idea." },
+          { n: 2, q: "What does the woman say about their approach?", options: ["A more modest proposal would not have passed the first round.", "The panel overlooked their experimental design and focused elsewhere.", "They should have reduced the project's scope to fit the timeline."], a: 0, cue: "if we'd been modest, we'd never have got past the first round", explain: "She says that a modest bid would not have got past the first round. She also notes that the panel liked the core idea." },
         ] },
         { speakers: { W: { name: "Woman", accent: "en-GB", gender: "f" } }, script: [
           { say: "Extract two. You hear a ceramic artist talking about her work." },

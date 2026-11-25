@@ -28,7 +28,7 @@
           explain: 'Chủ ngữ chính là "The list" (số ít); cụm "along with ..." không làm đổi số của động từ → "has been posted". "are", "were", "have been" đều là dạng số nhiều.' },
         { n: 111, lv: 'B2', q: 'Kestrel Rail has ------- its weekend timetable to add more late-night departures.', options: ['resolved', 'conducted', 'revised', 'awarded'], a: 2, cue: 'its weekend timetable to add more late-night departures',
           explain: '"revised its timetable" (điều chỉnh lịch chạy) hợp nghĩa với việc thêm chuyến đêm muộn. "resolved" (giải quyết), "conducted" (tiến hành), "awarded" (trao tặng) không đi với "timetable".' },
-        { n: 112, lv: 'B1', q: 'Passengers ------- tickets were purchased online can board through the priority gate.', options: ['who', 'which', 'whom', 'whose'], a: 3, cue: 'tickets were purchased online',
+        { n: 112, lv: 'B1', q: 'Passengers ------- tickets were purchased online can board through the priority gate.', options: ['who', 'which', 'where', 'whom'], a: 3, cue: 'tickets were purchased online',
           explain: 'Quan hệ sở hữu (vé của hành khách) đứng trước danh từ "tickets" → "whose". "who" và "whom" không đứng trước danh từ để chỉ sở hữu; "which" dùng cho vật, không thay cho người.' },
         { n: 113, lv: 'B1', q: 'The new mobile app allows riders to ------- their bus arrival times in real time.', options: ['declare', 'submit', 'argue', 'track'], a: 3, cue: 'their bus arrival times in real time',
           explain: '"track arrival times in real time" (theo dõi giờ xe đến theo thời gian thực) hợp ngữ cảnh ứng dụng di động. "declare" (tuyên bố), "submit" (nộp), "argue" (tranh cãi) không hợp nghĩa.' },
@@ -571,8 +571,8 @@ Elias Varga`,
               explain: 'Thư mời ông làm diễn giả chính (keynote); chương trình ghi "8:00 P.M. Keynote address" → ông phát biểu lúc 8 giờ tối. 7:00 là bữa tối, 7:45 là sinh viên phát biểu, 8:20 là đấu giá trực tiếp.' },
             { n: 199, lv: 'B2', q: 'What does Mr. Varga offer to do?', options: ['Sponsor the silent auction', 'Match donations made at the dinner', 'Hire a graduating student', 'Provide transportation for guests'], a: 1, cue: 'My firm would like to match donations made at the dinner up to $10,000',
               explain: 'Ông viết "My firm would like to match donations made at the dinner up to $10,000" → công ty ông đề nghị đóng góp tương ứng với tiền quyên góp tại buổi tiệc. Ông không nhắc tài trợ đấu giá, tuyển sinh viên hay đưa đón khách.' },
-            { n: 200, lv: 'C1', q: 'What is suggested about Mr. Varga\'s e-mail?', options: ['It was sent to the wrong person.', 'It declines the invitation.', 'It was written after the event.', 'It was sent before the requested deadline.'], a: 3, cue: 'Please let me know by April 1 if you can join us.',
-              explain: 'Thư mời đề nghị trả lời trước 1/4 ("Please let me know by April 1"), còn e-mail của ông Varga đề ngày 12/3 → gửi trước hạn. Ông gửi đúng cho bà Reyes, chấp nhận (không từ chối) lời mời, và buổi tiệc diễn ra ngày 17/5, sau đó.' }
+            { n: 200, lv: 'C1', q: 'What is suggested about Mr. Varga\'s e-mail?', options: ['It was addressed to a different department.', 'It refuses to attend the dinner.', 'It was composed after the dinner date.', 'It was sent before the requested deadline.'], a: 3, cue: 'Please let me know by April 1 if you can join us.',
+              explain: 'Thư mời yêu cầu trả lời trước ngày 1/4, còn email của ông Varga gửi ngày 12/3, nên đáp án D đúng vì email được gửi trước hạn. Email không gửi cho người sai, không từ chối lời mời và cũng không viết sau sự kiện, vì vậy các lựa chọn A, B, C sai.' }
           ] } ] }
       ] }
   ] });
