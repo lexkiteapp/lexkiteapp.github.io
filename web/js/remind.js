@@ -385,7 +385,7 @@
   const firstWin = () => {
     if (OFF || ls.get('lk.fw', '')) return;
     const days = Object.keys((state.game && state.game.days) || {}).concat(Object.keys(state.stats.days || {})).filter(k => k !== todayKey());
-    ls.set('lk.fw', days.length ? 'old' : todayKey()); if (!days.length) hab('first_win');
+    ls.set('lk.fw', days.length ? 'old' : todayKey()); if (!days.length) { hab('first_win'); dispatchEvent(new Event('lexkite:first-win')); }
   };
   const fwBack = () => { const d = ls.get('lk.fw', ''); if (OFF || !/^\d{4}-\d\d-\d\d$/.test(d)) return; const n = Math.round((dayN(todayKey()) - dayN(d)) / DAY); for (const k of [1, 7]) if (n === k && !ls.get('lk.fw' + k, 0)) { ls.set('lk.fw' + k, 1); hab('fw_d' + k); } };
   let doneOnce = false, mo = null;

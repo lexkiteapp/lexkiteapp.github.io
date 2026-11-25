@@ -73,6 +73,17 @@ if (UI && UI.toast) {
   await sleep(2500); ok(!T.classList.contains('show'), 'toast: tự ẩn lại');
   d.getElementById('modal').hidden = false; UI.toast('Sau hộp thoại', 300); ok(!T.classList.contains('show'), 'toast: hộp thoại mở → xếp hàng, không đè');
   d.getElementById('modal').hidden = true; await sleep(400); ok(T.textContent === 'Sau hộp thoại' && T.classList.contains('show'), 'toast: đóng hộp thoại → hiện hàng chờ');
+  // 24/11: toast «Huy hiệu mới» đè nút «Học tiếp»/«Học thông minh» (390 px, tóm tắt Ôn tập): nút dịch xuống dưới toast SAU khi toast đã hiện (cuộn/hiệu ứng vào, không đổi DOM) → phải đặt lại chỗ khi cuộn/đổi cỡ
+  await sleep(2600); UI.toast('Huy hiệu mới', 4000); await sleep(300);
+  Object.defineProperty(w, 'innerHeight', { value: 800, configurable: true }); Object.defineProperty(w, 'innerWidth', { value: 390, configurable: true });
+  for (const [k, v] of [['offsetHeight', 48], ['offsetWidth', 200], ['offsetTop', 724]]) Object.defineProperty(T, k, { value: v, configurable: true });
+  const btn = d.querySelector('#view a.btn'); let R = { top: 100, bottom: 144 };
+  btn.getBoundingClientRect = () => ({ ...R, left: 20, right: 370, width: 350, height: 44 });
+  w.dispatchEvent(new w.Event('scroll')); await sleep(60); // lúc này nút còn xa toast
+  const clear = () => { if (!T.classList.contains('show')) return true; const b = T.dataset.at === 'top' ? null : +(T.dataset.at || 28); if (b === null) return true; return !(800 - b - 48 < R.bottom && 800 - b > R.top); };
+  ok(T.classList.contains('show'), 'toast: nút ở xa → toast vẫn hiện');
+  R = { top: 700, bottom: 744 }; w.dispatchEvent(new w.Event('scroll')); await sleep(80);
+  ok(clear(), 'toast: nút dịch xuống dưới toast khi cuộn → toast né/ẩn, KHÔNG đè nút hành động chính');
 }
 const css = rd('web/css/style.css');
 ok(/\.toast\s*\{[^}]*pointer-events:\s*none[^}]*safe-area-inset-bottom|\.toast\s*\{[^}]*safe-area-inset-bottom[^}]*pointer-events:\s*none/.test(css), 'CSS: toast tính safe-area + không chặn chạm');
