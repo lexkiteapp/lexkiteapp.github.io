@@ -6,6 +6,10 @@
 ## Khuôn (spec duy nhất)
 Mọi khuôn là một hàm `T_<khuôn>` trong `build.py` dùng chung `Card` / `title` / `end_card` / cổng qc; KHÔNG có dây chuyền riêng. Khuôn + pilot + điểm: slang (t2s_ace), l1 (t2_l1_vi_a_little; ar/ja: t2_l1_ar_afraidfrom, t2_l1_ja_agree), scorecard (t2sc_001) đã đạt viral/ypp 100 short+wide; guess3, levels3, call, dictation, grammar, guess, level, mistake, native, pair, pattern, phrasal, prep, react, review, stress, toeic, usuk, verbs, band, roots, rule: pilot trong batch CI `v3-all-templates` (kết quả ghi bên dưới khi xong). news/cine/motion-drill là engine khác (docs/VIDEO.md): dùng cùng `viral_score`/`ypp` khi cắm vào, chưa gộp trong đợt này.
 
+## Giới hạn đã biết (backlog có kích thước)
+- **Không có cử chỉ tay khi nói.** Rig 2D (`web/js/teacher-rig.js`) chỉ có đầu/cổ/mặt; "tay" chỉ tồn tại trong các ảnh tư thế (pose still) thay cả khuôn mặt nên che miệng, và cổng `lipsync_rig` cấm pose khi đang nói. Hiện chỉ có: pose trong khoảng lặng ≥ 1,2 s, nét mặt đổi mỗi nhịp, gật/lắc đầu, và nhún/nghiêng/thở của cả thân quanh đỉnh đầu (`HostBody`). Muốn cử chỉ tay thật: thêm LAYER TAY vào rig (cánh tay + bàn tay tách khỏi mặt, vài tư thế point/explain/count, vẽ dưới khuôn mặt, không chạm vùng miệng) – việc cỡ L: vẽ + khớp lại geometry mọi nhân vật (ama/carlos) + mở rộng `lipsync_gate` (tay không chồng miệng) + render lại bank. Chưa làm.
+- Mắt chấm 3 pilot (xem `research/video-audit-2411.md`) vẫn là thước cuối; cổng số chỉ bắt được các lỗi đã đo (nền trống, chữ nhỏ, đứng im theo khung, CTA…).
+
 ## Lấy mẫu chấm mắt (CI)
 Video ĐẦU TIÊN của mỗi cặp khuôn × ngôn ngữ trang, sau đó cứ 20 video của cặp đó thì chấm 1 (`autopub_gate.review_due`). Agent Sonnet đọc ảnh ghép 8 khung (artifact `tv-review`, rubric MEDIA-QA-RUBRIC thang C) và ghi `content/video/teach2d/review-log.json` `{ep: {score, by, at}}`; thiếu bản ghi hoặc <90 → lý do `review:first|every20`, video không đăng (store.py). Mọi video còn lại đã bị cổng số chặn <90 (qc) / <95 (viral_score) / ypp.
 
@@ -29,6 +33,7 @@ Schema máy kiểm: `scripts/video/teach2d/script_schema.py` (test `teach2d-scri
 | `caption_full` | có dải phụ đề trong safe-box mọi khổ; mọi từ của mọi câu nằm trong trang phụ đề (không cắt lửng) |
 | `caption_sync` | chạy cả wide (trước chỉ short) |
 | `layout_fill` | ≤ 50 % safe-box trống ở mọi khoảnh khắc 0,25 s (cho phép ≤ 10 % khoảnh khắc: chuyển cảnh) |
+| `host_motion` / `teacher_size` / `caption_size` / `frame_variety` / `pulse_events` | thân nhún+nghiêng mỗi nhịp; thân ≥740 px (bản dọc); phụ đề ≥64 px; ≤35 % cửa sổ 1 s gần đứng yên; flash nền ở nhịp thưởng (đáp án / điểm / end card) |
 | `dead_band` | dải phẳng ≥ 8 % chiều cao (giữ nguyên) |
 | `viral_score` ≥ 95 | 7 tiêu chí in riêng trong QC (trọng số): hook 20 (nói xong ≤ 1,5 s, ≤ 6 từ, pop khung 0), giữ người xem 20 (nhịp hình ≤ 5 s, có câu hỏi mở + phần thưởng), giá trị học 15 (từ khoá nói + hiện + ví dụ + hành động), giọng 10 (≤ 150 wpm), biến hoá 15 (looks ≥ beats, ≥ 4 loại phần tử, ≥ 3 thẻ), tiêu đề/thumbnail 10, CTA 10 |
 | `ypp` | không gần trùng kịch bản (Jaccard 3-từ < 0,55 cùng ngôn ngữ, gồm cả dữ kiện hiện hình); có giá trị giáo dục riêng; cờ tổng hợp/AI = true và made-for-kids = false (content/video/teach2d/ypp.json – upload phải gửi); nhạc/giọng/giáo viên ∈ registry (nhạc tự tổng hợp, Kokoro, rig 2D), không footage ngoài |

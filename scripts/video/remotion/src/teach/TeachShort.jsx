@@ -255,13 +255,15 @@ function Captions({ caps, box, t, T, size = 58 }) {
     </div>);
 }
 
-export const TeachShort = ({ nodes = [], caps = [], capBox = null, capSize = 58, host = null, theme = 'dark', tint = null, canvas = 0, audio = null, w = 1080, h = 1920 }) => {
+export const TeachShort = ({ nodes = [], caps = [], capBox = null, capSize = 58, pulses = [], host = null, theme = 'dark', tint = null, canvas = 0, audio = null, w = 1080, h = 1920 }) => {
   useFonts();
   const f = useCurrentFrame(), { fps } = useVideoConfig(), t = f / fps, T = THEMES[theme] || THEMES.dark;
   const kids = {}; for (const n of nodes) if (n.parent) (kids[n.parent] = kids[n.parent] || []).push(n);
   return (
     <AbsoluteFill>
       <Canvas T={T} w={w} h={h} tint={tint} v={canvas} t={t} />
+      {pulses.map((p, i) => { const tau = t - p.t; if (tau < 0 || tau > 0.9) return null;   // v3 reward flash: the canvas lights up (green = right answer / score, primary = end card) for 0.9 s, so the answer and CTA frames differ from the question frames
+        return <AbsoluteFill key={i} style={{ background: `radial-gradient(circle at 50% 45%, ${p.kind === 'good' ? '#2FBF71' : T.primary} 0%, transparent 72%)`, opacity: 0.38 * Math.sin(Math.PI * tau / 0.9) }} />; })}
       {host ? <Host host={host} f={f} T={T} /> : null}
       {audio ? <Audio src={staticFile(audio)} /> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} T={T} />)}</AbsoluteFill>

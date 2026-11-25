@@ -39,9 +39,10 @@ e3 = dict(EPL, publish=dict(EPL['publish'], value='short')); assert not V.ypp(T,
 # registry == what the engine really uses
 mix = open(f'{ROOT}/scripts/video/teach2d/mix.py').read(); assert json.loads(re.search(r"music=(\[[^\]]*\])", mix).group(1).replace("'", '"')) == pol['music'], 'ypp.json music == mix.py music'
 ppl = json.load(open(f'{ROOT}/web/teach/characters.json'))['people']; assert sorted(pol['teachers']) == sorted(ppl) and sorted(pol['voices']) == sorted(p['voice']['video'] for p in ppl.values()), 'ypp.json teachers / voices == characters.json'
-q = open(f'{ROOT}/scripts/video/teach2d/qc.py').read(); assert "gate('viral_score'" in q and "gate('ypp'" in q and "gate('native_script'" in q and all(f"gate('{g}'" in q for g in ('host_motion', 'caption_size', 'frame_variety', 'teacher_size'))
+q = open(f'{ROOT}/scripts/video/teach2d/qc.py').read(); assert "gate('viral_score'" in q and "gate('ypp'" in q and "gate('native_script'" in q and all(f"gate('{g}'" in q for g in ('host_motion', 'caption_size', 'frame_variety', 'teacher_size', 'pulse_events'))
 jsx = open(f'{ROOT}/scripts/video/remotion/src/teach/TeachShort.jsx').read(); bld = open(f'{ROOT}/scripts/video/teach2d/build.py').read()
 assert 'function HostBody' in jsx and 'host.motion' in jsx and 'size = 58' in jsx and 'capSize' in jsx, 'TeachShort: body motion per beat + caption size prop'
+assert 'pulses' in jsx and 'PULSES.append' in bld and 'PULSES.extend' in bld and 'pulses=PULSES' in bld, 'reward-beat canvas pulses (quiz answer / score / end card)'
 assert re.search(r"HM = dict\(scale=0\.05, rot=2\.4, bob=6", bld) and "S['cap'] = 66" in bld and 'cap_size=S' in bld, 'build.py: motion numbers (>= the qc gate floors) + caption size 66 in the timeline'
 
 # news / cine lessons: same gates on the lesson spec (qc_gate.py wires them)

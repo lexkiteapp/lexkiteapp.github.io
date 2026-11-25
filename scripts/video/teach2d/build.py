@@ -141,7 +141,7 @@ def end(lid): return LINES[lid]['words'][-1]['e']
 
 
 # ---------------- nodes ----------------
-NODES = []; CUES = []; IPA = []; PAIRS = []; SLOTS = []
+NODES = []; CUES = []; IPA = []; PAIRS = []; SLOTS = []; PULSES = []   # PULSES: colour flashes on the canvas at the reward beats (quiz answer, score, end card) – frames never repeat (eye review: quiz / CTA frames looked the same)
 
 
 _ID = [0]
@@ -307,7 +307,7 @@ def end_card():
     c.add(dict(type='cta', lines=[label], size=S['body'], box=[PAD, 0, PAD + c.inner, 0], **{'in': cue(t_btn)}), 118)
     q = 190 if EMBED or RY1 - RY0 < 800 else 220; c.add(dict(type='img', src='qr.png', radius=24, box=[PAD + (c.inner - q) / 2, 0, PAD + (c.inner + q) / 2, 0], **{'in': cue(t_btn + 0.1)}), q, gap=14)
     c.text([['lexkite.com', 'muted']], S['sub'], t_btn + 0.2, align='c')
-    c.place(t_in, None, 'a')
+    c.place(t_in, None, 'a'); PULSES.extend([dict(t=round(t_in, 3), kind='cta'), dict(t=round(t_in + 1.2, 3), kind='cta')])
 
 
 def save_card(rows, t_in, t_out):
@@ -319,7 +319,7 @@ def save_card(rows, t_in, t_out):
 def quiz_card(stem_runs, opts, right, t_q, t_ans, t_out, opt_ws=None):
     c = Card(RY0); chip(c, 'QUICK QUIZ', t_q)
     if stem_runs: c.text(stem_runs, S['body'], t_q)
-    pills(c, opts, t_q, t_ans, right, opt_ws)
+    pills(c, opts, t_q, t_ans, right, opt_ws); PULSES.append(dict(t=round(t_ans, 3), kind='good'))
     b = c.place(t_q, t_out, 'a'); ring(b, end('q') + 0.05, end('q') + LINES['q']['pause'] - 0.1)
 
 
@@ -909,7 +909,7 @@ def T_scorecard():
         n_cues = len(CUES); c = sheet(sz)
         if c.y - GAP + PAD + LEDGE <= RY1 - RY0 - 4: break
         del CUES[n_cues:]
-    c.place(t_k, t_ch - 0.3, 'a')
+    c.place(t_k, t_ch - 0.3, 'a'); PULSES.append(dict(t=round(t_sc, 3), kind='good'))
     c = Card(RY0); chip(c, 'YOUR TURN', t_ch); c.text([[('Match ' if s == 100 else 'Beat '), 'ink'], [f'{s}/100', 'coral'], ['?', 'ink']], S['big'], t_ch, align='c')
     c.text([['Take the free level test', 'muted']], S['sub'], at('ch', 'Take'), align='c'); c.place(t_ch, t_c - 0.3, 'a')
     end_card()   # v3: the scorecard closed with an empty frame (audit 24/11 #2)
@@ -1163,14 +1163,14 @@ if EP['template'] in ('guess', 'guess3'):   # picture from content/lexicon/img.j
     from PIL import Image as _I; _I.open(raw_).convert('RGBA').save(f'{o.public}/pic.png'); os.remove(raw_)
 
 # ---------------- props + QC timeline ----------------
-props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, canvas=int(MIX.get('canvas', 0)), layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], capSize=S['cap'], host=HOST, audio='voice.wav')
+props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, canvas=int(MIX.get('canvas', 0)), layout=LAYOUT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], capSize=S['cap'], pulses=PULSES, host=HOST, audio='voice.wav')
 json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, nf=NF, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
                lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause'],
                               quiz=bool(v.get('quiz')), repeat=bool(v.get('repeat'))) for k, v in LINES.items()},
                host='rig' if RIG else 'registry', rig=dict(frames=f'{o.host}/rig.frames.json', vo=o.vo) if RIG else None, pose=EP.get('pose'), expr=EP.get('expr'), exprs=EP.get('exprs'), mix=MIX or None,
                speech=SPEECH, segs=SEG, host_xfade=HOST['xfade'], host_len=LEN, head=[round(v, 1) for v in HEAD], body=[round(v, 1) for v in BODY], cues=CUES, ipa=IPA, slots=SLOTS, sfx=SFX, vtt=VTT,
-               voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], cta=EP['cta'], nodes=NODES, caps=CAPS, cap_size=S['cap'], host_motion=dict(HOST.get('motion') or {}, beats=len(HOST.get('beats') or []))),
+               voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], cta=EP['cta'], nodes=NODES, caps=CAPS, cap_size=S['cap'], pulses=PULSES, host_motion=dict(HOST.get('motion') or {}, beats=len(HOST.get('beats') or []))),
           open(o.out + '.timeline.json', 'w'), indent=0)
 if EMBED:   # captions + chapters as WebVTT (translatable, one cue per line)
     ts = lambda x: f'{int(x // 3600):02d}:{int(x % 3600 // 60):02d}:{x % 60:06.3f}'
