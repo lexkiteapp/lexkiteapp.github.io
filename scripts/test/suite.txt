@@ -224,6 +224,7 @@ node scripts/test/i18n-switch.mjs web
 ! node scripts/test/a11y.js web 2>/dev/null | grep -q NOLABEL
 node scripts/test/explain-check.mjs
 node scripts/test/size-budget.mjs
+node scripts/test/budget-shape.mjs
 node scripts/test/js-budget.mjs
 node scripts/test/readtest-dedupe.mjs
 node scripts/test/shell-size.mjs
