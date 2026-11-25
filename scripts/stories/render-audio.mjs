@@ -5,6 +5,7 @@
 // Khóa file = st-<id>-<chương>-<băm giọng+chữ>: đổi chữ là tự có file mới, CDN đệm lâu không phát nhầm bản cũ. Trạng thái: scripts/stories/audio-state.json.
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module';
 import { loadKokoro, SR } from '../word-audio/kokoro.mjs';
+import { isMain } from '../lib/is-main.mjs';
 export const STATE = 'scripts/stories/audio-state.json', DIR = 'content/stories', MAX_WPM = 150;
 export const SPEED = { A1: 0.8, A2: 0.85, B1: 0.9, B2: 0.95, C1: 1 }, VOICE = { ama: 'af_heart', carlos: 'am_michael', narrator: 'af_heart' };
 export const voiceOf = (x, s) => VOICE[(x.kind === 'podcast' && x.speakers && x.speakers[s.who]) || 'narrator'] || VOICE.narrator;
@@ -16,7 +17,7 @@ export function todo(state = readState()) {
   const jobs = []; for (const x of loadAll()) x.chapters.forEach((_, ci) => { const key = chapterKey(x, ci); if (!(state[x.id] && state[x.id][ci] && state[x.id][ci].key === key)) jobs.push({ x, ci, key }); });
   return jobs;
 }
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (isMain(import.meta.url)) {
   const A = process.argv, opt = (k, d) => { const i = A.indexOf('--' + k); return i > 0 ? A[i + 1] : d; };
   const [si, sn] = opt('shard', '0/1').split('/').map(Number), OUT = opt('out', '.media-out/audio/l'), RES = opt('res', '.st-res');
   const jobs = todo().filter((_, i) => i % sn === si);
