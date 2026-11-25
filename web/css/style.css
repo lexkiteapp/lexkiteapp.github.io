@@ -1482,6 +1482,8 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
 /* kiểm toán 18/11 (lesson-perf): cờ data-has-* do ui.js đặt thay cho :has() gốc html/body – mỗi lần DOM đổi, :has() gốc buộc tính lại style cả cây (~25 % thời gian luồng chính của 1 bài học ở CPU 4×) */
 /* P0 kiểm toán 18/11: hàng nút chép chính tả ở 390 px – Câu trước/Câu sau chia đều dòng sau (nút Nghe chiếm cả dòng ở lazy-ui.css) */
 @media (max-width: 480px) { .q-card .row.center #dPrev, .q-card .row.center #dNext { flex: 1 1 0; min-width: 0; } }
+/* Ngày học (#/day/N), tối: sao trong viên XP vẽ #10302f trên nền viên #1d2f33 (tương phản 1,01 – vqa icon-invisible); mẫu Stitch giữ nguyên, ghi đè đúng sao đó bằng màu chữ tiêu đề */
+:root:not([data-theme=light]) .v2s-day .dk\:bg-\[\#1d2f33\]>.material-symbols-outlined.dk\:text-\[\#10302f\],:root[data-theme=dark] .v2s-day .dk\:bg-\[\#1d2f33\]>.material-symbols-outlined.dk\:text-\[\#10302f\]{color:var(--heading)}
 /* scroll-perf (22/11): ngọn lửa chuỗi (st-fl, runtime.js) lay bằng transform trên <path> con của SVG = KHÔNG lên lớp ghép (compositor) → mỗi khung hình tính lại bố cục SVG (layout 393 lần/389 khung ở #/train, #/me, #/library… vì ngọn lửa nằm trên thanh trên cố định). Lay cả ngọn (transform trên chính <svg>, phần tử HTML → compositor) thay hai path con: cùng nhịp 1,6 s, cùng biên độ, 0 layout khi cuộn */
 @media (prefers-reduced-motion: no-preference) {
   .st-fl[data-fl=active] .fl-mid, .st-fl[data-fl=milestone] .fl-mid, .st-fl[data-fl=active] .fl-core, .st-fl[data-fl=milestone] .fl-core { animation: none !important; }

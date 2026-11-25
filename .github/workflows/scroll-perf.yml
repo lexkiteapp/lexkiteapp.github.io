@@ -10,12 +10,16 @@ on:
     branches: [main, 'scroll-perf-*']
     paths: ['web/js/**', 'web/css/**', 'web/app/**', 'scripts/test/scroll-perf.mjs', 'scripts/test/scroll-perf.budget.json', '.github/workflows/scroll-perf.yml']
   workflow_dispatch:
+    inputs:
+      variant: { description: 'A/B (noblur|noshadow|nocv|noanim|nofilter) – chỉ để tìm gốc, không dùng cho cổng', default: '' }
+      only: { description: 'chỉ đo các màn này (phẩy), vd practice,library,me', default: '' }
+      stacks: { description: '1 = ghi stack cho Layout (layoutAt)', default: '' }
 permissions:
   contents: read
   actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
   checks: read
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}${{ inputs.variant && format('-{0}', inputs.variant) }}${{ inputs.stacks && '-stacks' }}
   cancel-in-progress: ${{ github.event_name != 'push' && github.event_name != 'workflow_dispatch' }}
 jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
@@ -77,7 +81,13 @@ jobs:
       - name: Chặn lexkite.com (0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Đo cuộn ${{ matrix.device }}
-        run: node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --themes ${{ matrix.theme }} --out sp-out --check
+        env:
+          SP_VARIANT: ${{ inputs.variant }}
+          SP_ONLY: ${{ inputs.only }}
+          SP_STACKS: ${{ inputs.stacks }}
+        run: |
+          SP_ARGS=''; [ -n "$SP_VARIANT" ] && SP_ARGS="$SP_ARGS --variant $SP_VARIANT"; [ -n "$SP_ONLY" ] && SP_ARGS="$SP_ARGS --only $SP_ONLY"; [ -n "$SP_STACKS" ] && SP_ARGS="$SP_ARGS --stacks"
+          node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --themes ${{ matrix.theme }} --out sp-out --check $SP_ARGS
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with: { name: 'scroll-perf-${{ matrix.device }}-${{ matrix.theme }}', path: sp-out, retention-days: 14 }

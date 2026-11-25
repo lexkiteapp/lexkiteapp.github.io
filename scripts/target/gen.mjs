@@ -71,17 +71,19 @@ const SYS = {
   lxjudge: `Back-translation check. For each item k you get a ${G.short} word with its English gloss and glosses in other languages. Translate EACH non-English gloss back to English literally, then decide if it means the same as the English gloss for that sense. Return ONE JSON object keyed by each item's k: {"<k>": {"bt": {lang: english}, "same": {lang: true|false}}, …}.`,
 };
 // lexai: 0 – /api/lexai có chế độ CÙNG TÊN (lxgen/lxjudge/lxaudit) với lời nhắc kho tiếng Anh ở máy chủ → không bao giờ đi tuyến đó (như scripts/factory/lib.mjs)
-const AI = createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: (req.sys || SYS[req.mode]) + '\nReply with ONE valid JSON object only, no markdown.', user: JSON.stringify(req.items), temp: 0.1 }) });
+const AI = createPool({ budget: { lexai: 0, cf2: +(process.env.AI_POOL_CF2_NEURONS || 0) }, prompt: req => ({ sys: (req.sys || SYS[req.mode]) + '\nReply with ONE valid JSON object only, no markdown.', user: JSON.stringify(req.items), temp: 0.1 }) });
+let poolStop = ''; // lý do dừng vì ai-pool (đo yield/lượt)
 const accepted = [...prev], rejected = [], seen = new Set(have); let fixedN = 0;
 // Hạn mức miễn phí theo PHÚT (Gemini 429 cả 16 khoá khi nhiều shard cùng chạy – run 44982384784: shard dừng sau 40/300) → chờ rồi thử lại
 // thay vì bỏ cả lượt; vẫn không tuyến nào sau ~15 phút = hết hạn mức ngày → dừng, lượt sau nối tiếp. Không đổi cổng/ngưỡng.
-const WAITS = (process.env.GEN_WAITS || '60,120,240,480').split(',').map(Number);
+const WAITS = (process.env.GEN_WAITS || '60,120,240,480,900').split(',').map(Number);
 // Chia hạn mức ai-pool với phiên fr/ja (điều phối 22/11): SOẠN/sửa chỉ qua Groq (groq → gc-groq), Gemini để CHẤM; mỗi lượt dùng ≤ GEM_MAX lượt gọi
 // Gemini (chia đều theo shard; mặc định 150 ≈ ½ phần còn lại sau mốc đặt lại 08:00 UTC) – hết phần → ghi lô đã nhận, lượt sau nối tiếp.
-const GEN_CHAIN = ['groq', 'gc-groq'], GEM_MAX = Math.floor((+process.env.AI_GEM_MAX || 150) / SN);
+const GEN_CHAIN = ['groq', 'gc-groq', ...(+(process.env.AI_POOL_CF2_NEURONS || 0) > 0 ? ['cf2'] : [])], // cf2 = Workers AI kho CF_POOL (30/10 gpt-oss-120b/llama-3.3): dự phòng khi Groq/Gemini cùng cầu dao 429 (run 45574279256: 6/300 từ)
+   GEM_MAX = Math.floor((+process.env.AI_GEM_MAX || 150) / SN);
 const gemUsed = () => { const by = (AI.stats ? AI.stats().by : {}) || {}; return Object.entries(by).filter(([k]) => k.startsWith('gem|')).reduce((n, [, v]) => n + v.ok + v.fail + v.bad, 0); };
 // chờ không vượt hạn giờ lượt (run 45004140024: shard bị huỷ ở 150 phút vì chờ)
-async function patient(fn, what) { for (let t = 0; ; t++) { const r = await fn(); if (r || t >= WAITS.length || Date.now() - T0 + WAITS[t] * 1000 > MAX_MS) return r; console.log(`ai-pool: thiếu tuyến ${what} → chờ ${WAITS[t]} s rồi thử lại (${t + 1}/${WAITS.length})`); await new Promise(z => setTimeout(z, WAITS[t] * 1000)); } }
+async function patient(fn, what) { for (let t = 0; ; t++) { const r = await fn(); if (r || t >= WAITS.length || Date.now() - T0 + WAITS[t] * 1000 > MAX_MS) return r; const w = Math.min(Math.max(WAITS[t] * 1000, AI.nextReadyMs ? AI.nextReadyMs() + 1000 : 0), 35 * 60e3); /* lùi theo cầu dao/Retry-After thật (≤ 35 phút), không chờ mù */ console.log(`ai-pool: thiếu tuyến ${what} → chờ ${Math.round(w / 1000)} s rồi thử lại (${t + 1}/${WAITS.length})`); await new Promise(z => setTimeout(z, w)); } }
 // lấy trường người soạn trả theo bảng: es/fr/pt giữ đúng hình cũ (gender + plural chỉ danh từ, h); trường riêng tl (ja kana…, ko conj/topik/hanja/pronX) theo FIELDS;
 // trường SINH từ chữ (ko pron/romaja/ipa) do derive() ghi đè – lệch giữ ở qa.<trường>Ai
 const NOG = (TL_RULES[TL] || {}).noGender, XTRA = FIELDS.filter(k => !['word', 'pos', 'gender', 'plural', 'h', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa'].includes(k));
@@ -90,8 +92,8 @@ const pick = (e, hint) => { const o = derive({ word: e.word, pos: e.pos, ...(e.p
 for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   if (Date.now() - T0 > MAX_MS) { console.log('hết giờ lượt → ghi lô đã nhận (lượt sau nối tiếp)'); break; }
   const items = await fillQ(BATCH); if (!items.length) { console.log('hết ứng viên'); break; }
-  if (gemUsed() >= GEM_MAX) { console.log(`ai-pool: đã dùng ${gemUsed()}/${GEM_MAX} lượt Gemini phần es → ghi lô (chừa hạn mức cho fr/ja)`); break; }
-  const g = await patient(() => AI.gen({ mode: 'lxgen', items }, { chain: GEN_CHAIN }), 'soạn'); if (!g) { console.log('ai-pool: hết tuyến soạn sau khi chờ → dừng (lượt sau làm tiếp)'); break; }
+  if (gemUsed() >= GEM_MAX) { poolStop = 'phần Gemini'; console.log(`ai-pool: đã dùng ${gemUsed()}/${GEM_MAX} lượt Gemini phần es → ghi lô (chừa hạn mức cho fr/ja)`); break; }
+  const g = await patient(() => AI.gen({ mode: 'lxgen', items }, { chain: GEN_CHAIN }), 'soạn'); if (!g) { poolStop = 'soạn'; console.log('ai-pool: hết tuyến soạn sau khi chờ → dừng (lượt sau làm tiếp)'); break; }
   const draft = items.map(it => ({ it, e: g.out[it.k] })).filter(({ it, e }) => { if (!e || e.skip) { rejected.push({ form: it.form, why: e ? 'skip: ' + e.skip : 'không trả' }); return false; } return true; })
     .map(({ it, e }) => ({ k: it.k, hint: it.hint, e: { ...pick(e, it.hint), rank: it.rank } }));
   for (const it of items) tried.add(it.form.toLowerCase());
@@ -123,7 +125,7 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   }
   const take = (list, qa) => { for (const { d, qa: q } of list) { const key = String(d.e.word || '').toLowerCase(); if (seen.has(key)) continue; seen.add(key); accepted.push({ ...d.e, qa: { gen: g.model, ...q, ...qa } }); } };
   const r1 = await patient(() => grade([...draft]), 'giám khảo');
-  if (!r1) { console.log('ai-pool: thiếu giám khảo khác họ → không xuất lô này (lượt sau chấm lại)'); break; }
+  if (!r1) { poolStop = 'giám khảo'; console.log('ai-pool: thiếu giám khảo khác họ → không xuất lô này (lượt sau chấm lại)'); break; }
   take(r1.ok);
   // Một vòng SỬA có lý do (như người biên tập đọc phiếu chấm): mục trượt vì nghĩa/IPA/ví dụ/LanguageTool → người soạn sửa đúng chỗ bị chê → chấm LẠI ĐỦ cổng
   // với giám khảo khác họ cả người soạn lẫn người sửa. Không nới ngưỡng; trượt lần 2 = loại. Trùng lemma / chưa chấm (không trả) không sửa.
@@ -146,9 +148,13 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
 const fresh = accepted.slice(prev.length), spotN = Math.max(1, Math.ceil(fresh.length * 0.05));
 for (const w of [...fresh].sort(() => Math.random() - 0.5).slice(0, spotN)) w.qa.spot = true;
 const deck = { v: 1, tl: TL, variant: G.variant, status: 'pending-review', source: SOURCE, words: fresh };
+const yld = { accepted: fresh.length, rejected: rejected.length, tried: tried.size, stop: poolStop || null, perCall: AI.stats ? +(fresh.length / Math.max(1, Object.values(AI.stats().by || {}).reduce((n, v) => n + v.ok + v.fail + v.bad, 0))).toFixed(3) : null };
+console.log('yield/lượt:', JSON.stringify(yld));
+if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `**gen ${TL} shard ${SK}/${SN}**: nhận ${yld.accepted}, loại ${yld.rejected}, thử ${yld.tried}${yld.stop ? ', dừng vì ai-pool: ' + yld.stop : ''}\n`);
+if (!fresh.length && poolStop) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(repFile, JSON.stringify({ at: new Date().toISOString(), accepted: 0, rejected, tried: [...tried], yield: yld, stats: AI.stats ? AI.stats() : null }, null, 1) + '\n'); console.log(`⏸ 0 mục vì ai-pool hết tuyến (${poolStop}) – không phải lỗi cổng; lượt sau nối tiếp`); process.exit(0); } // đỏ 'words rỗng' làm lẫn với lỗi chất lượng
 const err = validate(deck); if (err.length) { console.error('✗ cổng cả bộ:', err.slice(0, 10)); process.exit(1); }
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(outFile, JSON.stringify(deck, null, 1) + '\n');
-fs.writeFileSync(repFile, JSON.stringify({ at: new Date().toISOString(), accepted: fresh.length, rejected, tried: [...tried], spot: fresh.filter(w => w.qa.spot).map(w => w.word), fixed: fixedN, skipped, gem: gemUsed(), stats: AI.stats ? AI.stats() : null }, null, 1) + '\n');
+fs.writeFileSync(repFile, JSON.stringify({ at: new Date().toISOString(), accepted: fresh.length, rejected, tried: [...tried], spot: fresh.filter(w => w.qa.spot).map(w => w.word), fixed: fixedN, yield: yld, skipped, gem: gemUsed(), stats: AI.stats ? AI.stats() : null }, null, 1) + '\n');
 console.log(`✓ ${fresh.length} mục mới (tổng ${accepted.length}; ${fixedN} qua vòng sửa), loại ${rejected.length}, bỏ trước AI ${skipped.dup} dạng trùng lemma + ${skipped.name} tên riêng, mẫu soát ${spotN} → ${path.relative(ROOT, outFile)}`);
 if (!fresh.length) process.exit(1); // việc nền phải tự đỏ khi ra 0
