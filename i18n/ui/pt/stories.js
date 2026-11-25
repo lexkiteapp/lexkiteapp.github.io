@@ -13,7 +13,7 @@
 "Nghe lại câu này":"Repetir esta frase",
 "Podcast":"Podcast",
 "Thư viện truyện":"Biblioteca de histórias",
-"Truyện đọc":"História",
+"Truyện đọc":"Leituras",
 "Trình phát":"Reprodutor",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.":"Excelente! Você entendeu o capítulo inteiro.",
 "Xem kết quả":"Ver resultados",

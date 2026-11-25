@@ -27,7 +27,7 @@ export function publishBank(items) {
 // TOEIC Part 5 của app (7 đề × 30 câu, tự soạn) + lời giải theo ngôn ngữ (vi = gốc; khác = bản dịch app đang dùng, thiếu → bỏ câu đó ở ngôn ngữ đó)
 export function loadToeic5() {
   const ctx = { self: {} };
-  for (const d of ['web/js/toeic', 'web/cpack/toeic']) for (const f of fs.readdirSync(d).filter(f => /^reading\d+\.js$/.test(f)).sort((a, b) => a.replace(/\D/g, '') - b.replace(/\D/g, ''))) vm.runInNewContext(fs.readFileSync(d + '/' + f, 'utf8'), ctx);   // đề 1–4 ở web/js, 5+ ở web/cpack (dời lười 17/11)
+  for (const d of ['web/js/toeic', 'web/cpack/toeic'].filter(fs.existsSync)) for (const f of fs.readdirSync(d).filter(f => /^reading\d+\.js$/.test(f)).sort((a, b) => a.replace(/\D/g, '') - b.replace(/\D/g, ''))) vm.runInNewContext(fs.readFileSync(d + '/' + f, 'utf8'), ctx);   // đề 1–4 ở web/js, 5+ ở web/cpack (dời lười 17/11)
   return ctx.self.TOEIC.reading.flatMap(t => t.parts.filter(p => p.part === 5).flatMap(p => p.groups.flatMap(g => g.items.map(i => ({ id: `${t.id}-${i.n}`, q: i.q, o: i.options, a: i.a, x: i.explain })))));
 }
 const toeicFor = (lang, items) => {

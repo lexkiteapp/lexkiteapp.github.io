@@ -191,6 +191,7 @@
   "lesson.q.match": "Ghép cặp",
   "lesson.q.mpic": "Ghép từ, ảnh",
   "lesson.q.fix": "Tìm từ sai",
+  "lesson.q.dict": "Nghe và chép câu",
   "lesson.q.q": "Trả lời câu hỏi",
   "lesson.qn": "Câu {a}/{b}",
   "lesson.combo": "COMBO ×{n}",
@@ -3497,5 +3498,6 @@
   "speak.spk.lamViecNhom": "Làm việc nhóm",
   "speak.spk.duHocSongONuoc": "Du học & Sống ở nước ngoài",
   "speak.spk.mayTinhInternetHangNgay": "Máy tính & Internet hằng ngày",
-  "speak.spk.thuThachNoi30Giay": "Thử thách nói 30 giây"
+  "speak.spk.thuThachNoi30Giay": "Thử thách nói 30 giây",
+  "speak.spk.nhatKyGiongNoi": "Nhật ký giọng nói"
 }

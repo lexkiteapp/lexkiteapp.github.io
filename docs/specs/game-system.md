@@ -20,6 +20,7 @@
 3. **Bộ UI game Stitch** (`web/js/st/game-kit.js`, lười): thanh tiến độ, chip combo, dải đúng/sai, màn hoàn thành, hoạt ảnh nhận thưởng; ref Stitch sáng + tối từ "Lexkite Kit", port trung thành, cổng font/màu + contrast + frame-consistency. Native: SwiftUI/Compose cùng token.
    - **P3a màn hoàn thành ✅ PR này**: `web/cpack/game/game-end.js` (`GameEnd.show(view, o)`, gói lười `gend`) trên khung Stitch `lesson-complete` thật (cùng khung bài học/Tây Ban Nha) – áp vào blitz, nhịp, ghép thẻ, nói từ; ô số chỉ số thật, chấm tuần/chuỗi = `Game.weekDots/runOf` (chuyển từ lesson/engine.js – một luật), khe `.celebrate` giữ path-reward, nút Thách đấu = `#lsnShare`. Chưa áp: màn có vectors native (sayit, paraphrase, grammar/listen/read) – đổi thì sinh lại vectors + Swift/Kotlin. Test `game-end.mjs`.
 4. **Một engine âm/rung**: `tone()` là dự phòng có chủ đích khi mp3 chưa giải mã (không phải engine thứ 2); còn lại: rung trong lesson/ui.js qua `Sfx.haptic` (chờ #1830), máy nhịp của game nhịp giữ AudioContext riêng (cần chính xác thời gian).
+   - **✅ PR P4**: một công tắc tiếng `Sfx.muted` (game.js) cho feel.js + teacher-bubble.js; tiếng pop bong bóng qua `Sfx.bubble` (feel.js phát từ bộ đệm mp3, chưa giải mã → HTMLAudio); rung lesson/ui.js đã qua `Sfx.haptic`. Máy gác: haptics.mjs (không `new Audio`/`settings.sfx` riêng trong feel/teacher-bubble).
 5. **Áp vào mọi dạng bài + mini-game** và thêm 3 game còn thiếu (ô chữ → ghép tranh → cờ câu đố) theo `play-community-1211.md`, mỗi game nạp lười < 30 KB.
 
 ## Luật không đổi

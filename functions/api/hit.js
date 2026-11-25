@@ -6,6 +6,7 @@
  *   { t:'l', ref, p, lang }                                           → khách từ NGOÀI vào trang tĩnh (js/site-ui.js SRC_JS, ≤ 1 lần/nguồn/30 phút/máy): chỉ đếm, ext_events 'land:<nguồn>:<nước>:<loại trang>:<ngôn ngữ trang>'. Tắt: biến Pages HIT_LAND=0
  *   { t:'vo', c:{f,k,s,s_off,s_wait,s_load,s_fail,s_lang,s_pref,s_part,s_off_{user,probe,ios,mem,cores,remote,state}}, p:'web'|'app'|'ext' } → nguồn giọng THỰC phát (web/js/audio.js flushVo): f file Kokoro dựng sẵn ·
  *     k Kokoro trên máy · s giọng máy (+ lý do) → ext_events 'vo:<k>' + 'vo:<f|k|s>:<p>' (chỉ số đếm; tỷ lệ giọng máy = s/(f+k+s), docs/specs/kokoro-on-device.md §Số đo)
+ *   { t:'ma', ev:'install'|'activate', iid, ref, c:'y'|'u' }                → đo cài/kích hoạt quảng cáo Meta (_meta_capi.js; cờ ads_meta_capi, mặc định TẮT)
  *   { t:'e', msg, src, line, path, ver }                              → gộp lỗi giống nhau thành 1 dòng + đếm
  *   { t:'x', vid, day, ev:{lookup,save,popup,newtab}, prev:{day, ev}, ver, lang } → add-on Chrome: 1 lượt/ngày/máy → ext_daily (lấy MAX, gửi lại không cộng trùng)
  *   { t:'x', vid, ev:{install|update|uninstall:1}, reason }           → ext_events (đếm theo ngày; lý do gỡ = kind 'uninstall:<lý do>')
@@ -27,6 +28,7 @@ import { purgeConfig } from './config.js';
 import { readJSON } from './_body.js';
 import { landKey, normRef } from './_cpm.js';
 import { DDL as FUN_DDL, attrStmts, funStmt } from './_funnel.js';
+import { handleMa } from './_meta_capi.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 // Phễu lần đầu (docs/specs/retention-1211.md §22/11): Welcome → từng bước thiết lập → xong thiết lập → xong bài đầu → quay lại D1/D7 sau bài đầu (welcome.js, onboard.js, remind.js qua App.habTrack, 1 lượt/máy/ngày)
 const ONB_EV = ['onb_welcome', ...['lang', 'goal', 'level', 'target', 'pace', 'ready'].map(k => 'onb_s_' + k), 'onb_done', 'first_win', 'fw_d1', 'fw_d7'];
@@ -38,7 +40,8 @@ const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_n
   ...['head', 'foot', 'menu', 'me', 'top', 'rail', 'inst', 'get'].flatMap(p => ['cws', 'play', 'ios', 'edge', 'firefox', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
 const INST_EV = ['first', 'streak', 'words'].flatMap(m => ['v', 'c', 'x'].flatMap(a => ['play', 'ios', 'desk'].map(k => `inst_${m}_${a}_${k}`))); // mời cài app ở khoảnh khắc giá trị (web/js/install-sheet.js): xem · bấm · để sau → kind 'cta:<ev>'
 const SHARE_EV = ['open', 'send', 'dl', 'inv'].flatMap(a => ['streak', 'result', 'goal', 'day'].map(k => `share_${a}_${k}`)); // thẻ chia sẻ (web/js/share-card.js): mở · gửi · tải ảnh · mời, theo loại thẻ → kind 'cta:<ev>' (chỉ đếm; tỷ lệ chia sẻ → lượt về: utm_source share|qr|ref ở bảng kênh)
-const SC_EV = ['view', 'start', 'done', 'share', 'dl', 'cview', 'cstart', 'cdone', 'cta'].map(a => `sc_${a}`); // 🎤 thẻ điểm nói 30 giây + link thử thách (web/js/score30.js, functions/c/[[path]].js): chỉ đếm → kind 'cta:<ev>'
+export const VD_EV = ['view', 'start', 'rec', 'ms', 'share', 'shared', 'dl', 'del', 'cview', 'cta', 'cstart', 'cdone', 'join'].map(a => `vd_${a}`); // 🎙️ Nhật ký giọng nói (web/cpack/diary-app/diary.js, functions/c/[[path]].js – docs/specs/voice-diary.md): chỉ đếm → kind 'cta:<ev>'
+const SC_EV = ['view', 'start', 'done', 'share', 'dl', 'cview', 'cstart', 'cdone', 'cta'].map(a => `sc_${a}`).concat(VD_EV); // 🎤 thẻ điểm nói 30 giây + link thử thách (web/js/score30.js, functions/c/[[path]].js): chỉ đếm → kind 'cta:<ev>'
 const CTA_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']; // 15 ngôn ngữ – chặn giá trị lạ làm phình bảng ext_events
 const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog', 'go'];
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click', 'go_view', 'go_start', 'go_done', 'go_cta']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
@@ -289,6 +292,9 @@ export async function onRequestPost({ request, env }) {
       if (await limit('hvo:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 30, 3600)) return ok();
       const rows = [...voRows(b), ...vmRows(b)];
       if (rows.length) await env.DB.batch(rows.map(([kind, n]) => env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, kind) DO UPDATE SET n = n + ?3').bind(dayOf(now), kind, n)));
+    } else if (b.t === 'ma' && !devOrigin(request)) {
+      // 📣 Đo cài đặt/kích hoạt cho quảng cáo Meta (functions/api/_meta_capi.js, docs/META-ADS.md): cờ ads_meta_capi mặc định TẮT → không ghi gì
+      await handleMa(b, { env, db: env.DB, country: request.cf && request.cf.country, now, day: dayOf(now), limited: async () => !!(await limit('hma:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 20, 3600)) });
     } else if (b.t === 'e' && b.msg && !devOrigin(request)) {
       const msg = cut(b.msg, 300), src = cut(b.src, 200) + (b.line ? ':' + (+b.line || 0) : '');
       await env.DB.prepare('INSERT INTO errors (h, msg, src, path, ver, n, first, last) VALUES (?1, ?2, ?3, ?4, ?5, 1, ?6, ?6) ON CONFLICT (h) DO UPDATE SET n = n + 1, last = ?6, path = ?4, ver = ?5')

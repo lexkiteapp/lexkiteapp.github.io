@@ -1,0 +1,202 @@
+{
+  "id": "pod-b1-new-city-friends",
+  "kind": "podcast",
+  "level": "B1",
+  "title": "Making Friends in a New City",
+  "summary": "Ama and Carlos share honest ideas for meeting people after moving to a new place.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 5",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos on a park bench with takeaway cups, a city skyline and trees behind them, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 125,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "The First Weeks",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Hello, and welcome back! Today we are talking about moving to a new city."
+        },
+        {
+          "who": "B",
+          "text": "I know this feeling well. When I moved here, I did not know anyone."
+        },
+        {
+          "who": "A",
+          "text": "How did you feel in the first weeks?"
+        },
+        {
+          "who": "B",
+          "text": "Honestly, I felt lonely. I spent most evenings alone in my flat."
+        },
+        {
+          "who": "A",
+          "text": "I felt the same when I changed cities for my job."
+        },
+        {
+          "who": "B",
+          "text": "What was the hardest part for you?"
+        },
+        {
+          "who": "A",
+          "text": "Starting conversations. I was afraid that people would think I was strange."
+        },
+        {
+          "who": "B",
+          "text": "But most people are friendly, and many of them are new here too."
+        },
+        {
+          "who": "A",
+          "text": "That is true. After a while, I realised that I was not the only one."
+        },
+        {
+          "who": "B",
+          "text": "So the first step is to be brave and say hello."
+        }
+      ],
+      "words": [
+        "conversation",
+        "honestly",
+        "afraid",
+        "strange",
+        "friendly"
+      ],
+      "quiz": [
+        {
+          "q": "How did Carlos feel at first?",
+          "options": [
+            "Lonely",
+            "Excited",
+            "Angry"
+          ],
+          "answer": 0,
+          "explain": "Honestly, I felt lonely."
+        },
+        {
+          "q": "What was the hardest part for him?",
+          "options": [
+            "Starting conversations",
+            "Finding a flat",
+            "Learning the language"
+          ],
+          "answer": 0,
+          "explain": "Starting conversations."
+        },
+        {
+          "q": "What is the first step?",
+          "options": [
+            "Be brave and say hello",
+            "Stay at home",
+            "Change jobs"
+          ],
+          "answer": 0,
+          "explain": "So the first step is to be brave and say hello."
+        }
+      ]
+    },
+    {
+      "title": "Ways to Meet People",
+      "sentences": [
+        {
+          "who": "B",
+          "text": "So, Ama, what really worked for you?"
+        },
+        {
+          "who": "A",
+          "text": "I joined a weekly running club, and that changed everything."
+        },
+        {
+          "who": "B",
+          "text": "Why was it so useful?"
+        },
+        {
+          "who": "A",
+          "text": "You already have something in common, so it is easy to talk."
+        },
+        {
+          "who": "B",
+          "text": "I tried a language exchange, and I made two good friends there."
+        },
+        {
+          "who": "A",
+          "text": "I also said yes to every invitation, even when I felt tired."
+        },
+        {
+          "who": "B",
+          "text": "That is a great rule. Small plans can turn into real friendships."
+        },
+        {
+          "who": "A",
+          "text": "And do not forget your neighbours. A simple smile in the lift helps."
+        },
+        {
+          "who": "B",
+          "text": "Yes, and be patient. Good friends take time."
+        },
+        {
+          "who": "A",
+          "text": "Thanks for listening, everyone, and see you next week!"
+        }
+      ],
+      "words": [
+        "weekly",
+        "exchange",
+        "invitation",
+        "patient",
+        "friendship"
+      ],
+      "quiz": [
+        {
+          "q": "What did Ama join?",
+          "options": [
+            "A running club",
+            "A cooking class",
+            "A choir"
+          ],
+          "answer": 0,
+          "explain": "I joined a weekly running club."
+        },
+        {
+          "q": "What did Carlos find useful?",
+          "options": [
+            "A language exchange",
+            "A phone app",
+            "A new job"
+          ],
+          "answer": 0,
+          "explain": "I tried a language exchange, and I made two good friends there."
+        },
+        {
+          "q": "What do good friends need?",
+          "options": [
+            "Time",
+            "Money",
+            "A big flat"
+          ],
+          "answer": 0,
+          "explain": "Be patient. Good friends take time."
+        }
+      ]
+    }
+  ]
+}

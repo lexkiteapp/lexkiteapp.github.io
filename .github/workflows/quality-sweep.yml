@@ -9,6 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       quick: { description: '1 = chạy nhanh (6 route + 6 trang/lang) để thử công cụ', required: false, default: '0' }
+      profile: { description: 'Hồ sơ CPU/trace một route (tắt mặc định), dạng lang:route, vd ar:#/library → artifact qs-prof', required: false, default: '' }
       native: { description: '1 = chạy cả native (iOS/Android E2E) dù không phải thứ Hai', required: false, default: '0' }
 permissions:
   contents: write
@@ -84,6 +85,11 @@ jobs:
         run: node scripts/quality/sweep.mjs --root dist --lang ${{ matrix.lang }} --out qs-out/${{ matrix.lang }} --baseline qs-baseline/${{ matrix.lang }} $([ "$LX_IN1" = 1 ] && echo --quick)
         env:
           LX_IN1: ${{ inputs.quick }}
+      - name: Hồ sơ CPU + trace (chỉ khi nhập profile, đúng ngôn ngữ của shard)
+        if: ${{ inputs.profile != '' && startsWith(inputs.profile, format('{0}:', matrix.lang)) }}
+        continue-on-error: true
+        env: { QS_PROFILE: '${{ inputs.profile }}' }
+        run: node scripts/quality/profile.mjs "$QS_PROFILE" dist qs-out/${{ matrix.lang }}/prof
       - name: Biến thể ẢNH BẬT (journey 8 – fixture ảnh từ vựng, CLS 0, tối, RTL, CDN thiếu)
         run: node scripts/test/journey-e2e.mjs --root dist --lang ${{ matrix.lang }} --only 8 --device desktop,mobile --out qs-out/${{ matrix.lang }}/vimg
       - name: CLS trang giới thiệu + blog (> 0,1 là lỗi)

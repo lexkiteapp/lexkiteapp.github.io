@@ -191,6 +191,7 @@
   "lesson.q.match": "จับคู่",
   "lesson.q.mpic": "จับคู่คำกับรูป",
   "lesson.q.fix": "หาคำที่ผิด",
+  "lesson.q.dict": "ฟังแล้วพิมพ์ประโยค",
   "lesson.q.q": "ตอบคำถาม",
   "lesson.qn": "ข้อ {a}/{b}",
   "lesson.combo": "COMBO ×{n}",
@@ -3497,5 +3498,6 @@
   "speak.spk.lamViecNhom": "การทำงานเป็นทีม",
   "speak.spk.duHocSongONuoc": "การเรียนและการใช้ชีวิตในต่างประเทศ",
   "speak.spk.mayTinhInternetHangNgay": "คอมพิวเตอร์และอินเทอร์เน็ตในชีวิตประจำวัน",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
+  "speak.spk.nhatKyGiongNoi": "ไดอารี่เสียง"
 }

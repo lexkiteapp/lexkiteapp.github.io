@@ -105,6 +105,15 @@ function probe(mobile) {
     if (it.inline && it.e.closest('p,td,li,figcaption,dd,small,span')) continue; // WCAG 2.5.8: liên kết trong câu được miễn
     if (it.r.height < 44 || it.r.width < 44) add('touch-target', it.e, `${Math.round(it.r.width)}x${Math.round(it.r.height)}px "${(it.e.innerText || it.e.getAttribute('aria-label') || it.e.getAttribute('title') || '').trim().slice(0, 30)}"`);
   }
+  // Nút nằm TRONG ô nhập (xoá ×, hiện mật khẩu, micro): không phải 'đè' khi ô đã chừa chỗ bằng padding+viền đúng phía nút (dict v2: input pl-11 pr-11 ⟷ #qClear 44×44, 24/11 quality-sweep medium ×12).
+  // Vẫn báo nếu nút lòi ra ngoài ô hoặc ô KHÔNG chừa chỗ (chữ chạy dưới nút).
+  const adorned = (x, y) => {
+    const f = x.e.matches('input,textarea') ? x : y.e.matches('input,textarea') ? y : null, g = f === x ? y : x;
+    if (!f || !g.e.matches('button,[role=button]') || g.e.matches('input,textarea')) return false;
+    const fr = f.r, gr = g.r, cs = getComputedStyle(f.e), tol = 1.5, px = v => parseFloat(v) || 0;
+    if (gr.left < fr.left - tol || gr.right > fr.right + tol || gr.top < fr.top - tol || gr.bottom > fr.bottom + tol) return false;
+    return gr.left + gr.width / 2 >= fr.left + fr.width / 2 ? fr.right - gr.left <= px(cs.paddingRight) + px(cs.borderRightWidth) + tol : gr.right - fr.left <= px(cs.paddingLeft) + px(cs.borderLeftWidth) + tol;
+  };
   const cap = items.slice(0, 250);
   for (let i = 0; i < cap.length; i++) for (let j = i + 1; j < cap.length; j++) {
     const a = cap[i], b = cap[j]; if (a.fixed !== b.fixed || a.e.contains(b.e) || b.e.contains(a.e)) continue;
@@ -116,7 +125,7 @@ function probe(mobile) {
       if (ix <= 2 || iy <= 2) continue;
       if (ix * iy > 0.25 * Math.min(p.width * p.height, q.width * q.height) && !hit) hit = [ix, iy];
     }
-    if (hit) add('overlap', b.e, `${sel(a.e)} ⟷ ${sel(b.e)} (${Math.round(hit[0])}x${Math.round(hit[1])}px)`);
+    if (hit && !adorned(a, b)) add('overlap', b.e, `${sel(a.e)} ⟷ ${sel(b.e)} (${Math.round(hit[0])}x${Math.round(hit[1])}px)`);
   }
   return out;
 }
@@ -142,7 +151,7 @@ async function runCombo(c) {
   await ctx.addInitScript(() => {
     window.__cls = 0; window.__lt = []; window.__rej = [];
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput && !(window.__navAt && e.startTime < window.__navAt + 400)) { window.__cls += e.value; (window.__clsSrc = window.__clsSrc || []).push(((e.sources && e.sources[0] && e.sources[0].node && (e.sources[0].node.id ? '#' + e.sources[0].node.id : (e.sources[0].node.className || e.sources[0].node.nodeName || '')).toString().slice(0, 40)) || '?') + ' ' + e.value.toFixed(3) + (() => { const x = e.sources && e.sources[0]; if (!x) return ''; const n = x.node && (x.node.nodeType === 3 ? x.node.parentElement : x.node), r = k => k ? [k.x, k.y, k.width, k.height].map(Math.round).join(',') : ''; return ` <${n ? n.tagName.toLowerCase() + (n.id ? '#' + n.id : '') + '.' + String(n.className || '').split(' ')[0] : '?'}> ${r(x.previousRect)}→${r(x.currentRect)} @+${Math.round(e.startTime - (window.__navAt || 0))}ms`; })()); } }).observe({ type: 'layout-shift', buffered: true }); } catch { /* */ }
-    try { new PerformanceObserver(l => { for (const e of l.getEntries()) { if (window.__probeAt != null && e.startTime >= window.__probeAt && (window.__probeEnd == null || e.startTime <= window.__probeEnd)) continue; /* tác vụ do chính probe đo (O(n²) trên DOM) → không tính là lỗi app */ window.__lt.push(Math.round(e.duration)); if (e.duration > 150) { const t0 = e.startTime - 30, t1 = e.startTime + e.duration + 30; (window.__ltRes = window.__ltRes || []).push(Math.round(e.duration) + 'ms ~ ' + performance.getEntriesByType('resource').filter(r => r.initiatorType === 'script' || /\.js(\?|$)/.test(r.name)).filter(r => r.responseEnd >= t0 && r.responseEnd <= t1).map(r => r.name.split('/').slice(-2).join('/') + ' ' + Math.round(r.decodedBodySize / 1024) + 'KB').slice(0, 4).join(', ')); } } }).observe({ type: 'longtask', buffered: true }); } catch { /* */ }
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) { if (window.__navAt != null && e.startTime < window.__navAt) continue; /* tác vụ của route TRƯỚC (axe.run/nạp axe chạy sau probe; observer giao muộn → bị tính nhầm cho route sau: hồ sơ CPU quality-sweep #53 cho thấy app ≤ 108 ms/lần chuyển trang, tải đầu 55 ms, trong khi báo cáo ghi 377 ms ở ~213 route) */ if (window.__probeAt != null && e.startTime >= window.__probeAt && (window.__probeEnd == null || e.startTime <= window.__probeEnd)) continue; /* tác vụ do chính probe đo (O(n²) trên DOM) → không tính là lỗi app */ window.__lt.push(Math.round(e.duration)); if (e.duration > 150) { const t0 = e.startTime - 30, t1 = e.startTime + e.duration + 30; (window.__ltRes = window.__ltRes || []).push(Math.round(e.duration) + 'ms ~ ' + performance.getEntriesByType('resource').filter(r => r.initiatorType === 'script' || /\.js(\?|$)/.test(r.name)).filter(r => r.responseEnd >= t0 && r.responseEnd <= t1).map(r => r.name.split('/').slice(-2).join('/') + ' ' + Math.round(r.decodedBodySize / 1024) + 'KB').slice(0, 4).join(', ')); } } }).observe({ type: 'longtask', buffered: true }); } catch { /* */ }
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.duration > 150) (window.__loaf = window.__loaf || []).push(Math.round(e.duration) + 'ms[script ' + Math.round(e.renderStart ? e.renderStart - e.startTime : e.duration) + ' · style/layout ' + Math.round(e.styleAndLayoutStart ? e.startTime + e.duration - e.styleAndLayoutStart : 0) + ' · dom ' + document.getElementsByTagName('*').length + '] ' + (e.scripts || []).slice(0, 3).map(x => (x.sourceURL || '').split('/').slice(-2).join('/') + '#' + (x.sourceFunctionName || x.invoker || x.invokerType) + ' ' + Math.round(x.duration)).join(' | ')); }).observe({ type: 'long-animation-frame', buffered: true }); } catch { /* */ } // gốc tác vụ dài (Chromium ≥123)
     addEventListener('unhandledrejection', e => { window.__rej.push(String((e.reason && (e.reason.stack || e.reason.message)) || e.reason).slice(0, 200)); });
     try { localStorage.setItem('vb-onboarded', '1'); } catch { /* */ }

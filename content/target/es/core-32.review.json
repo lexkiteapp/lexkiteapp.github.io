@@ -1,0 +1,462 @@
+{
+ "fixed": [
+  {
+   "word": "tercera",
+   "field": "word",
+   "from": "tercera",
+   "to": "tercero",
+   "why": "Lemma là dạng nam \"tercero\""
+  },
+  {
+   "word": "tercero",
+   "field": "exForm",
+   "from": null,
+   "to": "tercera",
+   "why": "exForm theo lemma mới"
+  },
+  {
+   "word": "tercero",
+   "field": "gl.pt",
+   "from": "terceira",
+   "to": "terceiro",
+   "why": "Dạng nam của lemma"
+  },
+  {
+   "word": "tercero",
+   "field": "gl.ru",
+   "from": "третья",
+   "to": "третий",
+   "why": "Dạng nam của lemma"
+  },
+  {
+   "word": "tercero",
+   "field": "gl.ar",
+   "from": "ثالثة",
+   "to": "ثالث",
+   "why": "Dạng nam của lemma"
+  },
+  {
+   "word": "lisa",
+   "field": "word",
+   "from": "lisa",
+   "to": "liso",
+   "why": "Lemma là dạng nam \"liso\""
+  },
+  {
+   "word": "liso",
+   "field": "exForm",
+   "from": null,
+   "to": "lisa",
+   "why": "exForm theo lemma mới"
+  },
+  {
+   "word": "liso",
+   "field": "gl.vi",
+   "from": "trơn",
+   "to": "nhẵn",
+   "why": "vi \"trơn\"=slippery; hi \"स्मूथ\" là phiên âm; ru/pt dạng nữ"
+  },
+  {
+   "word": "liso",
+   "field": "gl.pt",
+   "from": "lisa",
+   "to": "liso",
+   "why": "vi \"trơn\"=slippery; hi \"स्मूथ\" là phiên âm; ru/pt dạng nữ"
+  },
+  {
+   "word": "liso",
+   "field": "gl.ru",
+   "from": "гладкая",
+   "to": "гладкий",
+   "why": "vi \"trơn\"=slippery; hi \"स्मूथ\" là phiên âm; ru/pt dạng nữ"
+  },
+  {
+   "word": "liso",
+   "field": "gl.hi",
+   "from": "स्मूथ",
+   "to": "चिकना",
+   "why": "vi \"trơn\"=slippery; hi \"स्मूथ\" là phiên âm; ru/pt dạng nữ"
+  },
+  {
+   "word": "liso",
+   "field": "gl.ar",
+   "from": "ناعم",
+   "to": "أملس",
+   "why": "vi \"trơn\"=slippery; hi \"स्मूथ\" là phiên âm; ru/pt dạng nữ"
+  },
+  {
+   "word": "enfadado",
+   "field": "word",
+   "from": "enfadado",
+   "to": "enojado",
+   "why": "\"enfadado\" là kiểu Tây Ban Nha; es-419 dùng \"enojado\""
+  },
+  {
+   "word": "enojado",
+   "field": "ex.es",
+   "from": "Mi hermano está enfadado conmigo.",
+   "to": "Mi hermano está enojado conmigo.",
+   "why": "đổi theo lemma es-419"
+  },
+  {
+   "word": "empleo",
+   "field": "gl.de",
+   "from": "Arbeit",
+   "to": "Arbeitsstelle",
+   "why": "de \"Arbeit\"=công việc nói chung; ja 職/ko 직업=nghề, không phải \"việc làm/job\""
+  },
+  {
+   "word": "empleo",
+   "field": "gl.ja",
+   "from": "職",
+   "to": "仕事",
+   "why": "de \"Arbeit\"=công việc nói chung; ja 職/ko 직업=nghề, không phải \"việc làm/job\""
+  },
+  {
+   "word": "empleo",
+   "field": "gl.ko",
+   "from": "직업",
+   "to": "일자리",
+   "why": "de \"Arbeit\"=công việc nói chung; ja 職/ko 직업=nghề, không phải \"việc làm/job\""
+  },
+  {
+   "word": "milagro",
+   "field": "gl.vi",
+   "from": "phep màu",
+   "to": "phép màu",
+   "why": "thiếu dấu (phep màu)"
+  },
+  {
+   "word": "despacho",
+   "field": "gl.ja",
+   "from": "書斎",
+   "to": "事務室",
+   "why": "ví dụ là văn phòng sếp; ja 書斎=phòng đọc sách tại nhà"
+  },
+  {
+   "word": "despacho",
+   "field": "gl.vi",
+   "from": "văn phòng",
+   "to": "văn phòng, phòng làm việc",
+   "why": "ví dụ là văn phòng sếp; ja 書斎=phòng đọc sách tại nhà"
+  },
+  {
+   "word": "cadena",
+   "field": "gl.vi",
+   "from": "chuỗi / dây xích",
+   "to": "dây xích, chuỗi",
+   "why": "ví dụ là dây xích chó; hi श्रृंखला=chuỗi/series"
+  },
+  {
+   "word": "cadena",
+   "field": "gl.hi",
+   "from": "श्रृंखला",
+   "to": "जंजीर",
+   "why": "ví dụ là dây xích chó; hi श्रृंखला=chuỗi/series"
+  },
+  {
+   "word": "meter",
+   "field": "gl.vi",
+   "from": "put in",
+   "to": "cho vào, đặt vào",
+   "why": "vi để nguyên tiếng Anh \"put in\""
+  },
+  {
+   "word": "pizza",
+   "field": "gl.id",
+   "from": "pisa",
+   "to": "pizza",
+   "why": "id \"pisa\" sai chính tả/sai từ"
+  },
+  {
+   "word": "alejar",
+   "field": "ex.es",
+   "from": "Aléjate del fuego porque está muy caliente.",
+   "to": "Aleja a los niños del fuego porque está muy caliente.",
+   "why": "\"Aléjate\" là phản thân (alejarse); lemma alejar là ngoại động từ"
+  },
+  {
+   "word": "alejar",
+   "field": "ex.en",
+   "from": "Move away from the fire because it is very hot.",
+   "to": "Keep the children away from the fire because it is very hot.",
+   "why": "khớp ex.es mới"
+  },
+  {
+   "word": "alejar",
+   "field": "exForm",
+   "from": "aléjate",
+   "to": "aleja",
+   "why": "exForm theo ví dụ mới"
+  },
+  {
+   "word": "alejar",
+   "field": "gl.en",
+   "from": "to move away",
+   "to": "to move (something) away",
+   "why": "ngoại động từ; th \"ย้ายออกไป\"=tự dọn đi, zh 远离 là nội động"
+  },
+  {
+   "word": "alejar",
+   "field": "gl.vi",
+   "from": "di chuyển ra xa",
+   "to": "đưa ra xa, làm cho xa",
+   "why": "ngoại động từ; th \"ย้ายออกไป\"=tự dọn đi, zh 远离 là nội động"
+  },
+  {
+   "word": "alejar",
+   "field": "gl.th",
+   "from": "ย้ายออกไป",
+   "to": "ทำให้ห่างออกไป",
+   "why": "ngoại động từ; th \"ย้ายออกไป\"=tự dọn đi, zh 远离 là nội động"
+  },
+  {
+   "word": "alejar",
+   "field": "gl.zh",
+   "from": "远离",
+   "to": "使远离",
+   "why": "ngoại động từ; th \"ย้ายออกไป\"=tự dọn đi, zh 远离 là nội động"
+  },
+  {
+   "word": "asqueroso",
+   "field": "gl.vi",
+   "from": "gớm tiếc",
+   "to": "kinh tởm",
+   "why": "vi \"gớm tiếc\" không phải tiếng Việt, sai nghĩa"
+  },
+  {
+   "word": "consigo",
+   "field": "gl.vi",
+   "from": "với chính mình",
+   "to": "bên mình, với bản thân",
+   "why": "vi tự nhiên hơn, đúng với ví dụ \"mang theo bên mình\""
+  },
+  {
+   "word": "ventaja",
+   "field": "gl.th",
+   "from": "ข้อดี",
+   "to": "ข้อได้เปรียบ",
+   "why": "th ข้อดี/ko 장점=ưu điểm (pro), không phải lợi thế"
+  },
+  {
+   "word": "ventaja",
+   "field": "gl.ko",
+   "from": "장점",
+   "to": "이점",
+   "why": "th ข้อดี/ko 장점=ưu điểm (pro), không phải lợi thế"
+  },
+  {
+   "word": "piscina",
+   "field": "gl.ar",
+   "from": "بركة سباحة",
+   "to": "مسبح",
+   "why": "ar \"بركة سباحة\" ít dùng; \"مسبح\" là từ thường"
+  },
+  {
+   "word": "efectivo",
+   "field": "ex.es",
+   "from": "Voy a pagar con efectivo.",
+   "to": "Voy a pagar en efectivo.",
+   "why": "es-419 tự nhiên là \"pagar en efectivo\""
+  },
+  {
+   "word": "efectivo",
+   "field": "ex.en",
+   "from": "I am going to pay with cash.",
+   "to": "I am going to pay in cash.",
+   "why": "khớp ex.es"
+  },
+  {
+   "word": "combate",
+   "field": "gl.vi",
+   "from": "trận đấu",
+   "to": "cuộc chiến đấu, trận chiến",
+   "why": "vi \"trận đấu\"=match thể thao"
+  },
+  {
+   "word": "combate",
+   "field": "ex.en",
+   "from": "The soldier survived the combat.",
+   "to": "The soldier survived the battle.",
+   "why": "\"survived the combat\" không tự nhiên"
+  },
+  {
+   "word": "aparte",
+   "field": "gl.de",
+   "from": "abseits",
+   "to": "beiseite",
+   "why": "de \"abseits\"=ở xa; ví dụ là đặt sang một bên"
+  },
+  {
+   "word": "aparte",
+   "field": "gl.vi",
+   "from": "riêng",
+   "to": "sang một bên, riêng ra",
+   "why": "de \"abseits\"=ở xa; ví dụ là đặt sang một bên"
+  },
+  {
+   "word": "curso",
+   "field": "gl.ja",
+   "from": "コース",
+   "to": "講座",
+   "why": "ja コース=lộ trình/món ăn; khóa học là 講座"
+  },
+  {
+   "word": "servir",
+   "field": "ex.es",
+   "from": "¿Me puedes servir un poco de agua?",
+   "to": "¿Me sirves un poco de agua?",
+   "why": "\"servir\" = rót/dọn món; câu cũ giữ nguyên nghĩa \"serve\" nhưng tiếng Anh gượng; dùng tú tự nhiên ở es-419"
+  },
+  {
+   "word": "servir",
+   "field": "ex.en",
+   "from": "Can you serve me some water?",
+   "to": "Can you pour me some water?",
+   "why": "tự nhiên, đúng nghĩa servir"
+  },
+  {
+   "word": "servir",
+   "field": "exForm",
+   "from": null,
+   "to": "sirves",
+   "why": "exForm theo ví dụ mới"
+  },
+  {
+   "word": "servir",
+   "field": "gl.en",
+   "from": "to serve",
+   "to": "to serve (food, drink)",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "servir",
+   "field": "gl.vi",
+   "from": "phục vụ",
+   "to": "phục vụ, rót (đồ ăn, thức uống)",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "servir",
+   "field": "gl.de",
+   "from": "dienen",
+   "to": "servieren",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "servir",
+   "field": "gl.ja",
+   "from": "仕える",
+   "to": "(料理を)出す",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "servir",
+   "field": "gl.ko",
+   "from": "섬기다",
+   "to": "(음식을) 내다",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "servir",
+   "field": "gl.zh",
+   "from": "服务",
+   "to": "端上,盛",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "servir",
+   "field": "gl.ru",
+   "from": "служить",
+   "to": "подавать",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "servir",
+   "field": "gl.ar",
+   "from": "خدم",
+   "to": "يقدّم",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "servir",
+   "field": "gl.tr",
+   "from": "hizmet etmek",
+   "to": "servis yapmak",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "servir",
+   "field": "gl.hi",
+   "from": "सेवा करना",
+   "to": "परोसना",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "servir",
+   "field": "gl.id",
+   "from": "melayani",
+   "to": "menyajikan",
+   "why": "Cả 15 ngôn ngữ dịch \"phục vụ/làm việc cho\" (dienen, 仕える, 섬기다, служить); nghĩa của ví dụ là dọn/rót"
+  },
+  {
+   "word": "alarma",
+   "field": "ex.es",
+   "from": "La alarma suena a las seis de la mañana.",
+   "to": "La alarma de la casa suena cuando alguien entra.",
+   "why": "\"alarma\" gl khác nhau (báo thức vs báo động); thống nhất nghĩa báo động"
+  },
+  {
+   "word": "alarma",
+   "field": "ex.en",
+   "from": "The alarm rings at six in the morning.",
+   "to": "The house alarm goes off when someone comes in.",
+   "why": "khớp ex.es"
+  },
+  {
+   "word": "alarma",
+   "field": "gl.vi",
+   "from": "báo thức",
+   "to": "báo động",
+   "why": "Nhiều ngôn ngữ dịch nghĩa đồng hồ báo thức (báo thức/นาฬิกาปลุก/будильник), sai nghĩa chính"
+  },
+  {
+   "word": "alarma",
+   "field": "gl.th",
+   "from": "นาฬิกาปลุก",
+   "to": "สัญญาณเตือนภัย",
+   "why": "Nhiều ngôn ngữ dịch nghĩa đồng hồ báo thức (báo thức/นาฬิกาปลุก/будильник), sai nghĩa chính"
+  },
+  {
+   "word": "alarma",
+   "field": "gl.ru",
+   "from": "будильник",
+   "to": "сигнализация",
+   "why": "Nhiều ngôn ngữ dịch nghĩa đồng hồ báo thức (báo thức/นาฬิกาปลุก/будильник), sai nghĩa chính"
+  },
+  {
+   "word": "alarma",
+   "field": "gl.ko",
+   "from": "알람",
+   "to": "경보",
+   "why": "Nhiều ngôn ngữ dịch nghĩa đồng hồ báo thức (báo thức/นาฬิกาปลุก/будильник), sai nghĩa chính"
+  },
+  {
+   "word": "particular",
+   "field": "ex.en",
+   "from": "That book has a very unique style.",
+   "to": "That book has a very distinctive style.",
+   "why": "\"unique\" không khớp \"particular\""
+  }
+ ],
+ "dropped": [
+  {
+   "word": "pene",
+   "why": "Từ giải phẫu nhạy cảm/thô tục trong lời nói, không phù hợp từ vựng người học đại chúng"
+  },
+  {
+   "word": "referir",
+   "why": "Trùng với mục referirse đã có ở core-08 (dạng thực tế là phản thân)"
+  }
+ ]
+}

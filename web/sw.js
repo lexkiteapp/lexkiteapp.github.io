@@ -8,7 +8,7 @@ const CACHE = 'lexkite-0'; // CỐ ĐỊNH – đừng bump tay: build (scripts/
 const APP = '/app/';
 const LEGACY = new URL(self.registration.scope).pathname === '/';
 // Chỉ phần lõi (các file trong app/index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
-const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/native.js', '/js/ads.js', '/js/kit.js', '/js/characters.js', '/js/teacher-slot.js', '/js/audio.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/target.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/exit-guard.js', '/js/app.js', '/js/study.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png'];
+const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/ads.js', '/js/kit.js', '/js/characters.js', '/js/teacher-slot.js', '/js/audio.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/target.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/exit-guard.js', '/js/app.js', '/js/study.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png'];
 const KEEP = k => k === CACHE || k === 'lk-meta' || k === AUDIO || k === VIMG || k === OFFLINE; // dữ liệu người dùng & cache dùng chung – không bao giờ xóa khi dọn
 
 self.addEventListener('install', e => {
@@ -167,7 +167,7 @@ self.addEventListener('message', e => {
 self.addEventListener('notificationclick', e => {
   e.notification.close();
   const d = e.notification.data || {};
-  if (d.tpl) e.waitUntil(ev([['open', d.tpl, 1]])); // CTR theo mẫu (docs/REMINDERS.md)
+  if (d.tpl) e.waitUntil(ev([['open', d.tpl, 1]]).then(async () => { const m = await META(); if (m) { m.op = (m.op || []).concat(d.tpl).slice(-5); await putMeta(m); } })); // CTR theo mẫu (docs/REMINDERS.md) + app biết đã mở (điều kiện tin 2)
   if (e.action === 'later') return;
   const target = d.url || '/app/#/review';
   e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(list => {
@@ -207,9 +207,11 @@ self.addEventListener('push', e => {
   e.waitUntil((async () => {
     const fx = await repFixed().catch(() => null);
     if (fx) { await self.registration.showNotification(fx.title, { body: fx.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'rep', data: { url: fx.url, tpl: 'rfix' } }); await ev([['shown', 'rfix', 1]]); return; }
-    const m = (await META()) || {}, it = pickToday(m), today = localDay(); // ngày ĐỊA PHƯƠNG (như kế hoạch/`lastDay` của app) – trước đây dùng ngày UTC nên lệch ngày ở mọi múi giờ ≠ UTC
-    await self.registration.showNotification(it.title, { body: it.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'daily', data: { url: it.url || '/app/#/review', tpl: it.tpl || 'gen1' } });
-    if (m.v) { m.notified = today; await putMeta(m); }
+    const m = (await META()) || {}, today = localDay();
+    // Push thứ 2 trong ngày (máy chủ chỉ gửi khi đủ điều kiện "giữ chuỗi") → lời tin 2 đã dịch trong meta; thiếu → lời nhắc thường
+    const two = m.notified === today && m.notified2 !== today && m.save && m.save.day === today, it = two ? m.save : pickToday(m); // ngày ĐỊA PHƯƠNG (như kế hoạch/`lastDay` của app) – trước đây dùng ngày UTC nên lệch ngày ở mọi múi giờ ≠ UTC
+    await self.registration.showNotification(it.title, { body: it.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: two ? 'daily2' : 'daily', data: { url: it.url || '/app/#/review', tpl: it.tpl || 'gen1' } });
+    if (m.v) { if (two) m.notified2 = today; else m.notified = today; await putMeta(m); }
     await ev([['shown', it.tpl || 'gen1', 1]]);
   })());
 });

@@ -1,0 +1,134 @@
+{
+  "id": "b1-grandmas-recipe",
+  "kind": "book",
+  "level": "B1",
+  "title": "Grandma's Secret Recipe",
+  "summary": "Tom wants to bake her grandmother's famous cake, but the recipe card is missing an important ingredient.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "kit"
+    ],
+    "scene": "Flat 2D illustration: a cosy kitchen with a young person holding a mixing bowl, an old recipe box open on the table, warm light, no text"
+  },
+  "audio": {
+    "wpm": 125,
+    "voice": "kokoro:am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "The Old Recipe Box",
+      "sentences": [
+        "Tom's grandmother made the best apple cake in the whole town.",
+        "Every birthday, the family waited for it with great excitement.",
+        "This year, her grandmother was too tired to bake, so Tom decided to do it herself.",
+        "She found the old recipe box in the kitchen and opened it carefully.",
+        "The card was yellow and the writing was difficult to read.",
+        "Tom followed every step and used the best apples she could find.",
+        "After an hour, the kitchen smelled wonderful.",
+        "But when she tasted the cake, her face fell, because it was dry and plain."
+      ],
+      "words": [
+        "recipe",
+        "apple",
+        "card",
+        "wonderful",
+        "kitchen"
+      ],
+      "quiz": [
+        {
+          "q": "Why did Tom bake the cake?",
+          "options": [
+            "Her grandmother was too tired",
+            "She wanted to win a prize",
+            "Nobody liked cake"
+          ],
+          "answer": 0,
+          "explain": "Her grandmother was too tired to bake, so Tom decided to do it herself."
+        },
+        {
+          "q": "What was the problem with the recipe card?",
+          "options": [
+            "It was lost",
+            "It was hard to read",
+            "It was in another language"
+          ],
+          "answer": 1,
+          "explain": "The card was yellow and the writing was difficult to read."
+        },
+        {
+          "q": "How was the cake?",
+          "options": [
+            "Dry and plain",
+            "Sweet and soft",
+            "Burnt"
+          ],
+          "answer": 0,
+          "explain": "It was dry and plain."
+        }
+      ]
+    },
+    {
+      "title": "The Missing Ingredient",
+      "sentences": [
+        "Tom carried the cake to her grandmother's house and told her about the problem.",
+        "Her grandmother tasted a small piece and smiled.",
+        "\"You did a very good job,\" she said, \"but you forgot one thing.\"",
+        "She took a small jar from the cupboard and showed it to Tom.",
+        "\"This is honey,\" she explained. \"It was always my secret ingredient.\"",
+        "\"Why did you not write it on the card?\" Tom asked.",
+        "\"I never needed to,\" her grandmother said, \"because I always made the cake in my head.\"",
+        "They baked a new cake together that afternoon, and this time it was perfect.",
+        "Tom wrote the missing word on the card, so the secret would never be lost."
+      ],
+      "words": [
+        "ingredient",
+        "secret",
+        "perfect",
+        "explain",
+        "afternoon"
+      ],
+      "quiz": [
+        {
+          "q": "What was the secret ingredient?",
+          "options": [
+            "Sugar",
+            "Honey",
+            "Butter"
+          ],
+          "answer": 1,
+          "explain": "\"This is honey,\" she explained. \"It was always my secret ingredient.\""
+        },
+        {
+          "q": "Why was it not on the card?",
+          "options": [
+            "Her grandmother knew it by heart",
+            "Tom lost it",
+            "It was too expensive"
+          ],
+          "answer": 0,
+          "explain": "She always made the cake in her head."
+        },
+        {
+          "q": "What did Tom do at the end?",
+          "options": [
+            "She sold the cake",
+            "She wrote the missing word on the card",
+            "She threw the card away"
+          ],
+          "answer": 1,
+          "explain": "Tom wrote the missing word on the card, so the secret would never be lost."
+        }
+      ]
+    }
+  ]
+}

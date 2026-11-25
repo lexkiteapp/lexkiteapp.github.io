@@ -174,9 +174,12 @@ function normOut0(out, items) {
   if (out && Array.isArray(out.items)) return normOut0(out.items, items);
   return out;
 }
-class PoolErr extends Error { constructor(kind, msg, ms) { super(msg); this.kind = kind; this.ms = ms; } }
+class PoolErr extends Error { constructor(kind, msg, ms, raw) { super(msg); this.kind = kind; this.ms = ms; this.raw = raw; } }
+const JSON_FAIL = /Failed to (generate|validate) JSON|json_validate_failed/i; // Groq 400: chế độ json_object từ chối câu trả lời → khôi phục từ failed_generation hoặc thử lại không ép JSON
 // kind: model (chỉ mô hình này nghỉ ms) · route (cả tuyến nghỉ: hết khóa/không quyền) · budget (hết ngân sách lượt này) · bad (trả lời hỏng/không đủ chuẩn – thử tuyến kế, không nghỉ) · net (tạm thời)
-const parseJSON = t => { if (t && typeof t === 'object') return t; try { const s = String(t || ''), m = s.match(/\{[\s\S]*\}|\[[\s\S]*\]/); return m ? JSON.parse(m[0]) : null; } catch { return null; } };
+const parseJSON = t => { if (t && typeof t === 'object') return t; const s = String(t || '').replace(/```(?:json)?/gi, ' ').trim(), tryP = x => { try { const v = JSON.parse(x); return v && typeof v === 'object' ? v : null; } catch { return null; } };
+  let v = tryP(s); if (v) return v; const a = s.search(/[{[]/); if (a < 0) return null; // bóc rào ```json, rồi cắt dần từ khối {…}/[…] cuối (lời dẫn/đuôi chứa dấu ngoặc không làm hỏng)
+  for (let e = s.length; (e = Math.max(s.lastIndexOf('}', e - 1), s.lastIndexOf(']', e - 1))) > a; ) { v = tryP(s.slice(a, e + 1)); if (v) return v; } return null; };
 
 /**
  * createPool(opts)
@@ -187,7 +190,8 @@ const parseJSON = t => { if (t && typeof t === 'object') return t; try { const s
  *  opts.log       (line) => void; opts.now() → ms; opts.sleep(ms)
  */
 export function createPool(opts = {}) {
-  const env = opts.env || process.env, F = opts.fetch || globalThis.fetch, now = opts.now || Date.now, sleep = opts.sleep || (ms => new Promise(r => setTimeout(r, ms)));
+  const env = opts.env || process.env, F = opts.fetch || ((u, o = {}) => globalThis.fetch(u, o.signal ? o : { ...o, signal: AbortSignal.timeout(+env.AI_POOL_FETCH_MS || 120e3) })),   // 24/11: socket treo = không bao giờ lỗi → job say-native chạm 40 phút; mỗi lần gọi có hạn 120 s (lỗi → 'net', pool thử tuyến kế)
+       now = opts.now || Date.now, sleep = opts.sleep || (ms => new Promise(r => setTimeout(r, ms)));
   const log = opts.log || (l => console.log(l));
   const LEXAI = opts.lexaiUrl || env.LEXAI_URL || 'https://lexkite.com/api/lexai';
   const GC = String(opts.gcBase || env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
@@ -363,9 +367,10 @@ export function createPool(opts = {}) {
       if (r.status === 401 || r.status === 403) { ring.park(k.id, 6 * 3600e3, 'auth'); continue; }
       if (r.status === 429) { const b = await r.text().catch(() => ''), day = /per ?day|PerDay|daily|\bRPD\b|\bTPD\b/i.test(b) && !/per ?minute|PerMinute|\bRPM\b|\bTPM\b/i.test(b);
         ring.park(k.id, day ? untilUtcMidnight(now()) + (name === 'gem' ? 8 * 3600e3 : 0) : retryAfter(r), day ? 'day' : 'minute'); continue; }
-      if (r.status === 503 && busy < 2) { busy++; await sleep(8e3 * (busy === 1 ? 1 : 3)); continue; }
+      if (r.status === 503 && busy < 2) { busy++; await sleep(Math.round(8e3 * (busy === 1 ? 1 : 3) * (0.75 + Math.random() / 2))); continue; } // jitter ±25 %: nhiều lượt không dồn lại cùng lúc
       if (r.status >= 500) throw new PoolErr('net', `${name} ${r.status}`);
       const j = await r.json().catch(() => null);
+      if (!r.ok && j && j.error && JSON_FAIL.test(JSON.stringify(j.error))) throw new PoolErr('bad', `${name} ${r.status} json_validate_failed`, 0, j.error.failed_generation);
       if (!r.ok || !j) throw new PoolErr('bad', `${name} ${r.status} ${redact(String(j && j.error && [j.error.code || j.error.status, j.error.message].join(' ') || '')).slice(0, 160)}`);
       used[name]++; return j;
     }
@@ -403,10 +408,13 @@ export function createPool(opts = {}) {
   R.groq = { ok: () => GROQ.size > 0 && !shareStop('groq'), models: (role, slot) => (slot === 'C' ? GROQ_MODELS.C : GROQ_MODELS[role === 'gen' ? 'gen' : 'judge']),
     async call(model, req) {
       await discover('groq'); if (![...GROQ_MODELS.gen, ...GROQ_MODELS.judge, ...GROQ_MODELS.C].includes(model)) throw new PoolErr('model', 'groq: không còn ' + model, 6 * 3600e3);
-      const one = async r => { const p = await promptFor(r);
-        const j = await keyed(GROQ, 'groq', key => F('https://api.groq.com/openai/v1/chat/completions', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ model, messages: [{ role: 'system', content: sysFor(p, r) }, { role: 'user', content: p.user }], temperature: p.temp ?? 0.2, max_completion_tokens: 16384, response_format: { type: 'json_object' }, ...(/qwen3/.test(model) ? { reasoning_format: 'hidden' } : {}) }) }));
-        return parseJSON((((j.choices || [])[0] || {}).message || {}).content || ''); };
+      const one = async r => { const p = await promptFor(r), go = (body, user) => keyed(GROQ, 'groq', key => F('https://api.groq.com/openai/v1/chat/completions', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ model, messages: [{ role: 'system', content: sysFor(p, r) }, { role: 'user', content: user }], temperature: p.temp ?? 0.2, max_completion_tokens: 16384, ...body, ...(/qwen3/.test(model) ? { reasoning_format: 'hidden' } : {}) }) })), text = j => (((j.choices || [])[0] || {}).message || {}).content || '';
+        try { return parseJSON(text(await go({ response_format: { type: 'json_object' } }, p.user))); }
+        catch (e) { if (!(e instanceof PoolErr) || e.kind !== 'bad' || !/json_validate_failed/.test(e.message)) throw e;
+          const rec = parseJSON(e.raw); if (rec) return rec; // câu trả lời bị từ chối vẫn có JSON dùng được
+          log('[ai-pool] groq json_validate_failed → thử lại 1 lần không ép JSON (nhắc chỉ trả JSON)');
+          return parseJSON(text(await go({}, p.user + '\n\nReturn ONLY one valid JSON object. No prose, no markdown fences.'))); } };
       const out = await splitGo(one)(req, 0); if (!out) throw new PoolErr('bad', 'groq: không phải JSON'); return { out, model };
     } };
   // thị giác (vocab-img giám khảo gọi tên): GrabCast vision (khi có URL) → Gemini kho Lexkite qua /api/studio (wai:0) → tài khoản 2 Llama 4 Scout
@@ -496,7 +504,7 @@ export function createPool(opts = {}) {
         } catch (e) {
           const k = e instanceof PoolErr ? e.kind : 'net';
           hit(id, model, 'fail'); why.push(`${id}:${model} ${k} ${String(e.message).slice(0, 80)}`);
-          if (stats[id + '|' + model].fail <= 2) log(`[ai-pool] ✗ ${mode} ${id} ${model} ${k} ${redact(String(e.message)).slice(0, 200)}`); // 2 lỗi đầu mỗi mô hình – thấy lý do mà không ngập nhật ký
+          if (k === 'budget') log(`[ai-pool] ℹ ${mode} ${id}: hết ngân sách lượt này (bình thường, không phải lỗi)`); else if (stats[id + '|' + model].fail <= 2) log(`[ai-pool] ✗ ${mode} ${id} ${model} ${k} ${redact(String(e.message)).slice(0, 200)}`); // 2 lỗi đầu mỗi mô hình – thấy lý do mà không ngập nhật ký
           if (k === 'route') { rest(id, null, e.ms || 30 * 60e3, e.message); break; }
           if (k === 'budget') break;
           if (k === 'model') rest(id, model, e.ms || 65e3, e.message);

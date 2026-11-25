@@ -191,6 +191,7 @@
   "lesson.q.match": "Associez les paires",
   "lesson.q.mpic": "Associez mots et images",
   "lesson.q.fix": "Trouvez le mot faux",
+  "lesson.q.dict": "Écoutez et recopiez la phrase",
   "lesson.q.q": "Répondez à la question",
   "lesson.qn": "Question {a} sur {b}",
   "lesson.combo": "COMBO ×{n}",
@@ -3497,5 +3498,6 @@
   "speak.spk.lamViecNhom": "Travail d'équipe",
   "speak.spk.duHocSongONuoc": "Étudier et vivre à l'étranger",
   "speak.spk.mayTinhInternetHangNgay": "Ordinateurs et internet au quotidien",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
+  "speak.spk.nhatKyGiongNoi": "Journal vocal"
 }

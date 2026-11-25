@@ -191,6 +191,7 @@
   "lesson.q.match": "Eşleştir",
   "lesson.q.mpic": "Kelimeleri resimlerle eşleştir",
   "lesson.q.fix": "Yanlış kelimeyi bul",
+  "lesson.q.dict": "Dinle ve cümleyi yaz",
   "lesson.q.q": "Soruyu cevapla",
   "lesson.qn": "Soru {a}/{b}",
   "lesson.combo": "COMBO ×{n}",
@@ -3497,5 +3498,6 @@
   "speak.spk.lamViecNhom": "Takım çalışması",
   "speak.spk.duHocSongONuoc": "Yurt dışında okumak ve yaşamak",
   "speak.spk.mayTinhInternetHangNgay": "Bilgisayarlar ve günlük internet",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
+  "speak.spk.nhatKyGiongNoi": "Ses günlüğü"
 }

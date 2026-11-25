@@ -13,7 +13,7 @@
 "Nghe lại câu này":"이 문장 다시 듣기",
 "Podcast":"팟캐스트",
 "Thư viện truyện":"이야기 라이브러리",
-"Truyện đọc":"이야기",
+"Truyện đọc":"읽을거리",
 "Trình phát":"플레이어",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.":"훌륭해요! 챕터 전체를 이해했어요.",
 "Xem kết quả":"결과 보기",
