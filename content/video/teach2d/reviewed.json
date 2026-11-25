@@ -11401,7 +11401,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "On the bus, not in the bus!",
+    "h": "On the bus, not in!",
     "w": "Many learners say: I am in the bus now.",
     "r": "Better: I am on the bus now.",
     "y": "Buses and trains use on.",
@@ -14423,7 +14423,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "My name Anna? Add one little word!",
+    "h": "My name is Anna!",
     "w": "Many learners say: My name Anna.",
     "r": "Better: My name is Anna.",
     "y": "Put is between name and Anna.",
@@ -14780,7 +14780,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Why are you, not why you are!",
+    "h": "Why are you late?",
     "w": "Many learners say: Why you are late?",
     "r": "Better: Why are you late?",
     "y": "In questions, put are before you.",
@@ -15052,7 +15052,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Go to home? Just say go home!",
+    "h": "Just say go home!",
     "w": "Many learners say: I go to home at six.",
     "r": "Better: I go home at six.",
     "y": "Say go home.",
@@ -15171,7 +15171,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "I have 30 years? I am 30!",
+    "h": "Say I am thirty!",
     "w": "Many learners say: I have thirty years.",
     "r": "Better: I am thirty years old.",
     "y": "Say I am for age.",
@@ -16548,7 +16548,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Say a or an before a job!",
+    "h": "A or an before jobs!",
     "w": "Many learners say: She is teacher.",
     "r": "Better: She is a teacher.",
     "y": "Use a or an before a job.",
@@ -17721,7 +17721,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "I come from, not I am coming!",
+    "h": "I come from, not coming!",
     "w": "Many learners say: I am coming from Izmir.",
     "r": "Better: I come from Izmir.",
     "y": "For your hometown, say I come from.",
@@ -17738,7 +17738,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Not listen music. Say listen to music!",
+    "h": "Listen to music!",
     "w": "Many learners say: I listen music every day.",
     "r": "Better: I listen to music every day.",
     "y": "Say listen to music.",
@@ -17755,7 +17755,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Not explain me. Explain it to me!",
+    "h": "Explain it to me!",
     "w": "Many learners say: Can you explain me this word?",
     "r": "Better: Can you explain this word to me?",
     "y": "Say explain it to me.",
@@ -19176,7 +19176,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Did a mistake? Say made a mistake!",
+    "h": "Say made a mistake!",
     "w": "Many learners say: I did a mistake.",
     "r": "Better: I made a mistake.",
     "y": "We make a mistake.",
@@ -19210,7 +19210,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Look to me? Say look at me!",
+    "h": "Say look at me!",
     "w": "Many learners say: Look to me, please.",
     "r": "Better: Look at me, please.",
     "y": "After look, say at.",
@@ -19346,7 +19346,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Car of my father? Say father's car!",
+    "h": "Say father's car!",
     "w": "Many learners say: This is the car of my father.",
     "r": "Better: This is my father's car.",
     "y": "Use 's for who has it.",
@@ -19414,7 +19414,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Where you are? Say where are you!",
+    "h": "Say where are you!",
     "w": "Many learners say: Where you are going?",
     "r": "Better: Where are you going?",
     "y": "Put are before you.",
@@ -19465,7 +19465,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "How many time? Say how much time!",
+    "h": "Say how much time!",
     "w": "Many learners say: How many time do you need?",
     "r": "Better: How much time do you need?",
     "y": "Time is one thing, so say much.",
@@ -19499,7 +19499,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Say I want, not I am wanting!",
+    "h": "I want, not I'm wanting!",
     "w": "Many learners say: I am wanting a coffee.",
     "r": "Better: I want a coffee.",
     "y": "Say want, not am wanting.",
@@ -20332,7 +20332,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Do not have to, not must not!",
+    "h": "Don't have to, not must not!",
     "w": "Many learners say: You must not bring a gift.",
     "r": "Better: You do not have to bring a gift.",
     "y": "Not needed? Say do not have to.",
@@ -20689,7 +20689,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "I have lived here for two years!",
+    "h": "For two years, not since!",
     "w": "Many learners say: I have lived here since two years.",
     "r": "Better: I have lived here for two years.",
     "y": "Use for with a length of time.",
@@ -21063,7 +21063,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "I have an appointment with my dentist.",
+    "h": "An appointment, not a date!",
     "w": "Many learners say: I have a date with my dentist.",
     "r": "Better: I have an appointment with my dentist.",
     "y": "A date is for a romantic meeting.",
@@ -21505,7 +21505,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Not “I am agree.” Say “I agree!”",
+    "h": "Say I agree!",
     "w": "Many learners say: I am agree with you.",
     "r": "Better: I agree with you.",
     "y": "Agree already has the action. Do not add am.",
@@ -21573,7 +21573,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Used to waking, not used to wake!",
+    "h": "Used to waking, not wake!",
     "w": "Many learners say: I am used to wake up early.",
     "r": "Better: I am used to waking up early.",
     "y": "After used to, say waking.",
@@ -21658,7 +21658,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "I am cold, not I have cold!",
+    "h": "Say I am cold!",
     "w": "Many learners say: I have cold.",
     "r": "Better: I am cold.",
     "y": "For cold, use am.",
@@ -21777,7 +21777,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "On the bus, not in the bus!",
+    "h": "On the bus, not in!",
     "w": "Many learners say: I am in the bus now.",
     "r": "Better: I am on the bus now.",
     "y": "For bus and train, say on.",
@@ -23052,7 +23052,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Say I have, not I am having!",
+    "h": "I have, not I'm having!",
     "w": "Many learners say: I am having two brothers.",
     "r": "Better: I have two brothers.",
     "y": "For family and things we own, say have.",
@@ -26996,7 +26996,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Is it pants is or pants are?",
+    "h": "Pants is or pants are?",
     "w": "Many learners say: Where is my pants?",
     "r": "Better: Where are my pants?",
     "y": "Pants have two legs, so we say are.",
@@ -28373,7 +28373,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "How to get or how do I?",
+    "h": "Say how do I get!",
     "w": "Many learners say: How to get to the station?",
     "r": "Better: How do I get to the station?",
     "y": "A question needs do I.",
@@ -28543,7 +28543,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "In the bus or on the bus?",
+    "h": "On the bus or in?",
     "w": "Many learners say: I am in the bus now.",
     "r": "Better: I am on the bus now.",
     "y": "Use on for a bus.",
@@ -28849,7 +28849,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Do you like, not are you like!",
+    "h": "Say do you like!",
     "w": "Many learners say: Are you like spicy food?",
     "r": "Better: Do you like spicy food?",
     "y": "In questions with like, use do, not are.",
@@ -28866,7 +28866,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "I don't have, not I not have!",
+    "h": "Say I don't have!",
     "w": "Many learners say: I not have money.",
     "r": "Better: I don't have money.",
     "y": "Use don't before have.",
@@ -29002,7 +29002,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Take the bus, not sit the bus!",
+    "h": "Take the bus, not sit!",
     "w": "Many learners say: I sit the bus to work.",
     "r": "Better: I take the bus to work.",
     "y": "Say take for a bus or taxi.",
@@ -29172,7 +29172,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "My friend's book, not book of friend!",
+    "h": "Say my friend's book!",
     "w": "Many learners say: This is book of my friend.",
     "r": "Better: This is my friend's book.",
     "y": "Put my friend's before the thing.",
@@ -29206,7 +29206,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Say have been, not have ever been!",
+    "h": "Say have been, not ever!",
     "w": "Many learners say: I have ever been to Japan.",
     "r": "Better: I have been to Japan.",
     "y": "Use ever in questions, not here.",
@@ -29852,7 +29852,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Say it is raining, not is raining!",
+    "h": "Say it is raining!",
     "w": "Many learners say: Is raining today.",
     "r": "Better: It is raining today.",
     "y": "Start with it.",
@@ -30073,7 +30073,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "On May 5, not in May 5!",
+    "h": "On May 5, not in!",
     "w": "Many learners say: My birthday is in May 5.",
     "r": "Better: My birthday is on May 5.",
     "y": "Use on for a day.",
@@ -30107,7 +30107,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Can you swim? Not do you can!",
+    "h": "Say can you swim!",
     "w": "Many learners say: Do you can swim?",
     "r": "Better: Can you swim?",
     "y": "Can needs no do.",
@@ -30175,7 +30175,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Yes, I do, not yes, I have!",
+    "h": "Yes, I do, not have!",
     "w": "Many learners say: Do you have a pen? Yes, I have.",
     "r": "Better: Do you have a pen? Yes, I do.",
     "y": "Answer with do.",
@@ -30277,7 +30277,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "A glass of water, not glass water!",
+    "h": "A glass of water!",
     "w": "Many learners say: Can I have a glass water?",
     "r": "Better: Can I have a glass of water?",
     "y": "Say a glass of water.",
@@ -30311,7 +30311,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Nice to meet you, not meet with!",
+    "h": "Nice to meet you!",
     "w": "Many learners say: Nice to meet with you.",
     "r": "Better: Nice to meet you.",
     "y": "No with. Say meet you.",
@@ -30328,7 +30328,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Where the bank is, not where is!",
+    "h": "Where the bank is!",
     "w": "Many learners say: Can you tell me where is the bank?",
     "r": "Better: Can you tell me where the bank is?",
     "y": "Say where the bank is.",
@@ -31161,7 +31161,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Why do you go to the market?",
+    "h": "Why go to the market?",
     "w": "Many learners say: I went to the market for buy fruit.",
     "r": "Better: I went to the market to buy fruit.",
     "y": "Say to before buy.",
@@ -31365,7 +31365,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Is it good in or good at?",
+    "h": "Good at or good in?",
     "w": "Many learners say: He is good in English.",
     "r": "Better: He is good at English.",
     "y": "Use at after good.",
@@ -31467,7 +31467,7 @@
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
    "script": {
-    "h": "Is it with bus or by bus?",
+    "h": "With bus or by bus?",
     "w": "Many learners say: I go to work with bus.",
     "r": "Better: I go to work by bus.",
     "y": "Say by bus.",
