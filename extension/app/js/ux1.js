@@ -316,7 +316,7 @@
     return root;
   }
   // Đổi cỡ màn qua mốc 1024 px khi đang ở Hôm nay → vẽ lại đúng khung (điện thoại ↔ máy tính)
-  try { matchMedia('(min-width: 1024px)').addEventListener('change', () => { if (on() && document.querySelector('.v2s-today, .v2s-today-desk') && App.route) (matchMedia('(min-width: 1024px)').matches && !ST2['today-desk'] ? App.need('ux1desk').catch(() => {}) : Promise.resolve()).then(() => App.route()); }); } catch (e) { /* trình duyệt cũ */ }
+  try { matchMedia('(min-width: 1024px)').addEventListener('change', () => { if (on() && document.querySelector('.v2s-today, .v2s-today-desk') && App.route) (matchMedia('(min-width: 1024px)').matches && !ST2['today-desk'] ? App.need('u1home').catch(() => {}) : Promise.resolve()).then(() => App.route()); }); } catch (e) { /* trình duyệt cũ */ }
 
   // ---------- Cột phải (máy tính ≥ 1024 px) ----------
   function rail() {
