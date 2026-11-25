@@ -749,6 +749,7 @@
 "Nhập từ Anki":"从 Anki 导入",
 "Nhập từ bộ thẻ Anki":"从你的 Anki 牌组导入",
 "Nhập từ văn bản, PDF, ePub, phụ đề":"从文本、PDF、ePub 和字幕导入",
+"Nhật ký giọng nói":"语音日记",
 "Nhắc học":"提醒",
 "Nhắc học hằng ngày":"每日提醒",
 "Nhịp điệu":"节奏",
