@@ -307,6 +307,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     handsfree: ['words', 'tsl', 'voice', 'handsfree'],
     home: ['words', 'streak'],
     ideas: 'writing',
+    interpret: 'interpret',
     irregular: ['vcore', 'irregular'],
     league: 'league',
     lesson: 'lesson',
@@ -399,6 +400,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     gend: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
+    interpret: ['css/interpret.css'],
     irregular: 'css/st-v2-irregular.css',
     irvdrill: 'css/st-v2-irregular-drill.css',
     lcard: 'css/lcard.css',
@@ -530,6 +532,8 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     return (m ? tp && tp.words && tp.words.length : /^(deck|due|weak|forgetting|phrases)$/.test(src)) ? ['words', 'tsl'] : [];
   };
   const V2_ROUTES = new Set(['train', 'skills', 'me', 'say', 'goal']);
+  // #/speak khi cờ tắt chuyển sang #/skills (màn v2 tràn khung): giữ v2pre ngay từ lúc chạm, không thì thanh trên hiện rồi ẩn (CLS 0,158 bản ar, quality-sweep #53). Cùng luật App.speakOn (speak/app.js) – chưa nạp gói nên không gọi được
+  const speakFlag = () => { try { const f = localStorage.getItem('lk.speak'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.speak_pack; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
   const HB_ROUTES = new Set(['vocab', 'library', 'tests']); // trang gắn thanh hub Stitch (ST2.hubbar/hubPage) lúc dựng xong: thanh trên cũ phải ẩn NGAY lúc chạm (class hbpre), không thì #view nhảy lên 56 px khi trang dựng (CLS 0,066 #/vocab #/tests #/library)
   // 🧈 Cuộn: docs/PERF-SCROLL.md
   const Scroll = (() => {
@@ -574,7 +578,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
     document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); document.documentElement.classList.remove('lk-fo'); // màn học mở thẳng từ link: gỡ lớp ẩn khung của script đầu trang (data-lkf) khi route() đã đặt focus
     // v2pre = #view không đệm (màn Stitch tràn khung). Đang hiện màn v2 mà đi sang trang thường: GIỮ v2pre tới khi nội dung mới thay vào, không thì màn cũ dịch ~26 px lúc đệm quay lại (CLS sweep #/speak)
-    const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && document.body.classList.contains('v2pre'), first0 = view.firstElementChild;
+    const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'speak' && !speakFlag()) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && document.body.classList.contains('v2pre'), first0 = view.firstElementChild;
     if (!holdPre) document.body.classList.toggle('v2pre', preNow);
     document.body.classList.toggle('hbpre', ux1 && HB_ROUTES.has(name));
     try { localStorage.setItem('lk.ux1c', ux1 ? '1' : '0'); } catch (e) { /* bỏ qua */ }
@@ -614,7 +618,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
       setTimeout(() => { if (my === routeSeq) document.body.classList.remove('v2pre'); }, 1500);
       if (backY && my === routeSeq) Scroll.restore(backY, () => my === routeSeq);
       if (late.length) App.calm(() => App.need(...late).catch(() => {}), 2500); // sau lần vẽ đầu (kể cả khi đã sang trang khác: gói dùng chung)
-      if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); if (drawnRes) { const r = drawnRes; drawnRes = null; afterPaint(() => { r(); dispatchEvent(new Event('lk:drawn')); }); } }
+      if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle, my); if (App.afterRoute) App.afterRoute(name); if (drawnRes) { const r = drawnRes; drawnRes = null; afterPaint(() => { r(); dispatchEvent(new Event('lk:drawn')); }); } }
       if (sf.length) afterPaint(() => (name === 'review' ? later : idle)(() => App.need(...sf).then(() => dispatchEvent(new Event('lk:soft'))).catch(() => {})));
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
@@ -628,15 +632,16 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   // Đổi trang (SPA) cho trình đọc màn hình: tiêu đề tab theo h1 của trang + đưa focus về vùng nội dung khi bấm từ thanh điều hướng
   // (không cướp focus của hộp thoại/ô nhập; lần mở đầu tiên giữ nguyên). Kiểu Babbel/Duolingo web: Tab tiếp theo vào thẳng nội dung trang.
   let titleBase = '', routedOnce = false;
-  function a11yRoute(name, preTitle) {
+  function a11yRoute(name, preTitle, my) {
     try {
       if (document.title !== preTitle) { if (!titleBase) titleBase = preTitle; } else { // trang tự đặt tiêu đề riêng (vd. Cách dùng từ) → giữ
       const h = name && name !== 'home' && view.querySelector('.page-head h1, h1');
       const txt = h ? h.textContent.replace(/^[\p{Extended_Pictographic}\uFE0F\u200d\s]+/u, '').replace(/\s+/g, ' ').trim().slice(0, 70) : '';
       if (txt) { if (!titleBase) titleBase = document.title; document.title = txt + ' – Lexkite'; } else if (titleBase) document.title = titleBase;
       }
-      const a = document.activeElement, modalOpen = !!document.querySelector('#modal:not([hidden])');
-      if (routedOnce && !modalOpen && (!a || a === document.body || (a.closest && a.closest('#bnav, #nav, .side-foot, .crumb')))) view.focus({ preventScroll: true });
+      // focus() buộc tính style+bố cục NGAY trong tác vụ vẽ trang (hồ sơ CPU quality-sweep #53: focus 77–82 ms, RunTask 102–108 ms) → dời sang khung hình kế: trình duyệt tính bố cục một lần trong bước vẽ, tác vụ JS ngắn lại
+      const focusView = () => { const a = document.activeElement, modalOpen = !!document.querySelector('#modal:not([hidden])'); if (!modalOpen && (!a || a === document.body || (a.closest && a.closest('#bnav, #nav, .side-foot, .crumb')))) view.focus({ preventScroll: true }); };
+      if (routedOnce) requestAnimationFrame(() => { if (my === routeSeq) focusView(); });
       routedOnce = true;
     } catch (e) { /* không chặn việc vẽ trang */ }
   }

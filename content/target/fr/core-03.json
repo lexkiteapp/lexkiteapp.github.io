@@ -1,0 +1,453 @@
+{
+  "v": 1,
+  "tl": "fr",
+  "variant": "fr-FR",
+  "status": "reviewed",
+  "source": {
+    "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 fr_50k",
+    "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/fr/fr_50k.txt",
+    "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+  },
+  "words": [
+    {
+      "word": "être",
+      "pos": "v",
+      "ipa": "ɛtʁ",
+      "gl": {
+        "vi": "là",
+        "en": "be",
+        "es": "ser",
+        "pt": "ser",
+        "fr": "être",
+        "de": "sein",
+        "id": "menjadi",
+        "th": "เป็น",
+        "zh": "是",
+        "ja": "です",
+        "ko": "이다",
+        "hi": "होना",
+        "ar": "يكون",
+        "ru": "быть",
+        "tr": "olmak"
+      },
+      "ex": {
+        "fr": "Il est étudiant.",
+        "en": "He is a student."
+      },
+      "exForm": "est",
+      "rank": 3,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.6-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "sur",
+      "pos": "prep",
+      "ipa": "syʁ",
+      "gl": {
+        "vi": "trên",
+        "en": "on",
+        "es": "sobre",
+        "pt": "sobre",
+        "fr": "sur",
+        "de": "auf",
+        "id": "di atas",
+        "th": "บน",
+        "zh": "在…上",
+        "ja": "上に",
+        "ko": "위에",
+        "hi": "पर",
+        "ar": "على",
+        "ru": "на",
+        "tr": "üzerinde"
+      },
+      "ex": {
+        "fr": "Le livre est sur la table.",
+        "en": "The book is on the table."
+      },
+      "rank": 60,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.6-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "temps",
+      "pos": "n",
+      "gender": "m",
+      "plural": "temps",
+      "ipa": "tɑ̃",
+      "gl": {
+        "vi": "thời gian",
+        "en": "time",
+        "es": "tiempo",
+        "pt": "tempo",
+        "fr": "temps",
+        "de": "Zeit",
+        "id": "waktu",
+        "th": "เวลา",
+        "zh": "时间",
+        "ja": "時間",
+        "ko": "시간",
+        "hi": "समय",
+        "ar": "وقت",
+        "ru": "время",
+        "tr": "zaman"
+      },
+      "ex": {
+        "fr": "Je n'ai pas le temps aujourd'hui.",
+        "en": "I don't have time today."
+      },
+      "rank": 117,
+      "qa": {
+        "gen": "gemini-3.7-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "donc",
+      "pos": "adv",
+      "ipa": "dɔ̃k",
+      "gl": {
+        "vi": "vì vậy",
+        "en": "therefore, so",
+        "es": "por lo tanto",
+        "pt": "portanto",
+        "fr": "donc",
+        "de": "also",
+        "id": "jadi",
+        "th": "ดังนั้น",
+        "zh": "因此",
+        "ja": "だから",
+        "ko": "그래서",
+        "hi": "इसलिए",
+        "ar": "إذن",
+        "ru": "следовательно",
+        "tr": "bu yüzden"
+      },
+      "ex": {
+        "fr": "Je pense, donc je suis.",
+        "en": "I think, therefore I am."
+      },
+      "rank": 134,
+      "qa": {
+        "gen": "gemini-3.7-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "personne",
+      "pos": "n",
+      "gender": "f",
+      "plural": "personnes",
+      "ipa": "pɛʁsɔn",
+      "gl": {
+        "vi": "người",
+        "en": "person",
+        "es": "persona",
+        "pt": "pessoa",
+        "fr": "personne",
+        "de": "Person",
+        "id": "orang",
+        "th": "คน",
+        "zh": "人",
+        "ja": "人",
+        "ko": "사람",
+        "hi": "व्यक्ति",
+        "ar": "شخص",
+        "ru": "человек",
+        "tr": "kişi"
+      },
+      "ex": {
+        "fr": "C'est une personne très gentille.",
+        "en": "She is a very kind person."
+      },
+      "rank": 144,
+      "qa": {
+        "gen": "gemini-3.7-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "beaucoup",
+      "pos": "adv",
+      "ipa": "boku",
+      "gl": {
+        "vi": "nhiều",
+        "en": "a lot, much",
+        "es": "mucho",
+        "pt": "muito",
+        "fr": "beaucoup",
+        "de": "viel",
+        "id": "banyak",
+        "th": "มาก",
+        "zh": "很多",
+        "ja": "たくさん",
+        "ko": "많이",
+        "hi": "बहुत",
+        "ar": "كثيرا",
+        "ru": "много",
+        "tr": "çok"
+      },
+      "ex": {
+        "fr": "Merci beaucoup pour votre aide.",
+        "en": "Thank you very much for your help."
+      },
+      "rank": 170,
+      "qa": {
+        "gen": "gemini-3.7-flash",
+        "judges": [
+          "openai/gpt-oss-120b",
+          "qwen/qwen3.8-27b"
+        ],
+        "bt": "openai/gpt-oss-120b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "voilà",
+      "pos": "adv",
+      "ipa": "vwala",
+      "gl": {
+        "vi": "đây là",
+        "en": "here is",
+        "es": "he aquí",
+        "pt": "aqui está",
+        "fr": "voilà",
+        "de": "hier ist",
+        "id": "ini dia",
+        "th": "นี่คือ",
+        "zh": "这里是",
+        "ja": "こちらは",
+        "ko": "여기 있다",
+        "hi": "यहाँ है",
+        "ar": "هنا",
+        "ru": "вот",
+        "tr": "işte"
+      },
+      "ex": {
+        "fr": "Voilà le livre.",
+        "en": "Here is the book."
+      },
+      "rank": 186,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ],
+        "wikt": "từ loại adv ↔ verb/prep"
+      }
+    },
+    {
+      "word": "passer",
+      "pos": "v",
+      "ipa": "pase",
+      "gl": {
+        "vi": "đưa, chuyền",
+        "en": "to pass (hand over)",
+        "es": "pasar",
+        "pt": "passar",
+        "fr": "passer",
+        "de": "vorbeigehen",
+        "id": "lewati",
+        "th": "ผ่าน",
+        "zh": "经过",
+        "ja": "通る",
+        "ko": "지나가다",
+        "hi": "गुज़रना",
+        "ar": "يمر",
+        "ru": "проходить",
+        "tr": "geçmek"
+      },
+      "ex": {
+        "fr": "Il passe le sel.",
+        "en": "He passes the salt."
+      },
+      "exForm": "passe",
+      "rank": 220,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ],
+        "spot": true
+      }
+    },
+    {
+      "word": "trouver",
+      "pos": "v",
+      "ipa": "tʁuve",
+      "gl": {
+        "vi": "tìm",
+        "en": "to find",
+        "es": "encontrar",
+        "pt": "encontrar",
+        "fr": "trouver",
+        "de": "finden",
+        "id": "menemukan",
+        "th": "พบ",
+        "zh": "找到",
+        "ja": "見つける",
+        "ko": "찾다",
+        "hi": "खोजना",
+        "ar": "يجد",
+        "ru": "находить",
+        "tr": "bulmak"
+      },
+      "ex": {
+        "fr": "J'ai trouvé mes clés.",
+        "en": "I found my keys."
+      },
+      "exForm": "trouvé",
+      "rank": 228,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "tête",
+      "pos": "n",
+      "gender": "f",
+      "plural": "têtes",
+      "ipa": "tɛt",
+      "gl": {
+        "vi": "đầu",
+        "en": "head",
+        "es": "cabeza",
+        "pt": "cabeça",
+        "fr": "tête",
+        "de": "Kopf",
+        "id": "kepala",
+        "th": "หัว",
+        "zh": "头",
+        "ja": "頭",
+        "ko": "머리",
+        "hi": "सिर",
+        "ar": "رأس",
+        "ru": "голова",
+        "tr": "baş"
+      },
+      "ex": {
+        "fr": "J'ai mal à la tête.",
+        "en": "I have a headache."
+      },
+      "rank": 245,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    },
+    {
+      "word": "vite",
+      "pos": "adv",
+      "ipa": "vit",
+      "gl": {
+        "vi": "nhanh",
+        "en": "quickly",
+        "es": "rápido",
+        "pt": "rápido",
+        "fr": "vite",
+        "de": "schnell",
+        "id": "cepat",
+        "th": "เร็ว",
+        "zh": "快",
+        "ja": "速く",
+        "ko": "빨리",
+        "hi": "तेज़ी से",
+        "ar": "سريعًا",
+        "ru": "быстро",
+        "tr": "hızlı"
+      },
+      "ex": {
+        "fr": "Il court vite.",
+        "en": "He runs quickly."
+      },
+      "rank": 253,
+      "qa": {
+        "gen": "openai/gpt-oss-120b",
+        "judges": [
+          "qwen/qwen3.8-27b",
+          "gemini-3.8-flash"
+        ],
+        "bt": "qwen/qwen3.8-27b",
+        "scores": [
+          5,
+          5
+        ]
+      }
+    }
+  ]
+}
