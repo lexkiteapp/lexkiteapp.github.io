@@ -5,8 +5,9 @@
 .st-bar { height: var(--sp-2); border-radius: var(--r-pill); background: var(--surface-3); overflow: hidden; margin-top: var(--sp-2); }
 .st-bar > i { display: block; height: 100%; background: var(--primary); border-radius: inherit; transition: width var(--dur-2) var(--ease-std); }
 .st-lvs { display: flex; gap: var(--sp-2); margin: var(--sp-3) 0; }
-.st-lvb { min-height: 44px; min-width: 52px; padding: 0 var(--sp-3); border: 1px solid var(--line); cursor: pointer; font-weight: 700; }
-.st-lvb[aria-checked="true"] { background: var(--primary); color: var(--on-done, #fff); border-color: var(--primary); }
+.st-lvb { min-height: 44px; min-width: 52px; padding: 0 var(--sp-3); border: 1px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; font-weight: 700; }
+/* Chọn = nền --primary + chữ --primary-ink (đủ 4,5:1 sáng/tối). Phải thắng luật hover chung của chip (style.css: button.chip:not(.on,[aria-pressed]):hover → nền --surface-3) – nếu không, chip vừa bấm bị nền be + chữ trắng (1,26:1). */
+button.chip.st-lvb[aria-checked="true"], button.chip.st-lvb[aria-checked="true"]:hover { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
 .st-list { display: grid; gap: var(--sp-3); margin-top: var(--sp-2); }
 .st-card, .st-cont { display: flex; gap: var(--sp-3); align-items: center; color: var(--text); min-height: 72px; }
 .st-info { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; flex: 1; }
