@@ -125,11 +125,6 @@
     i18nl: ['verbs', 'exams', 'skills', 'lazyui'].map(n => `js/i18n/en/${n}.js`), // chuỗi Chia động từ/Sửa ngữ pháp, đề thi, Ngữ pháp/Speaking/Phát âm (ra khỏi en.js 27/10; add-on không cần nên tách khỏi i18nx)
     skillsv2: ['js/st/v2/skills.js', 'js/skills-hub.js'], // 🎯 tab Kỹ năng (Stitch v2), ngoài khung app
     // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
-    // 🧩 Stitch nhóm B (cờ ux1, ROUTE_UX1 ở app.js)
-    utopic: ['js/i18n/en/ux1b.js', 'js/i18n/en/v2b.js', 'cpack/st2/topic.js', 'cpack/ux1/topic.js'],
-    udeck: ['js/i18n/en/ux1b.js', 'js/i18n/en/v2b.js', 'cpack/st2/deck.js', 'cpack/ux1/deck.js'],
-    umist: ['js/i18n/en/ux1b.js', 'js/i18n/en/v2b.js', 'cpack/st2/mistakes.js', 'cpack/ux1/mistakes.js'],
-    ustat: ['js/i18n/en/ux1b.js', 'js/i18n/en/v2b.js', 'cpack/st2/stats.js', 'cpack/ux1/stats.js'],
     // ux1 = lõi chung (mọi trang bật cờ ux1 nạp); mỗi màn Stitch nằm gói riêng u1* và chỉ nạp cùng trang cần nó (app.js UX1_SCR; trang lạ nạp đủ như cũ) – LCP #/path #/review #/dict #/me bớt 25–50 KB
     ux1: ['js/i18n/en/ux1.js', 'js/say-text.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/home.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/streak.js', 'js/ux1.js'],
     u1home: ['js/path-trail.js', 'js/st/v2/path.js', 'js/st/v2/today.js', 'js/st/v2/today-new.js', 'js/st/v2/today-desk.js', 'js/st/v2/today-rail.js'],
