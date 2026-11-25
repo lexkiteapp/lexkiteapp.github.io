@@ -1,0 +1,4170 @@
+{
+ "_doc": "Kho điểm ngữ pháp tiếng Nhật (JLPT N5→N1 ↔ A1→C1) của LexKite. 100% tự soạn: tên điểm, câu \"Can …\" và ví dụ là của LexKite, không chép danh mục điểm của Japan Foundation/JEES hay sách giáo trình (CONTENT-RULES §1). level = bậc CEFR tương ứng (N5=A1, N4=A2, N3=B1, N2=B2, N1=C1), jlpt = cấp JLPT; lessons = id bài ja (chưa có → []); tenses = khóa của scripts/target/conj-ja.mjs (FORMS); kiểm: node scripts/content-qa/grammar-map-check.mjs --tl ja; id điểm KHÔNG đổi/tái dùng.",
+ "version": 1,
+ "areas": {
+  "particle": "Particles",
+  "copula": "Copula & noun sentences",
+  "verb": "Verb forms & existence",
+  "adj": "Adjectives",
+  "aspect": "Aspect & time",
+  "modal": "Modality, ability & permission",
+  "cond": "Conditionals",
+  "passive": "Passive & causative",
+  "give": "Giving & receiving",
+  "clause": "Clauses & nominalisation",
+  "quote": "Quotation & reporting",
+  "conn": "Connectors & linking",
+  "question": "Questions",
+  "compare": "Comparison & degree",
+  "counter": "Numbers & counters",
+  "polite": "Politeness & keigo",
+  "final": "Sentence-final forms & speech style",
+  "word": "Word forms & vocabulary",
+  "number": "Numbers, dates & time",
+  "adv": "Adverbs",
+  "noun": "Nouns & position words",
+  "sentence": "Word order",
+  "discourse": "Discourse & register",
+  "formal": "Formal & written style"
+ },
+ "points": [
+  {
+   "id": "desu-identity",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "copula",
+   "name": "X wa Y desu: identity and profession",
+   "can_do_en": "Can say who someone is and what they do with は and です.",
+   "example": "わたしは田中です。学生です。",
+   "example_en": "I am Tanaka. I am a student.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "desu-negative",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "copula",
+   "name": "ではありません / じゃないです",
+   "can_do_en": "Can say that something is not so, in polite style.",
+   "example": "これはペンではありません。",
+   "example_en": "This is not a pen.",
+   "tenses": [
+    "masen"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "desu-past",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "copula",
+   "name": "でした / ではありませんでした",
+   "can_do_en": "Can say what something was or was not in the past.",
+   "example": "昨日は休みでした。",
+   "example_en": "Yesterday was a day off.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ka-question",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "question",
+   "name": "か: yes/no questions",
+   "can_do_en": "Can turn a statement into a question by adding か.",
+   "example": "あなたは先生ですか。",
+   "example_en": "Are you a teacher?",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "wa-topic",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "は: topic marker",
+   "can_do_en": "Can mark the topic of a sentence with は.",
+   "example": "私は犬が好きです。",
+   "example_en": "As for me, I like dogs.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "mo-also",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "も: also, too",
+   "can_do_en": "Can say that something is also true with も.",
+   "example": "田中さんも学生です。",
+   "example_en": "Mr. Tanaka is also a student.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "no-possessive",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "の: possession and attribution",
+   "can_do_en": "Can link two nouns with の to show who owns something or what kind it is.",
+   "example": "これは私の本です。",
+   "example_en": "This is my book.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "ga-subject",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "が: subject and likes/abilities",
+   "can_do_en": "Can use が with 好き, 上手 and similar words to name what is liked or known.",
+   "example": "兄は料理が上手です。",
+   "example_en": "My older brother is good at cooking.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "wo-object",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "を: direct object",
+   "can_do_en": "Can mark the thing that an action is done to with を.",
+   "example": "毎朝パンを食べます。",
+   "example_en": "I eat bread every morning.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-time",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "に: point in time",
+   "can_do_en": "Can say when something happens with に and a time word.",
+   "example": "七時に起きます。",
+   "example_en": "I get up at seven.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-destination",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "に / へ: destination",
+   "can_do_en": "Can say where someone goes with に or へ.",
+   "example": "明日、学校へ行きます。",
+   "example_en": "Tomorrow I will go to school.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "de-place",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "で: place of action",
+   "can_do_en": "Can say where an action takes place with で.",
+   "example": "図書館で勉強します。",
+   "example_en": "I study at the library.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "de-means",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "で: means and tool",
+   "can_do_en": "Can say how or with what something is done with で.",
+   "example": "バスで会社へ行きます。",
+   "example_en": "I go to the office by bus.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "to-with",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "と: with, and",
+   "can_do_en": "Can say who you do something with, and list nouns, with と.",
+   "example": "友達と映画を見ます。",
+   "example_en": "I watch a movie with a friend.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kara-made",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "から / まで: from and until",
+   "can_do_en": "Can say a starting and an ending point in time or place.",
+   "example": "九時から五時まで働きます。",
+   "example_en": "I work from nine to five.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ya-list",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "particle",
+   "name": "や: listing examples",
+   "can_do_en": "Can list a few examples of many with や.",
+   "example": "机の上に本やノートがあります。",
+   "example_en": "There are books and notebooks on the desk.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "kore-sore-are",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "word",
+   "name": "これ・それ・あれ・どれ",
+   "can_do_en": "Can point to things near, far and unknown with これ, それ, あれ and どれ.",
+   "example": "それは何ですか。",
+   "example_en": "What is that?",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kono-sono-ano",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "word",
+   "name": "この・その・あの + noun",
+   "can_do_en": "Can point to a noun with この, その and あの.",
+   "example": "あの人は先生です。",
+   "example_en": "That person is a teacher.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "koko-soko-asoko",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "word",
+   "name": "ここ・そこ・あそこ・どこ",
+   "can_do_en": "Can ask and tell where something is with place words.",
+   "example": "トイレはあそこです。",
+   "example_en": "The restroom is over there.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "aru-iru",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "verb",
+   "name": "ある and いる: existence",
+   "can_do_en": "Can say that things exist with ある and that people or animals exist with いる.",
+   "example": "庭に猫がいます。",
+   "example_en": "There is a cat in the garden.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "location-ni-aru",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "verb",
+   "name": "place に noun が あります",
+   "can_do_en": "Can say what is in a place using に and が.",
+   "example": "部屋にテレビがあります。",
+   "example_en": "There is a TV in the room.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "position-words",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "noun",
+   "name": "上・下・中・前・後ろ・隣",
+   "can_do_en": "Can say where something is with position words such as 上, 下 and 隣.",
+   "example": "机の下に鞄があります。",
+   "example_en": "There is a bag under the desk.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "masu-present",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "verb",
+   "name": "ます form: polite present and future",
+   "can_do_en": "Can use the ます form for habits and future plans.",
+   "example": "毎日、水を飲みます。",
+   "example_en": "I drink water every day.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "masen-negative",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "verb",
+   "name": "ません: polite negative",
+   "can_do_en": "Can say you do not do something with ません.",
+   "example": "私は肉を食べません。",
+   "example_en": "I do not eat meat.",
+   "tenses": [
+    "masen"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "mashita-past",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "verb",
+   "name": "ました: polite past",
+   "can_do_en": "Can say what you did with ました.",
+   "example": "昨日、友達に会いました。",
+   "example_en": "Yesterday I met a friend.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "masendeshita-past-neg",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "verb",
+   "name": "ませんでした: polite past negative",
+   "can_do_en": "Can say you did not do something with ませんでした.",
+   "example": "今朝は何も食べませんでした。",
+   "example_en": "I did not eat anything this morning.",
+   "tenses": [
+    "masendeshita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "mashou-invite",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "modal",
+   "name": "ましょう: let's",
+   "can_do_en": "Can suggest doing something together with ましょう.",
+   "example": "一緒に昼ご飯を食べましょう。",
+   "example_en": "Let's eat lunch together.",
+   "tenses": [
+    "mashou"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "masenka-invite",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "modal",
+   "name": "ませんか: would you like to",
+   "can_do_en": "Can invite someone politely with ませんか.",
+   "example": "コーヒーを飲みませんか。",
+   "example_en": "Would you like to have coffee?",
+   "tenses": [
+    "masen"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tai-want",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "modal",
+   "name": "たい: want to do",
+   "can_do_en": "Can say what you want to do with the stem and たい.",
+   "example": "日本へ行きたいです。",
+   "example_en": "I want to go to Japan.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-kudasai",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "modal",
+   "name": "てください: please do",
+   "can_do_en": "Can ask someone to do something with てください.",
+   "example": "ここに名前を書いてください。",
+   "example_en": "Please write your name here.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "i-adj-present",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "adj",
+   "name": "い-adjectives: present",
+   "can_do_en": "Can describe things with い-adjectives before です or a noun.",
+   "example": "この部屋は広いです。",
+   "example_en": "This room is spacious.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "i-adj-negative",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "adj",
+   "name": "い-adjectives: くないです",
+   "can_do_en": "Can negate an い-adjective with くない.",
+   "example": "この本は高くないです。",
+   "example_en": "This book is not expensive.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "i-adj-past",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "adj",
+   "name": "い-adjectives: かったです",
+   "can_do_en": "Can put an い-adjective in the past with かった.",
+   "example": "昨日は暑かったです。",
+   "example_en": "It was hot yesterday.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "na-adj-present",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "adj",
+   "name": "な-adjectives",
+   "can_do_en": "Can use な-adjectives with です and with な before a noun.",
+   "example": "静かな町が好きです。",
+   "example_en": "I like quiet towns.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "na-adj-negative",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "adj",
+   "name": "な-adjectives: negative and past",
+   "can_do_en": "Can negate and past-mark a な-adjective with ではありません and でした.",
+   "example": "あの店は便利ではありません。",
+   "example_en": "That shop is not convenient.",
+   "tenses": [
+    "masen"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adj-and-noun",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "adj",
+   "name": "adjective + noun",
+   "can_do_en": "Can put an adjective before a noun to describe it.",
+   "example": "大きい犬を見ました。",
+   "example_en": "I saw a big dog.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adj-te-connect",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "adj",
+   "name": "adjective て-form: and",
+   "can_do_en": "Can join two descriptions with the て-form of an adjective.",
+   "example": "この町は小さくて静かです。",
+   "example_en": "This town is small and quiet.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "interrogatives",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "question",
+   "name": "何・誰・いつ・どこ・どう",
+   "can_do_en": "Can ask basic questions with 何, 誰, いつ, どこ and どう.",
+   "example": "誕生日はいつですか。",
+   "example_en": "When is your birthday?",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ikura-price",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "question",
+   "name": "いくら: how much",
+   "can_do_en": "Can ask the price of something with いくら.",
+   "example": "このりんごはいくらですか。",
+   "example_en": "How much is this apple?",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "numbers-basic",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "number",
+   "name": "numbers 1–10,000",
+   "can_do_en": "Can say and read numbers up to ten thousand.",
+   "example": "この本は千五百円です。",
+   "example_en": "This book costs fifteen hundred yen.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "time-clock",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "number",
+   "name": "clock time: 時・分",
+   "can_do_en": "Can tell the time with 時 and 分.",
+   "example": "今、三時十五分です。",
+   "example_en": "It is now a quarter past three.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "dates-days",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "number",
+   "name": "dates and days of the week",
+   "can_do_en": "Can say the date and the day of the week.",
+   "example": "今日は五月三日、月曜日です。",
+   "example_en": "Today is Monday, May third.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "counter-tsu",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "counter",
+   "name": "ひとつ・ふたつ: native counting",
+   "can_do_en": "Can count things up to ten with the native counting words.",
+   "example": "りんごを三つください。",
+   "example_en": "Please give me three apples.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "counter-people",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "counter",
+   "name": "〜人: counting people",
+   "can_do_en": "Can count people with 人, including ひとり and ふたり.",
+   "example": "家族は四人です。",
+   "example_en": "There are four people in my family.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "counter-basic",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "counter",
+   "name": "〜枚・〜本・〜個",
+   "can_do_en": "Can count flat things, long things and small things.",
+   "example": "ペンを二本買いました。",
+   "example_en": "I bought two pens.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "suki-kirai",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "adj",
+   "name": "好き・嫌い・上手・下手",
+   "can_do_en": "Can say what you like, dislike or do well with が.",
+   "example": "私は音楽が好きです。",
+   "example_en": "I like music.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "greetings-set",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "discourse",
+   "name": "set expressions and greetings",
+   "can_do_en": "Can use basic greetings and polite set phrases.",
+   "example": "ありがとうございます。どういたしまして。",
+   "example_en": "Thank you. You're welcome.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "sentence-order",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "sentence",
+   "name": "word order: verb last",
+   "can_do_en": "Can build a sentence with the verb at the end.",
+   "example": "私は毎日学校で日本語を勉強します。",
+   "example_en": "I study Japanese at school every day.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "frequency-adverbs",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "adv",
+   "name": "よく・ときどき・あまり・ぜんぜん",
+   "can_do_en": "Can say how often you do something with frequency words.",
+   "example": "私はあまりテレビを見ません。",
+   "example_en": "I do not watch TV very often.",
+   "tenses": [
+    "masen"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "degree-adverbs",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "adv",
+   "name": "とても・すこし・たくさん",
+   "can_do_en": "Can say how much or how many with とても, すこし and たくさん.",
+   "example": "京都にはお寺がたくさんあります。",
+   "example_en": "There are many temples in Kyoto.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "motion-ni-iku",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "verb",
+   "name": "行く・来る・帰る",
+   "can_do_en": "Can talk about going, coming and returning home.",
+   "example": "毎晩、八時に家へ帰ります。",
+   "example_en": "I return home at eight every night.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "polite-style-intro",
+   "level": "A1",
+   "jlpt": "N5",
+   "area": "polite",
+   "name": "polite style です・ます",
+   "can_do_en": "Can speak in the polite style that is safe with everyone.",
+   "example": "はじめまして。どうぞよろしくお願いします。",
+   "example_en": "Nice to meet you. Please treat me well.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-form-request",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "verb",
+   "name": "て-form formation",
+   "can_do_en": "Can build the て-form of verbs from all three verb groups.",
+   "example": "飲んでください。",
+   "example_en": "Please drink.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-iru-progress",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "aspect",
+   "name": "ている: ongoing action",
+   "can_do_en": "Can say that an action is in progress with ている.",
+   "example": "今、本を読んでいます。",
+   "example_en": "I am reading a book now.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-iru-state",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "aspect",
+   "name": "ている: resulting state and habit",
+   "can_do_en": "Can describe a state that resulted from an action with ている.",
+   "example": "私は東京に住んでいます。",
+   "example_en": "I live in Tokyo.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-mo-ii",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "てもいい: permission",
+   "can_do_en": "Can ask for and give permission with てもいいです.",
+   "example": "写真を撮ってもいいですか。",
+   "example_en": "May I take a photo?",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-wa-ikenai",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "てはいけない: prohibition",
+   "can_do_en": "Can say that something is not allowed with てはいけません.",
+   "example": "ここで食べてはいけません。",
+   "example_en": "You must not eat here.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nai-form",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "verb",
+   "name": "ない form",
+   "can_do_en": "Can build the plain negative with ない.",
+   "example": "私は朝ご飯を食べない。",
+   "example_en": "I do not eat breakfast.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nai-de-kudasai",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "ないでください: please do not",
+   "can_do_en": "Can ask someone not to do something with ないでください.",
+   "example": "ここで写真を撮らないでください。",
+   "example_en": "Please do not take photos here.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nakereba-naranai",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "なければならない: must",
+   "can_do_en": "Can say what you have to do with なければならない.",
+   "example": "明日までに宿題を出さなければなりません。",
+   "example_en": "I have to hand in my homework by tomorrow.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nakute-mo-ii",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "なくてもいい: need not",
+   "can_do_en": "Can say that something is not necessary with なくてもいい.",
+   "example": "明日は来なくてもいいです。",
+   "example_en": "You do not have to come tomorrow.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ta-form",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "verb",
+   "name": "た form: plain past",
+   "can_do_en": "Can build the plain past with た.",
+   "example": "昨日は映画を見た。",
+   "example_en": "I watched a movie yesterday.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "dictionary-form",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "verb",
+   "name": "dictionary form (plain present)",
+   "can_do_en": "Can use the dictionary form as the plain present and future.",
+   "example": "私は毎朝コーヒーを飲む。",
+   "example_en": "I drink coffee every morning.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "koto-ga-dekiru",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "ことができる: can do",
+   "can_do_en": "Can say what you are able to do with ことができる.",
+   "example": "私は泳ぐことができます。",
+   "example_en": "I can swim.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "koto-ga-aru",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "aspect",
+   "name": "たことがある: have done before",
+   "can_do_en": "Can say that you have had an experience with たことがあります.",
+   "example": "富士山に登ったことがあります。",
+   "example_en": "I have climbed Mount Fuji.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tsumori-plan",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "つもり: intend to",
+   "can_do_en": "Can state an intention with つもりです.",
+   "example": "来年、日本へ行くつもりです。",
+   "example_en": "I intend to go to Japan next year.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "mae-ni",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "clause",
+   "name": "前に: before doing",
+   "can_do_en": "Can say that one thing happens before another with 前に.",
+   "example": "寝る前に歯をみがきます。",
+   "example_en": "I brush my teeth before I go to bed.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ato-de",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "clause",
+   "name": "てから・あとで: after doing",
+   "can_do_en": "Can say that one thing happens after another with てから or あとで.",
+   "example": "ご飯を食べてから、出かけます。",
+   "example_en": "After I eat, I will go out.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nagara",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "clause",
+   "name": "ながら: while doing",
+   "can_do_en": "Can say that two actions happen at the same time with ながら.",
+   "example": "音楽を聞きながら勉強します。",
+   "example_en": "I study while listening to music.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-connect",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "clause",
+   "name": "て-form: sequence of actions",
+   "can_do_en": "Can list actions in order with the て-form.",
+   "example": "朝起きて、顔を洗って、朝ご飯を食べます。",
+   "example_en": "I get up, wash my face and eat breakfast.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kara-because",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "conn",
+   "name": "から: because",
+   "can_do_en": "Can give a reason with から.",
+   "example": "雨ですから、家にいます。",
+   "example_en": "Because it is raining, I will stay home.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ga-but",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "conn",
+   "name": "が・けど: but",
+   "can_do_en": "Can contrast two ideas with が or けど.",
+   "example": "高いですが、おいしいです。",
+   "example_en": "It is expensive, but it is delicious.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "node-because",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "conn",
+   "name": "ので: because (softer)",
+   "can_do_en": "Can give a polite reason with ので.",
+   "example": "熱があるので、休みます。",
+   "example_en": "Because I have a fever, I will rest.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "deshou-guess",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "final",
+   "name": "でしょう: probably",
+   "can_do_en": "Can make a guess with でしょう.",
+   "example": "明日は雨でしょう。",
+   "example_en": "It will probably rain tomorrow.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kamoshirenai",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "final",
+   "name": "かもしれない: might",
+   "can_do_en": "Can say something is possible with かもしれません.",
+   "example": "彼は来ないかもしれません。",
+   "example_en": "He might not come.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "hou-ga-ii",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "ほうがいい: had better",
+   "can_do_en": "Can give advice with たほうがいい and ないほうがいい.",
+   "example": "早く寝たほうがいいですよ。",
+   "example_en": "You should go to bed early.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "plain-style",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "polite",
+   "name": "plain style in casual speech",
+   "can_do_en": "Can speak casually with friends in the plain form.",
+   "example": "明日、一緒に行く？",
+   "example_en": "Shall we go together tomorrow?",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "to-omou",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "quote",
+   "name": "と思う: I think that",
+   "can_do_en": "Can give an opinion with と思います.",
+   "example": "明日は雨が降ると思います。",
+   "example_en": "I think it will rain tomorrow.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "to-iu",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "quote",
+   "name": "と言う: quote what was said",
+   "can_do_en": "Can report what someone said with と言いました.",
+   "example": "先生は明日休みだと言いました。",
+   "example_en": "The teacher said tomorrow is a day off.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "koto-nominalizer",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "clause",
+   "name": "こと: turning a verb into a noun",
+   "can_do_en": "Can turn a verb into a noun with こと.",
+   "example": "私の趣味は本を読むことです。",
+   "example_en": "My hobby is reading books.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "no-nominalizer",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "clause",
+   "name": "の: turning a verb into a noun",
+   "can_do_en": "Can use の to treat an action as a thing.",
+   "example": "歌うのが好きです。",
+   "example_en": "I like singing.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "relative-clause",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "clause",
+   "name": "noun-modifying clause",
+   "can_do_en": "Can put a plain-form clause before a noun to describe it.",
+   "example": "昨日買った本は面白いです。",
+   "example_en": "The book I bought yesterday is interesting.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adj-ku-naru",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "adj",
+   "name": "くなる・になる: become",
+   "can_do_en": "Can say that something becomes a state with くなる and になる.",
+   "example": "だんだん寒くなります。",
+   "example_en": "It gets colder little by little.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adj-ku-suru",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "adj",
+   "name": "くする・にする: make",
+   "can_do_en": "Can say that you make something a state with くする and にする.",
+   "example": "音を小さくしてください。",
+   "example_en": "Please turn the sound down.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "compare-yori",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "compare",
+   "name": "より・のほうが: comparing two",
+   "can_do_en": "Can compare two things with より and のほうが.",
+   "example": "電車のほうがバスより速いです。",
+   "example_en": "The train is faster than the bus.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "compare-ichiban",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "compare",
+   "name": "一番: the most",
+   "can_do_en": "Can say which is the most with 一番.",
+   "example": "果物の中でりんごが一番好きです。",
+   "example_en": "Among fruits I like apples best.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "sou-desu-look",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "final",
+   "name": "そうです: looks like",
+   "can_do_en": "Can say how something looks with the stem and そうです.",
+   "example": "このケーキはおいしそうです。",
+   "example_en": "This cake looks delicious.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "sugiru",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "verb",
+   "name": "すぎる: too much",
+   "can_do_en": "Can say that something is too much with すぎる.",
+   "example": "昨日はお酒を飲みすぎました。",
+   "example_en": "I drank too much yesterday.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ageru-kureru-morau",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "give",
+   "name": "あげる・くれる・もらう",
+   "can_do_en": "Can say who gives to whom with あげる, くれる and もらう.",
+   "example": "友達が私に本をくれました。",
+   "example_en": "A friend gave me a book.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-ageru",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "give",
+   "name": "てあげる・てくれる・てもらう",
+   "can_do_en": "Can say that someone does a favor with てあげる, てくれる and てもらう.",
+   "example": "母が料理を作ってくれました。",
+   "example_en": "My mother cooked for me.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-miru",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "aspect",
+   "name": "てみる: try doing",
+   "can_do_en": "Can say that you try doing something with てみる.",
+   "example": "この服を着てみてもいいですか。",
+   "example_en": "May I try on these clothes?",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-shimau",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "aspect",
+   "name": "てしまう: finish, regret",
+   "can_do_en": "Can say that something is finished or regretted with てしまう.",
+   "example": "宿題を忘れてしまいました。",
+   "example_en": "I forgot my homework, unfortunately.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-oku",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "aspect",
+   "name": "ておく: do in advance",
+   "can_do_en": "Can say that you prepare something in advance with ておく.",
+   "example": "旅行の前にホテルを予約しておきます。",
+   "example_en": "I book the hotel before the trip.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tara-conditional-basic",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "cond",
+   "name": "たら: if / when",
+   "can_do_en": "Can say what happens if or when something is done with たら.",
+   "example": "雨が降ったら、行きません。",
+   "example_en": "If it rains, I will not go.",
+   "tenses": [
+    "tara"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "to-conditional-basic",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "cond",
+   "name": "と: if (natural result)",
+   "can_do_en": "Can say that something always follows with と.",
+   "example": "春になると、桜が咲きます。",
+   "example_en": "When spring comes, cherry trees bloom.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "ba-conditional-basic",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "cond",
+   "name": "ば: if (condition)",
+   "can_do_en": "Can state a condition with the ば form.",
+   "example": "安ければ、買います。",
+   "example_en": "If it is cheap, I will buy it.",
+   "tenses": [
+    "ba"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "potential-basic",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "potential form: can do",
+   "can_do_en": "Can say you can do something with the potential form.",
+   "example": "私は漢字が読めます。",
+   "example_en": "I can read kanji.",
+   "tenses": [
+    "pot"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "volitional-basic",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "volitional form: let's, I will",
+   "can_do_en": "Can make a casual suggestion or resolve with the volitional form.",
+   "example": "一緒に帰ろう。",
+   "example_en": "Let's go home together.",
+   "tenses": [
+    "vol"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "you-ni-naru",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "aspect",
+   "name": "ようになる: come to be able",
+   "can_do_en": "Can say that a change has taken place with ようになる.",
+   "example": "日本語が話せるようになりました。",
+   "example_en": "I have come to be able to speak Japanese.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "counter-more",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "counter",
+   "name": "〜回・〜冊・〜台・〜杯",
+   "can_do_en": "Can count occasions, books, machines and cups.",
+   "example": "一日に三回薬を飲みます。",
+   "example_en": "I take medicine three times a day.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "duration-kan",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "number",
+   "name": "〜時間・〜日・〜週間",
+   "can_do_en": "Can say how long something takes with duration words.",
+   "example": "毎日二時間勉強します。",
+   "example_en": "I study for two hours every day.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "dake-shika",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "particle",
+   "name": "だけ・しか〜ない",
+   "can_do_en": "Can say only with だけ and しか〜ない.",
+   "example": "百円しかありません。",
+   "example_en": "I have only one hundred yen.",
+   "tenses": [
+    "masen"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "demo-particle",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "particle",
+   "name": "でも: even, or something",
+   "can_do_en": "Can suggest an example with でも.",
+   "example": "お茶でも飲みませんか。",
+   "example_en": "Would you like some tea or something?",
+   "tenses": [
+    "masen"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ne-yo-final",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "final",
+   "name": "ね・よ: sentence-final particles",
+   "can_do_en": "Can seek agreement with ね and give new information with よ.",
+   "example": "今日はいい天気ですね。",
+   "example_en": "Nice weather today, isn't it?",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kedo-soften",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "discourse",
+   "name": "けど・が: softening a request",
+   "can_do_en": "Can open or soften a request with けど or が.",
+   "example": "すみませんが、駅はどこですか。",
+   "example_en": "Excuse me, where is the station?",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "donna-dou",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "question",
+   "name": "どんな・どう・どうして",
+   "can_do_en": "Can ask what kind, how and why.",
+   "example": "どうして日本語を勉強しますか。",
+   "example_en": "Why do you study Japanese?",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nani-ka",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "word",
+   "name": "何か・誰か・どこか",
+   "can_do_en": "Can say something, someone or somewhere with か.",
+   "example": "何か飲みますか。",
+   "example_en": "Will you drink something?",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nani-mo",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "word",
+   "name": "何も・誰も・どこにも",
+   "can_do_en": "Can say nothing, nobody or nowhere with も and a negative.",
+   "example": "今日は誰も来ませんでした。",
+   "example_en": "Nobody came today.",
+   "tenses": [
+    "masendeshita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "hazu-expect",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "はず: should be",
+   "can_do_en": "Can say what you expect to be true with はず.",
+   "example": "彼はもう家にいるはずです。",
+   "example_en": "He should already be at home.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "koto-ni-naru-a2",
+   "level": "A2",
+   "jlpt": "N4",
+   "area": "modal",
+   "name": "ことになる・ことにする",
+   "can_do_en": "Can say what has been decided with ことになる and ことにする.",
+   "example": "来月、引っ越すことにしました。",
+   "example_en": "I decided to move next month.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-basic",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "passive",
+   "name": "passive form: られる",
+   "can_do_en": "Can say what happened to someone with the passive form.",
+   "example": "私は先生にほめられました。",
+   "example_en": "I was praised by my teacher.",
+   "tenses": [
+    "pass"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-suffering",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "passive",
+   "name": "indirect passive: being troubled",
+   "can_do_en": "Can say that something unwelcome happened to you with the passive.",
+   "example": "雨に降られて、服がぬれました。",
+   "example_en": "I got caught in the rain and my clothes got wet.",
+   "tenses": [
+    "pass"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-neutral",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "passive",
+   "name": "passive without an agent",
+   "can_do_en": "Can state a fact without naming who did it using the passive.",
+   "example": "この橋は百年前に作られました。",
+   "example_en": "This bridge was built a hundred years ago.",
+   "tenses": [
+    "pass"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "causative-basic",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "passive",
+   "name": "causative form: させる",
+   "can_do_en": "Can say that you make or let someone do something.",
+   "example": "母は弟に野菜を食べさせました。",
+   "example_en": "My mother made my brother eat vegetables.",
+   "tenses": [
+    "caus"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "causative-permission",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "passive",
+   "name": "causative: letting someone",
+   "can_do_en": "Can say that you let someone do what they want.",
+   "example": "先生は学生に自由に意見を言わせました。",
+   "example_en": "The teacher let the students speak their minds.",
+   "tenses": [
+    "caus"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "causative-passive",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "passive",
+   "name": "causative passive: being made to",
+   "can_do_en": "Can say that you were made to do something.",
+   "example": "子どものころ、ピーマンを食べさせられました。",
+   "example_en": "As a child I was made to eat green peppers.",
+   "tenses": [
+    "causPass"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "causative-te-morau",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "passive",
+   "name": "させてください: please let me",
+   "can_do_en": "Can ask permission humbly with させてください.",
+   "example": "私に説明させてください。",
+   "example_en": "Please let me explain.",
+   "tenses": [
+    "caus"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ba-conditional-forms",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "cond",
+   "name": "ば-form: all verb groups",
+   "can_do_en": "Can build the ば-form of verbs and adjectives.",
+   "example": "時間があれば、手伝います。",
+   "example_en": "If I have time, I will help.",
+   "tenses": [
+    "ba"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tara-past-discovery",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "cond",
+   "name": "たら: discovery and past",
+   "can_do_en": "Can describe what you found after doing something with たら.",
+   "example": "家に帰ったら、手紙が届いていました。",
+   "example_en": "When I got home, a letter had arrived.",
+   "tenses": [
+    "tara"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nara-conditional",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "cond",
+   "name": "なら: if it is the case",
+   "can_do_en": "Can respond to what someone said with なら.",
+   "example": "行くなら、早く出たほうがいいです。",
+   "example_en": "If you are going, you should leave early.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "to-ba-tara-nara",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "cond",
+   "name": "choosing と・ば・たら・なら",
+   "can_do_en": "Can choose between the four conditionals by meaning.",
+   "example": "安ければ買いますが、高かったら買いません。",
+   "example_en": "If it is cheap I will buy it, but if it is expensive I will not.",
+   "tenses": [
+    "ba"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "toki-clause",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "clause",
+   "name": "とき: when",
+   "can_do_en": "Can say when something happens with とき.",
+   "example": "子どものとき、毎日川で遊びました。",
+   "example_en": "When I was a child I played at the river every day.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "aida-clause",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "clause",
+   "name": "あいだ・うちに: while, before it changes",
+   "can_do_en": "Can say during what time or before it changes with あいだ and うちに.",
+   "example": "若いうちに、いろいろな国へ行きたいです。",
+   "example_en": "While I am young I want to visit many countries.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "toka-ba-nado",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "とか・など: for example",
+   "can_do_en": "Can give examples with とか and など.",
+   "example": "休みの日は、映画とか買い物とかをします。",
+   "example_en": "On days off I do things like watching movies and shopping.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "youni-purpose",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "clause",
+   "name": "ように: so that",
+   "can_do_en": "Can say a goal or hope with ように.",
+   "example": "忘れないように、メモをとります。",
+   "example_en": "I take notes so that I will not forget.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tame-ni-purpose",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "clause",
+   "name": "ために: in order to",
+   "can_do_en": "Can say a purpose with ために.",
+   "example": "日本で働くために、日本語を勉強しています。",
+   "example_en": "I study Japanese in order to work in Japan.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tame-reason",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "clause",
+   "name": "ため: because of",
+   "can_do_en": "Can give a formal reason with ため.",
+   "example": "事故のため、電車が遅れています。",
+   "example_en": "The train is late because of an accident.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "you-da-resemble",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "ようだ・みたいだ: seems",
+   "can_do_en": "Can say how something seems with ようだ and みたいだ.",
+   "example": "彼は疲れているようです。",
+   "example_en": "He seems to be tired.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "rashii-hearsay",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "らしい: apparently",
+   "can_do_en": "Can pass on what you heard with らしい.",
+   "example": "あの店は人気があるらしいです。",
+   "example_en": "Apparently that shop is popular.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "sou-da-hearsay",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "そうだ: I heard that",
+   "can_do_en": "Can report hearsay with plain form and そうだ.",
+   "example": "天気予報によると、明日は雪だそうです。",
+   "example_en": "According to the forecast, it will snow tomorrow.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "sou-da-look",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "そうだ: looks like (appearance)",
+   "can_do_en": "Can say how something looks about to happen with そうだ.",
+   "example": "今にも雨が降りそうです。",
+   "example_en": "It looks like it will rain any moment.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "mitai-example",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "みたい: like, similar to",
+   "can_do_en": "Can compare things casually with みたい.",
+   "example": "彼女は子どもみたいに笑います。",
+   "example_en": "She laughs like a child.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "hazu-wake",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "はず・わけ: expectation and reason",
+   "can_do_en": "Can express expectation and logical reason with はず and わけ.",
+   "example": "毎日練習しているから、上手なわけです。",
+   "example_en": "Since you practice every day, it is no wonder you are good.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "noni-concession",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "conn",
+   "name": "のに: even though",
+   "can_do_en": "Can express unexpected contrast with のに.",
+   "example": "勉強したのに、試験に落ちました。",
+   "example_en": "I studied, yet I failed the exam.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "node-reason-written",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "conn",
+   "name": "ので・から・ため: choosing a reason",
+   "can_do_en": "Can choose between ので, から and ため for the right tone.",
+   "example": "急いでいるので、先に行きます。",
+   "example_en": "Since I'm in a hurry, I'll go ahead.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-form-reason",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "conn",
+   "name": "て-form as a reason",
+   "can_do_en": "Can give a reason with the て-form.",
+   "example": "ニュースを聞いて、びっくりしました。",
+   "example_en": "I was surprised when I heard the news.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nagara-concession",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "conn",
+   "name": "ながら: although",
+   "can_do_en": "Can show contrast with ながら.",
+   "example": "知っていながら、教えてくれませんでした。",
+   "example_en": "Although he knew, he did not tell me.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-iku-kuru",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "aspect",
+   "name": "ていく・てくる: direction of change",
+   "can_do_en": "Can describe change toward or away from now with ていく and てくる.",
+   "example": "日本語が少しずつ上手になってきました。",
+   "example_en": "My Japanese has gradually become better.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-aru",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "aspect",
+   "name": "てある: state left on purpose",
+   "can_do_en": "Can describe a state someone prepared with てある.",
+   "example": "窓が開けてあります。",
+   "example_en": "The window has been left open.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-iru-completed",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "aspect",
+   "name": "ている: already done",
+   "can_do_en": "Can say that an action is already finished with ている.",
+   "example": "もう宿題は終わっています。",
+   "example_en": "The homework is already finished.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "bakari-recent",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "aspect",
+   "name": "たばかり: just did",
+   "can_do_en": "Can say that something just happened with たばかり.",
+   "example": "さっき起きたばかりです。",
+   "example_en": "I just got up a moment ago.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tokoro-aspect",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "aspect",
+   "name": "ところ: about to, in the middle of",
+   "can_do_en": "Can say what stage an action is at with ところ.",
+   "example": "今、ご飯を食べているところです。",
+   "example_en": "I am in the middle of eating now.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ta-bakari-te-bakari",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "ばかり: nothing but",
+   "can_do_en": "Can say that only one kind keeps happening with ばかり.",
+   "example": "弟はゲームばかりしています。",
+   "example_en": "My brother does nothing but play games.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "dake-nomi-sae",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "さえ・まで・すら: even",
+   "can_do_en": "Can stress an extreme case with さえ and まで.",
+   "example": "子どもさえ知っていることです。",
+   "example_en": "Even a child knows it.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "hodo-kurai",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "ほど・くらい: degree",
+   "can_do_en": "Can say about how much with ほど and くらい.",
+   "example": "昨日は信じられないほど寒かったです。",
+   "example_en": "Yesterday was so cold it was unbelievable.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kurai-approximate",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "くらい・ぐらい: approximately",
+   "can_do_en": "Can give approximate amounts with くらい.",
+   "example": "駅まで十分ぐらいかかります。",
+   "example_en": "It takes about ten minutes to the station.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "koso-emphasis",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "こそ: emphasis",
+   "can_do_en": "Can stress a point with こそ.",
+   "example": "今年こそ合格したいです。",
+   "example_en": "This year, of all years, I want to pass.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "toshite",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "として: as",
+   "can_do_en": "Can say in what role something is done with として.",
+   "example": "留学生として日本に来ました。",
+   "example_en": "I came to Japan as an exchange student.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-tsuite",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "について: about",
+   "can_do_en": "Can say the topic of speaking or thinking with について.",
+   "example": "日本の歴史について調べています。",
+   "example_en": "I am researching Japanese history.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-yotte",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "によって・によると: by, depending on",
+   "can_do_en": "Can say that something depends on or comes from a source with によって.",
+   "example": "国によって、習慣が違います。",
+   "example_en": "Customs differ depending on the country.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-taishite",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "に対して: toward, in contrast",
+   "can_do_en": "Can say toward whom or in contrast with に対して.",
+   "example": "お客様に対して、失礼なことを言ってはいけません。",
+   "example_en": "You must not say rude things to customers.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "no-tame-ni",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "のために: for the sake of",
+   "can_do_en": "Can say for whom you act with のために.",
+   "example": "家族のために働いています。",
+   "example_en": "I work for the sake of my family.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-kanshite",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "particle",
+   "name": "に関して: concerning",
+   "can_do_en": "Can introduce a topic with に関して.",
+   "example": "この問題に関して、質問があります。",
+   "example_en": "I have a question about this problem.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "noni-purpose",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "clause",
+   "name": "のに: for the purpose of",
+   "can_do_en": "Can say what something is used for with のに.",
+   "example": "この道具は、パンを切るのに使います。",
+   "example_en": "This tool is used for cutting bread.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "koto-ni-suru",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "ことにする・ことになる",
+   "can_do_en": "Can say decisions and arrangements with ことにする and ことになる.",
+   "example": "毎日、運動することにしました。",
+   "example_en": "I decided to exercise every day.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "you-ni-suru",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "ようにする: try to make a habit",
+   "can_do_en": "Can say that you make an effort to do something regularly.",
+   "example": "なるべく野菜を食べるようにしています。",
+   "example_en": "I try to eat vegetables as much as I can.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "beki-should",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "べき: should",
+   "can_do_en": "Can state what ought to be done with べき.",
+   "example": "約束は守るべきです。",
+   "example_en": "One should keep one's promises.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "wake-ni-wa-ikanai",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "わけにはいかない: cannot afford to",
+   "can_do_en": "Can say that circumstances do not allow something.",
+   "example": "明日は大事な日なので、休むわけにはいきません。",
+   "example_en": "Tomorrow is an important day, so I can't take it off.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tsumori-vs-yotei",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "つもり・予定: plan and intention",
+   "can_do_en": "Can tell an intention from a schedule with つもり and 予定.",
+   "example": "来週、出張する予定です。",
+   "example_en": "I am scheduled to go on a business trip next week.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nakereba-ikenai",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "modal",
+   "name": "なくてはいけない・なきゃ",
+   "can_do_en": "Can say what is needed in more ways, including casual なきゃ.",
+   "example": "もう帰らなきゃ。",
+   "example_en": "I've got to go home now.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "temo-concession",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "conn",
+   "name": "ても・でも: even if",
+   "can_do_en": "Can say that something holds even if a condition is met.",
+   "example": "雨が降っても、行きます。",
+   "example_en": "I will go even if it rains.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tara-dou",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "question",
+   "name": "たらどう: how about",
+   "can_do_en": "Can suggest something gently with たらどう.",
+   "example": "少し休んだらどうですか。",
+   "example_en": "Why don't you take a rest?",
+   "tenses": [
+    "tara"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ka-dou-ka",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "clause",
+   "name": "かどうか: whether or not",
+   "can_do_en": "Can embed a yes/no question with かどうか.",
+   "example": "彼が来るかどうか分かりません。",
+   "example_en": "I don't know whether he will come.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "embedded-question",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "clause",
+   "name": "embedded questions with か",
+   "can_do_en": "Can embed a wh-question with か.",
+   "example": "何を食べたいか決めましたか。",
+   "example_en": "Have you decided what you want to eat?",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "to-iu-noun",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "clause",
+   "name": "という: called, named",
+   "can_do_en": "Can name something with という.",
+   "example": "田中という人から電話がありました。",
+   "example_en": "There was a call from a person named Tanaka.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "koto-da-advice",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "final",
+   "name": "ことだ: advice",
+   "can_do_en": "Can give strong advice with ことだ.",
+   "example": "試験に合格したければ、毎日勉強することだ。",
+   "example_en": "If you want to pass, study every day.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "nda-explanation",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "final",
+   "name": "んです: explaining",
+   "can_do_en": "Can give an explanation or ask for one with んです.",
+   "example": "頭が痛いんです。",
+   "example_en": "It's that my head hurts.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "chau-casual",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "final",
+   "name": "ちゃう・ている→てる: casual contractions",
+   "can_do_en": "Can understand casual contractions such as ちゃう and てる.",
+   "example": "財布を忘れちゃった。",
+   "example_en": "Oops, I forgot my wallet.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "seigo-intro",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "polite",
+   "name": "keigo basics: です・ます vs honorific",
+   "can_do_en": "Can tell polite style from honorific and humble speech.",
+   "example": "先生は、もうお帰りになりました。",
+   "example_en": "The teacher has already gone home.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "o-verb-ni-naru",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "polite",
+   "name": "お〜になる: honorific",
+   "can_do_en": "Can make an honorific with お〜になる.",
+   "example": "社長はもうお出かけになりました。",
+   "example_en": "The president has already gone out.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "o-verb-suru",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "polite",
+   "name": "お〜する: humble",
+   "can_do_en": "Can make a humble expression with お〜する.",
+   "example": "お荷物をお持ちします。",
+   "example_en": "Let me carry your luggage.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "irassharu-set",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "polite",
+   "name": "いらっしゃる・おっしゃる・なさる",
+   "can_do_en": "Can use the honorific verbs for being, saying and doing.",
+   "example": "先生は何とおっしゃいましたか。",
+   "example_en": "What did the teacher say?",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "mairu-itasu-set",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "polite",
+   "name": "参る・申す・いたす",
+   "can_do_en": "Can use the humble verbs for going, saying and doing.",
+   "example": "はじめまして。田中と申します。",
+   "example_en": "Nice to meet you. My name is Tanaka.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "o-ka-adj",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "polite",
+   "name": "お・ご + noun",
+   "can_do_en": "Can add お and ご to nouns to show respect.",
+   "example": "ご家族はお元気ですか。",
+   "example_en": "Is your family well?",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "counter-irregular",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "counter",
+   "name": "counters with sound changes",
+   "can_do_en": "Can say ippon, sanbon, roppon and similar counter sounds correctly.",
+   "example": "ビールを三本買いました。",
+   "example_en": "I bought three bottles of beer.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "counter-more-b1",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "counter",
+   "name": "〜階・〜足・〜匹・〜頭・〜羽",
+   "can_do_en": "Can count floors, pairs, animals and birds.",
+   "example": "犬が二匹、鳥が三羽います。",
+   "example_en": "There are two dogs and three birds.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "age-date-number",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "number",
+   "name": "ages, dates and large numbers",
+   "can_do_en": "Can say ages, exact dates and numbers up to hundreds of millions.",
+   "example": "この町の人口は約五十万人です。",
+   "example_en": "The town has a population of about five hundred thousand.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "fraction-percent",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "number",
+   "name": "fractions, percent and ratios",
+   "can_do_en": "Can say fractions, percent and ratios.",
+   "example": "生徒の三割が自転車で通っています。",
+   "example_en": "Thirty percent of the students commute by bike.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "gairaigo-adj",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "word",
+   "name": "loanwords and な-adjectives",
+   "can_do_en": "Can use katakana loanwords as nouns and な-adjectives.",
+   "example": "この店はとてもおしゃれです。",
+   "example_en": "This shop is very stylish.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "fukugou-verb",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "word",
+   "name": "compound verbs",
+   "can_do_en": "Can understand common compound verbs such as 食べ始める.",
+   "example": "三時から勉強し始めました。",
+   "example_en": "I started studying at three o'clock.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "suffix-teki-sei",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "word",
+   "name": "〜的・〜性・〜化",
+   "can_do_en": "Can read and use the suffixes 的, 性 and 化.",
+   "example": "それは一般的な考え方です。",
+   "example_en": "That is a general way of thinking.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "onomatopoeia",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "word",
+   "name": "onomatopoeia",
+   "can_do_en": "Can use common sound and mimetic words.",
+   "example": "雨がざあざあ降っています。",
+   "example_en": "The rain is pouring down.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "fillers-backchannel",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "discourse",
+   "name": "fillers and backchannel",
+   "can_do_en": "Can use fillers and backchannel to keep a conversation going.",
+   "example": "ええと、そうですね、少し考えさせてください。",
+   "example_en": "Well, let me think a little.",
+   "tenses": [
+    "caus"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "discourse-sosite",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "conn",
+   "name": "そして・それから・それに",
+   "can_do_en": "Can add information with そして, それから and それに.",
+   "example": "このカフェは安いです。それに、静かです。",
+   "example_en": "This cafe is cheap. Besides, it is quiet.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "discourse-dakara",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "conn",
+   "name": "だから・それで・ですから",
+   "can_do_en": "Can give results with だから, それで and ですから.",
+   "example": "雨でした。だから、家にいました。",
+   "example_en": "It rained. So I stayed home.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "discourse-shikashi",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "conn",
+   "name": "しかし・でも・ところが",
+   "can_do_en": "Can contrast with しかし, でも and ところが.",
+   "example": "頑張りました。しかし、だめでした。",
+   "example_en": "I tried hard. However, it did not work out.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "discourse-tsumari",
+   "level": "B1",
+   "jlpt": "N3",
+   "area": "conn",
+   "name": "つまり・たとえば",
+   "can_do_en": "Can restate and exemplify with つまり and たとえば.",
+   "example": "つまり、来ないということですか。",
+   "example_en": "So, you mean you won't come?",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "sonkei-forms",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "polite",
+   "name": "honorific verb forms (れる・られる, special verbs)",
+   "can_do_en": "Can pick the right honorific verb form for a superior.",
+   "example": "先生が本を読まれました。",
+   "example_en": "The teacher read a book.",
+   "tenses": [
+    "pass"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kenjou-forms",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "polite",
+   "name": "humble verb forms",
+   "can_do_en": "Can describe your own actions humbly toward a superior.",
+   "example": "資料を拝見しました。",
+   "example_en": "I have looked at the documents.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "teineigo-gozaimasu",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "polite",
+   "name": "ございます・でございます",
+   "can_do_en": "Can use ございます in service and formal speech.",
+   "example": "こちらが受付でございます。",
+   "example_en": "This is the reception desk.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "o-te-kudasai",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "polite",
+   "name": "お〜ください: honorific request",
+   "can_do_en": "Can make a polite request with お〜ください.",
+   "example": "こちらでお待ちください。",
+   "example_en": "Please wait here.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "sasete-itadaku",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "polite",
+   "name": "させていただく: humble permission",
+   "can_do_en": "Can use させていただく without overusing it.",
+   "example": "本日は私が説明させていただきます。",
+   "example_en": "Today I will do the explaining.",
+   "tenses": [
+    "caus"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "itadaku-kudasaru",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "polite",
+   "name": "いただく・くださる",
+   "can_do_en": "Can express receiving and giving with polite verbs.",
+   "example": "先生が教えてくださいました。",
+   "example_en": "The teacher taught me.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "business-greetings",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "polite",
+   "name": "business set phrases",
+   "can_do_en": "Can use phrases such as お世話になっております.",
+   "example": "いつもお世話になっております。",
+   "example_en": "Thank you always for your support.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "keigo-email",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "polite",
+   "name": "email openings and closings",
+   "can_do_en": "Can open and close a formal email in Japanese.",
+   "example": "ご確認のほど、よろしくお願いいたします。",
+   "example_en": "Thank you in advance for your confirmation.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-oite",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "formal",
+   "name": "において: in, at (formal)",
+   "can_do_en": "Can say where or in what field in formal writing.",
+   "example": "この分野において、彼は第一人者です。",
+   "example_en": "In this field, he is a leading authority.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "ni-kansuru-modifier",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "formal",
+   "name": "に関する・についての",
+   "can_do_en": "Can modify a noun with に関する and についての.",
+   "example": "環境に関する調査が行われました。",
+   "example_en": "A survey about the environment was carried out.",
+   "tenses": [
+    "pass"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-yoru-to",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "formal",
+   "name": "によると・によれば",
+   "can_do_en": "Can cite a source with によると.",
+   "example": "新聞によると、来月値上がりするそうです。",
+   "example_en": "According to the newspaper, prices will rise next month.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "ni-taishite-b2",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "formal",
+   "name": "に対する・に対して",
+   "can_do_en": "Can express an attitude toward something with に対する.",
+   "example": "環境問題に対する関心が高まっています。",
+   "example_en": "Interest in environmental problems is growing.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-shitagatte",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "にしたがって・につれて",
+   "can_do_en": "Can say that things change together with にしたがって and につれて.",
+   "example": "年をとるにつれて、体力が落ちます。",
+   "example_en": "As one grows older, one's strength declines.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-totte",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "particle",
+   "name": "にとって: for, from the viewpoint of",
+   "can_do_en": "Can say whose viewpoint with にとって.",
+   "example": "私にとって、家族は一番大切です。",
+   "example_en": "For me, family is the most important thing.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "to-shite-wa",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "particle",
+   "name": "としては・にしては",
+   "can_do_en": "Can compare against an expectation with にしては.",
+   "example": "子どもにしては、よく知っています。",
+   "example_en": "He knows a lot for a child.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "wo-chuushin-ni",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "particle",
+   "name": "を中心に: centering on",
+   "can_do_en": "Can say the center of something with を中心に.",
+   "example": "駅を中心に、店が集まっています。",
+   "example_en": "Shops are clustered around the station.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "wo-hajime",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "particle",
+   "name": "をはじめ: starting with",
+   "can_do_en": "Can name a leading example with をはじめ.",
+   "example": "社長をはじめ、全員が出席しました。",
+   "example_en": "Everyone attended, starting with the president.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-kakete-mo",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "particle",
+   "name": "にかけては・にわたって",
+   "can_do_en": "Can say range and field with にわたって and にかけては.",
+   "example": "三日間にわたって、会議が開かれました。",
+   "example_en": "The meeting was held over three days.",
+   "tenses": [
+    "pass"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "bakari-ka",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "conn",
+   "name": "ばかりか・だけでなく",
+   "can_do_en": "Can add an extra point with ばかりか.",
+   "example": "彼は英語ばかりか、中国語も話せます。",
+   "example_en": "He can speak not only English but also Chinese.",
+   "tenses": [
+    "pot"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ue-ni",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "conn",
+   "name": "うえに: besides",
+   "can_do_en": "Can add another point with うえに.",
+   "example": "この店は安いうえに、おいしいです。",
+   "example_en": "This shop is cheap, and delicious too.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ue-de",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "conn",
+   "name": "うえで: upon, in doing",
+   "can_do_en": "Can say when or in doing something with うえで.",
+   "example": "契約するうえで、注意が必要です。",
+   "example_en": "Care is needed when signing a contract.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "hanmen",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "conn",
+   "name": "反面・一方で: on the other hand",
+   "can_do_en": "Can show two sides with 反面 and 一方で.",
+   "example": "便利な反面、危険もあります。",
+   "example_en": "It is convenient, but also has risks.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kawari-ni",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "conn",
+   "name": "かわりに: instead",
+   "can_do_en": "Can say instead of, or in exchange for, with かわりに.",
+   "example": "肉のかわりに、豆腐を使います。",
+   "example_en": "I use tofu instead of meat.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nimo-kakawarazu",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "conn",
+   "name": "にもかかわらず: despite",
+   "can_do_en": "Can say despite with にもかかわらず.",
+   "example": "雨にもかかわらず、大勢の人が集まりました。",
+   "example_en": "Despite the rain, many people gathered.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kuse-ni",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "conn",
+   "name": "くせに: despite (criticism)",
+   "can_do_en": "Can criticise someone for an inconsistency with くせに.",
+   "example": "知っているくせに、教えてくれません。",
+   "example_en": "He knows, yet won't tell me.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "monono",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "conn",
+   "name": "ものの・とはいえ",
+   "can_do_en": "Can concede a point with ものの.",
+   "example": "頭では分かっているものの、行動できません。",
+   "example_en": "I understand it in my head, but I can't act on it.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nagara-mo",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "conn",
+   "name": "ながらも: while still",
+   "can_do_en": "Can say although with ながらも.",
+   "example": "貧しいながらも、幸せに暮らしました。",
+   "example_en": "They lived happily, though poor.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tokoro-ga",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "conn",
+   "name": "ところが・それなのに",
+   "can_do_en": "Can express surprising outcomes with ところが.",
+   "example": "早く着いた。ところが、店は閉まっていた。",
+   "example_en": "I arrived early. But the shop was closed.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "dake-atte",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "だけあって・だけに",
+   "can_do_en": "Can say a result fits its cause with だけあって.",
+   "example": "専門家だけあって、詳しいですね。",
+   "example_en": "As expected of an expert, you know the details.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "okage-sei",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "おかげで・せいで・ために",
+   "can_do_en": "Can say positive and negative causes with おかげで and せいで.",
+   "example": "薬のおかげで、すぐ治りました。",
+   "example_en": "Thanks to the medicine, I recovered quickly.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kara-koso",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "からこそ・ばこそ",
+   "can_do_en": "Can stress a reason with からこそ.",
+   "example": "努力したからこそ、成功しました。",
+   "example_en": "It is precisely because I made an effort that I succeeded.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "bakari-ni",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "ばかりに・ために",
+   "can_do_en": "Can say a regretful cause with ばかりに.",
+   "example": "油断したばかりに、失敗しました。",
+   "example_en": "Just because I let my guard down, I failed.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "totan",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "とたん・や否や",
+   "can_do_en": "Can say that one thing happens right after another.",
+   "example": "ドアを開けたとたん、猫が飛び出しました。",
+   "example_en": "The moment I opened the door, the cat darted out.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "uchi-ni-b2",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "ないうちに・ているうちに",
+   "can_do_en": "Can say before it changes or while it is happening.",
+   "example": "暗くならないうちに帰りましょう。",
+   "example_en": "Let's go home before it gets dark.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tsutsu",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "つつ・つつある",
+   "can_do_en": "Can say simultaneity or ongoing change in written style.",
+   "example": "景気は回復しつつあります。",
+   "example_en": "The economy is gradually recovering.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ba-hodo",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "ば〜ほど: the more, the more",
+   "can_do_en": "Can say proportional change with ば〜ほど.",
+   "example": "読めば読むほど、面白くなります。",
+   "example_en": "The more I read, the more interesting it gets.",
+   "tenses": [
+    "ba"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "dokoro-ka",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "どころか・どころではない",
+   "can_do_en": "Can deny and go further with どころか.",
+   "example": "忙しくて、休むどころではありません。",
+   "example_en": "I'm so busy that resting is out of the question.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "ta-mama",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "たまま・っぱなし: left as is",
+   "can_do_en": "Can say that a state continues unchanged.",
+   "example": "電気をつけたまま、寝てしまいました。",
+   "example_en": "I fell asleep with the light on.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tokoro-datta",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "clause",
+   "name": "ところだった: nearly",
+   "can_do_en": "Can say that something almost happened with ところだった.",
+   "example": "もう少しで遅刻するところでした。",
+   "example_en": "I almost arrived late.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kakeru-kakeru",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "aspect",
+   "name": "かける・きる・つづける・だす",
+   "can_do_en": "Can build compound aspects with かける, きる and だす.",
+   "example": "この本は三日で読みきれます。",
+   "example_en": "I can read this book through in three days.",
+   "tenses": [
+    "pot"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "you-ni-iu",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "ように言う・頼む・注意する",
+   "can_do_en": "Can report orders and requests with ように.",
+   "example": "先生は静かにするように言いました。",
+   "example_en": "The teacher told us to be quiet.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "you-ni-naru-b2",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "ようになっている・ことになっている",
+   "can_do_en": "Can describe rules and customs with ことになっている.",
+   "example": "ここでは靴を脱ぐことになっています。",
+   "example_en": "Here, one is supposed to take off one's shoes.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-chigainai",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "にちがいない: surely",
+   "can_do_en": "Can state a strong conviction with にちがいない.",
+   "example": "彼は犯人にちがいありません。",
+   "example_en": "He must be the culprit.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "osore-ga-aru",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "おそれがある・かねない",
+   "can_do_en": "Can warn about risks with おそれがある and かねない.",
+   "example": "台風で被害が出るおそれがあります。",
+   "example_en": "There is a risk of damage from the typhoon.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kaneru-gatai",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "かねる・がたい: hard to",
+   "can_do_en": "Can say that something is hard to do with かねる and がたい.",
+   "example": "その意見には賛成しかねます。",
+   "example_en": "I cannot agree with that opinion.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "zaru-wo-enai",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "ざるを得ない: have no choice",
+   "can_do_en": "Can say that there is no alternative.",
+   "example": "会社の命令なので、行かざるを得ません。",
+   "example_en": "It is a company order, so I have no choice but to go.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nai-wake-ni-wa",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "ないわけにはいかない",
+   "can_do_en": "Can say that you cannot avoid doing something.",
+   "example": "今日は出席しないわけにはいきません。",
+   "example_en": "I can't avoid attending today.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "zu-ni-wa-irarenai",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "ないではいられない・ずにはいられない",
+   "can_do_en": "Can say that you cannot help doing something.",
+   "example": "その話を聞いて、笑わずにはいられませんでした。",
+   "example_en": "Hearing that story, I couldn't help laughing.",
+   "tenses": [
+    "zu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "te-tamaranai",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "てたまらない・てしかたがない",
+   "can_do_en": "Can say that a feeling is unbearable with てたまらない.",
+   "example": "眠くてたまりません。",
+   "example_en": "I'm unbearably sleepy.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tagaru-garu",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "たがる・がる: third-person desire",
+   "can_do_en": "Can describe another person's wish or feeling with たがる and がる.",
+   "example": "子どもは新しいおもちゃを欲しがります。",
+   "example_en": "The child wants a new toy.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "bekarazu",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "べからず・てはならない",
+   "can_do_en": "Can recognise written prohibitions.",
+   "example": "芝生に入るべからず。",
+   "example_en": "Do not enter the lawn.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "moraemasenka",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "modal",
+   "name": "てもらえませんか・ていただけませんか",
+   "can_do_en": "Can make polite requests with もらえませんか and いただけませんか.",
+   "example": "資料を送っていただけませんか。",
+   "example_en": "Could you send me the materials?",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "moshi-ba-tara",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "cond",
+   "name": "もし〜たら・ば・なら",
+   "can_do_en": "Can state hypotheses with もし.",
+   "example": "もし宝くじに当たったら、世界旅行をします。",
+   "example_en": "If I won the lottery, I would travel the world.",
+   "tenses": [
+    "tara"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "to-sureba",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "cond",
+   "name": "とすれば・としたら・とすると",
+   "can_do_en": "Can say if it is assumed that with としたら.",
+   "example": "行くとしたら、いつがいいですか。",
+   "example_en": "If we were to go, when would be good?",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "ta-toshite-mo",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "cond",
+   "name": "たとえ〜ても・としても",
+   "can_do_en": "Can say even supposing that with たとえ〜ても.",
+   "example": "たとえ失敗しても、後悔しません。",
+   "example_en": "Even if I fail, I won't regret it.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nai-kagiri",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "cond",
+   "name": "ないかぎり・かぎり",
+   "can_do_en": "Can say unless and as long as with かぎり.",
+   "example": "雨が降らないかぎり、試合は行われます。",
+   "example_en": "Unless it rains, the match will be held.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nara-no",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "cond",
+   "name": "なら〜のに: contrary-to-fact",
+   "can_do_en": "Can regret what is not true with なら〜のに.",
+   "example": "お金があれば、買えるのに。",
+   "example_en": "If I had money, I could buy it.",
+   "tenses": [
+    "ba"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "sae-ba",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "cond",
+   "name": "さえ〜ば: if only",
+   "can_do_en": "Can say that one condition is enough with さえ〜ば.",
+   "example": "時間さえあれば、行きたいです。",
+   "example_en": "If only I had time, I would like to go.",
+   "tenses": [
+    "ba"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "dewa-nai-ka",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "final",
+   "name": "ではないか・じゃないか",
+   "can_do_en": "Can express feeling, confirmation or invitation with じゃないか.",
+   "example": "これは便利じゃないか。",
+   "example_en": "Isn't this convenient!",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "yoo-da-hearsay",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "final",
+   "name": "ということだ・とのことだ",
+   "can_do_en": "Can report hearsay in formal speech.",
+   "example": "会議は中止になるということです。",
+   "example_en": "I hear that the meeting will be cancelled.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "mono-da",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "final",
+   "name": "ものだ・ものではない",
+   "can_do_en": "Can state general truths or past nostalgia with ものだ.",
+   "example": "子どものころは、よく川で遊んだものだ。",
+   "example_en": "As a child, I used to play at the river often.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "no-dewa-nai-ka",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "final",
+   "name": "んじゃない・のではないか",
+   "can_do_en": "Can voice a gentle opinion with のではないか.",
+   "example": "それは間違いではないでしょうか。",
+   "example_en": "Isn't that a mistake?",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ka-na-kana",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "final",
+   "name": "かな・かしら・だろうか",
+   "can_do_en": "Can wonder aloud with かな and かしら.",
+   "example": "明日は晴れるかな。",
+   "example_en": "I wonder if it will be sunny tomorrow.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "kanji-reading",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "word",
+   "name": "on'yomi and kun'yomi",
+   "can_do_en": "Can tell on'yomi and kun'yomi readings of kanji.",
+   "example": "山の上に、山頂があります。",
+   "example_en": "There is a summit at the top of the mountain.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "jukugo-structure",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "word",
+   "name": "compound kanji structure",
+   "can_do_en": "Can understand how two-kanji compounds are built.",
+   "example": "経済が発展しています。",
+   "example_en": "The economy is developing.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "keiyoushi-sa-mi",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "word",
+   "name": "〜さ・〜み: nominalizing adjectives",
+   "can_do_en": "Can turn adjectives into nouns with さ and み.",
+   "example": "この橋の長さは百メートルです。",
+   "example_en": "The length of this bridge is one hundred meters.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "mei-kanji-prefix",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "word",
+   "name": "prefixes 不・無・非・未",
+   "can_do_en": "Can use the negative prefixes 不, 無, 非 and 未.",
+   "example": "不便な所に住んでいます。",
+   "example_en": "I live in an inconvenient place.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "katakana-gairaigo",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "word",
+   "name": "loan words and word play",
+   "can_do_en": "Can read loan words and abbreviations.",
+   "example": "スマホでアプリを使います。",
+   "example_en": "I use apps on my smartphone.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "numbers-writing",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "number",
+   "name": "kanji numerals and big numbers",
+   "can_do_en": "Can read numbers written in kanji.",
+   "example": "売り上げは三千二百万円でした。",
+   "example_en": "Sales were thirty-two million yen.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passive-written",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "passive",
+   "name": "passive in news style",
+   "can_do_en": "Can understand passives in news writing.",
+   "example": "新しい法律が発表されました。",
+   "example_en": "A new law has been announced.",
+   "tenses": [
+    "pass"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nominal-style",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "formal",
+   "name": "nominal style in writing",
+   "can_do_en": "Can read formal nominal style used in writing.",
+   "example": "会議の開催は来週の予定です。",
+   "example_en": "The meeting is scheduled for next week.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "da-dearu",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "formal",
+   "name": "だ・である style in writing",
+   "can_do_en": "Can read and write in the plain written style.",
+   "example": "これは重要な問題である。",
+   "example_en": "This is an important problem.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "hedges-softeners",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "discourse",
+   "name": "softeners and hedges",
+   "can_do_en": "Can soften a statement with hedges such as ちょっと and なかなか.",
+   "example": "それはちょっと難しいですね。",
+   "example_en": "That is a bit difficult.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "opinion-phrases",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "discourse",
+   "name": "giving opinions",
+   "can_do_en": "Can state and soften an opinion in discussion.",
+   "example": "私の考えでは、この計画は無理だと思います。",
+   "example_en": "In my view, I think this plan is not realistic.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "shidai-depends",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "particle",
+   "name": "によって決まる・次第だ",
+   "can_do_en": "Can say that something depends on something with 次第.",
+   "example": "成功するかどうかは、努力次第です。",
+   "example_en": "Success depends on effort.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-oujite",
+   "level": "B2",
+   "jlpt": "N2",
+   "area": "particle",
+   "name": "に応じて・に従って",
+   "can_do_en": "Can say in accordance with with に応じて.",
+   "example": "収入に応じて、税金が決まります。",
+   "example_en": "Taxes are decided according to income.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-hokanaranai",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "にほかならない: nothing but",
+   "can_do_en": "Can state that something is exactly so with にほかならない.",
+   "example": "この成功は努力の結果にほかなりません。",
+   "example_en": "This success is nothing other than the result of effort.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "wo-yogi-naku",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "を余儀なくされる: forced to",
+   "can_do_en": "Can say that circumstances forced an action.",
+   "example": "会社は事業の縮小を余儀なくされました。",
+   "example_en": "The company was forced to scale down its business.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-taeru",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "にたえる・にたえない",
+   "can_do_en": "Can say worth doing or unbearable to do.",
+   "example": "この映画は鑑賞にたえる作品です。",
+   "example_en": "This film is worth watching.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-kakawarazu",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "にかかわらず・を問わず",
+   "can_do_en": "Can say regardless of with にかかわらず.",
+   "example": "年齢にかかわらず、誰でも参加できます。",
+   "example_en": "Anyone can take part regardless of age.",
+   "tenses": [
+    "pot"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "wo-fumaete",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "を踏まえて: based on",
+   "can_do_en": "Can say based on with を踏まえて.",
+   "example": "前回の議論を踏まえて、検討します。",
+   "example_en": "We will consider it based on the previous discussion.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-sai-shite",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "に際して・にあたって",
+   "can_do_en": "Can say on the occasion of with に際して.",
+   "example": "入学に際して、書類を提出してください。",
+   "example_en": "On entering the school, please submit the documents.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "wo-motte",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "をもって: by means of, as of",
+   "can_do_en": "Can mark means or a cut-off point in formal speech.",
+   "example": "本日をもって、営業を終了いたします。",
+   "example_en": "We will end business as of today.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-kagiru",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "に限る・に限って",
+   "can_do_en": "Can say that something is the best or only case.",
+   "example": "夏はビールに限る。",
+   "example_en": "Nothing beats beer in summer.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "ni-hanshite",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "に反して・にそむいて",
+   "can_do_en": "Can say contrary to with に反して.",
+   "example": "予想に反して、結果は悪かったです。",
+   "example_en": "Contrary to expectation, the result was bad.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "wo-megutte",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "をめぐって・をめぐる",
+   "can_do_en": "Can say concerning a debate with をめぐって.",
+   "example": "この問題をめぐって、意見が分かれています。",
+   "example_en": "Opinions are divided over this issue.",
+   "tenses": [
+    "te"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ni-itaru",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "に至る・に至っては",
+   "can_do_en": "Can say that a situation reaches a point with に至る.",
+   "example": "ついに裁判に至りました。",
+   "example_en": "It finally ended up in court.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "towa-iu-mono-no",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "clause",
+   "name": "とはいうものの・とはいえ",
+   "can_do_en": "Can concede and qualify with とはいえ.",
+   "example": "安いとはいえ、品質は悪くありません。",
+   "example_en": "Though cheap, the quality is not bad.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "tokoro-wo",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "clause",
+   "name": "ところを・ところに",
+   "can_do_en": "Can speak of an interrupted situation with ところを.",
+   "example": "お忙しいところを、ありがとうございます。",
+   "example_en": "Thank you for taking time out of your busy schedule.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ga-hayai-ka",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "clause",
+   "name": "が早いか・なり: as soon as",
+   "can_do_en": "Can say right after with が早いか.",
+   "example": "電車が止まるが早いか、人々が降りました。",
+   "example_en": "As soon as the train stopped, people got off.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ba-koso",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "clause",
+   "name": "ばこそ・からには",
+   "can_do_en": "Can say precisely because with ばこそ.",
+   "example": "家族がいればこそ、頑張れます。",
+   "example_en": "It is only because I have a family that I can do my best.",
+   "tenses": [
+    "ba"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kara-ni-wa",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "clause",
+   "name": "からには・以上は: since",
+   "can_do_en": "Can say since it is so with からには.",
+   "example": "引き受けたからには、最後までやります。",
+   "example_en": "Since I accepted it, I will do it to the end.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "goto-ni",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "clause",
+   "name": "ごとに・たびに",
+   "can_do_en": "Can say every time with ごとに and たびに.",
+   "example": "会うたびに、彼は元気になっています。",
+   "example_en": "Every time we meet, he is more energetic.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "ni-ataru",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "clause",
+   "name": "にあたる・に当たって",
+   "can_do_en": "Can say that something corresponds to something else.",
+   "example": "今日は祖父の命日にあたります。",
+   "example_en": "Today is the anniversary of my grandfather's death.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ta-ga-saigo",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "cond",
+   "name": "たが最後: once, it is the end",
+   "can_do_en": "Can say that once something happens it is over with たが最後.",
+   "example": "秘密を話したが最後、噂は広まります。",
+   "example_en": "Once you tell a secret, the rumor spreads.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "you-mono-nara",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "cond",
+   "name": "たら最後・ようものなら",
+   "can_do_en": "Can warn of a bad outcome with ようものなら.",
+   "example": "遅れようものなら、叱られます。",
+   "example_en": "If I were to be late, I would get scolded.",
+   "tenses": [
+    "vol"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "to-iedomo",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "cond",
+   "name": "といえども・とはいえ",
+   "can_do_en": "Can concede that even someone or something has limits.",
+   "example": "専門家といえども、間違えることがあります。",
+   "example_en": "Even experts can make mistakes.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "nai-mono-ka",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "cond",
+   "name": "ようものなら・ないものか",
+   "can_do_en": "Can express a wish that something could be done with ないものか.",
+   "example": "もっと早く着く方法はないものか。",
+   "example_en": "Isn't there some way to get there faster?",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "zu-ni-sumu",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "modal",
+   "name": "ずにすむ・ないですむ",
+   "can_do_en": "Can say that you can avoid doing something.",
+   "example": "傘を持っていったので、ぬれずにすみました。",
+   "example_en": "I took an umbrella, so I did not get wet.",
+   "tenses": [
+    "zu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "kanenai",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "modal",
+   "name": "かねない・かねる",
+   "can_do_en": "Can warn of an unwelcome possibility with かねない.",
+   "example": "このままでは、事故を起こしかねません。",
+   "example_en": "At this rate, an accident could happen.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "you-ga-nai",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "modal",
+   "name": "ようがない・ようがある",
+   "can_do_en": "Can say that there is no way to do something.",
+   "example": "連絡先が分からないので、連絡しようがありません。",
+   "example_en": "I don't know the contact details, so there is no way to reach out.",
+   "tenses": [
+    "masen"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "nu-bekarazu",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "modal",
+   "name": "べからず・まじき",
+   "can_do_en": "Can read formal writing that states what must not be done.",
+   "example": "教師にあるまじき行為です。",
+   "example_en": "It is conduct unbecoming of a teacher.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "passive-on-causes",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "passive",
+   "name": "passive of feeling and thought",
+   "can_do_en": "Can say how things are thought, called or seen with passives.",
+   "example": "この絵は傑作と言われています。",
+   "example_en": "This painting is said to be a masterpiece.",
+   "tenses": [
+    "pass"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "causative-reflection",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "passive",
+   "name": "させられる: reflections",
+   "can_do_en": "Can describe being moved or made to think with させられる.",
+   "example": "その話を聞いて、深く考えさせられました。",
+   "example_en": "Hearing that story made me think deeply.",
+   "tenses": [
+    "causPass"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "keigo-mixed",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "polite",
+   "name": "double honorific and over-politeness",
+   "can_do_en": "Can recognise and avoid double honorifics.",
+   "example": "部長はすでにお帰りになりました。",
+   "example_en": "The department head has already gone home.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "keigo-business-calls",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "polite",
+   "name": "phone and visit keigo",
+   "can_do_en": "Can handle phone calls and visits with proper keigo.",
+   "example": "ただいま席を外しております。",
+   "example_en": "He is away from his desk at the moment.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "sonkei-adjective",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "polite",
+   "name": "honorific and humble adjectives",
+   "can_do_en": "Can use お and ご with adjectives and nouns of respect.",
+   "example": "お忙しい中、ご出席いただき、ありがとうございます。",
+   "example_en": "Thank you for attending in your busy schedule.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "written-style-na",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "written style なり・ごとし",
+   "can_do_en": "Can read classical-flavored written expressions.",
+   "example": "まるで夢のごとき出来事でした。",
+   "example_en": "It was an event like a dream.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "noun-clause-kotogara",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "こと・ものの区別",
+   "can_do_en": "Can tell こと and もの as nominalizers.",
+   "example": "大切なことは、あきらめないことです。",
+   "example_en": "What matters is not giving up.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "ni-sasete",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "discourse",
+   "name": "rhetoric: hedging, concession, emphasis",
+   "can_do_en": "Can use hedging and emphasis in discussion.",
+   "example": "断言はできませんが、可能性は高いと考えられます。",
+   "example_en": "I cannot say for certain, but the possibility seems high.",
+   "tenses": [
+    "nai"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "dialects-kansai",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "discourse",
+   "name": "dialect: Kansai-ben basics",
+   "can_do_en": "Can recognise common Kansai dialect forms such as ほんま and あかん.",
+   "example": "それはあかんで。",
+   "example_en": "That's no good.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "idioms-yojijukugo",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "word",
+   "name": "four-kanji idioms",
+   "can_do_en": "Can understand common four-character idioms.",
+   "example": "彼は一石二鳥の方法を見つけました。",
+   "example_en": "He found a way to kill two birds with one stone.",
+   "tenses": [
+    "mashita"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "idioms-kotowaza",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "word",
+   "name": "proverbs",
+   "can_do_en": "Can recognise common proverbs.",
+   "example": "急がば回れと言います。",
+   "example_en": "They say, more haste, less speed.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "idioms-kanyouku",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "word",
+   "name": "idiomatic expressions",
+   "can_do_en": "Can use body-part idioms such as 耳が痛い.",
+   "example": "その話は耳が痛いです。",
+   "example_en": "That story hits home.",
+   "tenses": [
+    "masu"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "reading-literary",
+   "level": "C1",
+   "jlpt": "N1",
+   "area": "formal",
+   "name": "literary and news style reading",
+   "can_do_en": "Can read newspaper and essay style Japanese.",
+   "example": "政府は新たな対策を発表した。",
+   "example_en": "The government announced new measures.",
+   "tenses": [
+    "ta"
+   ],
+   "lessons": []
+  }
+ ]
+}
