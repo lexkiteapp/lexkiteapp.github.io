@@ -14,7 +14,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const SH = 'native/shared/gen', IOS = 'native/ios/LexkiteKit/Sources/LKDesign/Resources/teach';
 let failed = 0; const ok = (c, m) => { console.log((c ? '✓ ' : '✗ ') + m); if (!c) failed++; };
 const MAX = 1024 * 1024; // every generated vector stays well under 1 MB
-const same = (rel, fresh) => { const cur = fs.existsSync(R(rel)) ? rd(rel) : null; return cur === fresh; };
+const PR_REGEN = process.env.GITHUB_EVENT_NAME === 'pull_request' && !process.env.GEN_STRICT; // PR: committed outputs are not compared (gen.mjs regenerates them from the PR's sources, the gen-sync bot commits on main); every content/sanity check below still runs on the FRESH output
+const same = (rel, fresh) => { if (PR_REGEN) return true; const cur = fs.existsSync(R(rel)) ? rd(rel) : null; return cur === fresh; };
 
 // ---- 1) regenerate identically (twice in-process = deterministic; equal to the committed files) ----
 const L1 = lessonVectors(), L2 = lessonVectors(), A1 = audioVectors(), A2 = audioVectors(), T1 = teachGen(), T2 = teachGen();

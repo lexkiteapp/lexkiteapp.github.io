@@ -33,6 +33,7 @@ node scripts/test/i18n-single.mjs
 node scripts/test/i18n-pack.mjs
 node scripts/test/fmt-stable.mjs
 node scripts/test/gen-guard.mjs
+node scripts/test/stray-files.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
 node scripts/test/i18n-english.mjs
@@ -224,6 +225,7 @@ node scripts/test/i18n-switch.mjs web
 ! node scripts/test/a11y.js web 2>/dev/null | grep -q NOLABEL
 node scripts/test/explain-check.mjs
 node scripts/test/size-budget.mjs
+node scripts/test/budget-shape.mjs
 node scripts/test/js-budget.mjs
 node scripts/test/readtest-dedupe.mjs
 node scripts/test/shell-size.mjs
@@ -309,6 +311,7 @@ node scripts/test/pron-features.mjs
 node scripts/test/crashlytics.mjs
 node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
+node scripts/test/stories-chip.mjs
 node scripts/stories/build-lib.mjs --check
 node scripts/content-qa/exam-format-check.mjs
 node scripts/test/lesson-why.mjs
@@ -527,10 +530,12 @@ node scripts/test/dialog.mjs
 node scripts/test/main-no-cancel.mjs
 node scripts/test/workflow-startup.mjs
 node scripts/test/score-card.mjs
+node scripts/test/voice-diary.mjs
 node scripts/stitch-v2-convert.mjs --check
 node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
+node scripts/test/qengine-types.mjs
 node scripts/test/meta-attr.mjs
 node scripts/test/social-audit.mjs
 node scripts/test/select-cta-guard.mjs
