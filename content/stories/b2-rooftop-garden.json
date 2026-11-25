@@ -1,0 +1,189 @@
+{
+  "id": "b2-rooftop-garden",
+  "kind": "book",
+  "level": "B2",
+  "title": "The Rooftop Garden",
+  "summary": "A tenant who wants to build a garden on a shared roof discovers that persuading her neighbours is harder than growing tomatoes.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Stories",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama"
+    ],
+    "scene": "Flat 2D illustration: a woman watering plants in wooden boxes on a city rooftop at sunset, neighbours chatting nearby, no text"
+  },
+  "audio": {
+    "wpm": 135,
+    "voice": "kokoro:af_heart",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "An Empty Roof",
+      "sentences": [
+        "Mia had lived in the same apartment building for three years, and she had never spoken to most of her neighbours.",
+        "One Saturday she climbed the stairs to the roof and found a large, empty space covered with dust.",
+        "She imagined wooden boxes full of tomatoes, herbs and flowers, and the idea immediately excited her.",
+        "However, the roof belonged to everybody, so she needed permission from the residents.",
+        "She wrote a polite note and pinned it on the notice board in the entrance hall.",
+        "A week later she had received only one reply, and it was a refusal.",
+        "The neighbour on the third floor worried that the weight of the soil might damage the ceiling.",
+        "Mia felt disappointed, but she decided that the objection was reasonable and deserved a proper answer."
+      ],
+      "words": [
+        "permission",
+        "resident",
+        "notice",
+        "refusal",
+        "objection",
+        "damage"
+      ],
+      "quiz": [
+        {
+          "q": "Why did Mia need permission?",
+          "options": [
+            "The roof belonged to all the residents.",
+            "The roof was dangerous.",
+            "She was a new tenant."
+          ],
+          "answer": 0,
+          "explain": "The roof belonged to everybody, so she needed permission from the residents."
+        },
+        {
+          "q": "What worried the neighbour on the third floor?",
+          "options": [
+            "The noise of visitors",
+            "The weight of the soil",
+            "The smell of flowers"
+          ],
+          "answer": 1,
+          "explain": "The neighbour worried that the weight of the soil might damage the ceiling."
+        },
+        {
+          "q": "How did Mia react to the refusal?",
+          "options": [
+            "She became angry.",
+            "She gave up at once.",
+            "She thought the objection was reasonable."
+          ],
+          "answer": 2,
+          "explain": "She decided that the objection was reasonable and deserved a proper answer."
+        }
+      ]
+    },
+    {
+      "title": "Doing Her Homework",
+      "sentences": [
+        "Mia spent the next weekend learning about roof gardens and how to build them safely.",
+        "She discovered that light plastic containers filled with special lightweight soil weigh much less than people expect.",
+        "She also asked an engineer from her office to examine the roof and write a short report.",
+        "The engineer confirmed that the structure could easily support the extra weight if the boxes were spread out.",
+        "Mia printed the report and invited everyone to a meeting in the entrance hall.",
+        "Only seven people came, and several of them looked doubtful at first.",
+        "Calmly, she presented the plan, showed them the report and promised to pay for all the equipment.",
+        "Then she offered each family a box of their own, free of charge.",
+        "By the end of the evening, the third-floor neighbour had become her first volunteer."
+      ],
+      "words": [
+        "examine",
+        "structure",
+        "support",
+        "doubtful",
+        "equipment",
+        "volunteer"
+      ],
+      "quiz": [
+        {
+          "q": "What did the engineer confirm?",
+          "options": [
+            "The roof was too old.",
+            "The roof could support the extra weight.",
+            "The soil was too expensive."
+          ],
+          "answer": 1,
+          "explain": "The engineer confirmed that the structure could easily support the extra weight."
+        },
+        {
+          "q": "How did Mia persuade the neighbours at the meeting?",
+          "options": [
+            "She offered each family a box of their own.",
+            "She threatened to move out.",
+            "She asked the owner to decide."
+          ],
+          "answer": 0,
+          "explain": "Then she offered each family a box of their own, free of charge."
+        },
+        {
+          "q": "Who became her first volunteer?",
+          "options": [
+            "The engineer",
+            "A child from the second floor",
+            "The third-floor neighbour"
+          ],
+          "answer": 2,
+          "explain": "By the end of the evening, the third-floor neighbour had become her first volunteer."
+        }
+      ]
+    },
+    {
+      "title": "The First Harvest",
+      "sentences": [
+        "By midsummer, before the first harvest, the roof looked completely different, with green leaves and red tomatoes growing in neat rows.",
+        "Mia had expected a quiet hobby, but the garden quickly became the centre of the building.",
+        "Neighbours who used to nod politely now stopped to exchange advice about water and sunlight.",
+        "An elderly man taught the children how to plant beans, and in return they carried his shopping upstairs.",
+        "One evening the residents arranged a small dinner using vegetables from the roof.",
+        "Mia sat at the long table and realised that she knew everyone's name.",
+        "She had started the project because she wanted fresh tomatoes, but she had gained something far more valuable.",
+        "The building was no longer a collection of separate doors; it had become a community."
+      ],
+      "words": [
+        "harvest",
+        "exchange",
+        "arrange",
+        "valuable",
+        "community",
+        "separate"
+      ],
+      "quiz": [
+        {
+          "q": "What did Mia expect at the beginning?",
+          "options": [
+            "A quiet hobby",
+            "A business",
+            "A party"
+          ],
+          "answer": 0,
+          "explain": "Mia had expected a quiet hobby."
+        },
+        {
+          "q": "What did the elderly man and the children do for each other?",
+          "options": [
+            "They shared a boat.",
+            "They sold vegetables.",
+            "He taught them planting, and they carried his shopping."
+          ],
+          "answer": 2,
+          "explain": "An elderly man taught the children how to plant beans, and in return they carried his shopping upstairs."
+        },
+        {
+          "q": "What did Mia gain in the end?",
+          "options": [
+            "A community",
+            "A bigger apartment",
+            "A new job"
+          ],
+          "answer": 0,
+          "explain": "It had become a community."
+        }
+      ]
+    }
+  ]
+}
