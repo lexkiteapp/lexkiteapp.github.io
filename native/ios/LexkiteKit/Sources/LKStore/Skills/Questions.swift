@@ -36,17 +36,19 @@ public enum QE {
 
     // MARK: grading
     private static func sub(_ s: String, _ p: String, _ t: String) -> String { s.replacingOccurrences(of: p, with: t, options: .regularExpression) }
-    public static func norm(_ s: String) -> String {
+    /// qengine.js plain: norm without the leading-article strip (word counting keeps "the")
+    public static func plain(_ s: String) -> String {
         var x = s.lowercased()
         for c in ["\u{2019}", "\u{2018}", "`"] { x = x.replacingOccurrences(of: c, with: "'") }
         x = sub(x, "[£$€]", "")
         x = sub(x, "(\\d),(\\d{3})", "$1$2")
         x = sub(x, "[.,!?;:\"\u{201C}\u{201D}()]", " ")
         x = x.split(whereSeparator: { $0.isWhitespace }).joined(separator: " ")
-        return sub(x, "^(the|a|an) ", "")
+        return x
     }
+    public static func norm(_ s: String) -> String { sub(plain(s), "^(the|a|an) ", "") }
     /// a decimal / time / date number (7.45, 10:30, 1/11) counts as ONE word
-    public static func words(_ s: String) -> Int { norm(sub(s, "(\\d)[.:/](\\d)", "$1$2")).split(separator: " ").count }
+    public static func words(_ s: String) -> Int { plain(sub(s, "(\\d)[.:/](\\d)", "$1$2")).split(separator: " ").count }
     public static func gradeGap(a: [String], limit: Int?, given: String) -> (ok: Bool, over: Bool, empty: Bool) {
         if given.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return (false, false, true) }
         let over = (limit ?? 0) > 0 && words(given) > limit!

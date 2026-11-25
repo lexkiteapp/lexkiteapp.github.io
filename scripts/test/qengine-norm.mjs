@@ -10,7 +10,7 @@ for (const [a, b] of [['colour', 'color'], ['Centre', 'center'], ['travelled', '
 for (const [a, b] of [['colour', 'colors'], ['two', '3'], ['twenty five', '20'], ['first', 'second'], ['advise', 'advice'], ['rise', 'rice'], ['centre', 'central'], ['one hundred', '10'], ['year 2', 'year 3'], ['mumble', 'mombl'], ['label', 'lable']]) ok(!same(a, b), `khác đáp án: ${a} ≠ ${b}`);
 // ghép với gradeGap của qengine: chỉ trích hàm chấm, không dựng DOM
 const src = fs.readFileSync(new URL('../../web/js/qengine.js', import.meta.url), 'utf8');
-const m = /const norm = [^\n]+\n[^\n]*\n\s*const words = [^\n]+\n\s*function gradeGap[\s\S]*?\n  \}\n/.exec(src); ok(!!m, 'tìm thấy norm/words/gradeGap trong qengine.js');
+const m = /const plain = [^\n]+\n\s*const norm = [^\n]+\n[^\n]*\n\s*const words = [^\n]+\n\s*function gradeGap[\s\S]*?\n  \}\n/.exec(src); ok(!!m, 'tìm thấy norm/words/gradeGap trong qengine.js');
 if (m) {
   const g = { QEN: w.QEN }, gg = new Function('g', m[0] + '\nreturn gradeGap;')(g);
   const it = { a: ['color'] }, it2 = { a: ['25'] }, it3 = { a: ['well-known'] };

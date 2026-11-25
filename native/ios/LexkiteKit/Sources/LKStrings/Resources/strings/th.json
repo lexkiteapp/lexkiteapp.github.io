@@ -337,6 +337,7 @@
   "rev.test": "แบบทดสอบ",
   "rev.pronunciation": "การออกเสียง",
   "rev.gamesPractice": "เกมและแบบฝึกหัด",
+  "rev.gameCrossword": "ครอสเวิร์ดประจำวัน",
   "rev.pickAWordSource": "เลือกแหล่งที่มาของคำ จากนั้นเลือกโหมดฝึกหัด ทุกเซสชันจะได้รับ XP และนับรวมในภารกิจรายวันของคุณ",
   "rev.wordSource": "แหล่งที่มาของคำ",
   "rev.mySentence": "ประโยคของฉัน",

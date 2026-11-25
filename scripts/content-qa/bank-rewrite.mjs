@@ -18,6 +18,12 @@ const GEN_SYS = 'You are a senior item writer for Cambridge/ETS-style English ex
   'no duplicates, no "all/none of the above", no joke options, nothing that is also defensible. If "explain" mentions the old distractors, or is a generic template that does not say what is special about THIS item, ' +
   'rewrite it in the SAME language as the original (usually Vietnamese), 1-2 sentences, specific to this item, saying why the correct option is right and why the main distractor is wrong; otherwise return it unchanged. ' +
   'Return JSON {"<k>": {"options": [...], "explain": "..."}} with one key per item and nothing else.';
+// TOEFL: đáp án đúng thường là câu dài nhất (~50 %) → KHÔNG rút ngắn đáp án; KÉO DÀI nhiễu bằng chi tiết hợp lý (lý do, giới hạn, danh từ cụ thể) cho dài ngang đáp án.
+const GEN_SYS_TOEFL = 'You are a senior item writer for TOEFL iBT (ETS-style) reading and listening questions. In these items the correct option is usually the LONGEST one, which is a test-taking giveaway. ' +
+  'For each item, REWRITE only the wrong options (distractors): make EACH distractor 90%-125% of the correct option\'s length in characters, and at least one distractor LONGER than the correct option, by adding plausible, specific detail (a reason, a qualifier, a concrete noun phrase, a contrast) in the same register and grammatical form as the correct option. ' +
+  'Keep the correct option EXACTLY as given at the same index; do NOT shorten it. Each distractor must still be clearly wrong for a reason a teacher can state against the passage/audio, not defensible, no duplicates, no "all/none of the above", no joke options. ' +
+  'If "explain" mentions the old distractors, or is a generic template, rewrite it in the SAME language as the original (usually Vietnamese), 1-2 sentences, specific to this item, keeping any English quotation from the passage that supports the correct option; otherwise return it unchanged. ' +
+  'Return JSON {"<k>": {"options": [...], "explain": "..."}} with one key per item and nothing else.';
 const view = i => ({ q: i.q, options: i.options, key: i.a, explain: i.explain.slice(0, 600), level: i.level, ...(i.ctx ? { context: i.ctx.slice(0, 3000) } : {}) });
 const lens = o => o.map(x => x.length);
 const longestBias = (o, a) => { const l = lens(o), mx = Math.max(...l); return o.length > 2 && l[a] === mx && l.filter(x => x === mx).length === 1 && mx - Math.max(...l.filter((_, i) => i !== a)) >= 4; };
@@ -29,7 +35,9 @@ export const hardRules = (it, out) => {
   if (new Set(o.map(x => String(x).toLowerCase().trim())).size < o.length) e.push('trùng phương án');
   if (o.some(x => /(all|none|both) of the above|^both\b/i.test(x))) e.push('all/none of the above');
   if (longestBias(o, it.a)) e.push('đáp án vẫn dài nhất');
-  if (o.some((x, i) => i !== it.a && x.length > 2 * Math.max(8, o[it.a].length))) e.push('nhiễu quá dài');
+  if (!/^TOEFL/.test(it.group || '') && o.some((x, i) => i !== it.a && x.length > 2 * Math.max(8, o[it.a].length))) e.push('nhiễu quá dài');
+  if (/^TOEFL/.test(it.group || '')) { const L = o.map(x => String(x).length), c = L[it.a], w = L.filter((_, i) => i !== it.a);
+    if (w.some(x => x < 0.75 * c)) e.push('TOEFL: nhiễu ngắn hơn 75 % đáp án'); if (Math.max(...w) < c) e.push('TOEFL: không nhiễu nào dài bằng đáp án'); if (w.some(x => x > 1.8 * c)) e.push('TOEFL: nhiễu quá dài (>180 %)'); }
   if (typeof out.explain !== 'string' || out.explain.trim().length < 20) e.push('lời giải quá ngắn');
   return e;
 };
@@ -46,17 +54,42 @@ const TOK = new RegExp(STR, 'g'), val = t => (0, eval)(t);
 const OPT = new RegExp(String.raw`options:\s*\[((?:\s*${STR}\s*,?)+)\]\s*,\s*(?:a|answer):\s*\d\b`, 'g');
 const EXP = new RegExp(String.raw`^([^{}]*?\bexplain:\s*)(${STR})`);
 const quote = (s, tk) => { const q = tk[0]; return q === '`' ? '`' + s.replace(/[`\\]|\$\{/g, m => '\\' + m) + '`' : q + s.replace(/\\/g, '\\\\').replace(new RegExp(q, 'g'), '\\' + q).replace(/\n/g, '\\n') + q; };
+// Dạng hàm (đề TOEFL): Q(n, …, [đúng, sai, sai, sai], cue, lời giải) và m(n, q, 'đúng', [sai…], pos, cue, lời giải). Khớp CHÍNH XÁC chữ, duy nhất; đáp án đúng giữ nguyên.
+const ARR = new RegExp(String.raw`\[((?:\s*${STR}\s*,?)+)\]`, 'g'), TAIL = new RegExp(String.raw`^\s*,\s*(?:\d+\s*,\s*)?(${STR})\s*,\s*(${STR})`);
+const MFORM = new RegExp(String.raw`\bm\(\s*\d+\s*,\s*${STR}\s*,\s*(${STR})\s*,\s*\[((?:\s*${STR}\s*,?)+)\]`, 'g');
+const sameSet = (a, b) => a.length === b.length && new Set(a).size === a.length && [...a].sort().every((x, i) => x === [...b].sort()[i]);
+const mapOf = p => { const m = new Map(); p.old.forEach((x, i) => { if (i !== p.a) m.set(x, p.new[i]); }); return m; }; // nguồn có thể xếp lại lúc nạp: ghép theo CHỮ (nhiễu cũ → nhiễu mới), đáp án đúng giữ nguyên
+const arrOf = body => (body.match(TOK) || []).map(val), eq = (a, b) => a.length === b.length && a.every((x, i) => x === b[i]);
+function applyHelper(t, p) {
+  const right = p.old[p.a], wrongOld = p.old.filter((_, i) => i !== p.a), wrongNew = p.new.filter((_, i) => i !== p.a);
+  if (p.new[p.a] !== right || wrongNew.length !== wrongOld.length) return null;
+  const hits = []; let m;
+  ARR.lastIndex = 0;
+  while ((m = ARR.exec(t))) { if (!/^\s*Q\(/.test(t.slice(t.lastIndexOf('\n', m.index) + 1, m.index)) && !/^\s*Q\([^\n]*$/.test(t.slice(t.lastIndexOf('\n', m.index) + 1, m.index))) continue;
+    if (arrOf(m[1])[0] === right && sameSet(arrOf(m[1]), p.old)) hits.push({ at: m.index, len: m[0].length, body: m[1], bodyAt: m.index + 1, kind: 'Q' }); }
+  MFORM.lastIndex = 0;
+  while ((m = MFORM.exec(t))) { if (val(m[1]) !== right || !sameSet(arrOf(m[2]), wrongOld)) continue;
+    const bodyAt = m.index + m[0].length - 1 - m[2].length; hits.push({ at: m.index, len: m[0].length, body: m[2], bodyAt, kind: 'm' }); }
+  if (hits.length !== 1) return null;
+  const h = hits[0];
+  const W = mapOf(p), nb = h.body.replace(TOK, tk => { const x = val(tk); return x === right ? tk : quote(W.get(x), tk); });
+  const end = h.at + h.len; let rest = t.slice(end);
+  const e = TAIL.exec(rest.slice(0, 1500));
+  if (e && p.explain && p.group !== 'GRAMMAR' && p.explain !== p.oldExplain && val(e[2]) === p.oldExplain) rest = rest.slice(0, e.index + e[0].length - e[2].length) + quote(p.explain, e[2]) + rest.slice(e.index + e[0].length);
+  return t.slice(0, h.bodyAt) + nb + t.slice(h.bodyAt + h.body.length, end) + rest;
+}
 // Áp một danh sách bản vá lên văn bản nguồn: tìm mảng options trùng ĐÚNG chữ + thứ tự (phải duy nhất), thay phương án và (nếu khớp) lời giải đứng ngay sau.
 export function applyAll(src, patches) {
   let t = src, hit = 0;
   for (const p of patches) {
     const at = []; OPT.lastIndex = 0; let m;
-    while ((m = OPT.exec(t))) { const cur = (m[1].match(TOK) || []).map(val); if (cur.length === p.old.length && cur.every((x, i) => x === p.old[i])) at.push(m); }
+    while ((m = OPT.exec(t))) { const cur = (m[1].match(TOK) || []).map(val); if (cur[p.a] === p.old[p.a] ? sameSet(cur, p.old) : (cur.includes(p.old[p.a]) && sameSet(cur, p.old))) at.push(m); }
+    if (at.length === 0) { const r = applyHelper(t, p); if (r) { t = r; hit++; } continue; } // dạng hàm Q(...) / m(...): đáp án đúng đứng đầu, vị trí dựng lúc chạy
     if (at.length !== 1) continue; // không thấy hoặc mơ hồ → bỏ (an toàn)
-    m = at[0]; let i = 0; const nb = m[1].replace(TOK, tk => quote(p.new[i++], tk)), start = m.index, end = start + m[0].length;
+    m = at[0]; const W = mapOf(p), nb = m[1].replace(TOK, tk => { const x = val(tk); return x === p.old[p.a] ? tk : quote(W.get(x), tk); }), start = m.index, end = start + m[0].length;
     let head = t.slice(0, start) + m[0].replace(m[1], nb), rest = t.slice(end);
     const e = EXP.exec(rest.slice(0, 1500));
-    if (e && p.explain && p.explain !== p.oldExplain && val(e[2]) === p.oldExplain) rest = e[1] + quote(p.explain, e[2]) + rest.slice(e[0].length);
+    if (e && p.explain && p.group !== 'GRAMMAR' && p.explain !== p.oldExplain && val(e[2]) === p.oldExplain) rest = e[1] + quote(p.explain, e[2]) + rest.slice(e[0].length);
     t = head + rest; hit++;
   }
   return { text: t, hit };
@@ -68,11 +101,13 @@ if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).
     const sh = +(arg('--shard') || 0), of = +(arg('--of') || 1), max = +(arg('--max') || 1e9), deadline = Date.now() + (+(arg('--budget-min') || 45)) * 60000;
     const { items } = auditBank(loadContent()), all = pickTargets(items).filter((_, i) => i % of === sh).slice(0, max);
     console.log(`cần viết lại ${pickTargets(items).length} câu (long/tmpl) · shard ${sh}/${of}: ${all.length}`);
-    const AI = createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: req.mode === 'cfgen' ? GEN_SYS : JUDGE_SYS(RUBRIC + ' The item was REWRITTEN to remove giveaways; judge the new options and explanation as a whole.'), user: JSON.stringify(req.items), temp: req.mode === 'cfgen' ? 0.6 : 0.1 }) });
+    const AI = createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: req.mode === 'cfgen' ? (req.toefl ? GEN_SYS_TOEFL : GEN_SYS) : JUDGE_SYS(RUBRIC + ' The item was REWRITTEN to remove giveaways; judge the new options and explanation as a whole.'), user: JSON.stringify(req.items), temp: req.mode === 'cfgen' ? 0.6 : 0.1 }) });
     const R = { shard: sh, targets: all.length, gen: 0, rule: 0, judged: 0, pass: 0, patches: [], rejected: [] }, queue = chunks(all, 5);
-    await Promise.all(Array.from({ length: 4 }, async () => { for (let ch; (ch = queue.shift()) && Date.now() < deadline;) {
+    const isT = i => /^TOEFL/.test(i.group);
+    queue.splice(0, queue.length, ...chunks(all.filter(isT), 5).map(c => ({ c, toefl: true })), ...chunks(all.filter(i => !isT(i)), 5).map(c => ({ c, toefl: false }))); // TOEFL: lô riêng, prompt riêng (kéo dài nhiễu)
+    await Promise.all(Array.from({ length: 4 }, async () => { for (let q; (q = queue.shift()) && Date.now() < deadline;) { const ch = q.c;
       try {
-        const g = await AI.gen({ mode: 'cfgen', items: ch.map(i => ({ k: i.k, ...view(i), why: i.why })) }); if (!g) continue;
+        const g = await AI.gen({ mode: 'cfgen', toefl: q.toefl, items: ch.map(i => ({ k: i.k, ...view(i), why: i.why })) }); if (!g) continue;
         const ok = [];
         for (const i of ch) { const o = g.out[i.k]; if (!o) continue; R.gen++; const e = hardRules(i, o); if (e.length) { R.rule++; R.rejected.push({ k: i.k, why: e.join(' · ') }); } else ok.push({ i, o }); }
         if (!ok.length) continue;
@@ -87,7 +122,11 @@ if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).
     if (R.targets && !R.gen) { console.error('✗ 0 câu soạn được (hạ tầng AI?)'); process.exit(1); }
   } else if (cmd === 'apply') {
     const P = A.slice(1).filter(x => x.endsWith('.json')).flatMap(f => JSON.parse(fs.readFileSync(f, 'utf8')).patches), write = A.includes('--write'); let hit = 0;
-    for (const f of files()) { const src = fs.readFileSync(f, 'utf8'), r = applyAll(src, P); hit += r.hit; if (write && r.text !== src) fs.writeFileSync(f, r.text); }
+    const orig = {}; for (const f of files()) { const src = fs.readFileSync(f, 'utf8'), r = applyAll(src, P); hit += r.hit; if (write && r.text !== src) { orig[f] = src; fs.writeFileSync(f, r.text); } }
     console.log(`bank-rewrite apply: ${P.length} bản vá, áp ${hit} câu${write ? ' (đã ghi)' : ''}`); void path; void ROOT;
+    // Cổng: --gate-longest N (mặc định không bật) → sau khi áp, tỉ lệ "đáp án dài nhất" của nhóm TOEFL.* phải ≤ N %, không thì HOÀN LẠI nguồn và thoát 1 (không nhận lô).
+    const gate = arg('--gate-longest'); if (write && gate) { const { out } = auditBank(loadContent()), bad = Object.entries(out).filter(([k, x]) => /^TOEFL/.test(k) && x.longestIsAnswerPct > +gate);
+      console.log('đáp án dài nhất (TOEFL): ' + Object.entries(out).filter(([k]) => /^TOEFL/.test(k)).map(([k, x]) => `${k} ${x.longestIsAnswerPct}%`).join(' · '));
+      if (bad.length) { for (const [f, src] of Object.entries(orig)) fs.writeFileSync(f, src); console.error(`✗ cổng: ${bad.map(([k, x]) => `${k} ${x.longestIsAnswerPct}%`).join(', ')} > ${gate}% – đã hoàn lại nguồn, không nhận lô`); process.exit(1); } }
   } else { console.error('dùng: gen | apply'); process.exit(2); }
 }

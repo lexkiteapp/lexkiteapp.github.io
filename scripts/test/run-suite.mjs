@@ -2,11 +2,12 @@
 // Danh sách nằm ở file riêng (merge=union trong .gitattributes) để hai PR cùng thêm test không xung đột ở một dòng package.json dài.
 // Chia shard (CI chạy song song, scripts/test/suite-shards.mjs canh hợp = đủ bộ): --fast = làn nhanh (lint/chính sách, FAST_RE), --shard=i/n (i từ 1) = phần i của phần còn lại, cân theo thời gian đo (suite-weights.json).
 // Tùy chọn: --list in danh sách rồi thoát; --from=N bắt đầu từ lệnh thứ N (chạy lại sau lỗi, chỉ dùng cục bộ).
-import fs from 'node:fs'; import path from 'node:path'; import { spawnSync } from 'node:child_process'; import { fileURLToPath } from 'node:url';
+import fs from 'node:fs'; import path from 'node:path';
+import { gitContext, hashOf, loadLedger, canSkip, recordPass, flagFalsePass } from '../lib/test-cache.mjs'; import { spawnSync } from 'node:child_process'; import { fileURLToPath } from 'node:url';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-export const SUITE = path.join(ROOT, 'scripts/test/suite.txt');
+export const SUITE = process.env.SUITE_FILE ? path.resolve(process.env.SUITE_FILE) : path.join(ROOT, 'scripts/test/suite.txt');   // SUITE_FILE: bộ nhỏ để thử cục bộ (không chạy cả suite trên máy)
 export const readSuite = (file = SUITE) => fs.readFileSync(file, 'utf8').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
-export const FAST_RE = /^node scripts\/(vi-lint|ext-syntax|i18n-missing|test\/(ci-policy|ci-triage|syntax-check|comment-code|unit|suite-shards|workflow-yaml))\.m?js\b/;
+export const FAST_RE = /^node scripts\/(vi-lint|ext-syntax|i18n-missing|test\/(ci-policy|ci-triage|syntax-check|comment-code|unit|suite-shards|workflow-yaml|no-conflict-markers))\.m?js\b/;
 // Chú thích lỗi CI: mỗi test đỏ in `::error file=…::<test>: <lý do ngắn>` + ghi bảng tóm tắt vào job summary (không chỉ "exit 1").
 export const TAIL_MAX = 6000;
 export const scriptOf = c => (c.match(/(?:^|\s)((?:\.\/)?[\w./-]+\.(?:m?js|py|sh|cjs|ts))\b/) || [])[1]?.replace(/^\.\//, '') || 'package.json';
@@ -60,20 +61,34 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   if (needsJsdom(cmds)) { const je = await jsdomError(); if (je) { console.error(`::error file=package.json,title=${esc('jsdom không nạp được')}::npm ci chưa đủ hoặc Node không khớp (CI dùng Node 22): ${esc(je)}`); process.exit(1); } }
   // Đầu ra test có thể hàng MB (jsdom "Not implemented"…): process.stdout.write đồng bộ vào pipe không chặn của runner CI có thể ném EAGAIN → run-suite chết (exit 1) mà mất cả dòng "✗ [n/N]" (content-factory/collect 15–18/11). Ghi bằng fs.writeSync, EAGAIN thì thử lại.
   const put = (fd, text) => { const b = Buffer.from(text); let o = 0; while (o < b.length) { try { o += fs.writeSync(fd, b, o); } catch (e) { if (e.code !== 'EAGAIN') throw e; Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 5); } } };
+  // 25/11 cache kết quả ĐẠT theo hash input (scripts/lib/test-cache.mjs): bật khi TEST_CACHE_FILE có giá trị (CI khôi phục sổ bằng actions/cache). NO_TEST_CACHE=1 (lượt đêm trên main) = KHÔNG bỏ qua test nào,
+  // và test đỏ mà sổ từng cho đạt cùng hash = dò input sai → ghi `cache-false-pass.txt` (workflow mở issue).
+  const cacheFile = process.env.TEST_CACHE_FILE, noCache = process.env.NO_TEST_CACHE === '1';
+  let ledger = null, cctx = null, hits = 0, cacheable = 0; const falsePass = [];
+  if (cacheFile) { try { ledger = loadLedger(cacheFile); cctx = gitContext(ROOT); } catch (e) { console.log(`::warning::test-cache tắt: ${String(e.message).split('\n')[0]}`); ledger = null; } }
+  const saveLedger = () => { if (!ledger) return; try { fs.mkdirSync(path.dirname(cacheFile), { recursive: true }); fs.writeFileSync(cacheFile, JSON.stringify(ledger)); if (falsePass.length) fs.writeFileSync(path.join(path.dirname(cacheFile), 'cache-false-pass.txt'), falsePass.join('\n') + '\n'); } catch (e) { console.log(`::warning::không ghi được sổ cache: ${e.message}`); } };
+  const hashFor = c => { if (!ledger) return null; try { return hashOf(c, cctx, { root: ROOT }).hash; } catch { return null; } };
   const from = Math.max(1, Number(arg('from')) || 1), t0 = Date.now(), times = [];
   for (let i = from - 1; i < cmds.length; i++) {
-    const c = cmds[i], t = Date.now();
+    const c = cmds[i], t = Date.now(), hash = hashFor(c);
+    if (hash) cacheable++;
+    if (ledger && canSkip(ledger, c, hash, { disabled: noCache })) { hits++; console.log(`\n↺ cached-pass [${i + 1}/${cmds.length}] ${c} (input ${hash.slice(0, 8)}, đạt ${ledger.pass[hash].t})`); continue; }
     console.log(`\n▶ [${i + 1}/${cmds.length}] ${c}`);
     const r = spawnSync(c, { cwd: ROOT, shell: '/bin/sh', stdio: ['inherit', 'pipe', 'pipe'], env: process.env, encoding: 'utf8', maxBuffer: 1 << 28 });
     put(1, r.stdout || ''); put(2, r.stderr || '');
     const s = (Date.now() - t) / 1000; times.push([s, c]);
     if (r.status !== 0) {
+      if (ledger && flagFalsePass(ledger, c, hash)) { falsePass.push(`${c}\t${hash}`); console.error(`::error title=${esc('cache dò input sai')}::${esc(c)} đỏ nhưng sổ từng cho đạt cùng input → test này không được cache nữa; sửa dò input (scripts/lib/test-cache.mjs) hoặc test`); }
+      saveLedger();
       annotate(c, ((r.stderr || '') + '\n' + (r.stdout || '')).slice(-TAIL_MAX), r.status ?? r.signal);
       console.error(`\n✗ [${i + 1}/${cmds.length}] ${c} – đỏ (mã ${r.status ?? r.signal}) sau ${s.toFixed(1)}s. Chạy lại từ đây: node scripts/test/run-suite.mjs --from=${i + 1}`);
       process.exit(r.status || 1);
     }
+    if (ledger && hash) recordPass(ledger, c, hash);
     console.log(`✓ [${i + 1}/${cmds.length}] ${c} (${s.toFixed(1)}s)`);
   }
+  saveLedger();
+  if (ledger) console.log(`test-cache: ${hits} test bỏ qua (cached-pass) / ${cacheable} cache được / ${cmds.length - from + 1} lệnh trong phần này${noCache ? ' (NO_TEST_CACHE: không bỏ qua)' : ''}`);
   const slow = times.sort((a, b) => b[0] - a[0]).slice(0, 10).map(([s, c]) => `  ${s.toFixed(1)}s  ${c}`).join('\n');
   console.log(`\n✓ npm test: ${times.length} lệnh xanh trong ${((Date.now() - t0) / 1000).toFixed(1)}s. Chậm nhất:\n${slow}`);
 }

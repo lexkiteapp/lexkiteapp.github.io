@@ -126,6 +126,6 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
-| nhãn ngắn dịch tay | 12.4 / 13 | 95% | 10 |
+| nhãn ngắn dịch tay | 12.3 / 13 | 95% | 10 |
 | gói nghĩa từ theo ngôn ngữ | 6.7 / 13 | 52% | 20 |
 | điểm bản xứ (native-score/5) (chưa làm) | 3.7 / 5 | 74% | 25 |
