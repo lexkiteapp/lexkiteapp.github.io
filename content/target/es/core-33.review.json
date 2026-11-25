@@ -1,0 +1,760 @@
+{
+ "fixed": [
+  {
+   "word": "entrevista",
+   "field": "gl.vi",
+   "from": "phỏng vấn",
+   "to": "cuộc phỏng vấn",
+   "why": "vi danh từ đầy đủ"
+  },
+  {
+   "word": "virus",
+   "field": "gl.vi",
+   "from": "vi rút gây bệnh",
+   "to": "vi-rút",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.es",
+   "from": "microorganismo infeccioso",
+   "to": "virus",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.en",
+   "from": "infectious microbe",
+   "to": "virus",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.pt",
+   "from": "micróbio infeccioso",
+   "to": "vírus",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.fr",
+   "from": "microbe infectieux",
+   "to": "virus",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.de",
+   "from": "infektiöser Mikroorganismus",
+   "to": "Virus",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.id",
+   "from": "mikroba penyebab penyakit",
+   "to": "virus",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.th",
+   "from": "จุลชีพที่ทำให้เกิดโรค",
+   "to": "ไวรัส",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.zh",
+   "from": "致病微生物",
+   "to": "病毒",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.ja",
+   "from": "感染性微生物",
+   "to": "ウイルス",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.ko",
+   "from": "감염성 미생물",
+   "to": "바이러스",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.hi",
+   "from": "संक्रमित सूक्ष्मजीव",
+   "to": "वायरस",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.ar",
+   "from": "كائن دقيق مسبب للمرض",
+   "to": "فيروس",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.ru",
+   "from": "инфекционный микроб",
+   "to": "вирус",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "virus",
+   "field": "gl.tr",
+   "from": "enfeksiyon mikrobu",
+   "to": "virüs",
+   "why": "Gloss cả 15 ngôn ngữ là định nghĩa/\"vi sinh vật\" chứ không phải từ \"virus\""
+  },
+  {
+   "word": "pájaro",
+   "field": "gl.vi",
+   "from": "chim chim",
+   "to": "chim",
+   "why": "vi lặp \"chim chim\""
+  },
+  {
+   "word": "aguantar",
+   "field": "gl.vi",
+   "from": "chịu",
+   "to": "chịu đựng",
+   "why": "\"chịu\" cụt nghĩa"
+  },
+  {
+   "word": "identificación",
+   "field": "gl.vi",
+   "from": "xác thực",
+   "to": "giấy tờ tùy thân",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.en",
+   "from": "identification",
+   "to": "ID",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.pt",
+   "from": "identificação",
+   "to": "documento de identificação",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.fr",
+   "from": "identification",
+   "to": "pièce d'identité",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.de",
+   "from": "Identifikation",
+   "to": "Ausweis",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.id",
+   "from": "identifikasi",
+   "to": "tanda pengenal",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.th",
+   "from": "การระบุตัวตน",
+   "to": "บัตรประจำตัว",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.zh",
+   "from": "身份证明",
+   "to": "身份证件",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.ja",
+   "from": "身分証明",
+   "to": "身分証明書",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.ko",
+   "from": "신분증명",
+   "to": "신분증",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.hi",
+   "from": "पहचान",
+   "to": "पहचान पत्र",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "identificación",
+   "field": "gl.ru",
+   "from": "идентификация",
+   "to": "удостоверение личности",
+   "why": "Câu ví dụ nghĩa \"giấy tờ tùy thân\"; vi \"xác thực\" sai nghĩa, các ngữ khác là \"sự nhận dạng\""
+  },
+  {
+   "word": "sesión",
+   "field": "gl.vi",
+   "from": "phiên họp",
+   "to": "buổi họp",
+   "why": "Ví dụ buổi họp/buổi làm việc"
+  },
+  {
+   "word": "socorro",
+   "field": "gl.vi",
+   "from": "giúp đỡ",
+   "to": "sự cứu trợ",
+   "why": "Câu \"Necesito tu socorro\" không tự nhiên; vi \"giúp đỡ\" mơ hồ"
+  },
+  {
+   "word": "socorro",
+   "field": "ex.es",
+   "from": "Necesito tu socorro.",
+   "to": "La policía llegó a dar socorro a los heridos.",
+   "why": "Câu \"Necesito tu socorro\" không tự nhiên; vi \"giúp đỡ\" mơ hồ"
+  },
+  {
+   "word": "socorro",
+   "field": "ex.en",
+   "from": "I need your help.",
+   "to": "The police came to give aid to the injured.",
+   "why": "Câu \"Necesito tu socorro\" không tự nhiên; vi \"giúp đỡ\" mơ hồ"
+  },
+  {
+   "word": "celebrar",
+   "field": "gl.vi",
+   "from": "chúc mừng",
+   "to": "ăn mừng",
+   "why": "vi \"chúc mừng\" sai nghĩa (là felicitar)"
+  },
+  {
+   "word": "fila",
+   "field": "ex.es",
+   "from": "Hay una larga fila en el banco.",
+   "to": "Nos sentamos en la primera fila del cine.",
+   "why": "Gloss \"row\" nhưng câu ví dụ nghĩa \"hàng chờ\" (queue) trùng với cola"
+  },
+  {
+   "word": "fila",
+   "field": "ex.en",
+   "from": "There is a long line at the bank.",
+   "to": "We sat in the front row of the cinema.",
+   "why": "Gloss \"row\" nhưng câu ví dụ nghĩa \"hàng chờ\" (queue) trùng với cola"
+  },
+  {
+   "word": "misterio",
+   "field": "gl.vi",
+   "from": "mysterio",
+   "to": "bí ẩn",
+   "why": "vi gõ sai \"mysterio\""
+  },
+  {
+   "word": "salar",
+   "field": "gl.es",
+   "from": "añadir sal",
+   "to": "echar sal",
+   "why": "es \"añadir sal\" là cụm"
+  },
+  {
+   "word": "quitar",
+   "field": "gl.vi",
+   "from": "bỏ",
+   "to": "loại bỏ",
+   "why": "\"bỏ\" quá mơ hồ"
+  },
+  {
+   "word": "vehículo",
+   "field": "gl.vi",
+   "from": "xe",
+   "to": "phương tiện",
+   "why": "vi/ja/ko/ru dùng từ \"xe/車/차/транспорт\" lệch nghĩa"
+  },
+  {
+   "word": "vehículo",
+   "field": "gl.ja",
+   "from": "車",
+   "to": "乗り物",
+   "why": "vi/ja/ko/ru dùng từ \"xe/車/차/транспорт\" lệch nghĩa"
+  },
+  {
+   "word": "vehículo",
+   "field": "gl.ko",
+   "from": "차",
+   "to": "차량",
+   "why": "vi/ja/ko/ru dùng từ \"xe/車/차/транспорт\" lệch nghĩa"
+  },
+  {
+   "word": "vehículo",
+   "field": "gl.ru",
+   "from": "транспорт",
+   "to": "транспортное средство",
+   "why": "vi/ja/ko/ru dùng từ \"xe/車/차/транспорт\" lệch nghĩa"
+  },
+  {
+   "word": "federal",
+   "field": "gl.de",
+   "from": "bundes",
+   "to": "föderal",
+   "why": "de \"bundes\" là tiền tố, không phải từ"
+  },
+  {
+   "word": "despedida",
+   "field": "gl.fr",
+   "from": "adieu",
+   "to": "adieux",
+   "why": "Dạng danh từ fr đúng là \"adieux\""
+  },
+  {
+   "word": "cristal",
+   "field": "gl.vi",
+   "from": "kính",
+   "to": "thủy tinh",
+   "why": "Ví dụ \"vaso de cristal\" – vi \"kính\" dễ nhầm với kính đeo"
+  },
+  {
+   "word": "medida",
+   "field": "gl.vi",
+   "from": "đo lường",
+   "to": "số đo",
+   "why": "vi \"đo lường\" sai; câu ví dụ nghĩa số đo"
+  },
+  {
+   "word": "medida",
+   "field": "gl.en",
+   "from": "measure",
+   "to": "measurement",
+   "why": "vi \"đo lường\" sai; câu ví dụ nghĩa số đo"
+  },
+  {
+   "word": "transporte",
+   "field": "gl.vi",
+   "from": "vận tải",
+   "to": "giao thông",
+   "why": "Câu ví dụ \"transporte público\" = giao thông công cộng"
+  },
+  {
+   "word": "habilidad",
+   "field": "ex.es",
+   "from": "Tiene mucha habilidad para la música.",
+   "to": "Ella tiene mucha habilidad para la música.",
+   "why": "Câu en \"He/she\" gượng"
+  },
+  {
+   "word": "habilidad",
+   "field": "ex.en",
+   "from": "He/she has a lot of skill for music.",
+   "to": "She has a lot of skill for music.",
+   "why": "Câu en \"He/she\" gượng"
+  },
+  {
+   "word": "maravilla",
+   "field": "gl.tr",
+   "from": "harika",
+   "to": "mucize",
+   "why": "tr \"harika\" là tính từ; ar dùng số nhiều"
+  },
+  {
+   "word": "maravilla",
+   "field": "gl.ar",
+   "from": "عجائب",
+   "to": "أعجوبة",
+   "why": "tr \"harika\" là tính từ; ar dùng số nhiều"
+  },
+  {
+   "word": "mate",
+   "field": "gl.pt",
+   "from": "chimarrão",
+   "to": "mate",
+   "why": "pt \"chimarrão\" là món khác"
+  },
+  {
+   "word": "tripulación",
+   "field": "gl.vi",
+   "from": "đội ngũ",
+   "to": "phi hành đoàn",
+   "why": "vi \"đội ngũ\" quá chung; tr \"ekip\" lệch"
+  },
+  {
+   "word": "tripulación",
+   "field": "gl.tr",
+   "from": "ekip",
+   "to": "mürettebat",
+   "why": "vi \"đội ngũ\" quá chung; tr \"ekip\" lệch"
+  },
+  {
+   "word": "guía",
+   "field": "gl.vi",
+   "from": "hướng dẫn",
+   "to": "hướng dẫn viên",
+   "why": "vi \"hướng dẫn\" là động từ; de \"Führer\" tránh dùng; zh \"指南\" nghĩa sách hướng dẫn"
+  },
+  {
+   "word": "guía",
+   "field": "gl.de",
+   "from": "Führer",
+   "to": "Reiseleiter",
+   "why": "vi \"hướng dẫn\" là động từ; de \"Führer\" tránh dùng; zh \"指南\" nghĩa sách hướng dẫn"
+  },
+  {
+   "word": "guía",
+   "field": "gl.zh",
+   "from": "指南",
+   "to": "导游",
+   "why": "vi \"hướng dẫn\" là động từ; de \"Führer\" tránh dùng; zh \"指南\" nghĩa sách hướng dẫn"
+  },
+  {
+   "word": "objeto",
+   "field": "gl.vi",
+   "from": "đối tượng",
+   "to": "đồ vật",
+   "why": "vi \"đối tượng\" trừu tượng; ar \"كائن\" = sinh vật"
+  },
+  {
+   "word": "objeto",
+   "field": "gl.ar",
+   "from": "كائن",
+   "to": "شيء",
+   "why": "vi \"đối tượng\" trừu tượng; ar \"كائن\" = sinh vật"
+  },
+  {
+   "word": "pastilla",
+   "field": "gl.ar",
+   "from": "حبوب",
+   "to": "قرص",
+   "why": "ar số nhiều; zh \"药丸\" sai loại"
+  },
+  {
+   "word": "pastilla",
+   "field": "gl.zh",
+   "from": "药丸",
+   "to": "药片",
+   "why": "ar số nhiều; zh \"药丸\" sai loại"
+  },
+  {
+   "word": "nacimiento",
+   "field": "gl.vi",
+   "from": "sinh",
+   "to": "sự ra đời",
+   "why": "vi \"sinh\" là động từ; câu en gượng"
+  },
+  {
+   "word": "nacimiento",
+   "field": "ex.es",
+   "from": "El nacimiento de mi hermano fue feliz.",
+   "to": "El nacimiento de mi hermano fue un día feliz.",
+   "why": "vi \"sinh\" là động từ; câu en gượng"
+  },
+  {
+   "word": "nacimiento",
+   "field": "ex.en",
+   "from": "My brother's birth was happy.",
+   "to": "My brother's birth was a happy day.",
+   "why": "vi \"sinh\" là động từ; câu en gượng"
+  },
+  {
+   "word": "montar",
+   "field": "gl.vi",
+   "from": "lắp ráp",
+   "to": "cưỡi",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "gl.en",
+   "from": "to assemble / to ride",
+   "to": "to ride",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "gl.de",
+   "from": "aufbauen",
+   "to": "reiten",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "gl.id",
+   "from": "memasang",
+   "to": "menunggang",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "gl.th",
+   "from": "ประกอบ",
+   "to": "ขี่",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "gl.zh",
+   "from": "装配",
+   "to": "骑",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "gl.ja",
+   "from": "組み立てる",
+   "to": "乗る",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "gl.ko",
+   "from": "조립하다",
+   "to": "타다",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "gl.hi",
+   "from": "जोड़ना",
+   "to": "सवारी करना",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "gl.ru",
+   "from": "собирать",
+   "to": "ездить верхом",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "gl.tr",
+   "from": "kurmak",
+   "to": "binmek",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "ex.es",
+   "from": "Voy a montar la bicicleta.",
+   "to": "Voy a montar en bicicleta.",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "montar",
+   "field": "ex.en",
+   "from": "I am going to ride the bicycle.",
+   "to": "I am going to ride a bicycle.",
+   "why": "Nghĩa vi/ngôn ngữ khác là \"lắp ráp\" nhưng câu en là \"ride\": thống nhất nghĩa cưỡi/đi"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.vi",
+   "from": "đi tuần tra",
+   "to": "cuộc tuần tra",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.en",
+   "from": "round / patrol",
+   "to": "patrol",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.fr",
+   "from": "rond",
+   "to": "ronde",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.de",
+   "from": "Runde",
+   "to": "Rundgang",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.id",
+   "from": "ronda",
+   "to": "patroli",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.th",
+   "from": "รอบ",
+   "to": "การเดินตรวจ",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.zh",
+   "from": "轮次",
+   "to": "巡逻",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.ko",
+   "from": "라운드",
+   "to": "순찰",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.hi",
+   "from": "राउंड",
+   "to": "गश्त",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.ru",
+   "from": "раунд",
+   "to": "обход",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "ronda",
+   "field": "gl.tr",
+   "from": "tur",
+   "to": "devriye",
+   "why": "Gloss \"round\" lệch so với câu ví dụ (tuần tra)"
+  },
+  {
+   "word": "cierre",
+   "field": "gl.vi",
+   "from": "đóng",
+   "to": "sự đóng cửa",
+   "why": "vi \"đóng\" là động từ; de \"Schluss\" lệch"
+  },
+  {
+   "word": "cierre",
+   "field": "gl.de",
+   "from": "Schluss",
+   "to": "Schließung",
+   "why": "vi \"đóng\" là động từ; de \"Schluss\" lệch"
+  },
+  {
+   "word": "serpiente",
+   "field": "gl.vi",
+   "from": "con rắn",
+   "to": "rắn",
+   "why": "\"con rắn\" kèm loại từ"
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.vi",
+   "from": "đằng trước",
+   "to": "đối diện",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.en",
+   "from": "in front",
+   "to": "opposite",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.de",
+   "from": "vorne",
+   "to": "gegenüber",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.id",
+   "from": "di depan",
+   "to": "di seberang",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.th",
+   "from": "ตรงหน้า",
+   "to": "ตรงข้าม",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.zh",
+   "from": "在前面",
+   "to": "对面",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.ja",
+   "from": "前に",
+   "to": "向かいに",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.ko",
+   "from": "앞에",
+   "to": "맞은편에",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.ar",
+   "from": "أمام",
+   "to": "مقابل",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.ru",
+   "from": "впереди",
+   "to": "напротив",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "gl.tr",
+   "from": "önünde",
+   "to": "karşıda",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  },
+  {
+   "word": "enfrente",
+   "field": "ex.en",
+   "from": "The bank is in front of the school.",
+   "to": "The bank is across from the school.",
+   "why": "\"enfrente\" = đối diện, không phải \"phía trước\""
+  }
+ ],
+ "dropped": [
+  {
+   "word": "detenerse",
+   "why": "Trùng nghĩa với detener (cùng có trong lô); dạng phản thân + ví dụ mệnh lệnh \"Detente\""
+  },
+  {
+   "word": "súper",
+   "why": "Không phải tính từ chuẩn (ví dụ \"tan súper\" không tự nhiên)"
+  },
+  {
+   "word": "violación",
+   "why": "Nội dung nhạy cảm (bạo lực tình dục), không phù hợp từ vựng đại chúng"
+  }
+ ]
+}

@@ -455,6 +455,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "npm-test-nightly",
+   "workflow": "npm-test-nightly.yml",
+   "cron": [
+    "23 20 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "required-gate",
    "workflow": "required-gate.yml",
    "cron": [
@@ -980,6 +994,20 @@ export const REG = {
     "gh_minutes"
    ],
    "minutes": 60,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "tr-packs",
+   "workflow": "tr-packs.yml",
+   "cron": [
+    "20 22 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 90,
    "est": {},
    "lease": false
   },

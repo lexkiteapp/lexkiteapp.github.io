@@ -715,7 +715,7 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 .sheet-ex mark { background: rgba(255,255,255,.25); color: #fff; border-radius: 4px; padding: 0 .15rem; }
 .sheet-ex .ctx-say { background: #fff; color: var(--brand-ink); border: 0; margin-left: .2rem; opacity: 1; }
 .sheet-tr { margin-top: .3rem; opacity: .9; font-style: italic; }
-.sheet-next { margin-top: 1rem; background: #fff !important; color: #111 !important; border: 0 !important; box-shadow: 0 4px 0 rgba(0,0,0,.15); font-weight: 800; }
+.sheet-next { margin-top: 1rem; background: rgba(0,0,0,.28) !important; color: #fff !important; border: 1px solid rgba(255,255,255,.6) !important; box-shadow: none; font-weight: 800; } /* banner gradient: nền tối + viền sáng (spec chon-cta-khu-b), không nền trắng chói */
 .study-wrap:has(.sheet-up) { padding-bottom: calc(var(--sheet-h, 280px) + 1rem); }
 /* Màn hình rộng có thanh bên: căn khung kết quả theo vùng nội dung (không theo cả cửa sổ) để thẳng hàng với thẻ học */
 @media (min-width: 1024px) { body:not(.bare):not(.focus) .sheet { left: var(--sidebar); } }
@@ -1338,6 +1338,8 @@ html[data-has-sheet] .view { padding-bottom: calc(18rem + env(safe-area-inset-bo
 .set-h .i { width: 1.35em; height: 1.35em; color: var(--accent-text); }
 .lsw-b .i { width: 16px; height: 16px; vertical-align: 0; }
 [dir="rtl"] .i-dir { transform: scaleX(-1); }
+[dir="rtl"] span.i-dir, [dir="rtl"] .chev-svg { display: inline-block; } /* ligature Material Symbols có hướng (ui.js rtlFix) */
+bdi[dir="ltr"] { unicode-bidi: isolate; } /* cụm Latin/số trong ar: ui.js rtlFix bọc <bdi dir=ltr> */
 a > .i-dir:first-child, button > .i-dir:first-child { margin-inline-end: .2em; }
 
 .err-state { max-width: 520px; margin: 2rem auto; text-align: center; display: grid; gap: var(--sp-3); justify-items: center; } .err-state h1 { font-size: var(--fs-lg); margin: 0; } .err-state p { margin: 0; } .err-ic { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); color: var(--accent-text); } .err-ic .i { width: 28px; height: 28px; }
@@ -1480,6 +1482,8 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
 /* kiểm toán 18/11 (lesson-perf): cờ data-has-* do ui.js đặt thay cho :has() gốc html/body – mỗi lần DOM đổi, :has() gốc buộc tính lại style cả cây (~25 % thời gian luồng chính của 1 bài học ở CPU 4×) */
 /* P0 kiểm toán 18/11: hàng nút chép chính tả ở 390 px – Câu trước/Câu sau chia đều dòng sau (nút Nghe chiếm cả dòng ở lazy-ui.css) */
 @media (max-width: 480px) { .q-card .row.center #dPrev, .q-card .row.center #dNext { flex: 1 1 0; min-width: 0; } }
+/* Ngày học (#/day/N), tối: sao trong viên XP vẽ #10302f trên nền viên #1d2f33 (tương phản 1,01 – vqa icon-invisible); mẫu Stitch giữ nguyên, ghi đè đúng sao đó bằng màu chữ tiêu đề */
+:root:not([data-theme=light]) .v2s-day .dk\:bg-\[\#1d2f33\]>.material-symbols-outlined.dk\:text-\[\#10302f\],:root[data-theme=dark] .v2s-day .dk\:bg-\[\#1d2f33\]>.material-symbols-outlined.dk\:text-\[\#10302f\]{color:var(--heading)}
 /* scroll-perf (22/11): ngọn lửa chuỗi (st-fl, runtime.js) lay bằng transform trên <path> con của SVG = KHÔNG lên lớp ghép (compositor) → mỗi khung hình tính lại bố cục SVG (layout 393 lần/389 khung ở #/train, #/me, #/library… vì ngọn lửa nằm trên thanh trên cố định). Lay cả ngọn (transform trên chính <svg>, phần tử HTML → compositor) thay hai path con: cùng nhịp 1,6 s, cùng biên độ, 0 layout khi cuộn */
 @media (prefers-reduced-motion: no-preference) {
   .st-fl[data-fl=active] .fl-mid, .st-fl[data-fl=milestone] .fl-mid, .st-fl[data-fl=active] .fl-core, .st-fl[data-fl=milestone] .fl-core { animation: none !important; }
@@ -1496,3 +1500,14 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
 .v2s-practice .skill-card h4 > a { color: inherit; text-decoration: none; }
 .v2s-practice :is(h1, h2, h3, h4, p) { margin: 0; } /* Tailwind preflight của mẫu = lề 0; lề h4/p chung của app làm thẻ cao hơn mẫu ~14 px */
 .v2s-exam-readiness :is(h1, h2, h3, h4, p) { margin: 0; } /* idem Luyện tập: lề h3/p chung của app làm thẻ gợi ý cao hơn mẫu ~12 px */
+/* Vùng chạm ≥ 44 px (quality-sweep #53): hộp thật dài ra, lề âm bù lại → bố cục không đổi (stitch-diff khoá pixel). Công tắc: viền trong suốt giữ nguyên viên thuốc 28 px. */
+.v2s-today-new button.w-full.text-center { display: flex; align-items: center; justify-content: center; min-height: 44px; margin-block: -10px; }
+.v2s-today-new a[class~="text-[11px]"][class~="font-extrabold"], .v2s-me a[class~="text-[13px]"][class~="leading-[18px]"] { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; margin-block: -13px; }
+.v2s-me button.w-9.h-9 { min-width: 44px; min-height: 44px; margin: -4px; }
+.v2s-me button[role="switch"] { height: 44px; border-block: 8px solid transparent; background-clip: padding-box; margin-block: -8px; box-sizing: border-box; }
+.v2s-me :is(a, button).text-start.inline-flex { min-width: 44px; min-height: 44px; }
+.v2s-practice .skill-card h4 > a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; margin-block: -8px; }
+/* home-cta-one */
+.v2s-today button[class*="F59E0B"], .v2s-today-desk button[class*="F59E0B"], .v2s-path button[class*="F59E0B"] { background: var(--cta-grad) !important; color: var(--cta-ink) !important; box-shadow: var(--hi), var(--cta-shadow) !important; border: 0 !important; }
+.v2s-today button[class*="F59E0B"] *, .v2s-today-desk button[class*="F59E0B"] *, .v2s-path button[class*="F59E0B"] * { color: var(--cta-ink) !important; }
+/* /home-cta-one */

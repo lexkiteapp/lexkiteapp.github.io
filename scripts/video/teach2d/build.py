@@ -29,7 +29,7 @@ ap.add_argument('--layout', default='', help='short layout: corner (teacher bott
 o = ap.parse_args()
 EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; _TJ = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json')); TH = _TJ[THEME]
 MIX = (json.load(open(o.mix))['mix'].get(EP['id']) if o.mix and os.path.exists(o.mix) else None) or {}   # mix.py combination (never changes a word of the script)
-if EP['template'] in ('rule', 'band'): o.layout = 'corner'   # rule: always the corner layout (no teacher bubble in the platform right rail), whatever mix.json or --layout say
+if EP['template'] in ('rule', 'band', 'progress'): o.layout = 'corner'   # rule: always the corner layout (no teacher bubble in the platform right rail), whatever mix.json or --layout say
 elif o.format == 'short' and not o.layout and MIX.get('layout'): o.layout = MIX['layout']
 if EP['template'] == 'slang' and o.layout == 'bubble': o.layout = 'corner'   # Slang Card: the strong expression is the hook – the teacher stays big (mix.py never picks bubble for it)
 TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carries it, so each series is recognisable from frame 0
@@ -43,7 +43,7 @@ FMT = dict(short=dict(W=1080, H=1920, chip=[60, 236], safe=[48, 232, 960, 1497],
 LAYOUT = (o.layout or 'corner') if o.format == 'short' else 'wide'
 SOCIAL = o.format == 'short'   # owner 29/10: social shorts get the cinematic layer (hook punch, camera push / cuts, whoosh + music); lesson embeds stay calm
 PZ = dict(top=0.12, bottom=0.22, right=0.14)   # platform UI zones of a 9:16 short (back / search icons, caption + sound row, like / comment rail): qc.py platform_zones gate
-if EP['template'] in ('rule', 'band') and o.format == 'short':   # Spell->Sound / Band 5-9: nothing in the right rail (docs/specs/spell-sound.md): region + caption plate stop at 86 % of the width
+if EP['template'] in ('rule', 'band', 'progress') and o.format == 'short':   # Spell->Sound / Band 5-9: nothing in the right rail (docs/specs/spell-sound.md): region + caption plate stop at 86 % of the width
     _x = int(FMT['W'] * (1 - PZ['right'])); FMT = dict(FMT, region=[FMT['region'][0], FMT['region'][1], min(FMT['region'][2], _x), FMT['region'][3]], cap=[FMT['cap'][0], FMT['cap'][1], min(FMT['cap'][2], _x), FMT['cap'][3]], safe=[FMT['safe'][0], FMT['safe'][1], min(FMT['safe'][2], _x), FMT['safe'][3]])
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
@@ -769,6 +769,31 @@ def T_band():
     end_card()
 
 
+def T_progress():
+    """Day 1 vs Day 30 (docs/specs/voice-diary-video.md): hook (two lines) -> DAY 1 Kit card (the sentence, the words slipped on day 1 underlined in coral, a SAMPLE score pill) while the teacher stumbles ->
+    DAY 30 card (the same sentence, every word clean + check, score) -> the +N gain card with a two-point line -> CTA. One card at a time, <= 6 rows, nothing in the platform UI zones; every number is labelled SAMPLE."""
+    D = EP['data']; series_chip(); t_a, t_k, t_b, t_w, t_c = start('a'), start('k'), start('b'), start('w'), start('c')
+    y = title([['Day one.', 'ink']], 96, RY0 + 120, None, t_a - 0.2, hook=True)   # = EP hook text (hook_gate)
+    title([['Day thirty.', 'accent']], 96, y, None, t_a - 0.2, hook=True)
+    c = Card(RY0, tone='card'); chip(c, 'DAY 1 \u00b7 SAMPLE', t_a, tone='chip')
+    c.text(runs_marks(D['day30'], D['marks'], 'coral', 'ink'), S['body'], t_a)
+    c.text([['Score ', 'muted'], [str(D['s1']), 'coral'], ['/100', 'muted']], S['sub'], at('a', 3))
+    c.place(t_a, t_k - 0.2, 'a')
+    c = Card(RY0, tone='bubble_good', badge='check', t_badge=t_b); badge_chip(c, 'DAY 30 \u00b7 SAMPLE', t_k, 'chip')   # the card arrives on "Thirty days later!", the sentence is written as it is said
+    c.text([[D['day30'], 'ongood']], S['body'], t_b); c.text([['Score ', 'ongood'], [str(D['s30']), 'ongood'], ['/100', 'ongood']], S['sub'], at('b', 3))
+    c.place(t_k, t_w - 0.2, 'a')
+    c = Card(RY0, tone='card'); chip(c, 'THIRTY DAYS OF PRACTICE', t_w)
+    c.text([['+' + str(D['s30'] - D['s1']), 'accent']], S['big'], t_w, align='c'); c.text([[str(D['s1']) + '  \u2192  ' + str(D['s30']), 'ink']], S['body'], t_w, align='c')
+    c.text([['Sample scores, same sentence.', 'muted']], S['sub'], at('w', 3), align='c'); c.place(t_w, t_c - 0.2, 'a')
+    end_card()
+
+
+def runs_marks(text, marks, hot, base):   # the sentence as colour runs: every word in `marks` (the sounds slipped on day 1) in `hot`, the rest in `base`
+    ms = {re.sub(r"[^a-z']", '', m.lower()) for m in marks}; out = []
+    for tok in re.findall(r"\S+\s*", text): out.append([tok, hot if re.sub(r"[^a-z']", '', tok.lower()) in ms else base])
+    return out
+
+
 def bands_why(k): return json.load(open(f'{ROOT}/content/video/teach2d/bands.json'))['reasons'][k]['en']
 
 
@@ -859,7 +884,7 @@ def T_slang():
 
 
 dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, l1=T_l1, guess=T_guess, level=T_level,
-     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, slang=T_slang, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]()
+     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, slang=T_slang, roots=T_roots, rule=T_rule, band=T_band, progress=T_progress)[EP['template']]()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
 BY = {n['id']: n for n in NODES}
@@ -1012,7 +1037,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     # music bed: preset by series, ~ -30 dBFS RMS, ducked 12 dB under the voice (smooth 0.25 s), fades in/out
     PRE = dict(l1='quiz-pulse', usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
                pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse',
-               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright', roots='chill-keys', band='chill-keys', slang='pop-bright')
+               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright', roots='chill-keys', band='chill-keys', slang='pop-bright', progress='upbeat-claps')
     MUS = MIX.get('music') or PRE.get(EP['template'], 'lofi-warm')   # mix.py 'music' (series preset without a mix)
     mf = f'{o.public}/_music.wav'; subprocess.run(['node', f'{ROOT}/scripts/video/synth.mjs', '--music', MUS, str(TOTAL + 0.5), mf], check=True, capture_output=True)
     with wave.open(mf) as w: sr_ = w.getframerate(); ch_ = w.getnchannels(); mu = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768

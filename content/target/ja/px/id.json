@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Pelafalan bahasa Jepang",
+  "pk": "Pilih bunyi untuk dilatih",
+  "ex": "Dengarkan contoh",
+  "pp": "Pasangan minimal",
+  "dc": "Dikte",
+  "sy": "Ucapkan",
+  "qp": "Kata mana yang kamu dengar?",
+  "qd": "Ketik yang kamu dengar",
+  "qs": "Ketuk mikrofon dan ucapkan kata ini",
+  "mic": "Ketuk untuk bicara",
+  "hd": "Aku mendengar: “{h}”",
+  "rt": "Belum jelas. Coba lagi.",
+  "sk": "Lewati",
+  "nm": "Tidak ada mikrofon di sini. Latihan dengan pasangan kata atau dikte.",
+  "tp": "Tips"
+ },
+ "tp": {
+  "vow": {
+   "t": "Lima vokal murni",
+   "x": "Bahasa Jepang punya lima vokal pendek: a, i, u, e, o. Setiap vokal jelas dan tetap, tidak meluncur. U diucapkan dengan bibir datar dan santai, tidak dibulatkan: うえ, あお."
+  },
+  "long": {
+   "t": "Vokal panjang",
+   "x": "Vokal panjang berlangsung dua ketukan dan bisa mengubah arti: おばさん (bibi) dan おばあさん (nenek). Tahan vokalnya satu ketukan penuh lagi; ー pada katakana serta おう, えい pada hiragana adalah vokal panjang."
+  },
+  "sokuon": {
+   "t": "っ kecil (konsonan ganda)",
+   "x": "っ kecil adalah jeda tanpa suara selama satu ketukan sebelum konsonan berikutnya: きて (datang) dan きって (perangko). Siapkan mulut untuk bunyi berikutnya, tunggu satu ketukan, lalu lepaskan."
+  },
+  "nn": {
+   "t": "ん adalah satu ketukan penuh",
+   "x": "ん dihitung sebagai satu ketukan sendiri. Bunyinya seperti m sebelum p, b, m (さんぽ), n sebelum t, d, n (せんせい), dan ng sebelum k, g (にほんご). Jangan ditelan: こな dan こんな."
+  },
+  "yoon": {
+   "t": "ゃ ゅ ょ kecil",
+   "x": "ゃ ゅ ょ kecil bergabung dengan kana sebelumnya menjadi SATU ketukan: きょう (hari ini, 2 ketukan) dan きよう (terampil, 3 ketukan); びょういん (rumah sakit) dan びよういん (salon rambut)."
+  },
+  "pitch": {
+   "t": "Aksen nada",
+   "x": "Bahasa Jepang Tokyo memakai nada tinggi dan rendah, bukan tekanan. Kata yang ditulis sama bisa berbeda hanya karena nadanya: はꜜし (sumpit, tinggi–rendah) dan はしꜜ (jembatan, rendah–tinggi lalu turun). ꜜ menandai tempat nada turun."
+  },
+  "devoice": {
+   "t": "Vokal berbisik",
+   "x": "Di antara konsonan tak bersuara atau di akhir kata, i dan u sering hanya dibisikkan: です terdengar hampir seperti “des”, すき seperti “ski”, ひと seperti “hto”. Ketukannya tetap, hanya suaranya yang hilang."
+  },
+  "tsu": {
+   "t": "つ dan す",
+   "x": "つ dibaca “ts” seperti pada “tsunami”, す adalah s biasa. Sentuhkan lidah ke gusi di belakang gigi atas, lalu lepaskan: つき (bulan) dan すき (suka)."
+  }
+ }
+}

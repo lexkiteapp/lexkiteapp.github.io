@@ -50,6 +50,7 @@
 "Mục tiêu {s}":"目标 {s}",
 "Nghe chậm hơn":"慢速播放",
 "Nghe rảnh tay":"免提收听",
+"Nghe và chép câu":"听写这个句子",
 "Nghe, chọn ảnh":"听音选图",
 "Ngày mai ôn {n} từ để nhớ lâu":"明天要复习的单词：{n} 个",
 "Ngày mai: bài tiếp theo đã sẵn sàng":"明天：下一课已准备好",

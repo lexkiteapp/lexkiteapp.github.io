@@ -191,6 +191,7 @@
   "lesson.q.match": "طابق الأزواج",
   "lesson.q.mpic": "طابق الكلمات بالصور",
   "lesson.q.fix": "اعثر على الكلمة الخاطئة",
+  "lesson.q.dict": "استمع واكتب الجملة",
   "lesson.q.q": "أجب عن السؤال",
   "lesson.qn": "السؤال {a} من {b}",
   "lesson.combo": "COMBO ×{n}",
@@ -336,6 +337,7 @@
   "rev.test": "اختبار",
   "rev.pronunciation": "النطق",
   "rev.gamesPractice": "ألعاب وتمارين",
+  "rev.gameCrossword": "الكلمات المتقاطعة اليومية",
   "rev.pickAWordSource": "اختر مصدر كلمة، ثم وضع التدريب العملي. تكسب كل جلسة XP ويتم احتسابها في مهامك اليومية.",
   "rev.wordSource": "مصدر الكلمة",
   "rev.mySentence": "جملتي",
@@ -538,7 +540,7 @@
   "vocab.copyLink": "نسخ الرابط",
   "vocab.linkCopied": "تم نسخ الرابط",
   "vocab.openingDeck": "فتحة الافتتاح…",
-  "vocab.invalidDeckLink": "رابط سطح السفينة غير صالح",
+  "vocab.invalidDeckLink": "رابط مجموعة البطاقات غير صالح",
   "vocab.backToMyWords": "العودة إلى كلماتي",
   "vocab.sharedDeck": "مجموعة مشتركة",
   "vocab.wordsNewToYou": "{n} كلمات · {k} جديد عليك",
@@ -3497,5 +3499,6 @@
   "speak.spk.lamViecNhom": "العمل الجماعي",
   "speak.spk.duHocSongONuoc": "الدراسة والعيش في الخارج",
   "speak.spk.mayTinhInternetHangNgay": "الحاسوب والإنترنت في الحياة اليومية",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "تحدّي التحدث لمدة 30 ثانية",
+  "speak.spk.nhatKyGiongNoi": "مذكرات الصوت"
 }

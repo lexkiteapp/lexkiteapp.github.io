@@ -18,8 +18,9 @@
  *   matches the description marker "lk:<clip>", checks unlisted/public + processing done + duration → status 'done' → op ids → web manifest
  *   embeds YouTube exactly like an API upload. 'api': the resumable upload path above (needs youtube.upload). Never browser bots / cookies. */
 import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
-import { healthVerdict, localDate, localHM, normCfg, capCfg, pickEmbed, validTz } from './_distribution.js';
+import { healthVerdict, localDate, localHM, normCfg, capCfg, pickEmbed, validTz, LANG_TZ, zonedToMs, peakOk, peakSlot } from './_distribution.js';
 import { guardBg } from './_d1guard.js';
+import { clipLang } from './_social_audit.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
@@ -33,7 +34,7 @@ export const SCOPE = SCOPE_UP + ' ' + SCOPE_RO;
 export const MODES = ['manual', 'api'];
 export const scopeFor = mode => (mode === 'api' ? SCOPE : SCOPE_RO);
 export const STUDIO = 'https://studio.youtube.com/';
-export const QUOTA = { day: 60000, uploads: 1000, insert: 1, thumb: 50, list: 1, reserve: 1000 }; // day = default bucket units; uploads = videos.insert bucket (calls)
+export const QUOTA = { day: 60000, uploads: 1000, insert: 1, thumb: 50, list: 1, update: 50, reserve: 1000 }; // day = default bucket units; uploads = videos.insert bucket (calls)
 export const PRIVACY = ['private', 'unlisted'];
 const STATE_TTL = 600, SESSION_TTL = 20 * 3600e3, MAX_TRIES = 3;
 const json = (req, status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req), ...extra } });
@@ -405,6 +406,61 @@ const ADMIN_OPS = {
     const ch = await channelRow(db, CHID.test(String(b.channel_id || '')) ? b.channel_id : '');
     return { rows: out, studio: ch ? `https://studio.youtube.com/channel/${ch.channel_id}/videos/upload?d=ud` : STUDIO, ...(await counts(db)) };
   },
+  /** 25/11 (chủ: video sai ngôn ngữ kênh đã lên): video ĐÃ lên kênh YouTube trực tiếp (yt_queue done, 7 ngày qua) mà clip KHÁC ngôn ngữ kênh → liệt kê (mặc định) hoặc `apply:true` chuyển sang PRIVATE (ẩn, KHÔNG xoá – đảo ngược được) qua videos.update,
+   *  ghi sổ vào yt_queue.err ('wrong-lang-hidden <ngày>'). 50 đơn vị/lần, `max` ≤ 40/lượt; chỉ đổi khi còn public/unlisted. b = { apply?, max?, days? (≤ 14, mặc định 7) }. */
+  async wronglive(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
+    const now = Date.now(), apply = b.apply === true, max = Math.min(40, Math.max(1, +b.max || 20)), days = Math.min(14, Math.max(1, +b.days || 7)), out = { apply, found: 0, hidden: [], skipped: [] };
+    const items = new Map(((await manifest(env)).items || []).map(i => [i.id, i])), rows = await all(db, "SELECT clip, channel_id, video_id, publish_at, err FROM yt_queue WHERE status = 'done' AND video_id IS NOT NULL AND channel_id IS NOT NULL AND publish_at BETWEEN ? AND ?", new Date(now - days * 864e5).toISOString(), new Date(now).toISOString());
+    const wrong = []; for (const r of rows) { const x = await chanCfg(db, r.channel_id); if (x.explicit_lang && x.cfg.lang && clipLang(items.get(r.clip) || { id: r.clip }) !== x.cfg.lang && !/wrong-lang-hidden/.test(r.err || '')) wrong.push(r); }
+    out.found = wrong.length;
+    for (const r of wrong.slice(0, max)) {
+      const item = { clip: r.clip, channel_id: r.channel_id, video_id: r.video_id, at: r.publish_at };
+      if (!apply) { out.hidden.push(item); continue; }
+      const q = await quotaInfo(db); if (q.left < QUOTA.update + QUOTA.reserve) { out.skipped.push({ clip: r.clip, why: 'quota' }); break; }
+      const ch = await channelRow(db, r.channel_id); if (!ch) { out.skipped.push({ clip: r.clip, why: 'not-connected' }); continue; }
+      try {
+        const at = await accessToken(env, db, ch), g = await gfetch(`https://www.googleapis.com/youtube/v3/videos?part=status&id=${encodeURIComponent(r.video_id)}`, { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
+        const cur = (((await g.json().catch(() => ({}))).items || [])[0] || {}).status;
+        if (!cur) { out.skipped.push({ clip: r.clip, why: 'not-found' }); continue; }
+        if (cur.privacyStatus !== 'private') {
+          const u = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status', { method: 'PUT', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json' }, body: JSON.stringify({ id: r.video_id, status: { ...cur, privacyStatus: 'private' } }) }); await spend(db, QUOTA.update);
+          if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); continue; }
+        }
+        await run(db, 'UPDATE yt_queue SET err = ?, updated = ? WHERE clip = ?', 'wrong-lang-hidden ' + new Date(now).toISOString().slice(0, 10), Date.now(), r.clip); out.hidden.push({ ...item, was: cur.privacyStatus });
+      } catch (e) { out.skipped.push({ clip: r.clip, why: 'error' }); }
+    }
+    out.quota = await quotaInfo(db); return { ok: true, ...out };
+  },
+  /** 25/11 (chủ: lịch đúng giờ cao điểm thị trường): video ĐÃ tải lên (private + publishAt, status uploading/done) mà giờ hẹn lệch giờ cao điểm → đổi publishAt qua YouTube API (videos.update, 50 đơn vị/lần, chia lượt `max`).
+   *  Chỉ video còn PRIVATE và publishAt ở tương lai > 1 giờ (đã công khai thì không đụng); giữ nguyên các trường status khác (đọc trước rồi gộp). apply=false → chỉ liệt kê. b = { apply?, max? (≤ 40, mặc định 20) }. */
+  async retime(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
+    const now = Date.now(), apply = b.apply === true, max = Math.min(40, Math.max(1, +b.max || 20)), out = { apply, candidates: 0, changed: [], skipped: [], quota_left: null };
+    const rows = await all(db, "SELECT clip, channel_id, video_id, publish_at, status FROM yt_queue WHERE status IN ('uploading', 'done') AND video_id IS NOT NULL AND channel_id IS NOT NULL AND publish_at > ? ORDER BY publish_at", new Date(now + 36e5).toISOString());
+    const todo = [];
+    for (const r of rows) {
+      const x = await chanCfg(db, r.channel_id), tz = x.cfg.tz, ms = Date.parse(r.publish_at); if (!tz || !ms || peakOk(ms, tz)) continue;
+      const np = peakSlot(localDate(ms, tz), tz, r.channel_id, [], 0); if (np == null || np <= now + 36e5) { out.skipped.push({ clip: r.clip, why: 'no-slot' }); continue; }
+      todo.push({ r, np });
+    }
+    out.candidates = todo.length;
+    for (const { r, np } of todo.slice(0, max)) {
+      const to = new Date(np).toISOString(), item = { clip: r.clip, channel_id: r.channel_id, video_id: r.video_id, from: r.publish_at, to };
+      if (!apply) { out.changed.push(item); continue; }
+      const q = await quotaInfo(db); out.quota_left = q.left; if (q.left < QUOTA.update + QUOTA.reserve) { out.skipped.push({ clip: r.clip, why: 'quota' }); break; }
+      const ch = await channelRow(db, r.channel_id); if (!ch) { out.skipped.push({ clip: r.clip, why: 'not-connected' }); continue; }
+      try {
+        const at = await accessToken(env, db, ch), g = await gfetch(`https://www.googleapis.com/youtube/v3/videos?part=status&id=${encodeURIComponent(r.video_id)}`, { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
+        const cur = (((await g.json().catch(() => ({}))).items || [])[0] || {}).status;
+        if (!cur || cur.privacyStatus !== 'private' || !cur.publishAt || Date.parse(cur.publishAt) <= now + 36e5) { out.skipped.push({ clip: r.clip, why: 'not-scheduled' }); continue; }
+        const u = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status', { method: 'PUT', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json' }, body: JSON.stringify({ id: r.video_id, status: { ...cur, privacyStatus: 'private', publishAt: to } }) }); await spend(db, QUOTA.update);
+        if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); continue; }
+        await run(db, 'UPDATE yt_queue SET publish_at = ?, updated = ? WHERE clip = ?', to, Date.now(), r.clip); out.changed.push(item);
+      } catch (e) { out.skipped.push({ clip: r.clip, why: 'error' }); }
+    }
+    out.quota = await quotaInfo(db); return { ok: true, ...out };
+  },
   async sync(db, b, who, env) { return syncChannel(env, db, { pages: b.full ? 40 : 4, only: CHID.test(String(b.channel_id || '')) ? b.channel_id : '' }); }, // "Chọn kênh YouTube" → only that channel
   /** Fallback: paste the YouTube link for a clip (verified on our channel when connected; otherwise trusted as unlisted). */
   async link(db, b, who, env) {
@@ -432,13 +488,16 @@ const ADMIN_OPS = {
   },
 };
 
-/** Local publish slots per day (stagger, 09–21 h local like the social schedule); UTC offsets are fixed means (no DST drift needed for a daily slot). */
-export const YT_TZ = { en: -5, vi: 7, pt: -3, es: -5, de: 1, fr: 1, ja: 9, ko: 9, zh: 8, hi: 5.5, ar: 3, tr: 3, ru: 3 };
-export const YT_SLOTS = [[10, 0], [14, 20], [18, 40], [12, 10], [16, 30], [20, 0]];
-/** i-th clip of a channel → ISO publishAt: perDay clips a day, day d = 1.. (never in the past), slot offset rotates per channel so channels do not post at the same minute. */
+/** Giờ đăng YouTube trực tiếp = GIỜ ĐỊA PHƯƠNG THẬT của thị trường (LANG_TZ, có DST, đủ 15 ngôn ngữ – trước 23/11: bảng chênh lệch cố định thiếu id/th, es lệch 1 giờ, de/fr không theo mùa hè) và LUÔN trong giờ cao điểm (PEAK_WINDOWS, máy gác _social_audit.js).
+ * Kênh bản ngữ 1 bài/ngày: mỗi kênh một giờ cố định trong YT_SLOTS (xoay theo id để các kênh không trùng phút). Kênh chính ≥ 2 bài/ngày: MAIN_SLOTS cách nhau ≥ 4 giờ (MAIN_DAY.gap_min). */
+export const YT_SLOTS = [[12, 10], [19, 40], [20, 30], [18, 10], [13, 20], [21, 10]];
+export const MAIN_SLOTS = [[12, 0], [17, 40], [21, 50]];
+export const ytTz = lang => LANG_TZ[lang] || LANG_TZ.en;
+/** i-th clip of a channel → ISO publishAt: perDay clips a day, day d = 1.. (never in the past, theo NGÀY địa phương của kênh), slot rotates per channel so channels do not post at the same minute. */
 export function slotAt(i, perDay, lang, now = Date.now(), rot = 0) {
-  const n = Math.max(1, Math.min(YT_SLOTS.length, perDay | 0)), d = Math.floor(i / n) + 1, [h, m] = YT_SLOTS[(i % n + rot) % YT_SLOTS.length], off = YT_TZ[lang] ?? 0;
-  const base = new Date(now + d * 864e5); return new Date(Date.UTC(base.getUTCFullYear(), base.getUTCMonth(), base.getUTCDate(), h, m) - off * 36e5).toISOString();
+  const n = Math.max(1, Math.min(MAIN_SLOTS.length, perDay | 0)), d = Math.floor(i / n) + 1, tz = ytTz(lang), pad = x => String(x).padStart(2, '0');
+  const [h, m0] = n > 1 ? MAIN_SLOTS[i % n] : YT_SLOTS[((i % n) + rot) % YT_SLOTS.length], t = h * 60 + m0 + (n > 1 ? (rot % 6) * 3 : 0);   // kênh chính: lệch phút theo kênh (≤ 15') để không trùng phút
+  return new Date(zonedToMs(localDate(now + d * 864e5, tz), pad(Math.floor(t / 60)) + ':' + pad(t % 60), tz)).toISOString();
 }
 /** The connected channel for a clip language: the channel whose yt_chan_cfg.cfg.lang matches; English falls back to the default channel; other languages without a channel → null (never post a clip on a channel of another language). */
 export async function chanForLang(db, lang) {
@@ -490,10 +549,12 @@ const CLI_OPS = {
     const held = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review')).map(r => [r.clip, r])), byId = new Map(items.map(it => [it.id, it]));
     for (const ch of await channelsOk(db)) {
       const x = await chanCfg(db, ch.channel_id); if (!x.explicit_lang || x.cfg.active === 0) continue;
-      const lang = x.cfg.lang, off = YT_TZ[lang] ?? 0, rot = (ch.id || 0) % YT_SLOTS.length, key = ms => new Date(ms + off * 36e5).toISOString().slice(0, 10);
+      const lang = x.cfg.lang, tz = ytTz(lang), rot = (ch.id || 0) % YT_SLOTS.length, key = ms => localDate(ms, tz);
       // Lịch theo NGÀY thật trong cửa sổ `days` (không đếm số hàng: hàng hẹn quá cửa sổ / trùng ngày làm 30 ngày đầu vẫn trống – 21/11): ngày trống = ngày mục tiêu chưa có hàng queued/uploading/done.
       const targets = Array.from({ length: days }, (_, i) => { const pa = slotAt(i, 1, lang, now, rot); return { pa, k: key(Date.parse(pa)) }; }), tkeys = new Set(targets.map(t => t.k));
       const rows = await all(db, "SELECT clip, status, publish_at FROM yt_queue WHERE channel_id = ? AND status IN ('queued', 'uploading', 'done') AND publish_at > ? ORDER BY publish_at", ch.channel_id, iso), covered = new Set(), movable = [];
+      const retime = []; for (const r of rows) if (r.status === 'queued' && !peakOk(Date.parse(r.publish_at), tz)) { const np = peakSlot(key(Date.parse(r.publish_at)), tz, ch.channel_id, [], 0); if (np != null && np > now + 15 * 6e4) { retime.push(db.prepare("UPDATE yt_queue SET publish_at = ?, updated = ? WHERE clip = ? AND status = 'queued'").bind(new Date(np).toISOString(), now, r.clip)); r.publish_at = new Date(np).toISOString(); } }   // 23/11: hàng chờ tải lệch giờ → dời vào giờ cao điểm địa phương cùng ngày
+      if (retime.length) await db.batch(retime);
       for (const r of rows) { const k = key(Date.parse(r.publish_at)); if (tkeys.has(k) && !covered.has(k)) covered.add(k); else if (r.status === 'queued') movable.push(r.clip); } // queued ngoài cửa sổ / trùng ngày → dời vào ngày trống
       const missing = targets.filter(t => !covered.has(t.k)), moved = [];
       for (const t of missing.slice(0, movable.length)) moved.push(db.prepare("UPDATE yt_queue SET publish_at = ?, updated = ? WHERE clip = ? AND status = 'queued'").bind(t.pa, now, movable[moved.length]));
@@ -671,10 +732,11 @@ const CLI_OPS = {
     return { ok: true };
   },
 };
+// 26/11: retime/wronglive là việc hàng loạt do CLI ký HMAC chạy (không có phiên admin) – cùng hàm với bản admin, vẫn qua WRITE + kiểm hạn mức.
+CLI_OPS.retime = ADMIN_OPS.retime; CLI_OPS.wronglive = ADMIN_OPS.wronglive;
 const DANGER = new Set(['disconnect']); // revoke + delete a channel → sign-in ≤ 15 min old (same rule as drive.js)
-const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged', 'fill', 'autoq', 'probe']);
+const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged', 'fill', 'retime', 'wronglive', 'autoq', 'probe']);
 
-export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
 export async function onRequestPost({ request, env }) {
   let text; try { text = await readText(request, 32768); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }

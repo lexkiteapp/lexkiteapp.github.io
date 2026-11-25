@@ -8,7 +8,7 @@
 (function (g) {
   'use strict';
   const DAY = 864e5, SEQ = [0, 1, 2, 3, 5, 7], FINAL = 7, NOREP = 7, SAVE_GAP = 150, SAVE_MIN = 60, SAVE_PRE = 60; // tin 2: +150 phút, ≥ 60, ≤ 60 trước giờ yên lặng
-  const TYPES = ['due', 'word', 'streak', 'conf', 'week', 'goal', 'path'], EVE = 17 * 60, BACKOFF = 3;
+  const TYPES = ['due', 'word', 'streak', 'conf', 'week', 'goal', 'path', 'diary'], EVE = 17 * 60, BACKOFF = 3;
   // Giọng: ấm, khích lệ, không dọa mất chuỗi/trách móc (docs/specs/notifications.md; scripts/test/notify-tone.mjs chặn từ dọa)
   // Mẫu câu theo loại (khóa tiếng Việt → I18N; biến {n} số thẻ, {w} từ, {c} câu ngữ cảnh, {s} chuỗi ngày, {d} số ngày học trong tuần)
   const TPL = {
@@ -27,9 +27,12 @@
     bk3: [['bk3a', 'Kit nhớ bạn rồi 🐦', '{n} từ đang chờ ôn – 3 phút là đủ.'], ['bk3b', 'Kit nhớ bạn rồi 🐦', 'Quay lại nhẹ nhàng nhé – chỉ vài từ thôi.']],
     bk7: [['bk7a', 'Vẫn còn nguyên những gì bạn đã học', 'Ôn vài thẻ, 2 phút thôi – Kit ở đây cùng bạn.']],
     miss: [['ms1', 'Kit sẽ tạm ngừng nhắc bạn 🐦', 'Để không làm phiền bạn. Quay lại lúc nào cũng được – mọi thứ bạn đã học vẫn ở đây.']],
+    // 🎙️ Nhật ký giọng nói (docs/specs/voice-diary.md): đến mốc thu lại câu cố định ({m} = số ngày) – ưu tiên trong ngày tới mốc, tối đa 1 lần mỗi kế hoạch
+    diary: [['vd1', 'Mốc ngày {m} của nhật ký giọng nói 🎙️', 'Thu lại câu của bạn – 1 phút để nghe mình tiến bộ.'], ['vd2', 'Giọng ngày {m} của bạn đang chờ', 'Đọc lại câu cũ rồi so với ngày 1 nhé.']],
     gen: [['gen1', 'Đến giờ học với Kit rồi!', 'Mở Lexkite để ôn vài từ nhé.']],
   };
   const ROUTE = { gstart: '#/home', path: '#/home', due: '#/review', streak: '#/review', conf: '#/confidence', week: '#/stats', goal: '#/review', miss: '#/home', gen: '#/review' };
+  ROUTE.diary = '#/diary'; // dòng riêng: không nối vào registry một dòng (gen-guard)
   const toMin = s => { const m = /^(\d{1,2}):(\d{2})$/.exec(String(s || '')); return m ? Math.min(23, +m[1]) * 60 + Math.min(59, +m[2]) : -1; };
   const hm = n => String(Math.floor(n / 60) % 24).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0');
   const keyOf = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
@@ -95,6 +98,7 @@
     const done = days[keyOf(new Date(now))] || 0, goal = Math.max(0, +s.dailyGoal || 0), partial = studied && goal > 0 && done < goal && types.includes('goal');
     const ig = ignoredOf(x.hist, days, keyOf(new Date(now))), dayN = k => { const [y, m, dd] = k.split('-').map(Number); return Math.round(new Date(y, m - 1, dd).getTime() / DAY); };
     let lastKept = ig.n >= BACKOFF && ig.last ? dayN(ig.last) : null;
+    let vd = types.includes('diary') && x.diary && +x.diary.at > 0 && x.diary.m > 0 ? x.diary : null; // mốc nhật ký kế tiếp {at, m} (diary.js ghi lk.vd.next/nm)
     const out = [];
     for (const d of SEQ) {
       if (x.remote && d >= 3) break;                 // app gốc có FCM: máy chủ lo kéo lại (≥ 3 ngày)
@@ -104,6 +108,7 @@
       if (lastKept != null && dayN(day) - lastKept < 2) continue; // giãn cách sau nhiều lần bỏ qua
       let type;
       if (d === FINAL) type = 'miss';
+      else if (vd && keyOf(dt) >= keyOf(new Date(vd.at))) type = 'diary'; // đã tới mốc → nhắc nhật ký (1 lần, rồi vd = null; thay tin giữ chân thường, không thay tin cuối)
       else if ((d === 3 || d === 5) && types.length) type = d === 3 ? 'bk3' : 'bk7';
       else if (d === 0 && partial) type = 'goal';
       else {
@@ -120,7 +125,8 @@
       const lim = keyOf(new Date(addDays(at, -NOREP))), list = type === 'bk3' && !dueBy(base + DAY - 1) ? TPL.bk3.slice(1) : TPL[type];
       const pick = list.find(([id]) => !used.has(id) || used.get(id) <= lim) || list.slice().sort((a, b) => { const x = used.get(a[0]) || '', y = used.get(b[0]) || ''; return x < y ? -1 : x > y ? 1 : 0; })[0]; // khóa ngày YYYY-MM-DD (ASCII) → so chuỗi thường cho cùng thứ tự localeCompare mà không khởi tạo ICU Collator (~50 ms CPU mobile)
       used.set(pick[0], day);
-      const v = { n: 0, s: st, d: 0, w: '', c: '', g: goal, r: Math.max(0, goal - done), u: '' };
+      const v = { n: 0, s: st, d: 0, w: '', c: '', g: goal, r: Math.max(0, goal - done), u: '', m: 0 };
+      if (type === 'diary') { v.m = vd.m; vd = null; }
       let url = ROUTE[type] || '#/review'; // bk3/bk7: về ôn tập
       if (type === 'path') { v.u = String(x.next.u).slice(0, 40); url = x.next.url; }
       if (type === 'gstart' && x.next && /^#\/[\w/?=&%~.-]*$/.test(x.next.url || '')) url = x.next.url;
@@ -214,6 +220,7 @@
   }
   let NEXT = null; // bài đang học dở trên lộ trình {u, url} (path.js App.pathNext) – cho mẫu cá nhân của người mới
   const nextLoad = () => (App.pathNext ? App.pathNext().then(n => { NEXT = n && n.unit && n.unit.topic && n.unit.topic.name ? { u: String(n.unit.topic.name), url: n.href } : null; }).catch(() => {}) : Promise.resolve());
+  const vdNext = () => { const v = ls.get('lk.vd', null); return v && v.next && (!App.vdOn || App.vdOn()) ? { at: v.next, m: v.nm } : null; }; // 🎙️ mốc nhật ký kế tiếp (web/cpack/diary-app/diary.js), tắt theo công tắc khẩn
   // Lần mở thông báo gần đây (lk.remop) – điều kiện tin 2
   const opensN = () => ls.get('lk.remop', []).filter(o => o && o.day >= keyOf(new Date(Date.now() - 14 * DAY))).length;
   const noteOpen = tpl => { const a = ls.get('lk.remop', []); a.push({ day: todayKey(), tpl: String(tpl || '') }); ls.set('lk.remop', a.slice(-5)); };
@@ -221,7 +228,7 @@
   const s2On = () => ls.get('lk.s2', 1) !== 0;
   function build(now = Date.now(), remote = false, past = false) {
     const h = rollPlan(now);
-    const p = plan({ now, remote, past, next: NEXT, cards: Object.values(state.cards || {}), stats: state.stats, settings: state.settings, streak: App.streak ? App.streak() : 0, hist: h, recent: starts(), t: tr, opens: opensN(), s2: s2On() });
+    const p = plan({ now, remote, past, next: NEXT, diary: vdNext(), cards: Object.values(state.cards || {}), stats: state.stats, settings: state.settings, streak: App.streak ? App.streak() : 0, hist: h, recent: starts(), t: tr, opens: opensN(), s2: s2On() });
     ls.set('lk.remp', p.filter(x => x.at > now).map(({ at, day, tpl }) => ({ at, day, tpl })));
     return p;
   }
@@ -385,7 +392,7 @@
   const firstWin = () => {
     if (OFF || ls.get('lk.fw', '')) return;
     const days = Object.keys((state.game && state.game.days) || {}).concat(Object.keys(state.stats.days || {})).filter(k => k !== todayKey());
-    ls.set('lk.fw', days.length ? 'old' : todayKey()); if (!days.length) hab('first_win');
+    ls.set('lk.fw', days.length ? 'old' : todayKey()); if (!days.length) { hab('first_win'); dispatchEvent(new Event('lexkite:first-win')); }
   };
   const fwBack = () => { const d = ls.get('lk.fw', ''); if (OFF || !/^\d{4}-\d\d-\d\d$/.test(d)) return; const n = Math.round((dayN(todayKey()) - dayN(d)) / DAY); for (const k of [1, 7]) if (n === k && !ls.get('lk.fw' + k, 0)) { ls.set('lk.fw' + k, 1); hab('fw_d' + k); } };
   let doneOnce = false, mo = null;

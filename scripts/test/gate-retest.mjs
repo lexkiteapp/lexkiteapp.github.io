@@ -9,6 +9,15 @@ ok(retestPlan(['scripts/test/story-stage.mjs'], SUITE).ok && retestPlan(['script
 ok(retestPlan(['scripts/test/perf-flake.mjs'], SUITE).cmds[0] === 'node scripts/test/perf-flake.mjs --x', 'giữ nguyên đối số của dòng suite');
 ok(!retestPlan(['scripts/test/scroll-perf.mjs'], SUITE).ok, 'test KHÔNG có trong suite (chạy bằng workflow riêng) → không chạy lại được → cách cũ');
 ok(!retestPlan(['scripts/test/story-stage.mjs', '.github/workflows/x.yml'], SUITE).ok && !retestPlan(['scripts/i18n-qa.mjs'], SUITE).ok, 'lẫn workflow/i18n-qa → cách cũ (không chạy lại một phần)');
+ok(retestPlan(['scripts/test/suite.txt', 'scripts/test/story-stage.mjs'], SUITE, ['scripts/test/story-stage.mjs', 'scripts/ci/x.mjs']).cmds.join() === 'node scripts/test/story-stage.mjs', 'suite.txt + test cùng drift → chạy lại các dòng suite của test PR đụng (không lặp)');
+ok(retestPlan(['scripts/test/suite.txt'], SUITE, ['scripts/test/perf-flake.mjs']).cmds[0] === 'node scripts/test/perf-flake.mjs --x', 'suite.txt → giữ đối số của main cho test PR đụng');
+ok(!retestPlan(['scripts/test/suite.txt'], SUITE).ok && !retestPlan(['scripts/test/suite.txt'], SUITE, ['web/a.js']).ok, 'suite.txt mà không biết/không có test PR đụng → cách cũ');
+ok(retestPlan(['scripts/test/budget.notes.json', 'scripts/test/story-stage.mjs'], SUITE).cmds.join() === 'node scripts/test/story-stage.mjs', 'tệp ghi chú (*.notes.json) + test → chỉ chạy lại test, không bắt gộp main');
+ok(!retestPlan(['scripts/test/budget.json', 'scripts/test/story-stage.mjs'], SUITE).ok && !retestPlan(['scripts/test/budget.notes.json'], SUITE).ok, 'tệp dữ liệu ngưỡng thật vẫn cách cũ; chỉ ghi chú (không lệnh) → cách cũ an toàn');
+const SUITE_P = SUITE + 'node scripts/test/ci-policy.mjs\n';
+ok(retestPlan(['.github/workflows/npm-test.yml', 'scripts/test/story-stage.mjs'], SUITE_P).cmds.join() === 'node scripts/test/ci-policy.mjs,node scripts/test/story-stage.mjs', 'workflow main đổi + test → chạy lại test và ci-policy (kiểm tĩnh workflow), không bắt gộp main');
+ok(!retestPlan(['.github/workflows/npm-test.yml'], SUITE).ok && !retestPlan(['.github/workflows/(>300 tệp đổi)'], SUITE_P).ok, 'không có ci-policy trong suite / tên giả >300 tệp → cách cũ');
+ok(overlayFiles(['.github/workflows/a.yml', '.github/workflows/b.yml', 'scripts/ci/x.mjs'], ['.github/workflows/b.yml']).join() === '.github/workflows/a.yml,scripts/ci/x.mjs', 'ghi đè cả workflow main đổi (trừ workflow PR cũng đổi)');
 ok(!retestPlan([], SUITE).ok && !retestPlan(['scripts/test/learn-flow.mjs'], '').ok, 'rỗng / không có suite → cách cũ');
 ok(!retestPlan(Array.from({ length: MAX_CMDS + 1 }, (_, i) => `scripts/test/t${i}.mjs`), Array.from({ length: MAX_CMDS + 1 }, (_, i) => `node scripts/test/t${i}.mjs`).join('\n')).ok, `quá ${MAX_CMDS} test → cách cũ`);
 // verdict

@@ -5,6 +5,23 @@
 // extra (trường thêm người soạn phải trả), audit (tiêu chí loại thêm cho giám khảo), lt (mã LanguageTool; có = cổng §5.1 bắt buộc), kaikki (tên ngôn ngữ trên kaikki.org cho wikt-check.mjs).
 const FW = (code, file) => ({ name: `FrequencyWords (hermitdave) – OpenSubtitles 2018 ${file}`, url: `https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/${code}/${file}.txt`, license: 'CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec' });
 
+// Danh sách từ JLPT N5–N1 (open-anki-jlpt-decks, MIT; gốc danh sách của Jonathan Waller – tanos.co.uk, CC BY) – cột expression,reading,meaning,tags
+const JLPT = { name: 'open-anki-jlpt-decks (jamsinclair) – danh sách từ JLPT N5–N1 của Jonathan Waller (tanos.co.uk)', url: 'https://raw.githubusercontent.com/jamsinclair/open-anki-jlpt-decks/main/src/', license: 'MIT (bộ thẻ) / CC BY (danh sách tanos) – ghi công trong spec' };
+export const csvRows = txt => { const out = []; let row = [], f = '', q = false;
+  for (let i = 0; i < txt.length; i++) { const c = txt[i];
+    if (q) { if (c === '"' && txt[i + 1] === '"') { f += '"'; i++; } else if (c === '"') q = false; else f += c; }
+    else if (c === '"') q = true; else if (c === ',') { row.push(f); f = ''; } else if (c === '\n') { row.push(f); out.push(row); row = []; f = ''; } else if (c !== '\r') f += c; }
+  if (f || row.length) { row.push(f); out.push(row); } return out; };
+/** [{ form, rank, hint: { form, kana, jlpt, en } }] – N5 trước, giữ thứ tự tệp; trùng chữ giữa các cấp → giữ cấp thấp hơn (gặp trước). */
+export async function jlptCands(get = u => fetch(u).then(r => { if (!r.ok) throw new Error('JLPT ' + r.status + ' ' + u); return r.text(); })) {
+  const out = [], seen = new Set();
+  for (const n of [5, 4, 3, 2, 1]) for (const [expr, kana, en] of csvRows(await get(JLPT.url + 'n' + n + '.csv')).slice(1)) {
+    const form = String(expr || '').trim(), k = String(kana || '').split(/[、,;／/\s]+/)[0].trim(); // nhiều cách đọc → cách đầu (phổ biến nhất trong danh sách)
+    if (!form || seen.has(form) || !/^\p{L}+$/u.test(form)) continue; seen.add(form);
+    out.push({ form, rank: out.length + 1, hint: { form, kana: k || form, jlpt: n, en: String(en || '').trim() } });
+  }
+  return out;
+}
 export const TL_GEN = {
   pt: {
     variant: 'pt-BR', lang: 'Brazilian Portuguese', short: 'Portuguese', exLevel: 'A1', level: 'A1–A2', source: FW('pt_br', 'pt_br_50k'), kaikki: 'Portuguese', one: /^[aeéoà]$/,
@@ -31,7 +48,8 @@ export const TL_GEN = {
   // trả để đối chiếu, cổng validate() ép đúng quy ước); pitch = vị trí hạ kiểu NHK (0 = heiban); jlpt 5…1. Ứng viên W1 = danh sách JLPT (tự soạn theo cấp, JMdict kiểm chéo) –
   // FrequencyWords ja chỉ là thứ hạng phụ (OpenSubtitles tách từ kém); one = từ 1 chữ kanji (本, 犬…) hợp lệ.
   ja: {
-    variant: 'ja-JP', lang: 'standard Tokyo Japanese (hyōjungo)', short: 'Japanese', exLevel: 'JLPT N5–N4 (N3+ only if the word itself is N3+), polite desu/masu form', level: 'JLPT N5–N1 (A1–C2)', source: FW('ja', 'ja_full'), kaikki: 'Japanese', one: /^\p{Script=Han}$/u,
+    variant: 'ja-JP', lang: 'standard Tokyo Japanese (hyōjungo)', short: 'Japanese', exLevel: 'JLPT N5–N4 (N3+ only if the word itself is N3+), polite desu/masu form', level: 'JLPT N5–N1 (A1–C2)', kaikki: 'Japanese', one: /^\p{Script=Han}$/u,
+    source: JLPT, cands: jlptCands, lemma: false, // ứng viên = danh sách JLPT (đã là mục từ, có cách đọc) theo cấp N5 → N1; FrequencyWords ja (ja_full) tách từ kém – không dùng
     ipa: 'broad Tokyo IPA derived from the kana reading (ɯ, ɕ tɕ dʑ ɲ ç ɸ, palatal kʲ gʲ mʲ ɾʲ bʲ pʲ, ɾ, moraic n assimilated m/n/ɲ/ŋ/ɴ, geminate doubled consonant, long vowel ː incl. おう/えい), no pitch marks',
     extra: ', "kana": reading in hiragana (katakana for katakana words), "romaji": kana-faithful romaji as typed in an IME (おう = ou, ー doubles the vowel, ん before a vowel/y = n\'), "pitch": Tokyo pitch-accent downstep mora as in the NHK dictionary (0 = heiban), "jlpt": 5|4|3|2|1, "vclass": "ichidan"|"godan"|"irregular" ONLY for verbs, "aclass": "i"|"na" ONLY for adjectives; NO gender, NO plural',
     audit: 'reading (kana) wrong or not the common reading; pitch accent not the standard Tokyo (NHK) one; JLPT level clearly off; verb class or i/na class wrong; example is not natural standard Japanese, not in polite です/ます form, mixes plain and polite endings in the main clause, uses kanji beyond the learner level without need, or contains romaji/spaces',
@@ -43,6 +61,8 @@ export const TL_GEN = {
   // (OpenSubtitles tách theo 어절 → 책을/먹었어요 quy về lemma bằng kaikki trước khi tốn ai-pool); one = từ 1 âm tiết (집, 물, 책…) hợp lệ.
   ko: {
     variant: 'ko-KR', lang: 'standard Seoul Korean (pyojuneo)', short: 'Korean', exLevel: 'TOPIK I (levels 1–2; higher only if the word itself is higher), polite 해요체 ending in 요', level: 'TOPIK 1–6 (A1–C2)', source: FW('ko', 'ko_full'), kaikki: 'Korean', one: /^[\uac00-\ud7a3]$/u,
+    // strip: tiểu từ dính sau danh từ (우리가 → 우리, 학교에서 → 학교) – gen.mjs chỉ bóc khi GỐC cũng là dạng đứng riêng trong 50k dạng đầu (không cắt nhầm 고양이 → 고양, 아이 → 아)
+    strip: /(이|가|은|는|을|를|에|에서|에게|한테|께|의|도|만|와|과|랑|이랑|하고|로|으로|부터|까지|처럼|보다)$/u,
     ipa: 'broad Seoul IPA of the STANDARD pronunciation (pyojun bareum, after liaison/nasalisation/tensing): plain stops k t p tɕ (voiced ɡ d b dʑ between voiced sounds), tense k͈ t͈ p͈ s͈ t͈ɕ, aspirated kʰ tʰ pʰ tɕʰ, ㅅ before i/y = ɕ, ㄹ = ɾ (l in coda or doubled), unreleased codas k̚ t̚ p̚, vowels a ɛ ʌ e o u ɯ i, ㅚ = we, ㅟ = ɥi, ㅢ = ɰi, no syllable dots',
     extra: ', "pron": standard pronunciation written in Hangul (e.g. 국물 → 궁물, 학교 → 학꾜), "romaja": Revised Romanization 2000 (no tensing, vowels as spelled: 희망 = huimang), "topik": 1|2|3|4|5|6, "conj": verb/adjective class ONLY for v/adj ("reg"|"하"|"ㅂ"|"ㄷ"|"ㅅ"|"ㅎ"|"르"|"러"|"으"|"ㄹ"|"우"|"이"), "hanja": Chinese characters ONLY for Sino-Korean words (same number of syllables); verbs and adjectives in dictionary form ending in 다; NO gender, NO plural',
     audit: 'pron is not the standard pronunciation (표준 발음법) or misses a lexical tensing/ㄴ-insertion; romanization not RR 2000; TOPIK level clearly off; conj class wrong (e.g. 돕다 is ㅂ-irregular, 입다 regular; 듣다 ㄷ-irregular, 받다 regular); hanja wrong; example is not natural standard Korean, not in polite 해요체, mixes 반말 and 존댓말, uses Hanja or Latin letters, or the headword particle (은/는, 이/가, 을/를) is wrong for its final consonant',

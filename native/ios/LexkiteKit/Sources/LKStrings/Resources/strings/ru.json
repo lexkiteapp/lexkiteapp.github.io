@@ -191,6 +191,7 @@
   "lesson.q.match": "Найдите пары",
   "lesson.q.mpic": "Соедините слова и картинки",
   "lesson.q.fix": "Найдите неверное слово",
+  "lesson.q.dict": "Послушайте и запишите фразу",
   "lesson.q.q": "Ответьте на вопрос",
   "lesson.qn": "Вопрос {a} из {b}",
   "lesson.combo": "COMBO ×{n}",
@@ -336,6 +337,7 @@
   "rev.test": "Тест",
   "rev.pronunciation": "Произношение",
   "rev.gamesPractice": "Игры и упражнения",
+  "rev.gameCrossword": "Кроссворд дня",
   "rev.pickAWordSource": "Выберите источник слова, а затем режим практики. За каждую сессию вы получаете опыт, который засчитывается в ваши ежедневные задания.",
   "rev.wordSource": "Источник слова",
   "rev.mySentence": "Моё предложение",
@@ -3497,5 +3499,6 @@
   "speak.spk.lamViecNhom": "Командная работа",
   "speak.spk.duHocSongONuoc": "Учёба и жизнь за границей",
   "speak.spk.mayTinhInternetHangNgay": "Компьютеры и интернет в повседневной жизни",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
+  "speak.spk.thuThachNoi30Giay": "Челлендж: говорите 30 секунд",
+  "speak.spk.nhatKyGiongNoi": "Голосовой дневник"
 }

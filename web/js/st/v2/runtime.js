@@ -13,29 +13,27 @@
     const k = window.Core && Core.todayKey ? Core.todayKey() : '', rv = ((st.stats || {}).days || {})[k] || 0, goal = se.dailyGoal || 20;
     return { exam: X.short, streak: App.streak ? App.streak() : 0, xp: (g.xp || 0).toLocaleString(I18N.lang()), goal: `${Math.min(rv, goal)}/${goal}` }; };
   // 🔥 Ngọn lửa chuỗi (Stitch 30/10 "Tactile Flame", brand/stitch/v2/streak-light.html #streakFlame – path y nguyên, test streak-ui kiểm khớp).
-  // Trạng thái CHỈ đổi màu (brand/tokens.json): active · frozen (băng) · lost (xám) · milestone (vàng). Lửa lay nhẹ; tắt khi giảm chuyển động.
+  // Trạng thái chỉ đổi màu (brand/tokens.json); lửa lay nhẹ, tắt khi giảm chuyển động.
   const FL = 'M56 10C56 10 74 34 72 54C75 48 80 44 87 40C87 40 98 56 98 78C98 94 92 108 82 118C75 125 66 128 58 128C44 128 26 120 20 102C14 84 22 62 34 46C35 55 42 61 46 59C51 57 53 43 53 32C53 22 56 10 56 10Z';
   S.flame = (st, px) => { S.flameCss(); return `<svg class="st-fl" data-fl="${st || 'active'}" width="${Math.round(px * 6 / 7)}" height="${px}" viewBox="0 0 120 140" fill="none" aria-hidden="true" focusable="false"><path class="fl-ledge" d="${FL}" fill="#B53A22" transform="translate(0 7)"/><path class="fl-body" d="${FL}" fill="#F2553B" stroke="#B53A22" stroke-linejoin="round" stroke-width="5"/><path class="fl-mid" d="M57 38C57 38 69 54 68 70C71 65 74 62 80 60C80 60 84 74 82 89C80 102 71 114 58 116C46 116 34 107 32 94C30 81 37 68 44 58C45 64 49 67 52 65C55 63 56 50 57 38Z" fill="#FFB054"/><path class="fl-core" d="M58 66C58 66 68 78 68 92C68 102 61 108 55 108C49 108 44 101 44 93C44 82 52 74 58 66Z" fill="#FFC94A"/><path class="fl-shine" d="M36 50C33 55 28 67 27 78C26.5 83 29 86 31 83C33 80 34 73 37 64C38.5 59 39 53 36 50Z" fill="#FFE7C2"/></svg>`; };
   S.flameCss = () => { if (document.getElementById('stFlCss')) return; const s = document.createElement('style'); s.id = 'stFlCss';
     s.textContent = `.st-fl[data-fl=frozen]{--fl-l:#2A7D7A;--fl-b:#CFE9F2;--fl-m:#F4FBF8;--fl-c:#FFFFFF;--fl-s:#FFFFFF}.st-fl[data-fl=lost]{--fl-l:#6F878B;--fl-b:#A3B9B7;--fl-m:#F4FBF8;--fl-c:#EAF2F2;--fl-s:#FFFFFF}.st-fl[data-fl=milestone]{--fl-l:#A26E00;--fl-b:#FFC94A;--fl-m:#FFE7C2;--fl-c:#FFFFFF;--fl-s:#FFFFFF}
 .st-fl:not([data-fl=active]) .fl-ledge{fill:var(--fl-l)}.st-fl:not([data-fl=active]) .fl-body{fill:var(--fl-b);stroke:var(--fl-l)}.st-fl:not([data-fl=active]) .fl-mid{fill:var(--fl-m)}.st-fl:not([data-fl=active]) .fl-core{fill:var(--fl-c)}.st-fl:not([data-fl=active]) .fl-shine{fill:var(--fl-s)}
 .st-fl .fl-mid,.st-fl .fl-core{transform-box:fill-box;transform-origin:50% 100%}.st-fl[data-fl=active] .fl-mid,.st-fl[data-fl=milestone] .fl-mid{animation:stFl 1.6s ease-in-out infinite alternate}.st-fl[data-fl=active] .fl-core,.st-fl[data-fl=milestone] .fl-core{animation:stFl 1.1s ease-in-out -.5s infinite alternate}
-@keyframes stFl{from{transform:scale(1,1)}to{transform:scale(.95,1.06)}}@media (prefers-reduced-motion:reduce){.st-fl .fl-mid,.st-fl .fl-core{animation:none}}`;
+.lk-scrolling .st-fl .fl-mid,.lk-scrolling .st-fl .fl-core{animation-play-state:paused}@keyframes stFl{from{transform:scale(1,1)}to{transform:scale(.95,1.06)}}@media (prefers-reduced-motion:reduce){.st-fl .fl-mid,.st-fl .fl-core{animation:none}}`;
     document.head.appendChild(s); };
-  // active | frozen (chưa học hôm nay, hôm qua dùng đóng băng) | lost (chuỗi 0) | milestone (màn chúc mừng mốc – truyền o.milestone)
+  // active | frozen | lost (chuỗi 0) | milestone (o.milestone)
   S.flameState = (n, o) => { if (o && o.milestone) return 'milestone'; if (!n) return 'lost';
     const g = (App.state || {}).game || {}, k = window.Core && Core.todayKey ? Core.todayKey() : '', y = new Date(Date.now() - 864e5), yk = `${y.getFullYear()}-${String(y.getMonth() + 1).padStart(2, '0')}-${String(y.getDate()).padStart(2, '0')}`;
     return !((g.days || {})[k] || {}).xp && (g.frozen || {})[yk] ? 'frozen' : 'active'; };
-  // CSS màn tải theo màn (3/11): gói ux1 chỉ nạp sẵn Lộ trình + Hôm nay (Home lần đầu nhẹ hơn main); màn khác nạp khi mở, khung ẩn tới khi CSS về
-  //   (≤ 1,5 s – loadCss tự nhả) → không nháy khung chưa có kiểu; Home xong thì nạp nốt lúc rảnh (trừ chế độ tiết kiệm dữ liệu) → chuyển tab tức thì.
+  // CSS theo màn: ux1 chỉ nạp sẵn Lộ trình + Hôm nay; màn khác nạp khi mở (khung ẩn ≤ 1,5 s), Home xong thì nạp nốt lúc rảnh.
   const LZ = ['review', 'practice', 'skills', 'leagues', 'me', 'streak', 'exam-readiness', 'today-new', 'today-desk', 'today-rail'], cssOk = {};
   const css = (k, w) => { if (!LZ.includes(k) || cssOk[k] || !window.App || !App.loadCss) return; const m = w && (w.querySelector('main') || w); if (m) m.style.visibility = 'hidden'; // chỉ ẩn thân màn: thanh tab (CSS chung đã nạp) luôn hiện → chạm tab ngay, không đợi CSS riêng của màn
     App.loadCss('css/st-v2-' + k + '.css').then(() => { cssOk[k] = 1; if (m) m.style.visibility = ''; }); };
   let idle = false; const rest = () => { if (idle || (App.lean && App.lean())) return; idle = true; (self.requestIdleCallback || (f => setTimeout(f, 1200)))(() => LZ.forEach(x => css(x)), { timeout: 8000 }); };
   S.css = css;
 
-  // 🧭 MỘT thanh trên "hub" cho điện thoại (< 1024 px), mọi tab: hàng 1 = logo · tra từ · chuông · 🌐 · avatar; hàng 2 = 4 viên số (kỳ thi · chuỗi · XP · mục tiêu; icon + số, chia đều, không tràn).
-  // Viên số GIỮ link/nhãn (data-hdr) như đầu trang Stitch cũ (test review-taps/ux1). Máy tính: ẩn. Avatar: ảnh nếu có, không thì chữ cái.
+  // 🧭 MỘT thanh hub cho điện thoại (< 1024 px), mọi tab – docs/DESIGN-SYSTEM.md §5d. Viên số giữ data-hdr (test review-taps/ux1); máy tính ẩn.
   const esc = v => String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const ic = id => `<svg class="i" aria-hidden="true" focusable="false"><use href="#i-${id}"/></svg>`;
   S.hubCss = () => { if (document.getElementById('stHbCss')) return; const s = document.createElement('style'); s.id = 'stHbCss';
@@ -50,6 +48,8 @@
 .hb-c>span{max-width:100%;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:6px;height:32px;padding:0 10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-2);font-size:12px;line-height:14px;font-weight:800;letter-spacing:.02em;white-space:nowrap}
 .hb-c .i{width:16px;height:16px;color:var(--heading)}.hb-c .st-fl{flex:none}.hb-c b{font-weight:800;overflow:hidden;text-overflow:ellipsis}
 .hb .notif-dot{position:absolute;top:6px;inset-inline-end:6px}.hb .hidden{display:none}
+/* cờ ngôn ngữ đang học (TLPick.head): ô riêng 44 px giữa logo và ô tra từ như mẫu Stitch (ô tra co lại, không chồng nút) */
+.hb-r{position:relative}.hb-r>.hb-logo{order:0}.hb-r>.hb-s{order:2}.hb-r>.tlp-hd{order:1;flex:none;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;background:none;box-shadow:none;font-size:18px;z-index:1}.hb-r>.hb-b:not(.hb-logo){order:3}
 @media (max-width:359px){.hb-c>span{padding:0 6px;gap:4px}}
 @media (min-width:1024px){.hb{display:none!important}}
 @media (max-width:1023px){#view>.hb{margin:-1rem -1rem 12px;width:auto}}
@@ -65,8 +65,9 @@
       + `<button type="button" class="hb-b" data-act="lang" aria-haspopup="dialog" aria-label="${esc(t('Chọn ngôn ngữ giao diện') + ' (' + L + ')')}">${ic('globe')}</button>`
       + `<a class="hb-b hb-av" href="#/me" aria-label="${esc(t('Tài khoản'))}"><i>${av}</i></a></div>`
       + (chips ? `<div class="hb-r hb-r2">${chip('exam', '#/goal', 'graduation-cap', h.exam, t('Mức sẵn sàng thi'))}${chip('streak', '#/streak', '', h.streak, t('Chuỗi ngày học'), S.flame(S.flameState(h.streak), 18))}${chip('xp', '#/league', 'zap', h.xp, t('Tổng XP'))}${chip('goal', '#/stats', 'goal', h.goal, t('Mục tiêu hôm nay'))}</div>` : '') + `</header>`; };
-  // Nối nút cho màn không tự nối (Hôm nay đã gọi Ux1.headBtns + langBtn trong ux1.js): tra từ · chuông · tài khoản, 🌐 mở bộ chọn ngôn ngữ.
-  S.hubWire = root => { const h = root.querySelector('.hb'); if (!h) return; if (window.Ux1 && Ux1.headBtns) Ux1.headBtns(h); else h.querySelectorAll('[data-act="search"]').forEach(b => b.addEventListener('click', () => { location.hash = '#/dict'; }));
+  // Nối nút cho màn không tự nối (Hôm nay đã nối trong ux1.js).
+  S.hubWire = root => { const h = root.querySelector('.hb'); if (!h) return; if (self.Target && Target.LANGS.length > 1) App.need('tlpick').then(() => TLPick.head(h)).catch(() => {}); // cờ tl: mọi màn
+    if (window.Ux1 && Ux1.headBtns) Ux1.headBtns(h); else h.querySelectorAll('[data-act="search"]').forEach(b => b.addEventListener('click', () => { location.hash = '#/dict'; }));
     h.querySelectorAll('[data-act="lang"]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); UI.modal(`<div class="ux1-lang"><h2>${t('Chọn ngôn ngữ giao diện')}</h2><p>${App.langPicker ? App.langPicker() : ''}</p></div>`); })); };
   // Trang cũ (Thi): gắn thanh hub vào đầu #view + ẩn thanh trên cũ
   S.hubPage = v => { document.body.classList.add('hb-on'); v.insertAdjacentHTML('afterbegin', S.hubbar({ hdr: S.hdr() })); S.hubWire(v); if (self.App && App.onCleanup) App.onCleanup(() => document.body.classList.remove('hb-on')); };

@@ -50,6 +50,7 @@
 "Mục tiêu {s}":"Meta {s}",
 "Nghe chậm hơn":"Mais devagar",
 "Nghe rảnh tay":"Ouvir sem mãos",
+"Nghe và chép câu":"Ouça e copie a frase",
 "Nghe, chọn ảnh":"Ouça e escolha a imagem",
 "Ngày mai ôn {n} từ để nhớ lâu":"Para revisar amanhã: {n} palavras",
 "Ngày mai: bài tiếp theo đã sẵn sàng":"Amanhã: sua próxima lição estará pronta",

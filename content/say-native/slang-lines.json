@@ -85,7 +85,8 @@
   "pt": "Cinco minutos, depois eu volto! \"AFK\"",
   "ru": "Пять минут, потом я вернусь! «AFK».",
   "th": "ห้านาทีแล้วฉันจะกลับมา! \"AFK\"",
-  "tr": "Beş dakika, sonra geri döneceğim!"
+  "tr": "Beş dakika, sonra geri döneceğim!",
+  "zh": "五分钟后我回来！AFK"
  },
  "anytime|ex": {
   "ar": "شكراً على التوصيلة! \"Anytime\".",
@@ -114,7 +115,8 @@
   "pt": "Obrigado(a) pela carona! (\"anytime\")",
   "ru": "Спасибо большое за поездку! «anytime».",
   "th": "ขอบคุณมากสำหรับการพาไป! \"anytime\"",
-  "tr": "Yolculuk için çok teşekkür ederim!"
+  "tr": "Yolculuk için çok teşekkür ederim!",
+  "zh": "非常感谢你载我！anytime"
  },
  "arm and a leg|ex": {
   "ar": "هذا المعطف يكلف \"an arm and a leg\".",
@@ -383,7 +385,8 @@
   "pt": "Onde a chave foi? (\"beats me\")",
   "ru": "Куда делся ключ? «beats me».",
   "th": "กุญแจหายไปไหน? 'beats me'!",
-  "tr": "Anahtar nereye gitti?"
+  "tr": "Anahtar nereye gitti?",
+  "zh": "钥匙去哪儿了？beats me"
  },
  "beef|ex": {
   "ar": "بينهما \"beef\" بسبب لعبة.",
@@ -1168,7 +1171,8 @@
   "pt": "Ela contou a todos o meu erro! (\"call out\")",
   "ru": "Она всем рассказала о моей ошибке! «call out».",
   "th": "เธอ 'call out' ความผิดของฉันต่อทุกคน!",
-  "tr": "O, hatamı herkese 'call out' etti!"
+  "tr": "O, hatamı herkese 'call out' etti!",
+  "zh": "她把我的错误告诉了大家！call out"
  },
  "carry|ex": {
   "ar": "لقد قامت ميا بـ \"carry\" الفريق في الجولة الأخيرة.",
@@ -2136,7 +2140,8 @@
   "pt": "Dia de entrevista. Terno e gravata! \"dressed to impress\"",
   "ru": "День интервью. Костюм и галстук — «dressed to impress».",
   "th": "วันสัมภาษณ์ 'dressed to impress' ใส่สูทและเนคไท!",
-  "tr": "Mülakat günü. Takım elbise ve kravat! \"dressed to impress\"."
+  "tr": "Mülakat günü. Takım elbise ve kravat! \"dressed to impress\".",
+  "zh": "面试日。西装领带！dressed to impress"
  },
  "drip|ex": {
   "ar": "سترة جميلة، لديك \"drip\" اليوم.",

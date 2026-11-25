@@ -50,6 +50,7 @@
 "Mục tiêu {s}":"목표 {s}",
 "Nghe chậm hơn":"천천히 듣기",
 "Nghe rảnh tay":"핸즈프리 듣기",
+"Nghe và chép câu":"듣고 문장 받아쓰기",
 "Nghe, chọn ảnh":"듣고 그림 고르기",
 "Ngày mai ôn {n} từ để nhớ lâu":"내일 복습할 단어: {n}개",
 "Ngày mai: bài tiếp theo đã sẵn sàng":"내일: 다음 레슨이 준비되어 있어요",

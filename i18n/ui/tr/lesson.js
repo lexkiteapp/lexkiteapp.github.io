@@ -50,6 +50,7 @@
 "Mục tiêu {s}":"Hedef {s}",
 "Nghe chậm hơn":"Daha yavaş",
 "Nghe rảnh tay":"Eller serbest dinle",
+"Nghe và chép câu":"Dinle ve cümleyi yaz",
 "Nghe, chọn ảnh":"Dinle, resmi seç",
 "Ngày mai ôn {n} từ để nhớ lâu":"Yarın tekrar edilecek kelimeler: {n}",
 "Ngày mai: bài tiếp theo đã sẵn sàng":"Yarın: sıradaki dersin hazır",
