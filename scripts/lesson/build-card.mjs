@@ -6,6 +6,7 @@
 //   node scripts/lesson/build-card.mjs --report   báo % câu có mẫu / có nghĩa theo nguồn
 import fs from 'fs';
 import path from 'path';
+import { lexFiles } from '../lib/lex-files.mjs';
 import { pathToFileURL, fileURLToPath } from 'url';
 const R = fileURLToPath(new URL('../..', import.meta.url));
 const SRC = path.join(R, 'content/lesson/card'), OUT = path.join(R, 'web/packs/lcard');
@@ -23,7 +24,7 @@ export function corpus() {
   globalThis.t = globalThis.t || (s => s);
   const g = {};
   new Function('self', fs.readFileSync(path.join(R, 'web/js/data.js'), 'utf8'))(g);
-  for (const f of fs.readdirSync(path.join(R, 'web/js/lib')).sort()) if (/\.js$/.test(f) && !/^notes/.test(f)) { try { new Function('self', fs.readFileSync(path.join(R, 'web/js/lib', f), 'utf8'))(g); } catch (e) { /* tệp phụ */ } }
+  for (const p of lexFiles(f => !/^notes/.test(f))) { try { new Function('self', fs.readFileSync(path.join(R, p), 'utf8'))(g); } catch (e) { /* tệp phụ */ } } // web/js/lib + web/cpack/lib
   const ex = new Map();
   for (const tp of g.IELTS_DATA.TOPICS) for (const w of tp.words || []) { const k = String(w.word || '').toLowerCase().trim(); if (k && w.ex && !ex.has(k)) ex.set(k, { word: k, en: String(w.ex).trim(), cefr: w.cefr || w.level || '' }); }
   return { ex: [...ex.values()], story: storySentences() };

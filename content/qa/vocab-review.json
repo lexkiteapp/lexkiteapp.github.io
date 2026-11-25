@@ -1,5 +1,5 @@
 {
- "_doc": "Rà soát chuyên gia kho từ vựng theo thứ tự NGSL (Claude, không gọi AI). Lượt 1: 930 đầu mục đầu tiên của web/js/lib/ngsl.js (bộ ngsl1–ngsl4). Sửa qua content/lexicon/overrides.json + ipaus-manual.json; bộ đổi CMU (tiền tố /ɪ/) và normUK ((r)) sửa tại nguồn cho toàn kho. Lượt 2: mục 930–1849 (88 sửa). Lượt 3: mục 1850–2528 – hết ngsl.js (129 sửa). Lượt sau bắt đầu ở nextStart. Lượt 4: web/js/lib/awl.js mục 0–569 – hết AWL (52 sửa).",
+ "_doc": "Rà soát chuyên gia kho từ vựng theo thứ tự NGSL (Claude, không gọi AI). Lượt 1: 930 đầu mục đầu tiên của web/js/lib/ngsl.js (bộ ngsl1–ngsl4). Sửa qua content/lexicon/overrides.json + ipaus-manual.json; bộ đổi CMU (tiền tố /ɪ/) và normUK ((r)) sửa tại nguồn cho toàn kho. Lượt 2: mục 930–1849 (88 sửa). Lượt 3: mục 1850–2528 – hết ngsl.js (129 sửa). Lượt sau bắt đầu ở nextStart. Lượt 4: web/cpack/lib/awl.js mục 0–569 – hết AWL (52 sửa).",
  "passes": [
   {
    "pass": 1,
@@ -104,7 +104,7 @@
   {
    "pass": 4,
    "at": "2026-10-26",
-   "source": "web/js/lib/awl.js",
+   "source": "web/cpack/lib/awl.js",
    "range": [
     0,
     569
@@ -135,7 +135,7 @@
   }
  ],
  "nextStart": {
-  "file": "web/js/lib/awl.js",
+  "file": "web/cpack/lib/awl.js",
   "index": 570,
   "word": null,
   "note": "awl.js đã rà hết (0–569); lượt sau chọn nguồn kế tiếp từ index 0"
