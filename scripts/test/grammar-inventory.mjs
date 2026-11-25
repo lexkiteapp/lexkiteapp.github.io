@@ -46,6 +46,13 @@ expect('es: bản thật xanh', run(ES, TGT, 'es'), true);
 { const i = clone(ES); delete i.points[2].example_en; expect('es: thiếu example_en', run(i, TGT, 'es'), false, /thiếu example_en/); }
 { const i = clone(ES); i.points[3].lessons = ['present-simple']; expect('es: gắn bài khi chưa có bài es', run(i, TGT, 'es'), false, /lessons phải rỗng/); }
 { const i = clone(ES); i.points = i.points.slice(0, 150); expect('es: cắt dưới 200 điểm', run(i, TGT, 'es'), false, /< 200/); }
+// --tl ja (japanese-course.md W2b): kho ja xanh; ví dụ có chữ Latinh/khoảng trắng, dạng chia lạ, thiếu example_en → đỏ
+const JA = JSON.parse(fs.readFileSync('content/target/ja/grammar-inventory.json', 'utf8'));
+expect('ja: bản thật xanh', run(JA, TGT, 'ja'), true);
+{ const i = clone(JA); i.points[0].example = 'わたしは Tanaka です。'; expect('ja: ví dụ lẫn chữ Latinh', run(i, TGT, 'ja'), false, /lệch chuẩn ja/); }
+{ const i = clone(JA); i.points.find(p => p.tenses.length).tenses.push('masu-nai'); expect('ja: dạng chia lạ', run(i, TGT, 'ja'), false, /không có trong bộ chia động từ/); }
+{ const i = clone(JA); delete i.points[2].example_en; expect('ja: thiếu example_en', run(i, TGT, 'ja'), false, /thiếu example_en/); }
+{ const i = clone(JA); i.points = i.points.slice(0, 150); expect('ja: cắt dưới 200 điểm', run(i, TGT, 'ja'), false, /< 200/); }
 { const r = spawnSync('node', ['scripts/content-qa/grammar-map-check.mjs', '--tl', 'es', '--report', path.join(dir, 'r.json')], { encoding: 'utf8', env: { ...process.env, CI: 'true', LT_URL: '' } }); expect('es: CI thiếu LanguageTool', r, false, /thiếu LT_URL/); }
 fs.rmSync(dir, { recursive: true, force: true });
 if (bad) { console.log(`✗ grammar-inventory test: ${bad} ca sai`); process.exit(1); }
