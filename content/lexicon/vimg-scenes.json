@@ -9968,8 +9968,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 9,
-   "badAt": "2026-11-21T19:45:45.028Z"
+   "e4bad": 10,
+   "badAt": "2026-11-25T08:22:44.678Z"
   },
   "boolean#n": {
    "ex": "The flag is stored as a boolean in the settings table.",
@@ -11237,8 +11237,8 @@
    "draw": 5,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-23T02:49:48.593Z"
+   "e4bad": 11,
+   "badAt": "2026-11-25T08:20:26.371Z"
   },
   "bush#n": {
    "ex": "How do you like my rose bushes?",
@@ -27505,8 +27505,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-23T03:24:39.021Z"
+   "e4bad": 11,
+   "badAt": "2026-11-25T07:43:32.108Z"
   },
   "distance#n": {
    "skip": "sentence refers to specific places; cannot depict without text or symbols",
@@ -27617,16 +27617,16 @@
   },
   "distraction#n": {
    "ex": "Mobile phones are a major distraction during long business meetings.",
-   "ps": "a man glances at his phone while a woman sits at a meeting table",
-   "sc": "a man glances at his phone while a woman sits at a meeting table",
-   "check": "Is someone looking at a phone during a meeting, distracting others?",
-   "cap": "a person checking a phone during a meeting",
-   "who": 2,
+   "ps": "a man in a meeting looks surprised as a brown dog jumps onto the table",
+   "sc": "a man in a meeting looks surprised as a brown dog jumps onto the table",
+   "check": "Is there something causing the people to look away from the meeting?",
+   "cap": "a man and a dog interrupt a business meeting",
+   "key": "a dog jumping onto a meeting table; the man's surprised face",
+   "who": 1,
    "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-23T02:49:57.186Z"
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "distractor#n": {
    "ex": "Read carefully because one option is a distractor.",
@@ -30634,8 +30634,18 @@
    "badAt": "2026-11-24T01:17:31.135Z"
   },
   "email#v": {
-   "e4bad": 9,
-   "badAt": "2026-11-23T02:41:03.303Z"
+   "ex": "They didn't email me today.",
+   "ps": "a woman sits at a desk pressing a button on a glowing rectangular device with an antenna",
+   "sc": "a woman sits at a desk pressing a button on a glowing rectangular device with an antenna",
+   "check": "Is the person sending a message using electronic mail?",
+   "cap": "a person pressing a button on a glowing communication box",
+   "key": "a glowing rectangular device with an antenna; a person pressing a button on the device",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "embalmer#n": {
    "ex": "Military authorities also permitted private embalmers to work in military-controlled areas.",
@@ -58266,8 +58276,17 @@
    "refix": 1
   },
   "monocyte#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-24T01:17:31.135Z"
+   "ex": "The monocytes in turn are formed from stem cells in the bone marrow.",
+   "ps": "a large pale round cell with a single kidney‑shaped dark nucleus floating in clear fluid",
+   "sc": "a large pale round cell with a single kidney‑shaped dark nucleus floating in clear fluid",
+   "check": "Is there a white blood cell with a single kidney‑shaped nucleus?",
+   "cap": "a single white blood cell with a distinctive nucleus in fluid",
+   "key": "a pale round cell; a kidney‑shaped dark nucleus inside the cell",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "monopolist#n": {
    "ex": "A monopolist is a sole firm in an industry.",
@@ -66624,8 +66643,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "peripheral#n": {
-   "e4bad": 9,
-   "badAt": "2026-11-23T02:49:48.593Z"
+   "e4bad": 10,
+   "badAt": "2026-11-25T07:43:32.108Z"
   },
   "perishable goods#n": {
    "ex": "Perishable goods receive priority handling at the airport.",
@@ -74559,8 +74578,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-23T02:49:57.186Z"
+   "e4bad": 11,
+   "badAt": "2026-11-25T08:20:26.371Z"
   },
   "readjustment#n": {
    "ex": "A difficult period of economic readjustment started.",
@@ -97680,17 +97699,17 @@
   },
   "variate#n": {
    "ex": "Assume a random variate has a distribution  .",
-   "ps": "a six-sided die is tossed in the air above a table",
-   "sc": "a six-sided die is tossed in the air above a table",
-   "check": "Is there a die being tossed that could show any number?",
-   "cap": "a die flying through the air above a table",
-   "key": "a six-sided die mid-air about to land; the die’s outcome is uncertain",
-   "who": 0,
+   "ps": "a man watches a large thermometer as the mercury level moves up and down unpredictably",
+   "sc": "a man watches a large thermometer as the mercury level moves up and down unpredictably",
+   "check": "Is there a quantity shown that changes unpredictably?",
+   "cap": "a person watches a thermometer's level rise and fall randomly",
+   "key": "a large thermometer with mercury moving up and down; a person watching the changing level",
+   "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "variation#n": {
    "ex": "There is a lot of variation in prices between shops.",

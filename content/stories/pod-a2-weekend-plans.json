@@ -1,0 +1,196 @@
+{
+  "id": "pod-a2-weekend-plans",
+  "kind": "podcast",
+  "level": "A2",
+  "title": "Weekend Plans",
+  "summary": "Ama and Carlos talk about what they like to do at the weekend and plan a day out together.",
+  "source": {
+    "type": "original",
+    "work": "Lexkite Podcast, episode 3",
+    "author": "Lexkite",
+    "note": "Original text written by Lexkite."
+  },
+  "license": "CC BY 4.0 Lexkite",
+  "cover": {
+    "style": "2d",
+    "cast": [
+      "ama",
+      "carlos"
+    ],
+    "scene": "Flat 2D illustration: Ama and Carlos at a small table with a calendar and two cups, a bright window behind them, no text"
+  },
+  "speakers": {
+    "A": "ama",
+    "B": "carlos"
+  },
+  "audio": {
+    "wpm": 115,
+    "voice": "kokoro:af_heart+am_michael",
+    "file": null,
+    "marks": null
+  },
+  "chapters": [
+    {
+      "title": "What Do You Do?",
+      "sentences": [
+        {
+          "who": "A",
+          "text": "Hello, everybody! Today Carlos and I talk about the weekend."
+        },
+        {
+          "who": "B",
+          "text": "Hi, Ama. I love weekends because I can sleep late."
+        },
+        {
+          "who": "A",
+          "text": "Really? I get up early and go for a walk."
+        },
+        {
+          "who": "B",
+          "text": "Why so early?"
+        },
+        {
+          "who": "A",
+          "text": "The streets are quiet, and the air is fresh."
+        },
+        {
+          "who": "B",
+          "text": "That sounds nice, but I prefer my bed."
+        },
+        {
+          "who": "A",
+          "text": "What do you do after you get up?"
+        },
+        {
+          "who": "B",
+          "text": "I cook a big breakfast and read a magazine."
+        },
+        {
+          "who": "A",
+          "text": "That is a good way to relax."
+        }
+      ],
+      "words": [
+        "weekend",
+        "quiet",
+        "fresh",
+        "prefer",
+        "breakfast",
+        "magazine"
+      ],
+      "quiz": [
+        {
+          "q": "Why does Ama get up early?",
+          "options": [
+            "The streets are quiet",
+            "She has work",
+            "She is hungry"
+          ],
+          "answer": 0,
+          "explain": "She says the streets are quiet, and the air is fresh."
+        },
+        {
+          "q": "What does Carlos like at the weekend?",
+          "options": [
+            "To sleep late",
+            "To run",
+            "To study"
+          ],
+          "answer": 0,
+          "explain": "Carlos says he can sleep late."
+        },
+        {
+          "q": "What does Carlos do after he gets up?",
+          "options": [
+            "He cooks breakfast and reads",
+            "He goes shopping",
+            "He visits a museum"
+          ],
+          "answer": 0,
+          "explain": "He cooks a big breakfast and reads a magazine."
+        }
+      ]
+    },
+    {
+      "title": "A Day Out",
+      "sentences": [
+        {
+          "who": "B",
+          "text": "Ama, are you free next Saturday?"
+        },
+        {
+          "who": "A",
+          "text": "I think so. Do you have a plan?"
+        },
+        {
+          "who": "B",
+          "text": "Yes! There is a small festival in the old town."
+        },
+        {
+          "who": "A",
+          "text": "Great idea. Is there any music?"
+        },
+        {
+          "who": "B",
+          "text": "Yes, and there are many food stalls too."
+        },
+        {
+          "who": "A",
+          "text": "Then let us go together. I will ask my sister to come."
+        },
+        {
+          "who": "B",
+          "text": "Perfect. We can meet at the station at ten."
+        },
+        {
+          "who": "A",
+          "text": "I will bring my camera and take some photos."
+        },
+        {
+          "who": "B",
+          "text": "Wonderful! I cannot wait."
+        }
+      ],
+      "words": [
+        "festival",
+        "stall",
+        "station",
+        "camera",
+        "photo",
+        "free"
+      ],
+      "quiz": [
+        {
+          "q": "Where is the festival?",
+          "options": [
+            "In the old town",
+            "At the beach",
+            "At a school"
+          ],
+          "answer": 0,
+          "explain": "There is a small festival in the old town."
+        },
+        {
+          "q": "Who will Ama ask to come?",
+          "options": [
+            "Her sister",
+            "Her teacher",
+            "Her cousin"
+          ],
+          "answer": 0,
+          "explain": "I will ask my sister to come."
+        },
+        {
+          "q": "What will Ama bring?",
+          "options": [
+            "A camera",
+            "A book",
+            "A bag of food"
+          ],
+          "answer": 0,
+          "explain": "I will bring my camera and take some photos."
+        }
+      ]
+    }
+  ]
+}
