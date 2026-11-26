@@ -3,6 +3,7 @@
 // Hết đỏ → tự đóng issue. Không mở lặp (1 issue mở / workflow). Chạy cùng main-red-retry.yml (nhịp 30 phút).
 //   node scripts/ci/main-red-age.mjs [--dry]     Env: GITHUB_TOKEN, GITHUB_REPOSITORY.   Test thuần: scripts/test/main-guards.mjs (redSince, issueFor).
 import { isMain } from '../lib/is-main.mjs';
+import { ghFetch } from '../lib/retry5xx.mjs';
 
 export const LABEL = 'main-red', MAX_AGE_H = 24, MIN_REDS = 2, SKIP = new Set(['cancelled', 'skipped']);
 /** Hàm thuần: runs push main của 1 workflow (mọi trạng thái, mới→cũ) → mốc ISO lượt đỏ ĐẦU TIÊN của chuỗi đỏ hiện tại; null nếu lượt xong gần nhất không đỏ. */
@@ -37,7 +38,7 @@ export const hasIssue = (issues, name) => (issues || []).some(i => i.title === i
 async function main() {
   const dry = process.argv.includes('--dry'), repo = process.env.GITHUB_REPOSITORY, tok = process.env.GITHUB_TOKEN;
   if (!repo || !tok) { console.error('thiếu GITHUB_REPOSITORY / GITHUB_TOKEN'); process.exit(2); }
-  const api = async (p, init = {}) => { const r = await fetch(`https://api.github.com/repos/${repo}${p}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', ...(init.body ? { 'content-type': 'application/json' } : {}) } }); return { status: r.status, json: await r.json().catch(() => ({})) }; };
+  const api = async (p, init = {}) => { const r = await ghFetch(`https://api.github.com/repos/${repo}${p}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', ...(init.body ? { 'content-type': 'application/json' } : {}) } }); return { status: r.status, json: await r.json().catch(() => ({})) }; };
   const wfs = []; for (let p = 1; p <= 5; p++) { const j = (await api(`/actions/workflows?per_page=100&page=${p}`)).json.workflows || []; wfs.push(...j.filter(w => w.state === 'active')); if (j.length < 100) break; }
   const open = ((await api(`/issues?state=open&labels=${LABEL}&per_page=100`)).json || []).filter(i => !i.pull_request);
   if (!dry) await api('/labels', { method: 'POST', body: JSON.stringify({ name: LABEL, color: 'b60205' }) });   // đã có → 422, bỏ qua
