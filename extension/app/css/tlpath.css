@@ -81,3 +81,5 @@
 .tp-bar i{display:block;height:100%;background:rgb(var(--st-secondary-container));border-radius:inherit}
 .tp-sg .tp-btn{justify-self:start}
 .tp-ask-b{display:grid;gap:var(--sp-2)}
+.tp-goal{margin:var(--sp-2) 0 var(--sp-3);font-size:var(--fs-sm);line-height:1.4;font-weight:600}
+.tp-sg a.tp-btn{justify-self:start;text-decoration:none;display:inline-flex;align-items:center}
