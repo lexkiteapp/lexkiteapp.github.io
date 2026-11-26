@@ -485,9 +485,9 @@ export function createPool(opts = {}) {
     const mode = req.mode, why = [];
     role = role || (TASKS[mode] && TASKS[mode].kind) || 'gen';
     for (const id of chain) {
-      const route = R[id]; if (!route || !route.ok()) continue;
+      const route = R[id]; if (!route) continue; if (!route.ok()) { if (id === 'cf2') why.push(`cf2 tắt (CF2=${CF2.length} tài khoản, neuron ${used.cf2}/${budget.cf2})`); continue; }
       for (const model of route.models(role, slot)) {
-        if (cooling(id, model)) continue;
+        if (cooling(id, model)) { if (id === 'cf2') why.push(`cf2:${model} đang nghỉ`); continue; }
         // lọc trước theo mô hình dự kiến (tuyến GrabCast tự chọn mô hình → lọc theo câu trả lời thật)
         if (!/^(vision|gemini-vision)$/.test(model) && (!allowed(mode, model) || exclude.includes(familyOf(model)) || sameM(model))) continue;
         const t0 = now();
