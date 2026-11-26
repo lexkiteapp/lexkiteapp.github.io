@@ -84,7 +84,7 @@
       <div class="page-head" style="margin-top:.4rem"><div><div class="tiny muted">${esc(tst.title)} · Part ${part}</div><h1 style="margin:.2rem 0">${esc(pt.title)}</h1><p class="muted small">${esc(pt.instr || '')}</p></div></div>
       ${window.QT ? QT.box('p' + part, true) : ''}
       <div id="tq">${units.map(unitHtml).join('')}</div>
-      <div class="row" style="margin-top:1rem"><button class="btn primary" id="tSub">✅ ${t('Nộp bài & xem giải thích')}</button><div class="row" style="margin-left:auto">${tst.parts.map(x => `<a class="chip ${x.part === part ? 'on' : ''}" href="#/toeic-r/${tst.id}?part=${x.part}" ${x.part === part ? 'aria-current="page"' : ''} style="min-height:44px;display:inline-flex;align-items:center">Part ${x.part}</a>`).join('')}</div></div>
+      <div class="row mk-nav" style="margin-top:1rem"><button class="btn primary" id="tSub">✅ ${t('Nộp bài & xem giải thích')}</button><div class="row" style="margin-left:auto">${tst.parts.map(x => `<a class="chip ${x.part === part ? 'on' : ''}" href="#/toeic-r/${tst.id}?part=${x.part}" ${x.part === part ? 'aria-current="page"' : ''} style="min-height:44px;display:inline-flex;align-items:center">Part ${x.part}</a>`).join('')}</div></div>
       <div id="tRes" style="margin-top:1rem"></div>`;
     QE.bind($('#tq'));
     $('#tSub').onclick = async () => {
