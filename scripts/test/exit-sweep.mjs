@@ -4,9 +4,7 @@
 //    768 / 1440 px (chuột): hộp thật ≥ 44×44; nút được nới (ExitGuard grow) phải KHÔNG đổi pixel nào (so ảnh có/không nới).
 // 3) Thoát thật: bấm nút / Esc / back hệ thống (vuốt iOS = history.back) → rời màn về trang trước, không kẹt (#view có nội dung).
 //    Đang làm dở → hộp hỏi "Tiếp tục học" (ở lại, màn còn nguyên) / "Thoát" (rời màn).
-// Dùng: node scripts/test/exit-sweep.mjs [--root dist | --base URL] [--out out/exit-sweep] [--themes light,dark] [--part all|core|tl]
-//   --part core = mục 1–4 (mọi màn học, 390/768/1440); --part tl = khóa ngôn ngữ đích es/fr (qa-bot.yml chạy hai phần song song, job riêng: 26/11 gộp trong job bot → >45' bị huỷ 4 lượt liền, #596).
-//   Mỗi mẫu có đồng hồ canh (WATCH_MS): kẹt → đóng trang, ghi lỗi có tên màn thay vì treo tới hết giờ job.
+// Dùng: node scripts/test/exit-sweep.mjs [--root dist | --base URL] [--out out/exit-sweep] [--themes light,dark]
 import { chromium, devices } from 'playwright';
 import { autoLXD } from './lib/lxd-auto.mjs';
 import { noProd } from './lib/no-prod.mjs';
@@ -20,9 +18,6 @@ const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ?
 const ROOT = arg('root', 'dist'), OUT = path.resolve(arg('out', 'out/exit-sweep')), THEMES = arg('themes', 'light,dark').split(',');
 fs.mkdirSync(OUT + '/shots', { recursive: true });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-const PART = arg('part', 'all'), RUN_CORE = PART !== 'tl', RUN_TL = PART !== 'core', T0 = Date.now(), WATCH_MS = 120e3;
-const watch = (page, ms = WATCH_MS) => setTimeout(() => { console.log('✗ đồng hồ canh: đóng trang kẹt'); page.close().catch(() => {}); }, ms);
-const took = where => console.log(`· ${where} ${Math.round((Date.now() - T0) / 1000)}s`);
 let srv = null, O = arg('base', '');
 if (!O) { srv = await serve(ROOT, 0); O = srv.origin; }
 O = O.replace(/\/$/, '');
@@ -50,9 +45,7 @@ const diag = page => page.evaluate(() => JSON.stringify(window.ExitGuard && Exit
 const confirmLeave = async page => page.evaluate(() => { const b = document.querySelector('#modal:not([hidden]) [data-exit-go]') || [...document.querySelectorAll('#modal:not([hidden]) a.btn, #modal:not([hidden]) button.btn')].find(x => !x.classList.contains('primary')); if (b) b.click(); return !!b; });
 
 // ---------- 1) phân loại route ----------
-const samples = [];
-const page0 = RUN_CORE ? await (await ctxOf('light')).newPage() : null;
-if (RUN_CORE) {
+const page0 = await (await ctxOf('light')).newPage();
 await boot(page0, '/home');
 const appSrc = fs.existsSync(path.join(ROOT, 'js/app.js')) ? fs.readFileSync(path.join(ROOT, 'js/app.js'), 'utf8') : '';
 const bundleKeys = ((/const ROUTE_BUNDLE = \{([^}]*)\}/.exec(appSrc) || [])[1] || '').match(/['"]?([a-z][a-z0-9-]*)['"]?\s*:/g)?.map(s => s.replace(/['":\s]/g, '')) || [];
@@ -60,7 +53,7 @@ const cls = await page0.evaluate(extra => { const E = window.ExitGuard, all = [.
 for (const r of cls.all) if (!cls.ALWAYS.includes(r) && !cls.WITH_ARG.includes(r) && !cls.NOT_LEARN.includes(r)) fail('route ' + r, 'chưa phân loại trong web/js/exit-guard.js (ALWAYS / WITH_ARG / NOT_LEARN)');
 
 // ---------- 2) tìm bài mẫu cho từng màn học ----------
-samples.push(...cls.ALWAYS.map(r => [r, '/' + r]));
+const samples = cls.ALWAYS.map(r => [r, '/' + r]);
 for (const r of cls.WITH_ARG) {
   if (FIXED[r]) { samples.push([r, FIXED[r]]); continue; }
   let h = null;
@@ -72,7 +65,6 @@ for (const r of cls.WITH_ARG) {
   if (h) samples.push([r, h]); else fail('route ' + r, 'không tìm được bài mẫu (link #/' + r + '/…) từ trang trung tâm – thêm vào FIXED/HUBS trong exit-sweep.mjs');
 }
 await page0.context().close();
-}
 
 // ---------- 3) kiểm từng màn ----------
 // Giải mã PNG (8 bit, không xen kẽ – ảnh chụp Chromium) → so từng điểm ảnh: số điểm khác + chênh lệch kênh lớn nhất
@@ -86,10 +78,10 @@ const png = buf => {
 const pxDiff = (A, B) => { const a = png(A), b = png(B); if (a.w !== b.w || a.h !== b.h) return { n: -1, max: 255 }; let n = 0, max = 0; for (let k = 0; k < a.px.length; k += a.bpp) { let d = 0; for (let c = 0; c < Math.min(3, a.bpp); c++) d = Math.max(d, Math.abs(a.px[k + c] - b.px[k + c])); if (d) { n++; max = Math.max(max, d); } } return { n, max }; };
 const lum = c => { const m = c.match(/[\d.]+/g); if (!m) return 1; const [r, g, b] = m.slice(0, 3).map(v => { v = +v / 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
 const ctxBefore = await ctxOf(THEMES[0], false);
-for (const theme of RUN_CORE ? THEMES : []) {
+for (const theme of THEMES) {
   const ctx = await ctxOf(theme);
   for (const [r, hash] of samples) {
-    const where = `${r} ${theme} (${hash})`, page = await ctx.newPage(), wd = watch(page);
+    const where = `${r} ${theme} (${hash})`, page = await ctx.newPage();
     page.on('dialog', d => d.accept()); await autoLXD(page);
     try {
       await boot(page, '/home'); await goLearn(page, hash);
@@ -135,18 +127,18 @@ for (const theme of RUN_CORE ? THEMES : []) {
       }
       rows.push(`| ${r} | ${theme} | \`${hash}\` | ${Math.round(btn.w)}×${Math.round(btn.h)} | ${ratio.toFixed(1)} |`);
     } catch (e) { fail(where, 'lỗi: ' + String(e.message || e).split('\n')[0].slice(0, 160)); }
-    finally { clearTimeout(wd); took(where); await page.close().catch(() => {}); }
+    finally { await page.close(); }
   }
   await ctx.close();
 }
 // ---------- 4) 768 / 1440 (chuột, pointer: fine – nút .icon-btn 36 px): hộp thật ≥ 44×44 + nới không đổi pixel nào ----------
 const notes = [];
-for (const W of RUN_CORE ? [768, 1440] : []) {
+for (const W of [768, 1440]) {
   const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: W, height: 900 }, colorScheme: THEMES[0], locale: 'en-US', serviceWorkers: 'block' });
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th })); localStorage.setItem('lk.exitbar', '1'); } catch { /* */ } }, THEMES[0]);
   for (const [r, hash] of samples) {
-    const where = `${r} @${W} (${hash})`, page = await ctx.newPage(), wd = watch(page);
+    const where = `${r} @${W} (${hash})`, page = await ctx.newPage();
     page.on('dialog', d => d.accept()); await autoLXD(page);
     try {
       await boot(page, '/home'); await goLearn(page, hash); await page.mouse.move(W - 2, 898);
@@ -173,7 +165,7 @@ for (const W of RUN_CORE ? [768, 1440] : []) {
       }
       rows.push(`| ${r} | ${W} px | \`${hash}\` | ${Math.round(b.w)}×${Math.round(b.h)} | diff ${px} |`);
     } catch (e) { fail(where, 'lỗi: ' + String(e.message || e).split('\n')[0].slice(0, 160)); }
-    finally { clearTimeout(wd); took(where); await page.close().catch(() => {}); }
+    finally { await page.close(); }
   }
   await ctx.close();
 }
@@ -184,12 +176,12 @@ const TLX = {
   es: { hub: '#/practice/esd', steps: [['luyện', '#/practice/es?lv=A1&p=ser-identity'], ['phát âm', '#/practice/esp?tp=vow&m=pp'], ['đề thi', '#/practice/esx?lv=A1&e=1&p=rd'], ['cuộc gọi', '#/call/es-pasatiempos']] },
   fr: { hub: '#/practice/frd', steps: [['luyện', '#/practice/fr?lv=A1&p=etre-present'], ['phát âm', '#/practice/frp?tp=nasal&m=pp'], ['đề thi', '#/practice/frx?lv=A1&e=1&p=rd'], ['cuộc gọi', '#/call/fr-loisirs']] },
 };
-for (const [tl, T] of RUN_TL ? Object.entries(TLX) : []) for (const [vw, W, H] of [['mobile', 390, 844], ['desktop', 1280, 800]]) {
+for (const [tl, T] of Object.entries(TLX)) for (const [vw, W, H] of [['mobile', 390, 844], ['desktop', 1280, 800]]) {
   const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: W, height: H }, locale: 'en-US', serviceWorkers: 'block', ...(vw === 'mobile' ? { hasTouch: true, isMobile: true } : {}) });
   await noProd(ctx);
   await ctx.addInitScript(x => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true })); localStorage.setItem('lk.exitbar', '1'); localStorage.setItem('lk.tl', x.tl); localStorage.setItem('lk.' + x.tl, '1'); } catch { /* */ } }, { tl });
   const settle = async page => { let a = '', stable = 0; for (let k = 0; k < 8 && stable < 2; k++) { await sleep(500); const h = await page.evaluate(() => location.hash); stable = h === a ? stable + 1 : 0; a = h; } return a; };
-  const page = await ctx.newPage(), wd = watch(page, 8 * WATCH_MS); page.on('dialog', d => d.accept()); await autoLXD(page);
+  const page = await ctx.newPage(); page.on('dialog', d => d.accept()); await autoLXD(page);
   try {
     const where = `${tl}/${vw}`;
     await boot(page, T.hub.slice(1)); await settle(page);
@@ -207,7 +199,7 @@ for (const [tl, T] of RUN_TL ? Object.entries(TLX) : []) for (const [vw, W, H] o
       else rows.push(`| tl ${tl} ${label}${early ? ' sớm' : ''} | ${vw} | \`${hash}\` | X → ${h1} | ok |`);
     }
   } catch (e) { fail(`${tl}/${vw}`, 'lỗi: ' + String(e.message || e).split('\n')[0].slice(0, 160)); }
-  finally { clearTimeout(wd); took(`${tl}/${vw}`); await page.close().catch(() => {}); await ctx.close(); }
+  finally { await page.close(); await ctx.close(); }
 }
 for (const n of notes) console.log('·', n);
 await ctxBefore.close(); await browser.close(); if (srv) srv.close();
