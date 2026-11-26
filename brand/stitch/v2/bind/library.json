@@ -201,7 +201,9 @@
       }
      },
      "addClass": {
-      ":scope > div:nth-child(3) > a": "min-h-11"
+      ":scope > div:nth-child(3) > a": "min-h-11",
+      ":scope > div:nth-child(1) > div": "min-w-0",
+      ":scope > div:nth-child(1) > div > div:nth-child(2)": "min-w-0"
      },
      "repeat": [
       {
@@ -330,7 +332,9 @@
       }
      },
      "addClass": {
-      ":scope > div:nth-child(3) > a": "min-h-11"
+      ":scope > div:nth-child(3) > a": "min-h-11",
+      ":scope > div:nth-child(1) > div": "min-w-0",
+      ":scope > div:nth-child(1) > div > div:nth-child(2)": "min-w-0"
      },
      "repeat": [
       {
