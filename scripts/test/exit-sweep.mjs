@@ -169,6 +169,38 @@ for (const W of [768, 1440]) {
   }
   await ctx.close();
 }
+// ---------- 4) khóa ngôn ngữ đích es/fr (owner 26/11: "bấm X không thoát được, màn xoay vòng") ----------
+// Mỗi loại bước (luyện, phát âm, đề thi, cuộc gọi) × es/fr × điện thoại 390/máy tính 1280: lộ trình ngày KHÔNG có nút X (trang trung tâm); vào bài → bấm X NGAY khi nút hiện
+// (kể cả bài còn đang tải) → về lộ trình ngày tl, màn có nội dung, URL đứng yên (không vòng #/home ⇄ lộ trình ngày).
+const TLX = {
+  es: { hub: '#/practice/esd', steps: [['luyện', '#/practice/es?lv=A1&p=ser-identity'], ['phát âm', '#/practice/esp?tp=vow&m=pp'], ['đề thi', '#/practice/esx?lv=A1&e=1&p=rd'], ['cuộc gọi', '#/call/es-pasatiempos']] },
+  fr: { hub: '#/practice/frd', steps: [['luyện', '#/practice/fr?lv=A1&p=etre-present'], ['phát âm', '#/practice/frp?tp=nasal&m=pp'], ['đề thi', '#/practice/frx?lv=A1&e=1&p=rd'], ['cuộc gọi', '#/call/fr-loisirs']] },
+};
+for (const [tl, T] of Object.entries(TLX)) for (const [vw, W, H] of [['mobile', 390, 844], ['desktop', 1280, 800]]) {
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: W, height: H }, locale: 'en-US', serviceWorkers: 'block', ...(vw === 'mobile' ? { hasTouch: true, isMobile: true } : {}) });
+  await noProd(ctx);
+  await ctx.addInitScript(x => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true })); localStorage.setItem('lk.exitbar', '1'); localStorage.setItem('lk.tl', x.tl); localStorage.setItem('lk.' + x.tl, '1'); } catch { /* */ } }, { tl });
+  const settle = async page => { let a = '', stable = 0; for (let k = 0; k < 8 && stable < 2; k++) { await sleep(500); const h = await page.evaluate(() => location.hash); stable = h === a ? stable + 1 : 0; a = h; } return a; };
+  const page = await ctx.newPage(); page.on('dialog', d => d.accept()); await autoLXD(page);
+  try {
+    const where = `${tl}/${vw}`;
+    await boot(page, T.hub.slice(1)); await settle(page);
+    const hub = await page.evaluate(() => ({ h: location.hash, x: !!document.querySelector('#view [data-exit]'), learn: document.body.classList.contains('lk-learn'), n: document.getElementById('view').children.length }));
+    if (!hub.h.startsWith(T.hub) || hub.x || hub.learn || !hub.n) fail(where + ' hub', `lộ trình ngày phải là trang trung tâm (không nút X/khung học): ${JSON.stringify(hub)}`);
+    for (const [label, hash] of T.steps) for (const early of [false, true]) {
+      const w2 = `${where} ${label}${early ? ' (bấm X khi đang tải)' : ''}`;
+      await page.evaluate(h => { location.hash = h; }, hash);
+      try { await page.waitForFunction(() => document.body.classList.contains('lk-learn') && document.querySelector('#view [data-exit]'), null, { timeout: 20000 }); } catch { fail(w2, 'không có nút X của màn học sau 20 s'); continue; }
+      if (!early) await sleep(1500);
+      await page.evaluate(() => document.querySelector('#view [data-exit]').click());
+      await sleep(400); if (await confirmLeave(page)) await sleep(300);
+      const h1 = await settle(page), s = await state(page), n = await page.evaluate(() => document.getElementById('view').children.length);
+      if (!h1.startsWith(T.hub) || s.learn || !n || s.modal) fail(w2, `bấm X không về lộ trình ngày ${T.hub}: hash=${h1} learn=${s.learn} modal=${s.modal} nội dung=${n} ${await diag(page)}`);
+      else rows.push(`| tl ${tl} ${label}${early ? ' sớm' : ''} | ${vw} | \`${hash}\` | X → ${h1} | ok |`);
+    }
+  } catch (e) { fail(`${tl}/${vw}`, 'lỗi: ' + String(e.message || e).split('\n')[0].slice(0, 160)); }
+  finally { await page.close(); await ctx.close(); }
+}
 for (const n of notes) console.log('·', n);
 await ctxBefore.close(); await browser.close(); if (srv) srv.close();
 const md = `# exit-sweep\n\n${samples.length} màn học × ${THEMES.join('/')} · ${fails.length} lỗi\n\n| route | theme | hash | chạm | tương phản |\n|---|---|---|---|---|\n${rows.join('\n')}\n\n${fails.length ? '## Lỗi\n' + fails.map(f => '- ' + f).join('\n') : '✓ mọi màn học có lối thoát hoạt động'}\n`;
