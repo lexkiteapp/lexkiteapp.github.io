@@ -43,7 +43,12 @@
   "o1": "Brand new to it",
   "o2": "I know the basics",
   "o3": "I can hold a conversation",
-  "stt": "Level test"
+  "stt": "Level test",
+  "stp": "Best score: {n}%",
+  "stk": "Passed ✓",
+  "rvn": "{n} words due for review",
+  "rv0": "Nothing to review today",
+  "rvg": "Review now"
  },
  "vi": {
   "ti": "Lộ trình ngày: tiếng Tây Ban Nha",
@@ -89,7 +94,12 @@
   "o1": "Hoàn toàn mới bắt đầu",
   "o2": "Mình biết những điều cơ bản",
   "o3": "Mình có thể trò chuyện được",
-  "stt": "Kiểm tra cấp độ"
+  "stt": "Kiểm tra cấp độ",
+  "stp": "Điểm cao nhất: {n}%",
+  "stk": "Đã đạt ✓",
+  "rvn": "{n} từ cần ôn",
+  "rv0": "Hôm nay không có từ cần ôn",
+  "rvg": "Ôn ngay"
  },
  "es": {
   "ti": "Ruta diaria: español",
@@ -135,7 +145,12 @@
   "o1": "Empiezo desde cero",
   "o2": "Sé lo básico",
   "o3": "Puedo mantener una conversación",
-  "stt": "Prueba de nivel"
+  "stt": "Prueba de nivel",
+  "stp": "Mejor puntuación: {n}%",
+  "stk": "Aprobado ✓",
+  "rvn": "{n} palabras por repasar",
+  "rv0": "Nada que repasar hoy",
+  "rvg": "Repasar ahora"
  },
  "pt": {
   "ti": "Trilha diária: espanhol",
@@ -181,7 +196,12 @@
   "o1": "Começando do zero",
   "o2": "Sei o básico",
   "o3": "Consigo manter uma conversa",
-  "stt": "Teste de nível"
+  "stt": "Teste de nível",
+  "stp": "Melhor pontuação: {n}%",
+  "stk": "Aprovado ✓",
+  "rvn": "{n} palavras para revisar",
+  "rv0": "Nada para revisar hoje",
+  "rvg": "Revisar agora"
  },
  "fr": {
   "ti": "Parcours quotidien : espagnol",
@@ -227,7 +247,12 @@
   "o1": "Je débute complètement",
   "o2": "Je connais les bases",
   "o3": "Je peux tenir une conversation",
-  "stt": "Test de niveau"
+  "stt": "Test de niveau",
+  "stp": "Meilleur score : {n} %",
+  "stk": "Réussi ✓",
+  "rvn": "{n} mots à réviser",
+  "rv0": "Rien à réviser aujourd’hui",
+  "rvg": "Réviser maintenant"
  },
  "de": {
   "ti": "Tagespfad: Spanisch",
@@ -273,7 +298,12 @@
   "o1": "Ganz neu für mich",
   "o2": "Ich kenne die Grundlagen",
   "o3": "Ich kann ein Gespräch führen",
-  "stt": "Stufentest"
+  "stt": "Stufentest",
+  "stp": "Beste Punktzahl: {n} %",
+  "stk": "Bestanden ✓",
+  "rvn": "{n} Wörter zu wiederholen",
+  "rv0": "Heute nichts zu wiederholen",
+  "rvg": "Jetzt wiederholen"
  },
  "id": {
   "ti": "Jalur harian: bahasa Spanyol",
@@ -319,7 +349,12 @@
   "o1": "Benar-benar baru",
   "o2": "Aku tahu dasar-dasarnya",
   "o3": "Aku bisa mengobrol",
-  "stt": "Tes tingkat"
+  "stt": "Tes tingkat",
+  "stp": "Skor terbaik: {n}%",
+  "stk": "Lulus ✓",
+  "rvn": "{n} kata perlu diulang",
+  "rv0": "Tidak ada yang perlu diulang hari ini",
+  "rvg": "Ulangi sekarang"
  },
  "th": {
   "ti": "เส้นทางรายวัน: ภาษาสเปน",
@@ -365,7 +400,12 @@
   "o1": "เพิ่งเริ่มต้น",
   "o2": "รู้พื้นฐาน",
   "o3": "คุยสนทนาได้",
-  "stt": "แบบทดสอบระดับ"
+  "stt": "แบบทดสอบระดับ",
+  "stp": "คะแนนสูงสุด: {n}%",
+  "stk": "ผ่านแล้ว ✓",
+  "rvn": "{n} คำที่ต้องทบทวน",
+  "rv0": "วันนี้ไม่มีคำให้ทบทวน",
+  "rvg": "ทบทวนเลย"
  },
  "zh": {
   "ti": "每日路径：西班牙语",
@@ -411,7 +451,12 @@
   "o1": "完全零基础",
   "o2": "我懂一些基础",
   "o3": "我可以进行对话",
-  "stt": "水平测试"
+  "stt": "水平测试",
+  "stp": "最高分：{n}%",
+  "stk": "已通过 ✓",
+  "rvn": "{n} 个词待复习",
+  "rv0": "今天没有要复习的词",
+  "rvg": "立即复习"
  },
  "ja": {
   "ti": "毎日の学習パス：スペイン語",
@@ -457,7 +502,12 @@
   "o1": "まったくの初心者",
   "o2": "基本はわかる",
   "o3": "会話ができる",
-  "stt": "レベルテスト"
+  "stt": "レベルテスト",
+  "stp": "最高スコア：{n}%",
+  "stk": "合格 ✓",
+  "rvn": "復習する単語：{n}語",
+  "rv0": "今日は復習する単語はありません",
+  "rvg": "今すぐ復習"
  },
  "ko": {
   "ti": "일일 학습 경로: 스페인어",
@@ -503,7 +553,12 @@
   "o1": "완전 처음이에요",
   "o2": "기초는 알아요",
   "o3": "대화할 수 있어요",
-  "stt": "레벨 테스트"
+  "stt": "레벨 테스트",
+  "stp": "최고 점수: {n}%",
+  "stk": "통과 ✓",
+  "rvn": "복습할 단어 {n}개",
+  "rv0": "오늘 복습할 단어가 없어요",
+  "rvg": "지금 복습"
  },
  "hi": {
   "ti": "दैनिक पथ: स्पेनिश",
@@ -549,7 +604,12 @@
   "o1": "बिल्कुल नया हूँ",
   "o2": "मुझे बुनियादी बातें आती हैं",
   "o3": "मैं बातचीत कर सकता हूँ",
-  "stt": "स्तर परीक्षा"
+  "stt": "स्तर परीक्षा",
+  "stp": "सर्वश्रेष्ठ स्कोर: {n}%",
+  "stk": "उत्तीर्ण ✓",
+  "rvn": "{n} शब्द दोहराने हैं",
+  "rv0": "आज दोहराने के लिए कुछ नहीं",
+  "rvg": "अभी दोहराएँ"
  },
  "ar": {
   "ti": "المسار اليومي: الإسبانية",
@@ -595,7 +655,12 @@
   "o1": "مبتدئ تمامًا",
   "o2": "أعرف الأساسيات",
   "o3": "أستطيع إجراء محادثة",
-  "stt": "اختبار المستوى"
+  "stt": "اختبار المستوى",
+  "stp": "أفضل نتيجة: {n}%",
+  "stk": "ناجح ✓",
+  "rvn": "{n} كلمات للمراجعة",
+  "rv0": "لا شيء للمراجعة اليوم",
+  "rvg": "راجع الآن"
  },
  "ru": {
   "ti": "Ежедневный путь: испанский",
@@ -641,7 +706,12 @@
   "o1": "Совсем новичок",
   "o2": "Знаю основы",
   "o3": "Могу поддержать разговор",
-  "stt": "Тест уровня"
+  "stt": "Тест уровня",
+  "stp": "Лучший результат: {n}%",
+  "stk": "Сдано ✓",
+  "rvn": "Слов для повторения: {n}",
+  "rv0": "Сегодня повторять нечего",
+  "rvg": "Повторить сейчас"
  },
  "tr": {
   "ti": "Günlük yol: İspanyolca",
@@ -687,6 +757,11 @@
   "o1": "Hiç bilmiyorum",
   "o2": "Temelleri biliyorum",
   "o3": "Sohbet edebiliyorum",
-  "stt": "Seviye testi"
+  "stt": "Seviye testi",
+  "stp": "En iyi puan: %{n}",
+  "stk": "Geçti ✓",
+  "rvn": "{n} kelime tekrar bekliyor",
+  "rv0": "Bugün tekrar edilecek bir şey yok",
+  "rvg": "Şimdi tekrar et"
  }
 }
