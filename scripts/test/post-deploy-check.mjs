@@ -52,6 +52,9 @@ async function visit(browser, vp, pg, url) {
     const resp = await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 }).catch(async e => { add('nav', e.message); return null; });
     if (resp && resp.status() >= 400) add('http' + resp.status(), 'tài liệu ' + url);
     await page.waitForTimeout(pg.app ? 1500 : 500);
+    // Trang app: ~100 script defer nạp xong 3–7 s sau lần mở (web/app/index.html, data-lkph); màn không có khung tĩnh (#/skills) trống tới lúc đó.
+    // Chờ #view có chữ tối đa 15 s (đo thời điểm vẽ); trống quá 15 s vẫn báo 'empty' như cũ – không hạ ngưỡng, chỉ hết đo sớm lúc app còn đang nạp.
+    if (pg.app) { const t1 = Date.now(); await page.waitForFunction(() => { const v = document.querySelector('#view'); return v && (v.innerText || '').trim().length >= 20; }, null, { timeout: 15000 }).catch(() => {}); const w = Date.now() - t1; if (w > 1000) console.log(`  (${pg.n} ${vp.id}: #view vẽ sau +${(w / 1000).toFixed(1)} s)`); }
     // cuộn hết trang để ảnh lazy tải rồi mới soi ảnh vỡ
     await page.evaluate(async () => { const h = document.scrollingElement.scrollHeight; for (let y = 0; y < Math.min(h, 12000); y += 600) { scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); } scrollTo(0, 0); }).catch(() => {});
     await page.waitForTimeout(800);
