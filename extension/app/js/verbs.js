@@ -63,7 +63,7 @@
 .vb-mis{display:grid;gap:.5rem}.vb-mis>div{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--again);border-radius:0 14px 14px 0;padding:.6rem .9rem}
 .vb-mis .bad{color:var(--again-text);font-weight:800}.vb-mis .good{color:var(--good-text);font-weight:800}
 .vb-chips{display:flex;flex-wrap:wrap;gap:.4rem}.vb-chips a{font-size:.9rem;padding:.3rem .8rem;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-weight:600;transition:border-color .15s,transform .15s}
-.vb-chips a:hover{border-color:var(--primary);transform:translateY(-1px)}
+.vb-chips a:hover{background:var(--surface-3);transform:translateY(-1px)}
 .vb-modal{display:grid;gap:.5rem;margin-top:.8rem}.vb-modal>div{display:flex;gap:.8rem;justify-content:space-between;padding:.6rem .8rem;background:var(--surface-2);border-radius:12px;flex-wrap:wrap}
 @media (max-width:720px){.vb-forms{grid-template-columns:repeat(2,minmax(0,1fr))}.vb-forms .vb-form:first-child{grid-column:1/-1}.vb-grid2{grid-template-columns:1fr}
 .vb-pol{display:inline-flex}.vb-ts[data-pol=aff] .c-neg,.vb-ts[data-pol=aff] .c-q,.vb-ts[data-pol=neg] .c-aff,.vb-ts[data-pol=neg] .c-q,.vb-ts[data-pol=q] .c-aff,.vb-ts[data-pol=q] .c-neg{display:none}}`;

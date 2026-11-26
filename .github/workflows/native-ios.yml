@@ -1,3 +1,4 @@
+# ci-policy: npm-gate – job nặng trên PR chờ npm test xanh cùng sha (job `gate`, 24/11)
 # App iOS NATIVE (SwiftUI, native/ios) – build + test trên máy macOS của GitHub (repo công khai, miễn phí). Không build trên Mac của chủ.
 # Kiểm: vector chuẩn chấm điểm/FSRS khớp web, đủ 15 ngôn ngữ, khung 5 tab, snapshot 390 pt sáng/tối × en/vi/ar/de, build app (XcodeGen, không ký).
 # Spec: docs/specs/native-apps.md. Bản Capacitor đang live vẫn ở mobile/ (ios.yml, ios-testflight.yml) cho tới khi native đạt parity.
@@ -20,7 +21,30 @@ concurrency:
   group: native-ios-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: ${{ github.event_name != 'push' }}
 jobs:
+  # npm-gate (24/11, điều phối): làn nhanh trước làn nặng cho app native – PR chỉ mở máy khi `npm test` cùng sha đã XANH (đỏ thì job nặng skipped, không đốt máy macOS/Android);
+  # gate chờ (≤ 25 phút, 30 s/lần) vì workflow này không có heavy-rerun; push main/dispatch: go ngay. Lỗi API/hết giờ → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            for i in $(seq 1 50); do
+              c=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[].conclusion // "pending"] | if index("success") then "success" elif (map(select(. == "failure" or . == "cancelled" or . == "timed_out")) | length) > 0 then "red" else "pending" end' 2>/dev/null) || break
+              [ "$c" = success ] && break
+              [ "$c" = red ] && { go=false; break; }
+              sleep 30
+            done
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test cùng sha → go=$go"
   ios:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: macos-15
     timeout-minutes: 60   # lần resolve Firebase đầu; có cache SPM
     steps:
@@ -98,6 +122,8 @@ jobs:
           retention-days: 14
   # Ma trận thiết bị (spec §7): parity + bố cục trên từng cỡ màn, song song. Đích lấy từ xcodebuild (không dùng simctl – runtime cũ → exit 70).
   devices:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: macos-15
     timeout-minutes: 40
     strategy:

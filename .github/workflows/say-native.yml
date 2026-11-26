@@ -74,7 +74,7 @@ jobs:
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
-          AI_POOL_GC_MAX: '2000'
+          AI_POOL_GC_MAX: '200'
         run: |
           mkdir -p out/say-native
           node scripts/say-native/translate.mjs $LX_IN1 $LX_IN2 --lines "${LX_LINES:-40}" --max-min "$LX_MAX" 2>&1 | tee out/say-native/translate.log; rc=${PIPESTATUS[0]}

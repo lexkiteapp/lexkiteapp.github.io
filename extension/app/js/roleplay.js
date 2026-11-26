@@ -35,7 +35,7 @@
     const st = document.createElement('style'); st.id = 'rpCss';
     st.textContent = `.rp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.8rem}
 .rp-card{display:flex;gap:.7rem;align-items:flex-start;padding:1rem;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);text-decoration:none;min-height:44px}
-.rp-card:hover{border-color:var(--primary)}.rp-card .em{font-size:1.7rem;line-height:1}.rp-card b{display:block}
+.rp-card:hover{background:var(--surface-3)}.rp-card .em{font-size:1.7rem;line-height:1}.rp-card b{display:block}
 .rp-seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}.rp-seg button{min-height:44px;min-width:56px;border:0;background:transparent;color:var(--text);font:inherit;font-weight:700;cursor:pointer}
 .rp-seg button[aria-pressed=true]{background:var(--primary);color:var(--primary-ink)}
 .rp-chat{display:flex;flex-direction:column;gap:.6rem;max-height:56vh;overflow-y:auto;padding:.4rem .1rem}

@@ -178,6 +178,14 @@
       ]
     },
     {
+      "id": "P14",
+      "m": 6,
+      "title": "Interpreter: two people face to face (top half turned 180°), per-side mic, on-device speech → translate → speak, travel phrasebook, local history, save to word list / slow replay / say-back score / new-words recap",
+      "routes": [
+        "#/interpret"
+      ]
+    },
+    {
       "id": "C01",
       "m": 1,
       "title": "Auth: Firebase Google + Apple sign-in, same project, guest mode, delete account",

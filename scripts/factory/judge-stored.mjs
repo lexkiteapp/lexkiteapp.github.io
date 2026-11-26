@@ -24,7 +24,7 @@ export async function judgeStored(store, AI, log = console.log) {
 }
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const store = rj('content/framework/functions.json', { functions: [] });
-  const AI = createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: JUDGE_SYS(K.rubric), user: JSON.stringify(req.items), temp: 0.1 }) });
+  const AI = createPool({ budget: { lexai: 0, cf2: +(process.env.AI_POOL_CF2_NEURONS || 0) }  /* cf2 = kho CF_POOL: 0 neuron trừ khi workflow cấp (26/11: Gemini 429 hàng loạt + GrabCast db_budget_guard → giám khảo B cần tuyến thứ ba) */, prompt: req => ({ sys: JUDGE_SYS(K.rubric), user: JSON.stringify(req.items), temp: 0.1 }) });
   const r = await judgeStored(store, AI);
   wj(`${OUTDIR}/functions.json`, store); wj(`${OUTDIR}/judged.json`, r);
   if (r.todo && !r.ok && !r.low.length) { console.error('✗ có mục cần chấm mà 0 kết quả (hạ tầng AI?)'); process.exit(1); }

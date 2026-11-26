@@ -13,6 +13,6 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: "scripts/ci", sparse-checkout-cone-mode: false }
+        with: { sparse-checkout: "scripts/ci\nscripts/lib/retry5xx.mjs", sparse-checkout-cone-mode: false }
       - run: node scripts/ci/guards.mjs web-daily
         env: { GITHUB_TOKEN: '${{ github.token }}' }

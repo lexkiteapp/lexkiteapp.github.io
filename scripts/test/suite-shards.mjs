@@ -14,6 +14,7 @@ ok(N.length >= 2 && N.every((v, i) => v === i + 1), 'npm-test.yml matrix.shard p
 ok(wf.includes(`--shard=\${{ matrix.shard }}/${N.length}`) && wf.includes(`shard \${{ matrix.shard }}/${N.length}`), 'npm-test.yml: số "/N" khác độ dài matrix');
 ok(/^  test:\n    name: npm test$/m.test(wf) && /needs: \[fast, shard\]/.test(wf) && /if: \$\{\{ !cancelled\(\) \}\}/.test(wf), 'job tổng "npm test" phải needs fast+shard, if !cancelled() (tên check giữ nguyên)');
 ok(!/^    name: npm test$/m.test(wf.replace(/^  test:\n    name: npm test$/m, '')), 'chỉ job tổng được tên đúng "npm test"');
+ok(/^  shard:\n(?:.*\n)*?    needs: fast$/m.test(wf), 'shard phải needs: fast (làn nhanh đỏ thì không đốt 8 runner shard)');
 ok(/fail-fast: false/.test(wf), 'matrix shard phải fail-fast: false (một lượt thấy mọi lỗi)');
 ok(all.filter(c => FAST_RE.test(c)).length >= 5, 'làn nhanh còn < 5 lệnh');
 const L = lanes(all, N.length, W), tot = L.shards.map(s => s.t), max = Math.max(...tot), avg = tot.reduce((a, b) => a + b, 0) / tot.length;
