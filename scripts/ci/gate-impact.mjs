@@ -45,13 +45,44 @@ export function render(results = [], { self, cmds = [], skipped = 0 } = {}) {
 
 const sh = (c, a, o = {}) => execFileSync(c, a, { encoding: 'utf8', maxBuffer: 1 << 26, stdio: ['ignore', 'pipe', 'pipe'], ...o });
 const arg = (a, k, d = '') => { const i = a.indexOf(k); return i >= 0 ? a[i + 1] : d; };
-const gh = async (p, o = {}) => { const r = await fetch(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}${p}`, { method: o.method || 'GET', headers: { Authorization: `Bearer ${process.env.GH_TOKEN}`, Accept: 'application/vnd.github+json' }, body: o.body && JSON.stringify(o.body) }); if (!r.ok) throw new Error(`GitHub ${r.status} ${p}`); return r.json(); };
+/** GET/POST có chờ hạn mức (script chạy BẢN CHÉP LẺ từ main nên không import lib – giữ tự chứa). 403 do giới hạn tốc độ (retry-after / x-ratelimit-remaining=0 / chữ "rate limit") và 429, 5xx → thử lại ≤ tries, chờ ≤ 60 s; 403 thiếu quyền/4xx khác ném ngay. Lỗi mang .status. */
+export async function ghReq(url, init, { fetcher = fetch, sleep = ms => new Promise(r => setTimeout(r, ms)), tries = 3 } = {}) {
+  for (let i = 0; ; i++) {
+    const r = await fetcher(url, init); if (r.ok) return r.json();
+    const text = r.status === 403 ? await r.clone().text().catch(() => '') : '', ra = +r.headers.get('retry-after') || 0, rem = r.headers.get('x-ratelimit-remaining');
+    const rl = r.status === 429 || (r.status === 403 && (ra || rem === '0' || /rate limit|abuse/i.test(text))), wait = ra ? Math.min(60, ra) : rl ? 20 * (i + 1) : r.status >= 500 ? 5 * (i + 1) : 0;
+    if (!wait || i + 1 >= tries) { const e = new Error(`GitHub ${r.status} ${url.replace(/^https:\/\/api\.github\.com\/repos\/[^/]+\/[^/]+/, '')}`); e.status = r.status; e.retryAfter = ra; throw e; }
+    await sleep(wait * 1000);
+  }
+}
+const gh = (p, o = {}) => ghReq(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}${p}`, { method: o.method || 'GET', headers: { Authorization: `Bearer ${process.env.GH_TOKEN}`, Accept: 'application/vnd.github+json' }, body: o.body && JSON.stringify(o.body) });
+/** Đăng/cập nhật comment báo cáo. Lỗi tạm hoặc 403 (rate limit/quyền của token) KHÔNG làm đỏ job (26/11: report đỏ trên #1938 vì 403 khi POST /comments, không phải lỗi mã): thử lại 3 lần
+ *  (429/403/5xx, chờ retry-after ≤ 60 s), vẫn lỗi → trả { posted:false, error } để gọi ::warning::. Báo cáo luôn đã ghi ở job summary; luật impact (PR nào sẽ đỏ) không phụ thuộc comment. */
+export async function postReport(api, self, md, { sleep = ms => new Promise(r => setTimeout(r, ms)), tries = 3 } = {}) {
+  let last = '';
+  for (let i = 0; i < tries; i++) {
+    try {
+      const cs = await api(`/issues/${self}/comments?per_page=100`), mine = cs.find(c => (c.body || '').includes(MARK));
+      if (mine) await api(`/issues/comments/${mine.id}`, { method: 'PATCH', body: { body: md } }); else await api(`/issues/${self}/comments`, { method: 'POST', body: { body: md } });
+      return { posted: true };
+    } catch (e) {
+      last = String(e.message || e); const st = e.status || 0;
+      if (st && st !== 403 && st !== 429 && st < 500) break; // 4xx khác (404/422…): thử lại vô ích
+      if (i + 1 < tries) await sleep(Math.min(60, e.retryAfter || 15 * (i + 1)) * 1000);
+    }
+  }
+  return { posted: false, error: last };
+}
 async function main() {
   const a = process.argv.slice(2), mode = a[0], out = process.env.GITHUB_OUTPUT;
   if (mode === 'select') {
     const self = +arg(a, '--self'), changed = sh('git', ['diff', '--name-only', arg(a, '--base'), arg(a, '--head')]).split('\n').filter(Boolean);
     const plan = impactCmds(changed, fs.readFileSync('scripts/test/suite.txt', 'utf8'), f => fs.readFileSync(f, 'utf8'));
-    const pulls = []; for (let p = 1; p <= 3; p++) { const x = await gh(`/pulls?state=open&per_page=100&page=${p}`); pulls.push(...x); if (x.length < 100) break; }
+    const pulls = [];
+    try { for (let p = 1; p <= 3; p++) { const x = await gh(`/pulls?state=open&per_page=100&page=${p}`); pulls.push(...x); if (x.length < 100) break; } }
+    catch (e) { // 26/11: 403 giới hạn tốc độ làm đỏ cứng 3 PR dù không phải lỗi PR → "không xác định": bỏ qua lượt đo tác động (chỉ là cảnh báo, không phải luật chặn), job xanh
+      if (e.status === 403 || e.status === 429 || e.status >= 500) { console.log(`::warning::gate-impact: không đọc được danh sách PR (${e.message}) – bỏ qua đo tác động lượt này (không xác định, không đỏ)`); if (out) fs.appendFileSync(out, 'run=false\nmatrix={"include":[]}\nskipped=0\ncount=0\n'); return; }
+      throw e; }
     const sel = selectPrs(pulls, self, process.env.GITHUB_REPOSITORY), run = plan.cmds.length && sel.prs.length;
     console.log(`cổng đổi: ${plan.gates.length} tệp · ${plan.cmds.length} lệnh · ${sel.prs.length} PR (bỏ ${sel.skipped} vượt trần, ${sel.forks} fork)`);
     fs.writeFileSync('gate-impact-files.txt', plan.gates.join('\n')); fs.writeFileSync('gate-impact-cmds.txt', plan.cmds.join('\n'));
@@ -83,8 +114,7 @@ async function main() {
     const rep = render(results.sort((x, y) => x.pr - y.pr), { self, cmds, skipped: +arg(a, '--skipped', 0) });
     console.log(rep.md); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, rep.md + '\n');
     for (const r of rep.red) console.log(`::warning::PR #${r.pr} sẽ đỏ: ${r.bad.map(b => b.cmd).join(', ')}`);
-    const cs = await gh(`/issues/${self}/comments?per_page=100`), mine = cs.find(c => (c.body || '').includes(MARK));
-    if (mine) await gh(`/issues/comments/${mine.id}`, { method: 'PATCH', body: { body: rep.md } }); else await gh(`/issues/${self}/comments`, { method: 'POST', body: { body: rep.md } });
+    const pr = await postReport(gh, self, rep.md); if (!pr.posted) console.log(`::warning::gate-impact: không đăng được comment (${pr.error}) – báo cáo vẫn ở job summary`);
   }
 }
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) main().catch(e => { console.error('::error::gate-impact: ' + e.message); process.exit(1); });

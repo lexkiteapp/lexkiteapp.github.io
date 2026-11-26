@@ -2,6 +2,7 @@
 //   node scripts/social/build-page-info.mjs            # sinh lại file (nhẹ, chạy được trên máy)
 //   node scripts/social/build-page-info.mjs --check    # chạy trong npm test: file đã commit khớp nguồn + cổng nội dung (bio ≤ 100, UTM, link cài từ một nguồn, không lẫn tiếng)
 // Chữ: scripts/social/channel-copy.mjs (INFO). Link cài: web/js/ext-config.js (nguồn DUY NHẤT: add-on + Google Play + App Store). Không đăng nhập/đăng gì lên Facebook – chủ tự tải lên.
+import { urlOf } from '../lib/channel-kit-media.mjs';   // ảnh kit ở kho media ngoài → <img> trỏ URL CDN (download.html mở được từ bất kỳ đâu)
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -80,7 +81,7 @@ export function downloadHtml(L = installLinks()) {
   const cards = LANGS.map(lang => {
     const i = INFO[lang], k = linksOf(lang, L), f = files(lang), dir = RTL.includes(lang) ? 'rtl' : 'ltr';
     return `<section id="${lang}"><h2>${esc(NAMES[lang])} <small>${lang}</small></h2>
-  <img class="cover" src="${f.cover}" alt="Bìa ${lang}" width="820" height="312" loading="lazy">
+  <img class="cover" src="${urlOf(f.cover)}" alt="Bìa ${lang}" width="820" height="312" loading="lazy">
   <p class="dl"><a href="${f.cover}" download>Bìa 1640×624</a>${f.cover2x ? ` <a href="${f.cover2x}" download>Bìa @2x</a>` : ''} <a href="${f.avatar}" download>Ảnh đại diện 1080</a> <a href="${f.banner}" download>Banner YouTube</a></p>
   ${row('Tên page', i.name, dir)}${row(`Bio (${cp(i.bio)}/${BIO_MAX})`, i.bio, dir)}${row('Giới thiệu', i.about, dir)}${row('Nút CTA', i.cta, dir)}
   ${row('Website / link CTA', k.web, 'ltr')}${row('Add-on', k.addon, 'ltr')}${row('Google Play', k.play, 'ltr')}${k.ios ? row('App Store', k.ios, 'ltr') : ''}</section>`;
@@ -101,7 +102,7 @@ button{font:inherit;padding:6px 12px;border-radius:8px;border:1px solid var(--ac
 @media (max-width:600px){.row{grid-template-columns:1fr}}
 </style></head><body>
 <header><h1>Lexkite – bộ page Facebook theo ngôn ngữ</h1>
-<p>Tải ảnh, chép văn bản rồi dán vào page. Ảnh đại diện = logo nguyên bản (không đổi). Mở file này từ thư mục <code>brand/social/channel-kit/</code> (ảnh nằm cạnh). Chủ tự tải lên Facebook.</p>
+<p>Tải ảnh, chép văn bản rồi dán vào page. Ảnh đại diện = logo nguyên bản (không đổi). Mở file này từ thư mục <code>brand/social/channel-kit/</code> (ảnh ở kho media ngoài, trang tải trực tiếp từ CDN). Chủ tự tải lên Facebook.</p>
 <nav>${LANGS.map(l => `<a href="#${l}">${esc(NAMES[l])}</a>`).join('')}</nav></header>
 <main>
 ${cards}

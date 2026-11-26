@@ -285,6 +285,7 @@ App.frGx = { en: 'cpack/fr/gx-en.js', vi: 'cpack/fr/gx-vi.js', es: 'cpack/fr/gx-
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
 App.frX = { lv: { A1: 'cpack/fr/x-A1.js', A2: 'cpack/fr/x-A2.js', B1: 'cpack/fr/x-B1.js', B2: 'cpack/fr/x-B2.js', C1: 'cpack/fr/x-C1.js', C2: 'cpack/fr/x-C2.js' }, ui: { en: 'cpack/fr/x-ui-en.js', vi: 'cpack/fr/x-ui-vi.js', es: 'cpack/fr/x-ui-es.js', pt: 'cpack/fr/x-ui-pt.js', fr: 'cpack/fr/x-ui-fr.js', de: 'cpack/fr/x-ui-de.js', id: 'cpack/fr/x-ui-id.js', th: 'cpack/fr/x-ui-th.js', zh: 'cpack/fr/x-ui-zh.js', ja: 'cpack/fr/x-ui-ja.js', ko: 'cpack/fr/x-ui-ko.js', hi: 'cpack/fr/x-ui-hi.js', ar: 'cpack/fr/x-ui-ar.js', ru: 'cpack/fr/x-ui-ru.js', tr: 'cpack/fr/x-ui-tr.js' } }; // luyện định dạng DELF/DALF W5 (cpack/es-app/exam-ui.js TX.fr): đề theo cấp (nguồn Tatoeba dựng trên CI, exam-es-build tl=fr) + nhãn theo ngôn ngữ người học, tải lười
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
+  const ROUTE_UX1 = { topic: 'utopic', deck: 'udeck', mistakes: 'umist', stats: 'ustat' };
 App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-es.js', pt: 'cpack/fr/px-pt.js', fr: 'cpack/fr/px-fr.js', de: 'cpack/fr/px-de.js', id: 'cpack/fr/px-id.js', th: 'cpack/fr/px-th.js', zh: 'cpack/fr/px-zh.js', ja: 'cpack/fr/px-ja.js', ko: 'cpack/fr/px-ko.js', hi: 'cpack/fr/px-hi.js', ar: 'cpack/fr/px-ar.js', ru: 'cpack/fr/px-ru.js', tr: 'cpack/fr/px-tr.js' }; // gói phát âm tiếng Pháp W3 theo ngôn ngữ người học (cpack/es-app/pron-ui.js, bảng TLX): nhãn giao diện + giải thích 8 chủ đề
   // Màn Stitch (gói u1*) theo trang: ST2.<màn> được dò ở đúng trang đó; trang không có trong bảng (lesson, study, league, goal…) nạp đủ UX1_ALL như trước
   const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [], placement: [] }; // path = bản đồ NGÀY (path-day.js, không dùng khung ST2.path của trang chủ)
@@ -536,7 +537,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   const V2_ROUTES = new Set(['train', 'skills', 'me', 'say', 'goal']);
   // #/speak khi cờ tắt chuyển sang #/skills (màn v2 tràn khung): giữ v2pre ngay từ lúc chạm, không thì thanh trên hiện rồi ẩn (CLS 0,158 bản ar, quality-sweep #53). Cùng luật App.speakOn (speak/app.js) – chưa nạp gói nên không gọi được
   const speakFlag = () => { try { const f = localStorage.getItem('lk.speak'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.speak_pack; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
-  const HB_ROUTES = new Set(['vocab', 'library', 'tests']); // trang gắn thanh hub Stitch (ST2.hubbar/hubPage) lúc dựng xong: thanh trên cũ phải ẩn NGAY lúc chạm (class hbpre), không thì #view nhảy lên 56 px khi trang dựng (CLS 0,066 #/vocab #/tests #/library)
+  const HB_ROUTES = new Set(['vocab', 'library', 'tests', 'topic', 'deck', 'mistakes', 'stats']); // trang gắn thanh hub Stitch (ST2.hubbar/hubPage) lúc dựng xong: thanh trên cũ phải ẩn NGAY lúc chạm (class hbpre), không thì #view nhảy lên 56 px khi trang dựng (CLS 0,066 #/vocab #/tests #/library)
   // 🧈 Cuộn: docs/PERF-SCROLL.md
   const Scroll = (() => {
     const de = document.documentElement, pos = new Map(); let off = 0, seq = 0, cur = '', inputAt = 0, movedAt = 0;
@@ -588,13 +589,13 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     if (name !== 'welcome') document.body.classList.remove('bare'); // thanh trên hiện ngay lúc chạm (CLS #/home)
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
-    if (b.some(x => !App.loaded(x)) && !document.getElementById('lkHero') && !document.getElementById('lkPath')) skel = setTimeout(() => { // khung chào #lkHero đang hiện (LCP): không thay bằng khung chờ
+    if (b.some(x => !App.loaded(x)) && !document.getElementById('lkHero') && !document.getElementById('lkPath') && !document.getElementById('lkDict')) skel = setTimeout(() => { // khung chào #lkHero đang hiện (LCP): không thay bằng khung chờ
       const skelReview = `<div class="study-wrap skel-study" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="study-top"><div class="skel" style="width:32px;height:32px;border-radius:50%"></div><div class="skel" style="flex:1;height:12px;border-radius:6px"></div><div class="skel" style="width:70px;height:14px;border-radius:4px"></div></div><div class="skel-card-body"><div class="skel" style="width:45%;height:2.4rem;border-radius:10px"></div><div class="skel" style="width:30%;height:1.2rem;border-radius:6px"></div><div class="skel" style="width:75%;height:1.2rem;border-radius:6px;margin-top:.4rem"></div><div class="skel" style="width:85%;height:1rem;border-radius:6px"></div><div class="row center" style="gap:.8rem;width:100%;max-width:320px;margin-top:1.2rem"><div class="skel" style="height:44px;flex:1;border-radius:999px"></div><div class="skel" style="height:44px;flex:1;border-radius:999px"></div></div></div></div>`;
       const skelHome = `<div class="skel-page skel-home" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="today-head"><div class="skel" style="width:52px;height:52px;border-radius:50%;flex:none"></div><div class="grow" style="display:grid;gap:.5rem"><div class="skel skel-h" style="width:40%;height:1rem"></div><div class="skel skel-l" style="width:75%;height:1.3rem"></div></div><div class="skel" style="width:88px;height:34px;border-radius:999px;flex:none"></div></div><div class="skel" style="height:110px;border-radius:18px"></div><div class="skel" style="height:150px;border-radius:18px"></div><div class="skel" style="height:130px;border-radius:18px"></div></div>`;
       const skelDefault = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`;
       view.innerHTML = name === 'review' ? skelReview : name === 'home' || !name ? skelHome : skelDefault;
     }, 150);
-    if (b.length) { try { await App.need(...b); } catch (e) { if (my === routeSeq) errState(); throw e; } finally { clearTimeout(skel); } if (my !== routeSeq) return; }
+    if (b.length) { try { await App.need(...b); if (ux1 && ROUTE_UX1[name]) await App.need(ROUTE_UX1[name]); } catch (e) { if (my === routeSeq) errState(); throw e; } finally { clearTimeout(skel); } if (my !== routeSeq) return; }
     if (ux1 && window.Ux1) Ux1.init();
     if (!routes[name] && ROUTE_ALIAS[name]) { location.replace(location.pathname + location.search + '#/' + [ROUTE_ALIAS[name], arg && encodeURIComponent(arg)].filter(Boolean).join('/') + (query.toString() ? '?' + query : '')); return; } // gõ nhầm quen thuộc (#/wellcom…) → trang đúng
     const fn = routes[name] || (name ? notFound : routes.home);
@@ -689,12 +690,13 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
       <div class="row center" style="flex-wrap:wrap">${[['home', 'house', t('Hôm nay')], ['vocab', 'library', t('Từ vựng')], ['skills', 'target', t('Kỹ năng')], ['tests', 'flag', t('Thi thử')], ['me', 'user', t('Tôi')]].map(([r, ic, l]) => `<a class="btn sm" href="#/${r}">${UI.icon(ic)} ${l}</a>`).join('')}</div></div>`;
   }
   // Tải trước gói của trang khi người dùng sắp bấm (rê chuột/chạm vào liên kết) → mở trang gần như tức thì
-  const prefetchFor = a => { const h = a && a.getAttribute && a.getAttribute('href'); if (!h || !h.startsWith('#/')) return; const n = h.slice(2).split(/[/?]/)[0]; const b = [].concat(ROUTE_BUNDLE[n] || []); if (b.some(x => !App.loaded(x))) App.need(...b).catch(() => {}); };
+  const prefetchFor = a => { const h = a && a.getAttribute && a.getAttribute('href'); if (!h || !h.startsWith('#/')) return; const n = h.slice(2).split(/[/?]/)[0]; const b = [].concat(ROUTE_BUNDLE[n] || []); if (b.some(x => !App.loaded(x))) App.need(...b).then(() => App.ux1On() && ROUTE_UX1[n] && App.need(ROUTE_UX1[n])).catch(() => {}); };
   ['pointerdown', 'mouseover', 'focusin'].forEach(ev => document.addEventListener(ev, e => prefetchFor(e.target.closest && e.target.closest('a[href^="#/"]')), { passive: true }));
   // Ghi chú học từ soạn sẵn (AI tầng T0 – không cần mạng/khóa): mẹo nhớ, lỗi người Việt hay mắc, cách dùng khi thi, họ từ.
   // Chia theo chữ cái đầu (js/notes/a.json…) → chỉ tải phần cần; chỗ hiển thị là ô trống được điền khi dữ liệu về.
   const notesCache = {};
   const notesFile = w => { const c = /^[a-z]/.test(w) ? w[0] : '_'; return notesCache[c] || (notesCache[c] = fetch(`js/notes/${c}.json`).then(r => r.ok ? r.json() : {}).catch(() => { delete notesCache[c]; return {}; })); };
+  App.shareDeck = shareDeck; App.editCard = editCard;
   // 🧩 Bài học trộn (cờ lesson_mix: config công khai true/false; thử: localStorage lk.lesson=1; demo #/lesson?demo=1 luôn mở – docs/LESSON-ENGINE.md)
   // 🧭 UX1 "Một app duy nhất" (cờ ux1, mặc định TẮT – docs/LEARNING-PATH.md): 5 tab, trang chủ = bản đồ, Luyện gom mọi tính năng. Thử: localStorage lk.ux1=1 · xem trước 1 phiên: #/home?ux1=1
   // Bật dần (như ret, docs/LEARNING-PATH.md §Phát hành): ux1 "0" tắt / "1" bật hết / nhóm lk.ub < ux1_pct; chốt 1 lần/lượt tải
@@ -1108,9 +1110,9 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
       ${levels.length > 1 ? `<div class="tabs" id="lvTabs" role="group" aria-label="${t('Cấp độ CEFR')}" style="margin-bottom:1rem;display:inline-flex"><button class="${lv ? '' : 'on'}" data-lv="">${t('Tất cả')}</button>${levels.map(l => `<button class="${l === lv ? 'on' : ''}" data-lv="${l}">${l} <span class="muted tiny">${tp.words.filter(w => w.level === l).length}</span></button>`).join('')}</div>` : ''}
       <div class="card" id="wordList"></div>`;
     const header = () => {
-      const m = missing().length;
-      $('#tCount').textContent = t('{n} đã thêm', { n: tp.words.length - m });
-      const b = $('#addAll');
+      const m = missing().length, tc = $('#tCount'), b = $('#addAll');
+      if (!tc || !b) return; // đã rời trang (thêm hàng loạt chạy nền xong sau khi người dùng/E2E sang trang khác) → không còn khung để vẽ; 26/11 #1625: "Cannot set properties of null (setting 'textContent')"
+      tc.textContent = t('{n} đã thêm', { n: tp.words.length - m });
       b.textContent = m ? `+ ${t('Thêm {n} từ vào flashcard', { n: m })}` : `✓ ${t('Đã thêm toàn bộ')}`;
       b.disabled = !m;
     };
@@ -1133,11 +1135,11 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     $$('#lvTabs button').forEach(b => b.onclick = () => { $$('#lvTabs button').forEach(x => x.classList.toggle('on', x === b)); lv = b.dataset.lv; draw(); });
     $('#tpAnki').onclick = () => App.anki('export', { cards: tp.words.map(w => state.cards[w.word.toLowerCase()] || w), name: tp.name, progress: false });
     $('#addAll').onclick = async () => {
-      const list = missing();
-      $('#addAll').disabled = true;
+      const list = missing(), ab = $('#addAll');
+      if (ab) ab.disabled = true;
       for (const w of list) await addWord(w, null, { silent: true });
       Sfx.win(); toast(t('Đã thêm {n} từ – vào Ôn tập hoặc Học thông minh để bắt đầu!', { n: list.length }));
-      header(); draw();
+      if ($('#wordList')) { header(); draw(); } // rời trang giữa chừng → bỏ qua vẽ lại (header/draw cùng cần khung của trang này)
     };
   };
 

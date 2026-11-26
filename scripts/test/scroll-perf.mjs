@@ -127,7 +127,7 @@ async function measure(ctx, sc, cold) {
   const res = { id: sc.id };
   const vp = sc.small && DEVICE === 'phone' ? { width: 360, height: 640 } : DEV.ctx.viewport; if (vp !== DEV.ctx.viewport) await page.setViewportSize(vp);
   await page.goto(`${O}/app/?demo=1&hl=en${sc.hash}`, { waitUntil: 'load', timeout: 90000 });
-  await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0 && !document.querySelector('#view .skel-page, #view .skel-study, #view [aria-busy="true"], #lkPath'), null, { timeout: 45000 }).catch(() => { res.noRender = 1; }); // #lkPath = khung #/path tĩnh của lần vẽ đầu (LCP, build-path-skel.mjs): đo SAU khi trang thật thay khung, không đo cú nhảy khung→trang
+  await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0 && !document.querySelector('#view .skel-page, #view .skel-study, #view [aria-busy="true"], #lkPath, #lkDict'), null, { timeout: 45000 }).catch(() => { res.noRender = 1; }); // #lkPath = khung #/path tĩnh của lần vẽ đầu (LCP, build-path-skel.mjs): đo SAU khi trang thật thay khung, không đo cú nhảy khung→trang
   if (sc.enter) { await page.locator(sc.enter).first().click({ timeout: 15000 }).catch(() => { res.noEnter = 1; }); await sleep(1500); if (cdp) await page.evaluate(() => { window.__sp.shifts.length = 0; }); } // CLS của màn trong phiên: tính từ sau khi bấm vào
   await sleep(1200); // người học bắt đầu cuộn ngay sau khi trang hiện, không đợi mọi thứ tải xong – cố ý để phần tải lười rơi vào lúc cuộn
   res.hash = await page.evaluate(() => location.hash); res.text = await page.evaluate(() => (document.getElementById('view') || {}).innerText?.trim().length || 0);

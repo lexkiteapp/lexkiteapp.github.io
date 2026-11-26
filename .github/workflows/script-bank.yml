@@ -36,7 +36,7 @@ jobs:
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
-          AI_POOL_GC_MAX: '8000'
+          AI_POOL_GC_MAX: '300'
         if: ${{ steps.lease.outputs.skip != '1' }}
         run: node scripts/scriptbank/job.mjs --max "$LX_IN1" --calls "$LX_IN2" --neurons "${{ steps.lease.outputs.ai_b_neurons || 0 }}" --cap "$LX_IN3"
       - name: Lưu kết quả

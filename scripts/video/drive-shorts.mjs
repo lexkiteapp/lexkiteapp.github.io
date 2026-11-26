@@ -39,7 +39,7 @@ let up = 0, skip = 0, fail = 0, n = 0;
 for (const it of idx.items) {
   if ((it.qa || {}).status !== 'pass') continue;
   if (n >= LIMIT) break;
-  const parts = [['video', it.video], ['cover', it.cover], ['wide', it.wide]].filter(([, rel]) => rel);
+  const parts = [['video', it.video], ['cover', it.cover], ['wide', it.wide], ...(it.format === 'carousel' ? (it.cards || []).map((rel, i) => ['card' + (i + 1), rel]) : [])].filter(([, rel]) => rel); // carousel (Slang Card): card1… = JPEG của bài nhiều ảnh
   const todo = parts.filter(([k, rel]) => { const f = path.join(REPO, rel), c = (it.drive || {})[k]; return fs.existsSync(f) && !(c && c.sha256 === sha(f) && c.fileId); });
   if (!todo.length) { skip++; continue; }
   n++;

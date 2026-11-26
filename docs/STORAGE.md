@@ -45,6 +45,7 @@ Tệp đã đặt không bao giờ dời; Worker dò mọi kho nên URL không �
 - Clone cục bộ/agent: `git clone --filter=blob:none` (hoặc `--depth 1` cho bản deploy) – không cần ~1 GB lịch sử.
 
 ## 4. Cổng chặn tăng (size-guard)
+**Cảnh báo sớm (26/11):** PR in "cây sau merge" + mức tăng; cây ≥ 585 MB → cảnh báo vàng, PR làm cây tăng > 1 MB bị đỏ kèm hướng dẫn kho ngoài; main ≥ 585 MB tự mở issue `tree-size` (đóng khi < 585). Test `size-guard-warn.mjs`.
 `scripts/test/size-guard.mjs` + `.github/workflows/size-guard.yml` (mọi push main + PR): đỏ khi cây HEAD > 600 MB hoặc một commit thêm/sửa > 20 MB tệp nhị phân
 (không phải văn bản). Ngoại lệ có chủ đích: dòng `Size-Guard: allow` trong thông điệp commit (ghi lý do). Chạy tay: `node scripts/test/size-guard.mjs --range origin/main..HEAD`.
 

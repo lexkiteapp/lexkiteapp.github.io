@@ -105,7 +105,7 @@ const RM = () => (document.getAnimations ? document.getAnimations() : []).filter
   return a.playState === 'running' && el && el.closest && el.closest('#view') && (t.iterations === Infinity || (+t.duration || 0) > 200); }).map(a => (a.animationName || a.transitionProperty || 'anim') + '@' + ((a.effect.target.className || a.effect.target.tagName) + '').slice(0, 30));
 const LAYOUT = () => { const W = innerWidth, over = [], clip = [];
   for (const e of document.querySelectorAll('#view *')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
-    if ((r.right > W + 1 || r.left < -1) && !e.closest('[class*="overflow-hidden"],[class*="overflow-x"]')) over.push(String(e.className).slice(0, 30));
+    if ((r.right > W + 1 || r.left < -1) && !e.closest('[class*="overflow-hidden"],[class*="overflow-x"]')) over.push(String(e.className).slice(0, 30) || `${e.tagName.toLowerCase()}<${String(e.parentElement && e.parentElement.className).slice(0, 24)}@${Math.round(r.left)}..${Math.round(r.right)}`);
     if (!e.children.length && e.textContent.trim() && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 20)); }
   const own = [...document.querySelectorAll('#view [lang]')].filter(x => x.lang !== document.documentElement.lang).reduce((a, x) => a.split(x.textContent.trim()).join(' '), document.getElementById('view').innerText), // tên ngôn ngữ tự xưng (lang="pt" Português) không phải chuỗi lọt – cùng luật PHSCAN ở stitch-diff
     vi = (own.match(/[^\s]*[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ][^\s]*/gi) || []);

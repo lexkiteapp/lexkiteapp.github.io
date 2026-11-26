@@ -6,11 +6,13 @@
 // Ngoại lệ có chủ đích: dòng "Size-Guard: allow" trong thông điệp commit (ghi lý do). Ngưỡng: --tree-mb, --commit-mb.
 //   4) --base REF (PR): chỉ tính commit RIÊNG của PR (REF..HEAD, loại mọi commit đã nằm trên REF = main mới nhất; merge main vào PR không kéo commit nặng của main vào) VÀ
 //      TỔNG nhị phân thêm/sửa của cả PR (đầu PR so với điểm rẽ nhánh) ≤ ngưỡng commit – watcher squash cả PR nên nhiều commit nhỏ cộng lại vẫn bị bắt (ca #897)
-//   node scripts/test/size-guard.mjs [--range A..B | --base REF] [--tree-mb 600] [--commit-mb 20]
+//   5) CẢNH BÁO SỚM (26/11: main đỏ vì cây vượt 600 MB mà không báo trước): in "cây sau merge" + cảnh báo vàng khi > --warn-mb (585 MB); trên PR (--base) tính thêm mức TĂNG ròng của cây so với REF –
+//      PR làm cây tăng > --grow-mb (1 MB) khi cây sau merge đã ≥ --warn-mb thì ĐỎ kèm hướng dẫn đẩy media sang kho ngoài (ngoại lệ "Size-Guard: allow"). Trần 600 MB giữ nguyên. Ghi tree_mb vào $GITHUB_OUTPUT (workflow mở issue khi main ≥ ngưỡng).
+//   node scripts/test/size-guard.mjs [--range A..B | --base REF] [--tree-mb 600] [--commit-mb 20] [--warn-mb 585] [--grow-mb 1]
 // Chạy được trên clone blobless (actions/checkout filter: blob:none) – chỉ tải blob của tệp nhị phân mới để đo cỡ.
 import { execFileSync } from 'node:child_process';
 const A = process.argv.slice(2), opt = (k, d) => { const i = A.indexOf('--' + k); return i >= 0 ? A[i + 1] : d; };
-const TREE = +opt('tree-mb', 600) * 1e6, COMMIT = +opt('commit-mb', 20) * 1e6, BASE = opt('base', ''), RANGE = BASE ? BASE + '..HEAD' : opt('range', '');
+const TREE = +opt('tree-mb', 600) * 1e6, WARN = +opt('warn-mb', 585) * 1e6, GROW = +opt('grow-mb', 1) * 1e6, COMMIT = +opt('commit-mb', 20) * 1e6, BASE = opt('base', ''), RANGE = BASE ? BASE + '..HEAD' : opt('range', '');
 const git = (args, input) => execFileSync('git', args, { maxBuffer: 1 << 29, input }).toString();
 const TEXT = /\.(m?js|cjs|ts|tsx|jsx|json|jsonl|md|txt|html?|css|ya?ml|sh|py|svg|xml|toml|csv|tsv|vtt|srt|ass|lock|map|webmanifest|ini|cfg|sql|kt|java|swift|gradle|plist|properties|xcconfig|pbxproj|storyboard|strings|xcstrings|entitlements|rb|go|rs|c|h|m|mm|po|env|example|gitignore|gitattributes|editorconfig|npmrc|nvmrc|conf|tpl|mustache|njk|liquid|ics|rss|atom)$/i;
 const isBin = p => !TEXT.test(p) && /\.[a-z0-9]+$/i.test(p.split('/').pop());
@@ -19,6 +21,8 @@ let fail = 0, tree = 0, files = 0;
 try { git(['diff-tree', '-r', '--numstat', '4b825dc642cb6eb9a060e54bf8d69288fbee4904', 'HEAD']); } catch { /* clone đầy đủ: không cần */ }
 for (const ln of git(['ls-tree', '-r', '-l', 'HEAD']).split('\n')) { const m = ln.match(/^\d+ blob \w+\s+(\d+)\t/); if (m) { tree += +m[1]; files++; } }
 console.log(`size-guard: cây HEAD ${(tree / 1e6).toFixed(1)} MB / ${files} tệp (trần ${TREE / 1e6} MB)`);
+const out = process.env.GITHUB_OUTPUT; if (out) { try { (await import('node:fs')).appendFileSync(out, `tree_mb=${(tree / 1e6).toFixed(1)}\n`); } catch { /* ngoài Actions */ } }
+if (tree <= TREE && tree > WARN) console.log(`::warning title=cây repo gần trần::cây ${(tree / 1e6).toFixed(1)} MB > ${WARN / 1e6} MB (trần ${TREE / 1e6} MB) – còn ${((TREE - tree) / 1e6).toFixed(1)} MB; đẩy media sang kho ngoài (infra/media-repos.json, scripts/media/push.mjs, docs/STORAGE.md)`);
 if (tree > TREE) { console.error(`✗ size-guard: cây đầu nhánh ${(tree / 1e6).toFixed(1)} MB > ${TREE / 1e6} MB – chuyển media sang kho ngoài (infra/media-repos.json, scripts/media/push.mjs)`); fail = 1; }
 // 3) Lõi tải ngay: đọc cỡ blob ở HEAD (chạy được trên clone thưa/blobless – chỉ tải đúng blob này)
 const CORE = { 'web/js/report-pill.js': 3072, 'extension/app/js/report-pill.js': 3072 };
@@ -50,6 +54,22 @@ if (RANGE) {
     const allowed = commits.some(c => /^Size-Guard:\s*allow/mi.test(git(['log', '-1', '--format=%B', c])));
     console.log(`size-guard: tổng cả PR thêm ${(sum / 1e6).toFixed(1)} MB nhị phân (${ents.length} tệp)`);
     if (sum > COMMIT) { if (allowed) console.log('⚠ size-guard: tổng cả PR vượt ngưỡng – được phép (Size-Guard: allow trong một commit của PR)'); else { console.error(`✗ size-guard: cả PR thêm ${(sum / 1e6).toFixed(1)} MB nhị phân (> ${COMMIT / 1e6} MB, tính cộng dồn vì squash): chuyển media sang kho ngoài`); fail = 1; } }
+  }
+}
+// 5) PR: mức tăng ròng của cây so với BASE (HEAD = commit gộp của GitHub → "cây sau merge"). Chỉ đo tệp đổi (diff-tree BASE..HEAD), không đọc lại cả cây BASE.
+if (BASE) {
+  const raw = git(['diff-tree', '-r', '--no-commit-id', '--raw', '--no-renames', '-z', BASE, 'HEAD']).split('\0'), ents = [];
+  for (let i = 0; i + 1 < raw.length; i += 2) { const m = raw[i].match(/^:\d+ (\d+) (\w+) (\w+) ([AMDT])/); if (m) ents.push({ path: raw[i + 1], oldSha: m[2], newSha: m[3] }); }
+  const paths = ents.map(e => e.path);
+  for (let i = 0; i < paths.length; i += 400) { try { git(['diff-tree', '-r', '--no-commit-id', '--numstat', BASE, 'HEAD', '--', ...paths.slice(i, i + 400)]); } catch { /* prefetch blobless; đo tiếp bằng cat-file */ } }
+  const ids = ents.flatMap(e => [e.oldSha, e.newSha]).filter(x => !/^0+$/.test(x)), sz = new Map();
+  if (ids.length) git(['cat-file', '--batch-check=%(objectname) %(objectsize)'], ids.join('\n') + '\n').split('\n').filter(Boolean).forEach(l => { const [h, n] = l.split(' '); sz.set(h, +n || 0); });
+  const delta = ents.reduce((a, e) => a + (/^0+$/.test(e.newSha) ? 0 : sz.get(e.newSha) || 0) - (/^0+$/.test(e.oldSha) ? 0 : sz.get(e.oldSha) || 0), 0);
+  console.log(`size-guard: cây sau merge ${(tree / 1e6).toFixed(1)} MB (${delta >= 0 ? '+' : ''}${(delta / 1e6).toFixed(2)} MB so với ${BASE}) · cảnh báo từ ${WARN / 1e6} MB, trần ${TREE / 1e6} MB`);
+  if (tree >= WARN && delta > GROW) {
+    const allowed = git(['log', '--format=%B', `${BASE}..HEAD`]).match(/^Size-Guard:\s*allow/mi);
+    if (allowed) console.log('⚠ size-guard: cây tăng khi đã gần trần – được phép (Size-Guard: allow)');
+    else { console.error(`✗ size-guard: PR làm cây tăng ${(delta / 1e6).toFixed(1)} MB (> ${GROW / 1e6} MB) khi cây sau merge đã ${(tree / 1e6).toFixed(1)} MB ≥ ${WARN / 1e6} MB (trần ${TREE / 1e6} MB). Đẩy media nặng sang kho ngoài thay vì commit vào repo chính: scripts/media/push.mjs + infra/media-repos.json (docs/STORAGE.md), hoặc nén không mất dữ liệu (scripts/media/png-lossless.py), hoặc xoá bản sinh thừa.`); fail = 1; }
   }
 }
 process.exit(fail);

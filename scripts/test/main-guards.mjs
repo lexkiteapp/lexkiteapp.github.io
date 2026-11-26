@@ -34,6 +34,8 @@ ok(recheckVerdict(st('pending'), 1) === 'wait' && recheckVerdict(st('failure'), 
 ok(statusOf([{ id: 'size-budget', ok: false }, { id: 'fmt', ok: true }], 'abcdef0123').state === 'failure' && /size-budget/.test(statusOf([{ id: 'size-budget', ok: false }], 'abcdef0123').description) && statusOf([{ id: 'fmt', ok: true }], 'abcdef0123').state === 'success' && CONTEXT === 'merge-recheck', 'status ghép kết quả');
 { const g = fs.readFileSync('scripts/ci/required-gate.mjs', 'utf8'), w = fs.readFileSync('.github/workflows/merge-recheck.yml', 'utf8');
   ok(/recheck: async sha/.test(g) && /withRecheck/.test(g) && /RECHECK_CONTEXT\) continue/.test(g), 'required-gate gọi merge-recheck và không đếm status của nó như check PR');
+  ok(/grep -qE '\^\(scripts\/ci\/cheap/.test(w) && /CH=scripts\/ci\/cheap\.mjs/.test(w), 'merge-recheck: PR sửa chính cổng đo → đo bằng mã của PR (bước không token)');
+  ok(/steps\.post\.outcome == 'failure'/.test(w) && /context=merge-recheck/.test(w), 'merge-recheck: mã đo hỏng → status dự phòng, không treo pending');
   { const rel = [...fs.readFileSync('scripts/ci/cheap.mjs', 'utf8').matchAll(/^import .*from '\.\.\/(lib\/[\w.-]+)'/gm)].map(m => m[1]); // cheap.mjs chạy từ bản main chép ra RUNNER_TEMP: import tương đối phải chép kèm đúng cây thư mục (26/11 ERR_MODULE_NOT_FOUND is-main.mjs)
     for (const r of rel) ok(w.includes(`show "$MAIN:scripts/${r}" > "$RUNNER_TEMP/gate/scripts/${r}"`), 'merge-recheck chép kèm phụ thuộc của cheap.mjs', r);
     ok(/RUNNER_TEMP\/gate\/scripts\/ci\/cheap\.mjs/.test(w) && !/RUNNER_TEMP\/cheap\.mjs/.test(w), 'merge-recheck chạy cheap.mjs trong cây gate/scripts/ci'); }
