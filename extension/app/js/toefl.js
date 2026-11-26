@@ -59,6 +59,7 @@
             <li>${t('Điểm mỗi kỹ năng và điểm tổng theo <b>thang band 1–6</b> (bước 0,5); điểm tổng là trung bình 4 kỹ năng, làm tròn tới 0,5 gần nhất.')}</li>
             <li>${t('Trong 2 năm đầu (tới tháng 1/2028), phiếu điểm ghi thêm điểm tương đương <b>thang 0–120</b>.')}</li>
           </ul>
+          <a class="btn primary lg block" style="margin-top:1rem" href="#/toefl-p/${SECTIONS[0].tasks[0]}">🎯 ${t('Luyện tập')}</a><!-- CTA chính duy nhất ở màn đầu -->
         </div>
         <div class="card">
           <h3 style="margin-top:0">🗂️ ${t('Cấu trúc đề')}</h3>

@@ -16,7 +16,7 @@
     s.textContent = `.fx{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:1rem;align-items:start}
 .fx-c-spelling{--c:var(--again)}.fx-c-grammar{--c:#d97706}.fx-c-punct{--c:var(--easy)}.fx-c-style{--c:var(--accent)}
 .fx-ed{position:relative;border:1px solid var(--line);border-radius:16px;background:var(--surface);transition:border-color .15s,box-shadow .15s}
-.fx-ed:focus-within{border-color:var(--primary);box-shadow:0 0 0 4px var(--primary-soft)}
+.fx-ed:focus-within{outline:3px solid var(--accent);outline-offset:2px}
 .fx-hl,.fx-ta{margin:0;padding:1rem 1.1rem;font:16px/1.75 var(--font);letter-spacing:normal;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal;tab-size:4}
 .fx-hl{position:absolute;inset:0;color:transparent;pointer-events:none;overflow:hidden;border:1px solid transparent}
 .fx-ta{position:relative;display:block;width:100%;min-height:240px;resize:none;border:1px solid transparent;background:transparent;color:var(--text);outline:none;overflow:hidden;caret-color:var(--primary)}
