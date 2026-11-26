@@ -169,6 +169,8 @@ export async function kaikki(lang, w) {
 
 // espeak-ng in cờ đổi ngôn ngữ ((en)ʃəʊ(fr)) khi từ điển của nó coi từ là từ ngoại → IPA đó sai cho người học tl. wiktIpa: IPA đầu tiên hợp lệ của các mục Wiktionary
 // (bỏ / [ ] dấu nhấn ‿ ngắt âm tiết như quy ước espeak không nhấn; bỏ biến thể có âm tuỳ chọn trong ngoặc) – '' khi không có
+// nghĩa vi để nguyên tiếng Anh (gen.mjs cổng: lô fr 3 có 20 mục "region/Thursday…" lọt 2 giám khảo + dịch ngược) – có dấu tiếng Việt thì không tính
+export const viUntranslated = gl => { const n = x => String(x || '').trim().toLowerCase().replace(/^to /, ''); return !!(gl && gl.vi && n(gl.vi) === n(gl.en) && !/[\u00c0-\u1ef9]/.test(gl.vi)); };
 export const LANG_SWITCH = /\([a-z]{2,3}(-[a-z]+)?\)/;
 export const wiktIpa = es => es.flatMap(e => (e.sounds || []).map(x => x.ipa)).filter(x => x && !/[()]/.test(x)).map(x => x.replace(/[/[\]ˈˌ‿.]/g, '').trim()).find(x => x && IPA_OK.test(x.normalize('NFD'))) || '';
 
