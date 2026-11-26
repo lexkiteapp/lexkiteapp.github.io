@@ -92,5 +92,8 @@ D.en = Object.assign(D.en || {}, {
 "Tăng điểm": "Score booster",
 "Nói hay hơn": "Better phrase",
 "Đối thoại": "Dialogue",
+"{a}/{b} cặp": "{a}/{b} pairs",
+"Đã ghép": "Matched",
+"Chưa phải": "Not this one",
 });
 })(typeof self !== 'undefined' ? self : this);
