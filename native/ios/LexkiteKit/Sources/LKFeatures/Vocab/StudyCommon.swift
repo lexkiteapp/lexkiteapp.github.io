@@ -228,14 +228,14 @@ struct StudyPage<Content: View>: View {
 final class StudyCore {
     let data: VocabDataSource
     let now: @Sendable () -> Int64
-    let clock: VocabClock
+    var clock: VocabClock
     let voice: LKVoicePlayer
     var onChange: () -> Void = {}
     init(data: VocabDataSource, voice: LKVoicePlayer = LKVoicePlayer(), calendar: Calendar = .current, now: @escaping @Sendable () -> Int64 = { Int64(Date().timeIntervalSince1970 * 1000) }) {
         self.data = data; self.voice = voice; self.clock = VocabClock(calendar: calendar); self.now = now
     }
     func commit(_ e: VocabEdit) async { await data.commit(e, now: now()); onChange() }
-    func accent(_ settings: JSON) -> String { settings.s("accent") == "uk" ? "en-GB" : "en-US" }
+    func accent(_ settings: JSON) -> String { LearnSettings.from(settings).accent }
     func speak(_ text: String, settings: JSON, slow: Bool = false) { voice.speakWord(text, who: "ama", accent: accent(settings), slow: slow) }
     func speakSentence(_ text: String, settings: JSON) { voice.speak(text, who: "ama", accent: accent(settings)) }
 

@@ -1,5 +1,6 @@
 package com.lexkite.app.feature.vocab
 
+import com.lexkite.app.core.settings.LearnSettings
 import com.lexkite.app.core.audio.LkAudio
 import com.lexkite.app.core.audio.SpeakListener
 import com.lexkite.app.core.data.LexStore
@@ -66,7 +67,7 @@ class VocabEnv(
         val settings: JsonObject get() = (doc.settings as? JsonObject) ?: JsonObject(emptyMap())
         val stats: JsonObject? get() = doc.stats as? JsonObject
         val game: JsonElement? get() = doc.game
-        val accent: String get() = settings.gs("accent").let { if (it == "en-GB") it else "en-US" }
+        val accent: String get() = LearnSettings.from(settings).accent // web default en-GB
     }
 
     suspend fun load(): Loaded {
