@@ -41,6 +41,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:07 | `zombie-sweep` | `7,22,37,52 * * * *` | reports | gh_minutes | 1 | — | — |
 | 00:07 | `ci-autopilot` | `7-57/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
+| 00:13 | `main-red-retry` | `13,43 * * * *` | reports | gh_minutes | 1 | — | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
 | 00:17 | `free-tier-guard` | `35 1 * * *`<br>`17 * * * *` | reports | gh_minutes | 2 | — | — |
 | 00:17 | `required-gate` | `17,47 * * * *` | reports | gh_minutes | 1 | — | — |
@@ -77,7 +78,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 02:20 | `font-audit` | `20 2 * * 1` | reports | gh_minutes | 10 | — | — |
 | 02:30 | `i18n` | `30 2 * * *` | render | gemini, gh_minutes | 90 | — | — |
 | 02:30 | `world-scorecard` | `30 2 * * 1` | reports | gh_minutes | 15 | — | — |
-| 02:40 | `vocab-img-scene` | `40 2,4,7,10,13,16,19,22 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈6000, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000, gemini_calls≈3, groq_calls≈500 | ✓ |
+| 02:40 | `vocab-img-scene` | `40 2,4,7,10,13,16,19,22 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈0, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000, gemini_calls≈3, groq_calls≈500 | ✓ |
 | 02:50 | `social-metrics` | `50 2 * * *` | reports | youtube_api, d1_main | 2 | d1_main_reads≈200, d1_main_writes≈150 | — |
 | 03:17 | `ai-keys-sync` | `17 3 * * 1` | reports | gh_minutes | 1 | — | — |
 | 03:17 | `ota-ios-e2e` | `17 3 * * *` | reports | gh_minutes | 45 | — | — |
@@ -190,5 +191,6 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/expand/left.mjs` – số việc còn cho ci-filler (20k − mục sống + retry), không ghi gì | `doneWords` | ci-filler.yml (probe infra/ci-backlog.json) |
 | `scripts/lexicon/expand/pace.mjs` –  | bỏ qua: chỉ ĐẾM từ#loại (dist/lexicon.json + lô đã xuất) để tính tốc độ/ETA tới 20k cho health-board; không ghi/xuất kho | — |
 | `scripts/video/teach2d/native-qa.mjs` –  | bỏ qua: đọc nghĩa/ví dụ từ web/packs để dịch ngược kiểm clip L1; không ghi kho, không cần mục mở rộng | — |
+| `scripts/build-topic-depth.mjs` –  | bỏ qua: chỉ đọc kho từ để kiểm từ trong content/topic-depth có thật và lấy nghĩa/ví dụ; ghi ra web/cpack/topic/*.js riêng, không ghi/xuất kho, mục mở rộng 20k không cần | — |
 | `scripts/content-qa/lesson-sample.mjs` – lấy mẫu phân tầng nội dung người học để chấm mù (docs/research/lesson-qa-1511.md); chỉ đọc, không ghi kho | bỏ qua: chỉ lấy mẫu từ kho viết tay để đo lỗi; mục mở rộng 20k có cổng QA riêng khi nhập | — |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |

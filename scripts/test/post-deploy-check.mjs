@@ -45,12 +45,16 @@ async function visit(browser, vp, pg, url) {
   const same = u => { try { return new URL(u).origin === ORIGIN; } catch (e) { return false; } };
   page.on('console', m => { if (m.type() === 'error' && (!m.location().url || same(m.location().url))) add('console', m.text() + (m.location().url ? ' @' + m.location().url : '')); });
   page.on('pageerror', e => add('exception', e.message));
+  const logs = []; page.on('console', m => { logs.push(`${m.type()}: ${m.text().slice(0, 140)}`); if (logs.length > 40) logs.shift(); });
   page.on('response', r => { if (r.status() >= 400 && same(r.url())) add('http' + r.status(), r.request().method() + ' ' + r.url()); });
   page.on('requestfailed', r => { if (same(r.url()) && !/ERR_ABORTED/.test(r.failure()?.errorText || '')) add('reqfail', r.url() + ' ' + (r.failure()?.errorText || '')); });
   try {
     const resp = await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 }).catch(async e => { add('nav', e.message); return null; });
     if (resp && resp.status() >= 400) add('http' + resp.status(), 'tài liệu ' + url);
     await page.waitForTimeout(pg.app ? 1500 : 500);
+    // Trang app: ~100 script defer nạp xong 3–7 s sau lần mở (web/app/index.html, data-lkph); màn không có khung tĩnh (#/skills) trống tới lúc đó.
+    // Chờ #view có chữ tối đa 15 s (đo thời điểm vẽ); trống quá 15 s vẫn báo 'empty' như cũ – không hạ ngưỡng, chỉ hết đo sớm lúc app còn đang nạp.
+    if (pg.app) { const t1 = Date.now(); await page.waitForFunction(() => { const v = document.querySelector('#view'); return v && (v.innerText || '').trim().length >= 20; }, null, { timeout: 15000 }).catch(() => {}); const w = Date.now() - t1; if (w > 1000) console.log(`  (${pg.n} ${vp.id}: #view vẽ sau +${(w / 1000).toFixed(1)} s)`); }
     // cuộn hết trang để ảnh lazy tải rồi mới soi ảnh vỡ
     await page.evaluate(async () => { const h = document.scrollingElement.scrollHeight; for (let y = 0; y < Math.min(h, 12000); y += 600) { scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); } scrollTo(0, 0); }).catch(() => {});
     await page.waitForTimeout(800);
@@ -64,6 +68,11 @@ async function visit(browser, vp, pg, url) {
       for (const b of info.broken) if (!IGNORE.test(b)) add('img', b);
       if (info.text < 40) add('empty', `trang gần như trống (${info.text} ký tự)`);
       if (pg.app && info.view >= 0 && info.view < 20) add('empty', `#view trống (${info.view} ký tự) ở ${info.hash}`);
+      if (errs.some(e => e.t === 'empty')) { // chẩn đoán (26/11: #/skills m390 trống nhiều lần liên tiếp): lớp html/body, #view, 8 log cuối, ảnh chụp
+        const d = await page.evaluate(() => ({ html: document.documentElement.className, body: document.body.className, view: (document.querySelector('#view') || {}).outerHTML || '', ux1: !!(window.App && App.ux1On && App.ux1On()), v2: typeof (window.App && App.skillsV2), st2: !!(window.ST2 && ST2.skills), hash: location.hash })).catch(e => ({ err: e.message }));
+        add('diag', JSON.stringify(d).slice(0, 280) + ' | log: ' + logs.slice(-8).join(' ¦ '));
+        await page.screenshot({ path: `${OUT}/empty-${pg.n.replace(/\W+/g, '_')}-${vp.id}.png` }).catch(() => {});
+      }
       if (!info.title) add('title', 'thiếu <title>');
     }
     if (pg.must) { const html = await page.content(); if (!html.includes(pg.must)) add('content', `thiếu "${pg.must}"`); }

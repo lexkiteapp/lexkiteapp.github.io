@@ -1,0 +1,2794 @@
+{
+ "topic": "work",
+ "sub": [
+  {
+   "id": "interview",
+   "name": {
+    "en": "Job interview",
+    "vi": "Phỏng vấn & xin việc"
+   },
+   "scene": "A candidate in a smart shirt sits across a table from two interviewers holding a folder, in a bright meeting room.",
+   "emoji": "🤝"
+  },
+  {
+   "id": "meeting",
+   "name": {
+    "en": "Meetings",
+    "vi": "Họp hành"
+   },
+   "scene": "Several colleagues sit around a table while one person points at a presentation screen showing a bar chart.",
+   "emoji": "📊"
+  },
+  {
+   "id": "email",
+   "name": {
+    "en": "Email & phone",
+    "vi": "Email & điện thoại công sở"
+   },
+   "scene": "A person at a desk types on a laptop with an inbox open while holding a phone to one ear.",
+   "emoji": "📧"
+  },
+  {
+   "id": "colleagues",
+   "name": {
+    "en": "Colleagues & managers",
+    "vi": "Đồng nghiệp & quản lý"
+   },
+   "scene": "A manager and two teammates chat and laugh next to a coffee machine in a modern office.",
+   "emoji": "👥"
+  },
+  {
+   "id": "pay-leave",
+   "name": {
+    "en": "Pay, contracts & leave",
+    "vi": "Lương, hợp đồng & nghỉ phép"
+   },
+   "scene": "A person signs a contract at a desk while a calendar with a circled holiday and a payslip lie nearby.",
+   "emoji": "💰"
+  },
+  {
+   "id": "workplace",
+   "name": {
+    "en": "Workplace & deadlines",
+    "vi": "Văn phòng, công cụ & hạn chót"
+   },
+   "scene": "An open-plan office with desks, laptops, a whiteboard of sticky notes and a wall clock showing late afternoon.",
+   "emoji": "🏢"
+  }
+ ],
+ "words": [
+  {
+   "word": "resume",
+   "pos": "n",
+   "sub": "interview",
+   "level": "B1",
+   "ex": "I updated my resume before applying for the marketing job.",
+   "col": [
+    "update your resume",
+    "attach a resume"
+   ],
+   "tip": "Tờ giấy một trang tóm tắt bạn: gửi kèm mọi đơn xin việc."
+  },
+  {
+   "word": "cover letter",
+   "pos": "n",
+   "sub": "interview",
+   "level": "B1",
+   "ex": "Her cover letter explained why she wanted to join a small team.",
+   "col": [
+    "write a cover letter",
+    "attach a cover letter"
+   ],
+   "tip": "Cover (bìa) + letter (thư): lá thư đi kèm CV."
+  },
+  {
+   "word": "apply",
+   "pos": "v",
+   "sub": "interview",
+   "level": "A2",
+   "ex": "I applied for three jobs online last weekend.",
+   "col": [
+    "apply for a job",
+    "apply online"
+   ],
+   "tip": "Nhớ cặp \"apply for\" + việc làm; \"apply to\" + công ty."
+  },
+  {
+   "word": "applicant",
+   "pos": "n",
+   "sub": "interview",
+   "level": "B2",
+   "ex": "More than two hundred applicants wanted the same position.",
+   "col": [
+    "job applicant",
+    "successful applicant"
+   ],
+   "tip": "apply + -ant = người nộp đơn."
+  },
+  {
+   "word": "candidate",
+   "pos": "n",
+   "sub": "interview",
+   "level": "B1",
+   "ex": "The company will interview five candidates on Monday.",
+   "col": [
+    "strong candidate",
+    "shortlisted candidate"
+   ],
+   "tip": "Candidate = người đang được xem xét cho vị trí."
+  },
+  {
+   "word": "vacancy",
+   "pos": "n",
+   "sub": "interview",
+   "level": "B2",
+   "ex": "There is a vacancy in our sales team right now.",
+   "col": [
+    "fill a vacancy",
+    "job vacancy"
+   ],
+   "tip": "Vacant = trống; vacancy là chỗ trống cần người."
+  },
+  {
+   "word": "qualification",
+   "pos": "n",
+   "sub": "interview",
+   "level": "B1",
+   "ex": "Do you need any special qualifications for this role?",
+   "col": [
+    "academic qualification",
+    "relevant qualifications"
+   ],
+   "tip": "Qualify (đủ điều kiện) → qualification: bằng cấp, chứng chỉ."
+  },
+  {
+   "word": "experience",
+   "pos": "n",
+   "sub": "interview",
+   "level": "A2",
+   "ex": "She has five years of experience in customer service.",
+   "col": [
+    "work experience",
+    "relevant experience"
+   ],
+   "tip": "Kinh nghiệm làm việc: không đếm được, nói \"some experience\"."
+  },
+  {
+   "word": "strength",
+   "pos": "n",
+   "sub": "interview",
+   "level": "B1",
+   "ex": "Good communication is one of my main strengths.",
+   "col": [
+    "main strength",
+    "strengths and weaknesses"
+   ],
+   "tip": "Strong → strength: điểm mạnh; hay đi cặp với weakness."
+  },
+  {
+   "word": "weakness",
+   "pos": "n",
+   "sub": "interview",
+   "level": "B2",
+   "ex": "My biggest weakness is that I say yes too often.",
+   "col": [
+    "biggest weakness",
+    "admit a weakness"
+   ],
+   "tip": "Weak → weakness; câu hỏi phỏng vấn kinh điển."
+  },
+  {
+   "word": "reference",
+   "pos": "n",
+   "sub": "interview",
+   "level": "B1",
+   "ex": "My old manager agreed to be my reference.",
+   "col": [
+    "job reference",
+    "provide a reference"
+   ],
+   "tip": "Nhà tuyển dụng gọi \"reference\" để hỏi về bạn."
+  },
+  {
+   "word": "hire",
+   "pos": "v",
+   "sub": "interview",
+   "level": "B1",
+   "ex": "They hired two new designers last month.",
+   "col": [
+    "hire staff",
+    "get hired"
+   ],
+   "tip": "Hire = thuê người; fire = sa thải, hai từ vần gần nhau."
+  },
+  {
+   "word": "shortlist",
+   "pos": "v",
+   "sub": "interview",
+   "level": "B2",
+   "ex": "They shortlisted four people for the final round.",
+   "col": [
+    "be shortlisted",
+    "shortlist candidates"
+   ],
+   "tip": "Short + list: rút danh sách dài thành danh sách ngắn."
+  },
+  {
+   "word": "interview",
+   "pos": "n",
+   "sub": "interview",
+   "level": "A1",
+   "ex": "I have a job interview at ten tomorrow morning.",
+   "col": [
+    "job interview",
+    "attend an interview"
+   ],
+   "tip": "Phỏng vấn: hai bên ngồi đối diện hỏi và đáp."
+  },
+  {
+   "word": "skill",
+   "pos": "n",
+   "sub": "interview",
+   "level": "A1",
+   "ex": "Speaking clearly is a useful skill in almost any job.",
+   "col": [
+    "learn a skill",
+    "communication skills"
+   ],
+   "tip": "Kỹ năng luyện được; trong CV hay dùng số nhiều \"skills\"."
+  },
+  {
+   "word": "job offer",
+   "ipa": "/ˈdʒɒb ˌɒfə/",
+   "pos": "n",
+   "vi": "lời mời làm việc",
+   "def": "a formal invitation to start working for a company",
+   "ex": "I got a job offer from a bank this morning.",
+   "col": [
+    "accept a job offer",
+    "turn down a job offer"
+   ],
+   "syn": [
+    "employment offer"
+   ],
+   "level": "B1",
+   "emoji": "📩",
+   "sub": "interview",
+   "tip": "Nhận được \"offer\" nghĩa là bạn đã được nhận vào làm."
+  },
+  {
+   "word": "job description",
+   "ipa": "/ˈdʒɒb dɪˌskrɪpʃn/",
+   "pos": "n",
+   "vi": "bản mô tả công việc",
+   "def": "a written list of the duties of a particular job",
+   "ex": "Read the job description carefully before you apply.",
+   "col": [
+    "detailed job description",
+    "match the job description"
+   ],
+   "syn": [
+    "role profile"
+   ],
+   "level": "B1",
+   "emoji": "📄",
+   "sub": "interview",
+   "tip": "Đọc kỹ trước khi nộp đơn: biết mình sẽ làm gì mỗi ngày."
+  },
+  {
+   "word": "turn down",
+   "ipa": "/ˈtɜːn daʊn/",
+   "pos": "phr v",
+   "vi": "từ chối",
+   "def": "to refuse an offer or request",
+   "ex": "He turned down the offer because the salary was too low.",
+   "col": [
+    "turn down an offer",
+    "turn down a job"
+   ],
+   "syn": [
+    "decline",
+    "refuse"
+   ],
+   "level": "B2",
+   "emoji": "🙅",
+   "sub": "interview",
+   "tip": "Như vặn nhỏ (down) âm lượng: bác bỏ lời mời."
+  },
+  {
+   "word": "make a good impression",
+   "ipa": "/meɪk ə ɡʊd ɪmˈpreʃn/",
+   "pos": "phr",
+   "vi": "gây ấn tượng tốt",
+   "def": "to make someone think well of you",
+   "ex": "Arrive early if you want to make a good impression.",
+   "col": [
+    "make a good impression on",
+    "first impression"
+   ],
+   "syn": [
+    "impress"
+   ],
+   "level": "B2",
+   "emoji": "😊",
+   "sub": "interview",
+   "tip": "Ấn tượng đầu tiên quyết định nhiều ở buổi phỏng vấn."
+  },
+  {
+   "word": "walk someone through",
+   "ipa": "/ˈwɔːk ˌsʌmwʌn ˈθruː/",
+   "pos": "phrasal v",
+   "vi": "hướng dẫn ai từng bước",
+   "def": "to explain something to someone step by step",
+   "ex": "Could you walk me through your last project?",
+   "col": [
+    "walk me through",
+    "walk through the process"
+   ],
+   "syn": [
+    "guide through"
+   ],
+   "level": "B2",
+   "emoji": "🚶",
+   "sub": "interview",
+   "tip": "Hình dung: cùng đi bộ xuyên qua từng bước một."
+  },
+  {
+   "word": "fill out",
+   "ipa": "/ˈfɪl aʊt/",
+   "pos": "phr v",
+   "vi": "điền (mẫu đơn)",
+   "def": "to write information on an official form",
+   "ex": "Please fill out this form and hand it to reception.",
+   "col": [
+    "fill out a form",
+    "fill out an application"
+   ],
+   "syn": [
+    "complete"
+   ],
+   "level": "A2",
+   "emoji": "📝",
+   "sub": "interview",
+   "tip": "Fill out = điền cho đầy các ô trong mẫu."
+  },
+  {
+   "word": "background check",
+   "ipa": "/ˈbækɡraʊnd tʃek/",
+   "pos": "n",
+   "vi": "kiểm tra lý lịch",
+   "def": "an investigation of a person's past before hiring them",
+   "ex": "The job starts after they finish a background check.",
+   "col": [
+    "run a background check",
+    "pass a background check"
+   ],
+   "syn": [
+    "vetting"
+   ],
+   "level": "C1",
+   "emoji": "🔍",
+   "sub": "interview",
+   "tip": "Background = lý lịch phía sau bạn; check = kiểm tra."
+  },
+  {
+   "word": "stand out",
+   "ipa": "/ˈstænd aʊt/",
+   "pos": "phr v",
+   "vi": "nổi bật",
+   "def": "to be easy to notice because of being better",
+   "ex": "A short, clear resume helps you stand out.",
+   "col": [
+    "stand out from the crowd",
+    "really stand out"
+   ],
+   "syn": [
+    "excel"
+   ],
+   "level": "B2",
+   "emoji": "⭐",
+   "sub": "interview",
+   "tip": "Đứng nhô ra khỏi đám đông: nổi bật."
+  },
+  {
+   "word": "fresh graduate",
+   "ipa": "/freʃ ˈɡrædʒuət/",
+   "pos": "n",
+   "vi": "sinh viên mới ra trường",
+   "def": "a person who has only just finished university",
+   "ex": "We welcome fresh graduates with no work experience.",
+   "col": [
+    "hire fresh graduates",
+    "fresh graduate programme"
+   ],
+   "syn": [
+    "new graduate"
+   ],
+   "level": "B1",
+   "emoji": "🎓",
+   "sub": "interview",
+   "tip": "Fresh = mới; graduate = người tốt nghiệp."
+  },
+  {
+   "word": "agenda",
+   "pos": "n",
+   "sub": "meeting",
+   "level": "B2",
+   "ex": "Please send the agenda before the meeting starts.",
+   "col": [
+    "set the agenda",
+    "on the agenda"
+   ],
+   "tip": "Danh sách các việc sẽ bàn trong buổi họp, xếp theo thứ tự."
+  },
+  {
+   "word": "minutes",
+   "pos": "n",
+   "sub": "meeting",
+   "level": "B2",
+   "ex": "Mai will write the minutes and email them today.",
+   "col": [
+    "take the minutes",
+    "meeting minutes"
+   ],
+   "tip": "Minutes (số nhiều) = biên bản họp, không phải \"phút\" ở đây."
+  },
+  {
+   "word": "attend",
+   "pos": "v",
+   "sub": "meeting",
+   "level": "A2",
+   "ex": "Everyone must attend the training session on Friday.",
+   "col": [
+    "attend a meeting",
+    "attend a conference"
+   ],
+   "tip": "Attend không cần \"to\": attend a meeting."
+  },
+  {
+   "word": "reschedule",
+   "pos": "v",
+   "sub": "meeting",
+   "level": "B1",
+   "ex": "Can we reschedule our call to Thursday afternoon?",
+   "col": [
+    "reschedule a meeting",
+    "reschedule for Monday"
+   ],
+   "tip": "Re- (lại) + schedule: xếp lịch lại."
+  },
+  {
+   "word": "postpone",
+   "pos": "v",
+   "sub": "meeting",
+   "level": "C1",
+   "ex": "The manager postponed the meeting until next week.",
+   "col": [
+    "postpone a meeting",
+    "postpone until"
+   ],
+   "tip": "Dời ra sau; ngược lại là \"bring forward\" (dời sớm lên)."
+  },
+  {
+   "word": "brainstorm",
+   "pos": "v",
+   "sub": "meeting",
+   "level": "B2",
+   "ex": "Let's brainstorm some names for the new product.",
+   "col": [
+    "brainstorm ideas",
+    "brainstorm a solution"
+   ],
+   "tip": "Brain + storm: cơn bão ý tưởng trong đầu cả nhóm."
+  },
+  {
+   "word": "propose",
+   "pos": "v",
+   "sub": "meeting",
+   "level": "B2",
+   "ex": "I propose that we start the meeting at nine.",
+   "col": [
+    "propose a plan",
+    "propose a solution"
+   ],
+   "tip": "Propose = đưa ra đề xuất; cũng có nghĩa cầu hôn."
+  },
+  {
+   "word": "agree",
+   "pos": "v",
+   "sub": "meeting",
+   "level": "A1",
+   "ex": "We all agreed to meet again on Monday.",
+   "col": [
+    "agree on a plan",
+    "agree with someone"
+   ],
+   "tip": "Agree with người, agree on kế hoạch, agree to đề nghị."
+  },
+  {
+   "word": "feedback",
+   "pos": "n",
+   "sub": "meeting",
+   "level": "B2",
+   "ex": "Thanks for the quick feedback on my report.",
+   "col": [
+    "give feedback",
+    "positive feedback"
+   ],
+   "tip": "Không đếm được: \"some feedback\", không nói \"feedbacks\"."
+  },
+  {
+   "word": "presentation",
+   "pos": "n",
+   "sub": "meeting",
+   "level": "B1",
+   "ex": "She gave a short presentation about our new app.",
+   "col": [
+    "give a presentation",
+    "slide presentation"
+   ],
+   "tip": "Present (trình bày) → presentation: bài thuyết trình."
+  },
+  {
+   "word": "approve",
+   "pos": "v",
+   "sub": "meeting",
+   "level": "B2",
+   "ex": "The director approved our budget this morning.",
+   "col": [
+    "approve a plan",
+    "approve of"
+   ],
+   "tip": "Approve = gật đầu chấp thuận; approve of = ủng hộ ý kiến."
+  },
+  {
+   "word": "consensus",
+   "pos": "n",
+   "sub": "meeting",
+   "level": "C1",
+   "ex": "After a long discussion, we finally reached a consensus.",
+   "col": [
+    "reach a consensus",
+    "general consensus"
+   ],
+   "tip": "Cả nhóm cùng một ý: reach a consensus."
+  },
+  {
+   "word": "stakeholder",
+   "pos": "n",
+   "sub": "meeting",
+   "level": "B2",
+   "ex": "We need to keep every stakeholder informed about changes.",
+   "col": [
+    "key stakeholders",
+    "stakeholder meeting"
+   ],
+   "tip": "Stake (phần lợi ích) + holder: người có quyền lợi trong dự án."
+  },
+  {
+   "word": "bring up",
+   "ipa": "/ˈbrɪŋ ʌp/",
+   "pos": "phr v",
+   "vi": "nêu ra (vấn đề)",
+   "def": "to mention a subject for discussion",
+   "ex": "Don't worry, I'll bring up the budget at the end.",
+   "col": [
+    "bring up an issue",
+    "bring up a point"
+   ],
+   "syn": [
+    "raise",
+    "mention"
+   ],
+   "level": "B2",
+   "emoji": "🗣️",
+   "sub": "meeting",
+   "tip": "Đưa vấn đề \"lên\" (up) mặt bàn họp."
+  },
+  {
+   "word": "sum up",
+   "ipa": "/ˈsʌm ʌp/",
+   "pos": "phr",
+   "vi": "tóm tắt lại",
+   "def": "to give the main points briefly at the end",
+   "ex": "Let me sum up what we decided today.",
+   "col": [
+    "to sum up",
+    "sum up the discussion"
+   ],
+   "syn": [
+    "summarise"
+   ],
+   "level": "B2",
+   "emoji": "📌",
+   "sub": "meeting",
+   "tip": "Sum = tổng; sum up = cộng lại thành vài ý chính."
+  },
+  {
+   "word": "wrap up",
+   "ipa": "/ˈræp ʌp/",
+   "pos": "phr",
+   "vi": "kết thúc, chốt lại",
+   "def": "to finish a meeting or task",
+   "ex": "We should wrap up in ten minutes.",
+   "col": [
+    "wrap up a meeting",
+    "wrap up the project"
+   ],
+   "syn": [
+    "finish",
+    "conclude"
+   ],
+   "level": "B2",
+   "emoji": "🎁",
+   "sub": "meeting",
+   "tip": "Gói quà lại (wrap): gói gọn cuộc họp để kết thúc."
+  },
+  {
+   "word": "touch base",
+   "ipa": "/ˈtʌtʃ ˈbeɪs/",
+   "pos": "phrase",
+   "vi": "liên lạc nhanh để cập nhật",
+   "def": "to contact someone briefly to share news",
+   "ex": "Let's touch base on Wednesday before the client call.",
+   "col": [
+    "touch base with",
+    "touch base again"
+   ],
+   "syn": [
+    "check in"
+   ],
+   "level": "B2",
+   "emoji": "🤝",
+   "sub": "meeting",
+   "tip": "Như chạm \"gôn\" trong bóng chày: ghé nhanh báo tình hình."
+  },
+  {
+   "word": "action item",
+   "ipa": "/ˈækʃn ˌaɪtəm/",
+   "pos": "n",
+   "vi": "đầu việc cần làm sau họp",
+   "def": "a task someone agrees to do after a meeting",
+   "ex": "Each person leaves with one clear action item.",
+   "col": [
+    "assign an action item",
+    "list of action items"
+   ],
+   "syn": [
+    "to-do"
+   ],
+   "level": "B2",
+   "emoji": "✅",
+   "sub": "meeting",
+   "tip": "Action = hành động; item = mục: việc phải làm sau họp."
+  },
+  {
+   "word": "on the same page",
+   "ipa": "/ɒn ðə seɪm ˈpeɪdʒ/",
+   "pos": "phr",
+   "vi": "cùng hiểu như nhau",
+   "def": "sharing the same understanding of a situation",
+   "ex": "Before we start, let's make sure we're on the same page.",
+   "col": [
+    "get on the same page",
+    "make sure we're on the same page"
+   ],
+   "syn": [
+    "in agreement"
+   ],
+   "level": "B2",
+   "emoji": "📖",
+   "sub": "meeting",
+   "tip": "Cùng nhìn vào một trang sách: cùng hiểu một ý."
+  },
+  {
+   "word": "take notes",
+   "ipa": "/ˈteɪk nəʊts/",
+   "pos": "phrase",
+   "vi": "ghi chép",
+   "def": "to write down key points while listening",
+   "ex": "Could you take notes while I present?",
+   "col": [
+    "take notes during",
+    "take detailed notes"
+   ],
+   "syn": [
+    "jot down"
+   ],
+   "level": "A2",
+   "emoji": "✍️",
+   "sub": "meeting",
+   "tip": "Take notes: ghi lại các ý chính khi nghe."
+  },
+  {
+   "word": "raise a concern",
+   "ipa": "/ˈreɪz ə kənˈsɜːn/",
+   "pos": "phr",
+   "vi": "nêu mối lo ngại",
+   "def": "to politely say that something worries you",
+   "ex": "I'd like to raise a concern about the timeline.",
+   "col": [
+    "raise a concern about",
+    "raise concerns"
+   ],
+   "syn": [
+    "voice a concern"
+   ],
+   "level": "B2",
+   "emoji": "⚠️",
+   "sub": "meeting",
+   "tip": "Raise = đưa lên; concern = điều lo lắng, nói lịch sự."
+  },
+  {
+   "word": "conference call",
+   "ipa": "/ˈkɒnfərəns kɔːl/",
+   "pos": "n",
+   "vi": "cuộc họp qua điện thoại",
+   "def": "a phone meeting with several people at once",
+   "ex": "We have a conference call with the Tokyo office at nine.",
+   "col": [
+    "join a conference call",
+    "schedule a conference call"
+   ],
+   "syn": [
+    "group call"
+   ],
+   "level": "B1",
+   "emoji": "📞",
+   "sub": "meeting",
+   "tip": "Conference (hội nghị) + call (gọi): họp qua điện thoại."
+  },
+  {
+   "word": "attach",
+   "pos": "v",
+   "sub": "email",
+   "level": "B1",
+   "ex": "I've attached the contract to this email.",
+   "col": [
+    "attach a file",
+    "attach a document"
+   ],
+   "tip": "\"Attached\" là chữ quen thuộc ở giữa email công việc."
+  },
+  {
+   "word": "attachment",
+   "pos": "n",
+   "sub": "email",
+   "level": "B2",
+   "ex": "The attachment is too big to send.",
+   "col": [
+    "open an attachment",
+    "email attachment"
+   ],
+   "tip": "Attach → attachment; mở file lạ phải cẩn thận."
+  },
+  {
+   "word": "reply",
+   "pos": "v",
+   "sub": "email",
+   "level": "A2",
+   "ex": "She replied to my message within five minutes.",
+   "col": [
+    "reply to an email",
+    "reply quickly"
+   ],
+   "tip": "Reply to + email; \"reply all\" trả lời tất cả mọi người."
+  },
+  {
+   "word": "draft",
+   "pos": "n",
+   "sub": "email",
+   "level": "B2",
+   "ex": "I wrote a first draft of the email before lunch.",
+   "col": [
+    "first draft",
+    "rough draft"
+   ],
+   "tip": "Bản nháp: lưu draft rồi đọc kỹ trước khi gửi."
+  },
+  {
+   "word": "voicemail",
+   "pos": "n",
+   "sub": "email",
+   "level": "B1",
+   "ex": "Nobody answered, so I left a voicemail.",
+   "col": [
+    "leave a voicemail",
+    "check voicemail"
+   ],
+   "tip": "Voice + mail: thư bằng giọng nói."
+  },
+  {
+   "word": "confirm",
+   "pos": "v",
+   "sub": "email",
+   "level": "B1",
+   "ex": "Please confirm that you received my last message.",
+   "col": [
+    "confirm a booking",
+    "confirm receipt"
+   ],
+   "tip": "Hay mở đầu thư: \"I'm writing to confirm…\"."
+  },
+  {
+   "word": "proofread",
+   "pos": "v",
+   "sub": "email",
+   "level": "C1",
+   "ex": "Always proofread your email before you press send.",
+   "col": [
+    "proofread a document",
+    "carefully proofread"
+   ],
+   "tip": "Proof (bản thử) + read: đọc soát lỗi chính tả."
+  },
+  {
+   "word": "inbox",
+   "ipa": "/ˈɪnbɒks/",
+   "pos": "n",
+   "vi": "hộp thư đến",
+   "def": "the folder where new emails arrive",
+   "ex": "My inbox is full of unread messages again.",
+   "col": [
+    "empty your inbox",
+    "check your inbox"
+   ],
+   "syn": [
+    "mailbox"
+   ],
+   "level": "A2",
+   "emoji": "📥",
+   "sub": "email",
+   "tip": "In + box: cái hộp nơi thư đi vào."
+  },
+  {
+   "word": "follow up",
+   "ipa": "/ˈfɒləʊ ʌp/",
+   "pos": "phr",
+   "vi": "theo dõi, nhắc lại sau",
+   "def": "to contact someone again about an earlier message",
+   "ex": "I'm just following up on my email from Tuesday.",
+   "col": [
+    "follow up on",
+    "follow up with someone"
+   ],
+   "syn": [
+    "chase"
+   ],
+   "level": "B1",
+   "emoji": "🔁",
+   "sub": "email",
+   "tip": "Đi theo (follow) sau lưng một việc cũ để hỏi tiếp."
+  },
+  {
+   "word": "get back to you",
+   "ipa": "/ɡet ˈbæk tə juː/",
+   "pos": "phr",
+   "vi": "trả lời bạn sau",
+   "def": "to reply to someone later, when you have an answer",
+   "ex": "Let me check the figures and get back to you tomorrow.",
+   "col": [
+    "get back to you",
+    "get back to me"
+   ],
+   "syn": [
+    "reply later"
+   ],
+   "level": "B1",
+   "emoji": "↩️",
+   "sub": "email",
+   "tip": "Câu hứa lịch sự khi chưa có câu trả lời ngay."
+  },
+  {
+   "word": "reply all",
+   "ipa": "/rɪˈplaɪ ɔːl/",
+   "pos": "phr",
+   "vi": "trả lời tất cả",
+   "def": "to answer every person on an email at once",
+   "ex": "Please don't reply all unless everyone needs to see it.",
+   "col": [
+    "hit reply all",
+    "avoid reply all"
+   ],
+   "syn": [
+    "respond to everyone"
+   ],
+   "level": "B1",
+   "emoji": "📧",
+   "sub": "email",
+   "tip": "Nút \"Reply all\": cả nhóm đều nhận được thư của bạn."
+  },
+  {
+   "word": "hang up",
+   "ipa": "/ˈhæŋ ʌp/",
+   "pos": "phr",
+   "vi": "cúp máy",
+   "def": "to end a phone call",
+   "ex": "She hung up before I could explain.",
+   "col": [
+    "hang up the phone",
+    "hang up on someone"
+   ],
+   "syn": [
+    "end the call"
+   ],
+   "level": "A2",
+   "emoji": "📴",
+   "sub": "email",
+   "tip": "Ngày xưa treo (hang) ống nghe lên (up) để kết thúc cuộc gọi."
+  },
+  {
+   "word": "call back",
+   "ipa": "/ˈkɔːl bæk/",
+   "pos": "phr",
+   "vi": "gọi lại",
+   "def": "to phone someone again later",
+   "ex": "I'm in a meeting, so I'll call you back at two.",
+   "col": [
+    "call back later",
+    "call someone back"
+   ],
+   "syn": [
+    "ring back"
+   ],
+   "level": "A2",
+   "emoji": "📞",
+   "sub": "email",
+   "tip": "Call + back: gọi ngược lại cho người đã gọi."
+  },
+  {
+   "word": "put through",
+   "ipa": "/ˈpʊt ˈθruː/",
+   "pos": "phr v",
+   "vi": "nối máy",
+   "def": "to connect a caller to another person",
+   "ex": "Hold on, I'll put you through to the manager.",
+   "col": [
+    "put someone through",
+    "put through to"
+   ],
+   "syn": [
+    "connect"
+   ],
+   "level": "B2",
+   "emoji": "☎️",
+   "sub": "email",
+   "tip": "Chuyển cuộc gọi \"xuyên qua\" tổng đài tới người cần gặp."
+  },
+  {
+   "word": "leave a message",
+   "ipa": "/ˈliːv ə ˈmesɪdʒ/",
+   "pos": "phrase",
+   "vi": "để lại lời nhắn",
+   "def": "to record or pass on a message for someone absent",
+   "ex": "Would you like to leave a message for her?",
+   "col": [
+    "leave a message",
+    "leave a voice message"
+   ],
+   "syn": [
+    "leave word"
+   ],
+   "level": "A2",
+   "emoji": "💬",
+   "sub": "email",
+   "tip": "Người nghe điện thoại hay hỏi: \"Leave a message?\""
+  },
+  {
+   "word": "reach out",
+   "ipa": "/ˈriːtʃ aʊt/",
+   "pos": "phr",
+   "vi": "liên hệ",
+   "def": "to contact someone, often to ask for help",
+   "ex": "Feel free to reach out if you have any questions.",
+   "col": [
+    "reach out to",
+    "feel free to reach out"
+   ],
+   "syn": [
+    "contact"
+   ],
+   "level": "B2",
+   "emoji": "🤲",
+   "sub": "email",
+   "tip": "Đưa tay (reach) ra ngoài: chủ động liên hệ."
+  },
+  {
+   "word": "keep someone in the loop",
+   "ipa": "/ˈkiːp ˌsʌmwʌn ɪn ðə ˈluːp/",
+   "pos": "phr",
+   "vi": "luôn cập nhật cho ai",
+   "def": "to keep someone informed about progress",
+   "ex": "Please keep me in the loop about the schedule.",
+   "col": [
+    "keep me in the loop",
+    "stay in the loop"
+   ],
+   "syn": [
+    "keep informed"
+   ],
+   "level": "B2",
+   "emoji": "🔄",
+   "sub": "email",
+   "tip": "Loop = vòng tròn thông tin: ai trong vòng thì được biết."
+  },
+  {
+   "word": "out of office",
+   "ipa": "/ˌaʊt əv ˈɒfɪs/",
+   "pos": "phrase",
+   "vi": "vắng mặt (thư tự động)",
+   "def": "an automatic reply saying you are away from work",
+   "ex": "Her out of office reply said she was back on Monday.",
+   "col": [
+    "out of office reply",
+    "set an out of office"
+   ],
+   "syn": [
+    "auto-reply"
+   ],
+   "level": "B2",
+   "emoji": "🏝️",
+   "sub": "email",
+   "tip": "Thư tự trả lời khi bạn nghỉ phép."
+  },
+  {
+   "word": "look forward to",
+   "ipa": "/ˈlʊk ˈfɔːwəd tə/",
+   "pos": "phr v",
+   "vi": "mong đợi",
+   "def": "to feel happy about something that will happen",
+   "ex": "I look forward to hearing from you soon.",
+   "col": [
+    "look forward to hearing",
+    "look forward to meeting"
+   ],
+   "syn": [
+    "anticipate"
+   ],
+   "level": "A2",
+   "emoji": "🙂",
+   "sub": "email",
+   "tip": "Sau \"to\" dùng V-ing: look forward to hearing."
+  },
+  {
+   "word": "subject line",
+   "ipa": "/ˈsʌbdʒɪkt laɪn/",
+   "pos": "n",
+   "vi": "dòng tiêu đề email",
+   "def": "the short title at the top of an email",
+   "ex": "A clear subject line helps people open your email.",
+   "col": [
+    "write a subject line",
+    "clear subject line"
+   ],
+   "syn": [
+    "email title"
+   ],
+   "level": "B1",
+   "emoji": "🏷️",
+   "sub": "email",
+   "tip": "Dòng đầu tiên người nhận thấy: ngắn và rõ."
+  },
+  {
+   "word": "regards",
+   "ipa": "/rɪˈɡɑːdz/",
+   "pos": "n",
+   "vi": "lời chào cuối thư",
+   "def": "a polite word used to end a letter or email",
+   "ex": "I always end my work emails with \"Kind regards\" and my name.",
+   "col": [
+    "kind regards",
+    "best regards"
+   ],
+   "syn": [
+    "best wishes"
+   ],
+   "level": "A2",
+   "emoji": "✉️",
+   "sub": "email",
+   "tip": "Luôn có \"s\": Kind regards, Best regards."
+  },
+  {
+   "word": "hold on",
+   "ipa": "/ˈhəʊld ɒn/",
+   "pos": "phr",
+   "vi": "chờ một chút",
+   "def": "to wait for a short time, especially on the phone",
+   "ex": "Hold on a second, I'll find that file for you.",
+   "col": [
+    "hold on a second",
+    "please hold on"
+   ],
+   "syn": [
+    "wait"
+   ],
+   "level": "A2",
+   "emoji": "✋",
+   "sub": "email",
+   "tip": "Giữ (hold) máy: đừng cúp, chờ một chút."
+  },
+  {
+   "word": "cc",
+   "ipa": "/ˌsiː ˈsiː/",
+   "pos": "v",
+   "vi": "gửi bản sao (cc)",
+   "def": "to send a copy of an email to another person",
+   "ex": "Please cc me on any emails about the project.",
+   "col": [
+    "cc someone",
+    "cc your manager"
+   ],
+   "syn": [
+    "copy in"
+   ],
+   "level": "B1",
+   "emoji": "📨",
+   "sub": "email",
+   "tip": "Cc = carbon copy: người được gửi kèm để biết."
+  },
+  {
+   "word": "colleague",
+   "pos": "n",
+   "sub": "colleagues",
+   "level": "A2",
+   "ex": "My colleagues threw a small party for my birthday.",
+   "col": [
+    "a former colleague",
+    "friendly colleagues"
+   ],
+   "tip": "Phát âm /ˈkɒliːɡ/, chữ \"ue\" cuối không đọc."
+  },
+  {
+   "word": "manager",
+   "pos": "n",
+   "sub": "colleagues",
+   "level": "A2",
+   "ex": "Our manager is always open to new ideas.",
+   "col": [
+    "line manager",
+    "sales manager"
+   ],
+   "tip": "Manage (quản lý) + -er: người quản lý."
+  },
+  {
+   "word": "boss",
+   "pos": "n",
+   "sub": "colleagues",
+   "level": "A2",
+   "ex": "My boss lets us leave early on Fridays.",
+   "col": [
+    "my boss",
+    "the big boss"
+   ],
+   "tip": "Boss: thân mật hơn \"manager\", hay dùng khi trò chuyện."
+  },
+  {
+   "word": "mentor",
+   "pos": "n",
+   "sub": "colleagues",
+   "level": "C1",
+   "ex": "My mentor taught me how to handle difficult clients.",
+   "col": [
+    "find a mentor",
+    "act as a mentor"
+   ],
+   "tip": "Người đi trước kèm cặp: một mentor, một mentee."
+  },
+  {
+   "word": "promote",
+   "pos": "v",
+   "sub": "colleagues",
+   "level": "B1",
+   "ex": "She was promoted to team leader after two years.",
+   "col": [
+    "be promoted to",
+    "promote someone"
+   ],
+   "tip": "Promote = đưa lên bậc cao hơn: được thăng chức."
+  },
+  {
+   "word": "resign",
+   "pos": "v",
+   "sub": "colleagues",
+   "level": "B2",
+   "ex": "He resigned after the company changed its plans.",
+   "col": [
+    "resign from",
+    "resign as manager"
+   ],
+   "tip": "Resign from + chức vụ: tự xin thôi việc."
+  },
+  {
+   "word": "quit",
+   "pos": "v",
+   "sub": "colleagues",
+   "level": "B1",
+   "ex": "She quit her job to start a small business.",
+   "col": [
+    "quit your job",
+    "quit the team"
+   ],
+   "tip": "Quit: cách nói thân mật cho nghỉ việc, bỏ ngang."
+  },
+  {
+   "word": "workload",
+   "pos": "n",
+   "sub": "colleagues",
+   "level": "B2",
+   "ex": "Our workload doubled when two people left the team.",
+   "col": [
+    "heavy workload",
+    "manage your workload"
+   ],
+   "tip": "Work + load: \"tải\" việc đang đè lên vai."
+  },
+  {
+   "word": "cooperate",
+   "pos": "v",
+   "sub": "colleagues",
+   "level": "C1",
+   "ex": "Departments need to cooperate to finish on time.",
+   "col": [
+    "cooperate with",
+    "fully cooperate"
+   ],
+   "tip": "Co- (cùng) + operate: cùng vận hành thì hợp tác."
+  },
+  {
+   "word": "reliable",
+   "pos": "adj",
+   "sub": "colleagues",
+   "level": "B1",
+   "ex": "Jon is reliable, so I trust him with deadlines.",
+   "col": [
+    "a reliable colleague",
+    "reliable source"
+   ],
+   "tip": "Rely (dựa vào) + able: có thể dựa vào được."
+  },
+  {
+   "word": "teammate",
+   "ipa": "/ˈtiːmmeɪt/",
+   "pos": "n",
+   "vi": "đồng đội",
+   "def": "a person who is in the same team as you",
+   "ex": "My teammates helped me finish the slides last night.",
+   "col": [
+    "a great teammate",
+    "fellow teammate"
+   ],
+   "syn": [
+    "team member"
+   ],
+   "level": "A2",
+   "emoji": "👥",
+   "sub": "colleagues",
+   "tip": "Team + mate: bạn cùng đội."
+  },
+  {
+   "word": "burnout",
+   "ipa": "/ˈbɜːnaʊt/",
+   "pos": "n",
+   "vi": "kiệt sức vì công việc",
+   "def": "extreme tiredness from working too hard for too long",
+   "ex": "Many nurses suffer burnout after long night shifts.",
+   "col": [
+    "suffer burnout",
+    "avoid burnout"
+   ],
+   "syn": [
+    "exhaustion"
+   ],
+   "level": "C1",
+   "emoji": "🔥",
+   "sub": "colleagues",
+   "tip": "Cháy (burn) hết pin: không còn sức làm tiếp."
+  },
+  {
+   "word": "collaborate",
+   "ipa": "/kəˈlæbəreɪt/",
+   "pos": "v",
+   "vi": "cộng tác",
+   "def": "to work together with others on a shared task",
+   "ex": "Our designers collaborate closely with the engineers.",
+   "col": [
+    "collaborate with",
+    "collaborate on a project"
+   ],
+   "syn": [
+    "cooperate"
+   ],
+   "level": "B2",
+   "emoji": "🤝",
+   "sub": "colleagues",
+   "tip": "Co- (cùng) + labor (làm việc): cùng làm."
+  },
+  {
+   "word": "get along with",
+   "ipa": "/ˌɡet əˈlɒŋ wɪð/",
+   "pos": "phr v",
+   "vi": "hòa hợp với",
+   "def": "to have a friendly relationship with someone",
+   "ex": "Do you get along with your new team?",
+   "col": [
+    "get along well with",
+    "get along with everyone"
+   ],
+   "syn": [
+    "get on with"
+   ],
+   "level": "A2",
+   "emoji": "😊",
+   "sub": "colleagues",
+   "tip": "Cùng \"đi dọc\" (along) êm ả bên nhau: hòa thuận."
+  },
+  {
+   "word": "report to",
+   "ipa": "/rɪˈpɔːt tə/",
+   "pos": "phr",
+   "vi": "báo cáo cho (cấp trên)",
+   "def": "to have someone as your direct manager",
+   "ex": "I report to the head of marketing.",
+   "col": [
+    "report to a manager",
+    "report directly to"
+   ],
+   "syn": [
+    "answer to"
+   ],
+   "level": "B1",
+   "emoji": "📋",
+   "sub": "colleagues",
+   "tip": "\"Who do you report to?\" = Sếp trực tiếp của bạn là ai?"
+  },
+  {
+   "word": "take over",
+   "ipa": "/ˈteɪk ˈəʊvə/",
+   "pos": "phr",
+   "vi": "tiếp quản",
+   "def": "to start doing a job that someone else did",
+   "ex": "Sam will take over my clients while I'm away.",
+   "col": [
+    "take over from",
+    "take over a project"
+   ],
+   "syn": [
+    "assume",
+    "replace"
+   ],
+   "level": "B2",
+   "emoji": "🔄",
+   "sub": "colleagues",
+   "tip": "Cầm lấy (take) và giữ phần việc từ tay người trước."
+  },
+  {
+   "word": "cover for",
+   "ipa": "/ˈkʌvə fɔː/",
+   "pos": "phr v",
+   "vi": "làm thay",
+   "def": "to do someone's work while they are absent",
+   "ex": "Could you cover for me on Friday afternoon?",
+   "col": [
+    "cover for a colleague",
+    "cover for someone"
+   ],
+   "syn": [
+    "fill in for"
+   ],
+   "level": "B2",
+   "emoji": "🛡️",
+   "sub": "colleagues",
+   "tip": "Che chắn (cover) giúp ai khi họ vắng mặt."
+  },
+  {
+   "word": "hand over",
+   "ipa": "/ˈhænd ˈəʊvə/",
+   "pos": "phr",
+   "vi": "bàn giao",
+   "def": "to give responsibility or work to another person",
+   "ex": "She handed over all her files before leaving.",
+   "col": [
+    "hand over to",
+    "hand over responsibility"
+   ],
+   "syn": [
+    "pass on"
+   ],
+   "level": "B2",
+   "emoji": "📦",
+   "sub": "colleagues",
+   "tip": "Trao (hand) sang (over) tay người kế nhiệm."
+  },
+  {
+   "word": "lay off",
+   "ipa": "/ˈleɪ ɒf/",
+   "pos": "phr",
+   "vi": "cho thôi việc (cắt giảm)",
+   "def": "to end someone's job because there is not enough work",
+   "ex": "The factory laid off fifty workers last spring.",
+   "col": [
+    "lay off workers",
+    "be laid off"
+   ],
+   "syn": [
+    "make redundant"
+   ],
+   "level": "B2",
+   "emoji": "📉",
+   "sub": "colleagues",
+   "tip": "Bị cho nghỉ vì công ty cắt giảm, không do lỗi cá nhân."
+  },
+  {
+   "word": "team player",
+   "ipa": "/ˈtiːm ˌpleɪə/",
+   "pos": "n",
+   "vi": "người biết làm việc nhóm",
+   "def": "someone who works well with others",
+   "ex": "We're looking for a real team player, not a solo star.",
+   "col": [
+    "be a team player",
+    "great team player"
+   ],
+   "syn": [
+    "cooperative person"
+   ],
+   "level": "B2",
+   "emoji": "🏅",
+   "sub": "colleagues",
+   "tip": "Cụm hay gặp trong mô tả tuyển dụng và CV."
+  },
+  {
+   "word": "deal with",
+   "ipa": "/ˈdiːl wɪð/",
+   "pos": "phr",
+   "vi": "xử lý, giải quyết",
+   "def": "to take action to solve a problem",
+   "ex": "How do you deal with difficult customers?",
+   "col": [
+    "deal with a problem",
+    "deal with customers"
+   ],
+   "syn": [
+    "handle"
+   ],
+   "level": "B1",
+   "emoji": "🧩",
+   "sub": "colleagues",
+   "tip": "Deal with + vấn đề/người: đối mặt và xử lý."
+  },
+  {
+   "word": "count on",
+   "ipa": "/ˈkaʊnt ɒn/",
+   "pos": "phr v",
+   "vi": "trông cậy vào",
+   "def": "to depend on someone to do something",
+   "ex": "You can count on me to finish it today.",
+   "col": [
+    "count on someone",
+    "can count on"
+   ],
+   "syn": [
+    "rely on"
+   ],
+   "level": "B2",
+   "emoji": "🤞",
+   "sub": "colleagues",
+   "tip": "Đếm (count) trên (on) vai ai đó: tin cậy vào họ."
+  },
+  {
+   "word": "salary",
+   "pos": "n",
+   "sub": "pay-leave",
+   "level": "A2",
+   "ex": "My salary goes into my bank account on the 25th.",
+   "col": [
+    "monthly salary",
+    "starting salary"
+   ],
+   "tip": "Lương tháng cố định; wage là tiền công theo giờ hoặc ngày."
+  },
+  {
+   "word": "bonus",
+   "pos": "n",
+   "sub": "pay-leave",
+   "level": "C1",
+   "ex": "Everyone got a small bonus before the holidays.",
+   "col": [
+    "year-end bonus",
+    "performance bonus"
+   ],
+   "tip": "Bonus = khoản thưởng thêm ngoài lương."
+  },
+  {
+   "word": "payslip",
+   "pos": "n",
+   "sub": "pay-leave",
+   "level": "B2",
+   "ex": "I checked my payslip and the tax looked wrong.",
+   "col": [
+    "monthly payslip",
+    "check your payslip"
+   ],
+   "tip": "Pay + slip (phiếu): phiếu lương hằng tháng."
+  },
+  {
+   "word": "tax",
+   "pos": "n",
+   "sub": "pay-leave",
+   "level": "B1",
+   "ex": "A lot of tax is taken from my pay.",
+   "col": [
+    "income tax",
+    "pay tax"
+   ],
+   "tip": "Tax = thuế; income tax = thuế thu nhập."
+  },
+  {
+   "word": "contract",
+   "pos": "n",
+   "sub": "pay-leave",
+   "level": "B1",
+   "ex": "I signed a two-year contract with the agency.",
+   "col": [
+    "sign a contract",
+    "fixed-term contract"
+   ],
+   "tip": "Đọc kỹ contract trước khi ký: thời hạn, lương, nghỉ phép."
+  },
+  {
+   "word": "freelance",
+   "pos": "adj",
+   "sub": "pay-leave",
+   "level": "B2",
+   "ex": "I do freelance work on weekends for extra money.",
+   "col": [
+    "freelance writer",
+    "work freelance"
+   ],
+   "tip": "Làm tự do, không thuộc biên chế một công ty."
+  },
+  {
+   "word": "overtime",
+   "pos": "n",
+   "sub": "pay-leave",
+   "level": "B1",
+   "ex": "We worked overtime all week to finish the order.",
+   "col": [
+    "work overtime",
+    "overtime pay"
+   ],
+   "tip": "Over + time: thời gian vượt giờ làm chuẩn."
+  },
+  {
+   "word": "pension",
+   "pos": "n",
+   "sub": "pay-leave",
+   "level": "B2",
+   "ex": "He pays into a pension every month.",
+   "col": [
+    "state pension",
+    "pension plan"
+   ],
+   "tip": "Pension = lương hưu, tiền để dành cho lúc nghỉ hưu."
+  },
+  {
+   "word": "invoice",
+   "pos": "n",
+   "sub": "pay-leave",
+   "level": "B1",
+   "ex": "Please send the invoice by the end of the month.",
+   "col": [
+    "send an invoice",
+    "pay an invoice"
+   ],
+   "tip": "Invoice = hóa đơn đòi tiền gửi cho khách hàng."
+  },
+  {
+   "word": "insurance",
+   "pos": "n",
+   "sub": "pay-leave",
+   "level": "B2",
+   "ex": "The company pays for our health insurance.",
+   "col": [
+    "health insurance",
+    "insurance cover"
+   ],
+   "tip": "Insurance = bảo hiểm, danh từ không đếm được."
+  },
+  {
+   "word": "shift",
+   "pos": "n",
+   "sub": "pay-leave",
+   "level": "B1",
+   "ex": "I work the night shift on Tuesdays.",
+   "col": [
+    "night shift",
+    "work in shifts"
+   ],
+   "tip": "Day shift là ca ngày, night shift là ca đêm."
+  },
+  {
+   "word": "benefits",
+   "ipa": "/ˈbenɪfɪts/",
+   "pos": "n",
+   "vi": "phúc lợi",
+   "def": "extra things employees receive besides their pay",
+   "ex": "The job comes with good benefits, including free lunch.",
+   "col": [
+    "employee benefits",
+    "benefits package"
+   ],
+   "syn": [
+    "perks"
+   ],
+   "level": "B2",
+   "emoji": "🎁",
+   "sub": "pay-leave",
+   "tip": "Luôn số nhiều khi nói phúc lợi: benefits."
+  },
+  {
+   "word": "severance pay",
+   "ipa": "/ˈsevərəns peɪ/",
+   "pos": "n",
+   "vi": "trợ cấp thôi việc",
+   "def": "money paid to an employee who loses their job",
+   "ex": "She received three months of severance pay.",
+   "col": [
+    "receive severance pay",
+    "severance package"
+   ],
+   "syn": [
+    "redundancy pay"
+   ],
+   "level": "C1",
+   "emoji": "💼",
+   "sub": "pay-leave",
+   "tip": "Khoản tiền công ty trả khi chấm dứt hợp đồng."
+  },
+  {
+   "word": "payday",
+   "ipa": "/ˈpeɪdeɪ/",
+   "pos": "n",
+   "vi": "ngày lĩnh lương",
+   "def": "the day when employees receive their wages",
+   "ex": "Friday is payday, so let's eat out.",
+   "col": [
+    "on payday",
+    "wait for payday"
+   ],
+   "syn": [
+    "pay day"
+   ],
+   "level": "A2",
+   "emoji": "💵",
+   "sub": "pay-leave",
+   "tip": "Pay + day: ngày được trả tiền."
+  },
+  {
+   "word": "pay rise",
+   "ipa": "/ˈpeɪ raɪz/",
+   "pos": "n",
+   "vi": "tăng lương",
+   "def": "an increase in the money you earn",
+   "ex": "I asked my boss for a pay rise.",
+   "col": [
+    "ask for a pay rise",
+    "get a pay rise"
+   ],
+   "syn": [
+    "raise"
+   ],
+   "level": "B1",
+   "emoji": "📈",
+   "sub": "pay-leave",
+   "tip": "Anh Anh: pay rise; Anh Mỹ: raise."
+  },
+  {
+   "word": "full-time",
+   "ipa": "/ˌfʊl ˈtaɪm/",
+   "pos": "adj",
+   "vi": "toàn thời gian",
+   "def": "working the whole normal working week",
+   "ex": "She found a full-time job at an architecture firm.",
+   "col": [
+    "full-time job",
+    "work full-time"
+   ],
+   "syn": [
+    "permanent hours"
+   ],
+   "level": "A2",
+   "emoji": "🕘",
+   "sub": "pay-leave",
+   "tip": "Đối lập với part-time."
+  },
+  {
+   "word": "part-time",
+   "ipa": "/ˌpɑːt ˈtaɪm/",
+   "pos": "adj",
+   "vi": "bán thời gian",
+   "def": "working fewer hours than a normal working week",
+   "ex": "He works part-time at a cafe while studying.",
+   "col": [
+    "part-time job",
+    "work part-time"
+   ],
+   "syn": [
+    "reduced hours"
+   ],
+   "level": "A2",
+   "emoji": "🕑",
+   "sub": "pay-leave",
+   "tip": "Part (một phần) + time: chỉ làm một phần thời gian."
+  },
+  {
+   "word": "sick leave",
+   "ipa": "/ˈsɪk liːv/",
+   "pos": "n",
+   "vi": "nghỉ ốm",
+   "def": "time off work because you are ill",
+   "ex": "He is on sick leave until the end of the week.",
+   "col": [
+    "be on sick leave",
+    "take sick leave"
+   ],
+   "syn": [
+    "medical leave"
+   ],
+   "level": "B1",
+   "emoji": "🤒",
+   "sub": "pay-leave",
+   "tip": "Leave = nghỉ phép; sick = ốm."
+  },
+  {
+   "word": "annual leave",
+   "ipa": "/ˈænjuəl liːv/",
+   "pos": "n",
+   "vi": "phép năm",
+   "def": "paid holiday days that employees get each year",
+   "ex": "I have ten days of annual leave left.",
+   "col": [
+    "take annual leave",
+    "annual leave balance"
+   ],
+   "syn": [
+    "paid holiday"
+   ],
+   "level": "B1",
+   "emoji": "🏖️",
+   "sub": "pay-leave",
+   "tip": "Annual = hằng năm: số ngày phép mỗi năm."
+  },
+  {
+   "word": "maternity leave",
+   "ipa": "/məˈtɜːnəti liːv/",
+   "pos": "n",
+   "vi": "nghỉ thai sản",
+   "def": "time off work for a mother around the birth of a baby",
+   "ex": "She returns from maternity leave next month.",
+   "col": [
+    "be on maternity leave",
+    "take maternity leave"
+   ],
+   "syn": [
+    "parental leave"
+   ],
+   "level": "B2",
+   "emoji": "🍼",
+   "sub": "pay-leave",
+   "tip": "Maternity gần với maternal: thuộc về người mẹ."
+  },
+  {
+   "word": "day off",
+   "ipa": "/ˌdeɪ ˈɒf/",
+   "pos": "n",
+   "vi": "ngày nghỉ",
+   "def": "a day when you do not have to work",
+   "ex": "Tomorrow is my day off, so I'm sleeping in.",
+   "col": [
+    "take a day off",
+    "a day off work"
+   ],
+   "syn": [
+    "free day"
+   ],
+   "level": "A2",
+   "emoji": "🛋️",
+   "sub": "pay-leave",
+   "tip": "Day off: ngày được \"tắt\" công việc."
+  },
+  {
+   "word": "call in sick",
+   "ipa": "/ˌkɔːl ɪn ˈsɪk/",
+   "pos": "phrase",
+   "vi": "gọi báo ốm",
+   "def": "to phone your workplace to say you are ill",
+   "ex": "He called in sick because he had a high fever.",
+   "col": [
+    "call in sick",
+    "phone in sick"
+   ],
+   "syn": [
+    "phone in sick"
+   ],
+   "level": "B1",
+   "emoji": "🤧",
+   "sub": "pay-leave",
+   "tip": "Gọi vào (in) công ty để báo mình ốm."
+  },
+  {
+   "word": "take time off",
+   "ipa": "/ˌteɪk ˌtaɪm ˈɒf/",
+   "pos": "phr",
+   "vi": "xin nghỉ một thời gian",
+   "def": "to be away from work for a while",
+   "ex": "I need to take some time off after this project.",
+   "col": [
+    "take time off work",
+    "take time off to rest"
+   ],
+   "syn": [
+    "have time off"
+   ],
+   "level": "B1",
+   "emoji": "🌴",
+   "sub": "pay-leave",
+   "tip": "Take some time off: nghỉ một quãng để lấy lại sức."
+  },
+  {
+   "word": "notice period",
+   "ipa": "/ˈnəʊtɪs ˌpɪəriəd/",
+   "pos": "n",
+   "vi": "thời gian báo trước khi nghỉ",
+   "def": "the time you must keep working after you resign",
+   "ex": "My notice period is one month long.",
+   "col": [
+    "serve your notice period",
+    "a one-month notice period"
+   ],
+   "syn": [
+    "period of notice"
+   ],
+   "level": "B2",
+   "emoji": "⏳",
+   "sub": "pay-leave",
+   "tip": "Nộp đơn nghỉ rồi còn phải làm hết notice period."
+  },
+  {
+   "word": "probation",
+   "ipa": "/prəˈbeɪʃn/",
+   "pos": "n",
+   "vi": "thời gian thử việc",
+   "def": "a trial period at the start of a new job",
+   "ex": "She passed her probation after three months.",
+   "col": [
+    "probation period",
+    "on probation"
+   ],
+   "syn": [
+    "trial period"
+   ],
+   "level": "C1",
+   "emoji": "🧪",
+   "sub": "pay-leave",
+   "tip": "Probation: giai đoạn thử việc trước khi chính thức."
+  },
+  {
+   "word": "paid leave",
+   "ipa": "/ˌpeɪd ˈliːv/",
+   "pos": "n",
+   "vi": "nghỉ có lương",
+   "def": "time off work for which you still receive pay",
+   "ex": "Employees get five days of paid leave for family events.",
+   "col": [
+    "take paid leave",
+    "unpaid leave"
+   ],
+   "syn": [
+    "paid time off"
+   ],
+   "level": "B1",
+   "emoji": "💳",
+   "sub": "pay-leave",
+   "tip": "Paid = có lương; ngược lại là unpaid leave."
+  },
+  {
+   "word": "office",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "A1",
+   "ex": "Our office is on the fifth floor, near the station.",
+   "col": [
+    "office hours",
+    "open-plan office"
+   ],
+   "tip": "Open-plan = văn phòng mở, không vách ngăn."
+  },
+  {
+   "word": "desk",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "A1",
+   "ex": "Please keep your desk tidy before you go home.",
+   "col": [
+    "clear your desk",
+    "at my desk"
+   ],
+   "tip": "Bàn làm việc: \"at my desk\" là đang ngồi làm."
+  },
+  {
+   "word": "deadline",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "B2",
+   "ex": "The deadline for the report is next Friday.",
+   "col": [
+    "tight deadline",
+    "miss a deadline"
+   ],
+   "tip": "Qua hạn là coi như hỏng việc; \"tight\" = gấp."
+  },
+  {
+   "word": "project",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "A1",
+   "ex": "Our team is working on a big project for a bank.",
+   "col": [
+    "start a project",
+    "project manager"
+   ],
+   "tip": "Project manager = quản lý dự án."
+  },
+  {
+   "word": "priority",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "B2",
+   "ex": "Finishing the report is my first priority today.",
+   "col": [
+    "top priority",
+    "set priorities"
+   ],
+   "tip": "Việc đặt lên đầu danh sách; số nhiều: priorities."
+  },
+  {
+   "word": "remote",
+   "pos": "adj",
+   "sub": "workplace",
+   "level": "B1",
+   "ex": "We hired a remote developer who lives in Spain.",
+   "col": [
+    "remote work",
+    "remote team"
+   ],
+   "tip": "Remote = từ xa; remote work = làm việc từ xa."
+  },
+  {
+   "word": "commute",
+   "pos": "v",
+   "sub": "workplace",
+   "level": "B2",
+   "ex": "I commute forty minutes to work every day.",
+   "col": [
+    "commute to work",
+    "long commute"
+   ],
+   "tip": "Đi về mỗi ngày giữa nhà và chỗ làm."
+  },
+  {
+   "word": "milestone",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "C1",
+   "ex": "Finishing the first prototype was an important milestone.",
+   "col": [
+    "reach a milestone",
+    "project milestone"
+   ],
+   "tip": "Mile + stone: cột mốc dọc đường, đánh dấu tiến độ."
+  },
+  {
+   "word": "budget",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "B2",
+   "ex": "We have a small budget for this campaign.",
+   "col": [
+    "tight budget",
+    "stay within budget"
+   ],
+   "tip": "Within budget = không vượt ngân sách."
+  },
+  {
+   "word": "target",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "A2",
+   "ex": "Our sales target for this month is quite high.",
+   "col": [
+    "meet a target",
+    "set a target"
+   ],
+   "tip": "Target là bia tập bắn: chỉ tiêu cần \"bắn trúng\"."
+  },
+  {
+   "word": "productive",
+   "pos": "adj",
+   "sub": "workplace",
+   "level": "C1",
+   "ex": "I'm most productive in the early morning.",
+   "col": [
+    "highly productive",
+    "productive meeting"
+   ],
+   "tip": "Produce (tạo ra) → productive: làm ra nhiều kết quả."
+  },
+  {
+   "word": "efficient",
+   "pos": "adj",
+   "sub": "workplace",
+   "level": "B2",
+   "ex": "The new system makes our work more efficient.",
+   "col": [
+    "highly efficient",
+    "energy efficient"
+   ],
+   "tip": "Ít tốn công sức và thời gian mà vẫn đạt kết quả."
+  },
+  {
+   "word": "progress",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "A2",
+   "ex": "How much progress have you made on the report?",
+   "col": [
+    "make progress",
+    "progress report"
+   ],
+   "tip": "Không đếm được: \"some progress\", không nói \"a progress\"."
+  },
+  {
+   "word": "workshop",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "B2",
+   "ex": "The company runs a free workshop on time management.",
+   "col": [
+    "attend a workshop",
+    "run a workshop"
+   ],
+   "tip": "Workshop = buổi thực hành, khác lecture (bài giảng)."
+  },
+  {
+   "word": "workplace",
+   "pos": "n",
+   "sub": "workplace",
+   "level": "B2",
+   "ex": "A friendly workplace makes people want to stay.",
+   "col": [
+    "workplace culture",
+    "safe workplace"
+   ],
+   "tip": "Work + place: nơi làm việc nói chung."
+  },
+  {
+   "word": "meet the deadline",
+   "ipa": "/ˈmiːt ðə ˈdedlaɪn/",
+   "pos": "phrase",
+   "vi": "kịp hạn chót",
+   "def": "to finish work before the final time allowed",
+   "ex": "We worked all weekend to meet the deadline.",
+   "col": [
+    "meet a deadline",
+    "struggle to meet the deadline"
+   ],
+   "syn": [
+    "finish on time"
+   ],
+   "level": "B2",
+   "emoji": "⏰",
+   "sub": "workplace",
+   "tip": "Gặp (meet) đúng hạn: xong trước vạch cuối."
+  },
+  {
+   "word": "multitask",
+   "ipa": "/ˌmʌltiˈtɑːsk/",
+   "pos": "v",
+   "vi": "làm nhiều việc cùng lúc",
+   "def": "to do several tasks at the same time",
+   "ex": "I can't multitask well when the phone keeps ringing.",
+   "col": [
+    "multitask well",
+    "able to multitask"
+   ],
+   "syn": [
+    "juggle tasks"
+   ],
+   "level": "B2",
+   "emoji": "🤹",
+   "sub": "workplace",
+   "tip": "Multi (nhiều) + task (việc): nhiều việc một lúc."
+  },
+  {
+   "word": "to-do list",
+   "ipa": "/təˈduː lɪst/",
+   "pos": "n",
+   "vi": "danh sách việc cần làm",
+   "def": "a list of tasks you plan to finish",
+   "ex": "I tick things off my to-do list every afternoon.",
+   "col": [
+    "make a to-do list",
+    "long to-do list"
+   ],
+   "syn": [
+    "task list"
+   ],
+   "level": "A2",
+   "emoji": "☑️",
+   "sub": "workplace",
+   "tip": "Viết ra rồi gạch từng mục: rất hợp để nhớ."
+  },
+  {
+   "word": "work from home",
+   "ipa": "/ˌwɜːk frəm ˈhəʊm/",
+   "pos": "phr",
+   "vi": "làm việc tại nhà",
+   "def": "to do your job at home instead of an office",
+   "ex": "I work from home on Mondays and Fridays.",
+   "col": [
+    "work from home",
+    "working from home"
+   ],
+   "syn": [
+    "telework"
+   ],
+   "level": "A2",
+   "emoji": "🏠",
+   "sub": "workplace",
+   "tip": "Viết tắt WFH trong tin nhắn công sở."
+  },
+  {
+   "word": "lunch break",
+   "ipa": "/ˈlʌntʃ breɪk/",
+   "pos": "n",
+   "vi": "giờ nghỉ trưa",
+   "def": "a period in the middle of the day to eat",
+   "ex": "We usually go for a walk during our lunch break.",
+   "col": [
+    "take a lunch break",
+    "during lunch break"
+   ],
+   "syn": [
+    "midday break"
+   ],
+   "level": "A1",
+   "emoji": "🥪",
+   "sub": "workplace",
+   "tip": "Lunch + break: giờ nghỉ để ăn trưa."
+  },
+  {
+   "word": "clock in",
+   "ipa": "/ˌklɒk ˈɪn/",
+   "pos": "phr v",
+   "vi": "chấm công vào",
+   "def": "to record the time you arrive at work",
+   "ex": "Remember to clock in before eight o'clock.",
+   "col": [
+    "clock in late",
+    "clock in and out"
+   ],
+   "syn": [
+    "punch in"
+   ],
+   "level": "B1",
+   "emoji": "🕗",
+   "sub": "workplace",
+   "tip": "Bấm đồng hồ (clock) khi vào làm."
+  },
+  {
+   "word": "clock out",
+   "ipa": "/ˌklɒk ˈaʊt/",
+   "pos": "phrasal v",
+   "vi": "chấm công ra",
+   "def": "to record the time you leave work",
+   "ex": "I clocked out at six and went straight home.",
+   "col": [
+    "clock out early",
+    "forget to clock out"
+   ],
+   "syn": [
+    "punch out"
+   ],
+   "level": "B1",
+   "emoji": "🕕",
+   "sub": "workplace",
+   "tip": "Cặp với clock in: vào thì in, ra thì out."
+  },
+  {
+   "word": "behind schedule",
+   "ipa": "/bɪˌhaɪnd ˈʃedjuːl/",
+   "pos": "phrase",
+   "vi": "chậm tiến độ",
+   "def": "later than planned",
+   "ex": "The project is two weeks behind schedule.",
+   "col": [
+    "fall behind schedule",
+    "running behind schedule"
+   ],
+   "syn": [
+    "late"
+   ],
+   "level": "B2",
+   "emoji": "🐢",
+   "sub": "workplace",
+   "tip": "Behind = đằng sau lịch đã vạch ra."
+  },
+  {
+   "word": "on track",
+   "ipa": "/ɒn ˈtræk/",
+   "pos": "phrase",
+   "vi": "đúng tiến độ",
+   "def": "making progress as planned",
+   "ex": "Good news: we're still on track for the launch.",
+   "col": [
+    "stay on track",
+    "on track to"
+   ],
+   "syn": [
+    "on schedule"
+   ],
+   "level": "B2",
+   "emoji": "🚆",
+   "sub": "workplace",
+   "tip": "Tàu còn chạy đúng đường ray: mọi việc đúng kế hoạch."
+  },
+  {
+   "word": "swamped",
+   "ipa": "/swɒmpt/",
+   "pos": "adj",
+   "vi": "ngập việc",
+   "def": "having far more work than you can manage",
+   "ex": "Sorry for the delay, I've been swamped this week.",
+   "col": [
+    "totally swamped",
+    "swamped with work"
+   ],
+   "syn": [
+    "overloaded"
+   ],
+   "level": "C1",
+   "emoji": "🌊",
+   "sub": "workplace",
+   "tip": "Như bị nước tràn ngập: việc dồn đến không kịp thở."
+  },
+  {
+   "word": "in charge of",
+   "ipa": "/ɪn ˈtʃɑːdʒ əv/",
+   "pos": "phr",
+   "vi": "phụ trách",
+   "def": "having control of or responsibility for something",
+   "ex": "Who is in charge of the new website?",
+   "col": [
+    "be in charge of",
+    "put someone in charge"
+   ],
+   "syn": [
+    "responsible for"
+   ],
+   "level": "B1",
+   "emoji": "👑",
+   "sub": "workplace",
+   "tip": "In charge of + việc: chịu trách nhiệm chính."
+  },
+  {
+   "word": "photocopy",
+   "ipa": "/ˈfəʊtəʊˌkɒpi/",
+   "pos": "v",
+   "vi": "sao chụp",
+   "def": "to make a paper copy of a document",
+   "ex": "Could you photocopy these pages for the meeting?",
+   "col": [
+    "photocopy a document",
+    "photocopy twice"
+   ],
+   "syn": [
+    "copy"
+   ],
+   "level": "A2",
+   "emoji": "🖨️",
+   "sub": "workplace",
+   "tip": "Photo + copy: chụp lại thành bản sao giấy."
+  }
+ ],
+ "phrases": [
+  {
+   "en": "Could you walk me through your resume?",
+   "vi": "Anh/chị có thể điểm qua CV của mình giúp tôi không?",
+   "lv": "B1",
+   "sub": "interview"
+  },
+  {
+   "en": "What made you apply for this position?",
+   "vi": "Điều gì khiến bạn nộp đơn vào vị trí này?",
+   "lv": "A2",
+   "sub": "interview"
+  },
+  {
+   "en": "I'm a quick learner and I enjoy working in a team.",
+   "vi": "Tôi học nhanh và thích làm việc nhóm.",
+   "lv": "B1",
+   "sub": "interview"
+  },
+  {
+   "en": "Do you have any questions for us?",
+   "vi": "Bạn có câu hỏi nào dành cho chúng tôi không?",
+   "lv": "A2",
+   "sub": "interview"
+  },
+  {
+   "en": "When would you be able to start?",
+   "vi": "Khi nào bạn có thể bắt đầu đi làm?",
+   "lv": "B1",
+   "sub": "interview"
+  },
+  {
+   "en": "Could we move on to the next item on the agenda?",
+   "vi": "Chúng ta chuyển sang mục tiếp theo trong chương trình họp nhé?",
+   "lv": "B2",
+   "sub": "meeting"
+  },
+  {
+   "en": "I'll circle back to you by Friday.",
+   "vi": "Thứ Sáu tôi sẽ quay lại trả lời bạn.",
+   "lv": "B2",
+   "sub": "meeting"
+  },
+  {
+   "en": "Sorry, could you repeat that, please?",
+   "vi": "Xin lỗi, bạn nhắc lại giúp tôi được không?",
+   "lv": "A2",
+   "sub": "meeting"
+  },
+  {
+   "en": "Does that work for everyone?",
+   "vi": "Như vậy mọi người đều ổn chứ?",
+   "lv": "B1",
+   "sub": "meeting"
+  },
+  {
+   "en": "Let's take this offline and discuss it after the meeting.",
+   "vi": "Chuyện này mình trao đổi riêng sau cuộc họp nhé.",
+   "lv": "B2",
+   "sub": "meeting"
+  },
+  {
+   "en": "I see your point, but I'm not sure it will work.",
+   "vi": "Tôi hiểu ý bạn, nhưng tôi không chắc cách đó sẽ hiệu quả.",
+   "lv": "B1",
+   "sub": "meeting"
+  },
+  {
+   "en": "I'm writing to follow up on our phone call yesterday.",
+   "vi": "Tôi viết thư này để tiếp nối cuộc gọi hôm qua của chúng ta.",
+   "lv": "B1",
+   "sub": "email"
+  },
+  {
+   "en": "Please find the report attached.",
+   "vi": "Xin xem báo cáo đính kèm.",
+   "lv": "A2",
+   "sub": "email"
+  },
+  {
+   "en": "Sorry for the late reply.",
+   "vi": "Xin lỗi vì trả lời muộn.",
+   "lv": "B1",
+   "sub": "email"
+  },
+  {
+   "en": "Thanks in advance for your help.",
+   "vi": "Cảm ơn trước vì sự giúp đỡ của bạn.",
+   "lv": "B1",
+   "sub": "email"
+  },
+  {
+   "en": "Who's calling, please?",
+   "vi": "Xin hỏi ai đang gọi ạ?",
+   "lv": "A2",
+   "sub": "email"
+  },
+  {
+   "en": "I'm afraid she's not available right now.",
+   "vi": "Tiếc là hiện giờ cô ấy không có mặt.",
+   "lv": "B1",
+   "sub": "email"
+  },
+  {
+   "en": "Can I pick your brain about something?",
+   "vi": "Tôi hỏi ý kiến bạn một chút về chuyện này được không?",
+   "lv": "B2",
+   "sub": "colleagues"
+  },
+  {
+   "en": "Thanks for having my back on that one.",
+   "vi": "Cảm ơn bạn đã đứng ra giúp tôi vụ đó.",
+   "lv": "B2",
+   "sub": "colleagues"
+  },
+  {
+   "en": "Could you give me a hand with this?",
+   "vi": "Bạn giúp tôi một tay việc này được không?",
+   "lv": "A2",
+   "sub": "colleagues"
+  },
+  {
+   "en": "Great job on the presentation today!",
+   "vi": "Hôm nay bạn thuyết trình tốt lắm!",
+   "lv": "A2",
+   "sub": "colleagues"
+  },
+  {
+   "en": "I'd like to talk about my salary.",
+   "vi": "Tôi muốn trao đổi về mức lương của mình.",
+   "lv": "B1",
+   "sub": "pay-leave"
+  },
+  {
+   "en": "Is overtime paid here?",
+   "vi": "Ở đây làm thêm giờ có được trả tiền không?",
+   "lv": "A2",
+   "sub": "pay-leave"
+  },
+  {
+   "en": "I need to take a day off on Monday.",
+   "vi": "Thứ Hai tôi cần xin nghỉ một ngày.",
+   "lv": "A2",
+   "sub": "pay-leave"
+  },
+  {
+   "en": "I'll be out of the office until the 12th.",
+   "vi": "Tôi sẽ vắng mặt ở văn phòng đến ngày 12.",
+   "lv": "B1",
+   "sub": "pay-leave"
+  },
+  {
+   "en": "I'm swamped right now, can it wait until tomorrow?",
+   "vi": "Giờ tôi ngập việc, để mai được không?",
+   "lv": "B1",
+   "sub": "workplace"
+  },
+  {
+   "en": "We're running a bit behind schedule.",
+   "vi": "Chúng ta đang hơi chậm tiến độ.",
+   "lv": "B2",
+   "sub": "workplace"
+  },
+  {
+   "en": "Let me double-check and get back to you.",
+   "vi": "Để tôi kiểm tra lại rồi báo bạn sau.",
+   "lv": "B1",
+   "sub": "workplace"
+  },
+  {
+   "en": "I'll have it done by the end of the day.",
+   "vi": "Cuối ngày hôm nay tôi sẽ xong.",
+   "lv": "A2",
+   "sub": "workplace"
+  },
+  {
+   "en": "Is this a good time to talk?",
+   "vi": "Giờ nói chuyện có tiện không ạ?",
+   "lv": "A2",
+   "sub": "workplace"
+  }
+ ],
+ "dialogs": [
+  {
+   "id": "iv-1",
+   "sub": "interview",
+   "lines": [
+    [
+     "A",
+     "Thanks for coming in. Could you walk me through your resume?",
+     "Cảm ơn bạn đã đến. Bạn điểm qua CV giúp tôi nhé?"
+    ],
+    [
+     "B",
+     "Sure. I worked in sales for three years, then moved into marketing.",
+     "Vâng. Tôi làm kinh doanh ba năm rồi chuyển sang tiếp thị."
+    ],
+    [
+     "A",
+     "And what would you say is your biggest strength?",
+     "Theo bạn điểm mạnh lớn nhất của mình là gì?"
+    ]
+   ],
+   "key": [
+    "walk someone through",
+    "resume",
+    "strength"
+   ]
+  },
+  {
+   "id": "iv-2",
+   "sub": "interview",
+   "lines": [
+    [
+     "A",
+     "We'd like to offer you the position, starting next month.",
+     "Chúng tôi muốn mời bạn vào vị trí này, bắt đầu từ tháng sau."
+    ],
+    [
+     "B",
+     "That's great news! Is the job offer in writing?",
+     "Tin tuyệt quá! Lời mời làm việc có bằng văn bản không?"
+    ],
+    [
+     "A",
+     "Yes, I'll email it today with the job description attached.",
+     "Có, hôm nay tôi gửi email kèm bản mô tả công việc."
+    ]
+   ],
+   "key": [
+    "job offer",
+    "job description",
+    "attach"
+   ]
+  },
+  {
+   "id": "mt-1",
+   "sub": "meeting",
+   "lines": [
+    [
+     "A",
+     "Let's move on. Anyone want to bring up something else?",
+     "Mình chuyển tiếp nhé. Ai muốn nêu thêm vấn đề gì không?"
+    ],
+    [
+     "B",
+     "Yes, I'd like to raise a concern about the deadline.",
+     "Có, tôi muốn nêu mối lo ngại về hạn chót."
+    ],
+    [
+     "A",
+     "Fair point. Let's sum up and then wrap up.",
+     "Đúng đấy. Mình tóm tắt rồi kết thúc nhé."
+    ]
+   ],
+   "key": [
+    "bring up",
+    "raise a concern",
+    "deadline",
+    "sum up",
+    "wrap up"
+   ]
+  },
+  {
+   "id": "mt-2",
+   "sub": "meeting",
+   "lines": [
+    [
+     "A",
+     "Can we reschedule tomorrow's meeting? I have a client call.",
+     "Mình dời cuộc họp ngày mai được không? Tôi có cuộc gọi với khách."
+    ],
+    [
+     "B",
+     "No problem. How about Thursday at ten?",
+     "Được. Thứ Năm lúc mười giờ thì sao?"
+    ],
+    [
+     "A",
+     "Perfect. I'll update the agenda and send it round.",
+     "Tuyệt. Tôi sẽ cập nhật chương trình họp rồi gửi cho mọi người."
+    ]
+   ],
+   "key": [
+    "reschedule",
+    "agenda"
+   ]
+  },
+  {
+   "id": "em-1",
+   "sub": "email",
+   "lines": [
+    [
+     "A",
+     "Hi, is Ms Lee available? This is Tom from Delta Print.",
+     "Chào, cô Lee có đó không ạ? Tôi là Tom bên Delta Print."
+    ],
+    [
+     "B",
+     "I'm afraid she's in a meeting. Would you like to leave a message?",
+     "Tiếc là cô ấy đang họp. Anh có muốn để lại lời nhắn không?"
+    ],
+    [
+     "A",
+     "Yes, please ask her to call me back this afternoon.",
+     "Có, nhờ chị bảo cô ấy gọi lại cho tôi chiều nay."
+    ]
+   ],
+   "key": [
+    "leave a message",
+    "call back"
+   ]
+  },
+  {
+   "id": "em-2",
+   "sub": "email",
+   "lines": [
+    [
+     "A",
+     "Did you get my email about the schedule?",
+     "Bạn nhận được email của tôi về lịch trình chưa?"
+    ],
+    [
+     "B",
+     "Yes, sorry. Let me check and get back to you tomorrow.",
+     "Rồi, xin lỗi. Để tôi kiểm tra rồi trả lời bạn vào ngày mai."
+    ],
+    [
+     "A",
+     "Thanks. Please keep me in the loop.",
+     "Cảm ơn nhé. Nhớ cập nhật cho tôi."
+    ]
+   ],
+   "key": [
+    "get back to you",
+    "keep someone in the loop"
+   ]
+  },
+  {
+   "id": "co-1",
+   "sub": "colleagues",
+   "lines": [
+    [
+     "A",
+     "Could you cover for me on Friday afternoon?",
+     "Chiều thứ Sáu bạn làm thay tôi được không?"
+    ],
+    [
+     "B",
+     "Sure, you can count on me. What do I need to do?",
+     "Được, bạn cứ yên tâm. Tôi cần làm gì?"
+    ],
+    [
+     "A",
+     "Just answer the phone and hand over any urgent messages.",
+     "Chỉ cần nghe điện thoại và chuyển các tin nhắn gấp lại cho tôi."
+    ]
+   ],
+   "key": [
+    "cover for",
+    "count on",
+    "hand over"
+   ]
+  },
+  {
+   "id": "co-2",
+   "sub": "colleagues",
+   "lines": [
+    [
+     "A",
+     "You look tired. Are you okay?",
+     "Trông bạn mệt đấy. Bạn ổn không?"
+    ],
+    [
+     "B",
+     "Honestly, my workload is huge and I'm close to burnout.",
+     "Thật lòng thì khối lượng việc của tôi rất lớn, tôi sắp kiệt sức rồi."
+    ],
+    [
+     "A",
+     "Talk to your manager. I'll help you where I can.",
+     "Hãy nói với quản lý của bạn. Tôi sẽ giúp bạn khi có thể."
+    ]
+   ],
+   "key": [
+    "workload",
+    "burnout",
+    "manager"
+   ]
+  },
+  {
+   "id": "pl-1",
+   "sub": "pay-leave",
+   "lines": [
+    [
+     "A",
+     "I've got a fever. I'm going to call in sick today.",
+     "Tôi bị sốt. Hôm nay tôi sẽ gọi báo ốm."
+    ],
+    [
+     "B",
+     "Good idea. Is it paid sick leave in your contract?",
+     "Nên vậy. Hợp đồng của bạn có nghỉ ốm hưởng lương không?"
+    ],
+    [
+     "A",
+     "Yes, I get ten days a year.",
+     "Có, mỗi năm tôi được mười ngày."
+    ]
+   ],
+   "key": [
+    "call in sick",
+    "sick leave",
+    "contract"
+   ]
+  },
+  {
+   "id": "pl-2",
+   "sub": "pay-leave",
+   "lines": [
+    [
+     "A",
+     "I'd like to talk about a pay rise. I've taken on more work this year.",
+     "Tôi muốn bàn về việc tăng lương. Năm nay tôi nhận thêm nhiều việc."
+    ],
+    [
+     "B",
+     "I understand. Let me check the budget and get back to you.",
+     "Tôi hiểu. Để tôi xem lại ngân sách rồi trả lời bạn."
+    ]
+   ],
+   "key": [
+    "pay rise",
+    "budget"
+   ]
+  },
+  {
+   "id": "wp-1",
+   "sub": "workplace",
+   "lines": [
+    [
+     "A",
+     "How is the project going? Are we on track?",
+     "Dự án đến đâu rồi? Mình còn đúng tiến độ không?"
+    ],
+    [
+     "B",
+     "Not really. We're two days behind schedule.",
+     "Chưa hẳn. Chúng ta đang chậm hai ngày."
+    ],
+    [
+     "A",
+     "Okay. Can you still meet the deadline on Friday?",
+     "Được rồi. Bạn có kịp hạn chót thứ Sáu không?"
+    ],
+    [
+     "B",
+     "If we work a little overtime, yes.",
+     "Nếu làm thêm giờ một chút thì kịp."
+    ]
+   ],
+   "key": [
+    "on track",
+    "behind schedule",
+    "meet the deadline",
+    "overtime"
+   ]
+  },
+  {
+   "id": "wp-2",
+   "sub": "workplace",
+   "lines": [
+    [
+     "A",
+     "Do you work from home on Fridays?",
+     "Thứ Sáu bạn có làm việc tại nhà không?"
+    ],
+    [
+     "B",
+     "Yes, it saves me a long commute. I'm more productive there.",
+     "Có, vậy đỡ phải đi xa. Ở nhà tôi làm việc năng suất hơn."
+    ]
+   ],
+   "key": [
+    "work from home",
+    "commute",
+    "productive"
+   ]
+  }
+ ]
+}

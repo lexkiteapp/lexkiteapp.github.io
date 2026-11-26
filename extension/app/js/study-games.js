@@ -139,6 +139,6 @@
     };
     show();
   }
-    return { runMatch, runSpeak, runBlitz: (src, q) => window.PlayBlitz.run(H, src, q), runRhythm: src => window.PlayRhythm.run(H, src), runCrossword: src => App.need('pxw').then(() => { if (window.PlayCrossword) window.PlayCrossword.run(H, src); }) }; // ⏱️ 🥁 cpack/play-app/ (cùng gói pgames)
+    return { runMatch, runSpeak, runBlitz: (src, q) => window.PlayBlitz.run(H, src, q), runRhythm: src => window.PlayRhythm.run(H, src), runPicmatch: src => App.need('ppm').then(() => { if (window.PlayPicmatch) window.PlayPicmatch.run(H, src); }), runCrossword: src => App.need('pxw').then(() => { if (window.PlayCrossword) window.PlayCrossword.run(H, src); }) }; // ⏱️ 🥁 cpack/play-app/ (cùng gói pgames)
   };
 })();

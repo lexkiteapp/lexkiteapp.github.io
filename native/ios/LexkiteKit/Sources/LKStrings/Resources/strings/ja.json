@@ -337,6 +337,7 @@
   "rev.test": "テスト",
   "rev.pronunciation": "発音練習",
   "rev.gamesPractice": "ゲームと練習",
+  "rev.gamePicmatch": "絵合わせ",
   "rev.gameCrossword": "毎日のクロスワード",
   "rev.pickAWordSource": "単語ソースを選択してから、練習モードを選択します。すべてのセッションで XP を獲得し、毎日のクエストにカウントされます。",
   "rev.wordSource": "単語の出典",
