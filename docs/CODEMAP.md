@@ -6,8 +6,8 @@
 Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['web/js/app.js'])"` · `g.routes` · `g.workflows` · `g.tests` · `g.god`. Mỗi node: exports, imports, importedBy.
 
 ## Khu vực
-- `web/` (3545 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy: BUNDLES ở web/js/bundles.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
-- `extension/` (2474 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
+- `web/` (3571 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy: BUNDLES ở web/js/bundles.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
+- `extension/` (2515 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (117 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
 - `scripts/` (1734 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
@@ -19,7 +19,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `store/` (47 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (286 file): Luật + tài liệu chủ đề (README.md → INDEX.md); cũ: docs/archive
 - API `/api/*` (52): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,challenge…
-- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:791 s/test:764 s/video:133 s/stitch:97 s/lib:81 js/vimg:64 s/ci:62 s/cine:54 js/st:44 s/lexicon:39 s/vocab-img:33 s/native:31 s/target:27 js/notes:27 js/readtest:21 s/pron:20 s/content-qa:16 s/lesson:16 js/get-app:15 js/irv:15 s/ops:14 s/word-audio:14 js/call:14 s/lipsync:12 s/sentence-audio:12 s/social:12 s/teach:12
+- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:817 s/test:764 s/video:133 s/stitch:97 s/lib:81 js/vimg:64 s/ci:62 s/cine:54 js/st:44 s/lexicon:39 s/vocab-img:33 s/native:31 s/target:27 js/notes:27 js/readtest:21 s/pron:20 s/content-qa:16 s/lesson:16 js/get-app:15 js/irv:15 s/ops:14 s/word-audio:14 js/call:14 s/lipsync:12 s/sentence-audio:12 s/social:12 s/teach:12
 
 ## Sửa ở đâu (tác vụ → file)
 - **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js; add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md
