@@ -133,7 +133,7 @@
     u1lg: ['js/st/v2/leagues.js'],
     u1ex: ['js/st/v2/exam-readiness.js'],
     u1me: ['js/st/v2/me.js', 'js/ux1-me.js'],
-    lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'cpack/st/v2/ex-frame.js', 'cpack/st/v2/ex-match.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'cpack/lesson/ex.js', 'js/lesson/ui.js'],
+    lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/lcardui.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'cpack/st/v2/ex-frame.js', 'cpack/st/v2/ex-match.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'cpack/lesson/ex.js', 'js/lesson/ui.js'],
     lgold: ['cpack/lesson/gold.js'],
     trfast: ['cpack/tr-fast.js'], // dịch câu (phrases.js nạp)
     dayv2: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/day.js', 'js/characters.js'], // 📅 Khung Stitch v2 của trang buổi học #/day/N (path-day.js page)
