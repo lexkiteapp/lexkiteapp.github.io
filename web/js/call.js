@@ -76,7 +76,7 @@
     const st = document.createElement('style'); st.id = 'callCss';
     st.textContent = `.call-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.8rem}
 .call-card{display:flex;gap:.8rem;align-items:center;padding:.9rem;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);text-decoration:none;min-height:44px}
-.call-card:hover{border-color:var(--primary)}.call-card img,.call-card .call-ini{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 0;flex:none}.call-card b{display:block}
+.call-card:hover{background:var(--surface-3)}.call-card img,.call-card .call-ini{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 0;flex:none}.call-card b{display:block}
 .call-flt{display:flex;gap:.4rem;flex-wrap:wrap;margin:0 0 .8rem}.call-flt button{min-height:36px}
 .call-ov{position:fixed;inset:0;z-index:9000;display:flex;flex-direction:column;align-items:center;background:radial-gradient(120% 80% at 50% 0%,#1f4f4d 0%,#0f2223 55%,#0a1414 100%);color:#fff;padding:max(14px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));overflow-y:auto}
 .call-top{width:100%;max-width:560px;display:flex;justify-content:space-between;align-items:center;gap:.6rem;font-size:.85rem;opacity:.9}
