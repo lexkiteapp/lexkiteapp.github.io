@@ -42,4 +42,6 @@ assert.ok(!fs.existsSync(path.join(tmp, 'extension/app/js/new.js')), 'tệp sinh
 assert.equal(r('i18n/ui/de.js'), 'src2', 'nguồn giữ nguyên'); assert.equal(r('web/js/i18n/en/core.js'), 'en2', 'en là nguồn, giữ nguyên');
 assert.equal(g('diff', '--cached', '--name-only', 'main').split('\n').filter(isGenerated).length, 0, 'sau strip không còn khác main ở tệp sinh');
 fs.rmSync(tmp, { recursive: true, force: true });
+// health.yml (chạy trên main theo lịch) phải dựng lại bản sinh trước npm test: bot gen-sync commit sau mỗi lần gộp nên có khoảng trễ → ext-sync đỏ giả (26/11)
+{ const h = fs.readFileSync('.github/workflows/health.yml', 'utf8'); const u = h.slice(h.indexOf('  unit:'), h.indexOf('  e2e:')); if (!/GEN_REGEN: '1'/.test(u)) { console.error('✗ health.yml job unit thiếu GEN_REGEN=1 (ext-sync đỏ giả giữa lúc gộp và gen-sync)'); process.exit(1); } }
 console.log('✓ gen-pr-clean: tập tệp sinh đúng, PR không commit bản sinh, strip đưa về bản main');

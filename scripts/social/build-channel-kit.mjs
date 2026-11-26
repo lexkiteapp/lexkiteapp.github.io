@@ -34,6 +34,7 @@ const sizedSvg = (svg, sfx, attrs) => scopeIds(svg, sfx).replace(/<svg([^>]*?)\s
 
 // ---------- Nội dung theo ngôn ngữ: en = bản chung mọi nước; vi/es/pt/de/fr/ru/tr/ar/hi = page bản địa (cùng bố cục, chỉ đổi chữ). Nguồn: scripts/social/channel-copy.mjs ----------
 import { COPY, KIT_LANGS, RTL, SCRIPT } from './channel-copy.mjs';
+import { readIndex, buildIndex, writeIndex } from '../lib/channel-kit-media.mjs';   // ảnh kit ở kho media ngoài (26/11): chỉ mục thay cho tệp trên đĩa
 export { COPY };
 
 // ---------- Nền tảng: kích thước + vùng an toàn (tài liệu chính thức, xem README) ----------
@@ -334,6 +335,7 @@ async function build() {
   const manifest = { generated: 'CI', logo: LOGO_SHA, copy: COPY, assets: report.filter(r => !r.id.endsWith('@2x')).map(({ issues, ...r }) => r),
     retina: report.filter(r => r.id.endsWith('@2x')).map(r => r.file) };
   fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify(manifest, null, 1) + '\n');
+  writeIndex(buildIndex());   // media-index.json: workflow đẩy ảnh lên kho m4 rồi kiểm URL 200 (channel-kit-media.mjs)
   const md = ['### Channel kit QC', '', '| Asset | Size | KB | Min contrast | Issues |', '|---|---|---|---|---|',
     ...report.filter(r => r.text).map(r => `| ${r.id} | ${r.w}×${r.h} | ${r.kb}/${r.maxKB} | ${r.text.length ? Math.min(...r.text.map(t => t.contrast)) + ':1' : '–'} | ${r.issues.length ? r.issues.join('; ') : '✓'} |`)];
   fs.writeFileSync(path.join(process.env.RUNNER_TEMP || tmp, 'channel-kit-qc.md'), md.join('\n') + '\n');
@@ -391,8 +393,8 @@ async function previews(sharp, report) {
 }
 
 // ---------- --check: file đã commit (nhanh, không trình duyệt – chạy trong npm test) ----------
-export function check() {
-  const errs = [], mf = path.join(OUT, 'manifest.json');
+export function check(out = OUT, index = readIndex(path.join(out, 'media-index.json'))) {   // out/index tiêm được để test kiểm khi ảnh không có trên đĩa
+  const errs = [], mf = path.join(out, 'manifest.json');
   if (!fs.existsSync(mf)) return ['thiếu brand/social/channel-kit/manifest.json (dựng trên CI: workflow social-channel-kit)'];
   const m = JSON.parse(fs.readFileSync(mf, 'utf8'));
   for (const [f, h] of Object.entries(m.logo || {})) if (LOGO_SHA[f] !== h) errs.push(`logo ${f} đã đổi so với lúc dựng kit → dựng lại (và đổi logo cần chủ duyệt)`);
@@ -400,9 +402,11 @@ export function check() {
   for (const a of ASSETS) {
     const files = [[a.file, 1], ...(a.scale2x ? [[a.file.replace(/\.png$/, '@2x.png'), 2]] : [])];
     for (const [f, sc] of files) {
-      const p = path.join(OUT, f);
-      if (!fs.existsSync(p)) { errs.push(`thiếu ${f}`); continue; }
-      const buf = fs.readFileSync(p), d = pngSize(buf), kb = buf.length / 1024;
+      const p = path.join(out, f), ix = (index.files || {})[f];
+      let d, kb;
+      if (fs.existsSync(p)) { const buf = fs.readFileSync(p); d = pngSize(buf); kb = buf.length / 1024; }
+      else if (ix) { d = { w: ix.w, h: ix.h }; kb = ix.bytes / 1024; }   // ảnh đã chuyển sang kho media ngoài: kích thước/dung lượng lấy từ media-index.json (CI kiểm URL 200 đúng byte)
+      else { errs.push(`thiếu ${f} (không có trên đĩa lẫn media-index.json)`); continue; }
       if (d.w !== a.w * sc || d.h !== a.h * sc) errs.push(`${f}: ${d.w}×${d.h} ≠ ${a.w * sc}×${a.h * sc}`);
       if (kb > a.maxKB) errs.push(`${f}: ${Math.round(kb)} KB > ${a.maxKB} KB`);
       if (hasVietnamese(f)) errs.push(`${f}: tên file có chữ Việt`);

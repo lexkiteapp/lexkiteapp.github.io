@@ -51,6 +51,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "Las question tags suelen tener una de dos entonaciones con significados distintos. Cuando el hablante está casi seguro y…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "El inglés tiene un ritmo basado en el acento: las palabras de contenido (sustantivos, verbos principales, adjetivos, adverbios, negaciones, palabras interrogativas) se acentúan, mientras que las palabras funcionales (preposiciones, artículos, verbos auxiliares, pronombres, conjunciones) suelen decirse rápido y suave con la vocal /ə/, lo que se llama forma débil. Los intervalos entre las palabras acentuadas tienden a ser bastante regulares, así que las palabras débiles se “comprimen”."
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "al final de una oración o cuando llevan acento de contraste; “can’t” es una palabra aparte con vocal plena"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (británico), /kænt/ (estadounidense)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "Lema: “Acentúa el contenido, desliza la gramática.” Sin acento, el “can” afirmativo es /kən/, mientras que “can't” es /kɑːnt/ (americano: /kænt/): una vocal totalmente distinta."
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "En “a cup of tea”, ¿cómo se pronuncia normalmente “of”?"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "En medio de la oración, “of” es una forma débil /əv/; al hablar rápido puede reducirse a solo /ə/: /ə ˈkʌp ə ˈtiː/."
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "¿Qué palabra suele ir ACENTUADA en una oración?"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "“pollution” es un sustantivo, una palabra de contenido. “the” y “and” son palabras funcionales y suelen pronunciarse débiles."
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "En inglés británico, ¿cómo se pronuncia “can” en “I can swim”?"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "Afirmativo, en medio de la oración → /kən/, con el acento en “SWIM”. Solo “can't” es /kɑːnt/."
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "¿Cuándo usa “from” la forma fuerte /frɒm/?"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "Una preposición al final de la oración usa su forma fuerte. En medio de la oración (“I come from Hanoi”) es /frəm/."
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "¿Cuál es el sonido más común en las formas débiles?"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "La mayoría de las formas débiles usan /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…"
   }
  },
  "pt": {
@@ -105,6 +161,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "As question tags costumam ter uma de duas entonações, com significados diferentes. Quando o falante está quase certo e…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "O inglês tem um ritmo baseado na acentuação: as palavras de conteúdo (substantivos, verbos principais, adjetivos, advérbios, negações, palavras interrogativas) são acentuadas, enquanto as palavras funcionais (preposições, artigos, verbos auxiliares, pronomes, conjunções) costumam ser ditas rápido e de forma leve com a vogal /ə/, a chamada forma fraca. Os intervalos entre as palavras acentuadas tendem a ser bem regulares, por isso as palavras fracas ficam “comprimidas”."
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "no fim da frase ou quando recebem acento de contraste; “can’t” é uma palavra à parte, com vogal plena"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (britânico), /kænt/ (americano)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "Lema: “Acentue o conteúdo, deslize pela gramática.” Sem acento, o “can” afirmativo é /kən/, enquanto “can't” é /kɑːnt/ (americano: /kænt/) – uma vogal completamente diferente."
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "Em “a cup of tea”, como “of” costuma ser pronunciado?"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "No meio da frase, “of” é uma forma fraca /əv/; na fala rápida pode reduzir-se a apenas /ə/: /ə ˈkʌp ə ˈtiː/."
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "Qual palavra costuma ser ACENTUADA numa frase?"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "“pollution” é um substantivo, uma palavra de conteúdo. “the” e “and” são palavras funcionais, geralmente ditas de forma fraca."
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "No inglês britânico, como se pronuncia “can” em “I can swim”?"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "Afirmativo, no meio da frase → /kən/, com o acento em “SWIM”. Só “can't” é /kɑːnt/."
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "Quando “from” usa a forma forte /frɒm/?"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "Uma preposição no fim da frase usa a forma forte. No meio da frase (“I come from Hanoi”) é /frəm/."
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "Qual é o som mais comum nas formas fracas?"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "A maioria das formas fracas usa /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…"
   }
  },
  "fr": {
@@ -159,6 +271,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "Les question tags prennent couramment l’une de deux intonations aux sens différents. Quand le locuteur est presque sûr et…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "L'anglais a un rythme fondé sur l'accentuation : les mots lexicaux (noms, verbes principaux, adjectifs, adverbes, négations, mots interrogatifs) sont accentués, tandis que les mots grammaticaux (prépositions, articles, auxiliaires, pronoms, conjonctions) se disent généralement vite et légèrement avec la voyelle /ə/, appelée forme faible. Les intervalles entre les mots accentués restent assez réguliers, si bien que les mots faibles sont « comprimés »."
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "en fin de phrase ou sous accent de contraste ; « can’t » est un mot à part avec une voyelle pleine"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (britannique), /kænt/ (américain)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "Mantra : « Accentue le contenu, glisse sur la grammaire. » Sans accent, « can » affirmatif se prononce /kən/, alors que « can't » se prononce /kɑːnt/ (américain : /kænt/) – une voyelle totalement différente."
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "Dans « a cup of tea », comment prononce-t-on habituellement « of » ?"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "Au milieu de la phrase, « of » est une forme faible /əv/ ; à l'oral rapide, il peut se réduire à /ə/ : /ə ˈkʌp ə ˈtiː/."
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "Quel mot est généralement ACCENTUÉ dans une phrase ?"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "« pollution » est un nom, un mot lexical. « the » et « and » sont des mots grammaticaux, généralement prononcés faiblement."
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "En anglais britannique, comment prononce-t-on « can » dans « I can swim » ?"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "Affirmatif, au milieu de la phrase → /kən/, avec l'accent sur « SWIM ». Seul « can't » se prononce /kɑːnt/."
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "Quand « from » prend-il la forme forte /frɒm/ ?"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "Une préposition en fin de phrase prend sa forme forte. Au milieu de la phrase (« I come from Hanoi »), c'est /frəm/."
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "Quel est le son le plus courant dans les formes faibles ?"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "La plupart des formes faibles utilisent /ə/ : /tə/, /fə/, /ən/, /ət/, /wəz/…"
   }
  },
  "de": {
@@ -213,6 +381,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "Question Tags haben üblicherweise eines von zwei Intonationsmustern mit unterschiedlicher Bedeutung. Wenn der Sprecher fast sicher ist und…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "Das Englische hat einen betonungsbasierten Rhythmus: Inhaltswörter (Nomen, Hauptverben, Adjektive, Adverbien, Verneinungen, Fragewörter) werden betont, während Funktionswörter (Präpositionen, Artikel, Hilfsverben, Pronomen, Konjunktionen) meist schnell und leicht mit dem Vokal /ə/ gesprochen werden – man nennt das Schwachform. Die Abstände zwischen den betonten Wörtern bleiben ziemlich gleichmäßig, deshalb werden die schwachen Wörter „zusammengedrückt“."
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "am Satzende oder bei Kontrastbetonung; „can’t“ ist ein eigenes Wort mit vollem Vokal"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (britisch), /kænt/ (amerikanisch)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "Merksatz: „Betone den Inhalt, gleite über die Grammatik.“ Unbetont wird das bejahende „can“ /kən/ gesprochen, „can't“ dagegen /kɑːnt/ (amerikanisch: /kænt/) – ein völlig anderer Vokal."
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "Wie wird „of“ in „a cup of tea“ normalerweise ausgesprochen?"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "Mitten im Satz ist „of“ eine Schwachform /əv/; beim schnellen Sprechen kann es auf /ə/ schrumpfen: /ə ˈkʌp ə ˈtiː/."
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "Welches Wort wird in einem Satz normalerweise BETONT?"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "„pollution“ ist ein Nomen – ein Inhaltswort. „the“ und „and“ sind Funktionswörter und werden meist schwach gesprochen."
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "Wie wird „can“ in „I can swim“ im britischen Englisch ausgesprochen?"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "Bejahend, mitten im Satz → /kən/, mit der Betonung auf „SWIM“. Nur „can't“ wird /kɑːnt/ gesprochen."
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "Wann verwendet „from“ die Starkform /frɒm/?"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "Eine Präposition am Satzende steht in der Starkform. Mitten im Satz („I come from Hanoi“) ist es /frəm/."
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "Welcher Laut ist in Schwachformen am häufigsten?"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "Die meisten Schwachformen verwenden /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…"
   }
  },
  "id": {
@@ -267,6 +491,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "Question tag biasanya memakai salah satu dari dua pola intonasi dengan makna berbeda. Ketika penutur hampir yakin dan…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "Bahasa Inggris memiliki ritme berbasis tekanan: kata isi (kata benda, kata kerja utama, kata sifat, kata keterangan, kata negatif, kata tanya) diberi tekanan, sedangkan kata fungsi (preposisi, artikel, kata kerja bantu, kata ganti, konjungsi) biasanya diucapkan cepat dan ringan dengan vokal /ə/ – disebut bentuk lemah. Jarak antarkata bertekanan cenderung cukup merata, sehingga kata-kata lemah “terhimpit”."
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "di akhir kalimat atau saat diberi tekanan kontras; “can’t” adalah kata tersendiri dengan vokal penuh"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (Inggris Britania), /kænt/ (Amerika)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "Mantra: “Tekankan isi, luncurkan tata bahasa.” Jika tidak ditekan, “can” positif diucapkan /kən/, sedangkan “can't” diucapkan /kɑːnt/ (Amerika: /kænt/) – vokal yang sama sekali berbeda."
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "Dalam “a cup of tea”, bagaimana “of” biasanya diucapkan?"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "Di tengah kalimat, “of” berbentuk lemah /əv/; saat bicara cepat bisa menyusut menjadi /ə/ saja: /ə ˈkʌp ə ˈtiː/."
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "Kata mana yang biasanya DITEKANKAN dalam kalimat?"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "“pollution” adalah kata benda – kata isi. “the” dan “and” adalah kata fungsi, biasanya diucapkan lemah."
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "Dalam bahasa Inggris Britania, bagaimana “can” diucapkan dalam “I can swim”?"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "Kalimat positif, di tengah kalimat → /kən/, dengan tekanan pada “SWIM”. Hanya “can't” yang diucapkan /kɑːnt/."
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "Kapan “from” memakai bentuk kuat /frɒm/?"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "Preposisi di akhir kalimat memakai bentuk kuat. Di tengah kalimat (“I come from Hanoi”) diucapkan /frəm/."
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "Bunyi apa yang paling umum dalam bentuk lemah?"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "Sebagian besar bentuk lemah memakai /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…"
   }
  },
  "th": {
@@ -321,6 +601,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "question tag มักใช้ทำนองเสียงหนึ่งในสองแบบที่ความหมายต่างกัน เมื่อผู้พูดค่อนข้างมั่นใจและ…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "ภาษาอังกฤษมีจังหวะที่อิงการเน้นเสียง: คำเนื้อหา (คำนาม กริยาหลัก คุณศัพท์ กริยาวิเศษณ์ คำปฏิเสธ คำถาม) จะถูกเน้น ส่วนคำไวยากรณ์ (บุพบท คำนำหน้านาม กริยาช่วย สรรพนาม สันธาน) มักออกเสียงเร็วและเบาด้วยสระ /ə/ เรียกว่ารูปอ่อน ช่วงห่างระหว่างคำที่ถูกเน้นมักค่อนข้างสม่ำเสมอ คำอ่อนจึงถูก “บีบ” ให้สั้นลง"
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "เมื่ออยู่ท้ายประโยคหรือถูกเน้นเพื่อเปรียบต่าง; “can’t” เป็นคำที่แยกต่างหากและออกเสียงสระเต็ม"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (อังกฤษ), /kænt/ (อเมริกัน)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "คาถา: “เน้นเนื้อหา – ร่อนผ่านไวยากรณ์” เมื่อไม่เน้น “can” แบบบอกเล่าออกเสียง /kən/ ส่วน “can't” คือ /kɑːnt/ (อเมริกัน: /kænt/) – สระต่างกันโดยสิ้นเชิง"
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "ใน “a cup of tea” คำว่า “of” มักออกเสียงอย่างไร?"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "กลางประโยค “of” เป็นรูปอ่อน /əv/ เวลาพูดเร็วอาจเหลือแค่ /ə/: /ə ˈkʌp ə ˈtiː/"
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "คำใดมักถูกเน้นในประโยค?"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "“pollution” เป็นคำนาม – คำเนื้อหา ส่วน “the” และ “and” เป็นคำไวยากรณ์ มักออกเสียงเบา"
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "ในสำเนียงอังกฤษ “can” ใน “I can swim” ออกเสียงอย่างไร?"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "ประโยคบอกเล่า กลางประโยค → /kən/ และเน้นที่ “SWIM” เฉพาะ “can't” เท่านั้นที่เป็น /kɑːnt/"
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "“from” ใช้รูปแข็ง /frɒm/ เมื่อใด?"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "บุพบทท้ายประโยคใช้รูปแข็ง กลางประโยค (“I come from Hanoi”) เป็น /frəm/"
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "เสียงใดพบบ่อยที่สุดในรูปอ่อน?"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "รูปอ่อนส่วนใหญ่ใช้ /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…"
   }
  },
  "zh": {
@@ -375,6 +711,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "附加疑问句通常有两种意义不同的语调。当说话者几乎确定并且…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "英语的节奏以重音为基础：实词（名词、主要动词、形容词、副词、否定词、疑问词）要重读，而虚词（介词、冠词、助动词、代词、连词）通常读得又快又轻，元音为 /ə/，这就是弱读形式。重读词之间的间隔大致均匀，所以弱读词会被“压缩”。"
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "位于句末或被对比重读时；“can’t”是单独的词，元音完整"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/（英式），/kænt/（美式）"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "口诀：“实词重读，虚词轻滑。”不重读时，肯定句的“can”读 /kən/，而“can't”读 /kɑːnt/（美式：/kænt/）——元音完全不同。"
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "在“a cup of tea”中，“of”通常怎么读？"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "在句子中间，“of”读弱读形式 /əv/；快速说话时可能只剩 /ə/：/ə ˈkʌp ə ˈtiː/。"
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "句子中哪个词通常要重读？"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "“pollution”是名词，属于实词。“the”和“and”是虚词，通常弱读。"
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "在英式英语中，“I can swim”里的“can”怎么读？"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "肯定句、句中 → /kən/，重音在“SWIM”上。只有“can't”才读 /kɑːnt/。"
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "“from”什么时候用强读形式 /frɒm/？"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "句末的介词用强读形式。在句中（“I come from Hanoi”）读 /frəm/。"
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "弱读形式中最常见的音是什么？"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "大多数弱读形式使用 /ə/：/tə/、/fə/、/ən/、/ət/、/wəz/……"
   }
  },
  "ja": {
@@ -429,6 +821,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "付加疑問には、意味の異なる2つのイントネーションがよく使われます。話し手がほぼ確信していて、…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "英語は強勢に基づくリズムを持っています。内容語（名詞、本動詞、形容詞、副詞、否定語、疑問詞）は強く読まれ、機能語（前置詞、冠詞、助動詞、代名詞、接続詞）は母音 /ə/ で速く軽く読まれるのが普通で、これを弱形と呼びます。強く読まれる語どうしの間隔はほぼ一定になりやすいため、弱い語は「圧縮」されます。"
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "文末にあるときや対比のために強く読むとき。“can’t”は完全な母音をもつ別の語です"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/（イギリス英語）、/kænt/（アメリカ英語）"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "合言葉：「内容は強く、文法はさらっと。」強く読まないとき、肯定の“can”は /kən/、“can't”は /kɑːnt/（アメリカ英語：/kænt/）で、母音がまったく違います。"
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "“a cup of tea”の“of”は普通どう発音しますか？"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "文の途中では“of”は弱形 /əv/ で、早口だと /ə/ だけになることもあります：/ə ˈkʌp ə ˈtiː/。"
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "文の中で普通、強く読まれる語はどれですか？"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "“pollution”は名詞で内容語です。“the”と“and”は機能語で、普通は弱く読まれます。"
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "イギリス英語で“I can swim”の“can”はどう発音しますか？"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "肯定文の文中では /kən/ で、“SWIM”に強勢を置きます。/kɑːnt/ になるのは“can't”だけです。"
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "“from”が強形 /frɒm/ になるのはいつですか？"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "文末の前置詞は強形になります。文の途中（“I come from Hanoi”）では /frəm/ です。"
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "弱形でいちばん多い音は何ですか？"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "弱形の多くは /ə/ を使います：/tə/、/fə/、/ən/、/ət/、/wəz/……"
   }
  },
  "ko": {
@@ -483,6 +931,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "부가의문문은 보통 의미가 다른 두 가지 억양 중 하나를 씁니다. 화자가 거의 확신하고 있을 때…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "영어는 강세에 기반한 리듬을 가지고 있습니다. 내용어(명사, 본동사, 형용사, 부사, 부정어, 의문사)는 강하게 읽고, 기능어(전치사, 관사, 조동사, 대명사, 접속사)는 보통 모음 /ə/로 빠르고 가볍게 읽는데, 이를 약형이라고 합니다. 강세가 있는 단어 사이의 간격은 비교적 일정하게 유지되는 경향이 있어서 약한 단어들은 “압축”됩니다."
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "문장 끝에 오거나 대조 강세를 받을 때; “can’t”는 완전한 모음을 가진 별개의 단어입니다"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (영국식), /kænt/ (미국식)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "주문: “내용은 세게, 문법은 가볍게.” 강세가 없을 때 긍정문의 “can”은 /kən/이고, “can't”는 /kɑːnt/(미국식: /kænt/)입니다. 모음이 완전히 다릅니다."
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "“a cup of tea”에서 “of”는 보통 어떻게 발음할까요?"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "문장 중간에서 “of”는 약형 /əv/이며, 빠르게 말하면 /ə/만 남기도 합니다: /ə ˈkʌp ə ˈtiː/."
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "문장에서 보통 강하게 읽는 단어는 무엇일까요?"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "“pollution”은 명사로 내용어입니다. “the”와 “and”는 기능어로 보통 약하게 읽습니다."
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "영국식 영어에서 “I can swim”의 “can”은 어떻게 발음할까요?"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "긍정문의 문장 중간에서는 /kən/이며 강세는 “SWIM”에 옵니다. “can't”만 /kɑːnt/입니다."
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "“from”은 언제 강형 /frɒm/을 쓸까요?"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "문장 끝의 전치사는 강형을 씁니다. 문장 중간(“I come from Hanoi”)에서는 /frəm/입니다."
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "약형에서 가장 흔한 소리는 무엇일까요?"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "대부분의 약형은 /ə/를 씁니다: /tə/, /fə/, /ən/, /ət/, /wəz/…"
   }
  },
  "hi": {
@@ -537,6 +1041,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "प्रश्न-टैग (question tag) में आमतौर पर अलग-अलग अर्थ वाले दो स्वर-संगीतों में से एक होता है। जब वक्ता लगभग निश्चित होता है और…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "अंग्रेज़ी की लय बल पर आधारित होती है: विषय-शब्द (संज्ञा, मुख्य क्रिया, विशेषण, क्रियाविशेषण, नकारात्मक शब्द, प्रश्नवाचक शब्द) पर बल दिया जाता है, जबकि प्रकार्य-शब्द (पूर्वसर्ग, आर्टिकल, सहायक क्रिया, सर्वनाम, संयोजक) आमतौर पर स्वर /ə/ के साथ तेज़ और हल्के बोले जाते हैं – इसे कमज़ोर रूप कहते हैं। बल वाले शब्दों के बीच की दूरी लगभग बराबर रहती है, इसलिए कमज़ोर शब्द “दब” जाते हैं।"
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "वाक्य के अंत में या विरोध-बल मिलने पर; “can’t” पूर्ण स्वर वाला अलग शब्द है"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (ब्रिटिश), /kænt/ (अमेरिकी)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "मंत्र: “विषय पर बल दो – व्याकरण पर फिसल जाओ।” बल न होने पर सकारात्मक “can” /kən/ होता है, जबकि “can't” /kɑːnt/ (अमेरिकी: /kænt/) होता है – स्वर बिल्कुल अलग।"
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "“a cup of tea” में “of” का उच्चारण आमतौर पर कैसे होता है?"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "वाक्य के बीच में “of” कमज़ोर रूप /əv/ होता है; तेज़ बोलने पर यह केवल /ə/ रह सकता है: /ə ˈkʌp ə ˈtiː/।"
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "वाक्य में आमतौर पर किस शब्द पर बल दिया जाता है?"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "“pollution” संज्ञा है – विषय-शब्द। “the” और “and” प्रकार्य-शब्द हैं, जो आमतौर पर कमज़ोर बोले जाते हैं।"
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "ब्रिटिश अंग्रेज़ी में “I can swim” में “can” कैसे बोला जाता है?"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "सकारात्मक वाक्य के बीच में → /kən/, और बल “SWIM” पर। केवल “can't” ही /kɑːnt/ होता है।"
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "“from” कब प्रबल रूप /frɒm/ लेता है?"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "वाक्य के अंत का पूर्वसर्ग प्रबल रूप लेता है। वाक्य के बीच में (“I come from Hanoi”) यह /frəm/ होता है।"
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "कमज़ोर रूपों में सबसे आम ध्वनि कौन-सी है?"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "अधिकांश कमज़ोर रूप /ə/ का उपयोग करते हैं: /tə/, /fə/, /ən/, /ət/, /wəz/…"
   }
  },
  "ar": {
@@ -1116,6 +1676,62 @@
    "l1": "اسأل عن مدى وضوح شرحك أنت، ولا تسأل عن فهم المستمع؛ فهذا يجعل الطرف الآخر يشعر بالارتياح إذا أراد أن يقول 'no'.",
    "s": 5,
    "en": "994a351b46da"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "للغة الإنجليزية إيقاع قائم على النبر: تُنبَر الكلمات المضمونية (الأسماء والأفعال الرئيسية والصفات والظروف وأدوات النفي وكلمات الاستفهام)، بينما تُنطق الكلمات الوظيفية (حروف الجر وأدوات التعريف والأفعال المساعدة والضمائر وأدوات العطف) عادةً بسرعة وخفة مع الحركة /ə/، وهذا ما يسمى الصيغة الضعيفة. تميل المسافات بين الكلمات المنبورة إلى التساوي، لذلك تُضغط الكلمات الضعيفة."
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "في نهاية الجملة أو عند النبر التباينـي؛ و“can’t” كلمة مستقلة بحركة كاملة"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (بريطاني)، /kænt/ (أمريكي)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "الشعار: «انبر المضمون، وانزلق على القواعد.» عند عدم النبر تُنطق “can” المثبتة /kən/، أما “can't” فتُنطق /kɑːnt/ (أمريكي: /kænt/) – حركة مختلفة تمامًا."
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "في “a cup of tea”، كيف تُنطق “of” عادةً؟"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "في وسط الجملة تكون “of” بصيغة ضعيفة /əv/؛ وفي الكلام السريع قد تختصر إلى /ə/ فقط: /ə ˈkʌp ə ˈtiː/."
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "أي كلمة تُنبَر عادةً في الجملة؟"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "“pollution” اسم، أي كلمة مضمونية. أما “the” و“and” فكلمتان وظيفيتان تُنطقان عادةً بصيغة ضعيفة."
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "في الإنجليزية البريطانية، كيف تُنطق “can” في “I can swim”؟"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "في الجملة المثبتة وفي وسطها → /kən/ مع النبر على “SWIM”. وحدها “can't” تُنطق /kɑːnt/."
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "متى تستخدم “from” الصيغة القوية /frɒm/؟"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "حرف الجر في نهاية الجملة يأخذ الصيغة القوية. وفي وسط الجملة (“I come from Hanoi”) يُنطق /frəm/."
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "ما أكثر صوت شيوعًا في الصيغ الضعيفة؟"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "تستخدم معظم الصيغ الضعيفة /ə/: ‏/tə/ و/fə/ و/ən/ و/ət/ و/wəz/…"
   }
  },
  "ru": {
@@ -1170,6 +1786,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "У разделительных вопросов (question tags) обычно бывает одна из двух интонаций с разным смыслом. Когда говорящий почти уверен и…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "Ритм английского языка основан на ударении: знаменательные слова (существительные, основные глаголы, прилагательные, наречия, отрицания, вопросительные слова) выделяются ударением, а служебные (предлоги, артикли, вспомогательные глаголы, местоимения, союзы) обычно произносятся быстро и легко с гласным /ə/ – это называется слабой формой. Промежутки между ударными словами стремятся быть примерно равными, поэтому слабые слова «сжимаются»."
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "в конце предложения или при контрастном ударении; «can’t» – отдельное слово с полным гласным"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (британский), /kænt/ (американский)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "Девиз: «Ударяй содержание – скользи по грамматике.» Без ударения утвердительное «can» звучит /kən/, а «can't» – /kɑːnt/ (американский: /kænt/): гласный совсем другой."
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "Как обычно произносится «of» в «a cup of tea»?"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "В середине предложения «of» имеет слабую форму /əv/; в быстрой речи может остаться только /ə/: /ə ˈkʌp ə ˈtiː/."
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "Какое слово обычно несёт ударение в предложении?"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "«pollution» – существительное, знаменательное слово. «the» и «and» – служебные слова, обычно произносятся слабо."
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "Как в британском английском произносится «can» в «I can swim»?"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "Утверждение, середина предложения → /kən/, ударение на «SWIM». Только «can't» произносится /kɑːnt/."
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "Когда «from» имеет сильную форму /frɒm/?"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "Предлог в конце предложения имеет сильную форму. В середине («I come from Hanoi») – /frəm/."
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "Какой звук самый частый в слабых формах?"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "Большинство слабых форм используют /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…"
   }
  },
  "tr": {
@@ -1224,6 +1896,62 @@
   "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
    "en": "d1aa4be8fefa",
    "l1": "Soru ekleri genellikle anlamları farklı iki tonlamadan birini alır. Konuşucu neredeyse emin olduğunda ve…"
+  },
+  "Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn có xu hướng khá đều nhau, nên các từ yếu bị “nén” lại.": {
+   "en": "e245a8a2d0ab",
+   "l1": "İngilizcenin ritmi vurguya dayanır: içerik sözcükleri (isimler, ana fiiller, sıfatlar, zarflar, olumsuzlar, soru sözcükleri) vurgulanır; işlev sözcükleri (edatlar, artikeller, yardımcı fiiller, zamirler, bağlaçlar) ise genellikle /ə/ ünlüsüyle hızlı ve hafif söylenir – buna zayıf biçim denir. Vurgulu sözcükler arasındaki aralıklar oldukça eşit kalma eğilimindedir, bu yüzden zayıf sözcükler “sıkıştırılır”."
+  },
+  "khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ": {
+   "en": "277eee8072b2",
+   "l1": "cümlenin sonunda veya karşıtlık vurgusu aldığında; “can’t” tam ünlülü ayrı bir sözcüktür"
+  },
+  "can't /kɑːnt/ (Anh), /kænt/ (Mỹ)": {
+   "en": "21c50294b0d6",
+   "l1": "can't /kɑːnt/ (İngiliz), /kænt/ (Amerikan)"
+  },
+  "Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can't” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.": {
+   "en": "60f56645f15a",
+   "l1": "Düstur: “İçeriği vurgula, dilbilgisinin üzerinden kay.” Vurgusuzken olumlu “can” /kən/ okunur, “can't” ise /kɑːnt/ (Amerikan: /kænt/) – tamamen farklı bir ünlü."
+  },
+  "Trong “a cup of tea”, “of” thường đọc là?": {
+   "en": "92d38cf54ce4",
+   "l1": "“a cup of tea” içindeki “of” genellikle nasıl okunur?"
+  },
+  "Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.": {
+   "en": "a52bbe5e550e",
+   "l1": "Cümle ortasında “of” zayıf biçim /əv/ olur; hızlı konuşmada yalnızca /ə/ kalabilir: /ə ˈkʌp ə ˈtiː/."
+  },
+  "Từ nào thường ĐƯỢC NHẤN trong câu?": {
+   "en": "f3ec825b8f4f",
+   "l1": "Bir cümlede genellikle hangi sözcük VURGULANIR?"
+  },
+  "“pollution” là danh từ – từ nội dung. “the” và “and” là từ chức năng, thường đọc yếu.": {
+   "en": "ae8689c65b2e",
+   "l1": "“pollution” bir isimdir – içerik sözcüğü. “the” ve “and” işlev sözcükleridir ve genellikle zayıf söylenir."
+  },
+  "Câu “I can swim” trong giọng Anh, “can” đọc là?": {
+   "en": "35bf10b4f209",
+   "l1": "İngiliz İngilizcesinde “I can swim” cümlesindeki “can” nasıl okunur?"
+  },
+  "Khẳng định, giữa câu → /kən/, và nhấn vào “SWIM”. “can't” mới là /kɑːnt/.": {
+   "en": "f4b99dc28167",
+   "l1": "Olumlu cümle, cümle ortası → /kən/ ve vurgu “SWIM” üzerinde. Yalnızca “can't” /kɑːnt/ okunur."
+  },
+  "Khi nào “from” dùng dạng mạnh /frɒm/?": {
+   "en": "9ade0e56637b",
+   "l1": "“from” ne zaman güçlü biçim /frɒm/ kullanır?"
+  },
+  "Giới từ đứng cuối câu dùng dạng mạnh. Giữa câu (“I come from Hanoi”) là /frəm/.": {
+   "en": "8ff94b94da42",
+   "l1": "Cümle sonundaki edat güçlü biçimini alır. Cümle ortasında (“I come from Hanoi”) /frəm/ olur."
+  },
+  "Âm phổ biến nhất trong dạng yếu là?": {
+   "en": "78aaa98e6c6b",
+   "l1": "Zayıf biçimlerde en yaygın ses hangisidir?"
+  },
+  "Hầu hết dạng yếu dùng /ə/: /tə/, /fə/, /ən/, /ət/, /wəz/…": {
+   "en": "f66c348e1550",
+   "l1": "Zayıf biçimlerin çoğu /ə/ kullanır: /tə/, /fə/, /ən/, /ət/, /wəz/…"
   }
  }
 }

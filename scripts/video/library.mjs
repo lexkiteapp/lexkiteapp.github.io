@@ -12,7 +12,7 @@
 //   node scripts/video/library.mjs stack [id|all] [--force]    bản stacked cho render (clip_to_layer.py) + ghi brand/library/manifest.json
 //   node scripts/video/library.mjs render-manifest              chỉ ghi lại + kiểm brand/library/manifest.json
 //   node scripts/video/library.mjs drive-backup [dir] [--repair] sao lưu bản gốc (2 bản/2 Drive) + bản stacked (1 bản) lên Kho Drive riêng (LEXKITE_DRIVE_CLI_KEY)
-//   node scripts/video/library.mjs drive-refs | drive-health [--dry-run] | where <id|sha|tên>   tham chiếu dọn dẹp · kiểm sức khoẻ + sửa bản sao · tra vị trí
+//   node scripts/video/library.mjs drive-refs | drive-health [--dry-run] [--repair] | where <id|sha|tên>   tham chiếu dọn dẹp · kiểm sức khoẻ + sửa bản sao · tra vị trí
 //   node scripts/video/library.mjs verify [--deep] [--repair]  (--repair: chép bù bản sao Kho Drive còn thiếu)
 //   node scripts/video/library.mjs vision-cal [--runs N] [--model @cf/...]   hiệu chỉnh AI thị giác trên bộ mẫu scripts/video/vision-calibration.json
 //   CI (.github/workflows/library-build.yml): ci-plan [missing|all|id,…] · ci-build <id> --out dir · ci-apply <dir> [--no-sync]
@@ -871,12 +871,12 @@ export function driveCliKey() {
 export function driveSign(key, bodyText, ts = Math.floor(Date.now() / 1000)) {
   return { 'X-Drive-Ts': String(ts), 'X-Drive-Sig': crypto.createHmac('sha256', key).update(ts + '.' + sha256(Buffer.from(bodyText))).digest('hex') };
 }
-export async function driveApi(op, body = {}, { fetcher = fetch, key = driveCliKey() } = {}) {
+export async function driveApi(op, body = {}, { fetcher = fetch, key = driveCliKey(), timeoutMs = 60e3 } = {}) {   // timeoutMs: mỗi lời gọi ≤ 60 s (26/11: health treo 14 phút vì 1 lời gọi không có hạn)
   if (!key) { const e = new Error('chưa có LEXKITE_DRIVE_CLI_KEY'); e.code = 'no-key'; throw e; }
   const text = JSON.stringify({ op, ...body });
   let r, j;
   for (let i = 0; ; i++) { // 429 too-fast (giới hạn 120 lượt/phút/IP của functions/api/drive.js) → chờ rồi thử lại, tối đa 5 lần
-    r = await fetcher(DRIVE_API, { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text }); // ký lại mỗi lần (HMAC có mốc giờ)
+    r = await fetcher(DRIVE_API, { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text, ...(fetcher === fetch ? { signal: AbortSignal.timeout(timeoutMs) } : {}) }); // ký lại mỗi lần (HMAC có mốc giờ)
     j = await r.json().catch(() => ({}));
     if (r.status !== 429 || i >= 4 || fetcher !== fetch || /quota-guard|d1-budget/.test(j.error || '')) break; // cầu dao D1: KHÔNG thử lại – dừng, mai chạy tiếp
     await new Promise(res => setTimeout(res, 15000 * (i + 1)));
@@ -983,9 +983,10 @@ export async function pushDriveRefs(m, deps = {}) {
   return { library: a.count, manifest: b.count };
 }
 /** Chép bù bản sao thiếu (máy chủ chép Drive → Drive), lặp tới khi xong hoặc không tiến triển. */
-async function driveRepairLoop(deps = {}) {
+export async function driveRepairLoop(deps = {}, { deadline = Infinity } = {}) {   // deadline (ms epoch): hết giờ thì dừng, lượt sau chạy tiếp
   let last = Infinity, total = 0;
   for (let i = 0; i < 50; i++) {
+    if (Date.now() > deadline) { log(`… hết giờ sửa bản sao (còn ${last === Infinity ? '?' : last}) – lượt sau chạy tiếp`); break; }
     const r = await driveApi('repair', { max_files: 5 }, deps);
     total += (r.done || []).length; for (const f of r.failed || []) log(`! sửa bản sao ${f.name}: ${f.error}`);
     if (!r.remaining || r.remaining >= last || !(r.done || []).length) { if ((r.lost_only || []).length) log(`⚠ ${r.lost_only.length} file chỉ còn trên Drive mất kết nối – cần tải lại từ máy/nguồn chính`); log(`Sửa bản sao: chép ${total} · còn thiếu ${r.remaining || 0}`); return r.remaining || 0; }
@@ -1031,7 +1032,9 @@ async function cmdDriveHealth(opts) {
   for (const a of r.alerts || []) log(`${a.level === 'crit' ? '⛔' : '⚠'} ${a.t}${a.p && a.p.email ? ' ' + maskEmail(a.p.email) : ''}${a.p && a.p.pct ? ' ' + a.p.pct + '%' : ''}`);
   if (r.mailed && r.mailed.length) log(`✉ đã gửi thư: ${r.mailed.join(', ')}`);
   log(`Bản sao: thiếu ${r.under_replicated || 0} · chỉ 1 bản ${r.single || 0} · chỉ trên Drive mất kết nối ${r.lost_only || 0}`);
-  if (r.under_replicated && !opts.dryRun) await driveRepairLoop();
+  // 26/11: health.yml treo 15' vì sửa 218 bản sao NGAY trong bước kiểm (mỗi vòng ≤ 5 file, tuần tự). Kiểm chỉ CẢNH BÁO kèm số liệu; sửa bản sao do workflow riêng drive-repair.yml
+  // (scripts/ops/drive-repair.mjs, 03:47 hằng ngày, đã có sẵn). Muốn sửa tại chỗ: drive-health --repair (hạn 10 phút).
+  if (r.under_replicated) { log(`⚠ ${r.under_replicated} file thiếu bản sao – ${opts.repair && !opts.dryRun ? 'sửa tại chỗ (--repair)' : 'workflow drive-repair sẽ sửa (không sửa trong lượt kiểm)'}`); if (opts.repair && !opts.dryRun) await driveRepairLoop({}, { deadline: Date.now() + 10 * 60e3 }); }
   return (r.alerts || []).some(a => a.level === 'crit') ? 2 : 0;
 }
 /** library.mjs where <id|sha|tên> – vị trí mọi bản sao (email che một phần). */

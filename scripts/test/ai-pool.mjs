@@ -156,6 +156,12 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
   const r = await mk(m).gen({ mode: 'lxgen', items: big });
   ok(r && Object.keys(r.out).length === 8 && m.calls.filter(c => c.url.startsWith(GC)).every(c => c.body.prompt.length <= 8000), 'GrabCast: chia lô cho vừa 8.000 ký tự, đủ 8 mục');
 }
+// 8b2) 26/11: db_budget_guard (ngân sách DB GrabCast cạn, dành cho đăng bài FB/IG) → mọi tuyến GrabCast nghỉ ngay, không đập thêm
+{
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: () => J({ error: { code: 'db_budget_guard' } }, 503) });
+  const P = mk(m); await P.gen({ mode: 'lxgen', items: ITEMS }).catch(() => null); const k = m.calls.filter(c => c.url.includes('/api/owner-ai/generate')).length; await P.gen({ mode: 'lxgen', items: ITEMS }).catch(() => null);
+  ok(k >= 1 && k <= 3 && m.calls.filter(c => c.url.includes('/api/owner-ai/generate')).length === k, 'db_budget_guard: mỗi tuyến GrabCast chỉ thử 1 lần rồi nghỉ (lượt sau không gọi thêm): ' + k);
+}
 // 8c) ai_exhausted → cả tuyến nghỉ; vision qua /api/owner-ai/vision
 {
   const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: b => b.provider === 'groq' ? J({ detail: { code: 'ai_exhausted' } }, 503) : gcEcho(b) });
