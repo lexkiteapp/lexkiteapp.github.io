@@ -1,5 +1,5 @@
 // Test gate-impact: chọn PR + chọn lệnh + overlay + báo cáo (thuần, không mạng).
-import { isGateFile, gateFiles, impactCmds, selectPrs, overlayOf, render, MAX_PRS, MARK, postReport } from '../ci/gate-impact.mjs';
+import { isGateFile, gateFiles, impactCmds, selectPrs, overlayOf, render, MAX_PRS, MARK, postReport, ghReq } from '../ci/gate-impact.mjs';
 let bad = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} ${m}`); if (!c) bad++; };
 ok(['scripts/test/a.mjs', 'scripts/lib/x-rules.mjs', '.github/workflows/w.yml', 'web/size-baseline.json'].every(isGateFile), 'nhận diện tệp cổng');
 ok(!isGateFile('web/js/app.js') && !isGateFile('docs/a.md'), 'tệp thường không phải cổng');
@@ -30,4 +30,11 @@ ok(render([{ pr: 1, ok: true, bad: [] }], { self: 7 }).ok, 'tất cả xanh → 
   r = mk([err(403), err(403), err(403)]); o = await postReport(r.api, 7, 'md', { sleep }); ok(!o.posted && /403/.test(o.error), '403 mãi → không ném, trả posted:false để job chỉ cảnh báo');
   r = mk([err(404)]); slept.length = 0; o = await postReport(r.api, 7, 'md', { sleep }); ok(!o.posted && !slept.length, '404 → bỏ ngay, không chờ');
   r = mk([err(502)]); o = await postReport(r.api, 7, 'md', { sleep }); ok(o.posted, '5xx → thử lại được'); }
+// ghReq: 403 hạn mức / 429 / 5xx thử lại có chờ, 403 thiếu quyền ném ngay (26/11: select đỏ cứng 3 PR vì 403)
+{ const R = (st, h = {}, b = '{}') => new Response(b, { status: st, headers: h }), slept = [], sleep = async ms => { slept.push(ms); };
+  let n = 0; let j = await ghReq('https://api.github.com/repos/o/r/pulls', {}, { fetcher: async () => (n++ < 2 ? R(403, { 'retry-after': '7' }) : R(200, {}, '[1]')), sleep }); ok(Array.isArray(j) && n === 3 && slept.join() === '7000,7000', '403 + retry-after → chờ 7 s hai lần rồi được');
+  n = 0; let err = null; try { await ghReq('https://api.github.com/repos/o/r/pulls', {}, { fetcher: async () => { n++; return R(403, {}, 'Resource not accessible by integration'); }, sleep }); } catch (e) { err = e; } ok(err && err.status === 403 && n === 1, '403 thiếu quyền → ném ngay, không thử lại');
+  n = 0; err = null; try { await ghReq('https://api.github.com/repos/o/r/pulls', {}, { fetcher: async () => { n++; return R(403, { 'x-ratelimit-remaining': '0' }); }, sleep }); } catch (e) { err = e; } ok(err && err.status === 403 && n === 3, '403 hết hạn mức mãi → thử đủ 3 lần rồi ném (có .status để select báo không xác định)');
+  n = 0; j = await ghReq('https://api.github.com/repos/o/r/x', {}, { fetcher: async () => (n++ < 1 ? R(502) : R(200)), sleep }); ok(n === 2, '5xx → thử lại');
+  err = null; try { await ghReq('https://api.github.com/repos/o/r/x', {}, { fetcher: async () => R(404), sleep }); } catch (e) { err = e; } ok(err && err.status === 404, '404 → ném ngay'); }
 if (bad) process.exit(1);
