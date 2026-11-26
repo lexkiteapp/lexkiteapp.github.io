@@ -510,5 +510,165 @@
  "tout-tous-toutes": {
   "t": "tout, tous, toute, toutes",
   "x": "विशेषण के रूप में \"tout\" मेल खाता है: \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\"। सर्वनाम के रूप में इसका मतलब है 'सब कुछ' (\"j'ai tout compris\") या 'सब' (\"ils sont tous là\", अंतिम -s बोला जाता है)। उदाहरण: \"tous les jours\", \"toute la journée\", \"ils sont tous là\"।"
+ },
+ "subj-after-bien-que": {
+  "t": "Bien que + सब्जंक्टिव",
+  "x": "\"bien que\", \"quoique\" और \"encore que\" विरोध (रियायत) दिखाते हैं और तथ्य पक्का हो तब भी हमेशा सब्जंक्टिव लेते हैं। कहें \"Bien que le projet soit coûteux, nous continuons\", \"bien que le projet est\" नहीं। उदाहरण: \"Bien qu'il pleuve, nous sortons\", \"Quoiqu'elle soit jeune, elle dirige l'équipe\"।"
+ },
+ "subj-after-pour-que": {
+  "t": "उद्देश्य: pour que, afin que",
+  "x": "\"pour que\" और \"afin que\" उद्देश्य बताते हैं और इनके बाद सब्जंक्टिव आता है। उद्देश्य-वाक्यांश का कर्ता आमतौर पर मुख्य कर्ता से अलग होता है: \"Je répète pour que vous compreniez\"। कर्ता एक ही हो तो \"pour\" या \"afin de\" के साथ इन्फ़िनिटिव लगाएँ। उदाहरण: \"Il parle lentement pour que nous comprenions\", \"Elle écrit afin que tout soit clair\"।"
+ },
+ "subj-after-avant-que": {
+  "t": "समय-सीमा: avant que",
+  "x": "\"avant que\" और \"jusqu'à ce que\" के बाद सब्जंक्टिव आता है क्योंकि क्रिया अभी हुई नहीं है। \"avant que\" के बाद अक्सर \"ne\" जुड़ता है, जिसका नकारात्मक अर्थ नहीं होता: \"avant qu'il ne parte\"। कर्ता एक ही हो तो \"avant de\" + इन्फ़िनिटिव लगाएँ। उदाहरण: \"Attends jusqu'à ce que je revienne\", \"Appelle avant que nous ne partions\"।"
+ },
+ "subj-a-moins-que-ne": {
+  "t": "अपवाद: à moins que",
+  "x": "\"à moins que\" का अर्थ है \"जब तक ... न हो\" और इसके बाद सब्जंक्टिव ज़रूरी है। औपचारिक फ़्रेंच में क्रिया से पहले अक्सर एक \"ne\" जुड़ता है (\"à moins qu'il ne vienne\"), जो असली निषेध नहीं है। इसके बाद कंडीशनल या भविष्य काल न लगाएँ। उदाहरण: \"Je sors, à moins qu'il ne pleuve\", \"à moins que vous ne soyez occupé\"।"
+ },
+ "subj-a-condition-que": {
+  "t": "शर्त: à condition que",
+  "x": "\"à condition que\" और \"pourvu que\" का अर्थ है \"इस शर्त पर कि\"। इनके बाद सब्जंक्टिव आता है, कभी भविष्य या कंडीशनल नहीं। \"Pourvu que\" वाक्य के आरंभ में आशा भी जता सकता है: \"Pourvu qu'il vienne !\"। उदाहरण: \"Je viendrai à condition que vous m'invitiez\", \"Pourvu que tout se passe bien\"।"
+ },
+ "subj-vs-ind-opinion": {
+  "t": "राय की क्रियाएँ: मूड चुनना",
+  "x": "सकारात्मक वाक्य में \"penser que\" और \"croire que\" के बाद इंडिकेटिव आता है: \"Je pense qu'il a raison\"। नकारात्मक वाक्य या उलटे प्रश्न में संदेह आ जाता है, इसलिए सब्जंक्टिव लगता है: \"Je ne pense pas qu'il ait raison\"। मूड इस पर निर्भर है कि वक्ता को कितना यक़ीन है। उदाहरण: \"Je crois qu'elle viendra\", \"Je ne crois pas qu'elle vienne\"।"
+ },
+ "subj-emotion-doubt": {
+  "t": "भावना, संदेह, आवश्यकता",
+  "x": "भावना (\"être content que\", \"regretter que\"), संदेह (\"douter que\") और आवश्यकता (\"il faut que\", \"il est essentiel que\") की क्रियाओं के बाद, जब दोनों कर्ता अलग हों, सब्जंक्टिव आता है। वाक्यांश साधारण तथ्य नहीं, प्रतिक्रिया या ज़रूरत बताता है। उदाहरण: \"Je suis ravi que vous veniez\", \"Il faut que nous partions\"।"
+ },
+ "subj-irregular-forms": {
+  "t": "अनियमित सब्जंक्टिव रूप",
+  "x": "सात आम क्रियाओं के सब्जंक्टिव धातु-रूप अनियमित हैं: \"être\" (sois, soyons), \"avoir\" (aie, ayons), \"aller\" (aille, allions), \"faire\" (fasse), \"pouvoir\" (puisse), \"savoir\" (sache), \"vouloir\" (veuille)। इन्हें पूरे रूप में याद करें; \"être\", \"avoir\", \"aller\" और \"vouloir\" के nous और vous रूपों के अपने धातु-रूप भी हैं। उदाहरण: \"qu'elle aille\", \"que vous sachiez\", \"que tu aies\"।"
+ },
+ "subj-passe": {
+  "t": "भूतकालिक सब्जंक्टिव",
+  "x": "भूतकालिक सब्जंक्टिव \"avoir\" या \"être\" का सब्जंक्टिव + पास्ट पार्टिसिपल है। यह दिखाता है कि क्रिया मुख्य क्रिया से पहले पूरी हो चुकी है: \"Je suis content que tu sois venu\"। सहायक क्रिया पासे कंपोज़े की तरह चुनें और मेल (agreement) रखें। उदाहरण: \"Il faut qu'ils aient fini\", \"Bien qu'elle soit partie\"।"
+ },
+ "subj-vs-infinitive": {
+  "t": "सब्जंक्टिव या इन्फ़िनिटिव",
+  "x": "जब दोनों क्रियाओं का कर्ता एक ही हो, फ़्रेंच इन्फ़िनिटिव पसंद करती है: \"Je veux partir\"। कर्ता बदले तो \"que\" + सब्जंक्टिव लगाएँ: \"Je veux que tu partes\"। यही इच्छाओं, भावनाओं और कई संयोजकों पर लागू है (\"avant de\" या \"avant que\")। उदाहरण: \"Elle est contente d'être là\", \"Elle est contente que vous soyez là\"।"
+ },
+ "subj-superlative-relative": {
+  "t": "उत्कृष्टता-बोधक के बाद सब्जंक्टिव",
+  "x": "उत्कृष्टता-बोधक (\"le plus\", \"le meilleur\") या \"seul\", \"premier\", \"dernier\", \"unique\" के बाद संबंध-वाक्यांश में सब्जंक्टिव आता है, क्योंकि कथन व्यक्तिगत राय बताता है। \"jamais\" के साथ भूतकालिक सब्जंक्टिव आम है: \"le plus beau film que j'aie vu\"। उदाहरण: \"le seul homme qui sache\", \"la première fois que je le voie\"।"
+ },
+ "subj-relative-search": {
+  "t": "खोजी जा रही चीज़ और सब्जंक्टिव",
+  "x": "जब संबंध-वाक्यांश ऐसी चीज़ बताए जिसे आप ढूँढ रहे हैं, चाहते हैं या जिसके होने पर संदेह है, तो सब्जंक्टिव लगाएँ: \"Je cherche un livre qui soit simple\"। चीज़ का होना पता हो तो इंडिकेटिव: \"J'ai un livre qui est simple\"। आम संकेत: \"chercher\", \"vouloir\", \"il n'y a personne qui\", अस्तित्व के प्रश्न। उदाहरण: \"Y a-t-il quelqu'un qui puisse m'aider ?\"।"
+ },
+ "cond-passe-news": {
+  "t": "अपुष्ट ख़बर के लिए कंडीशनल",
+  "x": "पत्रकार अपुष्ट जानकारी बताने के लिए कंडीशनल, अक्सर भूतकालिक कंडीशनल, लगाते हैं: \"Le ministre aurait démissionné\"। यह \"कहा जा रहा है\" का भाव देता है और लेखक तथ्य की गारंटी नहीं लेता। चल रही अफ़वाह के लिए वर्तमान कंडीशनल: \"Il serait malade\"। उदाहरण: \"Deux personnes seraient blessées\", \"selon certaines sources, le vol aurait été annulé\"।"
+ },
+ "si-plus-que-parfait": {
+  "t": "अतीत की असंभव शर्त: si + plus-que-parfait",
+  "x": "अतीत की अवास्तविक शर्त के लिए \"si\" + plus-que-parfait लगाएँ, और परिणाम में भूतकालिक कंडीशनल: \"Si j'avais su, je serais venu\"। इस अर्थ में \"si\" के बाद कंडीशनल कभी न लगाएँ। परिणाम-वाक्यांश बताता है कि क्या नहीं हुआ। उदाहरण: \"Si elle avait étudié, elle aurait réussi\", \"Si nous étions partis, nous aurions vu le concert\"।"
+ },
+ "si-mixed-conditions": {
+  "t": "मिश्रित शर्त-वाक्य",
+  "x": "मिश्रित शर्त-वाक्य अतीत की शर्त को वर्तमान के परिणाम से जोड़ता है: \"si\" + plus-que-parfait, फिर वर्तमान कंडीशनल। परिणाम में \"maintenant\" या \"aujourd'hui\" जैसे समय-शब्द दिखाते हैं कि असर अब भी सच है। उदाहरण: \"Si tu avais écouté, tu comprendrais\"। पूरी तरह अतीत वाले ढाँचे से तुलना करें: \"tu aurais compris\"।"
+ },
+ "hypothese-au-cas-ou": {
+  "t": "सावधानी: au cas où",
+  "x": "\"au cas où\" किसी संभावित घटना से बचाव का भाव देता है और इसके बाद कंडीशनल आता है, सब्जंक्टिव या भविष्य नहीं। इसका अर्थ है \"कहीं ऐसा हो जाए तो\"। यह वाक्य की शुरुआत या अंत में आ सकता है। उदाहरण: \"Prenez un parapluie au cas où il pleuvrait\", \"Au cas où tu serais en retard, appelle-moi\"।"
+ },
+ "apres-que-indicatif": {
+  "t": "après que + इंडिकेटिव",
+  "x": "\"après que\" और \"dès que\" ऐसा तथ्य बताते हैं जो सचमुच हुआ, इसलिए इनके बाद इंडिकेटिव आता है, सब्जंक्टिव नहीं (\"avant que\" के उलट)। \"après que\" के बाद संयुक्त काल आता है, जो मुख्य क्रिया से पहले का है: \"Après qu'il a fini, il est rentré\"। मुख्य क्रिया भविष्य में हो तो \"dès que\" के साथ futur antérieur: \"Dès que tu auras fini, appelle-moi\"।"
+ },
+ "concordance-des-temps": {
+  "t": "कालों का मेल",
+  "x": "मुख्य क्रिया भूतकाल में हो तो अधीन वाक्यांश की क्रिया एक कदम पीछे जाती है: वर्तमान imparfait बनता है, passé composé plus-que-parfait बनता है, भविष्य कंडीशनल बनता है। भूतकालिक मुख्य क्रिया के साथ वर्तमान अधीन क्रिया न मिलाएँ: \"Il pensait que nous étions partis\"। उदाहरण: \"Je savais que tu viendrais\", \"Elle disait qu'elle était fatiguée\"।"
+ },
+ "discours-indirect-passe": {
+  "t": "अतीत में अप्रत्यक्ष कथन",
+  "x": "भूतकालिक क्रिया (\"elle a dit que\") के बाद अप्रत्यक्ष कथन में काल बदलते हैं: वर्तमान से imparfait, passé composé से plus-que-parfait, भविष्य से कंडीशनल। समय-शब्द भी बदलते हैं: \"demain\" से \"le lendemain\", \"hier\" से \"la veille\", \"aujourd'hui\" से \"ce jour-là\"। उदाहरण: \"Il a dit qu'il viendrait le lendemain\"।"
+ },
+ "discours-indirect-questions": {
+  "t": "अप्रत्यक्ष प्रश्न",
+  "x": "अप्रत्यक्ष प्रश्न में सामान्य शब्द-क्रम रखें और प्रश्नचिह्न न लगाएँ। \"Est-ce que\" और हाँ/ना वाले प्रश्न \"si\" बन जाते हैं: \"Il a demandé si je venais\"। \"Qu'est-ce que\" से \"ce que\" और \"qu'est-ce qui\" से \"ce qui\" बनता है। भूतकालिक क्रिया के बाद काल भी बदलते हैं। उदाहरण: \"Elle m'a demandé ce que je voulais\", \"Il voulait savoir ce qui se passait\"।"
+ },
+ "discours-indirect-ordres": {
+  "t": "आदेश और अनुरोध दोहराना",
+  "x": "आदेश या अनुरोध दोहराने के लिए \"dire de\" या \"demander de\" + इन्फ़िनिटिव लगाएँ: \"Elle m'a dit de rentrer\"। जिससे कहा गया, उसके साथ \"à\" या सर्वनाम आता है: \"Il a demandé à ses voisins de baisser la musique\"। नकारात्मक आदेश में \"ne pas\" इन्फ़िनिटिव से पहले साथ रहता है: \"Il nous a dit de ne pas toucher aux câbles\"।"
+ },
+ "accord-participe-cod-avant": {
+  "t": "पहले आए कर्म से मेल",
+  "x": "\"avoir\" के साथ पास्ट पार्टिसिपल प्रत्यक्ष कर्म से तभी मेल खाता है जब कर्म क्रिया से पहले आए। \"que\", \"les\" जैसे सर्वनाम या प्रश्नवाचक शब्द देखें: \"Les lettres que Marie a écrites\", \"Quelle robe as-tu choisie ?\"। कर्म बाद में आए तो मेल नहीं होता: \"Marie a écrit des lettres\"।"
+ },
+ "accord-participe-pronominaux": {
+  "t": "प्रतिवाचक क्रियाओं में पार्टिसिपल का मेल",
+  "x": "प्रतिवाचक (pronominal) क्रिया के passé composé में, यदि स्वयंवाचक सर्वनाम प्रत्यक्ष कर्म हो तो पार्टिसिपल उससे मेल खाता है: \"Les amies se sont retrouvées\"। सर्वनाम अप्रत्यक्ष हो या कोई और कर्म बाद में आए तो वह अपरिवर्तित रहता है: \"Elle s'est lavé les mains\", \"Ils se sont envoyé des messages\"। खुद से पूछें कि \"se\" का अर्थ \"à qui ?\" है या \"qui ?\"।"
+ },
+ "participe-present-gerondif": {
+  "t": "पार्टिसिपल, जेरुंड, विशेषण",
+  "x": "जेरुंड \"en + -ant\" बताता है कि कुछ कैसे या कब होता है, और अपरिवर्तित रहता है: \"Il s'est blessé en coupant du bois\"। वर्तमान पार्टिसिपल एक उपवाक्य की जगह लेता है और वह भी अपरिवर्तित रहता है: \"Les enfants jouant dans le jardin\"। क्रियात्मक विशेषण संज्ञा से मेल खाता है: \"une histoire fascinante\", \"des résultats surprenants\"।"
+ },
+ "passif-et-alternatives": {
+  "t": "कर्मवाच्य और उसके विकल्प",
+  "x": "कर्मवाच्य \"être\" + पार्टिसिपल से बनता है: \"Les résultats ont été annoncés par le jury\"। फ़्रेंच अक्सर विकल्प पसंद करती है: सामान्य तथ्यों के लिए प्रतिवाचक रूप (\"Le fromage se mange après le plat\"), \"on\", या कर्ता के साथ घटी बात के लिए \"se faire\" (\"Il s'est fait voler son sac\")।"
+ },
+ "causatif-faire-laisser": {
+  "t": "प्रेरणार्थक faire और laisser",
+  "x": "\"Faire\" + इन्फ़िनिटिव का अर्थ है कुछ करवाना: \"Nous avons fait refaire la cuisine\"। \"Laisser\" + इन्फ़िनिटिव का अर्थ है अनुमति देना: \"Le professeur a laissé les élèves partir\"। इन्फ़िनिटिव से पहले पार्टिसिपल \"fait\" अपरिवर्तित रहता है: \"Ce film m'a fait pleurer\"।"
+ },
+ "pronoms-relatifs-composes": {
+  "t": "संयुक्त संबंधवाचक सर्वनाम",
+  "x": "पूर्वसर्ग के बाद संज्ञा के अनुसार \"lequel\", \"laquelle\", \"lesquels\" या \"lesquelles\" लगाएँ: \"la table sur laquelle\", \"les amis chez lesquels\"। \"à\" के साथ ये सिकुड़ते हैं: \"auquel\", \"auxquels\", \"auxquelles\", \"à laquelle\"। \"de\" के साथ: \"duquel\", \"desquels\", \"de laquelle\"।"
+ },
+ "pronom-relatif-dont": {
+  "t": "संबंधवाचक सर्वनाम dont",
+  "x": "\"Dont\" संबंध-वाक्यांश में \"de\" + संज्ञा की जगह लेता है: \"L'ordinateur dont j'ai besoin\" (avoir besoin de)। यह स्वामित्व भी बताता है, संज्ञा सीधे इसके बाद आती है: \"l'écrivain dont le dernier roman\"। और यह समूह का एक हिस्सा भी बताता है: \"trois enfants, dont deux vivent à l'étranger\"।"
+ },
+ "ce-qui-ce-que-ce-dont": {
+  "t": "Ce qui, ce que, ce dont",
+  "x": "\"Ce\" + संबंधवाचक सर्वनाम किसी विचार या बिना नाम की चीज़ की ओर इशारा करता है। \"Ce qui\" कर्ता है (\"Ce qui m'inquiète\"), \"ce que\" कर्म (\"ce que tu veux\")। \"de\" वाली क्रियाओं के लिए \"ce dont\" (\"ce dont tu as envie\") और \"à\" वाली क्रियाओं के लिए \"ce à quoi\" (\"ce à quoi il s'intéresse\")।"
+ },
+ "pronoms-doubles-ordre": {
+  "t": "दो सर्वनामों का क्रम",
+  "x": "क्रिया से पहले me, te, nous, vous के लिए अप्रत्यक्ष सर्वनाम पहले आता है: \"Je te le rends\"। अन्य पुरुष में प्रत्यक्ष पहले: \"Je le lui donne\"; \"en\" हमेशा अंत में: \"Je lui en ai parlé\"। सकारात्मक आज्ञार्थ के बाद क्रम प्रत्यक्ष फिर अप्रत्यक्ष: \"Donne-les-moi\"।"
+ },
+ "pronoms-y-en-avances": {
+  "t": "y और en उन्नत प्रयोग",
+  "x": "\"En\" \"de\" + संज्ञा या मात्रा की जगह लेता है, और संख्या बनी रहती है: \"J'en ai acheté trois\"। \"Y\" \"à\" या स्थान की जगह लेता है: \"J'y pense tout le temps\"। सकारात्मक आज्ञार्थ में ये क्रिया के बाद आते हैं और जुड़ सकते हैं: \"Donnez-m'en un kilo\"।"
+ },
+ "mise-en-relief": {
+  "t": "ज़ोर देना: c'est...qui/que",
+  "x": "\"C'est ... qui\" कर्ता पर और \"c'est ... que\" कर्म या पूरक पर ज़ोर देता है: \"C'est moi qui ai fait le gâteau\", \"C'est demain que nous partons\"। बहुवचन संज्ञा के साथ \"ce sont\": \"Ce sont mes voisins que j'ai invités\"। \"qui\" के बाद की क्रिया ज़ोर दिए गए शब्द से मेल खाती है।"
+ },
+ "inversion-peut-etre": {
+  "t": "वाक्य-क्रियाविशेषण के बाद उलटा क्रम",
+  "x": "औपचारिक फ़्रेंच में आरंभ के \"peut-être\", \"sans doute\" और \"aussi\" (अर्थात् इसलिए) के बाद कर्ता-क्रिया का क्रम उलट जाता है: \"Peut-être viendra-t-il demain\"। कर्ता संज्ञा हो तो उसे सर्वनाम में दोहराएँ। क्रिया स्वर पर समाप्त हो और \"il\" या \"elle\" आए तो \"-t-\" जोड़ें: \"viendra-t-elle\"।"
+ },
+ "ne-expletif": {
+  "t": "अर्थहीन ne",
+  "x": "भय की क्रियाओं (\"craindre que\"), \"avant que\" और असमानता की तुलना के बाद औपचारिक फ़्रेंच एक \"ne\" जोड़ती है जिसका नकारात्मक अर्थ नहीं होता: \"Je crains qu'il ne pleuve\", \"avant qu'il ne fasse nuit\", \"plus grand que je ne pensais\"। बोलचाल में यह वैकल्पिक है और इसके साथ \"pas\" कभी नहीं आता।"
+ },
+ "connecteurs-concession-opposition": {
+  "t": "रियायत और विरोध",
+  "x": "\"Bien que\" + सब्जंक्टिव और \"malgré\" + संज्ञा रियायत बताते हैं: \"Malgré la pluie, nous sommes sortis\"। \"Alors que\" + इंडिकेटिव दो तथ्यों में अंतर दिखाता है: \"Paul adore la mer, alors que sa femme préfère la montagne\"। \"Pourtant\", \"cependant\" और \"en revanche\" दो वाक्यों को जोड़ते हैं।"
+ },
+ "nominalisation": {
+  "t": "क्रिया से संज्ञा बनाना",
+  "x": "संज्ञाकरण लेखन को संक्षिप्त और औपचारिक बनाता है। -tion, -ment, -ure या -ée जैसे प्रत्ययों से क्रियाएँ संज्ञा बनती हैं: \"ouvrir\" से \"l'ouverture\", \"augmenter\" से \"l'augmentation\", \"arriver\" से \"l'arrivée\"। विशेषण भी: \"difficile\" से \"la difficulté\"। नई संज्ञा का लिंग जाँचें।"
+ },
+ "tout-accord": {
+  "t": "Tout: विशेषण, सर्वनाम, क्रियाविशेषण",
+  "x": "विशेषण के रूप में \"tout\" संज्ञा से मेल खाता है: \"tous les magasins\", \"toutes les fenêtres\"। \"काफ़ी\" के अर्थ में क्रियाविशेषण होने पर यह अपरिवर्तित रहता है, सिवाय व्यंजन से शुरू होने वाले स्त्रीलिंग विशेषण से पहले: \"elle est tout étonnée\" लेकिन \"elles sont toutes timides\"।"
+ },
+ "prepositions-apres-verbes": {
+  "t": "क्रियाओं के बाद पूर्वसर्ग",
+  "x": "कुछ क्रियाएँ निश्चित पूर्वसर्ग लेती हैं, और वह अर्थ बदल सकता है। \"Penser à\" का अर्थ है किसी के बारे में सोचना: \"Je pense à mes vacances\"; \"penser de\" राय पूछता है: \"Que penses-tu de ce film ?\"। \"s'habituer à\" और \"se méfier de\" जैसी जोड़ियाँ एक इकाई के रूप में सीखें।"
+ },
+ "infinitif-passe": {
+  "t": "भूतकालिक इन्फ़िनिटिव",
+  "x": "\"Après\" + \"avoir\" या \"être\" + पास्ट पार्टिसिपल बताता है कि एक क्रिया मुख्य क्रिया से पहले हुई: \"Après avoir écrit la lettre, il l'a postée\"। दोनों क्रियाओं का कर्ता एक ही होना चाहिए। गति की क्रियाएँ और प्रतिवाचक क्रियाएँ \"être\" लेती हैं और मेल खाती हैं: \"Après être rentrée\", \"Après nous être reposés\"।"
+ },
+ "a-regard-pronoms-lequel": {
+  "t": "प्रश्नवाचक lequel",
+  "x": "\"Lequel\" जाने-पहचाने विकल्पों में से चुनाव पूछता है और उनसे मेल खाता है: \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\"। \"à\" या \"de\" के साथ यह सिकुड़ता है: \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\"। \"Quel\" केवल संज्ञा से ठीक पहले लगाएँ।"
  }
 }

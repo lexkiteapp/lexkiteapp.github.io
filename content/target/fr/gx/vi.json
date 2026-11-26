@@ -510,5 +510,165 @@
  "tout-tous-toutes": {
   "t": "tout, tous, toute, toutes",
   "x": "Là tính từ, \"tout\" hòa hợp: \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\". Là đại từ, nghĩa là 'mọi thứ' (\"j'ai tout compris\") hoặc 'tất cả' (\"ils sont tous là\", đọc cả -s cuối). Ví dụ: \"tous les jours\", \"toute la journée\", \"ils sont tous là\"."
+ },
+ "subj-after-bien-que": {
+  "t": "Bien que + subjonctif",
+  "x": "\"bien que\", \"quoique\" và \"encore que\" diễn tả sự nhượng bộ và luôn đi với subjonctif, kể cả khi sự việc là chắc chắn. Hãy nói \"Bien que le projet soit coûteux, nous continuons\", không nói \"bien que le projet est\". Ví dụ: \"Bien qu'il pleuve, nous sortons\", \"Quoiqu'elle soit jeune, elle dirige l'équipe\"."
+ },
+ "subj-after-pour-que": {
+  "t": "Mục đích: pour que, afin que",
+  "x": "\"pour que\" và \"afin que\" nêu mục đích và theo sau là subjonctif. Chủ ngữ của mệnh đề mục đích thường khác chủ ngữ chính: \"Je répète pour que vous compreniez\". Nếu cùng chủ ngữ, dùng \"pour\" hoặc \"afin de\" cộng động từ nguyên mẫu. Ví dụ: \"Il parle lentement pour que nous comprenions\", \"Elle écrit afin que tout soit clair\"."
+ },
+ "subj-after-avant-que": {
+  "t": "Giới hạn thời gian: avant que",
+  "x": "\"avant que\" và \"jusqu'à ce que\" đi với subjonctif vì hành động chưa xảy ra. Sau \"avant que\" thường thêm \"ne\", không mang nghĩa phủ định: \"avant qu'il ne parte\". Nếu cùng chủ ngữ, dùng \"avant de\" cộng động từ nguyên mẫu. Ví dụ: \"Attends jusqu'à ce que je revienne\", \"Appelle avant que nous ne partions\"."
+ },
+ "subj-a-moins-que-ne": {
+  "t": "Ngoại lệ: à moins que",
+  "x": "\"à moins que\" nghĩa là \"trừ phi\" và bắt buộc dùng subjonctif. Tiếng Pháp trang trọng thường thêm \"ne\" thừa trước động từ (\"à moins qu'il ne vienne\"), đó không phải phủ định thật. Không dùng conditionnel hay futur sau nó. Ví dụ: \"Je sors, à moins qu'il ne pleuve\", \"à moins que vous ne soyez occupé\"."
+ },
+ "subj-a-condition-que": {
+  "t": "Điều kiện: à condition que",
+  "x": "\"à condition que\" và \"pourvu que\" nghĩa là \"với điều kiện là\" và đi với subjonctif, không bao giờ dùng futur hay conditionnel. \"Pourvu que\" còn có thể đứng đầu câu để diễn tả hy vọng: \"Pourvu qu'il vienne !\". Ví dụ: \"Je viendrai à condition que vous m'invitiez\", \"Pourvu que tout se passe bien\"."
+ },
+ "subj-vs-ind-opinion": {
+  "t": "Động từ ý kiến: chọn thức",
+  "x": "Sau \"penser que\" và \"croire que\" ở thể khẳng định, dùng indicatif: \"Je pense qu'il a raison\". Ở thể phủ định hoặc câu hỏi đảo ngữ, sự nghi ngờ xuất hiện nên dùng subjonctif: \"Je ne pense pas qu'il ait raison\". Thức phụ thuộc vào mức độ chắc chắn của người nói. Ví dụ: \"Je crois qu'elle viendra\", \"Je ne crois pas qu'elle vienne\"."
+ },
+ "subj-emotion-doubt": {
+  "t": "Cảm xúc, nghi ngờ, cần thiết",
+  "x": "Các động từ chỉ cảm xúc (\"être content que\", \"regretter que\"), nghi ngờ (\"douter que\") và sự cần thiết (\"il faut que\", \"il est essentiel que\") đi với subjonctif khi hai chủ ngữ khác nhau. Mệnh đề diễn tả một phản ứng hay nhu cầu, không phải sự thật đơn thuần. Ví dụ: \"Je suis ravi que vous veniez\", \"Il faut que nous partions\"."
+ },
+ "subj-irregular-forms": {
+  "t": "Gốc subjonctif bất quy tắc",
+  "x": "Bảy động từ thông dụng có gốc subjonctif bất quy tắc: \"être\" (sois, soyons), \"avoir\" (aie, ayons), \"aller\" (aille, allions), \"faire\" (fasse), \"pouvoir\" (puisse), \"savoir\" (sache), \"vouloir\" (veuille). Hãy học thuộc cả dạng; các dạng nous và vous của \"être\", \"avoir\", \"aller\" và \"vouloir\" cũng có gốc riêng. Ví dụ: \"qu'elle aille\", \"que vous sachiez\", \"que tu aies\"."
+ },
+ "subj-passe": {
+  "t": "Subjonctif passé",
+  "x": "Subjonctif passé là subjonctif của \"avoir\" hoặc \"être\" cộng quá khứ phân từ. Nó cho thấy hành động đã hoàn tất trước hành động của động từ chính: \"Je suis content que tu sois venu\". Chọn trợ động từ như ở passé composé và giữ nguyên sự hòa hợp. Ví dụ: \"Il faut qu'ils aient fini\", \"Bien qu'elle soit partie\"."
+ },
+ "subj-vs-infinitive": {
+  "t": "Subjonctif hay nguyên mẫu",
+  "x": "Khi hai động từ cùng chủ ngữ, tiếng Pháp ưu tiên động từ nguyên mẫu: \"Je veux partir\". Khi chủ ngữ đổi, dùng \"que\" cộng subjonctif: \"Je veux que tu partes\". Quy tắc này cũng áp dụng cho mong muốn, cảm xúc và nhiều liên từ (\"avant de\" hay \"avant que\"). Ví dụ: \"Elle est contente d'être là\", \"Elle est contente que vous soyez là\"."
+ },
+ "subj-superlative-relative": {
+  "t": "Subjonctif sau so sánh nhất",
+  "x": "Sau so sánh nhất (\"le plus\", \"le meilleur\") hoặc \"seul\", \"premier\", \"dernier\", \"unique\", mệnh đề quan hệ dùng subjonctif vì câu nói thể hiện đánh giá cá nhân. Với \"jamais\", subjonctif passé rất thường gặp: \"le plus beau film que j'aie vu\". Ví dụ: \"le seul homme qui sache\", \"la première fois que je le voie\"."
+ },
+ "subj-relative-search": {
+  "t": "Subjonctif cho vật đang tìm",
+  "x": "Khi mệnh đề quan hệ mô tả thứ bạn đang tìm, mong muốn hoặc nghi ngờ có tồn tại, dùng subjonctif: \"Je cherche un livre qui soit simple\". Nếu bạn biết chắc nó tồn tại, dùng indicatif: \"J'ai un livre qui est simple\". Các tín hiệu thường gặp: \"chercher\", \"vouloir\", \"il n'y a personne qui\", câu hỏi về sự tồn tại. Ví dụ: \"Y a-t-il quelqu'un qui puisse m'aider ?\"."
+ },
+ "cond-passe-news": {
+  "t": "Conditionnel cho tin chưa xác nhận",
+  "x": "Nhà báo dùng conditionnel, thường là conditionnel passé, để đưa tin chưa được xác nhận: \"Le ministre aurait démissionné\". Nó có nghĩa \"nghe nói\" hay \"được cho là\", và người viết không đảm bảo sự thật. Dùng conditionnel présent cho tin đồn hiện tại: \"Il serait malade\". Ví dụ: \"Deux personnes seraient blessées\", \"selon certaines sources, le vol aurait été annulé\"."
+ },
+ "si-plus-que-parfait": {
+  "t": "Si + plus-que-parfait",
+  "x": "Với điều kiện không có thật trong quá khứ, dùng \"si\" cộng plus-que-parfait, và conditionnel passé ở mệnh đề kết quả: \"Si j'avais su, je serais venu\". Không bao giờ đặt conditionnel sau \"si\" với nghĩa này. Mệnh đề kết quả cho thấy điều đã không xảy ra. Ví dụ: \"Si elle avait étudié, elle aurait réussi\", \"Si nous étions partis, nous aurions vu le concert\"."
+ },
+ "si-mixed-conditions": {
+  "t": "Câu điều kiện hỗn hợp",
+  "x": "Câu điều kiện hỗn hợp nối một điều kiện trong quá khứ với kết quả ở hiện tại: \"si\" cộng plus-que-parfait, rồi conditionnel présent. Các từ chỉ thời gian như \"maintenant\" hay \"aujourd'hui\" ở mệnh đề kết quả cho thấy hệ quả vẫn đúng đến bây giờ. Ví dụ: \"Si tu avais écouté, tu comprendrais\". Hãy so sánh với mẫu hoàn toàn trong quá khứ: \"tu aurais compris\"."
+ },
+ "hypothese-au-cas-ou": {
+  "t": "Phòng xa: au cas où",
+  "x": "\"au cas où\" diễn tả sự phòng xa trước một sự việc có thể xảy ra và theo sau là conditionnel, không phải subjonctif hay futur. Nó có nghĩa \"phòng khi\" hay \"đề phòng\". Nó có thể đứng đầu hoặc cuối câu. Ví dụ: \"Prenez un parapluie au cas où il pleuvrait\", \"Au cas où tu serais en retard, appelle-moi\"."
+ },
+ "apres-que-indicatif": {
+  "t": "après que + indicatif",
+  "x": "\"après que\" và \"dès que\" nêu một sự thật đã xảy ra, nên đi với indicatif, không phải subjonctif (khác với \"avant que\"). Động từ sau \"après que\" ở thì kép, xảy ra trước động từ chính: \"Après qu'il a fini, il est rentré\". Sau \"dès que\" với động từ chính ở futur, dùng futur antérieur: \"Dès que tu auras fini, appelle-moi\"."
+ },
+ "concordance-des-temps": {
+  "t": "Sự hòa hợp thì",
+  "x": "Khi động từ chính ở quá khứ, động từ trong mệnh đề phụ lùi về trước: présent thành imparfait, passé composé thành plus-que-parfait, futur thành conditionnel. Đừng trộn động từ chính ở quá khứ với động từ phụ ở hiện tại: \"Il pensait que nous étions partis\". Ví dụ: \"Je savais que tu viendrais\", \"Elle disait qu'elle était fatiguée\"."
+ },
+ "discours-indirect-passe": {
+  "t": "Tường thuật gián tiếp quá khứ",
+  "x": "Trong câu tường thuật sau động từ quá khứ (\"elle a dit que\"), hãy chuyển thì: présent thành imparfait, passé composé thành plus-que-parfait, futur thành conditionnel. Từ chỉ thời gian cũng đổi: \"demain\" thành \"le lendemain\", \"hier\" thành \"la veille\", \"aujourd'hui\" thành \"ce jour-là\". Ví dụ: \"Il a dit qu'il viendrait le lendemain\"."
+ },
+ "discours-indirect-questions": {
+  "t": "Tường thuật câu hỏi",
+  "x": "Trong câu hỏi gián tiếp, dùng trật tự từ bình thường và không có dấu chấm hỏi. \"Est-ce que\" và câu hỏi có/không chuyển thành \"si\": \"Il a demandé si je venais\". \"Qu'est-ce que\" thành \"ce que\", và \"qu'est-ce qui\" thành \"ce qui\". Các thì chuyển sau động từ quá khứ. Ví dụ: \"Elle m'a demandé ce que je voulais\", \"Il voulait savoir ce qui se passait\"."
+ },
+ "discours-indirect-ordres": {
+  "t": "Tường thuật mệnh lệnh, yêu cầu",
+  "x": "Để thuật lại mệnh lệnh hay yêu cầu, dùng \"dire de\" hoặc \"demander de\" cộng động từ nguyên mẫu: \"Elle m'a dit de rentrer\". Người được nói đến đi với \"à\" hoặc một đại từ: \"Il a demandé à ses voisins de baisser la musique\". Lệnh phủ định giữ \"ne pas\" liền nhau trước động từ nguyên mẫu: \"Il nous a dit de ne pas toucher aux câbles\"."
+ },
+ "accord-participe-cod-avant": {
+  "t": "Hòa hợp tân ngữ trước",
+  "x": "Với \"avoir\", quá khứ phân từ chỉ hòa hợp với tân ngữ trực tiếp khi nó đứng trước động từ. Hãy tìm \"que\", một đại từ như \"les\" hoặc từ để hỏi: \"Les lettres que Marie a écrites\", \"Quelle robe as-tu choisie ?\". Nếu tân ngữ đứng sau thì không hòa hợp: \"Marie a écrit des lettres\"."
+ },
+ "accord-participe-pronominaux": {
+  "t": "Hòa hợp động từ phản thân",
+  "x": "Ở passé composé của động từ phản thân, phân từ hòa hợp với đại từ phản thân khi nó là tân ngữ trực tiếp: \"Les amies se sont retrouvées\". Nó không đổi khi đại từ là tân ngữ gián tiếp hoặc có tân ngữ khác theo sau: \"Elle s'est lavé les mains\", \"Ils se sont envoyé des messages\". Hãy tự hỏi \"se\" nghĩa là \"à qui ?\" hay \"qui ?\"."
+ },
+ "participe-present-gerondif": {
+  "t": "Phân từ, gérondif, tính từ",
+  "x": "Gérondif \"en + -ant\" cho biết cách thức hoặc thời điểm của hành động và không biến đổi: \"Il s'est blessé en coupant du bois\". Phân từ hiện tại thay cho một mệnh đề và cũng không biến đổi: \"Les enfants jouant dans le jardin\". Tính từ động (adjectif verbal) hòa hợp với danh từ: \"une histoire fascinante\", \"des résultats surprenants\"."
+ },
+ "passif-et-alternatives": {
+  "t": "Bị động và cách thay thế",
+  "x": "Câu bị động dùng \"être\" + quá khứ phân từ: \"Les résultats ont été annoncés par le jury\". Tiếng Pháp thường ưa các cách thay thế: động từ phản thân cho sự thật chung (\"Le fromage se mange après le plat\"), \"on\", hoặc \"se faire\" cho điều xảy đến với chủ ngữ (\"Il s'est fait voler son sac\")."
+ },
+ "causatif-faire-laisser": {
+  "t": "Faire và laisser sai khiến",
+  "x": "\"Faire\" + động từ nguyên mẫu nghĩa là khiến việc gì được làm: \"Nous avons fait refaire la cuisine\". \"Laisser\" + động từ nguyên mẫu nghĩa là cho phép: \"Le professeur a laissé les élèves partir\". Phân từ \"fait\" không biến đổi trước động từ nguyên mẫu: \"Ce film m'a fait pleurer\"."
+ },
+ "pronoms-relatifs-composes": {
+  "t": "Đại từ quan hệ ghép",
+  "x": "Sau giới từ, dùng \"lequel\", \"laquelle\", \"lesquels\" hoặc \"lesquelles\", hòa hợp với danh từ: \"la table sur laquelle\", \"les amis chez lesquels\". Với \"à\" chúng rút gọn: \"auquel\", \"auxquels\", \"auxquelles\", \"à laquelle\". Với \"de\" ta có \"duquel\", \"desquels\", \"de laquelle\"."
+ },
+ "pronom-relatif-dont": {
+  "t": "Đại từ quan hệ dont",
+  "x": "\"Dont\" thay cho \"de\" + danh từ trong mệnh đề quan hệ: \"L'ordinateur dont j'ai besoin\" (avoir besoin de). Nó cũng diễn tả sự sở hữu, với danh từ đứng ngay sau: \"l'écrivain dont le dernier roman\". Và nó giới thiệu một phần của nhóm: \"trois enfants, dont deux vivent à l'étranger\"."
+ },
+ "ce-qui-ce-que-ce-dont": {
+  "t": "Ce qui, ce que, ce dont",
+  "x": "\"Ce\" + đại từ quan hệ chỉ một ý tưởng hoặc vật không gọi tên. \"Ce qui\" là chủ ngữ (\"Ce qui m'inquiète\"), \"ce que\" là tân ngữ (\"ce que tu veux\"). Dùng \"ce dont\" cho động từ đi với \"de\" (\"ce dont tu as envie\") và \"ce à quoi\" cho động từ đi với \"à\" (\"ce à quoi il s'intéresse\")."
+ },
+ "pronoms-doubles-ordre": {
+  "t": "Thứ tự hai đại từ",
+  "x": "Trước động từ, đặt đại từ gián tiếp trước với me, te, nous và vous: \"Je te le rends\". Với ngôi thứ ba, đại từ trực tiếp đứng trước: \"Je le lui donne\"; \"en\" luôn đứng cuối: \"Je lui en ai parlé\". Sau mệnh lệnh khẳng định, thứ tự là trực tiếp rồi gián tiếp: \"Donne-les-moi\"."
+ },
+ "pronoms-y-en-avances": {
+  "t": "Y và en nâng cao",
+  "x": "\"En\" thay cho \"de\" + danh từ hoặc một số lượng, và số lượng được giữ lại: \"J'en ai acheté trois\". \"Y\" thay cho \"à\" hoặc một nơi chốn: \"J'y pense tout le temps\". Trong mệnh lệnh khẳng định, chúng đứng sau động từ và kết hợp với nhau: \"Donnez-m'en un kilo\"."
+ },
+ "mise-en-relief": {
+  "t": "Nhấn mạnh với c'est...qui/que",
+  "x": "\"C'est ... qui\" nhấn mạnh chủ ngữ và \"c'est ... que\" nhấn mạnh tân ngữ hoặc bổ ngữ: \"C'est moi qui ai fait le gâteau\", \"C'est demain que nous partons\". Với danh từ số nhiều, dùng \"ce sont\": \"Ce sont mes voisins que j'ai invités\". Động từ sau \"qui\" hòa hợp với thành phần được nhấn mạnh."
+ },
+ "inversion-peut-etre": {
+  "t": "Đảo ngữ sau trạng từ câu",
+  "x": "Trong tiếng Pháp trang trọng, \"peut-être\", \"sans doute\" và \"aussi\" (nghĩa là vì vậy) ở đầu câu kéo theo đảo ngữ chủ ngữ - động từ: \"Peut-être viendra-t-il demain\". Với chủ ngữ là danh từ, nhắc lại nó bằng một đại từ. Thêm \"-t-\" khi động từ kết thúc bằng nguyên âm trước \"il\" hoặc \"elle\": \"viendra-t-elle\"."
+ },
+ "ne-expletif": {
+  "t": "Ne thừa (ne explétif)",
+  "x": "Sau động từ chỉ nỗi sợ (\"craindre que\"), \"avant que\" và so sánh không ngang bằng, tiếng Pháp trang trọng thêm một \"ne\" không mang nghĩa phủ định: \"Je crains qu'il ne pleuve\", \"avant qu'il ne fasse nuit\", \"plus grand que je ne pensais\". Nó tùy chọn khi nói và không bao giờ đi với \"pas\"."
+ },
+ "connecteurs-concession-opposition": {
+  "t": "Nhượng bộ và đối lập",
+  "x": "\"Bien que\" + subjonctif và \"malgré\" + danh từ diễn tả sự nhượng bộ: \"Malgré la pluie, nous sommes sortis\". \"Alors que\" + indicatif đối lập hai sự việc: \"Paul adore la mer, alors que sa femme préfère la montagne\". \"Pourtant\", \"cependant\" và \"en revanche\" nối hai câu."
+ },
+ "nominalisation": {
+  "t": "Biến động từ thành danh từ",
+  "x": "Danh từ hóa làm văn viết súc tích và trang trọng hơn. Động từ thành danh từ với các đuôi như -tion, -ment, -ure hoặc -ée: \"ouvrir\" thành \"l'ouverture\", \"augmenter\" thành \"l'augmentation\", \"arriver\" thành \"l'arrivée\". Tính từ cũng vậy: \"difficile\" thành \"la difficulté\". Hãy kiểm tra giống của danh từ mới."
+ },
+ "tout-accord": {
+  "t": "Cách dùng tout",
+  "x": "Là tính từ, \"tout\" hòa hợp với danh từ: \"tous les magasins\", \"toutes les fenêtres\". Là trạng từ nghĩa \"hoàn toàn\", nó không đổi, trừ trước tính từ giống cái bắt đầu bằng phụ âm: \"elle est tout étonnée\" nhưng \"elles sont toutes timides\"."
+ },
+ "prepositions-apres-verbes": {
+  "t": "Giới từ sau động từ",
+  "x": "Một số động từ đi với giới từ cố định, và giới từ có thể đổi nghĩa. \"Penser à\" nghĩa là nghĩ về: \"Je pense à mes vacances\"; \"penser de\" hỏi ý kiến: \"Que penses-tu de ce film ?\". Hãy học các cặp như \"s'habituer à\" và \"se méfier de\" như một khối."
+ },
+ "infinitif-passe": {
+  "t": "Nguyên mẫu quá khứ",
+  "x": "\"Après\" + \"avoir\" hoặc \"être\" + quá khứ phân từ cho biết hành động xảy ra trước hành động chính: \"Après avoir écrit la lettre, il l'a postée\". Cả hai hành động phải cùng chủ ngữ. Động từ chỉ chuyển động và động từ phản thân dùng \"être\" và hòa hợp: \"Après être rentrée\", \"Après nous être reposés\"."
+ },
+ "a-regard-pronoms-lequel": {
+  "t": "Lequel để hỏi",
+  "x": "\"Lequel\" hỏi về một sự lựa chọn trong số các thứ đã biết và hòa hợp với chúng: \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\". Với \"à\" hoặc \"de\" nó rút gọn: \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\". Chỉ dùng \"quel\" ngay trước danh từ."
  }
 }
