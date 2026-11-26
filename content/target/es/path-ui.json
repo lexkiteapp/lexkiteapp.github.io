@@ -42,7 +42,8 @@
   "ob": "How much {L} do you know?",
   "o1": "Brand new to it",
   "o2": "I know the basics",
-  "o3": "I can hold a conversation"
+  "o3": "I can hold a conversation",
+  "stt": "Level test"
  },
  "vi": {
   "ti": "Lộ trình ngày: tiếng Tây Ban Nha",
@@ -87,7 +88,8 @@
   "ob": "Bạn biết {L} đến đâu rồi?",
   "o1": "Hoàn toàn mới bắt đầu",
   "o2": "Mình biết những điều cơ bản",
-  "o3": "Mình có thể trò chuyện được"
+  "o3": "Mình có thể trò chuyện được",
+  "stt": "Kiểm tra cấp độ"
  },
  "es": {
   "ti": "Ruta diaria: español",
@@ -132,7 +134,8 @@
   "ob": "¿Cuánto {L} sabes?",
   "o1": "Empiezo desde cero",
   "o2": "Sé lo básico",
-  "o3": "Puedo mantener una conversación"
+  "o3": "Puedo mantener una conversación",
+  "stt": "Prueba de nivel"
  },
  "pt": {
   "ti": "Trilha diária: espanhol",
@@ -177,7 +180,8 @@
   "ob": "Quanto de {L} você sabe?",
   "o1": "Começando do zero",
   "o2": "Sei o básico",
-  "o3": "Consigo manter uma conversa"
+  "o3": "Consigo manter uma conversa",
+  "stt": "Teste de nível"
  },
  "fr": {
   "ti": "Parcours quotidien : espagnol",
@@ -222,7 +226,8 @@
   "ob": "Quel est votre niveau en {L} ?",
   "o1": "Je débute complètement",
   "o2": "Je connais les bases",
-  "o3": "Je peux tenir une conversation"
+  "o3": "Je peux tenir une conversation",
+  "stt": "Test de niveau"
  },
  "de": {
   "ti": "Tagespfad: Spanisch",
@@ -267,7 +272,8 @@
   "ob": "Wie viel {L} kannst du?",
   "o1": "Ganz neu für mich",
   "o2": "Ich kenne die Grundlagen",
-  "o3": "Ich kann ein Gespräch führen"
+  "o3": "Ich kann ein Gespräch führen",
+  "stt": "Stufentest"
  },
  "id": {
   "ti": "Jalur harian: bahasa Spanyol",
@@ -312,7 +318,8 @@
   "ob": "Seberapa banyak {L} yang kamu kuasai?",
   "o1": "Benar-benar baru",
   "o2": "Aku tahu dasar-dasarnya",
-  "o3": "Aku bisa mengobrol"
+  "o3": "Aku bisa mengobrol",
+  "stt": "Tes tingkat"
  },
  "th": {
   "ti": "เส้นทางรายวัน: ภาษาสเปน",
@@ -357,7 +364,8 @@
   "ob": "คุณรู้ภาษา {L} แค่ไหน?",
   "o1": "เพิ่งเริ่มต้น",
   "o2": "รู้พื้นฐาน",
-  "o3": "คุยสนทนาได้"
+  "o3": "คุยสนทนาได้",
+  "stt": "แบบทดสอบระดับ"
  },
  "zh": {
   "ti": "每日路径：西班牙语",
@@ -402,7 +410,8 @@
   "ob": "你的{L}水平如何？",
   "o1": "完全零基础",
   "o2": "我懂一些基础",
-  "o3": "我可以进行对话"
+  "o3": "我可以进行对话",
+  "stt": "水平测试"
  },
  "ja": {
   "ti": "毎日の学習パス：スペイン語",
@@ -447,7 +456,8 @@
   "ob": "{L}はどのくらいわかりますか？",
   "o1": "まったくの初心者",
   "o2": "基本はわかる",
-  "o3": "会話ができる"
+  "o3": "会話ができる",
+  "stt": "レベルテスト"
  },
  "ko": {
   "ti": "일일 학습 경로: 스페인어",
@@ -492,7 +502,8 @@
   "ob": "{L}을(를) 얼마나 알고 있나요?",
   "o1": "완전 처음이에요",
   "o2": "기초는 알아요",
-  "o3": "대화할 수 있어요"
+  "o3": "대화할 수 있어요",
+  "stt": "레벨 테스트"
  },
  "hi": {
   "ti": "दैनिक पथ: स्पेनिश",
@@ -537,7 +548,8 @@
   "ob": "आप {L} कितनी जानते हैं?",
   "o1": "बिल्कुल नया हूँ",
   "o2": "मुझे बुनियादी बातें आती हैं",
-  "o3": "मैं बातचीत कर सकता हूँ"
+  "o3": "मैं बातचीत कर सकता हूँ",
+  "stt": "स्तर परीक्षा"
  },
  "ar": {
   "ti": "المسار اليومي: الإسبانية",
@@ -582,7 +594,8 @@
   "ob": "ما مدى معرفتك بـ{L}؟",
   "o1": "مبتدئ تمامًا",
   "o2": "أعرف الأساسيات",
-  "o3": "أستطيع إجراء محادثة"
+  "o3": "أستطيع إجراء محادثة",
+  "stt": "اختبار المستوى"
  },
  "ru": {
   "ti": "Ежедневный путь: испанский",
@@ -627,7 +640,8 @@
   "ob": "Насколько хорошо вы знаете {L}?",
   "o1": "Совсем новичок",
   "o2": "Знаю основы",
-  "o3": "Могу поддержать разговор"
+  "o3": "Могу поддержать разговор",
+  "stt": "Тест уровня"
  },
  "tr": {
   "ti": "Günlük yol: İspanyolca",
@@ -672,6 +686,7 @@
   "ob": "{L} dilini ne kadar biliyorsun?",
   "o1": "Hiç bilmiyorum",
   "o2": "Temelleri biliyorum",
-  "o3": "Sohbet edebiliyorum"
+  "o3": "Sohbet edebiliyorum",
+  "stt": "Seviye testi"
  }
 }
