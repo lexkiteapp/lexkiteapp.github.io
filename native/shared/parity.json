@@ -167,7 +167,8 @@
       "title": "Learn from YouTube video (official player, A-B, speed, notes, save word)",
       "routes": [
         "#/watch"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P13",
