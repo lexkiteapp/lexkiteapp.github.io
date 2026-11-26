@@ -555,3 +555,4 @@ node scripts/test/lesson-lip-late.mjs
 node scripts/test/review-queue-size.mjs
 node scripts/test/interpret-frame.mjs
 node scripts/test/test-cache.mjs
+node scripts/test/size-guard-warn.mjs
