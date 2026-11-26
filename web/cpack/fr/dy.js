@@ -5,4 +5,4 @@ self.FRX=self.FRX||{};FRX.dy={"g":["etre-present","avoir-present","il-y-a","art-
   const r = [Math.round(i * per), Math.round((i + 1) * per), D.g[i], lv, tp[0], i % 3 === 0 && tp[1] ? 'pp' : i % 2 ? 'sy' : 'dc'];
   if (i % 5 === 4 && ci < D.c.length) r.push(D.c[ci]);
   return r;
-};FRX.wdv="f5a77d0481";
+};FRX.wdv="114c12e3a5";
