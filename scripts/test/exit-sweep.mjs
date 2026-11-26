@@ -181,25 +181,31 @@ for (const [tl, T] of Object.entries(TLX)) for (const [vw, W, H] of [['mobile', 
   await noProd(ctx);
   await ctx.addInitScript(x => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true })); localStorage.setItem('lk.exitbar', '1'); localStorage.setItem('lk.tl', x.tl); localStorage.setItem('lk.' + x.tl, '1'); } catch { /* */ } }, { tl });
   const settle = async page => { let a = '', stable = 0; for (let k = 0; k < 8 && stable < 2; k++) { await sleep(500); const h = await page.evaluate(() => location.hash); stable = h === a ? stable + 1 : 0; a = h; } return a; };
-  const page = await ctx.newPage(); page.on('dialog', d => d.accept()); await autoLXD(page);
+  let page = null;
+  const fresh = async () => { if (page) await page.close({ runBeforeUnload: false }).catch(() => {}); page = await ctx.newPage(); page.on('dialog', d => d.accept()); await autoLXD(page); await boot(page, T.hub.slice(1)); await settle(page); };
+  // Trang treo (vòng lặp vô hạn: evaluate không bao giờ trả lời) = đúng triệu chứng "màn xoay vòng" → đỏ có tên bước, mở trang mới, chạy tiếp (không treo cả lượt tới hạn giờ như run 45876514379)
+  const guard = (pr, what) => Promise.race([pr, sleep(30000).then(() => { throw new Error('TRANG TREO > 30 s: ' + what); })]);
   try {
     const where = `${tl}/${vw}`;
-    await boot(page, T.hub.slice(1)); await settle(page);
+    await fresh();
     const hub = await page.evaluate(() => ({ h: location.hash, x: !!document.querySelector('#view [data-exit]'), learn: document.body.classList.contains('lk-learn'), n: document.getElementById('view').children.length }));
     if (!hub.h.startsWith(T.hub) || hub.x || hub.learn || !hub.n) fail(where + ' hub', `lộ trình ngày phải là trang trung tâm (không nút X/khung học): ${JSON.stringify(hub)}`);
     for (const [label, hash] of T.steps) for (const early of [false, true]) {
       const w2 = `${where} ${label}${early ? ' (bấm X khi đang tải)' : ''}`;
-      await page.evaluate(h => { location.hash = h; }, hash);
-      try { await page.waitForFunction(() => document.body.classList.contains('lk-learn') && document.querySelector('#view [data-exit]'), null, { timeout: 20000 }); } catch { fail(w2, 'không có nút X của màn học sau 20 s'); continue; }
-      if (!early) await sleep(1500);
-      await page.evaluate(() => document.querySelector('#view [data-exit]').click());
-      await sleep(400); if (await confirmLeave(page)) await sleep(300);
-      const h1 = await settle(page), s = await state(page), n = await page.evaluate(() => document.getElementById('view').children.length);
-      if (!h1.startsWith(T.hub) || s.learn || !n || s.modal) fail(w2, `bấm X không về lộ trình ngày ${T.hub}: hash=${h1} learn=${s.learn} modal=${s.modal} nội dung=${n} ${await diag(page)}`);
-      else rows.push(`| tl ${tl} ${label}${early ? ' sớm' : ''} | ${vw} | \`${hash}\` | X → ${h1} | ok |`);
+      console.log('·', w2);
+      try {
+        await guard(page.evaluate(h => { location.hash = h; }, hash), 'mở ' + hash);
+        try { await page.waitForFunction(() => document.body.classList.contains('lk-learn') && document.querySelector('#view [data-exit]'), null, { timeout: 20000 }); } catch { fail(w2, 'không có nút X của màn học sau 20 s'); continue; }
+        if (!early) await sleep(1500);
+        await guard(page.evaluate(() => document.querySelector('#view [data-exit]').click()), 'bấm X');
+        await sleep(400); if (await guard(confirmLeave(page), 'hộp xác nhận')) await sleep(300);
+        const h1 = await guard(settle(page), 'chờ URL đứng yên sau X'), s = await guard(state(page), 'đọc trạng thái'), n = await guard(page.evaluate(() => document.getElementById('view').children.length), 'đọc nội dung');
+        if (!h1.startsWith(T.hub) || s.learn || !n || s.modal) fail(w2, `bấm X không về lộ trình ngày ${T.hub}: hash=${h1} learn=${s.learn} modal=${s.modal} nội dung=${n} ${await diag(page)}`);
+        else rows.push(`| tl ${tl} ${label}${early ? ' sớm' : ''} | ${vw} | \`${hash}\` | X → ${h1} | ok |`);
+      } catch (e) { fail(w2, String(e.message || e).split('\n')[0].slice(0, 200)); await fresh().catch(() => {}); }
     }
   } catch (e) { fail(`${tl}/${vw}`, 'lỗi: ' + String(e.message || e).split('\n')[0].slice(0, 160)); }
-  finally { await page.close(); await ctx.close(); }
+  finally { if (page) await page.close({ runBeforeUnload: false }).catch(() => {}); await ctx.close(); }
 }
 for (const n of notes) console.log('·', n);
 await ctxBefore.close(); await browser.close(); if (srv) srv.close();
