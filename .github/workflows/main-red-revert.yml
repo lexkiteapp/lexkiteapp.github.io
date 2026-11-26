@@ -1,0 +1,27 @@
+# ci-policy: all-paths – mỗi lần main đổi phải đo check rẻ (size/docs/content-qa/fmt) để tự revert commit làm đỏ; job ngắn, lượt tuần tự không huỷ
+# ci-policy: queue – hai lượt cùng lúc sẽ cùng mở PR revert cho cùng commit; xếp hàng 1 chạy + 1 chờ (bản chờ mới nhất đo lại đầu main)
+# Máy gác 1/4 (23/11, docs/CI-RUNNERS.md › Máy gác main đỏ): push main làm đỏ check rẻ → bisect commit gây đỏ → PR revert nhãn main-red-fix, tự gộp khi xanh, bình luận PR gốc.
+# Mã chạy lấy từ chính commit vừa đẩy trên main (đã qua cổng). Không kích bởi commit [skip ci] (bot dữ liệu chặn trước khi đẩy bằng bot-test-gate).
+name: main-red-revert
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      sha: { description: 'Commit cần đo (mặc định: đầu main)', required: false }
+permissions: { contents: write, pull-requests: write, issues: write }
+concurrency: { group: main-red-revert, cancel-in-progress: false }
+jobs:
+  revert:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env: { SHA: '${{ github.event.inputs.sha || github.sha }}' }
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}', fetch-depth: 12 }   # đẩy nhánh revert bằng khoá deploy → CI của PR revert chạy (token workflow thì không kích CI)
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - run: git checkout -q "$SHA"
+      - env: { GITHUB_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}' }
+        run: node scripts/ci/cheap-revert.mjs --sha "$SHA"

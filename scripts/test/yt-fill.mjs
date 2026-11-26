@@ -44,4 +44,5 @@ ok(/approved_by = 'probe', approved_at = 1/.test(yt), 'probe có approved_at nh�
   ok(/cur\.privacyStatus !== 'private'/.test(body) && /not-scheduled/.test(body) && /\.\.\.cur, privacyStatus: 'private', publishAt: to/.test(body), 'retime: chỉ video còn private + publishAt tương lai, giữ nguyên các trường status khác (không công khai)');
   ok(/QUOTA\.update \+ QUOTA\.reserve/.test(body) && /apply = b\.apply === true/.test(body) && /'retime'/.test(yt) && QUOTA.update === 50, 'retime: đếm hạn mức 50/lần + chừa dự trữ, mặc định chỉ liệt kê (apply mới ghi), nằm trong WRITE (ký HMAC)'); }
 ok(/CLI_OPS\.retime = ADMIN_OPS\.retime; CLI_OPS\.wronglive = ADMIN_OPS\.wronglive/.test(yt), 'retime/wronglive gọi được bằng CLI ký HMAC (không chỉ phiên admin)');
+ok((yt.match(/need_scope = 'youtube\.force-ssl/g) || []).length === 2, 'retime/wronglive: 403 từ videos.update (thiếu scope) → dừng ngay, không đốt hạn mức');
 console.log(`✓ yt-fill: ${n} kiểm`);
