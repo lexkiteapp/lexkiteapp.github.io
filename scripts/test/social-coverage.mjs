@@ -62,4 +62,9 @@ ok(/near\(j\)/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')) && /
 { const { breakerStuck } = await import('../social/coverage.mjs'), now = 1e12;
   ok(breakerStuck({ breaker: { until: now + 1, code: 'db_budget_guard', status: 503 }, gc_err_runs: 3 }, now) && !breakerStuck({ breaker: { until: now + 1 }, gc_err_runs: 2 }, now) && !breakerStuck({ breaker: { until: now - 1 }, gc_err_runs: 9 }, now) && !breakerStuck(null, now), 'breakerStuck: bật + ≥ 3 lượt lỗi liền mới báo; hết hạn / ít lượt / không có → không');
   const cv = fs.readFileSync('scripts/social/coverage.mjs', 'utf8'); ok(/post-breaker-stuck/.test(cv) && /\|\| stuck\) process\.exit\(1\)/.test(cv), 'coverage.mjs: cầu dao kẹt → issue + thoát 1'); }
+{ const { platformZero } = await import('../social/coverage.mjs'); ok(/platform-zero-24h/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')) && /pz\.length \|\| stuck\) process\.exit\(1\)/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'coverage.mjs: nền tảng 0 bài/24h → issue platform-zero-24h + thoát 1');
+  const rows = [{ platform: 'facebook_page', last24h: 0 }, { platform: 'facebook_page', last24h: 0 }, { platform: 'youtube', last24h: 1 }, { platform: 'youtube', last24h: 0 }, { platform: 'tiktok', last24h: 0 }];
+  const z = platformZero({ rows });
+  ok(z.length === 2 && z[0].platform === 'facebook_page' && z[0].channels === 2 && z[1].platform === 'tiktok', 'platformZero: nền tảng mà mọi kênh 0 bài/24h → báo; youtube có 1 kênh đăng → không báo');
+  ok(platformZero({ rows: [] }).length === 0 && platformZero(null).length === 0, 'platformZero: không có kênh → không báo'); }
 console.log(`✓ social-coverage: ${n} kiểm`);

@@ -4,7 +4,7 @@
 // Lỗi mạng/5xx sau 3 lần → thoát 3 (dừng lượt, không bỏ cổng). Từ bị loại chuyển sang <lô>.report.json (rejected, why "wiktionary: …").
 // Chạy: node scripts/target/wikt-check.mjs --tl es [tệp core-NN.json]   · --self: chỉ kiểm seed.json (phải đạt 100 %)
 import fs from 'node:fs';
-import { readJSON, coreFiles, seedPath, kaikki } from './lib.mjs';
+import { readJSON, coreFiles, seedPath, kaikki, LANG_SWITCH, wiktIpa } from './lib.mjs';
 import { TL_GEN } from './tl-gen.mjs';
 import { longFold } from './ja-kana.mjs';
 
@@ -19,6 +19,13 @@ const pluralsOf = e => new Set((e.forms || []).filter(f => (f.tags || []).includ
 async function check(w) {
   const E = await entries(w.word), mine = E.filter(e => (POS[w.pos] || []).includes(e.pos));
   if (!E.length) return { bad: 'không có trang Wiktionary' };
+  // espeak-ng gắn cờ đổi ngôn ngữ cho từ mượn/đồng tự ((en)ʃəʊ(fr) cho show, dos, rythme) = đọc theo tiếng khác, sai với người học → thay bằng IPA Wiktionary của chính tl
+  // (mục cùng từ loại trước), giữ bản espeak ở qa.ipaEspeak; Wiktionary không có IPA hợp lệ → LOẠI (không ship IPA chưa kiểm)
+  if (LANG_SWITCH.test(w.ipa || '')) {
+    const ip = wiktIpa([...mine, ...E]);
+    if (!ip) return { bad: `espeak đọc theo ngôn ngữ khác (${w.ipa}), Wiktionary không có IPA thay` };
+    if (!SELF) { (w.qa = w.qa || {}).ipaEspeak = w.ipa; w.ipa = ip; }
+  }
   if (!mine.length) return { flag: `từ loại ${w.pos} ↔ ${[...new Set(E.map(e => e.pos))].join('/')}` };
   if (w.kana) { // ja: cách đọc Wiktionary (sounds.other / dạng hiragana·katakana) – lệch = gắn cờ (danh sách JLPT + OpenJTalk là cổng chính, japanese-course.md §5.2)
     const rd = new Set(mine.flatMap(e => [...(e.sounds || []).map(x => x.other), ...(e.forms || []).filter(f => (f.tags || []).some(t => /hiragana|katakana/.test(t))).map(f => f.form)]).filter(Boolean).map(longFold));

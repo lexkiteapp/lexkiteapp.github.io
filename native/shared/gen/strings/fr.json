@@ -337,6 +337,7 @@
   "rev.test": "Test",
   "rev.pronunciation": "Prononciation",
   "rev.gamesPractice": "Jeux et exercices",
+  "rev.gamePicmatch": "Associer les images",
   "rev.gameCrossword": "Mots croisés du jour",
   "rev.pickAWordSource": "Choisissez une source de mots, puis un mode pratique. Chaque session rapporte de l'XP et compte pour vos quêtes quotidiennes.",
   "rev.wordSource": "Source du mot",

@@ -23,6 +23,8 @@ export const report = j => {
   const miss = (j.platforms || []).filter(p => p.unconnected); for (const p of miss) lines.push(`- ${p.platform}: mới nối ${p.channels}/${p.want} kênh → thiếu ${p.unconnected} kênh (${p.unconnected * j.days} ${'trang-ngày'} chưa thể có lịch)`);
   return { bad, miss, idle, text: lines.join('\n'), table: weekly(j) };
 };
+/** 26/11 (điều phối): một NỀN TẢNG có kênh nối mà 0 bài trong 24 giờ qua (mọi kênh của nó) = đường đăng của nền tảng đó chết (GrabCast 503, token Meta hết hạn…) → báo ngay, không đợi từng kênh. → [{platform, channels}] */
+export const platformZero = j => { const by = {}; for (const r of (j && j.rows) || []) { const p = by[r.platform] || (by[r.platform] = { platform: r.platform, channels: 0, posts: 0 }); p.channels++; p.posts += +r.last24h || 0; } return Object.values(by).filter(p => p.channels && !p.posts).map(({ platform, channels }) => ({ platform, channels })); };
 if (process.argv[1] && /(^|[\\/])coverage\.mjs$/.test(process.argv[1])) {
   if (!key) { console.log('⏭ chưa có LEXKITE_DRIVE_CLI_KEY – bỏ qua'); process.exit(0); }
   const text = JSON.stringify({ op: 'coverage' });
@@ -47,8 +49,9 @@ if (process.argv[1] && /(^|[\\/])coverage\.mjs$/.test(process.argv[1])) {
   const nr = near(jj);
   if (nr.length) { const m = matrix(jj, nr); console.error(`✗ ${nr.length} kênh có ngày TRỐNG trong ${NEAR_DAYS} ngày tới (luật 1 video/kênh/ngày):\n` + m); if (process.env.GITHUB_STEP_SUMMARY) (await import('node:fs')).appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### ✗ Ngày trống ${NEAR_DAYS} ngày tới\n` + m + '\n'); await alert({ k: 'coverage-near', text: `✗ ${nr.length} kênh có ngày trống trong ${NEAR_DAYS} ngày tới SAU khi tự lấp (${JSON.stringify(fillNote && fillNote.skipped || {})}) – kho clip bản ngữ không đủ, cần dựng thêm:\n\n` + m, at: Date.now() }); }
   if (idle.length) console.error(`✗ ${idle.length} kênh không có bài trong 24 giờ qua`);
+  const pz = platformZero(jj); if (pz.length) { const t = pz.map(p => `${p.platform} (${p.channels} kênh)`).join('; '); console.error(`✗ nền tảng 0 bài/24 giờ: ${t}`); await alert({ k: 'platform-zero-24h', text: `Nền tảng không đăng được bài nào trong 24 giờ qua: ${t}.\n\nGốc thường gặp: GrabCast 503 db_budget_guard (cầu dao) hoặc Meta trực tiếp chưa cấu hình/token hết hạn → Quản trị › Meta (app secret + nối từng Page/IG); xem op status › last_run.provider.why.`, at: Date.now() }); }
   { const t3 = JSON.stringify({ op: 'status' }), r3 = await fetch(BASE + '/api/social-auto', { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, t3) }, body: t3, signal: AbortSignal.timeout(60e3) }).catch(() => null), j3 = r3 && r3.ok ? await r3.json().catch(() => null) : null;
     if (j3 && breakerStuck(j3.state)) { const b = j3.state.breaker, why = `${b.code || b.status} (${b.status}) · ${j3.state.gc_err_runs} lượt lỗi liền · provider ${(j3.state.last_run && j3.state.last_run.provider && j3.state.last_run.provider.why) || '?'}`; console.error('✗ cầu dao nhà cung cấp đăng bật nhiều lượt liền: ' + why); await alert({ k: 'post-breaker-stuck', text: `Cầu dao đăng bài bật ≥ 3 lượt liền (${why}). Meta trực tiếp ${j3.meta && j3.meta.configured ? 'ĐÃ' : 'CHƯA'} cấu hình → FB/IG/TikTok không lên bài. Kiểm ngân sách GrabCast (infra/jobs.json grabcast_*) hoặc nạp secret Meta ở Quản trị.`, at: Date.now() }); stuck = true; } }
   const bad2 = await audit(14);   // 23/11: đúng page · ngôn ngữ · giờ cao điểm (cùng máy gác, đỏ khi còn lệch)
-  if (nr.length || idle.length || bad2 || stuck) process.exit(1);
+  if (nr.length || idle.length || bad2 || pz.length || stuck) process.exit(1);
 }
