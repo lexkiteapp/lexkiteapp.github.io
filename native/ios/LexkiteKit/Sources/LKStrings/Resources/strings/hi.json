@@ -337,6 +337,7 @@
   "rev.test": "परीक्षा",
   "rev.pronunciation": "उच्चारण",
   "rev.gamesPractice": "खेल और अभ्यास",
+  "rev.gamePicmatch": "चित्र मिलान",
   "rev.gameCrossword": "दैनिक क्रॉसवर्ड",
   "rev.pickAWordSource": "एक शब्द स्रोत चुनें, फिर एक अभ्यास मोड। प्रत्येक सत्र XP अर्जित करता है और आपकी दैनिक खोजों में गिना जाता है।",
   "rev.wordSource": "शब्द का स्रोत",
@@ -3499,6 +3500,6 @@
   "speak.spk.lamViecNhom": "टीमवर्क",
   "speak.spk.duHocSongONuoc": "विदेश में पढ़ाई और रहना",
   "speak.spk.mayTinhInternetHangNgay": "कंप्यूटर और रोज़मर्रा का इंटरनेट",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
+  "speak.spk.thuThachNoi30Giay": "30 सेकंड बोलने की चुनौती",
   "speak.spk.nhatKyGiongNoi": "वॉइस डायरी"
 }

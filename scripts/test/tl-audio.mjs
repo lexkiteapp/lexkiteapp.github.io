@@ -23,7 +23,10 @@ ok([...A.jobs].every(([k, j]) => j.voice === 'fr_siwis' && k === KVoice.lineKey(
 ok(KVoice.lineKey('fr_siwis', 'maison') === 'thtipq' && KVoice.lineKey('ef_dora', 'casa') === '1mmvfed', 'khóa ổn định: hàm băm + tiền tố giọng không đổi (đổi = mất toàn bộ file đã dựng)');
 const P = { l: '\\p{L}' }, word = w => new RegExp(`(?<!\\p{L})(?:${w})(?!\\p{L})`, 'iu');
 const EN = word('the|and|is|are|was|you|they|with|from|this|that|have|what|where|there'), ES = /[ñ¿¡]/, VI = /[ơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđ]/i;
-const FR = word("le|la|les|l'|un|une|des|de|du|d'|et|est|je|j'|tu|il|elle|on|nous|vous|ils|elles|ne|n'|pas|ce|c'|cet|cette|qui|que|qu'|à|au|aux|en|dans|sur|avec|pour|mon|ma|mes|ton|ta|son|sa|ses|notre|votre|leur|y|se|s'|m'|me|te|lui|sont|suis|es|êtes|sommes|ai|as|a|ont|avons|avez|quel|quelle|quels|quelles|bon|bonne|merci|ceci|cela|tout|tant|alors|ici|là|oui|non|très|plus|moins|si|ou|où|mais|donc|car|ni") , ACC = /[éèêëàâçîïôœùûü]/i;
+const FRW = word("le|la|les|un|une|des|de|du|et|est|je|tu|il|elle|on|nous|vous|ils|elles|ne|pas|ce|cet|cette|qui|que|à|au|aux|en|dans|sur|avec|pour|mon|ma|mes|ton|ta|son|sa|ses|notre|votre|leur|y|se|me|te|lui|sont|suis|es|êtes|sommes|ai|as|a|ont|avons|avez|quel|quelle|quels|quelles|bon|bonne|merci|ceci|cela|tout|tant|alors|ici|là|oui|non|très|plus|moins|si|ou|où|mais|donc|car|ni");
+// mạo từ/đại từ lược âm (l' d' j' n' c' qu' s' m' t') dính liền chữ sau → không đòi ranh giới chữ phía sau như từ thường (hồi quy: "L'ambulance arrive rapidement.")
+const ELI = /(?<!\p{L})(?:l|d|j|n|c|qu|s|m|t)['’]\p{L}/iu, FR = { test: t => FRW.test(t) || ELI.test(t) }, ACC = /[éèêëàâçîïôœùûü]/i;
+ok(["L'ambulance arrive rapidement.", 'J’arrive demain matin.', "Qu'il vienne vite."].every(t => FR.test(t)) && !FR.test('Fast cars drive quickly.') && !FR.test("Rock'n roll tonight"), 'nhận dạng lược âm (l\' j’ qu\') mà không nhận nhầm câu không phải tiếng Pháp');
 const notFr = texts.filter(t => EN.test(t) || ES.test(t) || VI.test(t)), long = texts.filter(t => t.split(/\s+/).length >= 3 && !FR.test(t) && !ACC.test(t));
 ok(!notFr.length, 'không dòng nào chứa từ tiếng Anh/ký tự TBN/Việt' + (notFr.length ? ': ' + notFr.slice(0, 5).join(' | ') : ''));
 ok(!long.length, 'mọi câu ≥ 3 chữ có từ chức năng/dấu tiếng Pháp' + (long.length ? ': ' + long.slice(0, 5).join(' | ') : ''));

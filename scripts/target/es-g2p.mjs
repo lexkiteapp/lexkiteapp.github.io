@@ -85,3 +85,10 @@ if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop()
   fs.writeFileSync(f, JSON.stringify(d, null, 1) + '\n');
   console.log(`✓ IPA theo quy ước g2p: ${set}/${d.words.length} mục đổi, ${flag} lệch espeak sau chuẩn hoá (qa.ipaEs)`);
 }
+// Chạy: node scripts/target/es-g2p.mjs --check   → duyệt MỌI content/target/es/core-NN.json, IPA phải = quy ước g2p; in rõ ✓ đạt / ✗ lỗi (mã thoát 1 khi lỗi)
+if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop()) && process.argv.includes('--check')) {
+  const fs = await import('node:fs'), dir = 'content/target/es/', bad = []; let n = 0;
+  for (const f of fs.readdirSync(dir).filter(x => /^core-\d+\.json$/.test(x))) for (const w of JSON.parse(fs.readFileSync(dir + f, 'utf8')).words) { n++; if (w.ipa !== ipa(w.word)) bad.push(`${f}: ${w.word} /${w.ipa}/ ≠ /${ipa(w.word)}/`); }
+  console.log(bad.length ? `✗ es-g2p --check: ${bad.length}/${n} IPA lệch quy ước\n  ${bad.slice(0, 15).join('\n  ')}` : `✓ es-g2p --check: ${n}/${n} IPA khớp quy ước g2p`);
+  process.exit(bad.length ? 1 : 0);
+}

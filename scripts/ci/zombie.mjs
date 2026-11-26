@@ -6,9 +6,11 @@
 // mà vẫn 0 job thì DELETE (lượt 0 job không có log/artifact – không mất gì). Job THẬT xếp hàng > STUCK_JOB_MIN (max-parallel giữ, nhãn runner
 // không có) → stuckJobs() báo vào cùng issue (chỉ báo, không huỷ – có thể là batch chờ hợp lệ).
 export const ZOMBIE_MIN = 120, GATE_ZOMBIE_MIN = 15, MAX_CHECK = 30, DELETE_MIN = 24 * 60, STUCK_JOB_MIN = 120;
+/** Tuổi lượt = từ attempt HIỆN TẠI (run_started_at đổi mỗi lần chạy lại; created_at giữ của lượt gốc → rerun vừa xếp hàng bị coi zombie và huỷ oan, #2023 attempt 6, 26/11). */
+export const t0 = r => Date.parse(r.run_started_at || r.created_at);
 const minOf = r => (/required-gate\.yml$/.test(r.path || '') ? GATE_ZOMBIE_MIN : ZOMBIE_MIN);
 /** Quá hạn queued (thuần). Chỉ tuổi: đủ để không để nó chặn lượt bù; job thật xếp hàng lâu thì dispatch thừa 1 lượt, concurrency của workflow gộp lại. */
-export const isZombie = (r, now = Date.now()) => r.status === 'queued' && now - Date.parse(r.created_at) > minOf(r) * 6e4;
+export const isZombie = (r, now = Date.now()) => r.status === 'queued' && now - t0(r) > minOf(r) * 6e4;
 /** Mọi lượt theo trạng thái, nhiều trang (≤ MAX_PAGES), CŨ NHẤT TRƯỚC. 05/11: chỉ đọc trang 1 (100 lượt MỚI nhất) → khi hàng chờ > 100 lượt, zombie cũ nhất (26/10) nằm ở trang 2 và không bao giờ bị thấy/xoá. */
 export const MAX_PAGES = 5;
 export async function listRuns(gh, status) {
@@ -18,7 +20,7 @@ export async function listRuns(gh, status) {
     all.push(...rs);
     if (rs.length < 100) break;
   }
-  return all.sort((a, b) => Date.parse(a.created_at) - Date.parse(b.created_at));
+  return all.sort((a, b) => t0(a) - t0(b));
 }
 
 /** → lượt queued quá hạn và không có job nào; thử huỷ khi cancel = true, ghi kết quả vào .cancel ('ok' | lý do). */
@@ -28,12 +30,12 @@ export async function zombieRuns(gh, { now = Date.now(), cancel = true, settleMs
   const queued = await listRuns(gh, 'queued'), out = [];
   // 06/11: 17 lượt > 24 giờ KHÔNG gỡ được qua API (cancel/force-cancel 409, DELETE 403) – chiếm hết MAX_CHECK + mỗi giờ tốn ~2 phút ngủ vô ích và che lượt zombie mới.
   // Lượt ≥ DELETE_MIN: DELETE thẳng (1 lệnh, không huỷ/ngủ, không tính vào MAX_CHECK); không gỡ được → ghi rõ "cần GitHub Support", không thử lại bằng huỷ.
-  const all = queued.filter(x => isZombie(x, now)), oldRuns = all.filter(x => now - Date.parse(x.created_at) >= DELETE_MIN * 6e4), youngRuns = all.filter(x => !oldRuns.includes(x)).slice(0, MAX_CHECK);
+  const all = queued.filter(x => isZombie(x, now)), oldRuns = all.filter(x => now - t0(x) >= DELETE_MIN * 6e4), youngRuns = all.filter(x => !oldRuns.includes(x)).slice(0, MAX_CHECK);
   const why = e => String(e.message || e).replace(/^.*→ /, '');
   for (const r of [...oldRuns, ...youngRuns]) {
     const jobs = (await gh(`/actions/runs/${r.id}/jobs?per_page=1`)) || {};
     if (jobs.total_count !== 0) continue;
-    const z = { id: r.id, file: String(r.path || '').split('/').pop() || r.name, min: Math.round((now - Date.parse(r.created_at)) / 6e4) };
+    const z = { id: r.id, file: String(r.path || '').split('/').pop() || r.name, min: Math.round((now - t0(r)) / 6e4) };
     if (cancel && z.min >= DELETE_MIN) {
       try { await gh(`/actions/runs/${r.id}`, { method: 'DELETE' }); /* gh của required-gate nuốt lỗi → đọc lại: còn thì DELETE chưa có hiệu lực (05/11) */ { const back = await gh(`/actions/runs/${r.id}`).catch(() => null); if (back && back.id) throw new Error('DELETE không hiệu lực'); } z.deleted = true; z.cancel = 'xoá'; } catch (e) { z.deleted = why(e); z.cancel = 'không gỡ được qua API (cancel 409 / DELETE ' + why(e) + ') – cần GitHub Support'; }
     } else if (cancel) {

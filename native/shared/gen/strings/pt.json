@@ -337,6 +337,7 @@
   "rev.test": "Teste",
   "rev.pronunciation": "Pronúncia",
   "rev.gamesPractice": "Jogos e exercícios",
+  "rev.gamePicmatch": "Combinar imagens",
   "rev.gameCrossword": "Palavras cruzadas do dia",
   "rev.pickAWordSource": "Escolha uma fonte de palavras e, em seguida, um modo de prática. Cada sessão ganha XP e conta para suas missões diárias.",
   "rev.wordSource": "Origem da palavra",
@@ -3499,6 +3500,6 @@
   "speak.spk.lamViecNhom": "Trabalho em equipa",
   "speak.spk.duHocSongONuoc": "Estudar e viver no estrangeiro",
   "speak.spk.mayTinhInternetHangNgay": "Computadores e internet no dia a dia",
-  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge",
+  "speak.spk.thuThachNoi30Giay": "Desafio de fala de 30 segundos",
   "speak.spk.nhatKyGiongNoi": "Diário de voz"
 }

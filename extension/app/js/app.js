@@ -287,7 +287,7 @@ App.frX = { lv: { A1: 'cpack/fr/x-A1.js', A2: 'cpack/fr/x-A2.js', B1: 'cpack/fr/
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
 App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-es.js', pt: 'cpack/fr/px-pt.js', fr: 'cpack/fr/px-fr.js', de: 'cpack/fr/px-de.js', id: 'cpack/fr/px-id.js', th: 'cpack/fr/px-th.js', zh: 'cpack/fr/px-zh.js', ja: 'cpack/fr/px-ja.js', ko: 'cpack/fr/px-ko.js', hi: 'cpack/fr/px-hi.js', ar: 'cpack/fr/px-ar.js', ru: 'cpack/fr/px-ru.js', tr: 'cpack/fr/px-tr.js' }; // gói phát âm tiếng Pháp W3 theo ngôn ngữ người học (cpack/es-app/pron-ui.js, bảng TLX): nhãn giao diện + giải thích 8 chủ đề
   // Màn Stitch (gói u1*) theo trang: ST2.<màn> được dò ở đúng trang đó; trang không có trong bảng (lesson, study, league, goal…) nạp đủ UX1_ALL như trước
-  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [] }; // path = bản đồ NGÀY (path-day.js, không dùng khung ST2.path của trang chủ)
+  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [], placement: [] }; // path = bản đồ NGÀY (path-day.js, không dùng khung ST2.path của trang chủ)
   const ROUTE_BUNDLE = {
     call: 'call',
     cambridge: ['listening', 'cambridge'],
@@ -414,6 +414,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     onb: ['css/st-v2-onb-pre.css', 'css/st-v2-onb-goal.css', 'css/st-v2-onb-lang.css', 'css/st-v2-onb-level.css', 'css/st-v2-onb-target.css', 'css/st-v2-onb-pace.css', 'css/st-v2-onb-ready.css'],
     outcome: 'css/outcomes.css',
     pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'],
+    ppm: ['css/st-v2-game-picmatch.css'],
     pron: 'css/st-v2-pron-hub.css',
     psheet: ['css/st-v2-path-sheet.css', 'css/path-sheet.css'],
     pxw: ['css/st-v2-game-crossword.css'],
@@ -587,7 +588,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     if (name !== 'welcome') document.body.classList.remove('bare'); // thanh trên hiện ngay lúc chạm (CLS #/home)
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
-    if (b.some(x => !App.loaded(x)) && !document.getElementById('lkHero') && !document.getElementById('lkPath')) skel = setTimeout(() => { // khung chào #lkHero đang hiện (LCP): không thay bằng khung chờ
+    if (b.some(x => !App.loaded(x)) && !document.getElementById('lkHero') && !document.getElementById('lkPath') && !document.getElementById('lkDict')) skel = setTimeout(() => { // khung chào #lkHero đang hiện (LCP): không thay bằng khung chờ
       const skelReview = `<div class="study-wrap skel-study" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="study-top"><div class="skel" style="width:32px;height:32px;border-radius:50%"></div><div class="skel" style="flex:1;height:12px;border-radius:6px"></div><div class="skel" style="width:70px;height:14px;border-radius:4px"></div></div><div class="skel-card-body"><div class="skel" style="width:45%;height:2.4rem;border-radius:10px"></div><div class="skel" style="width:30%;height:1.2rem;border-radius:6px"></div><div class="skel" style="width:75%;height:1.2rem;border-radius:6px;margin-top:.4rem"></div><div class="skel" style="width:85%;height:1rem;border-radius:6px"></div><div class="row center" style="gap:.8rem;width:100%;max-width:320px;margin-top:1.2rem"><div class="skel" style="height:44px;flex:1;border-radius:999px"></div><div class="skel" style="height:44px;flex:1;border-radius:999px"></div></div></div></div>`;
       const skelHome = `<div class="skel-page skel-home" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="today-head"><div class="skel" style="width:52px;height:52px;border-radius:50%;flex:none"></div><div class="grow" style="display:grid;gap:.5rem"><div class="skel skel-h" style="width:40%;height:1rem"></div><div class="skel skel-l" style="width:75%;height:1.3rem"></div></div><div class="skel" style="width:88px;height:34px;border-radius:999px;flex:none"></div></div><div class="skel" style="height:110px;border-radius:18px"></div><div class="skel" style="height:150px;border-radius:18px"></div><div class="skel" style="height:130px;border-radius:18px"></div></div>`;
       const skelDefault = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`;
@@ -988,6 +989,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
       ['blitz', '⏱️', t('Thử thách 60 giây'), t('Ôn từ đến hạn, combo, thách đấu bạn bè'), 'var(--again-soft)'],
       ['rhythm', '🥁', t('Nhịp điệu'), t('Chạm đúng nhịp nhấn của câu tiếng Anh'), 'var(--primary-soft)'],
       ['crossword', '🧩', t('Ô chữ mỗi ngày'), t('Từ của bạn đan thành ô chữ – mỗi ngày một ô mới'), 'var(--gold-soft)'],
+      ['picmatch', '🖼️', t('Ghép tranh'), t('Nối 6 ảnh với đúng từ – nhìn là nhớ'), 'var(--gold-soft)'],
       ['match', '⚡', t('Ghép thẻ'), t('Ghép từ với nghĩa thật nhanh'), 'var(--gold-soft)'],
       ['speak', '🎙️', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), 'var(--primary-soft)'],
       ['mcq', '🧩', t('Trắc nghiệm'), t('Chọn nghĩa đúng'), 'var(--good-soft)'],
@@ -1079,9 +1081,10 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   }
   App.personalCollections = personalCollections;
 
-  routes.topic = function (id, query) {
+  routes.topic = function (id, query, noX) {
     const tp = topicOf(id);
     if (!tp) return routes.library('', new URLSearchParams());
+    const xb = ['topicx', id].join('-'); if (!noX && typeof LK_BUNDLES !== 'undefined' && LK_BUNDLES[xb]) return App.need('topicx', xb).then(() => (window.LK_TOPICX && LK_TOPICX[id] ? LK_TOPICX_UI.draw(tp, LK_TOPICX[id]) : routes.topic(id, query, true)), () => routes.topic(id, query, true)); // chủ đề sâu (docs/specs/topic-depth.md): gói lười; lỗi tải → trang cũ
     const levels = [...new Set(tp.words.map(w => w.level).filter(Boolean))].sort();
     const missing = () => tp.words.filter(w => !inDeck(w.word));
     const gname = (GROUPS.find(g => g.id === tp.group) || {}).name || '';

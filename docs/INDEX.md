@@ -30,6 +30,7 @@
 - [specs/sentence-builder.md](specs/sentence-builder.md) — Xếp câu + Vì sao? theo câu (why.js, #336)
 - [specs/exam-mini-test-srs.md](specs/exam-mini-test-srs.md) — mini-test 10 phút + dải tuần + thẻ dạng yếu của #/qstats (đã duyệt 14/11); đọc khi: làm qstats/ôn dạng yếu/mini-test
 - [specs/lesson-types-more.md](specs/lesson-types-more.md) — thêm dạng bài (nghe→chọn tranh, ghép cặp ảnh, sửa lỗi câu, chính tả câu) vào khung lesson + bật speak_pack (đề xuất 21/11); đọc khi: làm dạng bài mới trong #/lesson
+- [specs/topic-depth.md](specs/topic-depth.md) — chủ đề/thư viện từ vựng 80–150 từ, tiểu chủ đề, hội thoại, quiz; đọc khi làm trang chủ đề
 - [specs/learnability.md](specs/learnability.md) — Spec P0-H Dễ học – dễ nhớ: 12 tiêu chí sư phạm → luật máy đo tầng 0, trọng số, điểm sàn; đọc khi: sửa bộ chấm learnability.mjs hoặc nội dung bài để tăng điểm
 - [specs/spell-sound.md](specs/spell-sound.md) — series "Spell→Sound": template rule (chữ câm → âm), ngân hàng luật JSON, hook L1, cổng vùng nền tảng; đọc khi: thêm luật phát âm / sửa mẫu rule
 - [specs/band-upgrade.md](specs/band-upgrade.md) — series "Band 5→7→9": template band (một ý nâng 3 bậc IELTS, lý do + tiêu chí mỗi bậc), bands.json, hook L1 14 ngôn ngữ; đọc khi: thêm chủ đề band / sửa mẫu band
@@ -130,6 +131,7 @@
 - [specs/score-card.md](specs/score-card.md) — Thử thách nói 30 giây: thẻ điểm Canvas + link /c/<id> so điểm với bạn, chấm bằng Speak.score; đọc khi: sửa score30, api/challenge.js, functions/c, sự kiện sc_*.
 - [specs/voice-diary.md](specs/voice-diary.md) — Nhật ký giọng nói: thu 1 câu ở mốc 7–90 ngày, video 9:16 trên máy; đọc khi: sửa cpack/diary-app, vd_*.
 - [specs/voice-diary-video.md](specs/voice-diary-video.md) — Video Day 1 vs Day 30 (mẫu progress, 30 tập viết sẵn); đọc khi: sửa progress.json/T_progress.
+- [CI-RUNNERS-BOCANH-0311.md](archive/CI-RUNNERS-BOCANH-0311.md) — Lưu trữ: số đo bộ canh ci-triage 3/11 (thay workflow_run ×38); đọc khi: tra lại lý do bỏ workflow_run.
 - [specs/seo-topic-hubs.md](specs/seo-topic-hubs.md) — Spec trang chủ đề từ vựng /<lang>/words/topic/<id>: danh sách từ index được theo chủ đề, link ngược, thiết kế Stitch Kit; đọc khi: sửa khối chủ đề trong build-seo-pages.mjs
 - [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file

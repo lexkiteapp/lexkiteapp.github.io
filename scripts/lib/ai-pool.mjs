@@ -106,9 +106,10 @@ export function allowed(mode, model) {
 // 30/10 (chủ nạp GEMINI_POOL 85 khoá + GROQ_POOL 109 khoá): 'gem' (Gemini 2.5 Flash – soạn, dịch vi, giám khảo khác họ) và 'groq' (gpt-oss-120b / llama-3.3-70b / qwen3-32b)
 // đứng ĐẦU mọi chuỗi văn bản → văn bản không còn ăn neuron CF của ảnh; chỉ sống khi việc có secret (env) – việc khác giữ nguyên chuỗi cũ.
 export const CHAINS = {
-  gen: ['gem', 'groq', 'lexai', 'gc-groq', 'cf2', 'gc-gemini', 'gc-cf'],
-  judgeA: ['groq', 'gem', 'gc-groq', 'lexai', 'cf2', 'gc-gemini', 'gc-cf'],
-  judgeB: ['gem', 'groq', 'gc-groq', 'lexai', 'gc-gemini', 'cf2', 'gc-cf'], // khác MÔ HÌNH của A; khác họ trừ cặp gpt-oss 120b/20b
+  // 25/11: GrabCast (gc-*) dùng chung ngân sách DB với ĐĂNG BÀI (503 db_budget_guard dừng cả 15 FB + IG + TikTok) → việc nền thử Workers AI kho CF_POOL (cf2) TRƯỚC, GrabCast chỉ là dự phòng sau
+  gen: ['gem', 'groq', 'lexai', 'cf2', 'gc-groq', 'gc-gemini', 'gc-cf'],
+  judgeA: ['groq', 'gem', 'cf2', 'gc-groq', 'lexai', 'gc-gemini', 'gc-cf'],
+  judgeB: ['gem', 'groq', 'cf2', 'gc-groq', 'lexai', 'gc-gemini', 'gc-cf'], // khác MÔ HÌNH của A; khác họ trừ cặp gpt-oss 120b/20b
   vision: ['gc-vision', 'studio', 'cf2-vision'],
 };
 /** văn bản Cloudflare qua GrabCast (bể neuron ảnh) – TẮT trừ khi AI_POOL_CF_TEXT=1 */

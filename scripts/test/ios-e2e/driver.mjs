@@ -15,7 +15,16 @@ const log = (...a) => console.log(`[${TAG} ${new Date().toISOString().slice(11, 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // ---- chọn máy giả lập: runtime iOS mới nhất, tên khớp DEVQ ----
-const list = JSON.parse(sim('list', 'devices', 'available', '-j')).devices;
+// runner macOS đôi khi treo CoreSimulatorService ngay lệnh đầu (xcrun simctl list → ETIMEDOUT sau 120 s, run 45362495666): thử lại tối đa 3 lần, lần sau khởi động lại dịch vụ rồi chờ lâu hơn (như bước boot bên dưới)
+const simList = () => {
+  let last;
+  for (let k = 1; k <= 3; k++) {
+    try { return JSON.parse(execFileSync('xcrun', ['simctl', 'list', 'devices', 'available', '-j'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], timeout: 120000 * k })).devices; }
+    catch (e) { last = e; log('simctl list lần ' + k + ' lỗi: ' + String(e.stderr || e.message).slice(0, 160)); try { execFileSync('xcrun', ['simctl', 'shutdown', 'all'], { stdio: 'ignore', timeout: 60000 }); } catch (_) { /* bỏ qua */ } }
+  }
+  throw last;
+};
+const list = simList();
 const rts = Object.keys(list).filter(k => /iOS/.test(k)).sort((a, b) => { const v = s => s.replace(/.*iOS-/, '').split('-').map(Number); const [x, y] = [v(a), v(b)]; return (y[0] - x[0]) || ((y[1] || 0) - (x[1] || 0)); });
 let dev = null;
 for (const rt of rts) { const d = list[rt].filter(d => d.name.includes(DEVQ)).sort((a, b) => b.name.localeCompare(a.name, undefined, { numeric: true })); const pick = d.find(x => !/mini|SE|Air/.test(x.name)) || d[0]; if (pick) { dev = { ...pick, rt }; break; } }

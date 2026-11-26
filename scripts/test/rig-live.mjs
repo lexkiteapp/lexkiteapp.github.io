@@ -95,7 +95,7 @@ async function callScreen(browser, name, vp, scheme) {
     await page.waitForSelector('#callGo', { timeout: 30000 });
     if (name !== 'chromium') { ok(true, `${tag}: màn chuẩn bị gọi hiện (WebKit không có micro giả – không vào cuộc gọi)`); await page.screenshot({ path: `${OUT}/call-${name}-${vp.id}-${scheme}.png` }); }
     else {
-      await page.click('#callGo'); await page.waitForSelector('.call-ov', { timeout: 20000 });
+      await page.click('#callGo'); await page.waitForSelector('.call-ov, #cTch', { timeout: 20000 }); // v2 (mặc định từ #1789) không có .call-ov: khung Stitch có giáo viên #cTch; .call-ov = trang cũ khi tắt cờ
       await rigReady(page); await page.waitForTimeout(3000);
       await page.screenshot({ path: `${OUT}/call-${name}-${vp.id}-${scheme}.png` });
       const s = await page.evaluate(() => ({ rig: !!(window.TeacherRig && document.querySelector('.tch-rig canvas.tch-face.trig-cv')), lip: window.__callState ? window.__callState().lip : null, over: document.documentElement.scrollWidth - innerWidth }));
