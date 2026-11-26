@@ -36,7 +36,7 @@ jobs:
       - id: s
         if: github.event_name == 'pull_request'
         continue-on-error: true
-        env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}', PR: '${{ github.event.pull_request.number }}', LX_ACT: '${{ github.event.action }}', LX_BEF: '${{ github.event.before }}', LX_HEAD: '${{ github.event.pull_request.head.sha }}', LX_READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}', PR: '${{ github.event.pull_request.number }}', LX_ACT: '${{ github.event.action }}', LX_BEF: '${{ github.event.before }}', LX_HEAD: '${{ github.event.pull_request.head.sha }}', LX_READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}', FIX: '${{ contains(github.event.pull_request.labels.*.name, ''main-red-fix'') }}' }
         run: |
           # không checkout (job gate không chạy trình duyệt/mã PR): chỉ lấy 2 file qua API tại merge sha
           mkdir -p scripts/ci .github/workflows
@@ -50,7 +50,14 @@ jobs:
             n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
             [ "${n:-1}" -ge 1 ] || go=false
           fi
+          # máy gác 3/4 (23/11): CÙNG workflow đang ĐỎ trên main → dừng sớm (gate đỏ, 0 job nặng); main-red-retry.mjs chạy lại 1 lần khi main xanh. PR nhãn main-red-fix không bị chặn.
+          wf=$(basename "${GITHUB_WORKFLOW_REF%%@*}"); red=
+          if [ "$go" = true ] && [ "$EV" = pull_request ] && [ "$FIX" != true ]; then
+            m=$(gh api "repos/$REPO/actions/workflows/$wf/runs?branch=main&event=push&status=completed&per_page=5" --jq '[.workflow_runs[] | select(.conclusion != "cancelled" and .conclusion != "skipped")][0].conclusion' 2>/dev/null) || m=
+            if [ "$m" = failure ]; then go=false; red=1; echo "::error title=main đỏ – chờ::$wf đang đỏ trên main – dừng sớm, tự chạy lại 1 lần khi main xanh"; fi
+          fi
           echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
+          [ -z "$red" ] || exit 1
   measure:
     needs: gate
     if: needs.gate.outputs.go == 'true'
