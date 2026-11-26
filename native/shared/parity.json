@@ -175,6 +175,15 @@
       "title": "Mediation: relay a read/heard English source to one specific person (write or say), self-check points, model answer",
       "routes": [
         "#/mediate"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "P14",
+      "m": 6,
+      "title": "Interpreter: two people face to face (top half turned 180°), per-side mic, on-device speech → translate → speak, travel phrasebook, local history, save to word list / slow replay / say-back score / new-words recap",
+      "routes": [
+        "#/interpret"
       ]
     },
     {

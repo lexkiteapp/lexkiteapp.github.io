@@ -1,0 +1,259 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "tormenta",
+   "pos": "n",
+   "gender": "f",
+   "plural": "tormentas",
+   "ipa": "toɾˈmenta",
+   "gl": {
+    "es": "tormenta",
+    "en": "storm",
+    "pt": "tempestade",
+    "fr": "tempête",
+    "de": "Sturm",
+    "vi": "bão",
+    "id": "badai",
+    "th": "พายุ",
+    "zh": "暴风雨",
+    "ja": "嵐",
+    "ko": "폭풍",
+    "hi": "तूफ़ान",
+    "ar": "عاصفة",
+    "ru": "буря",
+    "tr": "fırtına"
+   },
+   "ex": {
+    "es": "La tormenta llegó anoche.",
+    "en": "The storm arrived last night."
+   },
+   "rank": 2151,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "toɾˈmen.ta"
+   }
+  },
+  {
+   "word": "disco",
+   "pos": "n",
+   "gender": "m",
+   "plural": "discos",
+   "ipa": "ˈdisko",
+   "gl": {
+    "es": "disco",
+    "en": "record",
+    "pt": "disco",
+    "fr": "disque",
+    "de": "Schallplatte",
+    "vi": "đĩa",
+    "id": "disk",
+    "th": "แผ่นเสียง",
+    "zh": "唱片",
+    "ja": "ディスク",
+    "ko": "디스크",
+    "hi": "डिस्क",
+    "ar": "قرص",
+    "ru": "диск",
+    "tr": "disk"
+   },
+   "ex": {
+    "es": "Compré un disco nuevo.",
+    "en": "I bought a new record."
+   },
+   "rank": 2187,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "esfuerzo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "esfuerzos",
+   "ipa": "esˈfweɾso",
+   "gl": {
+    "es": "esfuerzo",
+    "en": "effort",
+    "pt": "esforço",
+    "fr": "effort",
+    "de": "Anstrengung",
+    "vi": "nỗ lực",
+    "id": "usaha",
+    "th": "ความพยายาม",
+    "zh": "努力",
+    "ja": "努力",
+    "ko": "노력",
+    "hi": "प्रयास",
+    "ar": "جهد",
+    "ru": "усилие",
+    "tr": "çaba"
+   },
+   "ex": {
+    "es": "Con esfuerzo puedes lograrlo.",
+    "en": "With effort you can achieve it."
+   },
+   "rank": 2332,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "promesa",
+   "pos": "n",
+   "gender": "f",
+   "plural": "promesas",
+   "ipa": "pɾoˈmesa",
+   "gl": {
+    "es": "promesa",
+    "en": "promise",
+    "pt": "promessa",
+    "fr": "promesse",
+    "de": "Versprechen",
+    "vi": "lời hứa",
+    "id": "janji",
+    "th": "สัญญา",
+    "zh": "承诺",
+    "ja": "約束",
+    "ko": "약속",
+    "hi": "वादा",
+    "ar": "وعد",
+    "ru": "обещание",
+    "tr": "söz"
+   },
+   "ex": {
+    "es": "Cumplí mi promesa.",
+    "en": "I kept my promise."
+   },
+   "rank": 2424,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "ja",
+   "pos": "interj",
+   "ipa": "ˈxa",
+   "gl": {
+    "es": "ja",
+    "en": "ha (laugh)",
+    "pt": "ja",
+    "fr": "ha",
+    "de": "haha",
+    "vi": "haha",
+    "id": "haha",
+    "th": "ฮ่า",
+    "zh": "哈哈",
+    "ja": "はは",
+    "ko": "하하",
+    "hi": "हाहा",
+    "ar": "هاها",
+    "ru": "ха-ха",
+    "tr": "haha"
+   },
+   "ex": {
+    "es": "¡Ja! Eso es gracioso.",
+    "en": "Ha! That's funny."
+   },
+   "rank": 2504,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "lío",
+   "pos": "n",
+   "gender": "m",
+   "plural": "líos",
+   "ipa": "ˈlio",
+   "gl": {
+    "es": "lío",
+    "en": "mess",
+    "pt": "confusão",
+    "fr": "bordel",
+    "de": "Wirrwarr",
+    "vi": "rắc rối",
+    "id": "kekacauan",
+    "th": "ความยุ่งยาก",
+    "zh": "混乱",
+    "ja": "混乱",
+    "ko": "혼란",
+    "hi": "गड़बड़ी",
+    "ar": "فوضى",
+    "ru": "беспорядок",
+    "tr": "karışıklık"
+   },
+   "ex": {
+    "es": "No quiero meterme en el lío.",
+    "en": "I don't want to get into the mess."
+   },
+   "rank": 2561,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  }
+ ]
+}

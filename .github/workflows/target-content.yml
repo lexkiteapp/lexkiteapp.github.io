@@ -13,6 +13,7 @@ on:
       n: { description: 'Số mục mới (1 lô)', default: '300' }
       dry: { description: '1 = chỉ dựng danh sách ứng viên (không gọi AI)', default: '1' }
       shards: { description: 'Số job song song (1–12; mỗi shard ≤ n mục)', default: '1' }
+      gc: { description: 'Trần lượt GrabCast mỗi shard (0 = không dùng GrabCast – để dành cho đăng bài; Gemini 429 → giám khảo B sang cf2)', default: '100' }
   pull_request:
     paths: ['scripts/target/**', 'content/target/**', 'scripts/content-qa/grammar-map-check.mjs', 'scripts/ci/lt-up.sh', 'scripts/word-audio/tl-voices.json', 'scripts/word-audio/tl_kana.py', '.github/workflows/target-content.yml']
 permissions: { contents: read, id-token: write }   # chỉ đọc repo (lô ra artifact); id-token: JWT OIDC cho /api/lexai
@@ -133,7 +134,7 @@ jobs:
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}   # thêm họ mô hình cho giám khảo B khi Gemini 429 (như content-factory)
-          AI_POOL_GC_MAX: '100'
+          AI_POOL_GC_MAX: ${{ github.event.inputs.gc || '100' }}
           AI_POOL_CF2_NEURONS: '120000'   # tuyến cf2 (Workers AI kho CF_POOL) dự phòng khi Groq/Gemini cùng 429; trần neuron/lượt, 4006 hết ngày tự nghỉ
           AI_GEM_MAX: '150'   # es: ≤ 150 lượt Gemini/lượt chạy (chỉ chấm), chừa hạn mức ngày cho fr/ja – lịch: chạy ngay sau 08:00 UTC
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}

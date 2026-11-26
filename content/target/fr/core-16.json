@@ -1,0 +1,1331 @@
+{
+ "v": 1,
+ "tl": "fr",
+ "variant": "fr-FR",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 fr_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/fr/fr_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "acteur",
+   "pos": "n",
+   "gender": "m",
+   "plural": "acteurs",
+   "ipa": "aktœʁ",
+   "gl": {
+    "vi": "diễn viên",
+    "en": "actor",
+    "es": "actor",
+    "pt": "ator",
+    "fr": "acteur",
+    "de": "Schauspieler",
+    "id": "aktor",
+    "th": "นักแสดง",
+    "zh": "演员",
+    "ja": "俳優",
+    "ko": "배우",
+    "hi": "अभिनेता",
+    "ar": "ممثل",
+    "ru": "актёр",
+    "tr": "aktör"
+   },
+   "ex": {
+    "fr": "L'acteur a reçu un prix pour son rôle.",
+    "en": "The actor received an award for his role."
+   },
+   "rank": 2694,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "chargé",
+   "pos": "adj",
+   "ipa": "ʃaʁʒe",
+   "gl": {
+    "vi": "chịu trách nhiệm",
+    "en": "in charge",
+    "es": "encargado",
+    "pt": "encarregado",
+    "fr": "chargé",
+    "de": "verantwortlich",
+    "id": "bertanggung jawab",
+    "th": "รับผิดชอบ",
+    "zh": "负责",
+    "ja": "担当",
+    "ko": "담당",
+    "hi": "जिम्मेदार",
+    "ar": "مسؤول",
+    "ru": "ответственный",
+    "tr": "sorumlu"
+   },
+   "ex": {
+    "fr": "Il est chargé du projet.",
+    "en": "He is in charge of the project."
+   },
+   "rank": 2703,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "rompu",
+   "pos": "adj",
+   "ipa": "ʁɔ̃py",
+   "gl": {
+    "vi": "bị đứt",
+    "en": "broken",
+    "es": "roto",
+    "pt": "quebrado",
+    "fr": "rompu",
+    "de": "gerissen",
+    "id": "putus",
+    "th": "ขาด",
+    "zh": "断了",
+    "ja": "切れた",
+    "ko": "끊어진",
+    "hi": "टूटा",
+    "ar": "مقطوع",
+    "ru": "порванный",
+    "tr": "kopmuş"
+   },
+   "ex": {
+    "fr": "Le fil est rompu.",
+    "en": "The wire is broken."
+   },
+   "rank": 2714,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "venger",
+   "pos": "v",
+   "ipa": "vɑ̃ʒe",
+   "gl": {
+    "vi": "trả thù",
+    "en": "avenge",
+    "es": "vengar",
+    "pt": "vingar",
+    "fr": "venger",
+    "de": "rächen",
+    "id": "membalas",
+    "th": "แก้แค้น",
+    "zh": "复仇",
+    "ja": "復讐する",
+    "ko": "복수하다",
+    "hi": "बदला लेना",
+    "ar": "ينتقم",
+    "ru": "отомстить",
+    "tr": "intikam almak"
+   },
+   "ex": {
+    "fr": "Il veut venger son frère.",
+    "en": "He wants to avenge his brother."
+   },
+   "rank": 2756,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "pratique",
+   "pos": "n",
+   "gender": "f",
+   "plural": "pratiques",
+   "ipa": "pʁatik",
+   "gl": {
+    "vi": "thực hành",
+    "en": "practice",
+    "es": "práctica",
+    "pt": "prática",
+    "fr": "pratique",
+    "de": "Praxis",
+    "id": "praktik",
+    "th": "การฝึก",
+    "zh": "练习",
+    "ja": "練習",
+    "ko": "연습",
+    "hi": "अभ्यास",
+    "ar": "ممارسة",
+    "ru": "практика",
+    "tr": "pratik"
+   },
+   "ex": {
+    "fr": "La pratique du yoga améliore la souplesse.",
+    "en": "Practicing yoga improves flexibility."
+   },
+   "rank": 2766,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "récompense",
+   "pos": "n",
+   "gender": "f",
+   "plural": "récompenses",
+   "ipa": "ʁekɔ̃pɑ̃s",
+   "gl": {
+    "vi": "phần thưởng",
+    "en": "reward",
+    "es": "recompensa",
+    "pt": "recompensa",
+    "fr": "récompense",
+    "de": "Belohnung",
+    "id": "hadiah",
+    "th": "รางวัล",
+    "zh": "奖励",
+    "ja": "報酬",
+    "ko": "보상",
+    "hi": "पुरस्कार",
+    "ar": "مكافأة",
+    "ru": "награда",
+    "tr": "ödül"
+   },
+   "ex": {
+    "fr": "Elle a reçu une récompense pour son travail.",
+    "en": "She received a reward for her work."
+   },
+   "rank": 2777,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "région",
+   "pos": "n",
+   "gender": "f",
+   "plural": "régions",
+   "ipa": "ʁeʒjɔ̃",
+   "gl": {
+    "vi": "vùng",
+    "en": "region",
+    "es": "región",
+    "pt": "região",
+    "fr": "région",
+    "de": "Region",
+    "id": "wilayah",
+    "th": "ภูมิภาค",
+    "zh": "地区",
+    "ja": "地域",
+    "ko": "지역",
+    "hi": "क्षेत्र",
+    "ar": "منطقة",
+    "ru": "регион",
+    "tr": "bölge"
+   },
+   "ex": {
+    "fr": "La région de Bretagne est connue pour ses côtes.",
+    "en": "The Brittany region is known for its coasts."
+   },
+   "rank": 2808,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "professionnel",
+   "pos": "adj",
+   "ipa": "pʁofɛsjɔnɛl",
+   "gl": {
+    "vi": "chuyên nghiệp",
+    "en": "professional",
+    "es": "profesional",
+    "pt": "profissional",
+    "fr": "professionnel",
+    "de": "professionell",
+    "id": "profesional",
+    "th": "มืออาชีพ",
+    "zh": "专业的",
+    "ja": "プロの",
+    "ko": "전문적인",
+    "hi": "पेशेवर",
+    "ar": "محترف",
+    "ru": "профессиональный",
+    "tr": "profesyonel"
+   },
+   "ex": {
+    "fr": "Il a un comportement très professionnel.",
+    "en": "He has a very professional behavior."
+   },
+   "rank": 2818,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "pʁɔfɛsjɔ̃ɛl",
+    "hand": true
+   }
+  },
+  {
+   "word": "jeudi",
+   "pos": "n",
+   "gender": "m",
+   "plural": "jeudis",
+   "ipa": "ʒødi",
+   "gl": {
+    "vi": "thứ Năm",
+    "en": "Thursday",
+    "es": "jueves",
+    "pt": "quinta-feira",
+    "fr": "jeudi",
+    "de": "Donnerstag",
+    "id": "Kamis",
+    "th": "วันพฤหัสบดี",
+    "zh": "星期四",
+    "ja": "木曜日",
+    "ko": "목요일",
+    "hi": "गुरुवार",
+    "ar": "الخميس",
+    "ru": "четверг",
+    "tr": "perşembe"
+   },
+   "ex": {
+    "fr": "Nous nous rencontrons chaque jeudi.",
+    "en": "We meet every Thursday."
+   },
+   "rank": 2848,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "élève",
+   "pos": "n",
+   "gender": "mf",
+   "plural": "élèves",
+   "ipa": "elɛv",
+   "gl": {
+    "vi": "học sinh",
+    "en": "student",
+    "es": "alumno",
+    "pt": "aluno",
+    "fr": "élève",
+    "de": "Schüler",
+    "id": "murid",
+    "th": "นักเรียน",
+    "zh": "学生",
+    "ja": "生徒",
+    "ko": "학생",
+    "hi": "छात्र",
+    "ar": "طالب",
+    "ru": "ученик",
+    "tr": "öğrenci"
+   },
+   "ex": {
+    "fr": "L'élève lit un livre.",
+    "en": "The student reads a book."
+   },
+   "rank": 2860,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "elev",
+    "hand": true
+   }
+  },
+  {
+   "word": "rayon",
+   "pos": "n",
+   "gender": "m",
+   "plural": "rayons",
+   "ipa": "ʁɛjɔ̃",
+   "gl": {
+    "vi": "tia sáng",
+    "en": "ray",
+    "es": "rayo",
+    "pt": "raio",
+    "fr": "rayon",
+    "de": "Strahl",
+    "id": "sinar",
+    "th": "รังสี",
+    "zh": "光线",
+    "ja": "光線",
+    "ko": "광선",
+    "hi": "किरण",
+    "ar": "شعاع",
+    "ru": "луч",
+    "tr": "ışın"
+   },
+   "ex": {
+    "fr": "Un rayon de soleil entre par la fenêtre.",
+    "en": "A ray of sunshine comes in through the window."
+   },
+   "rank": 2909,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "créature",
+   "pos": "n",
+   "gender": "f",
+   "plural": "créatures",
+   "ipa": "kʁeatyʁ",
+   "gl": {
+    "fr": "créature",
+    "en": "creature",
+    "es": "criatura",
+    "pt": "criatura",
+    "de": "Kreatur",
+    "id": "makhluk",
+    "th": "สิ่งมีชีวิต",
+    "zh": "生物",
+    "ja": "生き物",
+    "ko": "생물",
+    "hi": "प्राणी",
+    "ar": "مخلوق",
+    "ru": "существо",
+    "tr": "yaratık",
+    "vi": "sinh vật"
+   },
+   "ex": {
+    "fr": "Cette créature est petite.",
+    "en": "This creature is small."
+   },
+   "rank": 2927,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "monnaie",
+   "pos": "n",
+   "gender": "f",
+   "plural": "monnaies",
+   "ipa": "mɔnɛ",
+   "gl": {
+    "fr": "monnaie",
+    "en": "change",
+    "es": "cambio",
+    "pt": "troco",
+    "de": "Wechselgeld",
+    "id": "uang kembalian",
+    "th": "เงินทอน",
+    "zh": "零钱",
+    "ja": "小銭",
+    "ko": "잔돈",
+    "hi": "रेज़गारी",
+    "ar": "فكة",
+    "ru": "мелочь",
+    "tr": "bozuk para",
+    "vi": "tiền lẻ"
+   },
+   "ex": {
+    "fr": "J'ai besoin de monnaie pour le bus.",
+    "en": "I need change for the bus."
+   },
+   "rank": 2936,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "piano",
+   "pos": "n",
+   "gender": "m",
+   "plural": "pianos",
+   "ipa": "pjano",
+   "gl": {
+    "fr": "piano",
+    "en": "piano",
+    "es": "piano",
+    "pt": "piano",
+    "de": "Klavier",
+    "id": "piano",
+    "th": "เปียโน",
+    "zh": "钢琴",
+    "ja": "ピアノ",
+    "ko": "피아노",
+    "hi": "पियानो",
+    "ar": "بيانو",
+    "ru": "пианино",
+    "tr": "piyano",
+    "vi": "đàn piano"
+   },
+   "ex": {
+    "fr": "Je joue du piano chaque jour.",
+    "en": "I play the piano every day."
+   },
+   "rank": 2964,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "volant",
+   "pos": "n",
+   "gender": "m",
+   "plural": "volants",
+   "ipa": "volɑ̃",
+   "gl": {
+    "fr": "volant",
+    "en": "steering wheel",
+    "es": "volante",
+    "pt": "volante",
+    "de": "Lenkrad",
+    "id": "setir",
+    "th": "พวงมาลัย",
+    "zh": "方向盘",
+    "ja": "ハンドル",
+    "ko": "핸들",
+    "hi": "स्टियरिंग व्हील",
+    "ar": "عجلة القيادة",
+    "ru": "руль",
+    "tr": "direksiyon",
+    "vi": "vô lăng"
+   },
+   "ex": {
+    "fr": "Le volant de la voiture est cassé.",
+    "en": "The car's steering wheel is broken."
+   },
+   "rank": 2984,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "vɔlɑ̃",
+    "hand": true
+   }
+  },
+  {
+   "word": "soigner",
+   "pos": "v",
+   "ipa": "swaɲe",
+   "gl": {
+    "fr": "soigner",
+    "en": "to treat",
+    "es": "tratar",
+    "pt": "tratar",
+    "de": "behandeln",
+    "id": "merawat",
+    "th": "รักษา",
+    "zh": "治疗",
+    "ja": "治療する",
+    "ko": "치료하다",
+    "hi": "उपचार करना",
+    "ar": "يعالج",
+    "ru": "лечить",
+    "tr": "tedavi etmek",
+    "vi": "chữa trị"
+   },
+   "ex": {
+    "fr": "Le médecin doit soigner le patient.",
+    "en": "The doctor must treat the patient."
+   },
+   "rank": 3003,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "swa.ʒe",
+    "hand": true
+   }
+  },
+  {
+   "word": "section",
+   "pos": "n",
+   "gender": "f",
+   "plural": "sections",
+   "ipa": "sɛksjɔ̃",
+   "gl": {
+    "fr": "section",
+    "en": "section",
+    "es": "sección",
+    "pt": "seção",
+    "de": "Abschnitt",
+    "id": "bagian",
+    "th": "ส่วน",
+    "zh": "章节",
+    "ja": "セクション",
+    "ko": "섹션",
+    "hi": "सेक्शन",
+    "ar": "قسم",
+    "ru": "раздел",
+    "tr": "bölüm",
+    "vi": "phần"
+   },
+   "ex": {
+    "fr": "Cette section du livre est intéressante.",
+    "en": "This section of the book is interesting."
+   },
+   "rank": 3044,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "pointe",
+   "pos": "n",
+   "gender": "f",
+   "plural": "pointes",
+   "ipa": "pwɛ̃t",
+   "gl": {
+    "fr": "pointe",
+    "en": "tip",
+    "es": "punta",
+    "pt": "ponta",
+    "de": "Spitze",
+    "id": "ujung",
+    "th": "ปลาย",
+    "zh": "尖端",
+    "ja": "先端",
+    "ko": "끝",
+    "hi": "सिरा",
+    "ar": "طرف",
+    "ru": "кончик",
+    "tr": "uç",
+    "vi": "đầu nhọn"
+   },
+   "ex": {
+    "fr": "La pointe du crayon est cassée.",
+    "en": "The tip of the pencil is broken."
+   },
+   "rank": 3065,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "terminer",
+   "pos": "v",
+   "ipa": "tɛʁmine",
+   "gl": {
+    "vi": "kết thúc",
+    "en": "to finish",
+    "es": "terminar",
+    "pt": "terminar",
+    "fr": "terminer",
+    "de": "beenden",
+    "id": "menyelesaikan",
+    "th": "จบ",
+    "zh": "结束",
+    "ja": "終える",
+    "ko": "끝내다",
+    "hi": "समाप्त करना",
+    "ar": "ينهي",
+    "ru": "закончить",
+    "tr": "tamamlamak"
+   },
+   "ex": {
+    "fr": "Je vais terminer mes devoirs.",
+    "en": "I am going to finish my homework."
+   },
+   "rank": 3201,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "coïncidence",
+   "pos": "n",
+   "gender": "f",
+   "plural": "coïncidences",
+   "ipa": "kɔɛ̃sidɑ̃s",
+   "gl": {
+    "vi": "trùng hợp",
+    "en": "coincidence",
+    "es": "coincidencia",
+    "pt": "coincidência",
+    "fr": "coïncidence",
+    "de": "Zufall",
+    "id": "kebetulan",
+    "th": "ความบังเอิญ",
+    "zh": "巧合",
+    "ja": "偶然",
+    "ko": "우연",
+    "hi": "संयोग",
+    "ar": "صدفة",
+    "ru": "совпадение",
+    "tr": "tesadüf"
+   },
+   "ex": {
+    "fr": "C'est une coïncidence que nous soyons ici en même temps.",
+    "en": "It's a coincidence that we are here at the same time."
+   },
+   "rank": 3207,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "kwɛ̃sidɑ̃s"
+   }
+  },
+  {
+   "word": "objection",
+   "pos": "n",
+   "gender": "f",
+   "plural": "objections",
+   "ipa": "ɔbʒɛksjɔ̃",
+   "gl": {
+    "vi": "phản đối",
+    "en": "objection",
+    "es": "objeción",
+    "pt": "objeção",
+    "fr": "objection",
+    "de": "Einwand",
+    "id": "objek",
+    "th": "คัดค้าน",
+    "zh": "反对",
+    "ja": "異議",
+    "ko": "반대",
+    "hi": "आपत्ति",
+    "ar": "اعتراض",
+    "ru": "возражение",
+    "tr": "itiraz"
+   },
+   "ex": {
+    "fr": "L'avocat a soulevé une objection pendant le procès.",
+    "en": "The lawyer raised an objection during the trial."
+   },
+   "rank": 3219,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "lier",
+   "pos": "v",
+   "ipa": "lje",
+   "gl": {
+    "vi": "buộc",
+    "en": "to tie",
+    "es": "atar",
+    "pt": "atar",
+    "fr": "lier",
+    "de": "binden",
+    "id": "mengikat",
+    "th": "ผูก",
+    "zh": "绑",
+    "ja": "結ぶ",
+    "ko": "묶다",
+    "hi": "बाँधना",
+    "ar": "يربط",
+    "ru": "связывать",
+    "tr": "bağlamak"
+   },
+   "ex": {
+    "fr": "Il faut lier les deux cordes ensemble.",
+    "en": "You have to tie the two ropes together."
+   },
+   "rank": 3240,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "congé",
+   "pos": "n",
+   "gender": "m",
+   "plural": "congés",
+   "ipa": "kɔ̃ʒe",
+   "gl": {
+    "vi": "nghỉ phép",
+    "en": "day off",
+    "es": "permiso",
+    "pt": "licença",
+    "fr": "congé",
+    "de": "Urlaub",
+    "id": "cuti",
+    "th": "วันหยุด",
+    "zh": "假期",
+    "ja": "休暇",
+    "ko": "휴가",
+    "hi": "छुट्टी",
+    "ar": "إجازة",
+    "ru": "отпуск",
+    "tr": "izin"
+   },
+   "ex": {
+    "fr": "Je prends un congé la semaine prochaine.",
+    "en": "I am taking a day off next week."
+   },
+   "rank": 3252,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "émotion",
+   "pos": "n",
+   "gender": "f",
+   "plural": "émotions",
+   "ipa": "emosjɔ̃",
+   "gl": {
+    "vi": "cảm xúc",
+    "en": "emotion",
+    "es": "emoción",
+    "pt": "emoção",
+    "fr": "émotion",
+    "de": "Emotion",
+    "id": "emosi",
+    "th": "อารมณ์",
+    "zh": "情感",
+    "ja": "感情",
+    "ko": "감정",
+    "hi": "भावना",
+    "ar": "عاطفة",
+    "ru": "эмоция",
+    "tr": "duygu"
+   },
+   "ex": {
+    "fr": "Cette musique suscite beaucoup d'émotion.",
+    "en": "This music evokes a lot of emotion."
+   },
+   "rank": 3258,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "emɔsjɔ̃"
+   }
+  },
+  {
+   "word": "chasser",
+   "pos": "v",
+   "ipa": "ʃase",
+   "gl": {
+    "vi": "săn",
+    "en": "to hunt",
+    "es": "cazar",
+    "pt": "caçar",
+    "fr": "chasser",
+    "de": "jagen",
+    "id": "berburu",
+    "th": "ล่า",
+    "zh": "猎",
+    "ja": "狩る",
+    "ko": "사냥하다",
+    "hi": "शिकार करना",
+    "ar": "يصطاد",
+    "ru": "охотиться",
+    "tr": "avlamak"
+   },
+   "ex": {
+    "fr": "Le chat aime chasser les souris.",
+    "en": "The cat likes to hunt mice."
+   },
+   "rank": 3195,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "openai/gpt-oss-120b",
+    "hand": true
+   }
+  },
+  {
+   "word": "ouverture",
+   "pos": "n",
+   "gender": "f",
+   "plural": "ouvertures",
+   "ipa": "uvɛʁtyʁ",
+   "gl": {
+    "fr": "ouverture",
+    "en": "opening",
+    "es": "apertura",
+    "pt": "abertura",
+    "de": "Eröffnung",
+    "vi": "sự mở cửa",
+    "id": "pembukaan",
+    "th": "การเปิด",
+    "zh": "开业",
+    "ja": "開店",
+    "ko": "개점",
+    "hi": "उद्घाटन",
+    "ar": "افتتاح",
+    "ru": "открытие",
+    "tr": "açılış"
+   },
+   "ex": {
+    "fr": "L'ouverture du magasin est à neuf heures.",
+    "en": "The store opens at nine o'clock."
+   },
+   "rank": 3290,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "parfum",
+   "pos": "n",
+   "gender": "m",
+   "plural": "parfums",
+   "ipa": "paʁfœ̃",
+   "gl": {
+    "fr": "parfum",
+    "en": "perfume",
+    "es": "perfume",
+    "pt": "perfume",
+    "de": "Parfüm",
+    "vi": "nước hoa",
+    "id": "parfum",
+    "th": "น้ำหอม",
+    "zh": "香水",
+    "ja": "香水",
+    "ko": "향수",
+    "hi": "परफ्यूम",
+    "ar": "عطر",
+    "ru": "парфюм",
+    "tr": "parfüm"
+   },
+   "ex": {
+    "fr": "J'aime ce parfum.",
+    "en": "I like this perfume."
+   },
+   "rank": 3296,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "croix",
+   "pos": "n",
+   "gender": "f",
+   "plural": "croix",
+   "ipa": "kʁwa",
+   "gl": {
+    "fr": "croix",
+    "en": "cross",
+    "es": "cruz",
+    "pt": "cruz",
+    "de": "Kreuz",
+    "vi": "chữ thập",
+    "id": "salib",
+    "th": "ไม้กางเขน",
+    "zh": "十字架",
+    "ja": "十字",
+    "ko": "십자가",
+    "hi": "क्रॉस",
+    "ar": "صليب",
+    "ru": "крест",
+    "tr": "haç"
+   },
+   "ex": {
+    "fr": "La croix est sur le drapeau.",
+    "en": "The cross is on the flag."
+   },
+   "rank": 3309,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "trahir",
+   "pos": "v",
+   "ipa": "tʁaiʁ",
+   "gl": {
+    "fr": "trahir",
+    "en": "betray",
+    "es": "traicionar",
+    "pt": "trair",
+    "de": "verraten",
+    "vi": "phản bội",
+    "id": "mengkhianati",
+    "th": "ทรยศ",
+    "zh": "背叛",
+    "ja": "裏切る",
+    "ko": "배신하다",
+    "hi": "विश्वासघात करना",
+    "ar": "يخون",
+    "ru": "предать",
+    "tr": "ihan etmek"
+   },
+   "ex": {
+    "fr": "Il ne veut pas trahir son ami.",
+    "en": "He does not want to betray his friend."
+   },
+   "rank": 3323,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "guérir",
+   "pos": "v",
+   "ipa": "ɡeʁiʁ",
+   "gl": {
+    "fr": "guérir",
+    "en": "heal",
+    "es": "sanar",
+    "pt": "curar",
+    "de": "heilen",
+    "vi": "khỏi bệnh",
+    "id": "sembuh",
+    "th": "หายดี",
+    "zh": "痊愈",
+    "ja": "治る",
+    "ko": "낫다",
+    "hi": "ठीक होना",
+    "ar": "يُشفى",
+    "ru": "выздороветь",
+    "tr": "iyileşmek"
+   },
+   "ex": {
+    "fr": "Cette blessure va guérir vite.",
+    "en": "This wound will heal quickly."
+   },
+   "rank": 3329,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "sommet",
+   "pos": "n",
+   "gender": "m",
+   "plural": "sommets",
+   "ipa": "sɔmɛ",
+   "gl": {
+    "fr": "sommet",
+    "en": "summit",
+    "es": "cima",
+    "pt": "cume",
+    "de": "Gipfel",
+    "vi": "đỉnh núi",
+    "id": "puncak",
+    "th": "ยอด",
+    "zh": "峰顶",
+    "ja": "頂上",
+    "ko": "정상",
+    "hi": "शिखर",
+    "ar": "قمة",
+    "ru": "вершина",
+    "tr": "zirve"
+   },
+   "ex": {
+    "fr": "Nous avons atteint le sommet de la montagne.",
+    "en": "We reached the mountain summit."
+   },
+   "rank": 3335,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "portefeuille",
+   "pos": "n",
+   "gender": "m",
+   "plural": "portefeuilles",
+   "ipa": "pɔʁtəfœj",
+   "gl": {
+    "fr": "portefeuille",
+    "en": "wallet",
+    "es": "cartera",
+    "pt": "carteira",
+    "de": "Geldbörse",
+    "vi": "ví tiền",
+    "id": "dompet",
+    "th": "กระเป๋าเงิน",
+    "zh": "钱包",
+    "ja": "財布",
+    "ko": "지갑",
+    "hi": "बटुआ",
+    "ar": "محفظة",
+    "ru": "бумажник",
+    "tr": "cüzdan"
+   },
+   "ex": {
+    "fr": "J'ai perdu mon portefeuille.",
+    "en": "I lost my wallet."
+   },
+   "rank": 3342,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  }
+ ]
+}

@@ -87,9 +87,16 @@ export async function runArchive({ repo, dry = false, maxRetire = 50, rebalanceC
   const rep = { promote: p.promote.length, retire: p.retire.length, repaired: 0, retired: 0, rebalanced: 0, remaining: 0, dry };
   log(`archive: ${keep.size} approved/published · ${p.promote.length} file → 2 bản · ${p.retire.length} master quá ${RETAIN_DAYS} ngày chưa duyệt`);
   if (dry) return rep;
-  for (let i = 0; i < p.promote.length; i += 200) await api('set_want', { sha256: p.promote.slice(i, i + 200), want: 2 });
+  // 26/11: 1.580 file / 200 mỗi lượt → Worker quá 5 phút, undici TimeoutError làm đỏ cả lượt (clip mới chưa vào thư viện). Lô nhỏ 25 + timeout/5xx = dừng bước này (idempotent, mai làm tiếp), không đỏ.
+  for (let i = 0; i < p.promote.length; i += 25) {
+    try { await api('set_want', { sha256: p.promote.slice(i, i + 25), want: 2 }); }
+    catch (e) { if (!(e.status >= 500 || e.name === 'TimeoutError')) throw e; log(`::warning::set_want: ${e.status || e.name} ở lô ${i / 25 + 1} – dừng bước 2 bản tới lượt sau (còn ${p.promote.length - i} file)`); rep.interrupted = e.status || 'timeout'; break; }
+  }
   for (let k = 0; k < 20; k++) {   // repair = server-side copy across Drives (no bytes through CI), ≤ 5 files per call
-    const r = await api('repair', { max_files: 5 }); rep.repaired += (r.done || []).length;
+    let r;
+    try { r = await api('repair', { max_files: 5 }); }
+    catch (e) { if (!(e.status >= 500 || e.name === 'TimeoutError')) throw e; log(`::warning::repair: ${e.status || e.name} – dừng bước chép bản 2 tới lượt sau (idempotent)`); rep.interrupted = e.status || 'timeout'; break; }
+    rep.repaired += (r.done || []).length;
     if (!r.remaining || !(r.done || []).length) break; await sleep(pause);
   }
   for (let i = 0; i < p.retire.length; i += 20) {

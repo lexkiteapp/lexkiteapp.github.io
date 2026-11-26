@@ -15,7 +15,7 @@
       dy: { en: 'cpack/fr/dy-en.js', vi: 'cpack/fr/dy-vi.js', es: 'cpack/fr/dy-es.js', pt: 'cpack/fr/dy-pt.js', fr: 'cpack/fr/dy-fr.js', de: 'cpack/fr/dy-de.js', id: 'cpack/fr/dy-id.js', th: 'cpack/fr/dy-th.js', zh: 'cpack/fr/dy-zh.js', ja: 'cpack/fr/dy-ja.js', ko: 'cpack/fr/dy-ko.js', hi: 'cpack/fr/dy-hi.js', ar: 'cpack/fr/dy-ar.js', ru: 'cpack/fr/dy-ru.js', tr: 'cpack/fr/dy-tr.js' } },
   };
   let TL = 'es'; const C = () => TLD[TL], KEY = () => 'lk.' + TL + '.day', CTX = () => 'lk.' + TL + '.dayctx';
-  const LABEL = 'ti sub dy w g p c go pr mk fin td sv wk mn ok lk rv rw cl cd sk wt nw xw xa xd'.split(' '); // thứ tự khớp path-lib.DAY_UI
+  const LABEL = 'ti sub dy w g p c go pr mk fin td sv wk mn ok lk rv rw cl cd sk wt nw xw xa xd sg1 sg2 sg3 sg4 sc1 sc2 sc3 sc4 sd sn sgo sh ob o1 o2 o3 stt stp stk rvn rv0 rvg'.split(' '); // thứ tự khớp path-lib.DAY_UI
   const ls = (k, v, s) => { try { const st = s ? sessionStorage : localStorage; if (v === undefined) return st.getItem(k); if (v === null) st.removeItem(k); else st.setItem(k, v); } catch (e) { /* riêng tư */ } return null; };
   const X = () => (self[C().G] = self[C().G] || {});
   const lang = () => { const l = window.I18N && I18N.learnLang ? I18N.learnLang() : 'en'; return C().dy[l] ? l : 'en'; };
@@ -28,7 +28,9 @@
   const full = (n, d) => doneOf(n, d).length === steps(d).length;
   const speak = (x, rate) => { try { UI.tts(x, window.Target && Target.speechLang ? Target.speechLang(TL) || C().acc : C().acc, rate || 0.9); } catch (e) { /* không có giọng */ } };
   let DAYS = []; // kế hoạch: <G>.dyp (planDay của path-lib, sinh vào dy.js) áp lên <G>.dy
-  const firstOpen = () => { const k = DAYS.findIndex((d, n) => !full(n, d)); return k < 0 ? DAYS.length - 1 : k; };
+  const startKey = () => 'lk.' + TL + '.start', startAt = () => Math.max(0, Math.min(DAYS.length - 1, parseInt(ls(startKey()), 10) || 0)); // điểm bắt đầu do người học chọn (không đánh dấu xong ngày nào)
+  const firstOpen = () => { const k = DAYS.findIndex((d, n) => n >= startAt() && !full(n, d)); return k < 0 ? DAYS.length - 1 : k; };
+  const goalOf = n => ((X().cdl || {})[lang()] || (X().cdl || {}).en || [])[n] || ''; // "Sau bài này bạn có thể …" (data cando.json của tl)
   const gxOf = id => { const g = (X().gx || {})[lang()] || (X().gx || {}).en || {}; return (g[id] || [id])[0]; };
   const route = k => ((window.Target && Target.table(TL).routes) || {})[k] || '#/practice/' + TL; // luyện (vocab) · phát âm (skills) của tl
   const home = () => (window.Target && Target.homeOf(TL)) || '#/practice/' + TL + 'd';
@@ -65,6 +67,7 @@
     const get = f => fetch(base + 'packs/' + TL + '/' + f + '.json' + v).then(r => { if (!r.ok) throw new Error(f + ' ' + r.status); return r.json(); });
     if (!X().wd) tl.push(get('wd').then(j => { X().wd = j; }));
     for (const k of l !== 'en' ? [l, 'en'] : ['en']) if (!(X().wdl || {})[k]) tl.push(get('wd-' + k).then(j => { (X().wdl = X().wdl || {})[k] = j; }));
+    for (const k of l !== 'en' ? [l, 'en'] : ['en']) if (!(X().cdl || {})[k]) tl.push(get('cd-' + k).then(j => { (X().cdl = X().cdl || {})[k] = j; }).catch(() => {})); // mục tiêu từng ngày (lười; thiếu → ẩn dòng 🎯)
     tl.push(App.loadScript(c.gx()[l])); // tên điểm ngữ pháp
     const px = c.px(); if (px) tl.push(App.loadScript(px.pxl[l]), App.loadScript(px.base)); // tên chủ đề phát âm
     await Promise.all(tl);
@@ -106,12 +109,36 @@
   const moreHtml = D => { const end = D.at(-1)[1], tot = X().wd.length; if (tot <= end) return '';
     const a = MORE ? MORE.added : 0, left = tot - end - a;
     return `<section class="tp-card tp-more" id="tpMore"><h3>${esc(u('xw'))}</h3><p>${esc(fmt(u('xd'), { a, t: tot - end }))}</p>${left > 0 ? `<button type="button" class="tp-btn" id="tpMoreGo">${esc(fmt(u('xa'), { n: Math.min(8, left) }))}</button>` : ''}</section>`; };
+  // Ôn tập (ôn → kiểm tra theo chặng): số từ của ngôn ngữ này đến hạn ôn hôm nay (cùng định nghĩa Core.Cards.dueList với màn Ôn tập) + nút vào Ôn tập
+  async function reviewInit(root) {
+    const C = window.Core, box = root.querySelector('#tpRev'); if (!C || !C.Cards || !box) return;
+    const n = C.Cards.dueList(await C.Cards.all()).filter(c => c.tl === TL).length;
+    box.innerHTML = `<h3>${esc(u('rv'))}</h3><p>${esc(n ? fmt(u('rvn'), { n }) : u('rv0'))}</p>${n ? `<a class="tp-btn p" href="#/review">${esc(u('rvg'))}</a>` : ''}`; box.hidden = false;
+  }
   async function moreInit(D, root) {
     const end = D.at(-1)[1], tot = X().wd.length, C = window.Core; if (tot <= end || !C || !C.Cards) return;
     const m = await C.Cards.all(); let k = end; while (k < tot && m[C.tlKey(X().wd[k][0], TL)]) k++;
     MORE = { added: k - end, next: k };
     const sec = root.querySelector('#tpMore'); if (sec) sec.outerHTML = moreHtml(D);
     const b = root.querySelector('#tpMoreGo'); if (b) b.onclick = async () => { b.disabled = true; let n = 0; try { n = await toDeck(MORE.next, Math.min(tot, MORE.next + 8)); } catch (e) { /* bỏ */ } await moreInit(D, root); if (n && UI.toast) UI.toast(fmt(u('sv'), { n })); };
+  }
+  // ---- Chặng CEFR (khung chung với lộ trình tiếng Anh: tên · mục tiêu "làm được gì" · tiến độ · học từ cấp này) ----
+  const LV = ['A1', 'A2', 'B1', 'B2'], lname = () => (window.Target && Target.table(TL).name) || TL;
+  const stages = D => LV.map((lv, i) => { const ix = D.map((d, n) => (d[3] === lv ? n : -1)).filter(n => n >= 0); return { lv, i: i + 1, from: ix[0], n: ix.length, done: ix.filter(n => full(n, D[n])).length }; });
+  // kết quả kiểm tra cấp = điểm cao nhất đã lưu ở đề thi (exam-ui: lk.<tl>.x[cấp][đề][phần] = %); ≥ 70 = đạt
+  const PASS = 70, bestOf = lv => { let m = -1; try { const x = (JSON.parse(ls('lk.' + TL + '.x') || '{}') || {})[lv] || {}; for (const e of Object.values(x)) for (const v of Object.values(e || {})) if (+v > m) m = +v; } catch (e) { /* bỏ */ } return m; };
+  function stagesHtml(D, cur) {
+    const L = lname(), rows = stages(D).map(s => {
+      const on = s.n && D[cur][3] === s.lv, title = u('sg' + s.i);
+      return `<li class="tp-sg${on ? ' on' : ''}${s.n ? '' : ' soon'}"${on ? ' aria-current="step"' : ''}><span class="tp-sgh"><b dir="auto">${esc(title)}</b><small>${esc(s.n ? fmt(u('sd'), { a: s.done, b: s.n }) : u('sn'))}</small></span>
+        <span class="tp-sgc" dir="auto">${esc(fmt(u('sc' + s.i), { L }))}</span>${s.n ? `<span class="tp-bar" aria-hidden="true"><i style="width:${Math.round(s.done / s.n * 100)}%"></i></span>${on || s.done === s.n ? '' : `<button type="button" class="tp-btn" data-start="${s.from}">${esc(u('sgo'))}</button>`}<a class="tp-btn${s.done === s.n ? ' p' : ''}" href="${route('tests')}?lv=${s.lv}">${esc(u('stt'))} ${s.lv}</a>${bestOf(s.lv) >= 0 ? `<span class="tp-sgt${bestOf(s.lv) >= PASS ? ' ok' : ''}">${esc(bestOf(s.lv) >= PASS ? u('stk') : fmt(u('stp'), { n: bestOf(s.lv) }))}</span>` : ''}` : ''}</li>`; }).join('');
+    return `<section class="tp-card tp-stg" aria-labelledby="tpSg"><h3 id="tpSg">${esc(u('sh'))}</h3><ol>${rows}</ol></section>`;
+  }
+  // lần đầu (chưa có tiến độ, chưa chọn): hỏi trình độ → điểm bắt đầu (không đánh dấu xong ngày nào)
+  function askHtml(D) {
+    if (ls(startKey()) !== null && ls(startKey()) !== undefined || Object.keys(prog()).length) return '';
+    const sg = stages(D);
+    return `<section class="tp-card tp-ask" id="tpAsk" aria-labelledby="tpAq"><h3 id="tpAq">${esc(fmt(u('ob'), { L: lname() }))}</h3><div class="tp-ask-b">${[['o1', 0], ['o2', (sg[1] || {}).from], ['o3', (sg[2] || {}).from]].map(([k, at]) => `<button type="button" class="tp-btn" data-start="${at || 0}">${esc(u(k))}</button>`).join('')}</div></section>`;
   }
   function hub(D) {
     const cur = firstOpen(), d = D[cur], done = D.filter((x, n) => full(n, x)).length, pct = Math.round(done / D.length * 100), all = done === D.length, sk = App.streak ? App.streak() : 0;
@@ -121,13 +148,16 @@
     view.innerHTML = `<div class="tp">${window.Target ? Target.chip(TL) : ''}
       <section class="tp-card tp-hero"><div class="tp-ring" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(fmt(u('pr'), { d: cur + 1, t: D.length, p: doneOf(cur, d).length }))}"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="42"/><circle class="fg" cx="50" cy="50" r="42" stroke-dasharray="${RING.toFixed(1)}" stroke-dashoffset="${(RING * (1 - done / D.length)).toFixed(1)}"/></svg><b>${all ? '✓' : cur + 1}<small dir="ltr">/ ${D.length}</small></b></div>
         <div><h1>${esc(u('ti'))}</h1><div class="tp-meta"><span class="tp-pill">${esc(d[3])}</span><span class="tp-pill">${esc(fmt(u('mn'), { n: minOf(d) }))}</span>${sk ? `<span class="tp-pill warm">🔥 ${esc(fmt(u('sk'), { n: sk }))}</span>` : ''}</div><p class="tp-sub">${esc(u('sub'))}</p></div></section>
-      <section class="tp-card tp-today" aria-labelledby="tpTd"><div class="tp-k"><span id="tpTd">${esc(u('td'))} · ${esc(fmt(u('dy'), { n: cur + 1 }))}</span><span>${esc(fmt(u('wt'), { a: doneOf(cur, d).length, b: steps(d).length }).replace(/ .*$/, ''))}</span></div><ul>${list}</ul><a class="tp-go" href="${home()}?d=${cur + 1}">${esc(all ? u('fin') : u('go'))}</a></section>
+      <section class="tp-card tp-today" aria-labelledby="tpTd"><div class="tp-k"><span id="tpTd">${esc(u('td'))} · ${esc(fmt(u('dy'), { n: cur + 1 }))}</span><span>${esc(fmt(u('wt'), { a: doneOf(cur, d).length, b: steps(d).length }).replace(/ .*$/, ''))}</span></div>${goalOf(cur) ? `<p class="tp-goal" dir="auto">🎯 ${esc(goalOf(cur))}</p>` : ''}<ul>${list}</ul><a class="tp-go" href="${home()}?d=${cur + 1}">${esc(all ? u('fin') : u('go'))}</a></section>
+      ${askHtml(D)}${stagesHtml(D, cur)}
+      <section class="tp-card tp-rev" id="tpRev" hidden></section>
       <div class="tp-weeks">${Array.from({ length: Math.ceil(D.length / WK_N) }, (_, wi) => weekHtml(wi, D, cur)).join('')}</div>
       ${moreHtml(D)}</div>`;
     const root = view.querySelector('.tp');
     root.addEventListener('toggle', e => { const w = e.target; if (w.open && w.matches('details[data-w]')) { const box = w.querySelector('.tp-days'); if (box && !box.firstChild) box.innerHTML = weekBody(+w.dataset.w, D, cur); } }, true); // tuần sau vẽ lười: không dựng 125 hàng lúc vào
-    root.addEventListener('click', e => { const b = e.target.closest('[data-claim]'); if (!b || b.disabled) return; const wi = +b.dataset.claim, c = claimed(); if (c[wi]) return;
+    root.addEventListener('click', e => { const sb = e.target.closest('[data-start]'); if (sb) { ls(startKey(), String(+sb.dataset.start || 0)); hub(D); return; } const b = e.target.closest('[data-claim]'); if (!b || b.disabled) return; const wi = +b.dataset.claim, c = claimed(); if (c[wi]) return;
       c[wi] = 1; ls(wkKey(), JSON.stringify(c)); try { App.reward({ xp: XP }); } catch (er) { /* không có kho XP */ } const box = b.closest('.tp-days'); if (box) box.innerHTML = weekBody(wi, D, cur); if (UI.toast) UI.toast('🏅 +' + XP + ' XP'); });
+    reviewInit(root).catch(() => {});
     moreInit(D, root).catch(() => {});
   }
 
@@ -137,7 +167,7 @@
     const row = (s, title, body, href) => `<section class="card" id="ds-${s}"><div class="row between"><h3 style="margin:0">${have.includes(s) ? '✓ ' : ''}${esc(title)}</h3>${href ? `<a class="btn ${have.includes(s) ? '' : 'primary'}" href="${href}" data-s="${s}">${esc(u('go'))}</a>` : ''}</div>${body}</section>`;
     const words = W.map((w, k) => `<div class="row" style="align-items:flex-start;gap:.6rem;padding:.35rem 0"><button type="button" class="icon-btn sm" data-sp="${esc(w[0])}" aria-label="${esc(w[0])}">🔊</button>
       <div><b lang="${TL}">${art(w) ? `<span class="muted">${esc(art(w).trim())}</span>${/'$/.test(art(w)) ? '' : ' '}` : ''}${esc(w[0])}</b>${w[5] ? ` <span class="small muted" lang="${TL}">(${esc(w[5])})</span>` : ''} <span class="ipa">/${esc(w[2])}/</span> <span class="muted small">${esc(w[1])}</span><div dir="auto">${esc(G[k])}</div><div class="small muted" lang="${TL}">${esc(w[3])} <button type="button" class="icon-btn sm" data-sp="${esc(w[3])}" aria-label="${esc(w[3])}">🔊</button></div></div></div>`).join('');
-    view.innerHTML = `${window.Target ? Target.chip(TL) : ''}<div class="page-head"><div><h1>${esc(fmt(u('dy'), { n: n + 1 }))}</h1><p class="muted"><span class="chip">${lv}</span> ${esc(fmt(u('pr'), { d: n + 1, t: DAYS.length, p: doneOf(n, d).length }))}</p></div><a class="btn ghost" href="${home()}">${esc(u('ti'))}</a></div>
+    view.innerHTML = `${window.Target ? Target.chip(TL) : ''}<div class="page-head"><div><h1>${esc(fmt(u('dy'), { n: n + 1 }))}</h1><p class="muted"><span class="chip">${lv}</span> ${esc(fmt(u('pr'), { d: n + 1, t: DAYS.length, p: doneOf(n, d).length }))}</p>${goalOf(n) ? `<p dir="auto" class="tp-goal">🎯 ${esc(goalOf(n))}</p>` : ''}</div><a class="btn ghost" href="${home()}">${esc(u('ti'))}</a></div>
       ${has('w') ? row('w', u('w'), words + `<button type="button" class="btn ${have.includes('w') ? '' : 'primary'}" id="dsMk">${esc(u('mk'))}</button>`) : ''}
       ${row('g', u('g') + ' · ' + gxOf(gid), '', `${route('vocab')}?lv=${lv}&p=${encodeURIComponent(gid)}`)}
       ${has('p') ? row('p', u('p') + ' · ' + pxOf(tp), '', `${route('skills')}?tp=${tp}&m=${m}`) : ''}

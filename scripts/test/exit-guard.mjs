@@ -163,5 +163,34 @@ const popOnly = async (E, h) => { E.w.History.prototype.replaceState.call(E.w.hi
   ok(!E.d.querySelector('#view [data-exit], #view .lk-exitbar'), 'trang đã sang #/me: không bị chèn thanh thoát của màn học cũ');
   ok(!E.errors.length, 'không lỗi JS: ' + E.errors.join(' | '));
 }
+{ // 7) Khóa ngôn ngữ đích (owner 26/11): X không thoát được, màn xoay vòng #/home ⇄ #/practice/esd
+  for (const tl of ['es', 'fr']) {
+    const hub = '#/practice/' + tl + 'd';
+    const mk = async () => {
+      const E = await boot(), P = E.App.routes;
+      E.w.Target = { cur: () => tl, homeOf: () => hub };
+      P.home = () => { E.w.location.replace(hub); return '<p>…</p>'; }; // ux1.map: Hôm nay của tl → đẩy về lộ trình ngày (location.replace)
+      P.practice = () => (new RegExp('^#/practice/' + tl + 'd').test(E.w.location.hash)
+        ? '<h1>Lộ trình ngày</h1><a href="#/practice/' + tl + '?lv=A1&p=x">Bắt đầu</a>'
+        : '<div class="study-top"><a class="icon-btn" href="#/home" aria-label="Quit lesson"><svg><use href="#i-x"/></svg></a></div><button class="option" id="opt">hola</button>');
+      return E;
+    };
+    { // hub → bài luyện → X → về hub (không vòng, không kẹt)
+      const E = await mk(); E.w.location.hash = hub; await tick(60);
+      ok(!E.d.body.classList.contains('lk-learn') && !E.d.querySelector('#view [data-exit]'), `${tl}: lộ trình ngày ${hub} là trang trung tâm – không nút X, không khung học`);
+      ok(E.w.ExitGuard.backTo() === hub, `${tl}: backTo = lộ trình ngày`);
+      E.w.location.hash = '#/practice/' + tl + '?lv=A1&p=x'; await tick(60);
+      ok(E.d.body.classList.contains('lk-learn') && E.d.querySelector('#view [data-exit]'), `${tl}: bài luyện là màn học có nút X`);
+      const r0 = E.App.renders; E.d.querySelector('#view [data-exit]').click(); await tick(120);
+      ok(E.w.location.hash === hub && E.App.renders - r0 <= 3 && !E.d.body.classList.contains('lk-learn'), `${tl}: X giữa bài → về ${hub} ngay (${E.App.renders - r0} lượt vẽ, không vòng lặp)`);
+      ok(!E.errors.length, 'không lỗi JS: ' + E.errors.join(' | '));
+    }
+    { // vào thẳng bài (chưa qua hub) → X về lộ trình ngày, không về #/home rồi bị đẩy lại
+      const E = await mk(); E.w.location.hash = '#/practice/' + tl + '?lv=A1&p=x'; await tick(60);
+      const r0 = E.App.renders; E.d.querySelector('#view [data-exit]').click(); await tick(150);
+      ok(E.w.location.hash === hub && E.App.renders - r0 <= 3, `${tl}: vào thẳng bài rồi bấm X → ${hub} (${E.App.renders - r0} lượt vẽ)`);
+    }
+  }
+}
 console.log(fails ? `✗ exit-guard: ${fails}/${n} lỗi` : `✓ exit-guard: ${n} kiểm tra`);
 process.exit(fails ? 1 : 0);

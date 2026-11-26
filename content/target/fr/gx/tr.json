@@ -510,5 +510,165 @@
  "tout-tous-toutes": {
   "t": "tout, tous, toute, toutes",
   "x": "Sıfat olarak \"tout\" uyar: \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\". Zamir olarak 'her şey' (\"j'ai tout compris\") veya 'hepsi' (\"ils sont tous là\", son -s okunur) demektir. Örnekler: \"tous les jours\", \"toute la journée\", \"ils sont tous là\"."
+ },
+ "subj-after-bien-que": {
+  "t": "Bien que + subjonctif",
+  "x": "\"bien que\", \"quoique\" ve \"encore que\" karşıtlık (-e rağmen) bildirir ve olgu kesin olsa bile her zaman subjonctif alır. \"Bien que le projet soit coûteux, nous continuons\" denir, \"bien que le projet est\" denmez. Örnekler: \"Bien qu'il pleuve, nous sortons\", \"Quoiqu'elle soit jeune, elle dirige l'équipe\"."
+ },
+ "subj-after-pour-que": {
+  "t": "Amaç: pour que, afin que",
+  "x": "\"pour que\" ve \"afin que\" amaç bildirir, ardından subjonctif gelir. Amaç cümlesinin öznesi genellikle ana cümlenin öznesinden farklıdır: \"Je répète pour que vous compreniez\". Özne aynıysa \"pour\" veya \"afin de\" ile mastar kullanılır. Örnekler: \"Il parle lentement pour que nous comprenions\", \"Elle écrit afin que tout soit clair\"."
+ },
+ "subj-after-avant-que": {
+  "t": "Zaman sınırı: avant que",
+  "x": "\"avant que\" ve \"jusqu'à ce que\", eylem henüz gerçekleşmediği için subjonctif alır. \"avant que\" sonrasına çoğu zaman olumsuz anlamı olmayan bir \"ne\" eklenir: \"avant qu'il ne parte\". Özne aynıysa \"avant de\" ile mastar kullanılır. Örnekler: \"Attends jusqu'à ce que je revienne\", \"Appelle avant que nous ne partions\"."
+ },
+ "subj-a-moins-que-ne": {
+  "t": "İstisna: à moins que",
+  "x": "\"à moins que\" \"-medikçe\" anlamına gelir ve subjonctif gerektirir. Resmî Fransızcada fiilin önüne çoğu zaman gerçek olumsuzluk taşımayan bir \"ne\" eklenir (\"à moins qu'il ne vienne\"). Ardından koşul kipi ya da gelecek zaman kullanılmaz. Örnekler: \"Je sors, à moins qu'il ne pleuve\", \"à moins que vous ne soyez occupé\"."
+ },
+ "subj-a-condition-que": {
+  "t": "Koşul: à condition que",
+  "x": "\"à condition que\" ve \"pourvu que\" \"-mek şartıyla\" anlamına gelir ve subjonctif alır; gelecek zaman ya da koşul kipi asla kullanılmaz. \"Pourvu que\" cümle başında umut da bildirebilir: \"Pourvu qu'il vienne !\". Örnekler: \"Je viendrai à condition que vous m'invitiez\", \"Pourvu que tout se passe bien\"."
+ },
+ "subj-vs-ind-opinion": {
+  "t": "Görüş fiilleri: kip seçimi",
+  "x": "Olumlu cümlede \"penser que\" ve \"croire que\" sonrasında indicatif kullanılır: \"Je pense qu'il a raison\". Olumsuzda ya da devrik soruda şüphe belirir ve subjonctif gelir: \"Je ne pense pas qu'il ait raison\". Kip, konuşanın ne kadar emin olduğuna bağlıdır. Örnekler: \"Je crois qu'elle viendra\", \"Je ne crois pas qu'elle vienne\"."
+ },
+ "subj-emotion-doubt": {
+  "t": "His, şüphe, gereklilik",
+  "x": "Duygu (\"être content que\", \"regretter que\"), şüphe (\"douter que\") ve gereklilik (\"il faut que\", \"il est essentiel que\") fiillerinden sonra, özneler farklıysa subjonctif gelir. Cümle düz bir olguyu değil, bir tepkiyi ya da ihtiyacı anlatır. Örnekler: \"Je suis ravi que vous veniez\", \"Il faut que nous partions\"."
+ },
+ "subj-irregular-forms": {
+  "t": "Düzensiz subjonctif kökleri",
+  "x": "Yedi yaygın fiilin subjonctif kökü düzensizdir: \"être\" (sois, soyons), \"avoir\" (aie, ayons), \"aller\" (aille, allions), \"faire\" (fasse), \"pouvoir\" (puisse), \"savoir\" (sache), \"vouloir\" (veuille). Bunları bütün biçimleriyle öğren; \"être\", \"avoir\", \"aller\" ve \"vouloir\" fiillerinin nous ve vous biçimlerinin de kendi kökü vardır. Örnekler: \"qu'elle aille\", \"que vous sachiez\", \"que tu aies\"."
+ },
+ "subj-passe": {
+  "t": "Geçmiş subjonctif",
+  "x": "Geçmiş subjonctif, \"avoir\" ya da \"être\" fiilinin subjonctif'i ile geçmiş ortaç birleşiminden oluşur. Eylemin ana fiilden önce bittiğini gösterir: \"Je suis content que tu sois venu\". Yardımcı fiil passé composé'deki gibi seçilir, uyum korunur. Örnekler: \"Il faut qu'ils aient fini\", \"Bien qu'elle soit partie\"."
+ },
+ "subj-vs-infinitive": {
+  "t": "Subjonctif mi, mastar mı",
+  "x": "İki fiilin öznesi aynıysa Fransızca mastarı tercih eder: \"Je veux partir\". Özne değişirse \"que\" ile subjonctif kullanılır: \"Je veux que tu partes\". Aynısı istekler, duygular ve birçok bağlaç için de geçerlidir (\"avant de\" ya da \"avant que\"). Örnekler: \"Elle est contente d'être là\", \"Elle est contente que vous soyez là\"."
+ },
+ "subj-superlative-relative": {
+  "t": "Üstünlük sonrası subjonctif",
+  "x": "Üstünlük ifadesinden (\"le plus\", \"le meilleur\") ya da \"seul\", \"premier\", \"dernier\", \"unique\" sözcüklerinden sonra ilgi cümlesi subjonctif alır, çünkü ifade kişisel bir yargıdır. \"jamais\" ile geçmiş subjonctif yaygındır: \"le plus beau film que j'aie vu\". Örnekler: \"le seul homme qui sache\", \"la première fois que je le voie\"."
+ },
+ "subj-relative-search": {
+  "t": "Aranan nesne için subjonctif",
+  "x": "İlgi cümlesi aradığın, istediğin ya da var olduğundan şüphe ettiğin bir şeyi anlatıyorsa subjonctif kullan: \"Je cherche un livre qui soit simple\". Şeyin var olduğunu biliyorsan indicatif kullan: \"J'ai un livre qui est simple\". Tipik tetikleyiciler: \"chercher\", \"vouloir\", \"il n'y a personne qui\", varlık soruları. Örnek: \"Y a-t-il quelqu'un qui puisse m'aider ?\"."
+ },
+ "cond-passe-news": {
+  "t": "Doğrulanmamış haber için koşul kipi",
+  "x": "Gazeteciler doğrulanmamış bilgiyi aktarmak için koşul kipini, çoğu zaman geçmiş koşul kipini kullanır: \"Le ministre aurait démissionné\". \"İddiaya göre\" anlamı verir ve yazarı olgunun güvencesinden kurtarır. Güncel söylenti için koşul kipi şimdiki zaman kullanılır: \"Il serait malade\". Örnekler: \"Deux personnes seraient blessées\", \"selon certaines sources, le vol aurait été annulé\"."
+ },
+ "si-plus-que-parfait": {
+  "t": "Gerçek dışı geçmiş: si + plus-que-parfait",
+  "x": "Geçmişteki gerçek dışı koşul için \"si\" ile plus-que-parfait, sonuçta ise geçmiş koşul kipi kullanılır: \"Si j'avais su, je serais venu\". Bu anlamda \"si\" sonrasında koşul kipi asla kullanılmaz. Sonuç cümlesi gerçekleşmeyeni gösterir. Örnekler: \"Si elle avait étudié, elle aurait réussi\", \"Si nous étions partis, nous aurions vu le concert\"."
+ },
+ "si-mixed-conditions": {
+  "t": "Karma koşul cümleleri",
+  "x": "Karma koşul cümlesi geçmişteki bir koşulu şimdiki bir sonuca bağlar: \"si\" ile plus-que-parfait, ardından şimdiki zaman koşul kipi. Sonuçtaki \"maintenant\" ya da \"aujourd'hui\" gibi zaman sözcükleri, sonucun hâlâ geçerli olduğunu gösterir. Örnek: \"Si tu avais écouté, tu comprendrais\". Tamamen geçmiş kalıpla karşılaştır: \"tu aurais compris\"."
+ },
+ "hypothese-au-cas-ou": {
+  "t": "Önlem: au cas où",
+  "x": "\"au cas où\" olası bir olaya karşı önlemi bildirir ve ardından koşul kipi gelir; subjonctif ya da gelecek zaman gelmez. \"Ya ... olursa diye\" anlamındadır. Cümlenin başında ya da sonunda yer alabilir. Örnekler: \"Prenez un parapluie au cas où il pleuvrait\", \"Au cas où tu serais en retard, appelle-moi\"."
+ },
+ "apres-que-indicatif": {
+  "t": "après que + indicatif",
+  "x": "\"après que\" ve \"dès que\" gerçekten olmuş bir olguyu bildirir, bu yüzden (\"avant que\"nin aksine) subjonctif değil indicatif alır. \"après que\" sonrasındaki fiil, ana fiilden önce gelen bileşik bir zamandadır: \"Après qu'il a fini, il est rentré\". Ana fiil gelecekteyse \"dès que\" ile futur antérieur kullanılır: \"Dès que tu auras fini, appelle-moi\"."
+ },
+ "concordance-des-temps": {
+  "t": "Zaman uyumu",
+  "x": "Ana fiil geçmiş zamandaysa yan cümle fiili bir adım geriye gider: şimdiki zaman imparfait, passé composé plus-que-parfait, gelecek zaman koşul kipi olur. Geçmiş zamanlı ana fiille şimdiki zamanlı yan cümle fiilini karıştırma: \"Il pensait que nous étions partis\". Örnekler: \"Je savais que tu viendrais\", \"Elle disait qu'elle était fatiguée\"."
+ },
+ "discours-indirect-passe": {
+  "t": "Geçmişte dolaylı anlatım",
+  "x": "Geçmiş zamanlı bir fiilden (\"elle a dit que\") sonra dolaylı anlatımda zamanlar kayar: şimdiki zaman imparfait'ye, passé composé plus-que-parfait'ye, gelecek zaman koşul kipine dönüşür. Zaman sözcükleri de değişir: \"demain\" \"le lendemain\", \"hier\" \"la veille\", \"aujourd'hui\" \"ce jour-là\" olur. Örnek: \"Il a dit qu'il viendrait le lendemain\"."
+ },
+ "discours-indirect-questions": {
+  "t": "Dolaylı sorular",
+  "x": "Dolaylı soruda normal sözcük sırası kullanılır, soru işareti konmaz. \"Est-ce que\" ve evet/hayır soruları \"si\" olur: \"Il a demandé si je venais\". \"Qu'est-ce que\" \"ce que\", \"qu'est-ce qui\" ise \"ce qui\" olur. Geçmiş zamanlı fiilden sonra zamanlar da kayar. Örnekler: \"Elle m'a demandé ce que je voulais\", \"Il voulait savoir ce qui se passait\"."
+ },
+ "discours-indirect-ordres": {
+  "t": "Emir ve ricaları aktarma",
+  "x": "Bir emri ya da ricayı aktarmak için \"dire de\" veya \"demander de\" ile mastar kullanılır: \"Elle m'a dit de rentrer\". Muhatap \"à\" ya da bir zamirle belirtilir: \"Il a demandé à ses voisins de baisser la musique\". Olumsuz emirde \"ne pas\" mastarın önünde bir arada durur: \"Il nous a dit de ne pas toucher aux câbles\"."
+ },
+ "accord-participe-cod-avant": {
+  "t": "Öne geçen nesneyle uyum",
+  "x": "\"avoir\" ile geçmiş ortaç, doğrudan nesneyle yalnızca nesne fiilden önce geldiğinde uyum sağlar. \"que\", \"les\" gibi bir zamire ya da soru sözcüğüne bak: \"Les lettres que Marie a écrites\", \"Quelle robe as-tu choisie ?\". Nesne sonra gelirse uyum olmaz: \"Marie a écrit des lettres\"."
+ },
+ "accord-participe-pronominaux": {
+  "t": "Dönüşlü fiillerde ortaç uyumu",
+  "x": "Dönüşlü fiilin passé composé'sinde, dönüşlü zamir doğrudan nesneyse ortaç onunla uyum sağlar: \"Les amies se sont retrouvées\". Zamir dolaylıysa ya da başka bir nesne geliyorsa ortaç değişmez: \"Elle s'est lavé les mains\", \"Ils se sont envoyé des messages\". Kendine sor: \"se\" \"à qui ?\" mi yoksa \"qui ?\" mi anlamında?"
+ },
+ "participe-present-gerondif": {
+  "t": "Ortaç, gérondif, sıfat",
+  "x": "Gérondif \"en + -ant\" bir şeyin nasıl ya da ne zaman olduğunu söyler ve değişmez: \"Il s'est blessé en coupant du bois\". Şimdiki zaman ortacı bir yan cümlenin yerini tutar ve o da değişmez: \"Les enfants jouant dans le jardin\". Fiilimsi sıfat ismiyle uyum sağlar: \"une histoire fascinante\", \"des résultats surprenants\"."
+ },
+ "passif-et-alternatives": {
+  "t": "Edilgen ve alternatifleri",
+  "x": "Edilgen yapı \"être\" ile geçmiş ortaçtan kurulur: \"Les résultats ont été annoncés par le jury\". Fransızca çoğu zaman alternatifleri tercih eder: genel olgular için dönüşlü fiil (\"Le fromage se mange après le plat\"), \"on\" ya da öznenin başına gelen için \"se faire\" (\"Il s'est fait voler son sac\")."
+ },
+ "causatif-faire-laisser": {
+  "t": "Ettirgen faire ve laisser",
+  "x": "\"Faire\" ile mastar bir şeyi yaptırmak anlamına gelir: \"Nous avons fait refaire la cuisine\". \"Laisser\" ile mastar izin vermek anlamına gelir: \"Le professeur a laissé les élèves partir\". Mastardan önce \"fait\" ortacı değişmez: \"Ce film m'a fait pleurer\"."
+ },
+ "pronoms-relatifs-composes": {
+  "t": "Birleşik ilgi zamirleri",
+  "x": "Edatın ardından isme göre \"lequel\", \"laquelle\", \"lesquels\" ya da \"lesquelles\" kullanılır: \"la table sur laquelle\", \"les amis chez lesquels\". \"à\" ile kaynaşırlar: \"auquel\", \"auxquels\", \"auxquelles\", \"à laquelle\". \"de\" ile \"duquel\", \"desquels\", \"de laquelle\" olur."
+ },
+ "pronom-relatif-dont": {
+  "t": "İlgi zamiri dont",
+  "x": "\"Dont\", ilgi cümlesinde \"de\" ile ismin yerini tutar: \"L'ordinateur dont j'ai besoin\" (avoir besoin de). Aidiyeti de bildirir; isim hemen ardından gelir: \"l'écrivain dont le dernier roman\". Bir grubun bir kısmını da getirir: \"trois enfants, dont deux vivent à l'étranger\"."
+ },
+ "ce-qui-ce-que-ce-dont": {
+  "t": "Ce qui, ce que, ce dont",
+  "x": "\"Ce\" ile ilgi zamiri bir düşünceye ya da adı geçmeyen bir şeye işaret eder. \"Ce qui\" özne (\"Ce qui m'inquiète\"), \"ce que\" nesnedir (\"ce que tu veux\"). \"de\" alan fiillerde \"ce dont\" (\"ce dont tu as envie\"), \"à\" alan fiillerde \"ce à quoi\" (\"ce à quoi il s'intéresse\") kullanılır."
+ },
+ "pronoms-doubles-ordre": {
+  "t": "İki zamirin sırası",
+  "x": "Fiilden önce me, te, nous ve vous için önce dolaylı zamir gelir: \"Je te le rends\". Üçüncü kişilerde önce doğrudan zamir gelir: \"Je le lui donne\"; \"en\" her zaman sonda yer alır: \"Je lui en ai parlé\". Olumlu emirden sonra sıra doğrudan, sonra dolaylıdır: \"Donne-les-moi\"."
+ },
+ "pronoms-y-en-avances": {
+  "t": "y ve en ileri düzey",
+  "x": "\"En\", \"de\" ile isim ya da miktarın yerini tutar ve sayı kalır: \"J'en ai acheté trois\". \"Y\", \"à\" ya da yerin yerini tutar: \"J'y pense tout le temps\". Olumlu emirde fiilin ardından gelir ve birleşebilirler: \"Donnez-m'en un kilo\"."
+ },
+ "mise-en-relief": {
+  "t": "Vurgu: c'est...qui/que",
+  "x": "\"C'est ... qui\" özneyi, \"c'est ... que\" ise nesneyi ya da tümleci vurgular: \"C'est moi qui ai fait le gâteau\", \"C'est demain que nous partons\". Çoğul isimle \"ce sont\" kullanılır: \"Ce sont mes voisins que j'ai invités\". \"qui\" sonrasındaki fiil, vurgulanan öğeyle uyum sağlar."
+ },
+ "inversion-peut-etre": {
+  "t": "Cümle zarflarından sonra devrik yapı",
+  "x": "Resmî Fransızcada cümle başındaki \"peut-être\", \"sans doute\" ve \"aussi\" (\"bu yüzden\" anlamında) sonrasında özne-fiil devrikliği olur: \"Peut-être viendra-t-il demain\". Özne isimse bir zamirle yinelenir. Fiil sesli harfle bitip \"il\" ya da \"elle\" geliyorsa \"-t-\" eklenir: \"viendra-t-elle\"."
+ },
+ "ne-expletif": {
+  "t": "Anlamsız ne",
+  "x": "Korku fiillerinden (\"craindre que\"), \"avant que\"den ve eşitsizlik karşılaştırmalarından sonra resmî Fransızca, olumsuz anlamı olmayan bir \"ne\" ekler: \"Je crains qu'il ne pleuve\", \"avant qu'il ne fasse nuit\", \"plus grand que je ne pensais\". Konuşmada isteğe bağlıdır, asla \"pas\" almaz."
+ },
+ "connecteurs-concession-opposition": {
+  "t": "Karşıtlık ve zıtlık",
+  "x": "\"Bien que\" ile subjonctif ve \"malgré\" ile isim karşıtlık bildirir: \"Malgré la pluie, nous sommes sortis\". \"Alors que\" ile indicatif iki olguyu karşılaştırır: \"Paul adore la mer, alors que sa femme préfère la montagne\". \"Pourtant\", \"cependant\" ve \"en revanche\" iki cümleyi bağlar."
+ },
+ "nominalisation": {
+  "t": "Fiilleri isme çevirme",
+  "x": "İsimleştirme yazıyı daha kısa ve resmî yapar. Fiiller -tion, -ment, -ure ya da -ée gibi eklerle isim olur: \"ouvrir\" \"l'ouverture\", \"augmenter\" \"l'augmentation\", \"arriver\" \"l'arrivée\" verir. Sıfatlar da olur: \"difficile\" \"la difficulté\" verir. Yeni ismin cinsiyetini kontrol et."
+ },
+ "tout-accord": {
+  "t": "Tout: sıfat, zamir, zarf",
+  "x": "Sıfat olarak \"tout\" isimle uyum sağlar: \"tous les magasins\", \"toutes les fenêtres\". \"Oldukça\" anlamlı zarf olarak değişmez; ancak ünsüzle başlayan dişil sıfatın önünde değişir: \"elle est tout étonnée\" ama \"elles sont toutes timides\"."
+ },
+ "prepositions-apres-verbes": {
+  "t": "Fiillerden sonra edatlar",
+  "x": "Bazı fiiller sabit bir edat alır ve edat anlamı değiştirebilir. \"Penser à\" bir şeyi düşünmek demektir: \"Je pense à mes vacances\"; \"penser de\" görüş sorar: \"Que penses-tu de ce film ?\". \"s'habituer à\" ve \"se méfier de\" gibi çiftleri tek bir bütün olarak öğren."
+ },
+ "infinitif-passe": {
+  "t": "Geçmiş mastar",
+  "x": "\"Après\" ile \"avoir\" ya da \"être\" ve geçmiş ortaç, bir eylemin ana eylemden önce olduğunu söyler: \"Après avoir écrit la lettre, il l'a postée\". İki eylemin öznesi aynı olmalıdır. Hareket fiilleri ve dönüşlü fiiller \"être\" alır ve uyum sağlar: \"Après être rentrée\", \"Après nous être reposés\"."
+ },
+ "a-regard-pronoms-lequel": {
+  "t": "Soru zamiri lequel",
+  "x": "\"Lequel\", bilinen şeyler arasında seçim sorar ve onlarla uyum sağlar: \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\". \"à\" ya da \"de\" ile kaynaşır: \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\". \"Quel\" yalnızca isimden hemen önce kullanılır."
  }
 }
