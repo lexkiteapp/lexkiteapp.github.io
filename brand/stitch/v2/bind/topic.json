@@ -148,7 +148,7 @@
      },
      "cls": {
       ":scope > span": {
-       "dk:text-[#A3B9B7]": "'dk:text-[#D3E2E0]'"
+       "dk:text-[#A3B9B7]": "'dk:text-[#EAF2F2]'"
       }
      }
     }
