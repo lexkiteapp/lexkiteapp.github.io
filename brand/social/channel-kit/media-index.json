@@ -1,0 +1,446 @@
+{
+ "_doc": "Chỉ mục ảnh kit ở kho media ngoài – SINH bởi scripts/social/channel-kit-media.mjs (đừng sửa tay). Kiểm khi ảnh không có trên đĩa: scripts/social/build-channel-kit.mjs --check.",
+ "files": {
+  "contact-sheet.jpg": {
+   "bytes": 1989405,
+   "sha256": "8f16163cad6480364f2478c45713bc0ff56e34f1c52147171b43a56b4ee0c145",
+   "w": 1600,
+   "h": 15908,
+   "url": "https://media.lexkite.com/m4/channel-kit/contact-sheet.jpg"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-ar.png": {
+   "bytes": 146269,
+   "sha256": "3cddab0a468b3bad1306ccaac0ff349e9fc402dc5d929d710f5349551de6bb65",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-ar.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-ar@2x.png": {
+   "bytes": 425295,
+   "sha256": "00c8aac1b423a60cbafab5ae5b9a8b158fe2541b4e94e294d338291ec57f8edb",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-ar@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-de.png": {
+   "bytes": 143718,
+   "sha256": "caab95bf8eec7407a334d3d789b45aaf3325c6bc392607f80cf7e93e53594539",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-de.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-de@2x.png": {
+   "bytes": 390434,
+   "sha256": "479709ac5f2284282a263f5b5f17f672cfed40008a738889da7ee3c848c9f610",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-de@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-es.png": {
+   "bytes": 139289,
+   "sha256": "10b571c51d932832b74ad974b71bd72396911ac6a66fc1fdeb1f1a90fd23eeab",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-es.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-es@2x.png": {
+   "bytes": 440696,
+   "sha256": "9afab50389af6332e9b36335e1b7148bd085bf2bd5b8ce8d98ca933e8cbee4f8",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-es@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-fr.png": {
+   "bytes": 138737,
+   "sha256": "bb68ea44bd6c9885002d305471f3699c8a3617a19616a4275630d2f3c2ab1aa8",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-fr.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-fr@2x.png": {
+   "bytes": 417193,
+   "sha256": "aedc98b18018c70b184ee8596574aa52083a66c75c0c19dc3ab0fa5639c9ee89",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-fr@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-hi.png": {
+   "bytes": 143348,
+   "sha256": "4b269925605e9ba59b9bacde60f0cc2c02be6acbaae067ffe30f612a0b39edde",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-hi.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-hi@2x.png": {
+   "bytes": 405549,
+   "sha256": "5a7bfa19fa7e1f476f4419e063839e4ecc6710629d6ea2ade0dcf9f38c2920b5",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-hi@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-ja.png": {
+   "bytes": 151824,
+   "sha256": "cce0c13da854d3b52336264dbc7b6924aeec599943612c11d39b2d7d3faf5c0a",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-ja.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-ja@2x.png": {
+   "bytes": 419899,
+   "sha256": "773c30cb7c3267f6944cb9c1b0171dca38dafdd4aa75acea3772e950b4d8acc9",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-ja@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-ko.png": {
+   "bytes": 148157,
+   "sha256": "0c9ecc4d079bef000749572726906adc6d752304ce3c994ce1062a4de189a7ff",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-ko.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-ko@2x.png": {
+   "bytes": 402948,
+   "sha256": "014cc5daf97826e6297de2246bc8fae595ee0bd010abc861a5c108426fcac0c9",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-ko@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-pt.png": {
+   "bytes": 138159,
+   "sha256": "9439156d298df817caef893855e3844eeff10605109142e5c27412af69a3a668",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-pt.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-pt@2x.png": {
+   "bytes": 390944,
+   "sha256": "ca01bb43a9861f6106c4c83ff24318a03e1273c1da28dce3fe55296d44fdf7cd",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-pt@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-ru.png": {
+   "bytes": 147267,
+   "sha256": "d7226805de41d492c37a8c15c5a9db2782fe062e98b60dcff6ec751866ac3ecb",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-ru.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-ru@2x.png": {
+   "bytes": 389628,
+   "sha256": "f7e43d56ecda2726feb0f47d84fec73d94b49c7aac2c01127d2da15a7091fc36",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-ru@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-tr.png": {
+   "bytes": 145794,
+   "sha256": "c5a29e62ff2eaada4914241224251998f79d298939094f55dbb5aef5d4d49fe0",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-tr.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-tr@2x.png": {
+   "bytes": 371991,
+   "sha256": "6b510c4af6196cd271c895d704e7477f5bd66d670c49c0e830e144c34972b837",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-tr@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-vi.png": {
+   "bytes": 152794,
+   "sha256": "2077c0fe6b0945cca7d7a04e5268d83f7f647bc055101defd1466a094270e8f2",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-vi.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-zh.png": {
+   "bytes": 148343,
+   "sha256": "5544bc4da718112e84a2d38d9f6ee6e75e78b334cf9d203f7abaad2ef8c8372d",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-zh.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624-zh@2x.png": {
+   "bytes": 407808,
+   "sha256": "d962504380b826d7c882895267801b897b22b2edca879b8935f1e000fa1277f4",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624-zh@2x.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624.png": {
+   "bytes": 150035,
+   "sha256": "fc238771359b85d7162cb011793649e1ed9bbf81bd5c2f72df9fba61b325675b",
+   "w": 1640,
+   "h": 624,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624.png"
+  },
+  "facebook/lexkite-facebook-cover-1640x624@2x.png": {
+   "bytes": 384184,
+   "sha256": "8a7267efacb021a3a9ea7f02103c990469b6fb4221352f3d5b9678825a8c4549",
+   "w": 3280,
+   "h": 1248,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-cover-1640x624@2x.png"
+  },
+  "facebook/lexkite-facebook-profile-1080.png": {
+   "bytes": 42313,
+   "sha256": "8e1eac638e9afbcea43ff87dc45ee649460628c78ce81fcb691fbb7fa9187b1a",
+   "w": 1080,
+   "h": 1080,
+   "url": "https://media.lexkite.com/m4/channel-kit/facebook/lexkite-facebook-profile-1080.png"
+  },
+  "instagram/lexkite-instagram-profile-1080.png": {
+   "bytes": 42313,
+   "sha256": "8e1eac638e9afbcea43ff87dc45ee649460628c78ce81fcb691fbb7fa9187b1a",
+   "w": 1080,
+   "h": 1080,
+   "url": "https://media.lexkite.com/m4/channel-kit/instagram/lexkite-instagram-profile-1080.png"
+  },
+  "tiktok/lexkite-tiktok-profile-1080.png": {
+   "bytes": 42313,
+   "sha256": "8e1eac638e9afbcea43ff87dc45ee649460628c78ce81fcb691fbb7fa9187b1a",
+   "w": 1080,
+   "h": 1080,
+   "url": "https://media.lexkite.com/m4/channel-kit/tiktok/lexkite-tiktok-profile-1080.png"
+  },
+  "youtube/i18n/lexkite-youtube-banner-hi-2560x1440.jpg": {
+   "bytes": 131563,
+   "sha256": "1a9c97946ead1e1bcf48fbf67215ff961a8e8e59eae367354c0f03b333c6e376",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/i18n/lexkite-youtube-banner-hi-2560x1440.jpg"
+  },
+  "youtube/i18n/lexkite-youtube-banner-id-2560x1440.jpg": {
+   "bytes": 139196,
+   "sha256": "1f3b2f452ca78e0ef792b130d7d3445b93ff9cfd67f74e067584c87d658631d6",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/i18n/lexkite-youtube-banner-id-2560x1440.jpg"
+  },
+  "youtube/i18n/lexkite-youtube-banner-ja-2560x1440.jpg": {
+   "bytes": 134275,
+   "sha256": "2004d81e57cfee5c915751029da8757861ce60b22c9d607165b6ab9be775c923",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/i18n/lexkite-youtube-banner-ja-2560x1440.jpg"
+  },
+  "youtube/i18n/lexkite-youtube-banner-ko-2560x1440.jpg": {
+   "bytes": 127522,
+   "sha256": "bdaf1c464f7ab530046781a32a93fea1260ba2328b82b4b8f185733e17f8750a",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/i18n/lexkite-youtube-banner-ko-2560x1440.jpg"
+  },
+  "youtube/i18n/lexkite-youtube-banner-th-2560x1440.jpg": {
+   "bytes": 132581,
+   "sha256": "b1ffb6b5595b6b8c9e1328dce2abac4a34f5a1e7f23c5497d998cfb7e87ae846",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/i18n/lexkite-youtube-banner-th-2560x1440.jpg"
+  },
+  "youtube/i18n/lexkite-youtube-banner-zh-2560x1440.jpg": {
+   "bytes": 129899,
+   "sha256": "4a3620c6de325917746db99529a93fc810eb28106b434338f39b3bcbd8a5659d",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/i18n/lexkite-youtube-banner-zh-2560x1440.jpg"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-ar.png": {
+   "bytes": 486961,
+   "sha256": "27ad7a1c97e8874ed98117c76237dbfac86f28afd7708e505319b536a7d919a7",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-ar.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-de.png": {
+   "bytes": 461078,
+   "sha256": "c34e638aef3a5e640dbe23422e95db8d8dd2498c5ad9791f048bddba7a7e4e49",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-de.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-es.png": {
+   "bytes": 459686,
+   "sha256": "72cb570e639b6ef6bee1b04ee2f2f17894aae1d2dde736a1c176c9146679641d",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-es.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-fr.png": {
+   "bytes": 465359,
+   "sha256": "396fa334522ad342c36bbe0543bb64edf9dfd5b9dcbe0be2064bc158f4ce2f41",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-fr.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-hi.png": {
+   "bytes": 501252,
+   "sha256": "2b275299a407ccd2350e9d17e7265df1dee7608cb87b999c6b14892e29d48240",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-hi.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-ja.png": {
+   "bytes": 514903,
+   "sha256": "606478240b7416db22ba35d807c347ed77e867e6be178fb2539488ddc974ed63",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-ja.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-ko.png": {
+   "bytes": 489985,
+   "sha256": "ef53cfa2d3a7ec44df53f769b668384a9eda8c4ccfd4436222a7c512ccbab16a",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-ko.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-pt.png": {
+   "bytes": 459997,
+   "sha256": "4f7d0da59e24752c320efcb5edaecd38f1092a691394b79a5aca1708b2feb337",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-pt.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-ru.png": {
+   "bytes": 453856,
+   "sha256": "7af9f9e50e23529820374a354ddc50f40b1425e48baaf2bd4827125b47894def",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-ru.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-tr.png": {
+   "bytes": 443728,
+   "sha256": "3930645ba7eb17086db5c3dd44095cad301ae5331354633ca8f5059a1581289c",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-tr.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-vi.png": {
+   "bytes": 472163,
+   "sha256": "070e150053e45e659c9b9e2237b1a17ac70ebcf537e6dd2f7cb36d61a0cdeeab",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-vi.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440-zh.png": {
+   "bytes": 455599,
+   "sha256": "08ec5beff7f8c3bc493265f01e51d5b940dba0834293f4c96a1b5e99e21a6508",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440-zh.png"
+  },
+  "youtube/lexkite-youtube-banner-2560x1440.png": {
+   "bytes": 458760,
+   "sha256": "7be709d2a3a11e3d6fc914a33033d82ca79a917d33010ad3b1779130f79a9f95",
+   "w": 2560,
+   "h": 1440,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-banner-2560x1440.png"
+  },
+  "youtube/lexkite-youtube-profile-800.png": {
+   "bytes": 27818,
+   "sha256": "71566d893b773ed376a2c1fd0cf771025ca9bcc78d151f39d6b1c54bd0aeff3c",
+   "w": 800,
+   "h": 800,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-profile-800.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-ar.png": {
+   "bytes": 154885,
+   "sha256": "c6dfaedbc10ae79f7188d0c5af35332d9cb9900b2b8417bc3abc7a7ea17eb2ff",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-ar.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-de.png": {
+   "bytes": 156952,
+   "sha256": "d939fff64885be4656e09fd5eb236fcd55ee2c6e74fff035b6a48e2c925cb458",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-de.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-es.png": {
+   "bytes": 152201,
+   "sha256": "ceb85ff5e56b0f1c46fbaf93d385c4d8cc8bcfab715adba615fe1488b52d16aa",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-es.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-fr.png": {
+   "bytes": 157681,
+   "sha256": "1ea7842c072bd63d5cdf3867eb5bfe9749a80aa0cbecc2d6f78c7768dc382e78",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-fr.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-hi.png": {
+   "bytes": 164810,
+   "sha256": "72ceb46ff50a6600ccdc22d68d8ceece1e2a450751390f0b6dedf905ee5f8cc2",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-hi.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-ja.png": {
+   "bytes": 152392,
+   "sha256": "c2cc45f48463d50ee2a4aa8727b87e5d2546e9f6de43176147a6b14a3a4182de",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-ja.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-ko.png": {
+   "bytes": 153459,
+   "sha256": "1c08e6a53929d82201671b9badd673bc0d3872cc73e6f5e4c91a3b848d8e9df1",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-ko.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-pt.png": {
+   "bytes": 157693,
+   "sha256": "225fa01c09aa5e218f74bd2619892cf7aecede42e441582f496c60e47fdede05",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-pt.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-ru.png": {
+   "bytes": 156629,
+   "sha256": "4f67e9f794add17b97efee84016357cabd677631e1cbf182e83806c2db053f33",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-ru.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-tr.png": {
+   "bytes": 155076,
+   "sha256": "5568b14b9dc315f452c46d654aa6917f148aea978d10b2a85ad3cc7c1cc5b9d9",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-tr.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-vi.png": {
+   "bytes": 157795,
+   "sha256": "610ad0cc731a88aee705a68a8beb944c3f2cbe60d4f24ec8360818530282fc1c",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-vi.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720-zh.png": {
+   "bytes": 156829,
+   "sha256": "4bb36902f9513bbe2e6a8bde68d6d934c308df1ad0c1d70048514dc04097834c",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720-zh.png"
+  },
+  "youtube/lexkite-youtube-thumbnail-template-1280x720.png": {
+   "bytes": 159639,
+   "sha256": "c7606e7da5d9870b2e78beca11426ae70bcf06f09b6be57176a4b6aff3100161",
+   "w": 1280,
+   "h": 720,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-thumbnail-template-1280x720.png"
+  },
+  "youtube/lexkite-youtube-watermark-150.png": {
+   "bytes": 4947,
+   "sha256": "ff0b81a274b5b97857cbd6cd3c2d7e95fe0d210ff58a9deb1d7b1c828bbc345e",
+   "w": 150,
+   "h": 150,
+   "url": "https://media.lexkite.com/m4/channel-kit/youtube/lexkite-youtube-watermark-150.png"
+  }
+ }
+}
