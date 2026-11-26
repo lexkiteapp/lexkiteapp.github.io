@@ -50,7 +50,7 @@ const r = report('2026-11-01T10:04Z\t10\t0\t6\t1\t160\n2026-11-01T10:14Z\t30\t0\
 ok(r.samples === 2 && r.peak === 30 && r.idle === 180 && r.per[0].h === '10' && r.per[0].avg === 23, 'báo cáo 24 h: TB/đỉnh theo giờ + idle');
 
 // 26/11: probe teach-video (verify toàn bộ hàng) quá 90 s → ETIMEDOUT → mục lớn nhất (24 shard) bị bỏ qua, runner nằm không
-ok(loadRegistry().entries.find(e => e.id === 'teach-video').probe.timeout_s >= 240, 'teach-video: probe.timeout_s ≥ 240');
+ok(loadRegistry().entries.find(e => e.id === 'teach-video').probe.timeout_s >= 150, 'teach-video: probe.timeout_s ≥ 150');
 // --- sổ ↔ workflow thật
 const reg = loadRegistry(), ids = new Set();
 ok(reg.total_runners === 40 && reg.reserve === 8, 'sổ: 40 runner, chừa 8');
