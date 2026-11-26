@@ -191,5 +191,6 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/expand/left.mjs` – số việc còn cho ci-filler (20k − mục sống + retry), không ghi gì | `doneWords` | ci-filler.yml (probe infra/ci-backlog.json) |
 | `scripts/lexicon/expand/pace.mjs` –  | bỏ qua: chỉ ĐẾM từ#loại (dist/lexicon.json + lô đã xuất) để tính tốc độ/ETA tới 20k cho health-board; không ghi/xuất kho | — |
 | `scripts/video/teach2d/native-qa.mjs` –  | bỏ qua: đọc nghĩa/ví dụ từ web/packs để dịch ngược kiểm clip L1; không ghi kho, không cần mục mở rộng | — |
+| `scripts/build-topic-depth.mjs` –  | bỏ qua: chỉ đọc kho từ để kiểm từ trong content/topic-depth có thật và lấy nghĩa/ví dụ; ghi ra web/cpack/topic/*.js riêng, không ghi/xuất kho, mục mở rộng 20k không cần | — |
 | `scripts/content-qa/lesson-sample.mjs` – lấy mẫu phân tầng nội dung người học để chấm mù (docs/research/lesson-qa-1511.md); chỉ đọc, không ghi kho | bỏ qua: chỉ lấy mẫu từ kho viết tay để đo lỗi; mục mở rộng 20k có cổng QA riêng khi nhập | — |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |
