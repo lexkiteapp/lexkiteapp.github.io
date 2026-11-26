@@ -510,5 +510,165 @@
  "tout-tous-toutes": {
   "t": "tout, tous, toute, toutes",
   "x": "Как прилагательное \"tout\" согласуется: \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\". Как местоимение оно значит «всё» (\"j'ai tout compris\") или «все» (\"ils sont tous là\", с произносимым -s). Примеры: \"tous les jours\", \"toute la journée\", \"ils sont tous là\"."
+ },
+ "subj-after-bien-que": {
+  "t": "Bien que + сослагательное",
+  "x": "\"bien que\", \"quoique\" и \"encore que\" выражают уступку и всегда требуют сослагательного наклонения (subjonctif), даже если факт несомненен. Говорят \"Bien que le projet soit coûteux, nous continuons\", а не \"bien que le projet est\". Примеры: \"Bien qu'il pleuve, nous sortons\", \"Quoiqu'elle soit jeune, elle dirige l'équipe\"."
+ },
+ "subj-after-pour-que": {
+  "t": "Цель: pour que, afin que",
+  "x": "\"pour que\" и \"afin que\" вводят цель, после них идёт сослагательное. Подлежащее придаточного обычно отличается от главного: \"Je répète pour que vous compreniez\". Если подлежащее одно, используют \"pour\" или \"afin de\" с инфинитивом. Примеры: \"Il parle lentement pour que nous comprenions\", \"Elle écrit afin que tout soit clair\"."
+ },
+ "subj-after-avant-que": {
+  "t": "Срок: avant que",
+  "x": "\"avant que\" и \"jusqu'à ce que\" требуют сослагательного, потому что действие ещё не совершено. После \"avant que\" часто добавляют \"ne\" без отрицательного смысла: \"avant qu'il ne parte\". При одном подлежащем используйте \"avant de\" с инфинитивом. Примеры: \"Attends jusqu'à ce que je revienne\", \"Appelle avant que nous ne partions\"."
+ },
+ "subj-a-moins-que-ne": {
+  "t": "Исключение: à moins que",
+  "x": "\"à moins que\" значит \"если только не\" и требует сослагательного. В формальной речи перед глаголом часто ставят пустое \"ne\" (\"à moins qu'il ne vienne\"), это не настоящее отрицание. После него нельзя использовать условное наклонение и будущее время. Примеры: \"Je sors, à moins qu'il ne pleuve\", \"à moins que vous ne soyez occupé\"."
+ },
+ "subj-a-condition-que": {
+  "t": "Условие: à condition que",
+  "x": "\"à condition que\" и \"pourvu que\" значат \"при условии, что\" и требуют сослагательного, но не будущего и не условного. \"Pourvu que\" может начинать фразу, выражая надежду: \"Pourvu qu'il vienne !\". Примеры: \"Je viendrai à condition que vous m'invitiez\", \"Pourvu que tout se passe bien\"."
+ },
+ "subj-vs-ind-opinion": {
+  "t": "Глаголы мнения: выбор наклонения",
+  "x": "После \"penser que\" и \"croire que\" в утверждении ставят изъявительное: \"Je pense qu'il a raison\". В отрицании или в вопросе с инверсией появляется сомнение, и нужно сослагательное: \"Je ne pense pas qu'il ait raison\". Наклонение зависит от уверенности говорящего. Примеры: \"Je crois qu'elle viendra\", \"Je ne crois pas qu'elle vienne\"."
+ },
+ "subj-emotion-doubt": {
+  "t": "Чувство, сомнение, необходимость",
+  "x": "После глаголов чувства (\"être content que\", \"regretter que\"), сомнения (\"douter que\") и необходимости (\"il faut que\", \"il est essentiel que\") ставится сослагательное, если подлежащие разные. Придаточное выражает реакцию или потребность, а не простой факт. Примеры: \"Je suis ravi que vous veniez\", \"Il faut que nous partions\"."
+ },
+ "subj-irregular-forms": {
+  "t": "Неправильные основы сослагательного",
+  "x": "У семи частых глаголов неправильные основы сослагательного: \"être\" (sois, soyons), \"avoir\" (aie, ayons), \"aller\" (aille, allions), \"faire\" (fasse), \"pouvoir\" (puisse), \"savoir\" (sache), \"vouloir\" (veuille). Учите их целыми формами; у форм nous и vous глаголов \"être\", \"avoir\", \"aller\" и \"vouloir\" тоже своя основа. Примеры: \"qu'elle aille\", \"que vous sachiez\", \"que tu aies\"."
+ },
+ "subj-passe": {
+  "t": "Прошедшее сослагательное",
+  "x": "Прошедшее сослагательное — это сослагательное \"avoir\" или \"être\" и причастие прошедшего времени. Оно показывает, что действие завершилось раньше действия главного глагола: \"Je suis content que tu sois venu\". Вспомогательный глагол выбирают как в passé composé и сохраняют согласование. Примеры: \"Il faut qu'ils aient fini\", \"Bien qu'elle soit partie\"."
+ },
+ "subj-vs-infinitive": {
+  "t": "Сослагательное или инфинитив",
+  "x": "Если подлежащее у обоих глаголов одно, французский предпочитает инфинитив: \"Je veux partir\". Если подлежащее меняется, нужно \"que\" и сослагательное: \"Je veux que tu partes\". То же верно для желаний, чувств и многих союзов (\"avant de\" или \"avant que\"). Примеры: \"Elle est contente d'être là\", \"Elle est contente que vous soyez là\"."
+ },
+ "subj-superlative-relative": {
+  "t": "Сослагательное после превосходной степени",
+  "x": "После превосходной степени (\"le plus\", \"le meilleur\") или \"seul\", \"premier\", \"dernier\", \"unique\" определительное придаточное ставится в сослагательном, потому что это личная оценка. С \"jamais\" часто употребляют прошедшее сослагательное: \"le plus beau film que j'aie vu\". Примеры: \"le seul homme qui sache\", \"la première fois que je le voie\"."
+ },
+ "subj-relative-search": {
+  "t": "Сослагательное для искомого предмета",
+  "x": "Когда определительное придаточное описывает то, что вы ищете, хотите или в существовании чего сомневаетесь, нужно сослагательное: \"Je cherche un livre qui soit simple\". Если вы знаете, что предмет существует, ставьте изъявительное: \"J'ai un livre qui est simple\". Типичные сигналы: \"chercher\", \"vouloir\", \"il n'y a personne qui\", вопросы о существовании. Пример: \"Y a-t-il quelqu'un qui puisse m'aider ?\"."
+ },
+ "cond-passe-news": {
+  "t": "Условное для неподтверждённых новостей",
+  "x": "Журналисты используют условное наклонение, часто прошедшее, чтобы передать неподтверждённые сведения: \"Le ministre aurait démissionné\". Оно означает \"якобы\" и снимает с автора ответственность за факт. Для текущего слуха — условное настоящее: \"Il serait malade\". Примеры: \"Deux personnes seraient blessées\", \"selon certaines sources, le vol aurait été annulé\"."
+ },
+ "si-plus-que-parfait": {
+  "t": "Нереальное прошлое: si + plus-que-parfait",
+  "x": "Для нереального условия в прошлом используют \"si\" и plus-que-parfait, а в следствии — прошедшее условное: \"Si j'avais su, je serais venu\". В таком значении после \"si\" никогда не ставят условное. Следствие показывает, что не произошло. Примеры: \"Si elle avait étudié, elle aurait réussi\", \"Si nous étions partis, nous aurions vu le concert\"."
+ },
+ "si-mixed-conditions": {
+  "t": "Смешанные условные предложения",
+  "x": "Смешанное условное предложение связывает условие в прошлом со следствием в настоящем: \"si\" и plus-que-parfait, затем условное настоящее. Слова времени вроде \"maintenant\" или \"aujourd'hui\" в следствии показывают, что результат верен и сейчас. Пример: \"Si tu avais écouté, tu comprendrais\". Сравните с полностью прошлой схемой: \"tu aurais compris\"."
+ },
+ "hypothese-au-cas-ou": {
+  "t": "Предосторожность: au cas où",
+  "x": "\"au cas où\" выражает предосторожность на случай возможного события, после него идёт условное наклонение, а не сослагательное и не будущее. Значит \"на случай, если\". Может стоять в начале или в конце фразы. Примеры: \"Prenez un parapluie au cas où il pleuvrait\", \"Au cas où tu serais en retard, appelle-moi\"."
+ },
+ "apres-que-indicatif": {
+  "t": "après que + изъявительное",
+  "x": "\"après que\" и \"dès que\" передают реально случившийся факт, поэтому после них ставится изъявительное, а не сослагательное (в отличие от \"avant que\"). Глагол после \"après que\" стоит в сложном времени, раньше главного: \"Après qu'il a fini, il est rentré\". Если главный глагол в будущем, после \"dès que\" ставят futur antérieur: \"Dès que tu auras fini, appelle-moi\"."
+ },
+ "concordance-des-temps": {
+  "t": "Согласование времён",
+  "x": "Когда главный глагол в прошедшем времени, глагол придаточного сдвигается назад: настоящее становится imparfait, passé composé — plus-que-parfait, будущее — условным. Нельзя сочетать главный глагол в прошедшем с настоящим в придаточном: \"Il pensait que nous étions partis\". Примеры: \"Je savais que tu viendrais\", \"Elle disait qu'elle était fatiguée\"."
+ },
+ "discours-indirect-passe": {
+  "t": "Косвенная речь в прошлом",
+  "x": "В косвенной речи после глагола в прошедшем (\"elle a dit que\") времена сдвигаются: настоящее — в imparfait, passé composé — в plus-que-parfait, будущее — в условное. Меняются и слова времени: \"demain\" становится \"le lendemain\", \"hier\" — \"la veille\", \"aujourd'hui\" — \"ce jour-là\". Пример: \"Il a dit qu'il viendrait le lendemain\"."
+ },
+ "discours-indirect-questions": {
+  "t": "Косвенные вопросы",
+  "x": "В косвенном вопросе порядок слов обычный, вопросительного знака нет. \"Est-ce que\" и вопросы да/нет заменяются на \"si\": \"Il a demandé si je venais\". \"Qu'est-ce que\" превращается в \"ce que\", а \"qu'est-ce qui\" — в \"ce qui\". После глагола в прошедшем сдвигаются и времена. Примеры: \"Elle m'a demandé ce que je voulais\", \"Il voulait savoir ce qui se passait\"."
+ },
+ "discours-indirect-ordres": {
+  "t": "Передача приказов и просьб",
+  "x": "Чтобы передать приказ или просьбу, используют \"dire de\" или \"demander de\" и инфинитив: \"Elle m'a dit de rentrer\". Адресат выражается через \"à\" или местоимение: \"Il a demandé à ses voisins de baisser la musique\". В отрицательном приказе \"ne pas\" стоит вместе перед инфинитивом: \"Il nous a dit de ne pas toucher aux câbles\"."
+ },
+ "accord-participe-cod-avant": {
+  "t": "Согласование с предшествующим дополнением",
+  "x": "С \"avoir\" причастие согласуется с прямым дополнением, только если оно стоит перед глаголом. Ищите \"que\", местоимение вроде \"les\" или вопросительное слово: \"Les lettres que Marie a écrites\", \"Quelle robe as-tu choisie ?\". Если дополнение стоит после, согласования нет: \"Marie a écrit des lettres\"."
+ },
+ "accord-participe-pronominaux": {
+  "t": "Согласование причастия возвратных глаголов",
+  "x": "В passé composé возвратного глагола причастие согласуется с возвратным местоимением, если оно прямое дополнение: \"Les amies se sont retrouvées\". Оно остаётся неизменным, если местоимение косвенное или дальше идёт другое дополнение: \"Elle s'est lavé les mains\", \"Ils se sont envoyé des messages\". Спросите себя: \"se\" значит \"à qui ?\" или \"qui ?\"."
+ },
+ "participe-present-gerondif": {
+  "t": "Причастие, герундий, прилагательное",
+  "x": "Герундий \"en + -ant\" говорит, как или когда что-то происходит, и неизменяем: \"Il s'est blessé en coupant du bois\". Причастие настоящего времени заменяет придаточное и тоже неизменяемо: \"Les enfants jouant dans le jardin\". Глагольное прилагательное согласуется с существительным: \"une histoire fascinante\", \"des résultats surprenants\"."
+ },
+ "passif-et-alternatives": {
+  "t": "Пассив и его замены",
+  "x": "Пассив строится из \"être\" и причастия: \"Les résultats ont été annoncés par le jury\". Французский часто предпочитает замены: возвратный глагол для общих фактов (\"Le fromage se mange après le plat\"), \"on\" или \"se faire\" для того, что случается с подлежащим (\"Il s'est fait voler son sac\")."
+ },
+ "causatif-faire-laisser": {
+  "t": "Каузатив faire и laisser",
+  "x": "\"Faire\" и инфинитив значит заставить сделать или сделать через другого: \"Nous avons fait refaire la cuisine\". \"Laisser\" и инфинитив значит разрешить: \"Le professeur a laissé les élèves partir\". Причастие \"fait\" перед инфинитивом неизменяемо: \"Ce film m'a fait pleurer\"."
+ },
+ "pronoms-relatifs-composes": {
+  "t": "Сложные относительные местоимения",
+  "x": "После предлога используют \"lequel\", \"laquelle\", \"lesquels\" или \"lesquelles\" по существительному: \"la table sur laquelle\", \"les amis chez lesquels\". С \"à\" они сливаются: \"auquel\", \"auxquels\", \"auxquelles\", \"à laquelle\". С \"de\" получаются \"duquel\", \"desquels\", \"de laquelle\"."
+ },
+ "pronom-relatif-dont": {
+  "t": "Относительное местоимение dont",
+  "x": "\"Dont\" заменяет \"de\" и существительное в определительном придаточном: \"L'ordinateur dont j'ai besoin\" (avoir besoin de). Оно выражает и принадлежность, существительное идёт сразу за ним: \"l'écrivain dont le dernier roman\". А ещё вводит часть группы: \"trois enfants, dont deux vivent à l'étranger\"."
+ },
+ "ce-qui-ce-que-ce-dont": {
+  "t": "Ce qui, ce que, ce dont",
+  "x": "\"Ce\" и относительное местоимение указывают на идею или безымянную вещь. \"Ce qui\" — подлежащее (\"Ce qui m'inquiète\"), \"ce que\" — дополнение (\"ce que tu veux\"). \"Ce dont\" используют с глаголами, требующими \"de\" (\"ce dont tu as envie\"), а \"ce à quoi\" — с глаголами, требующими \"à\" (\"ce à quoi il s'intéresse\")."
+ },
+ "pronoms-doubles-ordre": {
+  "t": "Порядок двух местоимений",
+  "x": "Перед глаголом для me, te, nous и vous сначала ставят косвенное местоимение: \"Je te le rends\". Для третьего лица сначала прямое: \"Je le lui donne\"; \"en\" всегда последнее: \"Je lui en ai parlé\". После утвердительного повелительного порядок — прямое, затем косвенное: \"Donne-les-moi\"."
+ },
+ "pronoms-y-en-avances": {
+  "t": "y и en: продвинутый уровень",
+  "x": "\"En\" заменяет \"de\" и существительное или количество, а число остаётся: \"J'en ai acheté trois\". \"Y\" заменяет \"à\" или место: \"J'y pense tout le temps\". В утвердительном повелительном они идут после глагола и могут сочетаться: \"Donnez-m'en un kilo\"."
+ },
+ "mise-en-relief": {
+  "t": "Выделение: c'est...qui/que",
+  "x": "\"C'est ... qui\" выделяет подлежащее, а \"c'est ... que\" — дополнение или обстоятельство: \"C'est moi qui ai fait le gâteau\", \"C'est demain que nous partons\". С существительным во множественном числе — \"ce sont\": \"Ce sont mes voisins que j'ai invités\". Глагол после \"qui\" согласуется с выделенным элементом."
+ },
+ "inversion-peut-etre": {
+  "t": "Инверсия после вводных наречий",
+  "x": "В формальной речи после \"peut-être\", \"sans doute\" и \"aussi\" (в значении \"поэтому\") в начале фразы нужна инверсия подлежащего и глагола: \"Peut-être viendra-t-il demain\". Если подлежащее — существительное, повторите его местоимением. Если глагол кончается на гласную перед \"il\" или \"elle\", добавляют \"-t-\": \"viendra-t-elle\"."
+ },
+ "ne-expletif": {
+  "t": "Пустое ne",
+  "x": "После глаголов страха (\"craindre que\"), \"avant que\" и сравнительных степеней неравенства формальный французский добавляет \"ne\" без отрицательного смысла: \"Je crains qu'il ne pleuve\", \"avant qu'il ne fasse nuit\", \"plus grand que je ne pensais\". В речи оно необязательно и никогда не сочетается с \"pas\"."
+ },
+ "connecteurs-concession-opposition": {
+  "t": "Уступка и противопоставление",
+  "x": "\"Bien que\" и сослагательное, а также \"malgré\" и существительное выражают уступку: \"Malgré la pluie, nous sommes sortis\". \"Alors que\" и изъявительное противопоставляет два факта: \"Paul adore la mer, alors que sa femme préfère la montagne\". \"Pourtant\", \"cependant\" и \"en revanche\" связывают два предложения."
+ },
+ "nominalisation": {
+  "t": "Превращаем глаголы в существительные",
+  "x": "Номинализация делает текст лаконичнее и формальнее. Глаголы становятся существительными с окончаниями вроде -tion, -ment, -ure или -ée: \"ouvrir\" даёт \"l'ouverture\", \"augmenter\" — \"l'augmentation\", \"arriver\" — \"l'arrivée\". Так можно и с прилагательными: \"difficile\" даёт \"la difficulté\". Проверяйте род нового существительного."
+ },
+ "tout-accord": {
+  "t": "Tout: прилагательное, местоимение, наречие",
+  "x": "Как прилагательное \"tout\" согласуется с существительным: \"tous les magasins\", \"toutes les fenêtres\". Как наречие со значением \"совсем\" оно неизменяемо, кроме случая перед прилагательным женского рода на согласную: \"elle est tout étonnée\", но \"elles sont toutes timides\"."
+ },
+ "prepositions-apres-verbes": {
+  "t": "Предлоги после глаголов",
+  "x": "Некоторые глаголы требуют постоянного предлога, и он может менять смысл. \"Penser à\" значит думать о чём-то: \"Je pense à mes vacances\"; \"penser de\" спрашивает мнение: \"Que penses-tu de ce film ?\". Учите пары вроде \"s'habituer à\" и \"se méfier de\" как единое целое."
+ },
+ "infinitif-passe": {
+  "t": "Прошедший инфинитив",
+  "x": "\"Après\" с \"avoir\" или \"être\" и причастием показывает, что действие произошло раньше главного: \"Après avoir écrit la lettre, il l'a postée\". Подлежащее обоих действий должно быть одним. Глаголы движения и возвратные глаголы берут \"être\" и согласуются: \"Après être rentrée\", \"Après nous être reposés\"."
+ },
+ "a-regard-pronoms-lequel": {
+  "t": "Вопросительное lequel",
+  "x": "\"Lequel\" спрашивает о выборе среди известных вещей и согласуется с ними: \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\". С \"à\" или \"de\" оно сливается: \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\". \"Quel\" используют только непосредственно перед существительным."
  }
 }

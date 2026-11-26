@@ -1,5 +1,5 @@
 {
- "_doc": "Câu điền từ A1–B1 (tiếng Pháp) – gắn id điểm ngữ pháp; dựng gói bởi scripts/target/drill-pack.mjs",
+ "_doc": "Câu điền từ A1–B2 (tiếng Pháp) – gắn id điểm ngữ pháp; dựng gói bởi scripts/target/drill-pack.mjs",
  "cloze": {
   "etre-present": [
    {
@@ -4473,6 +4473,1406 @@
      "toutes"
     ],
     "en": "She understood everything."
+   }
+  ],
+  "subj-after-bien-que": [
+   {
+    "s": "Bien que nous ___ fatigués, nous avons continué la randonnée.",
+    "a": "soyons",
+    "o": [
+     "soyons",
+     "sommes",
+     "serons",
+     "étions"
+    ],
+    "en": "Although we were tired, we continued the hike."
+   },
+   {
+    "s": "Quoique la ville ___ petite, elle attire beaucoup de touristes.",
+    "a": "soit",
+    "o": [
+     "est",
+     "soit",
+     "sera",
+     "était"
+    ],
+    "en": "Although the town is small, it attracts many tourists."
+   },
+   {
+    "s": "Bien qu'elle ___ beaucoup d'expérience, elle n'a pas été retenue.",
+    "a": "ait",
+    "o": [
+     "a",
+     "avait",
+     "ait",
+     "aura"
+    ],
+    "en": "Although she has a lot of experience, she was not selected."
+   }
+  ],
+  "subj-after-pour-que": [
+   {
+    "s": "Je répète la consigne pour que tout le monde ___ bien.",
+    "a": "comprenne",
+    "o": [
+     "comprend",
+     "comprenne",
+     "comprendra",
+     "comprenait"
+    ],
+    "en": "I repeat the instruction so that everyone understands well."
+   },
+   {
+    "s": "Elle a laissé la porte ouverte afin que le chat ___ sortir.",
+    "a": "puisse",
+    "o": [
+     "peut",
+     "pourra",
+     "puisse",
+     "pouvait"
+    ],
+    "en": "She left the door open so that the cat could go out."
+   },
+   {
+    "s": "L'école organise des ateliers afin que les élèves ___ des progrès.",
+    "a": "fassent",
+    "o": [
+     "font",
+     "feront",
+     "faisaient",
+     "fassent"
+    ],
+    "en": "The school runs workshops so that the pupils make progress."
+   }
+  ],
+  "subj-after-avant-que": [
+   {
+    "s": "Finis tes devoirs avant que ton père ne ___.",
+    "a": "revienne",
+    "o": [
+     "revient",
+     "reviendra",
+     "revienne",
+     "revenait"
+    ],
+    "en": "Finish your homework before your father comes back."
+   },
+   {
+    "s": "Nous resterons à l'intérieur jusqu'à ce qu'il ___ beau.",
+    "a": "fasse",
+    "o": [
+     "fait",
+     "fera",
+     "faisait",
+     "fasse"
+    ],
+    "en": "We will stay inside until the weather is nice."
+   },
+   {
+    "s": "Reste au lit jusqu'à ce que tu ___ guéri.",
+    "a": "sois",
+    "o": [
+     "sois",
+     "es",
+     "seras",
+     "étais"
+    ],
+    "en": "Stay in bed until you are better."
+   }
+  ],
+  "subj-a-moins-que-ne": [
+   {
+    "s": "Je prendrai le train, à moins que tu ne ___ me conduire.",
+    "a": "puisses",
+    "o": [
+     "peux",
+     "pourras",
+     "pouvais",
+     "puisses"
+    ],
+    "en": "I will take the train, unless you can drive me."
+   },
+   {
+    "s": "La réunion aura lieu lundi, à moins que le directeur ne ___ absent.",
+    "a": "soit",
+    "o": [
+     "soit",
+     "est",
+     "sera",
+     "était"
+    ],
+    "en": "The meeting will take place on Monday, unless the director is absent."
+   },
+   {
+    "s": "Nous signerons demain, à moins que vous n'___ une meilleure idée.",
+    "a": "ayez",
+    "o": [
+     "avez",
+     "ayez",
+     "aurez",
+     "aviez"
+    ],
+    "en": "We will sign tomorrow, unless you have a better idea."
+   }
+  ],
+  "subj-a-condition-que": [
+   {
+    "s": "Je t'accompagne, pourvu que tu ___ prêt à huit heures.",
+    "a": "sois",
+    "o": [
+     "sois",
+     "es",
+     "seras",
+     "étais"
+    ],
+    "en": "I will go with you, provided that you are ready at eight."
+   },
+   {
+    "s": "Nous accepterons l'offre à condition que vous nous ___ le contrat demain.",
+    "a": "envoyiez",
+    "o": [
+     "envoyez",
+     "envoyiez",
+     "enverrez",
+     "enverriez"
+    ],
+    "en": "We will accept the offer provided you send us the contract tomorrow."
+   },
+   {
+    "s": "Pourvu qu'il ___ beau demain, la fête aura lieu dehors.",
+    "a": "fasse",
+    "o": [
+     "fait",
+     "fera",
+     "fasse",
+     "ferait"
+    ],
+    "en": "Provided the weather is nice tomorrow, the party will take place outside."
+   }
+  ],
+  "subj-vs-ind-opinion": [
+   {
+    "s": "Je ne pense pas que ce film ___ intéressant.",
+    "a": "soit",
+    "o": [
+     "sera",
+     "soit",
+     "serait",
+     "sois"
+    ],
+    "en": "I do not think this film is interesting."
+   },
+   {
+    "s": "Je pense qu'il ___ raison.",
+    "a": "a",
+    "o": [
+     "ait",
+     "aient",
+     "a",
+     "avoir"
+    ],
+    "en": "I think he is right."
+   },
+   {
+    "s": "Il ne croit pas qu'elle ___ venir demain.",
+    "a": "puisse",
+    "o": [
+     "pouvoir",
+     "pouvons",
+     "pouvaient",
+     "puisse"
+    ],
+    "en": "He does not think she can come tomorrow."
+   }
+  ],
+  "subj-emotion-doubt": [
+   {
+    "s": "Nous sommes surpris que le magasin ___ déjà fermé.",
+    "a": "soit",
+    "o": [
+     "est",
+     "sera",
+     "soit",
+     "était"
+    ],
+    "en": "We are surprised that the shop is already closed."
+   },
+   {
+    "s": "Il faut que tu ___ ton passeport avant le départ.",
+    "a": "prennes",
+    "o": [
+     "prends",
+     "prendras",
+     "prenais",
+     "prennes"
+    ],
+    "en": "You must take your passport before leaving."
+   },
+   {
+    "s": "Je doute que Marc ___ le courage de lui parler.",
+    "a": "ait",
+    "o": [
+     "ait",
+     "a",
+     "aura",
+     "avait"
+    ],
+    "en": "I doubt that Marc has the courage to talk to her."
+   }
+  ],
+  "subj-irregular-forms": [
+   {
+    "s": "Il faut que nous ___ à la gare avant huit heures.",
+    "a": "allions",
+    "o": [
+     "allons",
+     "irons",
+     "alliez",
+     "allions"
+    ],
+    "en": "We must go to the station before eight o'clock."
+   },
+   {
+    "s": "Je veux que tu ___ plus de patience.",
+    "a": "aies",
+    "o": [
+     "aies",
+     "as",
+     "auras",
+     "avais"
+    ],
+    "en": "I want you to have more patience."
+   },
+   {
+    "s": "Il est essentiel que vous ___ la vérité.",
+    "a": "sachiez",
+    "o": [
+     "savez",
+     "sachiez",
+     "saurez",
+     "saviez"
+    ],
+    "en": "It is essential that you know the truth."
+   }
+  ],
+  "subj-passe": [
+   {
+    "s": "Je suis ravi qu'elle ___ réussi son examen.",
+    "a": "ait",
+    "o": [
+     "ait",
+     "a",
+     "soit",
+     "avait"
+    ],
+    "en": "I am delighted that she passed her exam."
+   },
+   {
+    "s": "Bien que nous ___ partis très tôt, nous sommes arrivés en retard.",
+    "a": "soyons",
+    "o": [
+     "sommes",
+     "soyons",
+     "serons",
+     "étions"
+    ],
+    "en": "Although we left very early, we arrived late."
+   },
+   {
+    "s": "Il est possible qu'ils aient ___ le message hier.",
+    "a": "reçu",
+    "o": [
+     "reçoive",
+     "recevoir",
+     "reçu",
+     "recevant"
+    ],
+    "en": "It is possible that they received the message yesterday."
+   }
+  ],
+  "subj-vs-infinitive": [
+   {
+    "s": "Il veut que nous ___ plus tôt.",
+    "a": "partions",
+    "o": [
+     "partir",
+     "partions",
+     "partons",
+     "partirons"
+    ],
+    "en": "He wants us to leave earlier."
+   },
+   {
+    "s": "Je suis ravi de ___ ce projet avec vous.",
+    "a": "partager",
+    "o": [
+     "partage",
+     "partager",
+     "partagiez",
+     "partagerai"
+    ],
+    "en": "I am delighted to share this project with you."
+   },
+   {
+    "s": "Ma mère souhaite que je ___ médecin.",
+    "a": "devienne",
+    "o": [
+     "devenir",
+     "deviens",
+     "deviendrai",
+     "devienne"
+    ],
+    "en": "My mother wishes that I become a doctor."
+   }
+  ],
+  "subj-superlative-relative": [
+   {
+    "s": "C'est la meilleure équipe que nous ___ jamais affrontée.",
+    "a": "ayons",
+    "o": [
+     "avions",
+     "aurons",
+     "ayons",
+     "ayez"
+    ],
+    "en": "It is the best team we have ever faced."
+   },
+   {
+    "s": "C'est le seul restaurant de la ville qui ___ ouvert le dimanche.",
+    "a": "soit",
+    "o": [
+     "était",
+     "sera",
+     "soient",
+     "soit"
+    ],
+    "en": "It is the only restaurant in town that is open on Sundays."
+   },
+   {
+    "s": "C'est le premier athlète de son pays qui ___ cette médaille.",
+    "a": "obtienne",
+    "o": [
+     "obtienne",
+     "obtiendra",
+     "obtenait",
+     "obtiennent"
+    ],
+    "en": "He is the first athlete from his country to win this medal."
+   }
+  ],
+  "subj-relative-search": [
+   {
+    "s": "Nous cherchons un employé qui ___ parler japonais.",
+    "a": "sache",
+    "o": [
+     "saura",
+     "savait",
+     "savent",
+     "sache"
+    ],
+    "en": "We are looking for an employee who can speak Japanese."
+   },
+   {
+    "s": "Existe-t-il un médicament qui ___ cette maladie ?",
+    "a": "guérisse",
+    "o": [
+     "guérisse",
+     "guérira",
+     "guérissait",
+     "guérissent"
+    ],
+    "en": "Is there a medicine that cures this disease?"
+   },
+   {
+    "s": "Elle voudrait trouver une maison qui ___ un grand jardin.",
+    "a": "ait",
+    "o": [
+     "aura",
+     "ait",
+     "avait",
+     "aient"
+    ],
+    "en": "She would like to find a house that has a big garden."
+   }
+  ],
+  "cond-passe-news": [
+   {
+    "s": "D'après des sources non confirmées, l'incendie ___ été provoqué par un court-circuit.",
+    "a": "aurait",
+    "o": [
+     "aurait",
+     "aura",
+     "aurais",
+     "auraient"
+    ],
+    "en": "According to unconfirmed sources, the fire was reportedly caused by a short circuit."
+   },
+   {
+    "s": "Selon une source non confirmée, le club ___ recruté un nouvel entraîneur.",
+    "a": "aurait",
+    "o": [
+     "aurions",
+     "aurait",
+     "aurez",
+     "ait"
+    ],
+    "en": "According to an unconfirmed source, the club has reportedly signed a new coach."
+   },
+   {
+    "s": "Deux personnes ___ blessées dans l'accident, mais le bilan reste incertain.",
+    "a": "seraient",
+    "o": [
+     "serait",
+     "soient",
+     "seraient",
+     "seront"
+    ],
+    "en": "Two people were reportedly injured in the accident, but the toll remains uncertain."
+   }
+  ],
+  "si-plus-que-parfait": [
+   {
+    "s": "Si nous avions pris un taxi, nous ___ arrivés à l'heure.",
+    "a": "serions",
+    "o": [
+     "sommes",
+     "serions",
+     "étions",
+     "serons"
+    ],
+    "en": "If we had taken a taxi, we would have arrived on time."
+   },
+   {
+    "s": "Si tu étais ___ plus tôt, tu aurais évité les embouteillages.",
+    "a": "parti",
+    "o": [
+     "partais",
+     "partir",
+     "parti",
+     "partirais"
+    ],
+    "en": "If you had left earlier, you would have avoided the traffic jams."
+   },
+   {
+    "s": "Si vous aviez écouté mes conseils, vous n'___ pas fait cette erreur.",
+    "a": "auriez",
+    "o": [
+     "aviez",
+     "avez",
+     "aurez",
+     "auriez"
+    ],
+    "en": "If you had followed my advice, you would not have made this mistake."
+   }
+  ],
+  "si-mixed-conditions": [
+   {
+    "s": "Si j'avais accepté ce poste, je ___ maintenant à Berlin.",
+    "a": "vivrais",
+    "o": [
+     "vivais",
+     "vivrai",
+     "vivrais",
+     "aurais vécu"
+    ],
+    "en": "If I had accepted this job, I would be living in Berlin now."
+   },
+   {
+    "s": "Si elle n'avait pas déménagé, elle ___ toujours près de ses parents.",
+    "a": "habiterait",
+    "o": [
+     "habitera",
+     "habiterions",
+     "habitait",
+     "habiterait"
+    ],
+    "en": "If she had not moved, she would still live near her parents."
+   },
+   {
+    "s": "Si nous avions mieux économisé, nous ___ acheter une maison maintenant.",
+    "a": "pourrions",
+    "o": [
+     "pourrions",
+     "pouvons",
+     "pourrons",
+     "pouvions"
+    ],
+    "en": "If we had saved better, we could buy a house now."
+   }
+  ],
+  "hypothese-au-cas-ou": [
+   {
+    "s": "Prends un pull au cas où il ___ froid ce soir.",
+    "a": "ferait",
+    "o": [
+     "fera",
+     "fait",
+     "fasse",
+     "ferait"
+    ],
+    "en": "Take a sweater in case it gets cold tonight."
+   },
+   {
+    "s": "Je laisse mon numéro au cas où vous ___ besoin d'aide.",
+    "a": "auriez",
+    "o": [
+     "auriez",
+     "aurez",
+     "avez",
+     "ayez"
+    ],
+    "en": "I am leaving my number in case you need help."
+   },
+   {
+    "s": "Au cas où le vol ___ annulé, appelez-nous.",
+    "a": "serait",
+    "o": [
+     "sera",
+     "serait",
+     "est",
+     "soit"
+    ],
+    "en": "In case the flight is cancelled, call us."
+   }
+  ],
+  "apres-que-indicatif": [
+   {
+    "s": "Après que les invités ___ partis, nous avons rangé la maison.",
+    "a": "sont",
+    "o": [
+     "sont",
+     "soient",
+     "seraient",
+     "seront"
+    ],
+    "en": "After the guests had left, we tidied the house."
+   },
+   {
+    "s": "Dès que tu ___ pris ta décision, préviens-moi.",
+    "a": "auras",
+    "o": [
+     "aies",
+     "auras",
+     "avais",
+     "aurais"
+    ],
+    "en": "As soon as you have made your decision, let me know."
+   },
+   {
+    "s": "Après qu'elle ___ fini le rapport, elle a envoyé le mail.",
+    "a": "a",
+    "o": [
+     "ait",
+     "aurait",
+     "a",
+     "aura"
+    ],
+    "en": "After she finished the report, she sent the email."
+   }
+  ],
+  "concordance-des-temps": [
+   {
+    "s": "Il a dit qu'il ___ malade depuis trois jours.",
+    "a": "était",
+    "o": [
+     "étant",
+     "était",
+     "sera",
+     "soit"
+    ],
+    "en": "He said he had been ill for three days."
+   },
+   {
+    "s": "Je savais que tu ___ venir plus tard.",
+    "a": "allais",
+    "o": [
+     "vas",
+     "iras",
+     "allais",
+     "ailles"
+    ],
+    "en": "I knew you were going to come later."
+   },
+   {
+    "s": "Elle espérait que nous ne nous ___ pas trompés de route.",
+    "a": "étions",
+    "o": [
+     "sommes",
+     "serons",
+     "soyons",
+     "étions"
+    ],
+    "en": "She hoped we had not taken the wrong road."
+   }
+  ],
+  "discours-indirect-passe": [
+   {
+    "s": "Il a annoncé qu'il ___ le lendemain.",
+    "a": "partirait",
+    "o": [
+     "partira",
+     "part",
+     "partirait",
+     "partirez"
+    ],
+    "en": "He announced that he would leave the next day."
+   },
+   {
+    "s": "Elle a dit qu'elle avait terminé le travail ___.",
+    "a": "la veille",
+    "o": [
+     "demain",
+     "après-demain",
+     "la semaine prochaine",
+     "la veille"
+    ],
+    "en": "She said she had finished the work the day before."
+   },
+   {
+    "s": "Il a répondu qu'il n'___ jamais menti.",
+    "a": "avait",
+    "o": [
+     "avait",
+     "a",
+     "aura",
+     "ait"
+    ],
+    "en": "He answered that he had never lied."
+   }
+  ],
+  "discours-indirect-questions": [
+   {
+    "s": "Elle m'a demandé ___ je voulais boire.",
+    "a": "ce que",
+    "o": [
+     "ce qui",
+     "que",
+     "quoi",
+     "ce que"
+    ],
+    "en": "She asked me what I wanted to drink."
+   },
+   {
+    "s": "Il voulait savoir ___ était arrivé.",
+    "a": "ce qui",
+    "o": [
+     "ce qui",
+     "ce que",
+     "qu'est-ce qui",
+     "quoi"
+    ],
+    "en": "He wanted to know what had happened."
+   },
+   {
+    "s": "Le professeur nous a demandé ___ nous avions compris la leçon.",
+    "a": "si",
+    "o": [
+     "que",
+     "si",
+     "ce que",
+     "ce qui"
+    ],
+    "en": "The teacher asked us whether we had understood the lesson."
+   }
+  ],
+  "discours-indirect-ordres": [
+   {
+    "s": "Ma mère m'a dit ___ rentrer avant minuit.",
+    "a": "de",
+    "o": [
+     "de",
+     "que",
+     "à",
+     "pour"
+    ],
+    "en": "My mother told me to come home before midnight."
+   },
+   {
+    "s": "Elle a demandé ___ ses voisins de baisser la musique.",
+    "a": "à",
+    "o": [
+     "pour",
+     "à",
+     "de",
+     "que"
+    ],
+    "en": "She asked her neighbours to turn the music down."
+   },
+   {
+    "s": "Il nous a dit ___ pas toucher aux câbles.",
+    "a": "de ne",
+    "o": [
+     "que ne",
+     "à ne",
+     "de ne",
+     "ne"
+    ],
+    "en": "He told us not to touch the cables."
+   }
+  ],
+  "accord-participe-cod-avant": [
+   {
+    "s": "Les lettres que Marie a ___ hier sont arrivées.",
+    "a": "écrites",
+    "o": [
+     "écrite",
+     "écrits",
+     "écrites",
+     "écrit"
+    ],
+    "en": "The letters Marie wrote yesterday have arrived."
+   },
+   {
+    "s": "Quelle robe as-tu ___ pour le mariage ?",
+    "a": "choisie",
+    "o": [
+     "choisi",
+     "choisies",
+     "choisis",
+     "choisie"
+    ],
+    "en": "Which dress did you choose for the wedding?"
+   },
+   {
+    "s": "Les erreurs qu'il a ___ ne sont pas graves.",
+    "a": "commises",
+    "o": [
+     "commises",
+     "commis",
+     "commise",
+     "commettre"
+    ],
+    "en": "The mistakes he made are not serious."
+   }
+  ],
+  "accord-participe-pronominaux": [
+   {
+    "s": "Elle s'est ___ les cheveux avant de sortir.",
+    "a": "lavé",
+    "o": [
+     "lavé",
+     "lavée",
+     "lavés",
+     "lavées"
+    ],
+    "en": "She washed her hair before going out."
+   },
+   {
+    "s": "Les deux amies se sont ___ hier à la gare.",
+    "a": "retrouvées",
+    "o": [
+     "retrouvés",
+     "retrouvées",
+     "retrouvé",
+     "retrouvée"
+    ],
+    "en": "The two friends met up yesterday at the station."
+   },
+   {
+    "s": "Ils se sont ___ des messages toute la soirée.",
+    "a": "envoyé",
+    "o": [
+     "envoyée",
+     "envoyées",
+     "envoyé",
+     "envoyés"
+    ],
+    "en": "They sent each other messages all evening."
+   }
+  ],
+  "participe-present-gerondif": [
+   {
+    "s": "Il s'est blessé en ___ du bois.",
+    "a": "coupant",
+    "o": [
+     "coupe",
+     "couper",
+     "coupant",
+     "coupé"
+    ],
+    "en": "He hurt himself while cutting wood."
+   },
+   {
+    "s": "Cette histoire est vraiment ___ : je n'ai pas pu m'arrêter de lire.",
+    "a": "fascinante",
+    "o": [
+     "fascinant",
+     "fascinantes",
+     "fascinée",
+     "fascinante"
+    ],
+    "en": "This story is really fascinating: I could not stop reading."
+   },
+   {
+    "s": "Les enfants ___ dans le jardin ont trouvé un trésor.",
+    "a": "jouant",
+    "o": [
+     "jouant",
+     "jouants",
+     "jouent",
+     "jouer"
+    ],
+    "en": "The children playing in the garden found a treasure."
+   }
+  ],
+  "passif-et-alternatives": [
+   {
+    "s": "En France, le fromage ___ après le plat principal.",
+    "a": "se mange",
+    "o": [
+     "mangent",
+     "est mangeant",
+     "se mange",
+     "mange"
+    ],
+    "en": "In France, cheese is eaten after the main course."
+   },
+   {
+    "s": "Il ___ voler son sac dans le métro.",
+    "a": "s'est fait",
+    "o": [
+     "s'est",
+     "a été",
+     "était",
+     "s'est fait"
+    ],
+    "en": "He had his bag stolen on the metro."
+   },
+   {
+    "s": "Les résultats ___ par le jury la semaine dernière.",
+    "a": "ont été annoncés",
+    "o": [
+     "ont été annoncés",
+     "ont annoncé",
+     "ont été annoncé",
+     "avait annoncés"
+    ],
+    "en": "The results were announced by the jury last week."
+   }
+  ],
+  "causatif-faire-laisser": [
+   {
+    "s": "Nous avons fait ___ la cuisine par un artisan.",
+    "a": "refaire",
+    "o": [
+     "refaisant",
+     "refaite",
+     "refaire",
+     "refait"
+    ],
+    "en": "We had the kitchen redone by a craftsman."
+   },
+   {
+    "s": "Le professeur a laissé les élèves ___ plus tôt.",
+    "a": "partir",
+    "o": [
+     "parti",
+     "partant",
+     "partis",
+     "partir"
+    ],
+    "en": "The teacher let the pupils leave earlier."
+   },
+   {
+    "s": "Ce film m'a ___ pleurer.",
+    "a": "fait",
+    "o": [
+     "fait",
+     "faite",
+     "faire",
+     "fais"
+    ],
+    "en": "This film made me cry."
+   }
+  ],
+  "pronoms-relatifs-composes": [
+   {
+    "s": "La table sur ___ j'ai posé mes clés est en chêne.",
+    "a": "laquelle",
+    "o": [
+     "auquel",
+     "laquelle",
+     "lequel",
+     "lesquelles"
+    ],
+    "en": "The table on which I put my keys is made of oak."
+   },
+   {
+    "s": "Voici les amis chez ___ nous avons dormi.",
+    "a": "lesquels",
+    "o": [
+     "laquelle",
+     "dont",
+     "lesquels",
+     "lequel"
+    ],
+    "en": "Here are the friends at whose house we slept."
+   },
+   {
+    "s": "C'est un problème ___ je n'ai pas encore trouvé de solution.",
+    "a": "auquel",
+    "o": [
+     "duquel",
+     "lequel",
+     "à laquelle",
+     "auquel"
+    ],
+    "en": "It is a problem to which I have not yet found a solution."
+   }
+  ],
+  "pronom-relatif-dont": [
+   {
+    "s": "L'ordinateur ___ j'ai besoin coûte cher.",
+    "a": "dont",
+    "o": [
+     "que",
+     "qui",
+     "auquel",
+     "dont"
+    ],
+    "en": "The computer I need is expensive."
+   },
+   {
+    "s": "C'est l'écrivain ___ le dernier roman a obtenu un prix.",
+    "a": "dont",
+    "o": [
+     "dont",
+     "que",
+     "duquel",
+     "où"
+    ],
+    "en": "He is the writer whose latest novel won a prize."
+   },
+   {
+    "s": "Elle a trois enfants, ___ deux vivent à l'étranger.",
+    "a": "dont",
+    "o": [
+     "que",
+     "dont",
+     "qui",
+     "lesquels"
+    ],
+    "en": "She has three children, two of whom live abroad."
+   }
+  ],
+  "ce-qui-ce-que-ce-dont": [
+   {
+    "s": "___ m'inquiète, c'est le manque de temps.",
+    "a": "Ce qui",
+    "o": [
+     "Ce à quoi",
+     "Ce qui",
+     "Ce que",
+     "Ce dont"
+    ],
+    "en": "What worries me is the lack of time."
+   },
+   {
+    "s": "Dis-moi ___ tu as envie pour ton anniversaire.",
+    "a": "ce dont",
+    "o": [
+     "ce qui",
+     "ce à quoi",
+     "ce dont",
+     "ce que"
+    ],
+    "en": "Tell me what you want for your birthday."
+   },
+   {
+    "s": "Je ne sais pas ___ il s'intéresse vraiment.",
+    "a": "ce à quoi",
+    "o": [
+     "ce que",
+     "ce dont",
+     "ce qui",
+     "ce à quoi"
+    ],
+    "en": "I do not know what he is really interested in."
+   }
+  ],
+  "pronoms-doubles-ordre": [
+   {
+    "s": "Mon livre ? Je ___ rends demain.",
+    "a": "te le",
+    "o": [
+     "lui le",
+     "te le",
+     "le te",
+     "te la"
+    ],
+    "en": "My book? I will give it back to you tomorrow."
+   },
+   {
+    "s": "Ces clés ? Donne-___ !",
+    "a": "les-moi",
+    "o": [
+     "me les",
+     "les-me",
+     "les-moi",
+     "moi-les"
+    ],
+    "en": "Those keys? Give them to me!"
+   },
+   {
+    "s": "Tu as parlé de ton projet à Paul ? Oui, je ___ ai parlé.",
+    "a": "lui en",
+    "o": [
+     "en lui",
+     "leur en",
+     "lui y",
+     "lui en"
+    ],
+    "en": "Did you talk to Paul about your project? Yes, I talked to him about it."
+   }
+  ],
+  "pronoms-y-en-avances": [
+   {
+    "s": "Des pommes ? J'___ ai acheté trois.",
+    "a": "en",
+    "o": [
+     "en",
+     "y",
+     "les",
+     "le"
+    ],
+    "en": "Apples? I bought three of them."
+   },
+   {
+    "s": "Tu penses à ton examen ? Oui, j'___ pense tout le temps.",
+    "a": "y",
+    "o": [
+     "lui",
+     "y",
+     "en",
+     "le"
+    ],
+    "en": "Are you thinking about your exam? Yes, I think about it all the time."
+   },
+   {
+    "s": "Vous voulez des cerises ? Oui, donnez-m'___ un kilo.",
+    "a": "en",
+    "o": [
+     "les",
+     "le",
+     "en",
+     "y"
+    ],
+    "en": "Do you want some cherries? Yes, give me a kilo of them."
+   }
+  ],
+  "mise-en-relief": [
+   {
+    "s": "C'est moi ___ ai fait le gâteau.",
+    "a": "qui",
+    "o": [
+     "dont",
+     "où",
+     "qui",
+     "que"
+    ],
+    "en": "It is I who made the cake."
+   },
+   {
+    "s": "C'est demain ___ nous partons en vacances.",
+    "a": "que",
+    "o": [
+     "qui",
+     "dont",
+     "où",
+     "que"
+    ],
+    "en": "It is tomorrow that we are leaving on holiday."
+   },
+   {
+    "s": "Ce sont mes voisins ___ j'ai invités.",
+    "a": "que",
+    "o": [
+     "que",
+     "qui",
+     "dont",
+     "où"
+    ],
+    "en": "It is my neighbours that I invited."
+   }
+  ],
+  "inversion-peut-etre": [
+   {
+    "s": "Mon frère est occupé. Peut-être ___ demain.",
+    "a": "viendra-t-il",
+    "o": [
+     "viendra-t-elle",
+     "viendront-ils",
+     "il viendra-t-il",
+     "viendra-t-il"
+    ],
+    "en": "My brother is busy. Perhaps he will come tomorrow."
+   },
+   {
+    "s": "Les garçons ont fini tôt. Sans doute ___ la leçon.",
+    "a": "ont-ils compris",
+    "o": [
+     "ont-ils compris",
+     "a-t-il compris",
+     "ont-elles compris",
+     "ils ont-ils compris"
+    ],
+    "en": "The boys finished early. They probably understood the lesson."
+   },
+   {
+    "s": "Elle a manqué le train. Aussi ___ en retard.",
+    "a": "est-elle arrivée",
+    "o": [
+     "elle est-elle arrivée",
+     "est-elle arrivée",
+     "est-il arrivé",
+     "sont-elles arrivées"
+    ],
+    "en": "She missed the train. So she arrived late."
+   }
+  ],
+  "ne-expletif": [
+   {
+    "s": "Je crains qu'il ___ pleuve demain.",
+    "a": "ne",
+    "o": [
+     "pas",
+     "plus",
+     "jamais",
+     "ne"
+    ],
+    "en": "I am afraid it may rain tomorrow."
+   },
+   {
+    "s": "Partons avant qu'il ___ fasse nuit.",
+    "a": "ne",
+    "o": [
+     "ne",
+     "pas",
+     "plus",
+     "jamais"
+    ],
+    "en": "Let's leave before it gets dark."
+   },
+   {
+    "s": "Ce restaurant est meilleur que je ___ croyais.",
+    "a": "ne",
+    "o": [
+     "personne",
+     "ne",
+     "pas",
+     "rien"
+    ],
+    "en": "This restaurant is better than I thought."
+   }
+  ],
+  "connecteurs-concession-opposition": [
+   {
+    "s": "Paul adore la mer, ___ sa femme préfère la montagne.",
+    "a": "alors que",
+    "o": [
+     "grâce à",
+     "alors que",
+     "malgré",
+     "en dépit de"
+    ],
+    "en": "Paul loves the sea, whereas his wife prefers the mountains."
+   },
+   {
+    "s": "___ la pluie, nous sommes allés nous promener.",
+    "a": "Malgré",
+    "o": [
+     "Pourtant",
+     "Alors que",
+     "Malgré",
+     "Bien que"
+    ],
+    "en": "Despite the rain, we went for a walk."
+   },
+   {
+    "s": "Le premier film était lent ; ___, le second est très rythmé.",
+    "a": "en revanche",
+    "o": [
+     "malgré",
+     "alors que",
+     "bien que",
+     "en revanche"
+    ],
+    "en": "The first film was slow; on the other hand, the second is fast-paced."
+   }
+  ],
+  "nominalisation": [
+   {
+    "s": "Le ministre a annoncé ___ de trois nouvelles écoles.",
+    "a": "l'ouverture",
+    "o": [
+     "l'ouvreur",
+     "l'ouvrage",
+     "l'ouverture",
+     "ouvrir"
+    ],
+    "en": "The minister announced the opening of three new schools."
+   },
+   {
+    "s": "Nous constatons une ___ des prix depuis janvier.",
+    "a": "augmentation",
+    "o": [
+     "augmenter",
+     "augmentant",
+     "augmenté",
+     "augmentation"
+    ],
+    "en": "We have seen prices rise since January."
+   },
+   {
+    "s": "Son ___ en retard à la réunion a surpris tout le monde.",
+    "a": "arrivée",
+    "o": [
+     "arrivée",
+     "arriver",
+     "arrivant",
+     "arrivé"
+    ],
+    "en": "His late arrival at the meeting surprised everyone."
+   }
+  ],
+  "tout-accord": [
+   {
+    "s": "Elle est ___ étonnée de te voir.",
+    "a": "tout",
+    "o": [
+     "toute",
+     "tous",
+     "toutes",
+     "tout"
+    ],
+    "en": "She is quite astonished to see you."
+   },
+   {
+    "s": "Ses sœurs sont ___ timides.",
+    "a": "toutes",
+    "o": [
+     "toutes",
+     "tout",
+     "toute",
+     "tous"
+    ],
+    "en": "His sisters are all very shy."
+   },
+   {
+    "s": "___ les magasins sont fermés le dimanche.",
+    "a": "Tous",
+    "o": [
+     "Toutes",
+     "Tous",
+     "Tout",
+     "Toute"
+    ],
+    "en": "All the shops are closed on Sundays."
+   }
+  ],
+  "prepositions-apres-verbes": [
+   {
+    "s": "Elle s'habitue ___ vivre seule.",
+    "a": "à",
+    "o": [
+     "par",
+     "à",
+     "de",
+     "en"
+    ],
+    "en": "She is getting used to living alone."
+   },
+   {
+    "s": "Que penses-tu ___ ce film ?",
+    "a": "de",
+    "o": [
+     "sur",
+     "pour",
+     "de",
+     "à"
+    ],
+    "en": "What do you think of this film?"
+   },
+   {
+    "s": "Il se méfie ___ ses voisins.",
+    "a": "de",
+    "o": [
+     "à",
+     "sur",
+     "avec",
+     "de"
+    ],
+    "en": "He distrusts his neighbours."
+   }
+  ],
+  "infinitif-passe": [
+   {
+    "s": "Après avoir ___ la lettre, il l'a postée.",
+    "a": "écrit",
+    "o": [
+     "écrire",
+     "écrivant",
+     "écrite",
+     "écrit"
+    ],
+    "en": "After writing the letter, he posted it."
+   },
+   {
+    "s": "Après ___ rentrée, elle a appelé sa mère.",
+    "a": "être",
+    "o": [
+     "être",
+     "avoir",
+     "étant",
+     "était"
+    ],
+    "en": "After getting home, she called her mother."
+   },
+   {
+    "s": "Après nous ___ reposés, nous avons repris la route.",
+    "a": "être",
+    "o": [
+     "étions",
+     "être",
+     "avoir",
+     "sommes"
+    ],
+    "en": "After resting, we set off again."
+   }
+  ],
+  "a-regard-pronoms-lequel": [
+   {
+    "s": "___ de ces chemins mène au village ?",
+    "a": "Lequel",
+    "o": [
+     "Laquelle",
+     "Lesquels",
+     "Quel",
+     "Lequel"
+    ],
+    "en": "Which of these paths leads to the village?"
+   },
+   {
+    "s": "___ de tes amies viendra à la fête ?",
+    "a": "Laquelle",
+    "o": [
+     "Laquelle",
+     "Lequel",
+     "Lesquelles",
+     "Quelle"
+    ],
+    "en": "Which of your friends will come to the party?"
+   },
+   {
+    "s": "___ de ces clients as-tu téléphoné ?",
+    "a": "Auquel",
+    "o": [
+     "Quel",
+     "Auquel",
+     "Duquel",
+     "Lequel"
+    ],
+    "en": "Which of these clients did you phone?"
    }
   ]
  }

@@ -510,5 +510,165 @@
  "tout-tous-toutes": {
   "t": "tout, tous, toute, toutes",
   "x": "Sebagai adjektiva, \"tout\" menyesuaikan: \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\". Sebagai pronomina berarti 'semuanya' (\"j'ai tout compris\") atau 'semua orang' (\"ils sont tous là\", dengan -s akhir dilafalkan). Contoh: \"tous les jours\", \"toute la journée\", \"ils sont tous là\""
+ },
+ "subj-after-bien-que": {
+  "t": "Bien que + subjonctif",
+  "x": "\"bien que\", \"quoique\", dan \"encore que\" menyatakan konsesi dan selalu memakai subjonctif, bahkan ketika faktanya pasti. Katakan \"Bien que le projet soit coûteux, nous continuons\", bukan \"bien que le projet est\". Contoh: \"Bien qu'il pleuve, nous sortons\", \"Quoiqu'elle soit jeune, elle dirige l'équipe\""
+ },
+ "subj-after-pour-que": {
+  "t": "Tujuan: pour que, afin que",
+  "x": "\"pour que\" dan \"afin que\" memperkenalkan tujuan dan diikuti subjonctif. Subjek klausa tujuan biasanya berbeda dari subjek utama: \"Je répète pour que vous compreniez\". Jika subjeknya sama, pakai \"pour\" atau \"afin de\" plus infinitif. Contoh: \"Il parle lentement pour que nous comprenions\", \"Elle écrit afin que tout soit clair\""
+ },
+ "subj-after-avant-que": {
+  "t": "Batas waktu: avant que",
+  "x": "\"avant que\" dan \"jusqu'à ce que\" memakai subjonctif karena tindakannya belum terjadi. Setelah \"avant que\" sering ditambahkan \"ne\" tanpa makna negatif: \"avant qu'il ne parte\". Pakai \"avant de\" plus infinitif jika subjeknya sama. Contoh: \"Attends jusqu'à ce que je revienne\", \"Appelle avant que nous ne partions\""
+ },
+ "subj-a-moins-que-ne": {
+  "t": "Pengecualian: à moins que",
+  "x": "\"à moins que\" berarti \"kecuali jika\" dan menuntut subjonctif. Bahasa Prancis formal sering menambahkan \"ne\" pelengkap sebelum kata kerja (\"à moins qu'il ne vienne\"), yang bukan negasi sebenarnya. Jangan pakai conditionnel atau futur setelahnya. Contoh: \"Je sors, à moins qu'il ne pleuve\", \"à moins que vous ne soyez occupé\""
+ },
+ "subj-a-condition-que": {
+  "t": "Syarat: à condition que",
+  "x": "\"à condition que\" dan \"pourvu que\" berarti \"asalkan\" dan memakai subjonctif, tidak pernah futur atau conditionnel. \"Pourvu que\" juga bisa membuka kalimat untuk menyatakan harapan: \"Pourvu qu'il vienne !\". Contoh: \"Je viendrai à condition que vous m'invitiez\", \"Pourvu que tout se passe bien\""
+ },
+ "subj-vs-ind-opinion": {
+  "t": "Kata kerja opini: pilihan modus",
+  "x": "Setelah \"penser que\" dan \"croire que\" dalam kalimat positif, pakai indicatif: \"Je pense qu'il a raison\". Dalam kalimat negatif atau pertanyaan dengan inversi, muncul keraguan sehingga dipakai subjonctif: \"Je ne pense pas qu'il ait raison\". Modus mengikuti seberapa yakin si pembicara. Contoh: \"Je crois qu'elle viendra\", \"Je ne crois pas qu'elle vienne\""
+ },
+ "subj-emotion-doubt": {
+  "t": "Perasaan, keraguan, kebutuhan",
+  "x": "Kata kerja emosi (\"être content que\", \"regretter que\"), keraguan (\"douter que\"), dan kebutuhan (\"il faut que\", \"il est essentiel que\") diikuti subjonctif ketika subjeknya berbeda. Klausa itu menyatakan reaksi atau kebutuhan, bukan fakta biasa. Contoh: \"Je suis ravi que vous veniez\", \"Il faut que nous partions\""
+ },
+ "subj-irregular-forms": {
+  "t": "Bentuk subjonctif tak beraturan",
+  "x": "Tujuh kata kerja umum punya bentuk dasar subjonctif tak beraturan: \"être\" (sois, soyons), \"avoir\" (aie, ayons), \"aller\" (aille, allions), \"faire\" (fasse), \"pouvoir\" (puisse), \"savoir\" (sache), \"vouloir\" (veuille). Hafalkan sebagai bentuk utuh; bentuk nous dan vous dari \"être\", \"avoir\", \"aller\", dan \"vouloir\" juga punya dasar sendiri. Contoh: \"qu'elle aille\", \"que vous sachiez\", \"que tu aies\""
+ },
+ "subj-passe": {
+  "t": "Subjonctif lampau",
+  "x": "Subjonctif lampau adalah subjonctif dari \"avoir\" atau \"être\" plus participe passé. Ia menunjukkan tindakan sudah selesai sebelum tindakan kata kerja utama: \"Je suis content que tu sois venu\". Pilih kata kerja bantu seperti di passé composé dan jaga kesesuaiannya. Contoh: \"Il faut qu'ils aient fini\", \"Bien qu'elle soit partie\""
+ },
+ "subj-vs-infinitive": {
+  "t": "Subjonctif atau infinitif",
+  "x": "Jika subjek kedua kata kerja sama, bahasa Prancis lebih suka infinitif: \"Je veux partir\". Jika subjek berganti, pakai \"que\" plus subjonctif: \"Je veux que tu partes\". Hal yang sama berlaku untuk keinginan, emosi, dan banyak konjungsi (\"avant de\" atau \"avant que\"). Contoh: \"Elle est contente d'être là\", \"Elle est contente que vous soyez là\""
+ },
+ "subj-superlative-relative": {
+  "t": "Subjonctif setelah superlatif",
+  "x": "Setelah superlatif (\"le plus\", \"le meilleur\") atau \"seul\", \"premier\", \"dernier\", \"unique\", klausa relatif memakai subjonctif, karena pernyataan itu berupa penilaian pribadi. Dengan \"jamais\", subjonctif lampau lazim dipakai: \"le plus beau film que j'aie vu\". Contoh: \"le seul homme qui sache\", \"la première fois que je le voie\""
+ },
+ "subj-relative-search": {
+  "t": "Subjonctif untuk benda yang dicari",
+  "x": "Ketika klausa relatif menggambarkan sesuatu yang kamu cari, inginkan, atau ragukan keberadaannya, pakai subjonctif: \"Je cherche un livre qui soit simple\". Jika kamu tahu benda itu ada, pakai indicatif: \"J'ai un livre qui est simple\". Pemicu khas: \"chercher\", \"vouloir\", \"il n'y a personne qui\", pertanyaan tentang keberadaan. Contoh: \"Y a-t-il quelqu'un qui puisse m'aider ?\""
+ },
+ "cond-passe-news": {
+  "t": "Conditionnel untuk kabar belum pasti",
+  "x": "Wartawan memakai conditionnel, sering conditionnel passé, untuk melaporkan informasi yang belum dikonfirmasi: \"Le ministre aurait démissionné\". Ia menandakan \"konon\" atau \"diduga\" dan penulis tidak menjamin faktanya. Pakai conditionnel présent untuk rumor saat ini: \"Il serait malade\". Contoh: \"Deux personnes seraient blessées\", \"selon certaines sources, le vol aurait été annulé\""
+ },
+ "si-plus-que-parfait": {
+  "t": "Pengandaian lampau: si + plus-que-parfait",
+  "x": "Untuk syarat yang tidak nyata di masa lalu, pakai \"si\" plus plus-que-parfait, dan conditionnel passé pada klausa hasil: \"Si j'avais su, je serais venu\". Jangan pernah menaruh conditionnel setelah \"si\" dengan makna ini. Klausa hasil menunjukkan apa yang tidak terjadi. Contoh: \"Si elle avait étudié, elle aurait réussi\", \"Si nous étions partis, nous aurions vu le concert\""
+ },
+ "si-mixed-conditions": {
+  "t": "Kalimat pengandaian campuran",
+  "x": "Pengandaian campuran menghubungkan syarat masa lalu dengan hasil masa kini: \"si\" plus plus-que-parfait, lalu conditionnel présent. Kata waktu seperti \"maintenant\" atau \"aujourd'hui\" pada hasil menunjukkan bahwa akibatnya masih berlaku sekarang. Contoh: \"Si tu avais écouté, tu comprendrais\". Bandingkan dengan pola yang sepenuhnya lampau: \"tu aurais compris\""
+ },
+ "hypothese-au-cas-ou": {
+  "t": "Berjaga-jaga: au cas où",
+  "x": "\"au cas où\" menyatakan tindakan berjaga-jaga terhadap kejadian yang mungkin terjadi dan diikuti conditionnel, bukan subjonctif atau futur. Artinya \"kalau-kalau\" atau \"untuk berjaga-jaga\". Ia bisa berada di awal atau di akhir kalimat. Contoh: \"Prenez un parapluie au cas où il pleuvrait\", \"Au cas où tu serais en retard, appelle-moi\""
+ },
+ "apres-que-indicatif": {
+  "t": "après que + indicatif",
+  "x": "\"après que\" dan \"dès que\" menyatakan fakta yang benar-benar terjadi, jadi memakai indicatif, bukan subjonctif (berbeda dari \"avant que\"). Kata kerja setelah \"après que\" memakai kala majemuk, lebih awal dari kata kerja utama: \"Après qu'il a fini, il est rentré\". Setelah \"dès que\" dengan kata kerja utama futur, pakai futur antérieur: \"Dès que tu auras fini, appelle-moi\""
+ },
+ "concordance-des-temps": {
+  "t": "Konkordansi kala",
+  "x": "Ketika kata kerja utama berbentuk lampau, kata kerja anak kalimat mundur satu langkah: présent menjadi imparfait, passé composé menjadi plus-que-parfait, futur menjadi conditionnel. Jangan mencampur kata kerja utama lampau dengan kata kerja anak kalimat présent: \"Il pensait que nous étions partis\". Contoh: \"Je savais que tu viendrais\", \"Elle disait qu'elle était fatiguée\""
+ },
+ "discours-indirect-passe": {
+  "t": "Kalimat tidak langsung masa lalu",
+  "x": "Dalam kalimat tidak langsung setelah kata kerja lampau (\"elle a dit que\"), geser kalanya: présent menjadi imparfait, passé composé menjadi plus-que-parfait, futur menjadi conditionnel. Kata waktu juga berubah: \"demain\" menjadi \"le lendemain\", \"hier\" menjadi \"la veille\", \"aujourd'hui\" menjadi \"ce jour-là\". Contoh: \"Il a dit qu'il viendrait le lendemain\""
+ },
+ "discours-indirect-questions": {
+  "t": "Melaporkan pertanyaan",
+  "x": "Dalam pertanyaan tidak langsung, pakai urutan kata biasa tanpa tanda tanya. \"Est-ce que\" dan pertanyaan ya/tidak menjadi \"si\": \"Il a demandé si je venais\". \"Qu'est-ce que\" menjadi \"ce que\", dan \"qu'est-ce qui\" menjadi \"ce qui\". Kala bergeser setelah kata kerja lampau. Contoh: \"Elle m'a demandé ce que je voulais\", \"Il voulait savoir ce qui se passait\""
+ },
+ "discours-indirect-ordres": {
+  "t": "Melaporkan perintah dan permintaan",
+  "x": "Untuk melaporkan perintah atau permintaan, pakai \"dire de\" atau \"demander de\" plus infinitif: \"Elle m'a dit de rentrer\". Orang yang dituju memakai \"à\" atau pronomina: \"Il a demandé à ses voisins de baisser la musique\". Perintah negatif menjaga \"ne pas\" tetap berdekatan sebelum infinitif: \"Il nous a dit de ne pas toucher aux câbles\""
+ },
+ "accord-participe-cod-avant": {
+  "t": "Kesesuaian dengan objek di depan",
+  "x": "Dengan \"avoir\", participe passé menyesuaikan dengan objek langsung hanya jika objek itu berada sebelum kata kerja. Cari \"que\", pronomina seperti \"les\", atau kata tanya: \"Les lettres que Marie a écrites\", \"Quelle robe as-tu choisie ?\". Jika objek berada sesudahnya, tidak ada kesesuaian: \"Marie a écrit des lettres\""
+ },
+ "accord-participe-pronominaux": {
+  "t": "Participe kata kerja refleksif",
+  "x": "Dalam passé composé kata kerja refleksif, participe menyesuaikan dengan pronomina refleksif jika ia berfungsi sebagai objek langsung: \"Les amies se sont retrouvées\". Participe tidak berubah jika pronominanya objek tak langsung atau ada objek lain sesudahnya: \"Elle s'est lavé les mains\", \"Ils se sont envoyé des messages\". Tanyakan pada dirimu apakah \"se\" berarti \"à qui ?\" atau \"qui ?\""
+ },
+ "participe-present-gerondif": {
+  "t": "Participe, gérondif, adjektiva",
+  "x": "Gérondif \"en + -ant\" menyatakan cara atau waktu suatu kejadian dan tidak berubah: \"Il s'est blessé en coupant du bois\". Participe présent menggantikan satu klausa dan juga tidak berubah: \"Les enfants jouant dans le jardin\". Adjectif verbal menyesuaikan dengan kata bendanya: \"une histoire fascinante\", \"des résultats surprenants\""
+ },
+ "passif-et-alternatives": {
+  "t": "Pasif dan alternatifnya",
+  "x": "Pasif memakai \"être\" + participe: \"Les résultats ont été annoncés par le jury\". Bahasa Prancis sering memilih alternatif: bentuk refleksif untuk fakta umum (\"Le fromage se mange après le plat\"), \"on\", atau \"se faire\" untuk sesuatu yang menimpa subjek (\"Il s'est fait voler son sac\")"
+ },
+ "causatif-faire-laisser": {
+  "t": "Kausatif faire dan laisser",
+  "x": "\"Faire\" + infinitif berarti menyebabkan sesuatu dikerjakan: \"Nous avons fait refaire la cuisine\". \"Laisser\" + infinitif berarti mengizinkan: \"Le professeur a laissé les élèves partir\". Participe \"fait\" tidak berubah sebelum infinitif: \"Ce film m'a fait pleurer\""
+ },
+ "pronoms-relatifs-composes": {
+  "t": "Pronomina relatif majemuk",
+  "x": "Setelah preposisi, pakai \"lequel\", \"laquelle\", \"lesquels\", atau \"lesquelles\" sesuai kata bendanya: \"la table sur laquelle\", \"les amis chez lesquels\". Dengan \"à\" bentuknya menyatu: \"auquel\", \"auxquels\", \"auxquelles\", \"à laquelle\". Dengan \"de\" menjadi \"duquel\", \"desquels\", \"de laquelle\""
+ },
+ "pronom-relatif-dont": {
+  "t": "Pronomina relatif dont",
+  "x": "\"Dont\" menggantikan \"de\" + kata benda dalam klausa relatif: \"L'ordinateur dont j'ai besoin\" (avoir besoin de). Ia juga menyatakan kepemilikan, dengan kata benda langsung sesudahnya: \"l'écrivain dont le dernier roman\". Dan ia memperkenalkan bagian dari suatu kelompok: \"trois enfants, dont deux vivent à l'étranger\""
+ },
+ "ce-qui-ce-que-ce-dont": {
+  "t": "Ce qui, ce que, ce dont",
+  "x": "\"Ce\" + pronomina relatif merujuk pada suatu gagasan atau hal yang tidak disebut namanya. \"Ce qui\" adalah subjek (\"Ce qui m'inquiète\"), \"ce que\" adalah objek (\"ce que tu veux\"). Pakai \"ce dont\" untuk kata kerja dengan \"de\" (\"ce dont tu as envie\") dan \"ce à quoi\" untuk kata kerja dengan \"à\" (\"ce à quoi il s'intéresse\")"
+ },
+ "pronoms-doubles-ordre": {
+  "t": "Urutan dua pronomina",
+  "x": "Sebelum kata kerja, letakkan pronomina tak langsung lebih dulu untuk me, te, nous, dan vous: \"Je te le rends\". Untuk orang ketiga, pronomina langsung lebih dulu: \"Je le lui donne\"; \"en\" selalu paling akhir: \"Je lui en ai parlé\". Setelah imperatif positif, urutannya langsung lalu tak langsung: \"Donne-les-moi\""
+ },
+ "pronoms-y-en-avances": {
+  "t": "Y dan en tingkat lanjut",
+  "x": "\"En\" menggantikan \"de\" + kata benda atau suatu jumlah, dan angkanya tetap: \"J'en ai acheté trois\". \"Y\" menggantikan \"à\" atau tempat: \"J'y pense tout le temps\". Dalam imperatif positif, keduanya mengikuti kata kerja dan digabung: \"Donnez-m'en un kilo\""
+ },
+ "mise-en-relief": {
+  "t": "Penekanan dengan c'est...qui/que",
+  "x": "\"C'est ... qui\" menyorot subjek dan \"c'est ... que\" menyorot objek atau pelengkap: \"C'est moi qui ai fait le gâteau\", \"C'est demain que nous partons\". Dengan kata benda jamak, pakai \"ce sont\": \"Ce sont mes voisins que j'ai invités\". Kata kerja setelah \"qui\" menyesuaikan dengan unsur yang ditekankan"
+ },
+ "inversion-peut-etre": {
+  "t": "Inversi setelah adverbia kalimat",
+  "x": "Dalam bahasa Prancis formal, \"peut-être\", \"sans doute\", dan \"aussi\" (bermakna \"karena itu\") di awal kalimat menuntut inversi subjek-kata kerja: \"Peut-être viendra-t-il demain\". Jika subjeknya kata benda, ulangi sebagai pronomina. Tambahkan \"-t-\" ketika kata kerja berakhir vokal sebelum \"il\" atau \"elle\": \"viendra-t-elle\""
+ },
+ "ne-expletif": {
+  "t": "Ne pelengkap (ne explétif)",
+  "x": "Setelah kata kerja rasa takut (\"craindre que\"), \"avant que\", dan komparatif ketidaksamaan, bahasa Prancis formal menambahkan \"ne\" tanpa makna negatif: \"Je crains qu'il ne pleuve\", \"avant qu'il ne fasse nuit\", \"plus grand que je ne pensais\". Dalam percakapan ia opsional dan tidak pernah dipakai bersama \"pas\""
+ },
+ "connecteurs-concession-opposition": {
+  "t": "Konsesi dan pertentangan",
+  "x": "\"Bien que\" + subjonctif dan \"malgré\" + kata benda menyatakan konsesi: \"Malgré la pluie, nous sommes sortis\". \"Alors que\" + indicatif mempertentangkan dua fakta: \"Paul adore la mer, alors que sa femme préfère la montagne\". \"Pourtant\", \"cependant\", dan \"en revanche\" menghubungkan dua kalimat"
+ },
+ "nominalisation": {
+  "t": "Mengubah kata kerja jadi benda",
+  "x": "Nominalisasi membuat tulisan lebih ringkas dan formal. Kata kerja menjadi kata benda dengan akhiran seperti -tion, -ment, -ure, atau -ée: \"ouvrir\" menjadi \"l'ouverture\", \"augmenter\" menjadi \"l'augmentation\", \"arriver\" menjadi \"l'arrivée\". Adjektiva juga bisa: \"difficile\" menjadi \"la difficulté\". Periksa genus kata benda baru"
+ },
+ "tout-accord": {
+  "t": "Tout: adjektiva, pronomina, adverbia",
+  "x": "Sebagai adjektiva, \"tout\" menyesuaikan dengan kata benda: \"tous les magasins\", \"toutes les fenêtres\". Sebagai adverbia bermakna \"sangat\", ia tidak berubah, kecuali sebelum adjektiva feminin yang diawali konsonan: \"elle est tout étonnée\" tetapi \"elles sont toutes timides\""
+ },
+ "prepositions-apres-verbes": {
+  "t": "Preposisi setelah kata kerja",
+  "x": "Beberapa kata kerja memakai preposisi tetap, dan preposisi itu bisa mengubah makna. \"Penser à\" berarti memikirkan: \"Je pense à mes vacances\"; \"penser de\" menanyakan pendapat: \"Que penses-tu de ce film ?\". Pelajari pasangan seperti \"s'habituer à\" dan \"se méfier de\" sebagai satu kesatuan"
+ },
+ "infinitif-passe": {
+  "t": "Infinitif lampau",
+  "x": "\"Après\" + \"avoir\" atau \"être\" + participe passé menyatakan tindakan yang terjadi sebelum tindakan utama: \"Après avoir écrit la lettre, il l'a postée\". Kedua tindakan harus berasal dari subjek yang sama. Kata kerja gerak dan kata kerja refleksif memakai \"être\" dan menyesuaikan: \"Après être rentrée\", \"Après nous être reposés\""
+ },
+ "a-regard-pronoms-lequel": {
+  "t": "Lequel interogatif",
+  "x": "\"Lequel\" menanyakan pilihan di antara hal yang sudah diketahui dan menyesuaikan dengannya: \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\". Dengan \"à\" atau \"de\" bentuknya menyatu: \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\". Pakai \"quel\" hanya tepat sebelum kata benda"
  }
 }

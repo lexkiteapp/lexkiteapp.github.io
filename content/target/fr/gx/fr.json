@@ -510,5 +510,165 @@
  "tout-tous-toutes": {
   "t": "tout, tous, toute, toutes",
   "x": "Comme adjectif, \"tout\" s'accorde : \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\". Comme pronom, il signifie « toutes les choses » (\"j'ai tout compris\") ou « tout le monde » (\"ils sont tous là\", avec le -s final prononcé). Exemples : \"tous les jours\", \"toute la journée\", \"ils sont tous là\""
+ },
+ "subj-after-bien-que": {
+  "t": "Bien que + subjonctif",
+  "x": "\"bien que\", \"quoique\" et \"encore que\" expriment la concession et se construisent toujours avec le subjonctif, même quand le fait est certain. Dites \"Bien que le projet soit coûteux, nous continuons\", pas \"bien que le projet est\". Exemples : \"Bien qu'il pleuve, nous sortons\", \"Quoiqu'elle soit jeune, elle dirige l'équipe\""
+ },
+ "subj-after-pour-que": {
+  "t": "But : pour que, afin que",
+  "x": "\"pour que\" et \"afin que\" introduisent un but et sont suivis du subjonctif. Le sujet de la subordonnée est généralement différent du sujet principal : \"Je répète pour que vous compreniez\". Avec le même sujet, utilisez \"pour\" ou \"afin de\" plus l'infinitif. Exemples : \"Il parle lentement pour que nous comprenions\", \"Elle écrit afin que tout soit clair\""
+ },
+ "subj-after-avant-que": {
+  "t": "Limites de temps : avant que",
+  "x": "\"avant que\" et \"jusqu'à ce que\" se construisent avec le subjonctif, car l'action n'est pas encore réalisée. Après \"avant que\", on ajoute souvent un \"ne\" sans valeur négative : \"avant qu'il ne parte\". Utilisez \"avant de\" plus l'infinitif si le sujet est le même. Exemples : \"Attends jusqu'à ce que je revienne\", \"Appelle avant que nous ne partions\""
+ },
+ "subj-a-moins-que-ne": {
+  "t": "Exception : à moins que",
+  "x": "\"à moins que\" signifie \"sauf si\" et exige le subjonctif. Le français soutenu ajoute souvent un \"ne\" explétif devant le verbe (\"à moins qu'il ne vienne\"), qui n'est pas une vraie négation. N'employez ni le conditionnel ni le futur après cette locution. Exemples : \"Je sors, à moins qu'il ne pleuve\", \"à moins que vous ne soyez occupé\""
+ },
+ "subj-a-condition-que": {
+  "t": "Condition : à condition que",
+  "x": "\"à condition que\" et \"pourvu que\" signifient \"si et seulement si\" et se construisent avec le subjonctif, jamais avec le futur ou le conditionnel. \"Pourvu que\" peut aussi ouvrir une phrase pour exprimer un souhait : \"Pourvu qu'il vienne !\". Exemples : \"Je viendrai à condition que vous m'invitiez\", \"Pourvu que tout se passe bien\""
+ },
+ "subj-vs-ind-opinion": {
+  "t": "Verbes d'opinion : le mode",
+  "x": "Après \"penser que\" et \"croire que\" à la forme affirmative, on emploie l'indicatif : \"Je pense qu'il a raison\". À la forme négative ou dans une question avec inversion, le doute apparaît et on emploie le subjonctif : \"Je ne pense pas qu'il ait raison\". Le mode dépend du degré de certitude du locuteur. Exemples : \"Je crois qu'elle viendra\", \"Je ne crois pas qu'elle vienne\""
+ },
+ "subj-emotion-doubt": {
+  "t": "Sentiment, doute, nécessité",
+  "x": "Les verbes d'émotion (\"être content que\", \"regretter que\"), de doute (\"douter que\") et de nécessité (\"il faut que\", \"il est essentiel que\") sont suivis du subjonctif quand les sujets sont différents. La subordonnée exprime une réaction ou un besoin, pas un simple fait. Exemples : \"Je suis ravi que vous veniez\", \"Il faut que nous partions\""
+ },
+ "subj-irregular-forms": {
+  "t": "Radicaux irréguliers du subjonctif",
+  "x": "Sept verbes courants ont des radicaux irréguliers au subjonctif : \"être\" (sois, soyons), \"avoir\" (aie, ayons), \"aller\" (aille, allions), \"faire\" (fasse), \"pouvoir\" (puisse), \"savoir\" (sache), \"vouloir\" (veuille). Apprenez les formes entières ; les formes nous et vous de \"être\", \"avoir\", \"aller\" et \"vouloir\" ont aussi leur propre radical. Exemples : \"qu'elle aille\", \"que vous sachiez\", \"que tu aies\""
+ },
+ "subj-passe": {
+  "t": "Le subjonctif passé",
+  "x": "Le subjonctif passé se forme avec le subjonctif de \"avoir\" ou \"être\" plus le participe passé. Il montre que l'action est terminée avant celle du verbe principal : \"Je suis content que tu sois venu\". Choisissez l'auxiliaire comme au passé composé et gardez l'accord. Exemples : \"Il faut qu'ils aient fini\", \"Bien qu'elle soit partie\""
+ },
+ "subj-vs-infinitive": {
+  "t": "Subjonctif ou infinitif",
+  "x": "Quand les deux verbes ont le même sujet, le français préfère l'infinitif : \"Je veux partir\". Quand le sujet change, on emploie \"que\" plus le subjonctif : \"Je veux que tu partes\". Cela vaut aussi pour les souhaits, les émotions et de nombreuses conjonctions (\"avant de\" ou \"avant que\"). Exemples : \"Elle est contente d'être là\", \"Elle est contente que vous soyez là\""
+ },
+ "subj-superlative-relative": {
+  "t": "Subjonctif après un superlatif",
+  "x": "Après un superlatif (\"le plus\", \"le meilleur\") ou après \"seul\", \"premier\", \"dernier\", \"unique\", la proposition relative se met au subjonctif, car l'énoncé exprime un jugement personnel. Avec \"jamais\", le subjonctif passé est courant : \"le plus beau film que j'aie vu\". Exemples : \"le seul homme qui sache\", \"la première fois que je le voie\""
+ },
+ "subj-relative-search": {
+  "t": "Subjonctif et antécédent recherché",
+  "x": "Quand une relative décrit quelque chose que l'on cherche, que l'on souhaite ou dont on doute de l'existence, on emploie le subjonctif : \"Je cherche un livre qui soit simple\". Si l'on sait que la chose existe, on emploie l'indicatif : \"J'ai un livre qui est simple\". Déclencheurs typiques : \"chercher\", \"vouloir\", \"il n'y a personne qui\", questions sur l'existence. Exemples : \"Y a-t-il quelqu'un qui puisse m'aider ?\""
+ },
+ "cond-passe-news": {
+  "t": "Conditionnel pour une info non confirmée",
+  "x": "Les journalistes emploient le conditionnel, souvent le conditionnel passé, pour rapporter une information non confirmée : \"Le ministre aurait démissionné\". Il signale \"d'après certaines sources\" ou \"selon la rumeur\" et évite que l'auteur garantisse le fait. Utilisez le conditionnel présent pour une rumeur actuelle : \"Il serait malade\". Exemples : \"Deux personnes seraient blessées\", \"selon certaines sources, le vol aurait été annulé\""
+ },
+ "si-plus-que-parfait": {
+  "t": "Si + plus-que-parfait irréel",
+  "x": "Pour une condition irréelle dans le passé, on emploie \"si\" plus le plus-que-parfait, et le conditionnel passé dans la principale : \"Si j'avais su, je serais venu\". Ne mettez jamais de conditionnel après \"si\" dans ce sens. La principale montre ce qui ne s'est pas produit. Exemples : \"Si elle avait étudié, elle aurait réussi\", \"Si nous étions partis, nous aurions vu le concert\""
+ },
+ "si-mixed-conditions": {
+  "t": "Phrases conditionnelles mixtes",
+  "x": "Une phrase conditionnelle mixte relie une condition passée à un résultat présent : \"si\" plus plus-que-parfait, puis le conditionnel présent. Des mots de temps comme \"maintenant\" ou \"aujourd'hui\" dans la principale montrent que la conséquence est encore vraie. Exemple : \"Si tu avais écouté, tu comprendrais\". Comparez avec le schéma entièrement passé : \"tu aurais compris\""
+ },
+ "hypothese-au-cas-ou": {
+  "t": "Précaution : au cas où",
+  "x": "\"au cas où\" exprime une précaution contre un événement possible et se construit avec le conditionnel, pas avec le subjonctif ni le futur. Elle signifie \"pour le cas où\". Elle peut se placer au début ou à la fin de la phrase. Exemples : \"Prenez un parapluie au cas où il pleuvrait\", \"Au cas où tu serais en retard, appelle-moi\""
+ },
+ "apres-que-indicatif": {
+  "t": "après que + indicatif",
+  "x": "\"après que\" et \"dès que\" énoncent un fait réellement arrivé, ils se construisent donc avec l'indicatif, pas avec le subjonctif (contrairement à \"avant que\"). Le verbe après \"après que\" est à un temps composé, antérieur au verbe principal : \"Après qu'il a fini, il est rentré\". Après \"dès que\" avec un verbe principal au futur, on emploie le futur antérieur : \"Dès que tu auras fini, appelle-moi\""
+ },
+ "concordance-des-temps": {
+  "t": "Concordance des temps",
+  "x": "Quand le verbe principal est au passé, le verbe de la subordonnée recule : le présent devient imparfait, le passé composé devient plus-que-parfait, le futur devient conditionnel. Ne mélangez pas un verbe principal au passé et un verbe subordonné au présent : \"Il pensait que nous étions partis\". Exemples : \"Je savais que tu viendrais\", \"Elle disait qu'elle était fatiguée\""
+ },
+ "discours-indirect-passe": {
+  "t": "Discours indirect au passé",
+  "x": "Dans le discours indirect après un verbe au passé (\"elle a dit que\"), les temps changent : présent en imparfait, passé composé en plus-que-parfait, futur en conditionnel. Les mots de temps changent aussi : \"demain\" devient \"le lendemain\", \"hier\" devient \"la veille\", \"aujourd'hui\" devient \"ce jour-là\". Exemple : \"Il a dit qu'il viendrait le lendemain\""
+ },
+ "discours-indirect-questions": {
+  "t": "Questions indirectes",
+  "x": "Dans les questions indirectes, on garde l'ordre normal des mots et on ne met pas de point d'interrogation. \"Est-ce que\" et les questions fermées deviennent \"si\" : \"Il a demandé si je venais\". \"Qu'est-ce que\" devient \"ce que\", et \"qu'est-ce qui\" devient \"ce qui\". Les temps changent après un verbe au passé. Exemples : \"Elle m'a demandé ce que je voulais\", \"Il voulait savoir ce qui se passait\""
+ },
+ "discours-indirect-ordres": {
+  "t": "Rapporter ordres et demandes",
+  "x": "Pour rapporter un ordre ou une demande, on emploie \"dire de\" ou \"demander de\" plus l'infinitif : \"Elle m'a dit de rentrer\". La personne visée prend \"à\" ou un pronom : \"Il a demandé à ses voisins de baisser la musique\". Un ordre négatif garde \"ne pas\" ensemble devant l'infinitif : \"Il nous a dit de ne pas toucher aux câbles\""
+ },
+ "accord-participe-cod-avant": {
+  "t": "Accord avec un COD placé avant",
+  "x": "Avec \"avoir\", le participe passé s'accorde avec le COD seulement s'il est placé avant le verbe. Cherchez \"que\", un pronom comme \"les\" ou un mot interrogatif : \"Les lettres que Marie a écrites\", \"Quelle robe as-tu choisie ?\". Si le COD vient après, il n'y a pas d'accord : \"Marie a écrit des lettres\""
+ },
+ "accord-participe-pronominaux": {
+  "t": "Accord des verbes pronominaux",
+  "x": "Au passé composé d'un verbe pronominal, le participe s'accorde avec le pronom réfléchi quand celui-ci est COD : \"Les amies se sont retrouvées\". Il reste invariable quand le pronom est COI ou qu'un autre complément suit : \"Elle s'est lavé les mains\", \"Ils se sont envoyé des messages\". Demandez-vous si \"se\" signifie \"à qui ?\" ou \"qui ?\""
+ },
+ "participe-present-gerondif": {
+  "t": "Participe, gérondif, adjectif",
+  "x": "Le gérondif \"en + -ant\" dit comment ou quand quelque chose se passe et reste invariable : \"Il s'est blessé en coupant du bois\". Le participe présent remplace une proposition et reste lui aussi invariable : \"Les enfants jouant dans le jardin\". L'adjectif verbal s'accorde avec son nom : \"une histoire fascinante\", \"des résultats surprenants\""
+ },
+ "passif-et-alternatives": {
+  "t": "Le passif et ses alternatives",
+  "x": "Le passif se forme avec \"être\" + participe passé : \"Les résultats ont été annoncés par le jury\". Le français préfère souvent des alternatives : un pronominal pour les faits généraux (\"Le fromage se mange après le plat\"), \"on\", ou \"se faire\" pour ce qui arrive au sujet (\"Il s'est fait voler son sac\")"
+ },
+ "causatif-faire-laisser": {
+  "t": "Causatif : faire et laisser",
+  "x": "\"Faire\" + infinitif signifie faire en sorte que quelque chose soit fait : \"Nous avons fait refaire la cuisine\". \"Laisser\" + infinitif signifie permettre : \"Le professeur a laissé les élèves partir\". Le participe \"fait\" reste invariable devant l'infinitif : \"Ce film m'a fait pleurer\""
+ },
+ "pronoms-relatifs-composes": {
+  "t": "Pronoms relatifs composés",
+  "x": "Après une préposition, on emploie \"lequel\", \"laquelle\", \"lesquels\" ou \"lesquelles\", selon le nom : \"la table sur laquelle\", \"les amis chez lesquels\". Avec \"à\", ils se contractent : \"auquel\", \"auxquels\", \"auxquelles\", \"à laquelle\". Avec \"de\", on obtient \"duquel\", \"desquels\", \"de laquelle\""
+ },
+ "pronom-relatif-dont": {
+  "t": "Le pronom relatif dont",
+  "x": "\"Dont\" remplace \"de\" + nom dans une proposition relative : \"L'ordinateur dont j'ai besoin\" (avoir besoin de). Il exprime aussi la possession, avec le nom juste après : \"l'écrivain dont le dernier roman\". Et il introduit une partie d'un groupe : \"trois enfants, dont deux vivent à l'étranger\""
+ },
+ "ce-qui-ce-que-ce-dont": {
+  "t": "Ce qui, ce que, ce dont",
+  "x": "\"Ce\" + pronom relatif renvoie à une idée ou à une chose non nommée. \"Ce qui\" est sujet (\"Ce qui m'inquiète\"), \"ce que\" est objet (\"ce que tu veux\"). Employez \"ce dont\" pour les verbes avec \"de\" (\"ce dont tu as envie\") et \"ce à quoi\" pour les verbes avec \"à\" (\"ce à quoi il s'intéresse\")"
+ },
+ "pronoms-doubles-ordre": {
+  "t": "Ordre de deux pronoms",
+  "x": "Devant le verbe, placez d'abord le pronom indirect pour me, te, nous et vous : \"Je te le rends\". À la troisième personne, le pronom direct vient d'abord : \"Je le lui donne\" ; \"en\" vient toujours en dernier : \"Je lui en ai parlé\". Après un impératif affirmatif, l'ordre est direct puis indirect : \"Donne-les-moi\""
+ },
+ "pronoms-y-en-avances": {
+  "t": "Y et en : emplois avancés",
+  "x": "\"En\" remplace \"de\" + nom ou une quantité, et le nombre reste : \"J'en ai acheté trois\". \"Y\" remplace \"à\" ou un lieu : \"J'y pense tout le temps\". À l'impératif affirmatif, ils suivent le verbe et se combinent : \"Donnez-m'en un kilo\""
+ },
+ "mise-en-relief": {
+  "t": "Mise en relief : c'est...qui/que",
+  "x": "\"C'est ... qui\" met en relief le sujet et \"c'est ... que\" met en relief un objet ou un complément : \"C'est moi qui ai fait le gâteau\", \"C'est demain que nous partons\". Avec un nom pluriel, on emploie \"ce sont\" : \"Ce sont mes voisins que j'ai invités\". Le verbe après \"qui\" s'accorde avec l'élément mis en relief"
+ },
+ "inversion-peut-etre": {
+  "t": "Inversion après un adverbe de phrase",
+  "x": "En français soutenu, \"peut-être\", \"sans doute\" et \"aussi\" (au sens de \"par conséquent\") en début de phrase entraînent l'inversion sujet-verbe : \"Peut-être viendra-t-il demain\". Avec un sujet nominal, on le reprend par un pronom. On ajoute \"-t-\" quand le verbe se termine par une voyelle devant \"il\" ou \"elle\" : \"viendra-t-elle\""
+ },
+ "ne-expletif": {
+  "t": "Le ne explétif",
+  "x": "Après les verbes de crainte (\"craindre que\"), \"avant que\" et les comparatifs d'inégalité, le français soutenu ajoute un \"ne\" sans valeur négative : \"Je crains qu'il ne pleuve\", \"avant qu'il ne fasse nuit\", \"plus grand que je ne pensais\". Il est facultatif à l'oral et ne s'accompagne jamais de \"pas\""
+ },
+ "connecteurs-concession-opposition": {
+  "t": "Concession et opposition",
+  "x": "\"Bien que\" + subjonctif et \"malgré\" + nom expriment la concession : \"Malgré la pluie, nous sommes sortis\". \"Alors que\" + indicatif oppose deux faits : \"Paul adore la mer, alors que sa femme préfère la montagne\". \"Pourtant\", \"cependant\" et \"en revanche\" relient deux phrases"
+ },
+ "nominalisation": {
+  "t": "Transformer les verbes en noms",
+  "x": "La nominalisation rend l'écrit plus concis et plus soutenu. Les verbes deviennent des noms avec des terminaisons comme -tion, -ment, -ure ou -ée : \"ouvrir\" donne \"l'ouverture\", \"augmenter\" donne \"l'augmentation\", \"arriver\" donne \"l'arrivée\". Les adjectifs aussi : \"difficile\" donne \"la difficulté\". Vérifiez le genre du nouveau nom"
+ },
+ "tout-accord": {
+  "t": "Tout : adjectif, pronom, adverbe",
+  "x": "Comme adjectif, \"tout\" s'accorde avec le nom : \"tous les magasins\", \"toutes les fenêtres\". Comme adverbe au sens de \"tout à fait\", il est invariable, sauf devant un adjectif féminin commençant par une consonne : \"elle est tout étonnée\" mais \"elles sont toutes timides\""
+ },
+ "prepositions-apres-verbes": {
+  "t": "Prépositions après les verbes",
+  "x": "Certains verbes se construisent avec une préposition fixe, qui peut changer le sens. \"Penser à\" signifie avoir en tête : \"Je pense à mes vacances\" ; \"penser de\" demande un avis : \"Que penses-tu de ce film ?\". Apprenez des paires comme \"s'habituer à\" et \"se méfier de\" en bloc"
+ },
+ "infinitif-passe": {
+  "t": "L'infinitif passé",
+  "x": "\"Après\" + \"avoir\" ou \"être\" + participe passé indique qu'une action s'est passée avant l'action principale : \"Après avoir écrit la lettre, il l'a postée\". Les deux actions doivent avoir le même sujet. Les verbes de mouvement et les verbes pronominaux prennent \"être\" et s'accordent : \"Après être rentrée\", \"Après nous être reposés\""
+ },
+ "a-regard-pronoms-lequel": {
+  "t": "Lequel interrogatif",
+  "x": "\"Lequel\" demande un choix parmi des éléments connus et s'accorde avec eux : \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\". Avec \"à\" ou \"de\", il se contracte : \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\". N'employez \"quel\" que juste devant un nom"
  }
 }
