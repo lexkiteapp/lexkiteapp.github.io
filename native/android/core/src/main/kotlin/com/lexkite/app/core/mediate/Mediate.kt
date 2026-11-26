@@ -77,7 +77,7 @@ object Mediate {
         val used = mutableMapOf('f' to 0, 'm' to 0)
         src?.lines?.map { it.first }?.distinct()?.forEachIndexed { i, s ->
             val g = if (FEM.containsMatchIn(s)) 'f' else if (MAS.containsMatchIn(s)) 'm' else if (NEUTRAL.containsMatchIn(s)) (if (i % 2 == 1) 'f' else 'm') else if (FEM_END.containsMatchIn(s)) 'f' else 'm'
-            out[s] = POOL.getValue(g)[used.getValue(g)++ % 3]
+            val n = used.getValue(g); used[g] = n + 1; out[s] = POOL.getValue(g)[n % 3]
         }
         return out
     }
@@ -94,6 +94,7 @@ object Mediate {
     fun withBest(b: Map<String, Pair<Int, Int>>, id: String, ok: Int, of: Int): Map<String, Pair<Int, Int>> = if (b[id] == null || ok > b.getValue(id).first) b + (id to (ok to of)) else b
 
     // ---- parsing ----
+    private fun JsonObject.s(k: String): String? = this[k].s()
     private fun JsonElement?.s(): String? = (this as? JsonPrimitive)?.takeIf { it !is JsonNull }?.content
     private fun JsonElement?.strs() = (this as? JsonArray)?.map { (it as JsonPrimitive).content } ?: emptyList()
     private fun JsonElement?.groups() = (this as? JsonArray)?.map { g -> g.jsonArray.map { (it as JsonPrimitive).content } } ?: emptyList()
