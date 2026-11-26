@@ -6,7 +6,6 @@
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { ghFetch } from '../lib/retry5xx.mjs';
 
 export const LABEL = 'main-red-wf', MARK = '<!-- main-red-sweep -->', AUTO_EVENTS = ['schedule', 'push', 'workflow_run'], BAD = ['failure', 'timed_out', 'startup_failure'], SKIP = ['cancelled', 'skipped', 'neutral', 'stale', 'action_required'];
 // Thêm mục = tắt có chủ ý kèm lý do (vd. thí nghiệm thủ công chưa tune xong). Mặc định rỗng: không miễn trừ.
@@ -65,7 +64,7 @@ export function issueBody(red) {
 // ---------- mạng (chỉ khi chạy CLI)
 const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io';
 async function api(p, { method = 'GET', body } = {}) {
-  const r = await ghFetch(`https://api.github.com/repos/${REPO}${p}`, { method, headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN}`, accept: 'application/vnd.github+json', ...(body ? { 'content-type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined });
+  const r = await fetch(`https://api.github.com/repos/${REPO}${p}`, { method, headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN}`, accept: 'application/vnd.github+json', ...(body ? { 'content-type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined });
   if (!r.ok && r.status !== 204) throw new Error(`${method} ${p} → ${r.status} ${(await r.text()).slice(0, 200)}`);
   return r.status === 204 ? null : r.json();
 }

@@ -11,7 +11,6 @@ import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node
 import { isMain } from '../lib/is-main.mjs';
 import { r2Config, r2Put, r2List, r2Delete, sha256hex } from '../lib/media-store.mjs';
 import { s3Secret, tokenId } from '../cdn/creds.mjs';
-import { ghFetch } from '../lib/retry5xx.mjs';
 
 export const MARKER = '<!-- stitch-shots -->', BUCKET = 'lexkite-report-shots', PREFIX = 'ci-shots/', TTL_DAYS = 14, LINK_SECS = 7 * 86400, MAX_FILES = 120;
 // cột → [thư mục, mẫu tên tệp (nhóm 1 = tên màn), nhãn]. Bản nhỏ (sm-*) trước: nhẹ, đủ đọc.
@@ -91,7 +90,7 @@ if (isMain(import.meta.url)) {
     for await (const o of r2List(cfg, PREFIX)) { const mine = o.key.startsWith(`${PREFIX}pr${pr}/`) && !o.key.startsWith(dir); if (mine || (o.modified && Date.parse(o.modified) < old)) { await r2Delete(cfg, o.key); del++; } }
     let a11y = {}; try { a11y = JSON.parse(fs.readFileSync('out/stitch-diff/scores.json', 'utf8')).a11y || {}; } catch { /* không có */ }
     const body = renderComment({ files, links, sha, a11y });
-    const api = async (method, p, b) => { const r = await ghFetch('https://api.github.com' + p, { method, headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, Accept: 'application/vnd.github+json', 'User-Agent': 'stitch-shots', ...(b ? { 'Content-Type': 'application/json' } : {}) }, body: b ? JSON.stringify(b) : undefined });
+    const api = async (method, p, b) => { const r = await fetch('https://api.github.com' + p, { method, headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, Accept: 'application/vnd.github+json', 'User-Agent': 'stitch-shots', ...(b ? { 'Content-Type': 'application/json' } : {}) }, body: b ? JSON.stringify(b) : undefined });
       if (!r.ok) throw new Error(`GitHub ${method} ${p.split('?')[0]} → ${r.status}`); return r.status === 204 ? null : r.json(); };
     const r = await upsertComment(api, repo, pr, body);
     console.log(`stitch-shots: ${Object.keys(links).length} ảnh lên ${BUCKET}/${dir} (dọn ${del}); bình luận ${r.created ? 'ĐĂNG MỚI' : 'ĐÃ SỬA'} #${r.id}`);

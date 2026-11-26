@@ -8,7 +8,6 @@ import path from 'node:path';
 import { openRevertPr } from './revert-pr.mjs';
 import { heavyFiles } from './heavy-rerun.mjs';
 import { isMain } from '../lib/is-main.mjs';
-import { ghFetch } from '../lib/retry5xx.mjs';
 
 const BAD = new Set(['failure', 'timed_out', 'startup_failure']), OKC = new Set(['success', 'skipped', 'neutral']);
 /** Hàm thuần: runs = lượt push của commit (mọi workflow), heavy = tên file nặng, ageMin = phút từ lúc đẩy → { state: 'wait'|'green'|'red'|'superseded'|'none', red: [run], pending: n }. */
@@ -29,7 +28,7 @@ async function main() {
   const a = process.argv.slice(2), arg = (k, d = '') => a.includes(k) ? a[a.indexOf(k) + 1] : d, sha = arg('--sha'), waitMin = +arg('--wait-min', 80), dry = a.includes('--dry');
   const repo = process.env.GITHUB_REPOSITORY, tok = process.env.GITHUB_TOKEN;
   if (!sha || !repo || !tok) { console.error('thiếu --sha / GITHUB_REPOSITORY / GITHUB_TOKEN'); process.exit(2); }
-  const api = async (p, init = {}) => { const r = await ghFetch(`https://api.github.com/repos/${repo}${p}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', ...(init.body ? { 'Content-Type': 'application/json' } : {}) } }); return { status: r.status, json: await r.json().catch(() => ({})) }; };
+  const api = async (p, init = {}) => { const r = await fetch(`https://api.github.com/repos/${repo}${p}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', ...(init.body ? { 'Content-Type': 'application/json' } : {}) } }); return { status: r.status, json: await r.json().catch(() => ({})) }; };
   const out = s => { console.log('heavy-main: ' + s); if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `state=${s.split(' ')[0]}\n`); };
   const commit = (await api(`/commits/${sha}`)).json, t0 = Date.parse(commit.commit?.committer?.date || Date.now()), heavy = heavyFiles(), deadline = Date.now() + waitMin * 6e4;
   let d;

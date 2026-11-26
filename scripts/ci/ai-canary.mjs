@@ -4,7 +4,6 @@
 // Bổ sung cho cảnh báo `ai:weak` ngay trong site (docs/AI-CHAIN.md §5) – cái đó chỉ chạy khi có người dùng và gửi thư; canary chạy cả khi vắng người.
 //   node scripts/ci/ai-canary.mjs [--dry] [--n 4]     Env: GITHUB_TOKEN, GITHUB_REPOSITORY, SITE (mặc định https://lexkite.com)
 import { isMain } from '../lib/is-main.mjs';
-import { ghFetch } from '../lib/retry5xx.mjs';
 
 export const MAX_BAD_RATE = 0.05, LABEL = 'ai-canary', TITLE = 'AI người dùng yếu/lỗi > 5 % (canary)';
 const WORDS = ['resilient', 'meticulous', 'ephemeral', 'candid', 'pragmatic', 'tenacious', 'lucid', 'prudent'];
@@ -22,7 +21,7 @@ export const shouldOpen = (red, prevRed, hasOpen) => red && prevRed && !hasOpen;
 async function main() {
   const a = process.argv.slice(2), dry = a.includes('--dry'), n = +(a[a.indexOf('--n') + 1]) || 4, site = process.env.SITE || 'https://lexkite.com';
   const repo = process.env.GITHUB_REPOSITORY, tok = process.env.GITHUB_TOKEN;
-  const api = async (p, init = {}) => { const r = await ghFetch(`https://api.github.com/repos/${repo}${p}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', ...(init.body ? { 'content-type': 'application/json' } : {}) } }); return { status: r.status, json: await r.json().catch(() => null) }; };
+  const api = async (p, init = {}) => { const r = await fetch(`https://api.github.com/repos/${repo}${p}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', ...(init.body ? { 'content-type': 'application/json' } : {}) } }); return { status: r.status, json: await r.json().catch(() => null) }; };
   const rs = [], day = new Date().toISOString().slice(0, 13);
   for (let i = 0; i < n; i++) {
     const w = WORDS[(Math.floor(Date.now() / 36e5) + i) % WORDS.length];

@@ -1,7 +1,6 @@
 // Báo cáo tỉ lệ chập chờn hằng tuần của các bài đo hiệu năng (16/11, điều phối): "chập chờn" = lượt chạy xanh chỉ sau khi chạy lại (run_attempt > 1) – cùng mã lúc đỏ lúc xanh.
 // Chỉ ĐỌC API. Dùng: node scripts/ci/perf-flake.mjs [--days 7] [--out perf-flake.md]   (GITHUB_TOKEN + GITHUB_REPOSITORY trong CI)
 import fs from 'node:fs';
-import { ghFetch } from '../lib/retry5xx.mjs';
 export const WORKFLOWS = ['call-rt', 'story-stage', 'scroll-perf', 'mobile-qa', 'ux-cards'];
 
 /** Hàm thuần: runs = workflow_runs của 1 workflow trong kỳ → thống kê. Bỏ lượt đang chạy/bị huỷ/bỏ qua (không có kết luận về mã). */
@@ -31,7 +30,7 @@ if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).
   for (const w of WORKFLOWS) {
     const runs = [];
     for (let p = 1; p <= 5; p++) {
-      const r = await ghFetch(`https://api.github.com/repos/${repo}/actions/workflows/${w}.yml/runs?per_page=100&page=${p}&created=>=${since}`, { headers: { authorization: `Bearer ${tok}`, accept: 'application/vnd.github+json' } });
+      const r = await fetch(`https://api.github.com/repos/${repo}/actions/workflows/${w}.yml/runs?per_page=100&page=${p}&created=>=${since}`, { headers: { authorization: `Bearer ${tok}`, accept: 'application/vnd.github+json' } });
       if (!r.ok) { console.error(`${w}: ${r.status}`); break; }
       const j = await r.json(); runs.push(...(j.workflow_runs || [])); if ((j.workflow_runs || []).length < 100) break;
     }

@@ -1,13 +1,12 @@
 // Số shard động cho việc nền nặng CPU (audio.yml – Kokoro): dùng hết runner rảnh nhưng luôn chừa RESERVE cho check PR (docs/CI-RUNNERS.md).
 //   shards = max(1, min(CAP, TOTAL − job đang chạy − RESERVE, ⌈việc / PER⌉))
 //   GITHUB_TOKEN=… node scripts/ci/shards.mjs --left N [--per 1500] [--cap 24] [--min 1: sàn khi CI đầy]   → in JSON mảng [0..shards-1]; lỗi API → coi như bận hết (1 shard)
-import { ghFetch } from '../lib/retry5xx.mjs';
 export const TOTAL = 40, RESERVE = 8;
 // min (mặc định 1): sàn shard khi CI đầy – việc dài (audio: 1 shard = 1 giờ+) thà xếp hàng vài shard nhỏ còn hơn 1 shard khổng lồ; không bao giờ quá ⌈việc/per⌉ hay cap.
 export const shardCount = ({ left, busy, per = 1500, cap = 24, min = 1 }) => { const need = Math.max(1, Math.min(cap, Math.ceil(left / per))); return Math.max(Math.min(min, need), Math.min(need, TOTAL - busy - RESERVE)); };
 /** Đếm job đang chạy; `video` = phần của teach-video (luật chủ 13/11: video tối đa 3 máy khi còn việc khác, CI rảnh thì lấy hết). */
 export async function busySplit(repo, token, api) {
-  const h = { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' }, get = async u => { const r = await ghFetch(`https://api.github.com/repos/${repo}/${u}`, { headers: h }); if (!r.ok) throw new Error(`${r.status} ${u}`); return r.json(); };
+  const h = { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' }, get = async u => { const r = await fetch(`https://api.github.com/repos/${repo}/${u}`, { headers: h }); if (!r.ok) throw new Error(`${r.status} ${u}`); return r.json(); };
   const fetchJson = api || get;
   let n = 0, video = 0;
   // Chỉ job ĐANG CHẠY mới chiếm runner (1/11: đếm cả job xếp hàng + lượt "queued" ma → 165 → chỉ 1 shard).

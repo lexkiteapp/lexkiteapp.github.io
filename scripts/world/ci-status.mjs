@@ -7,10 +7,9 @@ const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io',
 if (!T) { console.error('thiếu GITHUB_TOKEN'); process.exit(75); }
 // npm-test = ci.yml (không có file npm-test.yml: cổng này từng luôn null). Danh sách dùng chung với bản tin ci-triage.
 import { CORE_TESTS } from '../ci/triage.mjs';
-import { ghFetch } from '../lib/retry5xx.mjs';
 const WF = Object.entries(CORE_TESTS);
 const H = { Authorization: `Bearer ${T}`, Accept: 'application/vnd.github+json' };
-const api = p => ghFetch(`https://api.github.com/repos/${REPO}/${p}`, { headers: H }).then(r => r.ok ? r.json() : null).catch(() => null);
+const api = p => fetch(`https://api.github.com/repos/${REPO}/${p}`, { headers: H }).then(r => r.ok ? r.json() : null).catch(() => null);
 const out = { at: new Date().toISOString(), workflows: {}, mobile: null };
 for (const [key, w] of WF) {
   const j = await api(`actions/workflows/${w}/runs?branch=main&status=completed&per_page=5`);
