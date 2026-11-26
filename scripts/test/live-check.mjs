@@ -18,7 +18,16 @@ await page('/vi/', 'id="lk-route"'); await page('/en/', 'hreflang="x-default"');
 await page('/vi/blog/', '<h2'); await page('/en/blog/', 'Lexkite Blog');
 await page('/privacy'); await page('/terms'); await page('/ja/privacy'); await page('/sitemap.xml', '<loc>'); await page('/robots.txt', 'Sitemap');
 await check('sw.js = bản mới nhất', async () => { const live = liveHash(await (await get(B + '/sw.js?x=' + Date.now())).text()), local = shellHash('web'); if (live === local) return true; const lag = await deployLagMin(); /* Pages gom deploy 180' (PAGES_DEPLOY=hook): repo đi trước live ≤ 200' là bình thường, quá thế mới là kẹt */ if (lag != null && lag < SW_GRACE_MIN) { console.log(`⚠ sw.js live ${live || '?'} ≠ repo ${local} nhưng lượt Pages deploy thành công gần nhất cách đây ${lag}' (< ${SW_GRACE_MIN}') – đợi lượt gom kế`); return true; } return `live ${live || '?'} ≠ repo ${local} (deploy Cloudflare kẹt? lượt Pages deploy xanh gần nhất: ${lag == null ? 'không rõ' : lag + "'"})`; }); // hash nội dung (scripts/lib/sw-version.mjs) – web/sw.js giữ CACHE cố định
-for (const f of ['js/app.js', 'js/qengine.js', 'cpack/toeic/reading1.js', 'js/listen/test1.js', 'img/toeic/t1-p1-1.jpg']) await page('/' + f);
+for (const f of ['js/app.js', 'js/qengine.js', 'js/listen/test1.js', 'img/toeic/t1-p1-1.jpg']) await page('/' + f);
+// Gói nội dung tải lười (web/cpack) trên bản live có TÊN BĂM (scripts/build-cpack.mjs) → tên cố định luôn 404 (sai báo động 25–26/11, issue #1625). Đọc /cpack/manifest.json rồi kiểm: các gói trọng yếu + mỗi gói thứ 20 (xoay theo ngày) phải 200.
+await check('cpack/manifest.json + gói tải lười', async () => {
+  const r = await get(B + '/cpack/manifest.json'); if (!r.ok) return 'HTTP ' + r.status;
+  const m = await r.json(), keys = Object.keys(m).sort(); if (keys.length < 500) return 'manifest quá ít gói: ' + keys.length;
+  const must = ['cpack/toeic/reading1.js', 'cpack/toeic/listening1.js', 'cpack/qe/norm.js'].filter(k => !(k in m)); if (must.length) return 'manifest thiếu ' + must.join(', ');
+  const off = Math.floor(Date.now() / 864e5) % 20, pick = new Set(['cpack/toeic/reading1.js', 'cpack/toeic/listening1.js', 'cpack/qe/norm.js', ...keys.filter((_, i) => i % 20 === off)]), miss = [];
+  for (const k of pick) { const x = await get(B + '/' + m[k], { method: 'HEAD' }); if (!x.ok) miss.push(`${m[k]} (HTTP ${x.status})`); }
+  return miss.length ? 'gói 404: ' + miss.slice(0, 5).join(', ') : true;
+});
 await json('/api/config');
 await check('/api/hit (POST)', async () => { const r = await get(B + '/api/hit', { method: 'POST', body: '{}' }); return r.status < 500 || 'HTTP ' + r.status; });
 await check('/api/sync từ chối token giả', async () => { const r = await get(B + '/api/sync', { method: 'POST', headers: { Authorization: 'Bearer x.y.z' }, body: '{"op":"pull"}' }); return r.status === 401 || 'HTTP ' + r.status; });
