@@ -30,7 +30,10 @@ import { readText, bodyFail } from './_body.js';
 
 export const REDIRECT = 'https://lexkite.com/api/youtube/callback';
 export const SCOPE_UP = 'https://www.googleapis.com/auth/youtube.upload', SCOPE_RO = 'https://www.googleapis.com/auth/youtube.readonly';
-export const SCOPE = SCOPE_UP + ' ' + SCOPE_RO;
+export const SCOPE_MANAGE = 'https://www.googleapis.com/auth/youtube.force-ssl'; // 26/11: videos.update (dời publishAt, ẩn video sai ngôn ngữ) – upload+readonly chưa đủ (403)
+export const SCOPE = SCOPE_UP + ' ' + SCOPE_RO + ' ' + SCOPE_MANAGE;
+/** Kênh có quyền sửa video không? (scope lưu theo kênh lúc nối; kênh nối trước 26/11 không có → 'quyền cũ', phải Nối lại). */
+export const canManage = ch => /\/auth\/youtube(\.force-ssl)?(\s|$)/.test(String((ch && ch.scope) || ''));
 export const MODES = ['manual', 'api'];
 export const scopeFor = mode => (mode === 'api' ? SCOPE : SCOPE_RO);
 export const STUDIO = 'https://studio.youtube.com/';
@@ -66,7 +69,7 @@ export async function setup(db) {
 }
 
 let COLS = false; // additive columns (idempotent: duplicate-column errors are expected after the first run)
-async function addCols(db) { if (COLS) return; for (const q of ['ALTER TABLE yt_channel ADD COLUMN thumb TEXT', 'ALTER TABLE yt_queue ADD COLUMN channel_id TEXT']) { try { await db.prepare(q).run(); } catch (e) { /* exists */ } } COLS = true; }
+async function addCols(db) { if (COLS) return; for (const q of ['ALTER TABLE yt_channel ADD COLUMN thumb TEXT', 'ALTER TABLE yt_queue ADD COLUMN channel_id TEXT', 'ALTER TABLE yt_channel ADD COLUMN scope TEXT']) { try { await db.prepare(q).run(); } catch (e) { /* exists */ } } COLS = true; }
 
 // ---------- pure helpers (tested in scripts/test/shorts-scale.mjs) ----------
 /** Quota day = calendar date in America/Los_Angeles (YouTube resets at midnight Pacific). */
@@ -352,7 +355,7 @@ const planInfo = async db => { const m = new Map(); for (const r of await all(db
 const ADMIN_OPS = {
   async status(db, b, who, env) {
     const def = await channelRow(db), nv = Object.fromEntries((await all(db, 'SELECT channel_id, COUNT(*) AS n FROM yt_queue WHERE channel_id IS NOT NULL GROUP BY channel_id')).map(r => [r.channel_id, r.n]));
-    const channels = (await all(db, 'SELECT channel_id, title, status, thumb, created, last_ok, err FROM yt_channel ORDER BY id')).map(r => ({ ...r, is_default: !!def && r.channel_id === def.channel_id, videos: nv[r.channel_id] || 0 }));
+    const channels = (await all(db, 'SELECT channel_id, title, status, thumb, created, last_ok, err, scope FROM yt_channel ORDER BY id')).map(({ scope: sc, ...r }) => ({ ...r, manage: canManage({ scope: sc }), is_default: !!def && r.channel_id === def.channel_id, videos: nv[r.channel_id] || 0 }));
     const ch = channels.find(r => r.is_default) || channels[channels.length - 1] || null; // legacy single-channel field = the selected one
     const c = await counts(db), st = await getMeta(db, 'privacy'), mode = await modeOf(db, env), scope = await getMeta(db, 'scope');
     let sync = null; try { sync = JSON.parse(await getMeta(db, 'sync') || 'null'); } catch (e) { /* bỏ qua */ }
@@ -418,14 +421,14 @@ const ADMIN_OPS = {
       const item = { clip: r.clip, channel_id: r.channel_id, video_id: r.video_id, at: r.publish_at };
       if (!apply) { out.hidden.push(item); continue; }
       const q = await quotaInfo(db); if (q.left < QUOTA.update + QUOTA.reserve) { out.skipped.push({ clip: r.clip, why: 'quota' }); break; }
-      const ch = await channelRow(db, r.channel_id); if (!ch) { out.skipped.push({ clip: r.clip, why: 'not-connected' }); continue; }
+      const ch = await channelRow(db, r.channel_id); if (!ch) { out.skipped.push({ clip: r.clip, why: 'not-connected' }); continue; } if (!canManage(ch)) { out.skipped.push({ clip: r.clip, channel_id: r.channel_id, why: 'old-scope' }); continue; } // quyền cũ: không gọi API, không đốt hạn mức – bấm Nối lại ở admin
       try {
         const at = await accessToken(env, db, ch), g = await gfetch(`https://www.googleapis.com/youtube/v3/videos?part=status&id=${encodeURIComponent(r.video_id)}`, { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
         const cur = (((await g.json().catch(() => ({}))).items || [])[0] || {}).status;
         if (!cur) { out.skipped.push({ clip: r.clip, why: 'not-found' }); continue; }
         if (cur.privacyStatus !== 'private') {
           const u = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status', { method: 'PUT', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json' }, body: JSON.stringify({ id: r.video_id, status: { ...cur, privacyStatus: 'private' } }) }); await spend(db, QUOTA.update);
-          if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); continue; }
+          if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); if (u.status === 403) { out.need_scope = 'youtube.force-ssl (token chỉ có upload+readonly: videos.update bị từ chối) – dừng để khỏi đốt hạn mức'; break; } continue; }
         }
         await run(db, 'UPDATE yt_queue SET err = ?, updated = ? WHERE clip = ?', 'wrong-lang-hidden ' + new Date(now).toISOString().slice(0, 10), Date.now(), r.clip); out.hidden.push({ ...item, was: cur.privacyStatus });
       } catch (e) { out.skipped.push({ clip: r.clip, why: 'error' }); }
@@ -449,13 +452,13 @@ const ADMIN_OPS = {
       const to = new Date(np).toISOString(), item = { clip: r.clip, channel_id: r.channel_id, video_id: r.video_id, from: r.publish_at, to };
       if (!apply) { out.changed.push(item); continue; }
       const q = await quotaInfo(db); out.quota_left = q.left; if (q.left < QUOTA.update + QUOTA.reserve) { out.skipped.push({ clip: r.clip, why: 'quota' }); break; }
-      const ch = await channelRow(db, r.channel_id); if (!ch) { out.skipped.push({ clip: r.clip, why: 'not-connected' }); continue; }
+      const ch = await channelRow(db, r.channel_id); if (!ch) { out.skipped.push({ clip: r.clip, why: 'not-connected' }); continue; } if (!canManage(ch)) { out.skipped.push({ clip: r.clip, channel_id: r.channel_id, why: 'old-scope' }); continue; } // quyền cũ: không gọi API, không đốt hạn mức – bấm Nối lại ở admin
       try {
         const at = await accessToken(env, db, ch), g = await gfetch(`https://www.googleapis.com/youtube/v3/videos?part=status&id=${encodeURIComponent(r.video_id)}`, { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
         const cur = (((await g.json().catch(() => ({}))).items || [])[0] || {}).status;
         if (!cur || cur.privacyStatus !== 'private' || !cur.publishAt || Date.parse(cur.publishAt) <= now + 36e5) { out.skipped.push({ clip: r.clip, why: 'not-scheduled' }); continue; }
         const u = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status', { method: 'PUT', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json' }, body: JSON.stringify({ id: r.video_id, status: { ...cur, privacyStatus: 'private', publishAt: to } }) }); await spend(db, QUOTA.update);
-        if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); continue; }
+        if (!u.ok) { out.skipped.push({ clip: r.clip, why: 'yt-' + u.status }); if (u.status === 403) { out.need_scope = 'youtube.force-ssl (token chỉ có upload+readonly: videos.update bị từ chối) – dừng để khỏi đốt hạn mức'; break; } continue; }
         await run(db, 'UPDATE yt_queue SET publish_at = ?, updated = ? WHERE clip = ?', to, Date.now(), r.clip); out.changed.push(item);
       } catch (e) { out.skipped.push({ clip: r.clip, why: 'error' }); }
     }
@@ -800,9 +803,9 @@ export async function handleCallback(request, env) {
     if (!ch.ok) return fail('api-' + String(((((cj.error || {}).errors || [])[0]) || {}).reason || ch.status).replace(/[^\w-]/g, '').slice(0, 30)); // e.g. api-accessNotConfigured = YouTube Data API off in the GCP project
     if (!item || !item.id) return fail('no-channel');
     const e = await encryptToken(env, t.refresh_token, item.id, 'youtube'), now = Date.now();
-    await run(env.DB, `INSERT INTO yt_channel (channel_id, title, email, enc_token, iv, status, created, last_ok, by_who, thumb) VALUES (?, ?, NULL, ?, ?, 'ok', ?, ?, ?, ?)
-      ON CONFLICT(channel_id) DO UPDATE SET title = excluded.title, thumb = excluded.thumb, enc_token = excluded.enc_token, iv = excluded.iv, status = 'ok', err = NULL, last_ok = excluded.last_ok, by_who = excluded.by_who`,
-      item.id, String((item.snippet || {}).title || '').slice(0, 120), e.enc_token, e.iv, now, now, st.e, thumbOf(item));
+    await run(env.DB, `INSERT INTO yt_channel (channel_id, title, email, enc_token, iv, status, created, last_ok, by_who, thumb, scope) VALUES (?, ?, NULL, ?, ?, 'ok', ?, ?, ?, ?, ?)
+      ON CONFLICT(channel_id) DO UPDATE SET title = excluded.title, thumb = excluded.thumb, enc_token = excluded.enc_token, iv = excluded.iv, status = 'ok', err = NULL, last_ok = excluded.last_ok, by_who = excluded.by_who, scope = excluded.scope`,
+      item.id, String((item.snippet || {}).title || '').slice(0, 120), e.enc_token, e.iv, now, now, st.e, thumbOf(item), granted.join(' '));
     const dflt = await getMeta(env.DB, 'default_channel'); if (!dflt || !(await channelRow(env.DB, dflt))) await setMeta(env.DB, 'default_channel', item.id); // first channel becomes the target; later ones are picked in the admin
     await setMeta(env.DB, 'scope', granted.filter(x => /^https:\/\/www\.googleapis\.com\/auth\/youtube/.test(x)).join(' '));
     TOKS.delete(item.id);
