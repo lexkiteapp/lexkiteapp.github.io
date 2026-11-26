@@ -27,7 +27,7 @@ import com.lexkite.app.ui.TopBar
 import com.lexkite.app.ui.TopBarVariant
 
 /** Web hash routes (first path segment) that [SkillsRoute] draws. */
-val SKILLS_ROUTES: Set<String> = setOf("listening", "listen", "listen-test", "dictation", "reading", "read")
+val SKILLS_ROUTES: Set<String> = setOf("listening", "listen", "listen-test", "dictation", "reading", "read", "watch")
 
 @Composable
 private fun Loading(exit: () -> Unit) = StudyPage(t(L10nKey.actionLoading), exit) {}
@@ -37,11 +37,11 @@ private fun Loading(exit: () -> Unit) = StudyPage(t(L10nKey.actionLoading), exit
 private fun Fallback(missing: Boolean, route: String, replace: (String) -> Unit) { if (missing) LaunchedEffect(Unit) { replace(route) } }
 
 /**
- * The listening + reading destinations of the app frame: `listening`, `listen/<part>[?mode=exam]`, `listen-test/<n>`, `dictation/<part>[?m=mid|hard|full]`, `reading`, `read/<id>`.
+ * The listening + reading + watch destinations of the app frame: `watch[/<id|link>[?t=]]`, `listening`, `listen/<part>[?mode=exam]`, `listen-test/<n>`, `dictation/<part>[?m=mid|hard|full]`, `reading`, `read/<id>`.
  * [open] navigates to another web-style route, [replace] does the same without keeping this screen, [exit] goes back.
  */
 @Composable
-fun SkillsRoute(env: SkillsEnv, page: String, arg: String, query: String, open: (String) -> Unit, replace: (String) -> Unit, exit: () -> Unit) {
+fun SkillsRoute(env: SkillsEnv, page: String, arg: String, query: String, open: (String) -> Unit, replace: (String) -> Unit, exit: () -> Unit, watch: WatchSlots = WatchSlots()) {
     val q = remember(query) { parseQuery(query) }
     val go = { h: String -> open(h.removePrefix("#/")) }
     val key = "$page/$arg?$query"
@@ -75,6 +75,7 @@ fun SkillsRoute(env: SkillsEnv, page: String, arg: String, query: String, open: 
             if (ui == null) Loading(exit) else ReaderScreen(ui, ReaderActions(toggle = { vm.toggle(it) }, word = { w, s -> vm.word(w, s) }, keyword = { vm.keyword(it) }, saveAll = { vm.saveAll() }, readAloud = { vm.readAloud() }, pick = { i, v -> vm.pick(i, v) },
                 grade = { vm.grade() }, confirm = { vm.confirm(it) }, closePopup = { vm.closePopup() }, savePopup = { vm.savePopup() }, speakWord = { vm.speakWord() }, details = { ui.popup?.let { p -> open("dict/" + p.word) } }, open = go, exit = exit))
         }
+        "watch" -> WatchRoute(env, arg, q, watch, go, exit)
         "reading" -> {
             val vm: ReadingVm = viewModel(key = "reading-$key", factory = ReadingVm.Factory(env, q))
             val ui = vm.ui
@@ -96,6 +97,7 @@ fun SkillsHubRoute(open: (String) -> Unit) {
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = LKSpacing.gutter, vertical = LKSpacing.spaceXs), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
             LKCard(onClick = { open("listening") }, label = t(L10nKey.skillListenLuyenNgheIelts)) { Body("🎧 " + t(L10nKey.skillListenLuyenNgheIelts), style = LKType.titlePill); Muted(t(L10nKey.skillListenThiThu40Cau)) }
             LKCard(onClick = { open("reading") }, label = t(L10nKey.skillReadBaiDocIelts)) { Body("📖 " + t(L10nKey.skillReadBaiDocIelts), style = LKType.titlePill); Muted(t(L10nKey.skillReadNCauTrueFalse, mapOf("n" to 5))) }
+            LKCard(onClick = { open("watch") }, label = t(L10nKey.watchTitle)) { Body("🎬 " + t(L10nKey.watchTitle), style = LKType.titlePill); Muted(t(L10nKey.watchPitch)) }
             // M4 P07: speaking, pronunciation and the other speaking games (screens in :feature-speak; titles are the web's source keys, translated from the speak.* ids)
             LKCard(onClick = { open("interpret") }, label = t(L10nKey.interpretTitle)) { Body("🌐 " + t(L10nKey.interpretTitle), style = LKType.titlePill); Muted(t(L10nKey.interpretFaceToFace)) }
             val tr = t
