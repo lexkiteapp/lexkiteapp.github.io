@@ -12,7 +12,7 @@ concurrency: { group: ci-filler, cancel-in-progress: false }
 jobs:
   fill:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with: { sparse-checkout: "scripts/ci\nscripts/lib\ninfra", sparse-checkout-cone-mode: true }
