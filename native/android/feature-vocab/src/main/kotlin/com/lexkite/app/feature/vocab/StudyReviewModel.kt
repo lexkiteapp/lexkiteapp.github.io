@@ -6,6 +6,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.lexkite.app.core.SRS
+import com.lexkite.app.core.SRSParams
+import com.lexkite.app.core.settings.LearnSettings
 import com.lexkite.app.core.sync.SyncDoc
 import com.lexkite.app.core.today.TodayModel
 import com.lexkite.app.core.vocab.CardMath
@@ -73,6 +76,7 @@ internal class ReviewVm(private val env: VocabEnv, private val query: Map<String
 
     private lateinit var data: VocabEnv.Loaded
     private var sess: Review.Session? = null
+    private var engine = SRS()
     private var game: kotlinx.serialization.json.JsonElement? = null
     private var seen: Map<String, Long> = emptyMap()
     private var library: List<JsonObject> = emptyList()
@@ -96,7 +100,8 @@ internal class ReviewVm(private val env: VocabEnv, private val query: Map<String
             "allDone" -> ui = ReviewUi.Done(summary(null))
             else -> {
                 val cards = LinkedHashMap<String, JsonObject>(); data.cards.values.forEach { cards[it.gs("word").lowercase()] = it }
-                sess = Review.Session(o.queue, cards, data.stats ?: JsonObject(emptyMap()))
+                engine = SRS(SRSParams.FSRS5.copy(retentionTarget = LearnSettings.from(data.settings).retention)) // Settings › retention (web app.js SRS.retentionTarget)
+                sess = Review.Session(o.queue, cards, data.stats ?: JsonObject(emptyMap()), engine)
                 show()
             }
         }
@@ -128,14 +133,14 @@ internal class ReviewVm(private val env: VocabEnv, private val query: Map<String
             sentences = c.ga("sentences").mapNotNull { it as? JsonObject }.map { it.gs("en") to it.gs("vi") },
             col = c.ga("col").map { it.vs() }, syn = c.ga("syn").map { it.vs() }, note = c.gs("note"),
             retention = CardMath.retention(srs, now)?.let { floor(it * 100 + 0.5).toInt() }, lapses = srs.gn("lapses").toInt(), isNew = CardMath.isNew(c), reverse = s.reverse,
-            mode = pick.mode, options = pick.options?.all.orEmpty(), right = pick.options?.right ?: -1, previews = (0..3).map { Review.preview(srs, it, now) },
+            mode = pick.mode, options = pick.options?.all.orEmpty(), right = pick.options?.right ?: -1, previews = (0..3).map { Review.preview(srs, it, now, engine) },
         )
         ui = ReviewUi.Card(card, flipped || answer != null, answer, s.done, s.total, s.queue.size, s.canUndo, hints, picked, notice, noticeOk, aidText, busy, env.ai != null)
     }
     private fun slash(ipa: String) = if (ipa.isBlank()) "" else "/" + ipa.trim().trim('/') + "/"
 
     // ---- actions ----
-    fun flip() { if (flipped) return; flipped = true; publish(); val c = card() ?: return; if (sess?.reverse == true || data.settings["autoSpeak"]?.vs() == "true") env.sayWord(c.gs("word"), data.accent) }
+    fun flip() { if (flipped) return; flipped = true; publish(); val c = card() ?: return; if (sess?.reverse == true || LearnSettings.from(data.settings).autoSpeak) env.sayWord(c.gs("word"), data.accent) }
     private fun card(): JsonObject? = sess?.let { s -> s.queue.firstOrNull()?.let { s.cards[it] } }
 
     fun grade(g: Int) {

@@ -16,6 +16,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.CloudSync
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -53,7 +54,7 @@ interface MeActions {
 
 /** Me hub, M1 part = account & sync card (C01/C02). Guests keep using everything; sign-in only adds backup + multi-device. */
 @Composable
-fun MeScreen(s: MeState, a: MeActions, now: Long = System.currentTimeMillis()) {
+fun MeScreen(s: MeState, a: MeActions, now: Long = System.currentTimeMillis(), onSettings: (() -> Unit)? = null) {
     val c = LocalLKColors.current; val t = LocalL10n.current
     Column(Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = LKSpacing.gutter, vertical = LKSpacing.spaceMd), verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceMd)) {
         LKCard {
@@ -81,6 +82,7 @@ fun MeScreen(s: MeState, a: MeActions, now: Long = System.currentTimeMillis()) {
             }
             if (s.error != null) Text(t(L10nKey.acctSignInFail, mapOf("msg" to s.error)), style = LKType.bodySm.toCompose(), color = c.error)
         }
+        if (onSettings != null) Group { NavRow(Icons.Filled.Settings, Tone.N2, t(L10nKey.setTitle), null, "me-settings", onSettings) }
     }
     if (s.sync.state == SyncState.NEEDS_ACCOUNT_CHOICE) AlertDialog(
         onDismissRequest = {},
