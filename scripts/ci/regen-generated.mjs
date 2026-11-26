@@ -21,13 +21,11 @@ if (process.argv.includes('--needed')) {
   try { if (base) { execFileSync('git', ['fetch', '-q', '--depth=1', 'origin', base], { cwd: ROOT, stdio: 'ignore' }); files = execFileSync('git', ['diff', '--name-only', base, 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).split('\n').filter(Boolean); } } catch { files = null; }
   if (files && !needsRegen(files, ext)) { console.log('• gen-if-needed: PR không đổi nguồn bản sinh – bỏ qua'); process.exit(0); }
   execFileSync('node', ['scripts/i18n-pack.mjs'], { cwd: ROOT, stdio: ['ignore', 'ignore', 'inherit'] });
-  for (const tl of ['es', 'fr']) if (fs.existsSync(path.join(ROOT, 'content/target', tl))) execFileSync('node', ['scripts/target/drill-pack.mjs', '--tl', tl], { cwd: ROOT, stdio: ['ignore', 'ignore', 'inherit'] });
   if (ext && fs.existsSync(path.join(ROOT, 'scripts/build-extension.sh'))) { execFileSync('bash', ['scripts/build-extension.sh'], { cwd: ROOT, stdio: ['ignore', 'ignore', 'inherit'] }); try { execFileSync('git', ['checkout', '-q', '--', 'extension/academic.json'], { cwd: ROOT }); } catch { /* không đổi */ } }
   console.log('✓ gen-if-needed: bản sinh dựng lại từ nguồn của PR'); process.exit(0);
 }
 const run = (c, a) => execFileSync(c, a, { cwd: ROOT, stdio: ['ignore', 'ignore', 'inherit'] });
 run('node', ['scripts/i18n-pack.mjs']);
-for (const tl of ['es', 'fr']) if (fs.existsSync(path.join(ROOT, 'content/target', tl))) run('node', ['scripts/target/drill-pack.mjs', '--tl', tl]);   // 26/11: gói es/fr sinh từ content/target
 run('bash', ['scripts/build-extension.sh']);   // chạy lại i18n-pack (idempotent) rồi chép web/ → extension/app
 try { run('git', ['checkout', '-q', '--', 'extension/academic.json']); } catch { /* không phải kho git / không đổi */ } // như prepush: bỏ thay đổi phụ
 if (fs.existsSync(path.join(ROOT, 'scripts/jobs/gen.mjs'))) run('node', ['scripts/jobs/gen.mjs', '--derived']);   // docs/JOBS.md + functions/api/_jobs_reg.js từ infra/jobs.json (25/11)
