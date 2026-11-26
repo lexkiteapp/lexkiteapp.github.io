@@ -11,7 +11,7 @@ let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };
 const suite = fs.readFileSync('scripts/test/suite.txt', 'utf8').split('\n').map(l => l.trim());
 
 // ---- 1) check rẻ + bisect + revert
-ok(['size-budget', 'docs-budget', 'content-qa', 'fmt'].every(id => CHEAP.some(c => c.id === id)), 'đủ 4 check rẻ');
+ok(['size-budget', 'docs-budget', 'content-qa', 'fmt', 'conflict-markers'].every(id => CHEAP.some(c => c.id === id)), 'đủ 5 check rẻ (có conflict-markers)');
 for (const c of CHEAP) ok(suite.includes(c.cmd), `${c.id}: lệnh phải có NGUYÊN DÒNG trong suite.txt (đỏ ở đây = đỏ trong npm test)`);
 for (let len = 2; len <= 11; len++) for (let bad = 1; bad < len; bad++) {   // w[0] xanh, w[bad..] đỏ → firstBad(len-1, i=>i+1>=bad) = bad-1 (chỉ số trong ứng viên)
   let calls = 0; const k = firstBad(len - 1, i => { calls++; return i + 1 >= bad; });
