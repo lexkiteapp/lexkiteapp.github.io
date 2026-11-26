@@ -40,6 +40,9 @@ ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(fu
   ok(/tiền tố chung: css\/st-v2-ux1-pre\.css/.test(rd('web/css/st-v2-practice.css')) && /ux1: \['css\/st-home\.css', 'css\/st-v2-ux1-pre\.css'\]/.test(rd('web/js/app.js')) && /u1home: \['css\/st-v2-path\.css'/.test(rd('web/js/app.js')) && /b\.unshift\('ux1', \.\.\.scr\)/.test(rd('web/js/app.js')), 'gói ux1 nạp tiền tố chung st-v2-ux1-pre.css trước các màn v2');
   ok(!/pt-safe/.test(sh) || /\.st \.pt-safe\{padding-top:env\(safe-area-inset-top/.test(sv), 'lớp pt-safe của đầu trang Stitch có luật env(safe-area-inset-top)');
   ok(/\.st \.pb-safe\{padding-bottom:env\(safe-area-inset-bottom/.test(sv), 'lớp pb-safe có luật env(safe-area-inset-bottom)');
+  { const st = rd('web/css/style.css'), sy = rd('web/js/say.js');
+    ok(/\.view \{ --view-pb: calc\(6\.5rem \+ env\(safe-area-inset-bottom/.test(st) && /body\.ux1\.v2on #view, body\.ux1\.v2pre #view \{ padding-bottom: env\(safe-area-inset-bottom/.test(st), 'nội dung cuối không bị thanh tab dưới che trên iPhone (đệm đáy cộng safe-area, cả trang thường lẫn màn Stitch)');
+    ok(!/truncate[^>]*lang="en"/.test(sy) && /i-dir[^>]*>chevron_right/.test(sy), 'Nói như người bản xứ: tên loạt xuống dòng (không cắt …), chevron lật ở RTL'); }
   ok(/:is\(a,button\)\[class\*="after:absolute"\]::after\{min-width:44px;min-height:44px\}/.test(sv), 'liên kết/nút mở vùng chạm bằng ::after có min 44 × 44 px'); }
 // Một nút đổi ngôn ngữ (đo render thật: topbar-lang.mjs): khung máy tính không tự vẽ viên thứ hai cạnh #langBtn; viên thanh trên cùng một token cao, viên chuỗi không nền/viền riêng
 { const sv = rd('web/css/st-v2-ux1-pre.css');

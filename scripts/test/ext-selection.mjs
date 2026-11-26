@@ -70,6 +70,7 @@ const chips = r => [...r.querySelectorAll('.lw.chipw')].map(x => x.textContent);
   // (2) Dịch: nguồn tự nhận + gợi ý vi, không bao giờ để trống
   const m = p.sent.find(x => x.type === 'translate');
   ok(m && m.sl === 'auto' && m.hint === 'vi' && m.tl === 'en', `đoạn lẫn Việt + Anh → sl=auto, hint=vi, tl=en (được: ${m && [m.sl, m.hint, m.tl].join('/')})`);
+  for (let i = 0; i < 40 && !(r.querySelector('#tr') || {}).textContent; i++) await sleep(50); // bản dịch về qua promise: chờ tới 2 s thay vì cố định 120 ms (flaky trên runner chậm, PR #2140 shard 2/8 26/11)
   ok(r.querySelector('#tr').textContent.includes('Testing add-on'), 'hiện bản dịch tiếng Anh cho đoạn lẫn Việt + Anh');
   ok(r.querySelector('#lang').textContent === 'VI → EN', `chip ngôn ngữ dạng "VI → EN" (được: ${r.querySelector('#lang').textContent})`);
   ok(/→/.test(r.querySelector('#lang').title) && /Vietnamese/.test(r.querySelector('#lang').title), 'chip ngôn ngữ có chú thích tên ngôn ngữ đầy đủ');

@@ -381,6 +381,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "main-red-retry",
+   "workflow": "main-red-retry.yml",
+   "cron": [
+    "13,43 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ai-canary",
    "workflow": "ai-canary.yml",
    "cron": [
@@ -1208,7 +1222,7 @@ export const REG = {
    ],
    "minutes": 120,
    "est": {
-    "grabcast_images": 6000,
+    "grabcast_images": 0,
     "grabcast_text": 300,
     "shards_max": 10,
     "per_shard_images": "max_gc / shards",

@@ -165,6 +165,11 @@ export async function kaikki(lang, w) {
   console.error('✗ kaikki.org không trả lời (' + w + ') – dừng lượt'); process.exit(3);
 }
 
+// espeak-ng in cờ đổi ngôn ngữ ((en)ʃəʊ(fr)) khi từ điển của nó coi từ là từ ngoại → IPA đó sai cho người học tl. wiktIpa: IPA đầu tiên hợp lệ của các mục Wiktionary
+// (bỏ / [ ] dấu nhấn ‿ ngắt âm tiết như quy ước espeak không nhấn; bỏ biến thể có âm tuỳ chọn trong ngoặc) – '' khi không có
+export const LANG_SWITCH = /\([a-z]{2,3}(-[a-z]+)?\)/;
+export const wiktIpa = es => es.flatMap(e => (e.sounds || []).map(x => x.ipa)).filter(x => x && !/[()]/.test(x)).map(x => x.replace(/[/[\]ˈˌ‿.]/g, '').trim()).find(x => x && IPA_OK.test(x.normalize('NFD'))) || '';
+
 // LanguageTool tự chạy trên runner (spanish-course.md §5.1; dựng bằng scripts/ci/lt-up.sh): mọi lỗi (kể cả chính tả/dấu câu) = loại; lỗi mạng = ném (dừng lượt, không bỏ cổng)
 export async function ltErrors(url, lang, text) {
   const r = await fetch(url + '/v2/check', { method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ text, language: lang }) });

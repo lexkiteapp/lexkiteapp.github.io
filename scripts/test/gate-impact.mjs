@@ -1,5 +1,5 @@
 // Test gate-impact: chọn PR + chọn lệnh + overlay + báo cáo (thuần, không mạng).
-import { isGateFile, gateFiles, impactCmds, selectPrs, overlayOf, render, MAX_PRS, MARK } from '../ci/gate-impact.mjs';
+import { isGateFile, gateFiles, impactCmds, selectPrs, overlayOf, render, MAX_PRS, MARK, postReport } from '../ci/gate-impact.mjs';
 let bad = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} ${m}`); if (!c) bad++; };
 ok(['scripts/test/a.mjs', 'scripts/lib/x-rules.mjs', '.github/workflows/w.yml', 'web/size-baseline.json'].every(isGateFile), 'nhận diện tệp cổng');
 ok(!isGateFile('web/js/app.js') && !isGateFile('docs/a.md'), 'tệp thường không phải cổng');
@@ -21,4 +21,13 @@ ok(overlayOf(['scripts/test/a.mjs', 'scripts/test/b.mjs', 'web/z.js'], ['scripts
 const m = render([{ pr: 1, ok: true, bad: [] }, { pr: 2, ok: false, bad: [{ cmd: 'node scripts/test/a.mjs', tail: '✗ x' }] }, { pr: 3, ok: false, error: 'mạng', bad: [] }], { self: 7, cmds: ['c'], skipped: 0 });
 ok(!m.ok && m.red.length === 1 && m.md.includes(MARK) && m.md.includes('#2') && m.md.includes('Không đo được') && /#3/.test(m.md), 'báo cáo: đỏ + không đo được tách riêng');
 ok(render([{ pr: 1, ok: true, bad: [] }], { self: 7 }).ok, 'tất cả xanh → ok');
+// postReport: comment lỗi tạm/403 không làm đỏ job (26/11, #1938); luật impact không phụ thuộc comment
+{ const err = (status, retryAfter = 0) => Object.assign(new Error('GitHub ' + status), { status, retryAfter }), slept = [], sleep = async ms => { slept.push(ms); };
+  const mk = (fails, existing = []) => { const calls = []; let n = 0; const api = async (p, o = {}) => { calls.push((o.method || 'GET') + ' ' + p); if (p.includes('?per_page')) return existing; if (n < fails.length) throw fails[n++]; return {}; }; return { api, calls }; };
+  let r = mk([]); let o = await postReport(r.api, 7, 'md', { sleep }); ok(o.posted && r.calls.some(c => c.startsWith('POST /issues/7/comments')), 'đăng comment mới khi chưa có');
+  r = mk([], [{ id: 5, body: 'x ' + MARK }]); o = await postReport(r.api, 7, 'md', { sleep }); ok(o.posted && r.calls.some(c => c === 'PATCH /issues/comments/5'), 'có comment cũ → cập nhật');
+  r = mk([err(403, 20)]); slept.length = 0; o = await postReport(r.api, 7, 'md', { sleep }); ok(o.posted && slept[0] === 20000, '403 có retry-after → chờ đúng rồi đăng được');
+  r = mk([err(403), err(403), err(403)]); o = await postReport(r.api, 7, 'md', { sleep }); ok(!o.posted && /403/.test(o.error), '403 mãi → không ném, trả posted:false để job chỉ cảnh báo');
+  r = mk([err(404)]); slept.length = 0; o = await postReport(r.api, 7, 'md', { sleep }); ok(!o.posted && !slept.length, '404 → bỏ ngay, không chờ');
+  r = mk([err(502)]); o = await postReport(r.api, 7, 'md', { sleep }); ok(o.posted, '5xx → thử lại được'); }
 if (bad) process.exit(1);
