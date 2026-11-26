@@ -49,10 +49,11 @@ export function verdict(status, mainSha) {
   return 'inconclusive';                                                                            // đỏ/lỗi: không tin → đòi gộp main như cũ
 }
 
-/** Hàm thuần: tệp main đổi (mainChanged) trừ tệp PR cũng đổi (prChanged), chỉ trong scripts/ → danh sách ghi đè lên head PR (test + thư viện nó nhập). */
+/** 26/11: thêm functions/ + infra/ – test trong scripts/test import mã ở functions/ (yt-fill.mjs ↔ functions/api/youtube.js, #2116): chỉ ghi đè test mà không ghi đè mã nó kiểm → đỏ giả trên #1945.
+ *  Hàm thuần: tệp main đổi (mainChanged) trừ tệp PR cũng đổi (prChanged), chỉ trong scripts/ → danh sách ghi đè lên head PR (test + thư viện nó nhập). */
 export function overlayFiles(mainChanged = [], prChanged = []) {
   const pr = new Set(prChanged);
-  return mainChanged.filter(f => /^(scripts\/|\.github\/workflows\/)/.test(f) && !pr.has(f));
+  return mainChanged.filter(f => /^(scripts\/|functions\/|infra\/|\.github\/workflows\/)/.test(f) && !pr.has(f));
 }
 
 const sh = (cmd, args, opt = {}) => execFileSync(cmd, args, { encoding: 'utf8', maxBuffer: 1 << 26, stdio: ['ignore', 'pipe', 'pipe'], ...opt });
