@@ -5,6 +5,9 @@
 import { DatabaseSync } from 'node:sqlite';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
+// Đồng hồ CỐ ĐỊNH (26/11, như #2111 fcm-push): giờ thật làm slot/ngày lệch khi job chạy qua 00:00Z (ngày tính ở đầu test ≠ ngày mã đang chạy) → đỏ chập chờn. Cố định 10:00:00Z hôm nay; kiểm tra, ngưỡng giữ nguyên.
+{ const R = Date, d = new R(); d.setUTCHours(10, 0, 0, 0); const FIXED = d.getTime();
+  globalThis.Date = class extends R { constructor(...a) { if (a.length) super(...a); else super(FIXED); } static now() { return FIXED; } }; }
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 const store = new Map();
