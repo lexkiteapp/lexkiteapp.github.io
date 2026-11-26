@@ -24,7 +24,8 @@ export function lazyModel() {
   const all = walk('web');
   for (const h of all.filter(f => f.endsWith('.html'))) for (const m of rd(h).matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)) lazy.delete('web/' + m[1].replace(/^(\.\.\/)+|^\//, '').replace(/\?.*/, ''));
   const ext = fs.existsSync('extension') ? walk('extension').filter(f => !f.startsWith('extension/app/')) : [];
-  const keepText = [...all.filter(f => !lazy.has(f) && !f.startsWith('web/css/')), ...ext].map(rd).join('\n');
+  // gói dữ liệu từ vựng (web/packs/**.json) là chữ học viên đọc, không bao giờ chứa tên class – bỏ khỏi văn bản khung (lô fr 3: nghĩa "imprint" chứa "mprin" → .mprin bị coi là dùng ở khung)
+  const keepText = [...all.filter(f => !lazy.has(f) && !f.startsWith('web/css/') && !/^web\/packs\/.*\.json$/.test(f)), ...ext].map(rd).join('\n');
   const lazyText = [...lazy].filter(f => fs.existsSync(f)).map(rd).join('\n');
   const dyn = [...keepText.matchAll(/['"`\s.]([A-Za-z]\w*(?:-\w+)*)[-_](?:\$\{|['"`]\s*\+)/g)].map(m => m[1] + '-');
   const inKeep = c => keepText.includes(c) || dyn.some(p => c.startsWith(p));

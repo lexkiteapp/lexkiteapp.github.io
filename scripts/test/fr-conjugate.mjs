@@ -49,6 +49,10 @@ finir|futAnt|aurai fini auras fini aura fini aurons fini aurez fini auront fini
 partir|futProche|vais partir vas partir va partir allons partir allez partir vont partir
 arriver|passeRecent|viens d'arriver viens d'arriver vient d'arriver venons d'arriver venez d'arriver viennent d'arriver
 se lever|pres|lève lèves lève levons levez lèvent
+luire|part|lui
+luire|ps|luisis luisis luit luisîmes luisîtes luisirent
+luire|subjImpf|luisisse luisisses luisît luisissions luisissiez luisissent
+évanouir|pc|suis évanoui es évanoui est évanoui sommes évanouis êtes évanouis sont évanouis
 `.trim().split('\n');
 let n = 0, bad = 0;
 const words = (v, t) => t === 'part' || t === 'ppres' ? [form(v, t)] : form(v, t).map(x => x.split(' ')).flat();
