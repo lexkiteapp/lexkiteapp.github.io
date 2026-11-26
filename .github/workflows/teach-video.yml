@@ -55,6 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
+      - run: pip install -q pillow==11.0.0   # teach2d-store-cards.py (#1880) cần PIL; thiếu → preqc đỏ, mọi lượt teach-video không render
       - name: Specs regenerate identically + reviewed scripts
         env: { EV: '${{ github.event_name }}', BASE: '${{ github.base_ref }}' }
         run: |

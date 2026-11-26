@@ -184,7 +184,8 @@
       "title": "Interpreter: two people face to face (top half turned 180°), per-side mic, on-device speech → translate → speak, travel phrasebook, local history, save to word list / slow replay / say-back score / new-words recap",
       "routes": [
         "#/interpret"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "C01",

@@ -625,7 +625,7 @@
  },
  "ce-qui-ce-que-ce-dont": {
   "t": "Ce qui, ce que, ce dont",
-  "x": "\"Ce\" и относительное местоимение указывают на идею или безымянную вещь. \"Ce qui\" — подлежащее (\"Ce qui m'inquiète\"), \"ce que\" — дополнение (\"ce que tu veux\"). \"Ce dont\" используют с глаголами, требующими \"de\" (\"ce dont tu as envie\"), а \"ce à quoi\" — с глаголами, требующими \"à\" (\"ce à quoi il s'intéresse\")."
+  "x": "\"Ce\" и относительное местоимение указывают на идею или безымянную вещь. \"Ce qui\" — подлежащее (\"Ce qui m'inquiète\"), \"ce que\" — дополнение (\"ce que tu veux\"). \"ce dont\" используют с глаголами, требующими \"de\" (\"ce dont tu as envie\"), а \"ce à quoi\" — с глаголами, требующими \"à\" (\"ce à quoi il s'intéresse\")."
  },
  "pronoms-doubles-ordre": {
   "t": "Порядок двух местоимений",
@@ -669,6 +669,6 @@
  },
  "a-regard-pronoms-lequel": {
   "t": "Вопросительное lequel",
-  "x": "\"Lequel\" спрашивает о выборе среди известных вещей и согласуется с ними: \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\". С \"à\" или \"de\" оно сливается: \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\". \"Quel\" используют только непосредственно перед существительным."
+  "x": "\"Lequel\" спрашивает о выборе среди известных вещей и согласуется с ними: \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\". С \"à\" или \"de\" оно сливается: \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\". \"quel\" используют только непосредственно перед существительным."
  }
 }

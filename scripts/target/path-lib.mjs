@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import { readJSON, coreFiles } from './lib.mjs';
+import { levelsOf } from './drill-lib.mjs';
 
 const ES = { tl: 'es', D: 'content/target/es/', G: 'ESX' }, LANGS = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 export const DAY_UI = 'ti sub dy w g p c go pr mk fin td sv wk mn ok lk rv rw cl cd sk wt nw xw xa xd sg1 sg2 sg3 sg4 sc1 sc2 sc3 sc4 sd sn sgo sh ob o1 o2 o3 stt stp stk rvn rv0 rvg'.split(' '), CALL_EVERY = 5, WORDS_MAX = 8; // ≤ 8 từ mới/ngày (kho 3.000 không dồn 24 từ/ngày); phần còn lại học qua Ôn tập
@@ -53,7 +54,8 @@ export function buildPath(pts, px, T = ES) {
 
 // Mọi câu/từ cần giọng đọc → [chữ, vai]: từ + ví dụ = ama (ef_dora), lời cuộc gọi theo vai c.who (Ama ef_dora / Carlos em_alex) – corpus Kokoro (gen-audio --tl es)
 export function pathLines(T = ES) {
-  const { words, calls } = buildPath(readJSON(T.D + 'grammar-inventory.json').points.filter(p => ['A1', 'A2', 'B1'].includes(p.level)), [{ i: 'x', p: [] }], T);
+  const inv = readJSON(T.D + 'grammar-inventory.json').points, lvs = levelsOf(inv, readJSON(T.D + 'drills.json').cloze);
+  const { words, calls } = buildPath(inv.filter(p => lvs.includes(p.level)), [{ i: 'x', p: [] }], T);
   const cl = calls.flatMap(c => Object.values(c.nodes).flatMap(n => [n.m, n.re, ...n.o, ...(n.br || []).map(b => b[1])]).concat(c.end || []).filter(Boolean).map(x => [x, c.who]));
   return [...words.flatMap(w => [w.word, w.ex[T.tl]].map(x => [x, 'ama'])), ...cl].filter(([x]) => x);
 }
