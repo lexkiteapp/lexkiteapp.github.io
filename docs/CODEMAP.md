@@ -14,7 +14,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `.github/workflows/` (267 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (15 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1923 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (8316 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (8321 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (219 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (47 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (284 file): Luật + tài liệu chủ đề (README.md → INDEX.md); cũ: docs/archive

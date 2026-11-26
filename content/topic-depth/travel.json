@@ -1,0 +1,2465 @@
+{
+ "topic": "travel",
+ "sub": [
+  {
+   "id": "airport",
+   "name": {
+    "en": "Airport & flights",
+    "vi": "Sân bay & chuyến bay"
+   },
+   "scene": "A traveller with a suitcase walks through a bright airport hall toward a row of check-in desks.",
+   "emoji": "✈️"
+  },
+  {
+   "id": "hotel",
+   "name": {
+    "en": "Hotel & booking",
+    "vi": "Khách sạn & đặt phòng"
+   },
+   "scene": "A guest in a lobby stands at a reception desk with a suitcase while a smiling receptionist hands over a key card.",
+   "emoji": "🏨"
+  },
+  {
+   "id": "transport",
+   "name": {
+    "en": "Getting around",
+    "vi": "Đi lại tại điểm đến"
+   },
+   "scene": "A traveller with a backpack studies a paper map on a busy street with a bus and a taxi nearby.",
+   "emoji": "🚕"
+  },
+  {
+   "id": "sightseeing",
+   "name": {
+    "en": "Sightseeing & tours",
+    "vi": "Tham quan & tour"
+   },
+   "scene": "A small group follows a guide with a flag up a stone path toward an old temple on a sunny day.",
+   "emoji": "🗺️"
+  },
+  {
+   "id": "problems",
+   "name": {
+    "en": "Travel problems",
+    "vi": "Sự cố khi đi du lịch"
+   },
+   "scene": "A tired traveller sits beside one suitcase at an empty airport gate while an agent at a desk looks at a screen.",
+   "emoji": "🆘"
+  },
+  {
+   "id": "money-docs",
+   "name": {
+    "en": "Money & documents",
+    "vi": "Tiền & giấy tờ"
+   },
+   "scene": "A traveller at a counter hands over a passport and a few banknotes to an officer behind a glass window.",
+   "emoji": "💳"
+  }
+ ],
+ "words": [
+  {
+   "word": "airport",
+   "pos": "n",
+   "sub": "airport",
+   "level": "A1",
+   "ex": "We got to the airport three hours before our flight.",
+   "col": [
+    "get to the airport",
+    "airport shuttle"
+   ],
+   "tip": "Air + port: \"cảng\" của máy bay."
+  },
+  {
+   "word": "flight",
+   "pos": "n",
+   "sub": "airport",
+   "level": "A1",
+   "ex": "Our flight to Seoul leaves at seven in the morning.",
+   "col": [
+    "book a flight",
+    "catch a flight"
+   ],
+   "tip": "Flight (chuyến bay) khác fly (động từ bay)."
+  },
+  {
+   "word": "ticket",
+   "pos": "n",
+   "sub": "airport",
+   "level": "A1",
+   "ex": "I bought two plane tickets for the summer holiday.",
+   "col": [
+    "buy a ticket",
+    "a one-way ticket"
+   ],
+   "tip": "Vé máy bay, vé tàu, vé vào cửa đều là ticket."
+  },
+  {
+   "word": "passport",
+   "pos": "n",
+   "sub": "airport",
+   "level": "A1",
+   "ex": "Don't forget your passport when you check in.",
+   "col": [
+    "show your passport",
+    "renew a passport"
+   ],
+   "tip": "Pass (đi qua) + port (cảng): giấy để qua cửa khẩu."
+  },
+  {
+   "word": "luggage",
+   "pos": "n",
+   "sub": "airport",
+   "level": "A2",
+   "ex": "My luggage was heavier than the airline allowed.",
+   "col": [
+    "pack your luggage",
+    "lost luggage"
+   ],
+   "tip": "Không đếm được: nói \"two pieces of luggage\"."
+  },
+  {
+   "word": "suitcase",
+   "pos": "n",
+   "sub": "airport",
+   "level": "A2",
+   "ex": "She packed a small suitcase for the weekend trip.",
+   "col": [
+    "pack a suitcase",
+    "carry a suitcase"
+   ],
+   "tip": "Suit (bộ đồ) + case (hộp): vali đựng quần áo."
+  },
+  {
+   "word": "gate",
+   "pos": "n",
+   "sub": "airport",
+   "level": "A2",
+   "ex": "Your flight leaves from gate twelve, so hurry up.",
+   "col": [
+    "boarding gate",
+    "gate number"
+   ],
+   "tip": "Gate là cổng ra máy bay, có số riêng."
+  },
+  {
+   "word": "departure",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B1",
+   "ex": "The departure time was moved forward by an hour.",
+   "col": [
+    "departure time",
+    "departure lounge"
+   ],
+   "tip": "Depart (khởi hành) + ure; ngược lại là arrival."
+  },
+  {
+   "word": "arrival",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B1",
+   "ex": "After our arrival, we took a taxi to the hotel.",
+   "col": [
+    "arrival time",
+    "on arrival"
+   ],
+   "tip": "Arrive (đến) thành danh từ arrival."
+  },
+  {
+   "word": "delay",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B2",
+   "ex": "There was a two-hour delay because of the storm.",
+   "col": [
+    "a long delay",
+    "flight delay"
+   ],
+   "tip": "Delay: trễ giờ; đi với \"because of\" + lý do."
+  },
+  {
+   "word": "passenger",
+   "pos": "n",
+   "sub": "airport",
+   "level": "A2",
+   "ex": "Every passenger must show an ID at the gate.",
+   "col": [
+    "a passenger seat",
+    "passenger list"
+   ],
+   "tip": "Passenger: người ngồi trên xe/tàu/máy bay, không lái."
+  },
+  {
+   "word": "boarding pass",
+   "pos": "n",
+   "sub": "airport",
+   "level": "A2",
+   "ex": "Please keep your boarding pass until you reach your seat.",
+   "col": [
+    "print a boarding pass",
+    "scan a boarding pass"
+   ],
+   "tip": "Board (lên tàu) + pass (thẻ): thẻ để lên máy bay."
+  },
+  {
+   "word": "check in",
+   "pos": "v",
+   "sub": "airport",
+   "level": "A2",
+   "ex": "You can check in online twenty-four hours before departure.",
+   "col": [
+    "check in online",
+    "check in early"
+   ],
+   "tip": "Check in: làm thủ tục; danh từ viết là check-in."
+  },
+  {
+   "word": "carry-on",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B1",
+   "ex": "I only took a carry-on bag, so I skipped the queue.",
+   "col": [
+    "carry-on bag",
+    "carry-on luggage"
+   ],
+   "tip": "Carry (xách) + on (lên máy bay): hành lý xách tay."
+  },
+  {
+   "word": "window seat",
+   "pos": "n",
+   "sub": "airport",
+   "level": "A2",
+   "ex": "I always ask for a window seat to see the clouds.",
+   "col": [
+    "book a window seat",
+    "prefer a window seat"
+   ],
+   "tip": "Ghế cạnh cửa sổ; đối lập là aisle seat.",
+   "ipa": "/ˈwɪndəʊ siːt/",
+   "vi": "ghế cạnh cửa sổ",
+   "def": "a seat next to the window in a plane or train",
+   "syn": [
+    "window place"
+   ],
+   "emoji": "💺"
+  },
+  {
+   "word": "aisle seat",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B1",
+   "ex": "He chose an aisle seat so he could stretch his legs.",
+   "col": [
+    "choose an aisle seat",
+    "an aisle seat"
+   ],
+   "tip": "Aisle đọc là \"ai-ơ\", lối đi giữa các hàng ghế."
+  },
+  {
+   "word": "take off",
+   "pos": "v",
+   "sub": "airport",
+   "level": "A2",
+   "ex": "The plane will take off in about ten minutes.",
+   "col": [
+    "take off on time",
+    "ready to take off"
+   ],
+   "tip": "Take off: cất cánh (cũng là cởi áo); ngược lại: land."
+  },
+  {
+   "word": "land",
+   "pos": "v",
+   "sub": "airport",
+   "level": "A2",
+   "ex": "We landed in Hanoi just before midnight.",
+   "col": [
+    "land safely",
+    "land on time"
+   ],
+   "tip": "Land cũng là \"đất\": máy bay \"chạm đất\" là hạ cánh."
+  },
+  {
+   "word": "direct flight",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B1",
+   "ex": "There is a direct flight from Saigon to Singapore.",
+   "col": [
+    "book a direct flight",
+    "take a direct flight"
+   ],
+   "tip": "Direct: thẳng, không dừng giữa đường.",
+   "ipa": "/dəˌrekt ˈflaɪt/",
+   "vi": "chuyến bay thẳng",
+   "def": "a flight that does not stop on the way",
+   "syn": [
+    "nonstop flight"
+   ],
+   "emoji": "🛫"
+  },
+  {
+   "word": "connecting flight",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B2",
+   "ex": "I missed my connecting flight after a late arrival.",
+   "col": [
+    "catch a connecting flight",
+    "miss a connecting flight"
+   ],
+   "tip": "Connect = nối; chuyến bay nối tiếp chuyến trước."
+  },
+  {
+   "word": "layover",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B2",
+   "ex": "We had a five-hour layover in Doha.",
+   "col": [
+    "a long layover",
+    "have a layover"
+   ],
+   "tip": "Lay over: nằm lại giữa đường, đợi chuyến nối."
+  },
+  {
+   "word": "security check",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B1",
+   "ex": "The security check took longer than I expected.",
+   "col": [
+    "go through security check",
+    "pass the security check"
+   ],
+   "tip": "Kiểm tra an ninh: bỏ laptop và chất lỏng ra khay.",
+   "ipa": "/sɪˈkjʊərəti tʃek/",
+   "vi": "kiểm tra an ninh",
+   "def": "the place where bags and people are checked before a flight",
+   "syn": [
+    "security screening"
+   ],
+   "emoji": "🛃"
+  },
+  {
+   "word": "baggage claim",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B1",
+   "ex": "Wait for me at the baggage claim near the exit.",
+   "col": [
+    "at baggage claim",
+    "baggage claim area"
+   ],
+   "tip": "Claim = nhận về; nơi nhận lại hành lý ký gửi."
+  },
+  {
+   "word": "terminal",
+   "pos": "n",
+   "sub": "airport",
+   "level": "B1",
+   "ex": "Our flight leaves from terminal two, not terminal one.",
+   "col": [
+    "international terminal",
+    "terminal building"
+   ],
+   "tip": "Terminal là nhà ga của sân bay, thường có số."
+  },
+  {
+   "word": "hotel",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "A1",
+   "ex": "We stayed in a small hotel near the beach.",
+   "col": [
+    "book a hotel",
+    "a hotel room"
+   ],
+   "tip": "Hotel đọc nhấn âm 2: /hoʊˈtel/ (ho-TEL)."
+  },
+  {
+   "word": "room",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "A1",
+   "ex": "Our room has a balcony with a view of the sea.",
+   "col": [
+    "book a room",
+    "share a room"
+   ],
+   "tip": "Room còn nghĩa là \"chỗ trống\": no room = hết chỗ."
+  },
+  {
+   "word": "reservation",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "B1",
+   "ex": "I made a reservation for two nights in July.",
+   "col": [
+    "make a reservation",
+    "cancel a reservation"
+   ],
+   "tip": "Reserve (giữ chỗ) + ation: đặt trước phòng, bàn."
+  },
+  {
+   "word": "reception",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "A2",
+   "ex": "Please leave your key at reception when you go out.",
+   "col": [
+    "at reception",
+    "reception desk"
+   ],
+   "tip": "Reception: quầy lễ tân; receptionist: người trực quầy."
+  },
+  {
+   "word": "check-in",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "A2",
+   "ex": "Check-in starts at two o'clock in the afternoon.",
+   "col": [
+    "check-in time",
+    "online check-in"
+   ],
+   "tip": "Giờ nhận phòng; ngược lại là check-out."
+  },
+  {
+   "word": "checkout",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "A2",
+   "ex": "Checkout is at eleven, but you can leave your bags.",
+   "col": [
+    "checkout time",
+    "late checkout"
+   ],
+   "tip": "Check out: trả phòng, rời khách sạn."
+  },
+  {
+   "word": "check out",
+   "pos": "v",
+   "sub": "hotel",
+   "level": "A2",
+   "ex": "We need to check out before eleven tomorrow morning.",
+   "col": [
+    "check out of a hotel",
+    "check out early"
+   ],
+   "tip": "Check out (động từ viết rời) = trả phòng."
+  },
+  {
+   "word": "single room",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "A2",
+   "ex": "A single room is cheaper, but the bed is small.",
+   "col": [
+    "book a single room",
+    "a single room"
+   ],
+   "tip": "Single = một người; phòng cho một người ở."
+  },
+  {
+   "word": "double room",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "A2",
+   "ex": "We booked a double room with a sea view.",
+   "col": [
+    "reserve a double room",
+    "a double room"
+   ],
+   "tip": "Double = đôi; giường đôi cho hai người."
+  },
+  {
+   "word": "twin room",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "B1",
+   "ex": "Friends often choose a twin room to save money.",
+   "col": [
+    "book a twin room",
+    "a twin room"
+   ],
+   "tip": "Twin = sinh đôi: hai giường đơn giống nhau."
+  },
+  {
+   "word": "suite",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "B2",
+   "ex": "They upgraded us to a suite on our anniversary.",
+   "col": [
+    "a luxury suite",
+    "book a suite"
+   ],
+   "tip": "Suite đọc là \"swiit\", phòng lớn nhiều khu vực."
+  },
+  {
+   "word": "accommodation",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "B1",
+   "ex": "The price includes accommodation and breakfast every day.",
+   "col": [
+    "find accommodation",
+    "book accommodation"
+   ],
+   "tip": "Không đếm được; có hai \"c\" và hai \"m\"."
+  },
+  {
+   "word": "facilities",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "B2",
+   "ex": "The hotel has excellent facilities, including a gym.",
+   "col": [
+    "hotel facilities",
+    "sports facilities"
+   ],
+   "tip": "Facilities: tiện nghi, thường dùng số nhiều.",
+   "ipa": "/fəˈsɪlətiz/",
+   "vi": "tiện nghi",
+   "def": "rooms or equipment provided for a particular purpose",
+   "syn": [
+    "amenities"
+   ],
+   "emoji": "🏊"
+  },
+  {
+   "word": "included",
+   "pos": "adj",
+   "sub": "hotel",
+   "level": "B1",
+   "ex": "Breakfast is included in the price of the room.",
+   "col": [
+    "breakfast included",
+    "taxes included"
+   ],
+   "tip": "Included đứng sau danh từ: \"tax included\" = đã gồm thuế.",
+   "ipa": "/ɪnˈkluːdɪd/",
+   "vi": "đã bao gồm",
+   "def": "counted as part of the price or total",
+   "syn": [
+    "covered"
+   ],
+   "emoji": "✅"
+  },
+  {
+   "word": "book",
+   "pos": "v",
+   "sub": "hotel",
+   "level": "A2",
+   "ex": "I booked the hotel online two months ago.",
+   "col": [
+    "book a room",
+    "book in advance"
+   ],
+   "tip": "Book còn là \"sách\", nhưng ở đây là đặt trước."
+  },
+  {
+   "word": "vacancy",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "C1",
+   "ex": "The sign said there were no vacancies in town.",
+   "col": [
+    "no vacancies",
+    "a vacancy"
+   ],
+   "tip": "Vacant = trống; hết phòng ghi \"No vacancies\"."
+  },
+  {
+   "word": "fully booked",
+   "pos": "adj",
+   "sub": "hotel",
+   "level": "B1",
+   "ex": "Sorry, the hotel is fully booked this weekend.",
+   "col": [
+    "be fully booked",
+    "fully booked up"
+   ],
+   "tip": "Fully (hoàn toàn) + booked: đã kín chỗ."
+  },
+  {
+   "word": "room service",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "B1",
+   "ex": "We ordered breakfast through room service on Sunday.",
+   "col": [
+    "order room service",
+    "room service menu"
+   ],
+   "tip": "Gọi món mang tận phòng, thường tính phí thêm."
+  },
+  {
+   "word": "front desk",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "B1",
+   "ex": "Call the front desk if the air conditioner breaks.",
+   "col": [
+    "call the front desk",
+    "the front desk clerk"
+   ],
+   "tip": "Cách nói Mỹ của \"reception\" (quầy lễ tân)."
+  },
+  {
+   "word": "key card",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "B1",
+   "ex": "My key card stopped working, so I went downstairs.",
+   "col": [
+    "swipe a key card",
+    "lose a key card"
+   ],
+   "tip": "Thẻ từ mở cửa phòng, thay chìa khóa."
+  },
+  {
+   "word": "wake-up call",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "B2",
+   "ex": "Could I have a wake-up call at six tomorrow?",
+   "col": [
+    "request a wake-up call",
+    "get a wake-up call"
+   ],
+   "tip": "Cuộc gọi đánh thức của khách sạn."
+  },
+  {
+   "word": "view",
+   "pos": "n",
+   "sub": "hotel",
+   "level": "A2",
+   "ex": "The room has a lovely view of the mountains.",
+   "col": [
+    "a sea view",
+    "a room with a view"
+   ],
+   "tip": "View = cảnh nhìn từ phòng; \"sea view\" là hướng biển."
+  },
+  {
+   "word": "stay",
+   "pos": "v",
+   "sub": "hotel",
+   "level": "A2",
+   "ex": "We stayed at a friend's house for three nights.",
+   "col": [
+    "stay at a hotel",
+    "stay for a week"
+   ],
+   "tip": "Stay at + nơi ở; stay for + thời gian."
+  },
+  {
+   "word": "taxi",
+   "pos": "n",
+   "sub": "transport",
+   "level": "A1",
+   "ex": "Let's take a taxi, because the bus is too slow.",
+   "col": [
+    "take a taxi",
+    "call a taxi"
+   ],
+   "tip": "Taxi giống tiếng Việt, chỉ đọc /ˈtæksi/."
+  },
+  {
+   "word": "bus",
+   "pos": "n",
+   "sub": "transport",
+   "level": "A1",
+   "ex": "The bus to the old town runs every fifteen minutes.",
+   "col": [
+    "take a bus",
+    "miss the bus"
+   ],
+   "tip": "On the bus (trên xe buýt), by bus (đi bằng xe buýt)."
+  },
+  {
+   "word": "train",
+   "pos": "n",
+   "sub": "transport",
+   "level": "A1",
+   "ex": "The train to the capital takes about four hours.",
+   "col": [
+    "take a train",
+    "catch a train"
+   ],
+   "tip": "Train còn nghĩa là \"huấn luyện\" (động từ)."
+  },
+  {
+   "word": "station",
+   "pos": "n",
+   "sub": "transport",
+   "level": "A1",
+   "ex": "Meet me outside the central station at noon.",
+   "col": [
+    "train station",
+    "bus station"
+   ],
+   "tip": "Station: ga/trạm; train station = ga tàu."
+  },
+  {
+   "word": "map",
+   "pos": "n",
+   "sub": "transport",
+   "level": "A1",
+   "ex": "I checked the map to find the nearest metro stop.",
+   "col": [
+    "read a map",
+    "a city map"
+   ],
+   "tip": "Map: bản đồ; \"on the map\" = trên bản đồ."
+  },
+  {
+   "word": "platform",
+   "pos": "n",
+   "sub": "transport",
+   "level": "A2",
+   "ex": "The train to Hue leaves from platform four.",
+   "col": [
+    "from platform",
+    "platform number"
+   ],
+   "tip": "Platform là sân ga, có số riêng."
+  },
+  {
+   "word": "subway",
+   "pos": "n",
+   "sub": "transport",
+   "level": "A2",
+   "ex": "The subway is the fastest way to cross the city.",
+   "col": [
+    "take the subway",
+    "subway station"
+   ],
+   "tip": "Subway Mỹ = tube/underground Anh = tàu điện ngầm."
+  },
+  {
+   "word": "fare",
+   "pos": "n",
+   "sub": "transport",
+   "level": "B2",
+   "ex": "The bus fare went up by ten percent last year.",
+   "col": [
+    "pay the fare",
+    "single fare"
+   ],
+   "tip": "Fare: tiền vé đi xe, khác fair (công bằng)."
+  },
+  {
+   "word": "get on",
+   "pos": "v",
+   "sub": "transport",
+   "level": "A2",
+   "ex": "We got on the train just before the doors closed.",
+   "col": [
+    "get on a bus",
+    "get on board"
+   ],
+   "tip": "Get on: lên xe buýt/tàu/máy bay; ngược lại get off.",
+   "ipa": "/ˌɡet ˈɒn/",
+   "vi": "lên (xe, tàu, máy bay)",
+   "def": "to climb onto a bus, train or plane",
+   "syn": [
+    "board"
+   ],
+   "emoji": "🚌"
+  },
+  {
+   "word": "get off",
+   "pos": "v",
+   "sub": "transport",
+   "level": "A2",
+   "ex": "Please tell me when to get off the bus.",
+   "col": [
+    "get off the bus",
+    "get off at the next stop"
+   ],
+   "tip": "Get off: xuống xe; không dùng với taxi hay ô tô nhỏ.",
+   "ipa": "/ˌɡet ˈɒf/",
+   "vi": "xuống (xe, tàu, máy bay)",
+   "def": "to leave a bus, train or plane",
+   "syn": [
+    "alight"
+   ],
+   "emoji": "🚏"
+  },
+  {
+   "word": "change trains",
+   "pos": "v",
+   "sub": "transport",
+   "level": "B1",
+   "ex": "You have to change trains at the next station.",
+   "col": [
+    "change trains twice",
+    "change trains at"
+   ],
+   "tip": "Đổi tàu giữa đường; \"change\" không có \"a\".",
+   "ipa": "/ˌtʃeɪndʒ ˈtreɪnz/",
+   "vi": "đổi tàu",
+   "def": "to leave one train and take another to continue the journey",
+   "syn": [
+    "transfer"
+   ],
+   "emoji": "🚆"
+  },
+  {
+   "word": "rent a car",
+   "pos": "v",
+   "sub": "transport",
+   "level": "B1",
+   "ex": "We decided to rent a car and explore the coast.",
+   "col": [
+    "rent a car",
+    "rent a car for a week"
+   ],
+   "tip": "Rent: thuê ngắn hạn, trả tiền theo ngày.",
+   "ipa": "/ˌrent ə ˈkɑː/",
+   "vi": "thuê xe ô tô",
+   "def": "to pay to use a car for a short time",
+   "syn": [
+    "hire a car"
+   ],
+   "emoji": "🚗"
+  },
+  {
+   "word": "car rental",
+   "pos": "n",
+   "sub": "transport",
+   "level": "B1",
+   "ex": "The car rental office is just outside the terminal.",
+   "col": [
+    "car rental company",
+    "car rental desk"
+   ],
+   "tip": "Car rental là dịch vụ cho thuê ô tô."
+  },
+  {
+   "word": "driving licence",
+   "pos": "n",
+   "sub": "transport",
+   "level": "B1",
+   "ex": "You need a driving licence to rent a car here.",
+   "col": [
+    "a valid driving licence",
+    "show your driving licence"
+   ],
+   "tip": "Anh: licence; Mỹ: driver's license."
+  },
+  {
+   "word": "ask for directions",
+   "pos": "v",
+   "sub": "transport",
+   "level": "B1",
+   "ex": "We stopped to ask for directions to the station.",
+   "col": [
+    "ask for directions",
+    "give directions"
+   ],
+   "tip": "Directions luôn dùng số nhiều khi hỏi đường.",
+   "ipa": "/ˌɑːsk fə dəˈrekʃnz/",
+   "vi": "hỏi đường",
+   "def": "to ask someone how to get to a place",
+   "syn": [
+    "ask the way"
+   ],
+   "emoji": "🧭"
+  },
+  {
+   "word": "turn left",
+   "pos": "v",
+   "sub": "transport",
+   "level": "A1",
+   "ex": "Turn left at the traffic lights and walk straight.",
+   "col": [
+    "turn left at",
+    "turn left onto"
+   ],
+   "tip": "Left = trái, right = phải; ghi nhớ tay trái viết \"L\".",
+   "ipa": "/ˌtɜːn ˈleft/",
+   "vi": "rẽ trái",
+   "def": "to change direction towards the left side",
+   "syn": [
+    "go left"
+   ],
+   "emoji": "⬅️"
+  },
+  {
+   "word": "go straight",
+   "pos": "v",
+   "sub": "transport",
+   "level": "A1",
+   "ex": "Go straight for two blocks, then you'll see the bank.",
+   "col": [
+    "go straight on",
+    "go straight ahead"
+   ],
+   "tip": "Straight = thẳng, \"straight ahead\" = thẳng phía trước.",
+   "ipa": "/ˌɡəʊ ˈstreɪt/",
+   "vi": "đi thẳng",
+   "def": "to continue forward without turning",
+   "syn": [
+    "go ahead"
+   ],
+   "emoji": "⬆️"
+  },
+  {
+   "word": "on foot",
+   "pos": "adv",
+   "sub": "transport",
+   "level": "A2",
+   "ex": "The old town is small, so we explored it on foot.",
+   "col": [
+    "travel on foot",
+    "go on foot"
+   ],
+   "tip": "Đi bộ: dùng \"on foot\", không dùng \"by foot\".",
+   "ipa": "/ɒn ˈfʊt/",
+   "vi": "đi bộ",
+   "def": "by walking and not by vehicle",
+   "syn": [
+    "by walking"
+   ],
+   "emoji": "🚶"
+  },
+  {
+   "word": "public transport",
+   "pos": "n",
+   "sub": "transport",
+   "level": "B1",
+   "ex": "Public transport is cheap and fast in this city.",
+   "col": [
+    "use public transport",
+    "by public transport"
+   ],
+   "tip": "Phương tiện công cộng; không đếm được."
+  },
+  {
+   "word": "ferry",
+   "pos": "n",
+   "sub": "transport",
+   "level": "B1",
+   "ex": "We took the ferry across the river to the island.",
+   "col": [
+    "take a ferry",
+    "ferry terminal"
+   ],
+   "tip": "Ferry là phà, chở người và xe qua sông hoặc biển."
+  },
+  {
+   "word": "traffic jam",
+   "pos": "n",
+   "sub": "transport",
+   "level": "B1",
+   "ex": "We were stuck in a traffic jam for an hour.",
+   "col": [
+    "be stuck in a traffic jam",
+    "a huge traffic jam"
+   ],
+   "tip": "Jam = kẹt cứng: tắc đường."
+  },
+  {
+   "word": "round trip",
+   "pos": "n",
+   "sub": "transport",
+   "level": "B2",
+   "ex": "A round trip ticket is cheaper than two single ones.",
+   "col": [
+    "a round trip ticket",
+    "a round trip"
+   ],
+   "tip": "Round (vòng) + trip: đi và về; Anh gọi là \"return\".",
+   "ipa": "/ˌraʊnd ˈtrɪp/",
+   "vi": "chuyến đi khứ hồi",
+   "def": "a journey to a place and back again",
+   "syn": [
+    "return trip"
+   ],
+   "emoji": "🔄"
+  },
+  {
+   "word": "tourist",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "A1",
+   "ex": "Thousands of tourists visit this beach every summer.",
+   "col": [
+    "a tourist attraction",
+    "a tourist guide"
+   ],
+   "tip": "Tourist: khách du lịch; tour là chuyến đi."
+  },
+  {
+   "word": "museum",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "A1",
+   "ex": "The museum is free on the first Sunday of the month.",
+   "col": [
+    "visit a museum",
+    "a history museum"
+   ],
+   "tip": "Museum: nhấn âm 2 /mjuˈziːəm/."
+  },
+  {
+   "word": "tour",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "A2",
+   "ex": "We joined a walking tour of the old town.",
+   "col": [
+    "go on a tour",
+    "a guided tour"
+   ],
+   "tip": "Tour: chuyến đi tham quan theo lịch trình."
+  },
+  {
+   "word": "guide",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "A2",
+   "ex": "Our guide told us stories about the old temple.",
+   "col": [
+    "a tour guide",
+    "hire a guide"
+   ],
+   "tip": "Guide vừa là hướng dẫn viên vừa là sách hướng dẫn."
+  },
+  {
+   "word": "souvenir",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "B1",
+   "ex": "I bought a small souvenir for each of my friends.",
+   "col": [
+    "buy a souvenir",
+    "souvenir shop"
+   ],
+   "tip": "Souvenir đọc /ˌsuːvəˈnɪə/: quà lưu niệm."
+  },
+  {
+   "word": "camera",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "A1",
+   "ex": "Don't forget your camera, the view is amazing.",
+   "col": [
+    "take a camera",
+    "a digital camera"
+   ],
+   "tip": "Camera: máy ảnh; đọc /ˈkæmərə/, ba âm tiết."
+  },
+  {
+   "word": "beach",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "A1",
+   "ex": "We spent the whole afternoon on the beach.",
+   "col": [
+    "a sandy beach",
+    "go to the beach"
+   ],
+   "tip": "Beach đọc /biːtʃ/, âm ee kéo dài (bãi biển)."
+  },
+  {
+   "word": "sightseeing",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "A2",
+   "ex": "We went sightseeing in Hue on our first day.",
+   "col": [
+    "go sightseeing",
+    "a sightseeing tour"
+   ],
+   "tip": "Sight (cảnh) + seeing (ngắm): đi tham quan."
+  },
+  {
+   "word": "landmark",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "C1",
+   "ex": "The tower is the most famous landmark in the city.",
+   "col": [
+    "a famous landmark",
+    "a historic landmark"
+   ],
+   "tip": "Land (đất) + mark (dấu): địa danh nổi tiếng."
+  },
+  {
+   "word": "attraction",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "B2",
+   "ex": "The old bridge is the main tourist attraction here.",
+   "col": [
+    "a tourist attraction",
+    "a major attraction"
+   ],
+   "tip": "Attract (thu hút) + ion: điểm hấp dẫn khách."
+  },
+  {
+   "word": "admission",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "C1",
+   "ex": "Admission to the castle costs ten euros per adult.",
+   "col": [
+    "free admission",
+    "admission fee"
+   ],
+   "tip": "Admission: tiền vào cửa; \"admission fee\" phổ biến."
+  },
+  {
+   "word": "entrance fee",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "B1",
+   "ex": "The entrance fee is cheaper for children and students.",
+   "col": [
+    "pay the entrance fee",
+    "an entrance fee"
+   ],
+   "tip": "Entrance: lối vào; fee: lệ phí.",
+   "ipa": "/ˈentrəns fiː/",
+   "vi": "phí vào cửa",
+   "def": "money you pay to enter a place",
+   "syn": [
+    "admission fee"
+   ],
+   "emoji": "🎟️"
+  },
+  {
+   "word": "opening hours",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "B1",
+   "ex": "Check the opening hours before you walk all the way there.",
+   "col": [
+    "check the opening hours",
+    "opening hours"
+   ],
+   "tip": "Opening hours: giờ mở cửa; luôn số nhiều."
+  },
+  {
+   "word": "queue",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "B1",
+   "ex": "There was a long queue outside the museum entrance.",
+   "col": [
+    "join the queue",
+    "a long queue"
+   ],
+   "tip": "Queue đọc /kjuː/: hàng người chờ (Mỹ: line)."
+  },
+  {
+   "word": "book a tour",
+   "pos": "v",
+   "sub": "sightseeing",
+   "level": "B1",
+   "ex": "We booked a tour of the islands for Saturday.",
+   "col": [
+    "book a tour",
+    "book a tour online"
+   ],
+   "tip": "Book + tour: đặt trước chuyến tham quan.",
+   "ipa": "/ˌbʊk ə ˈtʊə/",
+   "vi": "đặt tour",
+   "def": "to arrange a guided trip in advance",
+   "syn": [
+    "reserve a tour"
+   ],
+   "emoji": "🗓️"
+  },
+  {
+   "word": "buy a ticket",
+   "pos": "v",
+   "sub": "sightseeing",
+   "level": "A2",
+   "ex": "You can buy a ticket at the machine by the door.",
+   "col": [
+    "buy a ticket",
+    "buy a ticket online"
+   ],
+   "tip": "Buy (mua) khác by (bằng): buy a ticket.",
+   "ipa": "/ˌbaɪ ə ˈtɪkɪt/",
+   "vi": "mua vé",
+   "def": "to pay for a ticket to travel or enter somewhere",
+   "syn": [
+    "purchase a ticket"
+   ],
+   "emoji": "🎫"
+  },
+  {
+   "word": "take photos",
+   "pos": "v",
+   "sub": "sightseeing",
+   "level": "A2",
+   "ex": "Visitors may take photos, but flashes are not allowed.",
+   "col": [
+    "take photos of",
+    "take photos with"
+   ],
+   "tip": "Take photos hay dùng hơn \"make photos\".",
+   "ipa": "/ˌteɪk ˈfəʊtəʊz/",
+   "vi": "chụp ảnh",
+   "def": "to make pictures with a camera or phone",
+   "syn": [
+    "snap pictures"
+   ],
+   "emoji": "📸"
+  },
+  {
+   "word": "audio guide",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "B2",
+   "ex": "An audio guide explains each room in six languages.",
+   "col": [
+    "rent an audio guide",
+    "use an audio guide"
+   ],
+   "tip": "Hướng dẫn bằng tai nghe, không cần người dẫn.",
+   "ipa": "/ˈɔːdiəʊ ɡaɪd/",
+   "vi": "thuyết minh bằng tai nghe",
+   "def": "a recorded talk that explains a place as you walk",
+   "syn": [
+    "recorded tour"
+   ],
+   "emoji": "🎧"
+  },
+  {
+   "word": "crowded",
+   "pos": "adj",
+   "sub": "sightseeing",
+   "level": "B1",
+   "ex": "The old market was crowded with tourists at noon.",
+   "col": [
+    "a crowded place",
+    "get crowded"
+   ],
+   "tip": "Crowd (đám đông) + ed: đông đúc.",
+   "ipa": "/ˈkraʊdɪd/",
+   "vi": "đông đúc",
+   "def": "full of many people",
+   "syn": [
+    "packed"
+   ],
+   "emoji": "👥"
+  },
+  {
+   "word": "viewpoint",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "B1",
+   "ex": "We climbed to the view point to watch the sunset.",
+   "col": [
+    "reach the view point",
+    "a scenic view point"
+   ],
+   "tip": "Điểm ngắm cảnh trên cao, thường có lan can.",
+   "ipa": "/ˈvjuːpɔɪnt/",
+   "vi": "điểm ngắm cảnh",
+   "def": "a place from which you can see a wide view",
+   "syn": [
+    "lookout"
+   ],
+   "emoji": "🏞️"
+  },
+  {
+   "word": "scenery",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "C1",
+   "ex": "The scenery along the coast road is breathtaking.",
+   "col": [
+    "beautiful scenery",
+    "stunning scenery"
+   ],
+   "tip": "Scenery không đếm được, chỉ phong cảnh."
+  },
+  {
+   "word": "local food",
+   "pos": "n",
+   "sub": "sightseeing",
+   "level": "B1",
+   "ex": "We tried local food at every small restaurant we found.",
+   "col": [
+    "try local food",
+    "enjoy local food"
+   ],
+   "tip": "Local: địa phương; tiếp xúc văn hóa qua ăn.",
+   "ipa": "/ˌləʊkl ˈfuːd/",
+   "vi": "món ăn địa phương",
+   "def": "food that is typical of a particular place",
+   "syn": [
+    "regional cuisine"
+   ],
+   "emoji": "🍜"
+  },
+  {
+   "word": "miss",
+   "pos": "v",
+   "sub": "problems",
+   "level": "A2",
+   "ex": "We missed the last train and walked home.",
+   "col": [
+    "miss a flight",
+    "miss the bus"
+   ],
+   "tip": "Miss: lỡ, bỏ lỡ; cũng là \"nhớ\"."
+  },
+  {
+   "word": "lost luggage",
+   "pos": "n",
+   "sub": "problems",
+   "level": "B2",
+   "ex": "I filled in a form for my lost luggage.",
+   "col": [
+    "report lost luggage",
+    "claim lost luggage"
+   ],
+   "tip": "Lost + luggage: hành lý bị thất lạc.",
+   "ipa": "/ˌlɒst ˈlʌɡɪdʒ/",
+   "vi": "hành lý thất lạc",
+   "def": "bags that cannot be found after a journey",
+   "syn": [
+    "missing baggage"
+   ],
+   "emoji": "🧳"
+  },
+  {
+   "word": "lose",
+   "pos": "v",
+   "sub": "problems",
+   "level": "A2",
+   "ex": "I lost my wallet somewhere near the market.",
+   "col": [
+    "lose a wallet",
+    "lose your way"
+   ],
+   "tip": "Lose (mất) /luːz/, loose /luːs/ là \"lỏng\"."
+  },
+  {
+   "word": "stolen",
+   "pos": "adj",
+   "sub": "problems",
+   "level": "B1",
+   "ex": "My phone was stolen on the crowded bus.",
+   "col": [
+    "get stolen",
+    "have something stolen"
+   ],
+   "tip": "Stolen là quá khứ phân từ của steal (ăn cắp).",
+   "ipa": "/ˈstəʊlən/",
+   "vi": "bị lấy cắp",
+   "def": "taken away by someone without permission",
+   "syn": [
+    "taken"
+   ],
+   "emoji": "🚨"
+  },
+  {
+   "word": "get lost",
+   "pos": "v",
+   "sub": "problems",
+   "level": "A2",
+   "ex": "We got lost in the narrow streets of the old town.",
+   "col": [
+    "get lost in",
+    "easy to get lost"
+   ],
+   "tip": "Get lost: lạc đường; Rude \"Get lost!\" = cút đi.",
+   "ipa": "/ˌɡet ˈlɒst/",
+   "vi": "bị lạc đường",
+   "def": "to lose your way and not know where you are",
+   "syn": [
+    "lose your way"
+   ],
+   "emoji": "🗺️"
+  },
+  {
+   "word": "be late",
+   "pos": "v",
+   "sub": "problems",
+   "level": "A1",
+   "ex": "Sorry, I'm late, my train was delayed.",
+   "col": [
+    "be late for",
+    "be late again"
+   ],
+   "tip": "Late for + sự kiện: late for the flight.",
+   "ipa": "/ˌbi ˈleɪt/",
+   "vi": "bị muộn",
+   "def": "to arrive or happen after the expected time",
+   "syn": [
+    "run late"
+   ],
+   "emoji": "⏰"
+  },
+  {
+   "word": "cancel",
+   "pos": "v",
+   "sub": "problems",
+   "level": "B2",
+   "ex": "They cancelled our flight because of the heavy fog.",
+   "col": [
+    "cancel a flight",
+    "cancel a booking"
+   ],
+   "tip": "Cancel (hủy) Anh viết hai \"l\": cancelled."
+  },
+  {
+   "word": "cancelled",
+   "pos": "adj",
+   "sub": "problems",
+   "level": "B1",
+   "ex": "Our flight was cancelled, so we stayed one more night.",
+   "col": [
+    "a cancelled flight",
+    "get cancelled"
+   ],
+   "tip": "Cancelled flight khác \"delayed flight\" (trễ).",
+   "ipa": "/ˈkænsld/",
+   "vi": "bị hủy",
+   "def": "stopped from happening as planned",
+   "syn": [
+    "called off"
+   ],
+   "emoji": "❌"
+  },
+  {
+   "word": "refund",
+   "pos": "n",
+   "sub": "problems",
+   "level": "B2",
+   "ex": "I asked the airline for a full refund.",
+   "col": [
+    "ask for a refund",
+    "get a refund"
+   ],
+   "tip": "Re (lại) + fund (tiền): hoàn lại tiền."
+  },
+  {
+   "word": "compensation",
+   "pos": "n",
+   "sub": "problems",
+   "level": "C1",
+   "ex": "The airline offered us compensation for the long delay.",
+   "col": [
+    "claim compensation",
+    "receive compensation"
+   ],
+   "tip": "Compensate (bù đắp) + ion: tiền bồi thường."
+  },
+  {
+   "word": "complaint",
+   "pos": "n",
+   "sub": "problems",
+   "level": "B2",
+   "ex": "I made a complaint about the dirty room.",
+   "col": [
+    "make a complaint",
+    "file a complaint"
+   ],
+   "tip": "Complain (phàn nàn) -> complaint: lời khiếu nại."
+  },
+  {
+   "word": "emergency",
+   "pos": "n",
+   "sub": "problems",
+   "level": "B1",
+   "ex": "Call this number in case of an emergency.",
+   "col": [
+    "in an emergency",
+    "emergency exit"
+   ],
+   "tip": "Emergency: khẩn cấp; số điện thoại khẩn cấp nữa."
+  },
+  {
+   "word": "hospital",
+   "pos": "n",
+   "sub": "problems",
+   "level": "A1",
+   "ex": "He was taken to the nearest hospital by ambulance.",
+   "col": [
+    "go to the hospital",
+    "a local hospital"
+   ],
+   "tip": "Hospital: bệnh viện; \"in hospital\" Anh, \"in the hospital\" Mỹ."
+  },
+  {
+   "word": "food poisoning",
+   "pos": "n",
+   "sub": "problems",
+   "level": "B2",
+   "ex": "Half of us got food poisoning after the street dinner.",
+   "col": [
+    "get food poisoning",
+    "suffer from food poisoning"
+   ],
+   "tip": "Poison (độc) -> poisoning: ngộ độc thực phẩm.",
+   "ipa": "/ˈfuːd ˌpɔɪzənɪŋ/",
+   "vi": "ngộ độc thực phẩm",
+   "def": "an illness caused by eating bad food",
+   "syn": [
+    "stomach bug"
+   ],
+   "emoji": "🤢"
+  },
+  {
+   "word": "sunburn",
+   "pos": "n",
+   "sub": "problems",
+   "level": "B2",
+   "ex": "I got terrible sunburn after one afternoon at the beach.",
+   "col": [
+    "get sunburn",
+    "treat sunburn"
+   ],
+   "tip": "Sun (nắng) + burn (cháy): cháy nắng.",
+   "ipa": "/ˈsʌnbɜːn/",
+   "vi": "cháy nắng",
+   "def": "red painful skin caused by too much sun",
+   "syn": [
+    "burnt skin"
+   ],
+   "emoji": "🌞"
+  },
+  {
+   "word": "travel sick",
+   "pos": "adj",
+   "sub": "problems",
+   "level": "B2",
+   "ex": "I feel travel sick on winding mountain roads.",
+   "col": [
+    "feel travel sick",
+    "get travel sick"
+   ],
+   "tip": "Say xe, say tàu; Mỹ: motion sickness.",
+   "ipa": "/ˈtrævl sɪk/",
+   "vi": "say xe",
+   "def": "feeling ill because of the movement of a vehicle",
+   "syn": [
+    "carsick"
+   ],
+   "emoji": "🤮"
+  },
+  {
+   "word": "pharmacy",
+   "pos": "n",
+   "sub": "problems",
+   "level": "B1",
+   "ex": "Is there a pharmacy near the hotel?",
+   "col": [
+    "go to a pharmacy",
+    "a late-night pharmacy"
+   ],
+   "tip": "Pharmacy: hiệu thuốc; nhấn âm đầu /ˈfɑːməsi/."
+  },
+  {
+   "word": "run out of",
+   "pos": "v",
+   "sub": "problems",
+   "level": "B2",
+   "ex": "We ran out of petrol on a quiet country road.",
+   "col": [
+    "run out of petrol",
+    "run out of time"
+   ],
+   "tip": "Run out of + danh từ: hết, cạn mất."
+  },
+  {
+   "word": "break down",
+   "pos": "v",
+   "sub": "problems",
+   "level": "B2",
+   "ex": "Our bus broke down halfway to the airport.",
+   "col": [
+    "break down on the road",
+    "the car broke down"
+   ],
+   "tip": "Break down: hỏng máy giữa đường.",
+   "ipa": "/ˌbreɪk ˈdaʊn/",
+   "vi": "hỏng giữa đường",
+   "def": "to stop working, especially a vehicle",
+   "syn": [
+    "stop working"
+   ],
+   "emoji": "🛠️"
+  },
+  {
+   "word": "make a claim",
+   "pos": "v",
+   "sub": "problems",
+   "level": "C1",
+   "ex": "You can make a claim if the airline loses your bag.",
+   "col": [
+    "make a claim",
+    "make an insurance claim"
+   ],
+   "tip": "Claim: đòi quyền lợi, bồi thường.",
+   "ipa": "/ˌmeɪk ə ˈkleɪm/",
+   "vi": "yêu cầu bồi thường",
+   "def": "to ask a company to pay for a loss",
+   "syn": [
+    "file a claim"
+   ],
+   "emoji": "📝"
+  },
+  {
+   "word": "rebook",
+   "pos": "v",
+   "sub": "problems",
+   "level": "C1",
+   "ex": "The airline rebooked us on a flight the next day.",
+   "col": [
+    "rebook a flight",
+    "rebook a ticket"
+   ],
+   "tip": "Re (lại) + book: đặt lại chuyến.",
+   "ipa": "/ˌriːˈbʊk/",
+   "vi": "đặt lại",
+   "def": "to book a new ticket or room for a different time",
+   "syn": [
+    "reschedule"
+   ],
+   "emoji": "🔁"
+  },
+  {
+   "word": "overbooked",
+   "pos": "adj",
+   "sub": "problems",
+   "level": "C1",
+   "ex": "The flight was overbooked, so some passengers waited.",
+   "col": [
+    "an overbooked flight",
+    "get overbooked"
+   ],
+   "tip": "Over (quá) + booked: bán vé nhiều hơn ghế.",
+   "ipa": "/ˌəʊvəˈbʊkt/",
+   "vi": "bị bán quá chỗ",
+   "def": "sold more tickets or rooms than are available",
+   "syn": [
+    "oversold"
+   ],
+   "emoji": "📛"
+  },
+  {
+   "word": "lost property",
+   "pos": "n",
+   "sub": "problems",
+   "level": "C1",
+   "ex": "Check the lost property office at the station.",
+   "col": [
+    "a lost property office",
+    "hand in to lost property"
+   ],
+   "tip": "Lost property: nơi giữ đồ thất lạc; Mỹ: lost and found."
+  },
+  {
+   "word": "cash",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "A2",
+   "ex": "Many small shops in the market only take cash.",
+   "col": [
+    "pay in cash",
+    "withdraw cash"
+   ],
+   "tip": "Cash: tiền mặt; \"in cash\" = bằng tiền mặt."
+  },
+  {
+   "word": "credit card",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "A2",
+   "ex": "Can I pay by credit card at this shop?",
+   "col": [
+    "pay by credit card",
+    "a credit card"
+   ],
+   "tip": "Credit (tín dụng) + card: thẻ tín dụng.",
+   "ipa": "/ˈkredɪt kɑːd/",
+   "vi": "thẻ tín dụng",
+   "def": "a plastic card used to pay now and pay later",
+   "syn": [
+    "bank card"
+   ],
+   "emoji": "💳"
+  },
+  {
+   "word": "currency",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B1",
+   "ex": "The local currency is the dong, not the dollar.",
+   "col": [
+    "local currency",
+    "foreign currency"
+   ],
+   "tip": "Currency: loại tiền của một nước."
+  },
+  {
+   "word": "exchange",
+   "pos": "v",
+   "sub": "money-docs",
+   "level": "B1",
+   "ex": "I need to exchange some dollars into euros.",
+   "col": [
+    "exchange money",
+    "exchange rate"
+   ],
+   "tip": "Exchange: đổi tiền; \"exchange rate\" là tỷ giá."
+  },
+  {
+   "word": "exchange rate",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B2",
+   "ex": "The exchange rate is better at the bank than here.",
+   "col": [
+    "check the exchange rate",
+    "a good exchange rate"
+   ],
+   "tip": "Exchange rate: tỷ giá, thay đổi mỗi ngày."
+  },
+  {
+   "word": "ATM",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B1",
+   "ex": "There is an ATM next to the train station.",
+   "col": [
+    "use an ATM",
+    "withdraw cash from an ATM"
+   ],
+   "tip": "ATM đọc từng chữ: ay-ti-em; rút tiền tự động.",
+   "ipa": "/ˌeɪ tiː ˈem/",
+   "vi": "máy rút tiền",
+   "def": "a machine in the street that gives you cash",
+   "syn": [
+    "cash machine"
+   ],
+   "emoji": "🏧"
+  },
+  {
+   "word": "tip",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B1",
+   "ex": "We left a ten percent tip for the waiter.",
+   "col": [
+    "leave a tip",
+    "give a tip"
+   ],
+   "tip": "Tip: tiền boa; cũng là \"mẹo nhỏ\"."
+  },
+  {
+   "word": "receipt",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B1",
+   "ex": "Please keep the receipt in case you need a refund.",
+   "col": [
+    "keep the receipt",
+    "ask for a receipt"
+   ],
+   "tip": "Receipt đọc /rɪˈsiːt/, chữ \"p\" câm."
+  },
+  {
+   "word": "bill",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "A2",
+   "ex": "Could we have the bill, please?",
+   "col": [
+    "ask for the bill",
+    "pay the bill"
+   ],
+   "tip": "Bill Anh = hóa đơn nhà hàng; Mỹ hay dùng \"check\"."
+  },
+  {
+   "word": "visa",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B2",
+   "ex": "Do I need a visa to visit your country?",
+   "col": [
+    "apply for a visa",
+    "a tourist visa"
+   ],
+   "tip": "Visa: thị thực, cấp cho từng người, từng thời hạn."
+  },
+  {
+   "word": "customs",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B2",
+   "ex": "We went through customs without any problem.",
+   "col": [
+    "go through customs",
+    "pass through customs"
+   ],
+   "tip": "Customs (số nhiều) = hải quan; custom = phong tục."
+  },
+  {
+   "word": "immigration",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B2",
+   "ex": "The immigration officer asked about our travel plans.",
+   "col": [
+    "go through immigration",
+    "immigration control"
+   ],
+   "tip": "Immigration: nhập cảnh; quầy kiểm soát hộ chiếu."
+  },
+  {
+   "word": "declare",
+   "pos": "v",
+   "sub": "money-docs",
+   "level": "B2",
+   "ex": "Do you have anything to declare, sir?",
+   "col": [
+    "declare goods",
+    "nothing to declare"
+   ],
+   "tip": "Declare: khai báo hàng hóa ở hải quan."
+  },
+  {
+   "word": "travel insurance",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B1",
+   "ex": "Travel insurance covers medical costs while you are abroad.",
+   "col": [
+    "buy travel insurance",
+    "take out travel insurance"
+   ],
+   "tip": "Insurance: bảo hiểm; \"insure\" là động từ."
+  },
+  {
+   "word": "insurance",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B2",
+   "ex": "The car rental price includes full insurance.",
+   "col": [
+    "take out insurance",
+    "an insurance policy"
+   ],
+   "tip": "Insurance đọc /ɪnˈʃɔːrəns/: bảo hiểm."
+  },
+  {
+   "word": "tax",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B1",
+   "ex": "The price of the room includes a ten percent tax.",
+   "col": [
+    "pay tax",
+    "sales tax"
+   ],
+   "tip": "Tax là thuế; \"tax-free\" = miễn thuế."
+  },
+  {
+   "word": "duty-free",
+   "pos": "adj",
+   "sub": "money-docs",
+   "level": "B2",
+   "ex": "We bought perfume at a duty-free shop in the airport.",
+   "col": [
+    "duty-free shop",
+    "duty-free goods"
+   ],
+   "tip": "Duty (thuế) + free (miễn): hàng miễn thuế.",
+   "ipa": "/ˌdjuːti ˈfriː/",
+   "vi": "miễn thuế",
+   "def": "sold without the usual tax",
+   "syn": [
+    "tax-free"
+   ],
+   "emoji": "🛍️"
+  },
+  {
+   "word": "passport control",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "B2",
+   "ex": "The queue at passport control moved quite fast.",
+   "col": [
+    "go through passport control",
+    "at passport control"
+   ],
+   "tip": "Nơi kiểm tra hộ chiếu khi nhập cảnh."
+  },
+  {
+   "word": "travel document",
+   "pos": "n",
+   "sub": "money-docs",
+   "level": "C1",
+   "ex": "Keep every travel document in one safe place.",
+   "col": [
+    "a valid travel document",
+    "carry travel documents"
+   ],
+   "tip": "Document: giấy tờ, đừng nhầm với \"documentary\".",
+   "ipa": "/ˈtrævl ˌdɒkjumənt/",
+   "vi": "giấy tờ du lịch",
+   "def": "an official paper needed to enter a country",
+   "syn": [
+    "passport papers"
+   ],
+   "emoji": "📄"
+  },
+  {
+   "word": "expire",
+   "pos": "v",
+   "sub": "money-docs",
+   "level": "C1",
+   "ex": "My passport expires in two months, so I must renew it.",
+   "col": [
+    "expire soon",
+    "a visa expires"
+   ],
+   "tip": "Expire: hết hạn; expiry date = ngày hết hạn."
+  },
+  {
+   "word": "valid",
+   "pos": "adj",
+   "sub": "money-docs",
+   "level": "B2",
+   "ex": "Your passport must be valid for at least six months.",
+   "col": [
+    "a valid passport",
+    "valid for six months"
+   ],
+   "tip": "Valid: còn hiệu lực; ngược lại là expired."
+  },
+  {
+   "word": "fill in",
+   "pos": "v",
+   "sub": "money-docs",
+   "level": "B1",
+   "ex": "Please fill in this form before you enter the country.",
+   "col": [
+    "fill in a form",
+    "fill in your details"
+   ],
+   "tip": "Fill in (Anh) = fill out (Mỹ): điền mẫu.",
+   "ipa": "/ˌfɪl ˈɪn/",
+   "vi": "điền vào",
+   "def": "to write information in a form",
+   "syn": [
+    "fill out"
+   ],
+   "emoji": "✍️"
+  }
+ ],
+ "phrases": [
+  {
+   "en": "Where is the check-in desk for this flight?",
+   "vi": "Quầy làm thủ tục của chuyến bay này ở đâu?",
+   "lv": "A1",
+   "sub": "airport"
+  },
+  {
+   "en": "Could I have a window seat, please?",
+   "vi": "Cho tôi ghế cạnh cửa sổ được không?",
+   "lv": "A2",
+   "sub": "airport"
+  },
+  {
+   "en": "What time does boarding start?",
+   "vi": "Mấy giờ bắt đầu lên máy bay?",
+   "lv": "A2",
+   "sub": "airport"
+  },
+  {
+   "en": "Is this flight delayed or on time?",
+   "vi": "Chuyến bay này bị trễ hay đúng giờ?",
+   "lv": "B1",
+   "sub": "airport"
+  },
+  {
+   "en": "I'd like to check in two bags, please.",
+   "vi": "Tôi muốn ký gửi hai túi hành lý.",
+   "lv": "B1",
+   "sub": "airport"
+  },
+  {
+   "en": "I have a reservation under the name Nguyen.",
+   "vi": "Tôi có đặt phòng dưới tên Nguyễn.",
+   "lv": "B1",
+   "sub": "hotel"
+  },
+  {
+   "en": "What time is check-out tomorrow?",
+   "vi": "Mai mấy giờ phải trả phòng?",
+   "lv": "A2",
+   "sub": "hotel"
+  },
+  {
+   "en": "Is breakfast included in the price?",
+   "vi": "Giá phòng đã gồm bữa sáng chưa?",
+   "lv": "A2",
+   "sub": "hotel"
+  },
+  {
+   "en": "Could you send someone to fix the air conditioner?",
+   "vi": "Bạn cử người sửa máy lạnh giúp tôi được không?",
+   "lv": "B1",
+   "sub": "hotel"
+  },
+  {
+   "en": "Do you have any rooms available tonight?",
+   "vi": "Tối nay còn phòng trống không?",
+   "lv": "A2",
+   "sub": "hotel"
+  },
+  {
+   "en": "How do I get to the central station from here?",
+   "vi": "Từ đây đi ra ga trung tâm thế nào?",
+   "lv": "A2",
+   "sub": "transport"
+  },
+  {
+   "en": "Excuse me, does this bus go to the old town?",
+   "vi": "Xin lỗi, xe buýt này có đi khu phố cổ không?",
+   "lv": "A2",
+   "sub": "transport"
+  },
+  {
+   "en": "Could you take me to this address, please?",
+   "vi": "Bạn chở tôi đến địa chỉ này được không?",
+   "lv": "A2",
+   "sub": "transport"
+  },
+  {
+   "en": "How much is a one-way ticket to the airport?",
+   "vi": "Vé một chiều ra sân bay bao nhiêu?",
+   "lv": "A2",
+   "sub": "transport"
+  },
+  {
+   "en": "Which platform does the train to Hue leave from?",
+   "vi": "Tàu đi Huế khởi hành từ sân ga nào?",
+   "lv": "B1",
+   "sub": "transport"
+  },
+  {
+   "en": "What time does the museum open?",
+   "vi": "Bảo tàng mở cửa lúc mấy giờ?",
+   "lv": "A1",
+   "sub": "sightseeing"
+  },
+  {
+   "en": "Are there any guided tours in English?",
+   "vi": "Có tour có hướng dẫn bằng tiếng Anh không?",
+   "lv": "A2",
+   "sub": "sightseeing"
+  },
+  {
+   "en": "Could you take a photo of us, please?",
+   "vi": "Bạn chụp giúp chúng tôi một tấm ảnh được không?",
+   "lv": "A2",
+   "sub": "sightseeing"
+  },
+  {
+   "en": "Is there a student discount on tickets?",
+   "vi": "Vé có giảm giá cho sinh viên không?",
+   "lv": "B1",
+   "sub": "sightseeing"
+  },
+  {
+   "en": "What would you recommend we see in one day?",
+   "vi": "Bạn khuyên chúng tôi nên xem gì trong một ngày?",
+   "lv": "B1",
+   "sub": "sightseeing"
+  },
+  {
+   "en": "I think I've lost my passport.",
+   "vi": "Tôi nghĩ mình đã làm mất hộ chiếu.",
+   "lv": "A2",
+   "sub": "problems"
+  },
+  {
+   "en": "My luggage hasn't arrived yet.",
+   "vi": "Hành lý của tôi vẫn chưa tới.",
+   "lv": "B1",
+   "sub": "problems"
+  },
+  {
+   "en": "Could you help me? I feel quite sick.",
+   "vi": "Bạn giúp tôi được không? Tôi thấy khá mệt.",
+   "lv": "A2",
+   "sub": "problems"
+  },
+  {
+   "en": "I'd like to ask for a refund, please.",
+   "vi": "Tôi muốn xin hoàn lại tiền.",
+   "lv": "B1",
+   "sub": "problems"
+  },
+  {
+   "en": "We missed our connection. What are our options?",
+   "vi": "Chúng tôi lỡ chuyến nối. Có phương án nào không?",
+   "lv": "B2",
+   "sub": "problems"
+  },
+  {
+   "en": "Where can I exchange some money?",
+   "vi": "Tôi đổi tiền ở đâu được?",
+   "lv": "A2",
+   "sub": "money-docs"
+  },
+  {
+   "en": "Do you take credit cards?",
+   "vi": "Bên bạn có nhận thẻ tín dụng không?",
+   "lv": "A2",
+   "sub": "money-docs"
+  },
+  {
+   "en": "I'm here on holiday for two weeks.",
+   "vi": "Tôi sang đây nghỉ lễ hai tuần.",
+   "lv": "B1",
+   "sub": "money-docs"
+  },
+  {
+   "en": "I have nothing to declare.",
+   "vi": "Tôi không có gì phải khai báo.",
+   "lv": "B1",
+   "sub": "money-docs"
+  },
+  {
+   "en": "Does my insurance cover medical costs abroad?",
+   "vi": "Bảo hiểm của tôi có chi trả viện phí ở nước ngoài không?",
+   "lv": "B2",
+   "sub": "money-docs"
+  }
+ ],
+ "dialogs": [
+  {
+   "id": "ap-1",
+   "sub": "airport",
+   "lines": [
+    [
+     "A",
+     "Hello, I'd like to check in for the flight to Bangkok.",
+     "Xin chào, tôi muốn làm thủ tục cho chuyến bay đi Bangkok."
+    ],
+    [
+     "B",
+     "Certainly. May I see your passport? Any bags to check in?",
+     "Vâng. Cho tôi xem hộ chiếu nhé? Bạn có ký gửi hành lý không?"
+    ],
+    [
+     "A",
+     "One suitcase. Could I have a window seat, please?",
+     "Một vali. Cho tôi ghế cạnh cửa sổ được không?"
+    ],
+    [
+     "B",
+     "Of course. Here is your boarding pass. Boarding starts at gate twelve at six.",
+     "Được ạ. Đây là thẻ lên máy bay. Giờ lên máy bay ở cổng 12 lúc sáu giờ."
+    ]
+   ],
+   "key": [
+    "check in",
+    "window seat",
+    "boarding pass",
+    "gate"
+   ]
+  },
+  {
+   "id": "ap-2",
+   "sub": "airport",
+   "lines": [
+    [
+     "A",
+     "Excuse me, is the flight to Osaka delayed?",
+     "Xin lỗi, chuyến bay đi Osaka có bị trễ không?"
+    ],
+    [
+     "B",
+     "Yes, there is a one-hour delay because of the weather.",
+     "Có, trễ một tiếng vì thời tiết."
+    ],
+    [
+     "A",
+     "Thanks. I'll wait near the gate, then.",
+     "Cảm ơn. Vậy tôi sẽ chờ gần cổng."
+    ]
+   ],
+   "key": [
+    "delay",
+    "gate"
+   ]
+  },
+  {
+   "id": "ht-1",
+   "sub": "hotel",
+   "lines": [
+    [
+     "A",
+     "Good evening. I have a reservation for two nights under Tran.",
+     "Chào buổi tối. Tôi có đặt phòng hai đêm dưới tên Trần."
+    ],
+    [
+     "B",
+     "Yes, a double room with a sea view. Here is your key card.",
+     "Vâng, phòng đôi hướng biển. Đây là thẻ từ của bạn."
+    ],
+    [
+     "A",
+     "Is breakfast included in the price?",
+     "Giá phòng đã gồm bữa sáng chưa?"
+    ],
+    [
+     "B",
+     "Yes, it's served from seven to ten. Checkout is at eleven.",
+     "Có, phục vụ từ bảy đến mười giờ. Trả phòng lúc mười một giờ."
+    ]
+   ],
+   "key": [
+    "reservation",
+    "key card",
+    "included",
+    "checkout"
+   ]
+  },
+  {
+   "id": "ht-2",
+   "sub": "hotel",
+   "lines": [
+    [
+     "A",
+     "Hi, the air conditioner in my room isn't working.",
+     "Chào, máy lạnh phòng tôi không hoạt động."
+    ],
+    [
+     "B",
+     "I'm sorry about that. I'll send someone up right away.",
+     "Tôi xin lỗi. Tôi sẽ cử người lên ngay."
+    ]
+   ],
+   "key": [
+    "air conditioner",
+    "send someone up"
+   ]
+  },
+  {
+   "id": "tr-1",
+   "sub": "transport",
+   "lines": [
+    [
+     "A",
+     "Excuse me, how do I get to the central station?",
+     "Xin lỗi, đến ga trung tâm đi thế nào?"
+    ],
+    [
+     "B",
+     "Go straight for two blocks, then turn left at the bank.",
+     "Đi thẳng hai dãy nhà rồi rẽ trái ở ngân hàng."
+    ],
+    [
+     "A",
+     "Is it far on foot?",
+     "Đi bộ có xa không?"
+    ],
+    [
+     "B",
+     "About ten minutes. Or you can take the number five bus.",
+     "Khoảng mười phút. Hoặc bạn đi xe buýt số năm."
+    ]
+   ],
+   "key": [
+    "go straight",
+    "turn left",
+    "on foot",
+    "bus"
+   ]
+  },
+  {
+   "id": "tr-2",
+   "sub": "transport",
+   "lines": [
+    [
+     "A",
+     "Could you take me to this address, please?",
+     "Bạn chở tôi đến địa chỉ này được không?"
+    ],
+    [
+     "B",
+     "Sure. There is a traffic jam, so it may take half an hour.",
+     "Được. Đang kẹt xe nên có thể mất nửa tiếng."
+    ]
+   ],
+   "key": [
+    "take me to",
+    "traffic jam"
+   ]
+  },
+  {
+   "id": "ss-1",
+   "sub": "sightseeing",
+   "lines": [
+    [
+     "A",
+     "Two tickets for the museum, please. Is there a student discount?",
+     "Cho hai vé vào bảo tàng. Có giảm giá cho sinh viên không?"
+    ],
+    [
+     "B",
+     "Yes, students pay half the entrance fee. May I see your ID?",
+     "Có, sinh viên trả nửa phí vào cửa. Cho tôi xem thẻ nhé?"
+    ],
+    [
+     "A",
+     "Here you go. Can I take photos inside?",
+     "Của bạn đây. Trong này chụp ảnh được không?"
+    ],
+    [
+     "B",
+     "Yes, but no flash. You can rent an audio guide over there.",
+     "Được, nhưng không dùng đèn flash. Bạn thuê tai nghe thuyết minh ở đằng kia."
+    ]
+   ],
+   "key": [
+    "entrance fee",
+    "take photos",
+    "audio guide"
+   ]
+  },
+  {
+   "id": "ss-2",
+   "sub": "sightseeing",
+   "lines": [
+    [
+     "A",
+     "Are there any guided tours of the old town today?",
+     "Hôm nay có tour có hướng dẫn khu phố cổ không?"
+    ],
+    [
+     "B",
+     "Yes, one at two o'clock. It's about two hours long.",
+     "Có, một tour lúc hai giờ. Kéo dài khoảng hai tiếng."
+    ]
+   ],
+   "key": [
+    "guided tour",
+    "old town"
+   ]
+  },
+  {
+   "id": "pb-1",
+   "sub": "problems",
+   "lines": [
+    [
+     "A",
+     "Hello, my luggage hasn't arrived. I flew in from Hanoi.",
+     "Xin chào, hành lý của tôi chưa tới. Tôi bay từ Hà Nội."
+    ],
+    [
+     "B",
+     "I'm sorry. Please fill in this form, and we'll try to find it.",
+     "Xin lỗi bạn. Vui lòng điền mẫu này, chúng tôi sẽ cố tìm."
+    ],
+    [
+     "A",
+     "How long will it take? I'm only here for three days.",
+     "Mất bao lâu? Tôi chỉ ở đây ba ngày."
+    ],
+    [
+     "B",
+     "Usually one or two days. We'll deliver it to your hotel.",
+     "Thường một đến hai ngày. Chúng tôi sẽ giao tới khách sạn."
+    ]
+   ],
+   "key": [
+    "luggage",
+    "fill in",
+    "deliver"
+   ]
+  },
+  {
+   "id": "pb-2",
+   "sub": "problems",
+   "lines": [
+    [
+     "A",
+     "My flight was cancelled. Can I get a refund or rebook?",
+     "Chuyến bay của tôi bị hủy. Tôi được hoàn tiền hay đổi chuyến?"
+    ],
+    [
+     "B",
+     "You can do either. There is a seat on tomorrow's flight.",
+     "Bạn chọn cái nào cũng được. Chuyến ngày mai còn ghế."
+    ]
+   ],
+   "key": [
+    "cancelled",
+    "refund",
+    "rebook"
+   ]
+  },
+  {
+   "id": "md-1",
+   "sub": "money-docs",
+   "lines": [
+    [
+     "A",
+     "Good morning. May I see your passport and visa?",
+     "Chào buổi sáng. Cho tôi xem hộ chiếu và thị thực nhé?"
+    ],
+    [
+     "B",
+     "Here you are. I'm here on holiday for two weeks.",
+     "Của tôi đây. Tôi sang đây nghỉ hai tuần."
+    ],
+    [
+     "A",
+     "Do you have anything to declare?",
+     "Bạn có gì cần khai báo không?"
+    ],
+    [
+     "B",
+     "No, nothing to declare.",
+     "Không, tôi không có gì phải khai báo."
+    ]
+   ],
+   "key": [
+    "passport",
+    "visa",
+    "declare"
+   ]
+  },
+  {
+   "id": "md-2",
+   "sub": "money-docs",
+   "lines": [
+    [
+     "A",
+     "Hi, where can I exchange some dollars?",
+     "Chào, tôi đổi đô la ở đâu được?"
+    ],
+    [
+     "B",
+     "There's a currency exchange desk by the exit. The exchange rate is fair.",
+     "Có quầy đổi tiền cạnh lối ra. Tỷ giá khá ổn."
+    ]
+   ],
+   "key": [
+    "exchange",
+    "exchange rate"
+   ]
+  }
+ ]
+}

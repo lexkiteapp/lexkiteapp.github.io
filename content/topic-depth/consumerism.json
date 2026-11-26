@@ -1,0 +1,2321 @@
+{
+ "topic": "consumerism",
+ "sub": [
+  {
+   "id": "clothes",
+   "name": {
+    "en": "Clothes & sizes",
+    "vi": "Quần áo & cỡ số"
+   },
+   "scene": "A shopper holds a shirt up to a mirror in a bright clothing shop with racks of colourful clothes.",
+   "emoji": "👗"
+  },
+  {
+   "id": "grocery",
+   "name": {
+    "en": "Supermarket",
+    "vi": "Siêu thị & thực phẩm"
+   },
+   "scene": "A person pushes a trolley down a supermarket aisle lined with shelves of fruit, vegetables and bread.",
+   "emoji": "🛒"
+  },
+  {
+   "id": "market",
+   "name": {
+    "en": "Markets & bargaining",
+    "vi": "Chợ & mặc cả"
+   },
+   "scene": "A customer and a smiling seller talk over a pile of fruit at a busy outdoor market stall.",
+   "emoji": "🧺"
+  },
+  {
+   "id": "pay",
+   "name": {
+    "en": "Prices, discounts & paying",
+    "vi": "Giá, giảm giá & thanh toán"
+   },
+   "scene": "A cashier hands a receipt to a customer paying with a card at a checkout with a sale sign.",
+   "emoji": "💳"
+  },
+  {
+   "id": "online",
+   "name": {
+    "en": "Online shopping & delivery",
+    "vi": "Mua sắm online & giao hàng"
+   },
+   "scene": "A courier hands a parcel to a smiling person at their front door while a phone shows a shopping app.",
+   "emoji": "📦"
+  },
+  {
+   "id": "returns",
+   "name": {
+    "en": "Returns, refunds & complaints",
+    "vi": "Đổi trả & khiếu nại"
+   },
+   "scene": "A customer shows a broken item and a receipt to a shop assistant at a service desk.",
+   "emoji": "↩️"
+  }
+ ],
+ "words": [
+  {
+   "word": "shirt",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "A1",
+   "ex": "This shirt is too small for me.",
+   "col": [
+    "buy a shirt",
+    "wear a shirt"
+   ],
+   "tip": "Áo sơ mi: \"sơ mi\" nghe gần giống \"shirt\"."
+  },
+  {
+   "word": "dress",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "A1",
+   "ex": "She bought a blue dress for the party.",
+   "col": [
+    "a summer dress",
+    "wear a dress"
+   ],
+   "tip": "Váy liền: \"dress up\" là ăn diện."
+  },
+  {
+   "word": "jeans",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "A1",
+   "ex": "These jeans fit me perfectly.",
+   "col": [
+    "a pair of jeans",
+    "blue jeans"
+   ],
+   "tip": "Quần bò luôn ở số nhiều: a pair of jeans."
+  },
+  {
+   "word": "jacket",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "A1",
+   "ex": "Can I try this jacket on?",
+   "col": [
+    "a leather jacket",
+    "zip up a jacket"
+   ],
+   "tip": "Áo khoác ngắn, nghe như \"gia-két\"."
+  },
+  {
+   "word": "shoes",
+   "ipa": "/ʃuːz/",
+   "vi": "giày",
+   "def": "things you wear on your feet when you go outside",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "A1",
+   "ex": "I need new shoes for work.",
+   "col": [
+    "a pair of shoes",
+    "try on shoes"
+   ],
+   "tip": "Giày: luôn đếm theo đôi, a pair of shoes."
+  },
+  {
+   "word": "size",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "A1",
+   "ex": "What size do you wear?",
+   "col": [
+    "shoe size",
+    "the right size"
+   ],
+   "tip": "Cỡ áo: S, M, L đều là size."
+  },
+  {
+   "word": "small",
+   "pos": "adj",
+   "sub": "clothes",
+   "level": "A1",
+   "ex": "Do you have this in a small?",
+   "col": [
+    "extra small",
+    "a small size"
+   ],
+   "tip": "Small = nhỏ, size S."
+  },
+  {
+   "word": "large",
+   "pos": "adj",
+   "sub": "clothes",
+   "level": "A1",
+   "ex": "I usually wear a large.",
+   "col": [
+    "extra large",
+    "a large size"
+   ],
+   "tip": "Large = lớn, size L."
+  },
+  {
+   "word": "colour",
+   "ipa": "/ˈkʌlə/",
+   "vi": "màu sắc",
+   "def": "red, blue or green, for example",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "A1",
+   "ex": "Do you have it in another colour?",
+   "col": [
+    "a bright colour",
+    "choose a colour"
+   ],
+   "tip": "Màu sắc: Mỹ viết \"color\"."
+  },
+  {
+   "word": "try on",
+   "pos": "v",
+   "sub": "clothes",
+   "level": "A2",
+   "ex": "May I try these shoes on?",
+   "col": [
+    "try on clothes",
+    "try it on"
+   ],
+   "tip": "Thử đồ: \"try\" (thử) + \"on\" (lên người)."
+  },
+  {
+   "word": "fitting room",
+   "ipa": "/ˈfɪtɪŋ ruːm/",
+   "vi": "phòng thử đồ",
+   "def": "a small room in a shop where you try on clothes",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "A2",
+   "ex": "The fitting room is at the back.",
+   "col": [
+    "use the fitting room",
+    "a fitting room queue"
+   ],
+   "tip": "Phòng thử đồ: fit (vừa) + room."
+  },
+  {
+   "word": "fit",
+   "pos": "v",
+   "sub": "clothes",
+   "level": "A2",
+   "ex": "These trousers do not fit me.",
+   "col": [
+    "fit well",
+    "fit perfectly"
+   ],
+   "tip": "Fit = vừa người; khác \"suit\" là hợp phong cách."
+  },
+  {
+   "word": "tight",
+   "pos": "adj",
+   "sub": "clothes",
+   "level": "A2",
+   "ex": "The shirt is a bit tight around the arms.",
+   "col": [
+    "too tight",
+    "tight jeans"
+   ],
+   "tip": "Chật: nhớ như \"tai-tơ\" siết lại."
+  },
+  {
+   "word": "loose",
+   "pos": "adj",
+   "sub": "clothes",
+   "level": "A2",
+   "ex": "I prefer loose trousers in summer.",
+   "col": [
+    "a loose fit",
+    "loose clothing"
+   ],
+   "tip": "Rộng thùng thình, trái nghĩa với tight."
+  },
+  {
+   "word": "sleeve",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "B1",
+   "ex": "The sleeve is too long for my arm.",
+   "col": [
+    "a short sleeve",
+    "roll up your sleeves"
+   ],
+   "tip": "Tay áo: \"slee-v\" tay dài tay ngắn."
+  },
+  {
+   "word": "collar",
+   "ipa": "/ˈkɒlə/",
+   "vi": "cổ áo",
+   "def": "the part of a shirt or coat that goes around your neck",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "B1",
+   "ex": "The collar on this shirt is stained.",
+   "col": [
+    "a shirt collar",
+    "fold the collar"
+   ],
+   "tip": "Cổ áo: liên tưởng \"cô-la\" cổ áo."
+  },
+  {
+   "word": "style",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "B1",
+   "ex": "I love the style of this coat.",
+   "col": [
+    "a classic style",
+    "your own style"
+   ],
+   "tip": "Phong cách: \"stai-lơ\" như thời trang."
+  },
+  {
+   "word": "fashionable",
+   "ipa": "/ˈfæʃənəbl/",
+   "vi": "hợp thời trang",
+   "def": "popular and modern at a particular time",
+   "pos": "adj",
+   "sub": "clothes",
+   "level": "B1",
+   "ex": "Those trainers look very fashionable.",
+   "col": [
+    "a fashionable shop",
+    "highly fashionable"
+   ],
+   "tip": "Hợp mốt: fashion + able."
+  },
+  {
+   "word": "cotton",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "A2",
+   "ex": "This T-shirt is made of cotton.",
+   "col": [
+    "pure cotton",
+    "a cotton shirt"
+   ],
+   "tip": "Vải cotton: loại vải thoáng mát quen thuộc."
+  },
+  {
+   "word": "material",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "B1",
+   "ex": "What material is this jacket made of?",
+   "col": [
+    "soft material",
+    "a waterproof material"
+   ],
+   "tip": "Chất liệu vải: material = nguyên liệu."
+  },
+  {
+   "word": "wool",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "B1",
+   "ex": "I bought a wool scarf for winter.",
+   "col": [
+    "pure wool",
+    "a wool sweater"
+   ],
+   "tip": "Len cừu: \"wool\" đọc \"wul\"."
+  },
+  {
+   "word": "stylish",
+   "ipa": "/ˈstaɪlɪʃ/",
+   "vi": "sành điệu, phong cách",
+   "def": "looking fashionable and attractive",
+   "pos": "adj",
+   "sub": "clothes",
+   "level": "B2",
+   "ex": "He always wears stylish clothes.",
+   "col": [
+    "a stylish outfit",
+    "look stylish"
+   ],
+   "tip": "Sành điệu: style + ish."
+  },
+  {
+   "word": "alteration",
+   "ipa": "/ˌɔːltəˈreɪʃn/",
+   "vi": "việc sửa quần áo; sự thay đổi",
+   "def": "a small change made to clothes so they fit better",
+   "pos": "n",
+   "sub": "clothes",
+   "level": "C1",
+   "ex": "The suit needs a small alteration at the waist.",
+   "col": [
+    "make an alteration",
+    "an alteration service"
+   ],
+   "tip": "Sửa quần áo cho vừa: alter = thay đổi."
+  },
+  {
+   "word": "supermarket",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "I buy fruit at the supermarket on Sundays.",
+   "col": [
+    "go to the supermarket",
+    "a large supermarket"
+   ],
+   "tip": "Siêu thị: super + market."
+  },
+  {
+   "word": "shop",
+   "pos": "v",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "We shop for food every weekend.",
+   "col": [
+    "shop online",
+    "shop for food"
+   ],
+   "tip": "Shop vừa là cửa hàng vừa là đi mua sắm."
+  },
+  {
+   "word": "basket",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "Put the milk in the basket.",
+   "col": [
+    "a shopping basket",
+    "carry a basket"
+   ],
+   "tip": "Giỏ xách tay trong siêu thị."
+  },
+  {
+   "word": "trolley",
+   "ipa": "/ˈtrɒli/",
+   "vi": "xe đẩy hàng",
+   "def": "a metal cart you push around a shop",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A2",
+   "ex": "The trolley has a broken wheel.",
+   "col": [
+    "push a trolley",
+    "a shopping trolley"
+   ],
+   "tip": "Xe đẩy hàng; Mỹ gọi là \"cart\"."
+  },
+  {
+   "word": "aisle",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "B1",
+   "ex": "The rice is in aisle four.",
+   "col": [
+    "a narrow aisle",
+    "the cereal aisle"
+   ],
+   "tip": "Lối đi giữa các kệ: \"aisle\" đọc \"ai-ồ\", chữ s câm."
+  },
+  {
+   "word": "shelf",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A2",
+   "ex": "The milk is on the top shelf.",
+   "col": [
+    "a top shelf",
+    "stock the shelves"
+   ],
+   "tip": "Kệ hàng: số nhiều là shelves."
+  },
+  {
+   "word": "bread",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "I need a loaf of bread for breakfast.",
+   "col": [
+    "fresh bread",
+    "a loaf of bread"
+   ],
+   "tip": "Bánh mì: đếm bằng \"a loaf\"."
+  },
+  {
+   "word": "milk",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "We ran out of milk this morning.",
+   "col": [
+    "a carton of milk",
+    "fresh milk"
+   ],
+   "tip": "Sữa: đếm bằng carton hay bottle."
+  },
+  {
+   "word": "vegetables",
+   "ipa": "/ˈvedʒtəblz/",
+   "vi": "rau củ",
+   "def": "plants such as carrots or cabbage that you eat",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "I buy fresh vegetables every few days.",
+   "col": [
+    "fresh vegetables",
+    "frozen vegetables"
+   ],
+   "tip": "Rau củ: nhớ \"veg-ta-bồ\"."
+  },
+  {
+   "word": "fruit",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "Do you sell fresh fruit here?",
+   "col": [
+    "fresh fruit",
+    "a piece of fruit"
+   ],
+   "tip": "Trái cây: không thêm s khi nói chung."
+  },
+  {
+   "word": "meat",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "I do not eat much meat.",
+   "col": [
+    "fresh meat",
+    "red meat"
+   ],
+   "tip": "Thịt: \"mít\" - đừng nhầm \"meet\"."
+  },
+  {
+   "word": "fresh",
+   "pos": "adj",
+   "sub": "grocery",
+   "level": "A2",
+   "ex": "Is this fish fresh today?",
+   "col": [
+    "fresh fish",
+    "fresh and cheap"
+   ],
+   "tip": "Tươi: trái nghĩa với stale/cũ."
+  },
+  {
+   "word": "frozen",
+   "ipa": "/ˈfrəʊzn/",
+   "vi": "đông lạnh",
+   "def": "kept at a very low temperature so it is hard",
+   "pos": "adj",
+   "sub": "grocery",
+   "level": "A2",
+   "ex": "I keep frozen peas in the freezer.",
+   "col": [
+    "frozen food",
+    "frozen peas"
+   ],
+   "tip": "Đông lạnh: từ freeze (đóng băng)."
+  },
+  {
+   "word": "packet",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A2",
+   "ex": "Can I have a packet of rice?",
+   "col": [
+    "a packet of rice",
+    "a small packet"
+   ],
+   "tip": "Gói nhỏ; \"package\" thường là kiện hàng."
+  },
+  {
+   "word": "bottle",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "I bought a bottle of water.",
+   "col": [
+    "a bottle of water",
+    "a plastic bottle"
+   ],
+   "tip": "Chai: \"bót-tồ\"."
+  },
+  {
+   "word": "ingredient",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "B1",
+   "ex": "I forgot one ingredient for the soup.",
+   "col": [
+    "a key ingredient",
+    "fresh ingredients"
+   ],
+   "tip": "Nguyên liệu nấu ăn."
+  },
+  {
+   "word": "weigh",
+   "pos": "v",
+   "sub": "grocery",
+   "level": "B1",
+   "ex": "The assistant will weigh the apples for you.",
+   "col": [
+    "weigh the fruit",
+    "weigh by the kilo"
+   ],
+   "tip": "Cân: \"wei\" như \"uây\"."
+  },
+  {
+   "word": "expiry date",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "B1",
+   "ex": "Check the expiry date before you buy.",
+   "col": [
+    "check the expiry date",
+    "past its expiry date"
+   ],
+   "tip": "Hạn sử dụng: expire = hết hạn."
+  },
+  {
+   "word": "organic",
+   "pos": "adj",
+   "sub": "grocery",
+   "level": "B2",
+   "ex": "She only buys organic vegetables.",
+   "col": [
+    "organic food",
+    "organic farming"
+   ],
+   "tip": "Hữu cơ: nghe như \"o-gánh-ic\"."
+  },
+  {
+   "word": "self-checkout",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "B2",
+   "ex": "I used the self-checkout to save time.",
+   "col": [
+    "use the self-checkout",
+    "a self-checkout machine"
+   ],
+   "tip": "Quầy tự thanh toán: self + checkout."
+  },
+  {
+   "word": "perishable",
+   "pos": "adj",
+   "sub": "grocery",
+   "level": "C1",
+   "ex": "Perishable goods must go in the fridge quickly.",
+   "col": [
+    "perishable goods",
+    "perishable items"
+   ],
+   "tip": "Dễ hỏng: perish = chết, hỏng."
+  },
+  {
+   "word": "market",
+   "pos": "n",
+   "sub": "market",
+   "level": "A1",
+   "ex": "There is a busy market near my house.",
+   "col": [
+    "a street market",
+    "a night market"
+   ],
+   "tip": "Chợ: gốc của supermarket."
+  },
+  {
+   "word": "stall",
+   "pos": "n",
+   "sub": "market",
+   "level": "A2",
+   "ex": "She runs a fruit stall in the market.",
+   "col": [
+    "a market stall",
+    "a food stall"
+   ],
+   "tip": "Quầy hàng nhỏ ở chợ."
+  },
+  {
+   "word": "price",
+   "pos": "n",
+   "sub": "market",
+   "level": "A1",
+   "ex": "What is the price of this bag?",
+   "col": [
+    "a low price",
+    "the price of fish"
+   ],
+   "tip": "Giá: \"prai-s\"."
+  },
+  {
+   "word": "cheap",
+   "pos": "adj",
+   "sub": "market",
+   "level": "A1",
+   "ex": "Vegetables are cheap at the market.",
+   "col": [
+    "dirt cheap",
+    "a cheap price"
+   ],
+   "tip": "Rẻ: \"chíp\", đồng nghĩa low-cost."
+  },
+  {
+   "word": "expensive",
+   "pos": "adj",
+   "sub": "market",
+   "level": "A1",
+   "ex": "This watch is too expensive for me.",
+   "col": [
+    "too expensive",
+    "very expensive"
+   ],
+   "tip": "Đắt: ex + pensive, nhớ \"đắt xì-pen\"."
+  },
+  {
+   "word": "how much",
+   "ipa": "/haʊ ˈmʌtʃ/",
+   "vi": "bao nhiêu (tiền)",
+   "def": "used to ask the price of something",
+   "pos": "phr",
+   "sub": "market",
+   "level": "A1",
+   "ex": "How much are these oranges?",
+   "col": [
+    "how much is it",
+    "how much per kilo"
+   ],
+   "tip": "Cụm hỏi giá số 1: How much...?"
+  },
+  {
+   "word": "kilo",
+   "ipa": "/ˈkiːləʊ/",
+   "vi": "ký, ki-lô-gam",
+   "def": "a unit of weight equal to 1,000 grams",
+   "pos": "n",
+   "sub": "market",
+   "level": "A1",
+   "ex": "Two kilos of rice, please.",
+   "col": [
+    "a kilo of rice",
+    "half a kilo"
+   ],
+   "tip": "Cân (kg): dạng ngắn của kilogram."
+  },
+  {
+   "word": "bargain",
+   "pos": "v",
+   "sub": "market",
+   "level": "B1",
+   "ex": "You can bargain at the street market.",
+   "col": [
+    "bargain with a seller",
+    "bargain hard"
+   ],
+   "tip": "Mặc cả: gần giống \"ba-gần\" trả giá."
+  },
+  {
+   "word": "haggle",
+   "pos": "v",
+   "sub": "market",
+   "level": "B2",
+   "ex": "She haggled over the price of the scarf.",
+   "col": [
+    "haggle over the price",
+    "haggle with a seller"
+   ],
+   "tip": "Cò kè giá: đồng nghĩa bargain, hơi thân mật."
+  },
+  {
+   "word": "offer",
+   "pos": "v",
+   "sub": "market",
+   "level": "A2",
+   "ex": "I can offer you ten dollars for it.",
+   "col": [
+    "offer a price",
+    "offer a discount"
+   ],
+   "tip": "Đưa ra mức giá: \"ô-phờ\"."
+  },
+  {
+   "word": "last price",
+   "ipa": "/lɑːst ˈpraɪs/",
+   "vi": "giá cuối cùng",
+   "def": "the lowest price a seller will accept",
+   "pos": "n",
+   "sub": "market",
+   "level": "B1",
+   "ex": "Is that your last price?",
+   "col": [
+    "ask for the last price",
+    "the last price"
+   ],
+   "tip": "Giá cuối: dùng khi chốt mặc cả."
+  },
+  {
+   "word": "too much",
+   "ipa": "/tuː ˈmʌtʃ/",
+   "vi": "quá nhiều; quá đắt",
+   "def": "more than is needed or acceptable",
+   "pos": "phr",
+   "sub": "market",
+   "level": "A2",
+   "ex": "Fifty is too much for this bag.",
+   "col": [
+    "way too much",
+    "too much money"
+   ],
+   "tip": "Quá nhiều/quá đắt khi nói về giá."
+  },
+  {
+   "word": "lower",
+   "ipa": "/ˈləʊə/",
+   "vi": "hạ thấp, giảm",
+   "def": "to make something less in amount or price",
+   "pos": "v",
+   "sub": "market",
+   "level": "B1",
+   "ex": "Could you lower the price a little?",
+   "col": [
+    "lower the price",
+    "lower your offer"
+   ],
+   "tip": "Hạ thấp: low + er."
+  },
+  {
+   "word": "seller",
+   "pos": "n",
+   "sub": "market",
+   "level": "A2",
+   "ex": "The seller gave me a small discount.",
+   "col": [
+    "a street seller",
+    "a friendly seller"
+   ],
+   "tip": "Người bán: sell + er."
+  },
+  {
+   "word": "customer",
+   "pos": "n",
+   "sub": "market",
+   "level": "A2",
+   "ex": "The seller greeted every customer with a smile.",
+   "col": [
+    "a regular customer",
+    "serve a customer"
+   ],
+   "tip": "Khách hàng: custom (thói quen) + er."
+  },
+  {
+   "word": "vendor",
+   "pos": "n",
+   "sub": "market",
+   "level": "B2",
+   "ex": "The vendor sells fresh flowers every morning.",
+   "col": [
+    "a street vendor",
+    "a market vendor"
+   ],
+   "tip": "Người bán dạo: nghe \"ven-đờ\"."
+  },
+  {
+   "word": "fresh produce",
+   "ipa": "/freʃ ˈprɒdjuːs/",
+   "vi": "nông sản tươi",
+   "def": "fruit and vegetables that have just been picked",
+   "pos": "n",
+   "sub": "market",
+   "level": "B2",
+   "ex": "The market is famous for its fresh produce.",
+   "col": [
+    "buy fresh produce",
+    "local produce"
+   ],
+   "tip": "Nông sản tươi: produce đọc \"prô-diu-s\"."
+  },
+  {
+   "word": "crowded",
+   "ipa": "/ˈkraʊdɪd/",
+   "vi": "đông đúc",
+   "def": "full of people",
+   "pos": "adj",
+   "sub": "market",
+   "level": "A2",
+   "ex": "The market is very crowded on Saturday.",
+   "col": [
+    "a crowded market",
+    "too crowded"
+   ],
+   "tip": "Đông đúc: crowd = đám đông."
+  },
+  {
+   "word": "worth",
+   "pos": "adj",
+   "sub": "market",
+   "level": "B1",
+   "ex": "This coat is not worth that much.",
+   "col": [
+    "worth the money",
+    "worth buying"
+   ],
+   "tip": "Đáng giá: worth + giá tiền."
+  },
+  {
+   "word": "deal",
+   "pos": "n",
+   "sub": "market",
+   "level": "A2",
+   "ex": "Three for ten dollars is a good deal.",
+   "col": [
+    "a good deal",
+    "a great deal"
+   ],
+   "tip": "Món hời/thỏa thuận: \"đil\"."
+  },
+  {
+   "word": "pay",
+   "pos": "v",
+   "sub": "market",
+   "level": "A1",
+   "ex": "I will pay in cash at the stall.",
+   "col": [
+    "pay in cash",
+    "pay for something"
+   ],
+   "tip": "Trả tiền: \"pay\" đọc \"pê\"."
+  },
+  {
+   "word": "change",
+   "pos": "n",
+   "sub": "market",
+   "level": "A2",
+   "ex": "Keep the change, please.",
+   "col": [
+    "small change",
+    "give change"
+   ],
+   "tip": "Tiền thối/tiền lẻ."
+  },
+  {
+   "word": "handmade",
+   "ipa": "/ˌhændˈmeɪd/",
+   "vi": "làm thủ công",
+   "def": "made by a person, not by a machine",
+   "pos": "adj",
+   "sub": "market",
+   "level": "B1",
+   "ex": "These handmade bags are very popular.",
+   "col": [
+    "handmade gifts",
+    "a handmade bag"
+   ],
+   "tip": "Làm bằng tay: hand + made."
+  },
+  {
+   "word": "souvenir",
+   "pos": "n",
+   "sub": "market",
+   "level": "B1",
+   "ex": "I bought a small souvenir for my mother.",
+   "col": [
+    "a souvenir shop",
+    "buy a souvenir"
+   ],
+   "tip": "Quà lưu niệm: nghe \"su-vơ-nia\"."
+  },
+  {
+   "word": "rip-off",
+   "ipa": "/ˈrɪp ɒf/",
+   "vi": "sự chặt chém",
+   "def": "something that costs far more than it is worth",
+   "pos": "n",
+   "sub": "market",
+   "level": "C1",
+   "ex": "Forty dollars for that is a total rip-off.",
+   "col": [
+    "a total rip-off",
+    "feel like a rip-off"
+   ],
+   "tip": "Cắt cổ/chặt chém: rip = xé toạc."
+  },
+  {
+   "word": "discount",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A2",
+   "ex": "Students get a ten percent discount.",
+   "col": [
+    "a student discount",
+    "give a discount"
+   ],
+   "tip": "Giảm giá: dis + count."
+  },
+  {
+   "word": "sale",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A1",
+   "ex": "The shoes are on sale this week.",
+   "col": [
+    "on sale",
+    "a summer sale"
+   ],
+   "tip": "Đợt giảm giá: on sale = đang giảm."
+  },
+  {
+   "word": "cash",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A1",
+   "ex": "Do you take cash or card?",
+   "col": [
+    "pay in cash",
+    "cash only"
+   ],
+   "tip": "Tiền mặt: \"cát-sờ\"."
+  },
+  {
+   "word": "card",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A1",
+   "ex": "Can I pay by card?",
+   "col": [
+    "pay by card",
+    "a credit card"
+   ],
+   "tip": "Thẻ: pay by card."
+  },
+  {
+   "word": "credit card",
+   "ipa": "/ˈkredɪt kɑːd/",
+   "vi": "thẻ tín dụng",
+   "def": "a plastic card you use to buy now and pay later",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A2",
+   "ex": "Do you accept credit cards?",
+   "col": [
+    "pay by credit card",
+    "a credit card payment"
+   ],
+   "tip": "Thẻ tín dụng: credit = tín dụng."
+  },
+  {
+   "word": "receipt",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A2",
+   "ex": "Please keep your receipt.",
+   "col": [
+    "keep the receipt",
+    "ask for a receipt"
+   ],
+   "tip": "Hóa đơn nhận: p câm, đọc \"ri-síc\"."
+  },
+  {
+   "word": "bill",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A2",
+   "ex": "Could we have the bill, please?",
+   "col": [
+    "pay the bill",
+    "an electricity bill"
+   ],
+   "tip": "Hóa đơn phải trả; Mỹ hay dùng \"check\"."
+  },
+  {
+   "word": "total",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A2",
+   "ex": "What is the total, please?",
+   "col": [
+    "the total price",
+    "a grand total"
+   ],
+   "tip": "Tổng cộng: \"tô-tồ\"."
+  },
+  {
+   "word": "cashier",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A2",
+   "ex": "The cashier scanned my items.",
+   "col": [
+    "a bank cashier",
+    "pay the cashier"
+   ],
+   "tip": "Thu ngân: cash + ier."
+  },
+  {
+   "word": "checkout",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A2",
+   "ex": "There is a long queue at the checkout.",
+   "col": [
+    "at the checkout",
+    "the checkout counter"
+   ],
+   "tip": "Quầy thanh toán: check + out."
+  },
+  {
+   "word": "queue",
+   "pos": "n",
+   "sub": "pay",
+   "level": "A2",
+   "ex": "We waited in a long queue to pay.",
+   "col": [
+    "join the queue",
+    "a long queue"
+   ],
+   "tip": "Hàng đợi: Mỹ hay dùng \"line\"."
+  },
+  {
+   "word": "cost",
+   "pos": "v",
+   "sub": "pay",
+   "level": "A1",
+   "ex": "How much does this phone cost?",
+   "col": [
+    "cost a lot",
+    "cost ten dollars"
+   ],
+   "tip": "Có giá: cost - cost - cost."
+  },
+  {
+   "word": "afford",
+   "pos": "v",
+   "sub": "pay",
+   "level": "B1",
+   "ex": "I cannot afford a new laptop this year.",
+   "col": [
+    "cannot afford it",
+    "afford to buy"
+   ],
+   "tip": "Đủ khả năng mua: nhớ \"can't afford\"."
+  },
+  {
+   "word": "budget",
+   "pos": "n",
+   "sub": "pay",
+   "level": "B1",
+   "ex": "I have a small budget for gifts.",
+   "col": [
+    "a tight budget",
+    "stay within budget"
+   ],
+   "tip": "Ngân sách: \"bắt-dịt\"."
+  },
+  {
+   "word": "spend",
+   "pos": "v",
+   "sub": "pay",
+   "level": "A2",
+   "ex": "I spend too much money on clothes.",
+   "col": [
+    "spend money",
+    "spend on food"
+   ],
+   "tip": "Tiêu tiền: spend - spent."
+  },
+  {
+   "word": "save",
+   "pos": "v",
+   "sub": "pay",
+   "level": "A2",
+   "ex": "I saved twenty dollars with this coupon.",
+   "col": [
+    "save money",
+    "save time"
+   ],
+   "tip": "Tiết kiệm: gần với \"sê-vơ\"."
+  },
+  {
+   "word": "coupon",
+   "pos": "n",
+   "sub": "pay",
+   "level": "B1",
+   "ex": "I have a coupon for ten percent off.",
+   "col": [
+    "use a coupon",
+    "a discount coupon"
+   ],
+   "tip": "Phiếu giảm giá: \"cu-pông\"."
+  },
+  {
+   "word": "voucher",
+   "pos": "n",
+   "sub": "pay",
+   "level": "B1",
+   "ex": "She gave me a gift voucher for my birthday.",
+   "col": [
+    "a gift voucher",
+    "redeem a voucher"
+   ],
+   "tip": "Phiếu quà tặng: \"vao-chờ\"."
+  },
+  {
+   "word": "special offer",
+   "ipa": "/ˌspeʃl ˈɒfə/",
+   "vi": "khuyến mãi đặc biệt",
+   "def": "a lower price for a short time",
+   "pos": "n",
+   "sub": "pay",
+   "level": "B1",
+   "ex": "There is a special offer on rice this week.",
+   "col": [
+    "a special offer",
+    "on special offer"
+   ],
+   "tip": "Khuyến mãi đặc biệt."
+  },
+  {
+   "word": "refund",
+   "pos": "n",
+   "sub": "pay",
+   "level": "B1",
+   "ex": "I asked the shop for a refund.",
+   "col": [
+    "get a refund",
+    "a full refund"
+   ],
+   "tip": "Tiền hoàn lại: re + fund."
+  },
+  {
+   "word": "contactless",
+   "ipa": "/ˈkɒntæktləs/",
+   "vi": "không tiếp xúc (thanh toán chạm)",
+   "def": "paying by touching a card or phone on a machine",
+   "pos": "adj",
+   "sub": "pay",
+   "level": "B2",
+   "ex": "You can pay contactless with your phone.",
+   "col": [
+    "pay contactless",
+    "a contactless card"
+   ],
+   "tip": "Thanh toán chạm: contact + less."
+  },
+  {
+   "word": "instalment",
+   "pos": "n",
+   "sub": "pay",
+   "level": "B2",
+   "ex": "I paid for the sofa in monthly instalments.",
+   "col": [
+    "monthly instalments",
+    "pay in instalments"
+   ],
+   "tip": "Trả góp từng kỳ: Mỹ viết installment."
+  },
+  {
+   "word": "overcharge",
+   "pos": "v",
+   "sub": "pay",
+   "level": "C1",
+   "ex": "The shop overcharged me for the milk.",
+   "col": [
+    "overcharge a customer",
+    "be overcharged"
+   ],
+   "tip": "Tính quá giá: over + charge."
+  },
+  {
+   "word": "online",
+   "pos": "adv",
+   "sub": "online",
+   "level": "A1",
+   "ex": "I often buy books online.",
+   "col": [
+    "shop online",
+    "order online"
+   ],
+   "tip": "Trực tuyến: on + line."
+  },
+  {
+   "word": "website",
+   "pos": "n",
+   "sub": "online",
+   "level": "A1",
+   "ex": "The website is easy to use.",
+   "col": [
+    "visit a website",
+    "a shopping website"
+   ],
+   "tip": "Trang web: web + site."
+  },
+  {
+   "word": "app",
+   "ipa": "/æp/",
+   "vi": "ứng dụng",
+   "def": "a program you use on a phone",
+   "pos": "n",
+   "sub": "online",
+   "level": "A1",
+   "ex": "I use an app to order food.",
+   "col": [
+    "download an app",
+    "a shopping app"
+   ],
+   "tip": "App: viết tắt của application."
+  },
+  {
+   "word": "order",
+   "pos": "v",
+   "sub": "online",
+   "level": "A1",
+   "ex": "I ordered a pair of shoes yesterday.",
+   "col": [
+    "order online",
+    "place an order"
+   ],
+   "tip": "Đặt hàng: \"o-đờ\"."
+  },
+  {
+   "word": "delivery",
+   "pos": "n",
+   "sub": "online",
+   "level": "A2",
+   "ex": "Delivery takes two or three days.",
+   "col": [
+    "free delivery",
+    "home delivery"
+   ],
+   "tip": "Giao hàng: deliver + y."
+  },
+  {
+   "word": "deliver",
+   "pos": "v",
+   "sub": "online",
+   "level": "A2",
+   "ex": "They deliver to your door for free.",
+   "col": [
+    "deliver to your door",
+    "deliver a parcel"
+   ],
+   "tip": "Giao tận nơi: \"đi-li-vờ\"."
+  },
+  {
+   "word": "parcel",
+   "pos": "n",
+   "sub": "online",
+   "level": "A2",
+   "ex": "My parcel arrived this morning.",
+   "col": [
+    "send a parcel",
+    "a heavy parcel"
+   ],
+   "tip": "Bưu kiện: \"pa-sồ\"."
+  },
+  {
+   "word": "address",
+   "pos": "n",
+   "sub": "online",
+   "level": "A1",
+   "ex": "Please check your delivery address.",
+   "col": [
+    "a home address",
+    "a delivery address"
+   ],
+   "tip": "Địa chỉ: hai chữ d, hai chữ s."
+  },
+  {
+   "word": "add to cart",
+   "ipa": "/æd tə ˈkɑːt/",
+   "vi": "thêm vào giỏ hàng",
+   "def": "click to put an item in your online basket",
+   "pos": "phr",
+   "sub": "online",
+   "level": "A2",
+   "ex": "Click add to cart to save the item.",
+   "col": [
+    "add to cart",
+    "an empty cart"
+   ],
+   "tip": "Thêm vào giỏ: hay thấy trên web."
+  },
+  {
+   "word": "password",
+   "pos": "n",
+   "sub": "online",
+   "level": "A1",
+   "ex": "I forgot my password for the shop account.",
+   "col": [
+    "reset a password",
+    "enter a password"
+   ],
+   "tip": "Mật khẩu: pass + word."
+  },
+  {
+   "word": "account",
+   "pos": "n",
+   "sub": "online",
+   "level": "A2",
+   "ex": "I created an account to track my order.",
+   "col": [
+    "create an account",
+    "log in to your account"
+   ],
+   "tip": "Tài khoản: ac + count."
+  },
+  {
+   "word": "shipping",
+   "ipa": "/ˈʃɪpɪŋ/",
+   "vi": "vận chuyển; phí vận chuyển",
+   "def": "the process or cost of sending goods to a buyer",
+   "pos": "n",
+   "sub": "online",
+   "level": "B1",
+   "ex": "Shipping is free for orders over fifty dollars.",
+   "col": [
+    "free shipping",
+    "shipping cost"
+   ],
+   "tip": "Phí/việc vận chuyển: ship (tàu)."
+  },
+  {
+   "word": "track",
+   "pos": "v",
+   "sub": "online",
+   "level": "B1",
+   "ex": "You can track your parcel on the app.",
+   "col": [
+    "track an order",
+    "track a parcel"
+   ],
+   "tip": "Theo dõi: như theo dấu \"track\"."
+  },
+  {
+   "word": "arrive",
+   "pos": "v",
+   "sub": "online",
+   "level": "A2",
+   "ex": "The package should arrive on Friday.",
+   "col": [
+    "arrive on time",
+    "arrive late"
+   ],
+   "tip": "Đến nơi: \"a-rai-v\"."
+  },
+  {
+   "word": "courier",
+   "pos": "n",
+   "sub": "online",
+   "level": "B2",
+   "ex": "The courier left the parcel at my door.",
+   "col": [
+    "a courier service",
+    "call a courier"
+   ],
+   "tip": "Người chuyển phát: đọc \"cu-ri-ờ\"."
+  },
+  {
+   "word": "in stock",
+   "pos": "phr",
+   "sub": "online",
+   "level": "B1",
+   "ex": "Is this size still in stock?",
+   "col": [
+    "in stock",
+    "back in stock"
+   ],
+   "tip": "Còn hàng: stock = kho hàng."
+  },
+  {
+   "word": "out of stock",
+   "pos": "phr",
+   "sub": "online",
+   "level": "B1",
+   "ex": "Sorry, that colour is out of stock.",
+   "col": [
+    "be out of stock",
+    "go out of stock"
+   ],
+   "tip": "Hết hàng: ngược với in stock."
+  },
+  {
+   "word": "review",
+   "pos": "n",
+   "sub": "online",
+   "level": "B1",
+   "ex": "I read the reviews before I bought it.",
+   "col": [
+    "read a review",
+    "a customer review"
+   ],
+   "tip": "Đánh giá của người mua."
+  },
+  {
+   "word": "rating",
+   "ipa": "/ˈreɪtɪŋ/",
+   "vi": "điểm đánh giá",
+   "def": "a score that shows how good something is",
+   "pos": "n",
+   "sub": "online",
+   "level": "B1",
+   "ex": "This seller has a high rating.",
+   "col": [
+    "a high rating",
+    "a five-star rating"
+   ],
+   "tip": "Điểm đánh giá: rate = chấm điểm."
+  },
+  {
+   "word": "payment",
+   "pos": "n",
+   "sub": "online",
+   "level": "A2",
+   "ex": "Your payment was successful.",
+   "col": [
+    "make a payment",
+    "online payment"
+   ],
+   "tip": "Thanh toán: pay + ment."
+  },
+  {
+   "word": "confirm",
+   "pos": "v",
+   "sub": "online",
+   "level": "B1",
+   "ex": "You will get an email to confirm your order.",
+   "col": [
+    "confirm an order",
+    "confirm a payment"
+   ],
+   "tip": "Xác nhận: con + firm (chắc)."
+  },
+  {
+   "word": "signature",
+   "pos": "n",
+   "sub": "online",
+   "level": "B2",
+   "ex": "The courier asked for my signature.",
+   "col": [
+    "a signature required",
+    "sign your signature"
+   ],
+   "tip": "Chữ ký nhận hàng: sign + ature."
+  },
+  {
+   "word": "return",
+   "pos": "v",
+   "sub": "returns",
+   "level": "A2",
+   "ex": "I want to return this jacket.",
+   "col": [
+    "return an item",
+    "return it today"
+   ],
+   "tip": "Trả lại hàng: re + turn."
+  },
+  {
+   "word": "exchange",
+   "pos": "v",
+   "sub": "returns",
+   "level": "A2",
+   "ex": "Can I exchange this for a bigger size?",
+   "col": [
+    "exchange an item",
+    "exchange for another"
+   ],
+   "tip": "Đổi hàng: \"ích-xchêng-dơ\"."
+  },
+  {
+   "word": "broken",
+   "ipa": "/ˈbrəʊkən/",
+   "vi": "hỏng, vỡ",
+   "def": "damaged and not working",
+   "pos": "adj",
+   "sub": "returns",
+   "level": "A1",
+   "ex": "The screen of my phone is broken.",
+   "col": [
+    "a broken screen",
+    "arrive broken"
+   ],
+   "tip": "Hỏng/vỡ: gốc break."
+  },
+  {
+   "word": "wrong",
+   "pos": "adj",
+   "sub": "returns",
+   "level": "A1",
+   "ex": "You sent me the wrong size.",
+   "col": [
+    "the wrong size",
+    "the wrong colour"
+   ],
+   "tip": "Sai: đọc \"rong\", w câm."
+  },
+  {
+   "word": "problem",
+   "pos": "n",
+   "sub": "returns",
+   "level": "A1",
+   "ex": "I have a problem with my order.",
+   "col": [
+    "a big problem",
+    "solve a problem"
+   ],
+   "tip": "Vấn đề: \"pro-bờ-lem\"."
+  },
+  {
+   "word": "complain",
+   "pos": "v",
+   "sub": "returns",
+   "level": "A2",
+   "ex": "I wrote to the shop to complain.",
+   "col": [
+    "complain about something",
+    "complain to a manager"
+   ],
+   "tip": "Phàn nàn: \"com-plên\"."
+  },
+  {
+   "word": "complaint",
+   "pos": "n",
+   "sub": "returns",
+   "level": "B1",
+   "ex": "I made a complaint about the late delivery.",
+   "col": [
+    "make a complaint",
+    "a customer complaint"
+   ],
+   "tip": "Lời khiếu nại: complain + t."
+  },
+  {
+   "word": "damaged",
+   "ipa": "/ˈdæmɪdʒd/",
+   "vi": "bị hư hại",
+   "def": "harmed so that it is no longer perfect",
+   "pos": "adj",
+   "sub": "returns",
+   "level": "B1",
+   "ex": "The box arrived damaged.",
+   "col": [
+    "a damaged item",
+    "arrive damaged"
+   ],
+   "tip": "Bị hư hại: damage + d."
+  },
+  {
+   "word": "faulty",
+   "pos": "adj",
+   "sub": "returns",
+   "level": "B1",
+   "ex": "The kettle I bought is faulty.",
+   "col": [
+    "a faulty product",
+    "a faulty switch"
+   ],
+   "tip": "Lỗi sản xuất: fault = lỗi."
+  },
+  {
+   "word": "missing",
+   "ipa": "/ˈmɪsɪŋ/",
+   "vi": "bị thiếu, mất",
+   "def": "not in the place where it should be",
+   "pos": "adj",
+   "sub": "returns",
+   "level": "B1",
+   "ex": "One item was missing from my parcel.",
+   "col": [
+    "a missing item",
+    "go missing"
+   ],
+   "tip": "Thiếu: miss + ing."
+  },
+  {
+   "word": "policy",
+   "pos": "n",
+   "sub": "returns",
+   "level": "B1",
+   "ex": "What is your return policy?",
+   "col": [
+    "a return policy",
+    "a refund policy"
+   ],
+   "tip": "Chính sách: \"po-li-xi\"."
+  },
+  {
+   "word": "warranty",
+   "pos": "n",
+   "sub": "returns",
+   "level": "B1",
+   "ex": "The laptop has a two-year warranty.",
+   "col": [
+    "under warranty",
+    "a warranty card"
+   ],
+   "tip": "Bảo hành: \"uo-ran-ti\"."
+  },
+  {
+   "word": "guarantee",
+   "pos": "n",
+   "sub": "returns",
+   "level": "B2",
+   "ex": "The phone comes with a one-year guarantee.",
+   "col": [
+    "a money-back guarantee",
+    "under guarantee"
+   ],
+   "tip": "Cam kết bảo hành: \"ga-ran-ti\"."
+  },
+  {
+   "word": "manager",
+   "pos": "n",
+   "sub": "returns",
+   "level": "A2",
+   "ex": "Could I speak to the manager, please?",
+   "col": [
+    "speak to the manager",
+    "a shop manager"
+   ],
+   "tip": "Quản lý: manage + r."
+  },
+  {
+   "word": "apologise",
+   "ipa": "/əˈpɒlədʒaɪz/",
+   "vi": "xin lỗi",
+   "def": "to say sorry for a mistake",
+   "pos": "v",
+   "sub": "returns",
+   "level": "B1",
+   "ex": "The shop apologised for the mistake.",
+   "col": [
+    "apologise for a mistake",
+    "apologise to a customer"
+   ],
+   "tip": "Xin lỗi: Mỹ viết apologize."
+  },
+  {
+   "word": "mistake",
+   "pos": "n",
+   "sub": "returns",
+   "level": "A2",
+   "ex": "There was a mistake on my bill.",
+   "col": [
+    "make a mistake",
+    "a big mistake"
+   ],
+   "tip": "Nhầm lẫn: mis + take."
+  },
+  {
+   "word": "replace",
+   "pos": "v",
+   "sub": "returns",
+   "level": "B1",
+   "ex": "They will replace the broken cup for free.",
+   "col": [
+    "replace an item",
+    "replace it free"
+   ],
+   "tip": "Thay thế: re + place."
+  },
+  {
+   "word": "replacement",
+   "pos": "n",
+   "sub": "returns",
+   "level": "B2",
+   "ex": "I asked for a replacement.",
+   "col": [
+    "a free replacement",
+    "send a replacement"
+   ],
+   "tip": "Hàng thay thế: replace + ment."
+  },
+  {
+   "word": "reimburse",
+   "pos": "v",
+   "sub": "returns",
+   "level": "C1",
+   "ex": "The company will reimburse you for the cost.",
+   "col": [
+    "reimburse a customer",
+    "be reimbursed in full"
+   ],
+   "tip": "Hoàn tiền: gần \"ri-im-bơ-s\"."
+  },
+  {
+   "word": "dissatisfied",
+   "ipa": "/dɪsˈsætɪsfaɪd/",
+   "vi": "không hài lòng",
+   "def": "not happy with something",
+   "pos": "adj",
+   "sub": "returns",
+   "level": "C1",
+   "ex": "I am dissatisfied with the service.",
+   "col": [
+    "dissatisfied customers",
+    "feel dissatisfied"
+   ],
+   "tip": "Không hài lòng: dis + satisfied."
+  },
+  {
+   "word": "compensation",
+   "pos": "n",
+   "sub": "returns",
+   "level": "C1",
+   "ex": "They offered me compensation for the delay.",
+   "col": [
+    "ask for compensation",
+    "receive compensation"
+   ],
+   "tip": "Bồi thường: \"com-pen-sê-shần\"."
+  },
+  {
+   "word": "proof of purchase",
+   "pos": "n",
+   "sub": "returns",
+   "level": "B2",
+   "ex": "You need proof of purchase to return it.",
+   "col": [
+    "show proof of purchase",
+    "keep proof of purchase"
+   ],
+   "tip": "Chứng từ mua hàng: proof + purchase."
+  },
+  {
+   "word": "satisfied",
+   "ipa": "/ˈsætɪsfaɪd/",
+   "vi": "hài lòng",
+   "def": "pleased because you got what you wanted",
+   "pos": "adj",
+   "sub": "returns",
+   "level": "B1",
+   "ex": "I am very satisfied with this product.",
+   "col": [
+    "a satisfied customer",
+    "feel satisfied"
+   ],
+   "tip": "Hài lòng: trái với dissatisfied."
+  }
+ ],
+ "phrases": [
+  {
+   "en": "How much is this?",
+   "vi": "Cái này giá bao nhiêu vậy?",
+   "lv": "A1",
+   "sub": "market"
+  },
+  {
+   "en": "Do you have this in a larger size?",
+   "vi": "Cái này có cỡ lớn hơn không?",
+   "lv": "A2",
+   "sub": "clothes"
+  },
+  {
+   "en": "Can I try this on?",
+   "vi": "Tôi mặc thử cái này được không?",
+   "lv": "A1",
+   "sub": "clothes"
+  },
+  {
+   "en": "It does not fit me.",
+   "vi": "Cái này không vừa với tôi.",
+   "lv": "A2",
+   "sub": "clothes"
+  },
+  {
+   "en": "Where is the fitting room?",
+   "vi": "Phòng thử đồ ở đâu vậy?",
+   "lv": "A2",
+   "sub": "clothes"
+  },
+  {
+   "en": "Do you have it in another colour?",
+   "vi": "Bạn có màu khác không?",
+   "lv": "A2",
+   "sub": "clothes"
+  },
+  {
+   "en": "Where can I find the rice?",
+   "vi": "Gạo ở đâu vậy bạn?",
+   "lv": "A1",
+   "sub": "grocery"
+  },
+  {
+   "en": "Is this fresh?",
+   "vi": "Cái này có tươi không?",
+   "lv": "A1",
+   "sub": "grocery"
+  },
+  {
+   "en": "Could I have a bag, please?",
+   "vi": "Cho tôi xin một cái túi nhé?",
+   "lv": "A2",
+   "sub": "grocery"
+  },
+  {
+   "en": "That is too expensive. Can you lower the price?",
+   "vi": "Đắt quá. Bạn bớt giá được không?",
+   "lv": "A2",
+   "sub": "market"
+  },
+  {
+   "en": "What is your last price?",
+   "vi": "Giá cuối của bạn là bao nhiêu?",
+   "lv": "B1",
+   "sub": "market"
+  },
+  {
+   "en": "I will take two kilos, please.",
+   "vi": "Cho tôi lấy hai ký nhé.",
+   "lv": "A2",
+   "sub": "market"
+  },
+  {
+   "en": "If I buy three, can I get a discount?",
+   "vi": "Nếu mua ba cái thì được giảm giá không?",
+   "lv": "B1",
+   "sub": "market"
+  },
+  {
+   "en": "Can I pay by card?",
+   "vi": "Tôi trả bằng thẻ được không?",
+   "lv": "A1",
+   "sub": "pay"
+  },
+  {
+   "en": "Do you take cash?",
+   "vi": "Bạn có nhận tiền mặt không?",
+   "lv": "A1",
+   "sub": "pay"
+  },
+  {
+   "en": "Could I have a receipt, please?",
+   "vi": "Cho tôi xin hóa đơn nhé?",
+   "lv": "A2",
+   "sub": "pay"
+  },
+  {
+   "en": "Is there a sale on at the moment?",
+   "vi": "Hiện giờ có đợt giảm giá nào không?",
+   "lv": "B1",
+   "sub": "pay"
+  },
+  {
+   "en": "Keep the change.",
+   "vi": "Bạn cứ giữ tiền thối.",
+   "lv": "A2",
+   "sub": "pay"
+  },
+  {
+   "en": "Is this item in stock?",
+   "vi": "Mặt hàng này còn hàng không?",
+   "lv": "B1",
+   "sub": "online"
+  },
+  {
+   "en": "When will my order arrive?",
+   "vi": "Khi nào đơn hàng của tôi sẽ đến?",
+   "lv": "A2",
+   "sub": "online"
+  },
+  {
+   "en": "Is shipping free?",
+   "vi": "Phí vận chuyển có miễn phí không?",
+   "lv": "B1",
+   "sub": "online"
+  },
+  {
+   "en": "Where is my parcel? Can I track it?",
+   "vi": "Bưu kiện của tôi đâu rồi? Tôi theo dõi được không?",
+   "lv": "B1",
+   "sub": "online"
+  },
+  {
+   "en": "I would like to return this, please.",
+   "vi": "Tôi muốn trả lại món này.",
+   "lv": "A2",
+   "sub": "returns"
+  },
+  {
+   "en": "Can I exchange it for a different size?",
+   "vi": "Tôi đổi sang cỡ khác được không?",
+   "lv": "A2",
+   "sub": "returns"
+  },
+  {
+   "en": "I would like a refund, please.",
+   "vi": "Tôi muốn được hoàn tiền.",
+   "lv": "B1",
+   "sub": "returns"
+  },
+  {
+   "en": "It arrived damaged.",
+   "vi": "Hàng đến nơi đã bị hư hại.",
+   "lv": "B1",
+   "sub": "returns"
+  },
+  {
+   "en": "I have the receipt here.",
+   "vi": "Tôi có hóa đơn đây.",
+   "lv": "A2",
+   "sub": "returns"
+  },
+  {
+   "en": "What is your return policy?",
+   "vi": "Chính sách đổi trả của bạn thế nào?",
+   "lv": "B1",
+   "sub": "returns"
+  },
+  {
+   "en": "Could I speak to the manager, please?",
+   "vi": "Cho tôi gặp quản lý được không?",
+   "lv": "B1",
+   "sub": "returns"
+  },
+  {
+   "en": "I am afraid there has been a mistake with my order.",
+   "vi": "Tôi e là đơn hàng của tôi có nhầm lẫn.",
+   "lv": "B2",
+   "sub": "returns"
+  }
+ ],
+ "dialogs": [
+  {
+   "id": "cl-1",
+   "sub": "clothes",
+   "lines": [
+    [
+     "A",
+     "Can I try this jacket on?",
+     "Tôi mặc thử áo khoác này được không?"
+    ],
+    [
+     "B",
+     "Of course. The fitting room is over there.",
+     "Dĩ nhiên rồi. Phòng thử đồ ở đằng kia."
+    ],
+    [
+     "A",
+     "It is a bit tight. Do you have a larger size?",
+     "Hơi chật. Bạn có cỡ lớn hơn không?"
+    ]
+   ],
+   "key": [
+    "try on",
+    "fitting room",
+    "tight"
+   ]
+  },
+  {
+   "id": "cl-2",
+   "sub": "clothes",
+   "lines": [
+    [
+     "A",
+     "Do you have this shirt in blue?",
+     "Áo này có màu xanh dương không?"
+    ],
+    [
+     "B",
+     "Let me check. What size do you wear?",
+     "Để tôi xem. Bạn mặc cỡ nào?"
+    ],
+    [
+     "A",
+     "Medium, please.",
+     "Cỡ M nhé."
+    ],
+    [
+     "B",
+     "Yes, we have one. It is cotton.",
+     "Có, còn một cái. Vải cotton đấy."
+    ]
+   ],
+   "key": [
+    "size",
+    "cotton"
+   ]
+  },
+  {
+   "id": "gr-1",
+   "sub": "grocery",
+   "lines": [
+    [
+     "A",
+     "Excuse me, where is the milk?",
+     "Xin lỗi, sữa ở đâu vậy?"
+    ],
+    [
+     "B",
+     "It is in aisle three, on the top shelf.",
+     "Ở lối đi số ba, trên kệ trên cùng."
+    ],
+    [
+     "A",
+     "Thank you!",
+     "Cảm ơn bạn!"
+    ]
+   ],
+   "key": [
+    "aisle",
+    "shelf"
+   ]
+  },
+  {
+   "id": "gr-2",
+   "sub": "grocery",
+   "lines": [
+    [
+     "A",
+     "Is this fish fresh today?",
+     "Cá này hôm nay có tươi không?"
+    ],
+    [
+     "B",
+     "Yes, it came in this morning.",
+     "Có, sáng nay mới về."
+    ],
+    [
+     "A",
+     "Great. I will take half a kilo.",
+     "Tốt. Cho tôi nửa ký."
+    ]
+   ],
+   "key": [
+    "fresh",
+    "kilo"
+   ]
+  },
+  {
+   "id": "mk-1",
+   "sub": "market",
+   "lines": [
+    [
+     "A",
+     "How much is this scarf?",
+     "Chiếc khăn này giá bao nhiêu?"
+    ],
+    [
+     "B",
+     "Twenty dollars.",
+     "Hai mươi đô."
+    ],
+    [
+     "A",
+     "That is too much. Can you lower the price?",
+     "Đắt quá. Bạn bớt được không?"
+    ],
+    [
+     "B",
+     "Fifteen. That is my last price.",
+     "Mười lăm. Đó là giá cuối của tôi."
+    ]
+   ],
+   "key": [
+    "how much",
+    "too much",
+    "last price"
+   ]
+  },
+  {
+   "id": "mk-2",
+   "sub": "market",
+   "lines": [
+    [
+     "A",
+     "I will take three oranges and two apples.",
+     "Cho tôi ba quả cam và hai quả táo."
+    ],
+    [
+     "B",
+     "That is six dollars.",
+     "Sáu đô nhé."
+    ],
+    [
+     "A",
+     "Here you are. Keep the change.",
+     "Của bạn đây. Bạn giữ tiền thối nhé."
+    ]
+   ],
+   "key": [
+    "change",
+    "take"
+   ]
+  },
+  {
+   "id": "pa-1",
+   "sub": "pay",
+   "lines": [
+    [
+     "A",
+     "That will be forty dollars, please.",
+     "Tổng cộng bốn mươi đô ạ."
+    ],
+    [
+     "B",
+     "Can I pay by card?",
+     "Tôi trả bằng thẻ được không?"
+    ],
+    [
+     "A",
+     "Of course. Would you like a receipt?",
+     "Được chứ. Bạn có cần hóa đơn không?"
+    ],
+    [
+     "B",
+     "Yes, please.",
+     "Có, cảm ơn."
+    ]
+   ],
+   "key": [
+    "pay by card",
+    "receipt"
+   ]
+  },
+  {
+   "id": "pa-2",
+   "sub": "pay",
+   "lines": [
+    [
+     "A",
+     "Is there a discount for students?",
+     "Có giảm giá cho sinh viên không?"
+    ],
+    [
+     "B",
+     "Yes, ten percent with a student card.",
+     "Có, giảm mười phần trăm với thẻ sinh viên."
+    ],
+    [
+     "A",
+     "Perfect. I have mine here.",
+     "Tuyệt. Thẻ của tôi đây."
+    ]
+   ],
+   "key": [
+    "discount",
+    "student card"
+   ]
+  },
+  {
+   "id": "on-1",
+   "sub": "online",
+   "lines": [
+    [
+     "A",
+     "My order has not arrived yet.",
+     "Đơn hàng của tôi vẫn chưa đến."
+    ],
+    [
+     "B",
+     "Let me check. Can I have your order number?",
+     "Để tôi kiểm tra. Cho tôi mã đơn hàng nhé?"
+    ],
+    [
+     "A",
+     "It is 4521.",
+     "Mã là 4521."
+    ],
+    [
+     "B",
+     "It will arrive tomorrow.",
+     "Ngày mai sẽ đến."
+    ]
+   ],
+   "key": [
+    "order",
+    "arrive"
+   ]
+  },
+  {
+   "id": "on-2",
+   "sub": "online",
+   "lines": [
+    [
+     "A",
+     "Is shipping free?",
+     "Phí vận chuyển có miễn phí không?"
+    ],
+    [
+     "B",
+     "Yes, for orders over fifty dollars.",
+     "Có, cho đơn trên năm mươi đô."
+    ],
+    [
+     "A",
+     "Great. Is it in stock?",
+     "Tốt quá. Còn hàng không?"
+    ]
+   ],
+   "key": [
+    "shipping",
+    "in stock"
+   ]
+  },
+  {
+   "id": "re-1",
+   "sub": "returns",
+   "lines": [
+    [
+     "A",
+     "I would like to return this kettle.",
+     "Tôi muốn trả lại cái ấm này."
+    ],
+    [
+     "B",
+     "What is the problem?",
+     "Có vấn đề gì vậy?"
+    ],
+    [
+     "A",
+     "It is faulty. It does not turn on.",
+     "Nó bị lỗi. Không bật lên được."
+    ],
+    [
+     "B",
+     "I can give you a refund. Do you have the receipt?",
+     "Tôi hoàn tiền cho bạn được. Bạn có hóa đơn không?"
+    ]
+   ],
+   "key": [
+    "return",
+    "faulty",
+    "refund",
+    "receipt"
+   ]
+  },
+  {
+   "id": "re-2",
+   "sub": "returns",
+   "lines": [
+    [
+     "A",
+     "I want to make a complaint about my order.",
+     "Tôi muốn khiếu nại về đơn hàng của mình."
+    ],
+    [
+     "B",
+     "I am sorry to hear that. What happened?",
+     "Tôi rất tiếc. Có chuyện gì vậy?"
+    ],
+    [
+     "A",
+     "One item was missing and the box was damaged.",
+     "Thiếu một món và hộp bị hư hại."
+    ],
+    [
+     "B",
+     "We will send a replacement today.",
+     "Hôm nay chúng tôi sẽ gửi hàng thay thế."
+    ]
+   ],
+   "key": [
+    "complaint",
+    "missing",
+    "damaged",
+    "replacement"
+   ]
+  }
+ ]
+}

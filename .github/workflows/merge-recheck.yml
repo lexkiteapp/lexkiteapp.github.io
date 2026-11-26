@@ -27,15 +27,18 @@ jobs:
         env: { MAIN: '${{ inputs.main }}' }
         run: |
           git fetch --no-tags origin main
-          git show "$MAIN:scripts/ci/cheap.mjs" > "$RUNNER_TEMP/cheap.mjs"
+          # cheap.mjs import '../lib/is-main.mjs' (tương đối) → giữ đúng cây thư mục scripts/{ci,lib} từ main, không chép lẻ một tệp (26/11: ERR_MODULE_NOT_FOUND)
+          mkdir -p "$RUNNER_TEMP/gate/scripts/ci" "$RUNNER_TEMP/gate/scripts/lib"
+          git show "$MAIN:scripts/ci/cheap.mjs" > "$RUNNER_TEMP/gate/scripts/ci/cheap.mjs"
+          git show "$MAIN:scripts/lib/is-main.mjs" > "$RUNNER_TEMP/gate/scripts/lib/is-main.mjs"
       - name: Ghép main vào đầu PR (không commit) rồi chạy check rẻ (không token)
         env: { MAIN: '${{ inputs.main }}' }
         run: |
           git config user.name lexkite-bot; git config user.email lexkite-bot@users.noreply.github.com
           git merge --no-commit --no-ff "$MAIN" || { echo "xung đột khi ghép main – PR phải gộp main (không đo được)"; echo '{"results":[{"id":"xung-đột-ghép","ok":false}]}' > "$RUNNER_TEMP/result.json"; exit 0; }
           npm ci --no-audit --no-fund
-          node "$RUNNER_TEMP/cheap.mjs" run --out "$RUNNER_TEMP/result.json" || true
+          node "$RUNNER_TEMP/gate/scripts/ci/cheap.mjs" run --out "$RUNNER_TEMP/result.json" || true
       - name: Ghi commit status merge-recheck
         if: always()
         env: { GITHUB_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}', SHA: '${{ inputs.sha }}', MAIN: '${{ inputs.main }}' }
-        run: node "$RUNNER_TEMP/cheap.mjs" post --sha "$SHA" --main "$MAIN" --result "$RUNNER_TEMP/result.json"
+        run: node "$RUNNER_TEMP/gate/scripts/ci/cheap.mjs" post --sha "$SHA" --main "$MAIN" --result "$RUNNER_TEMP/result.json"

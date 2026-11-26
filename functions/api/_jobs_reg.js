@@ -1222,7 +1222,7 @@ export const REG = {
    ],
    "minutes": 120,
    "est": {
-    "grabcast_images": 6000,
+    "grabcast_images": 0,
     "grabcast_text": 300,
     "shards_max": 10,
     "per_shard_images": "max_gc / shards",

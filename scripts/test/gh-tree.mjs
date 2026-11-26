@@ -14,6 +14,8 @@ const log = () => {}, paths = o => o.files.map(f => f.path).sort();
   const o = await listTreeFiles('o/r', get, { log }); assert.deepEqual(paths(o), ['a.txt', 'd1/b.txt', 'd1/d2/c.txt', 'd3/e.txt'], '500 → đi bộ đủ mọi thư mục, đường dẫn đầy đủ');
   assert.equal(o.commit, 'R'); assert.equal(o.files.find(f => f.path === 'd1/d2/c.txt').size, 3); assert.equal(calls.length, 1 + 1 + 3, 'đệ quy(500) + gốc + 3 thư mục'); }
 { const get = async u => (u.includes('recursive=1') ? res(404, {}) : res(200, {})); await assert.rejects(listTreeFiles('o/r', get, { log }), /404/, '4xx → ném, không đi bộ'); }
+{ const get = async u => { if (u.includes('recursive=1')) return res(200, { sha: 'R', truncated: true, tree: [] }); return res(200, { ...T[u.split('/trees/')[1]], truncated: false }); }; // 26/11: đệ quy bị cắt (>100k mục) → đi bộ từng thư mục, không ném
+  const o = await listTreeFiles('o/r', get, { log }); assert.deepEqual(paths(o), ['a.txt', 'd1/b.txt', 'd1/d2/c.txt', 'd3/e.txt'], 'đệ quy bị cắt → đi bộ đủ tệp'); }
 { const get = async () => res(200, { sha: 'R', truncated: true, tree: [] }); await assert.rejects(listTreeFiles('o/r', get, { log }), /bị cắt/, 'cây đệ quy bị cắt → ném'); }
 { const get = async u => (u.includes('recursive=1') ? res(500, {}) : u.endsWith('/HEAD') ? res(200, T.HEAD) : res(502, {})); await assert.rejects(listTreeFiles('o/r', get, { log }), /502/, 'thư mục con hỏng khi đi bộ → ném (không báo thiếu tệp)'); }
 { const get = async u => (u.includes('recursive=1') ? res(500, {}) : u.endsWith('/HEAD') ? res(200, T.HEAD) : res(200, { sha: 'x', truncated: true, tree: [] })); await assert.rejects(listTreeFiles('o/r', get, { log }), /bị cắt/, 'thư mục con bị cắt → ném'); }
