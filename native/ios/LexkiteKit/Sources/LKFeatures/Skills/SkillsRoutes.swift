@@ -4,11 +4,11 @@ import LKDesign
 import LKStrings
 
 /// Route wiring of M4 P06 (called from AppShell's InnerScreen and FocusScreen):
-/// pushed #/listening · #/listen/<part> · #/reading · #/read/<id> · #/watch (M4 P12: the hub; #/watch/<id or YouTube link>?t= the player) · #/mediate (M4 P13: the list; #/mediate/<id> a lesson) · #/interpret (M6 P14: face to face · phrases[/<group>] · history · recap/<id>), full-screen #/listen-test/<n> · #/dictation/<part>.
+/// pushed #/listening · #/listen/<part> · #/reading · #/read/<id> · #/watch (M4 P12: the hub; #/watch/<id or YouTube link>?t= the player) · #/mediate (M4 P13: the list; #/mediate/<id> a lesson) · #/interpret (M6 P14: face to face · phrases[/<group>] · history · recap/<id>), full-screen #/listen-test/<n> · #/dictation/<part> · #/placement (P10: the adaptive entry test, Tests tab).
 @MainActor
 enum SkillsRoutes {
     static let innerRoutes: Set<String> = ["listening", "listen", "reading", "read", "watch", "mediate", "interpret"]
-    static let focusRoutes: Set<String> = ["listen-test", "dictation"]
+    static let focusRoutes: Set<String> = ["listen-test", "dictation", "placement"]
     static func handlesInner(_ name: String) -> Bool { innerRoutes.contains(name) }
     static func handlesFocus(_ name: String) -> Bool { focusRoutes.contains(name) }
 }
@@ -69,7 +69,9 @@ struct SkillsFocusScreen: View {
     var body: some View {
         let go: (AppRoute) -> Void = { StudyRoutes.go($0, services: services) }
         let close = { services.router.closeFocus() }
-        if route.name == "listen-test" {
+        if route.name == "placement" {
+            SkillsHost(make: { PlacementModel(ctx: $0) }) { PlacementView(model: $0, onClose: close, onRoute: go) }
+        } else if route.name == "listen-test" {
             if SkillsContext.content.parts(of: Int(route.arg ?? "") ?? 1).isEmpty { unknown } else {
                 SkillsHost(make: { ListenTestModel(ctx: $0, test: Int(route.arg ?? "") ?? 1) }) { ListenTestView(model: $0, onClose: close, onRoute: go) }
             }
