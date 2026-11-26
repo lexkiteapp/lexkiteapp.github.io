@@ -4,6 +4,7 @@
 // Không revert: commit Revert (vòng lặp), main đã đỏ từ trước 10 commit (→ issue main-red-wf/chủ xử lý), PR revert đã mở. Không đụng ngưỡng – chỉ gỡ commit.
 //   node scripts/ci/cheap-revert.mjs --sha <sha> [--dry]     Env: GITHUB_TOKEN, GITHUB_REPOSITORY. Checkout fetch-depth ≥ 12 + khoá deploy SSH. Workflow: main-red-revert.yml.
 // Bot dữ liệu đẩy main [skip ci] không kích workflow này → chặn TRƯỚC khi đẩy bằng bot-test-gate (infra/bot-push-tests.json, luật 17).
+import { ghFetch } from '../lib/retry5xx.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -21,7 +22,7 @@ async function main() {
   const a = process.argv.slice(2), sha = a[a.indexOf('--sha') + 1], dry = a.includes('--dry'), repo = process.env.GITHUB_REPOSITORY, tok = process.env.GITHUB_TOKEN;
   if (!sha || !repo || !tok) { console.error('thiếu --sha / GITHUB_REPOSITORY / GITHUB_TOKEN'); process.exit(2); }
   const g = (...x) => execFileSync('git', x, { encoding: 'utf8', maxBuffer: 1 << 26 }).trim();
-  const api = async (p, init = {}) => { const r = await fetch(`https://api.github.com/repos/${repo}${p}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', ...(init.body ? { 'content-type': 'application/json' } : {}) } }); return { status: r.status, json: await r.json().catch(() => null) }; };
+  const api = async (p, init = {}) => { const r = await ghFetch(`https://api.github.com/repos/${repo}${p}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', ...(init.body ? { 'content-type': 'application/json' } : {}) } }); return { status: r.status, json: await r.json().catch(() => null) }; };
   const head = runCheap();
   const red = head.filter(r => !r.ok).map(r => r.id);
   if (!red.length) { console.log(`cheap-revert: ${sha.slice(0, 8)} xanh cả ${head.length} check rẻ`); return; }
