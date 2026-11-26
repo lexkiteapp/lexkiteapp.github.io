@@ -1108,9 +1108,9 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
       ${levels.length > 1 ? `<div class="tabs" id="lvTabs" role="group" aria-label="${t('Cấp độ CEFR')}" style="margin-bottom:1rem;display:inline-flex"><button class="${lv ? '' : 'on'}" data-lv="">${t('Tất cả')}</button>${levels.map(l => `<button class="${l === lv ? 'on' : ''}" data-lv="${l}">${l} <span class="muted tiny">${tp.words.filter(w => w.level === l).length}</span></button>`).join('')}</div>` : ''}
       <div class="card" id="wordList"></div>`;
     const header = () => {
-      const m = missing().length;
-      $('#tCount').textContent = t('{n} đã thêm', { n: tp.words.length - m });
-      const b = $('#addAll');
+      const m = missing().length, tc = $('#tCount'), b = $('#addAll');
+      if (!tc || !b) return; // đã rời trang (thêm hàng loạt chạy nền xong sau khi người dùng/E2E sang trang khác) → không còn khung để vẽ; 26/11 #1625: "Cannot set properties of null (setting 'textContent')"
+      tc.textContent = t('{n} đã thêm', { n: tp.words.length - m });
       b.textContent = m ? `+ ${t('Thêm {n} từ vào flashcard', { n: m })}` : `✓ ${t('Đã thêm toàn bộ')}`;
       b.disabled = !m;
     };
@@ -1133,11 +1133,11 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     $$('#lvTabs button').forEach(b => b.onclick = () => { $$('#lvTabs button').forEach(x => x.classList.toggle('on', x === b)); lv = b.dataset.lv; draw(); });
     $('#tpAnki').onclick = () => App.anki('export', { cards: tp.words.map(w => state.cards[w.word.toLowerCase()] || w), name: tp.name, progress: false });
     $('#addAll').onclick = async () => {
-      const list = missing();
-      $('#addAll').disabled = true;
+      const list = missing(), ab = $('#addAll');
+      if (ab) ab.disabled = true;
       for (const w of list) await addWord(w, null, { silent: true });
       Sfx.win(); toast(t('Đã thêm {n} từ – vào Ôn tập hoặc Học thông minh để bắt đầu!', { n: list.length }));
-      header(); draw();
+      if ($('#wordList')) { header(); draw(); } // rời trang giữa chừng → bỏ qua vẽ lại (header/draw cùng cần khung của trang này)
     };
   };
 
