@@ -16,6 +16,8 @@ const UI = fs.readFileSync('web/js/lesson/ui.js', 'utf8');
 // 1) Lời dặn của từng dạng có trong TITLE của ui.js và khớp ý dạng bài
 const TITLE = { gap: /gap: t\('Chọn từ còn thiếu'\)/, build: /build: it\.prompt \? t\('Xếp câu tiếng Anh'\) : t\('Nghe rồi xếp thành câu'\)/, type: /type: t\('Gõ từ tiếng Anh'\)/, tr: /tr: t\('Dịch câu này'\)/, mean: /mean: t\('Chọn từ đúng'\)/, fix: /fix: t\('Tìm từ sai'\)/, dict: /dict: t\('Nghe và chép câu'\)/, match: /match: (it\.pics \? t\('Ghép từ, ảnh'\) : )?t\('Ghép cặp'\)/, say: /say: t\('Nói câu này'\)/ };
 for (const [k, re] of Object.entries(TITLE)) ok(re.test(UI), 'lời dặn khớp dạng (ui.js TITLE)', k);
+// bản dịch của 'Nghe rồi xếp thành câu' nằm ở lcardui: gói lesson PHẢI nạp nó (live 26/11: en/fr/zh/es lộ chữ Việt trên màn xếp từ vì chỉ gói lcard – nạp sau khi trả lời – mới có)
+ok(/lesson: \[[^\]]*'js\/i18n\/en\/lcardui\.js'/.test(fs.readFileSync('web/js/bundles.js', 'utf8')), 'gói lesson nạp lcardui (nhãn xếp câu có bản dịch)', 'lesson');
 ok(!/sub = [^;\n]*meanOf\(it\.card\)[^;\n]*build|build[^;\n]*sub = [^;\n]*meanOf/.test(UI) && /it\.type === 'build'\) sub = it\.prompt;/.test(UI), 'đề xếp câu chỉ là bản dịch câu (không rơi về định nghĩa của từ)', 'ui.js');
 
 // 2) Dữ liệu
