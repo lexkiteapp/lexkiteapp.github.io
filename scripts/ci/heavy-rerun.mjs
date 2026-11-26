@@ -5,6 +5,7 @@
 // 14/11 (#1285 Mobile QA đỏ treo): lượt của sha CŨ được chạy lại sau khi PR có commit mới → vào cùng nhóm concurrency cancel-in-progress → HUỶ lượt của head
 // mới → required-gate đỏ treo. Luật: chỉ chạy lại khi sha vẫn là tip nhánh PR (git/ref – chỉ cần contents:read; đọc lại ngay trước MỖI lần POST rerun) – superseded() thuần, test: scripts/test/heavy-rerun.mjs.
 // Chỉ ĐỌC API + POST /actions/runs/{id}/rerun. Workflow nặng = file .github/workflows/*.yml có dòng `# ci-policy: heavy-gate`.
+import { ghFetch } from '../lib/retry5xx.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isMain } from '../lib/is-main.mjs';
@@ -26,7 +27,7 @@ async function main() {
   const a = process.argv.slice(2), sha = a[a.indexOf('--sha') + 1], ref = a.includes('--ref') ? a[a.indexOf('--ref') + 1] : '', dry = a.includes('--dry');
   const repo = process.env.GITHUB_REPOSITORY, tok = process.env.GITHUB_TOKEN;
   if (!sha || !ref || !repo || !tok) { console.error('thiếu --sha / --ref / GITHUB_REPOSITORY / GITHUB_TOKEN'); process.exit(2); }
-  const api = async (p, init = {}) => { for (let i = 0; ; i++) { const r = await fetch(`https://api.github.com/repos/${repo}${p}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json' } });
+  const api = async (p, init = {}) => { for (let i = 0; ; i++) { const r = await ghFetch(`https://api.github.com/repos/${repo}${p}`, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json' } });
     if (r.status >= 500 && i < 2) { await new Promise(s => setTimeout(s, 3000 * 3 ** i)); continue; } return r; } };
   const head = async () => { const r = await api(`/git/ref/heads/${ref.split('/').map(encodeURIComponent).join('/')}`); return r.status === 404 ? 'fork' : (await r.json().catch(() => ({})))?.object?.sha; };
   if (superseded(sha, await head())) { console.log(`${sha.slice(0, 8)} không còn là tip của ${ref} → không chạy lại (tránh huỷ lượt của commit mới)`); return; }

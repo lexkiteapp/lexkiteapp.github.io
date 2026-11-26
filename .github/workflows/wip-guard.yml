@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-        with: { ref: main, sparse-checkout: "scripts/ci", sparse-checkout-cone-mode: false }
+        with: { ref: main, sparse-checkout: "scripts/ci\nscripts/lib/retry5xx.mjs", sparse-checkout-cone-mode: false }
       - run: node scripts/ci/guards.mjs wip --pr "$LX_IN1"
         env:
           GITHUB_TOKEN: '${{ github.token }}'

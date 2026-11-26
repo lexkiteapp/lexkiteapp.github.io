@@ -1,16 +1,19 @@
 # ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # Social channel kit. Bộ ảnh KÊNH social tiếng Anh (avatar + bìa FB/IG/TikTok/YouTube, watermark, mẫu thumbnail) – brand/social/channel-kit/README.md
 # Dựng bằng Chromium (scripts/social/build-channel-kit.mjs) + cổng QC (kích thước, vùng an toàn crop tròn/điện thoại/TV, tương phản ≥ 4.5:1,
-# cỡ chữ, chữ đè giáo viên, không tiếng Việt, dung lượng, logo nguyên bản). PNG → artifact bot-output-channel-kit (không đẩy vào nhánh PR):
+# cỡ chữ, chữ đè giáo viên, không tiếng Việt, dung lượng, logo nguyên bản). 26/11: ẢNH kit ở kho media ngoài m4 (size-guard cây ≤ 600 MB): push main/dispatch dựng xong → scripts/media/push.mjs → kiểm URL 200 đúng byte;
+# repo chính chỉ giữ media-index.json + README/manifest/md/html. PNG → artifact bot-output-channel-kit (không đẩy vào nhánh PR):
 #   bash scripts/ci/bot-output.sh channel-kit   rồi tự commit.
 name: Social channel kit
 on:
   pull_request:
-    paths: ['scripts/social/build-channel-kit.mjs', 'brand/social/channel-kit/**', 'web/icons/icon.svg', 'brand/lexkite-logo-dark.svg', 'brand/tokens.json', 'web/teach/ama/still-*.webp', 'web/teach/carlos/still-*.webp', 'brand/social/src/fonts/**', 'scripts/social/channel-copy.mjs', 'scripts/social/build-page-info.mjs', 'scripts/cine/fonts/NotoSansArabic.ttf', '.github/workflows/social-channel-kit.yml']
+    paths: ['scripts/social/build-channel-kit.mjs', 'scripts/social/channel-kit-media.mjs', 'scripts/lib/channel-kit-media.mjs', 'brand/social/channel-kit/**', 'web/icons/icon.svg', 'brand/lexkite-logo-dark.svg', 'brand/tokens.json', 'web/teach/ama/still-*.webp', 'web/teach/carlos/still-*.webp', 'brand/social/src/fonts/**', 'scripts/social/channel-copy.mjs', 'scripts/social/build-page-info.mjs', 'scripts/cine/fonts/NotoSansArabic.ttf', '.github/workflows/social-channel-kit.yml']
   push:
     branches: [main]
-    paths: ['scripts/social/build-channel-kit.mjs', 'brand/social/channel-kit/**', 'web/icons/icon.svg', 'brand/lexkite-logo-dark.svg', 'brand/tokens.json', 'web/teach/ama/still-*.webp', 'web/teach/carlos/still-*.webp', 'brand/social/src/fonts/**', 'scripts/social/channel-copy.mjs', 'scripts/social/build-page-info.mjs', 'scripts/cine/fonts/NotoSansArabic.ttf', '.github/workflows/social-channel-kit.yml']
+    paths: ['scripts/social/build-channel-kit.mjs', 'scripts/social/channel-kit-media.mjs', 'scripts/lib/channel-kit-media.mjs', 'brand/social/channel-kit/**', 'web/icons/icon.svg', 'brand/lexkite-logo-dark.svg', 'brand/tokens.json', 'web/teach/ama/still-*.webp', 'web/teach/carlos/still-*.webp', 'brand/social/src/fonts/**', 'scripts/social/channel-copy.mjs', 'scripts/social/build-page-info.mjs', 'scripts/cine/fonts/NotoSansArabic.ttf', '.github/workflows/social-channel-kit.yml']
   workflow_dispatch:
+    inputs:
+      migrate: { description: 'true = chỉ chuyển ảnh kit ĐANG TRONG CÂY lên kho media m4 rồi kiểm URL 200 (không dựng lại)', default: 'false', type: string }
 permissions:
   contents: read
   pull-requests: write   # comment kết quả QC lên PR
@@ -46,9 +49,9 @@ jobs:
           [ -z "$red" ] || exit 1
   build:
     needs: gate
-    if: needs.gate.outputs.go == 'true'
+    if: needs.gate.outputs.go == 'true' && github.event.inputs.migrate != 'true'
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
-    timeout-minutes: 15
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -66,7 +69,37 @@ jobs:
         run: node scripts/social/build-channel-kit.mjs
       - name: Kiểm file vừa dựng (như npm test)
         run: node scripts/social/build-channel-kit.mjs --check
+      - name: Đăng ảnh lên kho media (m4) + kiểm URL 200 đúng byte
+        if: ${{ github.event_name != 'pull_request' }}
+        timeout-minutes: 35
+        env: { K: '${{ secrets.MEDIA4_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$K" ] || { echo "::error::thiếu secret MEDIA4_DEPLOY_KEY"; exit 1; }
+          install -m 600 /dev/null "$RUNNER_TEMP/m4key" && printf '%s\n' "$K" > "$RUNNER_TEMP/m4key"
+          node scripts/social/channel-kit-media.mjs stage .media-out
+          MEDIA_KEY_M4="$RUNNER_TEMP/m4key" node scripts/media/push.mjs --src .media-out --kind img --msg "channel-kit: ${{ github.run_id }}"
+          node scripts/social/channel-kit-media.mjs verify --minutes 30
       - name: Kết quả → artifact + comment PR
         if: ${{ !cancelled() }}
         uses: ./.github/actions/bot-output
         with: { name: channel-kit, paths: brand/social/channel-kit, report: '${{ runner.temp }}/channel-kit-qc.md', comment: 'true' }
+  # Chạy MỘT lần (workflow_dispatch migrate=true): đẩy ảnh kit đang trong cây lên m4 rồi kiểm URL 200 đúng byte; xong mới xoá ảnh khỏi cây (PR riêng).
+  migrate:
+    needs: gate
+    if: needs.gate.outputs.go == 'true' && github.event_name == 'workflow_dispatch' && github.event.inputs.migrate == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chuyển ảnh kit lên m4 + kiểm URL
+        env: { K: '${{ secrets.MEDIA4_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$K" ] || { echo "::error::thiếu secret MEDIA4_DEPLOY_KEY"; exit 1; }
+          install -m 600 /dev/null "$RUNNER_TEMP/m4key" && printf '%s\n' "$K" > "$RUNNER_TEMP/m4key"
+          node scripts/social/channel-kit-media.mjs index
+          git diff --stat -- brand/social/channel-kit/media-index.json
+          node scripts/social/channel-kit-media.mjs stage .media-out
+          MEDIA_KEY_M4="$RUNNER_TEMP/m4key" node scripts/media/push.mjs --src .media-out --kind img --msg "channel-kit: chuyển bộ ảnh hiện có ${{ github.run_id }}"
+          node scripts/social/channel-kit-media.mjs verify --minutes 35
