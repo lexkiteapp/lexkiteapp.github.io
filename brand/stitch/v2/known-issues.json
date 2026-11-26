@@ -3,6 +3,21 @@
  "issues": [
   "feedback-wrong: [dark] 1 chữ thiếu tương phản WCAG: \"A\" 3.10<4.5",
   "story-duo: [dark] 1 chữ thiếu tương phản WCAG: \"A\" 2.78<4.5",
-  "leagues: [dark] 3 chữ thiếu tương phản WCAG: \"AN\" 3.87<4.5; \"5\" 4.33<4.5; \"YO\" 4.33<4.5"
+  "leagues: [dark] 3 chữ thiếu tương phản WCAG: \"AN\" 3.87<4.5; \"5\" 4.33<4.5; \"YO\" 4.33<4.5",
+  "streak: [dark] 1 chữ thiếu tương phản WCAG: \"ACTIVE\" 2.78<4.5",
+  "library: [dark] 9 chữ thiếu tương phản WCAG: \"Featured\" 3.40<4.5; \"Smart Spaced Deck\" 4.29<4.5; \"32 sets\" 3.91<4.5; \"12 added\" 3.91<4.5; \"5 added\" 3.91<4.5; \"8 added\" 3.91<4.5",
+  "library: [light] 19 chữ thiếu tương phản WCAG: \"CEFR:\" 2.74<4.5; \"Featured\" 3.40<4.5; \"120 academic collocations prov\" 4.43<4.5; \"Study\" 3.40<4.5; \"60%\" 1.77<4.5; \"24 added\" 1.75<4.5",
+  "stats: [dark] 1 nút chỉ-icon không có tên (aria-label): w-10.h-10@12",
+  "stats: [dark] 13 chữ thiếu tương phản WCAG: \"Show off\" 2.71<4.5; \"Level 7\" 4.29<4.5; \"+60 XP total\" 4.29<4.5; \"Review 18 words now\" 2.33<4.5; \"Reviews\" 4.29<4.5; \"Due Q\" 3.98<4.5",
+  "stats: [light] 1 nút chỉ-icon không có tên (aria-label): w-10.h-10@12",
+  "stats: [light] 67 chữ thiếu tương phản WCAG: \"Show off\" 2.71<4.5; \"Level 7\" 2.76<4.5; \"TOP 5%\" 3.05<4.5; \"🔥\" 3.14<4.5; \"2,340\" 3.01<4.5; \"660 XP needed\" 3.05<4.5",
+  "topic: [dark] 39 chữ thiếu tương phản WCAG: \"40 từ vựng cốt lõi giúp bạn tự\" 3.12<4.5; \"Đã lưu 12/40 (30%)\" 3.11<4.5; \"+ Add 28 words to flashcards\" 2.83<4.5; \"Spaced drill\" 3.12<4.5; \"Speed pairs\" 3.12<4.5; \"Recall quiz\" 3.12<4.5",
+  "topic: [light] 41 chữ thiếu tương phản WCAG: \"+ Add 28 words to flashcards\" 2.83<4.5; \"Luyện tập từ vựng bộ này\" 2.83<4.5; \"Danh sách từ vựng\" 2.83<4.5; \"Lọc theo cấp độ CEFR\" 2.83<4.5; \"(14)\" 2.82<4.5; \"(16)\" 2.82<4.5",
+  "deck: [dark] 19 chữ thiếu tương phản WCAG: \"Learn Now\" 4.13<4.5; \"Speed Quiz\" 1.82<4.5; \"|\" 3.63<4.5; \"|\" 3.63<4.5; \"All topics\" 1.82<4.5; \"124\" 2.73<4.5",
+  "deck: [light] 49 chữ thiếu tương phản WCAG: \"Personal Vocabulary\" 3.01<4.5; \"·\" 2.21<3; \"Avg Retention\" 3.64<4.5; \"5 review ready\" 3.33<4.5; \"Learn Now\" 4.13<4.5; \"Speed Quiz\" 3.04<4.5",
+  "mistakes: [dark] 2 chữ thiếu tương phản WCAG: \"📖\" 1.62<4.5; \"TOEIC Practice • Part 5\" 4.25<4.5",
+  "mistakes: [light] 4 chữ thiếu tương phản WCAG: \"Press Show to check\" 4.33<4.5; \"task_alt\n          Looking ahe\" 4.12<4.5; \"Reviewed words cycle back in 3\" 2.93<4.5; \"Retry mistakes (7)\" 3.40<4.5",
+  "mistakes: nút khác: chỉ tối [review, /rɪˈlʌk.tənt/, 📖 dictionary, 🔖 + flashcard, got it ✓, 🎓 open grammar lesson] · chỉ sáng [review soon, dictionary, + flashcard, got it, open grammar lesson]",
+  "mistakes: chữ giống nhau 92 % · chỉ tối: grammatical · chỉ sáng: active soon toefl writing press check"
  ]
 }

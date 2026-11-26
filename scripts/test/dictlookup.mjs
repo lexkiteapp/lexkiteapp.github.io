@@ -170,5 +170,28 @@ ok(r.body && r.why !== 'quota', 'đã hết lượt vẫn được phục vụ b
   ok(byp > 0 && byp < xo && byp < so, 'sw.js: bỏ qua /api/dictlookup TRƯỚC nhánh khác nguồn lexkite.com (app di động/127.0.0.1) – SW không giữ request đã hủy (font audit treo)');
 }
 
+// 7) MyMemory qua proxy (26/11, issue #1625: E2E "Yêu cầu hỏng" 429 từ api.mymemory.translated.net gọi thẳng ở #/path, #/practice/learn, #/handsfree)
+{
+  store.clear();
+  const MMOK = { responseData: { translatedText: 'Hola mundo' }, responseStatus: 200 };
+  upstream = () => ({ status: 200, body: MMOK });
+  let c1 = upstreamCalls.length; r = await call('src=mm&sl=en&tl=es&q=Hello%20world');
+  ok(r.status === 200 && r.body && r.body.responseData.translatedText === 'Hola mundo' && /s-maxage=86400/.test(r.cc) && /max-age=3600/.test(r.cc), `mm 200 → nguyên thân MyMemory, biên 1 ngày (${r.cc})`);
+  ok(/^https:\/\/api\.mymemory\.translated\.net\/get\?q=Hello\+world&langpair=en%7Ces$/.test(upstreamCalls[upstreamCalls.length - 1]), 'mm: chỉ chuyển q + langpair, không tham số lạ');
+  c1 = upstreamCalls.length; r = await call('src=mm&sl=en&tl=es&q=Hello%20world');
+  ok(upstreamCalls.length === c1 && r.body, 'mm: lượt 2 lấy từ bộ đệm biên, không dội lại MyMemory');
+  store.clear(); upstream = () => ({ status: 429, raw: 'Too Many Requests' });
+  r = await call('src=mm&sl=en&tl=de&q=Hello');
+  ok(r.status === 200 && r.body === null && r.why === 'upstream-429' && /s-maxage=60\b/.test(r.cc), `mm HTTP 429 → 200 null, che 60 s (không 429 ra trình duyệt) (${r.status} ${r.why})`);
+  store.clear(); upstream = () => ({ status: 200, body: { responseData: { translatedText: 'MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS FOR TODAY' }, responseStatus: 429 } });
+  r = await call('src=mm&sl=en&tl=fr&q=Hello');
+  ok(r.status === 200 && r.body === null && r.why === 'upstream-mm-limit' && /s-maxage=60\b/.test(r.cc), `mm hết hạn mức trong thân (HTTP 200) → 200 null che 60 s (${r.why})`);
+  for (const qs of ['src=mm&sl=en&tl=../x&q=a', 'src=mm&sl=auto&tl=es&q=a', 'src=mm&sl=en&tl=es', 'src=mm&sl=en&tl=es&q=' + 'a'.repeat(501), 'src=mm&sl=en&tl=auto&q=a']) ok(parse(new URL('https://x/api/dictlookup?' + qs)) === null, `mm tham số xấu bị từ chối (${qs.slice(0, 40)})`);
+  const pm = parse(new URL('https://x/api/dictlookup?src=mm&sl=en&tl=es&q=hi&key=SECRET&de=evil@x.com'));
+  ok(pm && !/SECRET|evil/.test(pm.upstream), 'mm: tham số lạ (key/de) không chuyển tiếp tới nguồn');
+  const dsrc = fs.readFileSync(path.join(ROOT, 'web/js/dictionary.js'), 'utf8');
+  ok(!/fetchJSON\(`https:\/\/api\.mymemory/.test(dsrc) && /\$\{DL\}\?src=mm&/.test(dsrc), 'dictionary.js: web/app gọi MyMemory qua /api/dictlookup?src=mm, không gọi thẳng từ trình duyệt');
+}
+
 console.log(fails ? `✗ dictlookup: ${fails}/${n} kiểm tra hỏng` : `✓ dictlookup: ${n} kiểm tra – proxy từ điển/dịch máy dự phòng sạch, web không gọi thẳng nguồn`);
 process.exit(fails ? 1 : 0);

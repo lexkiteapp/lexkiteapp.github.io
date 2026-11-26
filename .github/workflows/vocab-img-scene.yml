@@ -323,7 +323,7 @@ jobs:
       VIMG_MAX_MAIN: '0'   # KHÔNG BAO GIỜ Workers AI tài khoản chính
       VIMG_MODEL: ${{ github.event.inputs.model || vars.VIMG_MODEL || 'flux-2-klein-4b' }}   # A/B 26/10: klein-4b thắng (phẳng, nền kem, đúng bảng màu)
       # GrabCast 24/10: 115k/ngày/khoá, generate 300/phút/IP (mỗi runner 1 IP), ảnh 60/phút/IP, vision 120/phút/IP – thẻ cảnh trước đây dừng ~110/lượt vì AI_POOL_GC_MAX 60
-      AI_POOL_GC_MAX: '1500'
+      AI_POOL_GC_MAX: '150'
       VIMG_CONC: '6'
       HF_HUB_DISABLE_TELEMETRY: '1'
       OUT: out/vimg-fill

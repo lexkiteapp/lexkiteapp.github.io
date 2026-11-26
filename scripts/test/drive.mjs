@@ -1,6 +1,7 @@
 // Test Kho Drive (functions/api/drive.js): state ký/hết hạn/CSRF, mã hoá AES-GCM, không lộ token, chọn Drive theo chỗ trống × trọng số,
 // chừa trống 5 % / 256 MB, chặn người không phải admin, đường CLI HMAC (chỉ list/upload_session/complete).
 // Chạy: node scripts/test/drive.mjs (không cần mạng – D1 giả bằng node:sqlite, fetch Google giả lập)
+import fs from 'node:fs';
 import { webcrypto, createHmac, createHash } from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
@@ -621,6 +622,15 @@ ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage khôn
   ok(u.source === 'own' && u.reads === 12 && Date.now() - t2 < 2000, 'GraphQL treo → số tự đếm sau hạn chờ (' + u.source + ', ' + (Date.now() - t2) + 'ms)');
   resetD1Cache(); clearInterval(keep);
 }
+
+// 26/11 health.yml treo 15': sửa 218 bản sao ngay trong bước kiểm → giờ có hạn giờ + kiểm chỉ cảnh báo
+{ const L2 = await import('../video/library.mjs'); let calls = 0; const fx = async () => { calls++; return { ok: true, status: 200, json: async () => ({ done: [], remaining: 5 }) }; };
+  const past = await L2.driveRepairLoop({ fetcher: fx, key: CLI }, { deadline: Date.now() - 1 }); ok(calls === 0, 'driveRepairLoop: hết giờ → không gọi máy chủ');
+  calls = 0; await L2.driveRepairLoop({ fetcher: fx, key: CLI }, { deadline: Date.now() + 60e3 }); ok(calls === 1, 'driveRepairLoop: còn giờ → gọi, dừng khi không tiến triển');
+  const src = fs.readFileSync(new URL('../video/library.mjs', import.meta.url), 'utf8');
+  ok(/timeoutMs = 60e3/.test(src) && /AbortSignal\.timeout\(timeoutMs\)/.test(src), 'driveApi: mỗi lời gọi có timeout 60 s');
+  ok(/workflow drive-repair sẽ sửa/.test(src) && !/if \(r\.under_replicated && !opts\.dryRun\) await driveRepairLoop\(\);/.test(src), 'drive-health: chỉ cảnh báo thiếu bản sao, không sửa trong lượt kiểm');
+  ok(fs.existsSync('.github/workflows/drive-repair.yml') && /ops\/drive-repair\.mjs/.test(fs.readFileSync('.github/workflows/drive-repair.yml', 'utf8')), 'workflow drive-repair.yml (có sẵn) lo sửa bản sao'); }
 
 if (fails) { console.log(`✗ drive: ${fails}/${n} kiểm thất bại`); process.exit(1); }
 console.log(`✓ drive: ${n} kiểm (state/CSRF, AES-GCM, không lộ token, chọn Drive theo tỉ lệ, bản sao, cổng admin, CLI HMAC, link tải, trình duyệt file, dọn dẹp, sổ kho, cảnh báo)`);

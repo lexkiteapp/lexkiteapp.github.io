@@ -133,7 +133,7 @@ jobs:
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}   # thêm họ mô hình cho giám khảo B khi Gemini 429 (như content-factory)
-          AI_POOL_GC_MAX: '600'
+          AI_POOL_GC_MAX: '100'
           AI_POOL_CF2_NEURONS: '120000'   # tuyến cf2 (Workers AI kho CF_POOL) dự phòng khi Groq/Gemini cùng 429; trần neuron/lượt, 4006 hết ngày tự nghỉ
           AI_GEM_MAX: '150'   # es: ≤ 150 lượt Gemini/lượt chạy (chỉ chấm), chừa hạn mức ngày cho fr/ja – lịch: chạy ngay sau 08:00 UTC
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}

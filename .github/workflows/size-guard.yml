@@ -43,6 +43,7 @@ jobs:
     if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions: { contents: read, issues: write }   # issue cảnh báo cây ≥ 585 MB (bước cuối, chỉ push main/dispatch)
     steps:
       - uses: actions/checkout@v4
         with:
@@ -54,6 +55,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Đo cây + commit mới
+        id: size
         env:
           EV: ${{ github.event_name }}
           BEFORE: ${{ github.event.before }}
@@ -63,3 +65,19 @@ jobs:
           if [ "$EV" = pull_request ]; then node scripts/test/size-guard.mjs --base origin/main; exit $?; fi
           if [ -n "$BEFORE" ] && ! echo "$BEFORE" | grep -qE '^0+$' && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then R="$BEFORE..HEAD"; else R="HEAD~1..HEAD"; fi
           node scripts/test/size-guard.mjs --range "$R"
+      # Cảnh báo sớm (26/11: main đỏ vì cây > 600 MB không báo trước): main ≥ 585 MB → mở/cập nhật 1 issue `tree-size`; < 585 MB → tự đóng. Trần 600 MB giữ nguyên. Lỗi bước này không làm đỏ cổng.
+      - name: Issue cảnh báo cây repo
+        if: ${{ always() && github.event_name != 'pull_request' && steps.size.outputs.tree_mb != '' }}
+        continue-on-error: true
+        timeout-minutes: 3
+        env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}', TREE: '${{ steps.size.outputs.tree_mb }}', RUN_URL: '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}' }
+        run: |
+          gh label create tree-size --color FBCA04 --description "cây repo chính gần trần 600 MB (size-guard)" --repo "$REPO" 2>/dev/null || true
+          n=$(gh issue list --repo "$REPO" --label tree-size --state open --json number --jq '.[0].number // empty')
+          if awk -v t="$TREE" 'BEGIN { exit !(t >= 585) }'; then
+            body="Cây repo chính trên main: **${TREE} MB** (cảnh báo từ 585 MB, trần 600 MB – quá trần thì main ĐỎ và mọi PR bị chặn). Đẩy media nặng sang kho ngoài (infra/media-repos.json, scripts/media/push.mjs, docs/STORAGE.md) hoặc nén không mất dữ liệu (scripts/media/png-lossless.py). PR làm cây tăng > 1 MB khi cây ≥ 585 MB bị size-guard chặn. Lượt đo: $RUN_URL"
+            title="Cây repo chính ${TREE} MB – gần trần 600 MB"
+            if [ -n "$n" ]; then gh issue edit "$n" --repo "$REPO" --title "$title" --body "$body"; else gh issue create --repo "$REPO" --label tree-size --title "$title" --body "$body"; fi
+          elif [ -n "$n" ]; then
+            gh issue close "$n" --repo "$REPO" --comment "Cây ${TREE} MB < 585 MB – tự đóng."
+          fi

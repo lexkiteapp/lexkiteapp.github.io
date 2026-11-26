@@ -87,7 +87,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
 
       .cbt-filter-bar { display: inline-flex; align-items: center; gap: .3rem; margin-inline-start: auto; flex-wrap: wrap; }
       .cbt-filter-chip { border: 1.5px solid var(--line); background: var(--surface-2); color: var(--muted); padding: .2rem .55rem; border-radius: 999px; font-size: .78rem; font-weight: 700; cursor: pointer; transition: all .12s ease; }
-      .cbt-filter-chip:hover { border-color: var(--primary); color: var(--text); }
+      .cbt-filter-chip:hover { background: var(--surface-3); color: var(--text); }
       .cbt-filter-chip.on { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); }
       .cbt-filter-flag.on { border-color: var(--hard); background: var(--gold-soft); color: var(--text); }
       .cbt-dim { opacity: .28 !important; }
