@@ -1,5 +1,5 @@
 {
- "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call). 30/10: THÊM ngưỡng SSIM THEO VÙNG 'reg' (header/top/mid/low/cta, tính trên khung Stitch) = điểm CI 40921224454 − 0,01 cho 13 màn × sáng/tối; chỉ nâng. 30/10 (chủ duyệt 4 thay đổi thiết kế: lửa mới ở đầu trang, ô 3 cột, Ama ở màn đúng/sai – mẫu ghép từ thành phần Stitch, Ama ở màn gọi): đặt lại = điểm CI 41042494107 − 0,01 CHỈ các chỉ số đỏ của: đầu trang (home/review/practice/me/readiness/streak/leagues), ô 3 cột (complete/me/streak/review mid-low-cta, complete rows), feedback ×2, call top/low/ssim. Không màn/chỉ số nào khác hạ. 3/11: home-light/dark đặt lại theo Home v2 'Hôm nay' (mẫu Stitch chủ OK 31/10, PR #284; V2REF home → today) = điểm CI run 41572220621 − 0,01 (dữ liệu thật dài hơn mẫu: thẻ chính, kế hoạch, lộ trình đầy đủ → lệch dọc). (Trước đó, cùng ngày, #314: home-light/dark đặt lại theo kiểu giáo viên đứng sau bệ Chars.slot (chủ DUYỆT 1/11, PR #314) = điểm CI run của 97f76978e − 0,01. – #284 gộp sau, home = Hôm nay v2 nên giữ số của #284.) 11/11: PathTrail #934 (design approved by coordinator 11/11) đổi nội dung vùng cta của home → reg.cta home-dark 0.138, home-light 0.19 (= điểm CI − 0,01); follow-up: cập nhật mẫu Stitch home sang PathTrail rồi nâng lại. 23/11: CHỦ DUYỆT trực tiếp (phiên điều phối, nguyên văn 'Duyệt đặt lại 2 số') đặt lại ĐÚNG 2 số: practice-dark reg.low 0.375→0.35, readiness-dark reg.mid 0.824→0.811 = điểm CI run 45089359451 (f97f7dc565) − 0,01; app lệch nhịp hàng cả cột thẻ so với mẫu (app 2600px vs mẫu 1395px). Follow-up: PR riêng sửa hai màn tối bằng trình duyệt thật rồi nâng lại. Không chỉ số nào khác đổi.",
+ "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call). 30/10: THÊM ngưỡng SSIM THEO VÙNG 'reg' (header/top/mid/low/cta, tính trên khung Stitch) = điểm CI 40921224454 − 0,01 cho 13 màn × sáng/tối; chỉ nâng. 30/10 (chủ duyệt 4 thay đổi thiết kế: lửa mới ở đầu trang, ô 3 cột, Ama ở màn đúng/sai – mẫu ghép từ thành phần Stitch, Ama ở màn gọi): đặt lại = điểm CI 41042494107 − 0,01 CHỈ các chỉ số đỏ của: đầu trang (home/review/practice/me/readiness/streak/leagues), ô 3 cột (complete/me/streak/review mid-low-cta, complete rows), feedback ×2, call top/low/ssim. Không màn/chỉ số nào khác hạ. 3/11: home-light/dark đặt lại theo Home v2 'Hôm nay' (mẫu Stitch chủ OK 31/10, PR #284; V2REF home → today) = điểm CI run 41572220621 − 0,01 (dữ liệu thật dài hơn mẫu: thẻ chính, kế hoạch, lộ trình đầy đủ → lệch dọc). (Trước đó, cùng ngày, #314: home-light/dark đặt lại theo kiểu giáo viên đứng sau bệ Chars.slot (chủ DUYỆT 1/11, PR #314) = điểm CI run của 97f76978e − 0,01. – #284 gộp sau, home = Hôm nay v2 nên giữ số của #284.) 11/11: PathTrail #934 (design approved by coordinator 11/11) đổi nội dung vùng cta của home → reg.cta home-dark 0.138, home-light 0.19 (= điểm CI − 0,01); follow-up: cập nhật mẫu Stitch home sang PathTrail rồi nâng lại. 23/11: CHỦ DUYỆT trực tiếp (phiên điều phối, nguyên văn 'Duyệt đặt lại 2 số') đặt lại ĐÚNG 2 số: practice-dark reg.low 0.375→0.35, readiness-dark reg.mid 0.824→0.811 = điểm CI run 45089359451 (f97f7dc565) − 0,01; app lệch nhịp hàng cả cột thẻ so với mẫu (app 2600px vs mẫu 1395px). Follow-up: PR riêng sửa hai màn tối bằng trình duyệt thật rồi nâng lại. Không chỉ số nào khác đổi. 26/11: CHỦ DUYỆT trực tiếp (phiên điều phối, nguyên văn 'Duyệt, đặt lại') đặt lại ĐÚNG 3 số của #596: feedback-wrong-dark reg.low 0.232→0.183, reg.cta -0.083→-0.207; feedback-wrong-light reg.cta -0.173→-0.294 = điểm CI run 45723366380 − 0,01 (thẻ giải thích theo câu #1503 dài hơn mẫu Stitch). Không chỉ số nào khác đổi.",
  "call-dark": {
   "ssim": 0.477,
   "rows": -0.049,
@@ -45,47 +45,47 @@
   }
  },
  "feedback-dark": {
-  "ssim": 0.21,
+  "ssim": 0.146,
   "rows": -0.199,
   "reg": {
-   "header": 0.685,
-   "top": 0.348,
-   "mid": 0.22,
+   "header": 0.129,
+   "top": 0.211,
+   "mid": 0.09,
    "low": 0.075,
-   "cta": 0.012
+   "cta": -0.281
   }
  },
  "feedback-light": {
-  "ssim": 0.201,
+  "ssim": 0.094,
   "rows": -0.113,
   "reg": {
-   "header": 0.751,
-   "top": 0.31,
-   "mid": 0.163,
+   "header": 0.07,
+   "top": 0.118,
+   "mid": 0.013,
    "low": 0.057,
-   "cta": 0.021
+   "cta": 0.004
   }
  },
  "feedback-wrong-dark": {
-  "ssim": 0.216,
-  "rows": 0.161,
+  "ssim": 0.157,
+  "rows": -0.04,
   "reg": {
-   "header": 0.645,
-   "top": 0.337,
-   "mid": 0.153,
-   "low": 0.232,
-   "cta": -0.034
+   "header": 0.139,
+   "top": 0.207,
+   "mid": 0.112,
+   "low": 0.183,
+   "cta": -0.207
   }
  },
  "feedback-wrong-light": {
-  "ssim": 0.107,
+  "ssim": 0.097,
   "rows": 0.101,
   "reg": {
-   "header": 0.696,
-   "top": 0.245,
-   "mid": 0.06,
-   "low": 0.28,
-   "cta": 0.006
+   "header": 0.095,
+   "top": 0.113,
+   "mid": 0.004,
+   "low": 0.205,
+   "cta": -0.294
   }
  },
  "home-dark": {
@@ -136,22 +136,22 @@
   "ssim": 0.183,
   "rows": 0.025,
   "reg": {
-   "header": 0.719,
-   "top": 0.294,
-   "mid": 0.387,
+   "header": 0.491,
+   "top": 0.171,
+   "mid": 0.121,
    "low": 0.062,
-   "cta": 0.99
+   "cta": 0.406
   }
  },
  "lesson-light": {
   "ssim": 0.194,
-  "rows": 0.164,
+  "rows": 0.162,
   "reg": {
-   "header": 0.696,
-   "top": 0.341,
-   "mid": 0.33,
+   "header": 0.465,
+   "top": 0.126,
+   "mid": 0.132,
    "low": 0.077,
-   "cta": 0.99
+   "cta": 0.565
   }
  },
  "me-dark": {

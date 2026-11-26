@@ -49,7 +49,7 @@ jobs:
           for f in scripts/ci/pr-scope.mjs .github/workflows/qa-bot.yml; do gh api -H 'Accept: application/vnd.github.raw' "repos/$REPO/contents/$f?ref=$GITHUB_SHA" > "$f"; done
           node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/qa-bot.yml --need ui --carry "$LX_ACT|$LX_BEF|$LX_HEAD|$LX_READY"
       - id: g
-        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}', FIX: '${{ contains(github.event.pull_request.labels.*.name, ''main-red-fix'') }}' }
         run: |
           go=true
           if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
