@@ -23,7 +23,7 @@ jobs:
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
-          AI_POOL_GC_MAX: '2000'
+          AI_POOL_GC_MAX: '200'
         run: node scripts/factory/judge-stored.mjs
       - uses: actions/upload-artifact@v4
         if: always()

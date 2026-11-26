@@ -23,7 +23,7 @@ jobs:
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
-          AI_POOL_GC_MAX: '2500'
+          AI_POOL_GC_MAX: '200'
           LX_IN1: ${{ inputs.n }}
         run: node scripts/content-qa/judge-bank.mjs --n "$LX_IN1"
       - run: node scripts/content-qa/bank-audit.mjs

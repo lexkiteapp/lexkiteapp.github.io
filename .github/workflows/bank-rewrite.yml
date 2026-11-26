@@ -28,7 +28,7 @@ jobs:
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
-          AI_POOL_GC_MAX: '1500'
+          AI_POOL_GC_MAX: '150'
           MAX: ${{ inputs.max }}
         run: node scripts/content-qa/bank-rewrite.mjs gen --shard ${{ matrix.shard }} --of 4 --max "$MAX" --budget-min 45
       - uses: actions/upload-artifact@v4
