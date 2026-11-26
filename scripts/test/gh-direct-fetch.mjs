@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 const LEGACY = new Set([
-  'scripts/ci/budget-comment.mjs', 'scripts/ci/cheap.mjs', 'scripts/ci/gate-impact.mjs', 'scripts/ci/gate-retest.mjs', // chạy bản chép lẻ từ main: tự chứa logic chờ hạn mức
+  'scripts/ci/budget-comment.mjs', 'scripts/ci/cheap.mjs', 'scripts/ci/gate-retest.mjs', // chạy bản chép lẻ từ main: tự chứa logic chờ hạn mức (gate-impact đã có ghReq riêng từ #2167)
   'scripts/audio-cdn-check.mjs', 'scripts/footage/repo-size.mjs', 'scripts/vocab-img/media-repo.mjs', 'scripts/lexicon/expand/forecast.mjs', // đọc kho/media, có vòng thử lại riêng – nợ cũ
   'scripts/seo/gsc.mjs', 'scripts/social/alert.mjs', 'scripts/video/auto.mjs', 'scripts/video/library.mjs', // gọi API ít, ngoài đường CI chính – nợ cũ
 ]);
