@@ -894,3 +894,10 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
   .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
   .tiles .kstat { padding: .85rem .9rem .8rem; }
 }
+/* Bộ lọc trên máy tính (Người dùng: 12 ô): thu gọn sau nút "Lọc · n" cạnh ô tìm – bấm để mở lưới lọc ngay dưới (không phải sheet). Điện thoại giữ sheet đáy. */
+.fs-btn .ic { width: 18px; height: 18px; margin: 0; vertical-align: 0; }
+@media (min-width: 641px) {
+  .fs-btn { display: inline-flex; align-items: center; gap: .4rem; flex: none; height: 40px; }
+  .fs-btn[aria-expanded="true"] { background: var(--primary-soft); border-color: color-mix(in srgb, var(--primary) 45%, var(--line)); color: var(--primary); }
+  .fsheet:not(.fs-in) { display: none; }
+}

@@ -45,6 +45,13 @@
     qstats: ['js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'cpack/qstats/week.js'],
     pbook: ['cpack/framework/functions.js', 'cpack/framework/phrase-book.js'], // 🗣️ Sổ mẫu câu theo chức năng: nạp khi mở mục trong #/phrases lần đầu (scripts/framework/build-functions.mjs)
     mediate: ['js/i18n/en/mediate.js', 'js/characters.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/mediate-core.js', 'cpack/mediation/index.js', 'js/mediate.js'], // 🤝 Trung gian (docs/specs/mediation.md §2): bài mở thêm cpack/mediation/<id>.js lúc vào
+    // chủ đề sâu (docs/specs/topic-depth.md): giao diện + 1 gói dữ liệu/chủ đề (scripts/build-topic-depth.mjs)
+    topicx: ['cpack/topic/ui.js'],
+    'topicx-work': ['cpack/topic/work.js'],
+    'topicx-travel': ['cpack/topic/travel.js'],
+    'topicx-food': ['cpack/topic/food.js'],
+    'topicx-health': ['cpack/topic/health.js'],
+    'topicx-consumerism': ['cpack/topic/consumerism.js'],
     retcards: ['cpack/ret-app/cards.js'], // thẻ quay lại + tuần qua của trang chủ (retention.js Ret.home)
     cambridge: ['js/i18n/en/cambridge.js', 'js/choice-kit.js', 'cpack/qe/norm.js', 'js/qengine.js', 'cpack/cambridge/rubric.js', 'cpack/cambridge/a2/t1.js', 'cpack/cambridge/a2/t2.js', 'cpack/cambridge/a2/t3.js', 'cpack/cambridge/b1/t1.js', 'cpack/cambridge/b1/t2.js', 'cpack/cambridge/b1/t3.js', 'cpack/cambridge/b2/t1.js', 'cpack/cambridge/b2/t2.js', 'cpack/cambridge/b2/t3.js', 'cpack/cambridge/c1/t1.js', 'cpack/cambridge/c1/t2.js', 'cpack/cambridge/c2/t1.js', 'cpack/cambridge/c2/t2.js', 'js/cambridge.js'], // Cambridge A2–C2 (docs/specs/cambridge.md): thêm đề mới = thêm 1 đường dẫn ở đây
     toefl: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/choice-kit.js', 'cpack/qe/norm.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'cpack/toefl/data1.js', 'cpack/toefl/data2.js', 'cpack/toefl/data3.js', 'cpack/toefl/data4.js', 'cpack/toefl/data5.js', 'cpack/toefl/data6.js', 'cpack/toefl/data7.js', 'cpack/toefl/data8.js', 'cpack/toefl/data9.js', 'cpack/toefl/data10.js', 'cpack/toefl/data11.js', 'js/toefl.js'],
@@ -115,6 +122,7 @@
     interpret: ['js/i18n/en/interpret.js', 'cpack/interpret/core.js', 'cpack/interpret/interpret.js'], // 🗣️ Phiên dịch (#/interpret, docs/INTERPRET.md): đối mặt 2 ngôn ngữ, miễn phí trên máy; câu mẫu cpack/interpret tải khi mở "Câu mẫu"
     gend: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-complete.js', 'cpack/game/game-end.js'], // 🏁 màn kết mini-game chung (khung Stitch lesson-complete, docs/specs/game-system.md P3)
     pxw: ['js/i18n/en/rhythm.js', 'js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'cpack/game/game-crossword.js', 'cpack/play-app/xw-core.js', 'cpack/play-app/play-crossword.js'], // 🧩 Ô chữ mỗi ngày (game-system P5; khung Stitch game-crossword)
+    ppm: ['js/i18n/en/rhythm.js', 'js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'cpack/game/game-picmatch.js', 'cpack/play-app/play-picmatch.js'], // 🖼️ Ghép tranh
     pgames: ['js/i18n/en/rhythm.js', 'js/study-games.js', 'js/pron/coach.js', 'cpack/play-app/play-blitz.js', 'cpack/play-app/play-rhythm.js'], // ⚡ Thử thách 60 giây (docs/specs/play-learn.md)
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
     swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
@@ -138,7 +146,7 @@
     u1lg: ['js/st/v2/leagues.js'],
     u1ex: ['js/st/v2/exam-readiness.js'],
     u1me: ['js/st/v2/me.js', 'js/ux1-me.js'],
-    lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'js/lesson/ui.js'],
+    lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/lcardui.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'js/lesson/ui.js'],
     lgold: ['cpack/lesson/gold.js'],
     trfast: ['cpack/tr-fast.js'], // dịch câu (phrases.js nạp)
     dayv2: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/day.js', 'js/characters.js'], // 📅 Khung Stitch v2 của trang buổi học #/day/N (path-day.js page)

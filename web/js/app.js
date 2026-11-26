@@ -288,7 +288,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const ROUTE_UX1 = { topic: 'utopic', deck: 'udeck', mistakes: 'umist', stats: 'ustat' };
 App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-es.js', pt: 'cpack/fr/px-pt.js', fr: 'cpack/fr/px-fr.js', de: 'cpack/fr/px-de.js', id: 'cpack/fr/px-id.js', th: 'cpack/fr/px-th.js', zh: 'cpack/fr/px-zh.js', ja: 'cpack/fr/px-ja.js', ko: 'cpack/fr/px-ko.js', hi: 'cpack/fr/px-hi.js', ar: 'cpack/fr/px-ar.js', ru: 'cpack/fr/px-ru.js', tr: 'cpack/fr/px-tr.js' }; // gói phát âm tiếng Pháp W3 theo ngôn ngữ người học (cpack/es-app/pron-ui.js, bảng TLX): nhãn giao diện + giải thích 8 chủ đề
   // Màn Stitch (gói u1*) theo trang: ST2.<màn> được dò ở đúng trang đó; trang không có trong bảng (lesson, study, league, goal…) nạp đủ UX1_ALL như trước
-  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [] }; // path = bản đồ NGÀY (path-day.js, không dùng khung ST2.path của trang chủ)
+  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [], placement: [] }; // path = bản đồ NGÀY (path-day.js, không dùng khung ST2.path của trang chủ)
   const ROUTE_BUNDLE = {
     call: 'call',
     cambridge: ['listening', 'cambridge'],
@@ -415,6 +415,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     onb: ['css/st-v2-onb-pre.css', 'css/st-v2-onb-goal.css', 'css/st-v2-onb-lang.css', 'css/st-v2-onb-level.css', 'css/st-v2-onb-target.css', 'css/st-v2-onb-pace.css', 'css/st-v2-onb-ready.css'],
     outcome: 'css/outcomes.css',
     pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'],
+    ppm: ['css/st-v2-game-picmatch.css'],
     pron: 'css/st-v2-pron-hub.css',
     psheet: ['css/st-v2-path-sheet.css', 'css/path-sheet.css'],
     pxw: ['css/st-v2-game-crossword.css'],
@@ -990,6 +991,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
       ['blitz', '⏱️', t('Thử thách 60 giây'), t('Ôn từ đến hạn, combo, thách đấu bạn bè'), 'var(--again-soft)'],
       ['rhythm', '🥁', t('Nhịp điệu'), t('Chạm đúng nhịp nhấn của câu tiếng Anh'), 'var(--primary-soft)'],
       ['crossword', '🧩', t('Ô chữ mỗi ngày'), t('Từ của bạn đan thành ô chữ – mỗi ngày một ô mới'), 'var(--gold-soft)'],
+      ['picmatch', '🖼️', t('Ghép tranh'), t('Nối 6 ảnh với đúng từ – nhìn là nhớ'), 'var(--gold-soft)'],
       ['match', '⚡', t('Ghép thẻ'), t('Ghép từ với nghĩa thật nhanh'), 'var(--gold-soft)'],
       ['speak', '🎙️', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), 'var(--primary-soft)'],
       ['mcq', '🧩', t('Trắc nghiệm'), t('Chọn nghĩa đúng'), 'var(--good-soft)'],
@@ -1081,9 +1083,10 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   }
   App.personalCollections = personalCollections;
 
-  routes.topic = function (id, query) {
+  routes.topic = function (id, query, noX) {
     const tp = topicOf(id);
     if (!tp) return routes.library('', new URLSearchParams());
+    const xb = ['topicx', id].join('-'); if (!noX && typeof LK_BUNDLES !== 'undefined' && LK_BUNDLES[xb]) return App.need('topicx', xb).then(() => (window.LK_TOPICX && LK_TOPICX[id] ? LK_TOPICX_UI.draw(tp, LK_TOPICX[id]) : routes.topic(id, query, true)), () => routes.topic(id, query, true)); // chủ đề sâu (docs/specs/topic-depth.md): gói lười; lỗi tải → trang cũ
     const levels = [...new Set(tp.words.map(w => w.level).filter(Boolean))].sort();
     const missing = () => tp.words.filter(w => !inDeck(w.word));
     const gname = (GROUPS.find(g => g.id === tp.group) || {}).name || '';

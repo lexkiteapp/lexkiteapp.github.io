@@ -1,0 +1,2599 @@
+{
+ "at": "2026-11-25T14:18:30.391Z",
+ "accepted": 166,
+ "rejected": [
+  {
+   "form": "donne",
+   "word": "donner",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "soit",
+   "word": "être",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "pays",
+   "word": "pays",
+   "why": [
+    "giám khảo A: IPA \"pei\" is incorrect for French /pɛ/",
+    "sau sửa: giám khảo A: IPA /pɛi/ is not standard; should be /pɛ.i/ or /pɛj/"
+   ]
+  },
+  {
+   "form": "message",
+   "word": "message",
+   "why": [
+    "giám khảo A: IPA uses ɛ (/mɛsaʒ/) instead of the standard /e/ (/mesɑʒ/).",
+    "sau sửa: dịch ngược lệch: zh"
+   ]
+  },
+  {
+   "form": "joue",
+   "word": "joue",
+   "why": [
+    "cổng: joue: câu ví dụ không chứa \"joue\"",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "manque",
+   "word": "manque",
+   "why": [
+    "cổng: manque: nghĩa ar sai chữ viết: nqs",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "secret",
+   "word": "secret",
+   "why": [
+    "cổng: secret: nghĩa ar sai chữ viết: sirr",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "voix",
+   "word": "voix",
+   "why": [
+    "dịch ngược lệch: th,zh,tr",
+    "cổng: voix: nghĩa ar sai chữ viết: sawt",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "noir",
+   "word": "noir",
+   "why": [
+    "cổng: noir: nghĩa ar sai chữ viết: aswad",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "probablement",
+   "word": "probablement",
+   "why": [
+    "dịch ngược lệch: id,hi",
+    "cổng: probablement: nghĩa ar sai chữ viết: min al-muhtamal",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "million",
+   "word": "million",
+   "why": [
+    "cổng: million: nghĩa ar sai chữ viết: malyun",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "protéger",
+   "word": "protéger",
+   "why": [
+    "cổng: protéger: nghĩa ar sai chữ viết: hama",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "complètement",
+   "word": "complètement",
+   "why": [
+    "cổng: complètement: nghĩa ar sai chữ viết: tamaman",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "michael",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "tom",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "coucher",
+   "word": "coucher",
+   "why": [
+    "giám khảo A: Vietnamese gloss (vi) is in English ('put to bed') instead of Vietnamese",
+    "sau sửa: giám khảo B: Gloss 'put to bed' is incorrect for the intransitive sense (vi) which means 'to go to bed' or 'to sleep'. The example uses the transitive sense, causing a mismatch with the provided gloss."
+   ]
+  },
+  {
+   "form": "peter",
+   "why": "skip: vulgar"
+  },
+  {
+   "form": "prévu",
+   "word": "prévoir",
+   "why": [
+    "LanguageTool: FR_SPELLING_RULE: morning – Faute de frappe possible trouvée.",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "drogue",
+   "word": "drogue",
+   "why": [
+    "cổng: drogue: nghĩa ar sai chữ viết: mukhaddir",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "contact",
+   "word": "contact",
+   "why": [
+    "cổng: contact: nghĩa ar sai chữ viết: ittiṣāl",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "peau",
+   "word": "peau",
+   "why": [
+    "cổng: peau: nghĩa ar sai chữ viết: jild",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "max",
+   "word": "max",
+   "why": [
+    "cổng: max: nghĩa ar sai chữ viết: ḥadd aqṣá",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "tort",
+   "word": "tort",
+   "why": [
+    "giám khảo B: Russian gloss 'правота (неправота)' is incorrect; 'tort' means 'wrong' or 'mistake' (ошибка/неправота), not 'rightness' (правота).",
+    "dịch ngược lệch: ru",
+    "cổng: tort: nghĩa ar sai chữ viết: khaṭa'",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "mer",
+   "word": "mer",
+   "why": [
+    "cổng: mer: nghĩa ar sai chữ viết: baḥr",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "robe",
+   "word": "robe",
+   "why": [
+    "cổng: robe: nghĩa ar sai chữ viết: fustān",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "découvert",
+   "word": "découvrir",
+   "why": [
+    "giám khảo A: Lemma (entry.word) does not match key; key should be \"découvrir\".",
+    "giám khảo B: The 'word' field contains the lemma 'découvrir' while the key is 'découvert'; typically the headword should match the key or the entry should be structured to clearly indicate the past participle form as the primary item if that is the intent, though the content is otherwise correct.",
+    "cổng: découvrir: nghĩa ar sai chữ viết: iktashafa",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "henry",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "james",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "intéressant",
+   "word": "intéressant",
+   "why": [
+    "giám khảo A: IPA incorrect (extra vowel)",
+    "dịch ngược lệch: ar",
+    "sau sửa: giám khảo A: IPA incorrect: should be /ɛ̃teʁesɑ̃/ not /ɛ̃teʁɛsɑ̃/"
+   ]
+  },
+  {
+   "form": "approche",
+   "word": "approche",
+   "why": [
+    "dịch ngược lệch: th",
+    "sau sửa: dịch ngược lệch: hi"
+   ]
+  },
+  {
+   "form": "danny",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "chère",
+   "word": "cher",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "bob",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "occasion",
+   "word": "occasion",
+   "why": [
+    "giám khảo B: Japanese gloss contains a space (' meigo') and Russian gloss is a transliteration ('sluchay') instead of Cyrillic.",
+    "dịch ngược lệch: ru",
+    "cổng: occasion: nghĩa ja sai chữ viết:  meigo; occasion: nghĩa ru sai chữ viết: sluchay",
+    "sau sửa: dịch ngược lệch: es,pt"
+   ]
+  },
+  {
+   "form": "parier",
+   "word": "parier",
+   "why": [
+    "giám khảo A: IPA uses [j] for i; correct is [i]",
+    "dịch ngược lệch: ru",
+    "sau sửa: giám khảo A: IPA should be /pa.ʁje/, given /paʁie/ is incorrect"
+   ]
+  },
+  {
+   "form": "vis",
+   "word": "vis",
+   "why": [
+    "giám khảo A: IPA includes final [s]; correct is silent",
+    "sau sửa: giám khảo A: IPA should be /vi/, given \"vis\" is not proper IPA"
+   ]
+  },
+  {
+   "form": "tony",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "mary",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "vacance",
+   "word": "vacances",
+   "why": [
+    "giám khảo A: Lemma should be “vacances”; singular “vacance” is not used in French",
+    "giám khảo B: Lemma is 'vacances' (pluralia tantum), not 'vacance'. The key 'vacance' is incorrect for the standard entry.",
+    "sau sửa: giám khảo B: Lemma is 'vacances' (pluralia tantum), but key is 'vacance' (singular, obsolete/rare). Entry word should match key or key should be 'vacances'."
+   ]
+  },
+  {
+   "form": "solution",
+   "word": "solution",
+   "why": [
+    "giám khảo A: IPA missing initial /s/ and not the standard transcription",
+    "sau sửa: giám khảo A: IPA is incorrect for \"solution\""
+   ]
+  },
+  {
+   "form": "histoires",
+   "word": "histoire",
+   "why": [
+    "giám khảo B: Key is 'histoires' (plural) but entry lemma is 'histoire' (singular). While the entry data is correct, the key mismatch is a structural error in the deck item identification.",
+    "sau sửa: giám khảo B: Key is 'histoires' (plural) but entry word is 'histoire' (singular). Key should match the lemma."
+   ]
+  },
+  {
+   "form": "urgence",
+   "word": "urgence",
+   "why": [
+    "dịch ngược lệch: ar,tr",
+    "sau sửa: dịch ngược lệch: hi,ar"
+   ]
+  },
+  {
+   "form": "steve",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "parmi",
+   "word": "parmi",
+   "why": [
+    "dịch ngược lệch: de,hi,tr",
+    "sau sửa: dịch ngược lệch: de,hi,tr"
+   ]
+  },
+  {
+   "form": "blanche",
+   "word": "blanc",
+   "why": [
+    "giám khảo A: Word listed as \"blanc\" but IPA corresponds to \"blanche\"; mismatch between lemma and pronunciation.",
+    "sau sửa: giám khảo A: Lemma and IPA correspond to masculine 'blanc' not feminine 'blanche'; IPA missing /ʃ/; exForm indicates mismatch."
+   ]
+  },
+  {
+   "form": "londres",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "cassé",
+   "word": "casser",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "fil",
+   "word": "fil",
+   "why": [
+    "dịch ngược lệch: hi,ar",
+    "sau sửa: cổng: fil: exForm thừa"
+   ]
+  },
+  {
+   "form": "totalement",
+   "word": "totalement",
+   "why": [
+    "giám khảo A: IPA incorrect (should be [totaləmɑ̃] not tətalmɑ̃)",
+    "sau sửa: cổng: totalement: exForm thừa"
+   ]
+  },
+  {
+   "form": "johnny",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "came",
+   "word": "venir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "salaud",
+   "why": "skip: vulgar"
+  },
+  {
+   "form": "marre",
+   "word": "marre",
+   "why": [
+    "giám khảo A: Part of speech should be noun, not adv; 'marre' is a noun (feminine) in this usage.",
+    "dịch ngược lệch: id,th",
+    "sau sửa: cổng: marre: danh từ es thiếu số nhiều (plural); marre: lẫn tiếng Việt ở id"
+   ]
+  },
+  {
+   "form": "amène",
+   "word": "amener",
+   "why": [
+    "giám khảo A: IPA for 'amener' is wrong (should be /a.me.ne/); lemma and form mismatch.",
+    "dịch ngược lệch: vi",
+    "sau sửa: giám khảo A: IPA incorrect (should be [am.ne]), lemma/pos fine but pronunciation wrong"
+   ]
+  },
+  {
+   "form": "lee",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "vendu",
+   "word": "vendre",
+   "why": [
+    "giám khảo A: IPA transcription wrong for 'vendre' (should be [vɑ̃dʁ]), otherwise fine.",
+    "sau sửa: giám khảo B: The entry key is 'vendu' (past participle) but the headword is 'vendre' (infinitive). The IPA 'vɑ̃dʁ' corresponds to 'vendu', not 'vendre' (vɑ̃dʁ vs vɑ̃dʁ is actually correct for vendu, but the word field is vendre). More critically, the 'exForm' is 'vendu' while the example uses 'vendu', which is consistent, but the mismatch between the key 'vendu' and the headword 'vendre' is a structural error in the deck format. Additionally, the IPA for 'vendre' is /vɑ̃dʁ/ (same as vendu in pronunciation for the stem, but the ending differs in spelling, though silent). Wait, 'vendre' is pronounced /vɑ̃dʁ/. 'vendu' is pronounced /vɑ̃dy/. The IPA provided is 'vɑ̃dʁ', which is for 'vendre' (or 'vend' in some contexts, but usually 'vendre'). If the headword is 'vendre', the IPA is correct. However, the key is 'vendu'. If the item is meant to be the word 'vendu', the headword is wrong. If the item is 'vendre', the key is wrong. Given the 'exForm' is 'vendu', it implies the target form is the past participle. But the 'word' field is 'vendre'. This is a mismatch. Also, the IPA for 'vendu' is /vɑ̃dy/. The IPA provided is /vɑ̃dʁ/. This matches 'vendre'. So the entry is for 'vendre' but keyed as 'vendu'. This is an error."
+   ]
+  },
+  {
+   "form": "règle",
+   "word": "règle",
+   "why": [
+    "cổng: règle: câu ví dụ không chứa \"règle\"",
+    "sau sửa: cổng: règle: exForm thừa"
+   ]
+  },
+  {
+   "form": "fac",
+   "word": "fac",
+   "why": [
+    "dịch ngược lệch: id",
+    "sau sửa: cổng: fac: exForm thừa"
+   ]
+  },
+  {
+   "form": "uh",
+   "why": "skip: interjection filler noise"
+  },
+  {
+   "form": "attendu",
+   "word": "attendre",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "dan",
+   "why": "skip: proper noun or non-word"
+  },
+  {
+   "form": "conduit",
+   "word": "conduire",
+   "why": [
+    "giám khảo A: IPA missing final /ʁ/ for \"conduire\"; should be [kɔ̃dɥiʁ].",
+    "sau sửa: giám khảo B: Key 'conduit' does not match entry word 'conduire'; 'conduit' is a past participle/noun, not the infinitive verb."
+   ]
+  },
+  {
+   "form": "larry",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "san",
+   "why": "skip: foreign word or proper name prefix"
+  },
+  {
+   "form": "heureusement",
+   "word": "heureusement",
+   "why": [
+    "giám khảo B: IPA missing the schwa (should be œʁøzəmɑ̃)",
+    "dịch ngược lệch: pt",
+    "cổng: heureusement: từ mở đầu bằng h thiếu cờ h (muet|aspire)",
+    "sau sửa: dịch ngược lệch: pt"
+   ]
+  },
+  {
+   "form": "connaissance",
+   "word": "connaissance",
+   "why": [
+    "cổng: connaissance: câu ví dụ không chứa \"connaissance\"",
+    "sau sửa: cổng: connaissance: exForm thừa"
+   ]
+  },
+  {
+   "form": "eric",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "victoire",
+   "word": "victoire",
+   "why": [
+    "cổng: victoire: nghĩa ru sai chữ viết: pobeda",
+    "sau sửa: cổng: victoire: nghĩa ru sai chữ viết: pobeda"
+   ]
+  },
+  {
+   "form": "scott",
+   "why": "skip: proper noun"
+  },
+  {
+   "form": "yeah",
+   "why": "skip: English word / slang"
+  },
+  {
+   "form": "lancer",
+   "word": "lancer",
+   "why": [
+    "cổng: lancer: câu ví dụ không chứa \"lancer\"",
+    "sau sửa: cổng: lancer: exForm thừa"
+   ]
+  },
+  {
+   "form": "heu",
+   "word": "euh",
+   "why": [
+    "giám khảo B: Key 'heu' does not match word 'euh'; 'heu' is not a standard French interjection.",
+    "dịch ngược lệch: pt,ar,tr",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "anna",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "lis",
+   "word": "lire",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "battu",
+   "word": "battre",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "immeuble",
+   "word": "immeuble",
+   "why": [
+    "giám khảo B: IPA missing the consonant /b/ (should be [im.bœl])",
+    "sau sửa: giám khảo A: IPA missing the /b/ and dot separator, should be /im.bœl/"
+   ]
+  },
+  {
+   "form": "haute",
+   "word": "haut",
+   "why": [
+    "giám khảo A: Key 'haute' does not match entry word 'haut'; IPA 'ot' is missing the initial [h] aspiration marker or is non-standard for the headword 'haut' (which is [o] but the key implies the feminine form which is [ot] but the entry is masculine).",
+    "giám khảo B: h‑flag should be mute, not aspirated; IPA incorrect (should be [o] not [ot])",
+    "cổng: haut: câu ví dụ không chứa \"haut\"",
+    "sau sửa: giám khảo A: h‑flag wrong (should be silent)"
+   ]
+  },
+  {
+   "form": "ted",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "parlant",
+   "word": "parler",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "souris",
+   "word": "souris",
+   "why": [
+    "cổng: souris: nghĩa ar sai chữ viết: fâre",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "diriger",
+   "word": "diriger",
+   "why": [
+    "cổng: diriger: nghĩa ar sai chữ viết: qâda; diriger: nghĩa ru sai chữ viết: rukovodit'",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "fiston",
+   "word": "fiston",
+   "why": [
+    "cổng: fiston: nghĩa ar sai chữ viết: ibn; fiston: nghĩa ru sai chữ viết: synok",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "blesser",
+   "word": "blesser",
+   "why": [
+    "cổng: blesser: nghĩa ar sai chữ viết: jaraḥa; blesser: nghĩa ru sai chữ viết: ranit'",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "épisode",
+   "word": "épisode",
+   "why": [
+    "giám khảo A: IPA incorrect (should be [e.pisod], not epizod)",
+    "cổng: épisode: nghĩa ar sai chữ viết: ḥalaqa; épisode: nghĩa ru sai chữ viết: ėpizod",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "assurance",
+   "word": "assurance",
+   "why": [
+    "cổng: assurance: nghĩa ar sai chữ viết: ta'mîn; assurance: nghĩa ru sai chữ viết: straxovanie",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "neige",
+   "word": "neige",
+   "why": [
+    "cổng: neige: nghĩa ar sai chữ viết: thalj; neige: nghĩa ru sai chữ viết: sneg",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "surveiller",
+   "word": "surveiller",
+   "why": [
+    "giám khảo A: IPA incorrect (should use /e/ not /ɛ/)",
+    "cổng: surveiller: nghĩa ar sai chữ viết: râqaba; surveiller: nghĩa ru sai chữ viết: nablûdat'; surveiller: câu ví dụ không chứa \"surveiller\"",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "saint",
+   "word": "saint",
+   "why": [
+    "dịch ngược lệch: id",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "accusé",
+   "word": "accusé",
+   "why": [
+    "giám khảo B: IPA non‑standard (akyze)",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "mouvement",
+   "word": "mouvement",
+   "why": [
+    "giám khảo B: IPA missing schwa, should be /mu.və.mɑ̃/",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "survivre",
+   "word": "survivre",
+   "why": [
+    "giám khảo B: IPA missing dot, should be /syʁ.vi.vʁ/",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "siège",
+   "word": "siège",
+   "why": [
+    "giám khảo B: IPA uses ɛ instead of œ, should be /sjøʒ/",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "cellule",
+   "word": "cellule",
+   "why": [
+    "cổng: cellule: câu ví dụ không chứa \"cellule\"",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "gorge",
+   "word": "gorge",
+   "why": [
+    "cổng: gorge: nghĩa ar sai chữ viết: halk",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "obtenir",
+   "word": "obtenir",
+   "why": [
+    "giám khảo B: IPA incorrect, missing /p/ and dot",
+    "dịch ngược lệch: vi",
+    "sau sửa: không trả/không chấm"
+   ]
+  },
+  {
+   "form": "paye",
+   "word": "payer",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "carl",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "kyle",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "dave",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "principal",
+   "word": "principal",
+   "why": [
+    "cổng: principal: câu ví dụ không chứa \"principal\"",
+    "sau sửa: dịch ngược lệch: de / cổng: principal: câu ví dụ có ngôn ngữ lạ"
+   ]
+  },
+  {
+   "form": "libérer",
+   "word": "libérer",
+   "why": [
+    "cổng: libérer: câu ví dụ không chứa \"libérer\"",
+    "sau sửa: cổng: libérer: câu ví dụ có ngôn ngữ lạ"
+   ]
+  },
+  {
+   "form": "los",
+   "why": "skip: not standard French (Spanish article or obsolete term)"
+  },
+  {
+   "form": "city",
+   "why": "skip: foreign word (English)"
+  },
+  {
+   "form": "chauffeur",
+   "word": "chauffeur",
+   "why": [
+    "cổng: chauffeur: nghĩa ar sai chữ viết: sā'iq",
+    "sau sửa: giám khảo A: IPA not standard French (should be ʃɔ.fœʁ)"
+   ]
+  },
+  {
+   "form": "pousse",
+   "word": "pousser",
+   "why": [
+    "giám khảo A: IPA missing final schwa (/pus.e/ expected).",
+    "sau sửa: giám khảo B: IPA \"puse\" is incorrect; correct IPA is /pus e/"
+   ]
+  },
+  {
+   "form": "deviner",
+   "word": "deviner",
+   "why": [
+    "giám khảo A: IPA inaccurate (should be /dəv.ne/), otherwise fine.",
+    "sau sửa: giám khảo B: IPA \"dəvine\" is incorrect; correct IPA is /dəv(ə)ni/"
+   ]
+  },
+  {
+   "form": "street",
+   "why": "skip: not French (English borrowing, unassimilated/informal)"
+  },
+  {
+   "form": "ouai",
+   "why": "skip: informal non-standard spelling of oui / ouais"
+  },
+  {
+   "form": "re",
+   "why": "skip: abbreviation / informal chat term"
+  },
+  {
+   "form": "côte",
+   "word": "côte",
+   "why": [
+    "giám khảo B: Arabic and Russian glosses are incorrect (contain Thai text 'พิกัด' meaning coordinates instead of coast).",
+    "dịch ngược lệch: ar,ru",
+    "cổng: côte: nghĩa ar sai chữ viết: พิกัด; côte: nghĩa ru sai chữ viết: พิกัด",
+    "sau sửa: dịch ngược lệch: id"
+   ]
+  },
+  {
+   "form": "taylor",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "revenue",
+   "why": "skip: not standard"
+  },
+  {
+   "form": "cia",
+   "why": "skip: proper name"
+  },
+  {
+   "form": "bel",
+   "word": "beau",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "plein",
+   "word": "plein",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "essayer",
+   "word": "essayer",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "travailler",
+   "word": "travailler",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "entrer",
+   "word": "entrer",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "service",
+   "word": "service",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "dormir",
+   "word": "dormir",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "acheter",
+   "word": "acheter",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "écrire",
+   "word": "écrire",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "retrouver",
+   "word": "retrouver",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "toucher",
+   "word": "toucher",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "course",
+   "word": "course",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "caméra",
+   "word": "caméra",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "entier",
+   "word": "entier",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "sacré",
+   "word": "sacré",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "compter",
+   "word": "compter",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "agir",
+   "word": "agir",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "important",
+   "word": "important",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "produit",
+   "word": "produit",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "membre",
+   "word": "membre",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "note",
+   "word": "note",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "marié",
+   "word": "marié",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "lever",
+   "word": "lever",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "journal",
+   "word": "journal",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "revenir",
+   "word": "revenir",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "raconter",
+   "word": "raconter",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "marier",
+   "word": "marier",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "préparer",
+   "word": "préparer",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "gueule",
+   "word": "gueule",
+   "why": [
+    "duyệt tay: argot/vulgaire pour un apprenant"
+   ]
+  },
+  {
+   "form": "info",
+   "word": "info",
+   "why": [
+    "duyệt tay: abréviation familière, doublon de information"
+   ]
+  },
+  {
+   "form": "fesse",
+   "word": "fesse",
+   "why": [
+    "duyệt tay: anatomique peu utile pour apprenants, registre familier"
+   ]
+  },
+  {
+   "form": "tombée",
+   "word": "tombée",
+   "why": [
+    "duyệt tay: pas un lemme autonome (locution tombée de la nuit)"
+   ]
+  },
+  {
+   "form": "top",
+   "word": "top",
+   "why": [
+    "duyệt tay: anglicisme argotique multi-sens"
+   ]
+  }
+ ],
+ "tried": [
+  "de",
+  "tu",
+  "en",
+  "qui",
+  "du",
+  "te",
+  "faire",
+  "veux",
+  "pourquoi",
+  "dire",
+  "mère",
+  "désolé",
+  "soir",
+  "salut",
+  "arrive",
+  "entre",
+  "voulez",
+  "assez",
+  "pris",
+  "faites",
+  "tuer",
+  "part",
+  "truc",
+  "pouvez",
+  "entendu",
+  "désolée",
+  "tué",
+  "chercher",
+  "laisser",
+  "parlé",
+  "putain",
+  "affaire",
+  "écoute",
+  "côté",
+  "venu",
+  "dr",
+  "parti",
+  "loin",
+  "boulot",
+  "possible",
+  "dehors",
+  "propos",
+  "téléphone",
+  "prie",
+  "marche",
+  "fort",
+  "dernier",
+  "envie",
+  "ii",
+  "semble",
+  "prison",
+  "quatre",
+  "faute",
+  "voudrais",
+  "allait",
+  "année",
+  "sûre",
+  "sorte",
+  "oublié",
+  "dès",
+  "cherche",
+  "sûrement",
+  "sauf",
+  "sérieux",
+  "marché",
+  "six",
+  "dîner",
+  "prochaine",
+  "écrit",
+  "président",
+  "rentre",
+  "commencer",
+  "mets",
+  "rêve",
+  "puisse",
+  "voyons",
+  "gagner",
+  "rue",
+  "avocat",
+  "armes",
+  "oublie",
+  "aurai",
+  "liste",
+  "crime",
+  "bouge",
+  "restez",
+  "fasse",
+  "bateau",
+  "ligne",
+  "gagné",
+  "mission",
+  "plusieurs",
+  "pouvons",
+  "montre",
+  "allô",
+  "selon",
+  "rend",
+  "exact",
+  "aimé",
+  "connaître",
+  "dangereux",
+  "froid",
+  "con",
+  "debout",
+  "aimer",
+  "triste",
+  "dossier",
+  "relation",
+  "george",
+  "vit",
+  "secondes",
+  "signe",
+  "capable",
+  "payé",
+  "choisi",
+  "cheval",
+  "trou",
+  "commandant",
+  "client",
+  "preuves",
+  "promets",
+  "ouvert",
+  "bière",
+  "fut",
+  "horrible",
+  "justice",
+  "mise",
+  "terrible",
+  "bête",
+  "tas",
+  "lune",
+  "thé",
+  "certaines",
+  "toilettes",
+  "censé",
+  "conneries",
+  "avions",
+  "sud",
+  "magasin",
+  "douleur",
+  "fenêtre",
+  "rapide",
+  "clients",
+  "mérite",
+  "irai",
+  "camion",
+  "mangé",
+  "respect",
+  "officier",
+  "sexy",
+  "pression",
+  "nick",
+  "envers",
+  "immédiatement",
+  "futur",
+  "salope",
+  "accepter",
+  "politique",
+  "telle",
+  "contraire",
+  "dure",
+  "remarqué",
+  "propres",
+  "faudrait",
+  "bonheur",
+  "films",
+  "puisque",
+  "apporté",
+  "excuses",
+  "disons",
+  "pensait",
+  "ouvrez",
+  "étage",
+  "direction",
+  "frapper",
+  "troisième",
+  "failli",
+  "attraper",
+  "goût",
+  "destin",
+  "doigts",
+  "utile",
+  "amener",
+  "appelles",
+  "tribunal",
+  "formidable",
+  "morceau",
+  "jeux",
+  "star",
+  "appareil",
+  "empreintes",
+  "cinéma",
+  "parfaitement",
+  "mince",
+  "etre",
+  "imaginer",
+  "vendredi",
+  "surpris",
+  "échapper",
+  "parc",
+  "inquiétez",
+  "mode",
+  "hasard",
+  "montré",
+  "mètres",
+  "répondu",
+  "réalisé",
+  "changement",
+  "ressens",
+  "explique",
+  "côtés",
+  "mens",
+  "embrasser",
+  "fatigué",
+  "lance",
+  "disant",
+  "relations",
+  "volonté",
+  "brian",
+  "descends",
+  "regrette",
+  "interdit",
+  "internet",
+  "protection",
+  "kim",
+  "lois",
+  "témoins",
+  "jason",
+  "surveillance",
+  "casse",
+  "je",
+  "un",
+  "on",
+  "mais",
+  "y",
+  "au",
+  "ils",
+  "ici",
+  "où",
+  "son",
+  "chose",
+  "aussi",
+  "tous",
+  "peu",
+  "besoin",
+  "vu",
+  "trop",
+  "ouais",
+  "femme",
+  "depuis",
+  "sera",
+  "ca",
+  "passé",
+  "cet",
+  "maman",
+  "papa",
+  "gars",
+  "famille",
+  "pu",
+  "partir",
+  "merde",
+  "elles",
+  "passer",
+  "porte",
+  "vient",
+  "cas",
+  "question",
+  "pensais",
+  "aucun",
+  "vont",
+  "compris",
+  "endroit",
+  "yeux",
+  "point",
+  "pardon",
+  "enfin",
+  "mis",
+  "mari",
+  "plutôt",
+  "jouer",
+  "docteur",
+  "semaine",
+  "près",
+  "équipe",
+  "sécurité",
+  "presque",
+  "fou",
+  "fête",
+  "numéro",
+  "autant",
+  "penser",
+  "rentrer",
+  "facile",
+  "propre",
+  "lit",
+  "voit",
+  "pire",
+  "perdre",
+  "arrêtez",
+  "pouvais",
+  "montrer",
+  "verre",
+  "moyen",
+  "seconde",
+  "fous",
+  "simple",
+  "sors",
+  "visage",
+  "rapport",
+  "plait",
+  "devait",
+  "pouvait",
+  "intérieur",
+  "carte",
+  "écoutez",
+  "sac",
+  "grâce",
+  "tirer",
+  "force",
+  "cru",
+  "ressemble",
+  "connaissez",
+  "soeur",
+  "anniversaire",
+  "contrôle",
+  "absolument",
+  "avion",
+  "stupide",
+  "porter",
+  "or",
+  "jolie",
+  "gauche",
+  "suivre",
+  "pied",
+  "pareil",
+  "tenir",
+  "sortie",
+  "disait",
+  "david",
+  "lettre",
+  "folle",
+  "prêts",
+  "mike",
+  "envoie",
+  "télé",
+  "droite",
+  "ie",
+  "centre",
+  "certain",
+  "compagnie",
+  "enfer",
+  "lieutenant",
+  "emmener",
+  "soin",
+  "époque",
+  "combat",
+  "public",
+  "garçons",
+  "adresse",
+  "présente",
+  "lequel",
+  "héros",
+  "assis",
+  "tenez",
+  "vin",
+  "fbi",
+  "témoin",
+  "danse",
+  "sérieusement",
+  "empêcher",
+  "est",
+  "à",
+  "ça",
+  "dans",
+  "suis",
+  "fait",
+  "sur",
+  "ma",
+  "là",
+  "avez",
+  "bon",
+  "avoir",
+  "peut",
+  "temps",
+  "avait",
+  "donc",
+  "personne",
+  "ses",
+  "ok",
+  "beaucoup",
+  "dis",
+  "voilà",
+  "prendre",
+  "nom",
+  "reste",
+  "passe",
+  "trouvé",
+  "dû",
+  "tête",
+  "vite",
+  "hé",
+  "jours",
+  "petite",
+  "sortir",
+  "allons",
+  "sous",
+  "partie",
+  "genre",
+  "mettre",
+  "longtemps",
+  "pas",
+  "et",
+  "une",
+  "nous",
+  "non",
+  "moi",
+  "quoi",
+  "toi",
+  "rien",
+  "vais",
+  "ont",
+  "vraiment",
+  "deux",
+  "quelque",
+  "accord",
+  "sans",
+  "avais",
+  "pense",
+  "doit",
+  "vos",
+  "fille",
+  "avons",
+  "jour",
+  "argent",
+  "moment",
+  "aurais",
+  "fils",
+  "eh",
+  "quelle",
+  "arrête",
+  "pendant",
+  "venir",
+  "tant",
+  "super",
+  "ensemble",
+  "rester",
+  "histoire",
+  "seulement",
+  "eux",
+  "aucune",
+  "savais",
+  "corps",
+  "pouvoir",
+  "main",
+  "vers",
+  "cause",
+  "dirait",
+  "fin",
+  "prêt",
+  "celui",
+  "le",
+  "il",
+  "ce",
+  "elle",
+  "avec",
+  "oui",
+  "se",
+  "dit",
+  "cette",
+  "alors",
+  "merci",
+  "voir",
+  "ces",
+  "fais",
+  "faut",
+  "monde",
+  "père",
+  "eu",
+  "veut",
+  "bonne",
+  "bonjour",
+  "idée",
+  "demain",
+  "connais",
+  "heure",
+  "nouveau",
+  "amis",
+  "devrais",
+  "police",
+  "laisse",
+  "heures",
+  "leurs",
+  "façon",
+  "type",
+  "tiens",
+  "minutes",
+  "nouvelle",
+  "terre",
+  "croire",
+  "filles",
+  "voulait",
+  "que",
+  "a",
+  "pour",
+  "me",
+  "tout",
+  "va",
+  "comme",
+  "lui",
+  "sont",
+  "ton",
+  "juste",
+  "même",
+  "êtes",
+  "toujours",
+  "dois",
+  "étais",
+  "crois",
+  "aime",
+  "ans",
+  "mort",
+  "gens",
+  "cela",
+  "nos",
+  "nuit",
+  "seul",
+  "ah",
+  "savez",
+  "plaît",
+  "sommes",
+  "serait",
+  "étaient",
+  "donné",
+  "perdu",
+  "sois",
+  "demandé",
+  "attendez",
+  "belle",
+  "mme",
+  "bureau",
+  "beau",
+  "vérité",
+  "journée",
+  "dessus",
+  "guerre",
+  "dites",
+  "mariage",
+  "vue",
+  "garde",
+  "laissé",
+  "plan",
+  "mauvais",
+  "film",
+  "entendre",
+  "ensuite",
+  "rendre",
+  "attend",
+  "état",
+  "ira",
+  "inquiète",
+  "pensez",
+  "problèmes",
+  "doute",
+  "hôpital",
+  "esprit",
+  "changé",
+  "jack",
+  "partout",
+  "roi",
+  "ferais",
+  "new",
+  "devenir",
+  "pièce",
+  "faux",
+  "envoyé",
+  "venue",
+  "certains",
+  "général",
+  "promis",
+  "laissez",
+  "incroyable",
+  "utiliser",
+  "prête",
+  "paix",
+  "retourner",
+  "idiot",
+  "décidé",
+  "photos",
+  "surprise",
+  "seront",
+  "terminé",
+  "cadeau",
+  "disais",
+  "lumière",
+  "vraie",
+  "ignore",
+  "vieille",
+  "doucement",
+  "laquelle",
+  "loi",
+  "bar",
+  "bonnes",
+  "classe",
+  "visite",
+  "vivant",
+  "ll",
+  "ouvrir",
+  "monte",
+  "foutre",
+  "flic",
+  "ordres",
+  "responsable",
+  "diable",
+  "préfère",
+  "cerveau",
+  "connu",
+  "ia",
+  "cacher",
+  "prise",
+  "sent",
+  "exemple",
+  "sept",
+  "quitté",
+  "félicitations",
+  "pute",
+  "ramener",
+  "secours",
+  "excuse",
+  "avenir",
+  "fric",
+  "banque",
+  "radio",
+  "revenu",
+  "baiser",
+  "and",
+  "église",
+  "sol",
+  "vêtements",
+  "tante",
+  "proche",
+  "ravi",
+  "quartier",
+  "tourne",
+  "venus",
+  "meilleurs",
+  "glace",
+  "nul",
+  "jane",
+  "ha",
+  "informations",
+  "énergie",
+  "la",
+  "ne",
+  "ai",
+  "bien",
+  "plus",
+  "était",
+  "sais",
+  "votre",
+  "quand",
+  "comment",
+  "très",
+  "sa",
+  "allez",
+  "encore",
+  "vie",
+  "parce",
+  "après",
+  "leur",
+  "mal",
+  "mieux",
+  "quel",
+  "autres",
+  "savoir",
+  "raison",
+  "aider",
+  "peur",
+  "trouver",
+  "pourrait",
+  "appelle",
+  "voiture",
+  "parle",
+  "tard",
+  "mec",
+  "coup",
+  "importe",
+  "fini",
+  "dernière",
+  "mois",
+  "arrivé",
+  "place",
+  "attention",
+  "voici",
+  "premier",
+  "vieux",
+  "venez",
+  "chambre",
+  "espère",
+  "aura",
+  "mourir",
+  "jeune",
+  "chef",
+  "madame",
+  "mains",
+  "ait",
+  "exactement",
+  "parents",
+  "pensé",
+  "cours",
+  "ainsi",
+  "instant",
+  "mot",
+  "abord",
+  "plaisir",
+  "garder",
+  "route",
+  "drôle",
+  "ceci",
+  "faisait",
+  "payer",
+  "café",
+  "the",
+  "musique",
+  "questions",
+  "cool",
+  "gentil",
+  "appris",
+  "bras",
+  "surtout",
+  "morts",
+  "ecoute",
+  "rencontrer",
+  "reçu",
+  "messieurs",
+  "début",
+  "cher",
+  "occuper",
+  "âge",
+  "avaient",
+  "bout",
+  "voyage",
+  "situation",
+  "oncle",
+  "battre",
+  "sale",
+  "okay",
+  "sympa",
+  "médecin",
+  "croyez",
+  "savait",
+  "su",
+  "expliquer",
+  "dedans",
+  "pieds",
+  "espèce",
+  "moitié",
+  "devenu",
+  "joli",
+  "poser",
+  "tueur",
+  "normal",
+  "offre",
+  "joué",
+  "juge",
+  "lu",
+  "pourtant",
+  "travers",
+  "signifie",
+  "voler",
+  "décision",
+  "clé",
+  "mecs",
+  "viennent",
+  "coupable",
+  "paris",
+  "allée",
+  "retourne",
+  "amoureux",
+  "gouvernement",
+  "récupérer",
+  "fiche",
+  "pourriez",
+  "jeter",
+  "opération",
+  "entrée",
+  "règles",
+  "vérifier",
+  "environ",
+  "rêves",
+  "plupart",
+  "éviter",
+  "hum",
+  "deuxième",
+  "anglais",
+  "dérange",
+  "vide",
+  "code",
+  "défense",
+  "paraît",
+  "revient",
+  "aimais",
+  "planète",
+  "danser",
+  "jimmy",
+  "honnête",
+  "ayez",
+  "rose",
+  "réalité",
+  "découvrir",
+  "attendais",
+  "pierre",
+  "espace",
+  "will",
+  "ennemi",
+  "victimes",
+  "épouser",
+  "ancien",
+  "durant",
+  "jambes",
+  "série",
+  "couteau",
+  "sentiments",
+  "excellent",
+  "permis",
+  "cible",
+  "vouliez",
+  "piste",
+  "raisons",
+  "mienne",
+  "quitte",
+  "mêmes",
+  "pleurer",
+  "dise",
+  "oubliez",
+  "bouger",
+  "mentir",
+  "afin",
+  "jake",
+  "intention",
+  "signal",
+  "chier",
+  "costume",
+  "moindre",
+  "robert",
+  "rapidement",
+  "certaine",
+  "couper",
+  "dépend",
+  "agents",
+  "menace",
+  "méchant",
+  "labo",
+  "voulons",
+  "adn",
+  "fermé",
+  "caché",
+  "ministre",
+  "pourraient",
+  "champ",
+  "article",
+  "malin",
+  "chris",
+  "cache",
+  "jardin",
+  "apporte",
+  "poche",
+  "univers",
+  "amoureuse",
+  "piège",
+  "traces",
+  "regardes",
+  "enlève",
+  "bâtiment",
+  "habite",
+  "paradis",
+  "conscience",
+  "perd",
+  "doigt",
+  "joindre",
+  "invités",
+  "répète",
+  "douche",
+  "no",
+  "appels",
+  "semblant",
+  "acte",
+  "détective",
+  "dira",
+  "crétin",
+  "atteindre",
+  "leçon",
+  "aveugle",
+  "saviez",
+  "lisa",
+  "bague",
+  "genoux",
+  "commun",
+  "sport",
+  "virer",
+  "moments",
+  "angleterre",
+  "emploi",
+  "my",
+  "véritable",
+  "sommeil",
+  "repos",
+  "engagé",
+  "dieux",
+  "différentes",
+  "logique",
+  "chicago",
+  "pistolet",
+  "réponses",
+  "annie",
+  "normale",
+  "rock",
+  "louis",
+  "william",
+  "physique",
+  "permission",
+  "casser",
+  "plaisante",
+  "souvenez",
+  "dessous",
+  "cesse",
+  "quiconque",
+  "oreille",
+  "sage",
+  "canon",
+  "criminel",
+  "paroles",
+  "e",
+  "bye",
+  "supplie",
+  "vive",
+  "enfuir",
+  "tien",
+  "traité",
+  "murs",
+  "réputation",
+  "tim",
+  "soyons",
+  "département",
+  "gaffe",
+  "médecins",
+  "vous",
+  "les",
+  "des",
+  "si",
+  "mon",
+  "as",
+  "être",
+  "es",
+  "peux",
+  "par",
+  "jamais",
+  "oh",
+  "ta",
+  "notre",
+  "aller",
+  "avant",
+  "aux",
+  "viens",
+  "chez",
+  "vas",
+  "vois",
+  "toute",
+  "choses",
+  "moins",
+  "air",
+  "regarde",
+  "trois",
+  "travail",
+  "quelques",
+  "enfants",
+  "aurait",
+  "puis",
+  "sens",
+  "comprends",
+  "sang",
+  "hommes",
+  "demande",
+  "frère",
+  "devrait",
+  "revoir",
+  "donner",
+  "dont",
+  "première",
+  "matin",
+  "devant",
+  "droit",
+  "aimerais",
+  "gros",
+  "hier",
+  "euh",
+  "femmes",
+  "hey",
+  "penses",
+  "appelé",
+  "font",
+  "capitaine",
+  "souviens",
+  "bientôt",
+  "retour",
+  "serai",
+  "voyez",
+  "cœur",
+  "courant",
+  "meurtre",
+  "mlle",
+  "allé",
+  "seigneur",
+  "cul",
+  "retard",
+  "soyez",
+  "mr",
+  "sort",
+  "grave",
+  "groupe",
+  "sam",
+  "effet",
+  "noël",
+  "long",
+  "patron",
+  "ordre",
+  "ailleurs",
+  "petits",
+  "devriez",
+  "york",
+  "libre",
+  "rencontré",
+  "pars",
+  "seras",
+  "devais",
+  "balle",
+  "heureuse",
+  "soit",
+  "attends",
+  "seule",
+  "prends",
+  "chaque",
+  "pourrais",
+  "donne",
+  "regardez",
+  "dur",
+  "plein",
+  "ceux",
+  "pays",
+  "regarder",
+  "parfait",
+  "essayé",
+  "travailler",
+  "parfois",
+  "entrer",
+  "fera",
+  "amie",
+  "service",
+  "peuvent",
+  "dollars",
+  "bizarre",
+  "tôt",
+  "essayer",
+  "suffit",
+  "parles",
+  "aimes",
+  "nouvelles",
+  "trucs",
+  "salle",
+  "semaines",
+  "suppose",
+  "face",
+  "message",
+  "sinon",
+  "joue",
+  "dollar",
+  "suffire",
+  "supposer",
+  "entends",
+  "dormir",
+  "manque",
+  "secret",
+  "voix",
+  "mauvaise",
+  "noir",
+  "probablement",
+  "millions",
+  "protéger",
+  "complètement",
+  "finir",
+  "million",
+  "rappelle",
+  "mots",
+  "autour",
+  "colère",
+  "magnifique",
+  "présent",
+  "ferait",
+  "disent",
+  "doivent",
+  "coin",
+  "michael",
+  "arrière",
+  "arrivée",
+  "tom",
+  "forme",
+  "danger",
+  "essaye",
+  "attaque",
+  "bord",
+  "met",
+  "gueule",
+  "santé",
+  "coucher",
+  "chacun",
+  "don",
+  "mange",
+  "vaisseau",
+  "faisais",
+  "acheté",
+  "écrire",
+  "rire",
+  "prochain",
+  "voie",
+  "silence",
+  "peter",
+  "drogue",
+  "tient",
+  "contact",
+  "peau",
+  "acheter",
+  "max",
+  "tort",
+  "mer",
+  "robe",
+  "prévu",
+  "seuls",
+  "auriez",
+  "découvert",
+  "enceinte",
+  "intéressant",
+  "humain",
+  "approche",
+  "longue",
+  "étions",
+  "expérience",
+  "partez",
+  "pose",
+  "nord",
+  "henry",
+  "occupé",
+  "james",
+  "chère",
+  "danny",
+  "projet",
+  "assurer",
+  "bob",
+  "présenter",
+  "machine",
+  "mesdames",
+  "occasion",
+  "parie",
+  "village",
+  "vis",
+  "apprécie",
+  "parier",
+  "apprécier",
+  "vacances",
+  "frères",
+  "solution",
+  "retrouvé",
+  "utilise",
+  "histoires",
+  "soient",
+  "nécessaire",
+  "tony",
+  "mary",
+  "arrivent",
+  "test",
+  "chanter",
+  "copain",
+  "fleurs",
+  "arranger",
+  "stop",
+  "sauter",
+  "vacance",
+  "retrouver",
+  "dents",
+  "urgence",
+  "bus",
+  "toucher",
+  "vent",
+  "continuez",
+  "fleur",
+  "dent",
+  "continuer",
+  "carrière",
+  "descendre",
+  "noms",
+  "beauté",
+  "parmi",
+  "couple",
+  "course",
+  "mille",
+  "aimait",
+  "steve",
+  "emmène",
+  "restaurant",
+  "blanche",
+  "prince",
+  "cassé",
+  "tuée",
+  "km",
+  "fil",
+  "totalement",
+  "londres",
+  "île",
+  "caméra",
+  "entier",
+  "fermer",
+  "rejoindre",
+  "points",
+  "frais",
+  "soldat",
+  "venait",
+  "sacré",
+  "johnny",
+  "faible",
+  "courir",
+  "pont",
+  "papiers",
+  "chiens",
+  "came",
+  "papier",
+  "pourras",
+  "sourire",
+  "marre",
+  "paie",
+  "partenaire",
+  "préféré",
+  "lien",
+  "attendant",
+  "amène",
+  "discours",
+  "salaud",
+  "justement",
+  "viendra",
+  "pourrai",
+  "pause",
+  "lee",
+  "os",
+  "intelligent",
+  "compter",
+  "reprendre",
+  "regard",
+  "vendu",
+  "demandais",
+  "forces",
+  "agir",
+  "gentille",
+  "malheureusement",
+  "importante",
+  "produit",
+  "gérer",
+  "forcer",
+  "parfaite",
+  "vitesse",
+  "comprend",
+  "règle",
+  "accepté",
+  "infos",
+  "arbre",
+  "prendra",
+  "fac",
+  "valeur",
+  "couverture",
+  "toit",
+  "important",
+  "info",
+  "plage",
+  "attendu",
+  "uh",
+  "folie",
+  "membre",
+  "concerne",
+  "parlais",
+  "frappe",
+  "abandonner",
+  "suivant",
+  "ouest",
+  "directement",
+  "concerner",
+  "créer",
+  "américains",
+  "viande",
+  "compliqué",
+  "conduit",
+  "accepte",
+  "dan",
+  "fesses",
+  "naissance",
+  "larry",
+  "vienne",
+  "fantastique",
+  "américain",
+  "fesse",
+  "entendez",
+  "tombée",
+  "san",
+  "heureusement",
+  "appelait",
+  "nettoyer",
+  "agréable",
+  "connaissance",
+  "bataille",
+  "vôtre",
+  "note",
+  "victoire",
+  "information",
+  "eric",
+  "patients",
+  "traitement",
+  "cancer",
+  "cousin",
+  "crains",
+  "scott",
+  "demandes",
+  "salon",
+  "lancer",
+  "dossiers",
+  "patient",
+  "craindre",
+  "yeah",
+  "humaine",
+  "moyens",
+  "laisserai",
+  "autrement",
+  "mariés",
+  "créé",
+  "heu",
+  "retirer",
+  "trouvera",
+  "fuir",
+  "rires",
+  "paquet",
+  "immeuble",
+  "battu",
+  "propriétaire",
+  "anna",
+  "cherché",
+  "marié",
+  "différents",
+  "lis",
+  "assassin",
+  "dort",
+  "ventre",
+  "haute",
+  "vert",
+  "hâte",
+  "souris",
+  "dirige",
+  "chante",
+  "fiston",
+  "parlant",
+  "pouvoirs",
+  "passez",
+  "blesser",
+  "épisode",
+  "assurance",
+  "neige",
+  "ted",
+  "surveiller",
+  "saint",
+  "attendent",
+  "joues",
+  "diriger",
+  "voleur",
+  "accusé",
+  "mouvement",
+  "survivre",
+  "craint",
+  "siège",
+  "puissance",
+  "cellule",
+  "spéciale",
+  "gorge",
+  "obtenu",
+  "titre",
+  "obtenir",
+  "théâtre",
+  "paye",
+  "écoutes",
+  "lève",
+  "pauvres",
+  "lèvres",
+  "journaux",
+  "divorce",
+  "premiers",
+  "fortune",
+  "reviendra",
+  "maria",
+  "lever",
+  "pauvre",
+  "lèvre",
+  "journal",
+  "revenir",
+  "principal",
+  "travaillait",
+  "alerte",
+  "libérer",
+  "carl",
+  "auront",
+  "kyle",
+  "dave",
+  "amitié",
+  "idiote",
+  "raconté",
+  "humeur",
+  "marier",
+  "raconter",
+  "los",
+  "top",
+  "lac",
+  "suit",
+  "études",
+  "version",
+  "prudent",
+  "concert",
+  "chauffeur",
+  "moteur",
+  "city",
+  "souffle",
+  "étude",
+  "achète",
+  "pousse",
+  "finit",
+  "fer",
+  "ignorais",
+  "château",
+  "virus",
+  "avancer",
+  "deviens",
+  "gamins",
+  "puce",
+  "devine",
+  "traverser",
+  "cependant",
+  "comportement",
+  "gouverneur",
+  "période",
+  "bébés",
+  "deviner",
+  "préparé",
+  "street",
+  "fromage",
+  "côte",
+  "tests",
+  "ouai",
+  "re",
+  "tournée",
+  "concernant",
+  "occupée",
+  "vote",
+  "bébé",
+  "préparer",
+  "voila",
+  "cadeaux",
+  "vivante",
+  "taylor",
+  "attente",
+  "rapports",
+  "lendemain",
+  "ment",
+  "inviter",
+  "chaîne",
+  "enfance",
+  "choisis",
+  "bel",
+  "revenue",
+  "jaloux",
+  "nuits",
+  "russe",
+  "montez",
+  "sénateur",
+  "attrape",
+  "esprits",
+  "cia",
+  "chute",
+  "monter"
+ ],
+ "spot": [
+  "dollar",
+  "finir",
+  "présent",
+  "enceinte",
+  "machine",
+  "nécessaire",
+  "couple",
+  "pont",
+  "partenaire",
+  "cancer"
+ ],
+ "fixed": 39,
+ "skipped": {
+  "dup": 91,
+  "name": 0
+ },
+ "stats": {
+  "used": {
+   "lexai": 0,
+   "gc": 0,
+   "cf2": 0,
+   "cfLeak": 0,
+   "cf2Dead": [],
+   "gem": 62,
+   "groq": 179
+  },
+  "budget": {
+   "lexai": 0,
+   "gc": 10000,
+   "cf2": 0
+  },
+  "by": {
+   "gem|gemini-3.8-flash": {
+    "ok": 0,
+    "fail": 15,
+    "bad": 0
+   },
+   "gem|gemini-3.6-flash": {
+    "ok": 62,
+    "fail": 3,
+    "bad": 0
+   },
+   "groq|openai/gpt-oss-120b": {
+    "ok": 115,
+    "fail": 6,
+    "bad": 0
+   },
+   "groq|qwen/qwen3.8-27b": {
+    "ok": 64,
+    "fail": 0,
+    "bad": 0
+   },
+   "lexai|gemma-3-27b-it": {
+    "ok": 0,
+    "fail": 8,
+    "bad": 0
+   },
+   "gem|gemini-3.7-flash": {
+    "ok": 0,
+    "fail": 11,
+    "bad": 0
+   },
+   "lexai|gemini-3.5-flash": {
+    "ok": 0,
+    "fail": 2,
+    "bad": 0
+   }
+  },
+  "keys": {
+   "gem": {
+    "size": 85,
+    "live": 75,
+    "parked": {
+     "minute": 8,
+     "auth": 2
+    }
+   },
+   "groq": {
+    "size": 109,
+    "live": 108,
+    "parked": {
+     "auth": 1
+    }
+   }
+  }
+ },
+ "wiktFlags": [
+  "chaque: từ loại det ↔ adj",
+  "vôtre: từ loại pron ↔ det"
+ ]
+}

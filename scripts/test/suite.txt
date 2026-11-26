@@ -99,6 +99,7 @@ node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
 node scripts/test/exit-guard.mjs
 node scripts/test/focus-early.mjs
+node scripts/test/skills-skel.mjs
 node scripts/test/review-done.mjs
 node scripts/test/league.mjs
 node scripts/test/speak-ipa.mjs
@@ -459,6 +460,7 @@ node scripts/test/is-main-guard.mjs
 node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
 node scripts/test/heavy-main.mjs
+node scripts/test/main-guards.mjs
 node scripts/test/json-dupkeys.mjs
 node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
@@ -539,7 +541,9 @@ node scripts/stitch-v2-convert.mjs --check
 node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
+node scripts/test/topic-depth.mjs
 node scripts/test/play-crossword.mjs
+node scripts/test/play-picmatch.mjs
 node scripts/test/gt-bands.mjs
 node scripts/test/qengine-types.mjs
 node scripts/test/meta-attr.mjs
