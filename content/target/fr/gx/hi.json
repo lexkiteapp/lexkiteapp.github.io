@@ -669,6 +669,6 @@
  },
  "a-regard-pronoms-lequel": {
   "t": "प्रश्नवाचक lequel",
-  "x": "\"Lequel\" जाने-पहचाने विकल्पों में से चुनाव पूछता है और उनसे मेल खाता है: \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\"। \"à\" या \"de\" के साथ यह सिकुड़ता है: \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\"। \"Quel\" केवल संज्ञा से ठीक पहले लगाएँ।"
+  "x": "\"Lequel\" जाने-पहचाने विकल्पों में से चुनाव पूछता है और उनसे मेल खाता है: \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\"। \"à\" या \"de\" के साथ यह सिकुड़ता है: \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\"। \"quel\" केवल संज्ञा से ठीक पहले लगाएँ।"
  }
 }
