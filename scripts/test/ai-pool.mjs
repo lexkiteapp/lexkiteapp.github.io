@@ -250,4 +250,21 @@ for (const f of ['../lexicon/expand/job.mjs', '../explain/job.mjs', '../scriptba
 { let calls = 0; const f = async url => { if (url === LX) { calls++; return J({ gemini: 0 }); } throw new Error('x'); }, logs = [];
   const P = createPool({ fetch: f, env: {}, lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: l => logs.push(l), sleep: async () => {}, budget: { lexai: 0 }, prompt: async r => ({ sys: 'S', user: '[]' }) });
   await P.judge({ mode: 'lxjudge', items: ITEMS }, { chain: ['lexai'] }); ok(logs.some(l => /ℹ lxjudge lexai: hết ngân sách/.test(l)) && !logs.some(l => /✗ lxjudge lexai/.test(l)), 'lexai hết ngân sách → ghi chú ℹ, không phải ✗ lỗi'); }
+// 13) hồi quy fr lô 3 (run 45729251346: 18/900 từ): soạn gpt-oss (Groq) + giám khảo A qwen (Groq) → B phải khác hai họ; mọi khoá Gemini 429 và
+//     GrabCast tắt (target-content gc=0, để dành đăng bài) → B sang ngay cf2 Llama 70B (kho CF_POOL), không dừng shard, 0 lượt GrabCast
+{ const A = 'a'.repeat(32), seen = [];
+  const f = async (url, init = {}) => { seen.push(url);
+    if (url.includes('generativelanguage') && url.includes('/models?')) return J({ models: [{ name: 'models/gemini-3.8-flash', supportedGenerationMethods: ['generateContent'] }] });
+    if (url.includes('generativelanguage')) return J({ error: { code: 429, message: 'Resource exhausted PerMinute' } }, 429);
+    if (url.includes('api.groq.com/openai/v1/models')) return J({ data: [{ id: 'openai/gpt-oss-120b' }, { id: 'qwen/qwen3.8-27b' }] });
+    if (url.includes('api.groq.com')) { const m = JSON.parse(init.body).model; return J({ choices: [{ message: { content: JSON.stringify({ 'apple#n': { ok: true, score: 5, m } }) } }] }); }
+    if (url.includes('api.cloudflare.com')) return J({ success: true, result: { response: JSON.stringify({ 'apple#n': { ok: true, score: 5 } }), usage: { prompt_tokens: 100, completion_tokens: 20 } } });
+    if (url.startsWith(GC)) return J({ detail: 'GrabCast không được gọi' }, 500);
+    throw new Error('unexpected ' + url); };
+  const P = createPool({ fetch: f, env: { GRABCAST_AI_KEY: 'gk', GEMINI_POOL: Array.from({ length: 30 }, (_, i) => 'AIza' + 'g'.repeat(30) + i).join(','), GROQ_POOL: 'gsk_' + 'q'.repeat(40), CF_POOL: `${A}:t`, VIMG_POOL_SKIP: '0' },
+    lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: () => {}, sleep: async () => {}, budget: { lexai: 0, gc: 0, cf2: 1e6 }, prompt: async () => ({ sys: 'S', user: 'U' }) });
+  const g = await P.gen({ mode: 'lxgen', items: ITEMS }, { chain: ['groq', 'gc-groq', 'cf2'] }); // như gen.mjs GEN_CHAIN: soạn trước (Groq đọc danh sách mô hình thật)
+  const { a, b } = await P.judgePair({ mode: 'lxaudit', items: ITEMS }, { exclude: [g && g.fam] });
+  ok(g && g.fam === 'gpt-oss' && a && a.route === 'groq' && a.fam === 'qwen' && b && b.route === 'cf2' && b.fam === 'llama' && !seen.some(u => u.startsWith(GC)),
+    `mọi khoá Gemini 429 + GrabCast tắt → giám khảo B = cf2 Llama (khác họ soạn gpt-oss và A qwen), 0 lượt GrabCast (A=${a && a.route}/${a && a.fam}, B=${b && b.route}/${b && b.fam})`); }
 console.log(`✓ ai-pool test: ${n} kiểm tra`);
