@@ -24,6 +24,9 @@ jobs:
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           AI_POOL_GC_MAX: '200'
+          CF_POOL: ${{ secrets.CF_POOL }}
+          CF_POOL_HOLD: ${{ vars.CF_POOL_HOLD }}
+          AI_POOL_CF2_NEURONS: '120000'   # 26/11: Gemini 429 + GrabCast db_budget_guard → giám khảo B cần tuyến thứ ba (kho CF_POOL, trần neuron/lượt)
           LX_IN1: ${{ inputs.n }}
         run: node scripts/content-qa/judge-bank.mjs --n "$LX_IN1"
       - run: node scripts/content-qa/bank-audit.mjs
