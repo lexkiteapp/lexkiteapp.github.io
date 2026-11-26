@@ -13,7 +13,7 @@ const jpg = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0, 4, 0, 0, 0xff, 0xc0, 0, 11, 
 ok(JSON.stringify(imgSize(png)) === '{"w":1640,"h":624}', 'PNG: đọc w×h'); ok(JSON.stringify(imgSize(jpg)) === '{"w":2560,"h":1440}', 'JPEG: đọc w×h'); ok(imgSize(Buffer.from('xx')) === null, 'không phải ảnh → null');
 // 2) URL khớp nơi push.mjs đẩy (cùng pickRepo, tiền tố channel-kit/)
 const cfg = loadRepos(), r = pickRepo('channel-kit/facebook/x.png', 'img', cfg);
-ok(urlOf('facebook/x.png', cfg) === r.cdn + 'channel-kit/facebook/x.png' && /^https:\/\/media\.lexkite\.com\//.test(urlOf('a.png', cfg)), 'URL = cdn kho img + channel-kit/<rel>');
+ok(urlOf('facebook/x.png', cfg) === r.pages + 'channel-kit/facebook/x.png' && /^https:\/\/lexkiteapp\.github\.io\/lexkite-media-\d\/channel-kit\//.test(urlOf('a.png', cfg)), 'URL = Pages kho img + channel-kit/<rel> (Worker media chỉ phục vụ /vimg/ cho m4)');
 // 3) chỉ mục: ảnh trên đĩa cập nhật, mục chỉ-ở-CDN giữ nguyên, stitch-ref bị bỏ
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'ckm-')); fs.mkdirSync(path.join(tmp, 'facebook')); fs.mkdirSync(path.join(tmp, 'stitch-ref'));
 fs.writeFileSync(path.join(tmp, 'facebook/a.png'), png); fs.writeFileSync(path.join(tmp, 'stitch-ref/b.jpg'), jpg); fs.writeFileSync(path.join(tmp, 'README.md'), 'x');
