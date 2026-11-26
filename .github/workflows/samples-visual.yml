@@ -51,10 +51,12 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Dựng bài mẫu của PR và của base
-        env: { BASE_SHA: '${{ github.event.pull_request.base.sha }}' }
+        env: { BASE_SHA: '${{ github.event.pull_request.base.sha || github.event.before }}' } # push lên main: không có pull_request.base → dùng sha trước push (event.before)
         run: |
           build() { mkdir -p dist; printf '<urlset></urlset>' > dist/sitemap.xml; node scripts/build-samples.mjs | tail -1; node scripts/build-samples-en.mjs | tail -1; }
           build
+          # push main: BASE_SHA = commit trước push; rỗng/toàn 0/không có trong lịch sử (force-push, nhánh mới) → cha của HEAD (không bỏ kiểm)
+          git cat-file -e "${BASE_SHA:-x}^{commit}" 2>/dev/null || BASE_SHA=HEAD~1
           git worktree add -q ../base "$(git merge-base "$BASE_SHA" HEAD)"
           ( cd ../base && build )
       - name: SEO không mất (title, meta, canonical, hreflang, JSON-LD, link nội bộ, chữ hiển thị)
