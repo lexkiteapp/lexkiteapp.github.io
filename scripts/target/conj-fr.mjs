@@ -14,7 +14,8 @@ const SI = { a: ['asse', 'asses', 'ât', 'assions', 'assiez', 'assent'], i: ['is
 const FUT = ['ai', 'as', 'a', 'ons', 'ez', 'ont'], COND = ['ais', 'ais', 'ait', 'ions', 'iez', 'aient'], IMPF = COND, SUBJ = ['e', 'es', 'e', 'ions', 'iez', 'ent'];
 
 // Động từ trợ "être" (DR MRS VANDERTRAMP + phái sinh); còn lại "avoir". Động từ phản thân (se …) luôn "être" – xử lý ở conjugate().
-const ETRE = new Set(list('aller venir arriver partir entrer sortir monter descendre naître mourir rester tomber retourner devenir revenir rentrer repartir parvenir intervenir survenir redescendre ressortir décéder advenir provenir renaître souvenir'));
+const ETRE = new Set(list('aller venir arriver partir entrer sortir monter descendre naître mourir rester tomber retourner devenir revenir rentrer repartir parvenir intervenir survenir redescendre ressortir décéder advenir provenir renaître souvenir' +
+  ' évanouir enfuir envoler efforcer absenter abstenir écrier emparer méfier repentir')); // động từ chỉ dùng dạng phản thân (s'évanouir…): bỏ "s'" vẫn chia với être như Wiktionary
 // Nhóm 1 đổi gốc: e + phụ âm + er → è trước âm câm (acheter); é + phụ âm + er → è (préférer); -eler/-eter nhân đôi phụ âm (appeler, jeter)
 const DOUBLE = new Set(list('appeler rappeler épeler renouveler jeter rejeter projeter feuilleter étiqueter ficeler chanceler'));
 // Nhóm 3 kiểu "partir": số ít bỏ phụ âm cuối của gốc (pars, dors, sens, sers, mens)
@@ -167,6 +168,7 @@ export function conjugate(inf) {
   const pe = PS[g.psT], se = SI[g.psT];
   o.ps = g.psS === '-' ? Array(6).fill('-') : pe.map(e => g.soft ? soft(g.psS, e) : g.psS + (g.psHat && /^u[st]?$/.test(e) ? e.replace('u', 'û') : e));
   o.subjImpf = g.psS === '-' ? Array(6).fill('-') : se.map(e => g.soft ? soft(g.psS, e) : g.psS + e);
+  if (v === 'luire') { o.part = 'lui'; o.ps = [...o.ps]; o.ps[2] = 'luit'; } // Wiktionary: phân từ lui (như nuire), passé simple il luit (cổ điển), các ngôi khác luis-
   if (v === 'haïr') { o.ps = ['haïs', 'haïs', 'haït', 'haïmes', 'haïtes', 'haïrent']; o.subjImpf = ['haïsse', 'haïsses', 'haït', 'haïssions', 'haïssiez', 'haïssent']; }
   if (v === 'croître') { o.ps = ['crûs', 'crûs', 'crût', 'crûmes', 'crûtes', 'crûrent']; o.subjImpf = ['crûsse', 'crûsses', 'crût', 'crûssions', 'crûssiez', 'crûssent']; }
   if (v === 'falloir') { o.ps = ['-', '-', 'fallut', '-', '-', '-']; o.subjImpf = ['-', '-', 'fallût', '-', '-', '-']; }
