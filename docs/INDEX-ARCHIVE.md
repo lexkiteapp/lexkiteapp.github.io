@@ -56,6 +56,7 @@
 - [archive/AI-PLAN-2026-10.md](archive/AI-PLAN-2026-10.md) — Kế hoạch AI miễn phí nhiều tầng 15/10; hiện hành xem AI-LOCAL.md và EXPLAIN.md. Đọc khi: tra lịch sử.
 - [archive/CI-RUNNERS-QUEUE-1611.md](archive/CI-RUNNERS-QUEUE-1611.md) — Đo hàng chờ 16/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo hàng chờ cũ.
 - [archive/CI-RUNNERS-0511.md](archive/CI-RUNNERS-0511.md) — Số đo hàng chờ 05/11 + cron bị bỏ 3/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo/nhật ký cũ.
+- [archive/CI-RUNNERS-MEASURE-2411.md](archive/CI-RUNNERS-MEASURE-2411.md) — Số đo lượt thừa 1/11–5/11 + nhật ký zombie/nguồn kích ngoài 3/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo/nhật ký cũ.
 - [archive/CI-RUNNERS-DO-HANG-CHO-AUDIO.md](archive/CI-RUNNERS-DO-HANG-CHO-AUDIO.md) — Đo hàng chờ 20/11 + audio.yml nhanh 14/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo/lý do chia shard audio.
 - [archive/CI-RUNNERS-LUOT-THUA-0211.md](archive/CI-RUNNERS-LUOT-THUA-0211.md) — Lượt thừa 2/11: chính sách + số đo (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra lý do luật concurrency/timeout đầu tiên.
 - [archive/CI-RUNNERS-0311.md](archive/CI-RUNNERS-0311.md) — Số đo bộ canh 3/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo cũ.

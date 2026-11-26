@@ -17,7 +17,7 @@ function env({ gtx = 50, mm = 50, gtxText = 'GTX', mmText = 'MM', device = null,
   });
   const resp = j => ({ ok: !!j, status: j ? 200 : 404, json: async () => j || {} });
   const fetch = (url, o = {}) => {
-    const u = String(url), host = /[?&]src=gtx\b/.test(u) ? 'gtx' : (u.match(/^https?:\/\/([^/]+)/) || [, 'same'])[1]; log.push(host);
+    const u = String(url), host = /[?&]src=gtx\b/.test(u) ? 'gtx' : /[?&]src=mm\b/.test(u) ? 'api.mymemory.translated.net' : (u.match(/^https?:\/\/([^/]+)/) || [, 'same'])[1]; log.push(host); // src=mm = MyMemory qua proxy /api/dictlookup (26/11)
     if (/googleapis/.test(host) || /[?&]src=gtx\b/.test(u)) return delayed(gtx, resp(gtxText ? { sentences: [{ trans: gtxText }] } : null), o.signal, u);
     if (/mymemory/.test(host)) return delayed(mm, resp(mmText ? { responseData: { translatedText: mmText } } : null), o.signal, u);
     const m = u.match(/\/packs\/tr\/(\w+)\/(\d+)\.json$/); if (m) return delayed(packs.ms || 5, resp(packs[m[1] + '/' + m[2]] || null), o.signal, u);

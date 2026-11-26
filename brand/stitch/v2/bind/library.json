@@ -1,5 +1,9 @@
 {
- "keys": {"{n} bộ": "{n} sets", "Nhóm bộ từ": "Word set groups", "Nhập bộ thẻ Anki (.apkg) của bạn thành bộ từ để học và ôn.": "Import your Anki deck (.apkg) as a set to study and review."},
+ "keys": {
+  "{n} bộ": "{n} sets",
+  "Nhóm bộ từ": "Word set groups",
+  "Nhập bộ thẻ Anki (.apkg) của bạn thành bộ từ để học và ôn.": "Import your Anki deck (.apkg) as a set to study and review."
+ },
  "_doc": "Thư viện (#/library, cờ ux1) – d do web/js/app.js libV2() dựng từ TOPICS/GROUPS/state.cards thật. Đầu trang Stitch giữ (quay lại #/train, chuỗi/XP thật, ô lọc #libQ, Anki xuất/nhập #libAnkiOut/#libAnkiIn); tab nhóm #libTabs (data-g, .on) + CEFR [data-lvf]; mỗi lần đổi tab/lọc dựng lại khung (giữ con trỏ ô lọc). Thẻ nổi bật = bộ đang học dở nhiều nhất (hoặc bộ đầu của nhóm theo kỳ thi) – dữ liệu thật, A/B chủ. 'Tạo bộ của bạn' → Nhập từ Anki (tính năng thật). Thanh tab dưới = shell (tab Luyện).",
  "remove": [
   ":scope > nav"
@@ -196,6 +200,11 @@
        "data-go-g": "s.g"
       }
      },
+     "addClass": {
+      ":scope > div:nth-child(3) > a": "min-h-11",
+      ":scope > div:nth-child(1) > div": "min-w-0",
+      ":scope > div:nth-child(1) > div > div:nth-child(2)": "min-w-0"
+     },
      "repeat": [
       {
        "list": "s.cards",
@@ -322,6 +331,11 @@
        "data-go-g": "s.g"
       }
      },
+     "addClass": {
+      ":scope > div:nth-child(3) > a": "min-h-11",
+      ":scope > div:nth-child(1) > div": "min-w-0",
+      ":scope > div:nth-child(1) > div > div:nth-child(2)": "min-w-0"
+     },
      "repeat": [
       {
        "list": "s.cards",
@@ -439,14 +453,19 @@
   "in": "t('Nhập')",
   "Anki": "'Anki'"
  },
+ "cls": {
+  ":scope > main > div:nth-child(1) > div > div > span:nth-child(1)": {
+   "text-[#26100A]": "'text-white'"
+  },
+  ":scope > main > div:nth-child(1) > button": {
+   "lt:text-[#26100A]": "'lt:text-white'"
+  }
+ },
  "recolor": {
-  "dk:text-[#2BA39A]": "dk:text-[#6BD8CE]",
-  "lt:text-[#829A9C]": "lt:text-[#556B6D]",
   "text-[#F2553B]": "lt:text-[#B53A22] dk:text-[#FF8A73]",
   "lt:bg-[#F2553B]": "lt:bg-[#C8432B]",
   "text-[#FFB054]": "lt:text-[#8A5A00] dk:text-[#FFB054]",
-  "bg-[#F2553B]": "bg-[#B53A22]",
-  "lt:text-[#526E71]": "lt:text-[#465F62]"
+  "bg-[#F2553B]": "bg-[#B53A22]"
  },
  "_contrast": "recolor: màu chữ nhỏ đạt WCAG AA (axe CI 31/10) bằng sắc có sẵn trong hệ (như me.json): teal tối #6BD8CE, xám sáng #556B6D, san hô #B53A22/#FF8A73 (nền chữ trắng #C8432B/#B53A22), vàng #8A5A00, xanh lá #14753F. | AA (31/10): phụ đề bản sáng #526E71→#465F62 (≥5.5 trên nền kem đậm nhất)."
 }

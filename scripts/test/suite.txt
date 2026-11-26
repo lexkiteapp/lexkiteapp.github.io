@@ -287,6 +287,7 @@ node scripts/test/brand-check.mjs
 node scripts/test/token-contrast.mjs
 node scripts/stitch-sync-palette.mjs --check
 node scripts/social/build-channel-kit.mjs --check
+node scripts/test/channel-kit-media.mjs
 node scripts/social/build-page-info.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
@@ -361,6 +362,7 @@ node scripts/test/theme-switch.mjs web
 node scripts/test/review-lookup.js web
 node scripts/test/hit-retry.mjs
 node scripts/test/tr-race.mjs
+node scripts/test/topic-leave.mjs
 node scripts/test/tr-packs.mjs
 node scripts/test/ci-policy.mjs
 node scripts/test/ffmpeg-setup-policy.mjs
@@ -555,3 +557,6 @@ node scripts/test/lesson-lip-late.mjs
 node scripts/test/review-queue-size.mjs
 node scripts/test/interpret-frame.mjs
 node scripts/test/test-cache.mjs
+node scripts/test/size-guard-warn.mjs
+node scripts/test/gh-direct-fetch.mjs
+node scripts/test/gh-quota.mjs

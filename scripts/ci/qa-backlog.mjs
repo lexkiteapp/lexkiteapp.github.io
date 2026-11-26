@@ -4,6 +4,7 @@
 //   RUN_ID=… node scripts/ci/qa-backlog.mjs        (cần GITHUB_TOKEN)
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { ghFetch } from '../lib/retry5xx.mjs';
 export const FILE = 'docs/QA-BACKLOG.md';
 // workflow → [file sở hữu, lệnh tái hiện cục bộ/CI]
 export const OWNERS = {
@@ -28,7 +29,7 @@ export function merge(txt, items) {
 }
 async function main() {
   const repo = process.env.GITHUB_REPOSITORY, tok = process.env.GITHUB_TOKEN, id = process.env.RUN_ID;
-  const api = async p => { const r = await fetch('https://api.github.com/repos/' + repo + p, { headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json' } }); if (!r.ok) throw new Error(`${p} → ${r.status}`); return r.json(); };
+  const api = async p => { const r = await ghFetch('https://api.github.com/repos/' + repo + p, { headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json' } }); if (!r.ok) throw new Error(`${p} → ${r.status}`); return r.json(); };
   const run = await api('/actions/runs/' + id), wf = run.path.split('/').pop();
   const jobs = (await api(`/actions/runs/${id}/jobs?filter=latest&per_page=100`)).jobs.filter(j => j.conclusion === 'failure');
   const items = jobs.map(j => ({ wf, job: j.name, step: (j.steps.find(s => s.conclusion === 'failure') || { name: '?' }).name, url: j.html_url, date: (run.updated_at || '').slice(0, 10) }));
