@@ -1,6 +1,7 @@
 // Ảnh của bộ kênh social (brand/social/channel-kit) nằm ở kho media ngoài (m4, infra/media-repos.json), KHÔNG trong cây repo chính (26/11: size-guard cây > 600 MB).
 // Repo chính giữ: README, manifest.json, *.md, download.html, stitch-ref/ và media-index.json (rel → bytes, sha256, w, h, url) – nguồn sự thật để kiểm khi không có ảnh trên đĩa.
-// URL = <cdn của kho img>channel-kit/<rel> (pickRepo cùng hàm với scripts/media/push.mjs → luôn khớp nơi đã đẩy).
+// URL = <pages của kho img>channel-kit/<rel> (pickRepo cùng hàm với scripts/media/push.mjs → luôn khớp nơi đã đẩy). Dùng Pages trực tiếp, KHÔNG media.lexkite.com/m4/: Worker media chỉ phục vụ /vimg/ cho m4
+// (26/11 migrate: 63/63 URL CDN 404, Pages 200). Kit là ảnh chủ tải về để đăng lên kênh, không phải đường chạy của app.
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -10,7 +11,7 @@ export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 export const OUT = path.join(ROOT, 'brand/social/channel-kit'), INDEX = path.join(OUT, 'media-index.json');
 export const KIT_PREFIX = 'channel-kit/';
 export const IMG_RE = /\.(png|jpe?g)$/i, SKIP_DIRS = new Set(['stitch-ref']);   // stitch-ref: ảnh tham chiếu nhỏ, ở lại cây
-export const urlOf = (rel, cfg = loadRepos()) => pickRepo(KIT_PREFIX + rel, 'img', cfg).cdn + KIT_PREFIX + rel;
+export const urlOf = (rel, cfg = loadRepos()) => pickRepo(KIT_PREFIX + rel, 'img', cfg).pages + KIT_PREFIX + rel;
 /** { w, h } của PNG/JPEG từ buffer; null nếu không đọc được. */
 export function imgSize(buf) {
   if (buf.length > 24 && buf.readUInt32BE(0) === 0x89504e47) return { w: buf.readUInt32BE(16), h: buf.readUInt32BE(20) };
