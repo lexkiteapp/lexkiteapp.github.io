@@ -1,6 +1,8 @@
 /* Proxy cùng nguồn cho từ điển & dịch máy miễn phí: GET /api/dictlookup
  *   ?src=dapi&w=<word>                                  → api.dictionaryapi.dev/api/v2/entries/en/<word> (IPA, audio, định nghĩa)
  *   ?src=gtx&sl=..&tl=..[&hl=..][&dj=1]&dt=..&q=<text>  → translate.googleapis.com/translate_a/single?client=gtx… (nguyên định dạng gốc)
+ *   ?src=mm&sl=..&tl=..&q=<text ≤ 500 ký tự>            → api.mymemory.translated.net/get?q=…&langpair=sl|tl (26/11: gọi thẳng từ trình duyệt → 429 hàng loạt
+ *     theo hạn mức ngày của MyMemory, E2E báo "Yêu cầu hỏng" ở #/path, #/practice/learn, #/handsfree; qua proxy: bộ đệm biên dùng chung + 429 → 200 null)
  * Vì sao: gọi thẳng từ trình duyệt thì khi nguồn lỗi (1/11: dictionaryapi 500, gtx 429) phản hồi KHÔNG có header CORS → console đỏ,
  * mất IPA/định nghĩa, post-deploy-check đỏ. Qua đây: lưu đệm ở biên Cloudflare dùng chung mọi người (từ điển 30 ngày, dịch 1 ngày)
  * → ít gọi nguồn hơn hẳn (ít bị 429); nguồn lỗi/hết hạn mức → LUÔN 200 + thân `null` (máy khách coi như "không có", tự sang
@@ -9,7 +11,8 @@
 import { gate } from './_quota.js';
 
 const DAPI_TTL = 30 * 86400, DAPI_MISS_TTL = 86400, GTX_TTL = 86400, FAIL_TTL = 60; // FAIL_TTL: nguồn lỗi → che 60 s ở biên, không dội lại nguồn đang 429
-const BROWSER_TTL = { dapi: 86400, gtx: 3600 };
+const BROWSER_TTL = { dapi: 86400, gtx: 3600, mm: 3600 };
+const MM_MAX_Q = 500; // MyMemory chỉ nhận ≤ 500 ký tự mỗi lượt
 const LANG = /^(auto|[a-z]{2,3}(-[A-Za-z]{2,4})?)$/, DT = /^(t|bd|md|ex|ss|at|rm|rw|qca|ld)$/;
 const WORD = /^[\p{L}\p{M}][\p{L}\p{M}' .-]{0,63}$/u, MAX_Q = 5000, UPSTREAM_MS = 6000;
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite(-preview)?\.pages\.dev)|https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
@@ -41,6 +44,12 @@ export function parse(url) {
     qs.set('q', q);
     return { src, upstream: `https://translate.googleapis.com/translate_a/single?${qs}`, key: `https://lexkite.com/api/dictlookup?src=gtx&${qs}&v=1` };
   }
+  if (src === 'mm') {
+    const sl = p.get('sl') || '', tl = p.get('tl') || '', q = p.get('q') || '';
+    if (!LANG.test(sl) || !LANG.test(tl) || sl === 'auto' || tl === 'auto' || !q || q.length > MM_MAX_Q) return null;
+    const qs = new URLSearchParams({ q, langpair: `${sl}|${tl}` });
+    return { src, upstream: `https://api.mymemory.translated.net/get?${qs}`, key: `https://lexkite.com/api/dictlookup?src=mm&${qs}&v=1` };
+  }
   return null;
 }
 
@@ -64,7 +73,9 @@ async function handle({ request, env, waitUntil }) {
   if (up.ok) {
     try { body = await up.json(); } catch (e) { body = null; }
     if (body == null) return keep(empty('upstream-badjson', FAIL_TTL));
-    ttl = req.src === 'dapi' ? DAPI_TTL : GTX_TTL;
+    // MyMemory báo hết hạn mức trong THÂN (HTTP vẫn 200, responseStatus 429 / "MYMEMORY WARNING") → coi như lỗi tạm: 200 null, che 60 s
+    if (req.src === 'mm' && (+body.responseStatus !== 200 || /MYMEMORY WARNING|INVALID/i.test(String(body.responseData && body.responseData.translatedText || '')))) return keep(empty('upstream-mm-limit', FAIL_TTL));
+    ttl = req.src === 'dapi' ? DAPI_TTL : GTX_TTL; // gtx và mm: cùng 1 ngày
   } else if (req.src === 'dapi' && up.status === 404) {
     ttl = DAPI_MISS_TTL; // từ không có trong dictionaryapi.dev – câu trả lời thật, nhớ 1 ngày
   } else return keep(empty('upstream-' + up.status, FAIL_TTL)); // 429/5xx: tạm lỗi – che 60 s ở biên, không dội lại nguồn
