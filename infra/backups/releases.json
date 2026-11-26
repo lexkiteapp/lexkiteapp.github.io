@@ -4,65 +4,65 @@
  "kinds": {
   "android-aab": [
    {
-    "run": 45611033452,
-    "run_number": 1214,
+    "run": 45739751286,
+    "run_number": 1224,
     "version": "1.1.0",
-    "build": 2214,
-    "name": "lexkite-1.1.0-2214.aab",
-    "sha256": "007245a566237a62d85ef9250e5fef66efd0572d0b62e3241d3e7e91f82956ac",
-    "size": 81680049,
-    "commit": "3889374c3ac9c8d7d6dfa95c96313c364a909b6d",
-    "at": "2026-11-25T13:21:49Z",
+    "build": 2224,
+    "name": "lexkite-1.1.0-2224.aab",
+    "sha256": "09a9432a7fd7d17479b0e7d2c70cb1b5e677d0678abce93b8e8a2cf8ebac211c",
+    "size": 81719073,
+    "commit": "096160e0e778e2ecb2228bd0c6bf0e690bf9b96b",
+    "at": "2026-11-26T02:16:05Z",
     "copies": [
      {
-      "driveId": 52,
-      "fileId": "1YPMsKyQRAIxSpUqryIiba861rKEcHLUk"
+      "driveId": 28,
+      "fileId": "1eLwFCYSYE-w_6xwgOjXwVwuMtqLm3AWM"
      },
      {
-      "driveId": 42,
-      "fileId": "1ia5Y4xuXxn4VCFmOoAozucilgZYvLt4Q"
+      "driveId": 11,
+      "fileId": "1I7Vn1MPD_IAfhGvAYqnGJLSbkrJUuXkf"
      }
     ]
    },
    {
-    "run": 45611014683,
-    "run_number": 1213,
+    "run": 45731980026,
+    "run_number": 1223,
     "version": "1.1.0",
-    "build": 2213,
-    "name": "lexkite-1.1.0-2213.aab",
-    "sha256": "e6c767ef7833cbe74842ac9e65150e8fa151cdbe82c22a47cfa9a3551f8ac269",
-    "size": 81679871,
-    "commit": "487c6b54260c9363f6af39410e72a023355f9f1b",
-    "at": "2026-11-25T12:24:44Z",
+    "build": 2223,
+    "name": "lexkite-1.1.0-2223.aab",
+    "sha256": "f3e67084e9ff60fbe932d43bfeb9a9c8e17e9c817f0518a523a4db71538d5ce6",
+    "size": 81718961,
+    "commit": "67e5ad3f337364554af0464cd452d8cec9e6c415",
+    "at": "2026-11-26T01:19:34Z",
     "copies": [
      {
-      "driveId": 44,
-      "fileId": "1xKNxjoTlDhPRUsM8dALZCP5fP0a1a5Am"
+      "driveId": 11,
+      "fileId": "1otEk6lih-FshB_f78Z1k1RoLRJKbbIN7"
      },
      {
-      "driveId": 37,
-      "fileId": "1rUDTemFSDLuTfZ-M2Noxc-CpQi51VBUI"
+      "driveId": 31,
+      "fileId": "1FratsTKer261Uh8jstZRwcjK3_TulRnI"
      }
     ]
    },
    {
-    "run": 45600996770,
-    "run_number": 1212,
+    "run": 45713612483,
+    "run_number": 1222,
     "version": "1.1.0",
-    "build": 2212,
-    "name": "lexkite-1.1.0-2212.aab",
-    "sha256": "d7c7751529f4ed03c03bf033858c1ac100cc476418134e1a9e40c3772304607a",
-    "size": 81656790,
-    "commit": "fdc2d89b620303118758cb4b0ff9db7d37681979",
-    "at": "2026-11-25T11:42:00Z",
+    "build": 2222,
+    "name": "lexkite-1.1.0-2222.aab",
+    "sha256": "513e0b1873be41baa1af8baae39e5623e1a4dc4f2d3c05fd02e18d037fc22609",
+    "size": 81718226,
+    "commit": "e297256aceb9d2a327187363ce787d9fec1dfcf0",
+    "at": "2026-11-25T23:05:43Z",
     "copies": [
      {
-      "driveId": 32,
-      "fileId": "15D97csWAI7Ks4VAHHZKZnC-9Hlxts4c_"
+      "driveId": 11,
+      "fileId": "1hW0viKGOkWZDdnWwUVUtuQ5NQ-AU3zqL"
      },
      {
-      "driveId": 50,
-      "fileId": "1YOqmDQkaBCrZJaV0mmBsmWaOgElPedNW"
+      "driveId": 30,
+      "fileId": "1E1Ceeea15H4c6E9UzJ6elqTiqPdj4SPv"
      }
     ]
    }
@@ -198,5 +198,5 @@
    }
   ]
  },
- "updated": "2026-11-25T13:26:08.778Z"
+ "updated": "2026-11-26T02:18:35.441Z"
 }

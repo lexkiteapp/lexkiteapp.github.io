@@ -6,6 +6,7 @@
 // Kết quả: 1 issue nhãn ci-failure "Lịch CI không chạy" (marker ci-triage:cron) – cập nhật khi còn, tự đóng khi hết. Test: scripts/test/cron-watch.mjs.
 import fs from 'node:fs';
 import { starts } from '../test/jobs-check.mjs';
+import { dispatchOnce } from './dispatch-once.mjs';
 import { isZombie, zombieRuns, stuckJobs, listRuns, STUCK_JOB_MIN } from './zombie.mjs';
 
 const W = 7 * 1440;
@@ -102,7 +103,8 @@ export async function cronWatch(gh, { now = Date.now(), wfDir = '.github/workflo
       if (used >= BACKFILL_MAX) { v.why += ` · chờ bù lượt sau (trần ${BACKFILL_MAX}/giờ)`; continue; }
       const last = ((((await gh(`/actions/workflows/${w.id}/runs?per_page=1`)) || {}).workflow_runs) || [])[0];
       if (last && !isZombie(last, now) && (last.status !== 'completed' || now - Date.parse(last.created_at) < maxGap(cronsOf(yml)) * 6e4)) { v.why += ` · đã có lượt ${last.event} ${last.status} gần đây – không bù`; continue; }
-      const r = await gh(`/actions/workflows/${w.id}/dispatches`, { method: 'POST', body: { ref: 'main' } });
+      const d = await dispatchOnce({ runs: async () => (await Promise.all(['queued', 'in_progress'].map(async s => ((await gh(`/actions/workflows/${w.id}/runs?status=${s}&per_page=20`)) || {}).workflow_runs || []))).flat(), dispatch: (f, ref) => gh(`/actions/workflows/${w.id}/dispatches`, { method: 'POST', body: { ref } }) }, file, 'main');
+      const r = d.sent ? d.res : (v.why += ` · ${d.why} – không bù`, false);
       if (r !== false) { used++; v.why += ' → đã dispatch bù 1 lượt'; v.backfilled = true; }
     }
   }
