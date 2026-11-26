@@ -84,6 +84,7 @@ import com.lexkite.app.core.speak.Situation
 import com.lexkite.app.feature.lesson.AndroidSpeech
 import com.lexkite.app.feature.skills.SkillsHubRoute
 import com.lexkite.app.feature.skills.SkillsRoute
+import com.lexkite.app.feature.skills.WatchSlots
 import com.lexkite.app.feature.vocab.StudySlots
 import com.lexkite.app.feature.vocab.StudyTx
 import com.lexkite.app.feature.vocab.StudyWords
@@ -178,6 +179,9 @@ class MainActivity : ComponentActivity() {
         val WIPED_STATS: JsonElement = kotlinx.serialization.json.Json.parseToJsonElement("""{"days":{},"newToday":{"day":"","n":0}}""")
     }
 
+    /** P12 watch: video thumbnails through the app image loader. */
+    private val watchSlots = WatchSlots(thumb = { url, m -> RemoteImage(url, "", m) })
+
     private fun slots(lang: String, onLanguage: () -> Unit) = ShellSlots(
         today = { open -> TodayRoute(lang, open, onLanguage) },
         me = { open -> MeRoute { open("settings") } },
@@ -189,7 +193,7 @@ class MainActivity : ComponentActivity() {
         },
         vocab = { route, arg, query, onExit, open, replace -> VocabRoute(vocabEnv(lang), route, arg, query, vocabSlots, open, replace, onExit) },
         vocabHub = { open -> VocabHubRoute(vocabEnv(lang), open) },
-        skills = { route, arg, query, onExit, open, replace -> SkillsRoute(skillsEnv(lang), route, arg, query, open, replace, onExit) },
+        skills = { route, arg, query, onExit, open, replace -> SkillsRoute(skillsEnv(lang), route, arg, query, open, replace, onExit, watchSlots) },
         skillsHub = { open -> SkillsHubRoute(open) },
         speak = { route, arg, query, onExit, open, replace -> SpeakRoute(speakEnv(lang), speakSlots, route, arg, query, open, replace, onExit) },
         interpret = { arg, onExit, open, replace -> InterpretRoute(interpretEnv(lang), arg, open, replace, onExit) },
@@ -215,7 +219,7 @@ class MainActivity : ComponentActivity() {
         val vocab = vocabEnv(lang)
         return remember(lang, dark) {
             val word = WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi")))
-            SkillsEnv(vocab, word, lang, loadContent = { SkillsEnv.fetchPack(UrlHttp, cacheDir, starter = { assets.open("content-pack/skills-starter.json").bufferedReader().use { it.readText() } }) }, loadAdv = { SkillsEnv.fetchAdv(UrlHttp, cacheDir) })
+            SkillsEnv(vocab, word, lang, loadContent = { SkillsEnv.fetchPack(UrlHttp, cacheDir, starter = { assets.open("content-pack/skills-starter.json").bufferedReader().use { it.readText() } }) }, loadAdv = { SkillsEnv.fetchAdv(UrlHttp, cacheDir) }, asset = { n -> runCatching { assets.open(n).bufferedReader().use { it.readText() } }.getOrNull() })
         }
     }
     /** Phiên dịch: vocabulary + word env (Sổ từ, device storage) + the recogniser, on-device ML Kit translation / language id and TextToSpeech; phrasebook from the generated assets. */
