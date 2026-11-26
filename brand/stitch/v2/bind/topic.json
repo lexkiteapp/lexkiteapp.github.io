@@ -211,7 +211,8 @@
       }
      },
      "addClass": {
-      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > button": "relative before:absolute before:-inset-3 before:content-['']"
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > button": "relative min-h-11 min-w-11 -m-3",
+      ":scope > div:nth-child(1) > button": "min-h-11 -my-[7px]"
      }
     },
     "add": {
@@ -262,7 +263,8 @@
       }
      },
      "addClass": {
-      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > button": "relative before:absolute before:-inset-3 before:content-['']"
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > button": "relative min-h-11 min-w-11 -m-3",
+      ":scope > div:nth-child(1) > button": "min-h-11 -my-[7px]"
      }
     }
    }
