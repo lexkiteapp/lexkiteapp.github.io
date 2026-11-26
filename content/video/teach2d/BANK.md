@@ -1107,11 +1107,11 @@
 | t2a_review_participate | – | – | red ×2: short: no render; wide: no render | 45904434813 |
 | t2a_review_plenty | – | – | red ×2: short: no render; wide: no render | 45904434813 |
 | t2a_review_pray | – | – | red ×2: short: no render; wide: no render | 45904434813 |
-| t2a_review_press | – | – | red ×1: short: no render; wide: no render | 45903311922 |
-| t2a_review_relate | – | – | red ×1: short: no render; wide: no render | 45903311922 |
-| t2a_review_remain | – | – | red ×1: short: no render; wide: no render | 45903311922 |
-| t2a_review_remind | – | – | red ×1: short: no render; wide: no render | 45903311922 |
-| t2a_review_represent | – | – | red ×1: short: no render; wide: no render | 45903311922 |
+| t2a_review_press | – | – | red ×2: short: no render; wide: no render | 45905563280 |
+| t2a_review_relate | – | – | red ×2: short: no render; wide: no render | 45905563280 |
+| t2a_review_remain | – | – | red ×2: short: no render; wide: no render | 45905563280 |
+| t2a_review_remind | – | – | red ×2: short: no render; wide: no render | 45905563280 |
+| t2a_review_represent | – | – | red ×2: short: no render; wide: no render | 45905563280 |
 | t2a_review_responsibility | – | – | red ×1: short: no render; wide: no render | 45903311922 |
 | t2a_stress_artistic | 100.0 | 100.0 | banked | 42534524390 |
 | t2a_stress_athletic | 100.0 | 100.0 | banked | 42534524390 |
