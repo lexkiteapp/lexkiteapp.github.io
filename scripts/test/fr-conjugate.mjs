@@ -50,6 +50,11 @@ partir|futProche|vais partir vas partir va partir allons partir allez partir von
 arriver|passeRecent|viens d'arriver viens d'arriver vient d'arriver venons d'arriver venez d'arriver viennent d'arriver
 se lever|pres|lève lèves lève levons levez lèvent
 luire|part|lui
+distraire|pres|distrais distrais distrait distrayons distrayez distraient
+distraire|subj|distraie distraies distraie distrayions distrayiez distraient
+promouvoir|pres|promeus promeus promeut promouvons promouvez promeuvent
+promouvoir|fut|promouvrai promouvras promouvra promouvrons promouvrez promouvront
+redevenir|pc|suis redevenu es redevenu est redevenu sommes redevenus êtes redevenus sont redevenus
 luire|ps|luisis luisis luit luisîmes luisîtes luisirent
 luire|subjImpf|luisisse luisisses luisît luisissions luisissiez luisissent
 évanouir|pc|suis évanoui es évanoui est évanoui sommes évanouis êtes évanouis sont évanouis
