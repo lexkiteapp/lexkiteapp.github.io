@@ -25262,8 +25262,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "desktop#n": {
-   "e4bad": 9,
-   "badAt": "2026-11-24T01:15:56.507Z"
+   "e4bad": 10,
+   "badAt": "2026-11-26T01:59:27.125Z"
   },
   "desolate#adj": {
    "ex": "Some of the routes go through more desolate landscapes.",
@@ -29276,8 +29276,8 @@
    "cap": "employees learning on computers in a meeting",
    "who": 2,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-24T01:17:31.135Z"
+   "e4bad": 11,
+   "badAt": "2026-11-26T01:59:27.834Z"
   },
   "eager#adj": {
    "ex": "The new staff members are eager to learn about our products.",
@@ -77619,8 +77619,8 @@
    "refix": 1
   },
   "republish#v": {
-   "e4bad": 4,
-   "badAt": "2026-11-24T01:14:59.141Z"
+   "e4bad": 5,
+   "badAt": "2026-11-26T01:59:27.126Z"
   },
   "reputation management#n": {
    "ex": "Online reputation management includes replying politely to negative reviews.",
@@ -94080,16 +94080,17 @@
   },
   "transliteration#n": {
    "ex": "The following are the most common transliterations.",
-   "ps": "a person at a table swaps a Cyrillic alphabet block for a matching Latin alphabet block",
-   "sc": "a person at a table swaps a Cyrillic alphabet block for a matching Latin alphabet block",
-   "check": "Is a person exchanging a Cyrillic-shaped block for a Latin-shaped block?",
-   "cap": "a person swapping a Cyrillic block with a Latin block",
-   "key": "a Cyrillic alphabet block; a Latin alphabet block being swapped",
+   "ps": "a woman points from a blue cluster of abstract symbols to a red cluster of abstract symbols, both groups large and distinct",
+   "sc": "a woman points from a blue cluster of abstract symbols to a red cluster of abstract symbols, both groups large and distinct",
+   "check": "Is someone showing a change from one set of symbols to a different set?",
+   "cap": "a woman pointing from a blue symbol group to a red symbol group",
+   "key": "a woman pointing from one group of symbols to another; two distinct groups of colored abstract symbols",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 2
   },
   "transmission#n": {
    "ex": "The data transmission to the head office failed overnight.",

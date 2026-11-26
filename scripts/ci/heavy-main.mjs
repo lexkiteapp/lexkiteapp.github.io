@@ -5,7 +5,7 @@
 // Workflow nặng = có dòng `# ci-policy: heavy-gate` (heavyFiles của heavy-rerun.mjs). Test: scripts/test/heavy-main.mjs.
 import fs from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { openRevertPr } from './revert-pr.mjs';
 import { heavyFiles } from './heavy-rerun.mjs';
 import { isMain } from '../lib/is-main.mjs';
 
@@ -46,15 +46,7 @@ async function main() {
   out(`red (${sha.slice(0, 8)})`);
   if (!mine.length) { console.log('lượt đỏ đã đỏ từ trước commit này → không revert (issue main-red-wf lo)'); return; }
   if (dry) { console.log('--dry: sẽ mở PR revert ' + sha); return; }
-  const br = `revert/${sha.slice(0, 8)}`, title = `Revert ${commit.commit.message.split('\n')[0].slice(0, 70)} (main đỏ phần nặng)`;
-  try {
-    execFileSync('git', ['config', 'user.name', 'lexkite-bot']); execFileSync('git', ['config', 'user.email', 'lexkite-bot@users.noreply.github.com']);
-    execFileSync('git', ['fetch', '-q', 'origin', 'main']); execFileSync('git', ['checkout', '-q', '-B', br, 'origin/main']);
-    execFileSync('git', ['revert', '--no-edit', sha], { stdio: 'inherit' }); execFileSync('git', ['push', '-q', 'origin', `HEAD:refs/heads/${br}`]);   // SSH khoá deploy: kích CI của PR revert
-  } catch (e) { console.log('::error::không tự revert được (xung đột?) – ' + e.message.split('\n')[0] + ' → revert tay'); process.exit(1); }
   const body = `Tự động: commit ${sha} làm đỏ phần NẶNG sau gộp (luật 18, docs/CI-RUNNERS.md): ${names}.\n\nPR revert để main xanh lại; sửa lỗi gốc rồi mở lại PR cũ. Tác giả/phiên chủ: xem commit gốc.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)`;
-  const pr = await api('/pulls', { method: 'POST', body: JSON.stringify({ title, head: br, base: 'main', body }) });
-  console.log(pr.status === 201 ? `đã mở PR revert: ${pr.json.html_url}` : `::error::mở PR revert lỗi ${pr.status} ${JSON.stringify(pr.json).slice(0, 200)}`);
-  if (pr.status === 201) await api(`/issues/${pr.json.number}/labels`, { method: 'POST', body: JSON.stringify({ labels: ['main-red-revert'] }) });
+  await openRevertPr(api, { sha, subject: commit.commit.message, suffix: 'main đỏ phần nặng', body, labels: ['main-red-revert'] });
 }
 if (isMain(import.meta.url)) main().catch(e => { console.error(e); process.exit(1); });

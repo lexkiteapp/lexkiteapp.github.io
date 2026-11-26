@@ -1,0 +1,48 @@
+{
+ "id": "20261126-r281",
+ "source": "lexicon-expand",
+ "n": 6,
+ "checked": [
+  {
+   "id": "lawfulness#n",
+   "ok": true
+  },
+  {
+   "id": "squalor#n",
+   "ok": true
+  },
+  {
+   "id": "hematology#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): ex: First example is an incomplete sentence fragment ('Kyle as a fellow in hematology and oncology.')"
+  },
+  {
+   "id": "salmonid#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): vi: 'họ cá hồi' refers to the family (Salmonidae), whereas 'salmonid' is an individual fish belonging to this family (cá thuộc họ cá hồi)"
+  },
+  {
+   "id": "overemphasis#n",
+   "ok": true
+  },
+  {
+   "id": "boardinghouse#n",
+   "ok": true
+  },
+  {
+   "id": "recalculation#n",
+   "ok": true
+  },
+  {
+   "id": "orthodontics#n",
+   "ok": true
+  },
+  {
+   "id": "abrogation#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): m.pt: nonstandard spelling (should be “abrogação”)"
+  }
+ ],
+ "at": "2026-11-26",
+ "status": "published"
+}
