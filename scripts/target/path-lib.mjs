@@ -38,10 +38,11 @@ export function buildPath(pts, px, T = ES) {
   // Từ của lộ trình (lớn dần tới 3.000 lemma/ngôn ngữ) = JSON ở web/packs/<tl>/ (khóa '@packs/'), tải như App.loadPack: cùng tên miền trên web,
   // https://lexkite.com ở add-on/app gốc – không nằm trong web/cpack (không nâng trần cpackTotal mỗi lô). <G>.wdv = băm nội dung (dy.js tên băm) → bỏ cache khi đổi.
   files['@packs/wd.json'] = JSON.stringify(words.map(w => wdRow(w, T.tl))) + '\n';
-  const CD = fs.existsSync(D + 'cando.json') ? readJSON(D + 'cando.json') : null; // mục tiêu "học xong làm được gì" mỗi ngày (15 ngôn ngữ, theo thứ tự ngày) → <G>.dyc[ngôn ngữ]
+  const CD = fs.existsSync(D + 'cando.json') ? readJSON(D + 'cando.json') : null; // mục tiêu "học xong làm được gì" mỗi ngày (15 ngôn ngữ, theo thứ tự ngày) → packs/<tl>/cd-<ngôn ngữ>.json
   for (const l of LANGS) {
     files[`@packs/wd-${l}.json`] = JSON.stringify(words.map(w => w.gl[l] || w.gl.en)) + '\n';
-    files[`dy-${l}.js`] = `self.${X}=self.${X}||{};(${X}.dyl=${X}.dyl||{})[${JSON.stringify(l)}]=${JSON.stringify(DAY_UI.map(k => ui[l][k]))};${CD ? `(${X}.dyc=${X}.dyc||{})[${JSON.stringify(l)}]=${JSON.stringify(pts.map(p => (CD[l] || {})[p.id] || CD.en[p.id]))};` : ''}\n`;
+    if (CD) files[`@packs/cd-${l}.json`] = JSON.stringify(pts.map(p => (CD[l] || {})[p.id] || CD.en[p.id])) + '\n'; // mục tiêu theo thứ tự ngày; gói lười ngoài web/cpack (như wd-*.json)
+    files[`dy-${l}.js`] = `self.${X}=self.${X}||{};(${X}.dyl=${X}.dyl||{})[${JSON.stringify(l)}]=${JSON.stringify(DAY_UI.map(k => ui[l][k]))};\n`;
   }
   // gói nhỏ gọn: bỏ kind/tr (không dùng ở màn gọi); tl gắn lúc nạp (call.js lọc theo tl)
   const wdv = createHash('sha1').update(Object.keys(files).filter(f => f.startsWith('@packs/')).sort().map(f => files[f]).join('')).digest('hex').slice(0, 10);

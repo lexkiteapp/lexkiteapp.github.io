@@ -30,7 +30,7 @@
   let DAYS = []; // kế hoạch: <G>.dyp (planDay của path-lib, sinh vào dy.js) áp lên <G>.dy
   const startKey = () => 'lk.' + TL + '.start', startAt = () => Math.max(0, Math.min(DAYS.length - 1, parseInt(ls(startKey()), 10) || 0)); // điểm bắt đầu do người học chọn (không đánh dấu xong ngày nào)
   const firstOpen = () => { const k = DAYS.findIndex((d, n) => n >= startAt() && !full(n, d)); return k < 0 ? DAYS.length - 1 : k; };
-  const goalOf = n => ((X().dyc || {})[lang()] || (X().dyc || {}).en || [])[n] || ''; // "Sau bài này bạn có thể …" (data cando.json của tl)
+  const goalOf = n => ((X().cdl || {})[lang()] || (X().cdl || {}).en || [])[n] || ''; // "Sau bài này bạn có thể …" (data cando.json của tl)
   const gxOf = id => { const g = (X().gx || {})[lang()] || (X().gx || {}).en || {}; return (g[id] || [id])[0]; };
   const route = k => ((window.Target && Target.table(TL).routes) || {})[k] || '#/practice/' + TL; // luyện (vocab) · phát âm (skills) của tl
   const home = () => (window.Target && Target.homeOf(TL)) || '#/practice/' + TL + 'd';
@@ -67,6 +67,7 @@
     const get = f => fetch(base + 'packs/' + TL + '/' + f + '.json' + v).then(r => { if (!r.ok) throw new Error(f + ' ' + r.status); return r.json(); });
     if (!X().wd) tl.push(get('wd').then(j => { X().wd = j; }));
     for (const k of l !== 'en' ? [l, 'en'] : ['en']) if (!(X().wdl || {})[k]) tl.push(get('wd-' + k).then(j => { (X().wdl = X().wdl || {})[k] = j; }));
+    for (const k of l !== 'en' ? [l, 'en'] : ['en']) if (!(X().cdl || {})[k]) tl.push(get('cd-' + k).then(j => { (X().cdl = X().cdl || {})[k] = j; }).catch(() => {})); // mục tiêu từng ngày (lười; thiếu → ẩn dòng 🎯)
     tl.push(App.loadScript(c.gx()[l])); // tên điểm ngữ pháp
     const px = c.px(); if (px) tl.push(App.loadScript(px.pxl[l]), App.loadScript(px.base)); // tên chủ đề phát âm
     await Promise.all(tl);
