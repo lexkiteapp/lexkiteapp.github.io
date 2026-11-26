@@ -27,7 +27,7 @@ import com.lexkite.app.ui.TopBar
 import com.lexkite.app.ui.TopBarVariant
 
 /** Web hash routes (first path segment) that [SkillsRoute] draws. */
-val SKILLS_ROUTES: Set<String> = setOf("listening", "listen", "listen-test", "dictation", "reading", "read", "watch")
+val SKILLS_ROUTES: Set<String> = setOf("listening", "listen", "listen-test", "dictation", "reading", "read", "watch", "mediate")
 
 @Composable
 private fun Loading(exit: () -> Unit) = StudyPage(t(L10nKey.actionLoading), exit) {}
@@ -37,7 +37,7 @@ private fun Loading(exit: () -> Unit) = StudyPage(t(L10nKey.actionLoading), exit
 private fun Fallback(missing: Boolean, route: String, replace: (String) -> Unit) { if (missing) LaunchedEffect(Unit) { replace(route) } }
 
 /**
- * The listening + reading + watch destinations of the app frame: `watch[/<id|link>[?t=]]`, `listening`, `listen/<part>[?mode=exam]`, `listen-test/<n>`, `dictation/<part>[?m=mid|hard|full]`, `reading`, `read/<id>`.
+ * The listening + reading + watch destinations of the app frame: `watch[/<id|link>[?t=]]`, `mediate[/<id>]`, `listening`, `listen/<part>[?mode=exam]`, `listen-test/<n>`, `dictation/<part>[?m=mid|hard|full]`, `reading`, `read/<id>`.
  * [open] navigates to another web-style route, [replace] does the same without keeping this screen, [exit] goes back.
  */
 @Composable
@@ -76,6 +76,7 @@ fun SkillsRoute(env: SkillsEnv, page: String, arg: String, query: String, open: 
                 grade = { vm.grade() }, confirm = { vm.confirm(it) }, closePopup = { vm.closePopup() }, savePopup = { vm.savePopup() }, speakWord = { vm.speakWord() }, details = { ui.popup?.let { p -> open("dict/" + p.word) } }, open = go, exit = exit))
         }
         "watch" -> WatchRoute(env, arg, q, watch, go, exit)
+        "mediate" -> MediateRoute(env, arg, open, exit)
         "reading" -> {
             val vm: ReadingVm = viewModel(key = "reading-$key", factory = ReadingVm.Factory(env, q))
             val ui = vm.ui

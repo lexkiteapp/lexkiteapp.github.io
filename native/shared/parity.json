@@ -175,7 +175,8 @@
       "title": "Mediation: relay a read/heard English source to one specific person (write or say), self-check points, model answer",
       "routes": [
         "#/mediate"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P14",
