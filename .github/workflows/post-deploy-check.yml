@@ -37,6 +37,10 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
           bash scripts/ci/pw-install.sh --with-deps chromium webkit
+      - name: Sonde skills 390
+        continue-on-error: true
+        timeout-minutes: 6
+        run: node scripts/test/skills-probe.mjs
       - name: Soát tuyến live (console / exception / request / ảnh vỡ)
         id: routes
         timeout-minutes: 8
