@@ -15087,7 +15087,7 @@
   },
   "t2a_guess_celebrity": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15095,11 +15095,23 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 2
+   "tries": 3
   },
   "t2a_guess_daughter": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 3
+  },
+  "t2a_guess_habit": {
+   "run": "45897457286",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15109,21 +15121,9 @@
    "state": "failed",
    "tries": 2
   },
-  "t2a_guess_habit": {
-   "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
-   "score": {},
-   "sha": {},
-   "why": [
-    "short: no render",
-    "wide: no render"
-   ],
-   "state": "failed",
-   "tries": 1
-  },
   "t2a_guess_neighbor": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15131,7 +15131,7 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 1
+   "tries": 2
   },
   "t2a_prog_breakfast_1": {
    "run": "45533215258",
@@ -15579,7 +15579,7 @@
   },
   "t2a_review_caller": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15587,11 +15587,11 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 2
+   "tries": 3
   },
   "t2a_review_champion": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15599,11 +15599,23 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 2
+   "tries": 3
   },
   "t2a_review_clause": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 3
+  },
+  "t2a_review_click": {
+   "run": "45897457286",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15613,21 +15625,9 @@
    "state": "failed",
    "tries": 2
   },
-  "t2a_review_click": {
-   "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
-   "score": {},
-   "sha": {},
-   "why": [
-    "short: no render",
-    "wide: no render"
-   ],
-   "state": "failed",
-   "tries": 1
-  },
   "t2a_review_coin": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15635,11 +15635,11 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 1
+   "tries": 2
   },
   "t2a_review_collection": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15647,11 +15647,11 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 1
+   "tries": 2
   },
   "t2a_review_combine": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15659,11 +15659,11 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 1
+   "tries": 2
   },
   "t2a_review_concentrate": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15671,11 +15671,11 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 1
+   "tries": 2
   },
   "t2a_review_confuse": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15683,11 +15683,11 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 1
+   "tries": 2
   },
   "t2a_review_consume": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15695,11 +15695,11 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 1
+   "tries": 2
   },
   "t2a_review_cooler": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15707,11 +15707,11 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 1
+   "tries": 2
   },
   "t2a_review_copier": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15719,11 +15719,11 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 1
+   "tries": 2
   },
   "t2a_review_deal": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -15731,11 +15731,371 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 1
+   "tries": 2
   },
   "t2a_review_demand": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_determine": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_divide": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_educate": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_emergency": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_fence": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_file": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_flood": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_flow": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_gain": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_grade": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_heavily": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_importer": {
+   "run": "45902176766",
+   "at": "2026-11-26T22:08Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_indicate": {
+   "run": "45903311922",
+   "at": "2026-11-26T22:21Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_insurer": {
+   "run": "45903311922",
+   "at": "2026-11-26T22:21Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_intend": {
+   "run": "45903311922",
+   "at": "2026-11-26T22:21Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_invest": {
+   "run": "45903311922",
+   "at": "2026-11-26T22:21Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_leather": {
+   "run": "45903311922",
+   "at": "2026-11-26T22:21Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_lecturer": {
+   "run": "45903311922",
+   "at": "2026-11-26T22:21Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_mix": {
+   "run": "45904434813",
+   "at": "2026-11-26T22:29Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_narrative": {
+   "run": "45904434813",
+   "at": "2026-11-26T22:29Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_nation": {
+   "run": "45904434813",
+   "at": "2026-11-26T22:29Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_participate": {
+   "run": "45904434813",
+   "at": "2026-11-26T22:29Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_plenty": {
+   "run": "45904434813",
+   "at": "2026-11-26T22:29Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_pray": {
+   "run": "45904434813",
+   "at": "2026-11-26T22:29Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_press": {
+   "run": "45905563280",
+   "at": "2026-11-26T22:43Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_relate": {
+   "run": "45905563280",
+   "at": "2026-11-26T22:43Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_remain": {
+   "run": "45905563280",
+   "at": "2026-11-26T22:43Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_remind": {
+   "run": "45905563280",
+   "at": "2026-11-26T22:43Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_represent": {
+   "run": "45905563280",
+   "at": "2026-11-26T22:43Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2a_review_responsibility": {
+   "run": "45903311922",
+   "at": "2026-11-26T22:21Z",
    "score": {},
    "sha": {},
    "why": [
@@ -16098,7 +16458,7 @@
   },
   "t2a_usuk_trash": {
    "run": "45897457286",
-   "at": "2026-11-26T21:26Z",
+   "at": "2026-11-26T21:35Z",
    "score": {},
    "sha": {},
    "why": [
@@ -16106,7 +16466,7 @@
     "wide: no render"
    ],
    "state": "failed",
-   "tries": 2
+   "tries": 3
   },
   "t2a_usuk_vacation": {
    "run": "42534524390",
