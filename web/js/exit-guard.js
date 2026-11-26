@@ -95,7 +95,7 @@
 
   // Rời màn: đích lượt bị giữ → href nút thoát → màn trước (Hôm nay/tab gốc)
   // Ngôn ngữ đích đang học: '#/home' (Hôm nay chung) bị app đẩy lại về lộ trình ngày của ngôn ngữ đó → thoát thẳng về đó, không qua vòng #/home
-  const tlHome = to => { try { const T = g.Target, tl = T && T.cur && T.cur(); return to === '#/home' && tl && tl !== 'en' && T.homeOf && T.homeOf(tl) || to; } catch (e) { return to; } };
+  const tlHome = to => { try { const T = g.Target, tl = T && T.cur && T.cur(); return /^#\/(home|practice|call|today|path)?(\?.*)?$/.test(to || '') && tl && tl !== 'en' && T.homeOf && T.homeOf(tl) || to; } catch (e) { return to; } }; // #/home, #/practice (danh sách chế độ tiếng Anh), #/call … → lộ trình ngày của tl (e2e live 26/11: X từ bài es về #/practice)
   function leave(el, dest) {
     const href = el && el.getAttribute && el.getAttribute('href');
     const to = tlHome(dest || (href && href !== '#' && !learnHash(href) ? href : backTo || '#/home'));
