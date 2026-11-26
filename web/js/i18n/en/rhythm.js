@@ -22,6 +22,15 @@
    "Giải xong từ này để nghe phát âm": "Solve this word to hear it",
    "Mình giải ô chữ Lexkite hôm nay: {g}": "I solved today's Lexkite crossword: {g}",
    "Xong ô chữ hôm nay!": "Today's crossword done!",
-   "Xóa một chữ": "Delete letter"
+   "Xóa một chữ": "Delete letter",
+   "Chạm một ảnh rồi chạm từ đúng": "Tap a picture, then the matching word",
+   "Cặp đã nối": "Matched pairs",
+   "Ghép đúng hết!": "All matched!",
+   "Trộn từ": "Shuffle words",
+   "Từ vựng tương ứng": "Matching vocabulary",
+   "Xong rồi!": "All done!",
+   "{a}/{b} đã nối": "{a}/{b} matched",
+   "Ảnh minh họa đang mở dần – thử chế độ khác nhé": "Pictures are still being added – try another mode",
+   "Ảnh {n}": "Picture {n}"
   });
 })(typeof self !== 'undefined' ? self : this);

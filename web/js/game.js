@@ -3,8 +3,6 @@
   const t = (typeof self !== 'undefined' && self.t) || ((s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s));
   const { Store, todayKey } = g.Core;
 
-  // ---------- Cấp độ ----------
-  // cấp: 100, 150, 200… XP
   const LEVEL_TITLES = () => [t('Người mới'), t('Tập sự'), t('Chăm chỉ'), t('Tiến bộ'), t('Vững vàng'), 'Band 6.0', 'Band 6.5', 'Band 7.0', 'Band 7.5', 'Band 8.0', 'Band 8.5', t('Bậc thầy'), t('Huyền thoại')];
   function levelOf(xp) {
     let lvl = 1, need = 100, rest = xp;
@@ -13,7 +11,6 @@
     return { level: lvl, into: rest, need, title: L[Math.min(lvl - 1, L.length - 1)] };
   }
 
-  // ---------- Nhiệm vụ ngày (đổi theo ngày) ----------
   const QUEST_POOL = [
     { id: 'review20', icon: '🃏', get text() { return t('Ôn 20 thẻ flashcard'); }, metric: 'reviews', goal: 20, xp: 30 },
     { id: 'review40', icon: '🔥', get text() { return t('Ôn 40 thẻ flashcard'); }, metric: 'reviews', goal: 40, xp: 50 },
@@ -28,7 +25,6 @@
     { id: 'xp100', icon: '⭐', get text() { return t('Kiếm 100 XP trong ngày'); }, metric: 'xp', goal: 100, xp: 30 },
   ];
   function questsFor(day) {
-    // 3 nhiệm vụ theo ngày (luôn có 1 ôn tập)
     let h = 0; for (const c of day) h = (h * 31 + c.charCodeAt(0)) >>> 0;
     const pick = [QUEST_POOL[h % 2]];
     const rest = QUEST_POOL.slice(2);
@@ -36,7 +32,6 @@
     return pick;
   }
 
-  // ---------- Huy hiệu ----------
   const BADGES = [
     { id: 'first', icon: '🐣', get name() { return t('Khởi đầu'); }, get desc() { return t('Ôn thẻ đầu tiên'); }, test: s => s.total.reviews >= 1 },
     { id: 'words50', icon: '📗', get name() { return t('Sổ tay 50'); }, get desc() { return t('Có 50 từ trong sổ'); }, test: (s, c) => c.cards >= 50 },
@@ -59,7 +54,6 @@
     { id: 'level10', icon: '👑', get name() { return t('Cấp 10'); }, get desc() { return t('Đạt cấp độ 10'); }, test: s => levelOf(s.xp).level >= 10 },
   ];
 
-  // 🎯 Luật thưởng MỘT nguồn (docs/GAME-FEEL.md §6; native: vectors/rewards.json)
   const XPR = { pick: 2, type: 3, write: 4, say: 3, hard: 3, set: 10, exam: 40, sec: 30, perfect: 5, min: 5, talk: 10, essay: 20, learn: 20, day: 15, step: 2, card: [2, 5, 8], great: 85, pass: 65, cap: 150, game: 40 };
   function xpFor(kind, r = {}) {
     const n = Math.max(0, r.right | 0), tot = r.total | 0, per = XPR[r.mode] || XPR.pick, h = Math.min(r.hints | 0, n), sc = r.score;
@@ -111,7 +105,6 @@
         gained = delta.xp = repCut(gained, c); await Store.set('xprep', q); // sửa delta.xp → App.reward hiện số đã cắt
       }
       const events = [];
-      // Nhiệm vụ
       const done = s.questsDone[k] = s.questsDone[k] || [];
       d.xp = (d.xp || 0) + gained;
       for (const q of questsFor(k)) {
@@ -126,11 +119,8 @@
       if (after > before) events.push({ type: 'level', level: after, title: levelOf(s.xp).title });
       if (delta.matchTime && (!s.best.match || delta.matchTime < s.best.match)) s.best.match = delta.matchTime;
       if (delta.blitzScore && delta.blitzScore > (s.best.blitz || 0)) s.best.blitz = delta.blitzScore;
-      // cú đêm 22–4h, chim sớm 4–7h (1 lần/ngày)
       if (gained > 0) { const h = new Date().getHours(); if ((h >= 22 || h < 4) && !d.night) { d.night = 1; s.total.night = (s.total.night || 0) + 1; } if (h >= 4 && h < 7 && !d.early) { d.early = 1; s.total.early = (s.total.early || 0) + 1; } }
-      // Huy hiệu
       if (ctx) for (const b of BADGES) if (!s.badges[b.id] && b.test(s, ctx)) { s.badges[b.id] = Date.now(); events.push({ type: 'badge', badge: b }); }
-      // giữ 400 ngày gần nhất
       const keys = Object.keys(s.days).sort(); while (keys.length > 400) delete s.days[keys.shift()];
       Object.keys(s.questsDone).forEach(x => { if (x !== k) delete s.questsDone[x]; });
       await Store.set('game', s);
@@ -138,7 +128,6 @@
     },
   };
 
-  // ---------- Âm thanh (Web Audio, không cần file) ----------
   let actx = null;
   const isMuted = () => (g.Core && g.Core.sfxOff) || (g.App && g.App.state && g.App.state.settings && g.App.state.settings.sfx === false);
   function tone(freqs, dur = 0.09, type = 'sine', vol = 0.08) {
@@ -157,12 +146,9 @@
     } catch (e) { /* trình duyệt chặn âm thanh */ }
   }
   const rm = () => { try { return matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
-  // vb.haptics='0' tắt rung
   const hapOn = () => { try { return g.localStorage.getItem('vb.haptics') !== '0'; } catch (e) { return true; } };
   const buzz = p => { try { if (navigator.vibrate && hapOn() && matchMedia('(pointer: coarse)').matches && !isMuted() && !rm()) navigator.vibrate(p); } catch (e) { /* bỏ qua */ } };
-  // rung theo sự kiện (ms): mọi chỗ qua Sfx.haptic
   const HAPTIC = { tap: 8, soft: 12, swipe: 15, correct: 35, wrong: [50, 40, 50], streak: [30, 40, 70], done: [30, 40, 70, 60, 110], badge: [20, 30, 50] };
-  // html[data-daypart] sáng/trưa/tối → màu lời chào
   const daypart = () => { try { const h = new Date().getHours(), d = h < 11 ? 'morning' : h < 18 ? 'noon' : 'evening'; if (g.document.documentElement.dataset.daypart !== d) g.document.documentElement.dataset.daypart = d; return d; } catch (e) { return 'noon'; } };
   daypart(); try { g.document.addEventListener('visibilitychange', () => { if (!g.document.hidden) daypart(); }); } catch (e) { /* bỏ qua */ }
   const Sfx = {
@@ -179,8 +165,6 @@
   Sfx.haptics = on => { if (on === undefined) return hapOn(); try { g.localStorage.setItem('vb.haptics', on ? '1' : '0'); } catch (e) { /* bỏ qua */ } if (on) buzz(HAPTIC.correct); return !!on; };
   Sfx.HAPTIC = HAPTIC; Sfx.daypart = daypart;
   Sfx.extend = f => { const o = f(tone, buzz); for (const k of Sfx.locked || []) delete o[k]; Object.assign(Sfx, o); };
-  // 🎮 game feel (docs/GAME-FEEL.md): bật mặc định; tắt ở Cài đặt / ?feel=0 (vb.feel)
-  // Sfx.feel() đọc · Sfx.feel(bool) lưu + bật/tắt ngay
   const feelGet = () => { try { return g.localStorage.getItem('vb.feel') !== '0'; } catch (e) { return true; } };
   const feelLoad = () => { if (g.Feel || !g.document || !g.document.createElement || !g.document.head || !g.document.getElementById || g.document.getElementById('feelJs')) return; const s = g.document.createElement('script'), me = g.document.querySelector('script[src*="js/game.js"]'); s.id = 'feelJs'; s.src = (me ? me.getAttribute('src').replace(/game\.js.*$/, '') : 'js/') + 'feel.js'; s.defer = true; g.document.head.appendChild(s); };
   Sfx.feel = on => {
@@ -220,7 +204,6 @@
     if (o.el) lazy('lfx').then(() => g.LessonFx && g.LessonFx.stats && g.LessonFx.stats(o.el, { ms, ...o })).catch(() => {});
   };
 
-  // ---------- Pháo giấy ----------
   function confetti(n = 120) {
     if (typeof document === 'undefined') return;
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) {

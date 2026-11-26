@@ -542,6 +542,7 @@ node scripts/test/reward-rules.mjs
 node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check
 node scripts/test/play-crossword.mjs
+node scripts/test/play-picmatch.mjs
 node scripts/test/gt-bands.mjs
 node scripts/test/qengine-types.mjs
 node scripts/test/meta-attr.mjs
