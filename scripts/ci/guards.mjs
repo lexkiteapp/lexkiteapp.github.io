@@ -8,6 +8,7 @@
 //   yield-streak – workflow XANH mà sản lượng dưới sàn lượt (infra/yield-floors.json minRun) N lượt liền → 1 issue `yield-zero` mỗi workflow (marker yield-streak:<id>), tự đóng khi hồi (health-board.yml gọi hằng ngày)
 //   stale-ci  – issue `ci-failure` mở > 12 giờ mà chưa PR nào liên kết → nhãn `p0` + 1 comment, ghi vào bản tin ci-triage (10/11: issue đỏ
 //               nằm nhiều ngày không ai nhận). ci-triage sweep gọi mỗi giờ (staleCiRun); chạy tay: node scripts/ci/guards.mjs stale-ci
+import { ghFetch } from '../lib/retry5xx.mjs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -92,7 +93,7 @@ export async function yieldStreakRun(call, floors, readRows) {
 // ---------- phần mạng (chỉ khi chạy CLI)
 const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io';
 async function api(p, { method = 'GET', body } = {}) {
-  const r = await fetch(`https://api.github.com/repos/${REPO}${p}`, { method, headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN}`, accept: 'application/vnd.github+json', ...(body ? { 'content-type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined });
+  const r = await ghFetch(`https://api.github.com/repos/${REPO}${p}`, { method, headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN}`, accept: 'application/vnd.github+json', ...(body ? { 'content-type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined });
   if (!r.ok && r.status !== 204) throw new Error(`${method} ${p} → ${r.status} ${(await r.text()).slice(0, 200)}`);
   return r.status === 204 ? null : r.json();
 }
