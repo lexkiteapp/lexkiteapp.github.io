@@ -42,7 +42,7 @@ Không cần secret mới (máy chủ dùng lại client của Kho Drive; muốn
 1. Bật API: https://console.cloud.google.com/apis/library/youtube.googleapis.com → **Enable** (chọn project Lexkite).
 2. Thêm địa chỉ trả về vào client Web của Kho Drive: https://console.cloud.google.com/auth/clients → mở client đang dùng cho Kho Drive →
    **Authorized redirect URIs** → thêm `https://lexkite.com/api/youtube/callback` → Save.
-3. Thêm quyền: https://console.cloud.google.com/auth/scopes → **Add or remove scopes** → `.../auth/youtube.readonly` (đăng tay, §0) + `.../auth/youtube.upload` (khi bật API) → Save.
+3. Thêm quyền: https://console.cloud.google.com/auth/scopes → **Add or remove scopes** → `.../auth/youtube.readonly` (đăng tay, §0) + `.../auth/youtube.upload` (khi bật API) + `.../auth/youtube.force-ssl` (từ 26/11: videos.update – dời giờ hẹn, ẩn video sai ngôn ngữ; kênh nối trước đó hiện huy hiệu «Quyền cũ» + nút **Nối lại** ở admin) → Save.
    (Phạm vi "nhạy cảm": chỉ chủ dùng nên không cần Google thẩm định; màn hình đồng ý có thể báo "chưa xác minh" → **Advanced → Go to Lexkite**.
    App phải ở **In production** (https://console.cloud.google.com/auth/audience) – chế độ Testing làm token hết hạn sau 7 ngày.)
 4. **Kết nối**: mở https://lexkite.com/admin.html#video → **Kết nối YouTube** → chọn đúng kênh Lexkite (kênh thương hiệu nếu có) → **Allow**.

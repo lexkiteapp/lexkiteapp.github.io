@@ -23,13 +23,13 @@ export const SCRIPT_MAIN = { 'scripts/ops/ledger-push.mjs': /scripts\/ops\/ledge
   'scripts/ci/push-main.sh': /scripts\/ci\/push-main\.sh/, 'scripts/factory/open-pr.sh': /scripts\/factory\/open-pr\.sh/ };
 // đẩy NHÁNH PR bot (refs/heads/bot/…) vào repo chính để mở PR – CẦN kích check (không [skip ci]), không bao giờ đẩy main; được kiểm bên dưới
 export const PR_BRANCH = new Set(['scripts/factory/open-pr.sh']);
-// đẩy NHÁNH revert/<sha> (heavy-main tự mở PR revert, SSH khoá deploy để kích CI) – không bao giờ đẩy main; được kiểm bên dưới
-export const PR_REVERT = new Set(['scripts/ci/heavy-main.mjs']);
+// đẩy NHÁNH revert/<sha> (revert-pr.mjs, chỗ chung của heavy-main + cheap-revert, mở PR revert, SSH khoá deploy để kích CI) – không bao giờ đẩy main; được kiểm bên dưới
+export const PR_REVERT = new Set(['scripts/ci/revert-pr.mjs']);
 export function scanPrRevert(f, s) {
   const e = [], pushes = s.split('\n').filter(l => /'push'/.test(l) && !/^\s*\/\//.test(l));
   if (/HEAD:main|refs\/heads\/main\b/.test(s)) e.push(`${f}: script revert không được đẩy main`);
-  if (!pushes.length || pushes.some(l => !/'push'[^\n]*`HEAD:refs\/heads\/\$\{br\}`/.test(l))) e.push(`${f}: mọi git push phải là HEAD:refs/heads/${'$'}{br}`);
-  if (!/br = `revert\//.test(s)) e.push(`${f}: nhánh phải có tiền tố revert/`);
+  if (!pushes.length || pushes.some(l => !/'push'[^\n]*`HEAD:refs\/heads\/\$\{branch\}`/.test(l))) e.push(`${f}: mọi git push phải là HEAD:refs/heads/${'$'}{branch}`);
+  if (!/branch: `revert\//.test(s)) e.push(`${f}: nhánh phải có tiền tố revert/`);
   return e;
 }
 // gộp main vào nhánh PR CÓ SẴN (pr-unconflict): không bao giờ đẩy main, không force-push
