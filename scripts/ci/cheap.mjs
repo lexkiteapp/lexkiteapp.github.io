@@ -17,6 +17,7 @@ export const CHEAP = [
   { id: 'docs-budget', cmd: 'node scripts/test/docs-budget.mjs' },
   { id: 'content-qa', cmd: 'node scripts/content-qa/gate.mjs' },
   { id: 'fmt', cmd: 'node scripts/test/fmt-stable.mjs' },
+  { id: 'conflict-markers', cmd: 'node scripts/test/no-conflict-markers.mjs' },
 ];
 export const TIMEOUT_MS = 4 * 60e3;
 
