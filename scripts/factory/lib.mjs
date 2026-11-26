@@ -56,7 +56,7 @@ export async function runBatch(K, { n = 25, shard = 0, shards = 1, pool, dry = f
   const st = { kind: K.kind, area: K.area, shard, seeds: seeds.length, gen: 0, rule: 0, judged: 0, low: 0, nojudge: 0, audit: 0, auditBad: 0, models: {} };
   const res = { accepted: [], review: [], rejected: [], stats: st };
   if (!seeds.length || dry) return res;
-  const AI = pool || createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: req.mode === 'cfgen' ? K.sys : req.mode === 'cfaudit' ? AUDIT_SYS(K.rubric) : JUDGE_SYS(K.rubric), user: JSON.stringify(req.items), temp: req.mode === 'cfgen' ? 0.5 : 0.1 }) });
+  const AI = pool || createPool({ budget: { lexai: 0, cf2: +(process.env.AI_POOL_CF2_NEURONS || 0) }  /* cf2 = kho CF_POOL: 0 neuron trừ khi workflow cấp (26/11: Gemini 429 hàng loạt + GrabCast db_budget_guard → giám khảo B cần tuyến thứ ba) */, prompt: req => ({ sys: req.mode === 'cfgen' ? K.sys : req.mode === 'cfaudit' ? AUDIT_SYS(K.rubric) : JUDGE_SYS(K.rubric), user: JSON.stringify(req.items), temp: req.mode === 'cfgen' ? 0.5 : 0.1 }) });
   const bySeed = new Map(seeds.map(s => [s.k, s]));
   const fail = (s, why, item) => { res.rejected.push({ k: s.k, why, item }); };
   // tầng 1: soạn theo lô nhỏ (GrabCast cắt câu trả lời dài)
