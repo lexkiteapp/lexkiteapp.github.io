@@ -16,6 +16,8 @@ jobs:
   unit:
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 45
+    env:
+      GEN_REGEN: '1'   # 26/11: health chạy trên MAIN lúc bot gen-sync chưa kịp commit bản sinh → ext-sync "extension/app lệch web/"; npm ci dựng lại bản sinh từ nguồn như PR (regen-generated.mjs)
     outputs:
       test: ${{ steps.test.outcome }}
       leak: ${{ steps.leak.outcome }}
