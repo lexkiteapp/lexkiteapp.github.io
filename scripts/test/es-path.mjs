@@ -49,6 +49,13 @@ const WKS = Math.ceil(P.days.length / 7), DAYK = 'lk.es.day', WKK = 'lk.es.wk';
 ok($('.tp .tp-ring[role=progressbar]') && $('.tp-hero h1') && $('.tp-today a.tp-go[href="#/practice/esd?d=1"]') && $$('.tp-today li').length >= 2, 'hub: hero có vòng tiến độ, thẻ Hôm nay liệt kê các phần + nút Bắt đầu ngày 1');
 ok($$('details.tp-w').length === WKS && $$('details.tp-w[open]').length === 1 && $$('.tp-d').length === 7 && !$('a.chip[href*="esd?d="]') && !$$('details.tp-w:not([open]) .tp-d').length, `hub: ${WKS} tuần, chỉ tuần hiện tại mở (7 ngày), tuần sau chưa vẽ hàng, không còn lưới ô số`);
 ok($('.tp-d.today[aria-current=step]') && $$('.tp-d.lock').length === 6 && $$('.tp-d.done').length === 0 && $('.tp-d.today .tp-st').textContent.includes('▶') && $('.tp-d.lock .tp-st').textContent.includes('🔒'), 'hub: trạng thái hôm nay / chưa tới (mờ + khoá)');
+// Khung chặng CEFR (đợt 1 khung khóa đa ngôn ngữ): thẻ chặng A1/A2/B1 (+B2 sắp có) có tên + mục tiêu + tiến độ; lần đầu hỏi trình độ → điểm bắt đầu, không đánh dấu xong ngày nào
+{ const A1n = P.days.filter(d => d[3] === 'A1').length, A2at = P.days.findIndex(d => d[3] === 'A2');
+  ok($$('.tp-stg li').length === 4 && $$('.tp-stg li.on').length === 1 && $$('.tp-stg li.soon').length === 1 && /0\/\d+/.test($('.tp-stg li.on small').textContent) && /Español|Spanish/.test($('.tp-stg li.on .tp-sgc').textContent) && !/\{[a-zA-Z]\}/.test($('.tp-stg').textContent), 'hub: thẻ chặng A1/A2/B1 + B2 sắp có, có mục tiêu "làm được gì" (tên ngôn ngữ thay {L}) và tiến độ x/y ngày');
+  ok($$('#tpAsk [data-start]').length === 3, 'hub: lần đầu hỏi trình độ (3 lựa chọn)');
+  $$('#tpAsk [data-start]')[1].click(); await tick(20);
+  ok(w.localStorage.getItem('lk.es.start') === String(A2at) && !$('#tpAsk') && $(`.tp-today a.tp-go[href="#/practice/esd?d=${A2at + 1}"]`) && !w.localStorage.getItem('lk.es.day'), `hub: chọn "biết cơ bản" → hôm nay nhảy tới ngày ${A2at + 1} (đầu A2, sau ${A1n} ngày A1), không đánh dấu xong ngày nào`);
+  w.localStorage.removeItem('lk.es.start'); await App.esday(); await tick(60); }
 { const w2 = $$('details.tp-w')[1]; w2.open = true; w2.dispatchEvent(new w.Event('toggle')); ok($$('details.tp-w')[1].querySelectorAll('.tp-d').length === 7 && $$('details.tp-w[open] .tp-rw').length === 2, 'hub: mở tuần 2 → vẽ lười 7 ngày + hàng thưởng tuần'); }
 w.localStorage.setItem(DAYK, JSON.stringify(Object.fromEntries(P.days.slice(0, 7).map((d, n) => [n, 'wgpc'])))); await App.esday(); await tick(60);
 { const sec = $$('details.tp-w')[0]; sec.open = true; sec.dispatchEvent(new w.Event('toggle')); ok(sec.classList.contains('done') && $$('.tp-d.done').length === 7 && $('.tp-today a.tp-go[href="#/practice/esd?d=8"]'), 'hub: xong 7 ngày → tuần 1 ✓, hôm nay nhảy sang ngày 8');
