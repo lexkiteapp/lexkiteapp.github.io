@@ -80,6 +80,8 @@ export function validate(deck, o = {}) {
   const ALLOWED = new Set(FIELDS);
   for (const w of words) {
     const id = (w && w.word) || '?', bad = m => err.push(`${id}: ${m}`);
+    // AI trả sai kiểu (run 45821771094: exForm không phải chuỗi → TypeError làm mất cả lượt sau 2 giờ) → báo lỗi cổng, không ném
+    if (typeof w.word !== 'string' || (w.exForm !== undefined && typeof w.exForm !== 'string') || (w.ex && Object.values(w.ex).some(x => typeof x !== 'string'))) { bad('word/exForm/ex phải là chuỗi'); continue; }
     for (const k of Object.keys(w || {})) if (!ALLOWED.has(k)) bad('trường lạ ' + k);
     if (!/^\p{L}[\p{L}' -]*$/u.test(w.word || '')) bad('word sai');
     const key = String(w.word || '').toLowerCase() + '#' + w.pos;

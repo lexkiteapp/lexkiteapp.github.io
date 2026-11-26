@@ -117,7 +117,7 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
       if (!jb || !jb.ok || jb.score < 4) why.push('giám khảo B: ' + (jb ? jb.why : 'không trả'));
       const notSame = t && t.same ? MEAN_LANGS.filter(L => L !== 'en' && L !== TL && t.same[L] !== true) : ['dịch ngược không trả'];
       if (notSame.length) why.push('dịch ngược lệch: ' + notSame.join(','));
-      const gate = validate({ v: 1, tl: TL, words: [d.e] }); if (gate.length) why.push('cổng: ' + gate.join('; '));
+      let gate; try { gate = validate({ v: 1, tl: TL, words: [d.e] }); } catch (e) { gate = ['cổng lỗi: ' + e.message]; } /* một mục AI trả sai kiểu không được làm sập cả lượt */ if (gate.length) why.push('cổng: ' + gate.join('; '));
       if (seen.has(key)) why.push('trùng lemma');
       if (why.length) bad.push({ d, why, bt: t && t.bt }); else ok.push({ d, qa: { judges: [a.model, b.model], bt: bt.model, scores: [ja.score, jb.score] } });
     }
