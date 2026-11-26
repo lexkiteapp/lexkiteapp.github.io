@@ -1,14 +1,14 @@
 {
  "job": "say-native",
- "at": "2026-11-26T22:20:19.479Z",
+ "at": "2026-11-26T23:02:25.412Z",
  "used": {
   "lexai": 0,
   "gc": 0,
-  "cf2": 1162,
+  "cf2": 0,
   "cfLeak": 0,
   "cf2Dead": [],
   "gem": 0,
-  "groq": 15
+  "groq": 36
  },
  "budget": {
   "lexai": 400,
@@ -17,22 +17,12 @@
  },
  "by": {
   "groq|openai/gpt-oss-120b": {
-   "ok": 10,
+   "ok": 24,
    "fail": 0,
    "bad": 0
   },
   "groq|qwen/qwen3.8-27b": {
-   "ok": 5,
-   "fail": 0,
-   "bad": 0
-  },
-  "cf2|@cf/openai/gpt-oss-120b": {
-   "ok": 19,
-   "fail": 0,
-   "bad": 0
-  },
-  "cf2|@cf/meta/llama-3.3-70b-instruct-fp8-fast": {
-   "ok": 13,
+   "ok": 12,
    "fail": 0,
    "bad": 0
   }
