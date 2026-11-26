@@ -4,6 +4,7 @@
 //   await fetchRetry(url, opts)       → như trên NHƯNG đọc trọn body BÊN TRONG vòng thử (10/11 cdn-mirror đỏ: socket GitHub đóng giữa lúc
 //                                       đọc body – "TypeError: terminated / SocketError: other side closed" – ngoài vòng retry5xx cũ)
 // Bản shell cùng luật: scripts/ci/net-retry.sh (gh-retry.sh = tên cũ). Test: scripts/test/retry5xx.mjs.
+import fs from 'node:fs';
 import { isRateLimited, waitSeconds } from '../ci/gh-api.mjs';
 // Hạn mức GitHub API (GITHUB_TOKEN ≈ 1000 lượt/giờ/repo trong Actions; 26/11: ci-autopilot, merge-recheck, pr-unconflict đỏ cùng lúc vì 403 rate limit): mọi lời gọi qua retry5xx
 //  (1) đọc x-ratelimit-* để biết đã đốt bao nhiêu (quota), (2) gặp 403/429 do hạn mức thì chờ retry-after/reset (≤ RL_BUDGET_MS tổng) rồi gọi lại – không coi là lỗi thật,
@@ -24,7 +25,8 @@ let hooked = false;
 function hook() {
   if (hooked || !process.env.GITHUB_ACTIONS) return; hooked = true;
   process.on('exit', () => { if (!quota.calls) return; const label = process.env.GITHUB_WORKFLOW || require_basename(process.argv[1]), pct = quotaPct();
-    console.log(quotaLine(label)); if (pct != null && pct < RL_WARN) console.log(`::warning::gh-quota ${label}: hạn mức API còn ${(pct * 100).toFixed(0)} % (${quota.remaining}/${quota.limit}) – giảm polling/gộp lời gọi`); });
+    console.log(quotaLine(label)); try { if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `\n\`${quotaLine(label)}\`\n`); } catch { /* không ghi được summary */ }
+    if (pct != null && pct < RL_WARN) console.log(`::warning::gh-quota ${label}: hạn mức API còn ${(pct * 100).toFixed(0)} % (${quota.remaining}/${quota.limit}) – giảm polling/gộp lời gọi`); });
 }
 const require_basename = p => String(p || '').split('/').pop();
 /** Số giây cần chờ nếu r là 403/429 do hạn mức (đọc thân qua clone, không tiêu thân của r); 0 = không phải. */
