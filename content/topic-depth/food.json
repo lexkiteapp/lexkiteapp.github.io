@@ -1,0 +1,2355 @@
+{
+ "topic": "food",
+ "sub": [
+  {
+   "id": "grocery",
+   "name": {
+    "en": "Grocery shopping",
+    "vi": "Đi chợ & siêu thị"
+   },
+   "scene": "A shopper pushes a trolley past shelves of fruit, vegetables and bread in a bright supermarket.",
+   "emoji": "🛒"
+  },
+  {
+   "id": "restaurant",
+   "name": {
+    "en": "Eating out",
+    "vi": "Đi ăn nhà hàng"
+   },
+   "scene": "A waiter hands a menu to a couple seated at a candle-lit restaurant table.",
+   "emoji": "🍽️"
+  },
+  {
+   "id": "cooking",
+   "name": {
+    "en": "Cooking at home",
+    "vi": "Nấu ăn tại nhà"
+   },
+   "scene": "A person stirs a pan on a stove in a home kitchen with chopped vegetables on a board.",
+   "emoji": "🍳"
+  },
+  {
+   "id": "drinks",
+   "name": {
+    "en": "Drinks & café",
+    "vi": "Đồ uống & quán cà phê"
+   },
+   "scene": "Two friends hold cups of coffee and tea at a small café counter with a pastry display.",
+   "emoji": "☕"
+  },
+  {
+   "id": "tastes",
+   "name": {
+    "en": "Meals & flavours",
+    "vi": "Bữa ăn & hương vị"
+   },
+   "scene": "A family shares dishes around a dinner table, one person tasting soup with a spoon.",
+   "emoji": "😋"
+  },
+  {
+   "id": "diet",
+   "name": {
+    "en": "Diet & allergies",
+    "vi": "Chế độ ăn & dị ứng"
+   },
+   "scene": "A customer points to a menu while a server gestures to show which dishes are safe, with a vegetable plate on the table.",
+   "emoji": "🥗"
+  }
+ ],
+ "words": [
+  {
+   "word": "bread",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "We need bread and milk from the shop.",
+   "col": [
+    "buy bread",
+    "fresh bread"
+   ],
+   "tip": "Bread /bred/ – ổ bánh mì."
+  },
+  {
+   "word": "milk",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "I put milk in my tea every morning.",
+   "col": [
+    "a carton of milk",
+    "skimmed milk"
+   ],
+   "tip": "Milk – sữa, từ cực quen."
+  },
+  {
+   "word": "egg",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "She bought a dozen eggs at the market.",
+   "col": [
+    "boil an egg",
+    "a dozen eggs"
+   ],
+   "tip": "Egg – quả trứng."
+  },
+  {
+   "word": "rice",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "We eat rice with almost every meal.",
+   "col": [
+    "cook rice",
+    "a bag of rice"
+   ],
+   "tip": "Rice – cơm/gạo, thức ăn quen của người Việt."
+  },
+  {
+   "word": "meat",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "He doesn't eat much red meat.",
+   "col": [
+    "red meat",
+    "cook the meat"
+   ],
+   "tip": "Meat – thịt nói chung."
+  },
+  {
+   "word": "fish",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "Fresh fish is cheaper at the morning market.",
+   "col": [
+    "fresh fish",
+    "grilled fish"
+   ],
+   "tip": "Fish – cá, vừa là con cá vừa là món cá."
+  },
+  {
+   "word": "chicken",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "I bought a whole chicken for the soup.",
+   "col": [
+    "roast chicken",
+    "chicken breast"
+   ],
+   "tip": "Chicken – thịt gà hoặc con gà."
+  },
+  {
+   "word": "apple",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "An apple a day is a good habit.",
+   "col": [
+    "a ripe apple",
+    "apple juice"
+   ],
+   "tip": "Apple – quả táo."
+  },
+  {
+   "word": "vegetable",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "Eat more vegetables with your lunch.",
+   "col": [
+    "fresh vegetables",
+    "steamed vegetables"
+   ],
+   "tip": "Vegetable – rau củ, nhớ đuôi -table."
+  },
+  {
+   "word": "fruit",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A1",
+   "ex": "There is a bowl of fruit on the table.",
+   "col": [
+    "fresh fruit",
+    "dried fruit"
+   ],
+   "tip": "Fruit – trái cây, không thêm s khi nói chung."
+  },
+  {
+   "word": "cheese",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A2",
+   "ex": "She sprinkled cheese on top of the pasta.",
+   "col": [
+    "grated cheese",
+    "a slice of cheese"
+   ],
+   "tip": "Cheese – phô mai, nghe như \"chiz\"."
+  },
+  {
+   "word": "butter",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A2",
+   "ex": "Spread some butter on your toast.",
+   "col": [
+    "melt butter",
+    "a block of butter"
+   ],
+   "tip": "Butter – bơ động vật, khác avocado."
+  },
+  {
+   "word": "shopping list",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A2",
+   "ex": "Check the shopping list before we leave.",
+   "col": [
+    "write a shopping list",
+    "stick to the list"
+   ],
+   "tip": "Shopping list – danh sách đi chợ, tránh mua thừa.",
+   "ipa": "/ˈʃɒpɪŋ lɪst/",
+   "vi": "danh sách đi chợ",
+   "def": "a list of things you plan to buy"
+  },
+  {
+   "word": "basket",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "A2",
+   "ex": "Take a basket if you only need a few things.",
+   "col": [
+    "a shopping basket",
+    "carry a basket"
+   ],
+   "tip": "Basket – cái giỏ xách khi đi siêu thị."
+  },
+  {
+   "word": "trolley",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "B1",
+   "ex": "He pushed the trolley down the cereal aisle.",
+   "col": [
+    "push a trolley",
+    "a full trolley"
+   ],
+   "tip": "Trolley – xe đẩy siêu thị (Anh); Mỹ gọi là cart.",
+   "ipa": "/ˈtrɒli/",
+   "vi": "xe đẩy",
+   "def": "a small cart with wheels used in shops"
+  },
+  {
+   "word": "aisle",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "B1",
+   "ex": "Pasta is in aisle five, next to the rice.",
+   "col": [
+    "down the aisle",
+    "the snack aisle"
+   ],
+   "tip": "Aisle đọc \"ai-l\", chữ s câm."
+  },
+  {
+   "word": "receipt",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "B1",
+   "ex": "Keep the receipt in case you want to return it.",
+   "col": [
+    "keep the receipt",
+    "ask for a receipt"
+   ],
+   "tip": "Receipt – hóa đơn, chữ p câm."
+  },
+  {
+   "word": "discount",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "B1",
+   "ex": "There is a ten percent discount on fruit today.",
+   "col": [
+    "a big discount",
+    "get a discount"
+   ],
+   "tip": "Discount – giảm giá, dis- = bớt đi."
+  },
+  {
+   "word": "ingredient",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "B1",
+   "ex": "Check each ingredient before you start cooking.",
+   "col": [
+    "a key ingredient",
+    "fresh ingredients"
+   ],
+   "tip": "Ingredient – nguyên liệu, nhóm với recipe."
+  },
+  {
+   "word": "organic",
+   "pos": "adj",
+   "sub": "grocery",
+   "level": "B2",
+   "ex": "She only buys organic vegetables from the farm.",
+   "col": [
+    "organic food",
+    "organic farming"
+   ],
+   "tip": "Organic – hữu cơ, trồng không hóa chất."
+  },
+  {
+   "word": "leftovers",
+   "pos": "n",
+   "sub": "grocery",
+   "level": "B2",
+   "ex": "We ate the leftovers for lunch the next day.",
+   "col": [
+    "eat leftovers",
+    "reheat leftovers"
+   ],
+   "tip": "Left + overs = phần còn dư của bữa trước.",
+   "ipa": "/ˈleftˌəʊvəz/",
+   "vi": "đồ ăn thừa",
+   "def": "food that remains after a meal"
+  },
+  {
+   "word": "perishable",
+   "pos": "adj",
+   "sub": "grocery",
+   "level": "C1",
+   "ex": "Perishable goods must go in the fridge quickly.",
+   "col": [
+    "perishable goods",
+    "perishable items"
+   ],
+   "tip": "Perish = hỏng; perishable = dễ hỏng, mau thối."
+  },
+  {
+   "word": "menu",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "A1",
+   "ex": "Can I see the menu, please?",
+   "col": [
+    "ask for the menu",
+    "a lunch menu"
+   ],
+   "tip": "Menu – thực đơn, y như tiếng Việt."
+  },
+  {
+   "word": "order",
+   "pos": "v",
+   "sub": "restaurant",
+   "level": "A1",
+   "ex": "Are you ready to order now?",
+   "col": [
+    "order food",
+    "order a drink"
+   ],
+   "tip": "Order – gọi món, cũng là thứ tự."
+  },
+  {
+   "word": "waiter",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "A1",
+   "ex": "The waiter brought us some water first.",
+   "col": [
+    "call the waiter",
+    "a friendly waiter"
+   ],
+   "tip": "Wait + er = người phục vụ chờ khách."
+  },
+  {
+   "word": "bill",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "A2",
+   "ex": "Could we have the bill, please?",
+   "col": [
+    "ask for the bill",
+    "split the bill"
+   ],
+   "tip": "Bill – hóa đơn nhà hàng (Anh); Mỹ dùng check."
+  },
+  {
+   "word": "tip",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "A2",
+   "ex": "We left a ten percent tip for the waiter.",
+   "col": [
+    "leave a tip",
+    "a generous tip"
+   ],
+   "tip": "Tip – tiền boa cho người phục vụ."
+  },
+  {
+   "word": "table",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "A2",
+   "ex": "I booked a table for four at seven.",
+   "col": [
+    "book a table",
+    "a table for two"
+   ],
+   "tip": "Table – bàn, \"book a table\" = đặt bàn."
+  },
+  {
+   "word": "reservation",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "B1",
+   "ex": "We have a reservation under the name Nguyen.",
+   "col": [
+    "make a reservation",
+    "cancel a reservation"
+   ],
+   "tip": "Reservation – đặt chỗ trước, từ reserve = giữ chỗ."
+  },
+  {
+   "word": "starter",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "A2",
+   "ex": "I'll have soup as a starter.",
+   "col": [
+    "a light starter",
+    "order a starter"
+   ],
+   "tip": "Start + er = món khai vị.",
+   "ipa": "/ˈstɑːtə/",
+   "vi": "món khai vị",
+   "def": "a small dish served before the main course"
+  },
+  {
+   "word": "main course",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "B1",
+   "ex": "The main course was grilled salmon with rice.",
+   "col": [
+    "choose a main course",
+    "the main course"
+   ],
+   "tip": "Main course – món chính giữa bữa.",
+   "ipa": "/ˈmeɪn kɔːs/",
+   "vi": "món chính",
+   "def": "the biggest dish of a meal"
+  },
+  {
+   "word": "dessert",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "A2",
+   "ex": "Do you have room for dessert?",
+   "col": [
+    "order dessert",
+    "a sweet dessert"
+   ],
+   "tip": "Dessert hai chữ s (ngọt hơn desert sa mạc)."
+  },
+  {
+   "word": "side dish",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "B1",
+   "ex": "Fries come as a side dish with the burger.",
+   "col": [
+    "a side dish",
+    "order a side dish"
+   ],
+   "tip": "Side dish – món ăn kèm bên cạnh món chính.",
+   "ipa": "/ˈsaɪd dɪʃ/",
+   "vi": "món ăn kèm",
+   "def": "a smaller dish served with the main dish"
+  },
+  {
+   "word": "takeaway",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "B1",
+   "ex": "Let's get a takeaway and watch a film.",
+   "col": [
+    "order a takeaway",
+    "a Chinese takeaway"
+   ],
+   "tip": "Take + away = mang đi (Mỹ: takeout)."
+  },
+  {
+   "word": "set menu",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "B2",
+   "ex": "The set menu is cheaper than ordering separately.",
+   "col": [
+    "a set menu",
+    "a lunch set menu"
+   ],
+   "tip": "Set menu – thực đơn trọn gói, giá cố định."
+  },
+  {
+   "word": "portion",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "B1",
+   "ex": "The portions here are huge, so share one.",
+   "col": [
+    "a large portion",
+    "a small portion"
+   ],
+   "tip": "Portion – suất ăn, gần với \"phần\"."
+  },
+  {
+   "word": "complimentary",
+   "pos": "adj",
+   "sub": "restaurant",
+   "level": "C1",
+   "ex": "Bread is complimentary while you wait for your meal.",
+   "col": [
+    "complimentary bread",
+    "a complimentary drink"
+   ],
+   "tip": "Complimentary – miễn phí do quán tặng."
+  },
+  {
+   "word": "recommend",
+   "pos": "v",
+   "sub": "restaurant",
+   "level": "B1",
+   "ex": "What do you recommend for a first-time visitor?",
+   "col": [
+    "highly recommend",
+    "recommend a dish"
+   ],
+   "tip": "Recommend – giới thiệu món ngon."
+  },
+  {
+   "word": "booked up",
+   "pos": "adj",
+   "sub": "restaurant",
+   "level": "B2",
+   "ex": "The restaurant is booked up for this Saturday.",
+   "col": [
+    "fully booked",
+    "get booked up"
+   ],
+   "tip": "Booked up – kín chỗ, hết bàn.",
+   "ipa": "/ˌbʊkt ˈʌp/",
+   "vi": "kín chỗ",
+   "def": "with no free tables or places left"
+  },
+  {
+   "word": "cutlery",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "B2",
+   "ex": "Could we get some extra cutlery, please?",
+   "col": [
+    "set the cutlery",
+    "a cutlery set"
+   ],
+   "tip": "Cutlery – dao muỗng nĩa gọi chung, không có s.",
+   "ipa": "/ˈkʌtləri/",
+   "vi": "dao muỗng nĩa",
+   "def": "knives, forks and spoons for eating"
+  },
+  {
+   "word": "chopsticks",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "A2",
+   "ex": "Can you eat noodles with chopsticks?",
+   "col": [
+    "use chopsticks",
+    "a pair of chopsticks"
+   ],
+   "tip": "Chopsticks – đũa, luôn có s.",
+   "ipa": "/ˈtʃɒpstɪks/",
+   "vi": "đũa",
+   "def": "two thin sticks used to eat food"
+  },
+  {
+   "word": "napkin",
+   "pos": "n",
+   "sub": "restaurant",
+   "level": "A2",
+   "ex": "Put the napkin on your lap.",
+   "col": [
+    "a paper napkin",
+    "fold a napkin"
+   ],
+   "tip": "Napkin – khăn ăn, đặt trên đùi khi dùng bữa.",
+   "ipa": "/ˈnæpkɪn/",
+   "vi": "khăn ăn",
+   "def": "a piece of cloth or paper for wiping your mouth"
+  },
+  {
+   "word": "cook",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "A1",
+   "ex": "My father cooks dinner on Sundays.",
+   "col": [
+    "cook dinner",
+    "cook for a family"
+   ],
+   "tip": "Cook – nấu ăn, người nấu cũng là cook."
+  },
+  {
+   "word": "boil",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "Boil the water before you add the noodles.",
+   "col": [
+    "boil water",
+    "boil an egg"
+   ],
+   "tip": "Boil – luộc/đun sôi, nghe như \"boi\".",
+   "ipa": "/bɔɪl/",
+   "vi": "luộc, đun sôi",
+   "def": "to cook in water that is bubbling hot"
+  },
+  {
+   "word": "fry",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "Fry the onions until they turn golden.",
+   "col": [
+    "fry an egg",
+    "fry in oil"
+   ],
+   "tip": "Fry – chiên, áp chảo trong dầu."
+  },
+  {
+   "word": "bake",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "She bakes bread every weekend.",
+   "col": [
+    "bake a cake",
+    "bake bread"
+   ],
+   "tip": "Bake – nướng bằng lò, ra bánh."
+  },
+  {
+   "word": "chop",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "Chop the garlic into very small pieces.",
+   "col": [
+    "chop onions",
+    "finely chopped"
+   ],
+   "tip": "Chop – băm, cắt nhỏ bằng dao.",
+   "ipa": "/tʃɒp/",
+   "vi": "băm, chặt",
+   "def": "to cut food into small pieces with a knife"
+  },
+  {
+   "word": "stir",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "B1",
+   "ex": "Stir the soup so it does not stick to the pot.",
+   "col": [
+    "stir the sauce",
+    "stir gently"
+   ],
+   "tip": "Stir – khuấy đều, hay đi với soup."
+  },
+  {
+   "word": "slice",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "B1",
+   "ex": "Slice the tomatoes thinly for the salad.",
+   "col": [
+    "slice thinly",
+    "slice bread"
+   ],
+   "tip": "Slice – cắt lát mỏng."
+  },
+  {
+   "word": "peel",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "B1",
+   "ex": "Peel the potatoes and cut them into cubes.",
+   "col": [
+    "peel an apple",
+    "peel the skin"
+   ],
+   "tip": "Peel – gọt vỏ trái cây, củ."
+  },
+  {
+   "word": "mix",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "Mix the flour and eggs in a large bowl.",
+   "col": [
+    "mix well",
+    "mix together"
+   ],
+   "tip": "Mix – trộn đều các thứ vào nhau."
+  },
+  {
+   "word": "pour",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "B1",
+   "ex": "Pour the sauce over the noodles.",
+   "col": [
+    "pour water",
+    "pour into a glass"
+   ],
+   "tip": "Pour – rót, đổ chất lỏng."
+  },
+  {
+   "word": "grill",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "B1",
+   "ex": "We grilled corn and fish in the garden.",
+   "col": [
+    "grill fish",
+    "grilled chicken"
+   ],
+   "tip": "Grill – nướng vỉ trên than hoặc lửa."
+  },
+  {
+   "word": "steam",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "B2",
+   "ex": "Steam the vegetables for five minutes only.",
+   "col": [
+    "steamed rice",
+    "steam vegetables"
+   ],
+   "tip": "Steam – hấp, hơi nước."
+  },
+  {
+   "word": "roast",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "B2",
+   "ex": "She roasted a chicken with potatoes and herbs.",
+   "col": [
+    "roast chicken",
+    "roast vegetables"
+   ],
+   "tip": "Roast – quay trong lò, thường là thịt, khoai."
+  },
+  {
+   "word": "simmer",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "B2",
+   "ex": "Let the soup simmer for twenty minutes on low heat.",
+   "col": [
+    "simmer gently",
+    "simmer for an hour"
+   ],
+   "tip": "Simmer – ninh lửa liu riu, sôi lăn tăn.",
+   "ipa": "/ˈsɪmə/",
+   "vi": "ninh liu riu",
+   "def": "to cook gently just below boiling point"
+  },
+  {
+   "word": "recipe",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "This recipe takes only twenty minutes.",
+   "col": [
+    "follow a recipe",
+    "a family recipe"
+   ],
+   "tip": "Recipe – công thức nấu ăn, đọc \"re-xi-pi\"."
+  },
+  {
+   "word": "pan",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "Heat some oil in a large pan.",
+   "col": [
+    "a frying pan",
+    "heat the pan"
+   ],
+   "tip": "Pan – chảo, nhớ frying pan."
+  },
+  {
+   "word": "pot",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "There is a pot of soup on the stove.",
+   "col": [
+    "a pot of soup",
+    "a cooking pot"
+   ],
+   "tip": "Pot – nồi, cái nồi nấu canh."
+  },
+  {
+   "word": "oven",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "Preheat the oven to 180 degrees.",
+   "col": [
+    "preheat the oven",
+    "put in the oven"
+   ],
+   "tip": "Oven – lò nướng, đọc \"ơ-vờn\"."
+  },
+  {
+   "word": "knife",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "Use a sharp knife to cut the meat.",
+   "col": [
+    "a sharp knife",
+    "a bread knife"
+   ],
+   "tip": "Knife – con dao, chữ k câm."
+  },
+  {
+   "word": "spoon",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A1",
+   "ex": "Add one spoon of sugar to the cup.",
+   "col": [
+    "a wooden spoon",
+    "a spoon of sugar"
+   ],
+   "tip": "Spoon – cái muỗng, hai chữ o."
+  },
+  {
+   "word": "bowl",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "She put the noodles in a big bowl.",
+   "col": [
+    "a bowl of rice",
+    "a soup bowl"
+   ],
+   "tip": "Bowl – cái tô, cái bát."
+  },
+  {
+   "word": "salt",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A1",
+   "ex": "Add a little salt to the soup.",
+   "col": [
+    "a pinch of salt",
+    "add salt"
+   ],
+   "tip": "Salt – muối."
+  },
+  {
+   "word": "pepper",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "Do you want some pepper on your eggs?",
+   "col": [
+    "black pepper",
+    "salt and pepper"
+   ],
+   "tip": "Pepper – tiêu; cũng là ớt chuông (bell pepper)."
+  },
+  {
+   "word": "sugar",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A1",
+   "ex": "I don't take sugar in my coffee.",
+   "col": [
+    "a spoon of sugar",
+    "brown sugar"
+   ],
+   "tip": "Sugar – đường."
+  },
+  {
+   "word": "garlic",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "Fry the garlic first, then add the meat.",
+   "col": [
+    "crush garlic",
+    "a clove of garlic"
+   ],
+   "tip": "Garlic – tỏi, nhấn âm đầu \"GAR-lic\".",
+   "ipa": "/ˈɡɑːlɪk/",
+   "vi": "tỏi",
+   "def": "a strong-smelling white bulb used in cooking"
+  },
+  {
+   "word": "sauce",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "A2",
+   "ex": "The noodles come with a spicy sauce.",
+   "col": [
+    "tomato sauce",
+    "pour the sauce"
+   ],
+   "tip": "Sauce – nước sốt, nước chấm.",
+   "ipa": "/sɔːs/",
+   "vi": "nước sốt",
+   "def": "a thick liquid served with food"
+  },
+  {
+   "word": "dough",
+   "pos": "n",
+   "sub": "cooking",
+   "level": "B2",
+   "ex": "Knead the dough until it is smooth.",
+   "col": [
+    "knead the dough",
+    "roll out the dough"
+   ],
+   "tip": "Dough đọc \"đô\", bột nhào làm bánh mì.",
+   "ipa": "/dəʊ/",
+   "vi": "bột nhào",
+   "def": "a soft mix of flour and water for bread"
+  },
+  {
+   "word": "marinate",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "C1",
+   "ex": "Marinate the chicken overnight for a stronger flavour.",
+   "col": [
+    "marinate overnight",
+    "marinate in soy sauce"
+   ],
+   "tip": "Marinate – ướp thịt cho ngấm gia vị.",
+   "ipa": "/ˈmærɪneɪt/",
+   "vi": "ướp",
+   "def": "to soak food in a sauce before cooking"
+  },
+  {
+   "word": "season",
+   "pos": "v",
+   "sub": "cooking",
+   "level": "B2",
+   "ex": "Season the meat with salt and pepper before cooking.",
+   "col": [
+    "season to taste",
+    "season with salt"
+   ],
+   "tip": "Season – nêm nếm; cũng là mùa trong năm."
+  },
+  {
+   "word": "water",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A1",
+   "ex": "Can I have a glass of water, please?",
+   "col": [
+    "a glass of water",
+    "drink water"
+   ],
+   "tip": "Water – nước, thứ quen nhất."
+  },
+  {
+   "word": "coffee",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A1",
+   "ex": "I usually drink coffee before work.",
+   "col": [
+    "a cup of coffee",
+    "black coffee"
+   ],
+   "tip": "Coffee – cà phê, hai chữ f và hai chữ e."
+  },
+  {
+   "word": "tea",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A1",
+   "ex": "Would you like some tea or coffee?",
+   "col": [
+    "a cup of tea",
+    "green tea"
+   ],
+   "tip": "Tea – trà, đọc \"ti\"."
+  },
+  {
+   "word": "juice",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A1",
+   "ex": "She drinks orange juice every morning.",
+   "col": [
+    "orange juice",
+    "fresh juice"
+   ],
+   "tip": "Juice – nước ép, nhớ cặp orange juice."
+  },
+  {
+   "word": "soft drink",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A2",
+   "ex": "Kids usually prefer a soft drink at parties.",
+   "col": [
+    "a soft drink",
+    "fizzy soft drink"
+   ],
+   "tip": "Soft drink – nước ngọt không cồn, như cola.",
+   "ipa": "/ˌsɒft ˈdrɪŋk/",
+   "vi": "nước ngọt",
+   "def": "a cold sweet drink without alcohol"
+  },
+  {
+   "word": "beer",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A2",
+   "ex": "He ordered a cold beer after the match.",
+   "col": [
+    "a cold beer",
+    "draught beer"
+   ],
+   "tip": "Beer – bia, hai chữ e."
+  },
+  {
+   "word": "wine",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A2",
+   "ex": "They had a glass of red wine with dinner.",
+   "col": [
+    "red wine",
+    "a glass of wine"
+   ],
+   "tip": "Wine – rượu vang."
+  },
+  {
+   "word": "glass",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A1",
+   "ex": "He poured water into a clean glass.",
+   "col": [
+    "a glass of water",
+    "a wine glass"
+   ],
+   "tip": "Glass – cái ly, cũng là kính."
+  },
+  {
+   "word": "cup",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A1",
+   "ex": "I'd like a cup of tea, please.",
+   "col": [
+    "a cup of coffee",
+    "a paper cup"
+   ],
+   "tip": "Cup – cái tách."
+  },
+  {
+   "word": "bottle",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A2",
+   "ex": "She carries a bottle of water in her bag.",
+   "col": [
+    "a bottle of water",
+    "a plastic bottle"
+   ],
+   "tip": "Bottle – chai, quen thuộc."
+  },
+  {
+   "word": "sparkling water",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "B1",
+   "ex": "I'll have sparkling water with ice and lemon.",
+   "col": [
+    "a glass of sparkling water",
+    "sparkling or still"
+   ],
+   "tip": "Sparkling – lấp lánh; nước có ga.",
+   "ipa": "/ˌspɑːklɪŋ ˈwɔːtə/",
+   "vi": "nước có ga",
+   "def": "water with bubbles of gas in it"
+  },
+  {
+   "word": "latte",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "B1",
+   "ex": "A medium latte with oat milk, please.",
+   "col": [
+    "a large latte",
+    "order a latte"
+   ],
+   "tip": "Latte – cà phê sữa kiểu Ý.",
+   "ipa": "/ˈlɑːteɪ/",
+   "vi": "cà phê sữa latte",
+   "def": "coffee with a lot of hot milk"
+  },
+  {
+   "word": "espresso",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "B1",
+   "ex": "He had a double espresso to wake up.",
+   "col": [
+    "a double espresso",
+    "strong espresso"
+   ],
+   "tip": "Espresso – cà phê đậm trong ly nhỏ, không phải \"ex-\".",
+   "ipa": "/eˈspresəʊ/",
+   "vi": "cà phê espresso",
+   "def": "a small, strong black coffee"
+  },
+  {
+   "word": "smoothie",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "B1",
+   "ex": "She ordered a banana and mango smoothie.",
+   "col": [
+    "a fruit smoothie",
+    "blend a smoothie"
+   ],
+   "tip": "Smoothie – sinh tố trái cây xay.",
+   "ipa": "/ˈsmuːði/",
+   "vi": "sinh tố",
+   "def": "a thick drink of blended fruit"
+  },
+  {
+   "word": "refill",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "B1",
+   "ex": "Can I get a refill of my coffee, please?",
+   "col": [
+    "a free refill",
+    "ask for a refill"
+   ],
+   "tip": "Re + fill = rót đầy lại lần nữa."
+  },
+  {
+   "word": "decaf",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "B2",
+   "ex": "I'll have a decaf; caffeine keeps me awake.",
+   "col": [
+    "decaf coffee",
+    "order a decaf"
+   ],
+   "tip": "Decaf – cà phê khử caffeine, viết tắt decaffeinated.",
+   "ipa": "/ˈdiːkæf/",
+   "vi": "cà phê khử caffeine",
+   "def": "coffee with the caffeine removed"
+  },
+  {
+   "word": "barista",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "B2",
+   "ex": "The barista drew a heart on my latte.",
+   "col": [
+    "a skilled barista",
+    "the barista behind the counter"
+   ],
+   "tip": "Barista – người pha cà phê chuyên nghiệp.",
+   "ipa": "/bəˈrɪstə/",
+   "vi": "người pha cà phê",
+   "def": "a person who makes coffee in a café"
+  },
+  {
+   "word": "caffeine",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "B2",
+   "ex": "Too much caffeine makes me nervous at night.",
+   "col": [
+    "cut down on caffeine",
+    "caffeine-free"
+   ],
+   "tip": "Caffeine – chất caffein trong cà phê, trà.",
+   "ipa": "/ˈkæfiːn/",
+   "vi": "caffeine",
+   "def": "a substance in coffee and tea that keeps you awake"
+  },
+  {
+   "word": "brew",
+   "pos": "v",
+   "sub": "drinks",
+   "level": "C1",
+   "ex": "He brews fresh coffee every morning before work.",
+   "col": [
+    "brew coffee",
+    "a fresh brew"
+   ],
+   "tip": "Brew – pha, ủ trà hoặc nấu bia.",
+   "ipa": "/bruː/",
+   "vi": "pha, ủ",
+   "def": "to make tea, coffee or beer"
+  },
+  {
+   "word": "ice",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "A2",
+   "ex": "No ice in my drink, please.",
+   "col": [
+    "ice cubes",
+    "with ice"
+   ],
+   "tip": "Ice – đá lạnh, ice cream = kem."
+  },
+  {
+   "word": "straw",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "B1",
+   "ex": "Do you have paper straws instead of plastic ones?",
+   "col": [
+    "a paper straw",
+    "drink through a straw"
+   ],
+   "tip": "Straw – ống hút, cũng là rơm."
+  },
+  {
+   "word": "takeout cup",
+   "pos": "n",
+   "sub": "drinks",
+   "level": "B2",
+   "ex": "I'll take it in a takeout cup, please.",
+   "col": [
+    "a takeout cup",
+    "a reusable takeout cup"
+   ],
+   "tip": "Takeout cup – ly mang đi.",
+   "ipa": "/ˈteɪkaʊt kʌp/",
+   "vi": "ly mang đi",
+   "def": "a cup with a lid for taking drinks away"
+  },
+  {
+   "word": "breakfast",
+   "pos": "n",
+   "sub": "tastes",
+   "level": "A1",
+   "ex": "I have breakfast at seven every day.",
+   "col": [
+    "have breakfast",
+    "a big breakfast"
+   ],
+   "tip": "Break + fast = phá cơn đói sau đêm."
+  },
+  {
+   "word": "lunch",
+   "pos": "n",
+   "sub": "tastes",
+   "level": "A1",
+   "ex": "Let's have lunch at noon.",
+   "col": [
+    "have lunch",
+    "a quick lunch"
+   ],
+   "tip": "Lunch – bữa trưa."
+  },
+  {
+   "word": "dinner",
+   "pos": "n",
+   "sub": "tastes",
+   "level": "A1",
+   "ex": "We eat dinner together at six.",
+   "col": [
+    "cook dinner",
+    "have dinner"
+   ],
+   "tip": "Dinner – bữa tối chính trong ngày."
+  },
+  {
+   "word": "snack",
+   "pos": "n",
+   "sub": "tastes",
+   "level": "A2",
+   "ex": "I eat a small snack at four o'clock.",
+   "col": [
+    "a healthy snack",
+    "grab a snack"
+   ],
+   "tip": "Snack – bữa ăn vặt nhẹ giữa các bữa."
+  },
+  {
+   "word": "hungry",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "A1",
+   "ex": "I'm so hungry; let's eat now.",
+   "col": [
+    "feel hungry",
+    "get hungry"
+   ],
+   "tip": "Hungry – đói, hunger = cơn đói."
+  },
+  {
+   "word": "thirsty",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "A1",
+   "ex": "After the run I was very thirsty.",
+   "col": [
+    "feel thirsty",
+    "get thirsty"
+   ],
+   "tip": "Thirsty – khát, thirst = cơn khát."
+  },
+  {
+   "word": "delicious",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "A2",
+   "ex": "This soup is absolutely delicious.",
+   "col": [
+    "taste delicious",
+    "a delicious meal"
+   ],
+   "tip": "Delicious – ngon, mạnh hơn \"good\"."
+  },
+  {
+   "word": "tasty",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "A2",
+   "ex": "The noodles were cheap but very tasty.",
+   "col": [
+    "tasty food",
+    "a tasty snack"
+   ],
+   "tip": "Tasty – ngon miệng, taste + y."
+  },
+  {
+   "word": "sweet",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "A1",
+   "ex": "This mango is really sweet.",
+   "col": [
+    "sweet and sour",
+    "too sweet"
+   ],
+   "tip": "Sweet – ngọt, cũng là đáng yêu."
+  },
+  {
+   "word": "sour",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "A2",
+   "ex": "The lemon was too sour to eat.",
+   "col": [
+    "sour taste",
+    "sour cream"
+   ],
+   "tip": "Sour – chua, như chanh.",
+   "ipa": "/ˈsaʊə/",
+   "vi": "chua",
+   "def": "having a sharp taste like a lemon"
+  },
+  {
+   "word": "bitter",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "B1",
+   "ex": "Black coffee without sugar tastes bitter to me.",
+   "col": [
+    "bitter taste",
+    "taste bitter"
+   ],
+   "tip": "Bitter – đắng, như cà phê đen."
+  },
+  {
+   "word": "salty",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "A2",
+   "ex": "The soup is a bit too salty.",
+   "col": [
+    "too salty",
+    "salty snack"
+   ],
+   "tip": "Salty – mặn, salt + y.",
+   "ipa": "/ˈsɔːlti/",
+   "vi": "mặn",
+   "def": "containing a lot of salt"
+  },
+  {
+   "word": "spicy",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "A2",
+   "ex": "I can't eat very spicy food.",
+   "col": [
+    "spicy food",
+    "too spicy"
+   ],
+   "tip": "Spicy – cay, như ớt.",
+   "ipa": "/ˈspaɪsi/",
+   "vi": "cay",
+   "def": "having a hot taste from spices"
+  },
+  {
+   "word": "fresh",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "A2",
+   "ex": "The vegetables are fresh from the farm.",
+   "col": [
+    "fresh food",
+    "fresh bread"
+   ],
+   "tip": "Fresh – tươi, mới."
+  },
+  {
+   "word": "crispy",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "B1",
+   "ex": "The fried chicken was golden and crispy.",
+   "col": [
+    "crispy skin",
+    "crispy fries"
+   ],
+   "tip": "Crispy – giòn, nghe \"crisp\" như tiếng rắc.",
+   "ipa": "/ˈkrɪspi/",
+   "vi": "giòn",
+   "def": "hard and dry in a pleasant way"
+  },
+  {
+   "word": "greasy",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "B1",
+   "ex": "The burger was too greasy for me.",
+   "col": [
+    "greasy food",
+    "greasy fingers"
+   ],
+   "tip": "Greasy – nhiều dầu mỡ, ngấy.",
+   "ipa": "/ˈɡriːsi/",
+   "vi": "nhiều dầu mỡ",
+   "def": "containing or covered with too much oil"
+  },
+  {
+   "word": "bland",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "B2",
+   "ex": "The soup was healthy but a bit bland.",
+   "col": [
+    "bland food",
+    "taste bland"
+   ],
+   "tip": "Bland – nhạt nhẽo, thiếu vị.",
+   "ipa": "/blænd/",
+   "vi": "nhạt nhẽo",
+   "def": "having little taste"
+  },
+  {
+   "word": "filling",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "B2",
+   "ex": "The soup is cheap but really filling.",
+   "col": [
+    "a filling meal",
+    "very filling"
+   ],
+   "tip": "Fill → filling: ăn no lâu, chắc bụng.",
+   "ipa": "/ˈfɪlɪŋ/",
+   "vi": "làm no lâu",
+   "def": "making you feel full after eating"
+  },
+  {
+   "word": "appetite",
+   "pos": "n",
+   "sub": "tastes",
+   "level": "B2",
+   "ex": "I lost my appetite when I felt ill.",
+   "col": [
+    "lose your appetite",
+    "a good appetite"
+   ],
+   "tip": "Appetite – cảm giác thèm ăn, ngon miệng."
+  },
+  {
+   "word": "flavour",
+   "pos": "n",
+   "sub": "tastes",
+   "level": "B2",
+   "ex": "This ice cream has a rich chocolate flavour.",
+   "col": [
+    "a strong flavour",
+    "add flavour"
+   ],
+   "tip": "Flavour (Mỹ: flavor) – hương vị.",
+   "ipa": "/ˈfleɪvə/",
+   "vi": "hương vị",
+   "def": "the taste of food or drink"
+  },
+  {
+   "word": "mouth-watering",
+   "pos": "adj",
+   "sub": "tastes",
+   "level": "C1",
+   "ex": "The smell of fresh bread was mouth-watering.",
+   "col": [
+    "a mouth-watering smell",
+    "mouth-watering dishes"
+   ],
+   "tip": "Mouth + water = nhỏ dãi, thèm chảy nước miếng."
+  },
+  {
+   "word": "vegetarian",
+   "pos": "adj",
+   "sub": "diet",
+   "level": "B1",
+   "ex": "My sister is vegetarian, so we skip meat.",
+   "col": [
+    "a vegetarian meal",
+    "vegetarian options"
+   ],
+   "tip": "Vegetarian – ăn chay (vẫn dùng trứng sữa)."
+  },
+  {
+   "word": "vegan",
+   "pos": "adj",
+   "sub": "diet",
+   "level": "B2",
+   "ex": "Is there a vegan option on the menu?",
+   "col": [
+    "vegan food",
+    "a vegan diet"
+   ],
+   "tip": "Vegan – thuần chay, không trứng, sữa.",
+   "ipa": "/ˈviːɡən/",
+   "vi": "thuần chay",
+   "def": "eating no animal products at all"
+  },
+  {
+   "word": "diet",
+   "pos": "n",
+   "sub": "diet",
+   "level": "B1",
+   "ex": "He is on a diet to lose some weight.",
+   "col": [
+    "be on a diet",
+    "a healthy diet"
+   ],
+   "tip": "Diet – chế độ ăn, cả kiêng và ăn uống nói chung."
+  },
+  {
+   "word": "healthy",
+   "pos": "adj",
+   "sub": "diet",
+   "level": "A2",
+   "ex": "Fruit and vegetables are very healthy.",
+   "col": [
+    "healthy food",
+    "a healthy diet"
+   ],
+   "tip": "Health + y = tốt cho sức khỏe."
+  },
+  {
+   "word": "allergic",
+   "pos": "adj",
+   "sub": "diet",
+   "level": "B1",
+   "ex": "I'm allergic to peanuts, so please avoid them.",
+   "col": [
+    "allergic to nuts",
+    "be allergic"
+   ],
+   "tip": "Allergic – bị dị ứng, luôn đi với \"to\".",
+   "ipa": "/əˈlɜːdʒɪk/",
+   "vi": "dị ứng",
+   "def": "having a bad reaction to a substance"
+  },
+  {
+   "word": "allergy",
+   "pos": "n",
+   "sub": "diet",
+   "level": "B1",
+   "ex": "She has a serious shellfish allergy.",
+   "col": [
+    "a food allergy",
+    "a nut allergy"
+   ],
+   "tip": "Allergy – chứng dị ứng, đọc \"a-lơ-gi\"."
+  },
+  {
+   "word": "gluten-free",
+   "pos": "adj",
+   "sub": "diet",
+   "level": "B2",
+   "ex": "Do you have any gluten-free bread?",
+   "col": [
+    "gluten-free bread",
+    "a gluten-free diet"
+   ],
+   "tip": "Gluten-free – không có gluten, hợp người dị ứng bột mì."
+  },
+  {
+   "word": "lactose",
+   "pos": "n",
+   "sub": "diet",
+   "level": "C1",
+   "ex": "He avoids lactose, so he drinks oat milk.",
+   "col": [
+    "lactose intolerance",
+    "lactose-free milk"
+   ],
+   "tip": "Lactose – đường sữa; lactose-free = không đường sữa.",
+   "ipa": "/ˈlæktəʊs/",
+   "vi": "đường sữa",
+   "def": "a natural sugar found in milk"
+  },
+  {
+   "word": "nut",
+   "pos": "n",
+   "sub": "diet",
+   "level": "A2",
+   "ex": "Do these cookies contain nuts?",
+   "col": [
+    "contain nuts",
+    "a handful of nuts"
+   ],
+   "tip": "Nut – hạt, kể cả đậu phộng.",
+   "ipa": "/nʌt/",
+   "vi": "hạt",
+   "def": "a hard-shelled seed that you can eat"
+  },
+  {
+   "word": "peanut",
+   "pos": "n",
+   "sub": "diet",
+   "level": "B1",
+   "ex": "Peanut butter is not safe for him.",
+   "col": [
+    "peanut butter",
+    "a peanut allergy"
+   ],
+   "tip": "Peanut – đậu phộng, thường gây dị ứng.",
+   "ipa": "/ˈpiːnʌt/",
+   "vi": "đậu phộng",
+   "def": "a small oval nut that grows underground"
+  },
+  {
+   "word": "shellfish",
+   "pos": "n",
+   "sub": "diet",
+   "level": "B2",
+   "ex": "Shellfish like shrimp can cause allergies.",
+   "col": [
+    "shellfish allergy",
+    "eat shellfish"
+   ],
+   "tip": "Shell + fish = hải sản có vỏ như tôm, cua.",
+   "ipa": "/ˈʃelfɪʃ/",
+   "vi": "hải sản có vỏ",
+   "def": "sea animals with shells, such as shrimp"
+  },
+  {
+   "word": "ingredients list",
+   "pos": "n",
+   "sub": "diet",
+   "level": "B2",
+   "ex": "Always read the ingredients list on the packet.",
+   "col": [
+    "read the ingredients list",
+    "check the ingredients list"
+   ],
+   "tip": "Ingredients list – bảng thành phần trên bao bì.",
+   "ipa": "/ɪnˈɡriːdiənts lɪst/",
+   "vi": "bảng thành phần",
+   "def": "a list of what is in a food product"
+  },
+  {
+   "word": "calorie",
+   "pos": "n",
+   "sub": "diet",
+   "level": "B1",
+   "ex": "A burger has many more calories than a salad.",
+   "col": [
+    "count calories",
+    "high in calories"
+   ],
+   "tip": "Calorie – calo, quen từ dinh dưỡng.",
+   "ipa": "/ˈkæləri/",
+   "vi": "calo",
+   "def": "a unit for measuring the energy in food"
+  },
+  {
+   "word": "protein",
+   "pos": "n",
+   "sub": "diet",
+   "level": "B1",
+   "ex": "Eggs and beans are a good source of protein.",
+   "col": [
+    "rich in protein",
+    "protein-rich food"
+   ],
+   "tip": "Protein – chất đạm, có trong thịt, trứng, đậu."
+  },
+  {
+   "word": "sugar-free",
+   "pos": "adj",
+   "sub": "diet",
+   "level": "B1",
+   "ex": "Do you have a sugar-free soft drink?",
+   "col": [
+    "sugar-free drinks",
+    "a sugar-free option"
+   ],
+   "tip": "Sugar-free – không đường.",
+   "ipa": "/ˌʃʊɡə ˈfriː/",
+   "vi": "không đường",
+   "def": "containing no sugar"
+  },
+  {
+   "word": "fasting",
+   "pos": "n",
+   "sub": "diet",
+   "level": "C1",
+   "ex": "Fasting during the day is part of Ramadan.",
+   "col": [
+    "intermittent fasting",
+    "religious fasting"
+   ],
+   "tip": "Fast – nhịn ăn, fasting là hành động nhịn.",
+   "ipa": "/ˈfɑːstɪŋ/",
+   "vi": "nhịn ăn",
+   "def": "going without food for a period of time"
+  },
+  {
+   "word": "halal",
+   "pos": "adj",
+   "sub": "diet",
+   "level": "C1",
+   "ex": "Is the chicken here halal?",
+   "col": [
+    "halal meat",
+    "halal food"
+   ],
+   "tip": "Halal – món hợp đạo Hồi theo quy định.",
+   "ipa": "/həˈlɑːl/",
+   "vi": "halal",
+   "def": "food allowed under Islamic rules"
+  },
+  {
+   "word": "intolerance",
+   "pos": "n",
+   "sub": "diet",
+   "level": "C1",
+   "ex": "She has a lactose intolerance, so she avoids milk.",
+   "col": [
+    "food intolerance",
+    "lactose intolerance"
+   ],
+   "tip": "Intolerance – không dung nạp, khác dị ứng nặng.",
+   "ipa": "/ɪnˈtɒlərəns/",
+   "vi": "chứng không dung nạp",
+   "def": "inability to digest a food without problems"
+  },
+  {
+   "word": "nutrition",
+   "pos": "n",
+   "sub": "diet",
+   "level": "B2",
+   "ex": "Good nutrition helps children grow strong.",
+   "col": [
+    "good nutrition",
+    "balanced nutrition"
+   ],
+   "tip": "Nutrition – dinh dưỡng, từ nutrient = chất dinh dưỡng."
+  },
+  {
+   "word": "balanced",
+   "pos": "adj",
+   "sub": "diet",
+   "level": "B2",
+   "ex": "A balanced diet includes fruit, grains and protein.",
+   "col": [
+    "a balanced diet",
+    "a balanced meal"
+   ],
+   "tip": "Balanced – cân bằng, đủ các nhóm thực phẩm.",
+   "ipa": "/ˈbælənst/",
+   "vi": "cân bằng",
+   "def": "containing the right mix of different things"
+  },
+  {
+   "word": "cut down on",
+   "pos": "v",
+   "sub": "diet",
+   "level": "B2",
+   "ex": "I'm trying to cut down on sugar this month.",
+   "col": [
+    "cut down on sugar",
+    "cut down on salt"
+   ],
+   "tip": "Cut down on – giảm bớt, không bỏ hẳn."
+  },
+  {
+   "word": "overeat",
+   "pos": "v",
+   "sub": "diet",
+   "level": "B2",
+   "ex": "I always overeat when there is free food.",
+   "col": [
+    "tend to overeat",
+    "overeat at night"
+   ],
+   "tip": "Over + eat = ăn quá nhiều, ăn quá độ.",
+   "ipa": "/ˌəʊvərˈiːt/",
+   "vi": "ăn quá nhiều",
+   "def": "to eat more than you need"
+  }
+ ],
+ "phrases": [
+  {
+   "en": "Could we see the menu, please?",
+   "vi": "Cho chúng tôi xem thực đơn nhé?",
+   "lv": "A1",
+   "sub": "restaurant"
+  },
+  {
+   "en": "I'd like the chicken soup, please.",
+   "vi": "Tôi muốn món súp gà, làm ơn.",
+   "lv": "A1",
+   "sub": "restaurant"
+  },
+  {
+   "en": "Could we have the bill, please?",
+   "vi": "Cho chúng tôi xin hóa đơn nhé?",
+   "lv": "A2",
+   "sub": "restaurant"
+  },
+  {
+   "en": "Is service included in the bill?",
+   "vi": "Hóa đơn đã gồm phí phục vụ chưa?",
+   "lv": "B1",
+   "sub": "restaurant"
+  },
+  {
+   "en": "Can we split the bill?",
+   "vi": "Chúng tôi chia hóa đơn được không?",
+   "lv": "B1",
+   "sub": "restaurant"
+  },
+  {
+   "en": "I booked a table for four at seven.",
+   "vi": "Tôi đã đặt bàn cho bốn người lúc bảy giờ.",
+   "lv": "A2",
+   "sub": "restaurant"
+  },
+  {
+   "en": "What do you recommend?",
+   "vi": "Bạn gợi ý món nào?",
+   "lv": "A2",
+   "sub": "restaurant"
+  },
+  {
+   "en": "Could I have this to take away?",
+   "vi": "Cho tôi mang món này đi được không?",
+   "lv": "B1",
+   "sub": "restaurant"
+  },
+  {
+   "en": "Where can I find rice?",
+   "vi": "Tôi tìm gạo ở đâu vậy?",
+   "lv": "A1",
+   "sub": "grocery"
+  },
+  {
+   "en": "How much is a kilo of apples?",
+   "vi": "Một ký táo giá bao nhiêu?",
+   "lv": "A2",
+   "sub": "grocery"
+  },
+  {
+   "en": "Do you have a bag, please?",
+   "vi": "Bạn có túi cho tôi không?",
+   "lv": "A2",
+   "sub": "grocery"
+  },
+  {
+   "en": "Is this on sale today?",
+   "vi": "Món này hôm nay có giảm giá không?",
+   "lv": "B1",
+   "sub": "grocery"
+  },
+  {
+   "en": "Could I get a refund on this?",
+   "vi": "Tôi trả lại món này lấy tiền lại được không?",
+   "lv": "B2",
+   "sub": "grocery"
+  },
+  {
+   "en": "Cook it on low heat for ten minutes.",
+   "vi": "Nấu lửa nhỏ trong mười phút.",
+   "lv": "B1",
+   "sub": "cooking"
+  },
+  {
+   "en": "Add salt and pepper to taste.",
+   "vi": "Nêm muối và tiêu vừa ăn.",
+   "lv": "B1",
+   "sub": "cooking"
+  },
+  {
+   "en": "Preheat the oven to 180 degrees.",
+   "vi": "Làm nóng lò trước ở 180 độ.",
+   "lv": "B1",
+   "sub": "cooking"
+  },
+  {
+   "en": "Could you pass me the salt?",
+   "vi": "Đưa giúp tôi lọ muối nhé?",
+   "lv": "A2",
+   "sub": "cooking"
+  },
+  {
+   "en": "A coffee with milk, please.",
+   "vi": "Cho tôi một cà phê sữa.",
+   "lv": "A1",
+   "sub": "drinks"
+  },
+  {
+   "en": "Can I get a refill?",
+   "vi": "Tôi xin rót thêm được không?",
+   "lv": "B1",
+   "sub": "drinks"
+  },
+  {
+   "en": "No sugar and no ice, please.",
+   "vi": "Không đường, không đá nhé.",
+   "lv": "A2",
+   "sub": "drinks"
+  },
+  {
+   "en": "I'll have it to go, please.",
+   "vi": "Tôi lấy mang đi nhé.",
+   "lv": "B1",
+   "sub": "drinks"
+  },
+  {
+   "en": "This is delicious!",
+   "vi": "Món này ngon quá!",
+   "lv": "A2",
+   "sub": "tastes"
+  },
+  {
+   "en": "It's a bit too spicy for me.",
+   "vi": "Món này cay quá với tôi.",
+   "lv": "A2",
+   "sub": "tastes"
+  },
+  {
+   "en": "I'm starving. Let's eat now.",
+   "vi": "Tôi đói meo rồi. Ăn thôi.",
+   "lv": "B1",
+   "sub": "tastes"
+  },
+  {
+   "en": "I'm full, thank you.",
+   "vi": "Tôi no rồi, cảm ơn.",
+   "lv": "A2",
+   "sub": "tastes"
+  },
+  {
+   "en": "I'm allergic to peanuts.",
+   "vi": "Tôi bị dị ứng đậu phộng.",
+   "lv": "B1",
+   "sub": "diet"
+  },
+  {
+   "en": "Does this dish contain nuts?",
+   "vi": "Món này có hạt không?",
+   "lv": "B1",
+   "sub": "diet"
+  },
+  {
+   "en": "Do you have vegetarian options?",
+   "vi": "Bên bạn có món chay không?",
+   "lv": "B1",
+   "sub": "diet"
+  },
+  {
+   "en": "I can't eat gluten.",
+   "vi": "Tôi không ăn được gluten.",
+   "lv": "B2",
+   "sub": "diet"
+  },
+  {
+   "en": "Could you leave out the onions?",
+   "vi": "Bạn bỏ hành giúp tôi được không?",
+   "lv": "B2",
+   "sub": "diet"
+  }
+ ],
+ "dialogs": [
+  {
+   "id": "gr-1",
+   "sub": "grocery",
+   "lines": [
+    [
+     "A",
+     "Do we have enough rice for the week?",
+     "Nhà mình còn đủ gạo cho cả tuần không?"
+    ],
+    [
+     "B",
+     "No, add it to the shopping list.",
+     "Không, thêm vào danh sách đi chợ đi."
+    ],
+    [
+     "A",
+     "OK. I'll grab a trolley at the door.",
+     "Được. Anh lấy xe đẩy ở cửa nhé."
+    ]
+   ],
+   "key": [
+    "rice",
+    "shopping list",
+    "trolley"
+   ]
+  },
+  {
+   "id": "gr-2",
+   "sub": "grocery",
+   "lines": [
+    [
+     "A",
+     "Excuse me, which aisle has the cheese?",
+     "Xin lỗi, quầy phô mai ở dãy nào vậy?"
+    ],
+    [
+     "B",
+     "Aisle four, next to the butter.",
+     "Dãy bốn, cạnh chỗ bơ."
+    ],
+    [
+     "A",
+     "Thanks. Is there a discount on organic milk?",
+     "Cảm ơn. Sữa hữu cơ có giảm giá không?"
+    ],
+    [
+     "B",
+     "Yes, ten percent off today.",
+     "Có, hôm nay giảm mười phần trăm."
+    ]
+   ],
+   "key": [
+    "aisle",
+    "discount",
+    "organic"
+   ]
+  },
+  {
+   "id": "rs-1",
+   "sub": "restaurant",
+   "lines": [
+    [
+     "A",
+     "Good evening. Do you have a reservation?",
+     "Chào buổi tối. Quý khách đặt bàn chưa?"
+    ],
+    [
+     "B",
+     "Yes, a table for four under Linh.",
+     "Rồi, bàn bốn người, tên Linh."
+    ],
+    [
+     "A",
+     "Right this way. Here is the menu.",
+     "Mời đi lối này. Đây là thực đơn."
+    ]
+   ],
+   "key": [
+    "reservation",
+    "table",
+    "menu"
+   ]
+  },
+  {
+   "id": "rs-2",
+   "sub": "restaurant",
+   "lines": [
+    [
+     "A",
+     "Are you ready to order?",
+     "Quý khách đã gọi món chưa?"
+    ],
+    [
+     "B",
+     "Yes, soup as a starter, then the grilled fish.",
+     "Rồi, súp khai vị, sau đó cá nướng."
+    ],
+    [
+     "A",
+     "And would you like anything to drink?",
+     "Quý khách dùng đồ uống gì không?"
+    ],
+    [
+     "B",
+     "Sparkling water, please.",
+     "Cho tôi nước có ga."
+    ]
+   ],
+   "key": [
+    "order",
+    "starter",
+    "sparkling water"
+   ]
+  },
+  {
+   "id": "ck-1",
+   "sub": "cooking",
+   "lines": [
+    [
+     "A",
+     "How long should I boil the eggs?",
+     "Luộc trứng bao lâu vậy?"
+    ],
+    [
+     "B",
+     "About ten minutes. Then peel them.",
+     "Khoảng mười phút. Rồi bóc vỏ."
+    ],
+    [
+     "A",
+     "Got it. Should I add salt to the water?",
+     "Rõ rồi. Có cần thêm muối vào nước không?"
+    ]
+   ],
+   "key": [
+    "boil",
+    "peel",
+    "salt"
+   ]
+  },
+  {
+   "id": "ck-2",
+   "sub": "cooking",
+   "lines": [
+    [
+     "A",
+     "What are you making tonight?",
+     "Tối nay bạn nấu món gì?"
+    ],
+    [
+     "B",
+     "Fried rice. I'll chop the garlic first.",
+     "Cơm chiên. Mình băm tỏi trước."
+    ],
+    [
+     "A",
+     "Great. Stir it often so it doesn't burn.",
+     "Hay đó. Nhớ đảo thường xuyên để khỏi cháy."
+    ]
+   ],
+   "key": [
+    "fried",
+    "chop",
+    "stir"
+   ]
+  },
+  {
+   "id": "dr-1",
+   "sub": "drinks",
+   "lines": [
+    [
+     "A",
+     "Hi, what can I get you?",
+     "Chào bạn, bạn dùng gì ạ?"
+    ],
+    [
+     "B",
+     "A medium latte, please.",
+     "Cho tôi một latte cỡ vừa."
+    ],
+    [
+     "A",
+     "For here or to go?",
+     "Dùng tại chỗ hay mang đi?"
+    ],
+    [
+     "B",
+     "To go, with no sugar.",
+     "Mang đi, không đường."
+    ]
+   ],
+   "key": [
+    "latte",
+    "to go",
+    "sugar"
+   ]
+  },
+  {
+   "id": "dr-2",
+   "sub": "drinks",
+   "lines": [
+    [
+     "A",
+     "Would you like tea or coffee?",
+     "Bạn uống trà hay cà phê?"
+    ],
+    [
+     "B",
+     "Decaf, please. Caffeine keeps me awake.",
+     "Loại decaf nhé. Caffeine làm tôi mất ngủ."
+    ],
+    [
+     "A",
+     "Of course. I'll bring a refill later.",
+     "Dĩ nhiên. Lát nữa tôi mang thêm cho bạn."
+    ]
+   ],
+   "key": [
+    "decaf",
+    "caffeine",
+    "refill"
+   ]
+  },
+  {
+   "id": "ts-1",
+   "sub": "tastes",
+   "lines": [
+    [
+     "A",
+     "How is the soup?",
+     "Món súp thế nào?"
+    ],
+    [
+     "B",
+     "It's delicious, but a bit salty.",
+     "Ngon lắm, nhưng hơi mặn."
+    ],
+    [
+     "A",
+     "I'll ask the waiter for some water.",
+     "Mình sẽ nhờ phục vụ lấy thêm nước."
+    ]
+   ],
+   "key": [
+    "delicious",
+    "salty",
+    "waiter"
+   ]
+  },
+  {
+   "id": "ts-2",
+   "sub": "tastes",
+   "lines": [
+    [
+     "A",
+     "Try this curry. It's really spicy.",
+     "Thử món cà ri này đi. Cay lắm."
+    ],
+    [
+     "B",
+     "Wow, my mouth is on fire!",
+     "Ôi, miệng mình cháy luôn!"
+    ],
+    [
+     "A",
+     "Have some rice. It'll help.",
+     "Ăn thêm cơm đi. Sẽ đỡ cay đó."
+    ]
+   ],
+   "key": [
+    "spicy",
+    "rice"
+   ]
+  },
+  {
+   "id": "df-1",
+   "sub": "diet",
+   "lines": [
+    [
+     "A",
+     "Does this dish contain any nuts?",
+     "Món này có hạt nào không?"
+    ],
+    [
+     "B",
+     "Let me check. Why do you ask?",
+     "Để tôi kiểm tra. Bạn hỏi vì sao vậy?"
+    ],
+    [
+     "A",
+     "I'm allergic to peanuts.",
+     "Tôi bị dị ứng đậu phộng."
+    ],
+    [
+     "B",
+     "Then I'll recommend the chicken instead.",
+     "Vậy tôi gợi ý món gà thay thế."
+    ]
+   ],
+   "key": [
+    "nut",
+    "allergic",
+    "recommend"
+   ]
+  },
+  {
+   "id": "df-2",
+   "sub": "diet",
+   "lines": [
+    [
+     "A",
+     "Do you have any vegan options?",
+     "Bên bạn có món thuần chay không?"
+    ],
+    [
+     "B",
+     "Yes, the tofu curry. It's also gluten-free.",
+     "Có, cà ri đậu hũ. Món này cũng không gluten."
+    ],
+    [
+     "A",
+     "Perfect. I'm trying to cut down on dairy.",
+     "Tuyệt. Tôi đang cố giảm sữa."
+    ]
+   ],
+   "key": [
+    "vegan",
+    "gluten-free",
+    "cut down on"
+   ]
+  }
+ ]
+}

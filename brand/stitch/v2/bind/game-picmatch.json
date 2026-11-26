@@ -1,0 +1,94 @@
+{
+ "_doc": "Màn Ghép tranh (#/practice/picmatch, gói lười ppm; game-system P5b). Stitch key1 102441a6… (light) → bản sáng 'bright' (edit, cùng DOM), tối = scripts/stitch/dark-from-light.mjs game-picmatch. Thanh trên của <main> trùng thanh header → bỏ, giữ header (X + tiến độ + XP). Lưới 6 thẻ ảnh (3×2) + lưới 6 nút từ (2×3): giữ 1 ô mẫu mỗi loại (data-v: cardOk/cardSel/card, wOk/wBad/wSel/w); web/cpack/play-app/play-picmatch.js đọc class từng ô mẫu rồi dựng lưới thật – CSS luôn khớp Stitch. Ảnh = VImg.quizUrl (kho ảnh theo nghĩa), không ảnh → không vào game. Kết quả = GameEnd.",
+ "i18n": {
+  "Close Lesson": "Thoát"
+ },
+ "keys": {},
+ "text": {
+  "Lesson Focus": "t('Ghép tranh')",
+  "+15 XP": "d.xpL",
+  "Chạm một ảnh rồi chạm từ đúng": "t('Chạm một ảnh rồi chạm từ đúng')",
+  "Match vocabulary to illustrations": "d.src",
+  "Từ vựng tương ứng": "t('Từ vựng tương ứng')",
+  "2/6 Đã nối": "d.done",
+  "Gợi ý · Hint": "t('Gợi ý')",
+  "Shuffle words": "t('Trộn từ')",
+  "pic-slot": "''",
+  "ĐÃ CHỌN": "''",
+  "Ô số 4": "''",
+  "Ô số 5": "''",
+  "Ô số 6": "''",
+  "umbrella": "''",
+  "volcano": "''",
+  "lantern": "''",
+  "anchor": "''"
+ },
+ "attr": {
+  ":scope > header > div > button": {
+   "id": "'pmX'",
+   "href": "d.close",
+   "aria-label": "t('Thoát')"
+  },
+  ":scope > header > div > div > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > main > div > div:nth-child(2) > div": {
+   "id": "'pmCards'",
+   "role": "'group'",
+   "aria-label": "t('Ghép tranh')"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2)": {
+   "id": "'pmWords'",
+   "role": "'group'",
+   "aria-label": "t('Từ vựng tương ứng')"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button": {
+   "id": "'pmHint'"
+  },
+  ":scope > main > div > div:nth-child(4) > button": {
+   "id": "'pmShuffle'"
+  },
+  ":scope > main > div > div:nth-child(2) > div > :nth-child(1)": {
+   "data-v": "'cardOk'"
+  },
+  ":scope > main > div > div:nth-child(2) > div > :nth-child(3)": {
+   "data-v": "'cardSel'"
+  },
+  ":scope > main > div > div:nth-child(2) > div > :nth-child(4)": {
+   "data-v": "'card'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > :nth-child(1)": {
+   "data-v": "'wOk'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > :nth-child(3)": {
+   "data-v": "'wBad'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > :nth-child(4)": {
+   "data-v": "'wSel'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > :nth-child(5)": {
+   "data-v": "'w'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > * > button": {
+   "aria-label": "t('Nghe phát âm')",
+   "type": "'button'"
+  }
+ },
+ "tag": {
+  ":scope > header > div > button": {
+   "to": "a"
+  }
+ },
+ "addClass": {
+  ":scope > header > div > button": "no-underline"
+ },
+ "html": {},
+ "remove": [
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1)",
+  ":scope > main > div > div:nth-child(2) > div > :not([data-v])",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > :not([data-v])",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div",
+  ":scope > main > div > div:nth-child(2) > div > [data-v] > div:not(.absolute) > span.material-symbols-outlined"
+ ],
+ "out": "web/cpack/game/game-picmatch.js"
+}
