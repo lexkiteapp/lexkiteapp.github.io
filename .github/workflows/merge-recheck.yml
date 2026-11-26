@@ -32,14 +32,14 @@ jobs:
           git show "$MAIN:scripts/ci/cheap.mjs" > "$RUNNER_TEMP/gate/scripts/ci/cheap.mjs"
           git show "$MAIN:scripts/lib/is-main.mjs" > "$RUNNER_TEMP/gate/scripts/lib/is-main.mjs"
       - name: Ghép main vào đầu PR (không commit) rồi chạy check rẻ (không token)
-        env: { MAIN: '${{ inputs.main }}' }
+        env: { MAIN: '${{ inputs.main }}', SHA: '${{ inputs.sha }}' }
         run: |
           git config user.name lexkite-bot; git config user.email lexkite-bot@users.noreply.github.com
           git merge --no-commit --no-ff "$MAIN" || { echo "xung đột khi ghép main – PR phải gộp main (không đo được)"; echo '{"results":[{"id":"xung-đột-ghép","ok":false}]}' > "$RUNNER_TEMP/result.json"; exit 0; }
           npm ci --no-audit --no-fund
           # PR sửa CHÍNH cổng đo (cheap.mjs / is-main.mjs / workflow này) thì đo bằng mã của PR, không bằng mã main đang hỏng (vòng kẹt 26/11: #2137 sửa merge-recheck nhưng bị merge-recheck hỏng chặn). Bước này KHÔNG có token.
           CH="$RUNNER_TEMP/gate/scripts/ci/cheap.mjs"
-          if git diff --name-only "$MAIN" "${{ inputs.sha }}" | grep -qE '^(scripts/ci/cheap\.mjs|scripts/lib/is-main\.mjs|\.github/workflows/merge-recheck\.yml)$'; then CH=scripts/ci/cheap.mjs; echo "PR sửa cổng đo → chạy cheap.mjs của PR"; fi
+          if git diff --name-only "$MAIN" "$SHA" | grep -qE '^(scripts/ci/cheap\.mjs|scripts/lib/is-main\.mjs|\.github/workflows/merge-recheck\.yml)$'; then CH=scripts/ci/cheap.mjs; echo "PR sửa cổng đo → chạy cheap.mjs của PR"; fi
           node "$CH" run --out "$RUNNER_TEMP/result.json" || true
       - name: Ghi commit status merge-recheck
         id: post
