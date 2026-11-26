@@ -14,7 +14,7 @@ const SI = { a: ['asse', 'asses', 'ât', 'assions', 'assiez', 'assent'], i: ['is
 const FUT = ['ai', 'as', 'a', 'ons', 'ez', 'ont'], COND = ['ais', 'ais', 'ait', 'ions', 'iez', 'aient'], IMPF = COND, SUBJ = ['e', 'es', 'e', 'ions', 'iez', 'ent'];
 
 // Động từ trợ "être" (DR MRS VANDERTRAMP + phái sinh); còn lại "avoir". Động từ phản thân (se …) luôn "être" – xử lý ở conjugate().
-const ETRE = new Set(list('aller venir arriver partir entrer sortir monter descendre naître mourir rester tomber retourner devenir revenir rentrer repartir parvenir intervenir survenir redescendre ressortir décéder advenir provenir renaître souvenir' +
+const ETRE = new Set(list('aller venir arriver partir entrer sortir monter descendre naître mourir rester tomber retourner devenir revenir redevenir rentrer repartir parvenir intervenir survenir redescendre ressortir décéder advenir provenir renaître souvenir' +
   ' évanouir enfuir envoler efforcer absenter abstenir écrier emparer méfier repentir')); // động từ chỉ dùng dạng phản thân (s'évanouir…): bỏ "s'" vẫn chia với être như Wiktionary
 // Nhóm 1 đổi gốc: e + phụ âm + er → è trước âm câm (acheter); é + phụ âm + er → è (préférer); -eler/-eter nhân đôi phụ âm (appeler, jeter)
 const DOUBLE = new Set(list('appeler rappeler épeler renouveler jeter rejeter projeter feuilleter étiqueter ficeler chanceler'));
@@ -62,6 +62,8 @@ def('plaire', 'plais plais plaît plaisons plaisez plaisent | pl u | plair | plu
 def('taire', 'tais tais tait taisons taisez taisent | t u | tair | tu');
 def('valoir', 'vaux vaux vaut valons valez valent | val u | vaudr | valu | subj=vaille vailles vaille valions valiez vaillent');
 def('falloir', '- - faut - - - | fall u | faudr | fallu | subj=- - faille - - - | imp=- | ppres=- | impf=fall');
+def('promouvoir', 'promeus promeus promeut promouvons promouvez promeuvent | prom u | promouvr | promu | subj=promeuve promeuves promeuve promouvions promouviez promeuvent');
+def('émouvoir', 'émeus émeus émeut émouvons émouvez émeuvent | ém u | émouvr | ému | subj=émeuve émeuves émeuve émouvions émouviez émeuvent');
 def('pleuvoir', '- - pleut - - pleuvent | pl u | pleuvr | plu | imp=- | ppres=pleuvant');
 def('asseoir', 'assieds assieds assied asseyons asseyez asseyent | ass i | assiér | assis');
 def('battre', 'bats bats bat battons battez battent | batt i | battr | battu');
@@ -91,16 +93,17 @@ def('maudire', 'maudis maudis maudit maudissons maudissez maudissent | maud i | 
 def('croître', 'croîs croîs croît croissons croissez croissent | cr û | croîtr | crû');
 def('accroître', 'accrois accrois accroît accroissons accroissez accroissent | accr u | accroîtr | accru');
 def('moudre', 'mouds mouds moud moulons moulez moulent | moul u | moudr | moulu');
+def('traire', 'trais trais trait trayons trayez traient | - - | trair | trait'); // -traire (distraire, extraire, soustraire…): không có passé simple / giả định quá khứ theo Wiktionary
 def('clore', 'clos clos clôt - - closent | - - | clor | clos');
 // Phái sinh = tiền tố + động từ gốc (mọi dạng chia y như gốc)
 const DERIV = {
-  venir: 'revenir devenir parvenir intervenir prévenir souvenir convenir survenir subvenir provenir advenir',
+  venir: 'revenir devenir redevenir parvenir intervenir prévenir souvenir convenir survenir subvenir provenir advenir',
   tenir: 'obtenir retenir maintenir contenir appartenir soutenir détenir entretenir ',
   prendre: 'apprendre comprendre reprendre surprendre entreprendre méprendre',
   mettre: 'permettre promettre admettre remettre soumettre transmettre commettre compromettre omettre',
   faire: 'refaire défaire satisfaire contrefaire', dire: 'redire', voir: 'revoir entrevoir', '*crire': 'écrire décrire inscrire prescrire souscrire transcrire réécrire',
   lire: 'relire', vivre: 'revivre survivre', suivre: 'poursuivre', courir: 'parcourir secourir accourir concourir recourir', battre: 'combattre débattre abattre',
-  vaincre: 'convaincre', plaire: 'déplaire complaire', taire: '', boire: '', croire: '', rire: '', voiler: '', partir: '', sortir: '', dormir: '', sentir: '', servir: '',
+  vaincre: 'convaincre', traire: 'distraire extraire soustraire abstraire', plaire: 'déplaire complaire', taire: '', boire: '', croire: '', rire: '', voiler: '', partir: '', sortir: '', dormir: '', sentir: '', servir: '',
   ouvrir: '', fuir: 's-enfuir', naître: 'renaître', cuire: '', asseoir: 'rasseoir', mourir: '', recevoir: '', connaître: '',
 };
 const BASE = {}; for (const [b, ds] of Object.entries(DERIV)) for (const d of list(ds || '')) if (d && d !== '-') BASE[d.replace('s-', '')] = b;
