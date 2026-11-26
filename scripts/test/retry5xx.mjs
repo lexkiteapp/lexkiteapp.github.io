@@ -63,6 +63,8 @@ ok(!naked.length, 'gọi dispatch trần, thiếu gh-retry.sh: ' + naked.join(',
 // 1c) script CI chạy từ cây repo gọi api.github.com phải qua ghFetch/retry5xx (chờ hạn mức + đếm quota); cheap/gate-retest/gate-impact chạy BẢN CHÉP LẺ từ main nên không import lib (giữ fetch trần)
 for (const f of ['guards', 'main-red-retry', 'cheap-revert', 'heavy-rerun']) ok(!/await fetch\(`https:\/\/api\.github\.com/.test(fs.readFileSync(`scripts/ci/${f}.mjs`, 'utf8')) && /ghFetch|retry5xx/.test(fs.readFileSync(`scripts/ci/${f}.mjs`, 'utf8')), `${f}.mjs gọi API qua ghFetch/retry5xx`);
 
+ok(/e\.status === 403 \|\| e\.status === 429\) \{ console\.log\(`::warning::wip-guard/.test(fs.readFileSync('scripts/ci/guards.mjs', 'utf8')), 'guards wip: 403/429 sau khi đã chờ → cảnh báo "không xác định", không đỏ cứng (26/11 #2165)');
+
 const polls = [];
 for (const f of fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f))) fs.readFileSync(path.join(WF, f), 'utf8').split('\n').forEach((l, i) => {
   const m = !/^\s*#/.test(l) && /\bfor\b[^\n]*\bdo\b[^\n]*\b\w+=\$\(curl\b([^()]|\([^()]*\))*\)/.exec(l);
