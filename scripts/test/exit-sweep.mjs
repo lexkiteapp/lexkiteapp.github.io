@@ -182,7 +182,10 @@ for (const [tl, T] of Object.entries(TLX)) for (const [vw, W, H] of [['mobile', 
   await ctx.addInitScript(x => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true })); localStorage.setItem('lk.exitbar', '1'); localStorage.setItem('lk.tl', x.tl); localStorage.setItem('lk.' + x.tl, '1'); } catch { /* */ } }, { tl });
   const settle = async page => { let a = '', stable = 0; for (let k = 0; k < 8 && stable < 2; k++) { await sleep(500); const h = await page.evaluate(() => location.hash); stable = h === a ? stable + 1 : 0; a = h; } return a; };
   let page = null;
-  const fresh = async () => { if (page) await page.close({ runBeforeUnload: false }).catch(() => {}); page = await ctx.newPage(); page.on('dialog', d => d.accept()); await autoLXD(page); await boot(page, T.hub.slice(1)); await settle(page); };
+  // Trang treo: dừng JS bằng CDP Debugger.pause rồi in ngăn xếp (chỉ ra vòng lặp nằm ở hàm nào)
+  const stackOf = async pg => { try { const c = await ctx.newCDPSession(pg); await c.send('Debugger.enable'); const w = new Promise(r => c.once('Debugger.paused', r)); await c.send('Debugger.pause'); const e = await Promise.race([w, sleep(8000).then(() => null)]); return e ? e.callFrames.slice(0, 10).map(f => `${f.functionName || '(ẩn danh)'} ${String(f.url).split('/').pop()}:${f.location.lineNumber + 1}`).join(' ← ') : 'không dừng được JS'; } catch (e) { return 'cdp: ' + e.message; } };
+  const closeP = pg => Promise.race([pg.close({ runBeforeUnload: false }).catch(() => {}), sleep(8000)]);
+  const fresh = async () => { if (page) await closeP(page); page = await ctx.newPage(); page.on('dialog', d => d.accept()); await autoLXD(page); await boot(page, T.hub.slice(1)); await settle(page); };
   // Trang treo (vòng lặp vô hạn: evaluate không bao giờ trả lời) = đúng triệu chứng "màn xoay vòng" → đỏ có tên bước, mở trang mới, chạy tiếp (không treo cả lượt tới hạn giờ như run 45876514379)
   const guard = (pr, what) => Promise.race([pr, sleep(30000).then(() => { throw new Error('TRANG TREO > 30 s: ' + what); })]);
   try {
@@ -202,10 +205,10 @@ for (const [tl, T] of Object.entries(TLX)) for (const [vw, W, H] of [['mobile', 
         const h1 = await guard(settle(page), 'chờ URL đứng yên sau X'), s = await guard(state(page), 'đọc trạng thái'), n = await guard(page.evaluate(() => document.getElementById('view').children.length), 'đọc nội dung');
         if (!h1.startsWith(T.hub) || s.learn || !n || s.modal) fail(w2, `bấm X không về lộ trình ngày ${T.hub}: hash=${h1} learn=${s.learn} modal=${s.modal} nội dung=${n} ${await diag(page)}`);
         else rows.push(`| tl ${tl} ${label}${early ? ' sớm' : ''} | ${vw} | \`${hash}\` | X → ${h1} | ok |`);
-      } catch (e) { fail(w2, String(e.message || e).split('\n')[0].slice(0, 200)); await fresh().catch(() => {}); }
+      } catch (e) { const m = String(e.message || e).split('\n')[0].slice(0, 200); fail(w2, m + (/TRANG TREO/.test(m) ? ' | ngăn xếp: ' + await stackOf(page) : '')); await fresh().catch(() => {}); }
     }
   } catch (e) { fail(`${tl}/${vw}`, 'lỗi: ' + String(e.message || e).split('\n')[0].slice(0, 160)); }
-  finally { if (page) await page.close({ runBeforeUnload: false }).catch(() => {}); await ctx.close(); }
+  finally { if (page) await closeP(page); await Promise.race([ctx.close().catch(() => {}), sleep(8000)]); }
 }
 for (const n of notes) console.log('·', n);
 await ctxBefore.close(); await browser.close(); if (srv) srv.close();
