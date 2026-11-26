@@ -1,6 +1,7 @@
 /* UI fr – ux1b (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {
 "Bộ từ":"Série",
+"Chia sẻ":"Partager",
 "Chưa mở khóa":"Verrouillé",
 "Còn {n} XP":"Encore {n} XP",
 "Cô {name} • Lexkite":"Professeure {name} • Lexkite",
@@ -8,6 +9,7 @@
 "Loại lỗi":"Types d’erreurs",
 "Làm mới lúc 0 giờ · {a}/{b}":"Réinitialisé à minuit · {a}/{b}",
 "Mẹo:":"Astuce :",
+"Nguồn":"Source",
 "Sắp xếp: dễ quên trước":"Tri : rétention",
 "Sắp xếp: mới thêm":"Tri : plus récents",
 "Thu gọn":"Afficher moins",

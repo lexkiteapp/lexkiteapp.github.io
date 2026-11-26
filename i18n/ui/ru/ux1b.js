@@ -1,6 +1,7 @@
 /* UI ru – ux1b (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {
 "Bộ từ":"Набор",
+"Chia sẻ":"Поделиться",
 "Chưa mở khóa":"Не открыт",
 "Còn {n} XP":"Осталось {n} XP",
 "Cô {name} • Lexkite":"Учитель {name} • Lexkite",
@@ -8,6 +9,7 @@
 "Loại lỗi":"Типы ошибок",
 "Làm mới lúc 0 giờ · {a}/{b}":"Сброс в полночь · {a}/{b}",
 "Mẹo:":"Совет:",
+"Nguồn":"Источник",
 "Sắp xếp: dễ quên trước":"Сортировка: запоминание",
 "Sắp xếp: mới thêm":"Сортировка: новые",
 "Thu gọn":"Свернуть",

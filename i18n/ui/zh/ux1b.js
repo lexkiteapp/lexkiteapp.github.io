@@ -1,6 +1,7 @@
 /* UI zh – ux1b (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {
 "Bộ từ":"词集",
+"Chia sẻ":"分享",
 "Chưa mở khóa":"未解锁",
 "Còn {n} XP":"还差 {n} XP",
 "Cô {name} • Lexkite":"{name}老师 • Lexkite",
@@ -8,6 +9,7 @@
 "Loại lỗi":"错误类型",
 "Làm mới lúc 0 giờ · {a}/{b}":"午夜重置 · {a}/{b}",
 "Mẹo:":"提示：",
+"Nguồn":"来源",
 "Sắp xếp: dễ quên trước":"排序：记忆保持率",
 "Sắp xếp: mới thêm":"排序：最新",
 "Thu gọn":"收起",

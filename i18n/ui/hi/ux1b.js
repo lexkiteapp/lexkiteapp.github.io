@@ -1,6 +1,7 @@
 /* UI hi – ux1b (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {
 "Bộ từ":"सेट",
+"Chia sẻ":"शेयर करें",
 "Chưa mở khóa":"लॉक है",
 "Còn {n} XP":"{n} XP बाकी",
 "Cô {name} • Lexkite":"शिक्षिका {name} • Lexkite",
@@ -8,6 +9,7 @@
 "Loại lỗi":"गलती के प्रकार",
 "Làm mới lúc 0 giờ · {a}/{b}":"आधी रात को रीसेट · {a}/{b}",
 "Mẹo:":"सुझाव:",
+"Nguồn":"स्रोत",
 "Sắp xếp: dễ quên trước":"क्रम: याद रहने की दर",
 "Sắp xếp: mới thêm":"क्रम: नवीनतम",
 "Thu gọn":"कम दिखाएँ",

@@ -1,6 +1,7 @@
 /* UI ar – ux1b (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
 "Bộ từ":"المجموعة",
+"Chia sẻ":"مشاركة",
 "Chưa mở khóa":"مقفلة",
 "Còn {n} XP":"متبقٍ {n} XP",
 "Cô {name} • Lexkite":"المعلمة {name} • Lexkite",
@@ -8,6 +9,7 @@
 "Loại lỗi":"أنواع الأخطاء",
 "Làm mới lúc 0 giờ · {a}/{b}":"يُعاد الضبط عند منتصف الليل · {a}/{b}",
 "Mẹo:":"نصيحة:",
+"Nguồn":"المصدر",
 "Sắp xếp: dễ quên trước":"الترتيب: مدى التذكّر",
 "Sắp xếp: mới thêm":"الترتيب: الأحدث",
 "Thu gọn":"عرض أقل",

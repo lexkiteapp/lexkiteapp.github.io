@@ -1,6 +1,7 @@
 /* UI ja – ux1b (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {
 "Bộ từ":"セット",
+"Chia sẻ":"シェア",
 "Chưa mở khóa":"未獲得",
 "Còn {n} XP":"あと {n} XP",
 "Cô {name} • Lexkite":"{name}先生 • Lexkite",
@@ -8,6 +9,7 @@
 "Loại lỗi":"間違いの種類",
 "Làm mới lúc 0 giờ · {a}/{b}":"深夜0時にリセット · {a}/{b}",
 "Mẹo:":"ヒント：",
+"Nguồn":"出典",
 "Sắp xếp: dễ quên trước":"並び順：記憶保持率",
 "Sắp xếp: mới thêm":"並び順：新しい順",
 "Thu gọn":"閉じる",

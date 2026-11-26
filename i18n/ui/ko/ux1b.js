@@ -1,6 +1,7 @@
 /* UI ko – ux1b (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
 "Bộ từ":"세트",
+"Chia sẻ":"공유",
 "Chưa mở khóa":"잠김",
 "Còn {n} XP":"{n} XP 남음",
 "Cô {name} • Lexkite":"{name} 선생님 • Lexkite",
@@ -8,6 +9,7 @@
 "Loại lỗi":"오답 유형",
 "Làm mới lúc 0 giờ · {a}/{b}":"자정에 초기화 · {a}/{b}",
 "Mẹo:":"팁:",
+"Nguồn":"출처",
 "Sắp xếp: dễ quên trước":"정렬: 기억 유지율",
 "Sắp xếp: mới thêm":"정렬: 최신순",
 "Thu gọn":"접기",

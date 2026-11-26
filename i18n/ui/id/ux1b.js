@@ -1,6 +1,7 @@
 /* UI id – ux1b (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {
 "Bộ từ":"Set",
+"Chia sẻ":"Bagikan",
 "Chưa mở khóa":"Terkunci",
 "Còn {n} XP":"{n} XP lagi",
 "Cô {name} • Lexkite":"Guru {name} • Lexkite",
@@ -8,6 +9,7 @@
 "Loại lỗi":"Jenis kesalahan",
 "Làm mới lúc 0 giờ · {a}/{b}":"Diatur ulang tengah malam · {a}/{b}",
 "Mẹo:":"Tips:",
+"Nguồn":"Sumber",
 "Sắp xếp: dễ quên trước":"Urutkan: retensi",
 "Sắp xếp: mới thêm":"Urutkan: terbaru",
 "Thu gọn":"Tampilkan lebih sedikit",

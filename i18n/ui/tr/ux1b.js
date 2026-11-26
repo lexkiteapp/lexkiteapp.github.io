@@ -1,6 +1,7 @@
 /* UI tr – ux1b (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {
 "Bộ từ":"Set",
+"Chia sẻ":"Paylaş",
 "Chưa mở khóa":"Kilitli",
 "Còn {n} XP":"{n} XP kaldı",
 "Cô {name} • Lexkite":"Öğretmen {name} • Lexkite",
@@ -8,6 +9,7 @@
 "Loại lỗi":"Hata türleri",
 "Làm mới lúc 0 giờ · {a}/{b}":"Gece yarısı sıfırlanır · {a}/{b}",
 "Mẹo:":"İpucu:",
+"Nguồn":"Kaynak",
 "Sắp xếp: dễ quên trước":"Sırala: hatırlama",
 "Sắp xếp: mới thêm":"Sırala: en yeni",
 "Thu gọn":"Daha az göster",

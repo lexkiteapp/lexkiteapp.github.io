@@ -1,6 +1,7 @@
 /* UI th – ux1b (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {
 "Bộ từ":"ชุดคำ",
+"Chia sẻ":"แชร์",
 "Chưa mở khóa":"ยังล็อกอยู่",
 "Còn {n} XP":"อีก {n} XP",
 "Cô {name} • Lexkite":"ครู{name} • Lexkite",
@@ -8,6 +9,7 @@
 "Loại lỗi":"ประเภทข้อผิดพลาด",
 "Làm mới lúc 0 giờ · {a}/{b}":"รีเซ็ตตอนเที่ยงคืน · {a}/{b}",
 "Mẹo:":"เคล็ดลับ:",
+"Nguồn":"แหล่งที่มา",
 "Sắp xếp: dễ quên trước":"เรียง: การจดจำ",
 "Sắp xếp: mới thêm":"เรียง: ล่าสุด",
 "Thu gọn":"แสดงน้อยลง",
