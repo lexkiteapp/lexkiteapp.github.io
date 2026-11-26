@@ -45,7 +45,7 @@ export async function signedPack(env, ref, name, ttl = 2 * 3600) {
 }
 /** URL ký cho 1 phần (video|cover) của 1 item: Drive nếu có item.drive, nếu không repo riêng khi có token; null = không phát được. */
 export async function signed(env, it, k, ttl = 3600) {
-  const path = it && it[k], exp = expOf(ttl), c = driveOn(env) ? driveRef(it, k) : null;
+  const card = /^card[1-9]\d?$/.test(k), path = card ? ((it && it.cards) || [])[+k.slice(4) - 1] : it && it[k], exp = expOf(ttl), c = driveOn(env) ? driveRef(it, k) : null; // 'card1'… = ảnh carousel (JPEG, item.cards[i]; drive.card1…) – URL ký cho Meta tải
   if (c && okPath(path)) {
     const kk = k === 'video' ? 'v' : 'c', n = path.split('/').pop().replace(/\.(mp4|jpg)$/, '');
     return `/api/admin-shorts?f=${c.fileId}&d=${c.driveId}&k=${kk}&n=${n}&e=${exp}&s=${await sigOf(env, `drive|${c.fileId}|${c.driveId}|${kk}|${n}|${exp}`)}`;

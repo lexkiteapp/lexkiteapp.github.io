@@ -152,7 +152,10 @@ public final class AppServices {
     /// C11: settings.theme = auto | light | dark (same key as web)
     public var theme = "auto"
     public var colorScheme: ColorScheme? { theme == "light" ? .light : theme == "dark" ? .dark : nil }
+    /// P11: haptics switch (device only, like the UI language; on by default)
+    public var haptics = UserDefaults.standard.object(forKey: AppServices.hapticsKey) as? Bool ?? true
     public static let langKey = "lk.uiLang"
+    public static let themeKey = "lk.theme", hapticsKey = "lk.haptics"
     public var accountSwitchPrompt: (old: String, new: String, answer: CheckedContinuation<Bool, Never>)?
 
     public init(router: AppRouter? = nil, auth: AuthModel, today: TodayModel, repo: LKRepository?, engine: SyncEngine?, crash: LKCrash?,
@@ -171,7 +174,7 @@ public final class AppServices {
     private func loadStoredPreferences() async {
         guard let repo else { return }
         let settings = try? await repo.snapshot().settings
-        let th = settings?["theme"]?.string ?? "auto"
+        let th = UserDefaults.standard.string(forKey: Self.themeKey) ?? settings?["theme"]?.string ?? "auto"   // P11: this device's choice first, the 1.x synced value as fallback
         theme = ["light", "dark"].contains(th) ? th : "auto"
         if UserDefaults.standard.string(forKey: Self.langKey) == nil, let l = await repo.legacy("ls:vb.uiLang")?.string, L10nLangs.all.contains(l) {
             UserDefaults.standard.set(l, forKey: Self.langKey); applyLang(l)
@@ -200,6 +203,12 @@ public final class AppServices {
         guard L10nLangs.all.contains(l) else { return }
         UserDefaults.standard.set(l, forKey: Self.langKey); applyLang(l)
     }
+    /// P11: theme = auto | light | dark, this device only (the web key is read once as the fallback in `loadStoredPreferences`).
+    public func setTheme(_ th: String) {
+        theme = ["light", "dark"].contains(th) ? th : "auto"
+        UserDefaults.standard.set(theme, forKey: Self.themeKey)
+    }
+    public func setHaptics(_ on: Bool) { haptics = on; UserDefaults.standard.set(on, forKey: Self.hapticsKey) }
     func applyLang(_ l: String) { guard l != uiLang || l10n.lang != l else { return }; uiLang = l; l10n = L10n(lang: l) }
 
     /// The real app wiring: SwiftData on disk, D1/Drive sync, given auth + crash implementations (Firebase from the app target).

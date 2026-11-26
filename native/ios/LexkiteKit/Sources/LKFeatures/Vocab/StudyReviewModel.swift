@@ -74,6 +74,7 @@ final class StudyReviewModel {
     func load(query q: ReviewEngine.Query? = nil) async {
         if let q { query = q }
         bundle = await core.data.load()
+        core.clock.retention = LearnSettings.from(bundle.settings).retention
         let now = core.now()
         let (start, st) = ReviewEngine.open(cards: bundle.cards, settings: bundle.settings, stats: bundle.stats, seen: bundle.seen, query: query, previous: state?.session, now: now, clock: core.clock)
         state = st; summary = nil
@@ -117,7 +118,7 @@ final class StudyReviewModel {
     func flip() {
         guard phase == .card, !flipped else { return }
         flipped = true
-        if (reverse || bundle.settings["autoSpeak"]?.truthy == true) && autoPlay { speak() }
+        if (reverse || LearnSettings.from(bundle.settings).autoSpeak) && autoPlay { speak() }
     }
     func toggleReverse() {
         guard var st = state else { return }

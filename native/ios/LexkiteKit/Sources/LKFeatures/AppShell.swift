@@ -23,6 +23,7 @@ public struct RootView: View {
             .environment(\.l10n, l10n)
             .environment(\.locale, Locale(identifier: l10n.lang))
             .environment(\.layoutDirection, l10n.isRTL ? .rightToLeft : .leftToRight)
+            .environment(\.lkHapticsEnabled, services.haptics)
             .preferredColorScheme(theme)
             .onOpenURL { if !handleURL($0) { services.router.open(url: $0) } }
             .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { a in if let u = a.webpageURL { services.router.open(url: u) } }
@@ -122,6 +123,7 @@ struct InnerScreen: View {
         else if DictRoutes.handlesInner(route.name) { DictInnerScreen(route: route) }
         else if SkillsRoutes.handlesInner(route.name) { SkillsInnerScreen(route: route) }   // M4 P06: listening · listen · reading · read
         else if SpeakRoutes.handlesInner(route.name) { SpeakInnerScreen(route: route) }   // M4 P07: speak · speaking · pron · rtype · roleplay
+        else if route.name == "settings" { SettingsRoute(route: route) }   // P11: index + look · study · sound · data · help
         else if WriteRoutes.handlesInner(route.name) { WriteInnerScreen(route: route) }   // M4 P09: write · task1 · qstats · criteria · fix · grammar · method · style · confidence
         else { placeholder }
     }
