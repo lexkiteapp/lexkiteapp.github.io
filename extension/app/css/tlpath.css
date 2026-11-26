@@ -83,3 +83,5 @@
 .tp-ask-b{display:grid;gap:var(--sp-2)}
 .tp-goal{margin:var(--sp-2) 0 var(--sp-3);font-size:var(--fs-sm);line-height:1.4;font-weight:600}
 .tp-sg a.tp-btn{justify-self:start;text-decoration:none;display:inline-flex;align-items:center}
+.tp-sgt{font-size:var(--fs-xs);font-weight:800;color:rgb(var(--st-on-surface-variant))}.tp-sgt.ok{color:rgb(var(--st-secondary))}
+.tp-rev h3{margin:0 0 var(--sp-1);font-size:var(--fs-base);font-weight:800}.tp-rev p{margin:0 0 var(--sp-3);font-size:var(--fs-sm);color:rgb(var(--st-on-surface-variant))}.tp-rev a.tp-btn{text-decoration:none;display:inline-flex;align-items:center}
