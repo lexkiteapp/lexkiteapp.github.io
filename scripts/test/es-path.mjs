@@ -49,6 +49,14 @@ const WKS = Math.ceil(P.days.length / 7), DAYK = 'lk.es.day', WKK = 'lk.es.wk';
 ok($('.tp .tp-ring[role=progressbar]') && $('.tp-hero h1') && $('.tp-today a.tp-go[href="#/practice/esd?d=1"]') && $$('.tp-today li').length >= 2, 'hub: hero có vòng tiến độ, thẻ Hôm nay liệt kê các phần + nút Bắt đầu ngày 1');
 ok($$('details.tp-w').length === WKS && $$('details.tp-w[open]').length === 1 && $$('.tp-d').length === 7 && !$('a.chip[href*="esd?d="]') && !$$('details.tp-w:not([open]) .tp-d').length, `hub: ${WKS} tuần, chỉ tuần hiện tại mở (7 ngày), tuần sau chưa vẽ hàng, không còn lưới ô số`);
 ok($('.tp-d.today[aria-current=step]') && $$('.tp-d.lock').length === 6 && $$('.tp-d.done').length === 0 && $('.tp-d.today .tp-st').textContent.includes('▶') && $('.tp-d.lock .tp-st').textContent.includes('🔒'), 'hub: trạng thái hôm nay / chưa tới (mờ + khoá)');
+// Đợt 3: thẻ Ôn tập (số từ đến hạn của ngôn ngữ này → #/review) + kết quả kiểm tra cấp lấy từ điểm đề thi đã lưu (≥ 70 = đạt)
+{ await tick(40); const rv = $('#tpRev');
+  ok(rv && !rv.hidden && /\S/.test(rv.textContent) && !/\{n\}/.test(rv.textContent), 'hub: thẻ Ôn tập hiện (chưa có từ đến hạn → "không có gì để ôn")');
+  w.localStorage.setItem('lk.es.x', JSON.stringify({ A1: { 1: { rd: 55, ls: 85 } } })); await App.esday(); await tick(60);
+  ok($('.tp-stg li.on .tp-sgt.ok') && !$$('.tp-stg li:not(.on) .tp-sgt').length, 'hub: điểm đề thi A1 85 ≥ 70 → chặng A1 hiện "Đạt"');
+  w.localStorage.setItem('lk.es.x', JSON.stringify({ A1: { 1: { rd: 55 } } })); await App.esday(); await tick(60);
+  ok($('.tp-stg li.on .tp-sgt') && !$('.tp-stg li.on .tp-sgt.ok') && /55/.test($('.tp-stg li.on .tp-sgt').textContent), 'hub: điểm 55 < 70 → hiện điểm cao nhất, chưa đạt');
+  w.localStorage.removeItem('lk.es.x'); await App.esday(); await tick(60); }
 // Đợt 2: mỗi ngày có mục tiêu "làm được gì" (cando.json, 15 ngôn ngữ) hiện ở thẻ Hôm nay; thẻ chặng có nút kiểm tra cấp (đề DELE/SIELE sẵn có)
 { const cd = JSON.parse(fs.readFileSync('content/target/es/cando.json', 'utf8')), LG = Object.keys(JSON.parse(fs.readFileSync('content/target/es/path-ui.json', 'utf8')));
   ok(LG.length === 15 && LG.every(l => P.days.every((d, n) => (cd[l] || {})[pts[n].id] && cd[l][pts[n].id].length <= 160)), 'cando.json: mục tiêu mỗi ngày đủ 15 ngôn ngữ, ≤ 160 ký tự');

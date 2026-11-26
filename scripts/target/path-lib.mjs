@@ -7,7 +7,7 @@ import { createHash } from 'node:crypto';
 import { readJSON, coreFiles } from './lib.mjs';
 
 const ES = { tl: 'es', D: 'content/target/es/', G: 'ESX' }, LANGS = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
-export const DAY_UI = 'ti sub dy w g p c go pr mk fin td sv wk mn ok lk rv rw cl cd sk wt nw xw xa xd sg1 sg2 sg3 sg4 sc1 sc2 sc3 sc4 sd sn sgo sh ob o1 o2 o3 stt'.split(' '), CALL_EVERY = 5, WORDS_MAX = 8; // ≤ 8 từ mới/ngày (kho 3.000 không dồn 24 từ/ngày); phần còn lại học qua Ôn tập
+export const DAY_UI = 'ti sub dy w g p c go pr mk fin td sv wk mn ok lk rv rw cl cd sk wt nw xw xa xd sg1 sg2 sg3 sg4 sc1 sc2 sc3 sc4 sd sn sgo sh ob o1 o2 o3 stt stp stk rvn rv0 rvg'.split(' '), CALL_EVERY = 5, WORDS_MAX = 8; // ≤ 8 từ mới/ngày (kho 3.000 không dồn 24 từ/ngày); phần còn lại học qua Ôn tập
 
 /** Từ học theo thứ tự: seed (A1 nền) trước, rồi lô lõi đã duyệt theo rank. Lô chưa duyệt không vào lộ trình. */
 export function pathWords(T = ES) {
