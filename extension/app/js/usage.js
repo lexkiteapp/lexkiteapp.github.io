@@ -56,7 +56,7 @@
 .us-mis{display:grid;gap:.5rem}.us-mis>div{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--again);border-radius:0 14px 14px 0;padding:.6rem .9rem}
 .us-mis .bad{color:var(--again-text);font-weight:800}.us-mis .good{color:var(--good-text);font-weight:800}.us-mis s{text-decoration-thickness:2px}
 .us-chips{display:flex;flex-wrap:wrap;gap:.4rem}.us-chips a,.us-chips button{font:inherit;font-size:.9rem;padding:.35rem .8rem;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--text);font-weight:600;cursor:pointer;min-height: var(--tap, 36px);display:inline-flex;align-items:center;gap:.3rem;transition:border-color .15s,transform .15s}
-.us-chips a:hover,.us-chips button:hover{border-color:var(--primary);transform:translateY(-1px)}.us-chips small{color:var(--muted);font-weight:600}
+.us-chips a:hover,.us-chips button:hover{background:var(--surface-3);transform:translateY(-1px)}.us-chips small{color:var(--muted);font-weight:600}
 .us-reg{display:grid;gap:.5rem}.us-reg>div{display:flex;gap:.6rem;align-items:flex-start}
 .us-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.7rem;margin-top:1rem}
 .us-cat{display:flex;flex-direction:column;gap:.35rem;padding:1rem;border-radius:18px;border:1px solid var(--line);background:var(--surface);color:var(--text);transition:transform .15s,box-shadow .15s,border-color .15s}
