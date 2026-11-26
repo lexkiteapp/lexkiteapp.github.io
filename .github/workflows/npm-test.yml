@@ -36,8 +36,11 @@ jobs:
       # nguồn web/js/st/* mà không biên dịch lại CSS lọt vào main, làm diff-shard đỏ ở PR khác. Chạy ở làn nhanh, mọi PR (~10 s).
       - name: CSS Stitch khớp mẫu (biên dịch lại, đỏ nếu lệch)
         run: npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 && node scripts/build-stitch-css.mjs --check
+  # 24/11 (điều phối, hàng chờ 236 lượt): 8 shard CHỜ `fast` xanh (lint/chính sách ~2 phút) – `fast` đỏ thì 8 job shard skipped, không đốt 8 runner cho PR đã đỏ (mass push);
+  # PR xanh chậm thêm ~2 phút (fast ngắn hơn hàng chờ p50 6 phút); job tổng `npm test` vẫn đỏ vì shard=skipped.
   shard:
     name: npm test shard ${{ matrix.shard }}/8
+    needs: fast
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
