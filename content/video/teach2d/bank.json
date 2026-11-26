@@ -15085,6 +15085,30 @@
    ],
    "tries": 0
   },
+  "t2a_guess_celebrity": {
+   "run": "45895700263",
+   "at": "2026-11-26T21:11Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
+  "t2a_guess_daughter": {
+   "run": "45895700263",
+   "at": "2026-11-26T21:11Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
   "t2a_prog_breakfast_1": {
    "run": "45533215258",
    "at": "2026-11-25T08:22Z",
@@ -15529,6 +15553,42 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_review_caller": {
+   "run": "45895700263",
+   "at": "2026-11-26T21:11Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
+  "t2a_review_champion": {
+   "run": "45895700263",
+   "at": "2026-11-26T21:11Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
+  "t2a_review_clause": {
+   "run": "45895700263",
+   "at": "2026-11-26T21:11Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
   "t2a_stress_artistic": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",
@@ -15879,6 +15939,18 @@
     "topic"
    ],
    "tries": 0
+  },
+  "t2a_usuk_trash": {
+   "run": "45895700263",
+   "at": "2026-11-26T21:11Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
   },
   "t2a_usuk_vacation": {
    "run": "42534524390",
