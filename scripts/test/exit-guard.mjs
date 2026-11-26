@@ -172,7 +172,7 @@ const popOnly = async (E, h) => { E.w.History.prototype.replaceState.call(E.w.hi
       P.home = () => { E.w.location.replace(hub); return '<p>…</p>'; }; // ux1.map: Hôm nay của tl → đẩy về lộ trình ngày (location.replace)
       P.practice = () => (new RegExp('^#/practice/' + tl + 'd').test(E.w.location.hash)
         ? '<h1>Lộ trình ngày</h1><a href="#/practice/' + tl + '?lv=A1&p=x">Bắt đầu</a>'
-        : '<div class="study-top"><a class="icon-btn" href="#/home" aria-label="Quit lesson"><svg><use href="#i-x"/></svg></a></div><button class="option" id="opt">hola</button>');
+        : '<div class="study-top"><a class="icon-btn" href="' + (tl === 'es' ? '#/practice' : '#/home') + '" aria-label="Quit lesson"><svg><use href="#i-x"/></svg></a></div><button class="option" id="opt">hola</button>');
       return E;
     };
     { // hub → bài luyện → X → về hub (không vòng, không kẹt)
