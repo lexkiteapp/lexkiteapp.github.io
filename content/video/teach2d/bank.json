@@ -16993,6 +16993,36 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_review_love": {
+   "run": "46014330091",
+   "at": "2026-11-27T15:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "9b7b1f2f865aeccb",
+    "wide": "a7972f24a5cf40e7"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_man": {
+   "run": "46014330091",
+   "at": "2026-11-27T15:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "25347d7e449b8ee8",
+    "wide": "a64459e57e1194d6"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_review_mix": {
    "run": "45904434813",
    "at": "2026-11-26T22:29Z",
@@ -17004,6 +17034,36 @@
    ],
    "state": "failed",
    "tries": 2
+  },
+  "t2a_review_model": {
+   "run": "46014330091",
+   "at": "2026-11-27T15:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "34552fd48d03bab7",
+    "wide": "3a9054bd8ab398b0"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_mouse": {
+   "run": "46014330091",
+   "at": "2026-11-27T15:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "e05c3d55a37d09cd",
+    "wide": "26ef96afa0ff27f1"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
   },
   "t2a_review_narrative": {
    "run": "45904434813",
@@ -17028,6 +17088,66 @@
    ],
    "state": "failed",
    "tries": 2
+  },
+  "t2a_review_need": {
+   "run": "46014330091",
+   "at": "2026-11-27T15:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "ab0cfc9878189e25",
+    "wide": "969dc74bd5408255"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_office": {
+   "run": "46014330091",
+   "at": "2026-11-27T15:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "140e73e318a4d9d6",
+    "wide": "3dfe4115ae19dfb1"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_orange": {
+   "run": "46014330091",
+   "at": "2026-11-27T15:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a26de9802ed6c5f7",
+    "wide": "f61f9ec44ba80e58"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_paint": {
+   "run": "46014330091",
+   "at": "2026-11-27T15:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a06ab84c512e284e",
+    "wide": "f8781eb39ccc597d"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
   },
   "t2a_review_participate": {
    "run": "45904434813",
