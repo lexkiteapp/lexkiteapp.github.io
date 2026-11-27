@@ -35,6 +35,8 @@ const packs = Object.fromEntries(LANGS.filter(l => l !== 'vi' && l !== 'en').map
 // bằng CHÍNH VImg.pic (web/js/vocab-img.js) → cùng markup với app; chưa duyệt → trang giữ nguyên từng byte (docs/LEXICON.md § Ảnh minh hoạ)
 const IMG = fs.existsSync('content/lexicon/img.json') ? J('content/lexicon/img.json') : null;
 const VPIC = IMG && IMG.style && IMG.style.approved === true && Object.keys(IMG.items || {}).length ? (() => { const ctx = {}; ctx.self = ctx; vm.runInNewContext(fs.readFileSync('web/js/vocab-img.js', 'utf8'), ctx); return ctx.VImg.pic; })() : null;
+// Ảnh của CHÍNH từ (cùng khoá + ưu tiên photo như vimgOf) → {url,alt}: og:image, ImageObject, sitemap ảnh. Chưa duyệt phong cách / không có ảnh → null (trang giữ og-default).
+export const imgOf = e => { if (!VPIC) return null; const it = IMG.items[String(e.word).toLowerCase() + '#' + gpos(e.pos)]; if (!it) return null; const h = it.photo && it.photo.h && it.photo.src ? it.photo.h : it.h; return h && /^[0-9a-f]{16}$/.test(h) ? { url: IMG.base + h + '.webp', alt: it.alt || String(e.word) } : null; };
 const vimgOf = (e, alt, label) => (VPIC ? seoPic(IMG, String(e.word).toLowerCase() + '#' + gpos(e.pos), alt, label, VPIC) : ''); // ảnh chụp (photo) nếu có, không thì h – scripts/lexicon/img.mjs
 const notes = {}; for (const f of fs.readdirSync('web/js/notes').filter(f => f.endsWith('.json'))) Object.assign(notes, J('web/js/notes/' + f));
 // Ghi chú dùng từ + ví dụ có bản dịch do người/AI soạn rồi chấm độc lập (content/dict/enrich/<lang>.json = { từ: { n, x: [[câu EN, bản dịch]] } }; cổng scripts/test/dict-enrich.mjs).
