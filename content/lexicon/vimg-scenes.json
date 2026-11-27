@@ -5862,6 +5862,18 @@
    "tries": 3,
    "refix": 1
   },
+  "arthralgia#n": {
+   "ex": "Adverse effects often include arthralgia and fluid retention.",
+   "ps": "a woman sits on a chair, gripping her knee with a grimace, her other hand on her hip",
+   "sc": "a woman sits on a chair, gripping her knee with a grimace, her other hand on her hip",
+   "check": "Is the person showing pain in a joint?",
+   "cap": "a woman holding her knee with a painful expression",
+   "key": "a hand gripping a knee; a grimacing facial expression",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
   "article#n": {
    "ex": "I read an interesting article about sleep.",
    "ps": "a person sits at a desk, viewing a tablet from behind, focused on the screen",
@@ -9722,6 +9734,18 @@
    "check": "Is there a rectangular travel card with a barcode being held by a person?",
    "cap": "a person holding a travel card with a barcode at a gate",
    "key": "a rectangular boarding pass with a black barcode; the man holding it",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
+  "boardinghouse#n": {
+   "ex": "Some of the other children ran hotels or boardinghouses.",
+   "ps": "a small two-story house with a porch, a woman standing at the door holding a plate of food",
+   "sc": "a small two-story house with a porch, a woman standing at the door holding a plate of food",
+   "check": "Is there a house where a person offers a meal to a guest?",
+   "cap": "a woman holding a plate at the doorway of a house",
+   "key": "a woman holding a plate of food; the house with a visible porch",
    "who": 1,
    "draw": 5,
    "v": "e6",
@@ -30630,8 +30654,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-24T01:17:31.135Z"
+   "e4bad": 11,
+   "badAt": "2026-11-27T04:32:28.842Z"
   },
   "email#v": {
    "ex": "They didn't email me today.",
@@ -51557,6 +51581,20 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "lawfulness#n": {
+   "ex": "Initially, the Soviets tried to give the executions an appearance of lawfulness.",
+   "ps": "a police officer raises a hand to stop traffic while a driver in a car stops behind the officer",
+   "sc": "a police officer raises a hand to stop traffic while a driver in a car stops behind the officer",
+   "check": "Is the driver stopping because of the police officer's hand signal?",
+   "cap": "a police officer signaling stop and a car halted behind",
+   "key": "police officer raising hand to signal stop; car stopped behind the officer",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "lawmaker#n": {
    "ex": "Lawmakers therefore need to consider cost of compliance.",
    "ps": "a man in a suit stands at a plain desk, raising a wooden gavel",
@@ -57664,6 +57702,18 @@
    "by": "openai/gpt-oss-120b",
    "tries": 2
   },
+  "misstate#v": {
+   "ex": "Some misstate the maximum amount of the tax credit.",
+   "ps": "a man at a podium speaks while a large blank sheet with a big red cross mark hovers nearby",
+   "sc": "a man at a podium speaks while a large blank sheet with a big red cross mark hovers nearby",
+   "check": "Is the speaker's statement shown as wrong by a red cross on a sheet?",
+   "cap": "a speaker with a red cross indicating an incorrect statement",
+   "key": "a large blank sheet with a big red cross mark; the man's hand near his mouth",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
   "misstatement#n": {
    "ex": "The impact of misstatement must be considered when determining an acceptable audit risk.",
    "ps": "a man holds a blank sheet with a big red cross, another person looks confused",
@@ -63200,6 +63250,20 @@
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "orthodontics#n": {
+   "ex": "The faculty also offers an Advanced Diploma in Orthodontics.",
+   "ps": "a dentist holds pliers and tightens a metal brace on a child's front tooth",
+   "sc": "a dentist holds pliers and tightens a metal brace on a child's front tooth",
+   "check": "Is a person using pliers to adjust a metal brace on a tooth?",
+   "cap": "a dentist adjusting metal braces on a child's tooth",
+   "key": "dental pliers in hand; metal braces on a tooth",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "orthopedics#n": {
    "ex": "He works in orthopedics, mainly on knee replacements.",
    "ps": "a doctor holds a large bone while a patient wears a leg cast",
@@ -63890,6 +63954,20 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3
+  },
+  "overemphasis#n": {
+   "ex": "An overemphasis on one side of the equation can threaten the entire undertaking.",
+   "ps": "a man stands by a balance scale with many boxes on the left pan and none on the right",
+   "sc": "a man stands by a balance scale with many boxes on the left pan and none on the right",
+   "check": "Is there a scale heavily loaded on one side while the other side is empty?",
+   "cap": "a man with a scale loaded on one side only",
+   "key": "many boxes on left pan; empty right pan",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "overemphasize#v": {
    "ex": "The value of education can't be overemphasized.",
@@ -74454,8 +74532,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "reactance#n": {
-   "e4bad": 3,
-   "badAt": "2026-11-22T01:36:05.142Z"
+   "e4bad": 4,
+   "badAt": "2026-11-27T04:32:23.879Z"
   },
   "reactant#n": {
    "ex": "Two reactants yield two products.",
@@ -74929,6 +75007,10 @@
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b"
+  },
+  "recalculation#n": {
+   "e4bad": 1,
+   "badAt": "2026-11-27T04:32:28.843Z"
   },
   "recall#v": {
    "ex": "I can't recall the name of the hotel.",
@@ -86365,6 +86447,19 @@
    "tries": 3,
    "refix": 1
   },
+  "squalor#n": {
+   "ex": "Father and daughter have since resided at home in near isolation and increasing squalor.",
+   "ps": "a woman sits on a cracked chair in a dim room surrounded by piles of dirty clothes and broken dishes",
+   "sc": "a woman sits on a cracked chair in a dim room surrounded by piles of dirty clothes and broken dishes",
+   "check": "Is the scene showing extreme dirtiness and neglect?",
+   "cap": "a woman in a filthy dim room with broken furniture",
+   "key": "piles of dirty clothes and broken dishes; cracked chair in a dim room",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
+  },
   "squander#v": {
    "ex": "He squandered all his money.",
    "ps": "a man tosses a handful of gold coins into a large burning pit",
@@ -97432,6 +97527,19 @@
    "check": "Is the person showing pain in her lower belly area?",
    "cap": "a woman clutching her lower stomach with a pained expression",
    "key": "woman's hand on lower abdomen; her pained facial expression",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
+  },
+  "vaginitis#n": {
+   "ex": "Vaginitis may also be due to a yeast infection.",
+   "ps": "a woman holds her lower abdomen, wincing, with a red swollen area on her belly",
+   "sc": "a woman holds her lower abdomen, wincing, with a red swollen area on her belly",
+   "check": "Is the woman showing discomfort with a visible red swelling on her lower belly?",
+   "cap": "a woman wincing while holding a painful lower belly",
+   "key": "a red swollen area on lower abdomen; the woman's pained facial expression",
    "who": 1,
    "draw": 4,
    "v": "e6",

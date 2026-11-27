@@ -86,7 +86,7 @@
 "Đang nghe bạn nói…":"Ich höre zu…",
 "Đáp án của bạn":"Deine Antwort",
 "Đây là gì?":"Was ist das?",
-"Đã ghép":"Matched",
+"Đã ghép":"Passend",
 "Đã sao chép":"Kopiert",
 "Đúng rồi!":"Richtig!",
 "Định nghĩa:":"Definition:",

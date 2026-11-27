@@ -275,6 +275,16 @@
    "ayuda"
   ],
   [
+   "confine",
+   "confine",
+   "confinar"
+  ],
+  [
+   "sustain",
+   "sustain",
+   "sostener"
+  ],
+  [
    "abandon",
    "abandon",
    "abandonar"
@@ -353,16 +363,6 @@
    "bond",
    "bond",
    "enlace"
-  ],
-  [
-   "circumstance",
-   "circumstance",
-   "circunstancia"
-  ],
-  [
-   "clarify",
-   "clarify",
-   "aclarar"
   ]
  ],
  "pt": [
@@ -410,6 +410,21 @@
    "voluntary",
    "voluntary",
    "voluntário"
+  ],
+  [
+   "bias",
+   "bias",
+   "viés"
+  ],
+  [
+   "comprise",
+   "comprise",
+   "compreender"
+  ],
+  [
+   "confine",
+   "confine",
+   "limitar"
   ],
   [
    "tension",
@@ -470,21 +485,6 @@
    "apparent",
    "apparent",
    "aparente"
-  ],
-  [
-   "appropriate",
-   "appropriate",
-   "apropriado"
-  ],
-  [
-   "approximate",
-   "approximate",
-   "aproximado"
-  ],
-  [
-   "assume",
-   "assume",
-   "assumir"
   ]
  ],
  "fr": [
@@ -733,6 +733,11 @@
  ],
  "id": [
   [
+   "confine",
+   "confine",
+   "membatasi"
+  ],
+  [
    "visible",
    "visible",
    "terlihat"
@@ -846,11 +851,6 @@
    "compensate",
    "compensate",
    "mengimbangi"
-  ],
-  [
-   "complement",
-   "complement",
-   "melengkapi"
   ]
  ],
  "th": [
@@ -863,6 +863,11 @@
    "format",
    "format",
    "รูป"
+  ],
+  [
+   "confine",
+   "confine",
+   "จำกัด"
   ],
   [
    "abandon",
@@ -968,11 +973,6 @@
    "commodity",
    "commodity",
    "สินค้า"
-  ],
-  [
-   "compensate",
-   "compensate",
-   "ชดเชย"
   ]
  ],
  "zh": [
@@ -1353,6 +1353,11 @@
    "पुस्तक का फ़र्मा"
   ],
   [
+   "confine",
+   "confine",
+   "प्रतिबंधित करना"
+  ],
+  [
    "visible",
    "visible",
    "दिखाई देने वाला"
@@ -1456,14 +1461,14 @@
    "coincide",
    "coincide",
    "मेल खाना"
-  ],
-  [
-   "commodity",
-   "commodity",
-   "वस्तु"
   ]
  ],
  "ar": [
+  [
+   "format",
+   "format",
+   "شكل"
+  ],
   [
    "insight",
    "insight",
@@ -1578,11 +1583,6 @@
    "coincide",
    "coincide",
    "تزامن"
-  ],
-  [
-   "commodity",
-   "commodity",
-   "سلعة"
   ]
  ],
  "ru": [
@@ -1590,6 +1590,11 @@
    "format",
    "format",
    "формат"
+  ],
+  [
+   "confine",
+   "confine",
+   "ограничивать"
   ],
   [
    "relevant",
@@ -1700,11 +1705,6 @@
    "coincide",
    "coincide",
    "совпадать"
-  ],
-  [
-   "commodity",
-   "commodity",
-   "товар"
   ]
  ],
  "tr": [
@@ -1712,6 +1712,11 @@
    "format",
    "format",
    "biçim"
+  ],
+  [
+   "confine",
+   "confine",
+   "sınırlamak"
   ],
   [
    "visible",
@@ -1822,11 +1827,6 @@
    "coincide",
    "coincide",
    "rastlamak"
-  ],
-  [
-   "commodity",
-   "commodity",
-   "emtia"
   ]
  ]
 }

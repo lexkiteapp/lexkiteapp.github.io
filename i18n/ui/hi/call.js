@@ -55,6 +55,7 @@
 "Nhận dạng ngay trên máy – âm thanh không rời khỏi máy bạn.":"वाणी आपके डिवाइस पर पहचानी जाती है - आपका ऑडियो इसे कभी नहीं छोड़ता।",
 "Nhận dạng trên máy bằng Whisper (tải ~40 MB một lần, nên dùng Wi-Fi)":"व्हिस्पर के साथ अपने डिवाइस पर पहचानें (एक बार ~40 एमबी डाउनलोड, वाई-फाई अनुशंसित)",
 "Nhận xét độ trôi chảy":"धाराप्रवाह पर टिप्पणी",
+"Nói chậm hơn":"धीरे बोलना",
 "Sau can/could/should/will không dùng “to”.":"can/could/should/will के बाद \"to\" का प्रयोग न करें।",
 "Sau want/need/would like, động từ tiếp theo cần “to”.":"want/need/would like के बाद, अगली क्रिया के लिए \"to\" की आवश्यकता होती है।",
 "TOEIC: dời lịch họp với khách hàng":"TOEIC: क्लाइंट मीटिंग को पुनर्निर्धारित करना",

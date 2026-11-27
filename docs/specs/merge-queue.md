@@ -26,6 +26,11 @@ Trước khi chủ bấm: workflow đã có sẵn, không ảnh hưởng gì (ch
 - `pr-unconflict` vẫn chạy cho PR dirty (hàng đợi chỉ nhận PR gộp sạch).
 - Đo: số lần PR thành dirty / update-branch trong 24 giờ (báo cáo chống xung đột 11/11), số lượt main đỏ sau gộp.
 
+## Sau khi bật – lệnh và stack (26/11)
+- Xếp hàng: `gh pr merge N --squash --auto`, hoặc GraphQL `mutation { enqueuePullRequest(input: { pullRequestId: "<node_id>" }) { mergeQueueEntry { position } } }` (node_id: `gh api repos/lexkiteapp/lexkiteapp.github.io/pulls/N --jq .node_id`; `jump: true` = chen đầu hàng, chỉ main-red-fix). `PUT /pulls/N/merge` bị ruleset từ chối → sửa `early-merge.py`/`prwatch.mjs` gọi enqueue.
+- Gác: ci-policy luật 20 – phải có đúng 1 workflow `merge_group` ghi từng status của ruleset (`REQUIRED_CONTEXTS` trong `scripts/test/ci-policy.mjs`), gom lượt theo `merge_group.head_sha`; workflow khác nghe `merge_group` phải ghi lý do.
+- Stacked PR (GitHub GA 06/10/2026, github.blog changelog 2026-10-06): PR phụ thuộc nhau tạo thành stack (extension `gh stack`, xem `gh stack --help`) thay cho PATCH base tay. Main đi tiếp → **Rebase stack** (giữ approvals, commit ký lại, tác giả giữ nguyên); gộp PR dưới cùng thì stack tự retarget; cả stack vào hàng như MỘT merge group (squash: một commit/PR). Auto-merge cho stack đang triển khai dần – thử một stack nhỏ trước khi dựa vào. Bypass (khoá deploy bot) áp dụng cho PR thấp nhất chưa gộp.
+
 ## Tệp sinh đang commit – cách gỡ khi PR dirty (`scripts/pr-unconflict.mjs`)
 | Tệp | Sinh bởi | Gỡ |
 |---|---|---|
