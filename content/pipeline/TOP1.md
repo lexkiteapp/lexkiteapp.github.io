@@ -33,7 +33,7 @@ Gộp từ nguồn đã có, không quét lại – cách đo: [docs/TOP1-SCORE.
 | 3 | ui | SSIM vs Stitch: 38.6 → 100 | +3.1 | 5 | 0.6 | [stitch-diff.json](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/scripts/test/stitch-diff.json) |
 | 4 | a11y | high axe-serious: `link-in-text-block a[href$="#/library"]` | +0.6 | 1 | 0.6 | [ảnh](https://raw.githubusercontent.com/lexkiteapp/lexkiteapp.github.io/quality-qa/ar/ar-m-dark__deck.png) · route ar #/deck m-dark, ar #/deck m-light, ar #/deck d-dark (12) |
 | 5 | content | content-qa: 78.6 → 100 | +1.1 | 4 | 0.3 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · content/pipeline/SCORE.md |
-| 6 | ux | lần đầu → câu đầu: 77.8 → 100 | +0.7 | 2 | 0.3 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 6.2 s · 9 chạm (probe 2026-11-27) |
+| 6 | ux | lần đầu → câu đầu: 77.8 → 100 | +0.7 | 2 | 0.3 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 6 s · 9 chạm (probe 2026-11-27) |
 | 7 | latent | medium overlap: `button.w-10.h-10` | +0.2 | 1 | 0.2 | [ảnh](https://raw.githubusercontent.com/lexkiteapp/lexkiteapp.github.io/quality-qa/ar/ar-m-light__stats.png) · route ar #/stats m-light, ar #/stats m-dark, ar #/mistakes m-dark (12) |
 | 8 | latent | medium overlap: `a.inline-flex.items-center` | +0.2 | 1 | 0.2 | [ảnh](https://raw.githubusercontent.com/lexkiteapp/lexkiteapp.github.io/quality-qa/ar/ar-m-dark__topic_ngsl1.png) · route ar #/topic/ngsl1 m-dark, ar #/topic/ngsl1 m-light, ar #/topic/office-email m-dark (12) |
 | 9 | latent | medium overlap: `button.absolute.-right-px#dkMic` | +0.2 | 1 | 0.2 | [ảnh](https://raw.githubusercontent.com/lexkiteapp/lexkiteapp.github.io/quality-qa/ar/ar-m-dark__deck.png) · route ar #/deck m-dark, ar #/deck m-light, ar #/deck d-dark (12) |
@@ -44,9 +44,9 @@ Gộp từ nguồn đã có, không quét lại – cách đo: [docs/TOP1-SCORE.
 - **ui/frame-consistency** 100 – success 2026-11-27 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/45968156161
 - **ui/SSIM vs Stitch** 38.6 – SSIM trung bình 0.328 trên 26 màn×chế độ (đích 0.85; ngưỡng ratchet = điểm CI − 0,01) ([stitch-diff.json](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/scripts/test/stitch-diff.json))
 - **ui/màn đã Stitch** 31 – 22 Stitch / 71 màn (ref 45, tay 0) ([WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 22 Stitch / 71 màn (ref 45, tay 0))
-- **ux/qa-bot (live)** 100 – success 2026-11-27 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/45959119525
+- **ux/qa-bot (live)** 100 – success 2026-11-27 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/45968156381
 - **ux/journey-e2e** 100 – success 2026-11-27 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/45968156269
-- **ux/lần đầu → câu đầu** 77.8 – 6.2 s · 9 chạm (probe 2026-11-27) ([WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 6.2 s · 9 chạm (probe 2026-11-27))
+- **ux/lần đầu → câu đầu** 77.8 – 6 s · 9 chạm (probe 2026-11-27) ([WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 6 s · 9 chạm (probe 2026-11-27))
 - **ux/chạm tới bài hôm nay** 100 – 1 chạm ([WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 1 chạm)
 - **ux/Thoát/Back + luồng học** 100 – ✓exit-guard.mjs ✓learn-flow.mjs
 - **perf/Lighthouse perf** 97.8 – / 100, /en/ 99, /app/?hl=en 90, /en/vocabulary/ 100, /en/blog/ 98, /en/blog/about/ 100 (quality-sweep › lighthouse (6 trang, điện thoại))

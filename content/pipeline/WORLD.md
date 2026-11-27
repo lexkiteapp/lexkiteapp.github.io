@@ -11,7 +11,7 @@ Cách đo, nguồn, luật sàn: `docs/WORLD-SCORECARD.md` · trục & mốc Duo
 |---|---|---|---|---|---|---|---|
 | Độ phủ nội dung (content:score) | lõi | **78.6** | – | 90 | 11.4 | 66 | content/pipeline/SCORE.md |
 | Dễ học – dễ nhớ (learnability, LEARN.md) | lõi | **91.8** | – | 90 | -1.8 | 91.6 | content/pipeline/LEARN.md |
-| Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | lõi | **77.8** | – | 100 | 22.2 | 72.8 | 6.2 s · 9 chạm (probe 2026-11-27) |
+| Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | lõi | **77.8** | – | 100 | 22.2 | 72.8 | 6 s · 9 chạm (probe 2026-11-27) |
 | Số chạm từ /app/ tới bài hôm nay (người quay lại) | lõi | **100** | – | 100 | 0 | 50 | 1 chạm |
 | Vòng thói quen: chuỗi · nhắc học · mục tiêu ngày · đóng băng chuỗi | lõi | **100** | 100 | 100 | 0 | 100 | ✓chuỗi ✓đóng băng ✓mục tiêu ngày ✓nhắc học |
 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | lõi | **60** | 50* | 100 | 40 | 53.3 | ✓ FSRS theo người · lỗi L1 3/15 ngôn ngữ (≥100 mục) |
@@ -47,7 +47,7 @@ Cách đo, nguồn, luật sàn: `docs/WORLD-SCORECARD.md` · trục & mốc Duo
 | 1 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 25.2 → 100 | 5 | 3 | 124.7 | 1/15 ngôn ngữ đạt đích; có "vì sao" (en 521, ar 7, de 11, es 12, fr 11, hi 193, id 85, ja 8, ko 7, pt 10, ru 8, th 9, tr 7, vi 179, zh 9; đích 200/ngôn ngữ) |
 | 2 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 18.4 → 100 | 3 | 3 | 81.6 | 360.4 / 374.0 KB gz (đích 300) |
 | 3 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | 60 → 100 | 5 | 3 | 66.7 | ✓ FSRS theo người · lỗi L1 3/15 ngôn ngữ (≥100 mục) |
-| 4 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 6.2 s · 9 chạm (probe 2026-11-27) |
+| 4 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 6 s · 9 chạm (probe 2026-11-27) |
 | 5 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 31 → 100 | 3 | 4 | 51.8 | 22 Stitch / 71 màn (ref 45, tay 0) |
 | 6 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 77.5 → 100 | 5 | 4 | 28.1 | IELTS 10 · TOEIC 10 · TOEFL 11 · Cambridge 1 đề (đích 10/kỳ) |
 | 7 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 88.9 → 100 | 4 | 2 | 22.2 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 5909 ms, CLS 0.0025, INP 104 ms |
