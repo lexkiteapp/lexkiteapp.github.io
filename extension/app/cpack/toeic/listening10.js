@@ -595,8 +595,8 @@ explain: 'Cuối chuyến tham quan khách vào cửa hàng, nơi "you can taste
 items: [
 { n: 83, q: 'What is the speaker mainly discussing?', options: ['Staff schedules', 'Customer complaints', 'A new mobile app', 'Branch locations'], a: 1, cue: "I want to go over last quarter's customer complaints", lv: 'B1',
 explain: 'Người nói mở đầu "I want to go over last quarter\'s customer complaints" (tôi muốn điểm lại các khiếu nại của khách hàng quý trước) → chủ đề chính là khiếu nại của khách hàng. Ứng dụng di động chỉ là một chi tiết.' },
-{ n: 84, q: 'Look at the graphic. Which category is the technology team working on?', options: ['Wait times', 'Fees', 'Online banking errors', 'Staff service'], a: 2, cue: 'The category with the second-highest number is being handled by our technology team', lv: 'B2',
-explain: 'Người nói cho biết hạng mục có số khiếu nại cao thứ hai "is being handled by our technology team"; theo biểu đồ, hạng mục cao thứ hai là Online banking errors (27) → lỗi ngân hàng trực tuyến. Hạng mục cao nhất là thời gian chờ.' },
+{ n: 84, q: 'Look at the graphic. Which category is the technology team working on?', options: ['Account opening delays', 'Transaction fees', 'Online banking errors', 'Customer service quality'], a: 2, cue: 'The category with the second-highest number is being handled by our technology team', lv: 'B2',
+explain: 'Đáp án C đúng vì biểu đồ cho thấy hạng mục lỗi ngân hàng trực tuyến là thứ hai; các lựa chọn A, B, D không khớp với số liệu trong đồ thị.' },
 { n: 85, q: 'What does the speaker remind the listeners to do?', options: ['Submit vacation requests', 'Hire more bank tellers', 'Complete a staff survey', 'Test a new mobile app'], a: 0, cue: 'please submit your vacation requests by Friday', lv: 'C1',
 explain: 'Người nói nhắc "please submit your vacation requests by Friday" (nộp đơn xin nghỉ phép trước thứ Sáu).' },
 ] },

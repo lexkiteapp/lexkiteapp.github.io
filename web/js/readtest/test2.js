@@ -156,7 +156,7 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 32, q: "What does Dr Okafor's review suggest?",
-options: ['The benefits of nudges shrink considerably when they are used on a large scale.', 'Government agencies usually design their trials badly.', 'Nudges have no measurable effect on public health.', 'Academic journals refuse to publish studies with negative results.'],
+options: ['The benefits of nudges shrink considerably when they are used on a large scale.', 'Government agencies often overestimate the cost of implementing nudges.', 'Nudges rarely influence individual dietary choices in clinical settings.', 'Academic journals typically ignore research that confirms existing theories.'],
 a: 0, cue: 'roughly one-fifth of that reported in academic journals' },
 { n: 33, q: 'In paragraph D, the writer is mainly concerned that nudges',
 options: ['cost more than the advertising campaigns they compete with.', 'may be used by governments in place of tougher measures.', 'are strongly opposed by large food companies.', 'have made cities less suitable for walking.'],
