@@ -21,7 +21,7 @@ Cách đo, nguồn, luật sàn: `docs/WORLD-SCORECARD.md` · trục & mốc Duo
 | Truy cập (Lighthouse accessibility trang chủ + app) | lõi | **99** | 82 | 100 | 1 | 99 | Lighthouse trang chủ + /app/ (axe/a11y tĩnh chạy trong npm test) |
 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | lõi | **31** | – | 100 | 69 | 24.6 | 22 Stitch / 71 màn (ref 45, tay 0) |
 | Chất lượng 15 ngôn ngữ giao diện (i18n-qa --strict) | lõi | **100** | – | 100 | 0 | 100 | 0 lỗi, 14 ngôn ngữ ngoài vi |
-| Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | lõi | **88.9** | – | 100 | 11.1 | 68.9 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 5961 ms, CLS 0.0025, INP 168 ms |
+| Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | lõi | **88.9** | – | 100 | 11.1 | 68.9 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 5909 ms, CLS 0.0025, INP 104 ms |
 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | **khác biệt** | **25.2** | 20* | 100 | 74.8 | 6.7 | 1/15 ngôn ngữ đạt đích; có "vì sao" (en 521, ar 7, de 11, es 12, fr 11, hi 193, id 85, ja 8, ko 7, pt 10, ru 8, th 9, tr 7, vi 179, zh 9; đích 200/ngôn ngữ) |
 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | **khác biệt** | **77.5** | 0 | 100 | 22.5 | 55 | IELTS 10 · TOEIC 10 · TOEFL 11 · Cambridge 1 đề (đích 10/kỳ) |
 | Tra từ ngay trong trình duyệt (add-on: chọn chữ → nghĩa) | **khác biệt** | **100** | 0* | 100 | 0 | 100 | ✓ chọn chữ → nghĩa · ✓ test ext-selection |
@@ -50,7 +50,7 @@ Cách đo, nguồn, luật sàn: `docs/WORLD-SCORECARD.md` · trục & mốc Duo
 | 4 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 6 s · 9 chạm (probe 2026-11-27) |
 | 5 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 31 → 100 | 3 | 4 | 51.8 | 22 Stitch / 71 màn (ref 45, tay 0) |
 | 6 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 77.5 → 100 | 5 | 4 | 28.1 | IELTS 10 · TOEIC 10 · TOEFL 11 · Cambridge 1 đề (đích 10/kỳ) |
-| 7 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 88.9 → 100 | 4 | 2 | 22.2 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 5961 ms, CLS 0.0025, INP 168 ms |
+| 7 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 88.9 → 100 | 4 | 2 | 22.2 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 5909 ms, CLS 0.0025, INP 104 ms |
 | 8 | Độ phủ nội dung (content:score) | 78.6 → 90 | 5 | 4 | 14.3 | content/pipeline/SCORE.md |
 | 9 | Tốc độ trang chủ di động (Lighthouse performance) | 95 → 98 | 4 | 2 | 6 | trang chủ di động: LCP 2.5 s, CLS 0.014, TBT 0 ms (2026-11-27) |
 | 10 | Truy cập (Lighthouse accessibility trang chủ + app) | 99 → 100 | 3 | 1 | 3 | Lighthouse trang chủ + /app/ (axe/a11y tĩnh chạy trong npm test) |

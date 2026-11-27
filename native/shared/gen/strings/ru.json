@@ -217,8 +217,6 @@
   "lesson.tomorrowDue": "Слов на повторение завтра: {n}",
   "lesson.tomorrowNext": "Завтра: следующий урок уже готов",
   "lesson.weekWords": "На этой неделе вы запомнили {n} новых слов",
-  "lesson.goalHit": "Вы достигли цели на сегодня!",
-  "lesson.goalProgress": "Цель на сегодня: {a}/{b} повторений",
   "lesson.bestCombo": "Лучшее комбо",
   "lesson.reviewAgain": "Повторить",
   "lesson.idk": "Не знаю",

@@ -217,8 +217,6 @@
   "lesson.tomorrowDue": "Morgen zu wiederholen: {n} Wörter",
   "lesson.tomorrowNext": "Morgen: Ihre nächste Lektion ist bereit",
   "lesson.weekWords": "Diese Woche haben Sie sich {n} neue Wörter gemerkt",
-  "lesson.goalHit": "Sie haben Ihr Tagesziel erreicht!",
-  "lesson.goalProgress": "Tagesziel: {a}/{b} Wiederholungen",
   "lesson.bestCombo": "Beste Serie",
   "lesson.reviewAgain": "Wiederholen",
   "lesson.idk": "Weiß ich nicht",

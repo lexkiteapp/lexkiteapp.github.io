@@ -1,0 +1,314 @@
+{
+  "proceed": {
+    "n": "กริยาที่แปลว่า ดำเนินการต่อ หรือ เดินหน้าไปยังขั้นตอนถัดไป ใช้บ่อยในภาษาทางการและงานเขียน โครงสร้างที่พบคือ proceed with + นามหรือ V-ing เช่น proceed with the plan และ proceed to + กริยาหรือสถานที่ เช่น proceed to the gate",
+    "x": [
+      [
+        "Please proceed with the payment once you have checked the details.",
+        "กรุณาดำเนินการชำระเงินต่อหลังจากตรวจสอบรายละเอียดแล้ว"
+      ],
+      [
+        "After the safety talk, we proceeded to the main hall.",
+        "หลังการบรรยายเรื่องความปลอดภัย พวกเราเดินต่อไปยังห้องโถงใหญ่"
+      ]
+    ]
+  },
+  "publication": {
+    "n": "นามที่มีสองความหมายหลัก คือ การตีพิมพ์เผยแพร่ เช่น before publication และ สิ่งพิมพ์เอง เช่น หนังสือ นิตยสาร หรือวารสาร นับได้เมื่อหมายถึงสิ่งพิมพ์ฉบับหนึ่ง เช่น a scientific publication ส่วนความหมายแรกมักนับไม่ได้ พบมากในบริบทวิชาการและสื่อสารมวลชน",
+    "x": [
+      [
+        "The date of publication is printed on the first page.",
+        "วันที่ตีพิมพ์ปรากฏอยู่ที่หน้าแรก"
+      ],
+      [
+        "She has more than ten publications in medical journals.",
+        "เธอมีผลงานตีพิมพ์ในวารสารการแพทย์มากกว่าสิบชิ้น"
+      ]
+    ]
+  },
+  "retain": {
+    "n": "กริยาที่หมายถึง เก็บรักษาไว้ ไม่ให้หายหรือเปลี่ยนไป ฟังทางการกว่า keep เหมาะกับงานเขียนและรายงาน คำที่มักใช้ร่วมกันคือ retain staff, retain control, retain water และ retain information ใช้กับสิ่งที่นามธรรมได้ดี เช่น ความทรงจำหรือสิทธิ์",
+    "x": [
+      [
+        "The old house has retained much of its original charm.",
+        "บ้านหลังเก่ายังคงเสน่ห์ดั้งเดิมไว้ได้มาก"
+      ],
+      [
+        "Some students find it hard to retain new vocabulary.",
+        "นักเรียนบางคนพบว่าการจำคำศัพท์ใหม่ให้ได้นั้นยาก"
+      ]
+    ]
+  },
+  "revolution": {
+    "n": "นามที่แปลว่า การปฏิวัติ หรือการเปลี่ยนแปลงครั้งใหญ่ เช่น the French Revolution และ the digital revolution ยังหมายถึงการหมุนครบรอบหนึ่งรอบ เช่น revolutions per minute ในเครื่องยนต์ได้ด้วย เมื่อพูดถึงการเมือง คำนี้หมายถึงการล้มระบบเดิม ไม่ใช่การรัฐประหารเสมอไป",
+    "x": [
+      [
+        "The invention of the printing press sparked a revolution in learning.",
+        "การประดิษฐ์เครื่องพิมพ์จุดประกายการปฏิวัติด้านการเรียนรู้"
+      ],
+      [
+        "The engine runs at three thousand revolutions per minute.",
+        "เครื่องยนต์หมุนด้วยความเร็วสามพันรอบต่อนาที"
+      ]
+    ]
+  },
+  "suspend": {
+    "n": "กริยาที่แปลว่า ระงับหรือหยุดชั่วคราว เช่น suspend a service, suspend a student ที่หมายถึงพักการเรียน และ suspend payments ส่วนกรณีบุคคลมักใช้แบบถูกกระทำ ความหมายตามรากศัพท์คือ แขวน เช่น a lamp suspended from the ceiling อย่าสับสนกับ cancel ที่ยกเลิกถาวร เพราะ suspend บอกเป็นนัยว่าอาจกลับมาทำต่อ",
+    "x": [
+      [
+        "The school suspended him for a week after the fight.",
+        "โรงเรียนสั่งพักการเรียนเขาหนึ่งสัปดาห์หลังเหตุทะเลาะวิวาท"
+      ],
+      [
+        "Your account will be suspended if you ignore this warning.",
+        "บัญชีของคุณจะถูกระงับหากคุณเพิกเฉยต่อคำเตือนนี้"
+      ]
+    ]
+  },
+  "utilise": {
+    "n": "กริยาที่เป็นการสะกดแบบบริติช ส่วนแบบอเมริกันสะกดว่า utilize ความหมายใกล้เคียงกับ use แต่ฟังเป็นทางการและเน้นว่าใช้ให้เกิดประโยชน์สูงสุด เหมาะกับรายงานหรือการเขียนวิชาการ ในบทสนทนาทั่วไปคนมักพูด use เพราะเป็นธรรมชาติกว่า",
+    "x": [
+      [
+        "The charity utilises volunteers to run its weekend classes.",
+        "องค์กรการกุศลใช้อาสาสมัครในการดำเนินชั้นเรียนวันหยุด"
+      ],
+      [
+        "We should utilise the free time on the train to read.",
+        "เราควรใช้เวลาว่างบนรถไฟให้เป็นประโยชน์ด้วยการอ่านหนังสือ"
+      ]
+    ]
+  },
+  "violate": {
+    "n": "กริยาที่แปลว่า ละเมิด ใช้กับกฎหมาย สิทธิ ข้อตกลง หรือกฎระเบียบ เช่น violate the law, violate human rights, violate a contract เป็นคำทางการที่หนักกว่า break มักพบในข่าวและเอกสารทางกฎหมาย ส่วน break ใช้ได้ในชีวิตประจำวัน เช่น break a promise",
+    "x": [
+      [
+        "Companies must never violate customer privacy.",
+        "บริษัทต้องไม่ละเมิดความเป็นส่วนตัวของลูกค้าโดยเด็ดขาด"
+      ],
+      [
+        "Drivers who violate the speed limit may lose their licence.",
+        "ผู้ขับขี่ที่ฝ่าฝืนขีดจำกัดความเร็วอาจถูกพักใบอนุญาต"
+      ]
+    ]
+  },
+  "a ripple effect": {
+    "n": "สำนวนที่เปรียบเหมือนระลอกคลื่นที่แผ่ออกเมื่อโยนก้อนหินลงน้ำ หมายถึงเหตุการณ์หนึ่งที่ส่งผลต่อเนื่องไปยังเรื่องอื่นเป็นวงกว้าง มักใช้กับกริยา have, create หรือ cause เช่น have a ripple effect on ... ใช้ได้ทั้งผลดีและผลเสีย",
+    "x": [
+      [
+        "A single act of kindness can have a ripple effect across a whole community.",
+        "การกระทำที่ใจดีเพียงครั้งเดียวอาจส่งผลต่อเนื่องไปทั่วทั้งชุมชนได้"
+      ],
+      [
+        "Rising fuel prices created a ripple effect on food costs.",
+        "ราคาเชื้อเพลิงที่สูงขึ้นส่งผลกระทบต่อเนื่องไปยังราคาอาหาร"
+      ]
+    ]
+  },
+  "address a concern": {
+    "n": "วลีทางการที่หมายถึง ตอบสนองหรือจัดการกับความกังวลของใครสักคน ไม่ได้แปลว่า ส่งที่อยู่ ในที่นี้ address เป็นกริยาที่แปลว่า จัดการหรือเผชิญหน้ากับปัญหา คำที่มักใช้ร่วมกันคือ address concerns, address an issue และ address a problem นิยมใช้ในธุรกิจ ราชการ และข่าว",
+    "x": [
+      [
+        "The company promised to address a concern raised by several parents.",
+        "บริษัทสัญญาว่าจะแก้ไขข้อกังวลที่ผู้ปกครองหลายคนยกขึ้นมา"
+      ],
+      [
+        "We need to address a concern about noise before the café opens.",
+        "เราต้องจัดการกับข้อกังวลเรื่องเสียงรบกวนก่อนที่คาเฟ่จะเปิด"
+      ]
+    ]
+  },
+  "amateur": {
+    "n": "คำที่เป็นได้ทั้งคุณศัพท์และนาม หมายถึง คนที่ทำกิจกรรมเพราะใจรัก ไม่ได้เป็นอาชีพ เช่น an amateur photographer ตรงข้ามกับ professional ในภาษาพูดบางครั้งใช้ในแง่ลบ หมายถึง ฝีมือไม่ถึงขั้น เช่น That looks very amateur ซึ่งอาจฟังดูไม่สุภาพ",
+    "x": [
+      [
+        "My uncle is an amateur astronomer who owns three telescopes.",
+        "ลุงของฉันเป็นนักดาราศาสตร์สมัครเล่นที่มีกล้องโทรทรรศน์สามตัว"
+      ],
+      [
+        "The amateur team surprised everyone by beating the champions.",
+        "ทีมสมัครเล่นสร้างความประหลาดใจให้ทุกคนด้วยการชนะแชมป์"
+      ]
+    ]
+  },
+  "amenity": {
+    "n": "นามที่หมายถึง สิ่งอำนวยความสะดวกในสถานที่ เช่น สวนสาธารณะ ร้านค้า สระว่ายน้ำ หรือห้องออกกำลังกาย มักใช้ในรูปพหูพจน์ amenities พบมากในโฆษณาอสังหาริมทรัพย์และโรงแรม เช่น local amenities และ basic amenities ต่างจาก facility ซึ่งกว้างกว่าและรวมอุปกรณ์ด้วย",
+    "x": [
+      [
+        "A rooftop pool is the best amenity this hotel offers.",
+        "สระว่ายน้ำบนดาดฟ้าคือสิ่งอำนวยความสะดวกที่ดีที่สุดของโรงแรมนี้"
+      ],
+      [
+        "A park is a valuable amenity for any neighbourhood.",
+        "สวนสาธารณะเป็นสิ่งอำนวยความสะดวกที่มีค่าสำหรับทุกย่าน"
+      ]
+    ]
+  },
+  "articulate": {
+    "n": "คำนี้มีสองบทบาทที่ออกเสียงต่างกัน คุณศัพท์ออกเสียงลงท้ายด้วยเสียง ət แปลว่า พูดหรือแสดงความคิดได้ชัดเจนและมีเหตุผล ใช้ชมคนที่พูดเก่ง เช่น an articulate speaker ส่วนกริยาออกเสียงลงท้ายด้วย eit แปลว่า อธิบายความคิดออกมาเป็นคำพูด",
+    "x": [
+      [
+        "She was so articulate that the judges asked her to speak again.",
+        "เธอพูดได้ชัดเจนมากจนกรรมการขอให้เธอพูดอีกครั้ง"
+      ],
+      [
+        "It is difficult to articulate how grateful I feel.",
+        "การอธิบายความรู้สึกขอบคุณของฉันออกมาเป็นคำพูดนั้นเป็นเรื่องยาก"
+      ]
+    ]
+  },
+  "artistic": {
+    "n": "คุณศัพท์ที่หมายถึง เกี่ยวกับศิลปะ หรือมีพรสวรรค์ด้านศิลปะ เช่น artistic talent, artistic expression และ an artistic family คนไทยมักใช้ art เป็นคุณศัพท์ตรง ๆ ซึ่งไม่ถูกต้อง ต้องใช้ artistic หรือใช้ art เป็นนามประกอบ เช่น art class",
+    "x": [
+      [
+        "Her artistic eye made the small flat feel like a gallery.",
+        "สายตาแบบศิลปินของเธอทำให้ห้องเล็ก ๆ ดูเหมือนแกลเลอรี"
+      ],
+      [
+        "He comes from a very artistic family of painters and musicians.",
+        "เขามาจากครอบครัวที่มีศิลปะในสายเลือด เต็มไปด้วยจิตรกรและนักดนตรี"
+      ]
+    ]
+  },
+  "as a consequence": {
+    "n": "วลีเชื่อมความที่แปลว่า ด้วยเหตุนี้ ดังนั้น ใช้ในงานเขียนทางการหรือวิชาการเพื่อบอกผลลัพธ์ที่ตามมา มักเป็นผลเชิงลบ ใช้ได้สองแบบ คือ ขึ้นต้นประโยคแล้วตามด้วยคอมมา หรือ as a consequence of + นาม",
+    "x": [
+      [
+        "The river was polluted; as a consequence, many fish died.",
+        "แม่น้ำถูกปนเปื้อน ดังนั้นปลาจำนวนมากจึงตาย"
+      ],
+      [
+        "Sales fell sharply as a consequence of the new tax.",
+        "ยอดขายลดลงอย่างรวดเร็วเป็นผลจากภาษีใหม่"
+      ]
+    ]
+  },
+  "as opposed to": {
+    "n": "วลีบุพบทที่ใช้เปรียบเทียบสิ่งที่ตรงข้ามหรือแตกต่างกัน แปลว่า ตรงข้ามกับ หรือ แทนที่จะเป็น ตามด้วยนาม V-ing หรือวลี เช่น online classes as opposed to classroom lessons ใช้ได้ในงานเขียนและพูด คำที่ใกล้เคียงคือ rather than และ instead of",
+    "x": [
+      [
+        "I prefer reading paper books as opposed to e-books.",
+        "ฉันชอบอ่านหนังสือเล่มกระดาษมากกว่าอีบุ๊ก"
+      ],
+      [
+        "The survey measured actual spending, as opposed to what people said they spent.",
+        "การสำรวจวัดการใช้จ่ายจริง ไม่ใช่สิ่งที่ผู้คนบอกว่าใช้"
+      ]
+    ]
+  },
+  "assert": {
+    "n": "กริยาที่แปลว่า ยืนยันหนักแน่นว่าบางสิ่งเป็นความจริง มักตามด้วย that เช่น He asserted that he was innocent ใช้ในงานเขียนวิชาการหรือข่าวเพื่อรายงานข้อเสนอที่ผู้พูดมั่นใจ แต่ไม่ได้แปลว่าจริงเสมอไป อีกวลีสำคัญคือ assert yourself หรือ assert your rights",
+    "x": [
+      [
+        "The report asserts that remote work improves productivity.",
+        "รายงานยืนยันว่าการทำงานทางไกลช่วยเพิ่มประสิทธิภาพ"
+      ],
+      [
+        "She learned to assert herself in meetings.",
+        "เธอเรียนรู้ที่จะแสดงจุดยืนของตัวเองอย่างมั่นใจในที่ประชุม"
+      ]
+    ]
+  },
+  "awning": {
+    "n": "นามที่หมายถึง กันสาดผ้าใบที่ยื่นออกมาเหนือหน้าต่าง ประตู หรือหน้าร้าน เพื่อกันแดดกันฝน มักเป็นผ้าที่ม้วนเก็บได้ พบมากกับร้านกาแฟและร้านอาหาร ใช้ under an awning เมื่อบอกตำแหน่ง",
+    "x": [
+      [
+        "We waited out the rain under the shop's green awning.",
+        "พวกเรารอให้ฝนหยุดอยู่ใต้กันสาดสีเขียวของร้าน"
+      ],
+      [
+        "The owner pulled down the awning to block the afternoon sun.",
+        "เจ้าของร้านดึงกันสาดลงมาเพื่อบังแดดช่วงบ่าย"
+      ]
+    ]
+  },
+  "back-ordered": {
+    "n": "คุณศัพท์ที่ใช้ในการค้าปลีกและช้อปปิ้งออนไลน์ หมายถึง สินค้าที่หมดสต็อกตอนนี้ แต่รับออเดอร์ไว้และจะส่งให้ทีหลังเมื่อมีของ มักใช้กับ be back-ordered หรือ the item is back-ordered มีขีดกลางระหว่างคำ ส่วนคำนามคือ backorder เช่น place a backorder และกริยาคือ back-order",
+    "x": [
+      [
+        "Sorry, the blue model is back-ordered until next month.",
+        "ขออภัย รุ่นสีน้ำเงินต้องรอสินค้าเข้าถึงเดือนหน้า"
+      ],
+      [
+        "Several parts were back-ordered, so the repair took longer.",
+        "อะไหล่หลายชิ้นต้องรอของเข้า การซ่อมจึงใช้เวลานานขึ้น"
+      ]
+    ]
+  },
+  "baroque": {
+    "n": "คุณศัพท์ที่ขึ้นต้นด้วยตัวใหญ่เมื่อหมายถึงยุคศิลปะ ใช้กับศิลปะ สถาปัตยกรรม และดนตรีของยุโรปราวศตวรรษที่ 17 ถึงต้น 18 เช่น Baroque music ของ Bach ลักษณะเด่นคือการตกแต่งหรูหรา เส้นโค้ง และความตัดกันของแสงเงา",
+    "x": [
+      [
+        "Bach is one of the greatest composers of the Baroque period.",
+        "บาคเป็นหนึ่งในคีตกวีที่ยิ่งใหญ่ที่สุดของยุคบาโรก"
+      ],
+      [
+        "The palace has a Baroque staircase decorated with golden statues.",
+        "พระราชวังมีบันไดแบบบาโรกที่ประดับด้วยรูปปั้นสีทอง"
+      ]
+    ]
+  },
+  "be accessible to": {
+    "n": "วลีที่หมายถึง ผู้ใช้เข้าถึง เข้าไป หรือใช้งานได้ง่าย ตามด้วยนามที่เป็นผู้ใช้ เช่น be accessible to the public หรือ be accessible to people with disabilities ใช้ได้ทั้งสถานที่ ข้อมูล และเว็บไซต์ ต่างจาก be available to ที่แค่บอกว่ามีให้ใช้",
+    "x": [
+      [
+        "The museum's website should be accessible to blind visitors.",
+        "เว็บไซต์ของพิพิธภัณฑ์ควรเข้าถึงได้สำหรับผู้เยี่ยมชมที่มองไม่เห็น"
+      ],
+      [
+        "Medical care must be accessible to everyone, not only the rich.",
+        "การรักษาพยาบาลต้องเข้าถึงได้สำหรับทุกคน ไม่ใช่แค่คนรวย"
+      ]
+    ]
+  },
+  "be closed off": {
+    "n": "วลีรูปถูกกระทำที่หมายถึง ถูกปิดกั้นไม่ให้คนเข้าไป มักใช้กับถนน พื้นที่ หรือห้อง เช่น The street was closed off after the accident บ่อยครั้งตามด้วย to + ผู้ใช้ เช่น closed off to traffic ต่างจาก be closed ที่แค่ไม่เปิด เพราะ closed off เน้นว่ามีการกั้นหรือปิดทางโดยเจตนา",
+    "x": [
+      [
+        "The area will be closed off while police search for clues.",
+        "พื้นที่จะถูกปิดกั้นขณะที่ตำรวจค้นหาเบาะแส"
+      ],
+      [
+        "The bridge will be closed off to traffic for two weeks.",
+        "สะพานจะถูกปิดไม่ให้รถผ่านเป็นเวลาสองสัปดาห์"
+      ]
+    ]
+  },
+  "be committed to": {
+    "n": "วลีที่แปลว่า มุ่งมั่นหรือผูกพันกับบางสิ่ง ตามด้วยนามหรือ V-ing เพราะ to ในที่นี้เป็นบุพบท ไม่ใช่ to ของกริยา เช่น be committed to improving ไม่ใช่ be committed to improve ข้อผิดพลาดนี้พบบ่อยในคนไทย ใช้ในโฆษณา ประกาศองค์กร และจดหมายสมัครงาน",
+    "x": [
+      [
+        "Every teacher here must be committed to protecting children.",
+        "ครูทุกคนที่นี่ต้องมุ่งมั่นที่จะปกป้องเด็ก"
+      ],
+      [
+        "You need to be committed to finishing this course by December.",
+        "คุณต้องมุ่งมั่นที่จะเรียนคอร์สนี้ให้จบภายในเดือนธันวาคม"
+      ]
+    ]
+  },
+  "be comparable to": {
+    "n": "วลีที่แปลว่า เทียบเคียงได้กับ หรือใกล้เคียงกับ ในด้านขนาด คุณภาพ หรือจำนวน เช่น Her salary is comparable to mine มักตามด้วย to หรือ with ได้ทั้งสองแบบ แต่ to พบบ่อยกว่า อย่าสับสนกับ be comparative ซึ่งแปลว่า เชิงเปรียบเทียบ",
+    "x": [
+      [
+        "This phone seems to be comparable to models twice the price.",
+        "โทรศัพท์เครื่องนี้ดูเหมือนเทียบเคียงได้กับรุ่นที่ราคาสูงกว่าสองเท่า"
+      ],
+      [
+        "Prices in the two cities appear to be comparable to each other.",
+        "ราคาสินค้าในสองเมืองนี้ดูใกล้เคียงกัน"
+      ]
+    ]
+  },
+  "be compatible with": {
+    "n": "วลีที่แปลว่า เข้ากันได้หรือใช้ร่วมกันได้กับสิ่งอื่น ใช้กับซอฟต์แวร์ อุปกรณ์ ยา หรือแม้แต่บุคลิกของคน เช่น be compatible with Windows ตามด้วย with เสมอ ไม่ใช่ to คนไทยมักใช้ผิดเป็น compatible to ต่างจาก match ที่หมายถึง เหมือนหรือเข้าชุดกัน",
+    "x": [
+      [
+        "This charger claims to be compatible with most smartphones.",
+        "ที่ชาร์จนี้อ้างว่าใช้ร่วมกับสมาร์ตโฟนส่วนใหญ่ได้"
+      ],
+      [
+        "Their working styles do not seem to be compatible with each other.",
+        "สไตล์การทำงานของพวกเขาดูเหมือนเข้ากันไม่ได้"
+      ]
+    ]
+  }
+}

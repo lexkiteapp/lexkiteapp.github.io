@@ -217,8 +217,6 @@
   "lesson.tomorrowDue": "كلمات للمراجعة غدًا: {n}",
   "lesson.tomorrowNext": "غدًا: درسك التالي جاهز",
   "lesson.weekWords": "هذا الأسبوع تذكّرت {n} كلمات جديدة",
-  "lesson.goalHit": "لقد حققت هدف اليوم!",
-  "lesson.goalProgress": "هدف اليوم: {a}/{b} مراجعة",
   "lesson.bestCombo": "أفضل كومبو",
   "lesson.reviewAgain": "مراجعة",
   "lesson.idk": "لا أعرف",

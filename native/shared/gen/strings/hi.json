@@ -217,8 +217,6 @@
   "lesson.tomorrowDue": "कल दोहराने के लिए शब्द: {n}",
   "lesson.tomorrowNext": "कल: आपका अगला पाठ तैयार है",
   "lesson.weekWords": "इस सप्ताह आपने {n} नए शब्द याद किए",
-  "lesson.goalHit": "आपने आज का लक्ष्य पूरा कर लिया!",
-  "lesson.goalProgress": "आज का लक्ष्य: {a}/{b} दोहराव",
   "lesson.bestCombo": "सर्वश्रेष्ठ कॉम्बो",
   "lesson.reviewAgain": "दोहराएँ",
   "lesson.idk": "मुझे नहीं पता",

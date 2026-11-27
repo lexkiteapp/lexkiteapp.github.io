@@ -217,8 +217,6 @@
   "lesson.tomorrowDue": "Yarın tekrar edilecek kelimeler: {n}",
   "lesson.tomorrowNext": "Yarın: sıradaki dersin hazır",
   "lesson.weekWords": "Bu hafta {n} yeni kelime hatırladın",
-  "lesson.goalHit": "Bugünkü hedefine ulaştın!",
-  "lesson.goalProgress": "Bugünkü hedef: {a}/{b} tekrar",
   "lesson.bestCombo": "En iyi kombo",
   "lesson.reviewAgain": "Tekrar et",
   "lesson.idk": "Bilmiyorum",

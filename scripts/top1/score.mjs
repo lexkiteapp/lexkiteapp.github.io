@@ -3,6 +3,7 @@
 // mốc Duolingo), ngưỡng SSIM Stitch (scripts/test/stitch-diff.json), kết luận CI trên main (qa-bot, journey-e2e, frame-consistency, mobile-qa),
 // vài test nhanh (bất biến logic, Thoát/Back, nhắc học). Chạy đêm trong quality-sweep, tuần trong world-scorecard (nâng sàn).
 // Dùng: node scripts/top1/score.mjs [--qs <qs-report>] [--lh <lh.json>] [--qs-latest] [--ci] [--check] [--raise] [--write] [--issue] [--summary]
+import { sample } from '../lib/floor-seen.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -91,8 +92,8 @@ export function upgrades(res, n = 10) {
   }
   return out.filter(x => x.gain > 0).sort((a, b) => b.prio - a.prio || b.gain - a.gain).slice(0, n);
 }
-export function raiseFloors(floors, res) {
-  const o = { ...floors }, up = (k, v) => { if (v != null) o[k] = Math.max(o[k] ?? 0, r1(v - (NOISE[k] || 0))); };
+export function raiseFloors(floors, res, seen) { // seen: như world-scorecard (trung vị cho trục có NOISE)
+  const o = { ...floors }, up = (k, v) => { if (v != null && seen) { const s = sample(seen, k, v, !!NOISE[k]); seen[k] = s.seen[k]; v = s.basis; } if (v != null) o[k] = Math.max(o[k] ?? 0, r1(v - (NOISE[k] || 0))); };
   for (const a of res.axes) up(a.id, a.score); up('total', res.total); return o;
 }
 export function checkFloors(floors, res) {
@@ -218,7 +219,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const comps = measure({ items, lh, ci, world, journey: process.env.JOURNEY_RESULT || '' });
   const res = compose(comps, webItems(items), world), top = upgrades(res);
   const B = J(P(BUDGET)) || { floors: {} };
-  if (has('--raise')) { B.floors = raiseFloors(B.floors || {}, res); fs.writeFileSync(P(BUDGET), JSON.stringify(B, null, 1) + '\n'); }
+  if (has('--raise')) { B.seen = B.seen || {}; B.floors = raiseFloors(B.floors || {}, res, B.seen); fs.writeFileSync(P(BUDGET), JSON.stringify(B, null, 1) + '\n'); }
   const bad = checkFloors(B.floors || {}, res), runUrl = process.env.GITHUB_RUN_ID ? `https://github.com/${REPO}/actions/runs/${process.env.GITHUB_RUN_ID}` : '';
   const md = render(res, top, B.floors || {}, { run: runUrl, qs: qsUrl, bad });
   fs.mkdirSync(P('reports/top1'), { recursive: true });

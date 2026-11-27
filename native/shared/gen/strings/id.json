@@ -217,8 +217,6 @@
   "lesson.tomorrowDue": "Kata untuk diulas besok: {n}",
   "lesson.tomorrowNext": "Besok: pelajaran berikutnya sudah siap",
   "lesson.weekWords": "Minggu ini kamu mengingat {n} kata baru",
-  "lesson.goalHit": "Kamu mencapai target hari ini!",
-  "lesson.goalProgress": "Target hari ini: {a}/{b} ulasan",
   "lesson.bestCombo": "Kombo terbaik",
   "lesson.reviewAgain": "Ulangi",
   "lesson.idk": "Saya tidak tahu",
