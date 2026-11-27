@@ -306,6 +306,7 @@ node scripts/test/crawl.js web
 node scripts/test/links-js.mjs dist
 node scripts/test/seo-sitemap.mjs dist
 node scripts/test/seo-pages.mjs dist
+node scripts/test/seo-verb-forms.mjs
 node scripts/test/word-depth.mjs
 node scripts/test/tools-pages.mjs
 node scripts/test/authority-pages.mjs
@@ -322,6 +323,7 @@ node scripts/test/stories.mjs
 node scripts/test/stories-chip.mjs
 node scripts/stories/build-lib.mjs --check
 node scripts/content-qa/exam-format-check.mjs
+node scripts/test/ielts-type-coverage.mjs
 node scripts/test/lesson-why.mjs
 node scripts/test/lesson-card.mjs
 node scripts/test/sentence-punct.mjs

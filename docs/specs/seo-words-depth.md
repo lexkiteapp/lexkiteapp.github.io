@@ -20,6 +20,7 @@
 | Đồng nghĩa / trái nghĩa / họ từ | `syn` + WordNet (`content/dict/wordnet.json`, CC BY 4.0) – chip có link nội bộ nếu từ có trang cùng ngôn ngữ | en |
 | Từ dễ nhầm + lỗi hay gặp | `usage` cặp c + `mis` · ghi chú vi `web/js/notes` | vi: chữ vi; ngôn ngữ khác: chữ en |
 | Nghĩa khác (WordNet) | `wordnet.json › s` – khối riêng ghi nguồn + link giấy phép | en |
+| Các dạng động từ (từ loại v, một chữ) | bộ máy chia `web/js/verbs-core.js` (`LK_VERBS.forms`: nguyên mẫu, -s, quá khứ, phân từ, -ing + bất quy tắc/có quy tắc), nhãn `S[lang].vf*`; thay cho trang bảng 300 động từ riêng (cùng ý định tìm kiếm → không tạo trang cạnh tranh) | – |
 | FAQ | câu hỏi cố định (dịch tay 15 ngôn ngữ), trả lời = đúng chữ đang hiện trên trang | – |
 | Bài blog liên quan ≤ 3 | `content/blog/<lang>/*.md` đã đăng (`status: ready`, `publishAt` ≤ lúc dựng) – cùng luật khớp như trang từ điển | ngôn ngữ trang |
 | Luyện tiếp (công cụ) | `scripts/lib/tools-links.mjs`: trang cấp CEFR + bài test trình độ + TOEIC | ngôn ngữ trang |

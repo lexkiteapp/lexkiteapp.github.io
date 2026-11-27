@@ -19,7 +19,7 @@ ok(IP['un'] === 'œ̃' && IP['rue'] === 'ʁy' && IP['huit'] === 'ɥit' && IP['il
 
 // (b) gói px
 const VN = /[ơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđă]/i, quoted = s => (s.match(/[“"]([^”"]+)[”"]/g) || []).map(q => q.slice(1, -1));
-ok(src.map(t => t.id).join() === TOP.join() && src.length === 8, '8 chủ đề đúng thứ tự');
+ok(src.map(t => t.id).join() === TOP.join() && src.length === 12, '12 chủ đề đúng thứ tự (8 A1–B1 + h, gn, enchain, final B1–B2)');
 // đồng âm tiếng Pháp (cùng cách đọc, khác chữ): KHÔNG BAO GIỜ làm cặp tối thiểu – chỉ làm chính tả
 const HOMO = ['pain peint pin', 'vert verre vers ver', 'sans cent sang', 'ses ces sait', 'mer mère maire', 'ou où', 'saint sein sain', 'vin vingt vain', 'fond font', 'dans dent', 'cou coup coût', 'vu vue', 'tu tue', 'rue ru', 'bon bond', 'chaud show', 'faim fin', 'non nom', 'mais mes mets', 'cher chair chaire', 'foi foie fois', 'taire terre', 'eau haut os', 'chant champ'].map(g => g.split(' '));
 const clash = []; bad = [];
@@ -47,7 +47,7 @@ for (const l of GX_LANGS) {
     if (l !== 'en' && l !== 'vi' && r.x === en.tp[id].x) bad.push(`${l}.${id} chưa dịch`);
   }
 }
-ok(!bad.length, 'px: 15 ngôn ngữ đủ nhãn + 8 giải thích, giữ ví dụ “…”, không lẫn tiếng Việt' + (bad.length ? ': ' + bad.slice(0, 8).join(' | ') : ''));
+ok(!bad.length, 'px: 15 ngôn ngữ đủ nhãn + 12 giải thích, giữ ví dụ “…”, không lẫn tiếng Việt' + (bad.length ? ': ' + bad.slice(0, 8).join(' | ') : ''));
 for (const [f, s] of Object.entries(buildPx('fr').files)) if (!fs.existsSync('web/cpack/fr/' + f) || fs.readFileSync('web/cpack/fr/' + f, 'utf8') !== s) { ok(false, `web/cpack/fr/${f} cũ so với nguồn – chạy node scripts/target/drill-pack.mjs --tl fr`); break; }
 ok(TLX.fr.ipa({ ipa: IP })('rue') === 'ʁy' && (() => { try { TLX.fr.ipa({ ipa: {} })('rue'); return false; } catch (e) { return /thiếu IPA/.test(e.message); } })(), 'px-lib: từ thiếu IPA → lỗi dựng (cổng), không im lặng');
 
@@ -67,8 +67,8 @@ const loaded = []; App.loadScript = async s => { loaded.push(s); w.eval(fs.readF
 const spoken = [], accents = [], rewards = []; UI.tts = (t, a) => { spoken.push(t); accents.push(a); }; App.reward = async d => { rewards.push(d); };
 ok(typeof App.espron === 'function' && App.frPx && App.esPx && App.esQ && App.esFoot && App.esEnd, 'App.espron (chung es) + App.frPx có');
 await App.espron(undefined, undefined, 'fr'); await tick(60);
-ok($$('section.card').length === 8 && loaded.some(s => /cpack\/fr\/px-/.test(s)) && !loaded.some(s => /cpack\/es\/px-/.test(s)), 'danh sách: 8 chủ đề, gói giải thích fr theo ngôn ngữ đã tải (không đụng gói es)');
-ok($$('[data-px]').length >= 40 && $$('[data-px]')[0].lang === 'fr' && $$('a.btn[href*="m=sy"]').length === 8 && $$('a.btn[href*="m=pp"]').length === 7 && $$('a.btn[href*="/practice/frp?"]').length === 23, 'mỗi chủ đề: từ mẫu bấm nghe (lang fr) + bài nói; 7 chủ đề có cặp (é/è không); liên kết #/practice/frp');
+ok($$('section.card').length === 12 && loaded.some(s => /cpack\/fr\/px-/.test(s)) && !loaded.some(s => /cpack\/es\/px-/.test(s)), 'danh sách: 12 chủ đề, gói giải thích fr theo ngôn ngữ đã tải (không đụng gói es)');
+ok($$('[data-px]').length >= 40 && $$('[data-px]')[0].lang === 'fr' && $$('a.btn[href*="m=sy"]').length === 12 && $$('a.btn[href*="m=pp"]').length === 11 && $$('a.btn[href*="/practice/frp?"]').length === 35, 'mỗi chủ đề: từ mẫu bấm nghe (lang fr) + bài nói; 11 chủ đề có cặp (é/è không); liên kết #/practice/frp');
 $('[data-px]').click(); ok(spoken.length === 1 && accents[0] === 'fr-FR', 'bấm từ mẫu → đọc bằng giọng fr-FR');
 
 const find = w2 => src.flatMap(t => t.pairs || []).map(p => p.split('/')).find(p => p.includes(w2));

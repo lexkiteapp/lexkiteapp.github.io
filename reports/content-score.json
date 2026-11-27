@@ -1,5 +1,5 @@
 {
- "total": 78.5,
+ "total": 78.6,
  "areas": {
   "vocab": {
    "name": "Kho từ",
@@ -10,15 +10,15 @@
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 10591,
+     "have": 10597,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 10591,
-     "std": 10591,
+     "have": 10597,
+     "std": 10597,
      "w": 20,
      "future": false
     },
@@ -38,21 +38,21 @@
     },
     {
      "k": "IPA Mỹ",
-     "have": 7056,
+     "have": 7061,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 8344,
+     "have": 8357,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 1296,
+     "have": 1302,
      "std": 1000,
      "w": 10,
      "future": false
@@ -412,8 +412,8 @@
   },
   "quality": {
    "name": "Chất lượng đề",
-   "score": 62.8,
-   "coverage": 62.8,
+   "score": 63,
+   "coverage": 63,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -433,7 +433,7 @@
     },
     {
      "k": "lời giải riêng từng câu (rập khuôn ≤ 2 %)",
-     "have": 90.9,
+     "have": 91.7,
      "std": 100,
      "w": 15,
      "future": false
@@ -477,8 +477,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 11971,
-     "std": 11971,
+     "have": 11977,
+     "std": 11977,
      "w": 35,
      "future": false
     },
@@ -544,7 +544,7 @@
     },
     {
      "k": "nhãn ngắn dịch tay",
-     "have": 12.4,
+     "have": 12.3,
      "std": 13,
      "w": 10,
      "future": false
