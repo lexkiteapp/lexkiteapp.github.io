@@ -101,7 +101,7 @@
 "Tôi đã biết trình độ của mình":"Ich kenne mein Niveau schon",
 "Tạo bộ từ của bạn":"Erstellen Sie Ihr eigenes Set",
 "Tất cả kỹ năng":"Alle Fertigkeiten",
-"Từ có sẵn":"Available Words",
+"Từ có sẵn":"Verfügbare Wörter",
 "Từ tiện ích của bạn":"Aus deiner Erweiterung",
 "Từ vựng cần ôn":"Wörter",
 "Tự nói thử":"Selbst sagen",

@@ -55,6 +55,7 @@
 "Nhận dạng ngay trên máy – âm thanh không rời khỏi máy bạn.":"음성은 장치에서 인식되므로 오디오가 장치 밖으로 나가지 않습니다.",
 "Nhận dạng trên máy bằng Whisper (tải ~40 MB một lần, nên dùng Wi-Fi)":"Whisper로 기기에서 인식(1회 최대 40MB 다운로드, Wi-Fi 권장)",
 "Nhận xét độ trôi chảy":"유창성 피드백",
+"Nói chậm hơn":"천천히 말하기",
 "Sau can/could/should/will không dùng “to”.":"can/could/should/will 뒤에 “to”을 사용하지 마세요.",
 "Sau want/need/would like, động từ tiếp theo cần “to”.":"want/need/would like 다음에는 “to”이 필요합니다.",
 "TOEIC: dời lịch họp với khách hàng":"TOEIC: 고객 미팅 일정 변경",

@@ -2,7 +2,8 @@
   "nav": {
     "tools": "Alat bahasa Inggris gratis",
     "levelTest": "Tes level bahasa Inggris",
-    "toeic": "Latihan TOEIC Part 5"
+    "toeic": "Latihan TOEIC Part 5",
+    "band": "Kalkulator Band IELTS"
   },
   "test": {
     "title": "Tes level bahasa Inggris gratis (CEFR A1–C2) – 15 menit, hasil instan",
@@ -111,5 +112,49 @@
     "full": "Aplikasi Lexkite punya semua 7 bagian, 7 tes simulasi lengkap dengan perkiraan skor 10–990, dan 1.250 kata TOEIC.",
     "openApp": "Latihan TOEIC di aplikasi",
     "otherTool": "Belum yakin dengan levelmu? Ikuti tes level bahasa Inggris gratis."
+  },
+  "band": {
+    "title": "Kalkulator Band IELTS – gratis, Listening, Reading, overall",
+    "desc": "Kalkulator band IELTS gratis: masukkan skor mentah Listening dan Reading (dari 40) plus band Writing dan Speaking untuk melihat tiap band dan skor overall kamu.",
+    "h1": "Kalkulator Band IELTS",
+    "lead": "Ubah hasil tes latihanmu menjadi band IELTS. Masukkan skor mentah Listening dan Reading, pilih Academic atau General Training, tambahkan band Writing dan Speaking, lalu lihat band overall kamu.",
+    "facts": [
+      "Listening dan Reading dari 40 soal",
+      "Academic dan General Training",
+      "Band overall dibulatkan sesuai aturan IELTS",
+      "Gratis · tanpa daftar"
+    ],
+    "formH": "Skor kamu",
+    "listenH": "Listening",
+    "listenHint": "Jawaban benar, 0–40",
+    "readH": "Reading",
+    "readHint": "Jawaban benar, 0–40",
+    "typeH": "Jenis tes Reading",
+    "typeA": "Academic",
+    "typeG": "Pelatihan Umum (General Training)",
+    "writeH": "Writing",
+    "speakH": "Speaking",
+    "bandHint": "Band, 0–9 dengan kelipatan 0,5",
+    "calc": "Hitung band saya",
+    "resultH": "Band overall kamu",
+    "need": "Isi dulu keempat skor.",
+    "approx": "Ini hanya perkiraan: tabel skor mentah di bawah adalah tabel pendekatan yang umum dipakai, dan tiap tes asli bisa berbeda sekitar satu soal.",
+    "openApp": "Latih kemampuan terlemahmu di Lexkite",
+    "howH": "Cara band overall dihitung",
+    "how": [
+      "Band overall adalah rata-rata dari keempat band skill, dibulatkan ke setengah band terdekat.",
+      "Rata-rata yang berakhir .25 dibulatkan naik ke setengah band berikutnya, dan yang berakhir .75 dibulatkan naik ke band bulat berikutnya. Contoh: 6,25 menjadi 6,5 dan 6,75 menjadi 7,0, sedangkan 6,125 tetap 6,0.",
+      "Band Listening dan Reading berasal dari jumlah jawaban benar dari 40 soal. Band Writing dan Speaking diberikan oleh penguji, jadi pakai band dari gurumu atau dari latihan yang sudah dinilai."
+    ],
+    "tableH": "Konversi skor mentah ke band (perkiraan)",
+    "tableNote": "Tiap baris menunjukkan jumlah jawaban benar paling sedikit untuk band tersebut. IELTS tidak menerbitkan satu tabel baku, jadi anggap ini sebagai panduan.",
+    "colRaw": "Jawaban benar (mulai dari)",
+    "colBand": "Band",
+    "tblL": "Listening",
+    "tblA": "Membaca Akademik (Academic Reading)",
+    "tblG": "Membaca Pelatihan Umum (General Training Reading)",
+    "honestH": "Yang bisa dan tidak bisa ditunjukkan kalkulator ini",
+    "honest": "Kalkulator ini menunjukkan perkiraan hasil latihanmu, bukan skor resmi. Band Writing dan Speaking butuh penguji atau guru berpengalaman. Pakai hasilnya untuk menentukan apa yang perlu dilatih berikutnya, lalu pastikan levelmu dengan tes simulasi penuh berwaktu.",
+    "otherTool": "Cari tahu level bahasa Inggrismu (A1–C2) lewat tes level gratis"
   }
 }

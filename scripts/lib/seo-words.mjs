@@ -35,6 +35,8 @@ const packs = Object.fromEntries(LANGS.filter(l => l !== 'vi' && l !== 'en').map
 // bằng CHÍNH VImg.pic (web/js/vocab-img.js) → cùng markup với app; chưa duyệt → trang giữ nguyên từng byte (docs/LEXICON.md § Ảnh minh hoạ)
 const IMG = fs.existsSync('content/lexicon/img.json') ? J('content/lexicon/img.json') : null;
 const VPIC = IMG && IMG.style && IMG.style.approved === true && Object.keys(IMG.items || {}).length ? (() => { const ctx = {}; ctx.self = ctx; vm.runInNewContext(fs.readFileSync('web/js/vocab-img.js', 'utf8'), ctx); return ctx.VImg.pic; })() : null;
+// Ảnh của CHÍNH từ (cùng khoá + ưu tiên photo như vimgOf) → {url,alt}: og:image, ImageObject, sitemap ảnh. Chưa duyệt phong cách / không có ảnh → null (trang giữ og-default).
+export const imgOf = e => { if (!VPIC) return null; const it = IMG.items[String(e.word).toLowerCase() + '#' + gpos(e.pos)]; if (!it) return null; const h = it.photo && it.photo.h && it.photo.src ? it.photo.h : it.h; return h && /^[0-9a-f]{16}$/.test(h) ? { url: IMG.base + h + '.webp', alt: it.alt || String(e.word) } : null; };
 const vimgOf = (e, alt, label) => (VPIC ? seoPic(IMG, String(e.word).toLowerCase() + '#' + gpos(e.pos), alt, label, VPIC) : ''); // ảnh chụp (photo) nếu có, không thì h – scripts/lexicon/img.mjs
 const notes = {}; for (const f of fs.readdirSync('web/js/notes').filter(f => f.endsWith('.json'))) Object.assign(notes, J('web/js/notes/' + f));
 // Ghi chú dùng từ + ví dụ có bản dịch do người/AI soạn rồi chấm độc lập (content/dict/enrich/<lang>.json = { từ: { n, x: [[câu EN, bản dịch]] } }; cổng scripts/test/dict-enrich.mjs).
@@ -215,7 +217,11 @@ export const indexable = (l, e) => !!(idxW[l] && idxW[l].has(e)) && deep(measure
 // Trang noindex vẫn có liên kết từ hub A–Z (không mồ côi). Không đủ 4 từ cùng chủ đề → bù bằng từ index được gần nhất trong danh sách.
 const linksOf = (l, e) => {
   const t = S[l], list = setOf[l], i = posIn[l].get(e), ok = x => x !== e && indexable(l, x);
-  const rel = list.filter(x => x.topic === e.topic && ok(x)).slice(0, 8), near = [...rel];
+  // 27/11: 8 từ index được KẾ TIẾP trong chủ đề theo vòng tròn (trước đây luôn 8 từ ĐẦU chủ đề → cuối chủ đề không được liên kết từ đâu, 77 % URL Google chưa biết):
+  // mỗi trang index được nhận đúng ~8 liên kết từ 8 trang đứng trước nó cùng chủ đề; thứ tự cố định theo kho → không đổi giữa các lần dựng.
+  const tl = list.filter(x => x.topic === e.topic && (x === e || ok(x))), k = tl.indexOf(e), rel = [];
+  for (let d = 1; d < tl.length && rel.length < 8; d++) rel.push(tl[((k < 0 ? 0 : k) + d) % tl.length]);
+  const near = [...rel];
   for (let d = 1; near.length < 8 && (i - d >= 0 || i + d < list.length); d++) for (const x of [list[i - d], list[i + d]]) if (x && near.length < 8 && ok(x) && !near.includes(x)) near.push(x);
   let pv = null, nx = null; for (let j = i - 1; j >= 0 && !pv; j--) if (ok(list[j])) pv = list[j]; for (let j = i + 1; j < list.length && !nx; j++) if (ok(list[j])) nx = list[j];
   return `${near.length ? sec('r', '', t.rel, `<p class="chips">${near.map(x => `<a href="${wPath(l, x)}" lang="en" dir="ltr">${esc(x.word)}</a>`).join('')}</p>`) : ''}

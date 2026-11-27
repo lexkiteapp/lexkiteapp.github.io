@@ -1,0 +1,322 @@
+{
+  "cognitive": {
+    "n": "사고, 학습, 기억 같은 정신 작용과 관련된 것을 가리키는 형용사로, 학술적이고 격식 있는 글에서 자주 쓰입니다. cognitive ability, cognitive development, cognitive decline처럼 명사 앞에 붙여 쓰는 경우가 대부분이에요. 한국어 '인지'와 달리 '알아차린다'는 뜻은 없어서 aware나 recognize와 혼동하지 마세요. 강세는 첫 음절 COG에 있습니다.",
+    "x": [
+      [
+        "Regular exercise can slow cognitive decline in older adults.",
+        "규칙적인 운동은 노인의 인지 기능 저하를 늦출 수 있습니다."
+      ],
+      [
+        "Cognitive skills such as memory and attention develop rapidly in early childhood.",
+        "기억력과 주의력 같은 인지 능력은 유아기에 빠르게 발달합니다."
+      ]
+    ]
+  },
+  "colonial": {
+    "n": "한 나라가 다른 나라를 지배하던 식민지 시대나 그와 관련된 것을 묘사하는 형용사입니다. colonial rule, colonial era처럼 역사 이야기에서 흔하고, 미국에서는 colonial house처럼 18세기 영국 식민지 시기 양식의 건물을 가리키기도 해요. 명사 colony와 형태가 이어지지만 발음은 [kəˈloʊniəl]로 둘째 음절에 강세가 옵니다. 반대 개념은 post-colonial이에요.",
+    "x": [
+      [
+        "The country gained independence after decades of colonial rule.",
+        "그 나라는 수십 년의 식민 통치를 거쳐 독립을 얻었습니다."
+      ],
+      [
+        "We toured a colonial house with its original wooden floors.",
+        "우리는 원래의 나무 바닥이 남아 있는 식민지 시대풍 집을 둘러봤습니다."
+      ]
+    ]
+  },
+  "colonise": {
+    "n": "새로운 땅에 사람을 보내 정착하고 지배한다는 뜻의 동사로, 영국식 철자입니다. 미국식은 colonize이니 글을 쓸 때 어느 쪽인지 일관되게 맞추세요. 역사에서는 부정적 뉘앙스가 강하지만, colonise Mars처럼 우주 개척에는 중립적으로 쓰여요. 식물이나 세균이 어떤 곳에 퍼져 자리 잡는다는 과학적 의미도 있습니다. 한국어 '개척하다'와 완전히 같지는 않다는 점을 기억하세요.",
+    "x": [
+      [
+        "European powers colonised large parts of Africa in the nineteenth century.",
+        "유럽 열강은 19세기에 아프리카의 넓은 지역을 식민지로 만들었습니다."
+      ],
+      [
+        "Bacteria can quickly colonise a wound if it is not cleaned.",
+        "상처를 씻지 않으면 세균이 금세 그곳에 퍼져 자리 잡을 수 있습니다."
+      ]
+    ]
+  },
+  "colony": {
+    "n": "같은 종의 동물이나 식물이 모여 사는 집단을 뜻하는 가산명사로, ant colony, bee colony처럼 개미와 벌 이야기에 가장 흔합니다. 정치적 의미의 식민지, 그리고 같은 나라 출신이나 직업이 모여 사는 예술가 마을도 가리켜요. 한국어 '콜로니'는 거의 쓰지 않으니 영작할 때 group of ants보다 colony를 떠올리세요. 복수형은 colonies, 강세는 첫 음절입니다.",
+    "x": [
+      [
+        "A colony of penguins gathers on the ice every winter to breed.",
+        "펭귄 무리는 매년 겨울 번식하려고 얼음 위에 모입니다."
+      ],
+      [
+        "Hong Kong was a British colony until 1997.",
+        "홍콩은 1997년까지 영국의 식민지였습니다."
+      ],
+      [
+        "She spent the summer at an artists' colony in the mountains.",
+        "그녀는 여름을 산속의 예술가 마을에서 보냈습니다."
+      ]
+    ]
+  },
+  "come across": {
+    "n": "우연히 무언가를 발견하거나 누군가를 마주친다는 구동사로, 목적어를 반드시 across 뒤에 둡니다. come across it처럼 대명사도 뒤에 와요. 또 다른 뜻으로 come across as 형용사는 '~한 인상을 주다'라는 표현이라 시험과 면접에서 유용합니다. 같은 뜻의 run into와 stumble upon은 구어체이고, 격식 있는 글에서는 encounter가 더 어울려요.",
+    "x": [
+      [
+        "I might come across my old diary while cleaning the attic.",
+        "다락방을 청소하다가 옛날 일기장을 우연히 발견할지도 모릅니다."
+      ],
+      [
+        "Try not to come across as rude when you disagree with someone.",
+        "다른 사람과 의견이 다를 때 무례한 인상을 주지 않도록 하세요."
+      ]
+    ]
+  },
+  "comet": {
+    "n": "얼음과 먼지로 이루어져 태양 주위를 도는 천체로, 가까이 오면 긴 꼬리가 생깁니다. 한국어에서는 흔히 별똥별과 혜성을 구별하지만, 영어 shooting star는 사실 대기에 타는 meteor이고 comet과는 다른 천체예요. Halley's Comet처럼 고유 이름 앞에서는 대문자로 쓰기도 합니다. 발음은 [ˈkɑːmɪt]이며 첫 음절을 강하게 읽습니다.",
+    "x": [
+      [
+        "Halley's Comet returns to the inner solar system about every seventy-six years.",
+        "핼리 혜성은 약 76년마다 태양계 안쪽으로 돌아옵니다."
+      ],
+      [
+        "Astronomers discovered a new comet last night using a small telescope.",
+        "천문학자들은 어젯밤 작은 망원경으로 새 혜성을 발견했습니다."
+      ]
+    ]
+  },
+  "communal": {
+    "n": "한 건물이나 집단의 사람들이 함께 쓰는 것을 나타내는 형용사로, communal kitchen, communal garden, communal living처럼 공용 공간 앞에 붙습니다. shared와 의미가 비슷하지만 공동체나 집단 전체가 소유한다는 느낌이 더 강해요. 지역이나 종교 집단 사이의 갈등을 말하는 communal violence 같은 쓰임도 있으니 문맥을 확인하세요. 강세는 영국식이 첫 음절, 미국식은 둘째 음절 MU에 올 수 있습니다.",
+    "x": [
+      [
+        "The residents share a communal laundry room on the ground floor.",
+        "주민들은 1층의 공용 세탁실을 함께 사용합니다."
+      ],
+      [
+        "Communal living can lower costs, but it requires a lot of compromise.",
+        "공동 생활은 비용을 줄일 수 있지만 많은 타협이 필요합니다."
+      ]
+    ]
+  },
+  "commuter": {
+    "n": "집과 직장이나 학교 사이를 정기적으로 오가는 사람을 뜻합니다. 동사 commute에 -er이 붙은 형태이고, commuter train, commuter town, commuter belt처럼 복합어로 자주 나와요. 한국어 '통근자'보다 훨씬 일상적이라 뉴스에서도 흔합니다. traveller나 passenger는 이동 목적과 상관없는 일반적인 말이라 매일 출퇴근하는 사람에게는 commuter가 정확해요. 강세는 둘째 음절 MU입니다.",
+    "x": [
+      [
+        "Thousands of commuters were delayed by the signal failure this morning.",
+        "오늘 아침 신호 고장으로 수천 명의 통근자가 지연을 겪었습니다."
+      ],
+      [
+        "Many commuters in Seoul read the news on their phones during the ride.",
+        "서울의 많은 통근자는 이동 중에 휴대폰으로 뉴스를 읽습니다."
+      ]
+    ]
+  },
+  "competitively priced": {
+    "n": "경쟁사와 비슷하거나 더 낮은 가격이라는 뜻으로, 광고와 상품 소개에서 즐겨 쓰는 표현입니다. cheap은 품질이 낮다는 인상을 줄 수 있어서 상점이나 회사는 이 말을 대신 씁니다. 부사 competitively가 과거분사 priced를 꾸미는 구조라 하이픈 없이 쓰며, 명사 앞에서는 competitively-priced로 붙이기도 해요. 본인 가격이 싸다고 직접 말할 때는 affordable이 더 부드럽습니다.",
+    "x": [
+      [
+        "The hotel offers clean, comfortable rooms that are competitively priced.",
+        "그 호텔은 깨끗하고 편안한 객실을 경쟁력 있는 가격에 제공합니다."
+      ],
+      [
+        "We want our new laptop to be competitively priced against rival brands.",
+        "저희는 새 노트북이 경쟁 브랜드에 맞서 가격 경쟁력을 갖추길 바랍니다."
+      ]
+    ]
+  },
+  "complex": {
+    "n": "여러 부분이 얽혀 있어 이해하기 어렵다는 뜻의 형용사로, complicated와 비슷하지만 더 중립적이고 분석적인 말이에요. complicated는 불필요하게 꼬였다는 부정적 느낌이 있고, complex는 구조 자체가 복잡하다는 의미로 학술 글에 잘 맞습니다. 명사로는 apartment complex처럼 건물군을 뜻하고, 강세가 달라 형용사는 [kəmˈplɛks] 또는 [ˈkɑːmplɛks]로 읽으며 명사는 첫 음절에 강세를 둡니다.",
+    "x": [
+      [
+        "The human brain is far more complex than any computer.",
+        "인간의 뇌는 어떤 컴퓨터보다 훨씬 복잡합니다."
+      ],
+      [
+        "We live in a large apartment complex near the river.",
+        "저희는 강 근처의 큰 아파트 단지에 삽니다."
+      ]
+    ]
+  },
+  "composer": {
+    "n": "음악을 작곡하는 사람이며, 주로 클래식 작곡가를 가리킵니다. 대중음악에서는 songwriter가 더 자연스럽고, 영화나 게임 음악을 쓰는 사람에게는 composer를 씁니다. 동사 compose에 -r이 붙은 형태라 -er이 아니라 -r만 붙는다는 철자에 주의하세요. 한국어로는 '작곡가'와 '작사가'를 구별하지만, 영어 lyricist는 가사만 쓰는 사람입니다. 강세는 둘째 음절 POS입니다.",
+    "x": [
+      [
+        "Beethoven is often called the greatest composer of all time.",
+        "베토벤은 흔히 역대 최고의 작곡가로 불립니다."
+      ],
+      [
+        "The film's composer won an award for the beautiful soundtrack.",
+        "그 영화의 작곡가는 아름다운 사운드트랙으로 상을 받았습니다."
+      ]
+    ]
+  },
+  "conduct a survey": {
+    "n": "의견이나 정보를 모으려고 설문 조사를 실시한다는 표현입니다. 한국어로는 '설문 조사를 하다'라서 do a survey라고 하기 쉬운데, 격식 있는 글에서는 conduct 또는 carry out이 훨씬 자연스러워요. 학생이 직접 돌리는 가벼운 조사라면 do도 가능하지만 보고서와 에세이에서는 피하세요. 응답자는 respondent이고, 결과는 survey results나 findings로 말합니다.",
+    "x": [
+      [
+        "The university will conduct a survey of students about campus food.",
+        "대학은 학생들을 대상으로 학교 식당 음식에 관한 설문 조사를 실시할 예정입니다."
+      ],
+      [
+        "Researchers will conduct a survey among five hundred households next month.",
+        "연구진은 다음 달 오백 가구를 대상으로 설문 조사를 실시할 예정입니다."
+      ]
+    ]
+  },
+  "confidentiality": {
+    "n": "정보를 비밀로 지켜야 하는 의무나 비밀이 유지되는 상태를 말하는 불가산명사입니다. 계약서와 병원, 회사 문서에 자주 나오는 격식 있는 말이에요. confidentiality agreement는 NDA와 같은 뜻으로 쓰이고, breach of confidentiality는 비밀 유지 의무 위반입니다. 한국어에서는 보안과 비밀이 섞이기 쉽지만, 보안은 security, 사생활은 privacy로 구별하세요. 강세는 다섯째 음절 AL입니다.",
+    "x": [
+      [
+        "Doctors are bound by strict rules of patient confidentiality.",
+        "의사는 환자의 비밀 유지에 관한 엄격한 규칙을 지켜야 합니다."
+      ],
+      [
+        "All new employees must sign a confidentiality agreement on their first day.",
+        "모든 신입 직원은 첫날 비밀 유지 계약서에 서명해야 합니다."
+      ]
+    ]
+  },
+  "confirm": {
+    "n": "어떤 사실이 맞다고 말하거나 확인해 주고, 예약이나 일정을 확정한다는 뜻의 동사입니다. 한국어 '확인하다'는 직접 알아본다는 의미도 있지만, 영어 confirm은 이미 알려진 것이 맞음을 밝힌다는 쪽이라 직접 알아볼 때는 check나 verify를 써야 해요. confirm a booking, confirm receipt, confirm that절이 자주 나옵니다. 명사는 confirmation이고 강세는 둘째 음절 FIRM입니다.",
+    "x": [
+      [
+        "Please confirm your appointment by replying to this email.",
+        "이 이메일에 답장해서 예약을 확정해 주세요."
+      ],
+      [
+        "The airline confirmed that the flight had been cancelled.",
+        "항공사는 그 항공편이 취소되었다고 확인해 주었습니다."
+      ]
+    ]
+  },
+  "congestion": {
+    "n": "교통이나 사람이 너무 많아 움직이기 힘든 혼잡 상태를 말합니다. traffic congestion이 가장 흔한 짝이고, congestion charge는 도심 진입에 내는 혼잡 통행료예요. 코가 막힌 증상 nasal congestion처럼 의학적으로도 쓰입니다. traffic jam은 구어체에서 특정한 정체를, congestion은 지속되는 혼잡 문제를 가리키는 격식 있는 단어입니다. 발음 [kənˈdʒɛstʃən]에 주의하세요.",
+    "x": [
+      [
+        "Heavy congestion on the motorway made me late for the meeting.",
+        "고속도로가 심하게 막혀서 회의에 늦었습니다."
+      ],
+      [
+        "I took some medicine to relieve my nasal congestion.",
+        "코막힘을 완화하려고 약을 먹었습니다."
+      ]
+    ]
+  },
+  "conservation": {
+    "n": "자연환경이나 문화유산을 해치지 않고 지켜 가는 활동을 뜻하는 불가산명사입니다. wildlife conservation, energy conservation, water conservation처럼 폭넓게 쓰이고, 에너지 절약의 의미도 있어서 한국어 '보호'와 '절약'을 모두 포함해요. preservation은 원래 상태를 그대로 유지한다는 뜻이고, conservation은 쓰면서 지속 가능하게 관리한다는 느낌입니다. 동사 conserve와 강세 위치가 달라 주의하세요.",
+    "x": [
+      [
+        "The charity works on marine conservation along the coast.",
+        "그 자선단체는 해안을 따라 해양 보전 활동을 합니다."
+      ],
+      [
+        "Water conservation becomes vital during a long drought.",
+        "긴 가뭄 중에는 물 절약이 매우 중요해집니다."
+      ]
+    ]
+  },
+  "consolidate": {
+    "n": "여러 개를 하나로 합쳐 더 효율적이거나 튼튼하게 만든다는 뜻의 동사로, 비즈니스와 금융 글에서 많이 보입니다. consolidate debts는 여러 빚을 하나로 묶는다는 뜻이고, consolidate a lead는 앞선 상태를 굳힌다는 뜻이에요. merge는 두 조직이 합쳐지는 것이고, consolidate는 흩어진 것을 하나로 정리하거나 위치를 단단히 하는 점이 다릅니다. 명사는 consolidation입니다.",
+    "x": [
+      [
+        "The bank decided to consolidate its small branches into larger offices.",
+        "그 은행은 작은 지점들을 더 큰 사무소로 통합하기로 했습니다."
+      ],
+      [
+        "The team scored again to consolidate its lead before half time.",
+        "그 팀은 전반전이 끝나기 전에 다시 득점해 리드를 굳혔습니다."
+      ]
+    ]
+  },
+  "constellation": {
+    "n": "하늘에서 일정한 모양을 이루고 이름이 붙은 별들의 무리, 즉 별자리입니다. Orion, Ursa Major처럼 고유 이름은 대문자로 쓰고, 보통 the constellation Orion 또는 the Orion constellation이라고 해요. 한국어의 '별자리'는 점성술의 star sign과 섞이기 쉬운데, 생일 별자리는 zodiac sign이나 star sign이라고 말합니다. 강세는 셋째 음절 LA이고 -tion은 [ʃən]으로 읽습니다.",
+    "x": [
+      [
+        "Orion is one of the easiest constellations to find in winter.",
+        "오리온자리는 겨울에 가장 찾기 쉬운 별자리 중 하나입니다."
+      ],
+      [
+        "Ancient farmers used the position of each constellation to mark the seasons.",
+        "고대 농부들은 각 별자리의 위치로 계절을 구분했습니다."
+      ]
+    ]
+  },
+  "consume": {
+    "n": "에너지, 물, 시간 같은 것을 쓰거나 음식과 음료를 먹고 마신다는 뜻의 동사입니다. eat이나 drink보다 격식 있고 통계나 보고서에서 자주 쓰이며, 일상 대화에서 밥을 먹는다는 의미로 쓰면 어색해요. 사람이 주어이면 소비한다는 뜻이고, This car consumes a lot of fuel처럼 사물이 주어일 수도 있습니다. 명사는 consumer, consumption이며 강세는 둘째 음절 SUME입니다.",
+    "x": [
+      [
+        "Data centres consume a huge amount of electricity every year.",
+        "데이터 센터는 매년 엄청난 양의 전기를 소비합니다."
+      ],
+      [
+        "Teenagers consume more sugar than doctors recommend.",
+        "십 대들은 의사가 권장하는 것보다 더 많은 설탕을 섭취합니다."
+      ]
+    ]
+  },
+  "contaminate": {
+    "n": "해로운 물질을 섞어 무언가를 더럽히거나 위험하게 만든다는 뜻의 동사로, 물, 음식, 토양 이야기에 자주 쓰입니다. pollute는 환경 전반을 오염시키는 것이고, contaminate는 특정한 대상이 독성 물질이나 세균에 오염되었다는 느낌이 더 강해요. 수동태 be contaminated with를 많이 쓰고, 명사는 contamination입니다. 강세는 둘째 음절 TAM이며 [kənˈtæmɪneɪt]로 읽습니다.",
+    "x": [
+      [
+        "Raw meat can contaminate other food if it is stored carelessly.",
+        "날고기를 부주의하게 보관하면 다른 음식을 오염시킬 수 있습니다."
+      ],
+      [
+        "The well water was contaminated with bacteria after the flood.",
+        "홍수 뒤에 우물물이 세균에 오염되었습니다."
+      ]
+    ]
+  },
+  "contrary to": {
+    "n": "기대나 믿음과 반대라는 뜻을 나타내는 전치사구로, 문장 앞에서 contrary to popular belief 형태로 가장 많이 씁니다. 뒤에는 명사나 대명사가 오고 절이 바로 올 수 없어요. 한국어 '~와 반대로'는 on the contrary와 헷갈리기 쉬운데, on the contrary는 앞말을 부정하며 독립해서 쓰는 표현이라 구조가 다릅니다. 격식 있는 글에서 자주 보이는 말입니다.",
+    "x": [
+      [
+        "Contrary to expectations, the new restaurant was almost empty on opening night.",
+        "예상과 달리 새 식당은 개업 첫날 밤 거의 비어 있었습니다."
+      ],
+      [
+        "Contrary to what you may think, carrots do not improve your eyesight much.",
+        "생각과는 달리 당근은 시력을 그다지 좋게 하지 않습니다."
+      ]
+    ]
+  },
+  "controversial": {
+    "n": "사람들 사이에 큰 논쟁이나 의견 대립을 일으키는 것을 묘사하는 형용사입니다. a controversial decision, a controversial figure처럼 쓰고, 정치와 사회 이슈에서 매우 흔해요. 한국어 '논란'은 대체로 부정적이지만 영어 controversial은 반드시 나쁘다는 뜻은 아니고 의견이 갈린다는 의미입니다. 명사는 controversy이고 강세 위치가 CON에서 VER로 바뀌므로 주의하세요.",
+    "x": [
+      [
+        "The mayor's plan to close the old library was highly controversial.",
+        "오래된 도서관을 폐쇄하려는 시장의 계획은 큰 논란을 일으켰습니다."
+      ],
+      [
+        "She is a controversial singer who often speaks about politics.",
+        "그녀는 종종 정치에 대해 발언하는 논란이 많은 가수입니다."
+      ]
+    ]
+  },
+  "conveniently located": {
+    "n": "찾아가기 쉬운 위치에 있다는 뜻으로, 호텔, 아파트, 상점 광고에서 매우 자주 보입니다. 보통 conveniently located near the station처럼 가까운 장소를 뒤에 붙이고, 주어는 장소나 건물이에요. 한국어 '편리한 위치'를 직역한 convenient location도 가능하지만, be conveniently located 형태가 더 자연스럽습니다. 사람이 주어가 아니니 I am conveniently located라고는 쓰지 않습니다.",
+    "x": [
+      [
+        "The apartment is conveniently located next to a subway station.",
+        "그 아파트는 지하철역 바로 옆이라 위치가 편리합니다."
+      ],
+      [
+        "Our office is conveniently located in the heart of the business district.",
+        "저희 사무실은 상업 지구 중심에 있어 접근성이 좋습니다."
+      ]
+    ]
+  },
+  "copay": {
+    "n": "진료나 처방을 받을 때마다 환자가 내는 정해진 본인 부담금으로, 주로 미국 건강보험에서 쓰는 말입니다. 한국 건강보험의 본인부담금과 비슷하지만 금액이 고정되어 있다는 점이 다릅니다. 비율로 내는 coinsurance, 보험이 적용되기 전에 내는 deductible과 구별하세요. 철자는 co-payment 또는 copayment도 쓰이고, 강세는 첫 음절 CO입니다.",
+    "x": [
+      [
+        "My copay for a specialist visit is forty dollars.",
+        "전문의 진료 때 제 본인 부담금은 40달러입니다."
+      ],
+      [
+        "Some clinics ask you to pay the copay at the front desk before you see the doctor.",
+        "일부 병원은 진료를 받기 전에 접수처에서 본인 부담금을 내라고 요청합니다."
+      ],
+      [
+        "A lower monthly premium usually means a higher copay.",
+        "월 보험료가 낮으면 보통 본인 부담금이 높습니다."
+      ]
+    ]
+  }
+}

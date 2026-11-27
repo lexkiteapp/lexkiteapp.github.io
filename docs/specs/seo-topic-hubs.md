@@ -13,6 +13,11 @@
 ## 2. Thiết kế (khoá trước code)
 Stitch "Lexkite Kit", khung app 390 px (`docs/DESIGN-SYSTEM.md` §5d), sáng = Bright Day, tối = Tactile Night. Ref: Stitch project 7268539912208977707, màn "Topic Hub (Light)". Code port trung thành, không style lại; CI so ảnh. Chủ OK ảnh trước khi gộp (rule 6).
 
+## 2b. Đã làm (23/11)
+- Builder: khối chủ đề trong `build-seo-pages.mjs` + `scripts/lib/seo-topics.mjs` (không pipeline thứ hai); nội dung `content/seo/topics/<lang>.json` (tên + giới thiệu 45–80 chữ bản ngữ, 34 chủ đề ≥ 10 từ index được) + `_ui.json` (khung chữ). 13 ngôn ngữ (en/vi đã có /en/vocabulary/, /tu-vung/ → không tạo trang cạnh tranh). Trang ghi vào dist/ (Pages), không qua R2; ≈ 322 trang.
+- Trang tĩnh, 0 JS mới, dùng khung + CSS của trang từ; liên kết ngược: trang từ → chủ đề, chủ đề → chủ đề khác.
+- Cổng: `scripts/test/seo-topics.mjs` (suite).
+
 ## 3. Cổng
 `scripts/test/seo-pages.mjs`: mọi link thẻ từ tới trang index được; canonical + hreflang hai chiều; không mồ côi; mô tả/tiêu đề không trùng. Test nhẹ cục bộ, nặng trên CI.
 

@@ -1,0 +1,138 @@
+{
+ "awl1": {
+  "n": "AWL Sublist 1: Akademischer Basiswortschatz",
+  "i": "Sublist 1 ist die häufigste der Academic Word List: Wörter wie assume, estimate oder derive kommen in fast jedem Hochschultext vor. Viele haben eine Wortfamilie, von estimate bis estimation, und wer sie kennt, versteht im IELTS Reading deutlich mehr. Notiere zu jedem Wort Verb, Substantiv und Adjektiv, soweit vorhanden, und prüfe jede Form im Wörterbuch."
+ },
+ "awl2": {
+  "n": "AWL Sublist 2: Basis für Writing Task 2",
+  "i": "Conduct a survey, acquire skills, secure funding: So klingt Sublist 2 der AWL, die mehr aus Kollokationen als aus Einzelwörtern besteht. Sie helfen dir direkt in Writing Task 2. Wähle drei und suche in einem Wörterbuch mit Beispielen zwei weitere Kollokationen zu jedem; behalte nur die, die in echten Texten vorkommen."
+ },
+ "awl3": {
+  "n": "AWL Sublist 3: Argumentieren und Darstellen",
+  "i": "Criteria ist ein Plural, der Singular heißt criterion: ein Detail, das beim Schreiben viele verwirrt. Diese Sublist enthält gängigen akademischen Wortschatz wie circumstance, component oder correspond, der beim Ordnen eines Arguments hilft. Lege eine Liste von fünf Wörtern mit Wortfamilie (compensate, compensation) oder Plural an und prüfe jede Form im Wörterbuch."
+ },
+ "awl4": {
+  "n": "AWL Sublist 4: Wörter für Fachartikel",
+  "i": "Du liest einen wissenschaftlichen Artikel und stößt auf \"adequate evidence\" und \"an approximate figure\". Das ist Sublist 4, mittleres Niveau der AWL, mit apparent, emerge oder integrate, nützlich für vorsichtige Aussagen über Ergebnisse. Suche einen kurzen akademischen Absatz und markiere diese Wörter; findest du drei, beherrschst du sie im Kontext."
+ },
+ "awl5": {
+  "n": "AWL Sublist 5: Wandel, Systeme, Standpunkte",
+  "i": "Diese Sublist beschreibt Wandel, Systeme und Standpunkte: alter, evolve, enable, conflict. Es sind Verben und Substantive, die beim Kommentieren von Grafiken oder beim Verteidigen einer Meinung im Essay passen. Übersetze einen einfachen Satz aus deiner Sprache ins Englische und verwende alter oder evolve; prüfe, ob er natürlich klingt, und mache dasselbe mit enable in einem anderen Satz."
+ },
+ "awl6": {
+  "n": "AWL Sublist 6: Präziser schreiben",
+  "i": "Domain kann ein Wissensgebiet, eine Internetadresse oder ein Territorium sein: Welche Bedeutung ist die akademische? Diese fortgeschrittene Sublist enthält acknowledge, diverse, explicit und weitere Wörter, die das Schreiben präziser machen. Schreibe zu jedem zwei Sätze mit verschiedenen Formen oder Bedeutungen (diverse, diversity) und notiere, was die Kontexte unterscheidet."
+ },
+ "awl7": {
+  "n": "AWL Sublist 7: Prozesse und Bewertung",
+  "i": "Convert, eliminate, differentiate: drei Verben, die sagen, was in einem Prozess mit etwas geschieht. Sublist 7 sammelt fortgeschrittenen Wortschatz zum Erklären von Abläufen, Einordnen und Bewerten, mit comprehensive oder hierarchy. Zeichne eine einfache Hierarchie aus deiner Arbeit oder deinem Studium und beschreibe sie auf Englisch mit drei dieser Wörter."
+ },
+ "awl8": {
+  "n": "AWL Sublist 8: Trends, Schwankungen, Analyse",
+  "i": "The firm decided to ___ the project: abandon, clarify oder complement? Sublist 8 übt genau solche Lücken, mit abandon, commodity, clarify und weiteren Wörtern für Trends, Veränderungen und Analysen. Erfinde fünf Sätze mit einer Lücke, fülle sie mit verschiedenen Wörtern der Liste und beobachte, wie sich die Bedeutung jedes Mal verschiebt."
+ },
+ "awl9": {
+  "n": "AWL Sublist 9: Seltener, formeller Wortschatz",
+  "i": "On behalf of: eine feste Wendung, in der behalf nie allein steht. Sublist 9 enthält seltenere, aber präzise und formelle Wörter wie accommodate, anticipate oder coherent, nützlich in formellen E-Mails und Essays. Wähle fünf pro Lerneinheit, schreibe zu jedem einen Satz über dein eigenes Leben und achte darauf, dass er formell klingt."
+ },
+ "awl10": {
+  "n": "AWL Sublist 10: Letzte Stufe, hoher Effekt",
+  "i": "A small, albeit significant, rise: albeit steht vor einem Adjektiv oder einem kurzen Nebensatz, um etwas einzuräumen. Die letzte Sublist der AWL ist die seltenste, aber Wörter wie forthcoming oder straightforward wirken gut, wenn sie passen. Setze sie sparsam ein: Wenn ein einfaches Wort genauso gut funktioniert, nimm das einfache und spare diese für Nuancen auf."
+ },
+ "dom-biz": {
+  "n": "Wirtschaft und Finanzen",
+  "i": "Eine Bank vergibt einen Kredit und verlangt collateral; gerät der Kunde in default, kann sie diese Sicherheit verwerten. Diese kleine Geschichte nutzt schon zwei Begriffe dieses Blocks zu Wirtschaft und Finanzen, der Management, Buchhaltung, Bankwesen, Investition und Marketing abdeckt, mit depreciation oder equity. Zeichne den Geldfluss eines Unternehmens und beschrifte jeden Pfeil auf Englisch."
+ },
+ "dom-eng": {
+  "n": "Technik und Fertigung",
+  "i": "Wer in Maschinenbau, Elektrotechnik, Bauwesen oder Produktion arbeitet, findet hier den passenden Wortschatz, zum Beispiel bearing, calibration, casting oder commissioning. Die Wörter helfen beim Lesen von Handbüchern, Spezifikationen und bei Gesprächen mit internationalen Kollegen. Verknüpfe jedes Wort mit einem Bild oder Bauteil aus deinem Alltag und beschreibe es laut in zwei Sätzen."
+ },
+ "dom-it": {
+  "n": "Informationstechnologie",
+  "i": "In einem Teammeeting sagt jemand: \"the backlog keeps growing and the endpoint fails authentication\". Im IT-Alltag ist das ein ganz normaler Satz, und dieser Block sammelt den Wortschatz dahinter: Programmierung, Software, Netzwerke, Daten, Sicherheit und Cloud, mit compiler, encryption oder debug. Schreibe auf Englisch eine Commit-Nachricht oder ein Ticket mit drei dieser Begriffe."
+ },
+ "dom-law": {
+  "n": "Recht und Verwaltung",
+  "i": "Manchmal täuscht die Ähnlichkeit. Arbitration, jurisdiction, convict oder notarize erinnern an deutsche Wörter, entsprechen aber nicht immer dem vermeintlichen Pendant: Ein notary in den USA ist zum Beispiel nicht dasselbe wie ein deutscher Notar. Dieser Block umfasst Verträge, Verfahren und Behördenwege. Wähle zwei Begriffe und notiere zu jedem, worin er sich vom Rechtsbegriff in deinem Land unterscheidet."
+ },
+ "dom-med": {
+  "n": "Medizin und Gesundheit",
+  "i": "Antibiotic und antibody sehen ähnlich aus, bedeuten aber Verschiedenes: das eine ist ein Medikament, das andere ein Eiweiß des Immunsystems. Solche Paare begegnen dir in diesem Block für medizinisches Englisch: Diagnose, Behandlung, Pathologie, Pharmazie, Anatomie und Krankenhaus, mit biopsy, anesthesia oder cholesterol. Erstelle eine Tabelle ähnlicher Paare mit je einer kurzen Definition in einfachem Englisch."
+ },
+ "ex-ielts-listen": {
+  "n": "IELTS Listening: häufige Wörter Section 1 bis 4",
+  "i": "Diese Sammlung enthält Wörter für die vier Abschnitte des IELTS Listening: Formulare mit Buchstabieren und Zahlen, Wohnen, Anfahrtswege, Karten, Einrichtungen sowie akademische Gespräche und Vorträge. Beispiele sind clockwise, caretaker, foyer und fundraising. Höre beim Lernen die Aussprache mit und trainiere gezielt die Richtungsangaben auf Karten."
+ },
+ "ex-ielts-read": {
+  "n": "IELTS Reading: Akademischer Wortschatz und Paraphrasen",
+  "i": "Im Reading wird fast jede Frage mit anderen Wörtern formuliert als der Text. Diese Liste sammelt Verben der Meinungsäußerung, vorsichtige Formulierungen, Forschungsvokabular und Konnektoren, die oft paraphrasiert werden, zum Beispiel account for, allegedly, anomaly oder assert. Lege zu jedem Eintrag zwei Synonyme an und übe damit True, False, Not Given."
+ },
+ "ex-ielts-speak": {
+  "n": "IELTS Speaking: natürliche Wörter und Wendungen",
+  "i": "Part 1 bis 3 drehen sich um Heimat, Arbeit, Hobbys, Essen, Einkaufen, Technik und Erinnerungen. Diese Auswahl liefert Wendungen, die muttersprachlich klingen, etwa bustling city, close-knit, bond over oder go viral, plus Füllwörter wie broadly speaking für Part 3. Sprich jede Wendung laut in einem eigenen Satz über dein Leben und nimm dich auf."
+ },
+ "ex-ielts-write": {
+  "n": "IELTS Writing: Task 1 und Task 2",
+  "i": "Für Task 1 brauchst du Vokabeln für Trends, Vergleiche, Prozesse und Karten, für Task 2 Wendungen zum Argumentieren, für Ursache und Wirkung sowie für Lösungen. Beispiele: a striking feature, bottom out, a knock-on effect, counterargument. Baue pro Wendung einen Satz und nutze ihn in einem Probetext mit Zeitlimit."
+ },
+ "ex-toefl": {
+  "n": "TOEFL iBT: Wortschatz der Universität",
+  "i": "Die Liste verbindet Campus-Alltag mit Begriffen aus Vorlesungen in Biologie, Geologie, Astronomie, Geschichte und Kunst. Wörter wie bursar, carnivore, celestial oder chlorophyll zeigen die Bandbreite. Beim Lernen hilft es, Begriffe nach Fachgebiet zu gruppieren und zu jeder Gruppe eine kurze Zusammenfassung auf Englisch zu schreiben."
+ },
+ "ex-toefl-lecture": {
+  "n": "TOEFL Lectures: Begriffe nach Fachgebiet",
+  "i": "Vorlesungen im TOEFL Listening nutzen Fachwörter aus Biologie, Geologie, Astronomie, Kunstgeschichte, Anthropologie und Psychologie. Dazu zählen ancestor, artifact, chromosome, constellation und Baroque. Sortiere die Begriffe nach Fach und höre dann kurze englische Vorträge zu einem Fach, um die Wörter in gesprochener Sprache wiederzuerkennen, statt sie nur zu lesen."
+ },
+ "ex-toeic-l": {
+  "n": "TOEIC Listening: häufige Begriffe Part 1 bis 4",
+  "i": "Für Part 1 braucht man Verben zur Bildbeschreibung, für Part 2 Frage-Antwort-Muster, für Part 3 und 4 Wortschatz aus Büro, Reisen und Durchsagen. Typisch sind awning, back-ordered, be docked und address an audience. Betrachte ein Foto aus dem Alltag und beschreibe es mit Passivformen wie be mounted oder be stocked with. So trainierst du den Part-1-Stil."
+ },
+ "ex-toeic-r": {
+  "n": "TOEIC Reading: Kollokationen und Fachwendungen",
+  "i": "In Part 5 bis 7 entscheiden oft feste Verbindungen: Präpositionalausdrücke, Adjektiv plus Präposition und Büro-Kollokationen aus E-Mails, Ankündigungen und Verträgen. Beispiele sind adhere to, be eligible for, be contingent on und acknowledge receipt. Lerne jede Wendung samt Präposition als Einheit und prüfe dich mit Lückensätzen im Stil von Part 5."
+ },
+ "linking": {
+  "n": "Konnektoren und Satzverbindungen",
+  "i": "Konnektoren machen einen Text kohärent: Ergänzung, Gegensatz, Ursache und Folge, Beispiel und Schluss. Die Liste mit furthermore, in contrast, due to, in spite of und to illustrate unterstützt vor allem Writing Task 2. Wichtig ist die Grammatik danach: Nach despite folgt ein Substantiv oder -ing, nach although ein ganzer Satz. Übe beides in Umformungen."
+ },
+ "toeic1": {
+  "n": "TOEIC-Wörter 1 bis 125: Büro, Kunden, Reisen",
+  "i": "Montag, 8:55 Uhr: Der attendee erreicht die Rezeption, der clerk prüft seinen Namen und erinnert ihn an die depart-Zeit des Busses. Diese Szene fasst den ersten Abschnitt der TOEIC-Wortliste zusammen, die Wörter 1 bis 125 nach Häufigkeit: Büro, Kunden, Buchungen, Flughafen und Rechnungen, etwa mit enclose oder fare. Erzähle die Szene auf Englisch mit fünf dieser Wörter."
+ },
+ "toeic2": {
+  "n": "TOEIC-Wörter 126 bis 250: Lager, Kontrollen, Anmeldung",
+  "i": "Was haben ein cartridge, ein courier und ein contractor gemeinsam? Alle drei können in derselben E-Mail zu einer Bestellung vorkommen. Diese Gruppe, die Wörter 126 bis 250 nach Häufigkeit, umfasst Lager, Getränke, Kontrollen, Veranstaltungen, Anmeldung und Verkehr, mit availability, certificate oder complimentary. Wähle drei Wörter und schreibe die erfundene E-Mail, die sie verbindet."
+ },
+ "toeic3": {
+  "n": "TOEIC-Wörter 251 bis 375: Hotel, Gastronomie, Praktikum",
+  "i": "Zwischen dem 251. und dem 375. Wort der TOEIC-Liste nach Häufigkeit wechselt die Kulisse zu Hotel, Gastronomie, Praktikum, Dienstleistungen, Einkauf und Dokumenten. Hier stehen anniversary, cabin und completion neben Adverbien wie annually oder accurately, die du an der Endung erkennst. Sortiere sie in zwei Spalten, Substantive und Adverbien, bevor du zur nächsten Gruppe gehst."
+ },
+ "toeic4": {
+  "n": "TOEIC-Wörter 376 bis 500: Geräte, Verträge, Personal",
+  "i": "Ein häufiger Fehler: nur die Übersetzung lernen und den Zusammenhang weglassen. In der Gruppe der Wörter 376 bis 500 (Bürogeräte, Verträge, Finanzen, Reparaturen und Personal) fällt das schnell auf: alternate, appreciation oder broker ändern ihre Nuance je nach Satz. Speichere jedes Wort mit dem ganzen Satz, in dem du es gesehen hast, nicht mit einer losen Übersetzung."
+ },
+ "toeic5": {
+  "n": "TOEIC-Wörter 501 bis 625: Immobilien, Einstellung, Sicherheit",
+  "i": "Adhere to, applicable to, alert someone to: Viele Wörter dieser Gruppe verlangen eine feste Präposition. Die Wörter 501 bis 625 nach Häufigkeit drehen sich um Immobilien, Einstellung, Sicherheit, Vorschriften und Vergütung, mit adhere, applicable oder apprentice. Lerne jedes Verb oder Adjektiv samt Präposition und schreibe einen Satz über eine Sicherheitsregel am Arbeitsplatz."
+ },
+ "toeic6": {
+  "n": "TOEIC-Wörter 626 bis 750: Hotel, Küche, Post, Büromaterial",
+  "i": "Authorization, certify, attorney: Diese Wörter klingen ernst, und das sind sie auch. Die Wörter 626 bis 750 nach Häufigkeit führen zu formellerem Englisch: Hotel, Personalsuche, Gastronomie, Büromaterial und Paketversand. Prüfe, was akzeptieren, genehmigen und beglaubigen jeweils bedeutet, und schreibe zu jedem Verb einen Bürosatz. Lies sie laut, damit sich die langen Formen vertraut anfühlen."
+ },
+ "toeic7": {
+  "n": "TOEIC-Wörter 751 bis 875: Einkauf, Gesundheit, Verkehr",
+  "i": "Wenn du nur zehn Minuten am Tag hast, lies damit eine kurze Mitteilung. Die Wörter 751 bis 875 nach Häufigkeit umfassen Einkauf, Büroausstattung, Gesundheit, Personal und Verkehr, mit advisory, chairperson oder dealership, und begegnen dir gut in Rundschreiben und kurzen Notizen. Suche eine englische Mitteilung, finde zwei Wörter der Liste darin und notiere sie mit dem ganzen Satz."
+ },
+ "toeic8": {
+  "n": "TOEIC-Wörter 876 bis 1000: Transport, Technik, Finanzen",
+  "i": "Additionally, activate, affirmative: Achte darauf, wie sie enden. Bei den Wörtern 876 bis 1000 nach Häufigkeit geht es um Transport, Technik, Finanzen, Verträge und Veranstaltungen; viele erkennst du an Endungen wie -ly oder -ate. Mit consecutive oder counselor kommen Begriffe aus Besprechungen und Beratung dazu. Gruppiere sie nach Endung und suche zu jeder Gruppe ein verwandtes Wort, das du schon kennst."
+ },
+ "toeic9": {
+  "n": "TOEIC-Wörter 1001 bis 1125: Buchhaltung, Compliance, Reisen",
+  "i": "Stell dir eine Geschäftsreise vor: Vor der Abfahrt prüfst du den attire, den die Firma verlangt, legst das archive der Rechnungen ab und erfährst, dass ein Lieferant in bankruptcy geraten ist. Zu den Wörtern 1001 bis 1125 nach Häufigkeit gehören Buchhaltung, Compliance, Wohnen, Reisen und Kleidung. Schreibe einen Dialog mit vier Zeilen und drei dieser Wörter und lies ihn laut."
+ },
+ "toeic10": {
+  "n": "TOEIC-Wörter 1126 bis 1250: Recht, Technik, Restaurant",
+  "i": "Der letzte Abschnitt, vom 1126. bis zum 1250. Wort, hat kein beherrschendes Thema mehr: bacteria steht neben by-law, deteriorate neben drastically. Ein bunter Abschlussblock aus Recht, Technologie, Gesundheit, Gastronomie und Wirtschaft. Lerne ihn nicht der Reihe nach: Mische die Wörter, ziehe drei zufällig und erkläre laut, wie sie in einer Nachricht zusammenhängen könnten."
+ }
+}

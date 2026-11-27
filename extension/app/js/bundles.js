@@ -65,7 +65,7 @@
     pnodes: ['js/i18n/en/pathn.js', 'cpack/lesson/path-nodes.js'], // nội dung nút Lộ trình (dữ liệu + bản dịch lười, ngoài gói ngôn ngữ web/js)
     psheet: ['js/st/v2/path-sheet.js'],
     // 🚀 thiết lập lần đầu từng bước (chuỗi ở en/pathx.js) // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
-    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-mix.js', 'js/path-day.js'],
+    pathx: ['js/i18n/en/pathx.js', 'js/skill-acc.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-mix.js', 'js/path-day.js'],
     onb: ['js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/onb-goal.js', 'js/st/v2/onb-lang.js', 'js/st/v2/onb-level.js', 'js/st/v2/onb-target.js', 'js/st/v2/onb-pace.js', 'js/st/v2/onb-ready.js', 'js/characters.js', 'js/onboard.js'],
     welcome: ['js/i18n/en/v2.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/welcome.js', 'js/st/v2/welcome-desk.js', 'js/characters.js', 'js/welcome.js'],
     notices: ['js/i18n/en/notices.js', 'js/notices.js'], // 🔔 Chuông thông báo người học (tải lười sau khi vẽ trang) // 📋 Tiêu chí chấm IELTS Writing & Speaking
@@ -127,6 +127,7 @@
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
     swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
     wfeed: ['js/i18n/en/wfeed.js', 'js/widget-feed.js'], // 📱 widget "Từ mỗi giờ" (chỉ app gốc – native.js nạp)
+    firstlesson: ['js/i18n/en/firstlesson.js', 'js/firstlesson.js'], // 🌱 bài đầu 60 giây trước thiết lập (người mới); kill switch vb.noFirstLesson
     lfx: ['js/i18n/en/lfx.js', 'js/choice-kit.js', 'js/lesson-fx.js'],
     adoffer: ['js/i18n/en/adoffer.js', 'js/ad-offers.js'], // 🎁 Cơ hội 2 · x2 XP ở thẻ kết quả (docs/ADS.md §1c)
     i18nx: ['structs', 'toefl', 'league', 'call', 'handoff'].map(n => `js/i18n/en/${n}.js`), // chuỗi giao diện trang tải lười (xem App.need)
@@ -146,7 +147,7 @@
     u1lg: ['js/st/v2/leagues.js'],
     u1ex: ['js/st/v2/exam-readiness.js'],
     u1me: ['js/st/v2/me.js', 'js/ux1-me.js'],
-    lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/lcardui.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'cpack/st/v2/ex-frame.js', 'cpack/st/v2/ex-match.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'cpack/lesson/ex.js', 'js/lesson/ui.js'],
+    lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/lcardui.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'cpack/st/v2/ex-frame.js', 'cpack/st/v2/ex-match.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/skill-acc.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'cpack/lesson/ex.js', 'js/lesson/ui.js'],
     lgold: ['cpack/lesson/gold.js'],
     trfast: ['cpack/tr-fast.js'], // dịch câu (phrases.js nạp)
     dayv2: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/day.js', 'js/characters.js'], // 📅 Khung Stitch v2 của trang buổi học #/day/N (path-day.js page)
