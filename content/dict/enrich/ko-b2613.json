@@ -1,0 +1,314 @@
+{
+  "sustain": {
+    "n": "sustain은 무언가를 오랫동안 무너지지 않게 떠받쳐 유지한다는 뜻이라서 growth, life, an effort 같은 목적어와 잘 어울립니다. 강세는 두 번째 음절에 있어 /səˈsteɪn/으로 읽어요. 한국어 '지속하다'는 스스로 이어지는 느낌이 강하지만 sustain은 누군가 또는 무엇이 받쳐 주는 타동사라는 점이 다릅니다. 또 sustain an injury는 '부상을 입다'라는 전혀 다른 뜻이니 문맥으로 구분하세요. 형용사 sustainable도 함께 알아 두면 좋습니다.",
+    "x": [
+      [
+        "The soil here is too poor to sustain large crops year after year.",
+        "이곳의 토양은 너무 척박해서 해마다 많은 작물을 키워 낼 수 없습니다."
+      ],
+      [
+        "The striker sustained a knee injury in the first half.",
+        "그 공격수는 전반전에 무릎 부상을 입었습니다."
+      ]
+    ]
+  },
+  "transit": {
+    "n": "transit은 사람이나 물건이 한 곳에서 다른 곳으로 이동하는 과정 자체를 가리키는 명사입니다. 택배 추적에서 보는 in transit(배송 중)이 가장 흔한 쓰임이고, 관사 없이 씁니다. 미국 영어에서는 public transit이 대중교통을 뜻하고 영국에서는 public transport라고 더 많이 말해요. 공항에서 비행기를 갈아타려고 잠시 머무는 transit passengers(환승객)도 같은 단어에서 나왔습니다. 이동 수단 자체보다 이동 과정에 초점이 있다고 이해하면 됩니다.",
+    "x": [
+      [
+        "Your parcel is currently in transit and should arrive on Friday.",
+        "고객님의 소포는 현재 배송 중이며 금요일에 도착할 예정입니다."
+      ],
+      [
+        "Many commuters in the city rely on public transit instead of driving.",
+        "그 도시의 많은 통근자는 운전 대신 대중교통에 의존합니다."
+      ]
+    ]
+  },
+  "utilise": {
+    "n": "utilise는 use보다 격식 있는 동사로, 단순히 쓴다기보다 가진 자원을 효율적으로 끌어다 쓴다는 느낌을 줍니다. 영국식 철자이고 미국에서는 utilize라고 쓰지만 뜻은 같아요. 보고서나 경영 문서에서는 자연스럽지만 일상 대화에서 'Can I utilise your pen?'이라고 하면 어색하게 들립니다. 대부분의 경우 use로 충분하니 resources, space, data처럼 활용 대상이 분명할 때만 골라 쓰세요. 명사는 utilisation(미국식 utilization)입니다.",
+    "x": [
+      [
+        "The hospital plans to utilise its empty wards as vaccination centres.",
+        "그 병원은 비어 있는 병동을 백신 접종 센터로 활용할 계획입니다."
+      ],
+      [
+        "Farmers need training to utilise the new satellite data effectively.",
+        "농부들이 새로운 위성 데이터를 효과적으로 활용하려면 교육이 필요합니다."
+      ]
+    ]
+  },
+  "violate": {
+    "n": "법, 규칙, 계약, 권리를 어긴다는 뜻의 타동사로 violate the law, violate human rights, violate a contract처럼 씁니다. break와 의미가 비슷하지만 violate가 더 격식 있고 뉴스나 법률 문맥에서 자주 보여요. 한국어 '위반하다'에 가장 가까우며 명사 violation(위반)과 함께 외우면 편합니다. 목적어에는 사람이 아니라 규칙이나 권리 같은 것이 온다는 점에 주의하세요. 발음은 /ˈvaɪəleɪt/로 첫 음절에 강세가 옵니다.",
+    "x": [
+      [
+        "Any driver who violates the speed limit in this zone will be fined.",
+        "이 구역에서 제한 속도를 위반한 운전자는 누구든 벌금을 내게 됩니다."
+      ],
+      [
+        "The report claims that the new policy violates the privacy of customers.",
+        "그 보고서는 새 정책이 고객의 사생활을 침해한다고 주장합니다."
+      ]
+    ]
+  },
+  "a ripple effect": {
+    "n": "연못에 돌을 던지면 물결이 번져 나가듯, 하나의 사건이 점점 넓은 범위로 영향을 퍼뜨리는 상황을 말합니다. 보통 have a ripple effect on ~, create a ripple effect처럼 쓰고 긍정과 부정 어느 쪽에도 사용해요. 한국어로는 '파급 효과'나 '연쇄 효과'에 해당합니다. knock-on effect는 영국 영어에서 주로 부정적인 연쇄 결과에 쓰이는 반면 ripple effect는 좋은 일이 번지는 경우에도 자연스럽습니다. 영향 대상은 on 뒤에 둡니다.",
+    "x": [
+      [
+        "One teacher's kindness can have a ripple effect across the whole school.",
+        "한 선생님의 친절은 학교 전체로 파급 효과를 미칠 수 있습니다."
+      ],
+      [
+        "The bank's collapse created a ripple effect that hurt small businesses worldwide.",
+        "그 은행의 붕괴는 전 세계 소규모 사업체에 타격을 준 파급 효과를 일으켰습니다."
+      ]
+    ]
+  },
+  "address a concern": {
+    "n": "address는 '주소'라는 명사로 먼저 떠올라 동사 용법이 낯설지만, 문제나 우려를 피하지 않고 직접 다룬다는 뜻입니다. 타동사라서 'address about the concern'이나 'address to the concern'처럼 전치사를 끼우기 쉬운데, 그냥 address a concern 또는 address concerns라고 씁니다. 듣기만 하는 데서 그치지 않고 설명하거나 조치를 취한다는 점이 핵심이며, 회의나 고객 응대 문서에서 자주 보입니다.",
+    "x": [
+      [
+        "The airline sent an email to address a concern about delayed baggage.",
+        "항공사는 수하물 지연에 대한 우려를 해소하기 위해 이메일을 보냈습니다."
+      ],
+      [
+        "Managers should address a concern as soon as staff raise it, before it becomes a serious complaint.",
+        "직원이 우려를 제기하면 관리자는 그것이 심각한 불만이 되기 전에 바로 해결해야 합니다."
+      ]
+    ]
+  },
+  "affordable": {
+    "n": "affordable은 값이 싸다기보다 보통 사람이 부담할 수 있는 수준이라는 뜻입니다. afford(~할 여유가 있다)에 -able이 붙은 형태라서 사람의 형편을 기준으로 판단하는 단어예요. 한국어 '가성비 좋은'과는 조금 달라서, 품질 대비 만족보다 가격이 감당 가능한지에 초점이 있습니다. cheap은 품질이 낮다는 부정적 뉘앙스가 있을 수 있어 광고나 정책 문서에서는 affordable이 선호돼요. affordable housing, affordable healthcare가 대표적인 조합입니다.",
+    "x": [
+      [
+        "The city is building more affordable homes for nurses and teachers.",
+        "그 도시는 간호사와 교사를 위해 더 많은 적정 가격 주택을 짓고 있습니다."
+      ],
+      [
+        "We offer high-quality tutoring at an affordable price.",
+        "저희는 부담 없는 가격에 질 높은 과외를 제공합니다."
+      ]
+    ]
+  },
+  "agriculture": {
+    "n": "농사를 짓는 일과 그 산업을 통틀어 말하는 불가산 명사라서 an agriculture나 agricultures라고 쓰지 않습니다. 발음은 /ˈæɡrɪkʌltʃər/로 첫 음절에 강세가 오고, 형용사는 agricultural입니다. farming이 일상적이고 구체적인 농사 활동에 가깝다면 agriculture는 경제, 정책, 과학을 다루는 글에서 더 자주 보여요. 한국어 '농업'과 거의 일대일로 대응하므로 어렵지 않지만 형용사형 철자를 헷갈리는 학습자가 많으니 -ture 뒤에 -al이 붙는다는 점을 확인하세요.",
+    "x": [
+      [
+        "Agriculture accounts for nearly a third of the country's exports.",
+        "농업은 그 나라 수출의 거의 3분의 1을 차지합니다."
+      ],
+      [
+        "Drones are changing agriculture by helping farmers monitor their fields.",
+        "드론은 농부들이 밭을 살피도록 도와 농업을 변화시키고 있습니다."
+      ]
+    ]
+  },
+  "amateur": {
+    "n": "amateur는 돈을 벌려고 하는 것이 아니라 좋아서 하는 사람이나 활동을 가리키고, 명사와 형용사 둘 다 쓰입니다. 반대말은 professional이에요. 한국어 '아마추어'와 거의 같지만 영어에서는 amateurish(서투른)처럼 솜씨가 부족하다는 비판으로도 쓰이니 사람에게 직접 말할 때는 조심하세요. an amateur photographer처럼 기술이 뛰어나도 직업이 아니면 amateur라고 합니다. 발음은 /ˈæmətʃər/ 또는 /ˈæmətɜːr/로 첫 음절에 강세가 있습니다.",
+    "x": [
+      [
+        "She is an amateur astronomer who has discovered two comets.",
+        "그녀는 혜성 두 개를 발견한 아마추어 천문가입니다."
+      ],
+      [
+        "The amateur choir performed with real passion despite little rehearsal.",
+        "그 아마추어 합창단은 연습이 부족했는데도 진심 어린 열정으로 공연했습니다."
+      ]
+    ]
+  },
+  "amenity": {
+    "n": "수영장, 공원, 상점, 체육관처럼 장소를 더 편하고 즐겁게 만들어 주는 시설이나 서비스를 말합니다. 대개 amenities처럼 복수형으로 쓰이며 부동산 광고와 호텔 안내문에 자주 나와요. 한국어 '편의 시설'과 잘 맞고, 하나하나는 facility로도 바꿔 말할 수 있지만 amenity는 생활의 쾌적함에 초점이 있습니다. 발음은 영국식 /əˈmiːnəti/와 미국식 /əˈmenəti/가 모두 쓰이므로 둘 다 알아 두면 듣기에 도움이 됩니다.",
+    "x": [
+      [
+        "A swimming pool is the main amenity of the new apartment block.",
+        "수영장은 새 아파트 단지의 가장 큰 편의 시설입니다."
+      ],
+      [
+        "A nearby park is an amenity that many families look for in a neighbourhood.",
+        "근처 공원은 많은 가족이 동네를 고를 때 찾는 편의 시설입니다."
+      ]
+    ]
+  },
+  "articulate": {
+    "n": "형용사로는 생각을 분명하고 조리 있게 말로 표현하는 사람을 칭찬할 때 씁니다. 같은 철자의 동사도 있어서 '또렷하게 표현하다'라는 뜻이며 발음이 달라요. 형용사는 끝이 /-lət/인 /ɑːˈtɪkjələt/, 동사는 끝이 /-leɪt/인 /ɑːˈtɪkjuleɪt/입니다. 한국어 '말을 잘한다'는 유창함도 포함하지만 articulate는 내용이 명료하다는 점에 중점이 있어요. 반대말은 inarticulate이고, 외국어를 유창하게 못 하는 상황에는 쓰지 않습니다.",
+    "x": [
+      [
+        "The young lawyer was calm, articulate and very convincing in court.",
+        "그 젊은 변호사는 법정에서 침착하고 말솜씨가 분명했으며 매우 설득력이 있었습니다."
+      ],
+      [
+        "He struggled to articulate why he felt uneasy about the plan.",
+        "그는 그 계획이 왜 불안한지 또렷하게 설명하느라 애를 먹었습니다."
+      ]
+    ]
+  },
+  "artistic": {
+    "n": "artist(예술가)에서 나온 형용사로 예술과 관련되었거나 예술적 재능이 있다는 뜻입니다. artistic talent, artistic freedom, artistic director처럼 명사 앞에 두는 경우가 많고 He is artistic.이라고 서술형으로도 씁니다. art와 구별하면, art는 작품이나 분야 자체이고 artistic은 그 성질을 말해요. 한국어에서는 '예술적'이 비유적으로 '멋있다'는 뜻까지 번지지만 영어 artistic은 실제 창작이나 미적 감각과 관련된 문맥에서 주로 쓰입니다. 비슷한 단어 creative는 범위가 더 넓습니다.",
+    "x": [
+      [
+        "Her artistic side showed itself in the way she decorated the café.",
+        "그녀의 예술적인 면모는 카페를 꾸민 방식에서 드러났습니다."
+      ],
+      [
+        "The festival gives young performers a chance to explore their artistic voice.",
+        "그 축제는 젊은 공연자들에게 자신만의 예술적 개성을 탐구할 기회를 줍니다."
+      ]
+    ]
+  },
+  "as a consequence": {
+    "n": "앞에서 말한 일의 결과를 격식 있게 이어 줄 때 쓰는 연결 표현입니다. 문장 맨 앞이나 세미콜론 뒤에서 as a consequence, ...처럼 쉼표와 함께 쓰고, 뒤에 명사를 붙이려면 as a consequence of the storm처럼 of가 필요해요. as a result는 결과가 좋든 나쁘든 쓰는 반면 consequence는 주로 부정적이거나 중대한 결과에 어울립니다. in consequence도 비슷하지만 더 문어적이에요. 한국어 '그 결과' 또는 '결과적으로'에 해당하고 이메일보다는 에세이에 적합합니다.",
+    "x": [
+      [
+        "Sales fell sharply last year; as a consequence, the firm closed two shops.",
+        "작년에 매출이 급감했고 그 결과 회사는 매장 두 곳을 닫았습니다."
+      ],
+      [
+        "Several flights were cancelled as a consequence of the heavy snow.",
+        "폭설의 결과로 여러 항공편이 취소되었습니다."
+      ]
+    ]
+  },
+  "as opposed to": {
+    "n": "두 가지를 대조해서 하나는 맞고 다른 하나는 아니라고 선을 그을 때 씁니다. 뒤에는 명사나 -ing 형태가 오며 'A, as opposed to B'처럼 B를 덧붙이는 구조가 일반적이에요. rather than이나 instead of와 뜻이 겹치지만 as opposed to는 두 대상이 서로 다르다는 점을 강조합니다. 한국어로는 '~와는 달리', '~가 아니라'로 옮기면 자연스러워요. 문장 앞에 놓아 'As opposed to...'로 시작하는 것은 완전한 문장이 되기 어려우니 피하는 것이 좋습니다.",
+    "x": [
+      [
+        "The survey measured actual spending, as opposed to what people said they spent.",
+        "그 조사는 사람들이 쓴다고 말한 금액이 아니라 실제 지출을 측정했습니다."
+      ],
+      [
+        "I prefer studying in the morning as opposed to late at night.",
+        "저는 밤늦게보다는 아침에 공부하는 편을 선호합니다."
+      ]
+    ]
+  },
+  "assert": {
+    "n": "어떤 일이 사실이라고 확신을 가지고 강하게 말한다는 뜻으로 보통 assert that 절을 씁니다. 논문과 기사에서 필자나 인물의 입장을 소개할 때 자주 나와요. 증거가 확실하다는 뜻은 아니고 말하는 사람의 단호함을 나타내므로 claim과 가깝습니다. assert oneself는 '자기 권리를 당당하게 주장하다'라는 별도 표현이고, 형용사 assertive는 긍정적 자기주장이라 한국어 '주장이 강한'과 느낌이 조금 달라요. 명사는 assertion입니다. 발음은 /əˈsɜːrt/입니다.",
+    "x": [
+      [
+        "The minister asserted that the new tax would not affect low-income families.",
+        "장관은 새 세금이 저소득 가구에는 영향을 주지 않을 것이라고 단언했습니다."
+      ],
+      [
+        "It took her years to learn how to assert herself at work.",
+        "그녀가 직장에서 자기 의견을 당당히 내세우는 법을 배우는 데는 수년이 걸렸습니다."
+      ]
+    ]
+  },
+  "awning": {
+    "n": "가게 입구나 창문 위에 달아 햇빛과 비를 가려 주는 천 덮개를 가리킵니다. 한국어에서도 건축이나 간판 업계에서 '어닝'이라고 부르므로 소리를 외우기 쉬워요. 카페 테라스나 상점 앞 풍경을 묘사할 때 자주 나오며 canopy와 비슷하지만 awning은 보통 건물 벽에 붙어 있고 접거나 펼 수 있는 경우가 많습니다. 발음은 /ˈɔːnɪŋ/으로 첫 음절에 강세가 오고 -ing 끝이 동명사가 아니라 명사의 일부라는 점을 기억하세요.",
+    "x": [
+      [
+        "We waited under the shop's awning until the rain eased off.",
+        "우리는 비가 잦아들 때까지 가게의 차양 아래에서 기다렸습니다."
+      ],
+      [
+        "A green awning hung over the entrance of the little bakery.",
+        "초록색 차양이 그 작은 빵집 입구 위에 드리워져 있었습니다."
+      ]
+    ]
+  },
+  "back-ordered": {
+    "n": "주문한 상품이 지금 재고가 없어서 들어오는 대로 보내겠다는 상태를 나타내는 형용사입니다. 온라인 쇼핑몰의 재고 안내에서 자주 보이고, 하이픈을 붙여 쓰며 be back-ordered 또는 on back order라고도 말해요. 주로 미국 영어에서 많이 쓰이는 표현입니다. out of stock은 입고 예정이 없을 수도 있지만 back-ordered는 나중에 들어와 발송된다는 의미가 있습니다. 한국어로는 '입고 대기 중', '재입고 후 발송'으로 설명하면 이해가 쉽습니다.",
+    "x": [
+      [
+        "The blue model is back-ordered, but we expect new stock next week.",
+        "파란색 모델은 입고 대기 중이지만 다음 주에 새 재고가 들어올 예정입니다."
+      ],
+      [
+        "Several back-ordered items will be shipped as soon as they arrive.",
+        "입고 대기 중인 몇몇 상품은 도착하는 대로 발송됩니다."
+      ]
+    ]
+  },
+  "bargain": {
+    "n": "명사로는 원래 가격보다 훨씬 싸게 산 물건이나 그런 좋은 거래를 말합니다. 한국어 '바겐세일'에서 sale을 붙여 쓰는 것과 달리 영어에서는 It's a real bargain.처럼 bargain 하나로 싼 물건을 가리켜요. 동사 bargain은 값을 흥정한다는 뜻이고 bargain with someone over the price처럼 씁니다. 이때 bargain for는 '예상하다'라는 다른 뜻이라 구분이 필요해요. 가격이 싸다고 해서 품질이 나쁘다는 뜻은 아니고, 가격 대비 이득을 봤다는 긍정적인 느낌입니다.",
+    "x": [
+      [
+        "At only ten dollars, this jacket is a real bargain.",
+        "단돈 10달러라니 이 재킷은 정말 싸게 산 물건입니다."
+      ],
+      [
+        "Tourists often bargain with street vendors over the price of souvenirs.",
+        "관광객들은 기념품 가격을 두고 노점상과 흥정하곤 합니다."
+      ]
+    ]
+  },
+  "baroque": {
+    "n": "17세기부터 18세기 초 유럽에서 유행한 화려하고 극적인 예술, 건축, 음악 양식을 가리킵니다. 양식 이름이므로 보통 Baroque처럼 대문자로 쓰고 the Baroque period처럼 시대를 말할 때도 씁니다. 발음은 /bəˈroʊk/로 두 번째 음절에 강세가 와요. 한국어 '바로크'와 같은 개념이라 이해는 쉽지만 소리가 다르니 주의하세요. 소문자 baroque는 지나치게 장식이 많고 복잡하다는 비유로 쓰이기도 하며 이때는 비판의 뉘앙스가 있습니다. 대표 인물로는 음악의 바흐가 있습니다.",
+    "x": [
+      [
+        "Many visitors travel to Rome to admire its Baroque fountains.",
+        "많은 방문객이 바로크 양식의 분수를 감상하려고 로마를 찾습니다."
+      ],
+      [
+        "Bach is the best-known composer of the Baroque era.",
+        "바흐는 바로크 시대의 가장 유명한 작곡가입니다."
+      ]
+    ]
+  },
+  "be accessible to": {
+    "n": "어떤 장소나 정보, 서비스를 특정한 사람이 이용하거나 접근할 수 있다는 뜻으로, 뒤에 접근하는 대상이 옵니다. 예를 들어 The website should be accessible to everyone.처럼 쓰고 대상은 to로 이끕니다. 장소를 기준으로 말할 때는 accessible by train, accessible from the city centre처럼 by나 from을 쓰기도 해서 전치사 선택이 문장마다 달라져요. 한국어 '접근 가능하다'에 해당하고 장애인 접근성 문맥의 accessibility와도 연결됩니다. 이해하기 쉽다는 의미로도 쓰입니다.",
+    "x": [
+      [
+        "All public buildings should be accessible to people with disabilities.",
+        "모든 공공건물은 장애가 있는 사람들이 이용할 수 있어야 합니다."
+      ],
+      [
+        "The museum's archive will be accessible to researchers from next month.",
+        "그 박물관의 자료실은 다음 달부터 연구자들이 이용할 수 있게 됩니다."
+      ]
+    ]
+  },
+  "be closed off": {
+    "n": "길이나 구역이 막혀서 사람이나 차가 들어갈 수 없다는 뜻입니다. 수동태 표현이라 누가 막았는지는 말하지 않을 때 편하고, closed off to traffic처럼 to 뒤에 막힌 대상을 붙여요. 사람에게 쓰면 감정을 열지 않고 마음을 닫았다는 비유가 되어 He is very closed off.가 됩니다. 한국어 '통제되다', '폐쇄되다'에 가깝지만 일시적인 경우가 많습니다. sealed off는 더 완전하게 봉쇄했다는 느낌으로 사고 현장이나 수사 구역에 흔히 쓰입니다.",
+    "x": [
+      [
+        "The street will be closed off during the marathon on Sunday.",
+        "일요일 마라톤이 열리는 동안 그 거리는 통제됩니다."
+      ],
+      [
+        "After the argument, she seemed to be closed off and refused to talk.",
+        "말다툼 뒤 그녀는 마음을 닫은 듯 이야기하기를 거부했습니다."
+      ]
+    ]
+  },
+  "be committed to": {
+    "n": "어떤 목표나 가치에 헌신하고 끝까지 하겠다는 굳은 의지를 나타냅니다. 이 표현의 to는 전치사이므로 뒤에 동사원형이 아니라 명사나 -ing가 와요. 예를 들어 committed to providing은 맞지만 committed to provide는 학습자가 자주 틀리는 형태입니다. 회사 소개문과 공약에서 흔히 쓰이고 한국어 '~에 전념하다', '~을 약속하다'로 옮깁니다. 범죄를 저지르는 commit과 같은 동사에서 왔지만 이 표현에서는 부정적인 뜻이 없습니다.",
+    "x": [
+      [
+        "We want our staff to be committed to reducing waste in every product we make.",
+        "저희는 직원들이 제작하는 모든 제품에서 낭비를 줄이는 데 전념하기를 바랍니다."
+      ],
+      [
+        "The mayor said she would be committed to improving public transport.",
+        "시장은 대중교통을 개선하는 데 헌신하겠다고 말했습니다."
+      ]
+    ]
+  },
+  "be comparable to": {
+    "n": "크기, 수준, 양 등이 비슷해서 서로 견줄 만하다는 뜻입니다. 같다는 의미는 아니므로 equal과는 구분해야 해요. 비교 대상은 to 또는 with로 연결하고, 둘 다 쓰이지만 to가 더 흔합니다. 발음은 형용사 comparable이 /ˈkɑːmpərəbl/ 또는 영국식 /ˈkɒmpərəbl/처럼 첫 음절에 강세가 오고, 동사 compare와는 강세 위치가 다릅니다. 한국어 '~에 견줄 만하다', '~와 비슷하다'와 연결되며 가격, 성능, 경험을 비교하는 글에 자주 등장합니다.",
+    "x": [
+      [
+        "The salary here should be comparable to what you would earn abroad.",
+        "이곳의 급여는 해외에서 받을 수 있는 수준과 비슷해야 합니다."
+      ],
+      [
+        "Her experience seems to be comparable to that of a senior engineer.",
+        "그녀의 경력은 선임 엔지니어의 경력에 견줄 만한 것 같습니다."
+      ]
+    ]
+  },
+  "be compatible with": {
+    "n": "두 가지가 함께 쓰이거나 어울려서 충돌 없이 작동한다는 뜻입니다. 전치사는 with를 쓰고 to를 쓰지 않아요. 기기와 소프트웨어의 호환성뿐 아니라 사람의 성격이 잘 맞는다는 의미나 두 의견이 양립한다는 의미로도 사용합니다. 한국어 '호환되다'는 기술 문맥에 한정되는 느낌이지만 영어는 사용 범위가 넓습니다. 반대말은 incompatible with입니다. 발음은 /kəmˈpætəbl/로 두 번째 음절 pat에 강세가 있습니다.",
+    "x": [
+      [
+        "This charger may not be compatible with older phone models.",
+        "이 충전기는 구형 휴대폰 모델과는 호환되지 않을 수 있습니다."
+      ],
+      [
+        "Their working styles seem to be compatible with each other.",
+        "그들의 업무 방식은 서로 잘 맞는 것 같습니다."
+      ]
+    ]
+  }
+}
