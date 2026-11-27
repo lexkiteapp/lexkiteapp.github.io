@@ -86,5 +86,7 @@ D.en = Object.assign(D.en || {}, {
 "Lưu tiến độ của bạn": "Save your progress",
 "Đăng nhập miễn phí để giữ chuỗi ngày, XP và từ đã học – học tiếp trên mọi thiết bị.": "Sign in for free to keep your streak, XP and learned words – and continue on any device.",
 "Lộ trình đã sẵn sàng! Bước cuối: bài kiểm tra 5 phút để xếp đúng chặng – bỏ qua cũng được.": "Your path is ready! Last step: a 5-minute test to place you at the right stage – you can skip it.",
+"Bài 3 phút: ôn nhanh 6 từ": "3-minute lesson: quick review of 6 words",
+"Vừa đủ giữ nhịp học hôm nay – xong là xong": "Just enough to keep today's rhythm – done when it's done",
 });
 })(typeof self !== 'undefined' ? self : this);
