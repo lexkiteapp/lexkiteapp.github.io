@@ -17161,6 +17161,36 @@
    "state": "failed",
    "tries": 2
   },
+  "t2a_review_phone": {
+   "run": "46023735732",
+   "at": "2026-11-27T16:13Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "5fe3eb040e715540",
+    "wide": "0a9fbd1a95f5f160"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_plane": {
+   "run": "46023735732",
+   "at": "2026-11-27T16:13Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "fc002e003cabc243",
+    "wide": "7dc0397d4f125b08"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_review_plenty": {
    "run": "45904434813",
    "at": "2026-11-26T22:29Z",
@@ -17172,6 +17202,21 @@
    ],
    "state": "failed",
    "tries": 2
+  },
+  "t2a_review_point": {
+   "run": "46023735732",
+   "at": "2026-11-27T16:13Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "89e24820e203351f",
+    "wide": "7dfeb2ef7e9422ec"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
   },
   "t2a_review_pray": {
    "run": "45904434813",
@@ -17185,6 +17230,36 @@
    "state": "failed",
    "tries": 2
   },
+  "t2a_review_prefer": {
+   "run": "46023735732",
+   "at": "2026-11-27T16:13Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "e887798c6e93eba5",
+    "wide": "9fcbadf45d106c10"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_prepare": {
+   "run": "46023735732",
+   "at": "2026-11-27T16:13Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "f442350c2c548e03",
+    "wide": "a948b30ec722c4bc"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_review_press": {
    "run": "45905563280",
    "at": "2026-11-26T22:43Z",
@@ -17197,6 +17272,36 @@
    "state": "failed",
    "tries": 2
   },
+  "t2a_review_project": {
+   "run": "46023735732",
+   "at": "2026-11-27T16:13Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "6894cf3af414407c",
+    "wide": "3b838676e7f31bfa"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_put": {
+   "run": "46023735732",
+   "at": "2026-11-27T16:13Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "be61089599bbd529",
+    "wide": "61a448e7af99261a"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_review_relate": {
    "run": "45905563280",
    "at": "2026-11-26T22:43Z",
@@ -17208,6 +17313,21 @@
    ],
    "state": "failed",
    "tries": 2
+  },
+  "t2a_review_relax": {
+   "run": "46023735732",
+   "at": "2026-11-27T16:13Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "cc174eb7e95fdac7",
+    "wide": "fa412da36f4fa305"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
   },
   "t2a_review_remain": {
    "run": "45905563280",
