@@ -50,7 +50,7 @@ quiz: [
 { q: 'She is highly qualified, and ___ her brother.', options: ['so does', 'as is', 'so is', 'is so'], answer: 2, explain: 'Đồng điệu với and: so + be + S → so is her brother. as is dùng sau dấu phẩy mà không có and; so does cần động từ thường; is so sai trật tự.' },
 { q: 'On no account ___ the door be left unlocked.', options: ['will not', 'does', 'is', 'should'], answer: 3, explain: 'On no account + trợ động từ + S + V: should the door be left. does / is / will not không đi được với be left theo cấu trúc này.' },
 { q: 'Phần nào sai? "Particularly worrying (A) are (B) the lack (C) of funds (D)."', options: ['Particularly worrying', 'are', 'the lack', 'of funds'], answer: 1, explain: 'Chủ ngữ thật là the lack (số ít) → is. Phần sai là (B).' },
-{ q: 'Phần nào sai? "Rarely (A) did (B) she (C) complained (D)."', options: ['Rarely', 'did', 'she', 'complained'], answer: 3, explain: 'Sau did là nguyên mẫu: complain. Phần sai là (D).' }
+{ q: 'Phần nào sai? "Rarely (A) did (B) she (C) complained (D)."', options: ['arrived', 'noticed', 'laughed', 'complained'], answer: 3, explain: 'Sau did là nguyên mẫu: complain. Phần sai là (D).' }
 ],
 drills: [
 { t: 'fill', q: "So rapid ___ the change that many firms failed. (be)", a: ["was"], ex: 'So + adj + be + S: was. Câu hoàn chỉnh: So rapid was the change that many firms failed.' },
@@ -632,7 +632,7 @@ quiz: [
 { q: 'They ___ rushed; the flight was delayed.', options: ['needn\'t have', 'didn\'t need', 'mustn\'t have', 'shan\'t have'], answer: 0, explain: 'Đã vội mà không cần → needn\'t have rushed. didn\'t need thiếu to; mustn\'t và shan\'t sai.' },
 { q: 'He ___ talk for hours if you let him.', options: ['shall', 'will', 'can', 'is'], answer: 1, explain: 'Will chỉ hành vi đặc trưng. shall, can, is không có nghĩa này.' },
 { q: '"He was to have signed the contract on Friday" hàm ý anh ta:', options: ['sẽ ký vào thứ Bảy', 'đã ký vào thứ Bảy', 'không ký đúng kế hoạch', 'từ chối ký hợp đồng'], answer: 2, explain: 'Was to have + V-ed = kế hoạch không thành. → câu đúng: không ký đúng kế hoạch.' },
-{ q: '"He\'s being rude" khác "He is rude" ở chỗ:', options: ['không thô lỗ', 'luôn thô lỗ', 'có thể thô lỗ', 'hôm nay cư xử thô lỗ, khác mọi khi'], answer: 3, explain: 'Be being + tính từ = cư xử tạm thời khác thường. → câu đúng: hôm nay cư xử thô lỗ, khác mọi khi.' },
+{ q: '"He\'s being rude" khác "He is rude" ở chỗ:', options: ['không hề bao giờ thô lỗ, luôn lịch sự', 'luôn luôn thô lỗ trong mọi tình huống', 'có thể thô lỗ trong một số trường hợp', 'hôm nay cư xử thô lỗ, khác mọi khi'], answer: 3, explain: 'Be being + tính từ = cư xử tạm thời khác thường. → câu đúng: hôm nay cư xử thô lỗ, khác mọi khi.' },
 { q: 'Her eyes are red. ___ she been crying?', options: ['Has', 'Is', 'Does', 'Had'], answer: 0, explain: 'Present perfect continuous suy luận từ bằng chứng nhìn thấy: Has she been crying?' },
 { q: 'You ___ as well tell him the truth; he\'ll find out anyway.', options: ['should as', 'might', 'could well', 'must'], answer: 1, explain: 'Might as well = nên làm cũng được. Các dạng khác sai cấu trúc.' },
 { q: 'Câu nào đúng?', options: ['I didn\'t need have gone.', 'I needn\'t to have gone.', 'I needn\'t have gone.', 'I mustn\'t have gone.'], answer: 2, explain: 'Needn\'t have + V-ed. Các câu khác sai cấu trúc hoặc nghĩa. → câu đúng: I needn\'t have gone.' },
