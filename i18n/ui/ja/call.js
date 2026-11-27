@@ -55,6 +55,7 @@
 "Nhận dạng ngay trên máy – âm thanh không rời khỏi máy bạn.":"音声はデバイス上で認識されます。音声がデバイスから離れることはありません。",
 "Nhận dạng trên máy bằng Whisper (tải ~40 MB một lần, nên dùng Wi-Fi)":"Whisper を使用してデバイスを認識します (1 回の最大 40 MB のダウンロード、Wi-Fi を推奨)",
 "Nhận xét độ trôi chảy":"流暢さのメモ",
+"Nói chậm hơn":"ゆっくり話す",
 "Sau can/could/should/will không dùng “to”.":"can/could/should/will の後に「to」を使用しないでください。",
 "Sau want/need/would like, động từ tiếp theo cần “to”.":"want/need/would like の後の次の動詞には「to」が必要です。",
 "TOEIC: dời lịch họp với khách hàng":"TOEIC: クライアントとのミーティングのスケジュールを変更する",
