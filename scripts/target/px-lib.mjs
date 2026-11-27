@@ -10,7 +10,7 @@ export const PX_UI = 'ti pk ex pp dc sy qp qd qs mic hd rt sk nm tp'.split(' '),
 const strict = tl => src => x => { if (!src.ipa || !src.ipa[x]) throw new Error(`px ${tl}: thiếu IPA cho "${x}" (content/target/${tl}/pron.json → ipa)`); return src.ipa[x]; };
 export const TLX = {
   es: { D: 'content/target/es/', G: 'ESX', topics: PX_TOPICS, ipa: () => ipaText },
-  fr: { D: 'content/target/fr/', G: 'FRX', topics: ['nasal', 'uou', 'r', 'emuet', 'eai', 'eu', 'liaison', 'semi'], ipa: strict('fr') },
+  fr: { D: 'content/target/fr/', G: 'FRX', topics: ['nasal', 'uou', 'r', 'emuet', 'eai', 'eu', 'liaison', 'semi', 'h', 'gn', 'enchain', 'final'], ipa: strict('fr') },
   // ja (japanese-course.md §4 W3): read = {chữ: [kana, cao độ NHK]} → "kana có dấu hạ ꜜ · IPA" SINH bằng ja-kana.mjs (không gõ tay); gói ra web/packs (out), không vào cpack
   ja: { D: 'content/target/ja/', G: 'JAX', out: 'web/packs/tl/ja/', topics: ['vow', 'long', 'sokuon', 'nn', 'yoon', 'pitch', 'devoice', 'tsu'],
     ipa: src => x => { const r = src.read && src.read[x]; if (!r) throw new Error(`px ja: thiếu read cho "${x}" (content/target/ja/pron.json → read)`); return `${accentKana(r[0], r[1])} · ${jaIpa(r[0])}`; } },

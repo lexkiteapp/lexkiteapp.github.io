@@ -71,7 +71,7 @@ jobs:
         run: node scripts/content-qa/grammar-map-check.mjs --tl es
       - name: Gói luyện tập es (W2b) – khớp nguồn, giải thích đủ 15 ngôn ngữ, LanguageTool 0 lỗi trên câu điền từ
         if: ${{ matrix.tl == 'es' }}
-        run: node scripts/target/drill-pack.mjs --check --lt
+        run: node scripts/target/drill-pack.mjs --tl es && node scripts/target/drill-pack.mjs --tl es --check --lt   # bản sinh không commit trong PR (cổng gen-pr-clean) → dựng lại từ nguồn như npm ci, rồi kiểm bất biến + LanguageTool
       - name: Đề luyện định dạng DELE/SIELE (W5) – nguồn Tatoeba có ghi công, spec không đoán số, LanguageTool 0 lỗi trên consigna
         if: ${{ matrix.tl == 'es' }}
         run: node scripts/target/exam-es-check.mjs --lt
@@ -86,7 +86,7 @@ jobs:
         run: node scripts/content-qa/grammar-map-check.mjs --tl fr
       - name: Gói luyện tập fr (W2) – khớp nguồn, giải thích đủ 15 ngôn ngữ, LanguageTool 0 lỗi trên câu điền từ
         if: ${{ matrix.tl == 'fr' }}
-        run: node scripts/target/drill-pack.mjs --tl fr --check --lt
+        run: node scripts/target/drill-pack.mjs --tl fr && node scripts/target/drill-pack.mjs --tl fr --check --lt   # như dòng es: dựng gói từ nguồn trước khi kiểm
       - name: Đề luyện định dạng DELF/DALF (W5) – nguồn Tatoeba fr bắt buộc có (dựng bởi exam-es-build tl=fr), spec không đoán số, LanguageTool fr 0 lỗi trên consigne
         if: ${{ matrix.tl == 'fr' }}
         run: node scripts/target/exam-es-check.mjs --tl fr --lt --require-src

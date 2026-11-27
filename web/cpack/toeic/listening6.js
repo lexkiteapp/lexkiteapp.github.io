@@ -369,8 +369,8 @@ explain: '"Could you e-mail me a copy of the set menu?" → cô đề nghị g�
 ] },
 { type: 'mcq', instr: g.TQL[21],
 items: [
-{ n: 47, q: 'Who most likely is the woman?', options: ['A theater actor', 'A member of a book club', 'A tour guide', 'A ticket agent'], a: 1, cue: 'There are fourteen of us from the Westfield Book Club.',
-explain: 'Cô mua vé cho 14 người "from the Westfield Book Club" → thành viên câu lạc bộ sách. Nhân viên bán vé là người đàn ông.' },
+{ n: 47, q: 'Who most likely is the woman?', options: ['A theater performer', 'A member of a book club', 'A museum docent guide', 'A ticket sales representative'], a: 1, cue: 'There are fourteen of us from the Westfield Book Club.',
+explain: 'Cô nói "from the Westfield Book Club" cho thấy cô là thành viên câu lạc bộ sách. Các đáp án còn lại mô tả các nghề nghiệp khác.' },
 { n: 48, q: "Why does the woman say, \"Several of our members don't like climbing stairs\"?", options: ['To turn down seats in the balcony', 'To ask for an elevator', 'To request a later performance', 'To explain why the group is small'], a: 0, cue: g.TQL[87],
 explain: 'Đáp lại gợi ý ghế ở ban công (phải leo cầu thang), cô nói nhiều thành viên không thích leo cầu thang → từ chối chỗ ban công. Người bán vé hiểu ("In that case") và đưa ra chỗ ở khu dưới.' },
 { n: 49, q: 'What will the group receive for free?', options: ['Drinks at intermission', 'A program booklet', 'A signed poster', 'A backstage tour'], a: 3, cue: 'we offer a free backstage tour after the show',

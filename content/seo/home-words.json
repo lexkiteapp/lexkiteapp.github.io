@@ -1,9 +1,19 @@
 {
  "es": [
   [
-   "thesis",
-   "thesis",
-   "tesis"
+   "core",
+   "core",
+   "centro"
+  ],
+  [
+   "domain",
+   "domain",
+   "dominio"
+  ],
+  [
+   "format",
+   "format",
+   "formato"
   ],
   [
    "formula",
@@ -11,44 +21,34 @@
    "fórmula"
   ],
   [
-   "rational",
-   "rational",
-   "racional"
-  ],
-  [
-   "core",
-   "core",
-   "centro"
-  ],
-  [
-   "regime",
-   "regime",
-   "régimen"
-  ],
-  [
    "register",
    "register",
    "registrar"
   ],
   [
-   "assume",
-   "assume",
-   "asumir"
+   "aid",
+   "aid",
+   "ayuda"
   ],
   [
-   "commodity",
-   "commodity",
-   "producto"
+   "abandon",
+   "abandon",
+   "abandonar"
   ],
   [
-   "compound",
-   "compound",
-   "compuesto"
+   "accommodate",
+   "accommodate",
+   "acomodar"
   ],
   [
-   "conflict",
-   "conflict",
-   "conflicto"
+   "acknowledge",
+   "acknowledge",
+   "reconocer"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "adquirir"
   ]
  ],
  "pt": [
@@ -58,39 +58,9 @@
    "complementar"
   ],
   [
-   "infer",
-   "infer",
-   "inferir"
-  ],
-  [
-   "protocol",
-   "protocol",
-   "protocolo"
-  ],
-  [
-   "overseas",
-   "overseas",
-   "no ultramar"
-  ],
-  [
-   "consequent",
-   "consequent",
-   "consequente"
-  ],
-  [
    "grant",
    "grant",
    "concessão"
-  ],
-  [
-   "rational",
-   "rational",
-   "racional"
-  ],
-  [
-   "reverse",
-   "reverse",
-   "reverter"
   ],
   [
    "transfer",
@@ -98,103 +68,113 @@
    "transferir"
   ],
   [
-   "assume",
-   "assume",
-   "assumir"
+   "format",
+   "format",
+   "formato"
+  ],
+  [
+   "gender",
+   "gender",
+   "gênero"
+  ],
+  [
+   "neutral",
+   "neutral",
+   "neutro"
+  ],
+  [
+   "protocol",
+   "protocol",
+   "protocolo"
+  ],
+  [
+   "recover",
+   "recover",
+   "recuperar"
+  ],
+  [
+   "voluntary",
+   "voluntary",
+   "voluntário"
+  ],
+  [
+   "tension",
+   "tension",
+   "tensão"
   ]
  ],
  "fr": [
   [
-   "reverse",
-   "reverse",
-   "inverser"
+   "confine",
+   "confine",
+   "confiner"
   ],
   [
-   "rational",
-   "rational",
-   "rationnel"
+   "moreover",
+   "moreover",
+   "de plus"
   ],
   [
-   "assume",
-   "assume",
-   "supposer"
+   "abandon",
+   "abandon",
+   "abandonner"
   ],
   [
-   "conflict",
-   "conflict",
-   "conflit"
+   "accommodate",
+   "accommodate",
+   "accommoder"
   ],
   [
-   "derive",
-   "derive",
-   "dériver"
+   "acknowledge",
+   "acknowledge",
+   "reconnaître"
   ],
   [
-   "external",
-   "external",
-   "externe"
+   "acquire",
+   "acquire",
+   "acquérir"
   ],
   [
-   "incidence",
-   "incidence",
-   "incidence"
+   "adequate",
+   "adequate",
+   "adéquat"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "inhiber"
+   "albeit",
+   "albeit",
+   "quoique"
   ],
   [
-   "modify",
-   "modify",
+   "alter",
+   "alter",
    "modifier"
   ],
   [
-   "parallel",
-   "parallel",
-   "parallèle"
+   "anticipate",
+   "anticipate",
+   "anticiper"
   ]
  ],
  "de": [
-  [
-   "ongoing",
-   "ongoing",
-   "fortlaufend"
-  ],
-  [
-   "refine",
-   "refine",
-   "verfeinern"
-  ],
   [
    "clarify",
    "clarify",
    "klären"
   ],
   [
-   "explicit",
-   "explicit",
-   "explizit"
-  ],
-  [
-   "integral",
-   "integral",
-   "Integral-"
-  ],
-  [
-   "rational",
-   "rational",
-   "rational"
-  ],
-  [
-   "unify",
-   "unify",
-   "vereinheitlichen"
-  ],
-  [
-   "amend",
-   "amend",
+   "alter",
+   "alter",
    "ändern"
+  ],
+  [
+   "insert",
+   "insert",
+   "einfügen"
+  ],
+  [
+   "confine",
+   "confine",
+   "beschränken"
   ],
   [
    "outcome",
@@ -202,88 +182,88 @@
    "Ergebnis"
   ],
   [
-   "cosmos",
-   "cosmos",
-   "Kosmos"
+   "visible",
+   "visible",
+   "sichtbar"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "aufgeben"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "unterbringen"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "anerkennen"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "erwerben"
   ]
  ],
  "id": [
   [
-   "rational",
-   "rational",
-   "rasional"
+   "visible",
+   "visible",
+   "terlihat"
   ],
   [
-   "assume",
-   "assume",
-   "menganggap"
+   "abandon",
+   "abandon",
+   "meninggalkan"
   ],
   [
-   "conflict",
-   "conflict",
-   "konflik"
+   "accommodate",
+   "accommodate",
+   "menampung"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "menghalangi"
+   "acknowledge",
+   "acknowledge",
+   "mengakui"
   ],
   [
-   "parallel",
-   "parallel",
-   "paralel"
+   "acquire",
+   "acquire",
+   "mendapatkan"
   ],
   [
-   "regime",
-   "regime",
-   "rezim"
+   "adequate",
+   "adequate",
+   "cukup"
   ],
   [
-   "abstract",
-   "abstract",
-   "abstrak"
+   "adjacent",
+   "adjacent",
+   "berdekatan"
   ],
   [
-   "academy",
-   "academy",
-   "akademi"
+   "albeit",
+   "albeit",
+   "walaupun"
   ],
   [
-   "conceive",
-   "conceive",
-   "memahami"
+   "alter",
+   "alter",
+   "mengubah"
   ],
   [
-   "consent",
-   "consent",
-   "izin"
+   "anticipate",
+   "anticipate",
+   "mengharapkan"
   ]
  ],
  "th": [
   [
-   "rational",
-   "rational",
-   "มีเหตุผล"
-  ],
-  [
-   "academy",
-   "academy",
-   "วิทยาลัย"
-  ],
-  [
    "visible",
    "visible",
    "มองเห็นได้"
-  ],
-  [
-   "assume",
-   "assume",
-   "สมมติ"
-  ],
-  [
-   "conflict",
-   "conflict",
-   "ศึก"
   ],
   [
    "format",
@@ -291,202 +271,217 @@
    "รูป"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "ยับยั้ง"
+   "abandon",
+   "abandon",
+   "ละทิ้ง"
   ],
   [
-   "mode",
-   "mode",
-   "โหมด"
+   "accommodate",
+   "accommodate",
+   "เอื้อ"
   ],
   [
-   "regime",
-   "regime",
-   "ระบบการปกครอง"
+   "acknowledge",
+   "acknowledge",
+   "รับทราบ"
   ],
   [
-   "abstract",
-   "abstract",
-   "ซึ่งเข้าใจยาก"
+   "acquire",
+   "acquire",
+   "ได้รับ"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "เพียงพอ"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "ชิด"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "แม้ว่า"
+  ],
+  [
+   "alter",
+   "alter",
+   "เปลี่ยนแปลง"
   ]
  ],
  "zh": [
-  [
-   "rational",
-   "rational",
-   "合理的"
-  ],
-  [
-   "assume",
-   "assume",
-   "承担"
-  ],
-  [
-   "conflict",
-   "conflict",
-   "冲突"
-  ],
   [
    "format",
    "format",
    "格式"
   ],
   [
-   "regime",
-   "regime",
-   "政权"
+   "visible",
+   "visible",
+   "可见"
   ],
   [
-   "abstract",
-   "abstract",
-   "抽象的"
+   "abandon",
+   "abandon",
+   "放弃"
   ],
   [
-   "academy",
-   "academy",
-   "学院"
+   "accommodate",
+   "accommodate",
+   "容纳"
   ],
   [
-   "conceive",
-   "conceive",
-   "构想"
+   "acknowledge",
+   "acknowledge",
+   "承认"
   ],
   [
-   "consent",
-   "consent",
-   "同意"
+   "acquire",
+   "acquire",
+   "获得"
   ],
   [
-   "demonstrate",
-   "demonstrate",
-   "演示"
+   "adequate",
+   "adequate",
+   "充足"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "邻近的"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "尽管"
+  ],
+  [
+   "alter",
+   "alter",
+   "改变"
   ]
  ],
  "ja": [
-  [
-   "rational",
-   "rational",
-   "ラショナル"
-  ],
-  [
-   "virtual",
-   "virtual",
-   "バーチャル"
-  ],
-  [
-   "cosmos",
-   "cosmos",
-   "コスモス"
-  ],
-  [
-   "assume",
-   "assume",
-   "決め込む"
-  ],
-  [
-   "conflict",
-   "conflict",
-   "コンフリクト"
-  ],
-  [
-   "encounter",
-   "encounter",
-   "出会う"
-  ],
   [
    "format",
    "format",
    "形式"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "阻害する"
+   "confine",
+   "confine",
+   "封じ込める"
   ],
   [
-   "interval",
-   "interval",
-   "間隔"
+   "visible",
+   "visible",
+   "目に見える"
   ],
   [
-   "occupy",
-   "occupy",
-   "占める"
+   "abandon",
+   "abandon",
+   "放棄する"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "収容する"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "認める"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "得る"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "十分な"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "隣接"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "とはいえ"
   ]
  ],
  "ko": [
-  [
-   "rational",
-   "rational",
-   "이성적인"
-  ],
-  [
-   "cosmos",
-   "cosmos",
-   "우주"
-  ],
-  [
-   "assume",
-   "assume",
-   "추정하다"
-  ],
-  [
-   "conflict",
-   "conflict",
-   "갈등"
-  ],
-  [
-   "criteria",
-   "criteria",
-   "기준"
-  ],
   [
    "format",
    "format",
    "형식"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "억제하다"
+   "confine",
+   "confine",
+   "국한시키다"
   ],
   [
-   "parallel",
-   "parallel",
-   "평행한"
+   "visible",
+   "visible",
+   "보이는"
   ],
   [
-   "regime",
-   "regime",
-   "정권"
+   "abandon",
+   "abandon",
+   "버리다"
   ],
   [
-   "abstract",
-   "abstract",
-   "추상적인"
+   "accommodate",
+   "accommodate",
+   "수용하다"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "인정"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "얻다"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "적절"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "인접한"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "비록 ~이지만"
   ]
  ],
  "hi": [
   [
-   "rational",
-   "rational",
-   "तर्कसंगत"
+   "adequate",
+   "adequate",
+   "सक्षम"
   ],
   [
-   "abstract",
-   "abstract",
-   "अमूर्त"
+   "format",
+   "format",
+   "पुस्तक का फ़र्मा"
   ],
   [
-   "demonstrate",
-   "demonstrate",
-   "दिखाना"
-  ],
-  [
-   "mutual",
-   "mutual",
-   "आपसी"
+   "visible",
+   "visible",
+   "दिखाई देने वाला"
   ],
   [
    "vision",
@@ -494,29 +489,34 @@
    "नज़र"
   ],
   [
-   "adequate",
-   "adequate",
-   "सक्षम"
+   "abandon",
+   "abandon",
+   "त्याग देना"
   ],
   [
-   "assume",
-   "assume",
+   "accommodate",
+   "accommodate",
+   "झगड़ा तय करना"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
    "मान लेना"
   ],
   [
-   "conflict",
-   "conflict",
-   "टकराव"
+   "acquire",
+   "acquire",
+   "प्राप्त करना"
   ],
   [
-   "discriminate",
-   "discriminate",
-   "भेद करना"
+   "adjacent",
+   "adjacent",
+   "आसन्न"
   ],
   [
-   "distort",
-   "distort",
-   "विकृत करना"
+   "albeit",
+   "albeit",
+   "यद्यपि"
   ]
  ],
  "ar": [
@@ -526,153 +526,153 @@
    "تبصر"
   ],
   [
-   "conflict",
-   "conflict",
-   "صراع"
+   "scheme",
+   "scheme",
+   "مخطط"
   ],
   [
-   "emphasis",
-   "emphasis",
-   "توكيد"
+   "visible",
+   "visible",
+   "مرئي"
   ],
   [
-   "rational",
-   "rational",
-   "عقلاني"
+   "abandon",
+   "abandon",
+   "تخلى"
   ],
   [
-   "random",
-   "random",
-   "بالصدفة"
+   "accommodate",
+   "accommodate",
+   "كيف"
   ],
   [
-   "cosmos",
-   "cosmos",
-   "كون"
+   "acknowledge",
+   "acknowledge",
+   "اعترف"
   ],
   [
-   "assume",
-   "assume",
-   "افترض"
+   "acquire",
+   "acquire",
+   "كسب"
   ],
   [
-   "conduct",
-   "conduct",
-   "تصرف"
+   "adequate",
+   "adequate",
+   "مناسب"
   ],
   [
-   "infer",
-   "infer",
-   "استنتج"
+   "adjacent",
+   "adjacent",
+   "متاخم"
   ],
   [
-   "regime",
-   "regime",
-   "نظام الحكم"
+   "albeit",
+   "albeit",
+   "ولو"
   ]
  ],
  "ru": [
-  [
-   "minimise",
-   "minimise",
-   "минимизировать"
-  ],
-  [
-   "rational",
-   "rational",
-   "рациональный"
-  ],
-  [
-   "assume",
-   "assume",
-   "предполагать"
-  ],
-  [
-   "conflict",
-   "conflict",
-   "конфликт"
-  ],
   [
    "format",
    "format",
    "формат"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "тормозить"
+   "relevant",
+   "relevant",
+   "релевантный"
   ],
   [
-   "parallel",
-   "parallel",
-   "параллельный"
+   "visible",
+   "visible",
+   "видимый"
   ],
   [
-   "regime",
-   "regime",
-   "режим"
+   "abandon",
+   "abandon",
+   "покидать"
   ],
   [
-   "simulate",
-   "simulate",
-   "моделировать"
+   "accommodate",
+   "accommodate",
+   "вмещать"
   ],
   [
-   "abstract",
-   "abstract",
-   "абстрактный"
+   "acknowledge",
+   "acknowledge",
+   "сознавать"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "приобретать"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "адекватный"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "соседний"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "хотя"
   ]
  ],
  "tr": [
-  [
-   "prime",
-   "prime",
-   "asal"
-  ],
-  [
-   "rational",
-   "rational",
-   "akılcı"
-  ],
-  [
-   "assume",
-   "assume",
-   "üstlenmek"
-  ],
-  [
-   "conflict",
-   "conflict",
-   "anlaşmazlık"
-  ],
   [
    "format",
    "format",
    "biçim"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "engellemek"
+   "visible",
+   "visible",
+   "görünür"
   ],
   [
-   "parallel",
-   "parallel",
-   "paralel"
+   "abandon",
+   "abandon",
+   "vazgeçmek"
   ],
   [
-   "regime",
-   "regime",
-   "rejim"
+   "accommodate",
+   "accommodate",
+   "yerleştirmek"
   ],
   [
-   "abstract",
-   "abstract",
-   "soyut"
+   "acknowledge",
+   "acknowledge",
+   "onaylamak"
   ],
   [
-   "academy",
-   "academy",
-   "akademi"
+   "acquire",
+   "acquire",
+   "elde etmek"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "yeterli"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "bitişik"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "gerçi"
+  ],
+  [
+   "alter",
+   "alter",
+   "değiştirmek"
   ]
  ]
 }
