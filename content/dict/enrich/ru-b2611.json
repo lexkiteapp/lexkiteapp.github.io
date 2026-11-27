@@ -130,8 +130,8 @@
     "Есть веский довод в пользу того, что городам нужно больше зелёных зон."
    ],
    [
-    "Nobody could answer such a compelling argument.",
-    "Никто не смог возразить на столь убедительный довод."
+    "Nobody could refute such a compelling argument.",
+    "Никто не смог опровергнуть столь убедительный довод."
    ]
   ]
  },
@@ -144,7 +144,7 @@
    ],
    [
     "Closing the factory will have a knock-on effect for local shops.",
-    "Закрытие фабрики отразится по цепочке и на местных магазинах."
+    "Закрытие фабрики скажется по цепочке и на местных магазинах."
    ],
    [
     "A delay in one flight can have a knock-on effect all day.",
@@ -153,7 +153,7 @@
   ]
  },
  "a small minority": {
-  "n": "Малая часть группы, совсем немногие. Выражение часто встречается в описаниях диаграмм и в эссе: a small minority of people, respondents, students. Если речь о людях, глагол обычно стоит во множественном числе: a small minority think (в американском варианте возможно и единственное число). Нельзя говорить a little minority или very minority: слово minority уже содержит идею «меньшинства», а усилить можно только прилагательным small или tiny. Противоположность — the vast majority.",
+  "n": "Малая часть группы, совсем немногие. Выражение часто встречается в описаниях диаграмм и в эссе: a small minority of people, respondents, students. Если речь о людях, глагол обычно стоит во множественном числе: a small minority think (в американском варианте возможно и единственное число). Не говорите a little minority; обычно используют small или tiny. Противоположность — the vast majority.",
   "x": [
    [
     "Only a small minority of voters opposed the new law.",
@@ -174,7 +174,7 @@
   "x": [
    [
     "A striking feature of the table is the rise in online sales.",
-    "Бросающаяся в глаза особенность таблицы — рост онлайн-продаж."
+    "Наиболее заметная особенность таблицы — рост онлайн-продаж."
    ],
    [
     "The city has a striking feature: wide, tree-lined streets.",
@@ -182,7 +182,7 @@
    ],
    [
     "A striking feature of the data is how quickly prices fell.",
-    "Одна из бросающихся в глаза особенностей данных — как быстро упали цены."
+    "Бросающаяся в глаза особенность данных — то, как быстро упали цены."
    ]
   ]
  },
@@ -368,8 +368,8 @@
     "Многие молодые люди выбирают ученичество вместо университета."
    ],
    [
-    "The company offers apprenticeships in welding and carpentry.",
-    "Компания обучает учеников сварке и плотницкому делу."
+    "The company offers apprenticeships in welding and carpentry for school leavers.",
+    "Компания обучает сварке и плотницкому делу выпускников школ."
    ]
   ]
  },
