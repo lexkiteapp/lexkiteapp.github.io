@@ -21,6 +21,15 @@ for (const [vp, w, h] of [['390', 390, 844], ['1280', 1280, 800]]) {
   await p.goto(`${BASE}/app/#/welcome/setup`); await p.waitForTimeout(1500); await shot('2-setup');
   const setupOpts = await p.locator('button, .option, [data-v]').count();
   row(vp, 'setup', 'số nút/lựa chọn trước bài đầu', setupOpts, setupOpts <= 20);
+  // bài đầu 60 giây (nếu có): trả lời hết rồi sang thiết lập
+  const fl = { seen: false, secs: 0 }; const tFl = Date.now();
+  for (let k = 0; k < 40 && !(await p.locator('#go, #obNext').first().isVisible().catch(() => false)); k++) {
+    if (await p.locator('#flGo').isVisible().catch(() => false)) { await p.locator('#flGo').click(); fl.secs = (Date.now() - tFl) / 1000; await p.waitForTimeout(600); continue; }
+    const ch = p.locator('#flCh button:not([disabled])'); const n = await ch.count().catch(() => 0);
+    if (n) { fl.seen = true; for (let c = 0; c < n; c++) { const b = ch.nth(c); if (await b.isEnabled().catch(() => false)) { await b.click().catch(() => {}); taps++; await p.waitForTimeout(250); } } } else await p.waitForTimeout(400);
+  }
+  row(vp, 'first-lesson', 'bài đầu 60 giây có mặt trước setup', fl.seen, fl.seen);
+  if (fl.seen) row(vp, 'first-lesson', 'giây hoàn thành', fl.secs.toFixed(1), fl.secs <= 60);
   const tGo = Date.now();
   const went = await tap('#go', 'go'); await p.waitForTimeout(6000); await shot('3-day1');
   row(vp, 'setup→day1', 'vào được ngày 1', went && /#\/(path|review|practice|home|day)/.test(await p.evaluate(() => location.hash)), true);
