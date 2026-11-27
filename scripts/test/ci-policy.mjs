@@ -170,6 +170,14 @@ export function violations(file, src) {
     if (!t.events.has('push') || !/^  push:\s*\n(?:    .*\n)*?    branches:\s*\[?\s*main\b/m.test(String(src))) out.push(`${file}: workflow nặng phải có trigger push vào main cùng paths (luật 18: việc nặng chạy sau gộp)`);
     for (const j of js) if (j.id !== 'gate' && !/^    uses:/m.test(j.text) ? !(/^    needs:[^\n]*\bgate\b/m.test(j.text) && /^    if:[^\n]*needs\.gate\.outputs\.go == 'true'/m.test(j.text)) : false) out.push(`${file}: job "${j.id}" phải needs: gate và if: … needs.gate.outputs.go == 'true' (luật 11: việc nặng chờ npm test xanh)`);
   }
+  // luật 19 (24/11, hàng chờ 236 lượt): workflow npm-gate (native iOS/Android – macOS đắt) có job gate chờ npm test xanh cùng sha; mọi job khác needs: gate + if go
+  if (/^# ci-policy: npm-gate\b/m.test(src)) {
+    const js = jobs(src), g = js.find(j => j.id === 'gate');
+    if (!g || !/check_name=npm%20test/.test(g.text) || !/outputs:\s*\{\s*go:/.test(g.text) || !/sleep \d+/.test(g.text)) out.push(`${file}: npm-gate cần job "gate" chờ check-run npm test và xuất output go`);
+    for (const j of js) if (j.id !== 'gate' && !(/^    needs:[^\n]*\bgate\b/m.test(j.text) && /^    if:[^\n]*needs\.gate\.outputs\.go == 'true'/m.test(j.text))) out.push(`${file}: job "${j.id}" phải needs: gate và if: … needs.gate.outputs.go == 'true' (luật 19)`);
+  }
+  if (t.events.has('pull_request') && /runs-on:\s*macos/.test(String(src).replace(/^\s*#.*$/gm, '')) && !/^# ci-policy: (npm-gate|heavy-gate)\b/m.test(src) && !reason(src, 'fast-lane'))
+    out.push(`${file}: job macOS chạy trên PR mà không chờ npm test (luật 19) – thêm "# ci-policy: npm-gate" + job gate (mẫu native-ios.yml)`);
   // 10) (06/11 – stitch-web đỏ vì `timeout 600 npx playwright install --with-deps` treo apt hết 600 s, #780): cài Playwright qua scripts/ci/pw-install.sh
   //     (mỗi lượt ≤ 4 phút, thử lại 3 lượt, giết apt treo) – một lượt treo không còn làm đỏ job. Trừ mobile-qa.yml (nội dung bị mqa-parity khoá) và vòng thử lại tự viết.
   if (!/(^|\/)mobile-qa\.yml$/.test(file)) String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && /npx\s+(?:--yes\s+)?playwright(?:@[\w.]+)?\s+install\b/.test(l) && !/\bif timeout \d+ npx/.test(l)) out.push(`${file}:${n + 1}: cài Playwright trần – dùng \`bash scripts/ci/pw-install.sh [--with-deps] <trình duyệt>\` (trần + thử lại, luật 10)`); });
@@ -319,6 +327,13 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(+((ss.match(/const FPS_MIN = (\d+)/) || [])[1]) >= 50 && /m\.fps >= FPS_MIN/.test(ss), 'luật 15: story-stage FPS_MIN ≥ 50 và cổng dùng FPS_MIN');
     const rm = rg.match(/const FPS_MIN = \{ 1: (\d+), 4: (\d+) \}/); ok(rm && +rm[1] >= 55 && +rm[2] >= 50 && /good = m => m\.fps >= min/.test(rg), 'luật 15: teacher-rig FPS_MIN 1× ≥ 55, 4× ≥ 50');
     ok(/runSet\(15\)/.test(ss) && /runSet\(rate === 4 \? 15 : 5\)/.test(rg) && /fps-samples\.json/.test(ss) && /fps-samples\.json/.test(rg), 'luật 15: đo 15 mẫu + ghi fps-samples.json cho cả hai cổng'); }
+  { // luật 19: npm-gate (native) + job macOS trên PR
+    const ni = fs.readFileSync(path.join(WF, 'native-ios.yml'), 'utf8');
+    ok(!violations('native-ios.yml', ni).some(v => /luật 19/.test(v)), 'luật 19: native-ios.yml đạt');
+    ok(violations('native-ios.yml', ni.replace("  ios:\n    needs: gate\n", "  ios:\n")).some(v => /luật 19/.test(v)), 'luật 19: job ios thiếu needs: gate → lỗi');
+    ok(violations('native-ios.yml', ni.replace(/^# ci-policy: npm-gate.*\n/m, '')).some(v => /luật 19/.test(v)), 'luật 19: macOS trên PR không npm-gate/heavy-gate → lỗi');
+    const nt = fs.readFileSync(path.join(WF, 'npm-test.yml'), 'utf8'); ok(/^  shard:\n(?:.*\n)*?    needs: fast$/m.test(nt), 'luật 19: shard npm test phải needs: fast');
+  }
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
   for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);

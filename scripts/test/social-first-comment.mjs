@@ -3,6 +3,9 @@
 // đường Meta (1 bình luận của Page sau khi Reel lên, chống trùng khi hết giờ chờ, thử có giới hạn, lỗi quyền không dừng kênh), số liệu Quản trị.
 // Chạy: node scripts/test/social-first-comment.mjs  (D1 = node:sqlite, GrabCast/Graph giả – 0 lượt mạng thật)
 import { DatabaseSync } from 'node:sqlite';
+// Đồng hồ CỐ ĐỊNH (26/11, như #2111 fcm-push): giờ thật làm slot/ngày lệch khi job chạy qua 00:00Z (ngày tính ở đầu test ≠ ngày mã đang chạy) → đỏ chập chờn. Cố định 10:00:00Z hôm nay; kiểm tra, ngưỡng giữ nguyên.
+{ const R = Date, d = new R(); d.setUTCHours(10, 0, 0, 0); const FIXED = d.getTime();
+  globalThis.Date = class extends R { constructor(...a) { if (a.length) super(...a); else super(FIXED); } static now() { return FIXED; } }; }
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const store = new Map();
 globalThis.caches = { default: { async match(req) { const e = store.get(req.url); return e && e.exp > Date.now() ? new Response(e.body) : undefined; }, async put(req, res) { store.set(req.url, { body: await res.text(), exp: Date.now() + 60e3 }); } } };

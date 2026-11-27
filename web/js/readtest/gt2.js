@@ -97,7 +97,7 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 25, q: 'Which staff may ask for a free eye test?',
-options: ['all employees in their first two weeks', 'those who use a computer for most of the day', 'staff who work from home two days a week', 'fire marshals and safety representatives'],
+options: ['all employees who have been hired within their first two weeks', 'those who use a computer for most of the day', 'staff who work remotely for two days each week', 'fire marshals and safety representatives responsible for emergency procedures'],
 a: 1, cue: 'if you use a computer for most of your working day, you may request a free eye test' },
 { n: 26, q: 'What must an employee do before starting to work from home?',
 options: ['talk to their line manager and complete an agreement', 'purchase a dedicated printer for home use', 'complete a six‑month certification in telecommuting', 'remain on‑site for a minimum of six months'],

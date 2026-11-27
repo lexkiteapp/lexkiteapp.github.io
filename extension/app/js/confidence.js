@@ -29,7 +29,7 @@
     st.textContent = `.cf-hero{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}.cf-hero .grow{flex:1 1 220px;min-width:0}
 .cf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:.8rem;margin-bottom:1rem}
 .cf-unit{display:flex;gap:.7rem;align-items:flex-start;padding:1rem;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);text-decoration:none;min-height:44px;position:relative}
-.cf-unit:hover,.cf-unit.next{border-color:var(--primary)}.cf-unit .em{font-size:1.7rem;line-height:1}.cf-unit b{display:block}.cf-unit .cf-done{position:absolute;top:.5rem;inset-inline-end:.6rem}
+@media (hover:hover){.cf-unit:hover{background:var(--surface-3)}}.cf-unit.next{box-shadow:inset 0 0 0 2px var(--done);background:var(--accent-soft)}.cf-unit .em{font-size:1.7rem;line-height:1}.cf-unit b{display:block}.cf-unit .cf-done{position:absolute;top:.5rem;inset-inline-end:.6rem}
 .cf-steps{display:flex;gap:.3rem;margin:.2rem 0 1rem;flex-wrap:wrap}.cf-steps span{flex:1 1 0;min-width:2.2rem;height:6px;border-radius:6px;background:var(--line)}.cf-steps span.on{background:var(--primary)}
 .cf-line{display:flex;gap:.6rem;align-items:flex-start;padding:.45rem .6rem;border-radius:12px}.cf-line.on{background:var(--accent-soft)}.cf-line .who{font-weight:700;min-width:4.5rem;flex:none}
 .cf-line button,.cf-ph button.ic{min-width:44px;min-height:44px;border:0;background:transparent;font-size:1.1rem;cursor:pointer;color:inherit;flex:none}

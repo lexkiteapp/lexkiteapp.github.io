@@ -85,7 +85,8 @@
   "pt": "Cinco minutos, depois eu volto! \"AFK\"",
   "ru": "Пять минут, потом я вернусь! «AFK».",
   "th": "ห้านาทีแล้วฉันจะกลับมา! \"AFK\"",
-  "tr": "Beş dakika, sonra geri döneceğim!"
+  "tr": "Beş dakika, sonra geri döneceğim!",
+  "zh": "五分钟后我回来！AFK"
  },
  "anytime|ex": {
   "ar": "شكراً على التوصيلة! \"Anytime\".",
@@ -114,7 +115,8 @@
   "pt": "Obrigado(a) pela carona! (\"anytime\")",
   "ru": "Спасибо большое за поездку! «anytime».",
   "th": "ขอบคุณมากสำหรับการพาไป! \"anytime\"",
-  "tr": "Yolculuk için çok teşekkür ederim!"
+  "tr": "Yolculuk için çok teşekkür ederim!",
+  "zh": "非常感谢你载我！anytime"
  },
  "arm and a leg|ex": {
   "ar": "هذا المعطف يكلف \"an arm and a leg\".",
@@ -383,7 +385,8 @@
   "pt": "Onde a chave foi? (\"beats me\")",
   "ru": "Куда делся ключ? «beats me».",
   "th": "กุญแจหายไปไหน? 'beats me'!",
-  "tr": "Anahtar nereye gitti?"
+  "tr": "Anahtar nereye gitti?",
+  "zh": "钥匙去哪儿了？beats me"
  },
  "beef|ex": {
   "ar": "بينهما \"beef\" بسبب لعبة.",
@@ -560,6 +563,7 @@
   "ja": "サンダルに靴下？本当に？『big yikes』",
   "ko": "샌들에 양말? 정말? \"big yikes\"!",
   "pt": "Meias com sandálias? Sério?",
+  "ru": "Носки с сандалиями? Серьёзно? (\"big yikes\")",
   "th": "ถุงเท้ากับรองเท้าแตะ? จริงเหรอ? big yikes",
   "tr": "Sandaletle çorap mı? Gerçekten? 'big yikes'!",
   "zh": "袜子配凉鞋？真的？big yikes"
@@ -619,6 +623,7 @@
   "ja": "ステージのライトがついた。頭が「blank out」した。",
   "ko": "무대 조명이 켜졌다. 내 머릿속이 텅 비었다! \"blank out\"",
   "pt": "Luzes do palco acesas. Minha mente está vazia!",
+  "ru": "Свет софитов включён. У меня в голове пусто! (\"blank out\")",
   "th": "ไฟบนเวทีเปิดแล้ว. ใจฉันว่างเปล่า! blank out",
   "tr": "Sahne ışıkları açık. Aklım 'blank out' oldu!",
   "zh": "舞台灯光亮起，我的脑子空白了！blank out"
@@ -766,6 +771,7 @@
   "ja": "３時間も \"brain rot\" な動画を見た！",
   "ko": "'brain rot' 같은 어리석은 영상을 세 시간이나 봤어!",
   "pt": "Três horas de vídeos bobos!",
+  "ru": "Три часа глупых видео! (\"brain rot\")",
   "th": "ดูวิดีโอตลกเป็นเวลาสามชั่วโมง! brain rot",
   "tr": "Üç saat boyunca aptal videolar! 'brain rot'!",
   "zh": "三小时的傻视频！简直是 \"brain rot\"。"
@@ -1080,6 +1086,7 @@
   "ja": "今週は \"busy as a bee\" で、自由な時間がない！",
   "ko": "이번 주는 자유 시간이 없어! \"busy as a bee\"",
   "pt": "Sem tempo livre esta semana!",
+  "ru": "Нет свободного времени на этой неделе! (\"busy as a bee\")",
   "th": "สัปดาห์นี้ไม่มีเวลาว่าง! busy as a bee",
   "tr": "Bu hafta hiç boş zamanım yok, 'busy as a bee'!",
   "zh": "这周没有空闲时间！简直是 \"busy as a bee\"。"
@@ -1168,7 +1175,8 @@
   "pt": "Ela contou a todos o meu erro! (\"call out\")",
   "ru": "Она всем рассказала о моей ошибке! «call out».",
   "th": "เธอ 'call out' ความผิดของฉันต่อทุกคน!",
-  "tr": "O, hatamı herkese 'call out' etti!"
+  "tr": "O, hatamı herkese 'call out' etti!",
+  "zh": "她把我的错误告诉了大家！call out"
  },
  "carry|ex": {
   "ar": "لقد قامت ميا بـ \"carry\" الفريق في الجولة الأخيرة.",
@@ -2136,7 +2144,8 @@
   "pt": "Dia de entrevista. Terno e gravata! \"dressed to impress\"",
   "ru": "День интервью. Костюм и галстук — «dressed to impress».",
   "th": "วันสัมภาษณ์ 'dressed to impress' ใส่สูทและเนคไท!",
-  "tr": "Mülakat günü. Takım elbise ve kravat! \"dressed to impress\"."
+  "tr": "Mülakat günü. Takım elbise ve kravat! \"dressed to impress\".",
+  "zh": "面试日。西装领带！dressed to impress"
  },
  "drip|ex": {
   "ar": "سترة جميلة، لديك \"drip\" اليوم.",
@@ -3319,6 +3328,7 @@
   "ja": "ピザが全部なくなった！\"pig out\"",
   "ko": "피자 전체가 다 사라졌어! pig out",
   "pt": "A pizza inteira acabou! \"pig out\".",
+  "ru": "Вся пицца съедена! (\"pig out\")",
   "th": "พิซซ่าทั้งหมดหายไปแล้ว \"pig out\"",
   "tr": "Bütün pizza bitti! \"pig out\".",
   "zh": "整张披萨都没了！\"pig out\"。"

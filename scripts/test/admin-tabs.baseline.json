@@ -34,10 +34,6 @@
   "social:error:state",
   "social:loading",
   "storage:loading",
-  "studio:data:junk",
-  "studio:empty:junk",
-  "studio:error:state",
-  "studio:loading",
-  "studio:slow:junk"
+  "studio:loading"
  ]
 }

@@ -13,6 +13,8 @@ import { fileURLToPath } from 'node:url';
 import { isZombie } from './zombie.mjs';
 import { retry5xx } from '../lib/retry5xx.mjs';
 import { workflowMatches, readsAny, skipsOnPr } from './gate-relevance.mjs';
+import { dispatchOnce } from './dispatch-once.mjs';
+import { CONTEXT as RECHECK_CONTEXT, recheckVerdict } from './cheap.mjs';
 import { retestPlan, verdict as retestVerdict, tagOf, CONTEXT as RETEST_CONTEXT, WORKFLOW as RETEST_WORKFLOW } from './gate-retest.mjs';
 
 export const CONTEXT = 'required-gate';            // tên commit status (thứ ruleset sẽ yêu cầu)
@@ -67,7 +69,7 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   // commit status: mới nhất theo context, bỏ chính mình
   const st = new Map();
   for (const s of statuses) {
-    if (s.context === CONTEXT || s.context === RETEST_CONTEXT) continue;   // gate-retest (kết quả chạy lại test cổng) do phần drift xử lý, không phải check của PR
+    if (s.context === CONTEXT || s.context === RETEST_CONTEXT || s.context === RECHECK_CONTEXT) continue;   // gate-retest (kết quả chạy lại test cổng) do phần drift xử lý, không phải check của PR
     const prev = st.get(s.context);
     if (!prev || String(s.updated_at || s.created_at || '') > String(prev.updated_at || prev.created_at || '') || (!s.updated_at && (s.id || 0) > (prev.id || 0))) st.set(s.context, s);
   }
@@ -289,12 +291,29 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
       }
       return { wait: true, note };
     },
+    // merge-recheck (máy gác 2/4): trả {} = đạt/không áp dụng · { wait, note } = đang đo · { fail, note } = ghép main làm đỏ check rẻ. Chỉ PR cùng repo.
+    recheck: async sha => {
+      const prs = await call(`/commits/${sha}/pulls`); if (!(prs || []).some(p => p.head && p.head.sha === sha && p.head.repo && p.head.repo.full_name === repo)) return {};
+      const main = (await call('/branches/main')).commit.sha, st = ((await call(`/commits/${sha}/status?per_page=100`)).statuses || []).find(x => x.context === RECHECK_CONTEXT);
+      const m = st && /main@([0-9a-f]{8})/.exec(st.description || ''), ahead = m ? ((await call(`/compare/${m[1]}...${main}`).catch(() => null)) || {}).ahead_by ?? null : null;
+      const v = recheckVerdict(st, ahead);
+      if (v === 'clear') return {};
+      if (v === 'fail') return { fail: true, note: st.description };
+      const note = `Chờ kiểm check rẻ trên PR ghép main@${tagOf(main)} (merge-recheck)`;
+      const runs = ((await call('/actions/workflows/merge-recheck.yml/runs?per_page=30')).workflow_runs || []).filter(r => String(r.display_title || '').includes(sha));
+      if (!(runs.some(r => r.status !== 'completed' || Date.now() - new Date(r.created_at) < 15 * 60e3))) {
+        await call('/actions/workflows/merge-recheck.yml/dispatches', { method: 'POST', body: JSON.stringify({ ref: 'main', inputs: { sha, main } }) });
+        await call(`/statuses/${sha}`, { method: 'POST', body: JSON.stringify({ state: 'pending', context: RECHECK_CONTEXT, description: `main@${tagOf(main)}: đang đo check rẻ khi ghép main` }) });
+      }
+      return { wait: true, note };
+    },
     pr: n => call(`/pulls/${n}`),
     openPrs: () => pages('/pulls?state=open&sort=updated&direction=desc', null, 2),
     // tự nối (3/11): cron GitHub có lúc bỏ lượt hàng giờ (02/11: ci-triage + free-tier-guard 13 giờ) → bộ canh tự xếp lượt kế tiếp
     dispatchRuns: async () => (await call(`/actions/workflows/${path.basename(SELF_PATH)}/runs?event=workflow_dispatch&per_page=5`)).workflow_runs || [],
     lastRun: async file => ((await call(`/actions/workflows/${file}/runs?per_page=1`)).workflow_runs || [])[0] || null,
-    dispatchFile: async (file, ref) => call(`/actions/workflows/${file}/dispatches`, { method: 'POST', body: JSON.stringify({ ref }) }),
+    // 23/11: nhịp PACED không dispatch khi cùng workflow + ref đang chờ/chạy (dispatch-once.mjs)
+    dispatchFile: async (file, ref) => dispatchOnce({ runs: async f => (await Promise.all(['queued', 'in_progress'].map(async s => (await call(`/actions/workflows/${f}/runs?status=${s}&per_page=20`)).workflow_runs || []))).flat(), dispatch: (f, r) => call(`/actions/workflows/${f}/dispatches`, { method: 'POST', body: JSON.stringify({ ref: r }) }) }, file, ref),
     dispatchSelf: async (ref, slot) => call(`/actions/workflows/${path.basename(SELF_PATH)}/dispatches`, { method: 'POST', body: JSON.stringify({ ref, ...(slot ? { inputs: { slot } } : {}) }) }),
     // bộ canh khác đang chạy/xếp hàng (tên lượt `required-gate watch …`, không phải lượt theo PR, không phải chính mình; lượt cron cũng tính là bộ canh sống)
     otherWatchers: async self => (await Promise.all(['in_progress', 'queued'].map(async st => (await call(`/actions/workflows/${path.basename(SELF_PATH)}/runs?status=${st}&per_page=20`)).workflow_runs || []))).flat()
@@ -312,7 +331,15 @@ export const CHAIN_CHECK_MS = 90e3, CHAIN_RETRIES = 2;
 export const chainAlive = (runs, since) => runs.some(r => Date.parse(r.created_at) >= since - 30e3 && r.status !== 'queued');
 // 24/11 (#580): GitHub cũng không bao giờ chạy lịch của 5 workflow này (cron-watch: "CHƯA TỪNG có lượt schedule", đã đá disable→enable mà vẫn không; hàng chờ > 20 nên không dispatch bù) → cùng cách: bộ canh làm nhịp theo ĐÚNG khoảng cron của từng workflow (ngày/tuần), cron giữ làm lưới. video-junk chỉ liệt kê (dry-run), không xoá.
 // 25/11: ci-autopilot (cron 7-57/10) cũng không chạy theo lịch: lượt cuối 23:22Z, 2 giờ không ai gỡ xung đột/huỷ lượt treo → bộ canh làm nhịp 10 phút.
-export const PACED = { 'ci-filler.yml': 10, 'ci-autopilot.yml': 10, 'd1-usage-watch.yml': 20, 'tr-packs.yml': 1440, 'words-r2-sync.yml': 1440, 'say-native.yml': 1440, 'teacher-motion.yml': 1440, 'video-junk.yml': 10080 };
+/** Chu kỳ hỏi API của bộ canh (thuần). 26/11: "API rate limit exceeded for installation" – GITHUB_TOKEN dùng chung ~1.000 lệnh/giờ/repo bị các workflow cùng cạn; bộ canh (30–60 s/vòng, vài lệnh mỗi vòng) là
+ *  một trong những nơi tiêu nhiều nhất. Nới theo hạn mức còn lại (<500 → 90 s, <300 → 180 s, <150 → chờ tới reset) và khi đã có bộ canh KẾ TIẾP sống (lượt cũ chỉ còn là dự phòng): ≥ 180 s. */
+export function nextWait({ remaining = Infinity, reset = 0, now = 0, busy = false, backup = false } = {}) {
+  if (remaining < 150) return Math.max(60e3, reset - now);
+  const base = busy ? 30e3 : 60e3;
+  const byRate = remaining < 300 ? 180e3 : remaining < 500 ? 90e3 : 0;
+  return Math.max(base, byRate, backup ? 180e3 : 0);
+}
+export const PACED = { 'ci-filler.yml': 10, 'ci-autopilot.yml': 10, 'd1-usage-watch.yml': 20, 'tr-packs.yml': 1440, 'words-r2-sync.yml': 1440, 'say-native.yml': 1440, 'teacher-motion.yml': 1440, 'video-junk.yml': 10080, 'main-red-retry.yml': 10 };
 /** Tới nhịp chưa (thuần): không có lượt đang chờ/chạy thật và lượt cuối đã quá khoảng lịch. */
 export const paceDue = (last, gapMin, now) => !last || (last.status === 'completed' || isZombie(last, now)) && now - Date.parse(last.created_at) >= gapMin * 6e4;
 /** Chạy lại các lượt workflow bị huỷ (res.cancelled); mỗi runId:attempt chỉ 1 lần mỗi lượt canh. */
@@ -327,7 +354,15 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
   const dry = argv.includes('--dry'), url = env.RUN_URL || '';
   A = A || api(env.GITHUB_TOKEN, env.GITHUB_REPOSITORY);
   const reran = new Set();
-  const withDrift = async (res, sha) => {
+  // máy gác 2/4 (23/11): gate xanh còn phải qua check rẻ (size/docs/content-qa/fmt) trên PR GHÉP với main hiện tại (merge-recheck.yml) – hai PR riêng xanh, ghép vượt ngân sách.
+  const withRecheck = async (res, sha) => {
+    if (res.state !== 'success' || !A.recheck) return res;
+    try { const k = await A.recheck(sha); if (k.wait) return { ...res, state: 'pending', description: String(k.note).slice(0, 140) }; if (k.fail) return { ...res, state: 'failure', description: String(k.note).slice(0, 140) }; }
+    catch (e) { log('::warning::merge-recheck lỗi (mở cổng, kiểm lại khi gộp): ' + e.message); }
+    return res;
+  };
+  const withDrift = async (res, sha) => withRecheck(await withDrift0(res, sha), sha);
+  const withDrift0 = async (res, sha) => {
     if (res.state !== 'success') return res;
     if (A.prGateFiles && !inMergeWindow(clock.now())) { try { const w = applyWindow(res, await A.prGateFiles(sha), clock.now(), A.prLabels ? await A.prLabels(sha).catch(() => []) : []); if (w.window) return w; } catch (e) { log('::warning::đo tệp cổng của PR lỗi (mở cổng): ' + e.message); } }
     if (!A.drift) return res;
@@ -380,10 +415,10 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
     const longWatch = Number(arg('--watch')) > 90, CHAIN_BEFORE = (longWatch ? 45 : 6) * 60e3, slot = env.GATE_SLOT === 'b' ? 'b' : 'a', nextSlot = longWatch ? (slot === 'a' ? 'b' : 'a') : undefined;
     // lượt `schedule` (lưới 17,47) mà đã có bộ canh khác sống (chạy hoặc đang xếp hàng) → thoát ngay, không chạy bộ canh thứ hai song song
     if (env.GATE_EVENT === 'schedule' && A.otherWatchers && !dry) { try { const o = await A.otherWatchers(env.GITHUB_RUN_ID); if (o.length) { log(`• đã có bộ canh khác sống (${o.map(r => r.id + ':' + r.status).join(', ')}) – lượt lịch thoát`); return out; } } catch (e) { log('::warning::kiểm bộ canh khác: ' + e.message); } }
-    const paceAt = new Map(); let chainAt = 0, chainTries = 0;
+    const paceAt = new Map(); let chainAt = 0, chainTries = 0, nextAlive = false;   // nextAlive: lượt canh kế tiếp đã sống → lượt này chỉ còn là dự phòng (hỏi API thưa hơn)
     while (clock.now() < end) {
       if (chainAt && A.dispatchRuns && clock.now() - chainAt >= CHAIN_CHECK_MS) try {
-        if (chainAlive(await A.dispatchRuns(), chainAt)) { chainAt = 0; log('↻ lượt canh kế tiếp đã sống'); }
+        if (chainAlive(await A.dispatchRuns(), chainAt)) { chainAt = 0; nextAlive = true; log('↻ lượt canh kế tiếp đã sống – lượt này chuyển sang nhịp thưa (dự phòng)'); }
         else if (chainTries++ < CHAIN_RETRIES) { await A.dispatchSelf(env.GATE_CHAIN_REF, nextSlot); chainAt = clock.now(); log(`::warning::lượt nối kẹt queued → dispatch lại (${chainTries}/${CHAIN_RETRIES})`); }
         else { chainAt = 0; log('::error::lượt nối vẫn kẹt sau khi dispatch lại – chờ lịch 17,47 / cron-kick (15 phút)'); }
       } catch (e) { log('::warning::kiểm lượt nối: ' + e.message); }
@@ -404,7 +439,7 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
       let runs; try { runs = await A.recentRuns(); } catch (e) { log('::warning::liệt kê lượt chạy lỗi API – thử lại sau 60 s: ' + e.message); if (clock.now() + 60e3 >= end) break; await clock.sleep(60e3); continue; }
       const probes = new Map(), why = new Map();
       // thăm dò chỉ khi còn hạn mức dư (≥ 400/giờ): lúc CI bận ETag đổi liên tục, 20 sha × 60–120 vòng/giờ có thể ăn hết 1.000 lệnh của GITHUB_TOKEN → nhường cho đánh giá chính (lưới recheck 10 phút vẫn còn)
-      if (A.probe && ((A.rate && A.rate.remaining) ?? Infinity) >= 400) for (const sha of shas.filter(x => ['pending', 'failure'].includes(seen.get(x)?.state)).slice(0, 20)) try { probes.set(sha, await A.probe(sha)); } catch (e) { log('::warning::probe ' + sha.slice(0, 8) + ': ' + e.message); }
+      if (A.probe && ((A.rate && A.rate.remaining) ?? Infinity) >= 600) for (const sha of shas.filter(x => ['pending', 'failure'].includes(seen.get(x)?.state)).slice(0, 20)) try { probes.set(sha, await A.probe(sha)); } catch (e) { log('::warning::probe ' + sha.slice(0, 8) + ': ' + e.message); }
       const dirty = dirtyShas({ shas, runs, seen, now: t, probes, why }).slice(0, 25);   // ≤ 25 sha/vòng: hạn mức GITHUB_TOKEN 1.000 lệnh/giờ
       for (const p of prs) if (!born.has(p.head.sha)) born.set(p.head.sha, first ? Date.parse(p.updated_at) : t);   // lượt mồi: lấy lúc PR cập nhật
       for (const sha of dirty) try {
@@ -428,7 +463,7 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
       } catch (e) { log(`::warning::đánh giá ${sha.slice(0, 8)} lỗi API – giữ nguyên, thử lại vòng sau: ${e.message}`); }
       for (const k of seen.keys()) if (!shas.includes(k)) seen.delete(k), born.delete(k);   // PR đã gộp/đóng/đẩy commit mới
       const rate = A.rate || { remaining: Infinity };
-      const wait = rate.remaining < 150 ? Math.max(60e3, rate.reset - clock.now()) : [...seen.values()].some(v => v.state === 'pending') || dirty.length ? 30e3 : 60e3;
+      const wait = nextWait({ remaining: rate.remaining, reset: rate.reset, now: clock.now(), busy: [...seen.values()].some(v => v.state === 'pending') || dirty.length > 0, backup: nextAlive });
       if (clock.now() + wait >= end) break;
       await clock.sleep(wait);
     }

@@ -1,0 +1,56 @@
+# Máy gác 2/4 (23/11, docs/CI-RUNNERS.md › Máy gác main đỏ): hai PR riêng xanh, GHÉP vào main vẫn vượt ngân sách (4b25693 + 49c55e6 vượt 220 B). Trước khi required-gate cho xanh,
+# workflow này GHÉP main hiện tại vào đầu PR (không commit) rồi chạy check rẻ (scripts/ci/cheap.mjs) và ghi commit status `merge-recheck` + "main@<8>".
+# Do required-gate dispatch (scripts/ci/required-gate.mjs › recheck) và merge-window-pr.sh; KHÔNG chạy trên PR. Chỉ PR cùng repo. Bước chạy mã PR KHÔNG có token.
+name: merge-recheck
+run-name: merge-recheck ${{ inputs.sha }} ${{ inputs.main }}
+on:
+  workflow_dispatch:
+    inputs:
+      sha: { description: 'sha đầu PR (cùng repo)', required: true }
+      main: { description: 'sha main để ghép', required: true }
+permissions:
+  contents: read
+  statuses: write
+concurrency:
+  group: merge-recheck-${{ inputs.sha }}
+  cancel-in-progress: true
+jobs:
+  recheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ inputs.sha }}', fetch-depth: 0, persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Mã đo lấy từ main (không tin mã của PR)
+        env: { MAIN: '${{ inputs.main }}' }
+        run: |
+          git fetch --no-tags origin main
+          # cheap.mjs import '../lib/is-main.mjs' (tương đối) → giữ đúng cây thư mục scripts/{ci,lib} từ main, không chép lẻ một tệp (26/11: ERR_MODULE_NOT_FOUND)
+          mkdir -p "$RUNNER_TEMP/gate/scripts/ci" "$RUNNER_TEMP/gate/scripts/lib"
+          git show "$MAIN:scripts/ci/cheap.mjs" > "$RUNNER_TEMP/gate/scripts/ci/cheap.mjs"
+          git show "$MAIN:scripts/lib/is-main.mjs" > "$RUNNER_TEMP/gate/scripts/lib/is-main.mjs"
+      - name: Ghép main vào đầu PR (không commit) rồi chạy check rẻ (không token)
+        env: { MAIN: '${{ inputs.main }}', SHA: '${{ inputs.sha }}' }
+        run: |
+          git config user.name lexkite-bot; git config user.email lexkite-bot@users.noreply.github.com
+          git merge --no-commit --no-ff "$MAIN" || { echo "xung đột khi ghép main – PR phải gộp main (không đo được)"; echo '{"results":[{"id":"xung-đột-ghép","ok":false}]}' > "$RUNNER_TEMP/result.json"; exit 0; }
+          npm ci --no-audit --no-fund
+          # PR sửa CHÍNH cổng đo (cheap.mjs / is-main.mjs / workflow này) thì đo bằng mã của PR, không bằng mã main đang hỏng (vòng kẹt 26/11: #2137 sửa merge-recheck nhưng bị merge-recheck hỏng chặn). Bước này KHÔNG có token.
+          CH="$RUNNER_TEMP/gate/scripts/ci/cheap.mjs"
+          if git diff --name-only "$MAIN" "$SHA" | grep -qE '^(scripts/ci/cheap\.mjs|scripts/lib/is-main\.mjs|\.github/workflows/merge-recheck\.yml)$'; then CH=scripts/ci/cheap.mjs; echo "PR sửa cổng đo → chạy cheap.mjs của PR"; fi
+          node "$CH" run --out "$RUNNER_TEMP/result.json" || true
+      - name: Ghi commit status merge-recheck
+        id: post
+        if: always()
+        env: { GITHUB_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}', SHA: '${{ inputs.sha }}', MAIN: '${{ inputs.main }}' }
+        run: node "$RUNNER_TEMP/gate/scripts/ci/cheap.mjs" post --sha "$SHA" --main "$MAIN" --result "$RUNNER_TEMP/result.json"
+      # Dự phòng: mã đo của main không chạy được (hỏng import…) thì status KHÔNG được treo pending mãi (khóa cả PR sửa cổng). Không dùng mã trong repo: chỉ đọc result.json rồi gọi API.
+      - name: Ghi status dự phòng (mã đo không chạy được)
+        if: always() && steps.post.outcome == 'failure'
+        env: { GH_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}', SHA: '${{ inputs.sha }}', MAIN: '${{ inputs.main }}' }
+        run: |
+          st=failure; d="máy đo hỏng hoặc chưa đo được – xem run merge-recheck"
+          if [ -s "$RUNNER_TEMP/result.json" ] && node -e 'const r=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).results;process.exit(r.length&&r.every(x=>x.ok)?0:1)' "$RUNNER_TEMP/result.json"; then st=success; d="check rẻ đạt (ghi bằng đường dự phòng)"; fi
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$SHA" -f state=$st -f context=merge-recheck -f description="main@${MAIN:0:8}: $d"

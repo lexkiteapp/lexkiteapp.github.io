@@ -31,14 +31,21 @@ jobs:
     outputs: { go: '${{ steps.g.outputs.go }}' }
     steps:
       - id: g
-        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}', FIX: '${{ contains(github.event.pull_request.labels.*.name, ''main-red-fix'') }}' }
         run: |
           go=true
           if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
             n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
             [ "${n:-1}" -ge 1 ] || go=false
           fi
+          # máy gác 3/4 (23/11): CÙNG workflow đang ĐỎ trên main → dừng sớm (gate đỏ, 0 job nặng); main-red-retry.mjs chạy lại 1 lần khi main xanh. PR nhãn main-red-fix không bị chặn.
+          wf=$(basename "${GITHUB_WORKFLOW_REF%%@*}"); red=
+          if [ "$go" = true ] && [ "$EV" = pull_request ] && [ "$FIX" != true ]; then
+            m=$(gh api "repos/$REPO/actions/workflows/$wf/runs?branch=main&event=push&status=completed&per_page=5" --jq '[.workflow_runs[] | select(.conclusion != "cancelled" and .conclusion != "skipped")][0].conclusion' 2>/dev/null) || m=
+            if [ "$m" = failure ]; then go=false; red=1; echo "::error title=main đỏ – chờ::$wf đang đỏ trên main – dừng sớm, tự chạy lại 1 lần khi main xanh"; fi
+          fi
           echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
+          [ -z "$red" ] || exit 1
   preqc:   # gate 1 (seconds): generator self-checks, reviewed script == spec, motion parity
     needs: gate
     if: needs.gate.outputs.go == 'true'
@@ -48,6 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
+      - run: pip install -q pillow==11.0.0   # teach2d-store-cards.py (#1880) cần PIL; thiếu → preqc đỏ, mọi lượt teach-video không render
       - name: Specs regenerate identically + reviewed scripts
         env: { EV: '${{ github.event_name }}', BASE: '${{ github.base_ref }}' }
         run: |
@@ -56,7 +64,7 @@ jobs:
           # 15/11: các kiểm dưới đây độc lập nhau → chạy song song (mỗi nhóm giữ nguyên lệnh), đợi hết rồi đỏ nếu BẤT KỲ nhóm nào đỏ (không bỏ kiểm nào)
           pids=(); names=()
           run() { n="$1"; shift; ( "$@" ) >"/tmp/pq-$n.log" 2>&1 & pids+=($!); names+=("$n"); }
-          run gen   bash -c 'python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-roots.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py && python3 scripts/test/teach2d-rules.py && python3 scripts/test/teach2d-band.py && python3 scripts/test/teach2d-progress.py && python3 scripts/test/teach2d-slang.py && python3 scripts/test/dead-band.py'   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
+          run gen   bash -c 'python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-roots.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py && python3 scripts/test/teach2d-store-cards.py && python3 scripts/test/teach2d-rules.py && python3 scripts/test/teach2d-band.py && python3 scripts/test/teach2d-progress.py && python3 scripts/test/teach2d-slang.py && python3 scripts/test/dead-band.py'   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
           run mix   bash -c 'python3 scripts/video/teach2d/mix.py --check && python3 scripts/test/teach2d-mix.py'   # 0-credit build bank: mix.json regenerates identically, 0 repeats in the window, diversity >= 70
           # 16/11: gtx (dịch ngược miễn phí) đổi bản dịch giữa các lần chạy → hàng sát ngưỡng lúc đạt lúc trượt, đỏ cả PR không đụng hàng đó (t2_l1_ja_hard). PR: dịch ngược online CHỈ hàng PR thêm/sửa (kiểm tĩnh vẫn mọi hàng); main/dispatch + lịch đêm (native-qa-nightly.yml) chạy đủ.
           QA_SCOPE=""; B="${BASE:-main}"; if { [ "$EV" = pull_request ] || [ "$EV" = workflow_dispatch ]; } && git fetch -q --depth=1 origin "$B"; then QA_SCOPE="--online-changed=origin/$B"; fi   # 19/11: dispatch dịch ngược cả ~1750 hàng = 19,6 phút > trần 20 phút (run 44445334700 bị huỷ) → cũng chỉ hàng đổi so với main; cổng tĩnh vẫn chạy mọi hàng; cron/schedule vẫn dịch ngược hết
@@ -82,7 +90,7 @@ jobs:
       - run: python3 scripts/test/media-origin.py   # pictures from GitHub origins, Worker last (2/11 429)
       - id: p   # owner 13/11: video ≤3 runners in total while other CI work runs; CI idle → all free runners (min(24, 40 - busy - 8)); scripts/ci/shards.mjs --video
         env: { GITHUB_TOKEN: '${{ github.token }}' }
-        run: echo "par=$(node scripts/ci/shards.mjs --left 48 --per 1 --cap 24 --video | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+        run: echo "par=$(node scripts/ci/shards.mjs --left 48 --per 1 --cap 24 --video | python3 scripts/ci/count-list.py 1)" >> "$GITHUB_OUTPUT"
       - id: m   # a batch takes only what the free runners finish in ~1.5 h (4 episodes per runner); ci-filler dispatches the next slice
         run: echo "list=$(python3 scripts/video/teach2d/gen.py --pick "$LX_IN1" "$LX_IN2" '${{ github.event_name }}' ${{ steps.p.outputs.par }})" >> "$GITHUB_OUTPUT"   # batch = facts re-verified live (gen.py --verify), not yet banked
         env:
@@ -130,11 +138,11 @@ jobs:
     outputs: { par: '${{ steps.p.outputs.par }}' }
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: "scripts/ci\n.github/actions" }   # no-prod action (#409) lives in .github/actions
+        with: { sparse-checkout: "scripts/ci\nscripts/lib/retry5xx.mjs\n.github/actions" }   # no-prod action (#409) lives in .github/actions
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - id: p
         env: { GITHUB_TOKEN: '${{ github.token }}' }
-        run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ needs.preqc.outputs.list }}' | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))') * 2 )) --per 1 --cap 24 --video | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+        run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ needs.preqc.outputs.list }}' | python3 scripts/ci/count-list.py 0) * 2 )) --per 1 --cap 24 --video | python3 scripts/ci/count-list.py 1)" >> "$GITHUB_OUTPUT"
   render:   # one red voice job no longer skips the whole batch: that episode's render fails on its missing voice artifact, the rest render
     needs: [preqc, voice, par, gate]
     if: ${{ (!cancelled() && needs.preqc.result == 'success' && needs.par.result == 'success') && needs.gate.outputs.go == 'true' }}

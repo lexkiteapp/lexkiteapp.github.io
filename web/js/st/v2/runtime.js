@@ -20,15 +20,16 @@
     s.textContent = `.st-fl[data-fl=frozen]{--fl-l:#2A7D7A;--fl-b:#CFE9F2;--fl-m:#F4FBF8;--fl-c:#FFFFFF;--fl-s:#FFFFFF}.st-fl[data-fl=lost]{--fl-l:#6F878B;--fl-b:#A3B9B7;--fl-m:#F4FBF8;--fl-c:#EAF2F2;--fl-s:#FFFFFF}.st-fl[data-fl=milestone]{--fl-l:#A26E00;--fl-b:#FFC94A;--fl-m:#FFE7C2;--fl-c:#FFFFFF;--fl-s:#FFFFFF}
 .st-fl:not([data-fl=active]) .fl-ledge{fill:var(--fl-l)}.st-fl:not([data-fl=active]) .fl-body{fill:var(--fl-b);stroke:var(--fl-l)}.st-fl:not([data-fl=active]) .fl-mid{fill:var(--fl-m)}.st-fl:not([data-fl=active]) .fl-core{fill:var(--fl-c)}.st-fl:not([data-fl=active]) .fl-shine{fill:var(--fl-s)}
 .st-fl .fl-mid,.st-fl .fl-core{transform-box:fill-box;transform-origin:50% 100%}.st-fl[data-fl=active] .fl-mid,.st-fl[data-fl=milestone] .fl-mid{animation:stFl 1.6s ease-in-out infinite alternate}.st-fl[data-fl=active] .fl-core,.st-fl[data-fl=milestone] .fl-core{animation:stFl 1.1s ease-in-out -.5s infinite alternate}
-@keyframes stFl{from{transform:scale(1,1)}to{transform:scale(.95,1.06)}}@media (prefers-reduced-motion:reduce){.st-fl .fl-mid,.st-fl .fl-core{animation:none}}`;
+.lk-scrolling .st-fl .fl-mid,.lk-scrolling .st-fl .fl-core{animation-play-state:paused}@keyframes stFl{from{transform:scale(1,1)}to{transform:scale(.95,1.06)}}@media (prefers-reduced-motion:reduce){.st-fl .fl-mid,.st-fl .fl-core{animation:none}}`;
     document.head.appendChild(s); };
   // active | frozen | lost (chuỗi 0) | milestone (o.milestone)
   S.flameState = (n, o) => { if (o && o.milestone) return 'milestone'; if (!n) return 'lost';
     const g = (App.state || {}).game || {}, k = window.Core && Core.todayKey ? Core.todayKey() : '', y = new Date(Date.now() - 864e5), yk = `${y.getFullYear()}-${String(y.getMonth() + 1).padStart(2, '0')}-${String(y.getDate()).padStart(2, '0')}`;
     return !((g.days || {})[k] || {}).xp && (g.frozen || {})[yk] ? 'frozen' : 'active'; };
-  // CSS theo màn: ux1 chỉ nạp sẵn Lộ trình + Hôm nay; màn khác nạp khi mở (khung ẩn ≤ 1,5 s), Home xong thì nạp nốt lúc rảnh.
-  const LZ = ['review', 'practice', 'skills', 'leagues', 'me', 'streak', 'exam-readiness', 'today-new', 'today-desk', 'today-rail'], cssOk = {};
-  const css = (k, w) => { if (!LZ.includes(k) || cssOk[k] || !window.App || !App.loadCss) return; const m = w && (w.querySelector('main') || w); if (m) m.style.visibility = 'hidden'; // chỉ ẩn thân màn: thanh tab (CSS chung đã nạp) luôn hiện → chạm tab ngay, không đợi CSS riêng của màn
+  // CSS màn tải theo màn (3/11): gói ux1 chỉ nạp sẵn Lộ trình + Hôm nay (Home lần đầu nhẹ hơn main); màn khác nạp khi mở, khung ẩn tới khi CSS về
+  //   (≤ 1,5 s – loadCss tự nhả) → không nháy khung chưa có kiểu; Home xong thì nạp nốt lúc rảnh (trừ chế độ tiết kiệm dữ liệu) → chuyển tab tức thì.
+  const LZ = ['review', 'practice', 'skills', 'leagues', 'me', 'streak', 'exam-readiness', 'today-new', 'today-desk', 'today-rail', 'library', 'topic', 'deck', 'mistakes', 'stats'], cssOk = {}, FULL = ['library', 'topic', 'deck', 'mistakes', 'stats'];
+  const css = (k, w) => { if (!LZ.includes(k) || cssOk[k] || !window.App || !App.loadCss) return; const m = w && (FULL.includes(k) ? w : (w.querySelector('main') || w)); if (m) m.style.visibility = 'hidden'; // FULL (màn nạp CSS riêng lớn: thanh tab/CTA đổi vị trí khi CSS về → CLS 0,3) ẩn cả khung tới khi CSS về; còn lại chỉ ẩn thân màn: thanh tab (CSS chung đã nạp) luôn hiện → chạm tab ngay, không đợi CSS riêng của màn
     App.loadCss('css/st-v2-' + k + '.css').then(() => { cssOk[k] = 1; if (m) m.style.visibility = ''; }); };
   let idle = false; const rest = () => { if (idle || (App.lean && App.lean())) return; idle = true; (self.requestIdleCallback || (f => setTimeout(f, 1200)))(() => LZ.forEach(x => css(x)), { timeout: 8000 }); };
   S.css = css;

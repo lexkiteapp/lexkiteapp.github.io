@@ -13270,6 +13270,32 @@
    "b": "41821221567",
    "repo": "m4"
   },
+  "astray#adv": {
+   "h": "9024b4eeff89cf4b",
+   "url": "https://media.lexkite.com/vimg/9024b4eeff89cf4b.webp",
+   "alt": "astray",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.36,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 5
+   },
+   "ph": "f970f2e2d149062f",
+   "at": "2026-11-26",
+   "b": "45739086677",
+   "repo": "m4"
+  },
   "astrologer#n": {
    "h": "d6d05fe335a7ad30",
    "url": "https://media.lexkite.com/vimg/d6d05fe335a7ad30.webp",
@@ -123492,6 +123518,33 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "minicomputer#n": {
+   "h": "ed56f87413088db3",
+   "url": "https://media.lexkite.com/vimg/ed56f87413088db3.webp",
+   "alt": "minicomputer",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.387,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "e8c08737c33f944b",
+   "at": "2026-11-26",
+   "b": "45739086677",
+   "repo": "m4"
+  },
   "minimal#adj": {
    "h": "6ec6c1294466e51c",
    "url": "https://media.lexkite.com/vimg/6ec6c1294466e51c.webp",
@@ -139090,6 +139143,33 @@
    "ph": "e622b333cccc8e8b",
    "at": "2026-11-10",
    "b": "42816802274",
+   "repo": "m4"
+  },
+  "palanquin#n": {
+   "h": "777a47cd96dd18bc",
+   "url": "https://media.lexkite.com/vimg/777a47cd96dd18bc.webp",
+   "alt": "palanquin",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.228,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 5
+   },
+   "ph": "ba25e57090c75b9a",
+   "at": "2026-11-26",
+   "b": "45739086677",
    "repo": "m4"
   },
   "pale#adj": {
@@ -196534,6 +196614,33 @@
    "b": "40897839512",
    "repo": "m4"
   },
+  "technocracy#n": {
+   "h": "1b55733e4f8ed99b",
+   "url": "https://media.lexkite.com/vimg/1b55733e4f8ed99b.webp",
+   "alt": "technocracy",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.404,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 3
+   },
+   "ph": "eb96c168b44d1e63",
+   "at": "2026-11-26",
+   "b": "45739086677",
+   "repo": "m4"
+  },
   "technological#adj": {
    "h": "ddfa4981dcca8b19",
    "url": "https://media.lexkite.com/vimg/ddfa4981dcca8b19.webp",
@@ -201482,6 +201589,33 @@
    "b": "42112058283",
    "repo": "m4"
   },
+  "tow#v": {
+   "h": "7fee57fc1858ee60",
+   "url": "https://media.lexkite.com/vimg/7fee57fc1858ee60.webp",
+   "alt": "tow",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.344,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 3
+   },
+   "ph": "b8b0c74eb08f17cc",
+   "at": "2026-11-26",
+   "b": "45739086677",
+   "repo": "m4"
+  },
   "towel#n": {
    "alt": "towel",
    "photo": {
@@ -202887,6 +203021,32 @@
    "ph": "cbceb4b2a3855531",
    "at": "2026-11-03",
    "b": "41615420488",
+   "repo": "m4"
+  },
+  "transliteration#n": {
+   "h": "847f3e61a0a24206",
+   "url": "https://media.lexkite.com/vimg/847f3e61a0a24206.webp",
+   "alt": "transliteration",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.357,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 5
+   },
+   "ph": "ee85e0c09e1ad99d",
+   "at": "2026-11-26",
+   "b": "45739086677",
    "repo": "m4"
   },
   "transmission#n": {

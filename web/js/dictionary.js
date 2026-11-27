@@ -247,7 +247,9 @@
   }
 
   async function myMemory(text, tl = 'vi', sl = 'en', signal) {
-    const d = await fetchJSON(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${encodeURIComponent(sl)}|${encodeURIComponent(tl)}`, 8000, signal);
+    // Web/app: qua proxy /api/dictlookup?src=mm (bộ đệm biên dùng chung, hết hạn mức → 200 null, không 429 trong console); add-on: gọi thẳng
+    const url = EXT ? `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${encodeURIComponent(sl)}|${encodeURIComponent(tl)}` : `${DL}?src=mm&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}&q=${encodeURIComponent(text)}`;
+    const d = await fetchJSON(url, 8000, signal);
     const t = d && d.responseData && d.responseData.translatedText;
     if (!t || /MYMEMORY WARNING|INVALID/i.test(t)) return '';
     return tl === 'vi' ? fixVi(t) : t.trim();

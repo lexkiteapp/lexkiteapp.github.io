@@ -36,3 +36,5 @@ Sửa `scripts/social/build-channel-kit.mjs` (chữ ở `COPY`, tư thế giáo 
 
 ## Đề xuất về logo (chưa làm – cần chủ duyệt)
 - Wordmark `brand/lexkite-logo-dark.svg` dùng `<text>` (phông Bricolage) – máy không có phông sẽ hiện phông khác. Nên chuyển chữ thành path.
+
+> **Vị trí ảnh (26/11):** ảnh PNG/JPG của bộ này nằm ở kho media ngoài (cây repo chính vượt 600 MB). Mỗi ảnh có URL `https://media.lexkite.com/m4/channel-kit/<đường dẫn ở bảng trên>` (danh sách + số byte + sha256 ở `media-index.json`). Workflow `social-channel-kit` dựng trên CI → `scripts/media/push.mjs` → kiểm URL 200 đúng byte; `download.html` trỏ thẳng URL CDN. Đường dẫn trong các bảng trên là đường dẫn TƯƠNG ĐỐI trong kho.

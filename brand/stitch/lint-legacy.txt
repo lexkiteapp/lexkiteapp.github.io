@@ -67,6 +67,8 @@ brand/stitch/v2/confidence-dark.html
 brand/stitch/v2/confidence-light.html
 brand/stitch/v2/deck-dark.html
 brand/stitch/v2/deck-light.html
+brand/stitch/v2/deckweb-dark.html
+brand/stitch/v2/deckweb-light.html
 brand/stitch/v2/dict-dark.html
 brand/stitch/v2/dict-light.html
 brand/stitch/v2/dictation-diff-dark.html
@@ -94,6 +96,8 @@ brand/stitch/v2/letters-dark.html
 brand/stitch/v2/letters-light.html
 brand/stitch/v2/library-dark.html
 brand/stitch/v2/library-light.html
+brand/stitch/v2/libraryweb-dark.html
+brand/stitch/v2/libraryweb-light.html
 brand/stitch/v2/listen-hub-dark.html
 brand/stitch/v2/listen-hub-light.html
 brand/stitch/v2/listen-player-dark.html
@@ -110,6 +114,7 @@ brand/stitch/v2/me-dark.html
 brand/stitch/v2/me-light.html
 brand/stitch/v2/mistakes-dark.html
 brand/stitch/v2/mistakes-light.html
+brand/stitch/v2/mistakesweb-light.html
 brand/stitch/v2/model-dark.html
 brand/stitch/v2/model-light.html
 brand/stitch/v2/models-dark.html
@@ -191,6 +196,8 @@ brand/stitch/v2/speaking-result-dark.html
 brand/stitch/v2/speaking-result-light.html
 brand/stitch/v2/splash-dark.html
 brand/stitch/v2/splash-light.html
+brand/stitch/v2/stats-dark.html
+brand/stitch/v2/stats-light.html
 brand/stitch/v2/store/dict-dark.html
 brand/stitch/v2/store/dict-light.html
 brand/stitch/v2/story-duo-dark.html
@@ -208,6 +215,8 @@ brand/stitch/v2/today-new-dark.html
 brand/stitch/v2/today-new-light.html
 brand/stitch/v2/topic-dark.html
 brand/stitch/v2/topic-light.html
+brand/stitch/v2/topicweb-dark.html
+brand/stitch/v2/topicweb-light.html
 brand/stitch/v2/usage-dark.html
 brand/stitch/v2/usage-light.html
 brand/stitch/v2/verb-dark.html

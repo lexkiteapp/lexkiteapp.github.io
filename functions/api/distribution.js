@@ -9,7 +9,7 @@ import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, chanCfgs, pauseChannel } from './youtube.js';
-import { LANG_TZ, dayCapOf, gapOf, capCfg, langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
+import { LANG_TZ, dayCapOf, gapOf, capCfg, langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS, isCardClip } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
@@ -150,8 +150,8 @@ const OPS = {
     for (const r of q) {
       const it = by.get(r.clip); if (!it) { skipped.push({ id: r.clip, why: 'unknown' }); continue; }
       const old = planned.get(r.clip), c = clipOf(it, r.title);
-      for (const so of routeAll(soRules, cfgs, c, null)) if (!sDone.has(r.clip + '|' + so.channel_id)) { (social[so.channel_id] = social[so.channel_id] || []).push(c); sRows.set(r.clip + '|' + so.channel_id, so); }
-      if (!['manual', 'queued'].includes(r.status)) continue; // đã/đang lên YouTube hoặc YouTube lỗi: social vẫn được xếp (ở trên), kế hoạch YouTube thì thôi
+      for (const so of routeAll(soRules, cfgs, c, null)) if (!sDone.has(r.clip + '|' + so.channel_id) && (!isCardClip(r.clip) || ['facebook_page', 'instagram'].includes(platformOf(so.channel_id)))) { (social[so.channel_id] = social[so.channel_id] || []).push(isCardClip(r.clip) ? { ...c, title: '' } : c); sRows.set(r.clip + '|' + so.channel_id, so); }
+      if (isCardClip(r.clip) || !['manual', 'queued'].includes(r.status)) continue; // carousel ảnh: chỉ social FB/IG · đã/đang lên YouTube hoặc YouTube lỗi: social vẫn được xếp (ở trên), kế hoạch YouTube thì thôi
       if (old && old.source === 'manual' && old.slot_ms) continue;
       let ch = old && old.source === 'manual' ? { channel_id: old.channel_id, rule: -2 } : route(ytRules, cfgs, c, fb);
       if (ch.rule !== -2 && ch.channel_id && embedCfgs[ch.channel_id]) { const pick = pickEmbed(embedCfgs, counts, { ...c, channel_id: old && old.channel_id, video_id: r.video_id }); // several embed channels → rotate
@@ -166,7 +166,7 @@ const OPS = {
         const iso = new Date(s.ms).toISOString(); await run(db, "UPDATE yt_queue SET publish_at = ? WHERE clip = ? AND status = 'queued' AND privacy = 'private'", iso, s.id); }
       for (const s of r.skipped) skipped.push({ id: s.id, why: s.why });
     }
-    const sExisting = {}; for (const p of await all(db, 'SELECT clip, channel_id, slot_ms FROM dist_social WHERE slot_ms > ?', now - 864e5)) { const it = by.get(p.clip) || {}; (sExisting[p.channel_id] = sExisting[p.channel_id] || []).push({ ms: p.slot_ms, title: it.title, template: it.template }); }
+    const sExisting = {}; for (const p of await all(db, 'SELECT clip, channel_id, slot_ms FROM dist_social WHERE slot_ms > ?', now - 864e5)) { const it = by.get(p.clip) || {}; (sExisting[p.channel_id] = sExisting[p.channel_id] || []).push({ ms: p.slot_ms, title: isCardClip(p.clip) ? '' : it.title, template: it.template }); }  // carousel cùng tiêu đề với Reel: không tính vào chống trùng tiêu đề (schedule)
     let posts = 0;
     for (const [ch, r] of Object.entries(planAll({ routed: social, cfgs, existing: sExisting, now }))) for (const s of r.slots) { const so = sRows.get(s.id + '|' + ch); await run(db, "INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, ?, ?, ?, 'auto', ?, 'planned', ?) ON CONFLICT(clip, channel_id) DO NOTHING", s.id, ch, platformOf(ch), s.ms, so ? so.rule : -1, now); posts++; }
     return { ok: true, planned: made.length, social: posts, skipped };

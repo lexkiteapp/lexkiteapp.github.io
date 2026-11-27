@@ -106,9 +106,10 @@ export function allowed(mode, model) {
 // 30/10 (chủ nạp GEMINI_POOL 85 khoá + GROQ_POOL 109 khoá): 'gem' (Gemini 2.5 Flash – soạn, dịch vi, giám khảo khác họ) và 'groq' (gpt-oss-120b / llama-3.3-70b / qwen3-32b)
 // đứng ĐẦU mọi chuỗi văn bản → văn bản không còn ăn neuron CF của ảnh; chỉ sống khi việc có secret (env) – việc khác giữ nguyên chuỗi cũ.
 export const CHAINS = {
-  gen: ['gem', 'groq', 'lexai', 'gc-groq', 'cf2', 'gc-gemini', 'gc-cf'],
-  judgeA: ['groq', 'gem', 'gc-groq', 'lexai', 'cf2', 'gc-gemini', 'gc-cf'],
-  judgeB: ['gem', 'groq', 'gc-groq', 'lexai', 'gc-gemini', 'cf2', 'gc-cf'], // khác MÔ HÌNH của A; khác họ trừ cặp gpt-oss 120b/20b
+  // 25/11: GrabCast (gc-*) dùng chung ngân sách DB với ĐĂNG BÀI (503 db_budget_guard dừng cả 15 FB + IG + TikTok) → việc nền thử Workers AI kho CF_POOL (cf2) TRƯỚC, GrabCast chỉ là dự phòng sau
+  gen: ['gem', 'groq', 'lexai', 'cf2', 'gc-groq', 'gc-gemini', 'gc-cf'],
+  judgeA: ['groq', 'gem', 'cf2', 'gc-groq', 'lexai', 'gc-gemini', 'gc-cf'],
+  judgeB: ['gem', 'groq', 'cf2', 'gc-groq', 'lexai', 'gc-gemini', 'gc-cf'], // khác MÔ HÌNH của A; khác họ trừ cặp gpt-oss 120b/20b
   vision: ['gc-vision', 'studio', 'cf2-vision'],
 };
 /** văn bản Cloudflare qua GrabCast (bể neuron ảnh) – TẮT trừ khi AI_POOL_CF_TEXT=1 */
@@ -294,6 +295,7 @@ export function createPool(opts = {}) {
       const j = await r.json().catch(() => ({})), code = (j.detail && j.detail.code) || (j.error && j.error.code) || '';
       // GrabCast 24/10 (sửa 500): 503 ai_busy (Retry-After 20) · ai_exhausted / ai_unavailable (Retry-After 60) – luôn theo Retry-After, không còn 500 trần
       const ra = r.headers && r.headers.get && +r.headers.get('Retry-After') > 0 ? retryAfter(r) : 0;
+      if (code === 'db_budget_guard') throw new PoolErr('route', 'GrabCast db_budget_guard (ngân sách DB cạn – dành cho đăng bài FB/IG, việc nền nghỉ)', ra || 3 * 3600e3); // 26/11: đừng đập thêm vào ngân sách đang cạn
       if (code === 'ai_busy' || (r.status === 503 && !code)) throw new PoolErr('model', 'GrabCast 503 ai_busy (Retry-After)', ra || 20e3);
       if (code === 'ai_exhausted') throw new PoolErr('route', 'GrabCast ai_exhausted (mọi nhà cung cấp hết lượt)', ra || 10 * 60e3);
       if (code === 'ai_unavailable') throw new PoolErr('model', 'GrabCast ai_unavailable ' + JSON.stringify((j.detail && j.detail.tried) || []).slice(0, 80), ra || 5 * 60e3);
@@ -484,9 +486,9 @@ export function createPool(opts = {}) {
     const mode = req.mode, why = [];
     role = role || (TASKS[mode] && TASKS[mode].kind) || 'gen';
     for (const id of chain) {
-      const route = R[id]; if (!route || !route.ok()) continue;
+      const route = R[id]; if (!route) continue; if (!route.ok()) { if (id === 'cf2') why.push(`cf2 tắt (CF2=${CF2.length} tài khoản, neuron ${used.cf2}/${budget.cf2})`); continue; }
       for (const model of route.models(role, slot)) {
-        if (cooling(id, model)) continue;
+        if (cooling(id, model)) { if (id === 'cf2') why.push(`cf2:${model} đang nghỉ`); continue; }
         // lọc trước theo mô hình dự kiến (tuyến GrabCast tự chọn mô hình → lọc theo câu trả lời thật)
         if (!/^(vision|gemini-vision)$/.test(model) && (!allowed(mode, model) || exclude.includes(familyOf(model)) || sameM(model))) continue;
         const t0 = now();

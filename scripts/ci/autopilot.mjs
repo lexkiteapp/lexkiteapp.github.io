@@ -25,7 +25,9 @@ export const PER_PR = 4, MAX_UPDATES = 6, PRIORITY_H = 24, MAX_MERGES = 3, MAX_R
 export const STUCK_QUEUE_MIN = 45, NO_CHECK_MIN = 20, KICK_GAP_H = 3, MAX_KICKS = 3, MAX_CANCELS = 6;
 const ADVISORY_WF = new Set(['gate-impact']);   // workflow tư vấn (nhóm concurrency toàn cục, xếp hàng là bình thường) – không huỷ
 /** Lượt PR xếp hàng quá lâu (thuần): status queued (không phải pending của concurrency), > STUCK_QUEUE_MIN phút, không phải workflow tư vấn → id cần huỷ. */
-export const stuckQueued = (runs, now = Date.now()) => (runs || []).filter(r => r.status === 'queued' && r.event === 'pull_request' && !ADVISORY_WF.has(r.name) && now - Date.parse(r.created_at) > STUCK_QUEUE_MIN * 60e3).map(r => r.id);
+/** Thời điểm lượt (attempt hiện tại) bắt đầu xếp hàng: run_started_at đổi theo từng lần chạy lại, created_at giữ nguyên của lượt gốc (25/11: #2023 attempt 5 vừa xếp hàng đã bị coi là >45′ rồi huỷ). */
+export const queuedAt = r => Date.parse(r.run_started_at || r.created_at);
+export const stuckQueued = (runs, now = Date.now()) => (runs || []).filter(r => r.status === 'queued' && r.event === 'pull_request' && !ADVISORY_WF.has(r.name) && now - queuedAt(r) > STUCK_QUEUE_MIN * 60e3).map(r => r.id);
 /** Head không có check nào (thuần): PR cùng repo, không draft, required-gate chưa có status, 0 check-run, commit đã > NO_CHECK_MIN phút, chưa đẩy trong KICK_GAP_H giờ. */
 export const needsKick = (pr, info, events, now = Date.now()) => !pr.draft && !pr.fork && pr.gate == null && info.checkTotal === 0 && info.runsTotal === 0 && now - Date.parse(info.commitDate) > NO_CHECK_MIN * 60e3
   && !events.some(e => e.k === 'kick' && e.n === pr.number && now - Date.parse(e.t) < KICK_GAP_H * 3600e3);
@@ -114,6 +116,10 @@ export function behindOf(cmp, auto = TAKE_MAIN) {
   if (!n || !Array.isArray(files) || !files.length || files.length >= 300) return n;
   return files.every(f => auto.includes(f.filename)) ? 0 : n;
 }
+/** Hạn mức GITHUB_TOKEN ~1.000 lệnh/giờ/repo dùng chung (26/11: 403 "rate limit exceeded for installation"): mỗi vòng (10 phút) autopilot gọi `compare` cho MỌI PR đang chờ (50 PR × 6 vòng = ~300 lệnh/giờ).
+ *  Mỗi PR chỉ cần biết "tụt main bao nhiêu" 1 lần/3 vòng (30 phút, xoay vòng theo số PR): cắt 2/3 số lệnh; quyết định gộp main vẫn có (đã giãn khoảng cách cập nhật bằng UPDATE_GAP_H). */
+export const COMPARE_EVERY = 3, TICK_MS = 10 * 60e3;
+export const compareDue = (n, now = Date.now()) => (Number(n) + Math.floor(now / TICK_MS)) % COMPARE_EVERY === 0;
 const behindBy = async (token, sha) => behindOf((await call(token, 'GET', `/repos/${REPO}/compare/${sha}...main`)).body);   // main có bao nhiêu commit (đáng gộp) mà head chưa có
 
 async function ensureLabels(token) {
@@ -144,8 +150,8 @@ async function rerunInfra(token, pr, dry) {
 export const STALE_QUEUE_H = 6, UNFIXABLE_H = 24 * 7, MAX_STALE_PER_TICK = 10;
 /** Lượt queued quá STALE_QUEUE_H giờ (thuần), cũ nhất trước; lượt quá UNFIXABLE_H giờ tách riêng (không thể gỡ qua API). */
 export function staleQueued(runs, now = Date.now()) {
-  const old = (runs || []).filter(r => r.status === 'queued' && now - Date.parse(r.created_at) > STALE_QUEUE_H * 3600e3).sort((a, b) => Date.parse(a.created_at) - Date.parse(b.created_at));
-  const dead = old.filter(r => now - Date.parse(r.created_at) > UNFIXABLE_H * 3600e3);
+  const old = (runs || []).filter(r => r.status === 'queued' && now - queuedAt(r) > STALE_QUEUE_H * 3600e3).sort((a, b) => queuedAt(a) - queuedAt(b));
+  const dead = old.filter(r => now - queuedAt(r) > UNFIXABLE_H * 3600e3);
   return { todo: old.filter(r => !dead.includes(r)).slice(0, MAX_STALE_PER_TICK).map(r => r.id), dead: dead.length };
 }
 /** Huỷ lượt queued quá hạn: cancel → (vẫn queued) huỷ cưỡng bức. Trả { cancelled, hard, dead }. */
@@ -192,7 +198,7 @@ export async function main({ dry = process.argv.includes('--dry') } = {}) {
   const decided = [];
   for (const pr of prs) {   // cũ nhất trước (GraphQL ASC)
     let d = decide(pr);
-    if (['wait', 'triage-red'].includes(d.act) && !pr.fork) { pr.behind = await behindBy(token, pr.sha); /* chỉ PR chưa gộp được cần biết tụt bao nhiêu */ if (pr.behind > 0 && d.act === 'wait') d = decide(pr); }
+    if (['wait', 'triage-red'].includes(d.act) && !pr.fork && compareDue(pr.number, now)) { pr.behind = await behindBy(token, pr.sha); /* chỉ PR chưa gộp được cần biết tụt bao nhiêu */ if (pr.behind > 0 && d.act === 'wait') d = decide(pr); }
     decided.push([pr, d]);
   }
   for (const [pr, d] of decided) {

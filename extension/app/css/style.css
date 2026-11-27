@@ -148,6 +148,7 @@ p { margin: .4rem 0; }
 @media (hover: hover) { .btn:hover { background: var(--surface-2); } }
 .btn:active { transform: translateY(1px); }
 .btn.primary { background: var(--primary); border-color: var(--primary); color: var(--primary-ink); box-shadow: 0 6px 18px color-mix(in srgb, var(--primary) 35%, transparent); }
+.btn.primary:not(.ghost) { background: linear-gradient(180deg, var(--cta-1), var(--cta-2)); border-color: transparent; color: var(--cta-ink); box-shadow: 0 5px 0 var(--cta-lip); } /* MỘT màu CTA ở mọi màn (cùng khuôn tactile.css, kể cả khi tactile chưa nạp) – docs/specs/chon-cta-khu-b.md */
 @media (hover: hover) { .btn.primary:hover { filter: brightness(1.07); } }
 .btn.accent { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn.ghost { border-color: transparent; background: transparent; }
@@ -471,7 +472,7 @@ html[data-has-grade] { scroll-padding-bottom: 6.5rem; }
   .bottom-nav.st-nav > .st { height: 100%; } /* thanh Stitch (h-20 = 80 px) nằm trong #bnav… CSS-NOTES §11 */
   .bottom-nav a.active { color: var(--primary); }
   .bottom-nav .badge { position: absolute; top: 4px; right: calc(50% - 16px); margin: 0; min-width: 0; width: 9px; height: 9px; padding: 0; border-radius: 50%; font-size: 11px; line-height: 0; color: transparent; overflow: visible; background: var(--accent, var(--again)); box-shadow: 0 0 0 2px var(--surface); } /* tab Từ vựng: chấm nhỏ thay số đỏ (số vẫn trong DOM cho trình đọc màn hình) */
-  .view { --view-pb: 6.5rem; padding-bottom: var(--view-pb); }
+  .view { --view-pb: calc(6.5rem + env(safe-area-inset-bottom, 0px)); padding-bottom: var(--view-pb); } /* + vùng an toàn iPhone: thanh tab cao 64–80 + inset, nội dung cuối không bị che */
 }
 @media (max-width: 900px) {
   .topbar { padding: .6rem .75rem; gap: .4rem; }
@@ -614,7 +615,6 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 .line { padding: .7rem 0; border-bottom: 1px dashed var(--line); } .line .lin { margin-top: .4rem; } .lhint { font-family: var(--ipa); letter-spacing: .02em; }
 
 /* ===== Luyện nghe ===== */
-.ltrans { position: sticky; top: 140px; max-height: calc(100vh - 160px); overflow: auto; }
 .ltr { position: relative; margin-top: .6rem; }
 .ltr.blur .tl { filter: blur(5px); user-select: none; pointer-events: none; }
 .tl { padding: .45rem .55rem; border-radius: 10px; line-height: 1.65; cursor: pointer; transition: background .2s; }
@@ -1205,6 +1205,7 @@ body.focus .shell, .lk-fo .shell { grid-template-columns: 1fr; }
 @media (max-width: 1023px) { body.v2pre .topbar, body.v2pre #bnav { display: none !important; } }
 @media (max-width: 1023px) { body.hbpre .topbar { display: none !important; } } /* hbpre: Từ vựng/Thư viện/Thi thử có thanh hub riêng (ST2.hubbar) → ẩn thanh trên cũ từ đầu, hết nhảy bố cục */
 body.v2pre #view { padding: 0; max-width: none; }
+@media (max-width: 1023px) { body.ux1.v2on #view, body.ux1.v2pre #view { padding-bottom: env(safe-area-inset-bottom, 0px); } } /* màn Stitch (pb-20 = 80 px) + thanh tab h-16 + pb-safe: phần inset còn thiếu */
 @media (min-width: 1024px) {
   body.ux1 .shell { grid-template-columns: 232px minmax(0, 1fr) 340px; }
   body.ux1.focus .shell, body.ux1.bare .shell { grid-template-columns: minmax(0, 1fr); }
@@ -1338,6 +1339,8 @@ html[data-has-sheet] .view { padding-bottom: calc(18rem + env(safe-area-inset-bo
 .set-h .i { width: 1.35em; height: 1.35em; color: var(--accent-text); }
 .lsw-b .i { width: 16px; height: 16px; vertical-align: 0; }
 [dir="rtl"] .i-dir { transform: scaleX(-1); }
+[dir="rtl"] span.i-dir, [dir="rtl"] .chev-svg { display: inline-block; } /* ligature Material Symbols có hướng (ui.js rtlFix) */
+bdi[dir="ltr"] { unicode-bidi: isolate; } /* cụm Latin/số trong ar: ui.js rtlFix bọc <bdi dir=ltr> */
 a > .i-dir:first-child, button > .i-dir:first-child { margin-inline-end: .2em; }
 
 .err-state { max-width: 520px; margin: 2rem auto; text-align: center; display: grid; gap: var(--sp-3); justify-items: center; } .err-state h1 { font-size: var(--fs-lg); margin: 0; } .err-state p { margin: 0; } .err-ic { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); color: var(--accent-text); } .err-ic .i { width: 28px; height: 28px; }
@@ -1480,6 +1483,8 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
 /* kiểm toán 18/11 (lesson-perf): cờ data-has-* do ui.js đặt thay cho :has() gốc html/body – mỗi lần DOM đổi, :has() gốc buộc tính lại style cả cây (~25 % thời gian luồng chính của 1 bài học ở CPU 4×) */
 /* P0 kiểm toán 18/11: hàng nút chép chính tả ở 390 px – Câu trước/Câu sau chia đều dòng sau (nút Nghe chiếm cả dòng ở lazy-ui.css) */
 @media (max-width: 480px) { .q-card .row.center #dPrev, .q-card .row.center #dNext { flex: 1 1 0; min-width: 0; } }
+/* Ngày học (#/day/N), tối: sao trong viên XP vẽ #10302f trên nền viên #1d2f33 (tương phản 1,01 – vqa icon-invisible); mẫu Stitch giữ nguyên, ghi đè đúng sao đó bằng màu chữ tiêu đề */
+:root:not([data-theme=light]) .v2s-day .dk\:bg-\[\#1d2f33\]>.material-symbols-outlined.dk\:text-\[\#10302f\],:root[data-theme=dark] .v2s-day .dk\:bg-\[\#1d2f33\]>.material-symbols-outlined.dk\:text-\[\#10302f\]{color:var(--heading)}
 /* scroll-perf (22/11): ngọn lửa chuỗi (st-fl, runtime.js) lay bằng transform trên <path> con của SVG = KHÔNG lên lớp ghép (compositor) → mỗi khung hình tính lại bố cục SVG (layout 393 lần/389 khung ở #/train, #/me, #/library… vì ngọn lửa nằm trên thanh trên cố định). Lay cả ngọn (transform trên chính <svg>, phần tử HTML → compositor) thay hai path con: cùng nhịp 1,6 s, cùng biên độ, 0 layout khi cuộn */
 @media (prefers-reduced-motion: no-preference) {
   .st-fl[data-fl=active] .fl-mid, .st-fl[data-fl=milestone] .fl-mid, .st-fl[data-fl=active] .fl-core, .st-fl[data-fl=milestone] .fl-core { animation: none !important; }

@@ -582,11 +582,14 @@
     "test/content-factory.mjs"
    ]
   },
-  { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
+  { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" },
+  { "id": "topic-depth", "paths": ["content/topic-depth", "web/cpack/topic"], "owner": "claude", "gen": false, "checks": ["schema"], "delegate": ["test/topic-depth.mjs"], "doc": "docs/specs/topic-depth.md" }
  ],
  "skip": {
   "web/cpack/diary-app": "MÃ giao diện Nhật ký giọng nói (diary.js) + bộ dựng video trên máy (diary-video.js) – không phải nội dung học; 3 câu cố định viết tay 8–18 từ (test scripts/test/voice-diary.mjs), thiết kế docs/specs/voice-diary.md",
   "web/cpack/interpret": "MÃ giao diện Phiên dịch (interpret.js, core.js) + câu nói mẫu du lịch 22 câu × 15 ngôn ngữ viết tay (phrases.js) dời khỏi web/js để vào ngân sách người học – không phải bộ nội dung học sinh tự động; kiểm bằng scripts/test/interpret.mjs (đủ 15 ngôn ngữ mỗi câu), thiết kế docs/INTERPRET.md", "web/cpack/score-app": "MÃ giao diện Thử thách nói 30 giây (score30.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; 8 đoạn đọc ngắn viết tay ≤ 30 từ (test scripts/test/score-card.mjs), thiết kế docs/specs/score-card.md",
+  "web/cpack/st2": "MÃ khung 4 màn Stitch lười (topic, deck, mistakes, stats – TỰ SINH bởi scripts/stitch-v2-convert.mjs từ brand/stitch/v2) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + stitch-v2-convert.mjs --check",
+  "web/cpack/ux1": "MÃ giao diện 4 màn Stitch lười (ux1-topic/deck/mistakes/stats, bao routes.<màn> sau cờ ux1) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; kiểm bởi scripts/test/ux1.mjs",
   "web/cpack/tl-app": "MÃ giao diện bảng chọn ngôn ngữ đang học (tl-pick.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; chữ qua t() (gói i18n), thiết kế docs/specs/target-language.md",
   "web/cpack/irregular": "MÃ giao diện bảng động từ bất quy tắc (table.js, drill.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/js/irv + content/verbs (nguồn irregular-verbs, kiểm bởi scripts/test/verbs.mjs); giao diện kiểm bởi scripts/test/irregular-ui.mjs",
   "web/cpack/qe": "MÃ chuẩn hóa đáp án điền từ IELTS (norm.js: Anh/Mỹ, số chữ ↔ số, gạch nối) tải lười cùng gói đề – không phải nội dung học; test scripts/test/qengine-norm.mjs",
@@ -599,6 +602,7 @@
   "web/cpack/importdeck-app": "MÃ giao diện Nhập tài liệu → bộ thẻ (importdeck.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/importdeck.mjs",
   "web/cpack/outcomes-app": "MÃ giao diện bài đo (outcomes.js, outcomes-core.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu đề ở web/cpack/outcomes (nguồn 'outcomes'), test scripts/test/outcomes.mjs",
   "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs",
+  "web/cpack/st": "khuôn giao diện Stitch v2 SINH (ex-frame.js, ex-match.js) dời khỏi web/js để vào ngân sách người học – chỉ DOM + class Tailwind + nhãn nút/chú thích UI qua t() (Thoát bài học, Nghe lại, Kiểm tra đáp án…; khóa i18n do cổng i18n-qa kiểm 15 ngôn ngữ), KHÔNG có từ/câu/đề bài cho người học, cùng loại với web/js/st đã skip; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
   "web/js/st": "khuôn giao diện 4 màn port thẳng từ Google Stitch (DOM + class Tailwind, chữ qua t()) – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
   "web/js/vimg": "mảnh chỉ mục ảnh minh hoạ (khoá từ#loại → mã băm ảnh) SINH bởi build-lexicon từ content/lexicon/img.json – không phải nội dung học; ảnh đã qua cổng vocab-img (OCR, NSFW, giám khảo), kiểm bởi scripts/test/vocab-img.mjs",
   "web/js/get-app": "chữ hướng dẫn nút \"Tải app\" sinh từ bản dịch giao diện (build-landing.mjs --check) – không phải nội dung học; test scripts/test/get-app.mjs",

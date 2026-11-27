@@ -26,6 +26,13 @@ import com.lexkite.app.core.generated.FlagKey
 import com.lexkite.app.core.link.DeepLink
 import com.lexkite.app.core.migration.Migration
 import com.lexkite.app.core.settings.DevicePrefs
+import kotlinx.serialization.json.JsonElement
+import com.lexkite.app.core.data.LexStore
+import com.lexkite.app.core.audio.AudioLogic
+import com.lexkite.app.core.settings.LearnSettings
+import com.lexkite.app.feature.me.SettingsActions
+import com.lexkite.app.feature.me.SettingsScreen
+import com.lexkite.app.feature.me.SettingsState
 import com.lexkite.app.core.sync.StarterDeck
 import com.lexkite.app.core.sync.SyncScheduler
 import com.lexkite.app.design.LKAnim
@@ -61,6 +68,12 @@ import com.lexkite.app.feature.lesson.LessonRoute
 import com.lexkite.app.feature.lesson.LessonSlots
 import com.lexkite.app.feature.skills.SkillsEnv
 import com.lexkite.app.feature.speak.SpeakEnv
+import com.lexkite.app.feature.interpret.AndroidVoice
+import com.lexkite.app.feature.interpret.InterpretEnv
+import com.lexkite.app.feature.interpret.InterpretRoute
+import com.lexkite.app.feature.interpret.MlKitLangId
+import com.lexkite.app.feature.interpret.MlKitTranslator
+import com.lexkite.app.core.interpret.Interpret
 import com.lexkite.app.feature.speak.SpeakRoute
 import com.lexkite.app.feature.speak.SpeakSlots
 import com.lexkite.app.core.call.CallPack
@@ -71,6 +84,7 @@ import com.lexkite.app.core.speak.Situation
 import com.lexkite.app.feature.lesson.AndroidSpeech
 import com.lexkite.app.feature.skills.SkillsHubRoute
 import com.lexkite.app.feature.skills.SkillsRoute
+import com.lexkite.app.feature.skills.WatchSlots
 import com.lexkite.app.feature.vocab.StudySlots
 import com.lexkite.app.feature.vocab.StudyTx
 import com.lexkite.app.feature.vocab.StudyWords
@@ -158,11 +172,20 @@ class MainActivity : ComponentActivity() {
         DeepLink.parse(intent.dataString)?.let { link.value = it }
     }
 
-    private companion object { const val BRAND_MS = 700L } // brand screen minimum on first launch, well under the 1 s budget
+    private companion object {
+        const val BRAND_MS = 700L // brand screen minimum on first launch, well under the 1 s budget
+        /** web settings.js "Nghe thử câu mẫu" line. */
+        const val SAMPLE_LINE = "Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight."
+        val WIPED_STATS: JsonElement = kotlinx.serialization.json.Json.parseToJsonElement("""{"days":{},"newToday":{"day":"","n":0}}""")
+    }
+
+    /** P12 watch: video thumbnails through the app image loader. */
+    private val watchSlots = WatchSlots(thumb = { url, m -> RemoteImage(url, "", m) })
 
     private fun slots(lang: String, onLanguage: () -> Unit) = ShellSlots(
         today = { open -> TodayRoute(lang, open, onLanguage) },
-        me = { MeRoute() },
+        me = { open -> MeRoute { open("settings") } },
+        settings = { sec, onExit, open -> SettingsRoute(sec, lang, onExit, open, onLanguage) },
         lesson = { story, onExit ->
             val dark = com.lexkite.app.design.LocalLKColors.current.dark
             val env = remember(lang, dark) { LessonEnv(app.store, app.audio, UrlHttp, cacheDir, app.starter, lang, RigAssets.def(this@MainActivity).poseEmo, imageUrl = { w, p -> app.vimg.urlFor(w, p, dark) }, prepareImages = { w, x -> app.vimg.prepare(w, x) }) }
@@ -170,9 +193,10 @@ class MainActivity : ComponentActivity() {
         },
         vocab = { route, arg, query, onExit, open, replace -> VocabRoute(vocabEnv(lang), route, arg, query, vocabSlots, open, replace, onExit) },
         vocabHub = { open -> VocabHubRoute(vocabEnv(lang), open) },
-        skills = { route, arg, query, onExit, open, replace -> SkillsRoute(skillsEnv(lang), route, arg, query, open, replace, onExit) },
+        skills = { route, arg, query, onExit, open, replace -> SkillsRoute(skillsEnv(lang), route, arg, query, open, replace, onExit, watchSlots) },
         skillsHub = { open -> SkillsHubRoute(open) },
         speak = { route, arg, query, onExit, open, replace -> SpeakRoute(speakEnv(lang), speakSlots, route, arg, query, open, replace, onExit) },
+        interpret = { arg, onExit, open, replace -> InterpretRoute(interpretEnv(lang), arg, open, replace, onExit) },
         words = { route, arg, query, onExit, open ->
             val t = com.lexkite.app.design.LocalL10n.current
             val env = remember(lang) { WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, wordTopics = { StudyWords.load(UrlHttp, cacheDir)?.topics ?: emptyList() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi"))) }
@@ -195,7 +219,21 @@ class MainActivity : ComponentActivity() {
         val vocab = vocabEnv(lang)
         return remember(lang, dark) {
             val word = WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi")))
-            SkillsEnv(vocab, word, lang, loadContent = { SkillsEnv.fetchPack(UrlHttp, cacheDir, starter = { assets.open("content-pack/skills-starter.json").bufferedReader().use { it.readText() } }) }, loadAdv = { SkillsEnv.fetchAdv(UrlHttp, cacheDir) })
+            SkillsEnv(vocab, word, lang, loadContent = { SkillsEnv.fetchPack(UrlHttp, cacheDir, starter = { assets.open("content-pack/skills-starter.json").bufferedReader().use { it.readText() } }) }, loadAdv = { SkillsEnv.fetchAdv(UrlHttp, cacheDir) }, asset = { n -> runCatching { assets.open(n).bufferedReader().use { it.readText() } }.getOrNull() })
+        }
+    }
+    /** Phiên dịch: vocabulary + word env (Sổ từ, device storage) + the recogniser, on-device ML Kit translation / language id and TextToSpeech; phrasebook from the generated assets. */
+    @Composable
+    private fun interpretEnv(lang: String): InterpretEnv {
+        val dark = com.lexkite.app.design.LocalLKColors.current.dark
+        val t = com.lexkite.app.design.LocalL10n.current
+        val vocab = vocabEnv(lang)
+        val voice = remember { AndroidVoice(applicationContext) }
+        androidx.compose.runtime.DisposableEffect(voice) { onDispose { voice.release() } }
+        return remember(lang, dark) {
+            val word = WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi")))
+            InterpretEnv(vocab, word, lang, AndroidSpeech(applicationContext), MlKitTranslator(), MlKitLangId(), voice,
+                loadPhrases = { runCatching { assets.open("interpret/phrases.json").bufferedReader().use { Interpret.parsePhrases(it.readText()) } }.getOrNull() })
         }
     }
     /** M4 speaking + pronunciation screens: vocabulary env + word env + the content packs (speaking pack, Say series, situations, reading tests, skills pack) + the Android speech recogniser. */
@@ -250,7 +288,7 @@ class MainActivity : ComponentActivity() {
     private fun blocksOf(cfg: JsonObject?): List<String>? = (cfg?.get("blocks") as? JsonArray)?.mapNotNull { ((it as? JsonObject)?.get("type") as? JsonPrimitive)?.content }?.takeIf { it.isNotEmpty() }
 
     @Composable
-    private fun MeRoute() {
+    private fun MeRoute(onSettings: () -> Unit) {
         val user by app.auth.user.collectAsState()
         val sync by app.syncEngine.status.collectAsState()
         var busy by remember { mutableStateOf(false) }
@@ -269,6 +307,37 @@ class MainActivity : ComponentActivity() {
             override fun signOut() { scope.launch { app.syncEngine.sync("signout"); app.auth.signOut(); app.syncEngine.reset(); notice = true } }
             override fun syncNow() { scope.launch { app.syncEngine.sync("manual") } }
             override fun chooseAccount(merge: Boolean) { scope.launch { app.syncEngine.chooseAccount(merge); app.syncEngine.sync("account") } }
-        })
+        }, onSettings = onSettings)
+    }
+
+    /** P11 settings: synced values in the shared `settings` document (web keys), theme / language / haptics on this device (AppPrefs). */
+    @Composable
+    private fun SettingsRoute(sec: String, lang: String, onExit: () -> Unit, open: (String) -> Unit, onLanguage: () -> Unit) {
+        val version by app.store.version.collectAsState()
+        val dev by app.prefs.device.collectAsState(DevicePrefs())
+        val user by app.auth.user.collectAsState()
+        var settings by remember { mutableStateOf<JsonElement?>(null) }
+        var loaded by remember { mutableStateOf(false) }
+        var wiped by remember { mutableStateOf(false) }
+        LaunchedEffect(version) { settings = app.store.doc().settings; loaded = true }
+        val scope = rememberCoroutineScope()
+        val ctx = LocalContext.current
+        if (!loaded) return
+        val learn = LearnSettings.from(settings)
+        SettingsScreen(sec, SettingsState(learn, lang, dev.theme, dev.haptics, user?.let { it.name ?: it.email }, wiped), object : SettingsActions {
+            override fun set(key: String, value: JsonElement) { scope.launch { app.store.mutate { d -> LearnSettings.put(d, key, value, System.currentTimeMillis()) } } }
+            override fun setTheme(theme: String) { scope.launch { app.prefs.setTheme(theme) } }
+            override fun setHaptics(on: Boolean) { scope.launch { app.prefs.setHaptics(on) } }
+            override fun pickLanguage() = onLanguage()
+            override fun trySpeak() { app.audio.speak(SAMPLE_LINE, AudioLogic.wordVoice(learn.accent), learn.ttsRate.toFloat()) }
+            override fun openUrl(url: String) { runCatching { startActivity(Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url))) } }
+            // web settings.js sReset: cards, stats and game on THIS device; a signed-in learner gets the cloud copy back on the next pull (Sync.afterLocalReset)
+            override fun wipe() { scope.launch {
+                app.store.mutate { d -> d.copy(cards = emptyMap(), stats = WIPED_STATS, game = null) }
+                app.store.put(mapOf(LexStore.K_PULLED to null), local = false)
+                app.syncEngine.reset(); wiped = true
+                if (app.auth.user.value != null) SyncScheduler.now(ctx)
+            } }
+        }, open, onExit)
     }
 }

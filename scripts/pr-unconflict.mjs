@@ -23,6 +23,7 @@ import { REGISTRIES } from './lib/fmt-registry.mjs';
 import { loadDictFile, writeSrc } from './lib/i18n-pack.mjs';
 import { writeFixed } from './lib/fixed-json.mjs';
 import { GEN_DIRS, isGenerated } from './lib/generated.mjs';
+import { ghFetch } from './lib/retry5xx.mjs';
 
 const REGISTRY_FILES = [...new Set(REGISTRIES.map(r => r.file))];
 
@@ -140,13 +141,16 @@ const tryGit = (...a) => { try { return { ok: true, out: git(...a) }; } catch (e
 
 /** Lỗi tạm của GitHub (5xx/429) → thử lại có giãn cách; lỗi khác ném ngay. */
 export const retryable = s => s === 429 || s >= 500;
+/** 403 do giới hạn tốc độ (primary: x-ratelimit-remaining=0, secondary: có retry-after/chữ "rate limit") cũng là lỗi tạm – 403 do thiếu quyền thì không. Trả số giây chờ hoặc 0. */
+export const rateWait = (status, h, text = '') => status !== 403 ? 0 : h.get('retry-after') ? Math.min(90, +h.get('retry-after') || 30) : (h.get('x-ratelimit-remaining') === '0' || /rate limit|abuse/i.test(text)) ? 45 : 0;
 async function gh(path, tries = 4) {
   for (let i = 0; ; i++) {
-    const r = await fetch(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}${path}`, {
+    const r = await ghFetch(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}${path}`, {
       headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN}`, accept: 'application/vnd.github+json' } });
     if (r.ok) return r.json();
-    if (i + 1 >= tries || !retryable(r.status)) throw new Error(`GitHub ${path} → HTTP ${r.status}`);
-    await new Promise(res => setTimeout(res, 3000 * 2 ** i));
+    const rw = rateWait(r.status, r.headers, r.status === 403 ? await r.text().catch(() => '') : ''); // 26/11: scheduled run đỏ vì 403 (secondary rate limit) khi runner chen nhau
+    if (i + 1 >= tries || (!retryable(r.status) && !rw)) throw new Error(`GitHub ${path} → HTTP ${r.status}`);
+    await new Promise(res => setTimeout(res, rw ? rw * 1000 : 3000 * 2 ** i));
   }
 }
 

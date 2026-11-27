@@ -381,6 +381,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "main-red-retry",
+   "workflow": "main-red-retry.yml",
+   "cron": [
+    "13,43 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ai-canary",
    "workflow": "ai-canary.yml",
    "cron": [
@@ -1208,7 +1222,7 @@ export const REG = {
    ],
    "minutes": 120,
    "est": {
-    "grabcast_images": 6000,
+    "grabcast_images": 0,
     "grabcast_text": 300,
     "shards_max": 10,
     "per_shard_images": "max_gc / shards",
@@ -1272,6 +1286,19 @@ export const REG = {
     "drive_calls": 100
    },
    "lease": false
+  },
+  {
+   "id": "gh-quota-watch",
+   "workflow": "gh-quota-watch.yml",
+   "cron": [
+    "12 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [],
+   "minutes": 10,
+   "est": {},
+   "lease": false,
+   "_note": "26/11: đo hạn mức GITHUB_TOKEN dùng chung + top tiêu thụ theo workflow; còn <20 % → issue gh-quota (scripts/ci/quota-watch.mjs)"
   },
   {
    "id": "code-bundle",

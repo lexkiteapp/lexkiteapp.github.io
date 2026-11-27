@@ -60,6 +60,13 @@ public final class LKVoicePlayer: NSObject, TeacherSpeechSource, AVAudioPlayerDe
             await resolver.fetch(kind: .sentence, key: VoiceCore.lineKey(voice: voice, text: t))
         }
     }
+    /// A line in one given Kokoro voice (P13 mediation sources: bf_emma, bm_lewis …); no file → the system voice of the same gender.
+    @MainActor public func speak(_ text: String, voiceID: String, accent: String = "en-GB", slow: Bool = false, onEnd: (() -> Void)? = nil) {
+        let clean = VoiceCore.ttsClean(text)
+        run(text: clean, who: voiceID.hasPrefix("bm_") || voiceID.hasPrefix("am_") ? "carlos" : "ama", accent: accent, slow: slow, onEnd: onEnd, voiceOverride: voiceID) { [resolver] t, voice in
+            await resolver.fetch(kind: .sentence, key: VoiceCore.lineKey(voice: voice, text: t))
+        }
+    }
     /// A dictionary headword (exact casing); no file → system voice.
     @MainActor public func speakWord(_ word: String, who: String = "ama", accent: String = "en-US", slow: Bool = false, onEnd: (() -> Void)? = nil) {
         let w = VoiceCore.ttsClean(word)
@@ -78,12 +85,12 @@ public final class LKVoicePlayer: NSObject, TeacherSpeechSource, AVAudioPlayerDe
     public static func voiceID(_ who: String) -> String { TeacherRigStore.shared.def.people[who]?.voice ?? (VoiceCore.genderFor(who) == "m" ? "am_michael" : "af_heart") }
 
     // MARK: flow
-    @MainActor private func run(text: String, who: String, accent: String, slow: Bool, onEnd: (() -> Void)?, perSentence: Bool = true,
+    @MainActor private func run(text: String, who: String, accent: String, slow: Bool, onEnd: (() -> Void)?, perSentence: Bool = true, voiceOverride: String? = nil,
                      fetch: @escaping (String, String) async -> VoiceResolver.Hit?) {
         stop()
         guard !text.isEmpty else { onEnd?(); return }
         let my = token
-        let voice = Self.voiceID(who)
+        let voice = voiceOverride ?? Self.voiceID(who)
         configureSession()
         Task { @MainActor [weak self] in
             guard let self else { return }

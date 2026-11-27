@@ -1,165 +1,180 @@
 {
  "es": [
   [
-   "detect",
-   "detect",
-   "detectar"
+   "core",
+   "core",
+   "centro"
   ],
   [
-   "volume",
-   "volume",
-   "volumen"
+   "domain",
+   "domain",
+   "dominio"
   ],
   [
-   "secure",
-   "secure",
-   "seguro"
+   "format",
+   "format",
+   "formato"
   ],
   [
-   "found",
-   "found",
-   "fundar"
+   "formula",
+   "formula",
+   "fórmula"
   ],
   [
-   "outcome",
-   "outcome",
-   "resultado"
+   "register",
+   "register",
+   "registrar"
   ],
   [
-   "vision",
-   "vision",
-   "visión"
+   "aid",
+   "aid",
+   "ayuda"
   ],
   [
-   "status",
-   "status",
-   "estado"
+   "abandon",
+   "abandon",
+   "abandonar"
   ],
   [
-   "criteria",
-   "criteria",
-   "criterios"
+   "accommodate",
+   "accommodate",
+   "acomodar"
   ],
   [
-   "mode",
-   "mode",
-   "modo"
+   "acknowledge",
+   "acknowledge",
+   "reconocer"
   ],
   [
-   "bond-over",
-   "bond over",
-   "conectar por algo en común"
+   "acquire",
+   "acquire",
+   "adquirir"
   ]
  ],
  "pt": [
   [
-   "detect",
-   "detect",
-   "descobrir"
+   "complement",
+   "complement",
+   "complementar"
   ],
   [
-   "secure",
-   "secure",
-   "seguro"
+   "grant",
+   "grant",
+   "concessão"
   ],
   [
-   "found",
-   "found",
-   "fundar"
+   "transfer",
+   "transfer",
+   "transferir"
   ],
   [
-   "mode",
-   "mode",
-   "modo"
+   "format",
+   "format",
+   "formato"
   ],
   [
-   "vision",
-   "vision",
-   "visão"
+   "gender",
+   "gender",
+   "gênero"
   ],
   [
-   "status",
-   "status",
-   "estado"
+   "neutral",
+   "neutral",
+   "neutro"
   ],
   [
-   "criteria",
-   "criteria",
-   "critérios"
+   "protocol",
+   "protocol",
+   "protocolo"
   ],
   [
-   "bond-over",
-   "bond over",
-   "criar laços por algo em comum"
+   "recover",
+   "recover",
+   "recuperar"
   ],
   [
-   "scope",
-   "scope",
-   "escopo"
+   "voluntary",
+   "voluntary",
+   "voluntário"
   ],
   [
-   "outcome",
-   "outcome",
-   "resultado"
+   "tension",
+   "tension",
+   "tensão"
   ]
  ],
  "fr": [
   [
-   "detect",
-   "detect",
-   "détecter"
+   "confine",
+   "confine",
+   "confiner"
   ],
   [
-   "secure",
-   "secure",
-   "sûr"
+   "moreover",
+   "moreover",
+   "de plus"
   ],
   [
-   "found",
-   "found",
-   "fonder"
+   "abandon",
+   "abandon",
+   "abandonner"
   ],
   [
-   "status",
-   "status",
-   "statut"
+   "accommodate",
+   "accommodate",
+   "accommoder"
   ],
   [
-   "criteria",
-   "criteria",
-   "critères"
+   "acknowledge",
+   "acknowledge",
+   "reconnaître"
   ],
   [
-   "bond-over",
-   "bond over",
-   "se rapprocher grâce à"
+   "acquire",
+   "acquire",
+   "acquérir"
   ],
   [
-   "scope",
-   "scope",
-   "portée"
+   "adequate",
+   "adequate",
+   "adéquat"
   ],
   [
-   "outcome",
-   "outcome",
-   "résultat"
+   "albeit",
+   "albeit",
+   "quoique"
   ],
   [
-   "valid",
-   "valid",
-   "valide"
+   "alter",
+   "alter",
+   "modifier"
   ],
   [
-   "regime",
-   "regime",
-   "régime"
+   "anticipate",
+   "anticipate",
+   "anticiper"
   ]
  ],
  "de": [
   [
-   "detect",
-   "detect",
-   "ermitteln"
+   "clarify",
+   "clarify",
+   "klären"
+  ],
+  [
+   "alter",
+   "alter",
+   "ändern"
+  ],
+  [
+   "insert",
+   "insert",
+   "einfügen"
+  ],
+  [
+   "confine",
+   "confine",
+   "beschränken"
   ],
   [
    "outcome",
@@ -167,326 +182,306 @@
    "Ergebnis"
   ],
   [
-   "volume",
-   "volume",
-   "Volumen"
+   "visible",
+   "visible",
+   "sichtbar"
   ],
   [
-   "secure",
-   "secure",
-   "sicher"
+   "abandon",
+   "abandon",
+   "aufgeben"
   ],
   [
-   "found",
-   "found",
-   "gründen"
+   "accommodate",
+   "accommodate",
+   "unterbringen"
   ],
   [
-   "criteria",
-   "criteria",
-   "Kriterien"
+   "acknowledge",
+   "acknowledge",
+   "anerkennen"
   ],
   [
-   "mode",
-   "mode",
-   "Modus"
-  ],
-  [
-   "bond-over",
-   "bond over",
-   "sich über etwas näherkommen"
-  ],
-  [
-   "scope",
-   "scope",
-   "Umfang"
-  ],
-  [
-   "valid",
-   "valid",
-   "gültig"
+   "acquire",
+   "acquire",
+   "erwerben"
   ]
  ],
  "id": [
   [
-   "detect",
-   "detect",
-   "menemukan"
+   "visible",
+   "visible",
+   "terlihat"
   ],
   [
-   "found",
-   "found",
-   "mendirikan"
+   "abandon",
+   "abandon",
+   "meninggalkan"
   ],
   [
-   "secure",
-   "secure",
-   "aman"
+   "accommodate",
+   "accommodate",
+   "menampung"
   ],
   [
-   "vision",
-   "vision",
-   "penglihatan"
+   "acknowledge",
+   "acknowledge",
+   "mengakui"
   ],
   [
-   "criteria",
-   "criteria",
-   "kriteria"
+   "acquire",
+   "acquire",
+   "mendapatkan"
   ],
   [
-   "conceive",
-   "conceive",
-   "memahami"
+   "adequate",
+   "adequate",
+   "cukup"
   ],
   [
-   "bond-over",
-   "bond over",
-   "menjadi akrab karena minat yang sama"
+   "adjacent",
+   "adjacent",
+   "berdekatan"
   ],
   [
-   "incline",
-   "incline",
-   "condong"
+   "albeit",
+   "albeit",
+   "walaupun"
   ],
   [
-   "scope",
-   "scope",
-   "cakupan"
+   "alter",
+   "alter",
+   "mengubah"
   ],
   [
-   "outcome",
-   "outcome",
-   "hasil"
+   "anticipate",
+   "anticipate",
+   "mengharapkan"
   ]
  ],
  "th": [
   [
-   "detect",
-   "detect",
-   "ตรวจจับ"
+   "visible",
+   "visible",
+   "มองเห็นได้"
   ],
   [
-   "criteria",
-   "criteria",
-   "เกณฑ์"
+   "format",
+   "format",
+   "รูป"
   ],
   [
-   "mode",
-   "mode",
-   "โหมด"
+   "abandon",
+   "abandon",
+   "ละทิ้ง"
   ],
   [
-   "secure",
-   "secure",
-   "ปลอดภัย"
+   "accommodate",
+   "accommodate",
+   "เอื้อ"
   ],
   [
-   "volume",
-   "volume",
-   "ปริมาณ"
+   "acknowledge",
+   "acknowledge",
+   "รับทราบ"
   ],
   [
-   "vision",
-   "vision",
-   "วิสัยทัศน์"
+   "acquire",
+   "acquire",
+   "ได้รับ"
   ],
   [
-   "status",
-   "status",
-   "สถานะ"
+   "adequate",
+   "adequate",
+   "เพียงพอ"
   ],
   [
-   "visual",
-   "visual",
-   "เกี่ยวกับสายตา"
+   "adjacent",
+   "adjacent",
+   "ชิด"
   ],
   [
-   "regime",
-   "regime",
-   "ระบบการปกครอง"
+   "albeit",
+   "albeit",
+   "แม้ว่า"
   ],
   [
-   "voluntary",
-   "voluntary",
-   "จงใจ"
+   "alter",
+   "alter",
+   "เปลี่ยนแปลง"
   ]
  ],
  "zh": [
   [
-   "detect",
-   "detect",
-   "检测"
+   "format",
+   "format",
+   "格式"
   ],
   [
-   "volume",
-   "volume",
-   "体积"
+   "visible",
+   "visible",
+   "可见"
   ],
   [
-   "secure",
-   "secure",
-   "安全"
+   "abandon",
+   "abandon",
+   "放弃"
   ],
   [
-   "found",
-   "found",
-   "成立"
+   "accommodate",
+   "accommodate",
+   "容纳"
   ],
   [
-   "vision",
-   "vision",
-   "视力"
+   "acknowledge",
+   "acknowledge",
+   "承认"
   ],
   [
-   "status",
-   "status",
-   "地位"
+   "acquire",
+   "acquire",
+   "获得"
   ],
   [
-   "criteria",
-   "criteria",
-   "标准"
+   "adequate",
+   "adequate",
+   "充足"
   ],
   [
-   "mode",
-   "mode",
-   "模式"
+   "adjacent",
+   "adjacent",
+   "邻近的"
   ],
   [
-   "scope",
-   "scope",
-   "范围"
+   "albeit",
+   "albeit",
+   "尽管"
   ],
   [
-   "outcome",
-   "outcome",
-   "结果"
+   "alter",
+   "alter",
+   "改变"
   ]
  ],
  "ja": [
   [
-   "detect",
-   "detect",
-   "見付ける"
+   "format",
+   "format",
+   "形式"
   ],
   [
-   "volume",
-   "volume",
-   "音量"
+   "confine",
+   "confine",
+   "封じ込める"
   ],
   [
-   "secure",
-   "secure",
-   "安全な"
+   "visible",
+   "visible",
+   "目に見える"
   ],
   [
-   "found",
-   "found",
-   "設立する"
+   "abandon",
+   "abandon",
+   "放棄する"
   ],
   [
-   "vision",
-   "vision",
-   "ビジョン"
+   "accommodate",
+   "accommodate",
+   "収容する"
   ],
   [
-   "status",
-   "status",
-   "地位"
+   "acknowledge",
+   "acknowledge",
+   "認める"
   ],
   [
-   "criteria",
-   "criteria",
-   "基準"
+   "acquire",
+   "acquire",
+   "得る"
   ],
   [
-   "mode",
-   "mode",
-   "モード"
+   "adequate",
+   "adequate",
+   "十分な"
   ],
   [
-   "bond-over",
-   "bond over",
-   "絆を深める"
+   "adjacent",
+   "adjacent",
+   "隣接"
   ],
   [
-   "scope",
-   "scope",
-   "範囲"
+   "albeit",
+   "albeit",
+   "とはいえ"
   ]
  ],
  "ko": [
   [
-   "detect",
-   "detect",
-   "탐지하다"
+   "format",
+   "format",
+   "형식"
   ],
   [
-   "volume",
-   "volume",
-   "음량"
+   "confine",
+   "confine",
+   "국한시키다"
   ],
   [
-   "secure",
-   "secure",
-   "안전"
+   "visible",
+   "visible",
+   "보이는"
   ],
   [
-   "found",
-   "found",
-   "설립하다"
+   "abandon",
+   "abandon",
+   "버리다"
   ],
   [
-   "status",
-   "status",
-   "지위"
+   "accommodate",
+   "accommodate",
+   "수용하다"
   ],
   [
-   "vision",
-   "vision",
-   "시력"
+   "acknowledge",
+   "acknowledge",
+   "인정"
   ],
   [
-   "widespread",
-   "widespread",
-   "광범위한"
+   "acquire",
+   "acquire",
+   "얻다"
   ],
   [
-   "criteria",
-   "criteria",
-   "기준"
+   "adequate",
+   "adequate",
+   "적절"
   ],
   [
-   "mode",
-   "mode",
-   "모드"
+   "adjacent",
+   "adjacent",
+   "인접한"
   ],
   [
-   "bond-over",
-   "bond over",
-   "~을 계기로 친해지다"
+   "albeit",
+   "albeit",
+   "비록 ~이지만"
   ]
  ],
  "hi": [
   [
-   "detect",
-   "detect",
-   "पता लगाना"
+   "adequate",
+   "adequate",
+   "सक्षम"
   ],
   [
-   "volume",
-   "volume",
-   "आयतन"
+   "format",
+   "format",
+   "पुस्तक का फ़र्मा"
   ],
   [
-   "secure",
-   "secure",
-   "सुरक्षित"
-  ],
-  [
-   "found",
-   "found",
-   "स्थापना करना"
+   "visible",
+   "visible",
+   "दिखाई देने वाला"
   ],
   [
    "vision",
@@ -494,185 +489,190 @@
    "नज़र"
   ],
   [
-   "status",
-   "status",
-   "प्रतिष्ठा"
+   "abandon",
+   "abandon",
+   "त्याग देना"
   ],
   [
-   "criteria",
-   "criteria",
-   "मानदंड"
+   "accommodate",
+   "accommodate",
+   "झगड़ा तय करना"
   ],
   [
-   "mode",
-   "mode",
-   "साधन"
+   "acknowledge",
+   "acknowledge",
+   "मान लेना"
   ],
   [
-   "scope",
-   "scope",
-   "क्षेत्र"
+   "acquire",
+   "acquire",
+   "प्राप्त करना"
   ],
   [
-   "outcome",
-   "outcome",
-   "नतीजा"
+   "adjacent",
+   "adjacent",
+   "आसन्न"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "यद्यपि"
   ]
  ],
  "ar": [
   [
-   "found",
-   "found",
-   "أسس"
+   "insight",
+   "insight",
+   "تبصر"
   ],
   [
-   "detect",
-   "detect",
-   "كشف"
+   "scheme",
+   "scheme",
+   "مخطط"
   ],
   [
-   "status",
-   "status",
-   "حالة"
+   "visible",
+   "visible",
+   "مرئي"
   ],
   [
-   "infer",
-   "infer",
-   "استنتج"
+   "abandon",
+   "abandon",
+   "تخلى"
   ],
   [
-   "fee",
-   "fee",
-   "رسوم التسجيل"
+   "accommodate",
+   "accommodate",
+   "كيف"
   ],
   [
-   "relevant",
-   "relevant",
-   "ذو صلة"
+   "acknowledge",
+   "acknowledge",
+   "اعترف"
   ],
   [
-   "volume",
-   "volume",
-   "مقدار"
+   "acquire",
+   "acquire",
+   "كسب"
   ],
   [
-   "integrity",
-   "integrity",
-   "نزاهة"
+   "adequate",
+   "adequate",
+   "مناسب"
   ],
   [
-   "secure",
-   "secure",
-   "مأمون"
+   "adjacent",
+   "adjacent",
+   "متاخم"
   ],
   [
-   "convert",
-   "convert",
-   "تحول"
+   "albeit",
+   "albeit",
+   "ولو"
   ]
  ],
  "ru": [
   [
-   "detect",
-   "detect",
-   "обнаруживать"
+   "format",
+   "format",
+   "формат"
   ],
   [
-   "volume",
-   "volume",
-   "объем"
+   "relevant",
+   "relevant",
+   "релевантный"
   ],
   [
-   "secure",
-   "secure",
-   "безопасный"
+   "visible",
+   "visible",
+   "видимый"
   ],
   [
-   "found",
-   "found",
-   "основывать"
+   "abandon",
+   "abandon",
+   "покидать"
   ],
   [
-   "vision",
-   "vision",
-   "зрение"
+   "accommodate",
+   "accommodate",
+   "вмещать"
   ],
   [
-   "status",
-   "status",
-   "статус"
+   "acknowledge",
+   "acknowledge",
+   "сознавать"
   ],
   [
-   "criteria",
-   "criteria",
-   "критерии"
+   "acquire",
+   "acquire",
+   "приобретать"
   ],
   [
-   "mode",
-   "mode",
-   "режим"
+   "adequate",
+   "adequate",
+   "адекватный"
   ],
   [
-   "scope",
-   "scope",
-   "рамки"
+   "adjacent",
+   "adjacent",
+   "соседний"
   ],
   [
-   "outcome",
-   "outcome",
-   "исход"
+   "albeit",
+   "albeit",
+   "хотя"
   ]
  ],
  "tr": [
   [
-   "detect",
-   "detect",
-   "belirlemek"
+   "format",
+   "format",
+   "biçim"
   ],
   [
-   "volume",
-   "volume",
-   "hacim"
+   "visible",
+   "visible",
+   "görünür"
   ],
   [
-   "secure",
-   "secure",
-   "güvenli"
+   "abandon",
+   "abandon",
+   "vazgeçmek"
   ],
   [
-   "found",
-   "found",
-   "kurmak"
+   "accommodate",
+   "accommodate",
+   "yerleştirmek"
   ],
   [
-   "vision",
-   "vision",
-   "görüş"
+   "acknowledge",
+   "acknowledge",
+   "onaylamak"
   ],
   [
-   "status",
-   "status",
-   "durum"
+   "acquire",
+   "acquire",
+   "elde etmek"
   ],
   [
-   "criteria",
-   "criteria",
-   "kriterler"
+   "adequate",
+   "adequate",
+   "yeterli"
   ],
   [
-   "mode",
-   "mode",
-   "moda"
+   "adjacent",
+   "adjacent",
+   "bitişik"
   ],
   [
-   "scope",
-   "scope",
-   "kapsam"
+   "albeit",
+   "albeit",
+   "gerçi"
   ],
   [
-   "outcome",
-   "outcome",
-   "sonuç"
+   "alter",
+   "alter",
+   "değiştirmek"
   ]
  ]
 }

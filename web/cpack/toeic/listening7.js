@@ -351,8 +351,8 @@ explain: '"I\'ll get a written estimate from a roofing company" (tôi sẽ lấy
 ] },
 { type: 'mcq', instr: g.TQL[19],
 items: [
-{ n: 41, q: 'What project are the speakers discussing?', options: ['Opening a new law office', 'Hiring accounting staff', 'Repairing office computers', "Moving a client's files to the cloud"], a: 3, cue: "we start moving Quenby Law's files to the cloud this Friday night",
-explain: '"we start moving Quenby Law\'s files to the cloud this Friday night" (tối thứ Sáu này bắt đầu chuyển dữ liệu của công ty luật Quenby lên đám mây) → chuyển dữ liệu khách hàng lên đám mây. Quenby Law là khách hàng, không phải văn phòng mới; "accounting database" chỉ là cơ sở dữ liệu, không liên quan tuyển kế toán.' },
+{ n: 41, q: 'What project are the speakers discussing?', options: ['Launching a marketing campaign', 'Recruiting new customer service reps', 'Upgrading the office network hardware', "Moving a client's files to the cloud"], a: 3, cue: "we start moving Quenby Law's files to the cloud this Friday night",
+explain: 'Cuộc trò chuyện nói về việc chuyển dữ liệu khách hàng lên đám mây, vì vậy đáp án D đúng; các lựa chọn A‑C không liên quan tới việc di chuyển dữ liệu.' },
 { n: 42, q: 'According to Yasmin, why will the task take longer than planned?', options: ['A database is larger than expected.', 'Some staff are on vacation.', 'The internet connection is slow.', 'A contract has not been signed.'], a: 0, cue: 'their old accounting database is much larger than we expected',
 explain: 'Yasmin cho biết "their old accounting database is much larger than we expected, so the move will take about two extra hours" → cơ sở dữ liệu lớn hơn dự kiến nên mất thêm khoảng hai giờ. Các lý do khác không được nhắc đến.' },
 { n: 43, q: 'What does the man ask Greta to do?', options: ['Organize a training workshop', 'Validate the data repository', 'Create a short reference guide', 'Reach out to the legal office'], a: 2, cue: 'Could you also put together a one-page guide that they can keep at their desks?',

@@ -1,3 +1,4 @@
+# ci-policy: npm-gate – job nặng trên PR chờ npm test xanh cùng sha (job `gate`, 24/11)
 # App Android NATIVE (Kotlin + Jetpack Compose, native/android) – build + test trên Ubuntu (không cần máy ảo: Robolectric + Roborazzi).
 # Kiểm: vector chuẩn chấm điểm/FSRS khớp web, đủ 15 ngôn ngữ, khung 5 tab, snapshot 390 dp sáng/tối × en/vi/ar/de, build APK debug.
 # Spec: docs/specs/native-apps.md. Bản Capacitor đang live vẫn ở mobile/ (android.yml) cho tới khi native đạt parity.
@@ -17,7 +18,30 @@ concurrency:
   group: native-android-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: ${{ github.event_name != 'push' }}
 jobs:
+  # npm-gate (24/11, điều phối): làn nhanh trước làn nặng cho app native – PR chỉ mở máy khi `npm test` cùng sha đã XANH (đỏ thì job nặng skipped, không đốt máy macOS/Android);
+  # gate chờ (≤ 25 phút, 30 s/lần) vì workflow này không có heavy-rerun; push main/dispatch: go ngay. Lỗi API/hết giờ → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            for i in $(seq 1 50); do
+              c=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[].conclusion // "pending"] | if index("success") then "success" elif (map(select(. == "failure" or . == "cancelled" or . == "timed_out")) | length) > 0 then "red" else "pending" end' 2>/dev/null) || break
+              [ "$c" = success ] && break
+              [ "$c" = red ] && { go=false; break; }
+              sleep 30
+            done
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test cùng sha → go=$go"
   android:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
@@ -40,9 +64,9 @@ jobs:
         working-directory: native/android
         run: |
           N=$(ls app/src/test/snapshots/*.png 2>/dev/null | wc -l)
-          if [ "$LX_IN1" = "true" ] || [ "$N" -lt 513 ]; then
+          if [ "$LX_IN1" = "true" ] || [ "$N" -lt 631 ]; then
             # bấm tay record → ghi lại tất cả; thiếu ảnh (test mới / ảnh đổi có chủ đích đã xoá) → chỉ thêm ảnh còn thiếu, ảnh chuẩn đã commit vẫn được so
-            echo "::warning::Ảnh snapshot chuẩn $N/513 → ghi ảnh thiếu rồi kiểm lại; tải artifact native-android-snapshots và commit vào app/src/test/snapshots"
+            echo "::warning::Ảnh snapshot chuẩn $N/631 → ghi ảnh thiếu rồi kiểm lại; tải artifact native-android-snapshots và commit vào app/src/test/snapshots"
             KEEP="$RUNNER_TEMP/keep"; mkdir -p "$KEEP"
             [ "$LX_IN1" = "true" ] || cp app/src/test/snapshots/*.png "$KEEP/" 2>/dev/null || true
             gradle --no-daemon -q :app:recordRoborazziDebug

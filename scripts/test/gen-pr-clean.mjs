@@ -6,10 +6,12 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
-import { isGenerated, offenders } from '../lib/generated.mjs';
+import { isGenerated, offenders, needsRegen } from '../lib/generated.mjs';
 
 for (const f of ['web/js/i18n/de.js', 'web/js/i18n/de/ux1.js', 'web/js/i18n/zh/lazyui.js', 'web/cpack/lesson/pn-fr.js', 'extension/app/js/app.js', 'extension/app/index.html', 'docs/CODEMAP.md', 'docs/codemap.json']) assert.ok(isGenerated(f), f);
 for (const f of ['web/js/i18n/en.js', 'web/js/i18n/en/core.js', 'i18n/ui/de/ux1.js', 'web/js/app.js', 'web/cpack/lesson/stories.js', 'extension/manifest.json', 'web/css/st-v2-today.css', 'docs/METHODS.md', 'docs/codemap-notes.md']) assert.ok(!isGenerated(f), f);
+assert.deepEqual(offenders(['web/cpack/es/dy.js', 'web/cpack/fr/dy-vi.js', 'web/packs/fr/wd.json', 'content/target/fr/drills.json']), ['web/cpack/es/dy.js', 'web/cpack/fr/dy-vi.js', 'web/packs/fr/wd.json'], '26/11: gói es/fr sinh từ drill-pack không commit trong PR (nguồn content/target/** vẫn commit)');
+assert.deepEqual(needsRegen(['content/target/fr/drills.json']) && needsRegen(['scripts/target/drill-lib.mjs']) && !needsRegen(['web/cpack/es/dy.js']), true, 'đổi nguồn es/fr → phải dựng lại');
 assert.deepEqual(offenders(['web/js/app.js', 'extension/app/js/app.js']), ['extension/app/js/app.js']);
 assert.deepEqual(offenders(['docs/JOBS.md', 'functions/api/_jobs_reg.js', 'infra/jobs.json']), ['docs/JOBS.md', 'functions/api/_jobs_reg.js'], '25/11: sổ việc sinh (JOBS.md, _jobs_reg.js) không commit trong PR; infra/jobs.json là NGUỒN');
 
@@ -42,4 +44,6 @@ assert.ok(!fs.existsSync(path.join(tmp, 'extension/app/js/new.js')), 'tệp sinh
 assert.equal(r('i18n/ui/de.js'), 'src2', 'nguồn giữ nguyên'); assert.equal(r('web/js/i18n/en/core.js'), 'en2', 'en là nguồn, giữ nguyên');
 assert.equal(g('diff', '--cached', '--name-only', 'main').split('\n').filter(isGenerated).length, 0, 'sau strip không còn khác main ở tệp sinh');
 fs.rmSync(tmp, { recursive: true, force: true });
+// health.yml (chạy trên main theo lịch) phải dựng lại bản sinh trước npm test: bot gen-sync commit sau mỗi lần gộp nên có khoảng trễ → ext-sync đỏ giả (26/11)
+{ const h = fs.readFileSync('.github/workflows/health.yml', 'utf8'); const u = h.slice(h.indexOf('  unit:'), h.indexOf('  e2e:')); if (!/GEN_REGEN: '1'/.test(u)) { console.error('✗ health.yml job unit thiếu GEN_REGEN=1 (ext-sync đỏ giả giữa lúc gộp và gen-sync)'); process.exit(1); } }
 console.log('✓ gen-pr-clean: tập tệp sinh đúng, PR không commit bản sinh, strip đưa về bản main');
