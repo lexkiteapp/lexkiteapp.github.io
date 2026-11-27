@@ -96,7 +96,9 @@ function measure(ax) {
   m.shell = sm ? r1(shellScore(+sm[1], +sm[2], g('shell').kb)) : null; note.shell = sm ? `${sm[1]} / ${sm[2]} KB gz (đích ${g('shell').kb})` : 'shell-size.mjs không chạy được';
   // Lighthouse (file do lighthouse.yml commit – workflow này không gọi lexkite.com)
   const lh = json('reports/lighthouse.json') || {}, sc = (k, c) => lh[k] && lh[k].scores ? lh[k].scores[c] : null;
-  m.perf = sc('home', 'performance'); note.perf = lh.home ? `trang chủ di động: LCP ${lh.home.metrics['largest-contentful-paint']}, CLS ${lh.home.metrics['cumulative-layout-shift']}, TBT ${lh.home.metrics['total-blocking-time']} (${String(lh.home.at).slice(0, 10)})` : 'chưa có reports/lighthouse.json';
+  const ll = json('reports/world/lighthouse-local.json'); // 26/11: dist tĩnh, trung vị 5 lần (scripts/world/lh-local.mjs) – ưu tiên hơn số live dao động 94–99
+  if (ll && ll.scores && ll.scores.performance != null && Date.now() - Date.parse(ll.at) < 8 * 864e5) { m.perf = ll.scores.performance; note.perf = `dist tĩnh, trung vị ${ll.runs} lần: LCP ${ll.metrics['largest-contentful-paint']}, CLS ${ll.metrics['cumulative-layout-shift']}, TBT ${ll.metrics['total-blocking-time']} (${String(ll.at).slice(0, 10)})`; }
+  else { m.perf = sc('home', 'performance'); note.perf = lh.home ? `trang chủ di động: LCP ${lh.home.metrics['largest-contentful-paint']}, CLS ${lh.home.metrics['cumulative-layout-shift']}, TBT ${lh.home.metrics['total-blocking-time']} (${String(lh.home.at).slice(0, 10)})` : 'chưa có reports/lighthouse.json'; }
   const a = [sc('home', 'accessibility'), sc('app/', 'accessibility')].filter(x => x != null); m.a11y = a.length ? r1(a.reduce((s, x) => s + x, 0) / a.length) : null; note.a11y = 'Lighthouse trang chủ + /app/ (axe/a11y tĩnh chạy trong npm test)';
   // stitch-coverage
   const st = json('docs/stitch-coverage.json'), S = st && (st.surfaces || []);

@@ -145,6 +145,13 @@
     if (dt) tasks.unshift({ ...dt, sub: weak === 'vocab' ? `${dt.sub} · ${why}` : dt.sub, focus: weak === 'vocab' ? 'vocab' : '' });
     else { const pn = App.pathNext ? await App.pathNext() : null, cur = pn && pn.unit; // dự phòng: không tải được gói lộ trình theo ngày
       if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: pn.href, mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' }); }
+    // ⏱ Bài 3 phút (cờ tắt: vb.noMini3 = '1'): 6 câu trắc nghiệm từ thẻ đến hạn / sắp quên – lối vào nhẹ cho ngày bận (không thay Ngày N)
+    try {
+      if (localStorage.getItem('vb.noMini3') !== '1') {
+        const dueN = Cards.dueList(state.cards, { practicable: true }).length, fgN = App.forgetting().length, src = dueN >= 4 ? 'due' : fgN >= 4 ? 'forgetting' : '';
+        if (src && !tasks.some(x => /mini=1/.test(x.href || ''))) tasks.splice(Math.min(1, tasks.length), 0, { em: '⏱', t: t('Bài 3 phút: ôn nhanh 6 từ'), sub: t('Vừa đủ giữ nhịp học hôm nay – xong là xong'), href: `#/practice/mcq?src=${src}&mini=1`, mins: 3, done: false, focus: 'vocab' });
+      }
+    } catch (e) { /* bỏ qua */ }
     const mistakes = (await Store.get('mistakes', [])).filter(x => !x.fixed).length;
     if (mistakes) tasks.push({ em: '📕', t: t('Làm lại {n} lỗi sai', { n: mistakes }), sub: t('Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất'), href: '#/mistakes?retry=1', mins: Math.min(10, 2 + mistakes), done: false });
     if (mistakes) { const mv = await App.lazy('mvar').then(() => MVar.todayTask()).catch(() => null); if (mv) tasks.push(mv); }
