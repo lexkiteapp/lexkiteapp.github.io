@@ -1379,6 +1379,11 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     view.innerHTML = `<div class="onb" style="max-width:600px;margin:0 auto" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></div>`;
     await App.need('pathx', 'onb').catch(() => {});
     if (!window.Onboard) return errState(true);
+    // Người mới, vào đầu thiết lập (chưa có ?s=): nếm 1 bài 60 giây TRƯỚC khi hỏi mục tiêu/trình độ (bỏ qua được; xong 1 lần/máy)
+    if (!s && !hasData() && !state.user) {
+      await App.need('firstlesson').catch(() => {});
+      if (window.FirstLesson && FirstLesson.enabled()) return FirstLesson.run(view, () => Onboard.run(s, { view, TOPICS, topicOf, inDeck, addWord, saveSettings, finish: finishOnboarding, login: loginOnboard }));
+    }
     Onboard.run(s, { view, TOPICS, topicOf, inDeck, addWord, saveSettings, finish: finishOnboarding, login: loginOnboard });
   }
 
