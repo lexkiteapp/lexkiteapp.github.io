@@ -2012,6 +2012,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case callUiNgayDauDiLam = "call.ui.ngayDauDiLam"
     case callUiHopDauNgayStand = "call.ui.hopDauNgayStand"
     case callUiDatLichKhamBac = "call.ui.datLichKhamBac"
+    case callUiNoiChamHon = "call.ui.noiChamHon"
     case callUiGoiHoiThueCan = "call.ui.goiHoiThueCan"
     case callUiIeltsPart1Que = "call.ui.ieltsPart1Que"
     case callUiIeltsPart2Ta = "call.ui.ieltsPart2Ta"
