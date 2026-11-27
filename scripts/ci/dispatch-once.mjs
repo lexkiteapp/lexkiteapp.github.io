@@ -13,8 +13,8 @@ const LIVE = new Set(['queued', 'in_progress', 'waiting', 'pending', 'requested'
 export const dupActive = (runs, ref, now = Date.now()) => (runs || []).find(r => LIVE.has(r.status) && r.head_branch === ref && !isZombie(r, now)) || null;
 /** Hàm thuần: ci-filler được dispatch không? running = job đang chạy. */
 export const fillerAllowed = running => running < FILLER_MAX_BUSY;
-/** Hàm thuần: có lượt chờ/chạy của PR mang nhãn nhường (prNumbersByLabel = Set số PR có nhãn main-red-fix/ui) → true. runs có pull_requests[].number. */
-export const yieldsToPr = (runs, prNumbers) => (runs || []).some(r => LIVE.has(r.status) && (r.pull_requests || []).some(p => prNumbers.has(p.number)));
+/** Hàm thuần: có lượt ĐANG CHỜ runner (queued; lượt in_progress đã có máy, dự trữ 8 vẫn giữ – 26/11 12:08Z busy 18/40 mà filler tắt vì 1 lượt đang chạy) của PR mang nhãn nhường (prNumbersByLabel = Set số PR có nhãn main-red-fix/ui) → true. runs có pull_requests[].number. */
+export const yieldsToPr = (runs, prNumbers) => (runs || []).some(r => r.status === 'queued' && (r.pull_requests || []).some(p => prNumbers.has(p.number)));
 /** Hàm thuần: cảnh báo khoá/trùng khi ít job chạy mà hàng chờ dài; null nếu bình thường. */
 export const queueAlert = ({ running, queued }) => running < ALERT_RUNNING && queued > ALERT_QUEUED ? `${queued} job xếp hàng nhưng chỉ ${running} chạy (< ${ALERT_RUNNING}/40): khoá concurrency hoặc dispatch trùng, KHÔNG phải thiếu runner – xem ci-triage` : null;
 

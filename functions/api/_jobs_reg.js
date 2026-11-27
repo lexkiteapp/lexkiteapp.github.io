@@ -1288,6 +1288,19 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "gh-quota-watch",
+   "workflow": "gh-quota-watch.yml",
+   "cron": [
+    "12 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [],
+   "minutes": 10,
+   "est": {},
+   "lease": false,
+   "_note": "26/11: đo hạn mức GITHUB_TOKEN dùng chung + top tiêu thụ theo workflow; còn <20 % → issue gh-quota (scripts/ci/quota-watch.mjs)"
+  },
+  {
    "id": "code-bundle",
    "workflow": "code-bundle.yml",
    "cron": [

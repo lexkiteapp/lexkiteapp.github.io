@@ -55,6 +55,12 @@
 
   g.MODELS = (g.MODELS || []).concat([
     { id: 't1-water', task: 1, ref: 'water', band: '8.0', words: 203,
+      notes: {
+          "TA": "Overall nêu đúng ba xu hướng khác nhau (A tăng rồi giảm, B tăng liên tục và vượt A, C luôn thấp nhất); điểm giao nhau năm 2015 được nhận ra và so sánh với mốc xuất phát 180 lít.",
+          "CC": "Một đoạn cho A và B, một đoạn cho kết quả B và C; liên kết bằng but, By contrast, Meanwhile, As a result.",
+          "LR": "Diễn đạt xu hướng linh hoạt: went into a steady decline, surpassed, edging up, remained relatively stable, dipping slightly.",
+          "GRA": "Mệnh đề quan hệ, phân từ và so sánh bằng nhau (exactly the same as) dùng chuẩn; thì nhất quán."
+      },
       text: `<<Mở bài>> The line graph [[illustrates|minh họa]] [[how much water was used per person each day|lượng nước mỗi người sử dụng hằng ngày]] in three cities [[over a thirty-year period|trong giai đoạn ba mươi năm]], from 1990 to 2020.
 
 <<Tổng quan>> {{Overall}}, consumption in City A [[rose to a peak|tăng lên đạt đỉnh]] {{before}} falling, {{whereas}} the figure for City B [[climbed steadily|tăng đều đặn]] and eventually [[overtook|vượt qua]] that of City A. City C [[consistently recorded the lowest levels|liên tục ghi nhận mức thấp nhất]] throughout the period.
@@ -84,6 +90,12 @@
 } },
 
     { id: 't1-onlineshop', task: 1, ref: 'onlineshop', band: '8.0', words: 201,
+      notes: {
+          "TA": "Tổng quan bắt được cú tăng đột biến năm 2020 và thứ hạng đầu/cuối của các mặt hàng; chú ý đến việc quần áo và điện tử đổi chỗ hai lần.",
+          "CC": "Đoạn 1 gom quần áo và điện tử, đoạn 2 dành riêng cho thực phẩm; liên kết bằng Then, However, by contrast, Nevertheless.",
+          "LR": "Từ vựng đa dạng: surged, briefly overtaking, edged up, tripled, dipping, far higher than its initial level.",
+          "GRA": "Cấu trúc so sánh bội số và nhượng bộ chính xác; mệnh đề as the positions had been reversed dùng đúng thì."
+      },
       text: `<<Mở bài>> The line graph [[shows the proportion of|cho thấy tỉ lệ]] adults in one country who [[purchased|mua]] clothing, electronics and groceries online between 2008 and 2023.
 
 <<Tổng quan>> {{Overall}}, online shopping [[became increasingly popular|ngày càng phổ biến]] in all three categories, with [[a particularly sharp rise|một sự tăng vọt đặc biệt]] in 2020. Electronics [[was the most commonly bought item|là mặt hàng được mua nhiều nhất]] at the beginning and end of the period, {{while}} groceries [[remained the least common|vẫn ít phổ biến nhất]] online purchase.
@@ -113,6 +125,12 @@
 } },
 
     { id: 't1-resorts', task: 1, ref: 'resorts', band: '8.0', words: 190,
+      notes: {
+          "TA": "Tổng quan khái quát được hai mô hình mùa vụ đối lập và nêu đỉnh cao nhất năm; số liệu theo tháng được chọn lọc đúng các điểm ngoặt.",
+          "CC": "Mỗi khu nghỉ dưỡng một đoạn, theo thứ tự thời gian trong năm; liên kết bằng After that, In contrast, Subsequently.",
+          "LR": "Từ vựng sinh động nhưng chính xác: soared, plummeted, rebounding, hitting a low, a modest recovery, seasonal patterns.",
+          "GRA": "Câu phức kết hợp phân từ (hitting a low, rebounding) và mệnh đề liên hệ; mức độ chính xác cao."
+      },
       text: `<<Mở bài>> The line graph [[compares the monthly number of visitors|so sánh số lượng du khách theo tháng]] to a mountain resort and a beach resort [[over the course of|trong suốt]] 2023.
 
 <<Tổng quan>> {{Overall}}, the two resorts [[displayed opposite seasonal patterns|có xu hướng theo mùa trái ngược nhau]]. The mountain resort was [[at its busiest|đông khách nhất]] in the winter months, {{whereas}} the beach resort attracted most of its visitors in summer, when it also recorded [[the highest monthly figure of the year|con số theo tháng cao nhất trong năm]].
@@ -142,6 +160,12 @@
 } },
 
     { id: 't1-waste', task: 1, ref: 'waste', band: '8.0', words: 180,
+      notes: {
+          "TA": "Overall chia bốn quốc gia thành hai nhóm theo phương pháp xử lý chủ đạo và nêu điểm nổi bật của Q; so sánh cuối bài (Q đốt gấp hơn ba lần S) có tính toán chính xác.",
+          "CC": "Đoạn thân 1 xử lý nhóm chôn lấp (S, P), đoạn thân 2 nhóm tái chế (Q, R); mạch lạc nhờ In contrast, By contrast, In other words.",
+          "LR": "Dùng từ chính xác: predominant, municipal waste, landfill, incinerators, a more balanced profile; paraphrase tốt các tỉ lệ (just over half, nearly half).",
+          "GRA": "Cấu trúc đa dạng, gồm mệnh đề quan hệ, phân từ và so sánh; thì và dấu câu chính xác."
+      },
       text: `<<Mở bài>> The bar chart [[compares the proportions of|so sánh tỉ lệ]] municipal waste that were [[sent to landfill|đưa đến bãi chôn lấp]], recycled or incinerated in four countries in 2022.
 
 <<Tổng quan>> {{Overall}}, landfill was [[the predominant method of disposal|phương thức xử lý chủ yếu]] in Country P and Country S, {{whereas}} recycling [[accounted for the largest share|chiếm tỉ trọng lớn nhất]] in Country Q and Country R. {{Notably}}, Country Q [[relied far less on|phụ thuộc ít hơn nhiều vào]] landfill than any other nation.
@@ -171,6 +195,12 @@
 } },
 
     { id: 't1-phones', task: 1, ref: 'phones', band: '8.0', words: 187,
+      notes: {
+          "TA": "Tổng quan nêu rõ tăng ở mọi nhóm tuổi và khoảng cách thế hệ thu hẹp; số liệu hai năm cho cả bốn nhóm được đối chiếu đầy đủ.",
+          "CC": "Đoạn 1 mô tả năm 2013 rồi 2023 theo thứ tự tuổi giảm dần, đoạn 2 tập trung vào nhóm tăng mạnh nhất; nối bằng Ten years later, As a result, Nevertheless.",
+          "LR": "Từ vựng chính xác: ownership, near-saturation levels, more than tripled, lagged well behind, almost universal.",
+          "GRA": "Câu so sánh và mệnh đề nhượng bộ dùng tốt; cấu trúc 'compared with fewer than one in five' rất tự nhiên."
+      },
       text: `<<Mở bài>> The bar chart [[illustrates the rate of smartphone ownership|minh họa tỉ lệ sở hữu điện thoại thông minh]] among four age groups in one country in 2013 and 2023.
 
 <<Tổng quan>> {{Overall}}, ownership [[rose across all age groups|tăng ở tất cả các nhóm tuổi]] over the decade. {{Although}} younger adults [[remained the most likely to|vẫn là nhóm có khả năng cao nhất]] own a smartphone, [[the gap between the generations|khoảng cách giữa các thế hệ]] [[narrowed considerably|thu hẹp đáng kể]].
@@ -200,6 +230,12 @@
 } },
 
     { id: 't1-travel', task: 1, ref: 'travel', band: '8.0', words: 185,
+      notes: {
+          "TA": "Tổng quan nêu xe hơi áp đảo dù giảm, tàu và xe đạp tăng, xe buýt giảm; số liệu đủ cho cả bốn phương tiện cả hai năm, có nhận xét tương đối (gấp đôi, gấp tư).",
+          "CC": "Đoạn 1 xe hơi và tàu, đoạn 2 xe buýt và xe đạp; liên kết bằng yet, on the other hand, Turning to, Consequently.",
+          "LR": "Từ vựng đa dạng: dwarfed, consolidating its position, relative increase, lagged further behind, mode of transport.",
+          "GRA": "Câu phức đa dạng cùng nhượng bộ và so sánh bội số; thì chính xác."
+      },
       text: `<<Mở bài>> The bar chart [[compares the average weekly distance|so sánh quãng đường trung bình mỗi tuần]] that people in one country travelled by car, train, bus and bicycle in 2000 and 2020.
 
 <<Tổng quan>> {{Overall}}, the car was [[by far the most popular means of transport|là phương tiện phổ biến nhất với khoảng cách lớn]] in both years, {{although}} its use [[declined noticeably|giảm đáng kể]]. {{Meanwhile}}, train travel and cycling [[gained in popularity|ngày càng được ưa chuộng]], {{whereas}} the distance covered by bus fell.
@@ -229,6 +265,12 @@
 } },
 
     { id: 't1-power', task: 1, ref: 'power', band: '8.0', words: 192,
+      notes: {
+          "TA": "Overall chỉ ra than mất vị trí đứng đầu, gió và mặt trời tăng vọt; số liệu hai biểu đồ được ghép cặp chính xác, kèm phép gộp hai loại nhiên liệu hóa thạch.",
+          "CC": "Đoạn 1 về than và khí đốt, đoạn 2 về năng lượng tái tạo và hai nguồn ổn định; liên kết bằng However, At the same time, Thus, By contrast.",
+          "LR": "Diễn đạt chính xác: breakdown, lost its position, more than halved, rose more than sixfold, edged up, virtually unchanged.",
+          "GRA": "Cấu trúc so sánh gấp bội và mệnh đề nhượng bộ chính xác; ngữ pháp được kiểm soát chặt."
+      },
       text: `<<Mở bài>> The two pie charts [[illustrate the breakdown of|minh họa cơ cấu]] electricity generation [[by source|theo nguồn]] in one country in 2000 and 2020.
 
 <<Tổng quan>> {{Overall}}, coal [[lost its position as|mất vị trí là]] the main source of electricity, {{while}} wind and solar power [[expanded dramatically|mở rộng mạnh mẽ]]. By 2020, natural gas [[had become the largest single source|đã trở thành nguồn đơn lẻ lớn nhất]], {{although}} [[no source accounted for|không nguồn nào chiếm]] more than a third of the total.
@@ -258,6 +300,12 @@
 } },
 
     { id: 't1-coffee', task: 1, ref: 'coffee', band: '8.0', words: 197,
+      notes: {
+          "TA": "Tổng quan nêu nước tiêu thụ nhiều nhất, tăng nhanh nhất và quốc gia duy nhất giảm liên tục; số liệu có tính toán tỉ lệ (tăng gấp ba, gấp bốn).",
+          "CC": "Thân bài 1 nhóm A, B, C; thân bài 2 nhóm D, E tăng nhanh; liên kết bằng Meanwhile, In contrast, Nevertheless.",
+          "LR": "Từ vựng đa dạng: per capita, drank, fell back marginally, steady growth, more than tripled, fourfold.",
+          "GRA": "Dùng thành thạo so sánh, phân từ (falling behind Country B) và liên từ nhượng bộ; chính xác."
+      },
       text: `<<Mở bài>> The table [[provides information about|cung cấp thông tin về]] [[per capita coffee consumption|lượng tiêu thụ cà phê bình quân đầu người]] in five countries in 2000, 2010 and 2020.
 
 <<Tổng quan>> {{Overall}}, Country A [[consumed by far the most coffee|tiêu thụ nhiều cà phê nhất với khoảng cách lớn]] per person in all three years. Consumption grew in most countries, [[most notably|đáng chú ý nhất là]] in Country D and Country E, {{whereas}} Country C was the only one to [[experience a continuous decline|giảm liên tục]].
@@ -287,6 +335,12 @@
 } },
 
     { id: 't1-metro', task: 1, ref: 'metro', band: '8.0', words: 197,
+      notes: {
+          "TA": "Tổng quan nêu mối liên hệ giữa chiều dài mạng lưới và lượng hành khách, cùng thành phố lớn nhất và nhỏ nhất; số liệu ba tiêu chí được chọn lọc và so sánh bội số.",
+          "CC": "Đoạn 1 xử lý hai mạng lưới lớn, đoạn 2 ba mạng lưới nhỏ; kết nối bằng Finally, while, Overall.",
+          "LR": "Từ vựng chính xác cho dữ liệu bảng: underground railway systems, routes, carries, annually, dates back to, most recent addition.",
+          "GRA": "Dùng mệnh đề quan hệ không xác định xuất sắc (which dates back to 1935) và so sánh phân số; không lỗi."
+      },
       text: `<<Mở bài>> The table [[compares|so sánh]] the underground railway systems in five cities [[in terms of|xét về]] the year they opened, [[the total length of their routes|tổng chiều dài tuyến]] and [[the number of passengers they carry annually|số lượng hành khách vận chuyển mỗi năm]].
 
 <<Tổng quan>> {{Overall}}, the oldest network, in Northport, is [[by far the longest and busiest|dài nhất và đông khách nhất với khoảng cách lớn]], {{whereas}} the most recent one, in Sunhill, is the smallest [[on every measure|trên mọi tiêu chí]]. {{In general}}, [[there is a clear link between|có mối liên hệ rõ ràng giữa]] route length and passenger numbers.
@@ -316,6 +370,12 @@
 } },
 
     { id: 't1-salmon', task: 1, ref: 'salmon', band: '8.0', words: 186,
+      notes: {
+          "TA": "Tổng quan nêu số giai đoạn và việc vòng đời bắt đầu, kết thúc ở thượng nguồn sông; đủ các giai đoạn và thời gian (6 tuần, 1–4 năm, 1–3 năm).",
+          "CC": "Chuỗi thời gian rõ ràng: First, After about 6 weeks, At this point, They then, Finally; câu cuối khép vòng tròn.",
+          "LR": "Thuật ngữ sinh học chính xác: alevins, fry, smolts, spawn, upper reaches, mature, adulthood, được giải thích khi xuất hiện lần đầu.",
+          "GRA": "Bị động và chủ động xen kẽ hợp lí, mệnh đề quan hệ (known as, where they mature) chuẩn; dùng thì hiện tại đơn nhất quán."
+      },
       text: `<<Mở bài>> The diagram [[illustrates the various stages in|minh họa các giai đoạn trong]] [[the life cycle of|vòng đời của]] the salmon, from the laying of eggs to the return of adult fish to their birthplace.
 
 <<Tổng quan>> {{Overall}}, there are seven [[distinct stages|giai đoạn riêng biệt]], [[some of which take place in fresh water|một số diễn ra ở nước ngọt]] and others in the ocean. The process [[forms a continuous cycle|tạo thành một vòng tuần hoàn liên tục]], [[beginning and ending|bắt đầu và kết thúc]] in the upper reaches of a river.
@@ -345,6 +405,12 @@
 } },
 
     { id: 't1-tea', task: 1, ref: 'tea', band: '8.0', words: 178,
+      notes: {
+          "TA": "Tổng quan nêu bảy giai đoạn và nhấn mạnh quy trình tuyến tính, khác chu trình tự nhiên; đủ số liệu thời gian và nhiệt độ ở mọi giai đoạn.",
+          "CC": "Trình tự rõ: Initially, After that, subsequently, Once oxidation is complete, Next, Finally; đoạn chia theo nửa đầu và nửa sau.",
+          "LR": "Từ vựng quy trình chính xác: wither, oxidise, graded, plantation, spread out on racks, released their juices.",
+          "GRA": "Bị động nhất quán, kết hợp mệnh đề kết quả (so that leaves of a similar size are grouped) và mệnh đề thời gian; không lỗi."
+      },
       text: `<<Mở bài>> The diagram [[illustrates the process by which|minh họa quy trình mà qua đó]] black tea [[is manufactured|được sản xuất]], from the picking of fresh leaves on the plantation to the delivery of the finished product.
 
 <<Tổng quan>> {{Overall}}, the production of black tea [[involves seven main stages|gồm bảy giai đoạn chính]], [[starting with|bắt đầu bằng]] the harvesting of fresh leaves and [[culminating in|kết thúc bằng]] the packing and shipping of the tea. {{Unlike}} a natural cycle, it is [[a linear process|một quy trình tuyến tính]].
@@ -374,6 +440,12 @@
 } },
 
     { id: 't1-island', task: 1, ref: 'island', band: '8.0', words: 190,
+      notes: {
+          "TA": "Tổng quan nêu sự chuyển đổi từ đánh cá và nông nghiệp sang du lịch và những gì được giữ nguyên (bãi biển, đường chính); mô tả vị trí rõ ràng theo hướng.",
+          "CC": "Đoạn 1 phía tây đường chính, đoạn 2 phía đông; liên kết bằng Afterwards, On the eastern side, Similarly, As a result.",
+          "LR": "Từ vựng bản đồ phong phú: cleared to make way for, was converted into, demolished, cater for, woodland, jetty.",
+          "GRA": "Dùng đúng thì quá khứ đơn đối chiếu với quá khứ hoàn thành; cấu trúc bị động đa dạng và chính xác."
+      },
       text: `<<Mở bài>> The maps [[illustrate how|minh họa cách]] a small island [[was transformed|được biến đổi]] [[following the construction of|sau khi xây dựng]] a tourist resort.
 
 <<Tổng quan>> {{Overall}}, the island [[changed from a quiet fishing and farming area into|chuyển từ một vùng đánh cá và làm nông yên tĩnh thành]] a tourist destination, with [[new accommodation and transport facilities|cơ sở lưu trú và giao thông mới]]. {{However}}, the beach and the main road [[remained unchanged|vẫn giữ nguyên]], and [[part of the forest was preserved|một phần khu rừng được bảo tồn]].

@@ -2,6 +2,12 @@
 (function (g) {
   g.MODELS = [
     { id: 't1-energy', task: 1, ref: 'energy', band: '8.0', words: 164,
+      notes: {
+          "TA": "Tổng quan nêu rõ hai xu hướng đối lập (gas giảm đều, năng lượng tái tạo tăng vọt) và số liệu chọn lọc đúng mốc 1990/1995/2020; so sánh khoảng cách cuối kì (2 và 4 điểm phần trăm) rất sắc.",
+          "CC": "Bốn đoạn đúng trình tự mở bài – tổng quan – hai thân bài; liên kết bằng Overall, By contrast, Meanwhile, However, As a result.",
+          "LR": "Cụm học thuật chính xác: dominant heating source, edged up to a peak, levelling off, growth accelerated considerably, trailed gas by just four points.",
+          "GRA": "Đa dạng cấu trúc: although/whereas, phân từ (reaching just 35%, climbing to 31%), so sánh hơn kém; gần như không có lỗi."
+      },
       text: `<<Mở bài>> The line graph [[illustrates|minh họa]] [[the proportion of households|tỉ lệ hộ gia đình]] in a European country that relied on gas, electricity and renewable sources [[for heating|để sưởi ấm]] [[over the thirty-year period from 1990 to 2020|trong giai đoạn 30 năm từ 1990 đến 2020]].
 
 <<Tổng quan>> {{Overall}}, gas [[remained the dominant heating source|vẫn là nguồn sưởi chủ đạo]] throughout the period, {{although}} its share [[declined steadily|giảm đều đặn]]. {{By contrast}}, renewables [[saw a dramatic increase|có sự gia tăng đáng kể]] and had [[almost caught up with|gần như bắt kịp]] gas by the final year.
@@ -31,6 +37,12 @@
 } },
 
     { id: 't1-leisure', task: 1, ref: 'leisure', band: '8.0', words: 188,
+      notes: {
+          "TA": "Tổng quan khái quát mối quan hệ nghịch giữa tuổi và thời gian dùng mạng xã hội, ngược lại với đọc sách; số liệu đủ cho cả bốn nhóm tuổi mà không sa vào liệt kê.",
+          "CC": "Nhóm thông tin theo hai hoạt động chính, sau đó dùng sport làm đoạn kết; liên kết tự nhiên với whereas, while, Reading showed the reverse pattern, meanwhile.",
+          "LR": "Từ vựng linh hoạt, tránh lặp: devoted far more time, inversely related, pastime, dropped sharply, a mere two hours.",
+          "GRA": "Cấu trúc so sánh phong phú (more than double, seven times as much as, equally popular) kèm phân từ và mệnh đề quan hệ; chính xác."
+      },
       text: `<<Mở bài>> The bar chart [[compares the average amount of time|so sánh lượng thời gian trung bình]] that people in four age groups [[spent each week on|dành mỗi tuần cho]] social media, sport and reading in 2022.
 
 <<Tổng quan>> {{Overall}}, time spent on social media [[was inversely related to age|tỉ lệ nghịch với tuổi tác]], {{whereas}} the opposite was true for reading. Young people [[devoted far more time to|dành nhiều thời gian hơn hẳn cho]] social media than to any other activity, {{while}} reading was [[the most popular pastime|thú vui phổ biến nhất]] among those aged 65 and over.
@@ -60,6 +72,12 @@
 } },
 
     { id: 't1-spending', task: 1, ref: 'spending', band: '8.0', words: 165,
+      notes: {
+          "TA": "Overall nêu đúng hai thay đổi nổi bật nhất (food nhường chỗ cho housing, leisure gần gấp đôi); số liệu 1980 và 2020 so sánh đối xứng, có kết luận 'twice as much on housing as on food'.",
+          "CC": "Đoạn thân 1 xử lý hai hạng mục dẫn đầu, đoạn 2 các mục còn lại; nối ý bằng However, whereas, Turning to, Consequently.",
+          "LR": "Diễn đạt thay thế đa dạng: allocated, the positions had been reversed, fallen by about half, dipped marginally, devoted to.",
+          "GRA": "Dùng tốt thì hoàn thành quá khứ, so sánh gấp bội và cấu trúc đảo vị trí (the positions had been reversed); không lỗi đáng kể."
+      },
       text: `<<Mở bài>> The two pie charts [[illustrate how household income was allocated|minh họa thu nhập hộ gia đình được phân bổ ra sao]] across five main categories of spending in one country in 1980 and 2020.
 
 <<Tổng quan>> {{Overall}}, [[the most striking change|thay đổi nổi bật nhất]] was [[a shift from food to housing|sự chuyển dịch từ thực phẩm sang nhà ở]] as the main household expense. {{In addition}}, the share spent on leisure [[almost doubled|gần như tăng gấp đôi]] [[over the forty-year period|trong suốt 40 năm]].
@@ -89,6 +107,12 @@
 } },
 
     { id: 't1-students', task: 1, ref: 'students', band: '8.0', words: 174,
+      notes: {
+          "TA": "Bảng số liệu được tóm lược bằng xu hướng chung và hai quốc gia tăng mạnh nhất; chọn số liệu có chủ đích, nhấn vào chuyện Country B vượt Country A.",
+          "CC": "Gom nhóm theo kiểu biến động (A và C tăng rồi giảm; B và D tăng liên tục; E dao động); liên kết rõ ràng bằng By contrast, Even more remarkable, Despite.",
+          "LR": "Từ vựng đa dạng cho xu hướng: climbed, fell back slightly, nearly doubling, almost tripled, fluctuated, recovering.",
+          "GRA": "Kết hợp mệnh đề quan hệ (which allowed it to overtake...) với phân từ và nhượng bộ although; câu dài vẫn được kiểm soát tốt."
+      },
       text: `<<Mở bài>> The table [[provides information about|cung cấp thông tin về]] [[the number of international students|số lượng sinh viên quốc tế]] enrolled at universities in five countries in 2010, 2015 and 2020.
 
 <<Tổng quan>> {{Overall}}, most of the countries [[attracted more overseas students|thu hút nhiều du học sinh hơn]] over the decade, with Countries B and D [[recording the most significant growth|ghi nhận mức tăng trưởng đáng kể nhất]]. Country E, {{meanwhile}}, [[remained the least popular destination|vẫn là điểm đến kém hấp dẫn nhất]] [[throughout the period|trong suốt giai đoạn]].
@@ -118,6 +142,12 @@
 } },
 
     { id: 't1-museums', task: 1, ref: 'museums', band: '8.0', words: 170,
+      notes: {
+          "TA": "Tổng quan chỉ ra bảo tàng dẫn đầu sau 2008 và cú giảm chung ở năm cuối; số liệu đỉnh và đáy từng đường đều có, kèm phép so sánh 'two fifths'.",
+          "CC": "Thân bài 1 kể về hai bảo tàng lớn đến 2016, thân bài 2 gom Art Gallery và giai đoạn sụt giảm; chuyển ý bằng However, meanwhile, In the final period.",
+          "LR": "Từ vựng chính xác: overtaken, went on to peak, rose more modestly, fell dramatically, lost two fifths, almost halved.",
+          "GRA": "Đa dạng thì và cấu trúc (overtaken, went on to peak, against 145,000); mệnh đề quan hệ không xác định dùng chuẩn."
+      },
       text: `<<Mở bài>> The line graph [[shows changes in|cho thấy sự thay đổi của]] [[visitor numbers|lượng khách tham quan]] at three museums in a city [[between 2000 and 2020|từ năm 2000 đến 2020]].
 
 <<Tổng quan>> {{Overall}}, the Science Centre [[became the most visited attraction|trở thành điểm tham quan đông khách nhất]] after 2008, {{while}} the Art Gallery [[consistently attracted the fewest visitors|luôn thu hút ít khách nhất]]. [[It is also noticeable that|Cũng có thể thấy rằng]] all three museums [[experienced a sharp drop|trải qua sự sụt giảm mạnh]] in the final year.
@@ -147,6 +177,12 @@
 } },
 
     { id: 't1-commute', task: 1, ref: 'commute', band: '8.0', words: 176,
+      notes: {
+          "TA": "Overall mô tả đặc trưng riêng của từng thành phố thay vì liệt kê; mọi con số đều chính xác và được so sánh bằng tỉ lệ (almost twice, nearly double).",
+          "CC": "Mỗi đoạn xử lý hai thành phố có đặc điểm tương phản; nối bằng In contrast, Nevertheless, whereas.",
+          "LR": "Từ vựng phong phú, tránh lặp: dominant, a more balanced distribution, stood out for, preferred option, not far behind.",
+          "GRA": "Câu phức phong phú, dùng chuẩn mệnh đề quan hệ và so sánh bội số; dấu câu chính xác."
+      },
       text: `<<Mở bài>> The bar chart [[compares the proportion of workers|so sánh tỉ lệ người lao động]] in four cities who [[travelled to work by|đi làm bằng]] car, public transport or bicycle in 2021.
 
 <<Tổng quan>> {{Overall}}, [[each city had a distinct commuting pattern|mỗi thành phố có thói quen đi lại riêng]]: cars [[were the dominant mode of transport|là phương tiện chủ đạo]] in City W, public transport was most popular in City X, {{and}} cycling [[played a much larger role|đóng vai trò lớn hơn nhiều]] in City Z than elsewhere.
@@ -176,6 +212,12 @@
 } },
 
     { id: 't1-glass', task: 1, ref: 'glass', band: '8.0', words: 174,
+      notes: {
+          "TA": "Tổng quan nêu số giai đoạn (bảy) và bản chất tuần hoàn của quy trình; đầy đủ mọi bước từ thu gom đến giao hàng, kể cả điều kiện 1.500°C.",
+          "CC": "Trình tự thời gian mạch lạc: First, Next, Once it is clean, In the next stage, Finally; vòng khép kín được nối lại ở câu cuối.",
+          "LR": "Thuật ngữ quy trình chính xác: sorting plant, impurities, cullet, molten glass, furnace, được giải thích gọn bằng mệnh đề quan hệ.",
+          "GRA": "Dùng thể bị động nhất quán và đa dạng (is collected, is crushed, being cleaned) cùng mệnh đề quan hệ và cấu trúc kết quả; không lỗi."
+      },
       text: `<<Mở bài>> The diagram [[illustrates the process by which|minh họa quy trình mà qua đó]] used glass bottles [[are recycled into|được tái chế thành]] new ones.
 
 <<Tổng quan>> {{Overall}}, there are seven stages [[in the process|trong quy trình]], [[beginning with|bắt đầu với]] the collection of used bottles and [[culminating in|kết thúc bằng]] the delivery of new bottles to shops, which means that [[the process forms a continuous cycle|quy trình tạo thành một vòng tuần hoàn liên tục]].
@@ -205,6 +247,12 @@
 } },
 
     { id: 't1-town', task: 1, ref: 'town', band: '8.0', words: 185,
+      notes: {
+          "TA": "Tổng quan nêu hướng thay đổi chính (công nghiệp nhường chỗ nhà ở và giải trí) và những gì được giữ nguyên; mô tả vị trí đầy đủ theo phương hướng.",
+          "CC": "Chia theo phía tây và phía đông đường Main Street rất rõ ràng, kết bằng câu tổng kết 'all of the changes were confined to the western half'.",
+          "LR": "Từ vựng bản đồ chính xác: occupied by, replaced by, demolished, divided between, has been preserved, remained largely unchanged.",
+          "GRA": "Dùng nhuần nhuyễn hiện tại hoàn thành và quá khứ để đối chiếu hai thời điểm; bị động đa dạng, mệnh đề quan hệ chuẩn."
+      },
       text: `<<Mở bài>> The maps [[illustrate the changes that have taken place in|minh họa những thay đổi đã diễn ra ở]] the centre of a small town [[between 2000 and the present day|từ năm 2000 đến nay]].
 
 <<Tổng quan>> {{Overall}}, the town centre [[has become more residential|đã trở nên mang tính dân cư hơn]] and [[better served by public transport|được phục vụ tốt hơn bởi giao thông công cộng]], with the industrial area [[making way for|nhường chỗ cho]] housing and entertainment. {{However}}, the shops and the park [[have been retained|được giữ lại]].

@@ -413,8 +413,8 @@ items: [
 explain: 'Khách hàng nhà Jacobson muốn thay đổi thiết kế bếp (dời bồn rửa, thêm đảo bếp) → thay đổi thiết kế nhà bếp.' },
 { n: 60, q: 'What concern does the woman raise?', options: ['The window is too small.', 'The contractor is unavailable.', 'The clients have not paid.', 'The cost will increase.'], a: 3, cue: "That'll push the budget over what they agreed to.",
 explain: 'Dời bồn rửa phải đổi đường ống nên sẽ vượt ngân sách đã thỏa thuận → chi phí tăng.' },
-{ n: 61, q: 'What will the man do?', options: ['Redraw a floor plan', 'Install new plumbing', 'Arrange a meeting with the clients', 'Visit a showroom'], a: 2, cue: "I'll set up a meeting with the Jacobsons for early next week",
-explain: 'Anh sẽ hẹn gặp nhà Jacobson đầu tuần sau → sắp xếp cuộc họp với khách. Vẽ lại mặt bằng là việc của Harper.' },
+{ n: 61, q: 'What will the man do?', options: ['Redraw the floor plan for the office', 'Replace the old plumbing throughout the building', 'Arrange a meeting with the clients', 'Tour the showroom to see new designs'], a: 2, cue: "I'll set up a meeting with the Jacobsons for early next week",
+explain: 'Anh sẽ hẹn gặp nhà Jacobson đầu tuần sau, vì vậy anh sẽ sắp xếp cuộc họp với khách. Các đáp án còn lại không liên quan tới việc lên lịch họp.' },
 ] },
 { type: 'mcq', instr: g.TQL[26],
 items: [

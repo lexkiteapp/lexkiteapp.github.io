@@ -4,11 +4,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { nativeItems } from './items.mjs';
 import { buildReport, toMarkdown, itemMd, mergeRaw } from './score.mjs';
+import { ghFetch } from '../lib/retry5xx.mjs';
 
 const [DIR, OUT, PREV] = [process.argv[2] || 'out/audit', process.argv[3] || 'out/audit-pub', process.argv[4]];
 const nativeCi = async () => { // kết luận mới nhất của workflow native trên main (không có token → chưa đo)
   if (!process.env.GITHUB_TOKEN) return null;
-  const get = async f => { const r = await fetch(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/actions/workflows/${f}/runs?branch=main&status=completed&per_page=1`, { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }).catch(() => null); const j = r && r.ok ? await r.json() : null; return j && j.workflow_runs[0] ? j.workflow_runs[0].conclusion === 'success' : null; };
+  const get = async f => { const r = await ghFetch(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}/actions/workflows/${f}/runs?branch=main&status=completed&per_page=1`, { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }).catch(() => null); const j = r && r.ok ? await r.json() : null; return j && j.workflow_runs[0] ? j.workflow_runs[0].conclusion === 'success' : null; };
   const [a, b] = await Promise.all([get('native-ios.yml'), get('native-android.yml')]);
   return a == null || b == null ? null : a && b;
 };

@@ -4,11 +4,11 @@ import LKDesign
 import LKStrings
 
 /// Route wiring of M4 P06 (called from AppShell's InnerScreen and FocusScreen):
-/// pushed #/listening · #/listen/<part> · #/reading · #/read/<id>, full-screen #/listen-test/<n> · #/dictation/<part>.
+/// pushed #/listening · #/listen/<part> · #/reading · #/read/<id> · #/watch (M4 P12: the hub; #/watch/<id or YouTube link>?t= the player) · #/mediate (M4 P13: the list; #/mediate/<id> a lesson) · #/interpret (M6 P14: face to face · phrases[/<group>] · history · recap/<id>), full-screen #/listen-test/<n> · #/dictation/<part> · #/placement (P10: the adaptive entry test, Tests tab).
 @MainActor
 enum SkillsRoutes {
-    static let innerRoutes: Set<String> = ["listening", "listen", "reading", "read"]
-    static let focusRoutes: Set<String> = ["listen-test", "dictation"]
+    static let innerRoutes: Set<String> = ["listening", "listen", "reading", "read", "watch", "mediate", "interpret"]
+    static let focusRoutes: Set<String> = ["listen-test", "dictation", "placement"]
     static func handlesInner(_ name: String) -> Bool { innerRoutes.contains(name) }
     static func handlesFocus(_ name: String) -> Bool { focusRoutes.contains(name) }
 }
@@ -16,6 +16,7 @@ enum SkillsRoutes {
 struct SkillsInnerScreen: View {
     let route: AppRoute
     @Environment(AppServices.self) private var services
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         let go: (AppRoute) -> Void = { StudyRoutes.go($0, services: services) }
         switch route.name {
@@ -28,7 +29,33 @@ struct SkillsInnerScreen: View {
             if let r = SkillsContext.content.reading(route.arg ?? "") {
                 SkillsHost(make: { ReaderModel(ctx: $0, reading: r) }) { ReaderView(model: $0, onRoute: go) }
             } else { SkillsHost(make: { ReadingListModel(ctx: $0, query: [:]) }) { ReadingListView(model: $0, onRoute: go) } }
+        case "watch":
+            if let y = route.arg.flatMap({ Watch.ytParse($0) }) {
+                SkillsHost(make: { WatchPlayerModel(id: y.id, startAt: Int(route.query["t"] ?? "") ?? y.t, ctx: $0) }) { WatchPlayerView(model: $0, onRoute: go) }
+            } else { SkillsHost(make: { WatchHubModel(ctx: $0, query: route.query) }) { WatchHubView(model: $0, onRoute: go) } }
+        case "mediate":
+            if let it = Mediation.shared.item(route.arg ?? "") {
+                SkillsHost(make: { MediateLessonModel(ctx: $0, item: it, io: .live(voice: $0.core.voice), voice: $0.core.voice) }) { MediateLessonView(model: $0, onRoute: go) }
+            } else { SkillsHost(make: { MediateListModel(ctx: $0) }) { MediateListView(model: $0, onRoute: go) } }   // unknown id → the list, like the web
+        case "interpret": interpret()
         default: hub(go)
+        }
+    }
+    /// M6 P14: `interpret` (face to face) · `interpret/phrases[/<group>]` · `interpret/history` · `interpret/recap/<id>`. The doors replace the screen (one stack entry); a conversation of the history opens on top of it.
+    @ViewBuilder private func interpret() -> some View {
+        let parts = (route.arg ?? "").split(separator: "/").map(String.init), page = parts.first ?? "", rest = parts.count > 1 ? parts[1] : nil
+        let tab = route.tab
+        let open: (String) -> Void = { r in
+            let next = InterpretLabels.appRoute(r)
+            if !(page == "history" && r.hasPrefix("interpret/recap/")), !(services.router.paths[tab] ?? []).isEmpty { services.router.paths[tab]?.removeLast() }
+            services.router.open(next)
+        }
+        let env: (SkillsContext) -> InterpretEnv = { .live(ctx: $0, translator: InterpretTranslator.make()) }
+        switch page {
+        case "phrases": SkillsHost(make: { InterpretPhrasesModel(env: env($0), group: rest) }) { InterpretPhrasesView(model: $0, open: open, exit: { dismiss() }) }
+        case "history": SkillsHost(make: { InterpretHistoryModel(env: env($0), id: nil) }) { InterpretHistoryView(model: $0, open: open, exit: { dismiss() }) }
+        case "recap": SkillsHost(make: { InterpretHistoryModel(env: env($0), id: rest) }) { InterpretRecapView(model: $0, open: open, exit: { dismiss() }) }
+        default: SkillsHost(make: { InterpretTalkModel(env: env($0)) }) { InterpretTalkView(model: $0, open: open, exit: { dismiss() }) }
         }
     }
     private func hub(_ go: @escaping (AppRoute) -> Void) -> some View {
@@ -42,7 +69,9 @@ struct SkillsFocusScreen: View {
     var body: some View {
         let go: (AppRoute) -> Void = { StudyRoutes.go($0, services: services) }
         let close = { services.router.closeFocus() }
-        if route.name == "listen-test" {
+        if route.name == "placement" {
+            SkillsHost(make: { PlacementModel(ctx: $0) }) { PlacementView(model: $0, onClose: close, onRoute: go) }
+        } else if route.name == "listen-test" {
             if SkillsContext.content.parts(of: Int(route.arg ?? "") ?? 1).isEmpty { unknown } else {
                 SkillsHost(make: { ListenTestModel(ctx: $0, test: Int(route.arg ?? "") ?? 1) }) { ListenTestView(model: $0, onClose: close, onRoute: go) }
             }
@@ -68,6 +97,9 @@ struct SkillsHubView: View {
             ScrollView {
                 VStack(spacing: LKSpacing.spaceSm) {
                     door("headphones", t(.skillListenLuyenNgheIelts), AppRoute("listening"))
+                    door("play.rectangle.fill", t(.watchTitle), AppRoute("watch"))   // M4 P12: learn from YouTube video
+                    door("person.2.fill", t(.medTitle), AppRoute("mediate"))   // M4 P13: mediation
+                    door("globe", t(.interpretTitle), AppRoute("interpret"))   // M6 P14: interpreter
                     door("book.fill", t(.skillReadBaiDocIelts), AppRoute("reading"))
                     // M4 P07: the speaking doors (#/speak only behind the speak_pack flag, like the web)
                     if SpeakRoutes.speakPackOn() { door("figure.walk", t(.speakSpLuyenNoiTheoCau), AppRoute("speak")) }

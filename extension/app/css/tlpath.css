@@ -67,3 +67,21 @@
 .tp-more p{margin:0 0 var(--sp-3);font-size:var(--fs-sm);color:rgb(var(--st-on-surface-variant))}
 @media (prefers-reduced-motion:reduce){.tp-ring .fg,.tp-w .tp-ch,.tp-go{transition:none}}
 @media (min-width:720px){.tp{max-width:640px;margin-inline:auto}}
+
+/* Chặng CEFR + chọn trình độ (khung chung es/fr/…): token --st-*, lớp tp-* */
+.tp-stg h3,.tp-ask h3{margin:0 0 var(--sp-3);font-size:var(--fs-base);font-weight:800}
+.tp-stg ol{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-3)}
+.tp-sg{display:grid;gap:var(--sp-2);padding:var(--sp-3);border:1px solid rgb(var(--st-outline-variant));border-radius:var(--r-md)}
+.tp-sg.on{border-color:rgb(var(--st-secondary-container));background:rgb(var(--st-secondary-container) / .12)}
+.tp-sg.soon{opacity:.75}
+.tp-sgh{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sp-3)}
+.tp-sgh b{font-size:var(--fs-sm);font-weight:800}.tp-sgh small{font-size:var(--fs-xs);color:rgb(var(--st-on-surface-variant))}
+.tp-sgc{font-size:var(--fs-sm);color:rgb(var(--st-on-surface-variant));line-height:1.4}
+.tp-bar{display:block;height:6px;border-radius:var(--r-pill);background:rgb(var(--st-outline-variant) / .5);overflow:hidden}
+.tp-bar i{display:block;height:100%;background:rgb(var(--st-secondary-container));border-radius:inherit}
+.tp-sg .tp-btn{justify-self:start}
+.tp-ask-b{display:grid;gap:var(--sp-2)}
+.tp-goal{margin:var(--sp-2) 0 var(--sp-3);font-size:var(--fs-sm);line-height:1.4;font-weight:600}
+.tp-sg a.tp-btn{justify-self:start;text-decoration:none;display:inline-flex;align-items:center}
+.tp-sgt{font-size:var(--fs-xs);font-weight:800;color:rgb(var(--st-on-surface-variant))}.tp-sgt.ok{color:rgb(var(--st-secondary))}
+.tp-rev h3{margin:0 0 var(--sp-1);font-size:var(--fs-base);font-weight:800}.tp-rev p{margin:0 0 var(--sp-3);font-size:var(--fs-sm);color:rgb(var(--st-on-surface-variant))}.tp-rev a.tp-btn{text-decoration:none;display:inline-flex;align-items:center}

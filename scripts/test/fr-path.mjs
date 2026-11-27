@@ -9,7 +9,7 @@ const rj = f => JSON.parse(fs.readFileSync(f, 'utf8'));
 
 // (a) kế hoạch
 const { pts } = build('fr'), P = buildPath(pts, T.px ? buildPx('fr').topics : [], T), W = pathWords(T);
-ok(pts.length === 128 && P.days.length === pts.length && P.days.every((d, n) => d[2] === pts[n].id && d[3] === pts[n].level), `${P.days.length} ngày = ${pts.length} điểm ngữ pháp A1–B1, mỗi điểm đúng 1 ngày, theo thứ tự cấp`);
+ok(pts.length === 168 && pts.filter(p => p.level === 'B2').length === 40 && P.days.length === pts.length && P.days.every((d, n) => d[2] === pts[n].id && d[3] === pts[n].level), `${P.days.length} ngày = ${pts.length} điểm ngữ pháp A1–B2 (B2 mở vì đủ câu điền từ), mỗi điểm đúng 1 ngày, theo thứ tự cấp`);
 ok(P.days[0][0] === 0 && P.days.at(-1)[1] === Math.min(W.length, P.days.length * 8) && P.days.every((d, n) => (n === 0 || d[0] === P.days[n - 1][1]) && d[1] >= d[0] && d[1] - d[0] <= 8), `từ phủ liên tục ${P.days.at(-1)[1]}/${W.length} từ (seed + lô đã duyệt), ≤ 8 từ/ngày; phần sau vào Ôn tập qua "Từ mở rộng" của hub – cùng luật es-path`);
 ok(P.files['dy.js'].startsWith('self.FRX=self.FRX||{};FRX.dy=') && P.files['dy.js'].includes('FRX.dyp=function planDay'), 'dy.js (biến FRX) mang đúng hàm planDay của path-lib (một nguồn, trình duyệt tính lại ngày)');
 const HP = P.plan.t[0][0] !== ''; // fr có chủ đề phát âm (W3) → mỗi ngày có bước phát âm; chưa có → bước bỏ gọn

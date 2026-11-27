@@ -48,6 +48,22 @@
   "semi": {
    "t": "Halbvokale: j, w, ɥ",
    "x": "Vor einem Vokal werden i, ou und u zu schnellen Gleitlauten in einer Silbe. i ist /j/ wie das deutsche j: „fille“. ou ist /w/ wie englisches w: „oui“. u ist /ɥ/, die Lippen von /y/ im Gleiten: „huit“, „lui“, „nuit“. „huit“ hat eine Silbe. Vergleichen Sie „loue“ und „lui“, „fil“ und „fille“."
+  },
+  "h": {
+   "t": "Stummes und aspiriertes h",
+   "x": "Der Buchstabe h wird nie gesprochen, verhält sich aber auf zwei Arten. Ein stummes h wirkt wie ein Vokal: Man bindet und elidiert, „l’homme“, „les hommes“ /lez ɔm/, „l’hôtel“. Ein aspiriertes h wirkt wie ein Konsonant: keine Bindung, keine Elision und eine winzige Lücke, „le héros“, „les héros“ /le eʁo/, „les haricots“. Achte auf das z: „les héros“ hat keins, „les zéros“ schon."
+  },
+  "gn": {
+   "t": "Der Laut gn /ɲ/",
+   "x": "Die Buchstaben gn ergeben einen einzigen weichen Laut /ɲ/, ähnlich wie „nj“ in „Champignon“, nicht g plus n. Presse die Zungenmitte flach gegen den Gaumen: „agneau“, „montagne“, „campagne“. Ein einfaches n /n/ ist schneller und wird mit der Zungenspitze gebildet: „anneau“ (Ring) ist nicht „agneau“ (Lamm), und „peine“ ist nicht „peigne“."
+  },
+  "enchain": {
+   "t": "Konsonanten zwischen Wörtern binden",
+   "x": "Französisch wird in fließenden Gruppen gesprochen, deshalb springt ein Endkonsonant auf den nächsten Vokal: „une amie“ klingt wie „u-na-mie“, „il arrive“ wie „i-la-rive“, „avec elle“ wie „ave-kel“. Silben enden auf Vokal, ohne Pause oder Knacklaut zwischen den Wörtern. Höre den Unterschied zwischen „une amie“ (Freundin) und „un ami“ (Freund)."
+  },
+  "final": {
+   "t": "Endkonsonanten: stumm oder nicht",
+   "x": "Die meisten Endkonsonanten sind stumm: „petit“, „grand“, „nez“, „tout“. Aber die Buchstaben von CaReFuL (c, r, f, l) werden meist gesprochen: „sac“, „chef“, „fil“, „sur“. Achte auf Ausnahmen: „fils“ /fis/ (Sohn) hat ein s, „fil“ (Faden) endet dagegen auf l. Ein angehängtes e weckt den Konsonanten: „petit“ wird zu „petite“, „grand“ zu „grande“."
   }
  }
 }

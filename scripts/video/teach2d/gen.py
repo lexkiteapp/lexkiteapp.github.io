@@ -613,8 +613,14 @@ def facts():
     return _F
 
 
-def unknown(texts):   # NGSL (<= B1) gate, the scriptbank's known(): one node call for every text
-    return json.loads(subprocess.run(['node', f'{ROOT}/scripts/video/teach2d/facts.mjs', 'known'], input=json.dumps(texts), capture_output=True, text=True, check=True, cwd=ROOT).stdout)
+_UK = {}   # text -> unknown words; 26/11: l1_gate called node once per spoken line (6 x every L1 row) -> `gen.py --todo --count` > 150 s (ci-filler probe ETIMEDOUT); now one call per batch, cached per text
+
+
+def unknown(texts):   # NGSL (<= B1) gate, the scriptbank's known(): one node call for every text not seen yet
+    miss = sorted({t for t in texts if t not in _UK})
+    if miss:
+        for t, u in zip(miss, json.loads(subprocess.run(['node', f'{ROOT}/scripts/video/teach2d/facts.mjs', 'known'], input=json.dumps(miss), capture_output=True, text=True, check=True, cwd=ROOT).stdout)): _UK[t] = u
+    return [_UK[t] for t in texts]
 
 
 def nuclei(ipa):   # vowel nuclei, the same count qc.py's stress_index walks
@@ -1248,9 +1254,14 @@ def pilot_point(r):
 
 def verify():   # live re-check of every auto row: (ok ids, stale [(id, problems)])
     F = facts(); ok, stale = [], []
+    L1_ = load_l1(); pre = []
+    for r in L1_:   # one node call for every L1 spoken line (see unknown)
+        p = r['in']; taught = taught_re(re.findall(r"[A-Za-z']+", p['wrong'] + ' ' + p['right']) + [p['strike']])
+        pre += [taught.sub('', t) for t in (p['hook_say'], p['wrong'], p['right'], p['why'], p['answer_say'], p['quiz']['stem']) if t]
+    if pre: unknown(pre)
     for r in load_auto()['rows']:
         b = data_gate(r, F); (stale.append((r['id'], b)) if b else ok.append(r['id']))
-    for r in load_l1():
+    for r in L1_:
         b = l1_gate(r, F); (stale.append((r['id'], b)) if b else ok.append(r['id']))
     return ok, stale
 

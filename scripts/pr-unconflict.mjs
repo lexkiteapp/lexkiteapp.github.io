@@ -23,6 +23,7 @@ import { REGISTRIES } from './lib/fmt-registry.mjs';
 import { loadDictFile, writeSrc } from './lib/i18n-pack.mjs';
 import { writeFixed } from './lib/fixed-json.mjs';
 import { GEN_DIRS, isGenerated } from './lib/generated.mjs';
+import { ghFetch } from './lib/retry5xx.mjs';
 
 const REGISTRY_FILES = [...new Set(REGISTRIES.map(r => r.file))];
 
@@ -144,7 +145,7 @@ export const retryable = s => s === 429 || s >= 500;
 export const rateWait = (status, h, text = '') => status !== 403 ? 0 : h.get('retry-after') ? Math.min(90, +h.get('retry-after') || 30) : (h.get('x-ratelimit-remaining') === '0' || /rate limit|abuse/i.test(text)) ? 45 : 0;
 async function gh(path, tries = 4) {
   for (let i = 0; ; i++) {
-    const r = await fetch(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}${path}`, {
+    const r = await ghFetch(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}${path}`, {
       headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN}`, accept: 'application/vnd.github+json' } });
     if (r.ok) return r.json();
     const rw = rateWait(r.status, r.headers, r.status === 403 ? await r.text().catch(() => '') : ''); // 26/11: scheduled run đỏ vì 403 (secondary rate limit) khi runner chen nhau

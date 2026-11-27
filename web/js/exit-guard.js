@@ -14,6 +14,7 @@
   const isLearn = (name, arg, q) => {
     if (name === 'review' && reviewHub(q)) return false;
     if (extra.has(name) || ALWAYS.includes(name)) return true;
+    if (name === 'practice' && /^[a-z]{2}d$/.test(arg || '')) return false; // lộ trình ngày của ngôn ngữ đích (#/practice/esd|frd[?d=N]) = trang trung tâm: KHÔNG phải màn học – trước đây hiện nút X mà X về #/home → Hôm nay đẩy lại về chính nó (vòng lặp, owner 26/11)
     if (!WITH_ARG.includes(name) || !arg) return false;
     if (name === 'lesson') return arg === 'go' || /^\d/.test(arg) || !(g.App && App.ux1On && App.ux1On()); // ux1: #/lesson = bản đồ chặng
     if (name === 'irregular') return arg === 'practice'; // #/irregular và #/irregular/<động từ> = bảng + tờ chi tiết (không bẫy), chỉ luyện là màn học
@@ -93,9 +94,11 @@
   const needAsk = () => dirty && !finished();
 
   // Rời màn: đích lượt bị giữ → href nút thoát → màn trước (Hôm nay/tab gốc)
+  // Ngôn ngữ đích đang học: '#/home' (Hôm nay chung) bị app đẩy lại về lộ trình ngày của ngôn ngữ đó → thoát thẳng về đó, không qua vòng #/home
+  const tlHome = to => { try { const T = g.Target, tl = T && T.cur && T.cur(); return /^#\/(home|practice|call|today|path)?(\?.*)?$/.test(to || '') && tl && tl !== 'en' && T.homeOf && T.homeOf(tl) || to; } catch (e) { return to; } }; // #/home, #/practice (danh sách chế độ tiếng Anh), #/call … → lộ trình ngày của tl (e2e live 26/11: X từ bài es về #/practice)
   function leave(el, dest) {
     const href = el && el.getAttribute && el.getAttribute('href');
-    const to = dest || (href && href !== '#' && !learnHash(href) ? href : backTo || '#/home');
+    const to = tlHome(dest || (href && href !== '#' && !learnHash(href) ? href : backTo || '#/home'));
     saves.forEach(f => { try { f(); } catch (e) { /* lưu lỗi không chặn thoát */ } });
     bypass = true; dirty = false; popFor = '';
     if (location.hash === to) { bypass = false; seen = to; routeNow(); } else location.hash = to;

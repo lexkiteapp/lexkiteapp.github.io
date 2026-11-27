@@ -116,7 +116,7 @@ async function staleLeft(e) { // probe.stale_hours: còn việc nếu lượt ho
 }
 function cmdLeft(e) { // probe.cmd: in số việc còn theo left_re (nhóm 1); exit ≠ 0 → không dò được
   try {
-    const out = execSync(e.probe.cmd, { encoding: 'utf8', timeout: 90e3, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, ...(e.probe.env || {}) } });
+    const out = execSync(e.probe.cmd, { encoding: 'utf8', timeout: (e.probe.timeout_s || 90) * 1e3, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, ...(e.probe.env || {}) } });
     const m = out.match(new RegExp(e.probe.left_re)); return m ? +m[1] : null;
   } catch (err) { console.log(`::warning::dò ${e.id} lỗi: ${String(err.message).slice(0, 200)}`); return null; }
 }

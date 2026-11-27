@@ -48,6 +48,22 @@
   "semi": {
    "t": "Semivokal: j, w, ɥ",
    "x": "Sebelum vokal, i, ou, dan u menjadi bunyi luncur cepat dalam satu suku kata. i adalah /j/ seperti “y” pada “ya”: “fille”. ou adalah /w/ seperti “w” pada “waktu”: “oui”. u adalah /ɥ/, bibir /y/ yang meluncur: “huit”, “lui”, “nuit”. “huit” satu suku kata, bukan “u-it”. Bandingkan “loue” dan “lui”, “fil” dan “fille”."
+  },
+  "h": {
+   "t": "H bisu dan h aspirasi",
+   "x": "Huruf h tidak pernah dibunyikan, tetapi berperilaku dengan dua cara. H bisu bertindak seperti vokal: ada liaison dan elisi, “l’homme”, “les hommes” /lez ɔm/, “l’hôtel”. H aspirasi bertindak seperti konsonan: tanpa liaison, tanpa elisi, dan ada jeda kecil, “le héros”, “les héros” /le eʁo/, “les haricots”. Dengarkan bunyi z: “les héros” tidak punya, “les zéros” punya."
+  },
+  "gn": {
+   "t": "Bunyi gn /ɲ/",
+   "x": "Huruf gn membentuk satu bunyi lembut /ɲ/, seperti “ny” dalam “nyanyi”, bukan g lalu n. Tempelkan bagian tengah lidah rata ke langit-langit: “agneau”, “montagne”, “campagne”. N biasa /n/ lebih cepat dan memakai ujung lidah: “anneau” (cincin) bukan “agneau” (anak domba), dan “peine” bukan “peigne”."
+  },
+  "enchain": {
+   "t": "Menyambung konsonan antarkata",
+   "x": "Bahasa Prancis diucapkan dalam kelompok yang mengalir, jadi konsonan akhir melompat ke vokal berikutnya: “une amie” terdengar seperti “u-na-mie”, “il arrive” seperti “i-la-rive”, “avec elle” seperti “ave-kel”. Suku kata berakhir dengan vokal, tanpa jeda atau hentian glotis antarkata. Dengarkan perbedaan antara “une amie” (teman perempuan) dan “un ami” (teman laki-laki)."
+  },
+  "final": {
+   "t": "Konsonan akhir: bisu atau tidak",
+   "x": "Sebagian besar konsonan akhir bisu: “petit”, “grand”, “nez”, “tout”. Namun huruf-huruf CaReFuL (c, r, f, l) biasanya dibunyikan: “sac”, “chef”, “fil”, “sur”. Waspadai pengecualian: “fils” /fis/ (anak laki-laki) bunyi s, sedangkan “fil” (benang) berakhir l. Menambah e membangunkan konsonan: “petit” menjadi “petite”, “grand” menjadi “grande”."
   }
  }
 }

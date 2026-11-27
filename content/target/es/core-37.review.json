@@ -1,0 +1,1706 @@
+{
+ "fixed": [
+  {
+   "word": "ala",
+   "field": "ex.es",
+   "from": "El pájaro tiene una ala rota.",
+   "to": "El pájaro tiene un ala rota.",
+   "why": "ala dùng mạo từ un (a tónica)"
+  },
+  {
+   "word": "apetecer",
+   "field": "gl.vi",
+   "from": "thèm",
+   "to": "thấy thích, muốn",
+   "why": "nghĩa tự nhiên hơn"
+  },
+  {
+   "word": "lucir",
+   "field": "gl.en",
+   "from": "to shine, to look",
+   "to": "to shine",
+   "why": "một nghĩa chính, khớp các ngôn ngữ khác"
+  },
+  {
+   "word": "lucir",
+   "field": "ex.es",
+   "from": "Ella siempre luce elegante.",
+   "to": "Las estrellas lucen en el cielo.",
+   "why": "khớp nghĩa \"tỏa sáng\""
+  },
+  {
+   "word": "lucir",
+   "field": "ex.en",
+   "from": "She always looks elegant.",
+   "to": "The stars shine in the sky.",
+   "why": "khớp ví dụ mới"
+  },
+  {
+   "word": "prima",
+   "field": "gl.vi",
+   "from": "chị họ",
+   "to": "chị/em họ (nữ)",
+   "why": "prima không phân biệt chị/em"
+  },
+  {
+   "word": "prima",
+   "field": "gl.hi",
+   "from": "बहनभतीजी",
+   "to": "चचेरी बहन",
+   "why": "sai nghĩa (cháu gái)"
+  },
+  {
+   "word": "prima",
+   "field": "gl.th",
+   "from": "ญาติสาว",
+   "to": "ลูกพี่ลูกน้อง (ผู้หญิง)",
+   "why": "nghĩa chính xác hơn"
+  },
+  {
+   "word": "prima",
+   "field": "gl.ar",
+   "from": "قريبة",
+   "to": "ابنة العم",
+   "why": "nghĩa chính xác hơn"
+  },
+  {
+   "word": "repetir",
+   "field": "gl.en",
+   "from": "repeat",
+   "to": "to repeat",
+   "why": "thiếu \"to\" cho động từ"
+  },
+  {
+   "word": "petición",
+   "field": "gl.vi",
+   "from": "request",
+   "to": "yêu cầu",
+   "why": "tiếng Anh trong trường vi"
+  },
+  {
+   "word": "petición",
+   "field": "gl.ja",
+   "from": "請求",
+   "to": "依頼",
+   "why": "請求 nghĩa là đòi thanh toán"
+  },
+  {
+   "word": "presentación",
+   "field": "gl.vi",
+   "from": "presentation",
+   "to": "bài thuyết trình",
+   "why": "tiếng Anh trong trường vi"
+  },
+  {
+   "word": "coraje",
+   "field": "gl.vi",
+   "from": "courage",
+   "to": "lòng dũng cảm",
+   "why": "tiếng Anh trong trường vi"
+  },
+  {
+   "word": "fantasía",
+   "field": "gl.vi",
+   "from": "fantasy",
+   "to": "giả tưởng",
+   "why": "tiếng Anh trong trường vi"
+  },
+  {
+   "word": "obrar",
+   "field": "gl.es",
+   "from": "actuar, trabajar",
+   "to": "actuar",
+   "why": "gl.es ngắn, một nghĩa"
+  },
+  {
+   "word": "obrar",
+   "field": "gl.en",
+   "from": "to act, to work",
+   "to": "to act",
+   "why": "một nghĩa chính"
+  },
+  {
+   "word": "obrar",
+   "field": "gl.vi",
+   "from": "hành động, làm việc",
+   "to": "hành động",
+   "why": "một nghĩa chính"
+  },
+  {
+   "word": "camarada",
+   "field": "gl.vi",
+   "from": "đồng chí",
+   "to": "đồng đội, bạn bè",
+   "why": "\"đồng chí\" mang nghĩa chính trị"
+  },
+  {
+   "word": "desnudar",
+   "field": "gl.vi",
+   "from": "cởi đồ, làm trần",
+   "to": "cởi quần áo",
+   "why": "tự nhiên hơn"
+  },
+  {
+   "word": "payaso",
+   "field": "gl.vi",
+   "from": "hề hước",
+   "to": "chú hề",
+   "why": "sai từ loại/nghĩa"
+  },
+  {
+   "word": "rayo",
+   "field": "gl.en",
+   "from": "ray, lightning",
+   "to": "lightning bolt",
+   "why": "nghĩa phổ biến nhất"
+  },
+  {
+   "word": "rayo",
+   "field": "gl.vi",
+   "from": "tia chớp",
+   "to": "tia sét",
+   "why": "khớp ví dụ"
+  },
+  {
+   "word": "convencido",
+   "field": "gl.vi",
+   "from": "thuyết phục",
+   "to": "tin chắc",
+   "why": "adj: tin chắc, không phải động từ"
+  },
+  {
+   "word": "impacto",
+   "field": "gl.es",
+   "from": "efecto fuerte",
+   "to": "impacto",
+   "why": "gl.es phải là từ khóa"
+  },
+  {
+   "word": "sufrimiento",
+   "field": "gl.es",
+   "from": "dolor, padecimiento",
+   "to": "dolor",
+   "why": "gl.es ngắn"
+  },
+  {
+   "word": "soltero",
+   "field": "gl.es",
+   "from": "no casado",
+   "to": "soltero",
+   "why": "gl.es phải là từ khóa"
+  },
+  {
+   "word": "influencia",
+   "field": "gl.es",
+   "from": "capacidad de afectar",
+   "to": "influencia",
+   "why": "gl.es là định nghĩa dài"
+  },
+  {
+   "word": "cementerio",
+   "field": "gl.vi",
+   "from": "nhà mồ",
+   "to": "nghĩa trang",
+   "why": "tự nhiên hơn"
+  },
+  {
+   "word": "prestado",
+   "field": "gl.vi",
+   "from": "được cho vay",
+   "to": "được mượn",
+   "why": "prestado = mượn"
+  },
+  {
+   "word": "béisbol",
+   "field": "plural",
+   "from": "béisbol",
+   "to": "",
+   "why": "danh từ không đếm, không dùng số nhiều"
+  },
+  {
+   "word": "significado",
+   "field": "gl.es",
+   "from": "significado de una palabra",
+   "to": "significado",
+   "why": "gl.es ngắn"
+  },
+  {
+   "word": "significado",
+   "field": "gl.en",
+   "from": "meaning of a word",
+   "to": "meaning",
+   "why": "gloss ngắn"
+  },
+  {
+   "word": "significado",
+   "field": "gl.vi",
+   "from": "nghĩa của một từ",
+   "to": "nghĩa",
+   "why": "gloss ngắn"
+  },
+  {
+   "word": "alcanzar",
+   "field": "gl.es",
+   "from": "lograr o llegar a",
+   "to": "lograr",
+   "why": "gl.es ngắn"
+  },
+  {
+   "word": "cima",
+   "field": "gl.es",
+   "from": "parte más alta",
+   "to": "cumbre",
+   "why": "gl.es ngắn"
+  },
+  {
+   "word": "once",
+   "field": "gl.es",
+   "from": "número 11",
+   "to": "once",
+   "why": "gl.es là từ khóa"
+  },
+  {
+   "word": "terrorista",
+   "field": "gl.es",
+   "from": "persona que practica terrorismo",
+   "to": "terrorista",
+   "why": "gl.es là định nghĩa dài"
+  },
+  {
+   "word": "término",
+   "field": "gl.es",
+   "from": "palabra o expresión",
+   "to": "término",
+   "why": "gl.es là định nghĩa dài"
+  },
+  {
+   "word": "explotar",
+   "field": "gl.es",
+   "from": "hacer estallar",
+   "to": "estallar",
+   "why": "gl.es ngắn"
+  },
+  {
+   "word": "nube",
+   "field": "gl.es",
+   "from": "masa de vapor en el cielo",
+   "to": "nube",
+   "why": "gl.es là định nghĩa dài"
+  },
+  {
+   "word": "circo",
+   "field": "gl.es",
+   "from": "espectáculo con animales y acróbatas",
+   "to": "circo",
+   "why": "gl.es là định nghĩa dài"
+  },
+  {
+   "word": "encargar",
+   "field": "gl.es",
+   "from": "encargar",
+   "to": "pedir",
+   "why": "gl.es nên là từ đồng nghĩa"
+  },
+  {
+   "word": "armada",
+   "field": "gl.es",
+   "from": "flota de barcos",
+   "to": "flota",
+   "why": "Gloss.es quá dài"
+  },
+  {
+   "word": "armada",
+   "field": "ex.es",
+   "from": "La armada patrulló la costa.",
+   "to": "La armada enemiga se acercó a la costa.",
+   "why": "Ví dụ khớp nghĩa 'hạm đội'"
+  },
+  {
+   "word": "armada",
+   "field": "ex.en",
+   "from": "The navy patrolled the coast.",
+   "to": "The enemy fleet approached the coast.",
+   "why": "Khớp ví dụ es"
+  },
+  {
+   "word": "apagar",
+   "field": "gl.vi",
+   "from": "tắt điện",
+   "to": "tắt",
+   "why": "Tự nhiên hơn, không chỉ điện"
+  },
+  {
+   "word": "lidiar",
+   "field": "gl.es",
+   "from": "enfrentarse a una situación",
+   "to": "enfrentar",
+   "why": "Gloss.es quá dài"
+  },
+  {
+   "word": "lidiar",
+   "field": "gl.ru",
+   "from": "разобраться с",
+   "to": "справляться с",
+   "why": "Tự nhiên hơn"
+  },
+  {
+   "word": "sentencia",
+   "field": "gl.es",
+   "from": "decisión judicial",
+   "to": "fallo",
+   "why": "Gloss.es nên là từ đồng nghĩa ngắn"
+  },
+  {
+   "word": "sentencia",
+   "field": "gl.fr",
+   "from": "sentence",
+   "to": "jugement",
+   "why": "Nghĩa pháp lý, sentence là bản án hình sự hẹp"
+  },
+  {
+   "word": "residencia",
+   "field": "gl.es",
+   "from": "hogar, vivienda",
+   "to": "vivienda",
+   "why": "Gloss.es gọn hơn"
+  },
+  {
+   "word": "engañar",
+   "field": "gl.es",
+   "from": "mentir o defraudar",
+   "to": "defraudar",
+   "why": "Gloss.es quá dài"
+  },
+  {
+   "word": "recepción",
+   "field": "gl.es",
+   "from": "acogida o área de atención",
+   "to": "recepción",
+   "why": "Gloss.es là headword"
+  },
+  {
+   "word": "guante",
+   "field": "gl.es",
+   "from": "prenda para la mano",
+   "to": "guante",
+   "why": "Gloss.es là headword"
+  },
+  {
+   "word": "docena",
+   "field": "gl.vi",
+   "from": "đôzen",
+   "to": "tá",
+   "why": "'đôzen' không phải tiếng Việt"
+  },
+  {
+   "word": "lanza",
+   "field": "gl.vi",
+   "from": "giá",
+   "to": "giáo",
+   "why": "'giá' sai nghĩa"
+  },
+  {
+   "word": "ensalada",
+   "field": "gl.vi",
+   "from": "salad",
+   "to": "món salad",
+   "why": "Tránh để nguyên tiếng Anh"
+  },
+  {
+   "word": "fijar",
+   "field": "gl.vi",
+   "from": "đặt",
+   "to": "cố định",
+   "why": "Nghĩa chính của fijar"
+  },
+  {
+   "word": "fijar",
+   "field": "gl.hi",
+   "from": "स्थापित करना",
+   "to": "लगाना",
+   "why": "Nghĩa gắn/cố định"
+  },
+  {
+   "word": "fijar",
+   "field": "gl.th",
+   "from": "ตั้งค่า",
+   "to": "ติด",
+   "why": "Nghĩa gắn/cố định, không phải 'cài đặt'"
+  },
+  {
+   "word": "drama",
+   "field": "gl.es",
+   "from": "obra teatral o situación conflictiva",
+   "to": "drama",
+   "why": "Gloss.es quá dài"
+  },
+  {
+   "word": "drama",
+   "field": "gl.en",
+   "from": "dramatic work or conflict",
+   "to": "drama",
+   "why": "Gloss quá dài"
+  },
+  {
+   "word": "drama",
+   "field": "gl.vi",
+   "from": "tác phẩm kịch hoặc tình huống xung đột",
+   "to": "kịch",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.pt",
+   "from": "obra teatral ou situação conflituosa",
+   "to": "drama",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.fr",
+   "from": "œuvre dramatique ou situation conflictuelle",
+   "to": "drame",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.de",
+   "from": "dramatisches Werk oder Konfliktsituation",
+   "to": "Drama",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.id",
+   "from": "karya drama atau situasi konflik",
+   "to": "drama",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.tr",
+   "from": "dramatik eser veya çatışma durumu",
+   "to": "drama",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.zh",
+   "from": "戏剧作品或冲突情境",
+   "to": "戏剧",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.ja",
+   "from": "ドラマ作品または対立状況",
+   "to": "ドラマ",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.ko",
+   "from": "드라마 작품 또는 갈등 상황",
+   "to": "드라마",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.hi",
+   "from": "नाटकीय कार्य या संघर्ष स्थिति",
+   "to": "नाटक",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.ar",
+   "from": "عمل درامي أو موقف صراعي",
+   "to": "دراما",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.ru",
+   "from": "драматическое произведение или конфликтная ситуация",
+   "to": "драма",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "drama",
+   "field": "gl.th",
+   "from": "ผลงานละครหรือสถานการณ์ขัดแย้ง",
+   "to": "ละคร",
+   "why": "Rút gọn về nghĩa chính"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.es",
+   "from": "que no es consciente",
+   "to": "inconsciente",
+   "why": "Gloss.es là headword"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.en",
+   "from": "unaware",
+   "to": "unconscious",
+   "why": "Nghĩa thường gặp nhất"
+  },
+  {
+   "word": "inconsciente",
+   "field": "ex.es",
+   "from": "Estaba inconsciente del peligro.",
+   "to": "Quedó inconsciente después del golpe.",
+   "why": "Ví dụ khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "ex.en",
+   "from": "He was unaware of the danger.",
+   "to": "He was left unconscious after the blow.",
+   "why": "Khớp ví dụ es"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.vi",
+   "from": "không nhận thức",
+   "to": "bất tỉnh",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.fr",
+   "from": "inconscient",
+   "to": "inconscient",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.de",
+   "from": "unbewusst",
+   "to": "bewusstlos",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.id",
+   "from": "tidak sadar",
+   "to": "tidak sadarkan diri",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.tr",
+   "from": "bilinçsiz",
+   "to": "baygın",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.zh",
+   "from": "无意识的",
+   "to": "昏迷的",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.ja",
+   "from": "無意識の",
+   "to": "意識がない",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.ko",
+   "from": "무의식적인",
+   "to": "의식을 잃은",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.hi",
+   "from": "अवचेतन",
+   "to": "बेहोश",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.ar",
+   "from": "غير واعٍ",
+   "to": "فاقد الوعي",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.ru",
+   "from": "неосознанный",
+   "to": "без сознания",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "inconsciente",
+   "field": "gl.th",
+   "from": "ไม่รู้ตัว",
+   "to": "หมดสติ",
+   "why": "Khớp nghĩa 'bất tỉnh'"
+  },
+  {
+   "word": "estadounidense",
+   "field": "gl.es",
+   "from": "persona de EE. UU.",
+   "to": "norteamericano",
+   "why": "Gloss.es nên là từ đồng nghĩa"
+  },
+  {
+   "word": "estadounidense",
+   "field": "gl.vi",
+   "from": "người Mỹ (Mỹ)",
+   "to": "người Mỹ",
+   "why": "Bỏ ngoặc thừa"
+  },
+  {
+   "word": "confundido",
+   "field": "gl.es",
+   "from": "que no entiende bien",
+   "to": "desconcertado",
+   "why": "Gloss.es quá dài"
+  },
+  {
+   "word": "testimonio",
+   "field": "gl.de",
+   "from": "Zeugnis",
+   "to": "Zeugenaussage",
+   "why": "Zeugnis = chứng chỉ"
+  },
+  {
+   "word": "testimonio",
+   "field": "gl.ru",
+   "from": "свидетельство",
+   "to": "показание",
+   "why": "свидетельство quá chung"
+  },
+  {
+   "word": "reverendo",
+   "field": "gl.vi",
+   "from": "linh mục",
+   "to": "mục sư",
+   "why": "Reverendo thiên về mục sư"
+  },
+  {
+   "word": "reverendo",
+   "field": "gl.de",
+   "from": "Reverend",
+   "to": "Pfarrer",
+   "why": "Không để nguyên tiếng Anh"
+  },
+  {
+   "word": "reverendo",
+   "field": "gl.ja",
+   "from": "司祭",
+   "to": "牧師",
+   "why": "司祭 là linh mục Công giáo"
+  },
+  {
+   "word": "comisión",
+   "field": "gl.ja",
+   "from": "コミッション",
+   "to": "手数料",
+   "why": "Nghĩa hoa hồng tự nhiên hơn"
+  },
+  {
+   "word": "comisión",
+   "field": "gl.ko",
+   "from": "커미션",
+   "to": "수수료",
+   "why": "Nghĩa hoa hồng tự nhiên hơn"
+  },
+  {
+   "word": "superar",
+   "field": "gl.hi",
+   "from": "पराजित करना",
+   "to": "पार पाना",
+   "why": "'पराजित करना' sai nghĩa"
+  },
+  {
+   "word": "físico",
+   "field": "gl.zh",
+   "from": "物理的",
+   "to": "身体的",
+   "why": "Nghĩa thể chất"
+  },
+  {
+   "word": "físico",
+   "field": "gl.ja",
+   "from": "物理的",
+   "to": "身体的",
+   "why": "Nghĩa thể chất"
+  },
+  {
+   "word": "físico",
+   "field": "gl.ko",
+   "from": "물리적인",
+   "to": "신체적인",
+   "why": "Nghĩa thể chất"
+  },
+  {
+   "word": "físico",
+   "field": "gl.hi",
+   "from": "भौतिक",
+   "to": "शारीरिक",
+   "why": "Nghĩa thể chất"
+  },
+  {
+   "word": "físico",
+   "field": "gl.ar",
+   "from": "فيزيائي",
+   "to": "بدني",
+   "why": "Nghĩa thể chất"
+  },
+  {
+   "word": "fascinante",
+   "field": "ipa",
+   "from": "fassiˈnante",
+   "to": "fasiˈnante",
+   "why": "sc đọc /s/ theo seseo"
+  },
+  {
+   "word": "informado",
+   "field": "gl.ko",
+   "from": "알려진",
+   "to": "정보를 아는",
+   "why": "'알려진' sai nghĩa"
+  },
+  {
+   "word": "informado",
+   "field": "gl.ja",
+   "from": "情報がある",
+   "to": "情報に通じた",
+   "why": "Tự nhiên hơn"
+  },
+  {
+   "word": "vigilar",
+   "field": "gl.tr",
+   "from": "gözlemlemek",
+   "to": "gözetmek",
+   "why": "gözlemlemek = quan sát"
+  },
+  {
+   "word": "función",
+   "field": "ex.es",
+   "from": "La función comienza a las ocho.",
+   "to": "Esta función sirve para guardar el archivo.",
+   "why": "Ví dụ khớp nghĩa 'chức năng'"
+  },
+  {
+   "word": "función",
+   "field": "ex.en",
+   "from": "The performance starts at eight.",
+   "to": "This function is used to save the file.",
+   "why": "Khớp ví dụ es"
+  },
+  {
+   "word": "cabina",
+   "field": "gl.vi",
+   "from": "cabin",
+   "to": "khoang",
+   "why": "'cabin' để nguyên tiếng Anh"
+  },
+  {
+   "word": "cabina",
+   "field": "gl.zh",
+   "from": "舱",
+   "to": "机舱",
+   "why": "舱 quá chung"
+  },
+  {
+   "word": "cabina",
+   "field": "gl.ko",
+   "from": "칸",
+   "to": "객실",
+   "why": "칸 sai nghĩa"
+  },
+  {
+   "word": "cabina",
+   "field": "gl.id",
+   "from": "kabina",
+   "to": "kabin",
+   "why": "'kabina' sai"
+  },
+  {
+   "word": "champán",
+   "field": "gl.vi",
+   "from": "sâm-binh",
+   "to": "sâm panh",
+   "why": "Sai chính tả"
+  },
+  {
+   "word": "extremadamente",
+   "field": "gl.vi",
+   "from": "rất",
+   "to": "cực kỳ",
+   "why": "Đúng sắc thái"
+  },
+  {
+   "word": "extremadamente",
+   "field": "gl.ar",
+   "from": "بشكل مفرط",
+   "to": "للغاية",
+   "why": "'بشكل مفرط' = quá mức"
+  },
+  {
+   "word": "agenda",
+   "field": "ex.es",
+   "from": "Tengo una agenda para organizar mis clases.",
+   "to": "Tengo una agenda muy llena esta semana.",
+   "why": "Khớp nghĩa 'lịch trình'"
+  },
+  {
+   "word": "agenda",
+   "field": "ex.en",
+   "from": "I have a planner to organize my classes.",
+   "to": "I have a very full schedule this week.",
+   "why": "Khớp ví dụ es"
+  },
+  {
+   "word": "fabuloso",
+   "field": "gl.ko",
+   "from": "굉장히 좋은",
+   "to": "환상적인",
+   "why": "Tự nhiên hơn"
+  },
+  {
+   "word": "junio",
+   "field": "plural",
+   "from": "junios",
+   "to": "",
+   "why": "Tên tháng không có số nhiều"
+  },
+  {
+   "word": "extremo",
+   "field": "gl.vi",
+   "from": "cực đoan",
+   "to": "cực độ",
+   "why": "'cực đoan' thiên về chính trị"
+  },
+  {
+   "word": "extremo",
+   "field": "gl.th",
+   "from": "อย่างรุนแรง",
+   "to": "สุดขั้ว",
+   "why": "Là phó từ, sai từ loại"
+  },
+  {
+   "word": "extremo",
+   "field": "gl.ar",
+   "from": "متطرف",
+   "to": "شديد",
+   "why": "'متطرف' = cực đoan"
+  },
+  {
+   "word": "extraordinario",
+   "field": "gl.ru",
+   "from": "необычный",
+   "to": "необыкновенный",
+   "why": "Chính xác hơn"
+  },
+  {
+   "word": "parir",
+   "field": "gl.ar",
+   "from": "يولد",
+   "to": "يلد",
+   "why": "'يولد' = được sinh ra"
+  },
+  {
+   "word": "cuartel",
+   "field": "gl.vi",
+   "from": "đồn quân",
+   "to": "doanh trại",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "cuartel",
+   "field": "gl.hi",
+   "from": "बाराक",
+   "to": "छावनी",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "convencer",
+   "field": "gl.th",
+   "from": "ชักชวน",
+   "to": "โน้มน้าว",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "rollo",
+   "field": "gl.ko",
+   "from": "롤",
+   "to": "두루마리",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "parejo",
+   "field": "gl.vi",
+   "from": "bằng nhau",
+   "to": "đều, bằng phẳng",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "condicional",
+   "field": "gl.vi",
+   "from": "điều kiện",
+   "to": "có điều kiện",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "giro",
+   "field": "gl.vi",
+   "from": "vòng quay",
+   "to": "sự rẽ, vòng xoay",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "refuerzo",
+   "field": "ex.es",
+   "from": "Necesito un refuerzo de estudio para el examen.",
+   "to": "Necesitamos un refuerzo para sostener el techo.",
+   "why": "Ví dụ gượng, đổi sang nghĩa gia cố"
+  },
+  {
+   "word": "refuerzo",
+   "field": "ex.en",
+   "from": "I need a study reinforcement for the exam.",
+   "to": "We need a reinforcement to support the roof.",
+   "why": "Khớp ex.es mới"
+  },
+  {
+   "word": "retiro",
+   "field": "gl.ko",
+   "from": "퇴직",
+   "to": "은퇴",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "alfombra",
+   "field": "gl.ko",
+   "from": "카페트",
+   "to": "카펫",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "identificar",
+   "field": "gl.ar",
+   "from": "تحديد",
+   "to": "يحدد",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "petróleo",
+   "field": "gl.hi",
+   "from": "तेल",
+   "to": "कच्चा तेल",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "malvado",
+   "field": "gl.vi",
+   "from": "ác",
+   "to": "độc ác",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "malvado",
+   "field": "gl.ja",
+   "from": "悪い",
+   "to": "邪悪な",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "malvado",
+   "field": "gl.hi",
+   "from": "बुरे",
+   "to": "दुष्ट",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "defender",
+   "field": "gl.zh",
+   "from": "防御",
+   "to": "捍卫",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "comentario",
+   "field": "gl.ko",
+   "from": "댓글",
+   "to": "의견",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "cargar",
+   "field": "ex.es",
+   "from": "Voy a cargar la mochila.",
+   "to": "Voy a cargar las cajas en el camión.",
+   "why": "Đổi ví dụ cho đúng nghĩa \"chất hàng\""
+  },
+  {
+   "word": "cargar",
+   "field": "ex.en",
+   "from": "I am going to load the backpack.",
+   "to": "I am going to load the boxes onto the truck.",
+   "why": "Khớp ex.es"
+  },
+  {
+   "word": "cargar",
+   "field": "gl.vi",
+   "from": "tải",
+   "to": "chất hàng lên",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "cargar",
+   "field": "gl.th",
+   "from": "โหลด",
+   "to": "บรรทุก",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "cargar",
+   "field": "gl.ko",
+   "from": "로드하다",
+   "to": "싣다",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "cargar",
+   "field": "gl.hi",
+   "from": "लोड करना",
+   "to": "लादना",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "cargar",
+   "field": "gl.ru",
+   "from": "загружать",
+   "to": "грузить",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "escala",
+   "field": "gl.th",
+   "from": "สเกล",
+   "to": "มาตราส่วน",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "escala",
+   "field": "gl.ko",
+   "from": "스케일",
+   "to": "축척",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "escala",
+   "field": "gl.hi",
+   "from": "स्केल",
+   "to": "पैमाना",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "escala",
+   "field": "gl.de",
+   "from": "Skala",
+   "to": "Maßstab",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "nivelar",
+   "field": "gl.vi",
+   "from": "cân bằng",
+   "to": "san bằng",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "nivelar",
+   "field": "gl.th",
+   "from": "ทำให้ระดับ",
+   "to": "ปรับระดับ",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "nivelar",
+   "field": "gl.ar",
+   "from": "تسوية",
+   "to": "يسوّي",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "pandilla",
+   "field": "gl.es",
+   "from": "grupo delictivo",
+   "to": "banda",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "agradar",
+   "field": "gl.es",
+   "from": "gustar a alguien",
+   "to": "gustar",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "agradar",
+   "field": "gl.ar",
+   "from": "أرضى",
+   "to": "يروق",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "onda",
+   "field": "gl.es",
+   "from": "vibración, tendencia",
+   "to": "onda",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.en",
+   "from": "vibe, trend",
+   "to": "wave",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.vi",
+   "from": "sóng, xu hướng",
+   "to": "sóng",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.pt",
+   "from": "onda, tendência",
+   "to": "onda",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.fr",
+   "from": "vague, tendance",
+   "to": "onde",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.de",
+   "from": "Welle, Trend",
+   "to": "Welle",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.id",
+   "from": "gelombang, tren",
+   "to": "gelombang",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.th",
+   "from": "คลื่น, แนวโน้ม",
+   "to": "คลื่น",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.zh",
+   "from": "波, 趋势",
+   "to": "波",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.ja",
+   "from": "波, トレンド",
+   "to": "波",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.ko",
+   "from": "파동, 트렌드",
+   "to": "파동",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.hi",
+   "from": "तरंग, प्रवृत्ति",
+   "to": "तरंग",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.ar",
+   "from": "موجة, اتجاه",
+   "to": "موجة",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.ru",
+   "from": "волна, тенденция",
+   "to": "волна",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "gl.tr",
+   "from": "dalga, eğilim",
+   "to": "dalga",
+   "why": "Chọn nghĩa phổ biến nhất: sóng"
+  },
+  {
+   "word": "onda",
+   "field": "ex.es",
+   "from": "Me gusta la onda de esta canción.",
+   "to": "La onda de sonido viaja por el aire.",
+   "why": "Ví dụ phải khớp nghĩa \"sóng\""
+  },
+  {
+   "word": "onda",
+   "field": "ex.en",
+   "from": "I like the vibe of this song.",
+   "to": "The sound wave travels through the air.",
+   "why": "Khớp ex.es"
+  },
+  {
+   "word": "duque",
+   "field": "gl.es",
+   "from": "título nobiliario",
+   "to": "noble",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "duque",
+   "field": "gl.id",
+   "from": "duke",
+   "to": "adipati",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "trono",
+   "field": "gl.es",
+   "from": "asiento del monarca",
+   "to": "silla real",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "canto",
+   "field": "gl.es",
+   "from": "acta de cantar",
+   "to": "canto",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "aumento",
+   "field": "gl.vi",
+   "from": "tăng",
+   "to": "sự tăng lên",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "esconder",
+   "field": "gl.ar",
+   "from": "إخفاء",
+   "to": "يخفي",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "taller",
+   "field": "gl.es",
+   "from": "lugar de trabajo manual",
+   "to": "taller",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "taller",
+   "field": "gl.zh",
+   "from": "车间",
+   "to": "工作坊",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.es",
+   "from": "mes",
+   "to": "octubre",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.en",
+   "from": "month",
+   "to": "October",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.vi",
+   "from": "tháng",
+   "to": "tháng Mười",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.pt",
+   "from": "mês",
+   "to": "outubro",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.fr",
+   "from": "mois",
+   "to": "octobre",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.de",
+   "from": "Monat",
+   "to": "Oktober",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.id",
+   "from": "bulan",
+   "to": "Oktober",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.th",
+   "from": "เดือน",
+   "to": "ตุลาคม",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.zh",
+   "from": "月份",
+   "to": "十月",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.ja",
+   "from": "月",
+   "to": "10月",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.ko",
+   "from": "월",
+   "to": "10월",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.hi",
+   "from": "महीना",
+   "to": "अक्टूबर",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.ar",
+   "from": "شهر",
+   "to": "أكتوبر",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.ru",
+   "from": "месяц",
+   "to": "октябрь",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "gl.tr",
+   "from": "ay",
+   "to": "Ekim",
+   "why": "Gloss sai: \"octubre\" là tháng 10, không phải \"tháng\" chung"
+  },
+  {
+   "word": "octubre",
+   "field": "plural",
+   "from": "octubres",
+   "to": "",
+   "why": "Tên tháng không dùng số nhiều"
+  },
+  {
+   "word": "besar",
+   "field": "gl.ar",
+   "from": "قبلة",
+   "to": "يقبّل",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "lavar",
+   "field": "gl.ar",
+   "from": "غسل",
+   "to": "يغسل",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "cuyo",
+   "field": "gl.vi",
+   "from": "của ai",
+   "to": "của (người/vật) mà",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "emocional",
+   "field": "gl.vi",
+   "from": "cảm xúc",
+   "to": "xúc động",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "condena",
+   "field": "gl.fr",
+   "from": "condamnation",
+   "to": "peine",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "condena",
+   "field": "gl.de",
+   "from": "Verurteilung",
+   "to": "Strafe",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "condena",
+   "field": "gl.th",
+   "from": "คำตัดสิน",
+   "to": "โทษ",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "condena",
+   "field": "gl.ko",
+   "from": "판결",
+   "to": "형량",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "potencia",
+   "field": "gl.ko",
+   "from": "전력",
+   "to": "출력",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "emocionado",
+   "field": "gl.ja",
+   "from": "興奮",
+   "to": "わくわくした",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "mágico",
+   "field": "gl.vi",
+   "from": "phép thuật",
+   "to": "kỳ diệu",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "mágico",
+   "field": "gl.ru",
+   "from": "магический",
+   "to": "волшебный",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "graduación",
+   "field": "gl.hi",
+   "from": "स्नातक",
+   "to": "दीक्षांत समारोह",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "pata",
+   "field": "gl.es",
+   "from": "pierna de animal o de mueble",
+   "to": "extremidad",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "presupuesto",
+   "field": "gl.de",
+   "from": "Haushalt",
+   "to": "Budget",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "vomitar",
+   "field": "gl.ar",
+   "from": "تقيؤ",
+   "to": "يتقيأ",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "bendición",
+   "field": "gl.tr",
+   "from": "nimet",
+   "to": "kutsama",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "fama",
+   "field": "gl.ar",
+   "from": "سمعة",
+   "to": "شهرة",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "fama",
+   "field": "gl.hi",
+   "from": "प्रतिष्ठा",
+   "to": "प्रसिद्धि",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "fama",
+   "field": "gl.tr",
+   "from": "ün",
+   "to": "şöhret",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "maíz",
+   "field": "gl.vi",
+   "from": "bắp",
+   "to": "ngô",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  },
+  {
+   "word": "acostumbrado",
+   "field": "gl.th",
+   "from": "เคย",
+   "to": "คุ้นเคย",
+   "why": "Nghĩa/ngôn ngữ chưa chính xác"
+  }
+ ],
+ "dropped": [
+  {
+   "word": "americana",
+   "why": "Dạng giống cái của americano; ở Tây Ban Nha còn là áo vest"
+  },
+  {
+   "word": "esperanzar",
+   "why": "Từ hiếm, không chuẩn es-419"
+  },
+  {
+   "word": "patata",
+   "why": "Chỉ dùng ở Tây Ban Nha; es-419 là papa"
+  },
+  {
+   "word": "liga",
+   "why": "Nghĩa phổ biến là giải đấu, gloss đang là dây thun"
+  },
+  {
+   "word": "moneda",
+   "why": "Gloss lẫn xu/tiền tệ, các ngôn ngữ không nhất quán"
+  },
+  {
+   "word": "poli",
+   "why": "Tiếng lóng thân mật"
+  },
+  {
+   "word": "olvidarse",
+   "why": "Dạng phản thân trùng với olvidar"
+  },
+  {
+   "word": "enterar",
+   "why": "Hiếm dùng ở es-419, dạng thường gặp là enterarse"
+  },
+  {
+   "word": "escapado",
+   "why": "Phân từ, không phải từ gốc"
+  },
+  {
+   "word": "enterado",
+   "why": "Phân từ dùng như tính từ, trùng enterarse"
+  },
+  {
+   "word": "roco",
+   "why": "Không phải từ chuẩn es-419"
+  },
+  {
+   "word": "azular",
+   "why": "Động từ rất hiếm, ví dụ phản thân"
+  },
+  {
+   "word": "doctorar",
+   "why": "Hiếm, thường dùng doctorarse"
+  },
+  {
+   "word": "arruinado",
+   "why": "Phân từ, trùng arruinar"
+  },
+  {
+   "word": "camarero",
+   "why": "Thiên về Tây Ban Nha; es-419 dùng mesero"
+  },
+  {
+   "word": "papo",
+   "why": "Từ tiếng Bồ Đào Nha/lóng, không phải es-419 chuẩn"
+  },
+  {
+   "word": "dormida",
+   "why": "Dạng giống cái của dormido, không phải lemma"
+  },
+  {
+   "word": "medido",
+   "why": "Phân từ, không phải lemma"
+  },
+  {
+   "word": "villa",
+   "why": "Nghĩa mơ hồ (làng/biệt thự), gloss không khớp nghĩa phổ biến"
+  },
+  {
+   "word": "unido",
+   "why": "Phân từ, không phải lemma"
+  },
+  {
+   "word": "cocaína",
+   "why": "Chủ đề ma túy, nhạy cảm"
+  },
+  {
+   "word": "marihuana",
+   "why": "Chủ đề ma túy, nhạy cảm"
+  },
+  {
+   "word": "cortado",
+   "why": "Phân từ, không phải lemma"
+  },
+  {
+   "word": "furgoneta",
+   "why": "Chủ yếu dùng ở Tây Ban Nha; es-419 dùng camioneta"
+  },
+  {
+   "word": "hartar",
+   "why": "Thực chất là động từ phản thân hartarse, không phải lemma độc lập"
+  },
+  {
+   "word": "profundar",
+   "why": "Không chuẩn; dạng đúng là profundizar"
+  }
+ ]
+}
