@@ -7,19 +7,19 @@ Luật giữ nguyên: chất lượng chỉ tăng, không bỏ tính năng/nội
 
 ## Top 10 khoảng cách theo tác động ÷ chi phí (tự sinh, đừng sửa tay)
 <!-- auto:world-gaps:start -->
-_Tự sinh từ `content/pipeline/WORLD.md` (2026-11-26)._
+_Tự sinh từ `content/pipeline/WORLD.md` (2026-11-27)._
 
 | # | Trục | Lexkite → mục tiêu | Tác động | Chi phí | Ưu tiên | Hiện trạng |
 |---|---|---|---|---|---|---|
 | 1 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 25.2 → 100 | 5 | 3 | 124.7 | 1/15 ngôn ngữ đạt đích; có "vì sao" (en 521, ar 7, de 11, es 12, fr 11, hi 193, id 85, ja 8, ko 7, pt 10, ru 8, th 9, tr 7, vi 179, zh 9; đích 200/ngôn ngữ) |
-| 2 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 19.5 → 100 | 3 | 3 | 80.5 | 359.6 / 374.0 KB gz (đích 300) |
+| 2 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 18.4 → 100 | 3 | 3 | 81.6 | 360.4 / 374.0 KB gz (đích 300) |
 | 3 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | 60 → 100 | 5 | 3 | 66.7 | ✓ FSRS theo người · lỗi L1 3/15 ngôn ngữ (≥100 mục) |
-| 4 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 6 s · 9 chạm (probe 2026-11-26) |
+| 4 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 6 s · 9 chạm (probe 2026-11-27) |
 | 5 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 31 → 100 | 3 | 4 | 51.8 | 22 Stitch / 71 màn (ref 45, tay 0) |
 | 6 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 77.5 → 100 | 5 | 4 | 28.1 | IELTS 10 · TOEIC 10 · TOEFL 11 · Cambridge 1 đề (đích 10/kỳ) |
-| 7 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 88.9 → 100 | 4 | 2 | 22.2 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 5928 ms, CLS 0.0025, INP 128 ms |
-| 8 | Độ phủ nội dung (content:score) | 78.5 → 90 | 5 | 4 | 14.4 | content/pipeline/SCORE.md |
-| 9 | Tốc độ trang chủ di động (Lighthouse performance) | 95 → 98 | 4 | 2 | 6 | trang chủ di động: LCP 2.6 s, CLS 0.014, TBT 0 ms (2026-11-26) |
+| 7 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 88.9 → 100 | 4 | 2 | 22.2 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 5909 ms, CLS 0.0025, INP 104 ms |
+| 8 | Độ phủ nội dung (content:score) | 78.6 → 90 | 5 | 4 | 14.3 | content/pipeline/SCORE.md |
+| 9 | Tốc độ trang chủ di động (Lighthouse performance) | 95 → 98 | 4 | 2 | 6 | trang chủ di động: LCP 2.5 s, CLS 0.014, TBT 0 ms (2026-11-27) |
 | 10 | Truy cập (Lighthouse accessibility trang chủ + app) | 99 → 100 | 3 | 1 | 3 | Lighthouse trang chủ + /app/ (axe/a11y tĩnh chạy trong npm test) |
 <!-- auto:world-gaps:end -->
 

@@ -591,7 +591,7 @@
   function runQuiz(src, mode, as) {
     const FX = window.LessonFx;
     const list = pool(src);
-    const n = mode === 'test' ? 20 : 10;
+    const n = mode === 'test' ? 20 : /[?&]mini=1\b/.test(location.hash) ? 6 : 10; // ?mini=1 = bài 3 phút (Hôm nay) – 6 câu
     const items = shuffle(list).slice(0, Math.min(n, list.length));
     if (!items.length) return emptySource(src);
     const types = { mcq: ['mcq-vi'], cloze: ['type-cloze'], listen: ['type-listen'], test: ['mcq-vi', 'mcq-en', 'type-cloze', 'type-listen', 'type-vi'] }[mode];

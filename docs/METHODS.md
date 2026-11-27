@@ -56,6 +56,8 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Không sửa tay tệp sinh (`web/js/i18n/<lang>`, `extension/app`, `st-*.css`, CODEMAP) hay `i18n-fixed.json`/trang pháp lý: PR dirty → bot `pr-unconflict` hoặc `node scripts/ci/regen-conflicts.mjs` (`docs/specs/merge-queue.md`). Gác: `fmt-stable.mjs`, `gen-guard.mjs`.
 - **Watcher merge chuẩn**: `node scripts/ci/prwatch.mjs 1551@<sha> 1552 [--every N] [--max-min M] [--keep-on-red]` – squash-merge khi COMMIT STATUS `required-gate` xanh; đỏ → thoát 2, hết giờ → 3. Không tự viết watcher riêng.
 
+- **Hàng đợi + stacked PR (26/11)**: gộp = đưa vào hàng (`gh pr merge N --squash --auto` / GraphQL `enqueuePullRequest`), PR phụ thuộc = stack (`gh stack`, Rebase stack), không PATCH base tay → `docs/specs/merge-queue.md` §Sau khi bật.
+
 ## 3. Ngân sách dung lượng
 - Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`; không nâng) → tính năng mới lười; khóa: `shell-lazy.mjs`. Trần chỉ đi xuống: thêm byte phải gọt bằng nhau; ý dài → CSS-NOTES.md. Từng module: `node scripts/test/shell-size.mjs`; khóa i18n chỉ trang lười → `--move` sang `en/lazyui.js`. `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (trừ `admin-*.js`, nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
 - `web/js/i18n/<lang>.js` ≤ 160 KB gz/ngôn ngữ; không thêm file vào `allowBig`.

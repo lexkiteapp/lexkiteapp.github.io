@@ -67,6 +67,7 @@
 "Trả lời câu hỏi":"Jawab pertanyaannya",
 "Trọng âm rơi vào âm tiết {n}/{m}":"Tekanan jatuh pada suku kata {n} dari {m}",
 "Tuyệt!":"Hebat!",
+"Tuần này bạn đã nhớ {n} từ mới":"Minggu ini kamu mengingat {n} kata baru",
 "Tìm từ sai":"Temukan kata yang salah",
 "Tìm từ…":"Cari kata…",
 "Tăng điểm":"Pendongkrak skor",

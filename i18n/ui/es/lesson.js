@@ -67,6 +67,7 @@
 "Trả lời câu hỏi":"Responde la pregunta",
 "Trọng âm rơi vào âm tiết {n}/{m}":"El acento cae en la sílaba {n} de {m}",
 "Tuyệt!":"¡Genial!",
+"Tuần này bạn đã nhớ {n} từ mới":"Esta semana recordaste {n} palabras nuevas",
 "Tìm từ sai":"Encuentra el error",
 "Tìm từ…":"Buscar palabra…",
 "Tăng điểm":"Sube tu nota",

@@ -1,0 +1,314 @@
+{
+  "objective": {
+    "n": "İsim olarak 'amaç, hedef' demektir ve aim ile goal'e göre daha resmî, rapor ve iş yazımına uygun bir sözcüktür: The objective of this study is to measure... Sıfat olarak 'tarafsız, nesnel' anlamı da vardır; bunun karşıtı subjective'dir. Türkçedeki 'objektif' kamera merceği anlamıyla İngilizcede de geçer (camera lens) ama günlük dilde lens daha yaygındır. Sık kalıplar: set an objective, meet an objective, long-term objective. Vurgu ikinci hecededir: /əbˈdʒektɪv/.",
+    "x": [
+      [
+        "Our first objective is to double the number of members by June.",
+        "İlk hedefimiz, haziranda üye sayısını ikiye katlamak."
+      ],
+      [
+        "The judge must stay objective and ignore personal feelings.",
+        "Hâkim tarafsız kalmalı ve kişisel duyguları göz ardı etmelidir."
+      ]
+    ]
+  },
+  "obtain": {
+    "n": "Resmî ve yazılı dilde 'elde etmek, edinmek' anlamında kullanılır; günlük konuşmada get çoğu zaman daha doğal durur. Çaba, izin veya belge gerektiren şeylerle iyi eşleşir: obtain a visa, obtain permission, obtain results. Acquire ise çoğunlukla zamanla kazanılan beceri veya mal için tercih edilir. Türk öğrenciler bazen 'obtain a job' gibi kullanır, oysa bu bağlamda get ya da find a job daha doğaldır. Geçişli bir fiildir, edatla kullanılmaz.",
+    "x": [
+      [
+        "You can obtain a copy of the form from the town hall.",
+        "Formun bir kopyasını belediyeden edinebilirsiniz."
+      ],
+      [
+        "The researchers obtained similar results in both experiments.",
+        "Araştırmacılar iki deneyde de benzer sonuçlar elde etti."
+      ]
+    ]
+  },
+  "orient": {
+    "n": "Fiil olarak 'yönlendirmek, bir amaca ya da gruba doğru çevirmek' demektir ve çoğunlukla edilgen biçimde, 'oriented towards/to' ile kullanılır. Bileşik sıfatlarda çok sık geçer: customer-oriented, goal-oriented. Orientation ise 'oryantasyon' anlamında hem yeni gelenlere verilen tanıtım programını hem de yönelimi anlatır. Türkçedeki 'oryantasyon' ile benzer olduğu için anlamı kolay tahmin edilir. İngilizce yazıda yaygın bir yapı: be oriented towards sth.",
+    "x": [
+      [
+        "The company is orienting its products towards younger buyers.",
+        "Şirket ürünlerini daha genç alıcılara yöneltiyor."
+      ],
+      [
+        "Our new training program is oriented around real workplace tasks.",
+        "Yeni eğitim programımız gerçek iş yeri görevleri etrafında kurgulanmış durumda."
+      ]
+    ]
+  },
+  "output": {
+    "n": "Sayılamayan bir isimdir; bir kişi, makine ya da sektörün ürettiği miktarı anlatır. Fabrika için 'üretim', bilgisayar için 'çıktı' karşılığı vardır; the output of a printer ise yazıcının bastığı şeydir. Çoğul takısı genelde almaz: 'outputs' teknik metinler dışında seyrek görülür. Production fiilen yapılan üretim eylemini, output ise ortaya çıkan miktarı vurgular. Karşıtı input'tur. Kalıplar: raise/boost/cut output, daily output.",
+    "x": [
+      [
+        "The factory doubled its output after buying two new machines.",
+        "Fabrika iki yeni makine alınca üretimini ikiye katladı."
+      ],
+      [
+        "The software saves the output to a separate file.",
+        "Yazılım çıktıyı ayrı bir dosyaya kaydediyor."
+      ]
+    ]
+  },
+  "passive": {
+    "n": "Sıfat olarak 'pasif, edilgen' demektir: tepki vermeden olanı kabul eden kişi ya da durum. Günlük dilde biraz olumsuz çağrışım taşır; a passive person 'hareketsiz, girişimsiz biri' gibi okunabilir. Dil bilgisinde the passive (voice) 'edilgen çatı' anlamına gelir ve karşıtı active'dir. Passive smoking, yani başkasının dumanını solumak, sık kullanılan bir kalıptır. Türkçedeki 'pasif' ile yazılışı benzer; vurgu ilk hecededir: /ˈpæsɪv/.",
+    "x": [
+      [
+        "She took a passive role in the meeting and hardly spoke.",
+        "Toplantıda pasif bir rol aldı ve neredeyse hiç konuşmadı."
+      ],
+      [
+        "Children exposed to passive smoking have more chest infections.",
+        "Pasif içiciliğe maruz kalan çocuklarda göğüs enfeksiyonları daha sık görülür."
+      ]
+    ]
+  },
+  "phase": {
+    "n": "Bir sürecin ya da gelişimin belirli bir 'evresi, aşaması' demektir. Stage'e çok yakındır; phase biraz daha teknik ve bilimsel metinlerde (phases of the moon, a new phase of the project) kullanılır. 'In phase / out of phase' elektrik ve fizikte fazda olmak anlamına gelir. Fiil olarak phase in (aşamalı başlatmak) ve phase out (aşamalı olarak kaldırmak) çok yaygındır. Türkçede 'faz' diye geçer ama İngilizcede 'f' yerine 'ph' yazıldığına dikkat edin; okunuşu /feɪz/.",
+    "x": [
+      [
+        "The first phase of the building work will finish in March.",
+        "İnşaat çalışmasının ilk aşaması martta bitecek."
+      ],
+      [
+        "Teenagers often go through a rebellious phase.",
+        "Gençler sıklıkla asi bir dönemden geçer."
+      ]
+    ]
+  },
+  "precede": {
+    "n": "Bir şeyden 'önce gelmek, önce olmak' anlamında resmî bir fiildir ve geçişlidir: A precedes B. Edilgen yapı da yaygındır: B was preceded by A. Aynı yazılıştaki proceed ile karıştırılır; proceed 'ilerlemek, devam etmek' demektir. Önceki olay ya da kişi için the preceding chapter, the preceding year gibi sıfat biçimi kullanılır. Günlük konuşmada come before daha doğaldır. İsmi precedence (öncelik) ve precedent (emsal) olarak ayrılır. Vurgu ikinci hecededir: /prɪˈsiːd/.",
+    "x": [
+      [
+        "A short speech preceded the opening of the new library.",
+        "Yeni kütüphanenin açılışından önce kısa bir konuşma yapıldı."
+      ],
+      [
+        "Heavy rain preceded the flood by several hours.",
+        "Sel gelmeden birkaç saat önce şiddetli yağmur yağdı."
+      ]
+    ]
+  },
+  "proceed": {
+    "n": "'İlerlemek, devam etmek' anlamında kullanılır; çoğunlukla resmî ya da yazılı dildedir. İki ana yapısı vardır: proceed with + isim (planla devam etmek) ve proceed to + fiil/isim (bir sonraki adıma geçmek). Precede ile karıştırılmamalı; o 'önce gelmek' demektir. Proceeds (çoğul isim) 'gelir, kazanç' anlamındadır: the proceeds of the sale. Duyuruda 'Please proceed to gate 5' (lütfen 5 numaralı kapıya ilerleyin) çok sık duyulur. Vurgu ikinci hecededir: /prəˈsiːd/.",
+    "x": [
+      [
+        "Passengers should proceed to the departure gate immediately.",
+        "Yolcular hemen kalkış kapısına ilerlemelidir."
+      ],
+      [
+        "After a short break, the speaker proceeded with her presentation.",
+        "Kısa bir aradan sonra konuşmacı sunumuna devam etti."
+      ]
+    ]
+  },
+  "publication": {
+    "n": "Hem 'yayımlanma eylemi' hem de 'yayın' (kitap, dergi, makale) anlamına gelir. Akademik dilde scientific publication, peer-reviewed publication gibi geçer. Türkçede 'yayın' sözcüğü televizyon ve radyo için de kullanılır, ama bu anlamda İngilizce karşılık broadcast'tir, publication değil. Yayımlamak fiili publish'tir; yayıncı publisher, yayınevi publishing house olur. Kalıplar: date of publication, since its publication, ready for publication. Sayılabilir ve sayılamaz kullanımı vardır.",
+    "x": [
+      [
+        "The publication of her first novel made her famous overnight.",
+        "İlk romanının yayımlanması onu bir gecede ünlü yaptı."
+      ],
+      [
+        "This journal is the main publication in the field of linguistics.",
+        "Bu dergi dilbilim alanındaki ana yayındır."
+      ]
+    ]
+  },
+  "restrain": {
+    "n": "'Dizginlemek, sınırlamak, engellemek' anlamında resmî bir fiildir. İki ana kullanımı vardır: bir kişiyi fiziksel olarak tutmak (restrain a violent man) ve bir şeyin artışını ya da gücünü sınırlamak (restrain prices). Kendini tutmak için restrain oneself ya da restrain from doing sth denir. Hold back günlük dilde benzer anlam verir. İsmi restraint (ölçülülük, kısıtlama) 'show restraint' kalıbında çok geçer. Vurgu ikinci hecededir: /rɪˈstreɪn/.",
+    "x": [
+      [
+        "Two guards had to restrain the man until the police arrived.",
+        "Polis gelene kadar iki görevli adamı zapt etmek zorunda kaldı."
+      ],
+      [
+        "She could not restrain her laughter any longer.",
+        "Gülmesini daha fazla tutamadı."
+      ]
+    ]
+  },
+  "retain": {
+    "n": "'Elinde tutmak, korumak' anlamında resmî bir fiildir; bir şeyi kaybetmeden sürdürmek vurgulanır: retain water, retain customers, retain the title. Keep ile aynı anlama gelir ama daha yazılı ve kurumsal bir tondadır. Hafıza için de kullanılır: retain information (bilgiyi akılda tutmak). Türkçedeki 'retansiyon' gibi tıbbi sözcüklerle bağlantı kurulabilir; water retention sıvı tutulumu demektir. İsmi retention'dır; vurgu ikinci hecede: /rɪˈteɪn/.",
+    "x": [
+      [
+        "The old castle has retained much of its original character.",
+        "Eski kale orijinal karakterinin büyük bölümünü korumuştur."
+      ],
+      [
+        "Some students retain new words better when they use them in sentences.",
+        "Bazı öğrenciler yeni kelimeleri cümle içinde kullandıklarında daha iyi akılda tutar."
+      ]
+    ]
+  },
+  "reveal": {
+    "n": "Gizli ya da bilinmeyen bir şeyi 'açığa çıkarmak, ortaya koymak' demektir. Özne bir kişi (the minister revealed) ya da bir araştırma, rapor, kanıt (the report reveals) olabilir. Haber dilinde çok sık geçer. Disclose daha resmî, show daha basit ve genel bir sözcüktür. Edatla değil, doğrudan nesneyle ya da that cümleciğiyle kullanılır: reveal that... Aynı kökten reveal bir isim olarak da vardır, ama nadirdir; yaygın isim revelation'dır (sır açıklama, şaşırtıcı keşif).",
+    "x": [
+      [
+        "The test results revealed a serious problem with the engine.",
+        "Test sonuçları motorda ciddi bir sorun olduğunu ortaya çıkardı."
+      ],
+      [
+        "He refused to reveal where he had hidden the money.",
+        "Parayı nereye sakladığını açıklamayı reddetti."
+      ]
+    ]
+  },
+  "revolution": {
+    "n": "Siyasette 'devrim' anlamında, ayrıca bir alanda köklü bir değişiklik anlamında kullanılır: the agricultural revolution, a revolution in medicine. Fizikte bir eksen etrafında 'tam dönüş' de demektir (revolutions per minute, yani dakikadaki devir sayısı). Revolt ve rebellion ile karıştırılabilir; onlar daha küçük çaplı 'isyan' anlamındadır. Sıfatı revolutionary (devrimci, çığır açan). Fransız Devrimi İngilizcede the French Revolution olarak, büyük harfle yazılır.",
+    "x": [
+      [
+        "The French Revolution changed the political map of Europe.",
+        "Fransız Devrimi, Avrupa'nın siyasi haritasını değiştirdi."
+      ],
+      [
+        "Smartphones sparked a revolution in the way people shop.",
+        "Akıllı telefonlar, insanların alışveriş yapma biçiminde bir devrim yarattı."
+      ]
+    ]
+  },
+  "seek": {
+    "n": "Resmî ve yazılı dilde 'aramak, peşinde olmak' anlamındadır; look for günlük dilde daha yaygındır. Düzensiz çekimi seek - sought - sought biçimindedir; sought telaffuzu /sɔːt/'tur ve öğrenciler bunu sık yanlış yazar. Kalıplar: seek advice, seek help, seek asylum, seek a job. Seek to + fiil 'bir şey yapmaya çalışmak' demektir: seek to improve. Somut, yitirilmiş bir nesne için seek değil look for kullanılır: 'I seek my keys' doğal durmaz.",
+    "x": [
+      [
+        "You should seek legal advice before signing the contract.",
+        "Sözleşmeyi imzalamadan önce hukuki danışmanlık almalısınız."
+      ],
+      [
+        "Thousands of families will seek shelter in the school during the storm.",
+        "Fırtına sırasında binlerce aile okulda barınak arayacak."
+      ]
+    ]
+  },
+  "sequence": {
+    "n": "Birbirini belirli bir düzende izleyen şeylerin 'sırası, dizisi' demektir: a sequence of events, the sequence of numbers. Türkçede 'sekans' film ve müzikte de kullanılır; İngilizcede de a dance sequence, an action sequence geçer. Order ve series ile yakındır, ama sequence mantıksal ya da zamansal ardışıklık vurgular. DNA için de geçer: a DNA sequence. 'In sequence' sıra ile, 'out of sequence' sırası bozuk demektir. Vurgu ilk hecededir: /ˈsiːkwəns/.",
+    "x": [
+      [
+        "The film opens with a long chase sequence through the old town.",
+        "Film, eski şehirde geçen uzun bir kovalamaca sahnesiyle açılıyor."
+      ],
+      [
+        "Please put these photos in the correct sequence by date.",
+        "Lütfen bu fotoğrafları tarihe göre doğru sıraya koyun."
+      ]
+    ]
+  },
+  "submit": {
+    "n": "'Sunmak, teslim etmek' anlamında resmî fiildir: submit an application, a report, an essay. Hand in daha günlük bir eşanlamlıdır. Başka bir anlamı 'boyun eğmek, teslim olmak'tır ve submit to sth (bir şeye boyun eğmek) biçiminde edatla kullanılır. İlk anlamda doğrudan nesne alır, to ile kişiye yönelir: submit a form to the office. Yazılım ve internet sitelerindeki 'Submit' düğmesi 'Gönder' demektir. İsmi submission'dır. Vurgu ikinci hecededir: /səbˈmɪt/.",
+    "x": [
+      [
+        "Applicants must submit their forms before the deadline.",
+        "Başvuru sahipleri formlarını son tarihten önce teslim etmelidir."
+      ],
+      [
+        "After a long struggle, the rebels submitted to the government.",
+        "Uzun bir mücadelenin ardından isyancılar hükümete teslim oldu."
+      ]
+    ]
+  },
+  "suspend": {
+    "n": "Bir şeyi geçici olarak 'durdurmak, askıya almak' demektir: suspend a service, suspend payments. Bir kişi için 'uzaklaştırmak, görevden/okuldan geçici olarak almak' anlamı vardır: a suspended student. Fiziksel olarak 'asmak, sarkıtmak' (suspended from the ceiling) için de kullanılır. Suspended sentence hapis cezasının ertelenmesi, yani 'ertelenmiş ceza' demektir. Stop kadar kesin değildir, çünkü sonradan devam etme ihtimali taşır. İsmi suspension'dır; vurgu ikinci hecede: /səˈspend/.",
+    "x": [
+      [
+        "The club suspended the player for two matches after the incident.",
+        "Kulüp olaydan sonra oyuncuyu iki maçlığına uzaklaştırdı."
+      ],
+      [
+        "A large lamp was suspended from the center of the ceiling.",
+        "Tavanın ortasından büyük bir lamba sarkıyordu."
+      ]
+    ]
+  },
+  "sustain": {
+    "n": "'Sürdürmek, ayakta tutmak' anlamında kullanılır; yalnızca devam ettirmeyi değil, bunun için gerekli gücü sağlamayı da anlatır: sustain life, sustain growth. Bir diğer anlamı 'yaralanmak, zarar görmek'tir: sustain an injury (yaralanmak), bu kullanım resmî ve haber diline özgüdür. Türkçedeki 'sürdürülebilir' karşılığı sustainable'dır; bu sözcük sustain fiilinden türer. Maintain daha çok 'korumak, aynı düzeyde tutmak' demektir. İsmi sustenance (besin, geçim) şeklindedir; vurgu ikinci hecededir: /səˈsteɪn/.",
+    "x": [
+      [
+        "It is hard to sustain this level of effort for a whole year.",
+        "Bu düzeydeki çabayı bir yıl boyunca sürdürmek zor."
+      ],
+      [
+        "The driver sustained minor injuries in the crash.",
+        "Sürücü kazada hafif yaralandı."
+      ]
+    ]
+  },
+  "utilise": {
+    "n": "Resmî ve yazılı dilde 'faydalanmak, değerlendirmek' anlamındadır; British yazımı utilise, Amerikan yazımı utilize şeklindedir. Use sözcüğünden daha ağırdır, genellikle bir kaynağı en iyi şekilde kullanmayı vurgular. Basit bir iş için kullanıldığında yapay görünür: 'I utilise a pen' yerine use doğaldır. İsmi utilisation (BrE) ya da utilization (AmE), sıfatı utilisable'dır. Akademik yazıda, kaynak ve alan yönetimi bağlamlarında sık görülür. Vurgu ilk hecededir: /ˈjuːtɪlaɪz/.",
+    "x": [
+      [
+        "Farmers can utilise solar energy to run their water pumps.",
+        "Çiftçiler su pompalarını çalıştırmak için güneş enerjisinden yararlanabilir."
+      ],
+      [
+        "The team plans to utilise every free hour before the exam.",
+        "Ekip sınavdan önceki her boş saati değerlendirmeyi planlıyor."
+      ]
+    ]
+  },
+  "via": {
+    "n": "Edat olarak iki anlamı vardır: güzergâh üzerinden (the train to Rome via Florence) ve araç ya da yol olarak 'aracılığıyla' (via email, via a website). Türkçedeki 'üzerinden' ifadesine çok yakındır. Okunuşu genelde /ˈvaɪə/'dır, bazen /ˈviːə/ de duyulur. Günlük dilde by ya da through daha çok tercih edilir. 'Via' sonrasında kişi değil, kanal ya da yer gelir; 'via my friend' yerine through my friend denir.",
+    "x": [
+      [
+        "We flew to Tokyo via Dubai because it was cheaper.",
+        "Daha ucuz olduğu için Tokyo'ya Dubai üzerinden uçtuk."
+      ],
+      [
+        "You can reach the support team via the chat window on our website.",
+        "Destek ekibine web sitemizdeki sohbet penceresi aracılığıyla ulaşabilirsiniz."
+      ]
+    ]
+  },
+  "violate": {
+    "n": "Bir yasayı, kuralı ya da anlaşmayı 'ihlal etmek' demektir; break'ten daha resmîdir. Haklar için de güçlü bir fiildir: violate human rights. Bir yeri 'saygısızca bozmak' anlamı da vardır (violate a sacred place), ama nadirdir. İsmi violation (ihlal), failin adı violator'dır. 'Violate' ile 'violent' (şiddetli) ortak bir kökten gelir; anlam farkına dikkat edin. 'Traffic violation' trafik cezasına yol açan kural ihlalidir. Vurgu ilk hecededir: /ˈvaɪəleɪt/.",
+    "x": [
+      [
+        "Drivers who violate the speed limit risk a heavy fine.",
+        "Hız sınırını ihlal eden sürücüler ağır para cezasına çarptırılabilir."
+      ],
+      [
+        "The report claims the army violated the ceasefire agreement.",
+        "Rapor, ordunun ateşkes anlaşmasını ihlal ettiğini öne sürüyor."
+      ]
+    ]
+  },
+  "a ripple effect": {
+    "n": "Bir olayın, su yüzeyindeki halkalar gibi, başka alanlara kademeli olarak yayılan sonuçlarını anlatan bir deyimdir. Türkçedeki 'dalga etkisi' ya da 'domino etkisi' ile yakındır. Genelde have a ripple effect on sth, create a ripple effect biçiminde kurulur. Hem olumlu hem olumsuz sonuçlar için geçer. Knock-on effect, özellikle İngiliz İngilizcesinde, olumsuz zincirleme sonuçlar için kullanılır. Haber ve ekonomi yazılarında çok sık görülür. 'Ripple' tek başına 'küçük dalga' demektir.",
+    "x": [
+      [
+        "Rising fuel prices can create a ripple effect across the whole economy.",
+        "Artan akaryakıt fiyatları bütün ekonomide zincirleme bir etki yaratabilir."
+      ],
+      [
+        "One kind act often has a ripple effect in a small community.",
+        "Tek bir nazik davranış, küçük bir toplulukta çoğu zaman geniş bir etki yaratır."
+      ]
+    ]
+  },
+  "address a concern": {
+    "n": "Birinin dile getirdiği bir endişeyi, şikâyeti ya da sorunu ele alıp çözmek için kullanılan bir kalıptır. Burada address 'hitap etmek' değil, 'ilgilenmek, ele almak' demektir; Türk öğrenciler bunu sık karıştırır. Kalıplar: address a concern, address an issue, address a problem. İş ve yönetim dilinde çok yaygındır. Çoğul biçim address concerns de çok kullanılır. Günlük dilde deal with ya da respond to benzer işlevi görür. Address burada vurguyu ikinci hecede alır: /əˈdres/.",
+    "x": [
+      [
+        "The school promised to address a concern raised by several parents.",
+        "Okul, birkaç velinin dile getirdiği bir endişeyi gidereceğine söz verdi."
+      ],
+      [
+        "It is important to address a concern early before it becomes a conflict.",
+        "Bir endişeyi çatışmaya dönüşmeden önce erkenden ele almak önemlidir."
+      ]
+    ]
+  },
+  "affordable": {
+    "n": "'Fiyatı makul, çoğu kişinin karşılayabileceği' anlamında bir sıfattır: affordable housing, affordable healthcare. Cheap'ten farkı, düşük kaliteyi ima etmemesidir; cheap bazen olumsuz çağrışım taşır. Fiil biçimi afford, 'gücü yetmek' anlamındadır ve genellikle can/could ile kullanılır: I can't afford a new car. Karşıtı unaffordable ya da expensive'dir. Kira, konut ve ulaşım tartışmalarında çok sık geçer. Vurgu ikinci hecededir: /əˈfɔːdəbl/.",
+    "x": [
+      [
+        "The city is building more affordable homes for young families.",
+        "Şehir, genç aileler için daha fazla uygun fiyatlı ev inşa ediyor."
+      ],
+      [
+        "They found an affordable hotel near the station.",
+        "İstasyonun yakınında uygun fiyatlı bir otel buldular."
+      ]
+    ]
+  }
+}

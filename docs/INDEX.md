@@ -129,6 +129,7 @@
 - [specs/voice-diary-video.md](specs/voice-diary-video.md) — Video Day 1 vs Day 30 (mẫu progress, 30 tập viết sẵn); đọc khi: sửa progress.json/T_progress.
 - [CI-RUNNERS-BOCANH-0311.md](archive/CI-RUNNERS-BOCANH-0311.md) — Lưu trữ: số đo bộ canh ci-triage 3/11 (thay workflow_run ×38); đọc khi: tra lại lý do bỏ workflow_run.
 - [specs/seo-topic-hubs.md](specs/seo-topic-hubs.md) — Spec trang chủ đề từ vựng /<lang>/words/topic/<id>: danh sách từ index được theo chủ đề, link ngược, thiết kế Stitch Kit; đọc khi: sửa khối chủ đề trong build-seo-pages.mjs
+- [specs/ielts-band-calculator.md](specs/ielts-band-calculator.md) — Spec máy tính band IELTS 15 ngôn ngữ (điểm thô → band, làm tròn 0,5, JS lười, thêm vào build-tools); đọc khi: sửa ielts-band.json/lib/JS hoặc khối band trong content/tools/i18n
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ;…; đọc khi: thêm/sửa thông báo/toast
 - [specs/exit-button.md](specs/exit-button.md) — Lối thoát mọi màn học: nút X/Quay lại ở top-bar, Esc, back hệ thống, vuốt iOS, hỏi nhẹ khi đang dở (module web/js/exit-guard.js); đọc khi: thêm màn học/route mới, sửa top-bar màn học, exit-sweep đỏ
@@ -188,3 +189,5 @@
 ## Phần còn lại của mục lục
 - [INDEX-ARCHIVE.md](INDEX-ARCHIVE.md) — Con trỏ tài liệu đã chuyển, thư mục con (agents/audits/legal/research/specs…), kho docs/archive/ (tách nguyên văn từ INDEX.md khi INDEX chạm 45 KB); đọc khi: tìm dòng mục lục của doc trong thư mục con hoặc archive, hoặc thêm doc mới ở đó
 - [specs/chon-cta-khu-b.md](specs/chon-cta-khu-b.md) — Một kiểu chọn (.on) + một CTA chính/màn (khu B rà soát 23/11); đọc khi: sửa chip/tab/thẻ chọn hoặc nút chính
+- [LEARN-UX-GAP.md](LEARN-UX-GAP.md) — Bảng điểm học trên web so với chuẩn hấp dẫn + thực tế (27/11) và top PR nhỏ; đọc khi: chọn việc kế cho trải nghiệm học
+- [LEARN-UX-GAP.md](LEARN-UX-GAP.md) — Bảng điểm học trên web so với chuẩn hấp dẫn + thực tế (27/11) và top PR nhỏ; đọc khi: chọn việc kế cho trải nghiệm học

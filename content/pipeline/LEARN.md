@@ -46,7 +46,7 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 27 | Bộ từ | xw-everyday | B2 | 64.5 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 28 | Bộ từ | xw-actions | B2 | 64.5 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 29 | Bộ từ | office-email | B1 | 64.8 | mã hoá kép 54% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 30 | Bộ từ | health | C1 | 65 | mã hoá kép 67% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 30 | Bộ từ | health | C1 | 64.9 | mã hoá kép 67% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 
 ## Lỗi theo tiêu chí (số đơn vị < 60 điểm ở tiêu chí đó)
 
