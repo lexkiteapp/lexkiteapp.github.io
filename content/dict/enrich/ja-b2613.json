@@ -1,0 +1,170 @@
+{
+ "sustain": {
+  "n": "「長く保ち続ける」が核の動詞で、sustain growth（成長を持続させる）、sustain life（生命を維持する）のように使います。「支える」の意味もあり、sustain an injury（けがを負う）という別用法もあるので文脈で判断しましょう。maintain より、力や資源を注いで続けるニュアンスが強めです。名詞は sustainability、形容詞は sustainable です。",
+  "x": [
+   ["The soil here is too poor to sustain large crops.", "ここの土壌は痩せすぎていて、大きな収穫を支えることができません。"],
+   ["It is hard to sustain interest in a course that never changes.", "いつも同じ内容の講座では、興味を持ち続けるのは難しいです。"]
+  ]
+ },
+ "transit": {
+  "n": "人や物が地点から地点へ移動すること、またその途中を表す名詞です。in transit は「輸送中に」という決まり文句で、配送状況の表示でよく見ます。アメリカ英語では public transit が「公共交通機関」の意味で広く使われ、イギリス英語では public transport が普通です。「トランジット（乗り継ぎ）」という日本語とは少しずれ、乗り継ぎは transfer や layover に近い語になります。",
+  "x": [
+   ["Your parcel is currently in transit and should arrive on Friday.", "お荷物は現在輸送中で、金曜日に届く予定です。"],
+   ["Many commuters in the city rely on public transit instead of cars.", "この街では、多くの通勤者が車ではなく公共交通機関に頼っています。"]
+  ]
+ },
+ "utilise": {
+  "n": "use をかたくした語で、「あるものを有効に活用する」という含みがあります。報告書やビジネス文書には合いますが、日常会話では use のほうが自然です。単に「使う」だけの場面で utilise を使うと大げさに聞こえます。アメリカ式の綴りは utilize で、名詞は utilisation（utilization）です。",
+  "x": [
+   ["The team plans to utilise the old warehouse as a training centre.", "チームは古い倉庫を研修センターとして活用する計画です。"],
+   ["We need to utilise our time better if we want to finish by Monday.", "月曜日までに終えたいなら、もっと時間を有効に使う必要があります。"]
+  ]
+ },
+ "violate": {
+  "n": "法律、規則、契約、権利などに背く行為を表す他動詞で、目的語を直接とります。violate the law、violate human rights が典型です。break より硬く、ニュースや公文書で好まれます。「違反する」と訳せるため violate against と書きたくなりますが、前置詞は不要です。名詞は violation です。",
+  "x": [
+   ["Drivers who violate the speed limit may lose their licence.", "制限速度に違反した運転者は、免許を失うことがあります。"],
+   ["Critics said the new policy would violate the privacy of employees.", "批判する人たちは、その新しい方針は従業員のプライバシーを侵害すると述べました。"]
+  ]
+ },
+ "a ripple effect": {
+  "n": "池に石を投げると波紋が広がるように、一つの出来事が次々と周囲へ影響を広げる状況を表します。have a ripple effect on ～、create a ripple effect の形が基本です。良い影響にも悪い影響にも使えます。似た表現の a domino effect は連鎖して倒れていく強い連続性があり、knock-on effect はイギリス英語でよく使われます。",
+  "x": [
+   ["A small rise in fuel prices can have a ripple effect across the whole economy.", "燃料価格が少し上がるだけで、経済全体に波及することがあります。"],
+   ["One teacher's kindness created a ripple effect throughout the school.", "一人の先生の親切が、学校全体に波及していきました。"]
+  ]
+ },
+ "address a concern": {
+  "n": "address は「宛名を書く」だけでなく、「問題に取り組む」という意味でも使います。address a concern は、相手が示した不安や懸念に対応することです。企業の声明や会議でよく聞く丁寧な表現で、concern は複数形（address concerns）で使う例も多くあります。deal with より改まった響きがあります。",
+  "x": [
+   ["The airline promised to address a concern raised by several passengers.", "航空会社は、複数の乗客から出された懸念に対応すると約束しました。"],
+   ["Before the vote, the mayor tried to address a concern about rising costs.", "投票の前に、市長は費用の上昇に関する懸念に対処しようとしました。"]
+  ]
+ },
+ "affordable": {
+  "n": "「手が届く価格の」という意味で、多くの人が無理なく買ったり借りたりできることを示します。affordable housing（手頃な価格の住宅）は社会問題の記事で頻出です。cheap は「安いが質が低い」という否定的な響きになることがありますが、affordable にはそれがなく、むしろ好意的です。動詞 afford は can afford の形で使います。",
+  "x": [
+   ["The restaurant offers healthy meals at an affordable price.", "そのレストランは、手頃な価格で健康的な食事を提供しています。"],
+   ["Electric cars will only become popular when they are truly affordable.", "電気自動車は、本当に手頃な価格になって初めて普及するでしょう。"]
+  ]
+ },
+ "agriculture": {
+  "n": "農業を産業や学問として扱う不可算名詞で、a agriculture とは言いません。farming は個々の農家の仕事を指すことが多く、agriculture のほうが国全体や制度を語る文脈に合います。the Ministry of Agriculture（農林水産省に相当）のように組織名にも使います。形容詞は agricultural で、agriculture そのものを形容詞に使わないよう注意しましょう。",
+  "x": [
+   ["Agriculture accounts for nearly half of the country's exports.", "農業は、その国の輸出のほぼ半分を占めています。"],
+   ["She studied agriculture at university and now runs a family farm.", "彼女は大学で農学を学び、今は家族経営の農場を営んでいます。"]
+  ]
+ },
+ "amateur": {
+  "n": "報酬を目的とせず、趣味や楽しみで活動する人を指します。形容詞では amateur photographer のように使い、名詞でも使えます。スポーツでは「プロではない」という中立的な意味ですが、仕事の質を評価する場面で That looks amateur. と言うと「素人くさい、出来が悪い」という否定的な批判になります。反対語はプロの professional です。",
+  "x": [
+   ["The village hosts an amateur theatre festival every summer.", "その村では、毎年夏にアマチュア演劇祭が開かれます。"],
+   ["Her amateur photographs were good enough to be shown in a gallery.", "彼女がアマチュアとして撮った写真は、ギャラリーで展示されるほど優れていました。"]
+  ]
+ },
+ "amenity": {
+  "n": "公園、店、図書館、プールなど、暮らしを快適で便利にする設備やサービスです。不動産やホテルの紹介文でよく見かけ、日本語の「アメニティ」（ホテルの歯ブラシなどの備品）とは範囲が違います。英語では建物や地域全体の施設を指すのが普通で、通常は複数形 amenities で使います。",
+  "x": [
+   ["One amenity the hotel advertises is free parking for guests.", "そのホテルが宣伝している設備の一つは、宿泊客向けの無料駐車場です。"],
+   ["A swimming pool is the amenity that most families look for here.", "ここでは、プールが多くの家族が探す設備です。"]
+  ]
+ },
+ "articulate": {
+  "n": "形容詞では、考えを明確で筋道立った言葉にできる人を表します。a very articulate speaker は「話が明快な人」という褒め言葉です。発音は形容詞が /ɑːrˈtɪkjələt/ で、動詞（はっきり述べる）は語尾が /-eɪt/ になります。似た意味の語に eloquent があります。",
+  "x": [
+   ["The young candidate was calm, clear and remarkably articulate.", "その若い候補者は落ち着いていて、話が明快で、驚くほど言葉が巧みでした。"],
+   ["An articulate leader can explain difficult ideas in simple words.", "言葉が明快な指導者は、難しい考えを平易な言葉で説明できます。"]
+  ]
+ },
+ "artistic": {
+  "n": "芸術に関係する、あるいは芸術の才能がある、という二つの意味があります。artistic talent は「芸術的な才能」、an artistic director は「芸術監督」です。人について使うと、絵や音楽などで創造力に恵まれているというニュアンスです。美しさを評価するなら aesthetic、創造的であることを強調するなら creative と、似た語と区別して選びましょう。",
+  "x": [
+   ["The festival gives local people a chance to show their artistic side.", "その祭りは、地元の人々が芸術的な一面を見せる機会になっています。"],
+   ["He comes from an artistic family, and both his parents are painters.", "彼は芸術一家の出身で、両親とも画家です。"]
+  ]
+ },
+ "as a consequence": {
+  "n": "前の内容から生じる結果を述べる、改まった接続表現です。文頭では As a consequence, ～ とコンマを付けるのが普通です。as a consequence of ～ とすると「～の結果として」という前置詞句になり、後ろに名詞が続きます。as a result より硬い印象で、論文や報告書向きです。",
+  "x": [
+   ["The river was polluted by the factory; as a consequence, many fish died.", "川は工場に汚染され、その結果、多くの魚が死にました。"],
+   ["Prices rose sharply as a consequence of the poor harvest.", "不作の結果として、価格が急激に上がりました。"]
+  ]
+ },
+ "as opposed to": {
+  "n": "二つのものを対比させて、「～ではなく」「～とは対照的に」と示す表現です。後ろには名詞、動名詞、前置詞句などが続きます。rather than と近いのですが、as opposed to は二つの違いを明確に区別する場面に向きます。長めの句なので、会話よりも説明文や記事で目にします。",
+  "x": [
+   ["Many people prefer to work from home as opposed to commuting every day.", "毎日通勤するのではなく、在宅で働くことを好む人は多いです。"],
+   ["The survey asked about real habits as opposed to what people say they do.", "その調査は、人々が言う行動とは対照的に、実際の習慣について尋ねました。"]
+  ]
+ },
+ "assert": {
+  "n": "反対や疑いがあっても、自分は正しいと強く言い切る動詞です。assert that ～ の形が多く、assert oneself は「自己主張する」という熟語です。say より力強く、claim と似ていますが、claim は「証拠はないが主張する」という含みも出るのに対し、assert は自信に満ちた断言の響きがあります。名詞は assertion です。",
+  "x": [
+   ["The defendant continued to assert his innocence throughout the trial.", "被告は裁判の間ずっと、自分の無実を主張し続けました。"],
+   ["She learned to assert herself in meetings with senior colleagues.", "彼女は、上の立場の同僚との会議でも自己主張できるようになりました。"]
+  ]
+ },
+ "awning": {
+  "n": "窓、入口、店先の上に張り出して、日差しや雨をよける布製の覆いです。日本語では「日よけ」「オーニング」と呼ばれ、カフェや商店でよく見かけます。canopy は木の天蓋や大きな覆い全般に使い、awning は建物の壁に取り付けるものを指す傾向があります。発音は /ˈɔːnɪŋ/ です。",
+  "x": [
+   ["We waited under the awning until the rain stopped.", "雨がやむまで、私たちは日よけの下で待ちました。"],
+   ["The bakery has a bright red awning that you can see from the corner.", "そのパン屋には、角から見える鮮やかな赤い日よけがあります。"]
+  ]
+ },
+ "back-ordered": {
+  "n": "注文は受け付けたものの、在庫がなく、入荷してから発送される状態を表す形容詞です。オンラインショップの商品ページで In stock や Out of stock と並んで見かけます。名詞では backorder、動詞でも使えます。単に「遅れている」ではなく、「在庫切れで入荷待ち」という理由まで含む点が delayed と異なります。",
+  "x": [
+   ["The laptop you selected is back-ordered and will ship next month.", "選ばれたノートパソコンは入荷待ちで、来月の発送になります。"],
+   ["Several back-ordered items finally reached the warehouse this morning.", "入荷待ちだった商品のいくつかが、今朝ようやく倉庫に届きました。"]
+  ]
+ },
+ "bargain": {
+  "n": "名詞では「定価よりずっと安く手に入った得な買い物」を指します。a real bargain は「掘り出し物」です。It's a bargain! のように、値段に対して品質が良いと感じたときに使います。動詞 bargain は「値段を交渉する」、名詞でも make a bargain は「取り決めを結ぶ」の意味があります。日本語の「バーゲンセール」は a sale と言うのが普通です。",
+  "x": [
+   ["At only ten dollars, this jacket is a bargain.", "たった10ドルなので、このジャケットはお買い得です。"],
+   ["She is good at spotting bargains in second-hand shops.", "彼女は古着屋で掘り出し物を見つけるのが上手です。"]
+  ]
+ },
+ "baroque": {
+  "n": "17世紀から18世紀前半のヨーロッパで栄えた、華やかで装飾の多い芸術、建築、音楽の様式を指します。頭文字を大文字にする書き方も小文字の書き方も見られ、時代の様式を指すときは Baroque と書くのが一般的です。音楽では、バッハやヴィヴァルディの時代を表します。発音は /bəˈroʊk/ で、強勢は第2音節です。",
+  "x": [
+   ["The Baroque palace is famous for its mirrors and painted ceilings.", "そのバロック様式の宮殿は、鏡の間と天井画で有名です。"],
+   ["She plays the violin in a small Baroque orchestra.", "彼女は小さなバロック・オーケストラでヴァイオリンを弾いています。"]
+  ]
+ },
+ "be accessible to": {
+  "n": "人が近づける、入れる、利用できる状態を表します。物理的な意味（車いすで入れる）にも、情報や価格が誰にでも分かりやすい・使えるという意味にも使えます。後ろには人や集団が来て、to が必要です。accessible for と書く人もいますが、「～が利用できる」と言うときは to が一般的です。",
+  "x": [
+   ["The museum's collection will be accessible to everyone online from next week.", "その博物館の収蔵品は、来週からオンラインで誰でも見られるようになります。"],
+   ["Legal advice should be accessible to people on low incomes.", "法的な助言は、低所得の人々も利用できるものであるべきです。"]
+  ]
+ },
+ "be closed off": {
+  "n": "入口や通路をふさいで、立ち入れない状態にされていることを表します。be closed off to traffic（通行止めになっている）の形でよく聞きます。受動態なので、誰が閉鎖したかは重要でないときに便利です。人の性格に使うと、心を閉ざしている、という比喩にもなります。close off は「ふさぐ」という能動の句動詞で、目的語を間に挟むこともできます。",
+  "x": [
+   ["The whole street will be closed off during the marathon.", "マラソンの間、その通り全体が通行止めになります。"],
+   ["After the accident, the tunnel had to be closed off for several hours.", "事故のあと、トンネルは数時間閉鎖されなければなりませんでした。"]
+  ]
+ },
+ "be committed to": {
+  "n": "ある目標や考え方に対して、強い決意を持って取り組んでいることを表します。to のあとは名詞か動名詞（～ing）が来ます。We are committed to improving ～ のように企業の方針でよく使われます。この to は前置詞なので、動詞の原形を続けて be committed to improve としないよう注意しましょう。",
+  "x": [
+   ["The school should be committed to supporting students from all backgrounds.", "その学校は、あらゆる背景の生徒を支援することに力を入れるべきです。"],
+   ["He wants to be committed to his research for the next twenty years.", "彼はこれからの20年も、自分の研究に打ち込みたいと考えています。"]
+  ]
+ },
+ "be comparable to": {
+  "n": "大きさ、質、量などが、比べるに値するほど似ていることを表します。be comparable to ～ と be comparable with ～ のどちらも使えますが、to のほうが一般的です。「同じ」ではなく「だいたい肩を並べる」という含みなので、比較の説明文でよく見かけます。名詞は comparability です。",
+  "x": [
+   ["The quality of the new model seems to be comparable to that of the old one.", "新しいモデルの品質は、古いモデルに匹敵するようです。"],
+   ["Her salary in Berlin is likely to be comparable to what she earned in London.", "ベルリンでの彼女の給料は、ロンドンで稼いでいた額と同じくらいになりそうです。"]
+  ]
+ },
+ "be compatible with": {
+  "n": "機器、ソフト、人の性格などが、問題なく一緒に使える、あるいは共存できることを表します。パソコンやアプリの対応表示（compatible with iOS）でよく目にします。人間関係では、相性が良いという意味にもなります。反対は incompatible です。with の後ろには互換の相手を置き、compatible to とは言いません。",
+  "x": [
+   ["This charger claims to be compatible with both phones and tablets.", "この充電器は、スマートフォンにもタブレットにも対応するとうたっています。"],
+   ["The couple found that they could not be compatible with each other on future goals.", "そのカップルは、将来の目標についてお互いに合わせられないと気づきました。"]
+  ]
+ }
+}

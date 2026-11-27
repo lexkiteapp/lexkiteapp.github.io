@@ -48,6 +48,22 @@
   "semi": {
    "t": "Semivogais: j, w, ɥ",
    "x": "Diante de vogal, i, ou e u viram deslizes rápidos dentro de uma só sílaba. i é /j/ como o “i” de “pai”: “fille”. ou é /w/ como o “u” de “quando”: “oui”. u é /ɥ/, os lábios de /y/ deslizando: “huit”, “lui”, “nuit”. “huit” é uma sílaba, não “u-it”. Compare “loue” e “lui”, “fil” e “fille”."
+  },
+  "h": {
+   "t": "H mudo e h aspirado",
+   "x": "A letra h nunca é pronunciada, mas se comporta de duas maneiras. O h mudo age como vogal: há ligação e elisão, “l’homme”, “les hommes” /lez ɔm/, “l’hôtel”. O h aspirado age como consoante: sem ligação, sem elisão e com uma pequena pausa, “le héros”, “les héros” /le eʁo/, “les haricots”. Ouça o z: “les héros” não tem, “les zéros” tem."
+  },
+  "gn": {
+   "t": "O som gn /ɲ/",
+   "x": "As letras gn formam um único som suave /ɲ/, como o “nh” de “ninho”, e não g mais n. Encoste o meio da língua no céu da boca: “agneau”, “montagne”, “campagne”. O n simples /n/ é mais rápido e usa a ponta da língua: “anneau” (anel) não é “agneau” (cordeiro), e “peine” não é “peigne”."
+  },
+  "enchain": {
+   "t": "Ligar consoantes entre palavras",
+   "x": "O francês é falado em grupos fluidos, então a consoante final salta para a vogal seguinte: “une amie” soa como “u-na-mie”, “il arrive” como “i-la-rive”, “avec elle” como “ave-kel”. As sílabas terminam em vogal, sem pausa nem golpe de glote entre as palavras. Ouça a diferença entre “une amie” (amiga) e “un ami” (amigo)."
+  },
+  "final": {
+   "t": "Consoantes finais: mudas ou não",
+   "x": "A maioria das consoantes finais é muda: “petit”, “grand”, “nez”, “tout”. Mas as letras de CaReFuL (c, r, f, l) costumam ser pronunciadas: “sac”, “chef”, “fil”, “sur”. Atenção às exceções: “fils” /fis/ (filho) tem s, enquanto “fil” (fio) termina em l. Acrescentar um e desperta a consoante: “petit” vira “petite”, “grand” vira “grande”."
   }
  }
 }

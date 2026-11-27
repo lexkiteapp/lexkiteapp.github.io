@@ -96,14 +96,14 @@
    "pct": 100
   },
   "vocab": {
-   "items": 10591,
-   "tagged": 10591,
+   "items": 10597,
+   "tagged": 10597,
    "pct": 100
   }
  },
  "total": {
-  "items": 11971,
-  "tagged": 11971,
+  "items": 11977,
+  "tagged": 11977,
   "pct": 100
  },
  "errors": 0
