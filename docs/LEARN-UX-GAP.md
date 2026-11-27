@@ -55,7 +55,7 @@ Mỗi mục: 1 PR, ship 100% + kill switch (cờ `vb.flag.*`), i18n 15 ngôn ng�
 | 5 | ~~Hội thoại vào luồng ngày~~ → **ĐÃ CÓ:** `tracks.js` đặt "Hội thoại ngắn"/"Cuộc gọi luyện nói" vào Ngày N, màn nhận xét độ trôi chảy sau cuộc gọi, nút loa nghe lại. **Đã làm thêm (#2285):** chạm loa lần 2 = nói chậm. Còn: nghe-hiểu hội thoại ngắn có câu hỏi | – | – |
 | 6 | ~~Ôn sửa lỗi cuối bài~~ → **ĐÃ CÓ:** `lesson/engine.js` xếp lại câu sai (maxRetry 2), gắn nhãn "↺ Lỗi cũ", câu sai ghi vào SRS | – | – |
 | 7 | **Thích ứng giữa các ngày**: ước năng lực theo kỹ năng (nghe/đọc/nói/viết) từ log câu → chọn độ khó/dạng ngày kế (Birdbrain-lite, logistic nhẹ client-side) | D7, đầu ra | `acc_by_skill`, drop-off bài |
-| 8 | **Màn "tiến bộ cụ thể"**: "tuần này nhớ N từ · nói được M câu mới", biểu đồ 7 ngày | D7 | `progress_view` → quay lại |
+| 8 | ~~Màn tiến bộ cụ thể~~ → **phần lớn ĐÃ CÓ:** màn kết bài (`espr.js`/`lesson/ui.js`) có lịch tuần (`lsn-week`), danh sách từ vừa học (`lsn-learned`), "Ngày mai ôn N từ" (`lsn-tmr`), XP/chuỗi. Còn nhỏ: dòng "tuần này nhớ N từ (độ nhớ ≥ mục tiêu)" | – | – |
 | 9 | ~~Giải thích mọi câu sai~~ → **ĐÃ CÓ:** nút "Vì sao?" (`lesson/ui.js` explain) + 💡 Hiểu sâu. Còn: kiểm độ phủ theo loại lỗi (chính tả/nghĩa/từ loại/nghe) bằng walkthrough | – | – |
 | 10 | ~~Haptic + âm + reduced-motion~~ → **ĐÃ CÓ:** `game.js` HAPTIC/buzz (chỉ chạm, tôn trọng tắt tiếng), 115 chỗ prefers-reduced-motion. Còn: kiểm bằng walkthrough | – | – |
 
@@ -69,3 +69,6 @@ Không cắt tính năng/test/ngưỡng; i18n 15 ngôn ngữ; ngân sách khung 
 
 ## 6. Cập nhật 27/11 – đối chiếu với main
 Top 10 viết khi chưa soát main; sau soát: #3, #5, #6, #9, #10 đã có (chỉ còn phần nhỏ ghi trên). **Việc thật còn lại:** #1 learn-walk (đo), #2 bài đầu 60 giây (#2281), #4 bài 3 phút (#2284), #5-nhỏ nói chậm (#2285), **#7 thích ứng giữa các ngày** (chưa có ước năng lực theo kỹ năng: `git grep` không thấy), **#8 màn tiến bộ cụ thể** (chỉ có lịch tuần; thiếu "nhớ N từ tuần này"), mục tiêu ngày theo phút/XP. Bài học: luôn `git grep` main trước khi viết PR.
+
+### Kết luận rà soát 2 (27/11, sau #8)
+Sau khi `git grep` main: **chỉ #7 (thích ứng giữa các ngày) là khoảng trống lớn thật**; #8 còn 1 dòng nhỏ. Dữ liệu retention (`docs/specs/retention-1211.md`): D1 ≈ 16 % dù phiên đầu dài hay ngắn → điểm rơi là *lý do quay lại ngày mai*, không phải thiếu tính năng. Vì vậy KHÔNG thêm PR đoán mò để đủ 10: chờ #2278 merge → dispatch `Learn walk` → chọn PR kế theo điểm đo (ứng viên: #7, dòng "tuần này nhớ N từ", nghe-hiểu hội thoại có câu hỏi, mục tiêu theo phút/XP, nhắc giờ học riêng sau bài đầu).
