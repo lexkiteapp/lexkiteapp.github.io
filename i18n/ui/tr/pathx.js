@@ -2,6 +2,7 @@
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {
 "+{n} XP":"+{n} XP",
 "+{xp} XP hôm nay":"Bugün +{xp} XP",
+"Bài 3 phút: ôn nhanh 6 từ":"3 dakikalık ders: 6 kelimenin hızlı tekrarı",
 "Bài mới đã mở: {name}":"Yeni ders açıldı: {name}",
 "Bài ngữ pháp hôm nay":"Bugünün dilbilgisi",
 "Bài phát âm hôm nay":"Bugünün telaffuzu",
@@ -65,6 +66,7 @@
 "Từ học thuật, dạng câu Reading & Listening, Writing Task 1–2, Speaking Part 1–3":"Akademik kelimeler, Reading ve Listening soru türleri, Writing Task 1–2, Speaking Part 1–3",
 "Từ từ mà chắc – 5 phút mỗi ngày cũng tạo khác biệt lớn.":"Yavaş ama emin adımlarla – günde 5 dakika bile büyük fark yaratır.",
 "Viết theo mẫu, có bài mẫu tham khảo":"Şablonla yaz, örnek cevaplarla",
+"Vừa đủ giữ nhịp học hôm nay – xong là xong":"Bugünün ritmini korumaya yetecek kadar; bittiğinde yapılır",
 "Xem dạng câu hay sai và mẹo tránh bẫy":"En çok yanıldığın soru türlerini ve tuzaklardan kaçınmayı gör",
 "can / could / may – xin phép và nhờ giúp":"can / could / may – izin ve yardım isteme",
 "{a}/{b} hoạt động":"{a}/{b} etkinlik",

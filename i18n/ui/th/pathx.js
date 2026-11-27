@@ -2,6 +2,7 @@
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {
 "+{n} XP":"+{n} XP",
 "+{xp} XP hôm nay":"+{xp} XP วันนี้",
+"Bài 3 phút: ôn nhanh 6 từ":"บทเรียน 3 นาที: ทบทวนคำศัพท์ 6 คำอย่างรวดเร็ว",
 "Bài mới đã mở: {name}":"ปลดล็อกบทเรียนใหม่แล้ว: {name}",
 "Bài ngữ pháp hôm nay":"ไวยากรณ์วันนี้",
 "Bài phát âm hôm nay":"การออกเสียงวันนี้",
@@ -65,6 +66,7 @@
 "Từ học thuật, dạng câu Reading & Listening, Writing Task 1–2, Speaking Part 1–3":"คำศัพท์วิชาการ รูปแบบคำถาม Reading และ Listening, Writing Task 1–2, Speaking Part 1–3",
 "Từ từ mà chắc – 5 phút mỗi ngày cũng tạo khác biệt lớn.":"ช้าแต่ชัวร์ – วันละ 5 นาทีก็สร้างความแตกต่างได้มาก",
 "Viết theo mẫu, có bài mẫu tham khảo":"เขียนตามแบบ มีตัวอย่างคำตอบ",
+"Vừa đủ giữ nhịp học hôm nay – xong là xong":"เพียงพอที่จะรักษาจังหวะของวันนี้ – ทำเมื่อเสร็จแล้ว",
 "Xem dạng câu hay sai và mẹo tránh bẫy":"ดูรูปแบบคำถามที่ตอบผิดบ่อยและวิธีเลี่ยงกับดัก",
 "can / could / may – xin phép và nhờ giúp":"can / could / may – ขออนุญาตและขอความช่วยเหลือ",
 "{a}/{b} hoạt động":"{a}/{b} กิจกรรม",
