@@ -1084,7 +1084,7 @@
 | t2a_review_attach | 100.0 | 100.0 | banked | 45190702487 |
 | t2a_review_avoid | 100.0 | 100.0 | banked | 46070469277 |
 | t2a_review_award | 100.0 | 100.0 | banked | 46070469277 |
-| t2a_review_backpack | – | 100.0 | red ×2: short: no render; wide: duplicate video | 46074960415 |
+| t2a_review_backpack | – | 100.0 | red ×3: short: no render; wide: duplicate video | 46074960415 |
 | t2a_review_baker | 100.0 | 100.0 | banked | 46070469277 |
 | t2a_review_bakery | 100.0 | 100.0 | banked | 46070469277 |
 | t2a_review_bank | 100.0 | 100.0 | banked | 45943422264 |
