@@ -1,6 +1,6 @@
 {
  "job": "say-native",
- "at": "2026-11-26T23:02:25.412Z",
+ "at": "2026-11-27T21:56:51.275Z",
  "used": {
   "lexai": 0,
   "gc": 0,
@@ -8,7 +8,7 @@
   "cfLeak": 0,
   "cf2Dead": [],
   "gem": 0,
-  "groq": 36
+  "groq": 30
  },
  "budget": {
   "lexai": 400,
@@ -17,12 +17,12 @@
  },
  "by": {
   "groq|openai/gpt-oss-120b": {
-   "ok": 24,
+   "ok": 21,
    "fail": 0,
    "bad": 0
   },
   "groq|qwen/qwen3.8-27b": {
-   "ok": 12,
+   "ok": 9,
    "fail": 0,
    "bad": 0
   }
@@ -35,8 +35,10 @@
   },
   "groq": {
    "size": 109,
-   "live": 109,
-   "parked": {}
+   "live": 107,
+   "parked": {
+    "minute": 2
+   }
   }
  }
 }
