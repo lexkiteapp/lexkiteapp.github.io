@@ -9,7 +9,7 @@
 // Chạy: node scripts/target/gen.mjs --tl es --n 300 [--dry]   (--dry: chỉ dựng danh sách ứng viên, không gọi AI)
 import fs from 'node:fs';
 import path from 'node:path';
-import { ROOT, MEAN_LANGS, validate, readJSON, seedPath, coreFiles, nextCoreFile, ltErrors as ltErr, kaikki, lemmaFromEntries, FIELDS, derive, TL_RULES } from './lib.mjs';
+import { ROOT, MEAN_LANGS, validate, readJSON, seedPath, coreFiles, nextCoreFile, ltErrors as ltErr, kaikki, lemmaFromEntries, FIELDS, derive, TL_RULES, viUntranslated } from './lib.mjs';
 import { TL_GEN } from './tl-gen.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
@@ -83,6 +83,10 @@ const GEN_CHAIN = ['groq', 'gc-groq', ...(+(process.env.AI_POOL_CF2_NEURONS || 0
    GEM_MAX = Math.floor((+process.env.AI_GEM_MAX || 150) / SN);
 const gemUsed = () => { const by = (AI.stats ? AI.stats().by : {}) || {}; return Object.entries(by).filter(([k]) => k.startsWith('gem|')).reduce((n, [, v]) => n + v.ok + v.fail + v.bad, 0); };
 // chờ không vượt hạn giờ lượt (run 45004140024: shard bị huỷ ở 150 phút vì chờ)
+// hạn CỨNG (run 45806571042 lô fr 3: shard 0/2 quá phút 113 vẫn kẹt trong một lượt soạn/chấm bắt đầu trước phút 100 – job hủy ở 150 = mất cả lô):
+// mỗi lượt AI đua với hạn T0 + MAX_MS + GEN_GRACE_MIN (mặc định 20 phút) – quá hạn → coi như ai-pool không trả lời, vòng lặp dừng và ghi lô đã nhận.
+const HARD = T0 + MAX_MS + (+process.env.GEN_GRACE_MIN || 20) * 60e3;
+const cut = p => Promise.race([p, new Promise(z => setTimeout(() => z(null), Math.max(0, HARD - Date.now())).unref())]);
 async function patient(fn, what) { for (let t = 0; ; t++) { const r = await fn(); if (r || t >= WAITS.length || Date.now() - T0 + WAITS[t] * 1000 > MAX_MS) return r; const w = Math.min(Math.max(WAITS[t] * 1000, AI.nextReadyMs ? AI.nextReadyMs() + 1000 : 0), 35 * 60e3); /* lùi theo cầu dao/Retry-After thật (≤ 35 phút), không chờ mù */ console.log(`ai-pool: thiếu tuyến ${what} → chờ ${Math.round(w / 1000)} s rồi thử lại (${t + 1}/${WAITS.length})`); await new Promise(z => setTimeout(z, w)); } }
 // lấy trường người soạn trả theo bảng: es/fr/pt giữ đúng hình cũ (gender + plural chỉ danh từ, h); trường riêng tl (ja kana…, ko conj/topik/hanja/pronX) theo FIELDS;
 // trường SINH từ chữ (ko pron/romaja/ipa) do derive() ghi đè – lệch giữ ở qa.<trường>Ai
@@ -93,7 +97,7 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   if (Date.now() - T0 > MAX_MS) { console.log('hết giờ lượt → ghi lô đã nhận (lượt sau nối tiếp)'); break; }
   const items = await fillQ(BATCH); if (!items.length) { console.log('hết ứng viên'); break; }
   if (gemUsed() >= GEM_MAX) { poolStop = 'phần Gemini'; console.log(`ai-pool: đã dùng ${gemUsed()}/${GEM_MAX} lượt Gemini phần es → ghi lô (chừa hạn mức cho fr/ja)`); break; }
-  const g = await patient(() => AI.gen({ mode: 'lxgen', items }, { chain: GEN_CHAIN }), 'soạn'); if (!g) { poolStop = 'soạn'; console.log('ai-pool: hết tuyến soạn sau khi chờ → dừng (lượt sau làm tiếp)'); break; }
+  const g = await cut(patient(() => AI.gen({ mode: 'lxgen', items }, { chain: GEN_CHAIN }), 'soạn')); if (!g) { poolStop = 'soạn'; console.log('ai-pool: hết tuyến soạn sau khi chờ → dừng (lượt sau làm tiếp)'); break; }
   const draft = items.map(it => ({ it, e: g.out[it.k] })).filter(({ it, e }) => { if (!e || e.skip) { rejected.push({ form: it.form, why: e ? 'skip: ' + e.skip : 'không trả' }); return false; } return true; })
     .map(({ it, e }) => ({ k: it.k, hint: it.hint, e: { ...pick(e, it.hint), rank: it.rank } }));
   for (const it of items) tried.add(it.form.toLowerCase());
@@ -117,14 +121,15 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
       if (!jb || !jb.ok || jb.score < 4) why.push('giám khảo B: ' + (jb ? jb.why : 'không trả'));
       const notSame = t && t.same ? MEAN_LANGS.filter(L => L !== 'en' && L !== TL && t.same[L] !== true) : ['dịch ngược không trả'];
       if (notSame.length) why.push('dịch ngược lệch: ' + notSame.join(','));
-      const gate = validate({ v: 1, tl: TL, words: [d.e] }); if (gate.length) why.push('cổng: ' + gate.join('; '));
+      let gate; try { gate = validate({ v: 1, tl: TL, words: [d.e] }); } catch (e) { gate = ['cổng lỗi: ' + e.message]; } /* một mục AI trả sai kiểu không được làm sập cả lượt */ if (gate.length) why.push('cổng: ' + gate.join('; '));
+      if (viUntranslated(d.e.gl)) why.push(`nghĩa vi chưa dịch (trùng tiếng Anh "${d.e.gl.en}")`); // lô fr 3: 20 mục "region/Thursday/student…" lọt cả 2 giám khảo + dịch ngược (vi→en = chính nó)
       if (seen.has(key)) why.push('trùng lemma');
       if (why.length) bad.push({ d, why, bt: t && t.bt }); else ok.push({ d, qa: { judges: [a.model, b.model], bt: bt.model, scores: [ja.score, jb.score] } });
     }
     return { ok, bad };
   }
   const take = (list, qa) => { for (const { d, qa: q } of list) { const key = String(d.e.word || '').toLowerCase(); if (seen.has(key)) continue; seen.add(key); accepted.push({ ...d.e, qa: { gen: g.model, ...q, ...qa } }); } };
-  const r1 = await patient(() => grade([...draft]), 'giám khảo');
+  const r1 = await cut(patient(() => grade([...draft]), 'giám khảo'));
   if (!r1) { poolStop = 'giám khảo'; console.log('ai-pool: thiếu giám khảo khác họ → không xuất lô này (lượt sau chấm lại)'); break; }
   take(r1.ok);
   // Một vòng SỬA có lý do (như người biên tập đọc phiếu chấm): mục trượt vì nghĩa/IPA/ví dụ/LanguageTool → người soạn sửa đúng chỗ bị chê → chấm LẠI ĐỦ cổng
@@ -132,10 +137,10 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   const fixable = r1.bad.filter(x => !x.why.some(w => /trùng lemma|không trả/.test(w)));
   for (const x of r1.bad) if (!fixable.includes(x)) { rejected.push({ form: x.d.k, word: x.d.e.word, why: x.why }); if (x.why.some(w => /không trả/.test(w))) tried.delete(x.d.k.toLowerCase()); } // không trả = chưa chấm → lượt sau thử lại
   if (fixable.length) {
-    const f = await AI.gen({ mode: 'lxgen', sys: SYS.lxfix, items: fixable.map(x => ({ k: x.d.k, entry: x.d.e, problems: x.why, ...(x.bt ? { backTranslations: x.bt } : {}) })) }, { chain: GEN_CHAIN });
+    const f = await cut(AI.gen({ mode: 'lxgen', sys: SYS.lxfix, items: fixable.map(x => ({ k: x.d.k, entry: x.d.e, problems: x.why, ...(x.bt ? { backTranslations: x.bt } : {}) })) }, { chain: GEN_CHAIN }));
     const fixed = f ? fixable.map(x => { const e = f.out[x.d.k]; return e && !e.skip && e.word ? { k: x.d.k, e: { ...pick(e, x.d.hint), rank: x.d.e.rank } } : null; }).filter(Boolean) : [];
     if (f) fams.push(f.fam);
-    const r2 = fixed.length ? await patient(() => grade(fixed.map(x => ({ k: x.k, e: x.e, hint: fixable.find(y => y.d.k === x.k).d.hint }))), 'giám khảo bản sửa') : { ok: [], bad: [] };
+    const r2 = fixed.length ? await cut(patient(() => grade(fixed.map(x => ({ k: x.k, e: x.e, hint: fixable.find(y => y.d.k === x.k).d.hint }))), 'giám khảo bản sửa')) : { ok: [], bad: [] };
     take((r2 || { ok: [] }).ok, { fixed: f && f.model });
     const okK = new Set(((r2 || { ok: [] }).ok).map(o => o.d.k));
     if (fixed.length && !r2) { for (const x of fixable) tried.delete(x.d.k.toLowerCase()); } // thiếu giám khảo khác họ cho bản sửa = chưa chấm → lượt sau làm lại
@@ -157,4 +162,4 @@ fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(outFile, JSON.stringify(deck, null, 1) + '\n');
 fs.writeFileSync(repFile, JSON.stringify({ at: new Date().toISOString(), accepted: fresh.length, rejected, tried: [...tried], spot: fresh.filter(w => w.qa.spot).map(w => w.word), fixed: fixedN, yield: yld, skipped, gem: gemUsed(), stats: AI.stats ? AI.stats() : null }, null, 1) + '\n');
 console.log(`✓ ${fresh.length} mục mới (tổng ${accepted.length}; ${fixedN} qua vòng sửa), loại ${rejected.length}, bỏ trước AI ${skipped.dup} dạng trùng lemma + ${skipped.name} tên riêng, mẫu soát ${spotN} → ${path.relative(ROOT, outFile)}`);
-if (!fresh.length) process.exit(1); // việc nền phải tự đỏ khi ra 0
+process.exit(fresh.length ? 0 : 1); // 0 mục → đỏ (việc nền phải tự đỏ); lượt AI bị hạn cứng cắt vẫn treo timer/socket → thoát dứt khoát sau khi ghi

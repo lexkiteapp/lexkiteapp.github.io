@@ -34,11 +34,14 @@ export async function ciRepair(deps = {}, opts = {}) {
   return { done, failed };
 }
 async function main() {
-  const A = process.argv.slice(2), ROUNDS = +arg(A, 'rounds', 40), FILES = +arg(A, 'files', 5);
+  const A = process.argv.slice(2), ROUNDS = +arg(A, 'rounds', 40), FILES = +arg(A, 'files', 2)   /* 26/11: 5 file/lượt vượt 5 phút của Worker (undici TimeoutError, 218 file chỉ 1 bản) → lô nhỏ + timeout dừng vòng, không đỏ */;
   let done = 0, failed = 0, left = null;
   try {
     for (let i = 0; i < ROUNDS; i++) {
-      const r = await driveApi('repair', { max_files: FILES, max_file: LARGE }); done += (r.done || []).length; failed += (r.failed || []).length; left = r.remaining ?? 0;
+      let r;
+      try { r = await driveApi('repair', { max_files: FILES, max_file: LARGE }); }
+      catch (e) { if (!(e.status >= 500 || e.name === 'TimeoutError')) throw e; console.error(`::warning::repair vòng ${i + 1}: ${e.status || e.name} – dừng chép phía máy chủ, sang chép qua CI (còn lại mai làm tiếp)`); break; }
+      done += (r.done || []).length; failed += (r.failed || []).length; left = r.remaining ?? 0;
       if (!left || !(r.done || []).length) break;
       await new Promise(res => setTimeout(res, 1500));
     }

@@ -74,7 +74,9 @@ export function alerts(root, date, cur) {
     if (a && b) {
       const c = x => x?.totals?.current?.clicks ?? 0, p = x => x?.rows?.pageCur ?? 0;
       if (c(b) >= 20 && c(a) < c(b) * (1 - DROP)) out.push(`Lượt bấm 28 ngày tụt ${c(b)} → ${c(a)} (${bF} → ${g[0]})`);
-      if (p(b) >= 50 && p(a) < p(b) * (1 - DROP)) out.push(`Số trang có hiển thị tụt ${p(b)} → ${p(a)} (${bF} → ${g[0]})`);
+      // 27/11: đỉnh hiển thị 2 ngày (24–25/10, ~9,5k lượt) trôi khỏi cửa sổ 28 ngày → trang có hiển thị 2881→372 dù lượt bấm tăng 71→86: không phải mất thật.
+      // Số trang tụt chỉ đáng báo khi lượt bấm cũng không tăng so với mốc (đỉnh hiển thị trôi đi ≠ mất lưu lượng).
+      if (p(b) >= 50 && p(a) < p(b) * (1 - DROP) && c(a) <= c(b)) out.push(`Số trang có hiển thị tụt ${p(b)} → ${p(a)} (${bF} → ${g[0]})`);
     }
   }
   return out;

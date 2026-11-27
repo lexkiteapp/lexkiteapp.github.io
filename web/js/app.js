@@ -399,7 +399,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     cambridge: 'css/exam.css',
     dayv2: 'css/st-v2-day.css',
     dictp: 'css/st-v2-dict.css',
-    espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
+    espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-ex-frame.css', 'css/st-v2-ex-match.css', 'css/lesson-ex.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
     gend: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
@@ -408,7 +408,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     irvdrill: 'css/st-v2-irregular-drill.css',
     lcard: 'css/lcard.css',
     league: 'css/league.css',
-    lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'],
+    lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-ex-frame.css', 'css/st-v2-ex-match.css', 'css/lesson-ex.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'],
     libv2: 'css/st-v2-library.css',
     listening: 'css/exam.css',
     mock: 'css/exam.css',
@@ -1379,6 +1379,11 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     view.innerHTML = `<div class="onb" style="max-width:600px;margin:0 auto" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></div>`;
     await App.need('pathx', 'onb').catch(() => {});
     if (!window.Onboard) return errState(true);
+    // Người mới, vào đầu thiết lập (chưa có ?s=): nếm 1 bài 60 giây TRƯỚC khi hỏi mục tiêu/trình độ (bỏ qua được; xong 1 lần/máy)
+    if (!s && !hasData() && !state.user) {
+      await App.need('firstlesson').catch(() => {});
+      if (window.FirstLesson && FirstLesson.enabled()) return FirstLesson.run(view, () => Onboard.run(s, { view, TOPICS, topicOf, inDeck, addWord, saveSettings, finish: finishOnboarding, login: loginOnboard }));
+    }
     Onboard.run(s, { view, TOPICS, topicOf, inDeck, addWord, saveSettings, finish: finishOnboarding, login: loginOnboard });
   }
 

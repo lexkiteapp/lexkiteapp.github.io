@@ -279,6 +279,146 @@
     "fille",
     "nuit"
    ]
+  },
+  {
+   "id": "h",
+   "level": "B1",
+   "ex": [
+    "les hommes",
+    "les héros",
+    "l'homme",
+    "le héros",
+    "les haricots",
+    "l'hôtel"
+   ],
+   "pairs": [
+    "les héros/les zéros",
+    "les hommes/les sommes",
+    "les haricots/les abricots",
+    "l'hôtel/le hall",
+    "les hiboux/les bijoux"
+   ],
+   "dict": [
+    "l'hôtel",
+    "les haricots",
+    "les hommes",
+    "le héros",
+    "l'heure",
+    "l'histoire",
+    "les hiboux",
+    "le hall"
+   ],
+   "say": [
+    "les hommes",
+    "les héros",
+    "l'hôtel",
+    "l'homme",
+    "les haricots"
+   ]
+  },
+  {
+   "id": "gn",
+   "level": "B1",
+   "ex": [
+    "agneau",
+    "montagne",
+    "campagne",
+    "champignon",
+    "ligne",
+    "signe"
+   ],
+   "pairs": [
+    "agneau/anneau",
+    "peigne/peine",
+    "saigne/scène",
+    "règne/rêne"
+   ],
+   "dict": [
+    "montagne",
+    "campagne",
+    "champignon",
+    "ligne",
+    "signe",
+    "agneau",
+    "gagner",
+    "compagnie"
+   ],
+   "say": [
+    "montagne",
+    "campagne",
+    "champignon",
+    "gagner",
+    "compagnie"
+   ]
+  },
+  {
+   "id": "enchain",
+   "level": "B2",
+   "ex": [
+    "une amie",
+    "il arrive",
+    "avec elle",
+    "une école",
+    "quatre heures",
+    "elle est"
+   ],
+   "pairs": [
+    "une amie/un ami",
+    "il arrive/il rive"
+   ],
+   "dict": [
+    "une amie",
+    "il arrive",
+    "avec elle",
+    "elle est",
+    "une heure",
+    "une idée",
+    "il habite",
+    "elle aime"
+   ],
+   "say": [
+    "une amie",
+    "avec elle",
+    "il arrive",
+    "une heure",
+    "elle aime"
+   ]
+  },
+  {
+   "id": "final",
+   "level": "B2",
+   "ex": [
+    "sac",
+    "chef",
+    "sur",
+    "petit",
+    "nez",
+    "grand"
+   ],
+   "pairs": [
+    "fils/fil",
+    "sac/sa",
+    "tous/tout",
+    "petit/petite",
+    "grand/grande"
+   ],
+   "dict": [
+    "sac",
+    "chef",
+    "fils",
+    "sept",
+    "nez",
+    "os",
+    "grand",
+    "vert"
+   ],
+   "say": [
+    "sac",
+    "chef",
+    "fils",
+    "nez",
+    "petit"
+   ]
   }
  ],
  "ipa": {
@@ -404,6 +544,52 @@
   "famille": "famij",
   "fil": "fil",
   "pou": "pu",
-  "puis": "pɥi"
+  "puis": "pɥi",
+  "les zéros": "le zeʁo",
+  "les sommes": "le sɔm",
+  "les haricots": "le aʁiko",
+  "les abricots": "lez abʁiko",
+  "l'hôtel": "lotɛl",
+  "le hall": "lə ol",
+  "les hiboux": "le ibu",
+  "les bijoux": "le biʒu",
+  "l'homme": "lɔm",
+  "le héros": "lə eʁo",
+  "l'heure": "lœʁ",
+  "l'histoire": "listwaʁ",
+  "agneau": "aɲo",
+  "anneau": "ano",
+  "montagne": "mɔ̃taɲ",
+  "campagne": "kɑ̃paɲ",
+  "ligne": "liɲ",
+  "signe": "siɲ",
+  "peigne": "pɛɲ",
+  "peine": "pɛn",
+  "gagner": "ɡaɲe",
+  "compagnie": "kɔ̃paɲi",
+  "une amie": "yn ami",
+  "il arrive": "il aʁiv",
+  "il rive": "il ʁiv",
+  "avec elle": "avɛk ɛl",
+  "une école": "yn ekɔl",
+  "quatre heures": "katʁ œʁ",
+  "elle est": "ɛl ɛ",
+  "une heure": "yn œʁ",
+  "une idée": "yn ide",
+  "il habite": "il abit",
+  "elle aime": "ɛl ɛm",
+  "sac": "sak",
+  "chef": "ʃɛf",
+  "sa": "sa",
+  "tous": "tus",
+  "fils": "fis",
+  "os": "ɔs",
+  "nez": "ne",
+  "sept": "sɛt",
+  "saigne": "sɛɲ",
+  "scène": "sɛn",
+  "règne": "ʁɛɲ",
+  "rêne": "ʁɛn",
+  "champignon": "ʃɑ̃piɲɔ̃"
  }
 }

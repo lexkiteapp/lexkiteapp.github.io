@@ -2,7 +2,7 @@
 * Mỗi lượt: m = câu giáo viên nói; o = 2–3 câu gợi ý cho người học; br = nhánh [regex, câu giáo viên đáp]; re = câu đáp mặc định.
 * phrases = cụm từ nên nhớ [cụm, nghĩa tiếng Anh đơn giản] → thêm vào thẻ ôn cuối cuộc gọi. */
 (function (g) {
-g.CALLS = [
+g.CALLS = (g.CALLS || []).concat([ // concat, không gán: cl.js (es/fr…) có thể đã nạp trước – gán đè xóa cuộc gọi tl → routes.call lặp vô hạn (owner 26/11: X không thoát, màn xoay)
 {
 id: 'coffee', em: '☕', lv: 'A2', title: 'Coffee run for the team', role: 'your teammate at the office',
 phrases: [['grab a coffee', 'get a coffee quickly'], ['for here or to go', 'drink it in the café or take it away'], ['oat milk', 'milk made from oats'], ['my treat', 'I will pay for you'], ['no worries', 'it is not a problem']],
@@ -81,5 +81,5 @@ turns: [
 ],
 end: 'Perfect, I\'ll text you the address. See you then!',
 },
-];
+]);
 })(typeof self !== 'undefined' ? self : this);

@@ -5,9 +5,10 @@
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import { readJSON, coreFiles } from './lib.mjs';
+import { levelsOf } from './drill-lib.mjs';
 
 const ES = { tl: 'es', D: 'content/target/es/', G: 'ESX' }, LANGS = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
-export const DAY_UI = 'ti sub dy w g p c go pr mk fin td sv wk mn ok lk rv rw cl cd sk wt nw xw xa xd'.split(' '), CALL_EVERY = 5, WORDS_MAX = 8; // ≤ 8 từ mới/ngày (kho 3.000 không dồn 24 từ/ngày); phần còn lại học qua Ôn tập
+export const DAY_UI = 'ti sub dy w g p c go pr mk fin td sv wk mn ok lk rv rw cl cd sk wt nw xw xa xd sg1 sg2 sg3 sg4 sc1 sc2 sc3 sc4 sd sn sgo sh ob o1 o2 o3 stt stp stk rvn rv0 rvg'.split(' '), CALL_EVERY = 5, WORDS_MAX = 8; // ≤ 8 từ mới/ngày (kho 3.000 không dồn 24 từ/ngày); phần còn lại học qua Ôn tập
 
 /** Từ học theo thứ tự: seed (A1 nền) trước, rồi lô lõi đã duyệt theo rank. Lô chưa duyệt không vào lộ trình. */
 export function pathWords(T = ES) {
@@ -38,8 +39,10 @@ export function buildPath(pts, px, T = ES) {
   // Từ của lộ trình (lớn dần tới 3.000 lemma/ngôn ngữ) = JSON ở web/packs/<tl>/ (khóa '@packs/'), tải như App.loadPack: cùng tên miền trên web,
   // https://lexkite.com ở add-on/app gốc – không nằm trong web/cpack (không nâng trần cpackTotal mỗi lô). <G>.wdv = băm nội dung (dy.js tên băm) → bỏ cache khi đổi.
   files['@packs/wd.json'] = JSON.stringify(words.map(w => wdRow(w, T.tl))) + '\n';
+  const CD = fs.existsSync(D + 'cando.json') ? readJSON(D + 'cando.json') : null; // mục tiêu "học xong làm được gì" mỗi ngày (15 ngôn ngữ, theo thứ tự ngày) → packs/<tl>/cd-<ngôn ngữ>.json
   for (const l of LANGS) {
     files[`@packs/wd-${l}.json`] = JSON.stringify(words.map(w => w.gl[l] || w.gl.en)) + '\n';
+    if (CD) files[`@packs/cd-${l}.json`] = JSON.stringify(pts.map(p => (CD[l] || {})[p.id] || CD.en[p.id])) + '\n'; // mục tiêu theo thứ tự ngày; gói lười ngoài web/cpack (như wd-*.json)
     files[`dy-${l}.js`] = `self.${X}=self.${X}||{};(${X}.dyl=${X}.dyl||{})[${JSON.stringify(l)}]=${JSON.stringify(DAY_UI.map(k => ui[l][k]))};\n`;
   }
   // gói nhỏ gọn: bỏ kind/tr (không dùng ở màn gọi); tl gắn lúc nạp (call.js lọc theo tl)
@@ -51,7 +54,8 @@ export function buildPath(pts, px, T = ES) {
 
 // Mọi câu/từ cần giọng đọc → [chữ, vai]: từ + ví dụ = ama (ef_dora), lời cuộc gọi theo vai c.who (Ama ef_dora / Carlos em_alex) – corpus Kokoro (gen-audio --tl es)
 export function pathLines(T = ES) {
-  const { words, calls } = buildPath(readJSON(T.D + 'grammar-inventory.json').points.filter(p => ['A1', 'A2', 'B1'].includes(p.level)), [{ i: 'x', p: [] }], T);
+  const inv = readJSON(T.D + 'grammar-inventory.json').points, lvs = levelsOf(inv, readJSON(T.D + 'drills.json').cloze);
+  const { words, calls } = buildPath(inv.filter(p => lvs.includes(p.level)), [{ i: 'x', p: [] }], T);
   const cl = calls.flatMap(c => Object.values(c.nodes).flatMap(n => [n.m, n.re, ...n.o, ...(n.br || []).map(b => b[1])]).concat(c.end || []).filter(Boolean).map(x => [x, c.who]));
   return [...words.flatMap(w => [w.word, w.ex[T.tl]].map(x => [x, 'ama'])), ...cl].filter(([x]) => x);
 }

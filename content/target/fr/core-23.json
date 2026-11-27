@@ -1,0 +1,723 @@
+{
+ "v": 1,
+ "tl": "fr",
+ "variant": "fr-FR",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 fr_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/fr/fr_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "carrément",
+   "pos": "adv",
+   "ipa": "kaʁemɑ̃",
+   "gl": {
+    "vi": "hoàn toàn",
+    "en": "completely",
+    "es": "completamente",
+    "pt": "completamente",
+    "fr": "carrément",
+    "de": "ganz und gar",
+    "id": "sepenuhnya",
+    "th": "อย่างเต็มที่",
+    "zh": "完全地",
+    "ja": "まったく",
+    "ko": "완전히",
+    "hi": "पूरी तरह से",
+    "ar": "تمامًا",
+    "ru": "совершенно",
+    "tr": "tamamen"
+   },
+   "ex": {
+    "fr": "Ce film est carrément ennuyeux.",
+    "en": "This movie is downright boring."
+   },
+   "rank": 3064,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "maximum",
+   "pos": "n",
+   "gender": "m",
+   "plural": "maximums",
+   "ipa": "maksimɔm",
+   "gl": {
+    "vi": "tối đa",
+    "en": "maximum",
+    "es": "máximo",
+    "pt": "máximo",
+    "fr": "maximum",
+    "de": "Maximum",
+    "id": "maksimum",
+    "th": "ค่าสูงสุด",
+    "zh": "最大值",
+    "ja": "最大",
+    "ko": "최대",
+    "hi": "अधिकतम",
+    "ar": "الحد الأقصى",
+    "ru": "максимум",
+    "tr": "maksimum"
+   },
+   "ex": {
+    "fr": "Le maximum de vitesse autorisée est de 130 km/h.",
+    "en": "The maximum speed allowed is 130 km/h."
+   },
+   "rank": 3129,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "mak.si.mym"
+   }
+  },
+  {
+   "word": "dragon",
+   "pos": "n",
+   "gender": "m",
+   "plural": "dragons",
+   "ipa": "dʁaɡɔ̃",
+   "gl": {
+    "vi": "rồng",
+    "en": "dragon",
+    "es": "dragón",
+    "pt": "dragão",
+    "fr": "dragon",
+    "de": "Drache",
+    "id": "naga",
+    "th": "มังกร",
+    "zh": "龙",
+    "ja": "ドラゴン",
+    "ko": "용",
+    "hi": "ड्रैगन",
+    "ar": "تنين",
+    "ru": "дракон",
+    "tr": "ejderha"
+   },
+   "ex": {
+    "fr": "Le dragon de la légende crache du feu.",
+    "en": "The legendary dragon breathes fire."
+   },
+   "rank": 3171,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "signature",
+   "pos": "n",
+   "gender": "f",
+   "plural": "signatures",
+   "ipa": "sinjatyʁ",
+   "gl": {
+    "vi": "chữ ký",
+    "en": "signature",
+    "es": "firma",
+    "pt": "assinatura",
+    "fr": "signature",
+    "de": "Unterschrift",
+    "id": "tanda tangan",
+    "th": "ลายเซ็น",
+    "zh": "签名",
+    "ja": "署名",
+    "ko": "서명",
+    "hi": "हस्ताक्षर",
+    "ar": "توقيع",
+    "ru": "подпись",
+    "tr": "imza"
+   },
+   "ex": {
+    "fr": "Veuillez apposer votre signature ici.",
+    "en": "Please put your signature here."
+   },
+   "rank": 3317,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "si.ɲa.tyʁ"
+   }
+  },
+  {
+   "word": "température",
+   "pos": "n",
+   "gender": "f",
+   "plural": "températures",
+   "ipa": "tɑ̃peʁatyʁ",
+   "gl": {
+    "vi": "nhiệt độ",
+    "en": "temperature",
+    "es": "temperatura",
+    "pt": "temperatura",
+    "fr": "température",
+    "de": "Temperatur",
+    "id": "suhu",
+    "th": "อุณหภูมิ",
+    "zh": "温度",
+    "ja": "温度",
+    "ko": "온도",
+    "hi": "तापमान",
+    "ar": "درجة الحرارة",
+    "ru": "температура",
+    "tr": "sıcaklık"
+   },
+   "ex": {
+    "fr": "La température est élevée.",
+    "en": "The temperature is high."
+   },
+   "rank": 3472,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "échelle",
+   "pos": "n",
+   "gender": "f",
+   "plural": "échelles",
+   "ipa": "eʃɛl",
+   "gl": {
+    "vi": "thang",
+    "en": "ladder",
+    "es": "escalera",
+    "pt": "escada",
+    "fr": "échelle",
+    "de": "Leiter",
+    "id": "tangga",
+    "th": "บันได",
+    "zh": "梯子",
+    "ja": "はしご",
+    "ko": "사다리",
+    "hi": "सीढ़ी",
+    "ar": "سلم",
+    "ru": "лестница",
+    "tr": "merdiven"
+   },
+   "ex": {
+    "fr": "Cette échelle est trop courte.",
+    "en": "This ladder is too short."
+   },
+   "rank": 3495,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "adjoint",
+   "pos": "n",
+   "gender": "mf",
+   "plural": "adjoints",
+   "ipa": "adʒwɛ̃",
+   "gl": {
+    "vi": "phó",
+    "en": "deputy",
+    "es": "adjunto",
+    "pt": "adjunto",
+    "fr": "adjoint",
+    "de": "Stellvertreter",
+    "id": "wakil",
+    "th": "ผู้ช่วย",
+    "zh": "副手",
+    "ja": "副官",
+    "ko": "보조",
+    "hi": "उपयुक्त",
+    "ar": "نائب",
+    "ru": "заместитель",
+    "tr": "yardımcı"
+   },
+   "ex": {
+    "fr": "L'adjoint du directeur est présent.",
+    "en": "The deputy director is present."
+   },
+   "rank": 3686,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "pervers",
+   "pos": "adj",
+   "ipa": "pɛʁvɛʁ",
+   "gl": {
+    "vi": "đồi bại",
+    "en": "perverse",
+    "es": "perverso",
+    "pt": "perverso",
+    "fr": "pervers",
+    "de": "pervers",
+    "id": "menyimpang",
+    "th": "บิดเบี้ยว",
+    "zh": "变态的",
+    "ja": "倒錯的",
+    "ko": "왜곡된",
+    "hi": "विकृत",
+    "ar": "منحرف",
+    "ru": "извращённый",
+    "tr": "sapık"
+   },
+   "ex": {
+    "fr": "Ce film est un peu pervers.",
+    "en": "This film is a bit perverse."
+   },
+   "rank": 3703,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "hand": true
+   }
+  },
+  {
+   "word": "mercredi",
+   "pos": "n",
+   "gender": "m",
+   "plural": "mercredis",
+   "ipa": "mɛʁkʁədi",
+   "gl": {
+    "vi": "thứ tư",
+    "en": "Wednesday",
+    "es": "miércoles",
+    "pt": "quarta-feira",
+    "fr": "mercredi",
+    "de": "Mittwoch",
+    "id": "Rabu",
+    "th": "วันพุธ",
+    "zh": "星期三",
+    "ja": "水曜日",
+    "ko": "수요일",
+    "hi": "बुधवार",
+    "ar": "الأربعاء",
+    "ru": "среда",
+    "tr": "çarşamba"
+   },
+   "ex": {
+    "fr": "Nous nous rencontrons mercredi.",
+    "en": "We meet on Wednesday."
+   },
+   "rank": 3521,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "openai/gpt-oss-120b"
+   }
+  },
+  {
+   "word": "leader",
+   "pos": "n",
+   "gender": "m",
+   "plural": "leaders",
+   "ipa": "lidœʁ",
+   "gl": {
+    "en": "leader",
+    "es": "líder",
+    "pt": "líder",
+    "fr": "leader",
+    "de": "Führer",
+    "id": "pemimpin",
+    "th": "ผู้นำ",
+    "zh": "领袖",
+    "ja": "リーダー",
+    "ko": "리더",
+    "hi": "नेता",
+    "ar": "قائد",
+    "ru": "лидер",
+    "tr": "lider",
+    "vi": "người lãnh đạo"
+   },
+   "ex": {
+    "fr": "Le leader de l'équipe a motivé ses coéquipiers.",
+    "en": "The team leader motivated his teammates."
+   },
+   "rank": 4130,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "openai/gpt-oss-120b",
+    "ipaAi": "lidœʁ",
+    "ipaEspeak": "(en)liːdə(fr)",
+    "hand": true
+   }
+  },
+  {
+   "word": "serveur",
+   "pos": "n",
+   "gender": "m",
+   "plural": "serveurs",
+   "ipa": "sɛʁvœʁ",
+   "gl": {
+    "en": "waiter",
+    "es": "camarero",
+    "pt": "garçom",
+    "fr": "serveur",
+    "de": "Kellner",
+    "id": "pelayan",
+    "th": "พนักงานเสิร์ฟ",
+    "zh": "服务员",
+    "ja": "ウェイター",
+    "ko": "웨이터",
+    "hi": "वेटर",
+    "ar": "نادل",
+    "ru": "официант",
+    "tr": "garson",
+    "vi": "bồi bàn"
+   },
+   "ex": {
+    "fr": "Le serveur apporte le repas.",
+    "en": "The waiter brings the meal."
+   },
+   "rank": 4310,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "@cf/openai/gpt-oss-120b"
+   }
+  },
+  {
+   "word": "association",
+   "pos": "n",
+   "gender": "f",
+   "plural": "associations",
+   "ipa": "asosjasjɔ̃",
+   "gl": {
+    "en": "association",
+    "es": "asociación",
+    "pt": "associação",
+    "fr": "association",
+    "de": "Verein",
+    "id": "asosiasi",
+    "th": "สมาคม",
+    "zh": "协会",
+    "ja": "協会",
+    "ko": "협회",
+    "hi": "संघ",
+    "ar": "جمعية",
+    "ru": "ассоциация",
+    "tr": "dernek",
+    "vi": "hiệp hội"
+   },
+   "ex": {
+    "fr": "L'association organise un concert.",
+    "en": "The association organizes a concert."
+   },
+   "rank": 4342,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "@cf/openai/gpt-oss-120b",
+    "ipaAi": "asɔsjasjɔ̃"
+   }
+  },
+  {
+   "word": "symbole",
+   "pos": "n",
+   "gender": "m",
+   "plural": "symboles",
+   "ipa": "sɛ̃bɔl",
+   "gl": {
+    "en": "symbol",
+    "es": "símbolo",
+    "pt": "símbolo",
+    "fr": "symbole",
+    "de": "Symbol",
+    "id": "simbol",
+    "th": "สัญลักษณ์",
+    "zh": "符号",
+    "ja": "シンボル",
+    "ko": "기호",
+    "hi": "प्रतीक",
+    "ar": "رمز",
+    "ru": "символ",
+    "tr": "sembol",
+    "vi": "biểu tượng"
+   },
+   "ex": {
+    "fr": "Le cœur est un symbole d'amour.",
+    "en": "The heart is a symbol of love."
+   },
+   "rank": 4392,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "@cf/openai/gpt-oss-120b"
+   }
+  },
+  {
+   "word": "vallée",
+   "pos": "n",
+   "gender": "f",
+   "plural": "vallées",
+   "ipa": "vale",
+   "gl": {
+    "en": "valley",
+    "es": "valle",
+    "pt": "vale",
+    "fr": "vallée",
+    "de": "Tal",
+    "id": "lembah",
+    "th": "หุบเขา",
+    "zh": "山谷",
+    "ja": "谷",
+    "ko": "계곡",
+    "hi": "घाटी",
+    "ar": "وادي",
+    "ru": "долина",
+    "tr": "vadi",
+    "vi": "thung lũng"
+   },
+   "ex": {
+    "fr": "Nous marchons dans la vallée.",
+    "en": "We are walking in the valley."
+   },
+   "rank": 4412,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "@cf/openai/gpt-oss-120b"
+   }
+  },
+  {
+   "word": "lame",
+   "pos": "n",
+   "gender": "f",
+   "plural": "lames",
+   "ipa": "lam",
+   "gl": {
+    "en": "blade",
+    "es": "cuchilla",
+    "pt": "lâmina",
+    "fr": "lame",
+    "de": "Klinge",
+    "id": "bilah",
+    "th": "ใบมีด",
+    "zh": "刀片",
+    "ja": "刃",
+    "ko": "날",
+    "hi": "ब्लेड",
+    "ar": "نصل",
+    "ru": "лезвие",
+    "tr": "bıçak",
+    "vi": "lưỡi dao"
+   },
+   "ex": {
+    "fr": "La lame du couteau est très tranchante.",
+    "en": "The knife's blade is very sharp."
+   },
+   "rank": 4454,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "@cf/openai/gpt-oss-120b"
+   }
+  },
+  {
+   "word": "légitime",
+   "pos": "adj",
+   "ipa": "leʒitim",
+   "gl": {
+    "en": "legitimate",
+    "es": "legítimo",
+    "pt": "legítimo",
+    "fr": "légitime",
+    "de": "legitim",
+    "id": "legitim",
+    "th": "ชอบธรรม",
+    "zh": "合法的",
+    "ja": "正当な",
+    "ko": "정당한",
+    "hi": "वैध",
+    "ar": "شرعي",
+    "ru": "законный",
+    "tr": "meşru",
+    "vi": "hợp pháp"
+   },
+   "ex": {
+    "fr": "Il a un droit légitime à parler.",
+    "en": "He has a legitimate right to speak."
+   },
+   "rank": 4536,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "@cf/openai/gpt-oss-120b"
+   }
+  },
+  {
+   "word": "cran",
+   "pos": "n",
+   "gender": "m",
+   "plural": "crans",
+   "ipa": "kʁɑ̃",
+   "gl": {
+    "vi": "bản lĩnh",
+    "en": "guts",
+    "es": "agallas",
+    "pt": "coragem",
+    "fr": "cran",
+    "de": "Mut",
+    "id": "nyali",
+    "th": "ความกล้า",
+    "zh": "胆量",
+    "ja": "度胸",
+    "ko": "배짱",
+    "hi": "साहस",
+    "ar": "شجاعة",
+    "ru": "смелость",
+    "tr": "cesaret"
+   },
+   "ex": {
+    "fr": "Il faut du cran pour dire la vérité.",
+    "en": "It takes guts to tell the truth."
+   },
+   "rank": 4363,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "@cf/openai/gpt-oss-120b",
+    "hand": true
+   }
+  }
+ ]
+}

@@ -48,6 +48,22 @@
   "semi": {
    "t": "Short glides: j, w, ɥ",
    "x": "Before a vowel, i, ou and u become quick glides inside one syllable. i is /j/ like the English “y”: “fille”. ou is /w/ like “w”: “oui”. u is /ɥ/, the lips of /y/ gliding: “huit”, “lui”, “nuit”. “huit” is one syllable, not “u-it”. Compare “loue” and “lui”, “fil” and “fille”."
+  },
+  "h": {
+   "t": "Mute h vs aspirated h",
+   "x": "The letter h is never pronounced, but it behaves in two ways. A mute h acts like a vowel: you link and elide, “l’homme”, “les hommes” /lez ɔm/, “l’hôtel”. An aspirated h acts like a consonant: no linking, no elision, and a tiny gap, “le héros”, “les héros” /le eʁo/, “les haricots”. Listen for the z: “les héros” has none, “les zéros” does."
+  },
+  "gn": {
+   "t": "The sound gn /ɲ/",
+   "x": "The letters gn make one soft sound /ɲ/, like “ny” in “canyon”, not g plus n. Press the middle of your tongue flat against the roof of your mouth: “agneau”, “montagne”, “campagne”. Plain n /n/ is quicker and uses the tongue tip: “anneau” (ring) is not “agneau” (lamb), and “peine” is not “peigne”."
+  },
+  "enchain": {
+   "t": "Linking consonants across words",
+   "x": "French is spoken in smooth groups, so a final consonant jumps onto the next vowel: “une amie” sounds like “u-na-mie”, “il arrive” like “i-la-rive”, “avec elle” like “ave-kel”. Syllables end in vowels, with no pause or glottal stop between words. Listen for the difference between “une amie” (friend, f.) and “un ami” (friend, m.)."
+  },
+  "final": {
+   "t": "Final consonants: silent or not",
+   "x": "Most final consonants are silent: “petit”, “grand”, “nez”, “tout”. But the letters of CaReFuL are usually pronounced: “sac”, “chef”, “fil”, “sur”. Watch the exceptions: “fils” /fis/ (son) has an s, while “fil” (thread) ends in l. Adding an e wakes the consonant up: “petit” becomes “petite”, “grand” becomes “grande”."
   }
  }
 }

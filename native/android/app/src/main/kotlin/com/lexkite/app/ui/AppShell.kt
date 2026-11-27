@@ -82,6 +82,8 @@ class ShellSlots(
     val skills: (@Composable (route: String, arg: String, query: String, onExit: () -> Unit, open: (String) -> Unit, replace: (String) -> Unit) -> Unit)? = null,
     /** M4 speaking + pronunciation screens (speak, speaking, pron, say, reflex, rtype, roleplay, handsfree): same arguments as [vocab]. */
     val speak: (@Composable (route: String, arg: String, query: String, onExit: () -> Unit, open: (String) -> Unit, replace: (String) -> Unit) -> Unit)? = null,
+    /** Phiên dịch (interpret, interpret/phrases, interpret/history, interpret/recap/<id>): `arg` = the part after `interpret/` ("" = face to face). */
+    val interpret: (@Composable (arg: String, onExit: () -> Unit, open: (String) -> Unit, replace: (String) -> Unit) -> Unit)? = null,
     /** Root of the Skills tab. */
     val skillsHub: (@Composable (open: (String) -> Unit) -> Unit)? = null,
     /** P11 settings index (`section` empty) and pages look · study · sound · data · help (`lexkite://settings[/<section>]`). */
@@ -106,6 +108,8 @@ object Routes {
     fun skills(route: String, arg: String = "", q: String = "") = "skillsgo/$route?arg=" + android.net.Uri.encode(arg) + "&q=" + android.net.Uri.encode(q)
     const val SPEAK_R = "speakgo/{route}?arg={arg}&q={q}"
     fun speak(route: String, arg: String = "", q: String = "") = "speakgo/$route?arg=" + android.net.Uri.encode(arg) + "&q=" + android.net.Uri.encode(q)
+    const val INTERPRET_R = "interpretgo?arg={arg}"
+    fun interpret(arg: String = "") = "interpretgo?arg=" + android.net.Uri.encode(arg)
     const val SETTINGS_R = "settings?sec={sec}"
     fun settings(sec: String = "") = "settings?sec=" + android.net.Uri.encode(sec)
     const val FOCUS_R = "focus/{kind}?story={story}"
@@ -122,6 +126,7 @@ fun NavHostController.open(link: DeepLink) {
         route in com.lexkite.app.feature.vocab.VOCAB_ROUTES -> navigate(Routes.vocab(route, link.arg, link.query))
         route in com.lexkite.app.feature.skills.SKILLS_ROUTES -> navigate(Routes.skills(route, link.arg, link.query))
         route in com.lexkite.app.feature.speak.SPEAK_ROUTES || route in com.lexkite.app.feature.speak.CALL_ROUTES -> navigate(Routes.speak(route, link.arg, link.query))
+        route in com.lexkite.app.feature.interpret.INTERPRET_ROUTES -> navigate(Routes.interpret(link.arg))
         route == "settings" -> navigate(Routes.settings(link.arg))
         route in FOCUS -> navigate(Routes.focus(route, Routes.storyOf(link.query))) { launchSingleTop = true }
         else -> selectTab(link.tab)
@@ -216,6 +221,13 @@ fun AppShell(t: L10n, frame: LKFrame, slots: ShellSlots, initialTab: String = "h
                         val go = { r: String -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) }
                         if (speak != null) speak(route, e.arguments?.getString("arg").orEmpty(), e.arguments?.getString("q").orEmpty(), { nav.popBackStack() }, go) { r -> nav.popBackStack(); go(r) }
                         else LKScreen(TopBarVariant.Inner, route, t, onExit = { nav.popBackStack() }) {}
+                    }
+                    composable(Routes.INTERPRET_R, arguments = listOf(navArgument("arg") { type = NavType.StringType; defaultValue = "" })) { e ->
+                        val interpret = slots.interpret
+                        val arg = e.arguments?.getString("arg").orEmpty()
+                        val go = { r: String -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) }
+                        if (interpret != null) interpret(arg, { nav.popBackStack() }, go) { r -> nav.popBackStack(); go(r) }
+                        else LKScreen(TopBarVariant.Inner, "interpret", t, onExit = { nav.popBackStack() }) {}
                     }
                     composable(Routes.SETTINGS_R, arguments = listOf(navArgument("sec") { type = NavType.StringType; defaultValue = "" })) { e ->
                         val settings = slots.settings

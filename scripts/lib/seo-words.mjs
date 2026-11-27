@@ -15,6 +15,8 @@ import { loadSources, enrich } from '../dict/build.mjs';
 import { measure, deep } from './word-depth.mjs';
 import { PRIORITY_LANGS } from '../../functions/api/_cpm.js';
 import { r2Langs } from './words-r2.mjs';
+globalThis.self ??= globalThis; await import('../../web/js/verbs-core.js'); // bộ máy chia động từ của app (một nguồn) → khối "Các dạng của động từ"
+const LKV = globalThis.self.LK_VERBS;
 
 const N_MAIN = +(process.env.SEO_N_MAIN || 1500), N_OTHER = +(process.env.SEO_N_OTHER || 400), N_PRIORITY = +(process.env.SEO_N_PRIORITY || 650);
 
@@ -33,6 +35,8 @@ const packs = Object.fromEntries(LANGS.filter(l => l !== 'vi' && l !== 'en').map
 // bằng CHÍNH VImg.pic (web/js/vocab-img.js) → cùng markup với app; chưa duyệt → trang giữ nguyên từng byte (docs/LEXICON.md § Ảnh minh hoạ)
 const IMG = fs.existsSync('content/lexicon/img.json') ? J('content/lexicon/img.json') : null;
 const VPIC = IMG && IMG.style && IMG.style.approved === true && Object.keys(IMG.items || {}).length ? (() => { const ctx = {}; ctx.self = ctx; vm.runInNewContext(fs.readFileSync('web/js/vocab-img.js', 'utf8'), ctx); return ctx.VImg.pic; })() : null;
+// Ảnh của CHÍNH từ (cùng khoá + ưu tiên photo như vimgOf) → {url,alt}: og:image, ImageObject, sitemap ảnh. Chưa duyệt phong cách / không có ảnh → null (trang giữ og-default).
+export const imgOf = e => { if (!VPIC) return null; const it = IMG.items[String(e.word).toLowerCase() + '#' + gpos(e.pos)]; if (!it) return null; const h = it.photo && it.photo.h && it.photo.src ? it.photo.h : it.h; return h && /^[0-9a-f]{16}$/.test(h) ? { url: IMG.base + h + '.webp', alt: it.alt || String(e.word) } : null; };
 const vimgOf = (e, alt, label) => (VPIC ? seoPic(IMG, String(e.word).toLowerCase() + '#' + gpos(e.pos), alt, label, VPIC) : ''); // ảnh chụp (photo) nếu có, không thì h – scripts/lexicon/img.mjs
 const notes = {}; for (const f of fs.readdirSync('web/js/notes').filter(f => f.endsWith('.json'))) Object.assign(notes, J('web/js/notes/' + f));
 // Ghi chú dùng từ + ví dụ có bản dịch do người/AI soạn rồi chấm độc lập (content/dict/enrich/<lang>.json = { từ: { n, x: [[câu EN, bản dịch]] } }; cổng scripts/test/dict-enrich.mjs).
@@ -109,6 +113,14 @@ const MORE_EX = (() => {
 const okL = (l, s) => !!s && !(l !== 'vi' && VI_RE.test(s)); // chữ Việt không lọt trang ngôn ngữ khác
 const tx = (l, s) => (l === 'vi' || l === 'en' ? esc(s) : en(s)); // giải thích: vi/en đúng ngôn ngữ trang; 13 ngôn ngữ còn lại là chữ tiếng Anh gốc → lang="en"
 const sec = (id, d, h, inner) => `<section aria-labelledby="h-${id}"${d ? ` data-d="${d}"` : ''}><h2 id="h-${id}">${esc(h)}</h2>${inner}</section>`;
+// Khối dạng động từ (nguyên mẫu, -s, quá khứ, phân từ, -ing) cho mục từ loại động từ một chữ – dữ liệu từ LK_VERBS.forms (quy tắc + bảng bất quy tắc của app, không viết thêm nội dung)
+const verbForms = (t, w, e) => {
+  if (!LKV || gpos(e.pos) !== 'v' || /\s/.test(w)) return '';
+  let f; try { f = LKV.forms(w.toLowerCase()); } catch { return ''; }
+  if (!f || !f.known || f.partial || !f.P || !f.PP || !f.ING || !f.S) return '';
+  const cell = x => `<td lang="en" dir="ltr">${esc(x)}</td>`;
+  return sec('v', 'forms', fill(t.vfH, { w }), `<table class="vf"><tbody><tr><th scope="row">${esc(t.vfB)}</th>${cell(f.base)}</tr><tr><th scope="row">${esc(t.vfS)}</th>${cell(f.S)}</tr><tr><th scope="row">${esc(t.vfP)}</th>${cell(f.P)}</tr><tr><th scope="row">${esc(t.vfPP)}</th>${cell(f.PP)}</tr><tr><th scope="row">${esc(t.vfG)}</th>${cell(f.ING)}</tr></tbody></table><p class="mt">${esc(f.irregular ? t.vfIrr : t.vfReg)}</p>`);
+};
 const hiW = (s, k) => esc(s).replace(new RegExp(`\\b(${k.replace(/[^a-z' -]/g, '')}[a-z]*)`, 'i'), '<b>$1</b>');
 const posIn = {}; for (const l of LANGS) posIn[l] = new Map(setOf[l].map((e, i) => [e, i]));
 const built = {}; // l → Map(mục → { body, faq, m }) – dựng một lần, build-seo-pages và build-blog dùng chung
@@ -178,6 +190,7 @@ function coreOf(l, e) {
 ${answerBox(l, t, W, pos, m, e)}
 ${sec('m', 'mean', senses.length > 1 ? t.means : t.mean, meanHtml)}
 ${sec('p', 'pron', t.pron, `<p class="pr"><span>${esc(t.uk)} <span class="ipa" dir="ltr">${esc(e.ipa || '')}</span></span>${ipaUS ? `<span>${esc(t.us)} <span class="ipa" dir="ltr">${esc(ipaUS)}</span></span>` : ''}${au ? `<button type="button" class="au" data-a="${esc(au)}" aria-label="${esc(t.pron)}: ${esc(w)}"></button>` : ''}</p>`)}
+${verbForms(t, w, e)}
 ${sec('e', 'ex', exs.length > 1 ? t.exs : t.ex, exs.map(s => `<blockquote lang="en" dir="ltr">${hiW(s, k)}</blockquote>`).join(''))}
 ${col.length || pats.length ? sec('c', 'col', t.col, `${col.length ? `<p class="chips">${col.map(x => `<span lang="en" dir="ltr">${esc(x)}</span>`).join('')}</p>` : ''}${pats.length ? `<h3>${esc(t.pat)}</h3><ul class="pat">${pats.map(x => `<li><b lang="en" dir="ltr">${esc(x.h)}</b>${okL(l, x.m) ? ` – ${tx(l, x.m)}` : ''}${x.ex ? `<br><i lang="en" dir="ltr">${esc(x.ex)}</i>` : ''}</li>`).join('')}</ul>` : ''}`) : ''}
 ${ph.length ? sec('f', 'phr', fill(t.phr, { w }), `<ul>${ph.map(x => `<li>${link(x.word)} – ${esc(l === 'vi' ? x.vi || x.def : l === 'en' ? x.def : (gloss(l, x) || [x.def])[0])}</li>`).join('')}</ul>`) : ''}
@@ -204,7 +217,11 @@ export const indexable = (l, e) => !!(idxW[l] && idxW[l].has(e)) && deep(measure
 // Trang noindex vẫn có liên kết từ hub A–Z (không mồ côi). Không đủ 4 từ cùng chủ đề → bù bằng từ index được gần nhất trong danh sách.
 const linksOf = (l, e) => {
   const t = S[l], list = setOf[l], i = posIn[l].get(e), ok = x => x !== e && indexable(l, x);
-  const rel = list.filter(x => x.topic === e.topic && ok(x)).slice(0, 8), near = [...rel];
+  // 27/11: 8 từ index được KẾ TIẾP trong chủ đề theo vòng tròn (trước đây luôn 8 từ ĐẦU chủ đề → cuối chủ đề không được liên kết từ đâu, 77 % URL Google chưa biết):
+  // mỗi trang index được nhận đúng ~8 liên kết từ 8 trang đứng trước nó cùng chủ đề; thứ tự cố định theo kho → không đổi giữa các lần dựng.
+  const tl = list.filter(x => x.topic === e.topic && (x === e || ok(x))), k = tl.indexOf(e), rel = [];
+  for (let d = 1; d < tl.length && rel.length < 8; d++) rel.push(tl[((k < 0 ? 0 : k) + d) % tl.length]);
+  const near = [...rel];
   for (let d = 1; near.length < 8 && (i - d >= 0 || i + d < list.length); d++) for (const x of [list[i - d], list[i + d]]) if (x && near.length < 8 && ok(x) && !near.includes(x)) near.push(x);
   let pv = null, nx = null; for (let j = i - 1; j >= 0 && !pv; j--) if (ok(list[j])) pv = list[j]; for (let j = i + 1; j < list.length && !nx; j++) if (ok(list[j])) nx = list[j];
   return `${near.length ? sec('r', '', t.rel, `<p class="chips">${near.map(x => `<a href="${wPath(l, x)}" lang="en" dir="ltr">${esc(x.word)}</a>`).join('')}</p>`) : ''}

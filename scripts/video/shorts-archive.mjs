@@ -93,7 +93,10 @@ export async function runArchive({ repo, dry = false, maxRetire = 50, rebalanceC
     catch (e) { if (!(e.status >= 500 || e.name === 'TimeoutError')) throw e; log(`::warning::set_want: ${e.status || e.name} ở lô ${i / 25 + 1} – dừng bước 2 bản tới lượt sau (còn ${p.promote.length - i} file)`); rep.interrupted = e.status || 'timeout'; break; }
   }
   for (let k = 0; k < 20; k++) {   // repair = server-side copy across Drives (no bytes through CI), ≤ 5 files per call
-    const r = await api('repair', { max_files: 5 }); rep.repaired += (r.done || []).length;
+    let r;
+    try { r = await api('repair', { max_files: 5 }); }
+    catch (e) { if (!(e.status >= 500 || e.name === 'TimeoutError')) throw e; log(`::warning::repair: ${e.status || e.name} – dừng bước chép bản 2 tới lượt sau (idempotent)`); rep.interrupted = e.status || 'timeout'; break; }
+    rep.repaired += (r.done || []).length;
     if (!r.remaining || !(r.done || []).length) break; await sleep(pause);
   }
   for (let i = 0; i < p.retire.length; i += 20) {

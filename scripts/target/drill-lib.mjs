@@ -9,6 +9,8 @@ import { buildExam } from './exam-es-lib.mjs';
 import { buildPath } from './path-lib.mjs';
 
 export const D = 'content/target/es/', LV = ['A1', 'A2', 'B1'];
+// Cấp mở cho người học: A1–B1 luôn có; B2 (và các cấp sau) mở khi MỌI điểm ngữ pháp của cấp đó đã có câu điền từ (drills.json) – dữ liệu tl nào sẵn sàng thì cấp đó tự hiện (khung chung, không cờ riêng)
+export const levelsOf = (inv, cloze) => [...LV, ...['B2'].filter(l => { const ps = inv.filter(p => p.level === l); return ps.length && ps.every(p => (cloze[p.id] || []).length); })];
 export const GX_LANGS = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 const VERBAL = new Set(['verb', 'mood', 'sereestar', 'modal', 'cond']);
 const VERBS = {
@@ -34,12 +36,12 @@ export const TLP = {
     TN: FR_TN, PRON: frPron, IMPP: [['tu', 'tu'], ['nous', 'nous'], ['vous', 'vous']], imp: true, exam: true },
 };
 
-function conjItems(pts, T = TLP.es) {
-  const out = Object.fromEntries(LV.map(l => [l, []])), { form, conjugate, TENSES } = T.C;
+function conjItems(pts, T = TLP.es, lvs = LV) {
+  const out = Object.fromEntries(lvs.map(l => [l, []])), { form, conjugate, TENSES } = T.C;
   for (const p of pts) {
-    if (!LV.includes(p.level) || !T.VERBAL.has(p.area)) continue;
+    if (!lvs.includes(p.level) || !T.VERBAL.has(p.area)) continue;
     const ts = (p.tenses || []).filter(t => TENSES.includes(t) && t !== 'impNeg').slice(0, 2); if (!ts.length) continue;
-    const vs = T.VERBS[p.level], h = hash(p.id);
+    const vs = T.VERBS[p.level] || T.VERBS.B1, h = hash(p.id); // B2: dùng bộ động từ B1 (khung chung, đủ dạng chia)
     for (let k = 0; k < 3; k++) {
       const t = ts[k % ts.length];
       let v = vs[(h + k * 4) % vs.length], pron, ans;
@@ -55,9 +57,9 @@ function conjItems(pts, T = TLP.es) {
 
 export function build(tl = 'es') {
   const T = TLP[tl], D = T.D, X = T.G, inv = readJSON(D + 'grammar-inventory.json').points, cloze = readJSON(D + 'drills.json').cloze, files = {};
-  const pts = inv.filter(p => LV.includes(p.level)), c = conjItems(inv, T), dr = Object.fromEntries(LV.map(l => [l, []]));
+  const lvs = levelsOf(inv, cloze), pts = inv.filter(p => lvs.includes(p.level)), c = conjItems(inv, T, lvs), dr = Object.fromEntries(lvs.map(l => [l, []]));
   for (const p of pts) for (const it of cloze[p.id] || []) dr[p.level].push(['g', p.id, it.s, it.a, it.o, it.en]);
-  for (const l of LV) dr[l].push(...c[l]);
+  for (const l of lvs) dr[l].push(...c[l]);
   files['dr.js'] = `self.${X}=self.${X}||{};${X}.dr=${JSON.stringify(dr)};\n`;
   for (const l of GX_LANGS) {
     const src = readJSON(`${D}gx/${l}.json`), o = {};
@@ -68,7 +70,7 @@ export function build(tl = 'es') {
   if (px) Object.assign(files, px.files);
   if (T.extra || T.exam) Object.assign(files, buildExam(tl).files); // W5: es DELE/SIELE · fr DELF/DALF (fr chỉ có gói khi nguồn Tatoeba đã dựng)
   if (T.path) Object.assign(files, buildPath(pts, px ? px.topics : [], T).files); // W4: lộ trình ngày (wd/dy/cl + bản dịch 15 ngôn ngữ) – cùng buildPath cho mọi tl
-  return { files, dr, pts, cloze };
+  return { files, dr, pts, cloze, lvs };
 }
 
 // Câu đọc to của một câu hỏi (đáp án điền sẵn; bài chia động từ: bỏ phần "(động từ)") – js/espr.js dùng đúng phép biến đổi này
