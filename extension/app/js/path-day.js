@@ -54,7 +54,9 @@
     if (early) out.push(S('mcq', '🧩', t('Trắc nghiệm'), t('Chọn nghĩa đúng của từ vừa học'), 1));
     else {
       if (lis && tier < 2) out.push(S('listen', '🎧', t('Nghe & chép'), sub('listen'), 2));
-      out.push(S('cloze', '✍️', t('Điền từ vào câu'), t('Dùng từ trong câu'), 2));
+      // 📈 thích ứng theo kỹ năng: gõ/điền đúng < 50 % (≥ 10 câu) → hôm nay dạng chọn (trắc nghiệm) thay điền từ; tự về như cũ khi khá lên
+      if (window.SkillAcc && SkillAcc.advice() === 'ease' && !(d.rec.s || []).includes('cloze') && !d.done) out.push(S('mcq', '🧩', t('Trắc nghiệm'), t('Chọn nghĩa đúng của từ vừa học'), 1));
+      else out.push(S('cloze', '✍️', t('Điền từ vào câu'), t('Dùng từ trong câu'), 2));
       if (lis && tier === 2) out.push(S('listen', '🎧', t('Nghe & chép'), sub('listen'), 2));
     }
     // Phần cuối buổi = kỹ năng riêng của gói (hội thoại, dạng câu đề thi, email…); ngày cuối bài: kiểm tra cuối bài thay thế → buổi vẫn ≤ 10 phút
