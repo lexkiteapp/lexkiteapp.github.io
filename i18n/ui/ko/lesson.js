@@ -92,5 +92,6 @@
 "Định nghĩa:":"정의:",
 "Đối thoại":"대화",
 "Ảnh minh họa":"그림",
+"Tuần này bạn đã nhớ {n} từ mới":"이번 주에 새 단어 {n}개를 기억했어요",
 });
 })(typeof self !== 'undefined' ? self : this);

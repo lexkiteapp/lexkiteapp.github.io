@@ -216,6 +216,7 @@
   "lesson.thisWeek": "На этой неделе",
   "lesson.tomorrowDue": "Слов на повторение завтра: {n}",
   "lesson.tomorrowNext": "Завтра: следующий урок уже готов",
+  "lesson.weekWords": "На этой неделе вы запомнили {n} новых слов",
   "lesson.bestCombo": "Лучшее комбо",
   "lesson.reviewAgain": "Повторить",
   "lesson.idk": "Не знаю",

@@ -92,5 +92,6 @@
 "Định nghĩa:":"التعريف:",
 "Đối thoại":"حوار",
 "Ảnh minh họa":"صورة",
+"Tuần này bạn đã nhớ {n} từ mới":"هذا الأسبوع تذكّرت {n} كلمات جديدة",
 });
 })(typeof self !== 'undefined' ? self : this);

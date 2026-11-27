@@ -92,5 +92,6 @@
 "Định nghĩa:":"定義：",
 "Đối thoại":"会話",
 "Ảnh minh họa":"イラスト",
+"Tuần này bạn đã nhớ {n} từ mới":"今週は新しい単語を {n} 語覚えました",
 });
 })(typeof self !== 'undefined' ? self : this);

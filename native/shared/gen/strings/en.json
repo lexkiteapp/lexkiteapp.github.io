@@ -216,6 +216,7 @@
   "lesson.thisWeek": "This week",
   "lesson.tomorrowDue": "Words to review tomorrow: {n}",
   "lesson.tomorrowNext": "Tomorrow: your next lesson is ready",
+  "lesson.weekWords": "This week you remembered {n} new words",
   "lesson.bestCombo": "Best combo",
   "lesson.reviewAgain": "Practise again",
   "lesson.idk": "I don’t know",

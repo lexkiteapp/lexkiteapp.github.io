@@ -92,5 +92,6 @@
 "Định nghĩa:":"释义：",
 "Đối thoại":"对话",
 "Ảnh minh họa":"配图",
+"Tuần này bạn đã nhớ {n} từ mới":"本周你记住了 {n} 个新单词",
 });
 })(typeof self !== 'undefined' ? self : this);

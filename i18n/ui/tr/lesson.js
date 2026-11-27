@@ -92,5 +92,6 @@
 "Định nghĩa:":"Tanım:",
 "Đối thoại":"Diyalog",
 "Ảnh minh họa":"Görsel",
+"Tuần này bạn đã nhớ {n} từ mới":"Bu hafta {n} yeni kelime hatırladın",
 });
 })(typeof self !== 'undefined' ? self : this);

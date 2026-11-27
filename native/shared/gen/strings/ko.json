@@ -216,6 +216,7 @@
   "lesson.thisWeek": "이번 주",
   "lesson.tomorrowDue": "내일 복습할 단어: {n}개",
   "lesson.tomorrowNext": "내일: 다음 레슨이 준비되어 있어요",
+  "lesson.weekWords": "이번 주에 새 단어 {n}개를 기억했어요",
   "lesson.bestCombo": "최고 콤보",
   "lesson.reviewAgain": "복습",
   "lesson.idk": "모르겠어요",

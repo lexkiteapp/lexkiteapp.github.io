@@ -92,5 +92,6 @@
 "Định nghĩa:":"คำนิยาม:",
 "Đối thoại":"บทสนทนา",
 "Ảnh minh họa":"ภาพประกอบ",
+"Tuần này bạn đã nhớ {n} từ mới":"สัปดาห์นี้คุณจำคำใหม่ได้ {n} คำ",
 });
 })(typeof self !== 'undefined' ? self : this);

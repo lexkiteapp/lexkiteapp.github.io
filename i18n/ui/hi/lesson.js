@@ -92,5 +92,6 @@
 "Định nghĩa:":"परिभाषा:",
 "Đối thoại":"संवाद",
 "Ảnh minh họa":"चित्र",
+"Tuần này bạn đã nhớ {n} từ mới":"इस सप्ताह आपने {n} नए शब्द याद किए",
 });
 })(typeof self !== 'undefined' ? self : this);

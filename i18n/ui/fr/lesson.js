@@ -92,5 +92,6 @@
 "Định nghĩa:":"Définition :",
 "Đối thoại":"Dialogue",
 "Ảnh minh họa":"Image",
+"Tuần này bạn đã nhớ {n} từ mới":"Cette semaine, vous avez retenu {n} nouveaux mots",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -92,5 +92,6 @@
 "Định nghĩa:":"Definisi:",
 "Đối thoại":"Dialog",
 "Ảnh minh họa":"Gambar",
+"Tuần này bạn đã nhớ {n} từ mới":"Minggu ini kamu mengingat {n} kata baru",
 });
 })(typeof self !== 'undefined' ? self : this);
