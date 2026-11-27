@@ -1,0 +1,38 @@
+{
+ "fixed": [
+  {
+   "word": "salón",
+   "field": "gl.es",
+   "from": "sala grande",
+   "to": "sala",
+   "why": "gl.es phải là từ đồng nghĩa ngắn"
+  },
+  {
+   "word": "salón",
+   "field": "ex.en",
+   "from": "The hotel lobby is decorated with flowers.",
+   "to": "The hotel hall is decorated with flowers.",
+   "why": "lobby không đúng nghĩa salón"
+  },
+  {
+   "word": "venta",
+   "field": "gl.vi",
+   "from": "penjualan",
+   "to": "việc bán hàng",
+   "why": "tiếng Indonesia lẫn vào trường vi"
+  },
+  {
+   "word": "cumplir",
+   "field": "gl.vi",
+   "from": "đáp ứng",
+   "to": "thực hiện",
+   "why": "nghĩa phổ biến nhất: giữ/thực hiện lời hứa"
+  }
+ ],
+ "dropped": [
+  {
+   "word": "bordo",
+   "why": "Chỉ dùng trong \"a bordo\"; nghĩa \"edge\" sai, ex.es không tự nhiên"
+  }
+ ]
+}

@@ -6,8 +6,8 @@
     /* ================= PART 5 ================= */
     { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
-        { n: 101, q: 'The marketing director was ------- impressed with the designs submitted by the new agency.', options: ['specifically', 'generally', 'particularly', 'significantly'], a: 2, cue: 'was ------- impressed',
-          explain: 'Cần trạng từ bổ nghĩa cho tính từ/phân từ "impressed" → "particularly" (đặc biệt). "particular" là tính từ; "particularity" và "particulars" là danh từ, không bổ nghĩa cho "impressed".' },
+        { n: 101, q: 'The marketing director was ------- impressed with the designs submitted by the new agency.', options: ['precisely', 'normally', 'particularly', 'substantially'], a: 2, cue: 'was ------- impressed',
+          explain: 'Đúng là “particularly” vì trạng từ này mô tả mức độ ấn tượng một cách đặc biệt. Các đáp án còn lại không phù hợp; ví dụ “precisely” không dùng để bổ nghĩa cho “impressed” mà để chỉ rõ một đối tượng.' },
         { n: 102, q: 'Passengers are reminded to keep ------- belongings with them at all times.', options: ['their', 'them', 'they', 'theirs'], a: 0, cue: '------- belongings',
           explain: 'Trước danh từ "belongings" (đồ đạc cá nhân) cần tính từ sở hữu → "their". "they" là đại từ chủ ngữ; "them" là tân ngữ; "theirs" là đại từ sở hữu, đứng một mình, không đi kèm danh từ.' },
         { n: 103, q: 'The annual safety inspection at the Fenwick plant ------- next Tuesday.', options: ['is scheduled for', 'scheduled', 'was scheduling', 'schedules'], a: 0, cue: 'next Tuesday',
@@ -36,7 +36,7 @@
           explain: 'Đại từ phản thân "herself" đứng cuối mệnh đề để nhấn mạnh "tự mình làm" – hợp với ý "thay vì giao việc cho người khác". "her" là tân ngữ/tính từ sở hữu; "hers" là đại từ sở hữu; "she" là chủ ngữ.' },
         { n: 115, q: 'All new equipment must be ------- by a qualified technician before it is used.', options: ['inspecting', 'inspection', 'inspects', 'inspected'], a: 3, cue: 'must be ------- by a qualified technician',
           explain: 'Thiết bị "được kiểm tra" bởi kỹ thuật viên ("by" chỉ tác nhân) → bị động "must be inspected". "inspecting" mang nghĩa chủ động; "inspection" là danh từ; "inspects" không đứng sau "be".' },
-        { n: 116, q: 'The company\'s profits rose ------- after it began selling its products online.', options: ['significant', 'significance', 'significantly', 'signify'], a: 2, cue: 'profits rose',
+        { n: 116, q: 'The company\'s profits rose ------- after it began selling its products online.', options: ['important', 'importance', 'significantly', 'indicate'], a: 2, cue: 'profits rose',
           explain: 'Cần trạng từ bổ nghĩa cho động từ "rose" (tăng) → "significantly" (đáng kể). "significant" là tính từ; "significance" là danh từ; "signify" là động từ.' },
         { n: 117, q: 'Thornbury Bank offers ------- interest rates on savings accounts for first-time customers.', options: ['competitive', 'competition', 'compete', 'competitively'], a: 0, cue: '------- interest rates',
           explain: 'Trước cụm danh từ "interest rates" cần tính từ → "competitive" (cạnh tranh, hấp dẫn). "competition" là danh từ; "compete" là động từ; "competitively" là trạng từ, không bổ nghĩa cho danh từ.' },
@@ -376,7 +376,7 @@ Customer Support Manager, Larchmont Insurance`,
           groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following advertisement and e-mail.', items: [
             { n: 176, q: 'Why did Mr. Baek write the e-mail?', options: ['To complain about a program', 'To change a reservation', 'To request a refund', 'To ask about booking an event'], a: 3, cue: 'I am organizing a team-building event for the customer support department',
               explain: 'Tiêu đề "Booking inquiry", ông đang tổ chức sự kiện cho 18 người và hỏi về giảm giá, hoạt động thay thế → hỏi về việc đặt chương trình. Chưa có đặt chỗ nào để thay đổi hay hoàn tiền, và ông không phàn nàn.' },
-            { n: 177, q: 'Which package will Mr. Baek most likely choose?', options: ['Summit', 'Pinnacle', 'Ridgeline', 'Crestview'], a: 2, cue: 'We would like a full-day program that includes lunch',
+            { n: 177, q: 'Which package will Mr. Baek most likely choose?', options: ['Trailhead', 'Basecamp', 'Ridgeline', 'Peak'], a: 2, cue: 'We would like a full-day program that includes lunch',
               explain: 'Kết hợp hai văn bản: ông muốn chương trình cả ngày có bữa trưa nhưng không ngủ qua đêm → gói Ridgeline ("Full-day hike, outdoor lunch, and rope course") là phù hợp. Gói Peak có ngủ lại nhà gỗ (overnight cabin stay); Trailhead chỉ hai giờ và Basecamp chỉ nửa ngày.' },
             { n: 178, q: "How much will Mr. Baek's group most likely pay per person?", options: ['$95.00', '$85.50', '$45.00', '$40.50'], a: 1, cue: 'Bookings made 60 days or more in advance receive a 10 percent discount.',
               explain: 'Gói Ridgeline giá $95/người; email gửi ngày 3/3 cho sự kiện ngày 16/5 – trước hơn 60 ngày → được giảm 10%: $95 × 0,9 = $85,50. "$95.00" là giá chưa giảm; "$45.00" và "$40.50" là giá gói Basecamp trước và sau giảm.' },

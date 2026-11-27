@@ -48,6 +48,22 @@
   "semi": {
    "t": "Semi-voyelles : j, w, ɥ",
    "x": "Devant une voyelle, i, ou et u deviennent des glissements rapides dans une seule syllabe. i est /j/ comme dans “fille”. ou est /w/ comme dans “oui”. u est /ɥ/, les lèvres de /y/ en glissement : “huit”, “lui”, “nuit”. “huit” n’a qu’une syllabe. Comparez “loue” et “lui”, “fil” et “fille”."
+  },
+  "h": {
+   "t": "H muet et h aspiré",
+   "x": "La lettre h ne se prononce jamais, mais elle se comporte de deux façons. Le h muet agit comme une voyelle : on fait la liaison et l’élision, “l’homme”, “les hommes” /lez ɔm/, “l’hôtel”. Le h aspiré agit comme une consonne : ni liaison ni élision, avec une toute petite coupure, “le héros”, “les héros” /le eʁo/, “les haricots”. Écoutez le z : “les héros” n’en a pas, “les zéros” en a un."
+  },
+  "gn": {
+   "t": "Le son gn /ɲ/",
+   "x": "Les lettres gn forment un seul son doux /ɲ/, comme le ñ espagnol de “año”, et non un g suivi d’un n. Appuyez le milieu de la langue à plat contre le palais : “agneau”, “montagne”, “campagne”. Le n simple /n/ est plus rapide et se fait avec la pointe de la langue : “anneau” n’est pas “agneau”, et “peine” n’est pas “peigne”."
+  },
+  "enchain": {
+   "t": "Enchaîner les consonnes entre les mots",
+   "x": "Le français se parle en groupes fluides : une consonne finale saute sur la voyelle suivante. “une amie” sonne comme “u-na-mie”, “il arrive” comme “i-la-rive”, “avec elle” comme “ave-kel”. Les syllabes finissent par une voyelle, sans pause ni coup de glotte entre les mots. Écoutez la différence entre “une amie” (au féminin) et “un ami” (au masculin)."
+  },
+  "final": {
+   "t": "Consonnes finales : muettes ou non",
+   "x": "La plupart des consonnes finales sont muettes : “petit”, “grand”, “nez”, “tout”. Mais les lettres de CaReFuL (c, r, f, l) se prononcent souvent : “sac”, “chef”, “fil”, “sur”. Attention aux exceptions : “fils” /fis/ (garçon) a un s, alors que “fil” (de couture) finit par l. Ajouter un e réveille la consonne : “petit” devient “petite”, “grand” devient “grande”."
   }
  }
 }

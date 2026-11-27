@@ -510,5 +510,165 @@
  "tout-tous-toutes": {
   "t": "tout وtous وtoute وtoutes",
   "x": "كصفة يطابق \"tout\": \"tout le monde\" و\"toute la journée\" و\"tous les jours\" و\"toutes les semaines\". وكضمير يعني «كل شيء» (\"j'ai tout compris\") أو «الجميع» (\"ils sont tous là\"، مع نطق الـ-s الأخيرة). أمثلة: \"tous les jours\"، \"toute la journée\"، \"ils sont tous là\"."
+ },
+ "subj-after-bien-que": {
+  "t": "Bien que + subjonctif",
+  "x": "\"bien que\" و\"quoique\" و\"encore que\" تعبّر عن التنازل (رغم أنّ) وتأتي دائمًا مع صيغة subjonctif حتى لو كانت الواقعة مؤكَّدة. قل \"Bien que le projet soit coûteux, nous continuons\" وليس \"bien que le projet est\". أمثلة: \"Bien qu'il pleuve, nous sortons\"، \"Quoiqu'elle soit jeune, elle dirige l'équipe\"."
+ },
+ "subj-after-pour-que": {
+  "t": "الغرض: pour que، afin que",
+  "x": "\"pour que\" و\"afin que\" تقدّمان الغرض ويتبعهما subjonctif. فاعل جملة الغرض يختلف عادةً عن فاعل الجملة الرئيسية: \"Je répète pour que vous compreniez\". وإذا اتّحد الفاعل فاستعمل \"pour\" أو \"afin de\" مع المصدر. أمثلة: \"Il parle lentement pour que nous comprenions\"، \"Elle écrit afin que tout soit clair\"."
+ },
+ "subj-after-avant-que": {
+  "t": "حدود الزمن: avant que",
+  "x": "\"avant que\" و\"jusqu'à ce que\" تأتيان مع subjonctif لأنّ الفعل لم يتحقّق بعد. وكثيرًا ما تُضاف \"ne\" بعد \"avant que\" دون معنى النفي: \"avant qu'il ne parte\". وإذا اتّحد الفاعل فاستعمل \"avant de\" مع المصدر. أمثلة: \"Attends jusqu'à ce que je revienne\"، \"Appelle avant que nous ne partions\"."
+ },
+ "subj-a-moins-que-ne": {
+  "t": "الاستثناء: à moins que",
+  "x": "\"à moins que\" تعني \"ما لم\" وتتطلب subjonctif. وفي الفرنسية الرسمية تُضاف غالبًا \"ne\" زائدة قبل الفعل (\"à moins qu'il ne vienne\") وهي ليست نفيًا حقيقيًا. لا تستعمل بعدها الشرطي ولا المستقبل. أمثلة: \"Je sors, à moins qu'il ne pleuve\"، \"à moins que vous ne soyez occupé\"."
+ },
+ "subj-a-condition-que": {
+  "t": "الشرط: à condition que",
+  "x": "\"à condition que\" و\"pourvu que\" تعنيان \"بشرط أن\" وتأتيان مع subjonctif، لا مع المستقبل ولا الشرطي أبدًا. ويمكن أن تفتتح \"Pourvu que\" الجملة للتعبير عن أمل: \"Pourvu qu'il vienne !\". أمثلة: \"Je viendrai à condition que vous m'invitiez\"، \"Pourvu que tout se passe bien\"."
+ },
+ "subj-vs-ind-opinion": {
+  "t": "أفعال الرأي: اختيار الصيغة",
+  "x": "بعد \"penser que\" و\"croire que\" في الإثبات استعمل indicatif: \"Je pense qu'il a raison\". وفي النفي أو السؤال بالقلب يظهر الشك فيُستعمل subjonctif: \"Je ne pense pas qu'il ait raison\". تتبع الصيغة درجة يقين المتكلّم. أمثلة: \"Je crois qu'elle viendra\"، \"Je ne crois pas qu'elle vienne\"."
+ },
+ "subj-emotion-doubt": {
+  "t": "الشعور والشك والضرورة",
+  "x": "أفعال الشعور (\"être content que\"، \"regretter que\") والشك (\"douter que\") والضرورة (\"il faut que\"، \"il est essentiel que\") يتبعها subjonctif عندما يختلف الفاعلان. تعبّر الجملة عن ردّ فعل أو حاجة لا عن واقعة مجرّدة. أمثلة: \"Je suis ravi que vous veniez\"، \"Il faut que nous partions\"."
+ },
+ "subj-irregular-forms": {
+  "t": "جذور subjonctif الشاذة",
+  "x": "لسبعة أفعال شائعة جذور شاذة في subjonctif: \"être\" (sois, soyons)، \"avoir\" (aie, ayons)، \"aller\" (aille, allions)، \"faire\" (fasse)، \"pouvoir\" (puisse)، \"savoir\" (sache)، \"vouloir\" (veuille). احفظها كصيغ كاملة؛ ولصيغتَي nous وvous في \"être\" و\"avoir\" و\"aller\" و\"vouloir\" جذور خاصة أيضًا. أمثلة: \"qu'elle aille\"، \"que vous sachiez\"، \"que tu aies\"."
+ },
+ "subj-passe": {
+  "t": "الـ subjonctif الماضي",
+  "x": "الـ subjonctif الماضي هو subjonctif الفعل \"avoir\" أو \"être\" مع اسم المفعول. يدلّ على أنّ الحدث انتهى قبل حدث الفعل الرئيسي: \"Je suis content que tu sois venu\". اختر الفعل المساعد كما في passé composé وحافظ على المطابقة. أمثلة: \"Il faut qu'ils aient fini\"، \"Bien qu'elle soit partie\"."
+ },
+ "subj-vs-infinitive": {
+  "t": "subjonctif أم مصدر",
+  "x": "عندما يكون فاعل الفعلين واحدًا تفضّل الفرنسية المصدر: \"Je veux partir\". وعندما يتغيّر الفاعل استعمل \"que\" مع subjonctif: \"Je veux que tu partes\". وينطبق ذلك على الرغبات والمشاعر وكثير من أدوات الربط (\"avant de\" أو \"avant que\"). أمثلة: \"Elle est contente d'être là\"، \"Elle est contente que vous soyez là\"."
+ },
+ "subj-superlative-relative": {
+  "t": "subjonctif بعد صيغ التفضيل",
+  "x": "بعد صيغة التفضيل (\"le plus\"، \"le meilleur\") أو \"seul\" و\"premier\" و\"dernier\" و\"unique\" تأتي جملة الصلة مع subjonctif لأنّ العبارة تعبّر عن حكم شخصي. ومع \"jamais\" شاع الـ subjonctif الماضي: \"le plus beau film que j'aie vu\". أمثلة: \"le seul homme qui sache\"، \"la première fois que je le voie\"."
+ },
+ "subj-relative-search": {
+  "t": "subjonctif لموصوف مطلوب",
+  "x": "عندما تصف جملة الصلة شيئًا تبحث عنه أو ترغب فيه أو تشكّ في وجوده استعمل subjonctif: \"Je cherche un livre qui soit simple\". وإن كنت تعرف أنه موجود فاستعمل indicatif: \"J'ai un livre qui est simple\". من محفّزاته: \"chercher\" و\"vouloir\" و\"il n'y a personne qui\" وأسئلة الوجود. مثال: \"Y a-t-il quelqu'un qui puisse m'aider ?\"."
+ },
+ "cond-passe-news": {
+  "t": "الشرطي للأخبار غير المؤكَّدة",
+  "x": "يستعمل الصحفيون الشرطي، وغالبًا الشرطي الماضي، لنقل معلومات غير مؤكَّدة: \"Le ministre aurait démissionné\". يدلّ على \"يُقال إنّ\" ويُعفي الكاتب من ضمان الواقعة. وللإشاعة الحالية يُستعمل الشرطي الحاضر: \"Il serait malade\". أمثلة: \"Deux personnes seraient blessées\"، \"selon certaines sources, le vol aurait été annulé\"."
+ },
+ "si-plus-que-parfait": {
+  "t": "الماضي غير الواقعي: si + plus-que-parfait",
+  "x": "للشرط غير الواقعي في الماضي استعمل \"si\" مع plus-que-parfait، والشرطي الماضي في الجواب: \"Si j'avais su, je serais venu\". لا تضع الشرطي بعد \"si\" بهذا المعنى. يبيّن الجواب ما لم يحدث. أمثلة: \"Si elle avait étudié, elle aurait réussi\"، \"Si nous étions partis, nous aurions vu le concert\"."
+ },
+ "si-mixed-conditions": {
+  "t": "الجمل الشرطية المختلطة",
+  "x": "الجملة الشرطية المختلطة تربط شرطًا ماضيًا بنتيجة حاضرة: \"si\" مع plus-que-parfait ثم الشرطي الحاضر. وكلمات الزمن مثل \"maintenant\" و\"aujourd'hui\" في الجواب تبيّن أنّ النتيجة ما زالت قائمة الآن. مثال: \"Si tu avais écouté, tu comprendrais\". قارن بالنمط الماضي بالكامل: \"tu aurais compris\"."
+ },
+ "hypothese-au-cas-ou": {
+  "t": "الاحتياط: au cas où",
+  "x": "\"au cas où\" تعبّر عن الاحتياط لحدث محتمل ويتبعها الشرطي، لا subjonctif ولا المستقبل. معناها \"تحسّبًا\" أو \"في حال\". ويمكن أن تأتي في أول الجملة أو آخرها. أمثلة: \"Prenez un parapluie au cas où il pleuvrait\"، \"Au cas où tu serais en retard, appelle-moi\"."
+ },
+ "apres-que-indicatif": {
+  "t": "après que + indicatif",
+  "x": "\"après que\" و\"dès que\" تذكران واقعة حدثت فعلًا، لذلك تأتيان مع indicatif لا subjonctif (بخلاف \"avant que\"). الفعل بعد \"après que\" في زمن مركّب سابق للفعل الرئيسي: \"Après qu'il a fini, il est rentré\". وإذا كان الفعل الرئيسي مستقبلًا فبعد \"dès que\" استعمل futur antérieur: \"Dès que tu auras fini, appelle-moi\"."
+ },
+ "concordance-des-temps": {
+  "t": "تطابق الأزمنة",
+  "x": "عندما يكون الفعل الرئيسي في الماضي يتراجع فعل الجملة الفرعية خطوة: الحاضر يصير imparfait، وpassé composé يصير plus-que-parfait، والمستقبل يصير شرطيًا. لا تخلط فعلًا رئيسيًا ماضيًا بفعل فرعي حاضر: \"Il pensait que nous étions partis\". أمثلة: \"Je savais que tu viendrais\"، \"Elle disait qu'elle était fatiguée\"."
+ },
+ "discours-indirect-passe": {
+  "t": "الكلام غير المباشر في الماضي",
+  "x": "في الكلام غير المباشر بعد فعل ماضٍ (\"elle a dit que\") تتغيّر الأزمنة: الحاضر إلى imparfait، وpassé composé إلى plus-que-parfait، والمستقبل إلى شرطي. وتتغيّر كلمات الزمن أيضًا: \"demain\" تصير \"le lendemain\"، و\"hier\" تصير \"la veille\"، و\"aujourd'hui\" تصير \"ce jour-là\". مثال: \"Il a dit qu'il viendrait le lendemain\"."
+ },
+ "discours-indirect-questions": {
+  "t": "الأسئلة غير المباشرة",
+  "x": "في السؤال غير المباشر استعمل ترتيب الكلمات العادي دون علامة استفهام. \"Est-ce que\" وأسئلة نعم/لا تصير \"si\": \"Il a demandé si je venais\". و\"Qu'est-ce que\" تصير \"ce que\"، و\"qu'est-ce qui\" تصير \"ce qui\". وتتغيّر الأزمنة بعد الفعل الماضي. أمثلة: \"Elle m'a demandé ce que je voulais\"، \"Il voulait savoir ce qui se passait\"."
+ },
+ "discours-indirect-ordres": {
+  "t": "نقل الأوامر والطلبات",
+  "x": "لنقل أمر أو طلب استعمل \"dire de\" أو \"demander de\" مع المصدر: \"Elle m'a dit de rentrer\". ويُعبَّر عن المخاطَب بـ \"à\" أو بضمير: \"Il a demandé à ses voisins de baisser la musique\". وفي الأمر المنفي يبقى \"ne pas\" معًا قبل المصدر: \"Il nous a dit de ne pas toucher aux câbles\"."
+ },
+ "accord-participe-cod-avant": {
+  "t": "المطابقة مع المفعول المتقدّم",
+  "x": "مع \"avoir\" يطابق اسم المفعول المفعولَ المباشر فقط إذا جاء قبل الفعل. ابحث عن \"que\" أو ضمير مثل \"les\" أو أداة استفهام: \"Les lettres que Marie a écrites\"، \"Quelle robe as-tu choisie ?\". وإذا جاء المفعول بعده فلا مطابقة: \"Marie a écrit des lettres\"."
+ },
+ "accord-participe-pronominaux": {
+  "t": "مطابقة اسم المفعول في الأفعال الانعكاسية",
+  "x": "في passé composé للفعل الانعكاسي يطابق اسم المفعول الضميرَ الانعكاسي إذا كان مفعولًا مباشرًا: \"Les amies se sont retrouvées\". ويبقى ثابتًا إذا كان الضمير مفعولًا غير مباشر أو تبعه مفعول آخر: \"Elle s'est lavé les mains\"، \"Ils se sont envoyé des messages\". اسأل نفسك: هل \"se\" تعني \"à qui ?\" أم \"qui ?\"."
+ },
+ "participe-present-gerondif": {
+  "t": "اسم الفاعل والجيرندي والصفة",
+  "x": "الجيرندي \"en + -ant\" يبيّن كيف أو متى يقع الشيء وهو ثابت: \"Il s'est blessé en coupant du bois\". واسم الفاعل يحلّ محلّ جملة وهو ثابت أيضًا: \"Les enfants jouant dans le jardin\". أمّا الصفة الفعلية فتطابق اسمها: \"une histoire fascinante\"، \"des résultats surprenants\"."
+ },
+ "passif-et-alternatives": {
+  "t": "المبني للمجهول وبدائله",
+  "x": "المبني للمجهول يتكوّن من \"être\" مع اسم المفعول: \"Les résultats ont été annoncés par le jury\". وكثيرًا ما تفضّل الفرنسية البدائل: الصيغة الانعكاسية للحقائق العامة (\"Le fromage se mange après le plat\")، أو \"on\"، أو \"se faire\" لما يحدث للفاعل (\"Il s'est fait voler son sac\")."
+ },
+ "causatif-faire-laisser": {
+  "t": "السببية مع faire وlaisser",
+  "x": "\"Faire\" مع المصدر تعني التسبّب في إنجاز شيء: \"Nous avons fait refaire la cuisine\". و\"Laisser\" مع المصدر تعني السماح: \"Le professeur a laissé les élèves partir\". ويبقى اسم المفعول \"fait\" ثابتًا قبل المصدر: \"Ce film m'a fait pleurer\"."
+ },
+ "pronoms-relatifs-composes": {
+  "t": "الضمائر الموصولة المركّبة",
+  "x": "بعد حرف الجر استعمل \"lequel\" أو \"laquelle\" أو \"lesquels\" أو \"lesquelles\" بحسب الاسم: \"la table sur laquelle\"، \"les amis chez lesquels\". ومع \"à\" تندمج: \"auquel\"، \"auxquels\"، \"auxquelles\"، \"à laquelle\". ومع \"de\" تعطي \"duquel\"، \"desquels\"، \"de laquelle\"."
+ },
+ "pronom-relatif-dont": {
+  "t": "الضمير الموصول dont",
+  "x": "\"Dont\" يحلّ محلّ \"de\" مع اسم في جملة الصلة: \"L'ordinateur dont j'ai besoin\" (avoir besoin de). ويعبّر أيضًا عن الملكية ويأتي الاسم بعده مباشرة: \"l'écrivain dont le dernier roman\". ويقدّم جزءًا من مجموعة: \"trois enfants, dont deux vivent à l'étranger\"."
+ },
+ "ce-qui-ce-que-ce-dont": {
+  "t": "Ce qui وce que وce dont",
+  "x": "\"Ce\" مع ضمير موصول يشير إلى فكرة أو شيء غير مسمّى. \"Ce qui\" فاعل (\"Ce qui m'inquiète\")، و\"ce que\" مفعول (\"ce que tu veux\"). استعمل \"ce dont\" مع الأفعال التي تأخذ \"de\" (\"ce dont tu as envie\") و\"ce à quoi\" مع الأفعال التي تأخذ \"à\" (\"ce à quoi il s'intéresse\")."
+ },
+ "pronoms-doubles-ordre": {
+  "t": "ترتيب ضميرين",
+  "x": "قبل الفعل يأتي الضمير غير المباشر أولًا مع me وte وnous وvous: \"Je te le rends\". ومع الغائب يأتي المباشر أولًا: \"Je le lui donne\"؛ و\"en\" تأتي أخيرًا دائمًا: \"Je lui en ai parlé\". وبعد الأمر المثبَت يكون الترتيب مباشر ثم غير مباشر: \"Donne-les-moi\"."
+ },
+ "pronoms-y-en-avances": {
+  "t": "y وen متقدّمان",
+  "x": "\"En\" تحلّ محلّ \"de\" مع اسم أو كمية ويبقى العدد: \"J'en ai acheté trois\". و\"Y\" تحلّ محلّ \"à\" أو مكان: \"J'y pense tout le temps\". وفي الأمر المثبَت تأتيان بعد الفعل وتجتمعان: \"Donnez-m'en un kilo\"."
+ },
+ "mise-en-relief": {
+  "t": "التوكيد بـ c'est...qui/que",
+  "x": "\"C'est ... qui\" تبرز الفاعل و\"c'est ... que\" تبرز المفعول أو المتمّم: \"C'est moi qui ai fait le gâteau\"، \"C'est demain que nous partons\". ومع اسم جمع استعمل \"ce sont\": \"Ce sont mes voisins que j'ai invités\". ويطابق الفعل بعد \"qui\" العنصر المبرَز."
+ },
+ "inversion-peut-etre": {
+  "t": "القلب بعد ظروف الجملة",
+  "x": "في الفرنسية الرسمية يتطلّب \"peut-être\" و\"sans doute\" و\"aussi\" (بمعنى لذلك) في أول الجملة قلبَ الفاعل والفعل: \"Peut-être viendra-t-il demain\". ومع فاعل اسمي كرّره بضمير. وأضف \"-t-\" عندما ينتهي الفعل بحرف علّة قبل \"il\" أو \"elle\": \"viendra-t-elle\"."
+ },
+ "ne-expletif": {
+  "t": "ne الزائدة",
+  "x": "بعد أفعال الخوف (\"craindre que\") و\"avant que\" وصيغ المقارنة غير المتساوية تضيف الفرنسية الرسمية \"ne\" لا تحمل معنى النفي: \"Je crains qu'il ne pleuve\"، \"avant qu'il ne fasse nuit\"، \"plus grand que je ne pensais\". وهي اختيارية في الكلام ولا تأتي معها \"pas\" أبدًا."
+ },
+ "connecteurs-concession-opposition": {
+  "t": "التنازل والتعارض",
+  "x": "\"Bien que\" مع subjonctif و\"malgré\" مع اسم تعبّران عن التنازل: \"Malgré la pluie, nous sommes sortis\". و\"Alors que\" مع indicatif تقابل بين واقعتين: \"Paul adore la mer, alors que sa femme préfère la montagne\". و\"Pourtant\" و\"cependant\" و\"en revanche\" تربط بين جملتين."
+ },
+ "nominalisation": {
+  "t": "تحويل الأفعال إلى أسماء",
+  "x": "التحويل إلى اسم يجعل الكتابة أكثر إيجازًا ورسمية. تصير الأفعال أسماء بلواحق مثل -tion و-ment و-ure و-ée: \"ouvrir\" تعطي \"l'ouverture\"، و\"augmenter\" تعطي \"l'augmentation\"، و\"arriver\" تعطي \"l'arrivée\". وكذلك الصفات: \"difficile\" تعطي \"la difficulté\". تحقّق من جنس الاسم الجديد."
+ },
+ "tout-accord": {
+  "t": "Tout: صفة وضمير وظرف",
+  "x": "كصفة يطابق \"tout\" الاسم: \"tous les magasins\"، \"toutes les fenêtres\". وكظرف بمعنى \"تمامًا\" يكون ثابتًا، إلا قبل صفة مؤنثة تبدأ بحرف ساكن: \"elle est tout étonnée\" لكن \"elles sont toutes timides\"."
+ },
+ "prepositions-apres-verbes": {
+  "t": "حروف الجر بعد الأفعال",
+  "x": "بعض الأفعال تأخذ حرف جر ثابتًا، وقد يغيّر المعنى. \"Penser à\" تعني التفكير في: \"Je pense à mes vacances\"؛ و\"penser de\" تسأل عن الرأي: \"Que penses-tu de ce film ?\". تعلّم أزواجًا مثل \"s'habituer à\" و\"se méfier de\" كوحدة واحدة."
+ },
+ "infinitif-passe": {
+  "t": "المصدر الماضي",
+  "x": "\"Après\" مع \"avoir\" أو \"être\" واسم المفعول تدلّ على أنّ فعلًا وقع قبل الفعل الرئيسي: \"Après avoir écrit la lettre, il l'a postée\". يجب أن يكون الفاعل واحدًا للفعلين. وأفعال الحركة والأفعال الانعكاسية تأخذ \"être\" وتطابق: \"Après être rentrée\"، \"Après nous être reposés\"."
+ },
+ "a-regard-pronoms-lequel": {
+  "t": "lequel الاستفهامية",
+  "x": "\"Lequel\" تسأل عن اختيار بين أشياء معروفة وتطابقها: \"Lequel de ces chemins ?\"، \"Laquelle de tes amies ?\". ومع \"à\" أو \"de\" تندمج: \"Auquel de ces clients as-tu téléphoné ?\"، \"Duquel parles-tu ?\". استعمل \"quel\" مباشرة قبل الاسم فقط."
  }
 }

@@ -1,0 +1,217 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "salón",
+   "pos": "n",
+   "gender": "m",
+   "plural": "salones",
+   "ipa": "saˈlon",
+   "gl": {
+    "es": "sala",
+    "en": "large room",
+    "vi": "phòng lớn",
+    "pt": "sala grande",
+    "fr": "grande salle",
+    "de": "großer Saal",
+    "id": "ruang besar",
+    "th": "ห้องใหญ่",
+    "zh": "大房间",
+    "ja": "大きな部屋",
+    "ko": "큰 방",
+    "hi": "बड़ी कमरा",
+    "ar": "غرفة كبيرة",
+    "ru": "большой зал",
+    "tr": "büyük salon"
+   },
+   "ex": {
+    "es": "El salón del hotel está decorado con flores.",
+    "en": "The hotel hall is decorated with flowers."
+   },
+   "rank": 2163,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "venta",
+   "pos": "n",
+   "gender": "f",
+   "plural": "ventas",
+   "ipa": "ˈbenta",
+   "gl": {
+    "es": "venta",
+    "en": "sale",
+    "vi": "việc bán hàng",
+    "pt": "venda",
+    "fr": "vente",
+    "de": "Verkauf",
+    "id": "penjualan",
+    "th": "การขาย",
+    "zh": "销售",
+    "ja": "販売",
+    "ko": "판매",
+    "hi": "बिक्री",
+    "ar": "بيع",
+    "ru": "продажа",
+    "tr": "satış"
+   },
+   "ex": {
+    "es": "La tienda tiene una gran venta de ropa.",
+    "en": "The store has a big clothing sale."
+   },
+   "rank": 2416,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "ˈbenta"
+   }
+  },
+  {
+   "word": "madera",
+   "pos": "n",
+   "gender": "f",
+   "plural": "maderas",
+   "ipa": "maˈðeɾa",
+   "gl": {
+    "es": "madera",
+    "en": "wood",
+    "vi": "gỗ",
+    "pt": "madeira",
+    "fr": "bois",
+    "de": "Holz",
+    "id": "kayu",
+    "th": "ไม้",
+    "zh": "木材",
+    "ja": "木材",
+    "ko": "목재",
+    "hi": "लकड़ी",
+    "ar": "خشب",
+    "ru": "дерево",
+    "tr": "ahşap"
+   },
+   "ex": {
+    "es": "La mesa está hecha de madera.",
+    "en": "The table is made of wood."
+   },
+   "rank": 2543,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "cumplir",
+   "pos": "v",
+   "ipa": "kumˈpliɾ",
+   "gl": {
+    "es": "cumplir",
+    "en": "to fulfill",
+    "vi": "thực hiện",
+    "pt": "cumprir",
+    "fr": "accomplir",
+    "de": "erfüllen",
+    "id": "memenuhi",
+    "th": "ทำให้สำเร็จ",
+    "zh": "履行",
+    "ja": "果たす",
+    "ko": "이행하다",
+    "hi": "पूरा करना",
+    "ar": "يفي",
+    "ru": "выполнять",
+    "tr": "yerine getirmek"
+   },
+   "ex": {
+    "es": "Tengo que cumplir mi promesa.",
+    "en": "I have to keep my promise."
+   },
+   "rank": 2555,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "comisaría",
+   "pos": "n",
+   "gender": "f",
+   "plural": "comisarías",
+   "ipa": "komisaˈɾia",
+   "gl": {
+    "es": "comisaría",
+    "en": "police station",
+    "vi": "đồn cảnh sát",
+    "pt": "delegacia",
+    "fr": "commissariat",
+    "de": "Polizeistation",
+    "id": "kantor polisi",
+    "th": "สถานีตำรวจ",
+    "zh": "警察局",
+    "ja": "警察署",
+    "ko": "경찰서",
+    "hi": "पुलिस स्टेशन",
+    "ar": "مركز الشرطة",
+    "ru": "полицейский участок",
+    "tr": "karakol"
+   },
+   "ex": {
+    "es": "Voy a la comisaría a denunciar el robo.",
+    "en": "I'm going to the police station to report the robbery."
+   },
+   "rank": 3381,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  }
+ ]
+}

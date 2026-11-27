@@ -615,7 +615,6 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 .line { padding: .7rem 0; border-bottom: 1px dashed var(--line); } .line .lin { margin-top: .4rem; } .lhint { font-family: var(--ipa); letter-spacing: .02em; }
 
 /* ===== Luyện nghe ===== */
-.ltrans { position: sticky; top: 140px; max-height: calc(100vh - 160px); overflow: auto; }
 .ltr { position: relative; margin-top: .6rem; }
 .ltr.blur .tl { filter: blur(5px); user-select: none; pointer-events: none; }
 .tl { padding: .45rem .55rem; border-radius: 10px; line-height: 1.65; cursor: pointer; transition: background .2s; }

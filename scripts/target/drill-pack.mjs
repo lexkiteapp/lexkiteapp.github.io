@@ -11,13 +11,13 @@ import { LV, GX_LANGS, TLP, build, sayText } from './drill-lib.mjs';
 const ti = process.argv.indexOf('--tl'), TL = ti > 0 ? process.argv[ti + 1] : 'es';
 if (!TLP[TL]) { console.error(`✗ tl "${TL}" chưa có dòng TLP (drill-lib.mjs)`); process.exit(2); }
 const D = TLP[TL].D, OUT = TLP[TL].OUT, CHECK = process.argv.includes('--check');
-const { files, dr, pts, cloze } = build(TL);
+const { files, dr, pts, cloze, lvs: LVS } = build(TL);
 const PACKS = `web/packs/${TL}/`, dest = f => f.startsWith('@packs/') ? PACKS + f.slice(7) : OUT + f; // từ lộ trình → web/packs/<tl> (path-lib)
 if (!CHECK) {
   fs.mkdirSync(OUT, { recursive: true });
   if (Object.keys(files).some(f => f.startsWith('@packs/'))) fs.mkdirSync(PACKS, { recursive: true });
   for (const [f, s] of Object.entries(files)) fs.writeFileSync(dest(f), s);
-  console.log(`✓ drill-pack: ${Object.values(dr).flat().length} câu (${LV.map(l => l + ' ' + dr[l].length).join(' · ')}), ${GX_LANGS.length} ngôn ngữ giải thích`);
+  console.log(`✓ drill-pack: ${Object.values(dr).flat().length} câu (${LVS.map(l => l + ' ' + dr[l].length).join(' · ')}), ${GX_LANGS.length} ngôn ngữ giải thích`);
   process.exit(0);
 }
 
@@ -51,7 +51,7 @@ for (const p of pts) {
     if (l !== 'en') for (const seg of en[p.id].x.match(/"[^"]+"/g) || []) if (kept(p.id, seg) >= 8 && !g.x.includes(seg)) E(`gx/${l}/${p.id}: mất/sửa ví dụ ${TL} ${seg}`);
   }
 }
-for (const l of LV) for (const it of dr[l]) if (it[0] === 'c' && (!it[3] || /undefined/.test(it[3] + it[2]))) E(`chia động từ hỏng: ${it}`);
+for (const l of LVS) for (const it of dr[l]) if (it[0] === 'c' && (!it[3] || /undefined/.test(it[3] + it[2]))) E(`chia động từ hỏng: ${it}`);
 if (process.env.LT_URL) {
   const L = TL_GEN[TL].lt; let n = 0;
   for (const p of pts) for (const it of cloze[p.id] || []) { n++; for (const m of await ltErrors(process.env.LT_URL, L, it.s.replace('___', it.a))) E(`${p.id}: LanguageTool – ${m}: ${it.s.replace('___', it.a)}`); }

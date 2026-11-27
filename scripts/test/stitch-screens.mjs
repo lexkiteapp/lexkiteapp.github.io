@@ -93,11 +93,11 @@ export const V2REF = {
   diary: 'say-front', // 🎙️ Nhật ký giọng nói (web/cpack/diary-app/diary.js): cùng khung Stitch say-front như màn score, thân riêng
   dict: 'dict',
   feedback: 'feedback-correct',
-  'feedback-wrong': 'feedback-wrong',
+  'feedback-wrong': 'feedback-wrong-full',
   grammar: 'grammar',
   home: 'today',
   leagues: 'leagues',
-  lesson: 'lesson-question',
+  lesson: 'ex-pick',
   library: 'library',
   me: 'me',
   mistakes: 'mistakes',

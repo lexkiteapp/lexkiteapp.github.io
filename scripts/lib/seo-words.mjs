@@ -15,6 +15,8 @@ import { loadSources, enrich } from '../dict/build.mjs';
 import { measure, deep } from './word-depth.mjs';
 import { PRIORITY_LANGS } from '../../functions/api/_cpm.js';
 import { r2Langs } from './words-r2.mjs';
+globalThis.self ??= globalThis; await import('../../web/js/verbs-core.js'); // bộ máy chia động từ của app (một nguồn) → khối "Các dạng của động từ"
+const LKV = globalThis.self.LK_VERBS;
 
 const N_MAIN = +(process.env.SEO_N_MAIN || 1500), N_OTHER = +(process.env.SEO_N_OTHER || 400), N_PRIORITY = +(process.env.SEO_N_PRIORITY || 650);
 
@@ -111,6 +113,14 @@ const MORE_EX = (() => {
 const okL = (l, s) => !!s && !(l !== 'vi' && VI_RE.test(s)); // chữ Việt không lọt trang ngôn ngữ khác
 const tx = (l, s) => (l === 'vi' || l === 'en' ? esc(s) : en(s)); // giải thích: vi/en đúng ngôn ngữ trang; 13 ngôn ngữ còn lại là chữ tiếng Anh gốc → lang="en"
 const sec = (id, d, h, inner) => `<section aria-labelledby="h-${id}"${d ? ` data-d="${d}"` : ''}><h2 id="h-${id}">${esc(h)}</h2>${inner}</section>`;
+// Khối dạng động từ (nguyên mẫu, -s, quá khứ, phân từ, -ing) cho mục từ loại động từ một chữ – dữ liệu từ LK_VERBS.forms (quy tắc + bảng bất quy tắc của app, không viết thêm nội dung)
+const verbForms = (t, w, e) => {
+  if (!LKV || gpos(e.pos) !== 'v' || /\s/.test(w)) return '';
+  let f; try { f = LKV.forms(w.toLowerCase()); } catch { return ''; }
+  if (!f || !f.known || f.partial || !f.P || !f.PP || !f.ING || !f.S) return '';
+  const cell = x => `<td lang="en" dir="ltr">${esc(x)}</td>`;
+  return sec('v', 'forms', fill(t.vfH, { w }), `<table class="vf"><tbody><tr><th scope="row">${esc(t.vfB)}</th>${cell(f.base)}</tr><tr><th scope="row">${esc(t.vfS)}</th>${cell(f.S)}</tr><tr><th scope="row">${esc(t.vfP)}</th>${cell(f.P)}</tr><tr><th scope="row">${esc(t.vfPP)}</th>${cell(f.PP)}</tr><tr><th scope="row">${esc(t.vfG)}</th>${cell(f.ING)}</tr></tbody></table><p class="mt">${esc(f.irregular ? t.vfIrr : t.vfReg)}</p>`);
+};
 const hiW = (s, k) => esc(s).replace(new RegExp(`\\b(${k.replace(/[^a-z' -]/g, '')}[a-z]*)`, 'i'), '<b>$1</b>');
 const posIn = {}; for (const l of LANGS) posIn[l] = new Map(setOf[l].map((e, i) => [e, i]));
 const built = {}; // l → Map(mục → { body, faq, m }) – dựng một lần, build-seo-pages và build-blog dùng chung
@@ -180,6 +190,7 @@ function coreOf(l, e) {
 ${answerBox(l, t, W, pos, m, e)}
 ${sec('m', 'mean', senses.length > 1 ? t.means : t.mean, meanHtml)}
 ${sec('p', 'pron', t.pron, `<p class="pr"><span>${esc(t.uk)} <span class="ipa" dir="ltr">${esc(e.ipa || '')}</span></span>${ipaUS ? `<span>${esc(t.us)} <span class="ipa" dir="ltr">${esc(ipaUS)}</span></span>` : ''}${au ? `<button type="button" class="au" data-a="${esc(au)}" aria-label="${esc(t.pron)}: ${esc(w)}"></button>` : ''}</p>`)}
+${verbForms(t, w, e)}
 ${sec('e', 'ex', exs.length > 1 ? t.exs : t.ex, exs.map(s => `<blockquote lang="en" dir="ltr">${hiW(s, k)}</blockquote>`).join(''))}
 ${col.length || pats.length ? sec('c', 'col', t.col, `${col.length ? `<p class="chips">${col.map(x => `<span lang="en" dir="ltr">${esc(x)}</span>`).join('')}</p>` : ''}${pats.length ? `<h3>${esc(t.pat)}</h3><ul class="pat">${pats.map(x => `<li><b lang="en" dir="ltr">${esc(x.h)}</b>${okL(l, x.m) ? ` – ${tx(l, x.m)}` : ''}${x.ex ? `<br><i lang="en" dir="ltr">${esc(x.ex)}</i>` : ''}</li>`).join('')}</ul>` : ''}`) : ''}
 ${ph.length ? sec('f', 'phr', fill(t.phr, { w }), `<ul>${ph.map(x => `<li>${link(x.word)} – ${esc(l === 'vi' ? x.vi || x.def : l === 'en' ? x.def : (gloss(l, x) || [x.def])[0])}</li>`).join('')}</ul>`) : ''}

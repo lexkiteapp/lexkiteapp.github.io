@@ -80,6 +80,8 @@ export function validate(deck, o = {}) {
   const ALLOWED = new Set(FIELDS);
   for (const w of words) {
     const id = (w && w.word) || '?', bad = m => err.push(`${id}: ${m}`);
+    // AI trả sai kiểu (run 45821771094: exForm không phải chuỗi → TypeError làm mất cả lượt sau 2 giờ) → báo lỗi cổng, không ném
+    if (typeof w.word !== 'string' || (w.exForm !== undefined && typeof w.exForm !== 'string') || (w.ex && Object.values(w.ex).some(x => typeof x !== 'string'))) { bad('word/exForm/ex phải là chuỗi'); continue; }
     for (const k of Object.keys(w || {})) if (!ALLOWED.has(k)) bad('trường lạ ' + k);
     if (!/^\p{L}[\p{L}' -]*$/u.test(w.word || '')) bad('word sai');
     const key = String(w.word || '').toLowerCase() + '#' + w.pos;
@@ -167,6 +169,8 @@ export async function kaikki(lang, w) {
 
 // espeak-ng in cờ đổi ngôn ngữ ((en)ʃəʊ(fr)) khi từ điển của nó coi từ là từ ngoại → IPA đó sai cho người học tl. wiktIpa: IPA đầu tiên hợp lệ của các mục Wiktionary
 // (bỏ / [ ] dấu nhấn ‿ ngắt âm tiết như quy ước espeak không nhấn; bỏ biến thể có âm tuỳ chọn trong ngoặc) – '' khi không có
+// nghĩa vi để nguyên tiếng Anh (gen.mjs cổng: lô fr 3 có 20 mục "region/Thursday…" lọt 2 giám khảo + dịch ngược) – có dấu tiếng Việt thì không tính
+export const viUntranslated = gl => { const n = x => String(x || '').trim().toLowerCase().replace(/^to /, ''); return !!(gl && gl.vi && n(gl.vi) === n(gl.en) && !/[\u00c0-\u1ef9]/.test(gl.vi)); };
 export const LANG_SWITCH = /\([a-z]{2,3}(-[a-z]+)?\)/;
 export const wiktIpa = es => es.flatMap(e => (e.sounds || []).map(x => x.ipa)).filter(x => x && !/[()]/.test(x)).map(x => x.replace(/[/[\]ˈˌ‿.]/g, '').trim()).find(x => x && IPA_OK.test(x.normalize('NFD'))) || '';
 

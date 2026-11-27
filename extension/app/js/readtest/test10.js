@@ -158,7 +158,7 @@ a: 0, cue: 'written records alone, combined with determination, can be enough to
 options: ['It has been rejected by most Basque-language schools.', 'It has brought benefits but has made some speakers feel their own speech is undervalued.', 'It was based on a single village dialect.', 'It caused longer disputes than the Cornish spelling systems.'],
 a: 1, cue: 'their own speech has been treated as incorrect' },
 { n: 30, q: "What is the writer's opinion of Fishman's test of success?",
-options: ['It has been disproved by the revival of Manx.', 'It gives too little importance to schools.', 'It is sound in principle but too narrow if it is the only measure.', 'It applies only to languages in North America.'],
+options: ['It was invalidated by the recent Manx language resurgence.', 'It overlooks the role of community programs.', 'It is sound in principle but too narrow if it is the only measure.', 'It is applicable solely to languages of the Southern Hemisphere.'],
 a: 2, cue: 'applied rigidly it seems to me too narrow' },
 ] },
 { type: 'ynng',

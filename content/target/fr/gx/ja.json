@@ -510,5 +510,165 @@
  "tout-tous-toutes": {
   "t": "tout, tous, toute, toutes",
   "x": "形容詞の\"tout\"は一致します。\"tout le monde\"、\"toute la journée\"、\"tous les jours\"、\"toutes les semaines\"。代名詞では「すべて」(\"j'ai tout compris\")や「みんな」(\"ils sont tous là\"、語末のsを発音する)の意味です。例:\"tous les jours\"、\"toute la journée\"、\"ils sont tous là\"。"
+ },
+ "subj-after-bien-que": {
+  "t": "Bien que + 接続法",
+  "x": "\"bien que\"、\"quoique\"、\"encore que\"は譲歩を表し、事実が確かな場合でも必ず接続法を取ります。\"Bien que le projet soit coûteux, nous continuons\"と言い、\"bien que le projet est\"とは言いません。例:\"Bien qu'il pleuve, nous sortons\"、\"Quoiqu'elle soit jeune, elle dirige l'équipe\"。"
+ },
+ "subj-after-pour-que": {
+  "t": "目的:pour que, afin que",
+  "x": "\"pour que\"と\"afin que\"は目的を導き、あとに接続法が続きます。目的節の主語は、たいてい主節の主語と違います。\"Je répète pour que vous compreniez\"。主語が同じなら\"pour\"または\"afin de\"+不定詞を使います。例:\"Il parle lentement pour que nous comprenions\"、\"Elle écrit afin que tout soit clair\"。"
+ },
+ "subj-after-avant-que": {
+  "t": "期限:avant que",
+  "x": "\"avant que\"と\"jusqu'à ce que\"は、動作がまだ実現していないので接続法を取ります。\"avant que\"の後にはよく、否定の意味のない\"ne\"を入れます。\"avant qu'il ne parte\"。主語が同じなら\"avant de\"+不定詞です。例:\"Attends jusqu'à ce que je revienne\"、\"Appelle avant que nous ne partions\"。"
+ },
+ "subj-a-moins-que-ne": {
+  "t": "例外:à moins que",
+  "x": "\"à moins que\"は「〜でない限り」の意味で、接続法が必要です。改まったフランス語では動詞の前に虚辞の\"ne\"を入れることが多く(\"à moins qu'il ne vienne\")、これは本当の否定ではありません。あとに条件法や未来形は使いません。例:\"Je sors, à moins qu'il ne pleuve\"、\"à moins que vous ne soyez occupé\"。"
+ },
+ "subj-a-condition-que": {
+  "t": "条件:à condition que",
+  "x": "\"à condition que\"と\"pourvu que\"は「〜という条件で」の意味で、接続法を取り、未来形や条件法は使いません。\"Pourvu que\"は文頭で願いを表すこともできます。\"Pourvu qu'il vienne !\"。例:\"Je viendrai à condition que vous m'invitiez\"、\"Pourvu que tout se passe bien\"。"
+ },
+ "subj-vs-ind-opinion": {
+  "t": "意見の動詞:法の選択",
+  "x": "肯定の\"penser que\"と\"croire que\"の後は直説法です。\"Je pense qu'il a raison\"。否定文や倒置疑問文では疑いが出るので接続法です。\"Je ne pense pas qu'il ait raison\"。法は話し手の確信の度合いで決まります。例:\"Je crois qu'elle viendra\"、\"Je ne crois pas qu'elle vienne\"。"
+ },
+ "subj-emotion-doubt": {
+  "t": "感情・疑い・必要",
+  "x": "感情(\"être content que\"、\"regretter que\")、疑い(\"douter que\")、必要(\"il faut que\"、\"il est essentiel que\")を表す動詞は、主語が異なるとき接続法を取ります。節は単なる事実ではなく、反応や必要を表します。例:\"Je suis ravi que vous veniez\"、\"Il faut que nous partions\"。"
+ },
+ "subj-irregular-forms": {
+  "t": "不規則な接続法の語幹",
+  "x": "よく使う7つの動詞は接続法の語幹が不規則です。\"être\"(sois, soyons)、\"avoir\"(aie, ayons)、\"aller\"(aille, allions)、\"faire\"(fasse)、\"pouvoir\"(puisse)、\"savoir\"(sache)、\"vouloir\"(veuille)。形ごと覚えましょう。\"être\"、\"avoir\"、\"aller\"、\"vouloir\"のnousとvousにも独自の語幹があります。例:\"qu'elle aille\"、\"que vous sachiez\"、\"que tu aies\"。"
+ },
+ "subj-passe": {
+  "t": "接続法過去",
+  "x": "接続法過去は、\"avoir\"または\"être\"の接続法+過去分詞です。主節の動詞より前に動作が終わっていることを示します。\"Je suis content que tu sois venu\"。助動詞は複合過去と同じように選び、一致も守ります。例:\"Il faut qu'ils aient fini\"、\"Bien qu'elle soit partie\"。"
+ },
+ "subj-vs-infinitive": {
+  "t": "接続法か不定詞か",
+  "x": "2つの動詞の主語が同じときは、フランス語は不定詞を好みます。\"Je veux partir\"。主語が変わるときは\"que\"+接続法です。\"Je veux que tu partes\"。願望、感情、多くの接続詞も同じです(\"avant de\"か\"avant que\")。例:\"Elle est contente d'être là\"、\"Elle est contente que vous soyez là\"。"
+ },
+ "subj-superlative-relative": {
+  "t": "最上級の後の接続法",
+  "x": "最上級(\"le plus\"、\"le meilleur\")や\"seul\"、\"premier\"、\"dernier\"、\"unique\"の後の関係節は、個人的な判断を表すので接続法を取ります。\"jamais\"と一緒のときは接続法過去がよく使われます。\"le plus beau film que j'aie vu\"。例:\"le seul homme qui sache\"、\"la première fois que je le voie\"。"
+ },
+ "subj-relative-search": {
+  "t": "探している先行詞と接続法",
+  "x": "関係節が、探しているもの、望んでいるもの、存在を疑っているものを描くときは接続法です。\"Je cherche un livre qui soit simple\"。存在を知っているなら直説法です。\"J'ai un livre qui est simple\"。典型的な引き金は\"chercher\"、\"vouloir\"、\"il n'y a personne qui\"、存在を尋ねる疑問文です。例:\"Y a-t-il quelqu'un qui puisse m'aider ?\"。"
+ },
+ "cond-passe-news": {
+  "t": "未確認ニュースの条件法",
+  "x": "記者は、確認されていない情報を伝えるのに条件法(多くは条件法過去)を使います。\"Le ministre aurait démissionné\"。「〜とのことだ」という意味で、書き手が事実を保証しないことを示します。現在のうわさには条件法現在です。\"Il serait malade\"。例:\"Deux personnes seraient blessées\"、\"selon certaines sources, le vol aurait été annulé\"。"
+ },
+ "si-plus-que-parfait": {
+  "t": "過去の非現実:si + 大過去",
+  "x": "過去の非現実の条件には、\"si\"+大過去を使い、帰結節は条件法過去にします。\"Si j'avais su, je serais venu\"。この意味で\"si\"の後に条件法を置いてはいけません。帰結節は起こらなかったことを示します。例:\"Si elle avait étudié, elle aurait réussi\"、\"Si nous étions partis, nous aurions vu le concert\"。"
+ },
+ "si-mixed-conditions": {
+  "t": "混合条件文",
+  "x": "混合条件文は、過去の条件と現在の結果を結びます。\"si\"+大過去、続いて条件法現在です。帰結節の\"maintenant\"や\"aujourd'hui\"などの時の語が、結果が今も続くことを示します。例:\"Si tu avais écouté, tu comprendrais\"。完全に過去の型と比べましょう。\"tu aurais compris\"。"
+ },
+ "hypothese-au-cas-ou": {
+  "t": "用心:au cas où",
+  "x": "\"au cas où\"は起こりうる事態への用心を表し、接続法や未来形ではなく条件法が続きます。「万一に備えて」という意味です。文頭にも文末にも置けます。例:\"Prenez un parapluie au cas où il pleuvrait\"、\"Au cas où tu serais en retard, appelle-moi\"。"
+ },
+ "apres-que-indicatif": {
+  "t": "après que + 直説法",
+  "x": "\"après que\"と\"dès que\"は実際に起きた事実を述べるので、(\"avant que\"と違って)接続法ではなく直説法を取ります。\"après que\"の後の動詞は複合時制で、主節の動詞より前のことです。\"Après qu'il a fini, il est rentré\"。主節が未来のときの\"dès que\"には前未来を使います。\"Dès que tu auras fini, appelle-moi\"。"
+ },
+ "concordance-des-temps": {
+  "t": "時制の一致",
+  "x": "主節の動詞が過去のとき、従属節の動詞は一段階さかのぼります。現在は半過去、複合過去は大過去、未来は条件法になります。過去の主節に現在の従属節を混ぜてはいけません。\"Il pensait que nous étions partis\"。例:\"Je savais que tu viendrais\"、\"Elle disait qu'elle était fatiguée\"。"
+ },
+ "discours-indirect-passe": {
+  "t": "過去の間接話法",
+  "x": "過去の動詞(\"elle a dit que\")の後の間接話法では、時制をずらします。現在は半過去、複合過去は大過去、未来は条件法です。時を表す語も変わります。\"demain\"は\"le lendemain\"、\"hier\"は\"la veille\"、\"aujourd'hui\"は\"ce jour-là\"。例:\"Il a dit qu'il viendrait le lendemain\"。"
+ },
+ "discours-indirect-questions": {
+  "t": "間接疑問文",
+  "x": "間接疑問文は普通の語順で、疑問符は付けません。\"Est-ce que\"とyes/no疑問文は\"si\"になります。\"Il a demandé si je venais\"。\"Qu'est-ce que\"は\"ce que\"、\"qu'est-ce qui\"は\"ce qui\"になります。過去の動詞の後では時制もずれます。例:\"Elle m'a demandé ce que je voulais\"、\"Il voulait savoir ce qui se passait\"。"
+ },
+ "discours-indirect-ordres": {
+  "t": "命令・依頼の間接話法",
+  "x": "命令や依頼を伝えるには、\"dire de\"や\"demander de\"+不定詞を使います。\"Elle m'a dit de rentrer\"。言われた人は\"à\"か代名詞で表します。\"Il a demandé à ses voisins de baisser la musique\"。否定の命令では\"ne pas\"を不定詞の前にまとめて置きます。\"Il nous a dit de ne pas toucher aux câbles\"。"
+ },
+ "accord-participe-cod-avant": {
+  "t": "先行する直接目的語との一致",
+  "x": "\"avoir\"では、直接目的語が動詞の前にあるときだけ、過去分詞がそれに一致します。\"que\"、\"les\"のような代名詞や疑問詞を探しましょう。\"Les lettres que Marie a écrites\"、\"Quelle robe as-tu choisie ?\"。目的語が後ろなら一致しません。\"Marie a écrit des lettres\"。"
+ },
+ "accord-participe-pronominaux": {
+  "t": "代名動詞の過去分詞の一致",
+  "x": "代名動詞の複合過去では、再帰代名詞が直接目的語なら、過去分詞はそれに一致します。\"Les amies se sont retrouvées\"。代名詞が間接目的語のときや、ほかの目的語が続くときは不変です。\"Elle s'est lavé les mains\"、\"Ils se sont envoyé des messages\"。\"se\"が\"à qui ?\"か\"qui ?\"かを考えましょう。"
+ },
+ "participe-present-gerondif": {
+  "t": "現在分詞・ジェロンディフ・形容詞",
+  "x": "ジェロンディフ\"en + -ant\"は、どのように・いつ起こるかを表し、不変です。\"Il s'est blessé en coupant du bois\"。現在分詞は節の代わりをし、これも不変です。\"Les enfants jouant dans le jardin\"。動詞的形容詞は名詞に一致します。\"une histoire fascinante\"、\"des résultats surprenants\"。"
+ },
+ "passif-et-alternatives": {
+  "t": "受動態とその代用",
+  "x": "受動態は\"être\"+過去分詞です。\"Les résultats ont été annoncés par le jury\"。フランス語では代用表現のほうがよく使われます。一般的な事実には代名動詞(\"Le fromage se mange après le plat\")、\"on\"、主語に起こることには\"se faire\"(\"Il s'est fait voler son sac\")。"
+ },
+ "causatif-faire-laisser": {
+  "t": "使役の faire と laisser",
+  "x": "\"Faire\"+不定詞は、何かをさせる・してもらうことを表します。\"Nous avons fait refaire la cuisine\"。\"Laisser\"+不定詞は許可を表します。\"Le professeur a laissé les élèves partir\"。不定詞の前では過去分詞\"fait\"は不変です。\"Ce film m'a fait pleurer\"。"
+ },
+ "pronoms-relatifs-composes": {
+  "t": "複合関係代名詞",
+  "x": "前置詞の後では、名詞に合わせて\"lequel\"、\"laquelle\"、\"lesquels\"、\"lesquelles\"を使います。\"la table sur laquelle\"、\"les amis chez lesquels\"。\"à\"とは縮約して\"auquel\"、\"auxquels\"、\"auxquelles\"、\"à laquelle\"。\"de\"とは\"duquel\"、\"desquels\"、\"de laquelle\"になります。"
+ },
+ "pronom-relatif-dont": {
+  "t": "関係代名詞 dont",
+  "x": "\"Dont\"は関係節で\"de\"+名詞の代わりをします。\"L'ordinateur dont j'ai besoin\"(avoir besoin de)。所有も表し、名詞はすぐ後ろに置きます。\"l'écrivain dont le dernier roman\"。また、グループの一部を導きます。\"trois enfants, dont deux vivent à l'étranger\"。"
+ },
+ "ce-qui-ce-que-ce-dont": {
+  "t": "Ce qui, ce que, ce dont",
+  "x": "\"Ce\"+関係代名詞は、考えや名前のないものを指します。\"Ce qui\"は主語(\"Ce qui m'inquiète\")、\"ce que\"は目的語(\"ce que tu veux\")です。\"de\"を取る動詞には\"ce dont\"(\"ce dont tu as envie\")、\"à\"を取る動詞には\"ce à quoi\"(\"ce à quoi il s'intéresse\")を使います。"
+ },
+ "pronoms-doubles-ordre": {
+  "t": "2つの代名詞の語順",
+  "x": "動詞の前では、me、te、nous、vousは間接目的語の代名詞が先です。\"Je te le rends\"。3人称では直接目的語が先です。\"Je le lui donne\"。\"en\"は常に最後です。\"Je lui en ai parlé\"。肯定命令の後では、直接→間接の順です。\"Donne-les-moi\"。"
+ },
+ "pronoms-y-en-avances": {
+  "t": "y と en の応用",
+  "x": "\"En\"は\"de\"+名詞や数量の代わりをし、数は残します。\"J'en ai acheté trois\"。\"Y\"は\"à\"や場所の代わりをします。\"J'y pense tout le temps\"。肯定命令では動詞の後に付き、組み合わせられます。\"Donnez-m'en un kilo\"。"
+ },
+ "mise-en-relief": {
+  "t": "強調:c'est...qui/que",
+  "x": "\"C'est ... qui\"は主語を、\"c'est ... que\"は目的語や補語を強調します。\"C'est moi qui ai fait le gâteau\"、\"C'est demain que nous partons\"。複数名詞には\"ce sont\"を使います。\"Ce sont mes voisins que j'ai invités\"。\"qui\"の後の動詞は、強調された要素に一致します。"
+ },
+ "inversion-peut-etre": {
+  "t": "文頭の副詞の後の倒置",
+  "x": "改まったフランス語では、文頭の\"peut-être\"、\"sans doute\"、「それゆえ」の意味の\"aussi\"の後で主語と動詞を倒置します。\"Peut-être viendra-t-il demain\"。主語が名詞なら代名詞で繰り返します。動詞が母音で終わり\"il\"や\"elle\"が続くときは\"-t-\"を加えます。\"viendra-t-elle\"。"
+ },
+ "ne-expletif": {
+  "t": "虚辞の ne",
+  "x": "恐れの動詞(\"craindre que\")、\"avant que\"、不等比較の後では、改まったフランス語で否定の意味のない\"ne\"を加えます。\"Je crains qu'il ne pleuve\"、\"avant qu'il ne fasse nuit\"、\"plus grand que je ne pensais\"。話し言葉では省けますし、\"pas\"は付きません。"
+ },
+ "connecteurs-concession-opposition": {
+  "t": "譲歩と対立",
+  "x": "\"Bien que\"+接続法と\"malgré\"+名詞は譲歩を表します。\"Malgré la pluie, nous sommes sortis\"。\"Alors que\"+直説法は2つの事実を対比します。\"Paul adore la mer, alors que sa femme préfère la montagne\"。\"Pourtant\"、\"cependant\"、\"en revanche\"は2つの文をつなぎます。"
+ },
+ "nominalisation": {
+  "t": "動詞を名詞にする",
+  "x": "名詞化は文章を簡潔で改まった調子にします。動詞は-tion、-ment、-ure、-éeなどの語尾で名詞になります。\"ouvrir\"→\"l'ouverture\"、\"augmenter\"→\"l'augmentation\"、\"arriver\"→\"l'arrivée\"。形容詞もできます。\"difficile\"→\"la difficulté\"。新しい名詞の性を確認しましょう。"
+ },
+ "tout-accord": {
+  "t": "Tout:形容詞・代名詞・副詞",
+  "x": "形容詞の\"tout\"は名詞に一致します。\"tous les magasins\"、\"toutes les fenêtres\"。「とても」の意味の副詞では不変ですが、子音で始まる女性形容詞の前では変化します。\"elle est tout étonnée\"、しかし\"elles sont toutes timides\"。"
+ },
+ "prepositions-apres-verbes": {
+  "t": "動詞の後の前置詞",
+  "x": "動詞によっては決まった前置詞を取り、意味が変わることもあります。\"Penser à\"は「〜について考える」です。\"Je pense à mes vacances\"。\"penser de\"は意見を尋ねます。\"Que penses-tu de ce film ?\"。\"s'habituer à\"、\"se méfier de\"のような組を1つのまとまりとして覚えましょう。"
+ },
+ "infinitif-passe": {
+  "t": "不定詞過去",
+  "x": "\"Après\"+\"avoir\"または\"être\"+過去分詞は、ある動作が主な動作より前に起きたことを表します。\"Après avoir écrit la lettre, il l'a postée\"。2つの動作の主語は同じでなければなりません。移動の動詞と代名動詞は\"être\"を使い、一致します。\"Après être rentrée\"、\"Après nous être reposés\"。"
+ },
+ "a-regard-pronoms-lequel": {
+  "t": "疑問代名詞 lequel",
+  "x": "\"Lequel\"は、わかっているものの中から選択を尋ね、それに一致します。\"Lequel de ces chemins ?\"、\"Laquelle de tes amies ?\"。\"à\"や\"de\"とは縮約します。\"Auquel de ces clients as-tu téléphoné ?\"、\"Duquel parles-tu ?\"。\"quel\"は名詞の直前でだけ使います。"
  }
 }
