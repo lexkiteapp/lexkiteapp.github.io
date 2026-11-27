@@ -1,0 +1,125 @@
+{
+ "units": {
+  "ielts-listening": {
+   "groups": {
+    "form": 20,
+    "mcq": 42,
+    "match": 40,
+    "multi": 22,
+    "note": 32,
+    "table": 7,
+    "summary": 10
+   },
+   "spec": {
+    "L1:form": 20,
+    "L1:mcq": 3,
+    "L2:mcq": 22,
+    "L2:matching": 20,
+    "L2:headings": 20,
+    "L2:sentence-endings": 20,
+    "L3:mcq": 38,
+    "L3:matching": 20,
+    "L3:headings": 20,
+    "L3:sentence-endings": 20,
+    "L4:note": 20,
+    "L2:note": 1,
+    "L1:table": 6,
+    "L1:note": 11,
+    "L4:summary": 10,
+    "L4:table": 1,
+    "L4:mcq": 1
+   }
+  },
+  "ielts-reading-gt": {
+   "groups": {
+    "match": 22,
+    "tfng": 11,
+    "sentence": 4,
+    "note": 7,
+    "mcq": 10,
+    "ynng": 4,
+    "summary": 5,
+    "table": 1
+   },
+   "spec": {
+    "P1:matching": 7,
+    "P1:headings": 7,
+    "P1:sentence-endings": 7,
+    "P1:tfng": 7,
+    "P1:sentence": 3,
+    "P2:matching": 7,
+    "P2:headings": 7,
+    "P2:sentence-endings": 7,
+    "P2:note": 6,
+    "P2:mcq": 3,
+    "P3:matching": 8,
+    "P3:headings": 8,
+    "P3:sentence-endings": 8,
+    "P3:tfng": 3,
+    "P3:mcq": 7,
+    "P3:ynng": 4,
+    "P3:summary": 5,
+    "P1:note": 1,
+    "P2:tfng": 1,
+    "P2:sentence": 1,
+    "P3:table": 1
+   }
+  },
+  "ielts-reading-ac": {
+   "groups": {
+    "tfng": 12,
+    "summary": 10,
+    "match": 37,
+    "mcq": 19,
+    "sentence": 8,
+    "ynng": 12,
+    "multi": 12,
+    "note": 4,
+    "table": 5
+   },
+   "spec": {
+    "P1:tfng": 12,
+    "P1:summary": 3,
+    "P1:matching": 9,
+    "P1:headings": 9,
+    "P1:sentence-endings": 9,
+    "P2:matching": 19,
+    "P2:headings": 19,
+    "P2:sentence-endings": 19,
+    "P2:mcq": 7,
+    "P2:sentence": 4,
+    "P3:ynng": 12,
+    "P3:matching": 9,
+    "P3:headings": 9,
+    "P3:sentence-endings": 9,
+    "P3:mcq": 21,
+    "P1:note": 4,
+    "P2:table": 1,
+    "P1:mcq": 3,
+    "P2:summary": 6,
+    "P3:sentence": 3,
+    "P1:table": 4,
+    "P3:summary": 1,
+    "P1:sentence": 1
+   }
+  }
+ },
+ "gaps": {
+  "ielts-listening": [
+   "L1:short-answer",
+   "L2:map",
+   "L2:plan",
+   "L3:sentence",
+   "L3:note",
+   "L3:flow-chart",
+   "L4:sentence",
+   "L4:flow-chart"
+  ],
+  "ielts-reading-ac": [
+   "P1:short-answer"
+  ],
+  "ielts-reading-gt": [
+   "P1:short-answer"
+  ]
+ }
+}

@@ -36,8 +36,10 @@ ok(I.alerts(root, '2026-11-23', null).length === 0, 'báo cáo 7 ngày, không t
 ok(I.alerts(root, '2026-11-30', null).some(a => /ngày/.test(a)), 'báo cáo 14 ngày → cảnh báo cũ');
 gsc('2026-11-23', 60, 2100);
 ok(I.alerts(root, '2026-11-23', null).some(a => /Lượt bấm/.test(a)), 'click tụt 45 % → cảnh báo');
+gsc('2026-11-23', 105, 1000);
+ok(I.alerts(root, '2026-11-23', null).some(a => /hiển thị/.test(a)), 'số trang có hiển thị tụt + click không tăng → cảnh báo');
 gsc('2026-11-23', 120, 1000);
-ok(I.alerts(root, '2026-11-23', null).some(a => /hiển thị/.test(a)), 'số trang có hiển thị tụt → cảnh báo');
+ok(I.alerts(root, '2026-11-23', null).length === 0, 'trang hiển thị tụt nhưng click tăng (đỉnh hiển thị trôi khỏi cửa sổ) → yên');
 gsc('2026-11-23', 120, 2200);
 fs.writeFileSync(path.join(dir, 'index-2026-11-16.json'), JSON.stringify({ summary: { estIndexed: 5000 } }));
 ok(I.alerts(root, '2026-11-23', { estIndexed: 3000 }).some(a => /index ước tính/.test(a)), 'index tụt 40 % → cảnh báo');

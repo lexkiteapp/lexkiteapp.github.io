@@ -48,6 +48,22 @@
   "semi": {
    "t": "Bán nguyên âm ngắn: j, w, ɥ",
    "x": "Trước nguyên âm, i, ou và u trở thành âm lướt nhanh trong cùng một âm tiết. i là /j/, như “y” trong “yes” của tiếng Anh: “fille”. ou là /w/ như “u” lướt trong “oa”: “oui”. u là /ɥ/, môi của /y/ lướt nhanh: “huit”, “lui”, “nuit”. “huit” là một âm tiết, không phải “u-it”. So sánh “loue” và “lui”, “fil” và “fille”."
+  },
+  "h": {
+   "t": "h câm và h bật hơi",
+   "x": "Chữ h không bao giờ được đọc, nhưng có hai kiểu. H câm hoạt động như nguyên âm: nối âm và lược âm, “l’homme”, “les hommes” /lez ɔm/, “l’hôtel”. H bật hơi hoạt động như phụ âm: không nối, không lược, có một quãng ngắt rất nhỏ, “le héros”, “les héros” /le eʁo/, “les haricots”. Hãy nghe âm z: “les héros” không có, “les zéros” thì có."
+  },
+  "gn": {
+   "t": "Âm gn /ɲ/",
+   "x": "Chữ gn là một âm mềm /ɲ/, giống “nh” trong “nhà” của tiếng Việt, không phải g rồi n. Áp phần giữa lưỡi sát vòm miệng: “agneau”, “montagne”, “campagne”. N thường /n/ nhanh hơn và dùng đầu lưỡi: “anneau” (chiếc nhẫn) không phải “agneau” (cừu non), và “peine” không phải “peigne”."
+  },
+  "enchain": {
+   "t": "Nối phụ âm giữa các từ",
+   "x": "Tiếng Pháp được nói thành từng cụm liền mạch, nên phụ âm cuối nhảy sang nguyên âm của từ sau: “une amie” nghe như “u-na-mie”, “il arrive” như “i-la-rive”, “avec elle” như “ave-kel”. Âm tiết kết thúc bằng nguyên âm, không ngắt hay đóng thanh giữa các từ. Hãy nghe sự khác nhau giữa “une amie” (bạn, nữ) và “un ami” (bạn, nam)."
+  },
+  "final": {
+   "t": "Phụ âm cuối: câm hay đọc",
+   "x": "Phần lớn phụ âm cuối là âm câm: “petit”, “grand”, “nez”, “tout”. Nhưng các chữ trong CaReFuL (c, r, f, l) thường được đọc: “sac”, “chef”, “fil”, “sur”. Chú ý các ngoại lệ: “fils” /fis/ (con trai) có đọc s, còn “fil” (sợi chỉ) kết thúc bằng l. Thêm e sẽ đánh thức phụ âm: “petit” thành “petite”, “grand” thành “grande”."
   }
  }
 }
