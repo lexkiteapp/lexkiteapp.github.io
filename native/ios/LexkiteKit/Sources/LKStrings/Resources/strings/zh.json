@@ -3721,5 +3721,7 @@
   "place.stage": "我们建议从 <b>{stage}</b> 开始路径。",
   "place.how": "根据 {n} 道自适应题目估算：答对时题目变难，答错时变简单。区间表示估算的把握程度——几周后重新测试即可更新。",
   "place.disclaimer": "结果仅供参考，不能代替真实考试。",
-  "place.today": "查看今天的计划 →"
+  "place.today": "查看今天的计划 →",
+  "lesson.goalDone": "你完成了今天的目标！",
+  "lesson.goalProgress": "今日目标：{a}/{b} 次复习"
 }
