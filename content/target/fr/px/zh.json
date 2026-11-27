@@ -48,6 +48,22 @@
   "semi": {
    "t": "半元音:j、w、ɥ",
    "x": "在元音前,i、ou、u 变成同一音节内的快速滑音。i 是 /j/,像“衣”的滑音:“fille”。ou 是 /w/,像“乌”的滑音:“oui”。u 是 /ɥ/,/y/ 的唇形快速滑动:“huit”“lui”“nuit”。“huit”只有一个音节,不是“u-it”。比较“loue”和“lui”,“fil”和“fille”。"
+  },
+  "h": {
+   "t": "不发音的 h 与送气 h",
+   "x": "字母 h 从不发音,但有两种表现。哑音 h 像元音一样:要连读和省音,“l’homme”“les hommes” /lez ɔm/“l’hôtel”。送气 h 像辅音一样:不连读、不省音,中间有极短的停顿,“le héros”“les héros” /le eʁo/“les haricots”。留意 z 音:“les héros”没有,“les zéros”有。"
+  },
+  "gn": {
+   "t": "gn 的发音 /ɲ/",
+   "x": "字母 gn 是一个柔和的单音 /ɲ/,近似汉语“你”(nǐ)里的舌面 n,而不是 g 加 n。用舌面中部平贴上颚:“agneau”“montagne”“campagne”。普通的 n /n/ 更快,用舌尖发:“anneau”(戒指)不是“agneau”(羊羔),“peine”也不是“peigne”。"
+  },
+  "enchain": {
+   "t": "词与词之间的辅音连读",
+   "x": "法语按流畅的语群说话,所以词尾辅音会跳到下一个词的元音上:“une amie”听起来像“u-na-mie”,“il arrive”像“i-la-rive”,“avec elle”像“ave-kel”。音节以元音结尾,词与词之间没有停顿或喉塞音。听一听“une amie”(女性朋友)和“un ami”(男性朋友)的区别。"
+  },
+  "final": {
+   "t": "词尾辅音:发音还是不发音",
+   "x": "大多数词尾辅音不发音:“petit”“grand”“nez”“tout”。但 CaReFuL 里的字母(c、r、f、l)通常要发音:“sac”“chef”“fil”“sur”。注意例外:“fils” /fis/(儿子)要发 s,而“fil”(线)以 l 结尾。加上 e 就会唤醒辅音:“petit”变成“petite”,“grand”变成“grande”。"
   }
  }
 }

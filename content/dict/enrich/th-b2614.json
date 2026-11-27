@@ -1,0 +1,314 @@
+{
+  "parallel": {
+    "n": "ใช้เป็นคุณศัพท์แปลว่าขนานหรือคล้ายกันมาก บ่อยครั้งตามด้วย to เช่น run parallel to the road ไม่ใช้ with นอกจากนี้ยังเป็นคำนาม ใน draw a parallel between A and B แปลว่าเปรียบเทียบสองเรื่องว่ามีจุดคล้ายกัน เป็นสำนวนที่พบมากในงานเขียนเชิงวิชาการและข่าว",
+    "x": [
+      [
+        "The road runs parallel to the river for several miles.",
+        "ถนนทอดขนานไปกับแม่น้ำเป็นระยะหลายไมล์"
+      ],
+      [
+        "Researchers drew a parallel between the two historical events.",
+        "นักวิจัยเปรียบเทียบเหตุการณ์ทางประวัติศาสตร์สองเรื่องนี้ว่ามีจุดคล้ายกัน"
+      ]
+    ]
+  },
+  "ethic": {
+    "n": "ในความหมายหลักมักพบเป็น work ethic คือทัศนคติและความขยันต่องาน ถ้าพูดถึงหลักจริยธรรมโดยรวมหรือสาขาวิชา ส่วนใหญ่ใช้รูปพหูพจน์ ethics เช่น medical ethics และ code of ethics ขณะที่ ethic เอกพจน์ใช้กับชุดค่านิยมของกลุ่มหนึ่ง ๆ ถ้าต้องการคำคุณศัพท์ ให้ใช้ ethical",
+    "x": [
+      [
+        "She has a strong work ethic and rarely misses a deadline.",
+        "เธอมีความมุ่งมั่นในการทำงานสูงและแทบไม่เคยส่งงานช้ากว่ากำหนด"
+      ],
+      [
+        "Hard work is part of the family's ethic.",
+        "การทำงานหนักเป็นส่วนหนึ่งของค่านิยมในครอบครัวนี้"
+      ]
+    ]
+  },
+  "offset": {
+    "n": "กริยารูปอดีตและ V3 เหมือนเดิมคือ offset ใช้เมื่อสิ่งหนึ่งช่วยหักล้างหรือทดแทนผลเสียของอีกสิ่งหนึ่ง มักเขียนเป็น A is offset by B หรือ B offsets A ในโลกสิ่งแวดล้อมมีคำว่า carbon offset ซึ่งเป็นคำนามด้วย เป็นคำค่อนข้างเป็นทางการที่เจอบ่อยในข่าวเศรษฐกิจ",
+    "x": [
+      [
+        "The savings on fuel will partly offset the higher ticket prices.",
+        "เงินที่ประหยัดจากค่าน้ำมันจะช่วยชดเชยราคาตั๋วที่สูงขึ้นได้บางส่วน"
+      ],
+      [
+        "Planting trees can offset some of the carbon produced by flying.",
+        "การปลูกต้นไม้ช่วยชดเชยคาร์บอนบางส่วนที่เกิดจากการเดินทางโดยเครื่องบินได้"
+      ]
+    ]
+  },
+  "ongoing": {
+    "n": "เป็นคุณศัพท์ ไม่ใช่กริยาวิเศษณ์ แม้คำแปลในพจนานุกรมอาจเป็น อย่างต่อเนื่อง ใช้ขยายคำนามที่ยังดำเนินอยู่และยังไม่จบ เช่น ongoing project, ongoing debate, ongoing investigation เจอบ่อยในข่าวและรายงานของที่ทำงาน ถ้าจะบอกว่าทำอย่างต่อเนื่องให้ใช้ continuously หรือ continually แทน",
+    "x": [
+      [
+        "The two companies are involved in an ongoing legal dispute.",
+        "ทั้งสองบริษัทกำลังพัวพันกับข้อพิพาททางกฎหมายที่ยังดำเนินอยู่"
+      ],
+      [
+        "Our ongoing training helps staff keep up with new technology.",
+        "การฝึกอบรมอย่างต่อเนื่องของเราช่วยให้พนักงานตามทันเทคโนโลยีใหม่"
+      ]
+    ]
+  },
+  "overlap": {
+    "n": "เมื่อสองสิ่งทับซ้อนกันบางส่วนในพื้นที่ เวลา หรือเนื้อหา ใช้ overlap ได้ทั้งแบบมี with ตามหลัง เช่น overlap with another team และแบบไม่มีกรรม เช่น the dates overlap รูปอดีตคือ overlapped พยัญชนะ p ซ้ำเพราะเน้นเสียงพยางค์ท้าย พบทั้งเป็นกริยาและคำนามในงานเขียนทางวิชาการ",
+    "x": [
+      [
+        "The two courses overlap, so some lectures are repeated.",
+        "สองรายวิชานี้เนื้อหาทับซ้อนกัน จึงมีบางบทเรียนที่ซ้ำกัน"
+      ],
+      [
+        "Her working hours overlap with mine by about two hours.",
+        "เวลาทำงานของเธอเหลื่อมกับของฉันประมาณสองชั่วโมง"
+      ]
+    ]
+  },
+  "overseas": {
+    "n": "เป็นได้ทั้งคุณศัพท์และกริยาวิเศษณ์ ที่ผู้เรียนมักพลาดคือเติมบุพบท เช่น go to overseas หรือ study in overseas ซึ่งผิด ให้ใช้ go overseas ได้เลย ส่วน abroad ความหมายใกล้เคียงกัน แต่เป็นกริยาวิเศษณ์เท่านั้น วางหน้านามไม่ได้ ขณะที่ overseas students พูดได้",
+    "x": [
+      [
+        "She worked overseas for ten years before returning home.",
+        "เธอทำงานต่างประเทศมาสิบปีก่อนจะกลับบ้าน"
+      ],
+      [
+        "Many overseas visitors come to the festival each spring.",
+        "ผู้มาเยือนจากต่างประเทศจำนวนมากมาร่วมเทศกาลนี้ทุกฤดูใบไม้ผลิ"
+      ]
+    ]
+  },
+  "parameter": {
+    "n": "คำนามที่แปลว่าพารามิเตอร์ ในโปรแกรมและคณิตศาสตร์คือตัวแปรที่กำหนดผลลัพธ์ ภาษาทั่วไปมักใช้พหูพจน์ parameters หมายถึงขอบเขตหรือเงื่อนไขที่วางไว้ เช่น within the parameters อย่าสับสนกับ perimeter ที่แปลว่าเส้นรอบรูป เพราะสะกดคล้ายกันแต่คนละคำ",
+    "x": [
+      [
+        "Please enter the search parameters in the form below.",
+        "กรุณากรอกพารามิเตอร์การค้นหาในแบบฟอร์มด้านล่าง"
+      ],
+      [
+        "The budget sets clear parameters for what the team can spend.",
+        "งบประมาณกำหนดขอบเขตที่ชัดเจนว่าทีมใช้จ่ายได้เท่าไร"
+      ]
+    ]
+  },
+  "perceive": {
+    "n": "แปลว่ารับรู้หรือมองว่า มักใช้โครงสร้าง perceive A as B และรูป passive A is perceived as B เหมาะกับการพูดถึงภาพลักษณ์หรือความรู้สึกของคน ผู้เรียนไทยมักสะกดผิดเป็น percieve ให้จำกฎ i before e except after c คือหลัง c เขียน ei เป็น perceive ส่วน believe เขียน ie ใช้ในงานเขียนมากกว่าบทสนทนา",
+    "x": [
+      [
+        "Customers perceive the new design as more modern.",
+        "ลูกค้ามองว่าดีไซน์ใหม่ทันสมัยกว่า"
+      ],
+      [
+        "Few people perceived the danger until it was too late.",
+        "แทบไม่มีใครรับรู้ถึงอันตรายจนกระทั่งสายเกินไป"
+      ]
+    ]
+  },
+  "philosophy": {
+    "n": "พจนานุกรมให้ความหมายว่า ปรัชญา แต่ในชีวิตจริงคำนี้ยังใช้เป็นนามนับได้ หมายถึงแนวคิดหรือหลักการที่ยึดถือ เช่น a management philosophy, a philosophy of life ส่วนในฐานะวิชา เป็นนามนับไม่ได้ studying philosophy พยางค์ที่เน้นเสียงคือพยางค์สอง ผู้เชี่ยวชาญด้านนี้เรียกว่า philosopher",
+    "x": [
+      [
+        "His management philosophy is to trust people and give them freedom.",
+        "แนวคิดการบริหารของเขาคือไว้วางใจผู้คนและให้อิสระแก่พวกเขา"
+      ],
+      [
+        "She is studying philosophy at university.",
+        "เธอกำลังเรียนปรัชญาที่มหาวิทยาลัย"
+      ]
+    ]
+  },
+  "portion": {
+    "n": "ส่วนหนึ่งของสิ่งที่ใหญ่กว่า มักใช้ในรูป a portion of ตามด้วยนาม เช่น a large portion of the population ในบริบทอาหาร หมายถึงหนึ่งที่หรือหนึ่งจานที่เสิร์ฟ ต่างจาก part ตรงที่ portion มักเน้นว่าถูกแบ่งออกมาหรือจัดสรรไว้ และฟังเป็นทางการกว่า",
+    "x": [
+      [
+        "Only a small portion of the funding came from the government.",
+        "เงินทุนเพียงส่วนน้อยเท่านั้นที่มาจากรัฐบาล"
+      ],
+      [
+        "The restaurant serves generous portions of rice.",
+        "ร้านนี้เสิร์ฟข้าวให้ในปริมาณมาก"
+      ]
+    ]
+  },
+  "practitioner": {
+    "n": "อย่าเข้าใจว่าแปลว่าแพทย์เท่านั้น คำนี้หมายถึงผู้ที่ประกอบวิชาชีพจริง ๆ ในสาขาใดสาขาหนึ่ง เช่น legal practitioner, medical practitioner ในอังกฤษ general practitioner หรือ GP คือแพทย์เวชปฏิบัติทั่วไป ที่คนไข้ไปพบก่อนส่งต่อแพทย์เฉพาะทาง เป็นคำทางการ มักปรากฏในข่าวและบทความวิชาการ",
+    "x": [
+      [
+        "Experienced practitioners in the field recommend regular training.",
+        "ผู้ปฏิบัติงานที่มีประสบการณ์ในสาขานี้แนะนำให้ฝึกอบรมอย่างสม่ำเสมอ"
+      ],
+      [
+        "The legal practitioner explained the options to the family.",
+        "ผู้ประกอบวิชาชีพกฎหมายอธิบายทางเลือกต่าง ๆ ให้ครอบครัวฟัง"
+      ]
+    ]
+  },
+  "preliminary": {
+    "n": "ใช้ขยายสิ่งที่เกิดก่อนขั้นตอนหลักหรือก่อนผลสุดท้าย เช่น preliminary results, preliminary talks, preliminary round ความหมายใกล้ initial แต่ preliminary บอกด้วยว่ายังมีขั้นตอนสำคัญกว่าตามมา และผลที่ได้อาจเปลี่ยนแปลงได้ มักเจอในรายงานวิจัยและข่าวการเมืองหรือกีฬา",
+    "x": [
+      [
+        "A preliminary report was sent to the board last week.",
+        "รายงานเบื้องต้นถูกส่งให้คณะกรรมการเมื่อสัปดาห์ที่แล้ว"
+      ],
+      [
+        "Preliminary talks between the two sides begin on Monday.",
+        "การเจรจาเบื้องต้นระหว่างสองฝ่ายจะเริ่มในวันจันทร์"
+      ]
+    ]
+  },
+  "prior": {
+    "n": "คุณศัพท์ที่ใช้หน้านามได้ เช่น prior experience, prior notice, a prior engagement ส่วนวลี prior to แปลว่า ก่อน เทียบเท่า before แต่เป็นทางการกว่า ตามด้วยนามหรือ V-ing เช่น prior to leaving ไม่ใช่ prior to leave คนไทยมักใช้ before ในงานเขียนทั่วไปซึ่งไม่ผิด",
+    "x": [
+      [
+        "Do you have any prior knowledge of the software?",
+        "คุณมีความรู้เกี่ยวกับซอฟต์แวร์นี้มาก่อนหรือไม่"
+      ],
+      [
+        "Please inform us prior to your arrival.",
+        "กรุณาแจ้งให้เราทราบก่อนที่คุณจะมาถึง"
+      ]
+    ]
+  },
+  "protocol": {
+    "n": "ชุดกฎหรือขั้นตอนที่ตกลงกันไว้ว่าต้องทำอย่างไร ในโรงพยาบาลคือแนวปฏิบัติ ในคอมพิวเตอร์คือโปรโตคอลสื่อสาร เช่น HTTP และในการทูตหมายถึงพิธีการ ใช้กับ follow protocol, safety protocol, break protocol ที่แปลว่าละเมิดข้อปฏิบัติ พยางค์แรกเน้นเสียง",
+    "x": [
+      [
+        "Doctors must follow the protocol when treating this condition.",
+        "แพทย์ต้องปฏิบัติตามแนวทางมาตรฐานเมื่อรักษาอาการนี้"
+      ],
+      [
+        "The two networks communicate using a standard protocol.",
+        "เครือข่ายทั้งสองสื่อสารกันโดยใช้โปรโตคอลมาตรฐาน"
+      ]
+    ]
+  },
+  "psychology": {
+    "n": "จิตวิทยา เป็นนามนับไม่ได้ จึงไม่เติม s และไม่ใช้ a นำหน้า ตัว p ตัวแรกไม่ออกเสียง คำจึงอ่านขึ้นต้นด้วย /saɪ/ ผู้เชี่ยวชาญคือ psychologist คุณศัพท์คือ psychological ส่วนในประโยคแบบ the psychology of ... แปลว่าวิธีคิดและพฤติกรรมของคนกลุ่มนั้น",
+    "x": [
+      [
+        "She studied psychology before becoming a teacher.",
+        "เธอเรียนจิตวิทยามาก่อนจะเป็นครู"
+      ],
+      [
+        "The psychology of crowds is hard to predict.",
+        "จิตวิทยาของฝูงชนนั้นยากที่จะคาดเดา"
+      ]
+    ]
+  },
+  "radical": {
+    "n": "คุณศัพท์แปลว่ารุนแรงหรือเปลี่ยนแปลงถึงรากฐาน ความรู้สึกขึ้นกับบริบท เช่น radical reform อาจเป็นกลางหรือชมว่ากล้าเปลี่ยน ส่วน radical group มักสื่อว่าสุดโต่งและน่ากังวล คำแปลหัวรุนแรงจึงใช้ได้เฉพาะบางกรณี ยังเป็นคำนามได้ หมายถึงคนที่มีความคิดสุดโต่ง",
+    "x": [
+      [
+        "The new president proposed a radical reform of the tax system.",
+        "ประธานาธิบดีคนใหม่เสนอการปฏิรูประบบภาษีอย่างถอนรากถอนโคน"
+      ],
+      [
+        "Radical ideas often meet strong resistance at first.",
+        "แนวคิดที่สุดโต่งถึงรากฐานมักถูกต่อต้านอย่างหนักในตอนแรก"
+      ]
+    ]
+  },
+  "ratio": {
+    "n": "แสดงความสัมพันธ์เชิงจำนวนของสองสิ่ง ใช้โครงสร้าง the ratio of A to B เช่น ratio of men to women ผู้เรียนมักพูดผิดเป็น ratio between A and B สัญลักษณ์ 3:2 อ่านว่า three to two พหูพจน์คือ ratios ไม่ใช่ ratioes ออกเสียง /ˈreɪʃiəʊ/",
+    "x": [
+      [
+        "The ratio of men to women in the class is three to two.",
+        "สัดส่วนชายต่อหญิงในชั้นเรียนคือสามต่อสอง"
+      ],
+      [
+        "The company has a low ratio of debt to income.",
+        "บริษัทนี้มีอัตราส่วนหนี้ต่อรายได้ต่ำ"
+      ]
+    ]
+  },
+  "regulate": {
+    "n": "กริยาที่แปลว่ากำกับดูแลด้วยกฎ มักมีหน่วยงานรัฐเป็นประธาน เช่น regulate banks, regulate prices อีกความหมายคือควบคุมให้อยู่ในระดับคงที่ เช่น ร่างกายปรับอุณหภูมิ คำนามคือ regulation (กฎระเบียบ) และ regulator (หน่วยงานกำกับ) ระวังอย่าสับสนกับ regular ที่แปลว่าสม่ำเสมอ",
+    "x": [
+      [
+        "The agency regulates the way banks lend money.",
+        "หน่วยงานนี้กำกับดูแลวิธีที่ธนาคารปล่อยกู้"
+      ],
+      [
+        "The body regulates its temperature by sweating.",
+        "ร่างกายปรับอุณหภูมิของตัวเองด้วยการขับเหงื่อ"
+      ]
+    ]
+  },
+  "restore": {
+    "n": "คำนำหน้า re- บอกว่าทำให้กลับมา ใช้ได้ทั้งกับของที่เสียหาย เช่น restore a painting กับสิ่งที่นามธรรม เช่น restore order, restore confidence และกับข้อมูลหรือระบบ เช่น restore a backup คำนามคือ restoration แปลว่าการบูรณะ ฟื้นฟู ไม่ใช่ restoring ในความหมายนามทั่วไป",
+    "x": [
+      [
+        "Workers restored power to the town after the storm.",
+        "คนงานคืนไฟฟ้าให้เมืองหลังพายุผ่านไป"
+      ],
+      [
+        "The painting was carefully restored by experts.",
+        "ผู้เชี่ยวชาญบูรณะภาพวาดนี้อย่างระมัดระวัง"
+      ]
+    ]
+  },
+  "so-called": {
+    "n": "เขียนมีขีดกลางและวางหน้านามเท่านั้น ใช้เมื่อผู้พูดสงสัยว่าชื่อหรือฉายานั้นไม่ตรงความจริง เช่น so-called experts มีน้ำเสียงประชดเล็กน้อย บางครั้งใช้เพียงเรียกชื่อโดยไม่ตัดสิน แต่ผู้อ่านมักตีความเป็นเชิงสงสัย",
+    "x": [
+      [
+        "The so-called smart watch could not even show the time properly.",
+        "สิ่งที่เรียกว่านาฬิกาอัจฉริยะเรือนนั้นแสดงเวลายังไม่ถูกต้องด้วยซ้ำ"
+      ],
+      [
+        "These so-called bargains cost more than the original shop prices.",
+        "ของที่เรียกว่าราคาพิเศษเหล่านี้แพงกว่าราคาในร้านเดิมเสียอีก"
+      ]
+    ]
+  },
+  "somewhat": {
+    "n": "กริยาวิเศษณ์ที่แปลว่าค่อนข้างหรือในระดับหนึ่ง วางหน้าคุณศัพท์หรือกริยาวิเศษณ์ เช่น somewhat unusual และวางท้ายกริยาได้ เช่น has changed somewhat ฟังเป็นทางการกว่า rather หรือ a bit และไม่ใช้ขยายนามโดยตรง อย่าสับสนกับ somewhere (ที่ไหนสักแห่ง)",
+    "x": [
+      [
+        "She seemed somewhat nervous before the interview.",
+        "เธอดูค่อนข้างประหม่าก่อนการสัมภาษณ์"
+      ],
+      [
+        "Prices have fallen somewhat since last year.",
+        "ราคาลดลงบ้างเล็กน้อยตั้งแต่ปีที่แล้ว"
+      ]
+    ]
+  },
+  "specify": {
+    "n": "กริยาที่แปลว่าระบุอย่างชัดเจนและละเอียด ใช้ได้ทั้งตามด้วยนาม เช่น specify a date และตามด้วย that-clause เช่น the rules specify that... ในเอกสารและสัญญา unless otherwise specified แปลว่า เว้นแต่จะระบุเป็นอย่างอื่น คำนามคือ specification ส่วน specific เป็นคุณศัพท์",
+    "x": [
+      [
+        "The rules specify that all entries must be in English.",
+        "กฎระบุไว้ว่าผลงานทุกชิ้นต้องเป็นภาษาอังกฤษ"
+      ],
+      [
+        "Please specify your preferred delivery date.",
+        "กรุณาระบุวันที่ต้องการให้จัดส่ง"
+      ]
+    ]
+  },
+  "straightforward": {
+    "n": "ความหมายที่พบบ่อยที่สุดคือง่ายและไม่ซับซ้อน เช่น a straightforward process ซึ่งต่างจากคำแปล ซื่อตรง ที่ใช้เฉพาะเรื่องนิสัยและตรงไปตรงมาเมื่อพูดถึงคนหรือคำตอบ เป็นคำเดียวไม่แยกคำ ไม่เขียนว่า straight forward ใช้ได้ทั้งหน้านามและหลัง be",
+    "x": [
+      [
+        "The instructions were straightforward, so we finished in an hour.",
+        "คำแนะนำเข้าใจง่าย เราจึงทำเสร็จภายในหนึ่งชั่วโมง"
+      ],
+      [
+        "He gave a straightforward answer to every question.",
+        "เขาตอบทุกคำถามอย่างตรงไปตรงมา"
+      ]
+    ]
+  },
+  "temporary": {
+    "n": "ตรงข้ามกับ permanent ใช้กับสิ่งที่อยู่เพียงช่วงสั้น เช่น temporary job, temporary visa ผู้เรียนมักสับสนกับ temporarily ซึ่งเป็นกริยาวิเศษณ์ เช่น temporarily closed คำนี้มี 4 พยางค์แต่คนอังกฤษมักออกเสียงเพียง 3 พยางค์ /ˈtemprəri/ โดยพยางค์ที่สามอ่านเบามาก",
+    "x": [
+      [
+        "The shop has moved to temporary premises while the building is repaired.",
+        "ร้านย้ายไปอยู่สถานที่ชั่วคราวระหว่างที่อาคารกำลังซ่อมแซม"
+      ],
+      [
+        "Temporary staff are hired during the busy season.",
+        "บริษัทจ้างพนักงานชั่วคราวในช่วงฤดูที่งานยุ่ง"
+      ]
+    ]
+  }
+}

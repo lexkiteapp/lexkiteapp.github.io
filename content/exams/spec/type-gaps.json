@@ -1,0 +1,21 @@
+{
+ "_note": "B10: dạng câu có trong spec IELTS nhưng chưa có nhóm câu nào trong dữ liệu (scripts/content-qa/ielts-type-coverage.mjs). CHỈ được bớt: thêm nhóm câu mới thì xoá dòng tương ứng (test đỏ nếu còn trong danh sách).",
+ "gaps": {
+  "ielts-listening": [
+   "L1:short-answer",
+   "L2:map",
+   "L2:plan",
+   "L3:sentence",
+   "L3:note",
+   "L3:flow-chart",
+   "L4:sentence",
+   "L4:flow-chart"
+  ],
+  "ielts-reading-ac": [
+   "P1:short-answer"
+  ],
+  "ielts-reading-gt": [
+   "P1:short-answer"
+  ]
+ }
+}

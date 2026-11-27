@@ -38,7 +38,7 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 12, q: 'Why, according to the writer, are high night-time temperatures particularly dangerous?',
-options: ['They make air pollution harder to measure.', 'They prevent the body from recovering after a hot day.', 'They cause power networks to fail completely.', 'They mainly affect people who work at night.'],
+options: ['They increase the need for nighttime cooling systems.', 'They prevent the body from recovering after a hot day.', 'They raise the risk of nighttime traffic accidents.', 'They intensify the heat felt by outdoor athletes.'],
 a: 1, cue: 'they deny the body the chance to recover from the stress of the day' },
 { n: 13, q: 'What did the temperature surveys described in paragraph G show?',
 options: ['Poorer districts were often hotter than wealthier ones.', 'Temperatures were similar across most districts of a city.', 'Buses were more reliable than cars for carrying sensors.', 'Official weather stations had recorded inaccurate data.'],
@@ -159,7 +159,7 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 32, q: 'Why does the writer mention Greenland and Africa?',
-options: ['To show that Mercator made errors in his measurements.', 'To explain why sailors preferred maps of the northern hemisphere.', 'To illustrate how a projection can distort the relative size of areas.', 'To compare the accuracy of medieval and modern maps.'],
+options: ['To claim that Mercator deliberately omitted certain continents from his maps.', 'To argue that sailors favored Mercator maps because they showed true distances.', 'To illustrate how a projection can distort the relative size of areas.', 'To evaluate whether medieval maps were more decorative than functional.'],
 a: 2, cue: 'Greenland appears roughly as large as Africa, although Africa is in reality about fourteen times larger' },
 { n: 33, q: 'What point does the writer make by comparing a medieval map with a cathedral?',
 options: ['Most medieval charts were stored within monastic libraries.', 'These maps were valued more for their artistry than for navigation.', 'It is unfair to judge something by a purpose it was never meant to serve.', 'Church authorities often dictated how maps were created and distributed.'],
