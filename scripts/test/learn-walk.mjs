@@ -21,6 +21,14 @@ for (const [vp, w, h] of [['390', 390, 844], ['1280', 1280, 800]]) {
   await p.goto(`${BASE}/app/#/welcome/setup`); await p.waitForTimeout(1500); await shot('2-setup');
   const setupOpts = await p.locator('button, .option, [data-v]').count();
   row(vp, 'setup', 'số nút/lựa chọn trước bài đầu', setupOpts, setupOpts <= 20);
+  // thiết lập TỪNG BƯỚC (onboard.js: goal → level → target → pace → ready): giữ lựa chọn mặc định, bấm Tiếp tục tới nút #go; đo số bước + giây
+  const tOnb = Date.now(); let onbSteps = 0;
+  for (let k = 0; k < 12 && !(await p.locator('#go').isVisible().catch(() => false)); k++) {
+    const nx = p.locator('#obNext'); if (await nx.isVisible().catch(() => false)) { if (await nx.isDisabled().catch(() => false)) { await p.locator('[role=radio], .option, [data-v]').first().click().catch(() => {}); await p.waitForTimeout(300); } await nx.click().catch(() => {}); taps++; onbSteps++; await p.waitForTimeout(600); } else await p.waitForTimeout(500);
+  }
+  await shot('2b-setup-end');
+  row(vp, 'setup', 'số bước thiết lập tới nút Bắt đầu', onbSteps, onbSteps <= 5);
+  row(vp, 'setup', 'giây qua thiết lập (giữ mặc định)', ((Date.now() - tOnb) / 1000).toFixed(1), true);
   const tGo = Date.now();
   const went = await tap('#go', 'go'); await p.waitForTimeout(6000); await shot('3-day1');
   row(vp, 'setup→day1', 'vào được ngày 1', went && /#\/(path|review|practice|home|day)/.test(await p.evaluate(() => location.hash)), true);
