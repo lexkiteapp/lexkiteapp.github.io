@@ -16273,6 +16273,66 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_review_survive": {
+   "run": "45932244184",
+   "at": "2026-11-27T03:46Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "8b6b7319afdcd458",
+    "wide": "dcdc3d7f9b1ce7da"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_talent": {
+   "run": "45932244184",
+   "at": "2026-11-27T03:46Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "b81521a7c0c22b59",
+    "wide": "01d39ca6256a9583"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_teller": {
+   "run": "45932244184",
+   "at": "2026-11-27T03:46Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "bd2bf1833557ca04",
+    "wide": "55bff76370fa45ae"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_tend": {
+   "run": "45932244184",
+   "at": "2026-11-27T03:46Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a89e3351be6357ab",
+    "wide": "1aa540485d346ed4"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_stress_artistic": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",
