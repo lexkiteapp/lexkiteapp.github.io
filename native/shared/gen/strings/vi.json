@@ -3721,5 +3721,7 @@
   "place.stage": "Gợi ý bắt đầu lộ trình từ <b>{stage}</b>.",
   "place.how": "Ước tính từ {n} câu thích ứng: câu khó dần khi bạn trả lời đúng, dễ dần khi bạn sai. Khoảng điểm cho biết độ chắc chắn – làm lại sau vài tuần để cập nhật.",
   "place.disclaimer": "Kết quả chỉ để tham khảo, không thay thế bài thi thật.",
-  "place.today": "Xem kế hoạch hôm nay →"
+  "place.today": "Xem kế hoạch hôm nay →",
+  "lesson.goalDone": "Bạn đã đạt mục tiêu hôm nay!",
+  "lesson.goalProgress": "Mục tiêu hôm nay: {a}/{b} lượt ôn"
 }

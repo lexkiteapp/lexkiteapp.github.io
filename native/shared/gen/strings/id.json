@@ -3721,5 +3721,7 @@
   "place.stage": "Kami menyarankan untuk memulai jalur di <b>{stage}</b>.",
   "place.how": "Diperkirakan dari {n} soal adaptif: soal makin sulit saat jawabanmu benar dan makin mudah saat salah. Rentang menunjukkan seberapa pasti perkiraan ini – ulangi tes beberapa minggu lagi untuk memperbaruinya.",
   "place.disclaimer": "Hasil hanya untuk referensi dan tidak menggantikan ujian sebenarnya.",
-  "place.today": "Lihat rencana hari ini →"
+  "place.today": "Lihat rencana hari ini →",
+  "lesson.goalDone": "Kamu mencapai target hari ini!",
+  "lesson.goalProgress": "Target hari ini: {a}/{b} ulasan"
 }

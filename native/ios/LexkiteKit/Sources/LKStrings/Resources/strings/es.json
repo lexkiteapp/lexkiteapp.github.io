@@ -3721,5 +3721,7 @@
   "place.stage": "Sugerimos iniciar el camino en <b>{stage}</b>.",
   "place.how": "Estimado a partir de {n} preguntas adaptativas: se vuelven más difíciles cuando aciertas y más fáciles cuando fallas. El rango indica la certeza de la estimación; repite la prueba en unas semanas para actualizarla.",
   "place.disclaimer": "Los resultados son sólo de referencia y no reemplazan un examen real.",
-  "place.today": "Ver el plan de hoy →"
+  "place.today": "Ver el plan de hoy →",
+  "lesson.goalDone": "¡Alcanzaste tu meta de hoy!",
+  "lesson.goalProgress": "Meta de hoy: {a}/{b} repasos"
 }

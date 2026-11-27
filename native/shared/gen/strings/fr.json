@@ -3721,5 +3721,7 @@
   "place.stage": "Nous vous suggérons de commencer le chemin à <b>{stage}</b>.",
   "place.how": "Estimation à partir de {n} questions adaptatives : elles deviennent plus difficiles quand vous répondez juste et plus faciles quand vous vous trompez. La fourchette indique le degré de certitude – refaites le test dans quelques semaines pour la mettre à jour.",
   "place.disclaimer": "Les résultats sont donnés à titre indicatif uniquement et ne remplacent pas un véritable examen.",
-  "place.today": "Voir le plan du jour →"
+  "place.today": "Voir le plan du jour →",
+  "lesson.goalDone": "Vous avez atteint votre objectif du jour !",
+  "lesson.goalProgress": "Objectif du jour : {a}/{b} révisions"
 }

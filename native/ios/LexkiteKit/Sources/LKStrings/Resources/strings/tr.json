@@ -3721,5 +3721,7 @@
   "place.stage": "Yola <b>{stage}</b> aşamasından başlamanızı öneririz.",
   "place.how": "{n} uyarlanabilir soruya göre tahmin: doğru cevapladıkça sorular zorlaşır, yanlışta kolaylaşır. Aralık, tahminin ne kadar kesin olduğunu gösterir – güncellemek için birkaç hafta sonra testi tekrarlayın.",
   "place.disclaimer": "Sonuçlar yalnızca referans amaçlıdır ve gerçek bir sınavın yerine geçmez.",
-  "place.today": "Bugünün planına bakın →"
+  "place.today": "Bugünün planına bakın →",
+  "lesson.goalDone": "Bugünkü hedefine ulaştın!",
+  "lesson.goalProgress": "Bugünkü hedef: {a}/{b} tekrar"
 }

@@ -3724,6 +3724,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case placeHow = "place.how"
     case placeDisclaimer = "place.disclaimer"
     case placeToday = "place.today"
+    case lessonGoalDone = "lesson.goalDone"
+    case lessonGoalProgress = "lesson.goalProgress"
 }
 
 public enum L10nLangs {

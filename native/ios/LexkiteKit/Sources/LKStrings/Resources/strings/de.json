@@ -3721,5 +3721,7 @@
   "place.stage": "Wir empfehlen, den Pfad bei <b>{stage}</b> zu beginnen.",
   "place.how": "Geschätzt aus {n} adaptiven Fragen: Sie werden schwerer, wenn Sie richtig antworten, und leichter, wenn nicht. Die Spanne zeigt, wie sicher die Schätzung ist – wiederholen Sie den Test in ein paar Wochen, um sie zu aktualisieren.",
   "place.disclaimer": "Die Ergebnisse dienen nur als Referenz und ersetzen keine echte Prüfung.",
-  "place.today": "Siehe den heutigen Plan →"
+  "place.today": "Siehe den heutigen Plan →",
+  "lesson.goalDone": "Sie haben Ihr Tagesziel erreicht!",
+  "lesson.goalProgress": "Tagesziel: {a}/{b} Wiederholungen"
 }

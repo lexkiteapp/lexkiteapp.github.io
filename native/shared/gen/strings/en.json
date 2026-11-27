@@ -3721,5 +3721,7 @@
   "place.stage": "We suggest starting the path at <b>{stage}</b>.",
   "place.how": "Estimated from {n} adaptive questions: they get harder when you answer correctly and easier when you don’t. The range shows how certain the estimate is – retake the test in a few weeks to update it.",
   "place.disclaimer": "Results are for reference only and don’t replace a real exam.",
-  "place.today": "See today’s plan →"
+  "place.today": "See today’s plan →",
+  "lesson.goalDone": "You hit today's goal!",
+  "lesson.goalProgress": "Today's goal: {a}/{b} reviews"
 }
