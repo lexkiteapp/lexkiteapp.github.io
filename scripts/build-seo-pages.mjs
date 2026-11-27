@@ -20,6 +20,7 @@ const SITE = 'https://lexkite.com', D = process.env.SEO_DIST || 'dist';
 const { r2Langs, WORDS_DIR } = await import('./lib/words-r2.mjs'), R2L = new Set(r2Langs()); // trang /<lang>/words/** của các ngôn ngữ này ghi ra dist-words/ (đồng bộ R2, Function đọc ra)
 // Chọn trang + nội dung trang từ: scripts/lib/seo-words.mjs (dùng chung với hộp từ của build-blog.mjs) – nạp sau công tắc SEO_PAGES
 const { J, RTL, cap, setOf, idxW, slug, gloss, wPath, bodyOf, imgOf, en, appLink, cta, goLine } = await import('./lib/seo-words.mjs');
+const { topicPages, topicPath } = await import('./lib/seo-topics.mjs'); // trang chủ đề 13 ngôn ngữ (docs/specs/seo-topic-hubs.md)
 const today = new Date().toISOString().slice(0, 10);
 const gitDate = (...f) => { try { return execFileSync('git', ['log', '-1', '--format=%cs', '--', ...f], { encoding: 'utf8' }).trim() || today; } catch { return today; } };
 
@@ -28,7 +29,7 @@ const urls = []; // [url, lastmod, alts, type, lang]
 const hashes = [];
 const LM = lastmodStore();
 const url = p => SITE + p;
-const fileOf = p => path.join(R2L.has(p.split('/')[1]) && p.split('/')[2] === 'words' ? WORDS_DIR : D, p.endsWith('/') ? p + 'index.html' : p + '.html');
+const fileOf = p => path.join(R2L.has(p.split('/')[1]) && p.split('/')[2] === 'words' && p.split('/')[3] !== 'topic' ? WORDS_DIR : D, p.endsWith('/') ? p + 'index.html' : p + '.html');
 // Tiêu đề/mô tả viết tay theo truy vấn GSC thật cho trang hạng 8–12 hiển thị cao mà CTR 0 (22/11) – { path: { t, d, base: {impr, clicks, pos, date} } };
 // base = số gốc để so sau 2–4 tuần (giữ nếu CTR tăng, bỏ mục nếu không). Cổng: scripts/test/serp-overrides.mjs.
 const SERP = (() => { try { return JSON.parse(fs.readFileSync('content/seo/serp-overrides.json', 'utf8')).pages || {}; } catch { return {}; } })();
@@ -64,7 +65,7 @@ const crumbsLd = items => ({ '@context': 'https://schema.org', '@type': 'Breadcr
 const lmW = gitDate('web/js/data.js', 'web/js/lib', 'web/cpack/lib', 'web/packs', 'web/js/notes', 'web/js/usage', 'content/dict/wordnet.json', 'web/cpack/write/models.js', 'web/cpack/speak/samples.js', 'scripts/dict/build.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/word-depth.mjs');
 const twins = { v: 1, w: {}, c: {}, t: {} };
 const built = {}; // l → Map(mục → { body, faq, m }) – dựng ở scripts/lib/seo-words.mjs (bodyOf), cùng nguồn với hộp từ của blog
-let nW = 0, nWthin = 0, nWshallow = 0;
+let nW = 0, nWthin = 0, nWshallow = 0, nTopic = 0;
 for (const l of LANGS) {
   built[l] = new Map();
   for (const e of setOf[l]) {
@@ -73,13 +74,16 @@ for (const l of LANGS) {
     built[l].set(e, b);
   }
 }
+const TP = topicPages(idxW, LANGS); // sau khi lọc mỏng: chủ đề có ≥ 10 từ index được + tên/đoạn giới thiệu bản ngữ
 for (const l of LANGS) {
   const t = S[l], list = setOf[l];
   twins.w[l] = {};
   list.forEach(e => {
-    const w = e.word, k = w.toLowerCase(), idx = idxW[l].has(e), { body, faq, m } = built[l].get(e);
+    const w = e.word, k = w.toLowerCase(), idx = idxW[l].has(e), { body: bodyAll, faq, m } = built[l].get(e);
     const alts = idx ? withDefault(LANGS.filter(x => idxW[x].has(e)).map(x => [x, wPath(x, e)]), idxW.en.has(e) ? wPath('en', e) : '') : [];
     const p = wPath(l, e), W = cap(w);
+    const tid = idx ? TP.of(l, e) : null, tpg = tid && TP.pages[l].get(tid); // link ngược lên chủ đề (nội bộ, không thêm khối độ dày)
+    const body = tpg ? bodyAll.replace(/<\/article>\s*$/, `<p class="mt">${esc(TP.ui[l].tocrumb)}: <a href="${topicPath(l, tid)}">${esc(tpg.name)}</a></p></article>`) : bodyAll;
     // Có nghĩa ngay trong tiêu đề (th/ar/id/ko, hạng 8–12 mà 0 bấm: người tìm "X แปลว่า/معنى X/arti X/X 뜻" thấy luôn đáp án) – chỉ dùng khi vừa ≤ 60 ký tự, không thì tiêu đề cũ.
     const tM = t.wTitleM && m ? fill(t.wTitleM, { w: W, m }) : '', ov = idx ? SERP[p] : null; // ghi đè có đo (content/seo/serp-overrides.json) – chỉ trang index được
     const title = ov?.t ? ov.t + ' | Lexkite' : (tM && [...tM].length <= 50 ? tM : fill(t.wTitle, { w: W })) + ' | Lexkite', desc = ov?.d ? uniq(usedD, l, ov.d, clip(`${W} – ${m}: “${e.ex}”`)) : uniq(usedD, l, clip(fill(t.wDesc, { w: W, m, ipa: e.ipa || '' })), clip(`${W} – ${m}: “${e.ex}”`));
@@ -102,6 +106,21 @@ ${Object.entries(by).map(([c, es]) => `<section aria-labelledby="l-${c}"><h2 id=
 ${cta(t.ctaB, t.ctaWn, appLink(l, 'vocab'), t.open)}${goLine(l, 'hub')}${toolLine(l)}</article>`;
   const jl = { '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: t.words, description: desc, inLanguage: l, url: url(hp) };
   write(hp, page({ lang: l, title: title + ' | Lexkite', desc, p: hp, alts, crumbs: [[t.home, landingHref(l)], [t.words, hp]], body, jsonld: [jl], langHref: x => `/${x}/words/`, section: hp }), { lm: lmW, alts, type: 'words', lang: l, index: true });
+  // Trang chủ đề (13 ngôn ngữ): tên + đoạn giới thiệu bản ngữ + danh sách từ index được + liên kết sang chủ đề khác → /<lang>/words/topic/<id>
+  const tpl = TP.pages[l], u = TP.ui[l];
+  for (const [id, tp] of tpl) {
+    const p = topicPath(l, id), n = tp.words.length, ws = [...tp.words].sort((a, b) => a.word.localeCompare(b.word, 'en'));
+    const alts = withDefault(LANGS.filter(x => TP.pages[x].has(id)).map(x => [x, topicPath(x, id)]));
+    const title = uniq(usedT, l, fill(u.title, { name: tp.name, n }) + ' | Lexkite', fill(u.title, { name: tp.name, n: n + '+' }) + ' | Lexkite'), desc = uniq(usedD, l, clip(fill(u.desc, { name: tp.name, n })), clip(fill(u.desc, { name: tp.name, n }) + ' ' + tp.intro));
+    const others = [...tpl.values()].filter(x => x.id !== id).slice(0, 12);
+    const body = `<article class="page wd"><header class="hero"><h1>${esc(tp.name)}</h1><p>${esc(tp.intro)}</p></header>
+<section><h2>${esc(u.list)}</h2><ul class="az">${ws.map(e => `<li><a href="${wPath(l, e)}" lang="en" dir="ltr">${esc(e.word)}</a> <small>${esc(clip(gloss(l, e)[0], 40))}</small></li>`).join('')}</ul></section>
+<section><h2>${esc(u.more)}</h2><p class="chips">${others.map(x => `<a href="${topicPath(l, x.id)}">${esc(x.name)}</a>`).join('')}</p></section>
+${cta(t.ctaB, t.ctaWn, appLink(l, 'vocab'), t.open)}${goLine(l, 'hub')}${toolLine(l)}</article>`;
+    const jl = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: tp.name, description: tp.intro, inLanguage: l, url: url(p), isPartOf: { '@type': 'DefinedTermSet', name: t.words, url: `${SITE}/${l}/words/` }, mainEntity: { '@type': 'ItemList', numberOfItems: n, itemListElement: ws.slice(0, 50).map((e, i) => ({ '@type': 'ListItem', position: i + 1, url: url(wPath(l, e)), name: e.word })) } };
+    write(p, page({ lang: l, title, desc, p, alts, crumbs: [[t.home, landingHref(l)], [t.words, hp], [tp.name, p]], body, jsonld: [jl], langHref: x => (TP.pages[x] && TP.pages[x].has(id) ? topicPath(x, id) : `/${x}/words/`), section: hp }), { lm: lmW, alts, type: 'words', lang: l, index: true });
+    nTopic++;
+  }
 }
 
 // ---------- Giao tiếp tự tin ----------
@@ -160,4 +179,4 @@ const extra = fs.existsSync('.seo-urls-en.txt') ? fs.readFileSync('.seo-urls-en.
 fs.writeFileSync('.seo-urls.txt', [...hashes, ...extra].join('\n') + '\n');
 if (LM.save({ prefixes: LANGS.flatMap(l => [`/${l}/words/`, `/${l}/conversations/`]) })) console.log('· lastmod: đã ghi sổ content/seo/lastmod.json');
 const per = LANGS.map(l => `${l} ${setOf[l].length}`).join(', ');
-console.log(`✓ SEO trang app: ${nW} trang từ (${nWthin} noindex, trong đó ${nWshallow} vì dưới ngưỡng độ dày; ${per}) + ${nC} bài giao tiếp (${nCthin} noindex) + ${LANGS.length * 2} mục lục · ${urls.length} URL index được · dist/data/seo-twins.json`);
+console.log(`✓ SEO trang app: ${nW} trang từ (${nWthin} noindex, trong đó ${nWshallow} vì dưới ngưỡng độ dày; ${per}) + ${nTopic} trang chủ đề + ${nC} bài giao tiếp (${nCthin} noindex) + ${LANGS.length * 2} mục lục · ${urls.length} URL index được · dist/data/seo-twins.json`);
