@@ -1,0 +1,326 @@
+{
+ "adhere to": {
+  "n": "ปฏิบัติตามกฎหรือแผนอย่างเคร่งครัด ใช้ในภาษาทางการ เช่น adhere to the rules, guidelines, policy ต้องตามด้วย to เสมอ ระวังอย่าใช้ with หรือ on แทน to",
+  "x": [
+   [
+    "All staff must adhere to the safety regulations when entering the laboratory.",
+    "พนักงานทุกคนต้องปฏิบัติตามระเบียบความปลอดภัยเมื่อเข้าห้องปฏิบัติการ"
+   ],
+   [
+    "The company continues to adhere to a strict code of conduct.",
+    "บริษัทปฏิบัติตามจรรยาบรรณอย่างเคร่งครัดมาโดยตลอด"
+   ]
+  ]
+ },
+ "anticlockwise": {
+  "n": "หมายถึงทวนเข็มนาฬิกา เป็นสำนวนแบบอังกฤษ ส่วนอเมริกันนิยมใช้ counterclockwise ตรงข้ามคือ clockwise ใช้บ่อยตอนอธิบายแผนภาพหรือกระบวนการ อย่าสะกดตกพยางค์ anti",
+  "x": [
+   [
+    "The runners circled the track anticlockwise, which felt strange to the visitors.",
+    "นักวิ่งวิ่งรอบสนามทวนเข็มนาฬิกา ซึ่งทำให้ผู้มาเยือนรู้สึกแปลก"
+   ],
+   [
+    "Rotate the lid anticlockwise until it comes off completely.",
+    "หมุนฝาทวนเข็มนาฬิกาจนหลุดออกมาทั้งหมด"
+   ]
+  ]
+ },
+ "archaeological": {
+  "n": "คุณศัพท์ที่เกี่ยวกับโบราณคดี มักมาคู่กับ site, evidence, excavation สะกดยาก ระวังตัว ae กลางคำ และ ch อ่านเป็น /k/ จึงออกเสียงต้นคำว่า อาร์-คี คนทำงานด้านนี้คือ archaeologist",
+  "x": [
+   [
+    "The archaeological team spent three summers excavating the burial ground.",
+    "ทีมโบราณคดีใช้เวลาสามหน้าร้อนขุดค้นพื้นที่ฝังศพ"
+   ],
+   [
+    "Several archaeological finds were moved to the national museum.",
+    "สิ่งที่ค้นพบทางโบราณคดีหลายชิ้นถูกย้ายไปที่พิพิธภัณฑ์แห่งชาติ"
+   ],
+   [
+    "Tourists are not allowed to walk across the archaeological remains.",
+    "นักท่องเที่ยวไม่ได้รับอนุญาตให้เดินข้ามซากโบราณสถาน"
+   ]
+  ]
+ },
+ "artifact": {
+  "n": "โบราณวัตถุหรือสิ่งที่มนุษย์ประดิษฐ์ขึ้นและมีคุณค่าทางประวัติศาสตร์ เช่น เครื่องมือหิน เห็นบ่อยในพิพิธภัณฑ์ อังกฤษแบบบริเตนสะกด artefact ได้ด้วย ต่างจาก fossil ที่เกิดตามธรรมชาติ",
+  "x": [
+   [
+    "The museum's newest artifact is a bronze mirror more than two thousand years old.",
+    "โบราณวัตถุชิ้นใหม่ล่าสุดของพิพิธภัณฑ์คือกระจกสัมฤทธิ์ที่มีอายุกว่าสองพันปี"
+   ],
+   [
+    "Each artifact is labelled with the place and date of discovery.",
+    "โบราณวัตถุทุกชิ้นมีป้ายระบุสถานที่และวันที่พบ"
+   ]
+  ]
+ },
+ "astronomy": {
+  "n": "วิชาดาราศาสตร์ เป็นนามนับไม่ได้ จึงไม่เติม s และไม่ใช้ an ผู้ศึกษาคือ astronomer อย่าสับสนกับ astrology ซึ่งหมายถึงโหราศาสตร์หรือการดูดวง",
+  "x": [
+   [
+    "She studied astronomy at university because she loved watching the night sky.",
+    "เธอเรียนดาราศาสตร์ที่มหาวิทยาลัยเพราะรักการดูท้องฟ้ายามค่ำคืน"
+   ],
+   [
+    "The school runs an astronomy club that meets every Friday evening.",
+    "โรงเรียนมีชมรมดาราศาสตร์ที่พบกันทุกเย็นวันศุกร์"
+   ]
+  ]
+ },
+ "axis": {
+  "n": "แกนหมุนของวัตถุ หรือแกนบนกราฟ เช่น the vertical axis ที่ใช้อธิบายกราฟในงานเขียน พหูพจน์คือ axes อ่านว่า แอก-ซีซ ไม่ใช่ axises",
+  "x": [
+   [
+    "The vertical axis shows the number of visitors in thousands.",
+    "แกนตั้งแสดงจำนวนผู้เข้าชมเป็นหลักพัน"
+   ],
+   [
+    "A spinning top turns steadily around its central axis.",
+    "ลูกข่างหมุนอย่างสม่ำเสมอรอบแกนกลางของมัน"
+   ],
+   [
+    "Draw the horizontal axis first, then plot the points on the graph.",
+    "วาดแกนนอนก่อน แล้วจึงลงจุดบนกราฟ"
+   ]
+  ]
+ },
+ "a balanced approach": {
+  "n": "แนวทางที่ชั่งน้ำหนักทุกด้านอย่างสมดุล มักใช้ในย่อหน้าสรุปของงานเขียนเชิงความเห็น โครงสร้างคือ take a balanced approach to ใช้ to ไม่ใช่ for",
+  "x": [
+   [
+    "The government should take a balanced approach to tourism and conservation.",
+    "รัฐบาลควรใช้แนวทางที่สมดุลระหว่างการท่องเที่ยวกับการอนุรักษ์"
+   ],
+   [
+    "Teachers who adopt a balanced approach praise effort without ignoring mistakes.",
+    "ครูที่ใช้แนวทางสมดุลจะชมความพยายามโดยไม่มองข้ามข้อผิดพลาด"
+   ]
+  ]
+ },
+ "a compelling argument": {
+  "n": "เหตุผลที่หนักแน่นจนปฏิเสธยาก ใช้ make หรือ present กับ argument ไม่ใช้ do ใช้ได้ทั้ง compelling และ convincing argument ระวังอย่าพูด convinced argument ในที่นี้ argument คือข้อโต้แย้งเชิงเหตุผล",
+  "x": [
+   [
+    "She made a compelling argument for extending the school day by one hour.",
+    "เธอให้เหตุผลที่น่าเชื่ออย่างยิ่งในการเพิ่มเวลาเรียนอีกหนึ่งชั่วโมง"
+   ],
+   [
+    "The lawyer offered a compelling argument that the contract was unfair.",
+    "ทนายความเสนอข้อโต้แย้งที่หนักแน่นว่าสัญญานั้นไม่เป็นธรรม"
+   ]
+  ]
+ },
+ "a knock-on effect": {
+  "n": "ผลที่ตามมาเป็นทอดๆ เหมือนโดมิโนล้ม ใช้โครงสร้าง have a knock-on effect on something ต้องใช้ on ไม่ใช่ to เหมาะกับการอธิบายผลกระทบทางเศรษฐกิจหรือสังคม ใกล้เคียงกับ ripple effect",
+  "x": [
+   [
+    "A delay at one airport can have a knock-on effect on flights across the country.",
+    "ความล่าช้าที่สนามบินแห่งหนึ่งอาจส่งผลต่อเนื่องถึงเที่ยวบินทั่วประเทศ"
+   ],
+   [
+    "Closing the factory had a knock-on effect on local shops and cafes.",
+    "การปิดโรงงานส่งผลกระทบต่อเนื่องไปยังร้านค้าและร้านกาแฟในท้องถิ่น"
+   ]
+  ]
+ },
+ "a small minority": {
+  "n": "คนกลุ่มเล็กมากเมื่อเทียบกับทั้งหมด ใช้ในรูป a small minority of + นามพหูพจน์ ตรงข้ามคือ the vast majority อย่าลืม a หน้าคำ เพราะ minority เป็นนามนับได้",
+  "x": [
+   [
+    "Only a small minority of employees said they preferred working in the office.",
+    "พนักงานเพียงส่วนน้อยเท่านั้นที่บอกว่าชอบทำงานในออฟฟิศมากกว่า"
+   ],
+   [
+    "A small minority of drivers ignored the new speed limit.",
+    "ผู้ขับขี่ส่วนน้อยไม่สนใจขีดจำกัดความเร็วใหม่"
+   ]
+  ]
+ },
+ "a striking feature": {
+  "n": "จุดเด่นที่สะดุดตา ใช้เมื่ออธิบายกราฟหรือตาราง เช่น A striking feature of the graph is that... striking ไม่ได้แปลว่าตีหรือประท้วง และ feature นับได้ จึงต้องมี a",
+  "x": [
+   [
+    "A striking feature of the table is how little the figures changed over ten years.",
+    "จุดที่สะดุดตาของตารางคือตัวเลขแทบไม่เปลี่ยนเลยตลอดสิบปี"
+   ],
+   [
+    "The colourful market street is a striking feature of the town.",
+    "จุดเด่นที่สะดุดตาของเมืองนี้คือถนนตลาดที่เต็มไปด้วยสีสัน"
+   ]
+  ]
+ },
+ "account for": {
+  "n": "มีสองความหมาย คือคิดเป็นสัดส่วนเท่าไร และอธิบายสาเหตุ เช่น Women account for 60% of the class ต้องมี for ตามหลังเสมอ อย่าแปลว่าไปทำบัญชี",
+  "x": [
+   [
+    "Tourism will account for nearly a third of the island's income.",
+    "การท่องเที่ยวคิดเป็นเกือบหนึ่งในสามของรายได้ของเกาะ"
+   ],
+   [
+    "Nothing could account for the sudden silence in the room.",
+    "ไม่มีอะไรอธิบายความเงียบกะทันหันในห้องนั้นได้"
+   ]
+  ]
+ },
+ "acknowledge receipt": {
+  "n": "ใช้ในอีเมลธุรกิจเพื่อยืนยันอย่างเป็นทางการว่าได้รับสิ่งของหรือข้อความแล้ว เช่น Please acknowledge receipt of this letter ฟังเป็นทางการกว่า confirm อย่าเขียน acknowledge to receive ตัว p ใน receipt ไม่ออกเสียง",
+  "x": [
+   [
+    "We will acknowledge receipt of your application within two working days.",
+    "เราจะแจ้งยืนยันการรับใบสมัครของคุณภายในสองวันทำการ"
+   ],
+   [
+    "Could you kindly acknowledge receipt of the attached invoice?",
+    "ช่วยตอบยืนยันว่าได้รับใบแจ้งหนี้ที่แนบมาด้วยได้ไหม"
+   ]
+  ]
+ },
+ "address an audience": {
+  "n": "กล่าวต่อหน้าผู้ฟังอย่างเป็นทางการ address เป็นกริยาที่ตามด้วยกรรมโดยตรง จึงไม่มี to คั่น คำนี้ยังแปลว่าที่อยู่ได้ด้วย",
+  "x": [
+   [
+    "The mayor will address an audience of local business owners on Monday.",
+    "นายกเทศมนตรีจะกล่าวปราศรัยต่อผู้ประกอบการท้องถิ่นในวันจันทร์"
+   ],
+   [
+    "It takes confidence to address an audience without any notes.",
+    "ต้องอาศัยความมั่นใจในการพูดต่อหน้าผู้ฟังโดยไม่มีโน้ตเลย"
+   ]
+  ]
+ },
+ "advocate": {
+  "n": "สนับสนุนหรือเรียกร้องต่อสาธารณะ เช่น advocate reform หรือ advocate using public transport เมื่อเป็นกริยาท้ายคำออกเสียง /keɪt/ แต่เมื่อเป็นคำนามที่แปลว่าผู้สนับสนุน ท้ายคำเป็น /kət/ เสียงเบากว่า",
+  "x": [
+   [
+    "Several doctors advocate walking to work as a simple way to stay healthy.",
+    "แพทย์หลายคนสนับสนุนการเดินไปทำงานว่าเป็นวิธีง่ายๆ ในการมีสุขภาพดี"
+   ],
+   [
+    "She has long advocated better pay for nurses.",
+    "เธอเรียกร้องค่าตอบแทนที่ดีขึ้นสำหรับพยาบาลมานานแล้ว"
+   ],
+   [
+    "The charity advocates equal access to education for every child.",
+    "องค์กรการกุศลแห่งนี้สนับสนุนการเข้าถึงการศึกษาอย่างเท่าเทียมสำหรับเด็กทุกคน"
+   ]
+  ]
+ },
+ "aesthetic": {
+  "n": "คุณศัพท์เกี่ยวกับความงามที่พอใจสายตา ใช้กับศิลปะและการออกแบบ เช่น aesthetic appeal ฟังเป็นวิชาการกว่า beautiful เน้นพยางค์ที่สอง es-THET-ic ระวังสะกดผิดเป็น asthetic ให้จำว่าขึ้นต้นด้วย ae",
+  "x": [
+   [
+    "The designer cares more about the aesthetic quality of the product than its price.",
+    "นักออกแบบใส่ใจคุณภาพด้านความงามของสินค้ามากกว่าราคา"
+   ],
+   [
+    "Many tourists are drawn to the aesthetic appeal of traditional temples.",
+    "นักท่องเที่ยวจำนวนมากถูกดึงดูดด้วยความงามของวัดแบบดั้งเดิม"
+   ]
+  ]
+ },
+ "after which": {
+  "n": "ใช้ต่อประโยคเพื่อบอกขั้นตอนถัดไป เหมาะกับการอธิบายกระบวนการ เช่น The mixture is stirred, after which sugar is added มักมีจุลภาคนำหน้า และ which หมายถึงเหตุการณ์ก่อนหน้า ฟังเป็นทางการกว่า and then",
+  "x": [
+   [
+    "The logs are cut into planks, after which they are left to dry for several weeks.",
+    "ท่อนไม้ถูกตัดเป็นแผ่น หลังจากนั้นจะถูกตากให้แห้งเป็นเวลาหลายสัปดาห์"
+   ],
+   [
+    "Applicants submit a form online, after which a staff member contacts them.",
+    "ผู้สมัครส่งแบบฟอร์มออนไลน์ หลังจากนั้นเจ้าหน้าที่จะติดต่อกลับไป"
+   ]
+  ]
+ },
+ "algae": {
+  "n": "สาหร่ายหรือพืชน้ำเล็กๆ ไม่มีลำต้นและใบ รูปเอกพจน์คือ alga แต่คนมักใช้ algae เป็นนามนับไม่ได้ อ่านว่า แอล-จี ไม่ใช่ อัล-เก",
+  "x": [
+   [
+    "Too much fertiliser in the river led to a thick layer of algae.",
+    "ปุ๋ยที่มากเกินไปในแม่น้ำทำให้เกิดสาหร่ายหนาแน่นเป็นชั้น"
+   ],
+   [
+    "Some fish feed mainly on algae growing on rocks.",
+    "ปลาบางชนิดกินสาหร่ายที่เกาะตามก้อนหินเป็นอาหารหลัก"
+   ]
+  ]
+ },
+ "allegedly": {
+  "n": "ใช้บอกว่าเป็นเพียงข้อกล่าวหา ยังไม่มีหลักฐานยืนยัน พบบ่อยในข่าวและกฎหมาย วางหน้ากริยาได้ เช่น He allegedly stole the money กริยาคือ allege ส่วนนามคือ allegation",
+  "x": [
+   [
+    "The mayor allegedly accepted gifts from several construction companies.",
+    "นายกเทศมนตรีถูกกล่าวหาว่ารับของขวัญจากบริษัทก่อสร้างหลายแห่ง"
+   ],
+   [
+    "The store was allegedly robbed shortly after midnight.",
+    "มีรายงานว่าร้านถูกปล้นไม่นานหลังเที่ยงคืน"
+   ]
+  ]
+ },
+ "anecdotal": {
+  "n": "อาศัยเรื่องเล่าส่วนตัวมากกว่าการวิจัยจริง จึงเชื่อถือได้น้อย มักใช้ว่า anecdotal evidence ในงานเขียนเชิงวิพากษ์ อย่าสับสนกับ antidote ที่แปลว่ายาแก้พิษ ส่วน anecdote คือเรื่องเล่าสั้นๆ",
+  "x": [
+   [
+    "The claim rests on anecdotal evidence from a handful of customers.",
+    "ข้อกล่าวอ้างนี้อาศัยหลักฐานจากเรื่องเล่าของลูกค้าเพียงไม่กี่คน"
+   ],
+   [
+    "Her anecdotal account was interesting, but it proved nothing.",
+    "เรื่องเล่าของเธอน่าสนใจ แต่ไม่ได้พิสูจน์อะไรเลย"
+   ]
+  ]
+ },
+ "anomaly": {
+  "n": "สิ่งที่ผิดปกติหรือต่างจากที่คาดไว้ ใช้ในสถิติและวิทยาศาสตร์ เช่น a statistical anomaly พหูพจน์คือ anomalies เน้นเสียงพยางค์สอง ใช้แทนการพูดว่า unusual thing ในงานทางการได้ คุณศัพท์คือ anomalous",
+  "x": [
+   [
+    "The sales figure for March was an anomaly in an otherwise steady year.",
+    "ยอดขายเดือนมีนาคมเป็นข้อยกเว้นในปีที่ทุกอย่างค่อนข้างคงที่"
+   ],
+   [
+    "Scientists are investigating an anomaly in the satellite's data.",
+    "นักวิทยาศาสตร์กำลังตรวจสอบความผิดปกติในข้อมูลของดาวเทียม"
+   ]
+  ]
+ },
+ "apprenticeship": {
+  "n": "ช่วงฝึกอาชีพระยะยาวที่เรียนไปทำงานจริงไปด้วย มักเป็นงานช่าง เช่น ช่างไฟ ใช้กริยา do หรือ complete an apprenticeship คนฝึกคือ apprentice ต่างจาก internship ที่มักสั้นกว่า",
+  "x": [
+   [
+    "After finishing school, Tom began an apprenticeship with a local carpenter.",
+    "หลังเรียนจบ ทอมเริ่มฝึกงานเป็นลูกมือกับช่างไม้ในท้องถิ่น"
+   ],
+   [
+    "Many employers now offer an apprenticeship instead of a traditional degree.",
+    "นายจ้างหลายรายตอนนี้เปิดโครงการฝึกอาชีพแทนปริญญาแบบดั้งเดิม"
+   ]
+  ]
+ },
+ "archaeologist": {
+  "n": "นักโบราณคดีผู้ศึกษาอดีตผ่านการขุดค้นสิ่งของ ต่างจาก historian ที่เน้นเอกสาร อ่านว่า อาร์-คี-ออล-โล-จิสต์ สำเนียงอเมริกันอาจสะกด archeologist ได้ ดูคู่กับ archaeology",
+  "x": [
+   [
+    "The archaeologist carefully brushed the soil from a broken clay pot.",
+    "นักโบราณคดีค่อยๆ ปัดดินออกจากหม้อดินเผาที่แตก"
+   ],
+   [
+    "A team of archaeologists is working at the ancient harbour this season.",
+    "ทีมนักโบราณคดีกำลังทำงานที่ท่าเรือโบราณในฤดูกาลนี้"
+   ]
+  ]
+ },
+ "architectural": {
+  "n": "architectural เป็นคุณศัพท์ มักใช้ขยาย style, design, heritage เช่น architectural style อ่านว่า ar-chi-TEC-tu-ral architecture design ก็พบได้ แต่ architectural design เป็นรูปมาตรฐานกว่า คำนามคือ architecture",
+  "x": [
+   [
+    "The city is famous for its architectural variety, from medieval towers to glass offices.",
+    "เมืองนี้มีชื่อเสียงด้านความหลากหลายของสถาปัตยกรรม ตั้งแต่หอคอยยุคกลางไปจนถึงอาคารกระจก"
+   ],
+   [
+    "Students visited the town to sketch its architectural details.",
+    "นักเรียนไปเยือนเมืองนี้เพื่อสเก็ตช์รายละเอียดทางสถาปัตยกรรม"
+   ]
+  ]
+ }
+}
