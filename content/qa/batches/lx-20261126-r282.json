@@ -1,0 +1,21 @@
+{
+ "id": "20261126-r282",
+ "source": "lexicon-expand",
+ "n": 3,
+ "checked": [
+  {
+   "id": "vaginitis#n",
+   "ok": true
+  },
+  {
+   "id": "arthralgia#n",
+   "ok": true
+  },
+  {
+   "id": "misstate#v",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-27",
+ "status": "published"
+}
