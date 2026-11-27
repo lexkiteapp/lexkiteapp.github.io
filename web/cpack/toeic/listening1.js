@@ -694,8 +694,8 @@ items: [
 explain: 'Mục đích cuộc gọi: chiếc bàn khách đặt tạm hết hàng màu gỗ óc chó (out of stock) → vấn đề với đơn hàng. "Friday delivery" chỉ là phương án thay thế, không phải để xác nhận giờ giao.' },
 { n: 72, q: 'What does the speaker offer if the listener decides to wait?', options: ['Free delivery', 'An extended warranty', 'A free chair', 'A price reduction'], a: 3, cue: "we'll give you a ten percent discount for the inconvenience",
 explain: 'Nếu chờ hàng màu walnut, khách được giảm 10% (discount = price reduction). "No extra charge" gắn với phương án gỗ sồi giao thứ Sáu, không phải phương án chờ.' },
-{ n: 73, q: 'What is the listener asked to do before Thursday?', options: ["Return the speaker's call", 'Visit the showroom', 'Pay a deposit', 'Measure his office'], a: 0, cue: 'please call me back at 555-0148 before Thursday',
-explain: '"Please call me back… before Thursday" → gọi lại cho người nói. Các phương án khác không được nhắc đến.' },
+{ n: 73, q: 'What is the listener asked to do before Thursday?', options: ["Return the speaker's call", 'Tour the showroom', 'Make a deposit', 'Measure his office space'], a: 0, cue: 'please call me back at 555-0148 before Thursday',
+explain: 'Câu nói "please call me back… before Thursday" yêu cầu người nghe gọi lại, vì vậy đáp án A là đúng; các lựa chọn khác như đi thăm showroom không được nhắc tới trong lời nói.' },
 ] },
 { type: 'mcq', instr: g.TQL[30],
 items: [

@@ -191,7 +191,7 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 40, q: 'What point does the writer make in paragraph G?',
-options: ['More books are borrowed from libraries now than ever before.', 'Most public libraries have closed because of the internet.', 'Many people visit libraries for reasons other than borrowing books.', 'Librarians believe libraries should stop lending books.'],
+options: ['The number of books taken from libraries today exceeds any previous year.', 'A large proportion of public libraries have shut down due to online services.', 'Many people visit libraries for reasons other than borrowing books.', 'Some librarians argue that libraries ought to cease lending any books.'],
 a: 2, cue: 'people come not only for books but also for free internet access' },
 ] },
 ],

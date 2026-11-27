@@ -384,7 +384,7 @@ explain: 'Anh yêu cầu điền mẫu đơn và "show me some photo ID" → gi�
 items: [
 { n: 50, q: 'What kind of business do the speakers most likely work for?', options: ['A fine‑dining restaurant', 'A magazine publisher', 'A commercial printing firm', 'A holiday tour operator'], a: 1, cue: 'the June issue of the magazine',
 explain: 'Đáp án B đúng vì họ nói về \'the June issue of the magazine\', nghĩa là công việc liên quan đến tạp chí. Các lựa chọn A, C, D mô tả nhà hàng, công ty in ấn và công ty du lịch, không phù hợp với ngữ cảnh.' },
-{ n: 51, q: 'Why does Lena say the archive photos cannot be used?', options: ['They are too expensive to license.', 'The restaurants have changed their appearance.', 'The image quality is poor.', 'The photographer has not approved them.'], a: 1, cue: 'Most of those restaurants have been redecorated since then',
+{ n: 51, q: 'Why does Lena say the archive photos cannot be used?', options: ['They are unavailable due to copyright restrictions.', 'The restaurants have changed their appearance.', 'The lighting in the photos is too dim.', 'The photographer refused to provide the originals.'], a: 1, cue: 'Most of those restaurants have been redecorated since then',
 explain: 'Các nhà hàng "have been redecorated" – đã trang trí lại – nên ảnh cũ không còn chính xác → nhà hàng đã thay đổi diện mạo.' },
 { n: 52, q: 'What does Jasper offer to do?', options: ['Take some photographs', 'Edit the article', 'Contact the printer', 'Visit the photographer'], a: 0, cue: 'I could go down to the harbor tomorrow morning while the light is good.',
 explain: 'Jasper từng chụp ảnh cho tạp chí và đề nghị ra bến cảng sáng mai để chụp → tự chụp ảnh. Gọi cho nhà hàng là việc của Lena.' },

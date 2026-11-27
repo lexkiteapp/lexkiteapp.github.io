@@ -25,147 +25,147 @@
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 7.4,
+  "longestIsAnswerPct": 7,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
  "GRAMMAR": {
-  "items": 1320,
+  "items": 2244,
   "levels": {
-   "A2": 168,
-   "B1": 360,
-   "B2": 324,
-   "C1": 168,
+   "A2": 336,
+   "B1": 720,
+   "B2": 648,
+   "C1": 240,
    "A1": 180,
    "C2": 120
   },
   "kinds": {
-   "—": 1320
+   "—": 2244
   },
   "answerPos": [
-   24.7,
-   25.2,
-   24.8,
-   25.3
+   24.6,
+   28.1,
+   24.9,
+   22.4
   ],
-  "posSkew": 0.6,
+  "posSkew": 5.7,
   "noExplainPct": 0,
-  "shortExplainPct": 0.2,
-  "explainNotMentionAnsPct": 37.7,
-  "templatedExplainPct": 0,
-  "duplicateExplainPct": 0,
-  "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 2.9,
-  "dupOptionPct": 2,
+  "shortExplainPct": 13,
+  "explainNotMentionAnsPct": 46.7,
+  "templatedExplainPct": 3.3,
+  "duplicateExplainPct": 1.9,
+  "duplicateQuestionPct": 35.8,
+  "longestIsAnswerPct": 4.1,
+  "dupOptionPct": 2.3,
   "allAbovePct": 0
  },
  "TOEIC.reading": {
-  "items": 1000,
+  "items": 1490,
   "levels": {
-   "—": 1000
+   "—": 1490
   },
   "kinds": {
-   "—": 1000
+   "—": 1490
   },
   "answerPos": [
-   24.9,
-   25.2,
-   24.9,
+   24.6,
+   25.5,
+   24.8,
    25
   ],
-  "posSkew": 0.3,
+  "posSkew": 0.9,
   "noExplainPct": 0,
-  "shortExplainPct": 0,
-  "explainNotMentionAnsPct": 42.6,
-  "templatedExplainPct": 4.4,
-  "duplicateExplainPct": 0,
-  "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 6.5,
+  "shortExplainPct": 0.1,
+  "explainNotMentionAnsPct": 39,
+  "templatedExplainPct": 9.9,
+  "duplicateExplainPct": 29.7,
+  "duplicateQuestionPct": 19.7,
+  "longestIsAnswerPct": 9.5,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
  "TOEIC.listening": {
-  "items": 1000,
+  "items": 1294,
   "levels": {
-   "—": 1000
+   "—": 1294
   },
   "kinds": {
-   "—": 1000
+   "—": 1294
   },
   "answerPos": [
-   26.5,
-   27.1,
+   26.6,
+   28,
    27.3,
-   19.1
+   18.2
   ],
-  "posSkew": 1.2,
+  "posSkew": 1.4,
   "noExplainPct": 0,
   "shortExplainPct": 0,
-  "explainNotMentionAnsPct": 67.9,
-  "templatedExplainPct": 12.8,
-  "duplicateExplainPct": 0,
-  "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 6.6,
+  "explainNotMentionAnsPct": 64.9,
+  "templatedExplainPct": 16.2,
+  "duplicateExplainPct": 19.8,
+  "duplicateQuestionPct": 11.4,
+  "longestIsAnswerPct": 8.8,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
  "TOEFL.reading": {
-  "items": 300,
+  "items": 390,
   "levels": {
-   "—": 300
+   "—": 390
   },
   "kinds": {
-   "—": 94,
-   "factual": 68,
-   "vocab": 39,
-   "negative": 22,
-   "purpose": 37,
-   "inference": 35,
+   "—": 124,
+   "factual": 90,
+   "vocab": 51,
+   "negative": 28,
+   "purpose": 46,
+   "inference": 46,
    "function": 3,
    "main": 1,
    "organization": 1
   },
   "answerPos": [
-   25,
-   25.3,
-   24.7,
-   25
+   24.9,
+   25.1,
+   24.9,
+   25.1
   ],
-  "posSkew": 0.7,
+  "posSkew": 0.3,
   "noExplainPct": 0,
   "shortExplainPct": 0,
-  "explainNotMentionAnsPct": 83.7,
-  "templatedExplainPct": 4,
-  "duplicateExplainPct": 0,
-  "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 2,
+  "explainNotMentionAnsPct": 84.1,
+  "templatedExplainPct": 8.2,
+  "duplicateExplainPct": 22.3,
+  "duplicateQuestionPct": 11.3,
+  "longestIsAnswerPct": 12.6,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
  "TOEFL.listening": {
-  "items": 470,
+  "items": 566,
   "levels": {
-   "—": 470
+   "—": 566
   },
   "kinds": {
-   "—": 457,
+   "—": 553,
    "inference": 10,
    "purpose": 3
   },
   "answerPos": [
-   24.3,
-   25.5,
+   24.2,
+   25.4,
    25.3,
-   24.9
+   25.1
   ],
-  "posSkew": 1.3,
+  "posSkew": 1.2,
   "noExplainPct": 0,
   "shortExplainPct": 0,
-  "explainNotMentionAnsPct": 95.1,
-  "templatedExplainPct": 0,
-  "duplicateExplainPct": 0,
-  "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 10.2,
+  "explainNotMentionAnsPct": 95.9,
+  "templatedExplainPct": 3.4,
+  "duplicateExplainPct": 15.5,
+  "duplicateQuestionPct": 10.2,
+  "longestIsAnswerPct": 16.4,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -192,35 +192,35 @@
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 9.5,
+  "longestIsAnswerPct": 6,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
  "LISTENING": {
-  "items": 177,
+  "items": 191,
   "levels": {
    "B1": 7,
-   "B1+": 86,
-   "B2": 80,
+   "B1+": 91,
+   "B2": 89,
    "B2–C1": 4
   },
   "kinds": {
-   "—": 177
+   "—": 191
   },
   "answerPos": [
-   33.3,
-   33.3,
-   33.3,
+   32.5,
+   35.1,
+   32.5,
    0
   ],
-  "posSkew": 0,
+  "posSkew": 2.6,
   "noExplainPct": 0,
   "shortExplainPct": 0,
-  "explainNotMentionAnsPct": 88.1,
+  "explainNotMentionAnsPct": 89,
   "templatedExplainPct": 0,
-  "duplicateExplainPct": 0,
-  "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 6.8,
+  "duplicateExplainPct": 5.8,
+  "duplicateQuestionPct": 6.3,
+  "longestIsAnswerPct": 7.9,
   "dupOptionPct": 0,
   "allAbovePct": 0
  },
@@ -254,7 +254,7 @@
   "templatedExplainPct": 0,
   "duplicateExplainPct": 0,
   "duplicateQuestionPct": 0,
-  "longestIsAnswerPct": 3.8,
+  "longestIsAnswerPct": 3.3,
   "dupOptionPct": 0,
   "allAbovePct": 0
  }

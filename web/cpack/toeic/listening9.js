@@ -355,7 +355,7 @@ explain: "Cô nói \"I'll prepare a revised schedule this afternoon\" (chiều n
 items: [
 { n: 41, lv: "B2", q: "What are the speakers preparing for?", options: ["A client presentation", "A product rollout", "A team workshop", "A hiring interview"], a: 0, cue: "the pitch to Brightleaf Organics is tomorrow at ten",
 explain: "Priya nói \"the pitch to Brightleaf Organics is tomorrow at ten\" (buổi thuyết trình chào hàng cho Brightleaf Organics vào 10 giờ sáng mai) → họ chuẩn bị một bài thuyết trình cho khách hàng." },
-{ n: 42, lv: "B2", q: "What problem does Jerome mention?", options: ["A client canceled a meeting.", "A deadline has been moved.", "Some ads will cost more than expected.", "Some slides are missing."], a: 2, cue: "that costs more than we estimated",
+{ n: 42, lv: "B2", q: "What problem does Jerome mention?", options: ["A client postponed the scheduled meeting.", "The project deadline has been extended.", "Some ads will cost more than expected.", "Several presentation slides are still absent."], a: 2, cue: "that costs more than we estimated",
 explain: "Jerome nói quảng cáo ba ngôn ngữ \"costs more than we estimated\" (tốn hơn dự tính), khoảng 8%. Slide chiến dịch đã xong; không có chuyện dời hạn hay hủy cuộc họp." },
 { n: 43, lv: "B2", q: "What does the woman tell Callum not to do?", options: ["Add a slide", "E-mail some files", "Revise the campaign", "Print some copies"], a: 3, cue: "Skip the printing.",
 explain: "Priya nói \"Skip the printing\" (khỏi in) vì khách thích nhận tệp qua e-mail. Việc thêm slide giải thích chi phí dịch thuật là việc cô nhờ anh làm." },
@@ -438,8 +438,8 @@ items: [
 explain: "Người đàn ông giải thích lý do chuyến đi là phải có mặt kịp hội nghị bắt đầu vào trưa mai (for a conference that begins at noon tomorrow)." },
 { n: 69, lv: "C1", q: "What does the woman imply when she says, \"Only forty minutes\"?", options: ["A trip will be shorter than expected.", "A connection could be difficult to make.", "A fee will be low.", "A layover is long enough for a meal."], a: 1, cue: "Only forty minutes.",
 explain: "Anh hỏi thời gian chờ nối chuyến; cô đáp \"Only forty minutes\" (chỉ 40 phút) → ngụ ý thời gian chờ ngắn nên có thể khó kịp. Anh sau đó nói không muốn lo về \"a tight connection\" (nối chuyến sát giờ)." },
-{ n: 70, lv: "B2", q: "What does the man want to know?", options: ["Whether a seat is available", "Where a train station is located", "Whether the airline will pay for a taxi", "How much a ticket costs"], a: 2, cue: "Will the airline also pay for a taxi to the station?",
-explain: "Anh chọn đi tàu và hỏi \"Will the airline also pay for a taxi to the station?\" (hãng có trả tiền taxi đến ga không). Vé tàu đã do hãng chi trả nên anh không hỏi giá vé." },
+{ n: 70, lv: "B2", q: "What does the man want to know?", options: ["Whether a seat is available", "Whether the train station is nearby", "Whether the airline will pay for a taxi", "Whether the ticket price includes taxes"], a: 2, cue: "Will the airline also pay for a taxi to the station?",
+explain: "C đúng vì người nói hỏi hãng có trả tiền taxi đến ga không. Các đáp án A, B, D đều dùng cấu trúc whether nhưng lại hỏi về chỗ ngồi, vị trí ga hoặc giá vé, không liên quan tới việc trả tiền taxi." },
 ] },
 ],
 vocab: [
@@ -579,7 +579,7 @@ explain: "Bà dặn cẩn thận khi đi cầu thang vì \"the floor is being po
 ] },
 { type: 'mcq', instr: g.TQL[33],
 items: [
-{ n: 83, lv: "B2", q: "What is the speaker mainly reviewing?", options: ["Results of some marketing campaigns", "Feedback from new employees", "Plans for a new office", "Changes to a sales policy"], a: 0, cue: "our email campaigns for Dunmore Bikes brought in leads at the lowest cost",
+{ n: 83, lv: "B2", q: "What is the speaker mainly reviewing?", options: ["Results of some marketing campaigns", "Comments from recently hired staff members", "Plans for building a new corporate office", "Changes to the sales process"], a: 0, cue: "our email campaigns for Dunmore Bikes brought in leads at the lowest cost",
 explain: "Người nói xem biểu đồ chi phí trên mỗi khách hàng tiềm năng của các kênh, bắt đầu bằng \"our email campaigns for Dunmore Bikes brought in leads at the lowest cost\" → đánh giá kết quả các chiến dịch tiếp thị của quý." },
 { n: 84, lv: "B2", q: "Look at the graphic. How much does a lead from the speaker's most surprising channel cost? [Cost per lead. Email: $4. Search ads: $6. Social video: $9. Print: $14.]", options: ["$4", "$14", "$6", "$9"], a: 1, cue: "The channel I'm most surprised by is print",
 explain: "Người nói nói kênh khiến ông ngạc nhiên nhất là \"print\" (in ấn), đắt gấp hơn ba lần email. Theo biểu đồ, chi phí mỗi khách hàng tiềm năng của in ấn là 14 đô la; 9 đô la là của video mạng xã hội." },
