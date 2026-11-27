@@ -143,8 +143,18 @@
    ""
   ],
   [
+   "competitive",
+   "competitive",
+   ""
+  ],
+  [
    "format",
    "format",
+   ""
+  ],
+  [
+   "confine",
+   "confine",
    ""
   ],
   [
@@ -158,8 +168,23 @@
    ""
   ],
   [
+   "organic",
+   "organic",
+   ""
+  ],
+  [
+   "captivity",
+   "captivity",
+   ""
+  ],
+  [
    "witty",
    "witty",
+   ""
+  ],
+  [
+   "underlie",
+   "underlie",
    ""
   ],
   [
@@ -213,33 +238,8 @@
    ""
   ],
   [
-   "mosaic",
-   "mosaic",
-   ""
-  ],
-  [
-   "tournament",
-   "tournament",
-   ""
-  ],
-  [
-   "welfare",
-   "welfare",
-   ""
-  ],
-  [
-   "eviction",
-   "eviction",
-   ""
-  ],
-  [
-   "legal",
-   "legal",
-   ""
-  ],
-  [
-   "magma",
-   "magma",
+   "epidemic",
+   "epidemic",
    ""
   ]
  ],
@@ -1719,6 +1719,11 @@
    "görünür"
   ],
   [
+   "advocate",
+   "advocate",
+   "savunmak"
+  ],
+  [
    "abandon",
    "abandon",
    "vazgeçmek"
@@ -1822,11 +1827,6 @@
    "commodity",
    "commodity",
    "emtia"
-  ],
-  [
-   "compensate",
-   "compensate",
-   "karşılamak"
   ]
  ]
 }
