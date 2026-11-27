@@ -111,7 +111,7 @@ If a patient's coverage cannot be confirmed, notify the billing office -----(138
               explain: 'Đoạn nói về quá khứ ("In the past ... was") → mệnh đề quan hệ chia quá khứ "caused" (đã gây ra). "causing" và "to cause" không làm động từ chính của mệnh đề quan hệ "which"; "will cause" là tương lai nên sai thì.' },
             { n: 137, q: '(137)', options: ['The new procedure should add very little time to each patient\'s check-in.', 'The clinic\'s parking garage will be closed for maintenance next month.', 'Dr. Menon is scheduled to attend a conference for two weeks in April.', 'Billing statements will now be mailed on a weekly basis.'], a: 0, cue: 'each check takes about two minutes', lv: 'C1',
               explain: 'Câu sau nói "each check takes about two minutes" (mỗi lần kiểm tra mất khoảng hai phút) → câu trống cần nêu ý chung rằng quy trình mới tốn ít thời gian: "should add very little time". Các câu về bãi đỗ xe, lịch nghỉ của bác sĩ và in hóa đơn màu đều lạc đề.' },
-            { n: 138, q: '(138)', options: ['swiftly', 'promptly', 'speedily', 'instantly'], a: 1, cue: 'notify the billing office', lv: 'B1',
+            { n: 138, q: '(138)', options: ['slowly', 'promptly', 'carefully', 'rarely'], a: 1, cue: 'notify the billing office', lv: 'B1',
               explain: 'Cần trạng từ bổ nghĩa cho động từ "notify" → "promptly" (kịp thời, ngay). "prompt" là tính từ/động từ; "promptness" là danh từ; "prompted" là phân từ.' }
           ] } ] },
         { title: 'Advertisement', lv: 'B1', text:

@@ -32,7 +32,7 @@
           explain: 'Đại từ quan hệ thay cho danh từ chỉ người "The technician" và làm chủ ngữ cho "repaired" → "who". "which" dùng cho vật; "whose" chỉ sở hữu, phải đi kèm danh từ; "whom" làm tân ngữ, không làm chủ ngữ.' },
         { n: 113, q: '------- of the apartments in the new building has a private balcony.', options: ['All', 'Each', 'Every', 'Both'], a: 1, cue: 'has a private balcony',
           explain: '"Each of + danh từ số nhiều" đi với động từ số ít "has" → "Each" (mỗi căn hộ). "All of" và "Both of" đi với động từ số nhiều (have); "Every" không đứng trước "of".' },
-        { n: 114, q: 'The real estate agent described the neighborhood as quiet and ------- located near public transportation.', options: ['readily', 'safely', 'conveniently', 'effectively'], a: 2, cue: '------- located',
+        { n: 114, q: 'The real estate agent described the neighborhood as quiet and ------- located near public transportation.', options: ['easily', 'quietly', 'conveniently', 'efficiently'], a: 2, cue: '------- located',
           explain: 'Cần trạng từ bổ nghĩa cho phân từ "located" → "conveniently located" (ở vị trí thuận tiện). "convenient" là tính từ; "convenience/conveniences" là danh từ.' },
         { n: 115, q: 'Please ------- the attached invoice and let us know if you notice any errors.', options: ['review', 'reply', 'respond', 'remark'], a: 0, cue: '------- the attached invoice',
           explain: '"review the invoice" = xem lại, kiểm tra hóa đơn – hợp với vế sau "let us know if you notice any errors". "reply" và "respond" là nội động từ, cần "to" trước tân ngữ; "remark" (nhận xét) không hợp nghĩa.' },
@@ -83,8 +83,8 @@ On Saturday, February 21, Lumacrest Cloud will perform scheduled maintenance on 
 
 We will send you a confirmation e-mail -----(134)----- the maintenance has been completed. We apologize for any inconvenience.`,
           groups: [ { type: 'mcq', instr: g.TQR[12], items: [
-            { n: 131, q: '(131)', options: ['approximately', 'to the exact hour', 'precisely', 'generally'], a: 0, cue: 'four hours. During this time',
-              explain: 'Cần trạng từ bổ nghĩa cho số lượng "four hours" → "approximately" (khoảng chừng). "approximate" là tính từ/động từ; "approximation" là danh từ; "approximated" là phân từ.' },
+            { n: 131, q: '(131)', options: ['approximately', 'to the nearest minute', 'exactly', 'usually'], a: 0, cue: 'four hours. During this time',
+              explain: 'Cần trạng từ chỉ mức độ ước lượng cho "four hours" → "approximately" là đúng; các lựa chọn còn lại diễn tả độ chính xác hoặc tần suất, không phù hợp với ngữ cảnh ước lượng thời gian.' },
             { n: 132, q: '(132)', options: ['Our headquarters relocated earlier this quarter.', 'Fees are expected to rise soon.', 'All of your stored files will remain safe.', 'Kindly revise your contact information.'], a: 2, cue: 'However, any changes made in the hour before the maintenance begins may not be saved.',
               explain: 'Câu sau mở đầu bằng "However" và nói về rủi ro (thay đổi trong một giờ trước bảo trì có thể không được lưu) → câu trước phải là thông tin trấn an trái ngược: "All of your stored files will remain safe" (mọi tệp đã lưu vẫn an toàn). Các câu về văn phòng mới, tăng giá hay địa chỉ thanh toán lạc đề.' },
             { n: 133, q: '(133)', options: ['will save', 'saved', 'saving', 'save'], a: 3, cue: 'We strongly recommend that you',
@@ -371,7 +371,7 @@ I dropped the package off at your Bayliss Road counter myself, so no pickup fee 
 Elowen Tregenza
 Tregenza Print Works`,
           groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following rate table and e-mail.', items: [
-            { n: 176, q: 'Which service did Ms. Tregenza most likely use?', options: ['Standard Express', 'Economy Plus', 'Priority Economy', 'Priority Plus'], a: 3, cue: 'I chose next-day delivery by 10:00 A.M.',
+            { n: 176, q: 'Which service did Ms. Tregenza most likely use?', options: ['Standard Plus', 'Economy Express', 'Priority Basic', 'Priority Plus'], a: 3, cue: 'I chose next-day delivery by 10:00 A.M.',
               explain: 'Kết hợp hai văn bản: cô chọn "next-day delivery by 10:00 A.M." (giao ngày hôm sau trước 10 giờ sáng), khớp với dịch vụ "Priority Plus" trong bảng giá. "Priority" cũng giao ngày hôm sau nhưng không cam kết trước 10 giờ – bẫy.' },
             { n: 177, q: 'What problem does Ms. Tregenza describe?', options: ['A driver did not pick up a package.', 'A package was sent to the wrong city.', 'Some brochures were damaged.', 'A package arrived later than promised.'], a: 3, cue: 'the package was not delivered until 3:40 P.M. on March 3',
               explain: 'Gói hàng lẽ ra đến trước 10 giờ sáng nhưng "was not delivered until 3:40 P.M." (mãi 3 giờ 40 chiều mới giao) → giao trễ hơn cam kết. Cô tự mang hàng đến quầy nên không có chuyện tài xế không đến lấy; hàng không bị gửi nhầm hay hư hỏng.' },
@@ -589,7 +589,7 @@ Oluwaseun Balogun`,
               explain: 'Quảng cáo ghi "a one-time setup fee of $50 for each new logo design" (phí thiết lập một lần $50 cho mỗi mẫu logo mới) → công ty thu phí một lần cho mỗi logo. Sản xuất nhanh 5 ngày phải trả thêm $75; công ty bán cả áo polo và mũ; không nhắc đến miễn phí vận chuyển.' },
             { n: 197, q: 'By how much should the total on the order form most likely be reduced?', options: ['$60.00', '$200.00', '$157.50', '$300.00'], a: 2, cue: 'Orders of 50 or more garments receive 15 percent off the price of the garments.',
               explain: 'Đáp án đúng là $157.50 vì giảm 15 % áp dụng cho giá của 60 món áo/quần ( $1,050 ), cho ra $157.50. Các khoản khác không tính đúng phần giảm; ví dụ $60.00 chỉ là một phần rất nhỏ và không phản ánh mức chiết khấu 15 % trên tổng giá áo/quần.' },
-            { n: 198, q: "What will Threadmark most likely add to Pebblestone's invoice?", options: ['An extra $30 charge for expedited shipping', 'A $5 per-item fee for additional buttons', 'A $75 fee for express production', 'A $15 surcharge for rush order paperwork'], a: 2, cue: 'please upgrade it to express production and add the charge to our invoice',
+            { n: 198, q: "What will Threadmark most likely add to Pebblestone's invoice?", options: ['A $40 charge for standard delivery', 'A $10 per-item fee for extra logos', 'A $75 fee for express production', 'A $20 surcharge for priority handling'], a: 2, cue: 'please upgrade it to express production and add the charge to our invoice',
               explain: 'Kết hợp ba văn bản: đặt hàng thứ Hai 6/4 với sản xuất tiêu chuẩn 10 ngày làm việc → xong khoảng 20/4, muộn hơn ngày khai trương 16/4. Vì vậy theo yêu cầu trong e-mail, đơn sẽ được nâng lên sản xuất nhanh (5 ngày làm việc, xong khoảng 13/4) với phụ phí $75 ghi trong quảng cáo. Các khoản khác không được yêu cầu.' },
             { n: 199, q: 'In the e-mail, the word "reflect" in paragraph 1, line 2, is closest in meaning to', options: ['consider', 'copy', 'return', 'show'], a: 3, cue: 'the total did not reflect the discount advertised for large orders',
               explain: '"the total did not reflect the discount" nghĩa là tổng tiền không thể hiện khoản giảm giá → "reflect" = "show" (thể hiện). Nghĩa "suy ngẫm", "phản chiếu ánh sáng", "sao chép" không phù hợp khi nói về con số trên hóa đơn.' },
