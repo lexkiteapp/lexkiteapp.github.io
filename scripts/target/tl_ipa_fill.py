@@ -89,7 +89,12 @@ if '--pron' in sys.argv:
         s = nrm(s).replace('g', 'ɡ'); return re.sub('y(?=[' + PV + '])', 'ɥ', s)
     P = json.load(open(os.path.join(ROOT, 'content', 'target', TL, 'pron.json')))['ipa']; ws = list(P)
     # Ngoại lệ ghi tay CÓ LÝ DO (như EXCEPT của conj-check): chỉ miễn khi espeak in ĐÚNG dạng sai đã ghi – espeak đổi thì lại đỏ để xem lại
-    EXCEPT = {'fr': {'jeune': ('ʒøn', 'espeak-ng fr-fr đọc /ø/; chuẩn Pháp /ʒœn/ (Wiktionary fr: ʒœn) – cặp jeu/jeune là đúng đối lập ø ⟂ œ của bài')}}.get(TL, {})
+    EXCEPT = {'fr': {'jeune': ('ʒøn', 'espeak-ng fr-fr đọc /ø/; chuẩn Pháp /ʒœn/ (Wiktionary fr: ʒœn) – cặp jeu/jeune là đúng đối lập ø ⟂ œ của bài'),
+        # espeak-ng fr-fr đọc gn thành /nj/ (hoặc /n/); chuẩn Pháp /ɲ/ (Wiktionary fr) – chủ đề 'gn' dạy đúng đối lập ɲ ⟂ n
+        'agneau': ('anjo', 'espeak /nj/; chuẩn /aɲo/ (Wiktionary fr)'), 'gagner': ('ɡanje', 'espeak /nj/; chuẩn /ɡaɲe/ (Wiktionary fr)'),
+        'compagnie': ('kɔ̃pani', 'espeak mất /ɲ/; chuẩn /kɔ̃paɲi/ (Wiktionary fr)'), 'champignon': ('ʃɑ̃pinjɔ̃', 'espeak /nj/; chuẩn /ʃɑ̃piɲɔ̃/ (Wiktionary fr)'),
+        'fils': ('fil', 'espeak nhầm với fil (sợi chỉ); fils (con trai) chuẩn /fis/ (Wiktionary fr) – cặp fils/fil của bài phụ âm cuối'),
+        'le hall': ('lə(en)hɔːl(fr)', 'espeak đổi sang tiếng Anh; chuẩn Pháp /lə ol/, h aspiré không lược âm (Wiktionary fr: hall /ol/)')}}.get(TL, {})
     gs = be.phonemize(ws, strip=True); bad = [(w, P[w], g) for w, g in zip(ws, gs) if pn(P[w]) != pn(g) and not (w in EXCEPT and pn(g) == pn(EXCEPT[w][0]))]
     for w in EXCEPT: print(f'⚑ ngoại lệ {w}: {EXCEPT[w][1]}')
     out = f'## IPA bài phát âm {TL} ↔ espeak-ng {C["espeak"]}: {len(ws) - len(bad)}/{len(ws)} khớp'
