@@ -15,6 +15,12 @@ const t = rank(rows); ok(t.length === 2 && t[0].id === 'b' && t[0].prio === 100,
 ok(overall(rows, 'lexkite') === 78, 'overall: trung bình có trọng số, bỏ null');
 const fl = raiseFloors({ a: 60, b: 10 }, rows); ok(fl.a === 60 && fl.b === 80 && fl.c === 100 && !('d' in fl), 'raiseFloors: chỉ tăng');
 ok(checkFloors({ a: 60, d: 5 }, rows).length === 2 && !checkFloors({ a: 50 }, rows).length, 'checkFloors: dưới sàn + mất số đo đều trượt');
+// 26/11 (#2328): trục có noise nâng theo TRUNG VỊ 5 mẫu gần nhất, không theo một mẫu may; < 3 mẫu thì chưa nâng; trục tất định nâng ngay; không bao giờ hạ
+{ const seen = {}, rw = v => [{ id: 'perf', lexkite: v }, { id: 'a', lexkite: v }]; let f = { perf: 97 };
+  for (const v of [99, 95, 95]) f = raiseFloors(f, rw(v), seen);
+  ok(f.perf === 97 && f.a === 99, 'noise: [99,95,95] → trung vị 95 − 2 = 93 < sàn 97 giữ 97; trục tất định (a) nâng ngay theo mẫu cao nhất');
+  let g = {}; const s2 = {}; g = raiseFloors(g, [{ id: 'perf', lexkite: 99 }], s2); ok(g.perf === undefined, 'noise: 1 mẫu may (99) chưa đủ để nâng sàn');
+  for (const v of [98, 99]) g = raiseFloors(g, [{ id: 'perf', lexkite: v }], s2); ok(g.perf === 97, 'noise: [99,98,99] → trung vị 99 − 2 = 97'); }
 // trục hợp lệ
 const A = JSON.parse(fs.readFileSync(AXES, 'utf8'));
 for (const a of A.axes) ok(a.id && a.name && a.target > 0 && a.target <= 100 && a.impact >= 1 && a.impact <= 5 && a.cost >= 1 && a.cost <= 5 && a.weight > 0 && a.duolingo, `trục ${a.id}: thiếu/sai trường`);

@@ -3,6 +3,7 @@
 // Dùng: node scripts/world-scorecard.mjs [--write] [--check] [--raise]
 //   --write: ghi content/pipeline/WORLD.md + khối Top 10 trong docs/UX-BENCHMARK.md   --check: thoát 1 nếu trục nào < sàn (content/pipeline/world.budget.json)
 //   --raise: nâng sàn lên điểm mới (chỉ tăng; trục dao động trừ "noise")
+import { sample } from './lib/floor-seen.mjs';
 import fs from 'node:fs';
 import { dataFiles } from './lib/scan-roots.mjs';
 import path from 'node:path';
@@ -39,7 +40,15 @@ export function rank(rows, n = 10) { // Top khoảng cách theo tác động/chi
   return rows.filter(r => r.gap > 0).map(r => ({ ...r, prio: r1(r.gap * r.impact / r.cost) })).sort((a, b) => b.prio - a.prio || b.gap - a.gap).slice(0, n);
 }
 export function overall(rows, key) { let s = 0, w = 0; for (const r of rows) if (r[key] != null) { s += r[key] * r.weight; w += r.weight; } return w ? r1(s / w) : null; }
-export function raiseFloors(floors, rows) { const o = { ...floors }; for (const r of rows) if (r.lexkite != null) o[r.id] = Math.max(o[r.id] ?? 0, r1(r.lexkite - (NOISE[r.id] || 0))); return o; }
+export function raiseFloors(floors, rows, seen) { // seen (tuỳ chọn, đối tượng ghi tại chỗ): trục có NOISE nâng theo trung vị 5 lần đo gần nhất (scripts/lib/floor-seen.mjs)
+  const o = { ...floors };
+  for (const r of rows) if (r.lexkite != null) {
+    let v = r.lexkite;
+    if (seen) { const s = sample(seen, r.id, v, !!NOISE[r.id]); seen[r.id] = s.seen[r.id]; v = s.basis; }
+    if (v != null) o[r.id] = Math.max(o[r.id] ?? 0, r1(v - (NOISE[r.id] || 0)));
+  }
+  return o;
+}
 export function checkFloors(floors, rows) { const bad = []; for (const r of rows) { const f = floors[r.id]; if (f == null) continue; if (r.lexkite == null) bad.push(`${r.id}: mất số đo (sàn ${f})`); else if (r.lexkite + 1e-9 < f) bad.push(`${r.id}: ${r.lexkite} < sàn ${f}`); } return bad; }
 
 // ---------- đo từng trục (tĩnh, không mạng) ----------
@@ -150,7 +159,7 @@ export function topTable(rows) {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = new Set(process.argv.slice(2)), B = json(BUDGET) || { floors: {} };
   const res = build();
-  if (args.has('--raise')) { B.floors = raiseFloors(B.floors || {}, res.rows); fs.writeFileSync(P(BUDGET), JSON.stringify(B, null, 1) + '\n'); }
+  if (args.has('--raise')) { B.seen = B.seen || {}; B.floors = raiseFloors(B.floors || {}, res.rows, B.seen); fs.writeFileSync(P(BUDGET), JSON.stringify(B, null, 1) + '\n'); }
   const md = render(res, B.floors || {});
   if (args.has('--write')) {
     fs.writeFileSync(P(OUT), md);
