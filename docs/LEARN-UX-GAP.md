@@ -52,12 +52,12 @@ Mỗi mục: 1 PR, ship 100% + kill switch (cờ `vb.flag.*`), i18n 15 ngôn ng�
 | 2 | **Bài đầu 60 giây** trước setup: 5 thẻ nhận diện + 1 câu nói, rồi mới hỏi mục tiêu/trình độ | D1 | `ob_first_lesson_done`, D1 |
 | 3 | ~~Mục tiêu ngày tách khỏi streak + cường độ~~ → **ĐÃ CÓ trên main (kiểm 27/11 trên code):** chuỗi = có XP/ôn thẻ trong ngày (`Core.Stats.streak`, `retention.js` helpHtml) KHÔNG phụ thuộc `dailyGoal`; 3 cường độ nhẹ/đều/tăng tốc ở `onboard.js` + `GOALS` ở `retention.js`; đóng băng tự động; lời nhắc không dọa. **Còn lại (gộp vào #8):** mục tiêu đo bằng *lượt ôn* chứ chưa theo *phút/XP*; chưa có "sửa chuỗi bằng 1 bài ngắn" | – | – |
 | 4 | **Bài mini 3 phút** ("Ôn nhanh 3 phút"/"1 tình huống") ngay trên Hôm nay | D1–D7 người bận | `mini_start/done` |
-| 5 | **Hội thoại vào luồng ngày**: 1 tình huống 4–6 lượt nghe-hiểu + trả lời nói, thay "phần thưởng" tuỳ chọn | Đầu ra nói | `dialog_done`, điểm nói |
-| 6 | **Ôn sửa lỗi cuối bài**: câu sai trong lượt hiện lại 1 lần ở cuối (xen kẽ), tính vào SRS | Giữ nhớ, cảm giác tiến bộ | tỉ lệ đúng lần 2 |
+| 5 | ~~Hội thoại vào luồng ngày~~ → **ĐÃ CÓ:** `tracks.js` đặt "Hội thoại ngắn"/"Cuộc gọi luyện nói" vào Ngày N, màn nhận xét độ trôi chảy sau cuộc gọi, nút loa nghe lại. **Đã làm thêm (#2285):** chạm loa lần 2 = nói chậm. Còn: nghe-hiểu hội thoại ngắn có câu hỏi | – | – |
+| 6 | ~~Ôn sửa lỗi cuối bài~~ → **ĐÃ CÓ:** `lesson/engine.js` xếp lại câu sai (maxRetry 2), gắn nhãn "↺ Lỗi cũ", câu sai ghi vào SRS | – | – |
 | 7 | **Thích ứng giữa các ngày**: ước năng lực theo kỹ năng (nghe/đọc/nói/viết) từ log câu → chọn độ khó/dạng ngày kế (Birdbrain-lite, logistic nhẹ client-side) | D7, đầu ra | `acc_by_skill`, drop-off bài |
 | 8 | **Màn "tiến bộ cụ thể"**: "tuần này nhớ N từ · nói được M câu mới", biểu đồ 7 ngày | D7 | `progress_view` → quay lại |
-| 9 | **Giải thích mọi câu sai** theo loại lỗi (chính tả/nghĩa/từ loại/nghe) bằng mẫu + dữ liệu có sẵn, không cần note riêng | Phản hồi | `explain_open` |
-| 10 | **Haptic + âm nhịp tiến độ + reduced-motion audit** (nhẹ, tắt được) | Cảm giác "sướng" | `fx_off_rate` |
+| 9 | ~~Giải thích mọi câu sai~~ → **ĐÃ CÓ:** nút "Vì sao?" (`lesson/ui.js` explain) + 💡 Hiểu sâu. Còn: kiểm độ phủ theo loại lỗi (chính tả/nghĩa/từ loại/nghe) bằng walkthrough | – | – |
+| 10 | ~~Haptic + âm + reduced-motion~~ → **ĐÃ CÓ:** `game.js` HAPTIC/buzz (chỉ chạm, tôn trọng tắt tiếng), 115 chỗ prefers-reduced-motion. Còn: kiểm bằng walkthrough | – | – |
 
 Ghi chú: "sửa chuỗi nhẹ" (đứt chuỗi → khôi phục bằng 1 bài ngắn, không phạt) đưa vào PR #3 nếu còn dư ngân sách; theo Decision Lab, tránh gây áp lực.
 
@@ -66,3 +66,6 @@ Sự kiện retention tối thiểu (ẩn danh, đã có `core` tracking cần k
 
 ## 5. Luật mọi PR
 Không cắt tính năng/test/ngưỡng; i18n 15 ngôn ngữ; ngân sách khung ≤ 380 KB gz (lazy); visual-qa + learn-flow xanh; nhân vật 2D + Stitch DS của mình; không chép tài sản Duolingo.
+
+## 6. Cập nhật 27/11 – đối chiếu với main
+Top 10 viết khi chưa soát main; sau soát: #3, #5, #6, #9, #10 đã có (chỉ còn phần nhỏ ghi trên). **Việc thật còn lại:** #1 learn-walk (đo), #2 bài đầu 60 giây (#2281), #4 bài 3 phút (#2284), #5-nhỏ nói chậm (#2285), **#7 thích ứng giữa các ngày** (chưa có ước năng lực theo kỹ năng: `git grep` không thấy), **#8 màn tiến bộ cụ thể** (chỉ có lịch tuần; thiếu "nhớ N từ tuần này"), mục tiêu ngày theo phút/XP. Bài học: luôn `git grep` main trước khi viết PR.
