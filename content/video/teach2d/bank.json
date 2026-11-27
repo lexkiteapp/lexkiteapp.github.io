@@ -16094,16 +16094,64 @@
    "tries": 2
   },
   "t2a_review_responsibility": {
-   "run": "45903311922",
-   "at": "2026-11-26T22:21Z",
-   "score": {},
-   "sha": {},
-   "why": [
-    "short: no render",
-    "wide: no render"
-   ],
-   "state": "failed",
+   "run": "45910739827",
+   "at": "2026-11-27T00:05Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "5922e8cf52d4bd32",
+    "wide": "8a267b0f071858c2"
+   },
+   "why": [],
+   "state": "banked",
    "tries": 1
+  },
+  "t2a_review_retire": {
+   "run": "45910739827",
+   "at": "2026-11-27T00:05Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "e2f6ed20d49db40d",
+    "wide": "23f4eb6eb6ea97bf"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_revise": {
+   "run": "45910739827",
+   "at": "2026-11-27T00:05Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "4d1477b8388bb11f",
+    "wide": "83dab92b6860e918"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_risk": {
+   "run": "45910739827",
+   "at": "2026-11-27T00:05Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "70b17857db9e0cc9",
+    "wide": "68925932a6515f4f"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
   },
   "t2a_stress_artistic": {
    "run": "42534524390",
