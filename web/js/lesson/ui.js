@@ -685,6 +685,9 @@
     // Ngày mai: từ đến hạn tới hết mai; tắt khẩn config ret_tmr='0'
     let tmr = ''; try { if (!L.demo && !/"ret_tmr":"0"/.test(ls.get('lk.cfg') || '')) { const e = new Date(); e.setDate(e.getDate() + 1); e.setHours(23, 59, 59); const n = Object.values(state.cards).filter(c => c.srs && (c.srs.reps || c.srs.last) && c.srs.due <= +e).length;
       tmr = `<span class="${ROW} font-medium lsn-tmr"><span class="inline-flex items-start gap-1">${ic('event')}<span>${esc(n ? t('Ngày mai ôn {n} từ để nhớ lâu', { n }) : t('Ngày mai: bài tiếp theo đã sẵn sàng'))}</span></span></span>`; } } catch (x) { /**/ }
+    // 🎯 Mục tiêu ngày (tách khỏi chuỗi): lượt ôn hôm nay / dailyGoal; đạt → lời mừng riêng. Tắt: localStorage vb.noGoalEnd = '1'
+    let gl = ''; try { if (!L.demo && ls.get('vb.noGoalEnd') !== '1') { const goal = +(state.settings || {}).dailyGoal || 0, now = ((state.stats || {}).days || {})[Core.todayKey()] || 0;
+      if (goal > 0) gl = `<span class="${ROW} font-medium lsn-goal"><span class="inline-flex items-start gap-1">${ic(now >= goal ? 'task_alt' : 'flag')}<span>${esc(now >= goal ? t('Bạn đã đạt mục tiêu hôm nay!') : t('Mục tiêu hôm nay: {a}/{b} lượt ôn', { a: now, b: goal }))}</span></span></span>`; } } catch (x) { /**/ }
     // 🌱 Tiến bộ cụ thể: số từ thêm trong 7 ngày qua mà độ nhớ hiện ≥ 80 % (chỉ hiện khi ≥ 3 từ, tránh số nhỏ nản); tắt: localStorage vb.noWeekWords = '1'
     let wkw = ''; try { if (!L.demo && ls.get('vb.noWeekWords') !== '1') { const from = Date.now() - 7 * 864e5, n = Object.values(state.cards).filter(c => c.srs && c.srs.reps > 0 && (c.added || 0) >= from && Core.SRS.retention(c.srs) >= 0.8).length;
       if (n >= 3) wkw = `<span class="${ROW} font-medium lsn-wkw"><span class="inline-flex items-start gap-1">${ic('event')}<span>${esc(t('Tuần này bạn đã nhớ {n} từ mới', { n }))}</span></span></span>`; } } catch (x) { /**/ }
@@ -709,7 +712,7 @@
       off2: Math.round(144.51 * (1 - (w.length ? got / w.length : 1)) * 100) / 100,
       sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'),
       learned: ' ',
-      more: more + wkw + tmr,
+      more: more + gl + wkw + tmr,
       wl: w,
       rev: weak.length ? t('Sổ lỗi sai') : t('Bản đồ bài học'),
       revIcon: weak.length ? 'edit_note' : 'map',
