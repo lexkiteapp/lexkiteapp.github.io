@@ -30,12 +30,15 @@ Nguồn: `reports/seo/gsc-2026-11-17.{md,json}` (sc-domain:lexkite.com, 18/10→
 | 16/11 (gốc) | 2,5 | 2.881 | – | 33,8 | – |
 | 22/11 (đo) | 3,2 (89/28 ngày) | – | 1,2 % mẫu (≈ 156 ước tính; 69 % Google chưa biết) | 33,7 | #1805, #1806, #1815 live |
 | 23/11 (đo) | 3,3 (92/28 ngày) | – | 0,3 % mẫu (≈ 12): **nhiễu mẫu, không phải tụt** – 4/343 → 1/344 URL trúng; bấm 89→92, trang hiển thị không giảm | 33,7 | máy gác thêm kiểm định z ≥ 3 |
+| 27/11 (đo) | 3,1 (88/28 ngày; 76 là trang chủ, FR 21) | 126 trang trong top 500 (hiển thị 388) | 0,3 % mẫu (79/21.077): *unknown* 77 % · *crawled – not indexed* 22 % · *discovered* 1 % | 18,8 | #2267 live: máy gác so theo bấm, seo-gsc xanh |
 | 30/11 | 4 | 3.600 | ≥ 3 % mẫu, "unknown" ≤ 60 % | 31 | lô làm giàu theo dictQueue |
 | 07/12 | 6 | 4.000 | ≥ 5 %, "unknown" ≤ 50 % | 29 | th/ar hạng 8–12 → ≤ 7 (20 trang) |
 | 21/12 | 10 | 5.000 | ≥ 10 % | 26 | 2 cụm bài GSC (a) mỗi ngôn ngữ th/ar/vi |
 | 18/01 | 25 | 7.000 | ≥ 20 % | 22 | backlink edu/cộng đồng ≥ 15 nơi live |
 | 15/03 | 100 | 10.000 | ≥ 50 % URL sitemap | 18 | – |
 Lệch ≥ 25 % so với mục tiêu 2 tuần liền thì xem lại đòn bẩy ở §3, không hạ mục tiêu. Máy gác (§4) đỏ khi số **tụt**, không phải khi chậm.
+
+> **Đo 27/11 – hiển thị 10.570 → 388 là đỉnh 24–25/10 trôi khỏi cửa sổ 28 ngày, không phải mất index:** bấm 26 → 88 (CTR 0,3 → 22,7 %); 29 trang /ar|th/words hiển thị 31–92 → 0 nhưng vẫn `indexable` + trong sitemap (Google thử rồi rút). Máy gác cũ đỏ nhầm; #2267 chỉ báo khi **bấm** tụt. **Số thật cần nhìn: 79/21.077 index, 77 % Google chưa biết URL, 22 % đã thu thập mà không index** → nghẽn ở khám phá + uy tín, không phải kỹ thuật (hub `/<lang>/words/` đã liên kết mọi trang; sitemap 0 lỗi). Đòn bẩy kế: L6 backlink hợp lệ và L7 liên kết từ trang đã index (trang chủ hạng 4, 76 bấm) tới trang từ index được; không thêm trang mới cho tới khi tỉ lệ index ≥ 3 %.
 
 > Nguyên nhân #1944 (24/11): mẫu URL Inspection đổi theo ngày (seed = ngày) và mới ~1 % URL được index → 1–4 URL trúng/344 làm ước tính nhảy 156 ↔ 12. Không có noindex/canonical/sitemap lỗi (live-audit xanh, bấm không giảm). `index-coverage.mjs › alerts` giờ chỉ báo khi tỉ lệ index tụt có ý nghĩa thống kê (z ≥ 3). Tỉ lệ index chỉ đọc theo xu hướng ≥ 3 tuần, không theo từng ngày.
 
