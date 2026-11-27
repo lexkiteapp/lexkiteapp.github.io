@@ -208,6 +208,18 @@
       "expectLink": "doi.org",
       "expectedRel": "unknown",
       "notes": "CC BY worksheet (10 pairs + answer key) adapted from the dataset; source line links the Zenodo DOI. Published by owner after the form bug; anonymous curl gets 403 (bot protection or under review). APPROVED by OER Commons 27/10 (catalogued, shared site-wide)."
+    },
+    {
+      "id": "github-awesome-language-learning",
+      "platform": "GitHub awesome-language-learning (IgnacioLD)",
+      "type": "pr",
+      "url": "https://github.com/IgnacioLD/awesome-language-learning/pull/54",
+      "account": "lexkiteapp",
+      "submittedAt": "2026-11-27",
+      "status": "pending",
+      "expectLink": "lexkite.com",
+      "expectedRel": "nofollow",
+      "notes": "PR #54: 1 dòng ở languages/english/README.md › Vocabulary › B2-C2 (cạnh Anki), có công bố liên kết. Repo đang merge PR quảng bá hằng ngày (26/11). Chờ maintainer; đóng/không merge → ghi removed."
     }
   ]
 }

@@ -6,7 +6,7 @@
     /* ================= PART 5 ================= */
     { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
-        { n: 101, q: 'The new accounting software will help the finance team process invoices more -------.', options: ['effective', 'effectiveness', 'effectivity', 'efficiently'], a: 3, cue: 'process invoices more',
+        { n: 101, q: 'The new accounting software will help the finance team process invoices more -------.', options: ['productive', 'productivity', 'efficacy', 'efficiently'], a: 3, cue: 'process invoices more',
           explain: 'Cần trạng từ bổ nghĩa cho động từ "process" (dạng so sánh hơn "more + trạng từ") → "efficiently" (một cách hiệu quả). "efficient" là tính từ; "efficiency/efficiencies" là danh từ.' },
         { n: 102, q: 'Ms. Okafor ------- the regional sales conference in Lisbon next month.', options: ['attended', 'has attended', 'was attending', 'will attend'], a: 3, cue: 'next month',
           explain: '"next month" (tháng sau) chỉ tương lai → "will attend". Các phương án còn lại là quá khứ đơn, hiện tại hoàn thành và quá khứ tiếp diễn – không đi với mốc thời gian tương lai.' },
@@ -36,7 +36,7 @@
           explain: 'So sánh trong nhóm từ ba đối tượng trở lên ("Of the three proposals") và có "the" → so sánh nhất "the most detailed". "more" dùng khi so sánh hai đối tượng.' },
         { n: 115, q: 'If the shipment ------- by Thursday, we will contact the supplier to request a refund.', options: ['will not arrive', 'does not arrive', 'did not arrive', 'not arriving'], a: 1, cue: 'we will contact',
           explain: 'Câu điều kiện loại 1: mệnh đề "If" dùng hiện tại đơn, mệnh đề chính dùng "will" → "does not arrive". Không dùng "will" trong mệnh đề If; "did not arrive" là loại 2; "not arriving" thiếu động từ chia.' },
-        { n: 116, q: 'The guided factory tour lasts ------- ninety minutes and includes a product demonstration.', options: ['approximately', 'estimated', 'estimation', 'calculated'], a: 0, cue: 'ninety minutes',
+        { n: 116, q: 'The guided factory tour lasts ------- ninety minutes and includes a product demonstration.', options: ['approximately', 'estimatedly', 'practically', 'calculatively'], a: 0, cue: 'ninety minutes',
           explain: 'Cần trạng từ bổ nghĩa cho số lượng "ninety minutes" → "approximately" (khoảng, xấp xỉ). "approximate" là tính từ/động từ; "approximation" là danh từ.' },
         { n: 117, q: 'Ms. Ferraro was promoted to senior editor in ------- of her outstanding work on the annual report.', options: ['regard', 'response', 'reference', 'recognition'], a: 3, cue: 'was promoted … outstanding work',
           explain: '"in recognition of" = để ghi nhận (thành tích) → hợp nghĩa thăng chức vì làm việc xuất sắc. "in regard to / in reference to / in response to" đều đi với "to", không đi với "of", và nghĩa cũng không phù hợp.' },
@@ -54,7 +54,7 @@
           explain: 'Logic điều kiện: NẾU trời mưa thì tổ chức trong nhà thi đấu → "if". "unless" (trừ khi) làm nghĩa ngược lại; "whereas" (trong khi đó) chỉ đối lập; "so" chỉ kết quả.' },
         { n: 124, q: 'Ms. Nakamura has worked at Ostrander Bank ------- she graduated from university in 2015.', options: ['for', 'since', 'during', 'when'], a: 1, cue: 'has worked',
           explain: 'Thì hiện tại hoàn thành + "since + mệnh đề quá khứ" (kể từ khi) → "since she graduated". "for" đi với khoảng thời gian; "during" đi với danh từ; "when" không dùng với hiện tại hoàn thành để chỉ mốc bắt đầu.' },
-        { n: 125, q: 'Before signing the lease, tenants should read the terms and conditions -------.', options: ['thoroughly', 'thoroughness', 'thorough', 'more thorough'], a: 0, cue: 'read the terms and conditions',
+        { n: 125, q: 'Before signing the lease, tenants should read the terms and conditions -------.', options: ['thoroughly', 'completeness', 'complete', 'more complete'], a: 0, cue: 'read the terms and conditions',
           explain: 'Cần trạng từ bổ nghĩa cho động từ "read" (đứng sau tân ngữ) → "thoroughly" (kỹ lưỡng). "thorough/more thorough" là tính từ; "thoroughness" là danh từ.' },
         { n: 126, q: 'The CEO\'s speech at the annual meeting was so ------- that many shareholders asked for a copy.', options: ['inspired', 'inspiration', 'inspiring', 'inspire'], a: 2, cue: 'speech … was so',
           explain: 'Tính từ đuôi -ing mô tả tính chất của vật gây ra cảm xúc: bài phát biểu "truyền cảm hứng" → "inspiring". "inspired" (đuôi -ed) mô tả cảm xúc của người; "inspiration" là danh từ; "inspire" là động từ.' },
@@ -64,7 +64,7 @@
           explain: 'Trạng từ phủ định "Rarely" đứng đầu câu → đảo ngữ trợ động từ lên trước chủ ngữ. Động từ "exceeded" là V3 → cần "has" (hiện tại hoàn thành, chủ ngữ số ít "the company"). "did" phải đi với động từ nguyên mẫu (did … exceed); "have" sai ngôi; "was" tạo bị động sai nghĩa.' },
         { n: 129, q: 'It is essential that every employee ------- the updated safety guidelines before the inspection.', options: ['reviewed', 'reviews', 'review', 'is reviewing'], a: 2, cue: 'It is essential that',
           explain: 'Cấu trúc giả định "It is essential that + S + V nguyên mẫu" (không chia theo ngôi) → "review". Các phương án chia theo ngôi hoặc theo thì đều sai trong cấu trúc này.' },
-        { n: 130, q: 'By the time the auditors arrive next week, the accounting department ------- all the necessary documents.', options: ['will have prepared', 'has prepared', 'prepares', 'had prepared'], a: 0, cue: 'By the time the auditors arrive next week',
+        { n: 130, q: 'By the time the auditors arrive next week, the accounting department ------- all the necessary documents.', options: ['will have prepared', 'has been prepared', 'creates', 'had been prepared'], a: 0, cue: 'By the time the auditors arrive next week',
           explain: '"By the time + hiện tại đơn" với mốc tương lai ("next week") → mệnh đề chính dùng tương lai hoàn thành "will have prepared" (sẽ đã chuẩn bị xong trước thời điểm đó). "had prepared" là quá khứ hoàn thành, dùng cho mốc quá khứ.' }
       ] } ] },
 
@@ -343,8 +343,8 @@ Folasade Adeyemi [10:18 A.M.]: Great. I'll let Harbison know we can meet the new
           groups: [ { type: 'mcq', instr: g.TQR[9], items: [
             { n: 169, q: g.TQR[18], options: ['Completing a project sooner than planned', 'Discussing a change in project scope', 'Assigning tasks for a new client', 'Evaluating a software translation tool'], a: 0, cue: 'by Friday instead of next Wednesday',
               explain: 'Khách hàng muốn bản dịch xong "by Friday instead of next Wednesday" (thứ Sáu thay vì thứ Tư tuần sau) và cả nhóm phân công để kịp → hoàn thành dự án sớm hơn dự kiến. Phí làm gấp do khách tự đề nghị, không có thương lượng giá; tờ quảng cáo chỉ là việc phụ được chuyển cho người khác.' },
-            { n: 170, q: 'What will Ms. Lambert most likely do this week?', options: ['Translate a manual into Spanish', 'Contact a project manager', 'Work on a document for Delmont Tours', 'Create a glossary of terms'], a: 2, cue: 'I can finish the brochure.',
-              explain: 'Cô Lambert nói "I can finish the brochure" – tức tờ quảng cáo cho Delmont Tours mà anh Cardoso đang làm. Bản tiếng Tây Ban Nha là việc của anh Solís; liên hệ quản lý dự án là việc của cô Adeyemi.' },
+            { n: 170, q: 'What will Ms. Lambert most likely do this week?', options: ['Proofread a contract for Acme Corp', 'Schedule a meeting with the client', 'Work on a document for Delmont Tours', 'Compile a list of references'], a: 2, cue: 'I can finish the brochure.',
+              explain: 'Yvette nói “I can finish the brochure”, vì cô chỉ có hợp đồng chỉnh sửa nên sẽ làm tài liệu cho Delmont Tours. Việc liên hệ quản lý dự án là nhiệm vụ của Adeyemi, nên lựa chọn “Contact a project manager” không đúng.' },
             { n: 171, q: 'At 10:15 A.M., what does Ms. Adeyemi most likely mean when she writes, "Not that I know of"?', options: ['She is not aware of an existing list of terms.', "She is unsure whether the project budget has been approved.", 'She has not yet received the client\'s final specifications.', 'She cannot confirm the availability of a native‑language editor.'], a: 0, cue: 'Not that I know of.',
               explain: 'Cô trả lời “Not that I know of” khi được hỏi về bảng thuật ngữ, nghĩa là cô không biết có bảng nào tồn tại; các đáp án còn lại đề cập đến thời hạn, tài liệu hoặc khả năng giới thiệu dịch giả, không phù hợp với ngữ cảnh.' }
           ] } ] },
@@ -408,7 +408,7 @@ Operations Manager, Carrow Freight`,
               explain: 'Bà muốn đăng ký cho 6 nhân viên, hỏi về lối đi cho xe lăn và việc nhận thẻ cho hai đồng nghiệp đến muộn → sắp xếp cho đồng nghiệp (C). Bà chỉ đề nghị được hưởng giá sớm một cách lịch sự, không phàn nàn (D).' },
             { n: 178, q: 'What price per full pass is Ms. Ferreira hoping to pay before any group discount?', options: ['$420', '$530', '$300', '$150'], a: 0, cue: 'I was hoping you might still offer us the early price',
               explain: 'Bảng giá cho vé trọn gói trong giai đoạn early registration là $420, vì vậy đây là mức giá Ms. Ferreira muốn trả. Các mức $530, $300, $150 không xuất hiện trong bảng giá, vì vậy sai.' },
-            { n: 179, q: 'Why will Carrow Freight most likely receive an additional discount?', options: ['Its employees are students.', 'It registered before September 30.', 'It is registering more than five people.', 'It is a sponsor of the event.'], a: 2, cue: 'Groups of five or more from the same company receive an additional 10 percent discount',
+            { n: 179, q: 'Why will Carrow Freight most likely receive an additional discount?', options: ['Its staff members are currently on vacation.', 'It submitted the registration after the deadline.', 'It is registering more than five people.', 'It received a complimentary pass from the organizer.'], a: 2, cue: 'Groups of five or more from the same company receive an additional 10 percent discount',
               explain: 'Câu hỏi kết hợp: trang web giảm thêm 10% cho nhóm từ 5 người trở lên cùng công ty; email đăng ký 6 nhân viên → đủ điều kiện (C). Email gửi ngày 3/10, đã qua hạn giá sớm 30/9 (B sai).' },
             { n: 180, q: 'What does Ms. Ferreira ask about two of her colleagues?', options: ['Whether they can share a pass', 'Whether they can collect their badges at an evening event', 'Whether they can attend only the dinner', 'Whether they can stay at a different hotel'], a: 1, cue: 'pick up their badges at the dinner instead of at the registration desk',
               explain: 'Bà hỏi hai đồng nghiệp đến muộn có thể "pick up their badges at the dinner" không – bữa tối networking diễn ra vào tối 5/11 → nhận thẻ tại một sự kiện buổi tối (B). Họ vẫn đăng ký vé trọn gói, chỉ lỡ các phiên ban ngày (C sai).' }
@@ -593,7 +593,7 @@ Your total therefore comes to $1,650. Once we receive your deposit, the booking 
 Best regards,
 Lucinda Aurelio`,
           groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following price list, booking form, and e-mail.', items: [
-            { n: 196, q: 'Why did Ms. Aurelio add a charge of $200?', options: ['The event will last longer than four hours.', 'More people will be photographed than the session normally covers.', 'The images must be delivered quickly.', 'The photographs will be taken outside the studio.'], a: 1, cue: 'Because you would like 20 people photographed rather than 15',
+            { n: 196, q: 'Why did Ms. Aurelio add a charge of $200?', options: ['The session will include video recording in addition to photos.', 'More people will be photographed than the session normally covers.', 'The final images will be provided in a digital gallery.', 'All portraits will be taken using natural outdoor lighting.'], a: 1, cue: 'Because you would like 20 people photographed rather than 15',
               explain: 'Kết hợp ba văn bản: bảng giá ghi buổi chụp chân dung "up to 15 people"; phiếu đặt yêu cầu "at least 20 staff members"; e-mail giải thích phụ phí $200 vì "20 people… rather than 15" → số người vượt mức gói. Sự kiện chỉ nửa ngày và khách chưa yêu cầu chỉnh ảnh gấp.' },
             { n: 197, q: "Why was $100 deducted from Mr. Hauer's total?", options: ['He provided a credit card guarantee.', 'He referred another company to the studio.', 'He requested black‑and‑white photos only.', 'He booked two services for the same date.'], a: 3, cue: 'Clients who book two or more services for the same date receive $100 off the total.',
               explain: 'Khách hàng đặt hai dịch vụ vào cùng ngày nên được giảm 100 $, vì vậy tổng cộng là 1 650 $. Các lý do khác như đặt cọc sớm, là khách hàng cũ hay từ chối dịch vụ nhanh không được đề cập trong bảng giá.' },

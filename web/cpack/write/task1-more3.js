@@ -56,6 +56,12 @@
 
   g.MODELS = (g.MODELS || []).concat([
     { id: 't1-smartwatch', task: 1, ref: 'smartwatch', band: '8.0', words: 185,
+      notes: {
+          "TA": "Tổng quan nêu tăng ở mọi nhóm, nhóm trẻ dẫn đầu và nhóm lớn tuổi tăng nhanh nhất về tỉ lệ; số liệu các mốc 2015, 2019, 2021, 2025 được chọn chính xác, ghi nhận cả sự chậm lại ở nhóm trẻ.",
+          "CC": "Thân bài 1 nói về xuất phát điểm và hai nhóm đầu, thân bài 2 nhóm lớn tuổi rồi kết quả cuối kì; nối bằng By contrast, as against.",
+          "LR": "Từ vựng chính xác: wearable devices, climbed steeply, followed a similar pattern, in relative terms, slowed noticeably.",
+          "GRA": "Mệnh đề so sánh (as against 36%), phân từ và nhượng bộ chính xác; câu dài vẫn mạch lạc."
+      },
       text: `<<Mở bài>> The line graph [[compares|so sánh]] the proportion of adults aged 18–34, 35–54 and 55 or over who owned a smartwatch or fitness tracker in one country [[between 2015 and 2025|từ năm 2015 đến năm 2025]].
 
 <<Tổng quan>> {{Overall}}, ownership of wearable devices [[rose in every age group|tăng ở mọi nhóm tuổi]]. Young adults were [[consistently the most likely|luôn có nhiều khả năng nhất]] to own one, {{while}} people aged 55 and over remained the least likely, [[despite|dù có]] the fastest growth in relative terms.
@@ -64,6 +70,12 @@
 
 <<Thân bài 2>> {{By contrast}}, ownership among the over-55s [[stayed below 5%|vẫn dưới 5%]] until 2019, {{but}} it then began to rise more quickly, to 12% in 2023. {{By 2025}}, half of all 18–34-year-olds [[owned a device|sở hữu một thiết bị]], {{as against}} 36% of the middle group and 19% of the oldest group, {{although}} growth among the youngest adults [[had slowed|đã chậm lại]] [[noticeably|đáng kể]] since 2021.` },
     { id: 't1-cinema', task: 1, ref: 'cinema', band: '8.0', words: 171,
+      notes: {
+          "TA": "Tổng quan nêu cú sập năm 2020 và sự hồi phục chưa trọn vẹn, cùng thứ hạng thay đổi; số liệu ba quốc gia qua bốn mốc có so sánh gấp đôi, gấp ba.",
+          "CC": "Đoạn 1 xu hướng 2000–2015, đoạn 2 cú sập 2020 và hồi phục; liên kết bằng Meanwhile, Five years later, whereas.",
+          "LR": "Từ vựng chính xác: attendance, collapse, bounced back, leaving the two countries virtually level, edged down.",
+          "GRA": "Cấu trúc đa dạng, gồm mệnh đề phân từ (leaving...) và so sánh; thì chuẩn."
+      },
       text: `<<Mở bài>> The line graph [[illustrates|minh họa]] how many cinema tickets were sold, in millions, in Avonia, Beltran and Corvale [[over a 25-year period|trong khoảng thời gian 25 năm]].
 
 <<Tổng quan>> {{Overall}}, attendance [[fell dramatically|giảm mạnh]] in all three countries in 2020 and [[recovered only partially|chỉ phục hồi một phần]] afterwards. Avonia was the biggest market for most of the period, {{but}} Beltran [[narrowed the gap|thu hẹp khoảng cách]] and had almost caught up by 2025, {{whereas}} Corvale remained the smallest.
@@ -72,6 +84,12 @@
 
 <<Thân bài 2>> {{In 2020}}, all three countries [[experienced a collapse|trải qua sự sụt giảm mạnh]], with sales of 14 million in Avonia, 11 million in Beltran and just 4 million in Corvale. {{Five years later}}, Avonia [[bounced back to|hồi phục lên]] 41 million, {{and}} Beltran [[recovered to|phục hồi lên]] 40 million, {{leaving}} the two countries [[virtually level|gần như ngang nhau]], {{whereas}} Corvale managed only 9 million, [[half its level in 2000|bằng một nửa mức năm 2000]].` },
     { id: 't1-commuting', task: 1, ref: 'commuting', band: '8.0', words: 188,
+      notes: {
+          "TA": "Tổng quan chia thành hai cặp thành phố theo phương tiện chủ đạo và nhận xét về xe đạp; số liệu bốn phương tiện được bao quát đầy đủ.",
+          "CC": "Đoạn 1 xe hơi, đoạn 2 xe đạp và đi bộ; có thứ tự rõ ràng, nối bằng By contrast, opposite pattern, before dipping slightly.",
+          "LR": "Từ vựng chính xác: car-dependent, peaking, almost twice as popular, relatively stable, commuters.",
+          "GRA": "Cấu trúc đa dạng: so sánh, phân từ, mệnh đề quan hệ chuẩn; không lỗi."
+      },
       text: `<<Mở bài>> The bar chart [[compares|so sánh]] the proportion of workers who travelled to work by car, public transport, bicycle and on foot in four cities in 2024.
 
 <<Tổng quan>> {{Overall}}, the car was the [[dominant mode of transport|phương tiện thống trị]] in Aldport and Brenham, {{whereas}} public transport was the most popular choice in Corwick and Dunsby. {{In addition}}, cycling was [[far more common|phổ biến hơn nhiều]] in the last two cities than in the first two.
@@ -80,6 +98,12 @@
 
 <<Thân bài 2>> Cycling [[accounted for|chiếm]] just 4% of journeys in Aldport and 12% in Brenham, {{but}} the figure [[climbed to|tăng lên]] 22% in Corwick and 30% in Dunsby, {{where}} it was almost [[twice as popular as|phổ biến gấp đôi]] the car. Walking was [[relatively stable|tương đối ổn định]] at between 10% and 12% in three cities, {{with}} a higher figure of 17% in Dunsby.` },
     { id: 't1-studyabroad', task: 1, ref: 'studyabroad', band: '8.0', words: 160,
+      notes: {
+          "TA": "Overall nêu mức tăng chung, vị trí dẫn đầu và tăng trưởng tỉ lệ lớn nhất; số liệu cả hai năm được dùng để tính chênh lệch (khoảng 90.000) và chỉ ra thay đổi thứ hạng.",
+          "CC": "Đoạn 1 hai nước lớn, đoạn 2 hai nước còn lại; kết bằng nhận xét về khoảng cách; liên kết tốt với In contrast, on the other hand, therefore.",
+          "LR": "Từ vựng chính xác: overseas students, intake, hosted, negligible rise, tripled, fell from third to last place.",
+          "GRA": "Nhiều cấu trúc: so sánh, hệ quả (which meant that), apart from; không lỗi."
+      },
       text: `<<Mở bài>> The bar chart [[compares|so sánh]] the number of international students, in thousands, who studied in Eastland, Northia, Southmark and Westerly in 2010 and 2024.
 
 <<Tổng quan>> {{Overall}}, every country [[attracted more overseas students|thu hút nhiều sinh viên nước ngoài hơn]] in 2024 than in 2010, with Eastland remaining the most popular destination. Westerly saw the [[greatest proportional increase|mức tăng theo tỷ lệ lớn nhất]], {{whereas}} the figure for Southmark was [[almost unchanged|gần như không đổi]].
@@ -88,6 +112,12 @@
 
 <<Thân bài 2>> {{In contrast}}, Southmark [[recorded a negligible rise|ghi nhận mức tăng không đáng kể]] from 90,000 to 95,000, {{which meant that}} it fell from third to last place. Westerly, {{on the other hand}}, [[tripled its intake|tăng gấp ba lượng tiếp nhận]] to 180,000, {{and}} therefore [[overtook|vượt qua]] Southmark to become the third most popular destination. {{In summary}}, the gap between the leading destination and the others [[widened|nới rộng]] over the period, {{apart from}} the case of Westerly.` },
     { id: 't1-budget', task: 1, ref: 'budget', band: '8.0', words: 167,
+      notes: {
+          "TA": "Tổng quan nêu thay đổi lớn nhất (food nhường housing), leisure tăng; số liệu hai năm cho cả năm hạng mục được so sánh cân đối, kèm kết luận đảo chiều.",
+          "CC": "Đoạn 1 hai hạng mục lớn, đoạn 2 ba hạng mục còn lại; liên kết bằng closely followed by, whereas, By comparison, In other words.",
+          "LR": "Từ vựng chính xác: allocated, family budget, dipped marginally, a far larger share, the reverse of the situation.",
+          "GRA": "Dùng đúng so sánh, mệnh đề quan hệ và thì hoàn thành; dấu câu chuẩn."
+      },
       text: `<<Mở bài>> The pie charts [[show how|cho thấy cách]] an average family [[allocated its income|phân bổ thu nhập]] across five categories in 2000 and 2024.
 
 <<Tổng quan>> {{Overall}}, the most significant change was the [[shift|sự chuyển dịch]] from food to housing as the largest item of spending. {{In addition}}, the proportion spent on leisure [[increased noticeably|tăng đáng kể]], {{while}} transport and miscellaneous costs [[remained broadly stable|nhìn chung ổn định]].
@@ -96,6 +126,12 @@
 
 <<Thân bài 2>> Spending on leisure [[rose from|tăng từ]] 10% to 15% over the period. {{By comparison}}, the proportion allocated to transport changed [[only slightly|chỉ một chút]], from 14% to 15%, {{and}} the share of other items [[dipped marginally|giảm nhẹ]] from 18% to 16%. {{In other words}}, families in 2024 devoted [[a far larger share|một tỷ lệ lớn hơn nhiều]] of their income to a place to live than to food, {{which was the reverse of}} the situation in 2000.` },
     { id: 't1-library', task: 1, ref: 'library', band: '8.0', words: 168,
+      notes: {
+          "TA": "Overall nêu đúng thay đổi vai trò (sách nhường chỗ học tập, sự kiện tăng); số liệu hai năm của năm hạng mục rõ ràng, có kết luận suy luận hợp lí.",
+          "CC": "Đoạn thân 1 mô tả 2010, đoạn thân 2 mô tả 2024 theo cùng thứ tự; liên kết bằng whereas, Taken together.",
+          "LR": "Từ vựng chính xác: borrow, markedly, more than halved, more than tripled, a minor reason, valued more as a place to study.",
+          "GRA": "Cấu trúc đa dạng, gồm mệnh đề nhượng bộ và hệ quả; thì chính xác."
+      },
       text: `<<Mở bài>> The pie charts [[illustrate|minh họa]] the main reasons why people used a city library in 2010 and in 2024.
 
 <<Tổng quan>> {{Overall}}, the role of the library [[changed markedly|thay đổi rõ rệt]]. Borrowing books, which was by far the leading reason in 2010, was [[overtaken by|bị vượt qua bởi]] studying in 2024, {{while}} attending events became [[considerably more important|quan trọng hơn đáng kể]].
@@ -104,6 +140,12 @@
 
 <<Thân bài 2>> {{By 2024}}, the share of visitors who came for books had [[more than halved|giảm hơn một nửa]] to 22%, {{and}} studying [[had become the most common purpose|đã trở thành mục đích phổ biến nhất]] at 34%. The proportion attending events [[more than tripled|tăng hơn gấp ba]] to 20%, {{whereas}} computer use [[dropped slightly to|giảm nhẹ xuống]] 12% and other reasons rose slightly to 12%. {{Taken together}}, these figures suggest that the library [[is now valued|hiện được đánh giá cao]] more as a place to study and meet than as a source of books.` },
     { id: 't1-rentcity', task: 1, ref: 'rentcity', band: '8.0', words: 157,
+      notes: {
+          "TA": "Tổng quan nêu mối liên hệ giữa tiền thuê và thời gian đi làm cùng thành phố cao và thấp nhất; số liệu ba tiêu chí cho năm thành phố đầy đủ, theo thứ hạng.",
+          "CC": "Đoạn 1 hai thành phố đắt nhất, đoạn 2 ba thành phố còn lại theo thứ tự giảm; liên kết bằng At the other end of the scale, whereas.",
+          "LR": "Từ vựng chính xác cho dữ liệu: average monthly rent, rent-to-income ratio, journey to work, occupied a middle position.",
+          "GRA": "Dùng đúng chuỗi so sánh bậc nhất và phân từ; cấu trúc liệt kê ba số liệu gọn, không lỗi."
+      },
       text: `<<Mở bài>> The table [[provides data on|cung cấp số liệu về]] average monthly rent, the percentage of income that rent [[represents|chiếm]] and the typical journey to work in five cities in 2024.
 
 <<Tổng quan>> {{Overall}}, the cities with the highest rents also tended to have the longest commuting times. Arden was the [[most expensive|đắt đỏ nhất]] and had the longest journeys, {{whereas}} Dovan was the cheapest and the [[most convenient|thuận tiện nhất]].
@@ -112,6 +154,12 @@
 
 <<Thân bài 2>> Calder [[occupied a middle position|ở vị trí trung bình]], with figures of $1,120, 36% and 45 minutes. {{At the other end of the scale}}, residents of Brisk paid $980, or 32% of their income, and travelled for 38 minutes, {{while}} Dovan [[recorded the lowest figures in every category|ghi nhận các chỉ số thấp nhất ở mọi mục]]: $760, 27% and just 29 minutes.` },
     { id: 't1-sportsgender', task: 1, ref: 'sportsgender', band: '8.0', words: 184,
+      notes: {
+          "TA": "Tổng quan nêu giới nào thiên về môn nào, môn phổ biến và tốn thời gian nhất; số liệu hai chiều (tỉ lệ tham gia và số giờ) được kết hợp cẩn thận.",
+          "CC": "Nhóm theo mức chênh lệch giới: bóng đá và chạy bộ; bơi lội và yoga; đạp xe cuối cùng; nối bằng most noticeably, followed by.",
+          "LR": "Từ vựng chính xác: took part, outnumbered, time-consuming, the gender gap, fell somewhere in between.",
+          "GRA": "Dùng so sánh, mệnh đề quan hệ và cấu trúc 'compared with' chính xác; không lỗi."
+      },
       text: `<<Mở bài>> The table [[shows|cho thấy]] the percentage of men and women who played five sports in 2024, {{as well as}} the average number of hours per week devoted to each one.
 
 <<Tổng quan>> {{Overall}}, men were more likely than women to take part in three of the five sports, with football the most popular among them, {{whereas}} swimming and yoga [[appealed more to|thu hút nhiều hơn với]] women. Football also took up the most time each week, {{while}} yoga took up the least.
@@ -120,6 +168,12 @@
 
 <<Thân bài 2>> Women [[outnumbered men|đông hơn nam]] in swimming (24% against 18%) and, {{most noticeably}}, in yoga, {{where}} 21% of women took part but only 6% of men. Yoga was the least time-consuming activity, at 1.8 hours per week, {{followed by}} swimming at 2.1 hours. Cycling [[fell somewhere in between|nằm ở khoảng giữa]], with 17% of men and 11% of women taking part for three hours a week.` },
     { id: 't1-recycling', task: 1, ref: 'recycling', band: '8.0', words: 151,
+      notes: {
+          "TA": "Tổng quan nêu tám giai đoạn và nhận xét phần lớn các bước nhằm làm sạch bột giấy; đầy đủ các bước từ thu gom đến cuộn giấy thành phẩm.",
+          "CC": "Đoạn thân 1 nửa đầu (thu gom đến sàng lọc), đoạn 2 nửa sau (rửa mực đến cuộn); liên kết bằng Once there, Next, After that, In the final stage.",
+          "LR": "Thuật ngữ chính xác: pulp, screens, staples, washed with chemicals, wound into, heated rollers, sorted according to quality.",
+          "GRA": "Bị động đa dạng, mệnh đề quan hệ (which remove staples) và mệnh đề thời gian; chính xác."
+      },
       text: `<<Mở bài>> The diagram [[illustrates|minh họa]] the process by which waste paper is [[recycled into|tái chế thành]] new paper.
 
 <<Tổng quan>> {{Overall}}, the process has eight stages, beginning with the collection of used paper and ending with the production of large rolls of new paper. {{In between}}, most of the stages are concerned with [[cleaning|làm sạch]] the paper pulp.
@@ -128,6 +182,12 @@
 
 <<Thân bài 2>> {{After that}}, the pulp is washed with chemicals {{so that}} the ink [[can be removed|có thể được loại bỏ]]. The clean pulp is {{then}} pressed and [[rolled into|cán thành]] thin sheets, {{which}} are dried by heated rollers. {{In the final stage}}, the finished paper is cut and wound into large rolls, [[ready for|sẵn sàng để]] use.` },
     { id: 't1-rainwater', task: 1, ref: 'rainwater', band: '8.0', words: 155,
+      notes: {
+          "TA": "Tổng quan nêu bảy giai đoạn và luồng chính (thu gom, lọc, lưu trữ, sử dụng) cùng nước thừa; mô tả đủ mọi bộ phận và công dụng của nước.",
+          "CC": "Trình tự rõ: The process begins when, After this, Subsequently, Finally; chuyển từ thu gom sang sử dụng mạch lạc.",
+          "LR": "Thuật ngữ chính xác: gutters, downpipe, filter, debris, storage tank, soakaway, flushing toilets.",
+          "GRA": "Bị động và mệnh đề quan hệ đa dạng, mệnh đề điều kiện (if the tank becomes full) dùng đúng; không lỗi."
+      },
       text: `<<Mở bài>> The diagram [[shows how|cho thấy cách]] rainwater is collected, stored and used in a household.
 
 <<Tổng quan>> {{Overall}}, the system consists of seven stages. Rain is [[collected from the roof|được thu từ mái nhà]] and filtered before being stored, {{and}} it is {{then}} used for a range of household purposes, {{with}} any surplus water [[released into the ground|thoát xuống đất]].
@@ -136,6 +196,12 @@
 
 <<Thân bài 2>> {{Subsequently}}, a pump [[transfers|chuyển]] water from the tank to a smaller tank in the loft, {{and}} from there it is supplied to the house. It is used for flushing toilets and running washing machines {{as well as}} for watering the garden. {{Finally}}, {{if}} the underground tank becomes full, the [[excess water|lượng nước dư]] drains away into a soakaway in the garden.` },
     { id: 't1-bricks', task: 1, ref: 'bricks', band: '8.0', words: 165,
+      notes: {
+          "TA": "Tổng quan nêu bảy giai đoạn và hai ý chính (tạo hình, sấy rồi nung); đầy đủ số liệu thời gian và nhiệt độ ở các giai đoạn.",
+          "CC": "Đoạn 1 khai thác đến cắt, đoạn 2 sấy, nung và giao hàng; nối bằng At the beginning, then, Following this, Once.",
+          "LR": "Từ vựng sản xuất chính xác: quarry, uniform mixture, drying chamber, kiln, pallets, building sites.",
+          "GRA": "Bị động nhất quán, mệnh đề quan hệ và mệnh đề lí do (since the stages cannot be rushed) chính xác."
+      },
       text: `<<Mở bài>> The diagram [[illustrates|minh họa]] how bricks are manufactured in a factory.
 
 <<Tổng quan>> {{Overall}}, the process involves seven stages, {{starting with}} the extraction of clay {{and ending with}} the delivery of finished bricks. The clay is [[shaped|được tạo hình]] and dried before it is fired at a high temperature.
@@ -144,6 +210,12 @@
 
 <<Thân bài 2>> The newly formed bricks are {{then}} placed in a drying chamber, {{where}} they remain for about two days. {{Following this}}, they are fired in a kiln at around 1,000 degrees Celsius, {{which}} makes them hard and strong. {{Once}} the bricks have been cooled slowly, they are packed onto pallets and [[delivered to|giao đến]] building sites, [[where they are ready for use|nơi chúng sẵn sàng để sử dụng]]. {{In total}}, the process takes [[several days|vài ngày]] to complete, {{since}} the drying and cooling stages cannot be [[rushed|làm vội]].` },
     { id: 't1-harbour', task: 1, ref: 'harbour', band: '8.0', words: 160,
+      notes: {
+          "TA": "Tổng quan nêu chuyển đổi từ làng chài sang khu nghỉ dưỡng và bãi biển được giữ lại; mô tả vị trí mọi hạng mục ở hai phía.",
+          "CC": "Chia theo phía tây và phía đông, trong mỗi phía đi từ bắc xuống nam; liên kết bằng Today, On the eastern side, By contrast.",
+          "LR": "Từ vựng chính xác: fish market, marina, cottages, demolished, make way for, bordered by, cater for visitors.",
+          "GRA": "Dùng đúng so sánh quá khứ và hiện tại, bị động đa dạng và mệnh đề quan hệ; không lỗi."
+      },
       text: `<<Mở bài>> The maps [[illustrate|minh họa]] the changes that have taken place in a fishing village between 2000 and the present day.
 
 <<Tổng quan>> {{Overall}}, the village has [[changed from|chuyển từ]] a working fishing community {{into}} a tourist resort, with leisure and accommodation facilities [[replacing|thay thế]] the traditional buildings and farmland. {{However}}, the beach has been [[retained|được giữ lại]].
@@ -152,6 +224,12 @@
 
 <<Thân bài 2>> On the eastern side, the farmland {{that}} once [[occupied|chiếm]] the north and centre has been [[converted into|chuyển thành]] a car park in the north and a hotel in the centre. {{By contrast}}, the beach in the south-east has [[remained unchanged|không thay đổi]], {{and}} it is {{now}} [[bordered by|nằm cạnh]] the new hotel, {{which}} is likely to [[cater for|phục vụ]] visitors.` },
     { id: 't1-townsquare', task: 1, ref: 'townsquare', band: '8.0', words: 160,
+      notes: {
+          "TA": "Tổng quan nêu xu hướng thân thiện với người đi bộ và các hạng mục giữ nguyên (rạp chiếu, một phần văn phòng); mô tả đủ hai phía và hai năm 1985–nay.",
+          "CC": "Đoạn 1 phía tây, đoạn 2 phía đông; liên kết rõ bằng Today, On the eastern side, which suggests.",
+          "LR": "Từ vựng chính xác: open-air market, pedestrian plaza, tram stop, replaced by, reduced to, row of cafes.",
+          "GRA": "Dùng đúng hiện tại hoàn thành và bị động; có mệnh đề quan hệ đa dạng."
+      },
       text: `<<Mở bài>> The maps [[show|cho thấy]] how the centre of a town changed between 1985 and today.
 
 <<Tổng quan>> {{Overall}}, the centre has become [[more pedestrian-friendly|thân thiện hơn với người đi bộ]], with the open-air market and the bus station [[giving way to|nhường chỗ cho]] a plaza and a tram stop. {{However}}, the cinema and part of the offices [[have stayed where they were|vẫn ở nguyên vị trí cũ]].
@@ -160,6 +238,12 @@
 
 <<Thân bài 2>> On the eastern side, the bus station in the north {{has been|đã được}} replaced by a tram stop, {{which suggests}} a [[shift|sự chuyển dịch]] in public transport. The offices {{that}} originally [[extended across|trải dài khắp]] the centre and south [[have been reduced to|đã bị thu hẹp còn]] the central section, {{and}} a row of cafes has been built in the south-east corner, {{where}} workers and visitors can [[relax|thư giãn]].` },
     { id: 't1-schoolsite', task: 1, ref: 'schoolsite', band: '8.0', words: 162,
+      notes: {
+          "TA": "Tổng quan nêu mở rộng cơ sở học tập và thể thao trong nhà, giảm sân ngoài trời, cùng các hạng mục giữ nguyên; nêu đủ thay đổi phía đông và có kết luận.",
+          "CC": "Đoạn 1 phần không đổi, đoạn 2 phần thay đổi; liên kết bằng by contrast, As a result, In short.",
+          "LR": "Từ vựng chính xác: redevelopment, sports hall, football pitch, divided into, transformed, at the expense of.",
+          "GRA": "Dùng đúng so sánh trước/sau, bị động và mệnh đề quan hệ; không lỗi."
+      },
       text: `<<Mở bài>> The maps [[compare|so sánh]] the site of a school before and after it was redeveloped.
 
 <<Tổng quan>> {{Overall}}, the school [[has expanded its facilities|đã mở rộng cơ sở vật chất]] for study and indoor sport, {{but}} this has been done [[at the expense of|với cái giá là mất đi]] its outdoor play areas. The main building and the car park have [[not changed at all|hoàn toàn không thay đổi]].

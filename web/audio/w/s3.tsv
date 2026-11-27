@@ -10043,6 +10043,9 @@ lawfulness	ok	ok
 boardinghouse	ok	ok
 recalculation	ok	ok
 overemphasis	cut_wordis: câu mang: "The word is, over in farses." · dot100:"Over in Farsi's" 1.26s · cut_wordis100: câu mang: "The word is, over in farses." · cut_next: câu mang: "Next word over in Farsi's" · plain095:"Over in Farsi's" 1.30s · dot090:"Over and farcease." 1.40s	cut_wordis: câu mang: "The word is, over-emphoces." · dot100:"Over in Fosse's." 1.08s · cut_wordis100: câu mang: "The word is, over-emphoces." · cut_next: câu mang: "Next word, over in Fossees." · plain095:"Over in Fosse's." 1.13s · dot090:"Over in Fosse's" 1.18s
+arthralgia	ok	ok
+misstate	cut_wordis:"Ms. State" 0.69s · cut_wordis:"Missed state" 0.67s · dot100:"Ms. State" 0.86s · cut_wordis100:"Ms. State" 0.66s · cut_wordis100:"Missed state" 0.65s · cut_next:"and mistake." 0.71s · plain095:"A misstate" 0.81s · dot090:"Mr. State" 0.97s	ok
+vaginitis	ok	ok
 retaliate	ok	ok
 alimony	ok	ok
 incoherent	ok	ok
@@ -10065,6 +10068,10 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
-arthralgia	ok	ok
-misstate	cut_wordis:"Ms. State" 0.69s · cut_wordis:"Missed state" 0.67s · dot100:"Ms. State" 0.86s · cut_wordis100:"Ms. State" 0.66s · cut_wordis100:"Missed state" 0.65s · cut_next:"and mistake." 0.71s · plain095:"A misstate" 0.81s · dot090:"Mr. State" 0.97s	ok
-vaginitis	ok	ok
+borough	cut_wordis: câu mang: "The word is barriff." · dot100:"Berrith" 0.80s · cut_wordis100: câu mang: "The word is burrath." · cut_next: câu mang: "Next word, burrow." · plain095:"Barret." 0.53s · dot090:"The beareth." 0.89s	cut_wordis: câu mang: "The word is borrow." · dot100:"Burrow" 0.57s · cut_wordis100: câu mang: "The word is borrow." · cut_next: câu mang: "Next word, borrow." · plain095:"Burrow" 0.59s · dot090:"Burrow" 0.64s
+bulwark	ok	ok
+dentate	ok	ok
+limnology	ok	ok
+wonderment	ok	ok
+climber	ok	ok
+promisingly	ok	ok

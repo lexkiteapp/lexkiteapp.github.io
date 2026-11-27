@@ -9,7 +9,7 @@ const rj = f => JSON.parse(fs.readFileSync(f, 'utf8'));
 
 // (a) kế hoạch
 const { pts } = build('fr'), P = buildPath(pts, T.px ? buildPx('fr').topics : [], T), W = pathWords(T);
-ok(pts.length === 128 && P.days.length === pts.length && P.days.every((d, n) => d[2] === pts[n].id && d[3] === pts[n].level), `${P.days.length} ngày = ${pts.length} điểm ngữ pháp A1–B1, mỗi điểm đúng 1 ngày, theo thứ tự cấp`);
+ok(pts.length === 168 && pts.filter(p => p.level === 'B2').length === 40 && P.days.length === pts.length && P.days.every((d, n) => d[2] === pts[n].id && d[3] === pts[n].level), `${P.days.length} ngày = ${pts.length} điểm ngữ pháp A1–B2 (B2 mở vì đủ câu điền từ), mỗi điểm đúng 1 ngày, theo thứ tự cấp`);
 ok(P.days[0][0] === 0 && P.days.at(-1)[1] === Math.min(W.length, P.days.length * 8) && P.days.every((d, n) => (n === 0 || d[0] === P.days[n - 1][1]) && d[1] >= d[0] && d[1] - d[0] <= 8), `từ phủ liên tục ${P.days.at(-1)[1]}/${W.length} từ (seed + lô đã duyệt), ≤ 8 từ/ngày; phần sau vào Ôn tập qua "Từ mở rộng" của hub – cùng luật es-path`);
 ok(P.files['dy.js'].startsWith('self.FRX=self.FRX||{};FRX.dy=') && P.files['dy.js'].includes('FRX.dyp=function planDay'), 'dy.js (biến FRX) mang đúng hàm planDay của path-lib (một nguồn, trình duyệt tính lại ngày)');
 const HP = P.plan.t[0][0] !== ''; // fr có chủ đề phát âm (W3) → mỗi ngày có bước phát âm; chưa có → bước bỏ gọn
@@ -18,6 +18,8 @@ const cids = P.days.map(d => d[6]).filter(Boolean);
 ok(new Set(cids).size === cids.length && cids.length === Math.min(P.calls.length, Math.floor(P.days.length / CALL_EVERY)) && cids.every(id => P.calls.some(c => c.id === id)) && P.days.every((d, n) => !!d[6] === (n % CALL_EVERY === 4 && n / CALL_EVERY < P.calls.length)), `cuộc gọi: ${cids.length} lần (5 ngày một cuộc), mỗi cuộc đúng 1 lần, id có thật`);
 const lvr = { A1: 0, A2: 1, B1: 2, B2: 3, C1: 4 }, order = cids.map(id => lvr[P.calls.find(c => c.id === id).lv]);
 ok(order.every((v, i) => !i || v >= order[i - 1]), 'cuộc gọi đi từ dễ → khó theo ngày');
+{ const slots = P.days.filter((d, n) => n % CALL_EVERY === 4), hi = slots.filter(d => lvr[P.calls.find(c => c.id === d[6])?.lv] > lvr[d[3]]).map(d => d[2]);
+  ok(slots.every(d => d[6]) && !hi.length, `mọi ô gọi (${slots.length}, 5 ngày một cuộc) đều có cuộc gọi, cấp cuộc gọi ≤ cấp ngày` + (hi.length ? ': vượt cấp ở ' + hi.join(', ') : '')); }
 ok(W.length >= 30 && W.slice(0, 30).every(w => w.rank === -1), 'từ học: seed 30 từ trước, lô lõi chỉ vào khi status "reviewed"');
 const row = i => JSON.parse(P.files['@packs/wd.json'])[i]; // từ lộ trình ở web/packs/fr (path-lib)
 ok(row(0).join('|') === 'maison|n|mɛzɔ̃|Notre maison est près de la gare.|f' && row(1).slice(4).join('|') === 'f|eaux' && row(29).slice(4).join('|') === 'm||a', 'hàng wd.json: giống, số nhiều bất quy tắc (eaux), cờ h aspiré (haricot) cho mạo từ');
@@ -34,7 +36,7 @@ ok(!bad.length, 'nhãn lộ trình fr: 15 ngôn ngữ đủ khóa, giữ chỗ {
 // (c) gói
 const fp = f => f.startsWith('@packs/') ? 'web/packs/fr/' + f.slice(7) : 'web/cpack/fr/' + f; // từ lộ trình ở web/packs/fr (path-lib)
 for (const [f, s] of Object.entries(P.files)) if (!fs.existsSync(fp(f)) || fs.readFileSync(fp(f), 'utf8') !== s) { ok(false, `${fp(f)} cũ so với nguồn – chạy node scripts/target/drill-pack.mjs --tl fr`); break; }
-for (const tl of ['fr', 'es']) try { execFileSync('node', ['scripts/target/calls-check.mjs', '--tl', tl], { stdio: 'pipe' }); ok(true, `calls-check ${tl}: 24 cuộc gọi + cấu trúc + lệch chuẩn${tl === 'fr' ? ' + một xưng hô (tu ⟂ vous) mỗi cuộc' : ''}`); } catch (e) { ok(false, `calls-check ${tl}: ` + String(e.stderr).slice(0, 300)); }
+for (const tl of ['fr', 'es']) try { execFileSync('node', ['scripts/target/calls-check.mjs', '--tl', tl], { stdio: 'pipe' }); ok(true, `calls-check ${tl}: ≥ 24 cuộc gọi + cấu trúc + lệch chuẩn${tl === 'fr' ? ' + một xưng hô (tu ⟂ vous) mỗi cuộc' : ''}`); } catch (e) { ok(false, `calls-check ${tl}: ` + String(e.stderr).slice(0, 300)); }
 
 // (d) jsdom
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8'), scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
@@ -84,7 +86,7 @@ ok($('#ds-fin') || /🎉/.test(App.view.textContent), `đủ bước (w + g${HP 
 await App.frday('5'); await tick(60);
 const d5w = P.days[4][1] > P.days[4][0] ? 1 : 0; // kho lớn dần theo lô reviewed → ngày 5 có thể có hoặc không có từ mới
 ok($('a[href="#/call/' + P.days[4][6] + '"]') && $$('section.card').length === 2 + d5w + HP, `ngày 5 (${d5w ? 'có' : 'không'} từ mới) có ngữ pháp + cuộc gọi ` + P.days[4][6]);
-ok(w.CALLS.filter(c => c.tl === 'fr').length === 24 && w.CALLS.every(c => (c.tl === 'fr') === /^fr-/.test(c.id)), 'gói cl.js: 24 cuộc gọi gắn tl:fr, không lẫn es/tiếng Anh');
+ok(w.CALLS.filter(c => c.tl === 'fr').length === P.calls.length && P.calls.length >= 24 && w.CALLS.every(c => (c.tl === 'fr') === /^fr-/.test(c.id)), `gói cl.js: ${P.calls.length} cuộc gọi gắn tl:fr, không lẫn es/tiếng Anh`);
 try { App.routes.call('fr-loisirs'); await tick(80); } catch (e) { errors.push('call: ' + e.message); }
 ok(!errors.length && /Parlons de tes loisirs/.test(App.view.textContent) && !/IELTS|TOEIC/.test(App.view.textContent), 'mở #/call/fr-loisirs: cuộc gọi fr hiện đúng, không lẫn cuộc gọi tiếng Anh' + (errors.length ? ': ' + errors.join(' | ') : ''));
 // engine: đệm/liên từ fr, nhánh không dấu

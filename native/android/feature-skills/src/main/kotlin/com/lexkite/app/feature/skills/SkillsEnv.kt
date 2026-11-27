@@ -28,12 +28,14 @@ import java.io.File
 
 /**
  * Everything the listening + reading screens need from the app graph: the vocabulary env (store, audio, mistakes, rewards), the word env (dictionary, cards, speech)
- * and the content pack (parts, passages, word tables). [loadContent] is injected by :app; null = no pack yet (the screens show their empty state).
+ * and the content pack (parts, passages, word tables). [loadContent] is injected by :app; null = no pack yet (the screens show their empty state). [asset] reads a bundled content-pack file (watch topics + player page).
  */
-class SkillsEnv(val vocab: VocabEnv, val word: WordEnv, val learnLang: String, private val loadContent: suspend () -> SkillsContent?, private val loadAdv: suspend () -> List<Reading> = { emptyList() }) {
+class SkillsEnv(val vocab: VocabEnv, val word: WordEnv, val learnLang: String, private val loadContent: suspend () -> SkillsContent?, private val loadAdv: suspend () -> List<Reading> = { emptyList() }, val asset: (String) -> String? = { null }) {
     @Volatile private var memo: SkillsContent? = null
     @Volatile private var advStarted = false
     private val bg = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    /** Work that must outlive the screen (the watch player saves its position when it closes). */
+    fun background(block: suspend () -> Unit) { bg.launch { runCatching { block() } } }
     /** The core pack first (never blocked by the advanced one); then the C1–C2 readings load in the background and are merged into [memo] – a failed/missing advanced pack is ignored. */
     suspend fun content(): SkillsContent? = (memo ?: loadContent()?.also { memo = it })?.also { if (!advStarted) { advStarted = true; bg.launch { runCatching { val a = loadAdv(); if (a.isNotEmpty()) memo = memo?.withReadings(a) } } } }
     val now: Long get() = vocab.now()

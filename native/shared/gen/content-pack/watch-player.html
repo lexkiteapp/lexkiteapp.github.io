@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- P12 native player (Android WebView / iOS WKWebView, page base URL https://lexkite.com/): the OFFICIAL YouTube IFrame API on
+     youtube-nocookie, nothing drawn over the player, no ad blocking (docs/specs/video-learn.md §2). Same playerVars as web/js/watch.js.
+     Contract – app → page: evaluate `lk.cmd({op:'play'|'pause'|'seek'|'rate', t?, r?})`.
+     page → app: one JSON string per event via Android `LKBridge.post(s)` / iOS `webkit.messageHandlers.lk.postMessage(s)`:
+       {e:'ready', len} · {e:'state', s:-1|0|1|2|3|5} (1 = playing, 0 = ended) · {e:'time', t} every 250 ms while playing · {e:'error', code}
+     Query: ?id=<11 chars>&start=<s>&hl=<ui lang>. -->
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<style>html,body{margin:0;height:100%;background:#000;overflow:hidden}#p{position:absolute;inset:0;width:100%;height:100%}</style></head>
+<body><div id="p"></div>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), id = q.get('id') || '', start = Math.max(0, parseInt(q.get('start') || '0', 10) || 0), P = null, tick = 0;
+  function post(o) { var s = JSON.stringify(o); try { if (window.LKBridge) LKBridge.post(s); else if (window.webkit && webkit.messageHandlers && webkit.messageHandlers.lk) webkit.messageHandlers.lk.postMessage(s); } catch (e) { /* host gone */ } }
+  if (!/^[A-Za-z0-9_-]{11}$/.test(id)) { post({ e: 'error', code: 2 }); return; }
+  window.lk = { cmd: function (c) {
+    if (!P) return;
+    if (c.op === 'play') P.playVideo(); else if (c.op === 'pause') P.pauseVideo();
+    else if (c.op === 'seek') P.seekTo(Math.max(0, +c.t || 0), true); else if (c.op === 'rate') P.setPlaybackRate(+c.r || 1);
+  } };
+  window.onYouTubeIframeAPIReady = function () {
+    P = new YT.Player('p', { host: 'https://www.youtube-nocookie.com', videoId: id, width: '100%', height: '100%',
+      playerVars: { playsinline: 1, rel: 0, modestbranding: 1, cc_load_policy: 1, cc_lang_pref: 'en', start: start, hl: q.get('hl') || 'en', origin: 'https://lexkite.com' },
+      events: {
+        onReady: function () { post({ e: 'ready', len: P.getDuration() || 0 }); },
+        onStateChange: function (ev) {
+          post({ e: 'state', s: ev.data }); clearInterval(tick);
+          if (ev.data === 1) tick = setInterval(function () { post({ e: 'time', t: P.getCurrentTime() || 0 }); }, 250);
+          else post({ e: 'time', t: P.getCurrentTime() || 0 });
+        },
+        onError: function (ev) { post({ e: 'error', code: ev.data }); },
+      } });
+  };
+  var s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; s.async = true;
+  s.onerror = function () { post({ e: 'error', code: -1 }); }; document.head.appendChild(s);
+})();
+</script></body></html>

@@ -102,7 +102,7 @@ items: [
 options: ['The nets are towed too slowly to collect enough material.', 'Many of the smallest particles are not caught by the net.', 'Samples are often damaged on the way to the laboratory.', 'The method has only been in use for a short time.'],
 a: 1, cue: 'so smaller particles pass straight through' },
 { n: 22, q: 'What does the writer say about identifying particles by eye under a microscope?',
-options: ['It takes longer than analysis by spectroscopy.', 'It is still the preferred method in most laboratories.', 'It can lead researchers to confuse natural materials with plastic.', 'It works well only for brightly coloured particles.'],
+options: ['It requires more time than using spectroscopic techniques for analysis.', 'It remains the most commonly adopted approach across many research labs.', 'It can lead researchers to confuse natural materials with plastic.', 'It is effective solely when particles exhibit vivid coloration.'],
 a: 2, cue: 'fragments of shell and plant fibre were easily mistaken for plastic' },
 { n: 23, q: "What did Dr Haugstad's team discover?",
 options: ['Most of the particles in the river settled near the riverbed.', 'Particle concentrations peaked during dry, windless days.', 'Roads contributed more microplastics to the river than agricultural fields.', 'A large proportion of the annual load moved during a few stormy days.'],

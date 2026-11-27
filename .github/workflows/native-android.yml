@@ -64,9 +64,9 @@ jobs:
         working-directory: native/android
         run: |
           N=$(ls app/src/test/snapshots/*.png 2>/dev/null | wc -l)
-          if [ "$LX_IN1" = "true" ] || [ "$N" -lt 561 ]; then
+          if [ "$LX_IN1" = "true" ] || [ "$N" -lt 631 ]; then
             # bấm tay record → ghi lại tất cả; thiếu ảnh (test mới / ảnh đổi có chủ đích đã xoá) → chỉ thêm ảnh còn thiếu, ảnh chuẩn đã commit vẫn được so
-            echo "::warning::Ảnh snapshot chuẩn $N/561 → ghi ảnh thiếu rồi kiểm lại; tải artifact native-android-snapshots và commit vào app/src/test/snapshots"
+            echo "::warning::Ảnh snapshot chuẩn $N/631 → ghi ảnh thiếu rồi kiểm lại; tải artifact native-android-snapshots và commit vào app/src/test/snapshots"
             KEEP="$RUNNER_TEMP/keep"; mkdir -p "$KEEP"
             [ "$LX_IN1" = "true" ] || cp app/src/test/snapshots/*.png "$KEEP/" 2>/dev/null || true
             gradle --no-daemon -q :app:recordRoborazziDebug

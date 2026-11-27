@@ -510,5 +510,165 @@
  "tout-tous-toutes": {
   "t": "tout, tous, toute, toutes",
   "x": "Als Adjektiv wird \"tout\" angeglichen: \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\". Als Pronomen heißt es 'alles' (\"j'ai tout compris\") oder 'alle' (\"ils sont tous là\", mit gesprochenem End-s). Beispiele: \"tous les jours\", \"toute la journée\", \"ils sont tous là\""
+ },
+ "subj-after-bien-que": {
+  "t": "Bien que + Subjonctif",
+  "x": "\"bien que\", \"quoique\" und \"encore que\" drücken einen Gegensatz aus und stehen immer mit dem Subjonctif, auch wenn die Tatsache sicher ist. Sage \"Bien que le projet soit coûteux, nous continuons\", nicht \"bien que le projet est\". Beispiele: \"Bien qu'il pleuve, nous sortons\", \"Quoiqu'elle soit jeune, elle dirige l'équipe\""
+ },
+ "subj-after-pour-que": {
+  "t": "Zweck: pour que, afin que",
+  "x": "\"pour que\" und \"afin que\" leiten einen Zweck ein und stehen mit dem Subjonctif. Das Subjekt des Zwecksatzes ist meist ein anderes als das Hauptsubjekt: \"Je répète pour que vous compreniez\". Bei gleichem Subjekt nimmst du \"pour\" oder \"afin de\" plus Infinitiv. Beispiele: \"Il parle lentement pour que nous comprenions\", \"Elle écrit afin que tout soit clair\""
+ },
+ "subj-after-avant-que": {
+  "t": "Zeitgrenzen: avant que",
+  "x": "\"avant que\" und \"jusqu'à ce que\" stehen mit dem Subjonctif, weil die Handlung noch nicht verwirklicht ist. Nach \"avant que\" wird oft ein \"ne\" ohne verneinende Bedeutung ergänzt: \"avant qu'il ne parte\". Bei gleichem Subjekt nimmst du \"avant de\" plus Infinitiv. Beispiele: \"Attends jusqu'à ce que je revienne\", \"Appelle avant que nous ne partions\""
+ },
+ "subj-a-moins-que-ne": {
+  "t": "Ausnahme: à moins que",
+  "x": "\"à moins que\" bedeutet \"es sei denn\" und verlangt den Subjonctif. Im gehobenen Französisch steht oft ein überflüssiges \"ne\" vor dem Verb (\"à moins qu'il ne vienne\"), das keine echte Verneinung ist. Danach stehen weder Konditional noch Futur. Beispiele: \"Je sors, à moins qu'il ne pleuve\", \"à moins que vous ne soyez occupé\""
+ },
+ "subj-a-condition-que": {
+  "t": "Bedingung: à condition que",
+  "x": "\"à condition que\" und \"pourvu que\" bedeuten \"unter der Bedingung, dass\" und stehen mit dem Subjonctif, nie mit Futur oder Konditional. \"Pourvu que\" kann auch einen Satz eröffnen, um eine Hoffnung auszudrücken: \"Pourvu qu'il vienne !\". Beispiele: \"Je viendrai à condition que vous m'invitiez\", \"Pourvu que tout se passe bien\""
+ },
+ "subj-vs-ind-opinion": {
+  "t": "Meinungsverben: Modus",
+  "x": "Nach \"penser que\" und \"croire que\" im Bejahten steht der Indicatif: \"Je pense qu'il a raison\". Im Verneinten oder in der Inversionsfrage entsteht Zweifel, und es steht der Subjonctif: \"Je ne pense pas qu'il ait raison\". Der Modus richtet sich danach, wie sicher sich der Sprecher ist. Beispiele: \"Je crois qu'elle viendra\", \"Je ne crois pas qu'elle vienne\""
+ },
+ "subj-emotion-doubt": {
+  "t": "Gefühl, Zweifel, Notwendigkeit",
+  "x": "Verben der Emotion (\"être content que\", \"regretter que\"), des Zweifels (\"douter que\") und der Notwendigkeit (\"il faut que\", \"il est essentiel que\") stehen mit dem Subjonctif, wenn die Subjekte verschieden sind. Der Satz drückt eine Reaktion oder ein Bedürfnis aus, keine bloße Tatsache. Beispiele: \"Je suis ravi que vous veniez\", \"Il faut que nous partions\""
+ },
+ "subj-irregular-forms": {
+  "t": "Unregelmäßige Subjonctif-Stämme",
+  "x": "Sieben häufige Verben haben unregelmäßige Subjonctif-Stämme: \"être\" (sois, soyons), \"avoir\" (aie, ayons), \"aller\" (aille, allions), \"faire\" (fasse), \"pouvoir\" (puisse), \"savoir\" (sache), \"vouloir\" (veuille). Lerne sie als ganze Formen; auch die nous- und vous-Formen von \"être\", \"avoir\", \"aller\" und \"vouloir\" haben einen eigenen Stamm. Beispiele: \"qu'elle aille\", \"que vous sachiez\", \"que tu aies\""
+ },
+ "subj-passe": {
+  "t": "Subjonctif passé",
+  "x": "Der Subjonctif passé besteht aus dem Subjonctif von \"avoir\" oder \"être\" plus Partizip Perfekt. Er zeigt, dass die Handlung vor der des Hauptverbs abgeschlossen ist: \"Je suis content que tu sois venu\". Wähle das Hilfsverb wie im passé composé und beachte die Angleichung. Beispiele: \"Il faut qu'ils aient fini\", \"Bien qu'elle soit partie\""
+ },
+ "subj-vs-infinitive": {
+  "t": "Subjonctif oder Infinitiv",
+  "x": "Haben beide Verben dasselbe Subjekt, bevorzugt das Französische den Infinitiv: \"Je veux partir\". Wechselt das Subjekt, steht \"que\" plus Subjonctif: \"Je veux que tu partes\". Das gilt auch für Wünsche, Gefühle und viele Konjunktionen (\"avant de\" oder \"avant que\"). Beispiele: \"Elle est contente d'être là\", \"Elle est contente que vous soyez là\""
+ },
+ "subj-superlative-relative": {
+  "t": "Subjonctif nach Superlativ",
+  "x": "Nach einem Superlativ (\"le plus\", \"le meilleur\") oder nach \"seul\", \"premier\", \"dernier\", \"unique\" steht im Relativsatz der Subjonctif, weil die Aussage ein persönliches Urteil ist. Mit \"jamais\" ist der Subjonctif passé üblich: \"le plus beau film que j'aie vu\". Beispiele: \"le seul homme qui sache\", \"la première fois que je le voie\""
+ },
+ "subj-relative-search": {
+  "t": "Subjonctif bei gesuchtem Bezugswort",
+  "x": "Beschreibt ein Relativsatz etwas, das du suchst, dir wünschst oder dessen Existenz du bezweifelst, steht der Subjonctif: \"Je cherche un livre qui soit simple\". Weißt du, dass es existiert, steht der Indicatif: \"J'ai un livre qui est simple\". Typische Auslöser: \"chercher\", \"vouloir\", \"il n'y a personne qui\", Fragen nach der Existenz. Beispiele: \"Y a-t-il quelqu'un qui puisse m'aider ?\""
+ },
+ "cond-passe-news": {
+  "t": "Konditional für unbestätigte Meldungen",
+  "x": "Journalisten verwenden das Konditional, oft das Konditional der Vergangenheit, für nicht bestätigte Informationen: \"Le ministre aurait démissionné\". Es bedeutet \"angeblich\" oder \"soll\" und der Autor bürgt nicht für die Tatsache. Für ein aktuelles Gerücht nimmst du das Konditional Präsens: \"Il serait malade\". Beispiele: \"Deux personnes seraient blessées\", \"selon certaines sources, le vol aurait été annulé\""
+ },
+ "si-plus-que-parfait": {
+  "t": "Irreale Vergangenheit: si + plus-que-parfait",
+  "x": "Für eine irreale Bedingung in der Vergangenheit steht \"si\" plus plus-que-parfait und im Hauptsatz das Konditional der Vergangenheit: \"Si j'avais su, je serais venu\". Setze nach \"si\" in dieser Bedeutung nie ein Konditional. Der Hauptsatz zeigt, was nicht geschehen ist. Beispiele: \"Si elle avait étudié, elle aurait réussi\", \"Si nous étions partis, nous aurions vu le concert\""
+ },
+ "si-mixed-conditions": {
+  "t": "Gemischte Konditionalsätze",
+  "x": "Ein gemischter Konditionalsatz verbindet eine vergangene Bedingung mit einem gegenwärtigen Ergebnis: \"si\" plus plus-que-parfait, dann das Konditional Präsens. Zeitwörter wie \"maintenant\" oder \"aujourd'hui\" im Hauptsatz zeigen, dass die Folge bis heute gilt. Beispiel: \"Si tu avais écouté, tu comprendrais\". Vergleiche mit dem rein vergangenen Muster: \"tu aurais compris\""
+ },
+ "hypothese-au-cas-ou": {
+  "t": "Vorsorge: au cas où",
+  "x": "\"au cas où\" drückt eine Vorsichtsmaßnahme gegen ein mögliches Ereignis aus und steht mit dem Konditional, nicht mit Subjonctif oder Futur. Es bedeutet \"für den Fall, dass\". Es kann am Satzanfang oder am Satzende stehen. Beispiele: \"Prenez un parapluie au cas où il pleuvrait\", \"Au cas où tu serais en retard, appelle-moi\""
+ },
+ "apres-que-indicatif": {
+  "t": "après que + Indicatif",
+  "x": "\"après que\" und \"dès que\" nennen eine Tatsache, die wirklich geschehen ist, und stehen daher mit dem Indicatif, nicht mit dem Subjonctif (anders als \"avant que\"). Das Verb nach \"après que\" steht in einer zusammengesetzten Zeit, die vor dem Hauptverb liegt: \"Après qu'il a fini, il est rentré\". Nach \"dès que\" mit Futur im Hauptsatz nimmst du das futur antérieur: \"Dès que tu auras fini, appelle-moi\""
+ },
+ "concordance-des-temps": {
+  "t": "Zeitenfolge",
+  "x": "Steht das Hauptverb in der Vergangenheit, rückt das Verb im Nebensatz zurück: Präsens wird zum imparfait, passé composé zum plus-que-parfait, Futur zum Konditional. Mische kein Hauptverb in der Vergangenheit mit einem Nebensatzverb im Präsens: \"Il pensait que nous étions partis\". Beispiele: \"Je savais que tu viendrais\", \"Elle disait qu'elle était fatiguée\""
+ },
+ "discours-indirect-passe": {
+  "t": "Indirekte Rede in der Vergangenheit",
+  "x": "In der indirekten Rede nach einem Verb der Vergangenheit (\"elle a dit que\") verschieben sich die Zeiten: Präsens zu imparfait, passé composé zu plus-que-parfait, Futur zu Konditional. Auch Zeitwörter ändern sich: \"demain\" wird zu \"le lendemain\", \"hier\" zu \"la veille\", \"aujourd'hui\" zu \"ce jour-là\". Beispiel: \"Il a dit qu'il viendrait le lendemain\""
+ },
+ "discours-indirect-questions": {
+  "t": "Indirekte Fragen",
+  "x": "In indirekten Fragen gilt die normale Wortstellung ohne Fragezeichen. \"Est-ce que\" und Ja-Nein-Fragen werden zu \"si\": \"Il a demandé si je venais\". \"Qu'est-ce que\" wird zu \"ce que\", und \"qu'est-ce qui\" zu \"ce qui\". Nach einem Verb der Vergangenheit verschieben sich die Zeiten. Beispiele: \"Elle m'a demandé ce que je voulais\", \"Il voulait savoir ce qui se passait\""
+ },
+ "discours-indirect-ordres": {
+  "t": "Befehle und Bitten wiedergeben",
+  "x": "Um einen Befehl oder eine Bitte wiederzugeben, nimmst du \"dire de\" oder \"demander de\" plus Infinitiv: \"Elle m'a dit de rentrer\". Die angesprochene Person steht mit \"à\" oder einem Pronomen: \"Il a demandé à ses voisins de baisser la musique\". Ein verneinter Befehl behält \"ne pas\" zusammen vor dem Infinitiv: \"Il nous a dit de ne pas toucher aux câbles\""
+ },
+ "accord-participe-cod-avant": {
+  "t": "Angleichung bei vorangestelltem Objekt",
+  "x": "Mit \"avoir\" gleicht sich das Partizip dem direkten Objekt nur an, wenn es vor dem Verb steht. Achte auf \"que\", ein Pronomen wie \"les\" oder ein Fragewort: \"Les lettres que Marie a écrites\", \"Quelle robe as-tu choisie ?\". Steht das Objekt danach, gibt es keine Angleichung: \"Marie a écrit des lettres\""
+ },
+ "accord-participe-pronominaux": {
+  "t": "Partizip bei reflexiven Verben",
+  "x": "Im passé composé eines reflexiven Verbs gleicht sich das Partizip dem Reflexivpronomen an, wenn es direktes Objekt ist: \"Les amies se sont retrouvées\". Es bleibt unverändert, wenn das Pronomen indirektes Objekt ist oder ein anderes Objekt folgt: \"Elle s'est lavé les mains\", \"Ils se sont envoyé des messages\". Frage dich, ob \"se\" \"à qui ?\" oder \"qui ?\" bedeutet"
+ },
+ "participe-present-gerondif": {
+  "t": "Partizip, Gérondif, Adjektiv",
+  "x": "Das Gérondif \"en + -ant\" sagt, wie oder wann etwas geschieht, und ist unveränderlich: \"Il s'est blessé en coupant du bois\". Das Partizip Präsens ersetzt einen Nebensatz und ist ebenfalls unveränderlich: \"Les enfants jouant dans le jardin\". Das Verbaladjektiv gleicht sich dem Nomen an: \"une histoire fascinante\", \"des résultats surprenants\""
+ },
+ "passif-et-alternatives": {
+  "t": "Passiv und Alternativen",
+  "x": "Das Passiv besteht aus \"être\" + Partizip: \"Les résultats ont été annoncés par le jury\". Das Französische bevorzugt oft Alternativen: ein Reflexivverb für allgemeine Tatsachen (\"Le fromage se mange après le plat\"), \"on\" oder \"se faire\" für etwas, das dem Subjekt widerfährt (\"Il s'est fait voler son sac\")"
+ },
+ "causatif-faire-laisser": {
+  "t": "Kausatives faire und laisser",
+  "x": "\"Faire\" + Infinitiv bedeutet, dass man etwas machen lässt: \"Nous avons fait refaire la cuisine\". \"Laisser\" + Infinitiv bedeutet erlauben: \"Le professeur a laissé les élèves partir\". Das Partizip \"fait\" bleibt vor dem Infinitiv unverändert: \"Ce film m'a fait pleurer\""
+ },
+ "pronoms-relatifs-composes": {
+  "t": "Zusammengesetzte Relativpronomen",
+  "x": "Nach einer Präposition nimmst du \"lequel\", \"laquelle\", \"lesquels\" oder \"lesquelles\", passend zum Nomen: \"la table sur laquelle\", \"les amis chez lesquels\". Mit \"à\" verschmelzen sie: \"auquel\", \"auxquels\", \"auxquelles\", \"à laquelle\". Mit \"de\" ergeben sie \"duquel\", \"desquels\", \"de laquelle\""
+ },
+ "pronom-relatif-dont": {
+  "t": "Das Relativpronomen dont",
+  "x": "\"Dont\" ersetzt \"de\" + Nomen in einem Relativsatz: \"L'ordinateur dont j'ai besoin\" (avoir besoin de). Es drückt auch Besitz aus, mit dem Nomen direkt danach: \"l'écrivain dont le dernier roman\". Und es führt einen Teil einer Gruppe ein: \"trois enfants, dont deux vivent à l'étranger\""
+ },
+ "ce-qui-ce-que-ce-dont": {
+  "t": "Ce qui, ce que, ce dont",
+  "x": "\"Ce\" + Relativpronomen bezieht sich auf einen Gedanken oder eine unbenannte Sache. \"Ce qui\" ist Subjekt (\"Ce qui m'inquiète\"), \"ce que\" Objekt (\"ce que tu veux\"). Nimm \"ce dont\" für Verben mit \"de\" (\"ce dont tu as envie\") und \"ce à quoi\" für Verben mit \"à\" (\"ce à quoi il s'intéresse\")"
+ },
+ "pronoms-doubles-ordre": {
+  "t": "Reihenfolge von zwei Pronomen",
+  "x": "Vor dem Verb steht bei me, te, nous und vous das indirekte Pronomen zuerst: \"Je te le rends\". Bei der dritten Person kommt das direkte zuerst: \"Je le lui donne\"; \"en\" steht immer zuletzt: \"Je lui en ai parlé\". Nach einem bejahten Imperativ ist die Reihenfolge direkt, dann indirekt: \"Donne-les-moi\""
+ },
+ "pronoms-y-en-avances": {
+  "t": "Fortgeschrittenes y und en",
+  "x": "\"En\" ersetzt \"de\" + Nomen oder eine Menge, und die Zahl bleibt stehen: \"J'en ai acheté trois\". \"Y\" ersetzt \"à\" oder einen Ort: \"J'y pense tout le temps\". Im bejahten Imperativ folgen sie dem Verb und verbinden sich: \"Donnez-m'en un kilo\""
+ },
+ "mise-en-relief": {
+  "t": "Hervorhebung mit c'est...qui/que",
+  "x": "\"C'est ... qui\" hebt das Subjekt hervor, \"c'est ... que\" ein Objekt oder eine Ergänzung: \"C'est moi qui ai fait le gâteau\", \"C'est demain que nous partons\". Bei einem Nomen im Plural nimmst du \"ce sont\": \"Ce sont mes voisins que j'ai invités\". Das Verb nach \"qui\" richtet sich nach dem hervorgehobenen Element"
+ },
+ "inversion-peut-etre": {
+  "t": "Inversion nach Satzadverbien",
+  "x": "Im gehobenen Französisch ziehen \"peut-être\", \"sans doute\" und \"aussi\" (im Sinn von \"deshalb\") am Satzanfang die Inversion von Subjekt und Verb nach sich: \"Peut-être viendra-t-il demain\". Bei einem Nomen als Subjekt wird es als Pronomen wiederholt. Ergänze \"-t-\", wenn das Verb vor \"il\" oder \"elle\" auf einen Vokal endet: \"viendra-t-elle\""
+ },
+ "ne-expletif": {
+  "t": "Das ne explétif",
+  "x": "Nach Verben der Furcht (\"craindre que\"), nach \"avant que\" und nach Komparativen der Ungleichheit setzt das gehobene Französisch ein \"ne\" ohne verneinende Bedeutung: \"Je crains qu'il ne pleuve\", \"avant qu'il ne fasse nuit\", \"plus grand que je ne pensais\". Es ist in der gesprochenen Sprache optional und steht nie mit \"pas\""
+ },
+ "connecteurs-concession-opposition": {
+  "t": "Einräumung und Gegensatz",
+  "x": "\"Bien que\" + Subjonctif und \"malgré\" + Nomen drücken eine Einräumung aus: \"Malgré la pluie, nous sommes sortis\". \"Alors que\" + Indicatif stellt zwei Tatsachen gegenüber: \"Paul adore la mer, alors que sa femme préfère la montagne\". \"Pourtant\", \"cependant\" und \"en revanche\" verbinden zwei Sätze"
+ },
+ "nominalisation": {
+  "t": "Verben zu Nomen machen",
+  "x": "Die Nominalisierung macht Texte knapper und formeller. Verben werden mit Endungen wie -tion, -ment, -ure oder -ée zu Nomen: \"ouvrir\" ergibt \"l'ouverture\", \"augmenter\" ergibt \"l'augmentation\", \"arriver\" ergibt \"l'arrivée\". Auch bei Adjektiven: \"difficile\" ergibt \"la difficulté\". Prüfe das Genus des neuen Nomens"
+ },
+ "tout-accord": {
+  "t": "Tout: Adjektiv, Pronomen, Adverb",
+  "x": "Als Adjektiv gleicht sich \"tout\" dem Nomen an: \"tous les magasins\", \"toutes les fenêtres\". Als Adverb im Sinn von \"ganz\" ist es unveränderlich, außer vor einem weiblichen Adjektiv, das mit Konsonant beginnt: \"elle est tout étonnée\", aber \"elles sont toutes timides\""
+ },
+ "prepositions-apres-verbes": {
+  "t": "Präpositionen nach Verben",
+  "x": "Manche Verben haben eine feste Präposition, die die Bedeutung verändern kann. \"Penser à\" heißt an etwas denken: \"Je pense à mes vacances\"; \"penser de\" fragt nach einer Meinung: \"Que penses-tu de ce film ?\". Lerne Paare wie \"s'habituer à\" und \"se méfier de\" als Einheit"
+ },
+ "infinitif-passe": {
+  "t": "Der Infinitiv der Vergangenheit",
+  "x": "\"Après\" + \"avoir\" oder \"être\" + Partizip Perfekt sagt, dass eine Handlung vor der Haupthandlung geschah: \"Après avoir écrit la lettre, il l'a postée\". Beide Handlungen müssen dasselbe Subjekt haben. Bewegungsverben und reflexive Verben nehmen \"être\" und gleichen sich an: \"Après être rentrée\", \"Après nous être reposés\""
+ },
+ "a-regard-pronoms-lequel": {
+  "t": "Fragendes lequel",
+  "x": "\"Lequel\" fragt nach einer Auswahl unter bekannten Dingen und gleicht sich ihnen an: \"Lequel de ces chemins ?\", \"Laquelle de tes amies ?\". Mit \"à\" oder \"de\" verschmilzt es: \"Auquel de ces clients as-tu téléphoné ?\", \"Duquel parles-tu ?\". Nimm \"quel\" nur direkt vor einem Nomen"
  }
 }
