@@ -16213,6 +16213,66 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_review_substance": {
+   "run": "45925901208",
+   "at": "2026-11-27T02:55Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "19b6aec4fd92762c",
+    "wide": "a8504155c2dc7d7c"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_suffer": {
+   "run": "45925901208",
+   "at": "2026-11-27T02:55Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "847b7256eede2467",
+    "wide": "c175d827c65e8375"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_summary": {
+   "run": "45925901208",
+   "at": "2026-11-27T02:55Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "6c87862dbf2f1c1d",
+    "wide": "ba921c0035333c17"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_surface": {
+   "run": "45925901208",
+   "at": "2026-11-27T02:55Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "bc76c44fce884417",
+    "wide": "5902e723794bb4bf"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_stress_artistic": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",

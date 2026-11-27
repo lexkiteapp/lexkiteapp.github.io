@@ -1,4 +1,248 @@
 {
+ "vi": [
+  [
+   "campaign",
+   "campaign",
+   "chiến dịch"
+  ],
+  [
+   "look-up-to",
+   "look up to",
+   "kính trọng"
+  ],
+  [
+   "format",
+   "format",
+   "định dạng"
+  ],
+  [
+   "confine",
+   "confine",
+   "giới hạn"
+  ],
+  [
+   "insight",
+   "insight",
+   "sự hiểu biết sâu sắc"
+  ],
+  [
+   "visible",
+   "visible",
+   "có thể nhìn thấy"
+  ],
+  [
+   "interpret",
+   "interpret",
+   "giải thích"
+  ],
+  [
+   "moreover",
+   "moreover",
+   "hơn nữa"
+  ],
+  [
+   "translation",
+   "translation",
+   "bản dịch"
+  ],
+  [
+   "underlie",
+   "underlie",
+   "làm nền tảng"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "từ bỏ"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "cung cấp chỗ ở"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "thừa nhận"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "giành được"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "đầy đủ"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "liền kề"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "mặc dù"
+  ],
+  [
+   "alter",
+   "alter",
+   "thay đổi"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "dự đoán trước"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "rõ ràng"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "phù hợp"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "xấp xỉ"
+  ],
+  [
+   "assume",
+   "assume",
+   "cho rằng"
+  ],
+  [
+   "assure",
+   "assure",
+   "cam đoan"
+  ]
+ ],
+ "en": [
+  [
+   "parallel",
+   "parallel",
+   ""
+  ],
+  [
+   "artificial",
+   "artificial",
+   ""
+  ],
+  [
+   "leisure",
+   "leisure",
+   ""
+  ],
+  [
+   "export",
+   "export",
+   ""
+  ],
+  [
+   "competitive",
+   "competitive",
+   ""
+  ],
+  [
+   "format",
+   "format",
+   ""
+  ],
+  [
+   "confine",
+   "confine",
+   ""
+  ],
+  [
+   "in-comparison",
+   "in comparison",
+   ""
+  ],
+  [
+   "moreover",
+   "moreover",
+   ""
+  ],
+  [
+   "organic",
+   "organic",
+   ""
+  ],
+  [
+   "captivity",
+   "captivity",
+   ""
+  ],
+  [
+   "witty",
+   "witty",
+   ""
+  ],
+  [
+   "underlie",
+   "underlie",
+   ""
+  ],
+  [
+   "conflict",
+   "conflict",
+   ""
+  ],
+  [
+   "incorporate",
+   "incorporate",
+   ""
+  ],
+  [
+   "rational",
+   "rational",
+   ""
+  ],
+  [
+   "scenario",
+   "scenario",
+   ""
+  ],
+  [
+   "status",
+   "status",
+   ""
+  ],
+  [
+   "display",
+   "display",
+   ""
+  ],
+  [
+   "dynamic",
+   "dynamic",
+   ""
+  ],
+  [
+   "extract",
+   "extract",
+   ""
+  ],
+  [
+   "stable",
+   "stable",
+   ""
+  ],
+  [
+   "visible",
+   "visible",
+   ""
+  ],
+  [
+   "epidemic",
+   "epidemic",
+   ""
+  ]
+ ],
  "es": [
   [
    "core",
@@ -49,6 +293,76 @@
    "acquire",
    "acquire",
    "adquirir"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "adecuado"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "adyacente"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "aunque"
+  ],
+  [
+   "alter",
+   "alter",
+   "alterar"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "prever"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "aparente"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "adecuado"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "aproximado"
+  ],
+  [
+   "assume",
+   "assume",
+   "asumir"
+  ],
+  [
+   "assure",
+   "assure",
+   "asegurar"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "favor"
+  ],
+  [
+   "bond",
+   "bond",
+   "enlace"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "circunstancia"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "aclarar"
   ]
  ],
  "pt": [
@@ -101,6 +415,76 @@
    "tension",
    "tension",
    "tensão"
+  ],
+  [
+   "visible",
+   "visible",
+   "visível"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "abandonar"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "acomodar"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "reconhecer"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "adquirir"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "adequado"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "adjacente"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "embora"
+  ],
+  [
+   "alter",
+   "alter",
+   "alterar"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "antecipar"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "aparente"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "apropriado"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "aproximado"
+  ],
+  [
+   "assume",
+   "assume",
+   "assumir"
   ]
  ],
  "fr": [
@@ -153,6 +537,76 @@
    "anticipate",
    "anticipate",
    "anticiper"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "approprié"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "approximatif"
+  ],
+  [
+   "assume",
+   "assume",
+   "supposer"
+  ],
+  [
+   "assure",
+   "assure",
+   "assurer"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "au nom de"
+  ],
+  [
+   "bond",
+   "bond",
+   "liaison"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "circonstance"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "clarifier"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "cohérent"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "coïncider"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "marchandise"
+  ],
+  [
+   "compensate",
+   "compensate",
+   "compenser"
+  ],
+  [
+   "complement",
+   "complement",
+   "compléter"
+  ],
+  [
+   "component",
+   "component",
+   "composant"
   ]
  ],
  "de": [
@@ -205,6 +659,76 @@
    "acquire",
    "acquire",
    "erwerben"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "angemessen"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "benachbart"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "wenngleich"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "erwarten"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "ersichtlich"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "geeignet"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "ungefähr"
+  ],
+  [
+   "assume",
+   "assume",
+   "annehmen"
+  ],
+  [
+   "assure",
+   "assure",
+   "versichern"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "Namen"
+  ],
+  [
+   "bond",
+   "bond",
+   "Bindung"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "Umstand"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "kohärent"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "übereinstimmen"
   ]
  ],
  "id": [
@@ -257,6 +781,76 @@
    "anticipate",
    "anticipate",
    "mengharapkan"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "semu"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "sesuai"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "kurang lebih"
+  ],
+  [
+   "assume",
+   "assume",
+   "menganggap"
+  ],
+  [
+   "assure",
+   "assure",
+   "memastikan"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "kepentingan"
+  ],
+  [
+   "bond",
+   "bond",
+   "obligasi"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "persoalan"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "menjelaskan"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "koheren"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "bertepatan"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "komoditi"
+  ],
+  [
+   "compensate",
+   "compensate",
+   "mengimbangi"
+  ],
+  [
+   "complement",
+   "complement",
+   "melengkapi"
   ]
  ],
  "th": [
@@ -309,6 +903,76 @@
    "alter",
    "alter",
    "เปลี่ยนแปลง"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "คาดหวัง"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "ชัดเจน"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "เหมาะสม"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "ประมาณ"
+  ],
+  [
+   "assume",
+   "assume",
+   "สมมติ"
+  ],
+  [
+   "assure",
+   "assure",
+   "รับรอง"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "ตัวแทน"
+  ],
+  [
+   "bond",
+   "bond",
+   "พันธบัตร"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "กรณี"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "อธิบาย"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "สอดคล้องกัน"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "ตรงกัน"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "สินค้า"
+  ],
+  [
+   "compensate",
+   "compensate",
+   "ชดเชย"
   ]
  ],
  "zh": [
@@ -361,6 +1025,76 @@
    "alter",
    "alter",
    "改变"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "预料"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "明显的"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "适当"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "大概"
+  ],
+  [
+   "assume",
+   "assume",
+   "承担"
+  ],
+  [
+   "assure",
+   "assure",
+   "保证"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "代表"
+  ],
+  [
+   "bond",
+   "bond",
+   "券"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "环境"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "阐明"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "相干"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "重合"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "商品"
+  ],
+  [
+   "compensate",
+   "compensate",
+   "补偿"
   ]
  ],
  "ja": [
@@ -413,6 +1147,76 @@
    "albeit",
    "albeit",
    "とはいえ"
+  ],
+  [
+   "alter",
+   "alter",
+   "変える"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "予想する"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "自明"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "適切な"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "近似"
+  ],
+  [
+   "assume",
+   "assume",
+   "決め込む"
+  ],
+  [
+   "assure",
+   "assure",
+   "請け合う"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "代理して"
+  ],
+  [
+   "bond",
+   "bond",
+   "ボンド"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "環境"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "明らかにする"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "密着した"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "一致する"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "商品"
   ]
  ],
  "ko": [
@@ -465,6 +1269,76 @@
    "albeit",
    "albeit",
    "비록 ~이지만"
+  ],
+  [
+   "alter",
+   "alter",
+   "변경하다"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "예상하다"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "분명한"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "적절한"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "대략적인"
+  ],
+  [
+   "assume",
+   "assume",
+   "추정하다"
+  ],
+  [
+   "assure",
+   "assure",
+   "장담하다"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "위함"
+  ],
+  [
+   "bond",
+   "bond",
+   "결합"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "상황"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "명확하게 하다"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "조리 있는"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "동시에 일어나다"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "상품"
   ]
  ],
  "hi": [
@@ -517,6 +1391,76 @@
    "albeit",
    "albeit",
    "यद्यपि"
+  ],
+  [
+   "alter",
+   "alter",
+   "बदलना"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "पहले से सोच रखना"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "प्रकट"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "उपयुक्त"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "लग-भग"
+  ],
+  [
+   "assume",
+   "assume",
+   "मान लेना"
+  ],
+  [
+   "assure",
+   "assure",
+   "भरोसा दिलाना"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "पक्ष"
+  ],
+  [
+   "bond",
+   "bond",
+   "बंधन"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "परिस्थिति"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "स्पष्ट करना"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "सुसंगत"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "मेल खाना"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "वस्तु"
   ]
  ],
  "ar": [
@@ -569,6 +1513,76 @@
    "albeit",
    "albeit",
    "ولو"
+  ],
+  [
+   "alter",
+   "alter",
+   "تغير"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "توقع"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "واضح"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "ملائم"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "تقريبي"
+  ],
+  [
+   "assume",
+   "assume",
+   "افترض"
+  ],
+  [
+   "assure",
+   "assure",
+   "أكد"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "لأجل مصلحة"
+  ],
+  [
+   "bond",
+   "bond",
+   "رباط"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "ظرف"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "وضح"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "متماسك"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "تزامن"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "سلعة"
   ]
  ],
  "ru": [
@@ -621,6 +1635,76 @@
    "albeit",
    "albeit",
    "хотя"
+  ],
+  [
+   "alter",
+   "alter",
+   "изменять"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "предвидеть"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "очевидный"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "соответствующий"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "приблизительный"
+  ],
+  [
+   "assume",
+   "assume",
+   "предполагать"
+  ],
+  [
+   "assure",
+   "assure",
+   "гарантировать"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "от имени"
+  ],
+  [
+   "bond",
+   "bond",
+   "связь"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "обстоятельство"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "прояснить"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "последовательный"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "совпадать"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "товар"
   ]
  ],
  "tr": [
@@ -633,6 +1717,11 @@
    "visible",
    "visible",
    "görünür"
+  ],
+  [
+   "advocate",
+   "advocate",
+   "savunmak"
   ],
   [
    "abandon",
@@ -673,6 +1762,71 @@
    "alter",
    "alter",
    "değiştirmek"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "beklemek"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "açık"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "uygun"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "yaklaşık"
+  ],
+  [
+   "assume",
+   "assume",
+   "üstlenmek"
+  ],
+  [
+   "assure",
+   "assure",
+   "garanti etmek"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "adına"
+  ],
+  [
+   "bond",
+   "bond",
+   "bağ"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "durum"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "açıklamak"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "tutarlı"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "rastlamak"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "emtia"
   ]
  ]
 }

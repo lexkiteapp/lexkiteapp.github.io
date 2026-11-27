@@ -1,0 +1,314 @@
+{
+  "occupy": {
+    "n": "occupy के बाद सीधे कर्म आता है, कोई preposition नहीं: occupy a room, occupy a seat। इसका अर्थ जगह घेरना भी है और समय या ध्यान लगाना भी, जैसे The project will occupy me all week। कर्मवाच्य में occupied का मतलब है भरा हुआ या व्यस्त, जैसे This seat is occupied। किसी देश या इमारत पर कब्ज़ा करने के लिए भी यही क्रिया चलती है।",
+    "x": [
+      [
+        "Tourists occupy every table on the terrace by noon.",
+        "दोपहर तक पर्यटक छत के हर मेज़ पर बैठ जाते हैं।"
+      ],
+      [
+        "Caring for her father will occupy most of her evenings.",
+        "पिता की देखभाल में उसकी ज़्यादातर शामें लग जाएंगी।"
+      ]
+    ]
+  },
+  "offset": {
+    "n": "Offset का प्रयोग तब होता है जब कोई नुकसान किसी फ़ायदे से संतुलित हो जाए: offset the cost, या offset A against B। इसके तीनों रूप offset, offset, offset एक जैसे हैं, इसलिए past में offsetted नहीं लिखते। कर्मवाच्य में by आता है: losses were offset by gains। पर्यावरण की बात में carbon offset संज्ञा के रूप में भी मिलता है।",
+    "x": [
+      [
+        "Solar panels can offset part of the family's electricity bill.",
+        "सौर पैनल परिवार के बिजली बिल का कुछ हिस्सा बराबर कर सकते हैं।"
+      ],
+      [
+        "The company hopes new markets will offset the drop in local sales.",
+        "कंपनी को उम्मीद है कि नए बाज़ार स्थानीय बिक्री की गिरावट की भरपाई कर देंगे।"
+      ]
+    ]
+  },
+  "ongoing": {
+    "n": "Ongoing विशेषण है और ज़्यादातर संज्ञा से पहले आता है: an ongoing investigation, ongoing support। यह उस चीज़ के लिए है जो शुरू हो चुकी है और अभी जारी है, अंत नहीं हुआ। The talks are ongoing जैसा वाक्य भी सही है। यह क्रिया नहीं है, इसलिए is ongoing के साथ दूसरी क्रिया का ing रूप जोड़ने की ज़रूरत नहीं होती।",
+    "x": [
+      [
+        "The ongoing strike has closed several factories in the region.",
+        "जारी हड़ताल के कारण क्षेत्र की कई फ़ैक्ट्रियाँ बंद हो गई हैं।"
+      ],
+      [
+        "Our team offers ongoing training to all new staff.",
+        "हमारी टीम सभी नए कर्मचारियों को लगातार प्रशिक्षण देती है।"
+      ]
+    ]
+  },
+  "overlap": {
+    "n": "दो चीज़ें आंशिक रूप से एक ही जगह या विषय में आएँ तो overlap कहते हैं। सामान्य ढाँचा है overlap with: Her schedule overlaps with mine। संज्ञा के रूप में भी चलता है: an overlap between two subjects। इसमें पूरी समानता नहीं होती, सिर्फ़ कुछ हिस्सा साझा होता है। क्रिया का ing रूप overlapping है, जिसमें p एक ही है।",
+    "x": [
+      [
+        "The two meetings overlap, so I can only attend one.",
+        "दोनों बैठकें एक-दूसरे पर चढ़ती हैं, इसलिए मैं सिर्फ़ एक में जा सकता हूँ।"
+      ],
+      [
+        "There is a lot of overlap between biology and chemistry.",
+        "जीवविज्ञान और रसायनविज्ञान में काफ़ी साझा क्षेत्र है।"
+      ]
+    ]
+  },
+  "overseas": {
+    "n": "Overseas विशेषण भी है और क्रिया-विशेषण भी। क्रिया के साथ to नहीं लगता: She works overseas, go overseas। संज्ञा से पहले भी आता है: overseas students। Abroad सिर्फ़ क्रिया-विशेषण है, इसलिए abroad students नहीं कहते, overseas students कहते हैं। Overseas का मूल भाव समुद्र पार है, पर आज किसी भी विदेश के लिए चलता है।",
+    "x": [
+      [
+        "My cousin has been working overseas for almost ten years.",
+        "मेरा चचेरा भाई लगभग दस साल से विदेश में काम कर रहा है।"
+      ],
+      [
+        "The university attracts overseas applicants from over sixty countries.",
+        "विश्वविद्यालय साठ से अधिक देशों के विदेशी आवेदकों को आकर्षित करता है।"
+      ]
+    ]
+  },
+  "parameter": {
+    "n": "Parameter को perimeter से न मिलाएँ, perimeter का अर्थ किसी आकृति की परिधि है। Parameter गणित और कंप्यूटर में वह मान है जो परिणाम तय करता है। रोज़ की अंग्रेज़ी में अक्सर बहुवचन parameters आता है, जिसका अर्थ है सीमाएँ या शर्तें: within these parameters। यह औपचारिक शब्द है, बातचीत में limits या rules ज़्यादा सुनाई देते हैं।",
+    "x": [
+      [
+        "Please change the search parameter to show only recent results.",
+        "कृपया सिर्फ़ हाल के परिणाम दिखाने के लिए खोज का पैरामीटर बदलिए।"
+      ],
+      [
+        "The project must be finished within the parameters set by the board.",
+        "परियोजना बोर्ड द्वारा तय की गई सीमाओं के भीतर पूरी होनी चाहिए।"
+      ]
+    ]
+  },
+  "perceive": {
+    "n": "Perceive का मतलब है किसी चीज़ को खास नज़रिए से देखना या महसूस करना। सबसे आम ढाँचा perceive A as B है, और कर्मवाच्य में be perceived as: He is perceived as arrogant। संज्ञा perception है। स्पेलिंग में याद रखें: c के बाद ei आता है, यानी perceive, receive की तरह, न कि peirceive।",
+    "x": [
+      [
+        "Many customers perceive the new design as more modern.",
+        "कई ग्राहक नए डिज़ाइन को ज़्यादा आधुनिक मानते हैं।"
+      ],
+      [
+        "Dogs can perceive sounds that humans cannot hear.",
+        "कुत्ते ऐसी आवाज़ें पहचान सकते हैं जो इंसान नहीं सुन पाते।"
+      ]
+    ]
+  },
+  "philosophy": {
+    "n": "Philosophy का अर्थ केवल दर्शनशास्त्र नहीं है। यह किसी व्यक्ति, संस्था या कंपनी का मूल सिद्धांत भी हो सकता है: a philosophy of teaching, her philosophy of life। इसे a philosophy कहकर गिन सकते हैं। दर्शन पढ़ने या सोचने वाले व्यक्ति को philosopher कहते हैं, और विशेषण philosophical है। शुरुआत में ph का उच्चारण f जैसा होता है।",
+    "x": [
+      [
+        "Her philosophy is to treat every customer like a guest.",
+        "उसका सिद्धांत है कि हर ग्राहक को मेहमान की तरह मानो।"
+      ],
+      [
+        "He studied philosophy at university before becoming a journalist.",
+        "पत्रकार बनने से पहले उसने विश्वविद्यालय में दर्शनशास्त्र पढ़ा था।"
+      ]
+    ]
+  },
+  "portion": {
+    "n": "Portion किसी बड़ी चीज़ का हिस्सा है, पर part से ज़्यादा औपचारिक और अक्सर मापे हुए या बाँटे हुए अंश के लिए आता है। खाने में portion का अर्थ एक व्यक्ति की परोसी हुई मात्रा है: a small portion of rice, portion size। संख्या या अनुपात के साथ भी चलता है: a large portion of the population। A portion of के बाद एकवचन या बहुवचन संज्ञा दोनों आ सकती हैं।",
+    "x": [
+      [
+        "The restaurant serves generous portions, so one dish is enough for two.",
+        "यह रेस्तराँ भरपूर मात्रा परोसता है, इसलिए एक व्यंजन दो लोगों के लिए काफ़ी है।"
+      ],
+      [
+        "Only a small portion of the forest has been protected.",
+        "जंगल का केवल एक छोटा हिस्सा संरक्षित किया गया है।"
+      ]
+    ]
+  },
+  "practitioner": {
+    "n": "Practitioner औपचारिक शब्द है, उस व्यक्ति के लिए जो चिकित्सा, कानून या किसी कला का नियमित अभ्यास करता है: a legal practitioner, a yoga practitioner। हिंदी का व्यवसायी शब्द अक्सर व्यापारी की ओर जाता है, इसलिए यहाँ अभ्यासकर्ता या पेशेवर अधिक ठीक बैठता है। ब्रिटेन में general practitioner यानी GP परिवार का डॉक्टर होता है।",
+    "x": [
+      [
+        "Experienced practitioners of traditional medicine joined the workshop.",
+        "पारंपरिक चिकित्सा के अनुभवी अभ्यासकर्ता कार्यशाला में शामिल हुए।"
+      ],
+      [
+        "She is a respected practitioner of family law.",
+        "वह पारिवारिक कानून की एक सम्मानित वकील है।"
+      ]
+    ]
+  },
+  "prior": {
+    "n": "Prior का अर्थ है पहले का, और यह विशेषण आमतौर पर संज्ञा से पहले आता है: prior notice, a prior engagement। Prior to भी चलता है, जो before का औपचारिक रूप है, और इसके बाद संज्ञा या -ing रूप आता है: prior to leaving। Prior than नहीं कहते, तुलना के लिए earlier than या before उपयुक्त है।",
+    "x": [
+      [
+        "Visitors need prior permission to enter the laboratory.",
+        "आगंतुकों को प्रयोगशाला में जाने के लिए पहले से अनुमति लेनी होती है।"
+      ],
+      [
+        "Prior to joining the firm, he worked as a teacher.",
+        "कंपनी में आने से पहले वह शिक्षक के रूप में काम करता था।"
+      ]
+    ]
+  },
+  "protocol": {
+    "n": "Protocol का अर्थ है किसी काम को करने के तय नियम या प्रक्रिया: a medical protocol, security protocols। कंप्यूटर में यह डेटा के आदान-प्रदान के नियम हैं, जैसे HTTP एक protocol है। कूटनीति में इसका अर्थ औपचारिक शिष्टाचार भी है: diplomatic protocol। Follow protocol और break protocol सामान्य मेल हैं। यह शब्द लगभग हमेशा किसी आधिकारिक संदर्भ में आता है।",
+    "x": [
+      [
+        "Staff must follow the safety protocol before entering the chemical store.",
+        "कर्मचारियों को रसायन भंडार में जाने से पहले सुरक्षा प्रोटोकॉल का पालन करना होगा।"
+      ],
+      [
+        "Email uses a different protocol from the one used for web pages.",
+        "ईमेल उस प्रोटोकॉल से अलग प्रोटोकॉल इस्तेमाल करता है जो वेब पेजों के लिए होता है।"
+      ]
+    ]
+  },
+  "psychology": {
+    "n": "Psychology में शुरुआती p मौन है और उच्चारण sy- से शुरू होता है। यह अनगिनत संज्ञा है और एकवचन क्रिया लेती है: Psychology is a popular subject। व्यक्ति के लिए psychologist कहते हैं, और विशेषण psychological है। किसी समूह की मानसिकता के लिए भी चलता है: the psychology of voters, यानी मतदाताओं का मनोविज्ञान।",
+    "x": [
+      [
+        "She is studying psychology because she wants to work with children.",
+        "वह मनोविज्ञान पढ़ रही है क्योंकि वह बच्चों के साथ काम करना चाहती है।"
+      ],
+      [
+        "Advertisers rely on the psychology of colour to influence buyers.",
+        "विज्ञापनदाता खरीदारों को प्रभावित करने के लिए रंगों के मनोविज्ञान का सहारा लेते हैं।"
+      ]
+    ]
+  },
+  "radical": {
+    "n": "Radical अपने आप में अच्छा या बुरा नहीं है, संदर्भ अर्थ तय करता है। Radical change का अर्थ है जड़ से बड़ा बदलाव, जो प्रशंसा भी हो सकती है और चेतावनी भी। राजनीति में a radical group का मतलब अक्सर चरमपंथी विचार होता है। गणित में radical का संबंध मूल या वर्गमूल के चिह्न से है। संज्ञा के रूप में a radical वह व्यक्ति है जो बुनियादी बदलाव चाहता है।",
+    "x": [
+      [
+        "The mayor proposed a radical plan to ban cars from the old town.",
+        "महापौर ने पुराने शहर में गाड़ियों पर रोक लगाने की एक क्रांतिकारी योजना रखी।"
+      ],
+      [
+        "Smartphones brought a radical shift in how people read the news.",
+        "स्मार्टफ़ोन ने लोगों के समाचार पढ़ने के तरीके में बुनियादी बदलाव ला दिया।"
+      ]
+    ]
+  },
+  "ratio": {
+    "n": "Ratio दो संख्याओं की तुलना है। सामान्य ढाँचा है the ratio of A to B: the ratio of boys to girls। 3:1 को three to one पढ़ते हैं। बहुवचन ratios है। Student-teacher ratio जैसे सामासिक रूप में बीच का चिह्न जुड़ता है। Ratio और rate अलग हैं, rate में आमतौर पर समय या इकाई की बात होती है, जैसे प्रति घंटा या प्रति सौ।",
+    "x": [
+      [
+        "The mixing ratio is two parts flour to one part water.",
+        "मिलाने का अनुपात दो भाग आटा और एक भाग पानी है।"
+      ],
+      [
+        "A low ratio of staff to patients can affect the quality of care.",
+        "कर्मचारियों और मरीज़ों का कम अनुपात देखभाल की गुणवत्ता पर असर डाल सकता है।"
+      ]
+    ]
+  },
+  "regulate": {
+    "n": "Regulate का मतलब है नियमों या उपायों से किसी चीज़ को नियंत्रित करना: regulate prices, regulate traffic। मशीन या शरीर के संतुलन के लिए भी आता है: regulate body temperature। संज्ञा regulation है, और नियम बनाने वाली संस्था regulator कहलाती है। Regular से भ्रमित न हों, उसका अर्थ नियमित है, जबकि regulate एक क्रिया है।",
+    "x": [
+      [
+        "The government plans to regulate online gambling more strictly.",
+        "सरकार ऑनलाइन जुए को और सख़्ती से नियंत्रित करने की योजना बना रही है।"
+      ],
+      [
+        "Sweating helps the body regulate its temperature.",
+        "पसीना शरीर को अपना तापमान संतुलित रखने में मदद करता है।"
+      ]
+    ]
+  },
+  "restore": {
+    "n": "Restore का अर्थ है किसी चीज़ को उसकी पुरानी अच्छी स्थिति में लाना। यह return से अलग है, क्योंकि return में कोई वस्तु किसी को वापस दी जाती है। इमारत, पेंटिंग, शांति या विश्वास सब restore हो सकते हैं: restore trust, restore order। कंप्यूटर में restore from backup भी चलता है। संज्ञा restoration है, जिसमें t के बाद o आता है।",
+    "x": [
+      [
+        "Volunteers worked for years to restore the old temple.",
+        "स्वयंसेवकों ने पुराने मंदिर को पहले जैसा बनाने के लिए कई साल काम किया।"
+      ],
+      [
+        "Power was restored to the village after the storm.",
+        "तूफ़ान के बाद गाँव में बिजली फिर से बहाल कर दी गई।"
+      ]
+    ]
+  },
+  "rigid": {
+    "n": "Rigid का मूल अर्थ भौतिक रूप से कड़ा है, जो मुड़ता नहीं: a rigid plastic box। नियमों, सोच या व्यक्ति के लिए भी आता है, और वहाँ भाव अक्सर नकारात्मक होता है क्योंकि इसका मतलब बदलाव न मानना है। Firm इतना कठोर भाव नहीं देता। Rigid rules, a rigid schedule आम मेल हैं, और विपरीत शब्द flexible है।",
+    "x": [
+      [
+        "The bridge is built with a rigid steel frame.",
+        "पुल एक कठोर इस्पात के ढाँचे से बना है।"
+      ],
+      [
+        "Some managers are too rigid to accept new ideas.",
+        "कुछ प्रबंधक इतने अड़ियल होते हैं कि नए विचार स्वीकार नहीं करते।"
+      ]
+    ]
+  },
+  "somewhat": {
+    "n": "Somewhat क्रिया-विशेषण है और अर्थ है थोड़ा या कुछ हद तक। यह विशेषण, क्रिया-विशेषण या तुलनात्मक रूप से पहले आता है: somewhat tired, somewhat better। यह संज्ञा से सीधे पहले नहीं आता, इसलिए somewhat problem नहीं कहते। यह slightly से थोड़ा औपचारिक है और लिखित अंग्रेज़ी में ज़्यादा मिलता है।",
+    "x": [
+      [
+        "The film was somewhat longer than I expected.",
+        "फ़िल्म मेरी उम्मीद से कुछ ज़्यादा लंबी थी।"
+      ],
+      [
+        "Prices have fallen somewhat since last spring.",
+        "पिछले वसंत के बाद से दाम कुछ हद तक गिरे हैं।"
+      ]
+    ]
+  },
+  "specify": {
+    "n": "Specify का अर्थ है किसी बात को साफ़ और विस्तार से बताना। इसके बाद संज्ञा या that-वाक्य आता है: specify the date, specify that all forms must be signed। संज्ञा specification है और विशेषण specific। Unless otherwise specified नियमों और अनुबंधों में बार-बार आने वाला वाक्यांश है। यह state या say से ज़्यादा सटीक और औपचारिक भाव देता है।",
+    "x": [
+      [
+        "Please specify your preferred delivery date in the form.",
+        "कृपया फ़ॉर्म में अपनी पसंदीदा डिलीवरी की तारीख़ स्पष्ट रूप से लिखें।"
+      ],
+      [
+        "The rules specify that every candidate must bring an ID card.",
+        "नियमों में साफ़ लिखा है कि हर उम्मीदवार को पहचान पत्र लाना होगा।"
+      ]
+    ]
+  },
+  "straightforward": {
+    "n": "Straightforward एक ही शब्द है, बीच में हाइफ़न या स्पेस नहीं: straight + forward। इसके दो अर्थ हैं। पहला, आसान और सीधा: a straightforward task। दूसरा, ईमानदार और साफ़ बोलने वाला: a straightforward answer, a straightforward person। Easy से अलग, यह आम तौर पर जटिलता न होने पर ज़ोर देता है। विपरीत अर्थ में complicated आता है।",
+    "x": [
+      [
+        "Applying for the visa was surprisingly straightforward.",
+        "वीज़ा के लिए आवेदन करना हैरानी की हद तक आसान निकला।"
+      ],
+      [
+        "I appreciate her straightforward way of giving feedback.",
+        "मुझे प्रतिक्रिया देने का उसका सीधा और स्पष्ट तरीका अच्छा लगता है।"
+      ]
+    ]
+  },
+  "temporary": {
+    "n": "Temporary का विपरीत permanent है। स्पेलिंग में tempo के बाद rary जुड़ता है। नौकरी, घर, आदेश, सब temporary हो सकते हैं: a temporary visa, temporary relief। ब्रिटेन की बोलचाल में temp का अर्थ अस्थायी कर्मचारी है। क्रिया-विशेषण temporarily है।",
+    "x": [
+      [
+        "The shop has moved to a temporary location while the building is repaired.",
+        "इमारत की मरम्मत के दौरान दुकान एक अस्थायी जगह पर चली गई है।"
+      ],
+      [
+        "Painkillers only provide temporary relief from the symptoms.",
+        "दर्द की दवाएँ लक्षणों से केवल अस्थायी राहत देती हैं।"
+      ]
+    ]
+  },
+  "transform": {
+    "n": "Transform का अर्थ है किसी चीज़ को पूरी तरह बदल देना, केवल थोड़ा सुधारना नहीं। ढाँचा है transform A into B: transform waste into energy। A is transformed by B भी चलता है। Transform को transfer से न मिलाएँ, transfer का अर्थ एक जगह से दूसरी जगह ले जाना है। संज्ञा transformation है, और उपसर्ग trans- का भाव पार या एक रूप से दूसरे रूप में है।",
+    "x": [
+      [
+        "Education can transform a child's future.",
+        "शिक्षा बच्चे का भविष्य पूरी तरह बदल सकती है।"
+      ],
+      [
+        "The old factory was transformed into a modern art gallery.",
+        "पुरानी फ़ैक्ट्री को एक आधुनिक कला दीर्घा में बदल दिया गया।"
+      ]
+    ]
+  },
+  "undertake": {
+    "n": "Undertake औपचारिक क्रिया है और इसका रूप अनियमित है: undertake, undertook, undertaken। मुख्य अर्थ है कोई काम, अध्ययन या ज़िम्मेदारी अपने ऊपर लेना: undertake a survey। दूसरा अर्थ वादा करना है, और तब to के साथ आता है: She undertook to finish the report by Friday। बोलचाल में take on या do अधिक सुनाई देते हैं।",
+    "x": [
+      [
+        "The council will undertake a review of road safety next year.",
+        "परिषद अगले साल सड़क सुरक्षा की समीक्षा करेगी।"
+      ],
+      [
+        "Researchers will undertake a three-year study of the river pollution.",
+        "शोधकर्ता नदी के प्रदूषण का तीन वर्षीय अध्ययन करेंगे।"
+      ]
+    ]
+  }
+}

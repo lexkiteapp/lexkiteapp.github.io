@@ -2,7 +2,8 @@
   "nav": {
     "tools": "Công cụ tiếng Anh miễn phí",
     "levelTest": "Kiểm tra trình độ tiếng Anh",
-    "toeic": "Luyện TOEIC Part 5"
+    "toeic": "Luyện TOEIC Part 5",
+    "band": "Tính điểm IELTS"
   },
   "test": {
     "title": "Kiểm tra trình độ tiếng Anh miễn phí (CEFR A1–C2) – 15 phút, có kết quả ngay",
@@ -111,5 +112,49 @@
     "full": "App Lexkite có đủ 7 Part, 7 đề thi thử với điểm ước tính 10–990 và 1.250 từ vựng TOEIC.",
     "openApp": "Luyện TOEIC trong app",
     "otherTool": "Chưa rõ trình độ của mình? Làm bài kiểm tra trình độ tiếng Anh miễn phí."
+  },
+  "band": {
+    "title": "Tính điểm IELTS online miễn phí: Listening, Reading, Overall",
+    "desc": "Công cụ tính điểm IELTS miễn phí: nhập số câu đúng Listening, Reading (trên 40) cùng band Writing, Speaking để biết band từng kỹ năng và điểm Overall.",
+    "h1": "Tính điểm IELTS (band score)",
+    "lead": "Quy đổi kết quả thi thử thành band IELTS. Nhập số câu đúng Listening và Reading, chọn Academic hoặc General Training, thêm band Writing và Speaking để xem điểm Overall của bạn.",
+    "facts": [
+      "Listening và Reading trên 40 câu",
+      "Academic và General Training",
+      "Làm tròn Overall đúng cách của IELTS",
+      "Miễn phí · không cần đăng ký"
+    ],
+    "formH": "Điểm của bạn",
+    "listenH": "Listening",
+    "listenHint": "Số câu đúng, 0–40",
+    "readH": "Reading",
+    "readHint": "Số câu đúng, 0–40",
+    "typeH": "Loại bài Reading",
+    "typeA": "Academic",
+    "typeG": "Đào tạo tổng quát (General Training)",
+    "writeH": "Writing",
+    "speakH": "Speaking",
+    "bandHint": "Band từ 0–9, mỗi bước 0,5",
+    "calc": "Tính band của tôi",
+    "resultH": "Điểm Overall của bạn",
+    "need": "Vui lòng nhập đủ cả bốn điểm.",
+    "approx": "Đây chỉ là ước tính: bảng quy đổi bên dưới là bảng gần đúng được dùng phổ biến, mỗi đề thật có thể lệch khoảng một câu.",
+    "openApp": "Luyện kỹ năng yếu nhất của bạn trong Lexkite",
+    "howH": "Điểm Overall được tính thế nào",
+    "how": [
+      "Điểm Overall là trung bình cộng band của bốn kỹ năng, làm tròn đến 0,5 gần nhất.",
+      "Trung bình có phần lẻ .25 được làm tròn lên 0,5 kế tiếp, còn .75 làm tròn lên band nguyên kế tiếp. Ví dụ 6.25 thành 6.5 và 6.75 thành 7.0, còn 6.125 giữ nguyên 6.0.",
+      "Band Listening và Reading được quy đổi từ số câu đúng trên 40. Band Writing và Speaking do giám khảo chấm, nên hãy dùng band của giáo viên hoặc của bài thi thử có chấm điểm."
+    ],
+    "tableH": "Bảng quy đổi số câu đúng sang band (gần đúng)",
+    "tableNote": "Mỗi dòng là số câu đúng tối thiểu để đạt band đó. IELTS không công bố một bảng cố định duy nhất, nên hãy xem đây là tham khảo.",
+    "colRaw": "Số câu đúng (từ)",
+    "colBand": "Band",
+    "tblL": "Listening",
+    "tblA": "Reading Academic",
+    "tblG": "Reading General Training",
+    "honestH": "Công cụ này làm được và không làm được gì",
+    "honest": "Công cụ cho biết kết quả luyện tập của bạn có thể rơi vào mức nào, không phải điểm chính thức. Band Writing và Speaking cần giám khảo hoặc giáo viên có kinh nghiệm chấm. Hãy dùng kết quả để chọn nội dung cần luyện tiếp, rồi kiểm tra lại trình độ bằng một bài thi thử đầy đủ có bấm giờ.",
+    "otherTool": "Tìm trình độ tiếng Anh (A1–C2) với bài kiểm tra trình độ miễn phí"
   }
 }
