@@ -71,13 +71,13 @@ script: [
 { s: 'P', t: "Over time, though, part of the extra cost can be paid back. A green roof protects the waterproof layer from sun and weather, so it may last twice as long as a normal roof. Next week we'll look at a case study from Chicago." },
 ],
 groups: [mcq('Answer the questions about the talk.', [
-m(74, 'What is the talk mainly about?', 'The benefits and limitations of green roofs', ['How to build a garden on the ground', 'Why Scandinavian houses were cold', 'How to design air conditioning systems'], 3, 'green roofs have drawbacks',
+m(74, 'What is the talk mainly about?', 'The benefits and limitations of green roofs', ['How to build a garden on the ground using raised beds', 'Why Scandinavian houses were cold during winter', 'How to design air conditioning systems for hospitals'], 3, 'green roofs have drawbacks',
  "Giáo sư nêu lý do dùng mái xanh (nước mưa, nhiệt độ) rồi nói tới nhược điểm (nặng, đắt, cần chăm sóc) → chủ đề chính là lợi ích và hạn chế của mái xanh."),
 m(75, 'Why does the professor mention houses in Scandinavia?', 'To show that green roofs are not a new idea', ['To explain why green roofs are heavy', 'To compare them with modern air conditioning', 'To describe a problem with stormwater'], 0, "They aren't a new idea",
  "Ví dụ nhà ở Scandinavia phủ cỏ từ nhiều thế kỷ trước đi liền với câu \"They aren't a new idea\" → ý tưởng mái xanh không mới."),
 m(76, 'How does a green roof help reduce the risk of flooding?', 'It holds water like a sponge.', ['It sends water directly into the drains.', 'It keeps rain from touching the building.', 'It warms the water so it evaporates.'], 1, 'acts like a sponge',
  "Mái xanh \"acts like a sponge\": đất và cây giữ phần lớn nước mưa, một phần bay hơi → cống ít bị quá tải."),
-m(77, 'Why does a green roof stay cooler than a dark roof in summer?', 'Plants shade it and evaporating water removes heat.', ['Its soil is much lighter in color.', 'It blocks all wind from reaching the building.', 'It stores heat for use in winter.'], 2, 'plants shade the surface',
+m(77, 'Why does a green roof stay cooler than a dark roof in summer?', 'Plants shade it and evaporating water removes heat.', ['Its soil is much lighter in color, yet it still traps heat.', 'It blocks all wind from reaching the building, stopping breeze.', 'It stores heat for use in winter, acting as a thermal battery.'], 2, 'plants shade the surface',
  "Cây \"shade the surface\" và nước bốc hơi từ lá lấy bớt nhiệt, nên mái xanh mát hơn mái tối màu."),
 m(78, 'Why do many designers choose sedum for green roofs?', 'It is hardy and needs little water.', ['It grows tall enough to shade the whole building.', 'It makes the roof lighter than any soil.', 'It produces food for the building residents.'], 0, 'hardy plant that needs little water',
  "Sedum là loại cây \"hardy plant that needs little water\" → hợp với lớp cây mỏng, ít chăm sóc, nhẹ cho mái."),
@@ -151,7 +151,7 @@ script: [
 groups: [mcq('Answer the questions about the talk.', [
 m(42, 'What is the talk mainly about?', 'How and why deep-sea animals produce light', ['How sunlight penetrates through ocean water layers', 'Why certain species of flying insects glow in dark', 'How squid release dark ink to confuse ocean hunters'], 1, 'make their own light',
  "Giáo sư giải thích sinh vật biển sâu \"make their own light\" như thế nào (phản ứng hóa học) và vì sao (tự vệ, ngụy trang, săn mồi, giao tiếp)."),
-m(43, 'Why is bioluminescence sometimes called cold light?', 'Its energy is released as light rather than heat.', ['It only happens in very cold water.', 'It is produced by animals that cannot move.', 'It needs no oxygen to be produced.'], 0, 'released as light rather than heat',
+m(43, 'Why is bioluminescence sometimes called cold light?', 'Its energy is released as light rather than heat.', ['It only occurs in water that is near freezing temperatures.', 'It is produced by animals that cannot move, sea anemones.', 'It needs no oxygen to be produced, even in complete darkness.'], 0, 'released as light rather than heat',
  "Năng lượng của phản ứng \"released as light rather than heat\" → ít tỏa nhiệt nên gọi là ánh sáng lạnh."),
 m(44, 'What is the purpose of counter-illumination?', 'To hide the fish from predators below', ['To attract small fish to a lure', 'To confuse prey with a cloud of liquid', 'To help fish find a mate'], 2, "the fish's outline disappears",
  "Bụng cá phát sáng khớp với ánh sáng từ mặt nước nên \"the fish's outline disappears\" → kẻ săn mồi ở dưới không thấy cá."),
@@ -180,7 +180,7 @@ script: [
 { s: 'T', t: "Please don't. Changing data is a serious violation of the academic honesty policy." },
 ],
 groups: [mcq('Answer the questions about the conversation.', [
-m(41, 'What is the student unsure about?', 'How much of her data to put in the report', ['When the report is due', 'Who her lab partner will be', 'Which chemicals to use'], 2, 'include the raw data in the report itself',
+m(41, 'What is the student unsure about?', 'How much of her data to put in the report', ['When the report is due according to the calendar', 'Who her lab partner will be for the next experiment', 'Which chemicals to use in the main experiment'], 2, 'include the raw data in the report itself',
  "Nora không chắc nên \"include the raw data in the report itself\" hay chỉ bảng tóm tắt → băn khoăn về việc đưa dữ liệu thô vào đâu."),
 m(42, 'Where does the teaching assistant say the raw data should go?', 'In an appendix at the end', ['In the results section', 'In the discussion section', 'In a separate email'], 0, 'goes at the end, in an appendix',
  "Bảng tóm tắt vào phần kết quả, còn dữ liệu thô \"goes at the end, in an appendix\" – giúp bài dễ đọc mà vẫn kiểm tra được số liệu."),
@@ -202,7 +202,7 @@ script: [
 groups: [mcq('Answer the questions about the talk.', [
 m(44, 'How does the professor define a monsoon?', 'A seasonal change in wind direction that alters rainfall', ['A single violent storm over the ocean that lasts only a few hours.', 'A type of crop grown in South Asia, thrives during the rainy season.', 'A long dry season caused by cold winds that blow from the interior.'], 3, 'seasonal change in wind direction',
  "Giáo sư sửa quan niệm \"cơn bão\": gió mùa thực chất là \"a seasonal change in wind direction\" kéo theo thay đổi lượng mưa."),
-m(45, 'Why does moist air from the ocean move toward the land in summer?', 'Rising air over the land creates low pressure.', ['The ocean becomes warmer than the land.', 'Strong winds push it from the mountains.', 'The land cools and pulls the air down.'], 1, 'creates an area of low pressure',
+m(45, 'Why does moist air from the ocean move toward the land in summer?', 'Rising air over the land creates low pressure.', ['The ocean becomes warmer than the land during summer', 'Strong winds push it from the mountains toward the coast', 'The land cools and pulls the air down during the night'], 1, 'creates an area of low pressure',
  "Mùa hè đất nóng nhanh hơn, không khí bốc lên và \"creates an area of low pressure\" nên không khí ẩm từ biển tràn vào lấp chỗ."),
 m(46, 'What is the weather like in winter in a monsoon region?', 'Dry for months', ['Stormy and cool', 'Wetter than in summer', 'Unpredictable from week to week'], 0, 'weather is dry for months',
  "Mùa đông gió thổi từ đất ra biển và \"the weather is dry for months\" – thời tiết khô kéo dài nhiều tháng."),

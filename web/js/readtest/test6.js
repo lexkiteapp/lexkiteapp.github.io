@@ -143,7 +143,7 @@ items: [
 options: ['people should spend unexpected income before regular income.', 'the origin of a sum of money should not affect how it is used.', 'people naturally divide their money into separate categories.', 'money that has been saved is worth more than money that has been earned.'],
 a: 1, cue: 'it should make no difference to a rational person where a sum of money came from' },
 { n: 28, q: 'What does the theatre experiment in paragraph B suggest?',
-options: ['People are more careful with cash than with tickets.', 'Most people prefer not to buy theatre tickets in advance.', 'People tend to overestimate the cost of entertainment.', 'Losing a ticket feels different from losing the same amount of money.'],
+options: ['Individuals tend to handle cash with greater caution than they treat theatre tickets.', 'The majority of people would rather avoid purchasing their theatre tickets ahead of time.', 'Many individuals usually overjudge how expensive entertainment options will be.', 'Losing a ticket feels different from losing the same amount of money.'],
 a: 3, cue: 'The financial loss is identical' },
 { n: 29, q: 'What did Dr Rahman find?',
 options: ['Families spent labelled payments on education even though nobody checked.', 'Families receiving unlabelled grants set aside a higher percentage for savings.', 'Payments influenced household spending only when strictly monitored by officials.', 'Most families completely ignored the intended purpose specified on their grants.'],
