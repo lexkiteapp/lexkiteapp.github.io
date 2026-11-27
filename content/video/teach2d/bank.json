@@ -17845,6 +17845,51 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_review_thank": {
+   "run": "46048435096",
+   "at": "2026-11-27T19:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "d080a13dbd77d0ae",
+    "wide": "b4111fb290016615"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_think": {
+   "run": "46048435096",
+   "at": "2026-11-27T19:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "24e785f78e647aae",
+    "wide": "04d41984e56fb4b0"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_travel": {
+   "run": "46048435096",
+   "at": "2026-11-27T19:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "749d95b1f1efa596",
+    "wide": "f96a0c086486b78c"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_review_treat": {
    "run": "45937214373",
    "at": "2026-11-27T04:49Z",
@@ -17860,6 +17905,51 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_review_try": {
+   "run": "46048435096",
+   "at": "2026-11-27T19:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "e4caf031396139ca",
+    "wide": "4b035729aa7f2aa1"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_turn": {
+   "run": "46048435096",
+   "at": "2026-11-27T19:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "b0a4bde72f4dcac3",
+    "wide": "2aec0cf9067db88f"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_understand": {
+   "run": "46048435096",
+   "at": "2026-11-27T19:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "00b07a058904c6f4",
+    "wide": "2e744dc4e1e6073d"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_review_update": {
    "run": "45937214373",
    "at": "2026-11-27T04:49Z",
@@ -17870,6 +17960,36 @@
    "sha": {
     "short": "a17466207de0cf9c",
     "wide": "7ab47bf323ca0a85"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_upstairs": {
+   "run": "46048435096",
+   "at": "2026-11-27T19:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "70e8996c8d33f256",
+    "wide": "d65838d158973227"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_use": {
+   "run": "46048435096",
+   "at": "2026-11-27T19:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "e58fc4d7f708af8e",
+    "wide": "2aa42a4c778e7bd3"
    },
    "why": [],
    "state": "banked",
