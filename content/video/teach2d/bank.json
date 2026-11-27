@@ -16153,6 +16153,66 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_review_sender": {
+   "run": "45917051470",
+   "at": "2026-11-27T01:37Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "167696e1995596e3",
+    "wide": "7ad369fd38ac243d"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_signal": {
+   "run": "45917051470",
+   "at": "2026-11-27T01:37Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "0ad27076b611bdbe",
+    "wide": "0a9720f56359030b"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_slightly": {
+   "run": "45917051470",
+   "at": "2026-11-27T01:37Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "7d4ca83455443e01",
+    "wide": "a59e3d6a380767a9"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_spread": {
+   "run": "45917051470",
+   "at": "2026-11-27T01:37Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "b450e9566c9f3cb1",
+    "wide": "398ea410057cb0b5"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_stress_artistic": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",

@@ -14,10 +14,10 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `.github/workflows/` (269 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (15 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1886 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (8417 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (8433 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (219 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (47 file): Hồ sơ listing Chrome/Edge/Apple/Play
-- `docs/` (286 file): Luật + tài liệu chủ đề (README.md → INDEX.md); cũ: docs/archive
+- `docs/` (287 file): Luật + tài liệu chủ đề (README.md → INDEX.md); cũ: docs/archive
 - API `/api/*` (52): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,challenge…
 - Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:817 s/test:770 s/video:133 s/stitch:98 s/lib:81 s/ci:64 js/vimg:64 s/cine:54 js/st:44 s/lexicon:39 s/native:34 s/vocab-img:33 s/target:27 js/notes:27 js/readtest:21 s/pron:20 s/content-qa:17 s/lesson:16 js/get-app:15 js/irv:15 s/ops:14 s/word-audio:14 js/call:14 s/lipsync:12 s/sentence-audio:12 s/social:12 s/teach:12
 
