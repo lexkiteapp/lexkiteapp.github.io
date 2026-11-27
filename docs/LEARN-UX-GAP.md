@@ -1,5 +1,7 @@
 # LEARN-UX-GAP – học trên web vs chuẩn "hấp dẫn + thực tế" (27/11/2026)
 
+> TL;DR: bảng điểm trải nghiệm học trên web so với chuẩn hấp dẫn + thực tế, kèm top 10 PR nhỏ; chọn PR kế theo điểm đo learn-walk.
+
 Yêu cầu owner 27/11: "học trên web chưa hấp dẫn, chưa thực tế bằng Duolingo". Tài liệu này = bảng điểm + top 10 PR nhỏ. Kế thừa `docs/agents/DUO-GAP.md` (21/10, đã làm: combo, chấp nhận lỗi nhỏ, câu khó, tắt mic/âm, bảng phản hồi, màn cuối) – KHÔNG lặp lại các mục đó.
 
 ## 0. Ràng buộc & phương pháp

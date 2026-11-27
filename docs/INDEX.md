@@ -189,3 +189,4 @@
 - [INDEX-ARCHIVE.md](INDEX-ARCHIVE.md) — Con trỏ tài liệu đã chuyển, thư mục con (agents/audits/legal/research/specs…), kho docs/archive/ (tách nguyên văn từ INDEX.md khi INDEX chạm 45 KB); đọc khi: tìm dòng mục lục của doc trong thư mục con hoặc archive, hoặc thêm doc mới ở đó
 - [specs/chon-cta-khu-b.md](specs/chon-cta-khu-b.md) — Một kiểu chọn (.on) + một CTA chính/màn (khu B rà soát 23/11); đọc khi: sửa chip/tab/thẻ chọn hoặc nút chính
 - [LEARN-UX-GAP.md](LEARN-UX-GAP.md) — Bảng điểm học trên web so với chuẩn hấp dẫn + thực tế (27/11) và top PR nhỏ; đọc khi: chọn việc kế cho trải nghiệm học
+- [LEARN-UX-GAP.md](LEARN-UX-GAP.md) — Bảng điểm học trên web so với chuẩn hấp dẫn + thực tế (27/11) và top PR nhỏ; đọc khi: chọn việc kế cho trải nghiệm học
