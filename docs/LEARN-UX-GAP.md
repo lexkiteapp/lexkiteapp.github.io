@@ -12,6 +12,23 @@ Yêu cầu owner 27/11: "học trên web chưa hấp dẫn, chưa thực tế b�
 - Streak: chuỗi 7 ngày → 2,4× khả năng quay lại hôm sau; **tách mục tiêu ngày khỏi streak: +3,3% D14, +1% DAU** (A/B) – [improving the streak](https://blog.duolingo.com/improving-the-streak), [how streak builds habit](https://blog.duolingo.com/how-duolingo-streak-builds-habit). Cảnh báo: "streak creep" / áp lực khi đứt chuỗi – [Decision Lab](https://thedecisionlab.com/es-ES/insights/consumer-insights/streak-creep-the-perils-of-too-much-gamification).
 - Thời lượng/độ hiệu quả: [time spent learning well](https://blog.duolingo.com/time-spent-learning-well). Phần số liệu leaderboard/D1 thứ cấp chưa kiểm được → không dựa vào.
 
+## 1b. Luồng Duolingo quan sát được (từ nguồn công khai ĐỌC được)
+Giới hạn trung thực: em đọc teardown/blog/báo chí, **không xem video frame-by-frame, không tải APK, không scrape**. Thời lượng và số tương tác từng màn = **chưa đo** (ghi "?"); cần người xem video công khai/ảnh store để điền. Nguồn onboarding thứ cấp, các bản khác nhau theo thời gian và A/B → chỉ lấy mẫu chung.
+
+| Màn | Quan sát (nguồn) | Thời lượng / tương tác | Phản hồi / âm / animation | Giữ chân | Map sang LexKite |
+|---|---|---|---|---|---|
+| Mở đầu + chọn ngôn ngữ | Linh vật + splash → chọn ngôn ngữ (cờ) → câu hỏi nguồn biết app ([ScreensDesign](https://screensdesign.com/explore/apps/duolingo/onboarding/), [UX review](https://uxdesign.cc/the-duolingo-diaries-an-honest-ux-review-part-1-onboarding-ed0165d44c58)) | ? / 2–3 chạm | linh vật vui | cá nhân hoá sớm | PR #2: nếm bài trước, hỏi sau |
+| Mục tiêu ngày | Chọn 5/10/15 phút + nút "cam kết"; streak cần có mục tiêu ([Appcues](https://goodux.appcues.com/blog/duolingo-user-onboarding)) | ? / 1–2 chạm | nút cam kết | sở hữu mục tiêu | PR #3 (mình đã có 3 cường độ ở setup) |
+| Xếp trình độ | Người mới vào thẳng mức đầu; người biết rồi làm placement thích ứng bằng bài thật ([Reteno](https://gallery.reteno.com/flows/web-screens-duolingo)) | ? | bài thật thay bảng hỏi | không bắt khai báo | mình có `placement.js`; đặt thành lựa chọn, không chặn bài đầu |
+| Bài đầu | Vào bài ngay trong onboarding, trước tạo tài khoản (nhiều teardown) | ~vài phút / nhiều chạm | đúng/sai tức thì | cam kết sau khi đã "thắng" | PR #2 |
+| Phản hồi sai | Bảng đúng/sai tức thì, sửa trong cùng lượt (blog [time spent learning well](https://blog.duolingo.com/time-spent-learning-well)) | ? | âm + màu | câu sai quay lại | PR #6, #9 |
+| Ôn/thích ứng | Birdbrain chọn bài kế theo năng lực ([IEEE](https://spectrum.ieee.org/duolingo)) | – | – | độ khó vừa sức | PR #7 |
+| Streak | Streak + mục tiêu tách riêng +3,3% D14 ([blog](https://blog.duolingo.com/improving-the-streak)) | – | lửa, mốc | thói quen | PR #3 |
+| Hội thoại / Video Call | Gọi 1-1 với nhân vật AI, không phạt lỗi, nhờ lặp/nói chậm, **phản hồi sau cuộc gọi**, độ khó theo trình ([blog](https://blog.duolingo.com/video-call), [heise](https://heise.de/-9951940)); gói trả phí, ít ngôn ngữ | ? | nhân vật nói, không chấm giữa chừng | nói thật, ít áp lực | PR #5: mình đã có `call/` → đưa vào luồng ngày, phản hồi cuối cuộc, nút "chậm/lặp lại" |
+| Âm thanh/animation cuối bài | **Chưa tìm được nguồn chữ đáng tin** (không dựa trí nhớ) | ? | ? | ? | cần xem video công khai thủ công trước PR #10 |
+
+Việc cần người: xem 3 video công khai (onboarding, bài 1, Video Call) và điền cột "?" – hoặc giao job tải ảnh store công khai bằng tay.
+
 ## 2. Bảng điểm (0–10; hiện tại ước lượng → mục tiêu)
 | Nguyên tắc | Hiện có (bằng chứng code) | Điểm | Mục tiêu | Khoảng trống chính |
 |---|---|---|---|---|
