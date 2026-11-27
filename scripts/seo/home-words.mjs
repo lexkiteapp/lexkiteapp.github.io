@@ -2,6 +2,7 @@
 // Chọn 10 từ index được, ưu tiên cầu tìm kiếm GSC (xem pick) rồi thứ tự trang từ – indexable() = true (không mỏng, đạt độ dày). build-landing đọc file nhỏ này, không nạp kho từ.
 //   node scripts/seo/home-words.mjs          ghi lại file      ·      --check   so với file đang có (test: scripts/test/home-words.mjs)
 import fs from 'node:fs';
+import { pathToFileURL } from 'node:url';
 const W = await import('../lib/seo-words.mjs');
 export const LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'], N = 10, FILE = 'content/seo/home-words.json';
 // 22/11: thứ tự = CẦU TÌM KIẾM THẬT trước (báo cáo GSC mới nhất: hiển thị trang /<lang>/words/<từ> + cầu theo từ dictQueue mọi ngôn ngữ), rồi thứ hạng
@@ -15,7 +16,7 @@ export const demand = (R = gscFile()) => {
 };
 export const pick = (d = demand()) => Object.fromEntries(LANGS.map(l => [l, W.setOf[l].map((e, i) => [e, i, d(l, e)]).filter(([e]) => W.indexable(l, e)).sort((a, b) => b[2] - a[2] || a[1] - b[1]).slice(0, N)
   .map(([e]) => [W.slug.get(e), e.word, String(W.gloss(l, e)[0] || '').split(/[;,，、]/)[0].trim()])]));
-if (process.argv[1] && process.argv[1].endsWith('home-words.mjs')) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) { // chỉ khi chạy trực tiếp (test/home-words.mjs trùng tên tệp, import không được ghi đè json)
   const out = JSON.stringify(pick(), null, 1) + '\n';
   if (process.argv.includes('--check')) { if (!fs.existsSync(FILE) || fs.readFileSync(FILE, 'utf8') !== out) { console.error(`✗ ${FILE} cũ – chạy node scripts/seo/home-words.mjs`); process.exit(1); } console.log('✓ home-words khớp'); }
   else { fs.writeFileSync(FILE, out); console.log(`✓ ${FILE}: ${LANGS.length} ngôn ngữ × ${N}`); }
