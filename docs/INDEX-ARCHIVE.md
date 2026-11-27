@@ -72,3 +72,11 @@
 - [SEO-AUDIT-1211.md](archive/SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
 - [SEO-AUDIT-1511.md](archive/SEO-AUDIT-1511.md) — Soát live blog/từ R2/đề thi: lỗi + mức ưu tiên, đã sửa gì; đọc khi: làm SEO, sitemap, lastmod hoặc trang từ R2.
 - [SEO-GROWTH-PLAN-1710.md](archive/SEO-GROWTH-PLAN-1710.md) — Lưu trữ: kế hoạch SEO 17/10 (nhịp đăng, nội dung theo nước) + kế hoạch lên top 14/11; đọc khi: tra lại kế hoạch cũ
+
+## Tài liệu hiện hành chuyển từ INDEX.md (nguyên văn, giữ INDEX ≤ 45 KB)
+- [specs/native-apps.md](specs/native-apps.md) — Spec app iOS (SwiftUI) + Android (Compose) native thay bản Capacitor: 29 mục parity (native/shared/parity.json), một nguồn sinh tokens/chuỗi/khung/luật chấm (scripts/native/gen.mjs), MVVM + SwiftData/Room, lộ trình M0–M6; đọc khi: sửa native/, thêm route web, thay app trên store
+- [specs/video-learn.md](specs/video-learn.md) — Spec "Học qua video": #/watch (chủ đề CEFR × mục tiêu, dán link, tìm), trình phát YouTube chính thức (A-B, tốc độ, ghi chú, lưu từ), /api/watch, add-on youtube.com;…; đọc khi: sửa watch*.js, functions/api/watch.js, phần YouTube của add-on
+- [CURRICULUM-PLAN.md](CURRICULUM-PLAN.md) — Khung chương trình A1→C2 (kỹ năng × chủ đề × chức năng), kho kịch bản chung `sc:`, thiết kế lại Call, chống nhàm/nhớ lâu, mốc "nói như bản xứ", PR giai đoạn 1; đọc khi: thêm cuộc gọi/roleplay/tình huống nói/sổ mẫu câu hoặc chọn việc nội dung tiếp
+- [specs/play-and-speak-path.md](specs/play-and-speak-path.md) — Spec lộ trình v3: 7 phần lớn luôn mở, bài nhỏ khoá tuần tự A1→C1, nhảy cóc, thứ tự theo trí nhớ người học, nói lưu loát, ngữ pháp theo kỳ thi (M1–M5); đọc khi: sửa bản đồ học/khoá bài/xếp lớp
+- [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
+- [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau…; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
