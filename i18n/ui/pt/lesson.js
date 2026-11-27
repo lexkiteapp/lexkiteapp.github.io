@@ -67,6 +67,7 @@
 "Trả lời câu hỏi":"Responda à pergunta",
 "Trọng âm rơi vào âm tiết {n}/{m}":"A sílaba tônica é a {n} de {m}",
 "Tuyệt!":"Ótimo!",
+"Tuần này bạn đã nhớ {n} từ mới":"Esta semana você lembrou {n} palavras novas",
 "Tìm từ sai":"Ache a palavra errada",
 "Tìm từ…":"Buscar palavra…",
 "Tăng điểm":"Aumente a nota",
@@ -92,6 +93,5 @@
 "Định nghĩa:":"Definição:",
 "Đối thoại":"Diálogo",
 "Ảnh minh họa":"Imagem",
-"Tuần này bạn đã nhớ {n} từ mới":"Esta semana você lembrou {n} palavras novas",
 });
 })(typeof self !== 'undefined' ? self : this);

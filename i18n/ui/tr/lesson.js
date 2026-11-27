@@ -67,6 +67,7 @@
 "Trả lời câu hỏi":"Soruyu cevapla",
 "Trọng âm rơi vào âm tiết {n}/{m}":"Vurgu {m} heceden {n}. hecede",
 "Tuyệt!":"Harika!",
+"Tuần này bạn đã nhớ {n} từ mới":"Bu hafta {n} yeni kelime hatırladın",
 "Tìm từ sai":"Yanlış kelimeyi bul",
 "Tìm từ…":"Kelime ara…",
 "Tăng điểm":"Puan artırıcı",
@@ -92,6 +93,5 @@
 "Định nghĩa:":"Tanım:",
 "Đối thoại":"Diyalog",
 "Ảnh minh họa":"Görsel",
-"Tuần này bạn đã nhớ {n} từ mới":"Bu hafta {n} yeni kelime hatırladın",
 });
 })(typeof self !== 'undefined' ? self : this);

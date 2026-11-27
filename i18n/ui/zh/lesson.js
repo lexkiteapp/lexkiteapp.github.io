@@ -67,6 +67,7 @@
 "Trả lời câu hỏi":"回答问题",
 "Trọng âm rơi vào âm tiết {n}/{m}":"重音在第 {n} 个音节（共 {m} 个）",
 "Tuyệt!":"太棒了！",
+"Tuần này bạn đã nhớ {n} từ mới":"本周你记住了 {n} 个新单词",
 "Tìm từ sai":"找出错词",
 "Tìm từ…":"搜索单词…",
 "Tăng điểm":"提分技巧",
@@ -92,6 +93,5 @@
 "Định nghĩa:":"释义：",
 "Đối thoại":"对话",
 "Ảnh minh họa":"配图",
-"Tuần này bạn đã nhớ {n} từ mới":"本周你记住了 {n} 个新单词",
 });
 })(typeof self !== 'undefined' ? self : this);
