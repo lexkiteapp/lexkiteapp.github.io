@@ -92,5 +92,8 @@
 "Định nghĩa:":"Tanım:",
 "Đối thoại":"Diyalog",
 "Ảnh minh họa":"Görsel",
+"Tuần này bạn đã nhớ {n} từ mới":"Bu hafta {n} yeni kelime hatırladın",
+"Bạn đã đạt mục tiêu hôm nay!":"Bugünkü hedefine ulaştın!",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"Bugünkü hedef: {a}/{b} tekrar",
 });
 })(typeof self !== 'undefined' ? self : this);

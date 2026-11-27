@@ -55,6 +55,7 @@
 "Nhận dạng ngay trên máy – âm thanh không rời khỏi máy bạn.":"Sprache wird auf Ihrem Gerät erkannt – Ihr Ton verlässt es nie.",
 "Nhận dạng trên máy bằng Whisper (tải ~40 MB một lần, nên dùng Wi-Fi)":"Erkennen Sie Ihr Gerät mit Whisper (einmaliger Download von ca. 40 MB, WLAN empfohlen)",
 "Nhận xét độ trôi chảy":"Hinweise zur Sprechflüssigkeit",
+"Nói chậm hơn":"Langsamer sprechen",
 "Sau can/could/should/will không dùng “to”.":"Verwenden Sie nicht „to“ nach can/could/should/will.",
 "Sau want/need/would like, động từ tiếp theo cần “to”.":"Nach want/need/would like benötigt das nächste Verb „to“.",
 "TOEIC: dời lịch họp với khách hàng":"TOEIC: Neuterminierung eines Kundentreffens",

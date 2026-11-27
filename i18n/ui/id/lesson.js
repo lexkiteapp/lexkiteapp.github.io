@@ -92,5 +92,8 @@
 "Định nghĩa:":"Definisi:",
 "Đối thoại":"Dialog",
 "Ảnh minh họa":"Gambar",
+"Tuần này bạn đã nhớ {n} từ mới":"Minggu ini kamu mengingat {n} kata baru",
+"Bạn đã đạt mục tiêu hôm nay!":"Kamu mencapai target hari ini!",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"Target hari ini: {a}/{b} ulasan",
 });
 })(typeof self !== 'undefined' ? self : this);

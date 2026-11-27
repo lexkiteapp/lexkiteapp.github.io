@@ -92,5 +92,8 @@
 "Định nghĩa:":"التعريف:",
 "Đối thoại":"حوار",
 "Ảnh minh họa":"صورة",
+"Tuần này bạn đã nhớ {n} từ mới":"هذا الأسبوع تذكّرت {n} كلمات جديدة",
+"Bạn đã đạt mục tiêu hôm nay!":"لقد حققت هدف اليوم!",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"هدف اليوم: {a}/{b} مراجعة",
 });
 })(typeof self !== 'undefined' ? self : this);

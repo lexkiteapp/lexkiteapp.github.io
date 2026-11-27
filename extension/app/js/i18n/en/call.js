@@ -91,4 +91,5 @@
 'Đang nghe': 'Listening',
 'Dùng nhận dạng giọng nói của hệ thống (âm thanh được gửi đi để nhận dạng)': 'Use the system’s speech recognition (your audio is sent away to be recognized)',
 'Đang dùng nhận dạng giọng nói của hệ thống: âm thanh được gửi tới máy chủ để nhận dạng.': 'Using the system’s speech recognition: your audio is sent to a server to be recognized.',
+  "Nói chậm hơn": "Speaking slower",
 }); })(typeof self !== 'undefined' ? self : this);

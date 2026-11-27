@@ -2,7 +2,8 @@
   "nav": {
     "tools": "Ücretsiz İngilizce araçları",
     "levelTest": "İngilizce seviye testi",
-    "toeic": "TOEIC Part 5 pratiği"
+    "toeic": "TOEIC Part 5 pratiği",
+    "band": "IELTS puan hesaplama"
   },
   "test": {
     "title": "Ücretsiz İngilizce seviye testi (CEFR A1–C2) – 15 dk, anında sonuç",
@@ -111,5 +112,49 @@
     "full": "Lexkite uygulamasında 7 bölümün tamamı, tahmini 10–990 puanlı 7 tam deneme sınavı ve 1.250 TOEIC kelimesi var.",
     "openApp": "TOEIC'i uygulamada çalış",
     "otherTool": "Seviyenden emin değil misin? Ücretsiz İngilizce seviye testini çöz."
+  },
+  "band": {
+    "title": "IELTS puan hesaplama – ücretsiz, Listening, Reading, genel",
+    "desc": "Ücretsiz IELTS puan hesaplama: Listening ve Reading doğru sayılarını (40 üzerinden), Writing ve Speaking bandlarını girin; genel puanı görün.",
+    "h1": "IELTS puan hesaplama",
+    "lead": "Deneme sınavı sonuçlarınızı IELTS bandına çevirin. Listening ve Reading doğru sayılarını girin, Academic veya General Training seçin, Writing ve Speaking bandlarınızı ekleyin ve genel bandınızı görün.",
+    "facts": [
+      "Listening ve Reading 40 soru üzerinden",
+      "Academic ve General Training",
+      "Genel band IELTS kuralıyla yuvarlanır",
+      "Ücretsiz · kayıt gerekmez"
+    ],
+    "formH": "Puanlarınız",
+    "listenH": "Listening",
+    "listenHint": "Doğru sayısı, 0–40",
+    "readH": "Reading",
+    "readHint": "Doğru sayısı, 0–40",
+    "typeH": "Reading sınav türü",
+    "typeA": "Academic",
+    "typeG": "Genel Eğitim (General Training)",
+    "writeH": "Writing",
+    "speakH": "Speaking",
+    "bandHint": "Band, 0–9 arası 0,5 aralıkla",
+    "calc": "Bandımı hesapla",
+    "resultH": "Genel bandınız",
+    "need": "Lütfen dört puanı da girin.",
+    "approx": "Bu bir tahmindir: aşağıdaki doğru sayısı tabloları yaygın kullanılan yaklaşık tablolardır ve gerçek sınavda sonuç yaklaşık bir soru kadar farklı olabilir.",
+    "openApp": "Zayıf becerinizi Lexkite ile çalışın",
+    "howH": "Genel band nasıl hesaplanır",
+    "how": [
+      "Genel band, dört beceri bandının ortalamasıdır ve en yakın yarım banda yuvarlanır.",
+      "Ortalama .25 ile bitiyorsa bir sonraki yarım banda, .75 ile bitiyorsa bir sonraki tam banda yuvarlanır. Örneğin 6,25 değeri 6,5, 6,75 değeri 7,0 olur; 6,125 ise 6,0 kalır.",
+      "Listening ve Reading bandları 40 soru üzerinden doğru sayınıza göre belirlenir. Writing ve Speaking bandlarını sınav görevlileri verir; bu yüzden öğretmeninizin ya da puanlanmış bir denemenin bandını kullanın."
+    ],
+    "tableH": "Doğru sayısından banda dönüşüm (yaklaşık)",
+    "tableNote": "Her satır, o band için gereken en düşük doğru sayısını gösterir. IELTS tek bir sabit tablo yayımlamaz, bu nedenle bunları bir rehber olarak görün.",
+    "colRaw": "Doğru sayısı (en az)",
+    "colBand": "Band",
+    "tblL": "Listening",
+    "tblA": "Akademik Okuma (Academic Reading)",
+    "tblG": "Genel Eğitim Okuma (General Training Reading)",
+    "honestH": "Bu hesaplama aracı neyi gösterir, neyi göstermez",
+    "honest": "Bir deneme sonucunun hangi banda denk gelebileceğini gösterir; resmî bir puan değildir. Writing ve Speaking bandları için bir sınav görevlisi ya da deneyimli bir öğretmen gerekir. Sonucu sıradaki çalışma hedefinizi belirlemek için kullanın, seviyenizi ise süreli ve tam bir deneme sınavıyla doğrulayın.",
+    "otherTool": "Ücretsiz seviye testiyle İngilizce seviyenizi (A1–C2) öğrenin"
   }
 }

@@ -92,5 +92,8 @@
 "Định nghĩa:":"Definición:",
 "Đối thoại":"Diálogo",
 "Ảnh minh họa":"Imagen",
+"Tuần này bạn đã nhớ {n} từ mới":"Esta semana recordaste {n} palabras nuevas",
+"Bạn đã đạt mục tiêu hôm nay!":"¡Alcanzaste tu meta de hoy!",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"Meta de hoy: {a}/{b} repasos",
 });
 })(typeof self !== 'undefined' ? self : this);

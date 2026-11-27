@@ -3,7 +3,7 @@
 //  1) ngân hàng CEFR hợp lệ (đủ cấp × kỹ năng, 4 phương án khác nhau, đáp án sau khi xáo vẫn đúng, vị trí A–D phân bố đều)
 //  2) engine thích ứng: mô phỏng 1.800 người làm bài → đúng cấp ≥ 72 %, lệch ≤ 1 cấp ≥ 98 %, số câu trung bình trong [MIN, MAX], tái lập theo hạt giống
 //  3) chuỗi 15 ngôn ngữ: cùng cấu trúc với en, giữ {biến} và thẻ <i>, không lẫn chữ Việt ngoài vi, không bỏ sót (chuỗi dài giống hệt en)
-//  4) trang dựng: 120 trang, canonical = chính nó, hreflang 15 + x-default hai chiều, tiêu đề/mô tả duy nhất, JSON-LD hợp lệ (Quiz, WebApplication,
+//  4) trang dựng: 135 trang, canonical = chính nó, hreflang 15 + x-default hai chiều, tiêu đề/mô tả duy nhất, JSON-LD hợp lệ (Quiz, WebApplication,
 //     BreadcrumbList), og:image + script tồn tại, deep-link app trỏ route có thật, sitemap-tools đủ URL, liên kết nội bộ (chân trang, blog, trang từ)
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process';
 const errs = [], ok = (c, m) => { if (!c) errs.push(m); };
@@ -67,7 +67,7 @@ for (const l of TOOL_LANGS) {
 const D = fs.mkdtempSync(path.join(os.tmpdir(), 'tools-pages-'));
 process.env.TOOLS_DIST = D;
 const { n, urls } = await (async () => { const mod = await import('../build-tools.mjs?d=' + Date.now()); return mod.build(); })();
-ok(n === TOOL_LANGS.length * 8, `pages: ${n} trang ≠ ${TOOL_LANGS.length * 8}`);
+ok(n === TOOL_LANGS.length * 9, `pages: ${n} trang ≠ ${TOOL_LANGS.length * 9}`);
 const SITE = 'https://lexkite.com';
 const routes = new Set(execFileSync('grep', ['-rhoE', 'routes\\.[a-zA-Z]+ *=', 'web/js'], { encoding: 'utf8' }).split('\n').map(s => s.replace(/routes\.| *=/g, '')).filter(Boolean));
 for (const k of new Set(Object.values(PLAN).flat().concat('toeic'))) ok(routes.has(k), `deep-link #/${k}: không có routes.${k} trong web/js`);

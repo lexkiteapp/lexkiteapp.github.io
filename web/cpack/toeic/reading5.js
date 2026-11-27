@@ -6,8 +6,8 @@
     /* ================= PART 5 ================= */
     { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
-        { n: 101, q: 'Ms. Whitaker worked ------- for the past month to prepare for the product launch.', options: ['tireless', 'tirelessly', 'tiredness', 'tire'], a: 1, cue: 'worked -------',
-          explain: 'Cần trạng từ bổ nghĩa cho động từ "worked" → "tirelessly" (không biết mệt mỏi). "tireless" là tính từ; "tiredness" là danh từ (sự mệt mỏi); "tire" là động từ.' },
+        { n: 101, q: 'Ms. Whitaker worked ------- for the past month to prepare for the product launch.', options: ['exhaustedly', 'tirelessly', 'fatigue', 'exhaust'], a: 1, cue: 'worked -------',
+          explain: 'Động từ “worked” cần một trạng từ, vì vậy “tirelessly” là đáp án đúng. “Exhaustedly” không phổ biến và không phù hợp ngữ cảnh, “fatigue” là danh từ, “exhaust” là động từ, nên các lựa chọn này sai.' },
         { n: 102, q: 'Please contact ------- if you have any questions about your new benefits package.', options: ['us', 'our', 'we', 'ourselves'], a: 0, cue: 'Please contact -------',
           explain: 'Sau động từ "contact" cần đại từ tân ngữ → "us". "we" là đại từ chủ ngữ; "our" là tính từ sở hữu, phải đi kèm danh từ; "ourselves" là đại từ phản thân, chỉ dùng khi chủ ngữ và tân ngữ là cùng một đối tượng.' },
         { n: 103, q: 'The renovation of the east wing ------- by the end of June.', options: ['has been completed', 'is being completed', 'to be completed', 'will be completed'], a: 3, cue: 'by the end of June',
@@ -123,8 +123,8 @@ Workers repaired the theater's original 1920s ceiling and replaced all 650 seats
               explain: '"while + V-ing" = đồng thời với việc, trong khi vẫn → lắp hệ thống âm thanh hiện đại trong khi vẫn giữ nguyên vẻ cổ kính của tòa nhà. "during" đi với danh từ chỉ khoảng thời gian; "because" cần mệnh đề; "despite preserving" (mặc dù giữ gìn) sai logic.' },
             { n: 141, q: '(141)', options: ['The theater\'s renovation cost $4.2 million.', 'Many theaters have closed in recent years.', 'The theater will host more than 100 events in its first year.', 'Donors can receive a complimentary program booklet online.'], a: 2, cue: 'The first performance will be a concert',
               explain: 'Câu cần điền mô tả kế hoạch hoạt động của nhà hát trong năm đầu, vì vậy câu đúng là “The theater will host more than 100 events in its first year”. Các đáp án khác nói về chi phí cải tạo, việc bảo tồn trần hoặc giấy tờ cho nhà tài trợ, không liên quan tới kế hoạch sự kiện.' },
-            { n: 142, q: '(142)', options: ['quickly', 'rapid', 'faster', 'rapidity'], a: 0, cue: 'are expected to sell out',
-              explain: 'Cần trạng từ bổ nghĩa cho động từ "sell out" (bán hết) → "quickly" (nhanh chóng). "quick/quicker" là tính từ; "quickness" là danh từ.' }
+            { n: 142, q: '(142)', options: ['quickly', 'slowly', 'hastily', 'promptly'], a: 0, cue: 'are expected to sell out',
+              explain: 'Câu cần một trạng từ để mô tả cách bán hết, vì vậy dùng "quickly". Các lựa chọn còn lại là trạng từ không phù hợp: "slowly" diễn tả chậm, "hastily" mang nghĩa làm vội vã, "promptly" không thường dùng với "sell out".' }
           ] } ] },
         { title: 'E-mail', text:
 `Dear Mr. Quintero,
@@ -519,7 +519,7 @@ Natalia Sorokina`,
               explain: 'Bảng giá ghi "Contracts run for a minimum of six months" (hợp đồng kéo dài tối thiểu sáu tháng). Chậu trang trí đã bao gồm, cây được tưới hằng tuần ("weekly watering"), và không có thông tin về việc mua lại cây.' },
             { n: 192, q: 'On what day does Ms. Sorokina want the technician to visit?', options: ['Monday', 'Thursday', 'Wednesday', 'Friday'], a: 2, cue: 'Preferred service day: Wednesday',
               explain: 'Trong đơn đặt hàng ghi “Preferred service day: Wednesday” và email phàn nàn rằng kỹ thuật viên đến vào thứ Năm, vì vậy bà Sorokina muốn ngày thứ Tư. Các ngày khác không khớp với yêu cầu.' },
-            { n: 193, q: 'What will Mossgrove most likely do about the peace lily?', options: ['Schedule an extra maintenance visit', 'Move it to the reception area', 'Water it only once a month', 'Replace it free of charge'], a: 3, cue: 'free replacement of any plant that does not stay healthy',
+            { n: 193, q: 'What will Mossgrove most likely do about the peace lily?', options: ['Schedule a bi‑weekly cleaning visit', 'Move it to the conference room', 'Water it only twice a month', 'Replace it free of charge'], a: 3, cue: 'free replacement of any plant that does not stay healthy',
               explain: 'Kết hợp hai văn bản: e-mail cho biết cây lan ý bị vàng lá và bà tin rằng dịch vụ "covers this situation"; bảng giá cam kết "free replacement of any plant that does not stay healthy" (thay miễn phí cây không khỏe) → cây sẽ được thay miễn phí. Không có phí sửa chữa hay việc dời cây ra quầy lễ tân.' },
             { n: 194, q: 'Why does Ms. Sorokina believe the June charge was a mistake?', options: ['The monthly total was calculated incorrectly.', 'Some plants were never delivered.', 'The service did not begin until July.', 'Her contract length entitles her to a free first month.'], a: 3, cue: 'Customers who sign a twelve-month contract receive their first month free.',
               explain: 'Kết hợp ba văn bản: đơn đặt hàng ghi "Contract length: 12 months" và bắt đầu ngày 1/6; bảng giá nêu hợp đồng 12 tháng được miễn phí tháng đầu → khoản $210 của tháng Sáu lẽ ra không bị tính. Tổng $90 + $64 + $56 = $210 là đúng, và dịch vụ đã bắt đầu từ tháng Sáu.' },

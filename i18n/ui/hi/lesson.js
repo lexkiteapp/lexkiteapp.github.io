@@ -92,5 +92,8 @@
 "Định nghĩa:":"परिभाषा:",
 "Đối thoại":"संवाद",
 "Ảnh minh họa":"चित्र",
+"Tuần này bạn đã nhớ {n} từ mới":"इस सप्ताह आपने {n} नए शब्द याद किए",
+"Bạn đã đạt mục tiêu hôm nay!":"आपने आज का लक्ष्य पूरा कर लिया!",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"आज का लक्ष्य: {a}/{b} दोहराव",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -1,9 +1,263 @@
 {
+ "vi": [
+  [
+   "campaign",
+   "campaign",
+   "chiến dịch"
+  ],
+  [
+   "look-up-to",
+   "look up to",
+   "kính trọng"
+  ],
+  [
+   "format",
+   "format",
+   "định dạng"
+  ],
+  [
+   "confine",
+   "confine",
+   "giới hạn"
+  ],
+  [
+   "insight",
+   "insight",
+   "sự hiểu biết sâu sắc"
+  ],
+  [
+   "visible",
+   "visible",
+   "có thể nhìn thấy"
+  ],
+  [
+   "interpret",
+   "interpret",
+   "giải thích"
+  ],
+  [
+   "moreover",
+   "moreover",
+   "hơn nữa"
+  ],
+  [
+   "translation",
+   "translation",
+   "bản dịch"
+  ],
+  [
+   "underlie",
+   "underlie",
+   "làm nền tảng"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "từ bỏ"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "cung cấp chỗ ở"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "thừa nhận"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "giành được"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "đầy đủ"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "liền kề"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "mặc dù"
+  ],
+  [
+   "alter",
+   "alter",
+   "thay đổi"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "dự đoán trước"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "rõ ràng"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "phù hợp"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "xấp xỉ"
+  ],
+  [
+   "assume",
+   "assume",
+   "cho rằng"
+  ],
+  [
+   "assure",
+   "assure",
+   "cam đoan"
+  ]
+ ],
+ "en": [
+  [
+   "parallel",
+   "parallel",
+   ""
+  ],
+  [
+   "artificial",
+   "artificial",
+   ""
+  ],
+  [
+   "leisure",
+   "leisure",
+   ""
+  ],
+  [
+   "export",
+   "export",
+   ""
+  ],
+  [
+   "competitive",
+   "competitive",
+   ""
+  ],
+  [
+   "format",
+   "format",
+   ""
+  ],
+  [
+   "confine",
+   "confine",
+   ""
+  ],
+  [
+   "in-comparison",
+   "in comparison",
+   ""
+  ],
+  [
+   "moreover",
+   "moreover",
+   ""
+  ],
+  [
+   "organic",
+   "organic",
+   ""
+  ],
+  [
+   "captivity",
+   "captivity",
+   ""
+  ],
+  [
+   "witty",
+   "witty",
+   ""
+  ],
+  [
+   "underlie",
+   "underlie",
+   ""
+  ],
+  [
+   "conflict",
+   "conflict",
+   ""
+  ],
+  [
+   "incorporate",
+   "incorporate",
+   ""
+  ],
+  [
+   "rational",
+   "rational",
+   ""
+  ],
+  [
+   "scenario",
+   "scenario",
+   ""
+  ],
+  [
+   "status",
+   "status",
+   ""
+  ],
+  [
+   "display",
+   "display",
+   ""
+  ],
+  [
+   "dynamic",
+   "dynamic",
+   ""
+  ],
+  [
+   "extract",
+   "extract",
+   ""
+  ],
+  [
+   "stable",
+   "stable",
+   ""
+  ],
+  [
+   "visible",
+   "visible",
+   ""
+  ],
+  [
+   "epidemic",
+   "epidemic",
+   ""
+  ]
+ ],
  "es": [
   [
-   "thesis",
-   "thesis",
-   "tesis"
+   "core",
+   "core",
+   "centro"
+  ],
+  [
+   "domain",
+   "domain",
+   "dominio"
+  ],
+  [
+   "format",
+   "format",
+   "formato"
   ],
   [
    "formula",
@@ -11,24 +265,84 @@
    "fórmula"
   ],
   [
-   "rational",
-   "rational",
-   "racional"
-  ],
-  [
-   "core",
-   "core",
-   "centro"
-  ],
-  [
-   "regime",
-   "regime",
-   "régimen"
-  ],
-  [
    "register",
    "register",
    "registrar"
+  ],
+  [
+   "aid",
+   "aid",
+   "ayuda"
+  ],
+  [
+   "confine",
+   "confine",
+   "confinar"
+  ],
+  [
+   "sustain",
+   "sustain",
+   "sostener"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "abandonar"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "acomodar"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "reconocer"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "adquirir"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "adecuado"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "adyacente"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "aunque"
+  ],
+  [
+   "alter",
+   "alter",
+   "alterar"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "prever"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "aparente"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "adecuado"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "aproximado"
   ],
   [
    "assume",
@@ -36,19 +350,19 @@
    "asumir"
   ],
   [
-   "commodity",
-   "commodity",
-   "producto"
+   "assure",
+   "assure",
+   "asegurar"
   ],
   [
-   "compound",
-   "compound",
-   "compuesto"
+   "behalf",
+   "behalf",
+   "favor"
   ],
   [
-   "conflict",
-   "conflict",
-   "conflicto"
+   "bond",
+   "bond",
+   "enlace"
   ]
  ],
  "pt": [
@@ -58,39 +372,9 @@
    "complementar"
   ],
   [
-   "infer",
-   "infer",
-   "inferir"
-  ],
-  [
-   "protocol",
-   "protocol",
-   "protocolo"
-  ],
-  [
-   "overseas",
-   "overseas",
-   "no ultramar"
-  ],
-  [
-   "consequent",
-   "consequent",
-   "consequente"
-  ],
-  [
    "grant",
    "grant",
    "concessão"
-  ],
-  [
-   "rational",
-   "rational",
-   "racional"
-  ],
-  [
-   "reverse",
-   "reverse",
-   "reverter"
   ],
   [
    "transfer",
@@ -98,21 +382,171 @@
    "transferir"
   ],
   [
-   "assume",
-   "assume",
-   "assumir"
+   "format",
+   "format",
+   "formato"
+  ],
+  [
+   "gender",
+   "gender",
+   "gênero"
+  ],
+  [
+   "neutral",
+   "neutral",
+   "neutro"
+  ],
+  [
+   "protocol",
+   "protocol",
+   "protocolo"
+  ],
+  [
+   "recover",
+   "recover",
+   "recuperar"
+  ],
+  [
+   "voluntary",
+   "voluntary",
+   "voluntário"
+  ],
+  [
+   "bias",
+   "bias",
+   "viés"
+  ],
+  [
+   "comprise",
+   "comprise",
+   "compreender"
+  ],
+  [
+   "confine",
+   "confine",
+   "limitar"
+  ],
+  [
+   "tension",
+   "tension",
+   "tensão"
+  ],
+  [
+   "visible",
+   "visible",
+   "visível"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "abandonar"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "acomodar"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "reconhecer"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "adquirir"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "adequado"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "adjacente"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "embora"
+  ],
+  [
+   "alter",
+   "alter",
+   "alterar"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "antecipar"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "aparente"
   ]
  ],
  "fr": [
   [
-   "reverse",
-   "reverse",
-   "inverser"
+   "confine",
+   "confine",
+   "confiner"
   ],
   [
-   "rational",
-   "rational",
-   "rationnel"
+   "moreover",
+   "moreover",
+   "de plus"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "abandonner"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "accommoder"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "reconnaître"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "acquérir"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "adéquat"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "quoique"
+  ],
+  [
+   "alter",
+   "alter",
+   "modifier"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "anticiper"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "approprié"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "approximatif"
   ],
   [
    "assume",
@@ -120,81 +554,81 @@
    "supposer"
   ],
   [
-   "conflict",
-   "conflict",
-   "conflit"
+   "assure",
+   "assure",
+   "assurer"
   ],
   [
-   "derive",
-   "derive",
-   "dériver"
+   "behalf",
+   "behalf",
+   "au nom de"
   ],
   [
-   "external",
-   "external",
-   "externe"
+   "bond",
+   "bond",
+   "liaison"
   ],
   [
-   "incidence",
-   "incidence",
-   "incidence"
+   "circumstance",
+   "circumstance",
+   "circonstance"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "inhiber"
+   "clarify",
+   "clarify",
+   "clarifier"
   ],
   [
-   "modify",
-   "modify",
-   "modifier"
+   "coherent",
+   "coherent",
+   "cohérent"
   ],
   [
-   "parallel",
-   "parallel",
-   "parallèle"
+   "coincide",
+   "coincide",
+   "coïncider"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "marchandise"
+  ],
+  [
+   "compensate",
+   "compensate",
+   "compenser"
+  ],
+  [
+   "complement",
+   "complement",
+   "compléter"
+  ],
+  [
+   "component",
+   "component",
+   "composant"
   ]
  ],
  "de": [
-  [
-   "ongoing",
-   "ongoing",
-   "fortlaufend"
-  ],
-  [
-   "refine",
-   "refine",
-   "verfeinern"
-  ],
   [
    "clarify",
    "clarify",
    "klären"
   ],
   [
-   "explicit",
-   "explicit",
-   "explizit"
-  ],
-  [
-   "integral",
-   "integral",
-   "Integral-"
-  ],
-  [
-   "rational",
-   "rational",
-   "rational"
-  ],
-  [
-   "unify",
-   "unify",
-   "vereinheitlichen"
-  ],
-  [
-   "amend",
-   "amend",
+   "alter",
+   "alter",
    "ändern"
+  ],
+  [
+   "insert",
+   "insert",
+   "einfügen"
+  ],
+  [
+   "confine",
+   "confine",
+   "beschränken"
   ],
   [
    "outcome",
@@ -202,16 +636,171 @@
    "Ergebnis"
   ],
   [
-   "cosmos",
-   "cosmos",
-   "Kosmos"
+   "visible",
+   "visible",
+   "sichtbar"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "aufgeben"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "unterbringen"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "anerkennen"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "erwerben"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "angemessen"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "benachbart"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "wenngleich"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "erwarten"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "ersichtlich"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "geeignet"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "ungefähr"
+  ],
+  [
+   "assume",
+   "assume",
+   "annehmen"
+  ],
+  [
+   "assure",
+   "assure",
+   "versichern"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "Namen"
+  ],
+  [
+   "bond",
+   "bond",
+   "Bindung"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "Umstand"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "kohärent"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "übereinstimmen"
   ]
  ],
  "id": [
   [
-   "rational",
-   "rational",
-   "rasional"
+   "confine",
+   "confine",
+   "membatasi"
+  ],
+  [
+   "visible",
+   "visible",
+   "terlihat"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "meninggalkan"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "menampung"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "mengakui"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "mendapatkan"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "cukup"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "berdekatan"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "walaupun"
+  ],
+  [
+   "alter",
+   "alter",
+   "mengubah"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "mengharapkan"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "semu"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "sesuai"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "kurang lebih"
   ],
   [
    "assume",
@@ -219,71 +808,56 @@
    "menganggap"
   ],
   [
-   "conflict",
-   "conflict",
-   "konflik"
+   "assure",
+   "assure",
+   "memastikan"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "menghalangi"
+   "behalf",
+   "behalf",
+   "kepentingan"
   ],
   [
-   "parallel",
-   "parallel",
-   "paralel"
+   "bond",
+   "bond",
+   "obligasi"
   ],
   [
-   "regime",
-   "regime",
-   "rezim"
+   "circumstance",
+   "circumstance",
+   "persoalan"
   ],
   [
-   "abstract",
-   "abstract",
-   "abstrak"
+   "clarify",
+   "clarify",
+   "menjelaskan"
   ],
   [
-   "academy",
-   "academy",
-   "akademi"
+   "coherent",
+   "coherent",
+   "koheren"
   ],
   [
-   "conceive",
-   "conceive",
-   "memahami"
+   "coincide",
+   "coincide",
+   "bertepatan"
   ],
   [
-   "consent",
-   "consent",
-   "izin"
+   "commodity",
+   "commodity",
+   "komoditi"
+  ],
+  [
+   "compensate",
+   "compensate",
+   "mengimbangi"
   ]
  ],
  "th": [
   [
-   "rational",
-   "rational",
-   "มีเหตุผล"
-  ],
-  [
-   "academy",
-   "academy",
-   "วิทยาลัย"
-  ],
-  [
    "visible",
    "visible",
    "มองเห็นได้"
-  ],
-  [
-   "assume",
-   "assume",
-   "สมมติ"
-  ],
-  [
-   "conflict",
-   "conflict",
-   "ศึก"
   ],
   [
    "format",
@@ -291,31 +865,186 @@
    "รูป"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "ยับยั้ง"
+   "confine",
+   "confine",
+   "จำกัด"
   ],
   [
-   "mode",
-   "mode",
-   "โหมด"
+   "abandon",
+   "abandon",
+   "ละทิ้ง"
   ],
   [
-   "regime",
-   "regime",
-   "ระบบการปกครอง"
+   "accommodate",
+   "accommodate",
+   "เอื้อ"
   ],
   [
-   "abstract",
-   "abstract",
-   "ซึ่งเข้าใจยาก"
+   "acknowledge",
+   "acknowledge",
+   "รับทราบ"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "ได้รับ"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "เพียงพอ"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "ชิด"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "แม้ว่า"
+  ],
+  [
+   "alter",
+   "alter",
+   "เปลี่ยนแปลง"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "คาดหวัง"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "ชัดเจน"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "เหมาะสม"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "ประมาณ"
+  ],
+  [
+   "assume",
+   "assume",
+   "สมมติ"
+  ],
+  [
+   "assure",
+   "assure",
+   "รับรอง"
+  ],
+  [
+   "behalf",
+   "behalf",
+   "ตัวแทน"
+  ],
+  [
+   "bond",
+   "bond",
+   "พันธบัตร"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "กรณี"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "อธิบาย"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "สอดคล้องกัน"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "ตรงกัน"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "สินค้า"
   ]
  ],
  "zh": [
   [
-   "rational",
-   "rational",
-   "合理的"
+   "format",
+   "format",
+   "格式"
+  ],
+  [
+   "visible",
+   "visible",
+   "可见"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "放弃"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "容纳"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "承认"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "获得"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "充足"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "邻近的"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "尽管"
+  ],
+  [
+   "alter",
+   "alter",
+   "改变"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "预料"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "明显的"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "适当"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "大概"
   ],
   [
    "assume",
@@ -323,61 +1052,126 @@
    "承担"
   ],
   [
-   "conflict",
-   "conflict",
-   "冲突"
+   "assure",
+   "assure",
+   "保证"
   ],
   [
-   "format",
-   "format",
-   "格式"
+   "behalf",
+   "behalf",
+   "代表"
   ],
   [
-   "regime",
-   "regime",
-   "政权"
+   "bond",
+   "bond",
+   "券"
   ],
   [
-   "abstract",
-   "abstract",
-   "抽象的"
+   "circumstance",
+   "circumstance",
+   "环境"
   ],
   [
-   "academy",
-   "academy",
-   "学院"
+   "clarify",
+   "clarify",
+   "阐明"
   ],
   [
-   "conceive",
-   "conceive",
-   "构想"
+   "coherent",
+   "coherent",
+   "相干"
   ],
   [
-   "consent",
-   "consent",
-   "同意"
+   "coincide",
+   "coincide",
+   "重合"
   ],
   [
-   "demonstrate",
-   "demonstrate",
-   "演示"
+   "commodity",
+   "commodity",
+   "商品"
+  ],
+  [
+   "compensate",
+   "compensate",
+   "补偿"
   ]
  ],
  "ja": [
   [
-   "rational",
-   "rational",
-   "ラショナル"
+   "format",
+   "format",
+   "形式"
   ],
   [
-   "virtual",
-   "virtual",
-   "バーチャル"
+   "confine",
+   "confine",
+   "封じ込める"
   ],
   [
-   "cosmos",
-   "cosmos",
-   "コスモス"
+   "visible",
+   "visible",
+   "目に見える"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "放棄する"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "収容する"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "認める"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "得る"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "十分な"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "隣接"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "とはいえ"
+  ],
+  [
+   "alter",
+   "alter",
+   "変える"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "予想する"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "自明"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "適切な"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "近似"
   ],
   [
    "assume",
@@ -385,46 +1179,121 @@
    "決め込む"
   ],
   [
-   "conflict",
-   "conflict",
-   "コンフリクト"
+   "assure",
+   "assure",
+   "請け合う"
   ],
   [
-   "encounter",
-   "encounter",
-   "出会う"
+   "behalf",
+   "behalf",
+   "代理して"
   ],
   [
-   "format",
-   "format",
-   "形式"
+   "bond",
+   "bond",
+   "ボンド"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "阻害する"
+   "circumstance",
+   "circumstance",
+   "環境"
   ],
   [
-   "interval",
-   "interval",
-   "間隔"
+   "clarify",
+   "clarify",
+   "明らかにする"
   ],
   [
-   "occupy",
-   "occupy",
-   "占める"
+   "coherent",
+   "coherent",
+   "密着した"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "一致する"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "商品"
   ]
  ],
  "ko": [
   [
-   "rational",
-   "rational",
-   "이성적인"
+   "format",
+   "format",
+   "형식"
   ],
   [
-   "cosmos",
-   "cosmos",
-   "우주"
+   "confine",
+   "confine",
+   "국한시키다"
+  ],
+  [
+   "visible",
+   "visible",
+   "보이는"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "버리다"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "수용하다"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "인정"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "얻다"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "적절"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "인접한"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "비록 ~이지만"
+  ],
+  [
+   "alter",
+   "alter",
+   "변경하다"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "예상하다"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "분명한"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "적절한"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "대략적인"
   ],
   [
    "assume",
@@ -432,61 +1301,66 @@
    "추정하다"
   ],
   [
-   "conflict",
-   "conflict",
-   "갈등"
+   "assure",
+   "assure",
+   "장담하다"
   ],
   [
-   "criteria",
-   "criteria",
-   "기준"
+   "behalf",
+   "behalf",
+   "위함"
   ],
   [
-   "format",
-   "format",
-   "형식"
+   "bond",
+   "bond",
+   "결합"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "억제하다"
+   "circumstance",
+   "circumstance",
+   "상황"
   ],
   [
-   "parallel",
-   "parallel",
-   "평행한"
+   "clarify",
+   "clarify",
+   "명확하게 하다"
   ],
   [
-   "regime",
-   "regime",
-   "정권"
+   "coherent",
+   "coherent",
+   "조리 있는"
   ],
   [
-   "abstract",
-   "abstract",
-   "추상적인"
+   "coincide",
+   "coincide",
+   "동시에 일어나다"
+  ],
+  [
+   "commodity",
+   "commodity",
+   "상품"
   ]
  ],
  "hi": [
   [
-   "rational",
-   "rational",
-   "तर्कसंगत"
+   "adequate",
+   "adequate",
+   "सक्षम"
   ],
   [
-   "abstract",
-   "abstract",
-   "अमूर्त"
+   "format",
+   "format",
+   "पुस्तक का फ़र्मा"
   ],
   [
-   "demonstrate",
-   "demonstrate",
-   "दिखाना"
+   "confine",
+   "confine",
+   "प्रतिबंधित करना"
   ],
   [
-   "mutual",
-   "mutual",
-   "आपसी"
+   "visible",
+   "visible",
+   "दिखाई देने वाला"
   ],
   [
    "vision",
@@ -494,9 +1368,59 @@
    "नज़र"
   ],
   [
-   "adequate",
-   "adequate",
-   "सक्षम"
+   "abandon",
+   "abandon",
+   "त्याग देना"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "झगड़ा तय करना"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "मान लेना"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "प्राप्त करना"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "आसन्न"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "यद्यपि"
+  ],
+  [
+   "alter",
+   "alter",
+   "बदलना"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "पहले से सोच रखना"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "प्रकट"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "उपयुक्त"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "लग-भग"
   ],
   [
    "assume",
@@ -504,51 +1428,121 @@
    "मान लेना"
   ],
   [
-   "conflict",
-   "conflict",
-   "टकराव"
+   "assure",
+   "assure",
+   "भरोसा दिलाना"
   ],
   [
-   "discriminate",
-   "discriminate",
-   "भेद करना"
+   "behalf",
+   "behalf",
+   "पक्ष"
   ],
   [
-   "distort",
-   "distort",
-   "विकृत करना"
+   "bond",
+   "bond",
+   "बंधन"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "परिस्थिति"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "स्पष्ट करना"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "सुसंगत"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "मेल खाना"
   ]
  ],
  "ar": [
+  [
+   "format",
+   "format",
+   "شكل"
+  ],
   [
    "insight",
    "insight",
    "تبصر"
   ],
   [
-   "conflict",
-   "conflict",
-   "صراع"
+   "scheme",
+   "scheme",
+   "مخطط"
   ],
   [
-   "emphasis",
-   "emphasis",
-   "توكيد"
+   "visible",
+   "visible",
+   "مرئي"
   ],
   [
-   "rational",
-   "rational",
-   "عقلاني"
+   "abandon",
+   "abandon",
+   "تخلى"
   ],
   [
-   "random",
-   "random",
-   "بالصدفة"
+   "accommodate",
+   "accommodate",
+   "كيف"
   ],
   [
-   "cosmos",
-   "cosmos",
-   "كون"
+   "acknowledge",
+   "acknowledge",
+   "اعترف"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "كسب"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "مناسب"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "متاخم"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "ولو"
+  ],
+  [
+   "alter",
+   "alter",
+   "تغير"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "توقع"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "واضح"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "ملائم"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "تقريبي"
   ],
   [
    "assume",
@@ -556,31 +1550,121 @@
    "افترض"
   ],
   [
-   "conduct",
-   "conduct",
-   "تصرف"
+   "assure",
+   "assure",
+   "أكد"
   ],
   [
-   "infer",
-   "infer",
-   "استنتج"
+   "behalf",
+   "behalf",
+   "لأجل مصلحة"
   ],
   [
-   "regime",
-   "regime",
-   "نظام الحكم"
+   "bond",
+   "bond",
+   "رباط"
+  ],
+  [
+   "circumstance",
+   "circumstance",
+   "ظرف"
+  ],
+  [
+   "clarify",
+   "clarify",
+   "وضح"
+  ],
+  [
+   "coherent",
+   "coherent",
+   "متماسك"
+  ],
+  [
+   "coincide",
+   "coincide",
+   "تزامن"
   ]
  ],
  "ru": [
   [
-   "minimise",
-   "minimise",
-   "минимизировать"
+   "format",
+   "format",
+   "формат"
   ],
   [
-   "rational",
-   "rational",
-   "рациональный"
+   "confine",
+   "confine",
+   "ограничивать"
+  ],
+  [
+   "relevant",
+   "relevant",
+   "релевантный"
+  ],
+  [
+   "visible",
+   "visible",
+   "видимый"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "покидать"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "вмещать"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "сознавать"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "приобретать"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "адекватный"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "соседний"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "хотя"
+  ],
+  [
+   "alter",
+   "alter",
+   "изменять"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "предвидеть"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "очевидный"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "соответствующий"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "приблизительный"
   ],
   [
    "assume",
@@ -588,51 +1672,121 @@
    "предполагать"
   ],
   [
-   "conflict",
-   "conflict",
-   "конфликт"
+   "assure",
+   "assure",
+   "гарантировать"
   ],
   [
-   "format",
-   "format",
-   "формат"
+   "behalf",
+   "behalf",
+   "от имени"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "тормозить"
+   "bond",
+   "bond",
+   "связь"
   ],
   [
-   "parallel",
-   "parallel",
-   "параллельный"
+   "circumstance",
+   "circumstance",
+   "обстоятельство"
   ],
   [
-   "regime",
-   "regime",
-   "режим"
+   "clarify",
+   "clarify",
+   "прояснить"
   ],
   [
-   "simulate",
-   "simulate",
-   "моделировать"
+   "coherent",
+   "coherent",
+   "последовательный"
   ],
   [
-   "abstract",
-   "abstract",
-   "абстрактный"
+   "coincide",
+   "coincide",
+   "совпадать"
   ]
  ],
  "tr": [
   [
-   "prime",
-   "prime",
-   "asal"
+   "format",
+   "format",
+   "biçim"
   ],
   [
-   "rational",
-   "rational",
-   "akılcı"
+   "confine",
+   "confine",
+   "sınırlamak"
+  ],
+  [
+   "visible",
+   "visible",
+   "görünür"
+  ],
+  [
+   "advocate",
+   "advocate",
+   "savunmak"
+  ],
+  [
+   "abandon",
+   "abandon",
+   "vazgeçmek"
+  ],
+  [
+   "accommodate",
+   "accommodate",
+   "yerleştirmek"
+  ],
+  [
+   "acknowledge",
+   "acknowledge",
+   "onaylamak"
+  ],
+  [
+   "acquire",
+   "acquire",
+   "elde etmek"
+  ],
+  [
+   "adequate",
+   "adequate",
+   "yeterli"
+  ],
+  [
+   "adjacent",
+   "adjacent",
+   "bitişik"
+  ],
+  [
+   "albeit",
+   "albeit",
+   "gerçi"
+  ],
+  [
+   "alter",
+   "alter",
+   "değiştirmek"
+  ],
+  [
+   "anticipate",
+   "anticipate",
+   "beklemek"
+  ],
+  [
+   "apparent",
+   "apparent",
+   "açık"
+  ],
+  [
+   "appropriate",
+   "appropriate",
+   "uygun"
+  ],
+  [
+   "approximate",
+   "approximate",
+   "yaklaşık"
   ],
   [
    "assume",
@@ -640,39 +1794,39 @@
    "üstlenmek"
   ],
   [
-   "conflict",
-   "conflict",
-   "anlaşmazlık"
+   "assure",
+   "assure",
+   "garanti etmek"
   ],
   [
-   "format",
-   "format",
-   "biçim"
+   "behalf",
+   "behalf",
+   "adına"
   ],
   [
-   "inhibit",
-   "inhibit",
-   "engellemek"
+   "bond",
+   "bond",
+   "bağ"
   ],
   [
-   "parallel",
-   "parallel",
-   "paralel"
+   "circumstance",
+   "circumstance",
+   "durum"
   ],
   [
-   "regime",
-   "regime",
-   "rejim"
+   "clarify",
+   "clarify",
+   "açıklamak"
   ],
   [
-   "abstract",
-   "abstract",
-   "soyut"
+   "coherent",
+   "coherent",
+   "tutarlı"
   ],
   [
-   "academy",
-   "academy",
-   "akademi"
+   "coincide",
+   "coincide",
+   "rastlamak"
   ]
  ]
 }

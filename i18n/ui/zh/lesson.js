@@ -92,5 +92,8 @@
 "Định nghĩa:":"释义：",
 "Đối thoại":"对话",
 "Ảnh minh họa":"配图",
+"Tuần này bạn đã nhớ {n} từ mới":"本周你记住了 {n} 个新单词",
+"Bạn đã đạt mục tiêu hôm nay!":"你完成了今天的目标！",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"今日目标：{a}/{b} 次复习",
 });
 })(typeof self !== 'undefined' ? self : this);

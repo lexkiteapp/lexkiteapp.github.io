@@ -55,6 +55,7 @@
 "Nhận dạng ngay trên máy – âm thanh không rời khỏi máy bạn.":"Konuşma cihazınızda tanınır; sesiniz asla cihazınızdan ayrılmaz.",
 "Nhận dạng trên máy bằng Whisper (tải ~40 MB một lần, nên dùng Wi-Fi)":"Cihazınızı Whisper ile tanıyın (tek seferlik ~40 MB indirme, Wi-Fi önerilir)",
 "Nhận xét độ trôi chảy":"Akıcılık notları",
+"Nói chậm hơn":"Daha yavaş konuşma",
 "Sau can/could/should/will không dùng “to”.":"can/could/should/will'dan sonra “to” kullanmayın.",
 "Sau want/need/would like, động từ tiếp theo cần “to”.":"want/need/would like'dan sonra bir sonraki fiilin \"to\" olması gerekir.",
 "TOEIC: dời lịch họp với khách hàng":"TOEIC: müşteri toplantısını yeniden planlamak",

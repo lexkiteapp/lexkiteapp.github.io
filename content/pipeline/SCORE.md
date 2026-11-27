@@ -2,31 +2,31 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 78.5 / 100**
+**Tổng: 78.6 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **59.9** | 59.7 | 59.9% | 100% | 0 |
+| Kho từ | **59.9** | 59.9 | 59.9% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **89.7** | 89.7 | 89.7% | 100% | 0 |
 | 4 kỹ năng | **97.6** | 97.6 | 97.6% | 100% | 0 |
 | Đề thi | **66.6** | 66.6 | 66.6% | 100% | 0 |
-| Chất lượng đề | **62.8** | 62.7 | 62.8% | 100% | 0 |
+| Chất lượng đề | **63** | 63 | 63% | 100% | 0 |
 | Khung Can-do | **82.6** | 82.6 | 82.6% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.8 | 91.8% | 100% | 0 |
-| i18n | **83.1** | 83 | 83.1% | 100% | 0 |
+| i18n | **83.1** | 83.1 | 83.1% | 100% | 0 |
 
 ## Kho từ
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 10597 / 20000 | 53% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10597 / 10597 | 100% | 20 |
+| từ#loại duy nhất | 10600 / 20000 | 53% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10600 / 10600 | 100% | 20 |
 | collocation | 5064 / 20000 | 25% | 12 |
 | đồng nghĩa | 3182 / 20000 | 16% | 8 |
-| IPA Mỹ | 7061 / 20000 | 35% | 5 |
+| IPA Mỹ | 7062 / 20000 | 35% | 5 |
 | ảnh theo nghĩa | 8357 / 20000 | 42% | 15 |
-| C2 | 1302 / 1000 | 100% | 10 |
+| C2 | 1305 / 1000 | 100% | 10 |
 | A1 | 871 / 1000 | 87% | 5 |
 
 ## Ngữ pháp
@@ -99,7 +99,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | đáp án cân bằng vị trí (lệch ≤ 3 %) | 100 / 100 | 100% | 15 |
 | đáp án đúng không lộ qua độ dài (≤ 10 %) | 100 / 100 | 100% | 20 |
-| lời giải riêng từng câu (rập khuôn ≤ 2 %) | 90.9 / 100 | 91% | 15 |
+| lời giải riêng từng câu (rập khuôn ≤ 2 %) | 91.7 / 100 | 92% | 15 |
 | không trùng câu / đáp án nhiễu trùng | 94.7 / 100 | 95% | 15 |
 | qua giám khảo LLM (mẫu ≥ 1.500) (chưa làm) | 0 / 100 | 0% | 35 |
 
@@ -109,7 +109,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11977 / 11977 | 100% | 35 |
+| nội dung có lo hợp lệ | 11980 / 11980 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 197 / 600 | 33% | 25 |
 
 ## Dễ học – dễ nhớ

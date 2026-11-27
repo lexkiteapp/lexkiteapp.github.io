@@ -86,11 +86,14 @@
 "Đang nghe bạn nói…":"Ich höre zu…",
 "Đáp án của bạn":"Deine Antwort",
 "Đây là gì?":"Was ist das?",
-"Đã ghép":"Matched",
+"Đã ghép":"Passend",
 "Đã sao chép":"Kopiert",
 "Đúng rồi!":"Richtig!",
 "Định nghĩa:":"Definition:",
 "Đối thoại":"Dialog",
 "Ảnh minh họa":"Bild",
+"Tuần này bạn đã nhớ {n} từ mới":"Diese Woche haben Sie sich {n} neue Wörter gemerkt",
+"Bạn đã đạt mục tiêu hôm nay!":"Sie haben Ihr Tagesziel erreicht!",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"Tagesziel: {a}/{b} Wiederholungen",
 });
 })(typeof self !== 'undefined' ? self : this);

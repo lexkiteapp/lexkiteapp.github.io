@@ -92,5 +92,8 @@
 "Định nghĩa:":"定義：",
 "Đối thoại":"会話",
 "Ảnh minh họa":"イラスト",
+"Tuần này bạn đã nhớ {n} từ mới":"今週は新しい単語を {n} 語覚えました",
+"Bạn đã đạt mục tiêu hôm nay!":"今日の目標を達成しました！",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"今日の目標：{a}/{b} 回の復習",
 });
 })(typeof self !== 'undefined' ? self : this);
