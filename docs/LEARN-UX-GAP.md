@@ -38,7 +38,7 @@ Việc cần người: xem 3 video công khai (onboarding, bài 1, Video Call) v
 | Nói/nghe thật, tình huống đời thực | roleplay, `call/`, pron mic, nghe&chép | 6 | 9 | Hội thoại nằm ngoài luồng ngày (chỉ là "phần thưởng cuối"); thiếu nghe-hiểu hội thoại ngắn có câu hỏi |
 | Ôn ngắt quãng | SRS retention 0.9, "từ sắp quên", thẻ đến hạn; ôn nhanh đầu ngày | 7 | 9 | "Ôn nhanh" từng mở màn rỗng (đã fix 5cbf0c7b48); chưa có "ôn sửa lỗi" cuối bài từ câu vừa sai |
 | Path rõ | Chặng CEFR → bài → ngày, hộp mục tiêu can-do | 7 | 9 | Hub nhiều lối vào cạnh tranh (Practice/Courses/Path/Plan); ngày 2 không gợi bước tiếp rõ |
-| Streak/XP/mục tiêu ngày không áp lực | streak-ui, freeze, XP, mục tiêu vòng | 6 | 9 | Mục tiêu ngày chưa tách khỏi streak; thiếu chọn cường độ nhẹ/vừa/nặng; đứt chuỗi chưa có "sửa chuỗi" nhẹ nhàng |
+| Streak/XP/mục tiêu ngày không áp lực | streak tách khỏi mục tiêu, 3 cường độ, freeze tự động (đã có trên main) | 7 | 9 | Mục tiêu tính theo lượt ôn, chưa theo phút/XP; chưa "sửa chuỗi" bằng bài ngắn |
 | Cảm giác tiến bộ | Màn cuối: XP, vòng %, từ cần ôn | 6 | 9 | Chưa có "bạn nhớ N từ tuần này / từ mới biết nói được câu gì" – tiến bộ cụ thể |
 | Âm thanh/animation nhẹ | Sfx correct/wrong/win, lesson-fx | 7 | 8 | Chưa có haptic mobile, âm tiến độ theo nhịp, tôn trọng reduced-motion cần kiểm |
 | Onboarding → bài đầu | welcome → setup → vào học; demo thẻ ở welcome | 6 | 9 | Phải qua setup trước khi nếm bài; chưa "bài đầu 60 giây trước khi hỏi gì" |
@@ -50,7 +50,7 @@ Mỗi mục: 1 PR, ship 100% + kill switch (cờ `vb.flag.*`), i18n 15 ngôn ng�
 |---|---|---|---|
 | 1 | **CI walkthrough** `learn-walk` (Playwright, người mới: welcome→bài đầu→ôn→ngày 2, ảnh + chấm theo bảng §2, 390/1280px) | Chốt điểm thật, chặn thoái lui | job xanh + báo cáo artifact |
 | 2 | **Bài đầu 60 giây** trước setup: 5 thẻ nhận diện + 1 câu nói, rồi mới hỏi mục tiêu/trình độ | D1 | `ob_first_lesson_done`, D1 |
-| 3 | **Mục tiêu ngày tách khỏi streak** + cường độ (nhẹ 5′/vừa 10′/nặng 15′) | D7/D14 (A/B công khai +3,3%) | `goal_set`, D14 |
+| 3 | ~~Mục tiêu ngày tách khỏi streak + cường độ~~ → **ĐÃ CÓ trên main (kiểm 27/11 trên code):** chuỗi = có XP/ôn thẻ trong ngày (`Core.Stats.streak`, `retention.js` helpHtml) KHÔNG phụ thuộc `dailyGoal`; 3 cường độ nhẹ/đều/tăng tốc ở `onboard.js` + `GOALS` ở `retention.js`; đóng băng tự động; lời nhắc không dọa. **Còn lại (gộp vào #8):** mục tiêu đo bằng *lượt ôn* chứ chưa theo *phút/XP*; chưa có "sửa chuỗi bằng 1 bài ngắn" | – | – |
 | 4 | **Bài mini 3 phút** ("Ôn nhanh 3 phút"/"1 tình huống") ngay trên Hôm nay | D1–D7 người bận | `mini_start/done` |
 | 5 | **Hội thoại vào luồng ngày**: 1 tình huống 4–6 lượt nghe-hiểu + trả lời nói, thay "phần thưởng" tuỳ chọn | Đầu ra nói | `dialog_done`, điểm nói |
 | 6 | **Ôn sửa lỗi cuối bài**: câu sai trong lượt hiện lại 1 lần ở cuối (xen kẽ), tính vào SRS | Giữ nhớ, cảm giác tiến bộ | tỉ lệ đúng lần 2 |
