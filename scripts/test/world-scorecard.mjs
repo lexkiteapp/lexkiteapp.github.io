@@ -15,6 +15,10 @@ const t = rank(rows); ok(t.length === 2 && t[0].id === 'b' && t[0].prio === 100,
 ok(overall(rows, 'lexkite') === 78, 'overall: trung bình có trọng số, bỏ null');
 const fl = raiseFloors({ a: 60, b: 10 }, rows); ok(fl.a === 60 && fl.b === 80 && fl.c === 100 && !('d' in fl), 'raiseFloors: chỉ tăng');
 ok(checkFloors({ a: 60, d: 5 }, rows).length === 2 && !checkFloors({ a: 50 }, rows).length, 'checkFloors: dưới sàn + mất số đo đều trượt');
+{ const { medianRun, summarize } = await import('../world/lh-local.mjs'); // #2328: trung vị 5 lần (median-run), chẵn → lần thấp hơn ở giữa
+  ok(medianRun([95, 99, 97, 94, 98].map(score => ({ score }))).score === 97 && medianRun([90, 96].map(score => ({ score }))).score === 90 && medianRun([]) === null, 'medianRun');
+  const d = summarize({ finalDisplayedUrl: 'u', fetchTime: 't', categories: { performance: { score: 0.974 } }, audits: Object.fromEntries(['first-contentful-paint', 'largest-contentful-paint', 'total-blocking-time', 'cumulative-layout-shift', 'speed-index'].map(k => [k, { displayValue: '1 s' }])) }, 5);
+  ok(d.scores.performance === 97 && d.runs === 5 && d.metrics['largest-contentful-paint'] === '1 s', 'summarize: cùng dạng reports/lighthouse.json'); }
 // trục hợp lệ
 const A = JSON.parse(fs.readFileSync(AXES, 'utf8'));
 for (const a of A.axes) ok(a.id && a.name && a.target > 0 && a.target <= 100 && a.impact >= 1 && a.impact <= 5 && a.cost >= 1 && a.cost <= 5 && a.weight > 0 && a.duolingo, `trục ${a.id}: thiếu/sai trường`);

@@ -204,6 +204,23 @@ export function workflowRunList(src) {
   return blk ? [...blk[1].matchAll(/^      - ['"]?([^'"\n#]+?)['"]?\s*(?:#.*)?$/gm)].map(x => x[1].trim()) : [];
 }
 /** Vòng workflow_run trên cả thư mục: files = [[file, src]] → ['A → B → A', …]. */
+/** Luật 20 (26/11, GitHub Merge Queue cho main): ruleset main đòi status REQUIRED_CONTEXTS; trên nhánh hàng đợi gh-readonly-queue/* chỉ sự kiện `merge_group` sinh được chúng
+ *  (bộ canh required-gate.yml chỉ đánh giá head PR). Phải có đúng một workflow `merge_group` ghi từng context trên github.event.merge_group.head_sha, gom lượt theo head_sha,
+ *  mọi job có timeout; workflow khác nghe merge_group (không có `paths`, chạy MỌI PR trong hàng) phải ghi `# ci-policy: merge-group – <lý do>`. Trả [] nếu đạt. files = [[tên, nội dung]]. */
+export const REQUIRED_CONTEXTS = ['required-gate'];   // = required_status_checks của ruleset main (id 26316463) – đổi ruleset thì đổi ở đây
+export function mergeGroupViolations(files, required = REQUIRED_CONTEXTS) {
+  const out = [], mg = files.filter(([, s]) => triggers(s).events.has('merge_group'));
+  for (const ctx of required) {
+    const w = mg.filter(([, s]) => new RegExp(`context\\W{1,6}${ctx}\\b`).test(s));   // khớp "context":"x", context: x và dạng thoát \\"context\\":\\"x\\" trong lệnh curl
+    if (w.length !== 1) out.push(`ruleset đòi status "${ctx}" nhưng ${w.length} workflow merge_group ghi nó (cần đúng 1) – hàng đợi sẽ kẹt không bao giờ xanh`);
+    for (const [f, s] of w) {
+      if (!/concurrency:\s*\n?\s*group:[^\n]*merge_group\.head_sha/.test(s)) out.push(`${f}: concurrency phải gom theo github.event.merge_group.head_sha`);
+      if (!/statuses:\s*write/.test(s)) out.push(`${f}: thiếu permissions statuses: write để ghi "${ctx}"`);
+    }
+  }
+  for (const [f, s] of mg) if (!/^# ci-policy: (all-paths|merge-group)\b/m.test(s)) out.push(`${f}: nghe merge_group (không có paths) mà thiếu dòng "# ci-policy: all-paths – <lý do>"`);
+  return out;
+}
 export function chainCycles(files) {
   const name = (f, s) => ((s.match(/^name:\s*(.+)$/m) || [])[1] || f).trim().replace(/^['"]|['"]$/g, '');
   const edges = new Map();   // workflow nguồn → workflow bị kích hoạt
@@ -409,6 +426,14 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     const { ungated } = await import('../ci/bot-test-gate.mjs');
     for (const [f, s] of srcs) for (const why of ungated(s)) ok(false, `luật 17: ${f}: ${why}`); }
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
+  for (const v of mergeGroupViolations(srcs)) ok(false, `luật 20 (merge queue): ${v}`);
+  { // luật 20: hồi quy – hàng đợi bật mà không workflow nào ghi required-gate → mọi PR kẹt
+    const good = 'on:\n  merge_group:\n    types: [checks_requested]\n# ci-policy: all-paths – x\npermissions: { statuses: write }\nconcurrency:\n  group: mq-${{ github.event.merge_group.head_sha }}\njobs:\n  g:\n    steps:\n      - run: |\n          curl -d \'{"state":"success","context":"required-gate"}\' x\n';
+    ok(mergeGroupViolations([['mq.yml', good]]).length === 0, 'luật 20: workflow merge_group đủ (context + head_sha + statuses:write) → đạt');
+    ok(mergeGroupViolations([]).length === 1 && /kẹt/.test(mergeGroupViolations([])[0]), 'luật 20: không có workflow merge_group nào ghi required-gate → đỏ');
+    ok(mergeGroupViolations([['mq.yml', good.replace('merge_group.head_sha', 'sha')]]).some(x => /head_sha/.test(x)), 'luật 20: concurrency không theo head_sha → đỏ');
+    ok(mergeGroupViolations([['mq.yml', good], ['b.yml', 'on:\n  merge_group:\njobs: {}\n']]).some(x => /b\.yml/.test(x)), 'luật 20: workflow merge_group thứ hai thiếu lý do all-paths → đỏ');
+    ok(mergeGroupViolations([['mq.yml', good.replace(/permissions:[^\n]*\n/, '')]]).some(x => /statuses: write/.test(x)), 'luật 20: thiếu statuses: write → đỏ'); }
   for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
   ok(ciParity('run: node scripts/a.mjs\n- run: npx tsc -p x.json', 'node scripts/a.mjs').join() === 'tsc -p', 'ciParity bắt lệnh thiếu');
   // luật 15 (13/11): "tạm không chặn" phải có hạn – dòng `# tạm-không-chặn-tới: YYYY-MM-DD (issue #N)`; quá hạn mà còn marker → đỏ (không để bỏ chặn thành vĩnh viễn)
