@@ -1,6 +1,6 @@
 {
  "job": "say-native",
- "at": "2026-11-27T21:56:51.275Z",
+ "at": "2026-11-27T22:09:09.243Z",
  "used": {
   "lexai": 0,
   "gc": 0,
@@ -17,12 +17,12 @@
  },
  "by": {
   "groq|openai/gpt-oss-120b": {
-   "ok": 21,
+   "ok": 20,
    "fail": 0,
    "bad": 0
   },
   "groq|qwen/qwen3.8-27b": {
-   "ok": 9,
+   "ok": 10,
    "fail": 0,
    "bad": 0
   }
@@ -35,10 +35,8 @@
   },
   "groq": {
    "size": 109,
-   "live": 107,
-   "parked": {
-    "minute": 2
-   }
+   "live": 109,
+   "parked": {}
   }
  }
 }
