@@ -17995,6 +17995,126 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_review_wait": {
+   "run": "46056288023",
+   "at": "2026-11-27T20:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "2b2923900b8f7f4f",
+    "wide": "1b900227e6043cd6"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_waiter": {
+   "run": "46056288023",
+   "at": "2026-11-27T20:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "38abf3e6540423e6",
+    "wide": "c3975e8cfe81a53d"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_waitress": {
+   "run": "46056288023",
+   "at": "2026-11-27T20:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "b2a09559d05b8dc1",
+    "wide": "b1b73e7043f0778d"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_wake": {
+   "run": "46056288023",
+   "at": "2026-11-27T20:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "fce46481cbd9d679",
+    "wide": "b8e30b98d20b1ebd"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_want": {
+   "run": "46056288023",
+   "at": "2026-11-27T20:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "95c72366f1afd1ed",
+    "wide": "99e520cb715af2ce"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_wash": {
+   "run": "46056288023",
+   "at": "2026-11-27T20:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "70606b720fc792bc",
+    "wide": "d6b223c76475e8e0"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_west": {
+   "run": "46056288023",
+   "at": "2026-11-27T20:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "bce81d6f911dc2df",
+    "wide": "409787ff7888c6ed"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_write": {
+   "run": "46056288023",
+   "at": "2026-11-27T20:16Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "3abc6b7456cb8458",
+    "wide": "544e30cfd1581c33"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_stress_artistic": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",
