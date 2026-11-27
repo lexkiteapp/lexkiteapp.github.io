@@ -389,7 +389,14 @@ body.call-on{overflow:hidden}
     if (V2) { // chỗ mới của các nút Stitch: ✕ & Kết thúc = cúp máy · caret = thu/mở gợi ý trả lời · loa = nghe lại câu vừa nói (đúng giọng giáo viên)
       $('#cEnd2', ov).onclick = hang;
       const og = $('#cOptTog', ov), ob = $('#cOpts', ov); og.onclick = () => { const open = ob.hidden; ob.hidden = !open; og.setAttribute('aria-expanded', String(open)); };
-      $('#cSpk', ov).onclick = () => { const x = cur.join(' '); if (!x || phase === 'listen') return; if (tch) tch.say(x, { voice, accent: ACCENT }); else UI.tts(x, ACCENT, undefined, { voice }); };
+      // loa = nghe lại câu giáo viên; chạm lần 2 liên tiếp (≤ 10 s) = nói CHẬM (như nhờ "nói chậm lại" trong cuộc gọi thật) – kill switch vb.noCallSlow = '1'
+      let lastSpk = 0;
+      $('#cSpk', ov).onclick = () => {
+        const x = cur.join(' '); if (!x || phase === 'listen') return;
+        const now = Date.now(), slow = now - lastSpk < 10000 && (() => { try { return localStorage.getItem('vb.noCallSlow') !== '1'; } catch (e) { return true; } })(); lastSpk = slow ? 0 : now;
+        if (slow) { toast('🐢 ' + t('Nói chậm hơn'), 1800); UI.tts(x, ACCENT, 0.7, { voice }); return; }
+        if (tch) tch.say(x, { voice, accent: ACCENT }); else UI.tts(x, ACCENT, undefined, { voice });
+      };
     }
 
     function finish() {
