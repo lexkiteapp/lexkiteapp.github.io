@@ -215,7 +215,11 @@ export const indexable = (l, e) => !!(idxW[l] && idxW[l].has(e)) && deep(measure
 // Trang noindex vẫn có liên kết từ hub A–Z (không mồ côi). Không đủ 4 từ cùng chủ đề → bù bằng từ index được gần nhất trong danh sách.
 const linksOf = (l, e) => {
   const t = S[l], list = setOf[l], i = posIn[l].get(e), ok = x => x !== e && indexable(l, x);
-  const rel = list.filter(x => x.topic === e.topic && ok(x)).slice(0, 8), near = [...rel];
+  // 27/11: 8 từ index được KẾ TIẾP trong chủ đề theo vòng tròn (trước đây luôn 8 từ ĐẦU chủ đề → cuối chủ đề không được liên kết từ đâu, 77 % URL Google chưa biết):
+  // mỗi trang index được nhận đúng ~8 liên kết từ 8 trang đứng trước nó cùng chủ đề; thứ tự cố định theo kho → không đổi giữa các lần dựng.
+  const tl = list.filter(x => x.topic === e.topic && (x === e || ok(x))), k = tl.indexOf(e), rel = [];
+  for (let d = 1; d < tl.length && rel.length < 8; d++) rel.push(tl[((k < 0 ? 0 : k) + d) % tl.length]);
+  const near = [...rel];
   for (let d = 1; near.length < 8 && (i - d >= 0 || i + d < list.length); d++) for (const x of [list[i - d], list[i + d]]) if (x && near.length < 8 && ok(x) && !near.includes(x)) near.push(x);
   let pv = null, nx = null; for (let j = i - 1; j >= 0 && !pv; j--) if (ok(list[j])) pv = list[j]; for (let j = i + 1; j < list.length && !nx; j++) if (ok(list[j])) nx = list[j];
   return `${near.length ? sec('r', '', t.rel, `<p class="chips">${near.map(x => `<a href="${wPath(l, x)}" lang="en" dir="ltr">${esc(x.word)}</a>`).join('')}</p>`) : ''}
