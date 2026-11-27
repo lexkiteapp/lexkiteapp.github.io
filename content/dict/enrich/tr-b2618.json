@@ -1,0 +1,170 @@
+{
+  "display": {
+    "n": "Bir şeyi insanların görebileceği şekilde sergilemek ya da bilgiyi ekranda göstermek için kullanılır. Müzede, vitrinde veya duvarda 'sergilenmek' anlamında edilgen yapı çok yaygındır: The paintings are displayed in the main hall. 'On display' kalıbı 'sergileniyor, teşhirde' demektir. Ayrıca duygu veya beceriyi belli etmek için de geçer: display courage. Aynı sözcük isim olarak hem 'sergi' hem de 'ekran' anlamına gelir. Vurgu ikinci hecededir: /dɪˈspleɪ/.",
+    "x": [
+      ["The shop displays its newest shoes in the front window.", "Mağaza, en yeni ayakkabılarını ön vitrinde sergiliyor."],
+      ["Several rare manuscripts are on display at the library this month.", "Bu ay kütüphanede birkaç nadir el yazması sergileniyor."]
+    ]
+  },
+  "distinct": {
+    "n": "Başka şeylerden açıkça ayrılan ya da kolayca fark edilen şeyler için kullanılır. İki ana kullanımı var: 'distinct from' ile 'ayrı, farklı' (two distinct groups), tek başına ise 'belirgin, net' (a distinct smell). 'Distinctive' ile karıştırılmamalı; distinctive 'ayırt edici, kendine özgü' demektir. Zarfı distinctly, ismi distinction'dır. Karşıt anlamlısı indistinct'tir ve bulanık, seçilemeyen şeyler için geçer. Vurgu ikinci hecededir: /dɪˈstɪŋkt/.",
+    "x": [
+      ["Spanish and Portuguese are closely related but remain distinct languages.", "İspanyolca ve Portekizce yakından ilişkili olsa da ayrı diller olmayı sürdürüyor."],
+      ["I noticed a distinct smell of smoke in the corridor.", "Koridorda belirgin bir duman kokusu fark ettim."]
+    ]
+  },
+  "domestic": {
+    "n": "Bir ülkenin kendi sınırları içindeki işleri ifade eder: domestic flight (iç hat uçuşu), domestic policy (iç politika), domestic product (yurt içi hasıla). Zıt anlamlısı foreign ya da international'dır. İkinci ana anlamı ev ve aileyle ilgili olmaktır: domestic chores (ev işleri), domestic violence (aile içi şiddet). Hayvanlar için de 'evcil' demektir: domestic animals. Bağlama bakarak doğru Türkçe karşılığı seçmek gerekir. Vurgu ikinci hecededir: /dəˈmestɪk/.",
+    "x": [
+      ["Most airlines have cut prices on domestic flights this summer.", "Çoğu havayolu bu yaz iç hat uçuşlarında fiyatları düşürdü."],
+      ["Sharing domestic chores fairly can reduce stress in a household.", "Ev işlerini adil paylaşmak, bir hanedeki stresi azaltabilir."]
+    ]
+  },
+  "equivalent": {
+    "n": "Değer, miktar, anlam veya işlev bakımından başka bir şeye denk olan şeyi anlatır. Hep 'to' ile kurulur: A is equivalent to B. Çeviri ve diploma konularında çok geçer: 'Türkçedeki eşdeğeri' için the Turkish equivalent denir. İsim olarak da kullanılır: There is no exact equivalent of this word in English. 'Equal' eşitlik, equivalent ise birebir aynı olmasa da karşılık gelme demektir. Vurgu ikinci hecededir: /ɪˈkwɪvələnt/.",
+    "x": [
+      ["One cup of this rice is roughly equivalent to two cups of cooked rice.", "Bu pirincin bir bardağı, kabaca iki bardak pişmiş pirince denk gelir."],
+      ["Is there an Italian equivalent of this proverb?", "Bu atasözünün İtalyancada bir karşılığı var mı?"]
+    ]
+  },
+  "ethnic": {
+    "n": "Ortak kültür, dil, gelenek veya köken paylaşan topluluklarla ilgilidir. Sık kalıplar: ethnic group, ethnic minority, ethnic diversity, ethnic cuisine. 'Race' daha çok fiziksel görünüşe işaret eder; ethnic ise kültürel kimliğe vurgu yapar. İsmi ethnicity'dir. Günlük dilde 'ethnic food' yabancı mutfakları anlatabilir. Konuşmada 'th' sesine dikkat edin; /θ/ dilin dişlere değmesiyle çıkar, 't' gibi okunmaz. Vurgu ilk hecededir: /ˈeθnɪk/.",
+    "x": [
+      ["The country has more than ten recognised ethnic minorities.", "Ülkede tanınan on'dan fazla etnik azınlık var."],
+      ["She opened a restaurant serving ethnic dishes from several regions.", "Birkaç bölgenin etnik yemeklerini sunan bir restoran açtı."]
+    ]
+  },
+  "evaluate": {
+    "n": "Bir şeyin değerini, kalitesini veya etkisini inceleyip yargıya varmak demektir. Türkçede 'değerlendirmek' ile birebir örtüşür. Öğretim ve iş dünyasında sık geçer: evaluate a plan, evaluate performance. İsmi evaluation, kişisi evaluator'dır. 'Assess' ile yakındır; evaluate daha çok sonuçta bir karara varmayı çağrıştırır. Akademik yazıda 'critically evaluate' (eleştirel biçimde değerlendirmek) kalıbı çok görülür. Vurgu ikinci hecededir: /ɪˈvæljueɪt/.",
+    "x": [
+      ["Teachers evaluate each essay using the same set of criteria.", "Öğretmenler her kompozisyonu aynı ölçütlerle değerlendirir."],
+      ["Researchers will evaluate how well the new method works in schools.", "Araştırmacılar yeni yöntemin okullarda ne kadar işe yaradığını değerlendirecek."]
+    ]
+  },
+  "finance": {
+    "n": "Para yönetimi ve bir iş için gereken para kaynağı anlamına gelir. Alanı anlatırken sayılamaz: She works in finance. Bir projenin parası için 'raise finance' (kaynak bulmak) denir. Çoğul finances ise kişinin veya kurumun mali durumudur: my personal finances. Fiil olarak da kullanılır: The bank financed the project (finanse etmek). Okunuşu /ˈfaɪnæns/ ya da /fəˈnæns/ olabilir; ikisi de kabul görür.",
+    "x": [
+      ["After studying economics, he built a career in finance.", "Ekonomi okuduktan sonra finans alanında kariyer yaptı."],
+      ["Many young families struggle to manage their finances during inflation.", "Pek çok genç aile, enflasyon döneminde mali durumunu yönetmekte zorlanıyor."]
+    ]
+  },
+  "foundation": {
+    "n": "Bir şeyin dayandığı temel anlamına gelir: hem binanın temeli hem de bilginin, fikrin veya ilişkinin temeli. Kalıplar: lay the foundation(s), a solid foundation, foundation course. Bina anlamında çoğul foundations de sık kullanılır. İkinci anlamı bağış yapan veya hayır işleri yürüten kuruluştur, yani 'vakıf': the Ford Foundation. Makyajda 'fondöten' de aynı sözcüktür. Vurgu ikinci hecededir: /faʊnˈdeɪʃn/.",
+    "x": [
+      ["Strong reading skills form the foundation of all later study.", "Güçlü okuma becerileri, sonraki tüm öğrenmenin temelini oluşturur."],
+      ["The foundation donated money to build three rural libraries.", "Vakıf, üç kırsal kütüphane yapmak için bağış yaptı."]
+    ]
+  },
+  "guideline": {
+    "n": "Bir işin nasıl yapılması gerektiğini söyleyen resmî öneri ya da kuraldır. Çoğunlukla çoğul kullanılır: health guidelines, safety guidelines. 'Rule' zorunluluk bildirir; guideline daha esnek bir yol göstericidir, ama kurumlar bunlara uyulmasını bekler. Sık fiiller: follow, issue, set, publish. Yapı: guidelines on/for something. Türkçede 'yönerge', 'kılavuz ilke' diyebiliriz. Vurgu ilk hecededir: /ˈɡaɪdlaɪn/.",
+    "x": [
+      ["The ministry published new guidelines on online safety for children.", "Bakanlık, çocukların internet güvenliğine dair yeni yönergeler yayımladı."],
+      ["Please follow the guidelines when you submit your application.", "Başvurunuzu gönderirken lütfen yönergelere uyun."]
+    ]
+  },
+  "ignorant": {
+    "n": "Bir konuda bilgisi olmayan kişi için kullanılır; çoğu zaman 'ignorant of/about' ile gelir. Türkçedeki 'cahil' kadar ağır olabilir, bu yüzden doğrudan bir kişiye söylenirse kabaca duyulur. Daha yumuşak seçenekler unaware ve uninformed'dır. 'Ignore' (görmezden gelmek) fiiliyle aynı kökten türer, ama anlamı farklıdır: ignorant kişi bilmez, ignore eden kişi bilir ve yok sayar. İsmi ignorance'dır. Vurgu ilk hecededir: /ˈɪɡnərənt/.",
+    "x": [
+      ["He was ignorant of the new law and kept parking illegally.", "Yeni yasadan haberi yoktu ve yasa dışı park etmeyi sürdürdü."],
+      ["It is unfair to call people ignorant just because they lack access to schooling.", "İnsanlara sırf eğitim olanağı bulamadıkları için cahil demek haksızlıktır."]
+    ]
+  },
+  "index": {
+    "n": "Üç ana kullanımı var: ekonomide bir değişimi ölçen gösterge (consumer price index), kitabın sonundaki alfabetik dizin ve bir listedeki sıra numarası. Çoğulu hem indexes hem indices olabilir; ekonomi ve matematikte indices daha sık, kitap dizini için indexes yaygındır. Borsa için stock index denir. Fiil olarak da kullanılır: to index prices to inflation. Türkçedeki 'indeks' ve 'endeks' sözcüklerine çok yakındır. Vurgu ilk hecededir: /ˈɪndeks/.",
+    "x": [
+      ["The stock index fell sharply after the announcement.", "Borsa endeksi, açıklamanın ardından sert biçimde düştü."],
+      ["You can find the term in the index at the back of the book.", "Terimi kitabın sonundaki dizinde bulabilirsiniz."]
+    ]
+  },
+  "initial": {
+    "n": "Bir sürecin başında olan şeyi anlatır: initial stage, initial reaction, initial plan. 'First' ile yakındır; initial daha resmî ve yazılı dilde yaygındır. Zarfı initially (başlangıçta) cümle başında sık görülür. İsim olarak çoğul initials 'baş harfler' demektir: Please write your initials here. Fiil olarak 'paraf atmak' anlamı da vardır: initial the form. Okunuşta sondaki -tial /ʃl/ olur: /ɪˈnɪʃl/, vurgu ikinci hecededir.",
+    "x": [
+      ["My initial reaction was surprise, but I soon felt calmer.", "İlk tepkim şaşkınlıktı, ama kısa süre sonra daha sakin hissettim."],
+      ["Please sign the contract and put your initials on every page.", "Lütfen sözleşmeyi imzalayın ve her sayfaya paraf atın."]
+    ]
+  },
+  "initiate": {
+    "n": "Bir süreci, projeyi veya değişimi başlatmak demektir; 'begin' ve 'start' yerine daha resmî bir tondadır, bu yüzden yazılı ve akademik dilde tercih edilir. Nesneleri genellikle proje, kampanya, reform, görüşmedir: initiate talks, initiate legal action. İsmi initiation, benzer isim initiative ise 'girişim, inisiyatif' demektir. Kişi için 'initiate someone into a group' ise birini bir gruba kabul etmek anlamına gelir. Vurgu ikinci hecededir: /ɪˈnɪʃieɪt/.",
+    "x": [
+      ["The two countries agreed to initiate peace talks next month.", "İki ülke, gelecek ay barış görüşmelerini başlatmayı kabul etti."],
+      ["Employees can initiate changes to the process by submitting a short proposal.", "Çalışanlar kısa bir öneri sunarak süreçte değişiklik başlatabilir."]
+    ]
+  },
+  "innovate": {
+    "n": "Yeni fikir, yöntem veya ürün ortaya koymak demektir ve genellikle nesnesiz kullanılır: Companies must innovate to survive. İsmi innovation (yenilik), kişisi innovator (yenilikçi), sıfatı innovative'dir. 'Invent' tamamen yeni bir şey icat etmek, innovate ise var olan bir şeyi yeni biçimde geliştirmektir. İş dünyası ve teknoloji haberlerinde çok sık geçer. 'Innovate' fiili sonu -ate olduğu için /eɪt/ ile biter. Vurgu ilk hecededir: /ˈɪnəveɪt/.",
+    "x": [
+      ["Small start-ups often innovate faster than large, established firms.", "Küçük girişimler çoğu zaman büyük ve köklü firmalardan daha hızlı yenilik yapar."],
+      ["The school encourages teachers to innovate in the way they use technology.", "Okul, öğretmenleri teknolojiyi kullanış biçimlerinde yenilik yapmaya teşvik ediyor."]
+    ]
+  },
+  "inspect": {
+    "n": "Bir şeyi dikkatle bakıp kontrol etmek, yani 'denetlemek' veya 'incelemek' demektir. Genellikle bir kusur, kural dışılık veya durum aramak için yapılır: inspect a building for damage. Kişisi inspector (müfettiş, denetçi), ismi inspection'dır. 'Check' günlük ve geniş bir sözcüktür; inspect daha resmî ve ayrıntılı bir incelemeyi çağrıştırır. Sık edatı 'for': inspect the car for rust. Vurgu ikinci hecededir: /ɪnˈspekt/.",
+    "x": [
+      ["Officials inspect the factory every year to make sure it is safe.", "Yetkililer, güvenli olduğundan emin olmak için fabrikayı her yıl denetler."],
+      ["She picked up the vase and inspected it for cracks.", "Vazoyu eline aldı ve çatlak var mı diye inceledi."]
+    ]
+  },
+  "instance": {
+    "n": "Belirli bir örnek ya da durumu anlatır. En yaygın kalıbı 'for instance'tır; 'örneğin' demektir ve 'for example' ile aynı işi görür. 'In this instance' ise 'bu durumda, bu olayda' anlamındadır. 'An instance of' bir şeyin tekil örneğine işaret eder: an instance of bad management. Bilgisayar alanında da 'nesne örneği' için kullanılır. Genellikle yazılı dilde ve 'case' ile değiştirilebilir. Vurgu ilk hecededir: /ˈɪnstəns/.",
+    "x": [
+      ["Some foods are very healthy; for instance, lentils are rich in protein.", "Bazı yiyecekler çok sağlıklıdır; örneğin mercimek protein bakımından zengindir."],
+      ["In this instance, the manager made the right decision.", "Bu durumda, yönetici doğru kararı verdi."]
+    ]
+  },
+  "instruct": {
+    "n": "Birine bir şeyi yapmasını resmî biçimde söylemek ya da bir konuda eğitmek anlamına gelir. İki yapı vardır: instruct someone to do something (talimat vermek) ve instruct someone in something (bir konuda eğitmek). İsimleri instruction (talimat) ve instructor (eğitmen) olup 'instructions' çoğul biçimi kullanım kılavuzu için de geçer. 'Order' ile yakındır, ama instruct genellikle daha az sert ve daha profesyoneldir. Vurgu ikinci hecededir: /ɪnˈstrʌkt/.",
+    "x": [
+      ["The doctor instructed the patient to rest for at least a week.", "Doktor, hastaya en az bir hafta dinlenmesini söyledi."],
+      ["Volunteers will be instructed in basic first aid before the event.", "Gönüllülere etkinlikten önce temel ilk yardım eğitimi verilecek."]
+    ]
+  },
+  "integrity": {
+    "n": "İki ana anlamı var: dürüstlük ve ilkelere bağlılık (a person of integrity) ile bir şeyin bütün ve sağlam olması (structural integrity, data integrity). Türkçedeki 'entegrasyon' ile karıştırılmamalı; o integration'dır, integrity ise bütünlük ve dürüstlüktür. Kalıplar: academic integrity, personal integrity, maintain integrity. Genellikle sayılamaz isimdir, bu yüzden 'an integrity' denmez. Vurgu ikinci hecededir: /ɪnˈteɡrəti/.",
+    "x": [
+      ["The journalist was praised for her integrity when she refused the bribe.", "Gazeteci, rüşveti reddettiği için dürüstlüğüyle övüldü."],
+      ["Engineers tested the structural integrity of the bridge after the storm.", "Mühendisler, fırtınadan sonra köprünün yapısal bütünlüğünü test etti."]
+    ]
+  },
+  "intense": {
+    "n": "Güç, derece veya şiddet bakımından çok yüksek olan şeyler için kullanılır: intense heat, intense pressure, intense competition. Duygu ve ilgi için de geçer: an intense gaze. Kişi hakkında kullanılırsa 'ağırbaşlı ve duygusal olarak yoğun' izlenimi verir. 'Intensive' ile karıştırılmamalı; intensive 'yoğunlaştırılmış, kapsamlı' demektir (intensive course). Zarfı intensely, ismi intensity'dir. Vurgu ikinci hecededir: /ɪnˈtens/.",
+    "x": [
+      ["The intense heat made it hard to work outside at noon.", "Yoğun sıcak, öğle vakti dışarıda çalışmayı zorlaştırdı."],
+      ["There is intense competition for places at the best universities.", "En iyi üniversitelerdeki kontenjanlar için yoğun bir rekabet var."]
+    ]
+  },
+  "isolate": {
+    "n": "Bir kişiyi, grubu ya da şeyi diğerlerinden ayırmak demektir. İnsanlar için 'yalnızlaştırmak, dışlamak' çağrışımı taşır (feel isolated); hastalık ve bilim bağlamında 'ayrı tutmak' ya da 'saptayıp ayırmak' anlamına gelir: isolate the virus. Türkçedeki 'izole etmek' ile aynı kökten gelir ve çok yakın kullanılır. Edat 'from': isolate A from B. İsmi isolation (yalıtım, tecrit). Vurgu ilk hecededir: /ˈaɪsəleɪt/.",
+    "x": [
+      ["Patients with the infection must be isolated from other people on the ward.", "Enfeksiyonu olan hastalar, koğuştaki diğer insanlardan ayrı tutulmalıdır."],
+      ["Living far from the city, she began to feel isolated.", "Şehirden uzakta yaşarken kendini yalnız ve soyutlanmış hissetmeye başladı."]
+    ]
+  },
+  "maintain": {
+    "n": "Bir şeyi aynı düzeyde ya da iyi durumda tutmak demektir: maintain standards, maintain a balance, maintain a car. İsmi maintenance'tır ve yazımı dikkat ister: 'maintainance' diye yazılmaz. Başka bir anlamı, bir şeyin doğru olduğunu ısrarla söylemektir: He maintains that he is innocent. Bu kullanımda 'claim' ile yakındır ve genellikle 'that' ile gelir. Ek olarak 'maintain a family' gibi geçindirmek anlamı da vardır. Vurgu ikinci hecededir: /meɪnˈteɪn/.",
+    "x": [
+      ["It takes daily effort to maintain a good relationship with your neighbours.", "Komşularınızla iyi bir ilişki sürdürmek, her gün çaba gerektirir."],
+      ["The suspect maintains that he was at home all evening.", "Şüpheli, bütün akşam evde olduğunu söylemekte ısrar ediyor."]
+    ]
+  },
+  "manual": {
+    "n": "Sıfat olarak makineyle değil, elle yapılan ya da elle çalıştırılan şeyi anlatır: manual labour (kol işi), manual gearbox (manuel vites). Zarfı manually'dir. Aynı yazılışla isim olarak 'el kitabı, kullanım kılavuzu' da olur: the user manual. Bu isim anlamı çok yaygındır, ama sıfat olarak karşıtı automatic'tir. Türkçede 'manuel' dediğimiz sözcükle aynı kökten gelir. Vurgu ilk hecededir: /ˈmænjuəl/.",
+    "x": [
+      ["Many farmers still rely on manual work during the harvest.", "Birçok çiftçi hâlâ hasat döneminde elle yapılan işlere güveniyor."],
+      ["I lost the manual, so I looked up the instructions online.", "Kılavuzu kaybettim, bu yüzden talimatlara internetten baktım."]
+    ]
+  },
+  "mechanism": {
+    "n": "Bir şeyin işlemesini veya gerçekleşmesini sağlayan sistem ya da süreçtir. Makinelerde parçaların düzeni için (a locking mechanism), bilim ve psikolojide ise bir olayın nasıl meydana geldiği için kullanılır: defence mechanism (savunma mekanizması). Yapı: a mechanism for doing something ya da the mechanism of something. 'Mechanic' (tamirci) ile karıştırılmamalı, çünkü o bir kişidir. Sıfatı mechanical'dır. Türkçedeki 'mekanizma' ile aynı kökten gelir. Vurgu ilk hecededir: /ˈmekənɪzəm/.",
+    "x": [
+      ["The door has a simple mechanism that locks it automatically.", "Kapıda, onu otomatik olarak kilitleyen basit bir mekanizma var."],
+      ["Laughing can be a useful mechanism for coping with stress.", "Gülmek, stresle başa çıkmak için yararlı bir mekanizma olabilir."]
+    ]
+  },
+  "medium": {
+    "n": "İletişimde veya ifadede kullanılan araç ya da yoldur: the medium of instruction (eğitim dili), advertising medium, an artistic medium. Çoğulu bu anlamda media'dır (mass media), bilimsel ortam anlamında ise media da mediums da görülebilir. Sıfat olarak 'orta' demektir: medium size, a medium-sized city. Giyimde M beden de medium'dur. Yazılışı Türkçedeki 'medya' ile aynı kökten gelir. Vurgu ilk hecededir: /ˈmiːdiəm/.",
+    "x": [
+      ["Television remains an important medium for reaching older audiences.", "Televizyon, yaşlı izleyicilere ulaşmak için önemli bir araç olmayı sürdürüyor."],
+      ["She works mainly in oil paint, but sometimes tries a different medium.", "Daha çok yağlıboya çalışıyor, ama arada farklı bir teknik deniyor."]
+    ]
+  }
+}
