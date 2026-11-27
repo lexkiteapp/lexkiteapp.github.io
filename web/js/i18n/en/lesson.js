@@ -95,5 +95,6 @@ D.en = Object.assign(D.en || {}, {
 "{a}/{b} cặp": "{a}/{b} pairs",
 "Đã ghép": "Matched",
 "Chưa phải": "Not this one",
+  "Tuần này bạn đã nhớ {n} từ mới": "This week you remembered {n} new words",
 });
 })(typeof self !== 'undefined' ? self : this);

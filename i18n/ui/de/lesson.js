@@ -67,6 +67,7 @@
 "Trả lời câu hỏi":"Beantworte die Frage",
 "Trọng âm rơi vào âm tiết {n}/{m}":"Betonung auf Silbe {n} von {m}",
 "Tuyệt!":"Super!",
+"Tuần này bạn đã nhớ {n} từ mới":"Diese Woche haben Sie sich {n} neue Wörter gemerkt",
 "Tìm từ sai":"Falsches Wort finden",
 "Tìm từ…":"Wort suchen…",
 "Tăng điểm":"Punkte-Booster",
