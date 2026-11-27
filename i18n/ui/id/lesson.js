@@ -7,6 +7,7 @@
 "Bài thử (không lưu tiến độ)":"Pelajaran demo (kemajuan tidak disimpan)",
 "Báo lỗi câu hỏi":"Laporkan soal",
 "Bạn nói: {s}":"Kamu bilang: {s}",
+"Bạn đã đạt mục tiêu hôm nay!":"Kamu mencapai target hari ini!",
 "Bản đồ bài học":"Peta pelajaran",
 "COMBO cao nhất":"COMBO terbaik",
 "COMBO ×{n}":"COMBO ×{n}",
@@ -48,6 +49,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"Saya baru saja menyelesaikan pelajaran Lexkite: {a}% benar, +{x} XP",
 "Mẫu âm thanh":"Contoh audio",
 "Mẹo nhớ:":"Tips mengingat:",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"Target hari ini: {a}/{b} ulasan",
 "Mục tiêu {s}":"Target {s}",
 "Nghe chậm hơn":"Lebih pelan",
 "Nghe rảnh tay":"Dengar tanpa tangan",
@@ -67,6 +69,7 @@
 "Trả lời câu hỏi":"Jawab pertanyaannya",
 "Trọng âm rơi vào âm tiết {n}/{m}":"Tekanan jatuh pada suku kata {n} dari {m}",
 "Tuyệt!":"Hebat!",
+"Tuần này bạn đã nhớ {n} từ mới":"Minggu ini kamu mengingat {n} kata baru",
 "Tìm từ sai":"Temukan kata yang salah",
 "Tìm từ…":"Cari kata…",
 "Tăng điểm":"Pendongkrak skor",
@@ -92,8 +95,5 @@
 "Định nghĩa:":"Definisi:",
 "Đối thoại":"Dialog",
 "Ảnh minh họa":"Gambar",
-"Tuần này bạn đã nhớ {n} từ mới":"Minggu ini kamu mengingat {n} kata baru",
-"Bạn đã đạt mục tiêu hôm nay!":"Kamu mencapai target hari ini!",
-"Mục tiêu hôm nay: {a}/{b} lượt ôn":"Target hari ini: {a}/{b} ulasan",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -7,6 +7,7 @@
 "Bài thử (không lưu tiến độ)":"Leçon de démonstration (progression non enregistrée)",
 "Báo lỗi câu hỏi":"Signaler la question",
 "Bạn nói: {s}":"Vous avez dit : {s}",
+"Bạn đã đạt mục tiêu hôm nay!":"Vous avez atteint votre objectif du jour !",
 "Bản đồ bài học":"Carte des leçons",
 "COMBO cao nhất":"Meilleur COMBO",
 "COMBO ×{n}":"COMBO ×{n}",
@@ -48,6 +49,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"Je viens de terminer une leçon Lexkite : {a}% correct, +{x} XP",
 "Mẫu âm thanh":"Exemple audio",
 "Mẹo nhớ:":"Astuce mémo :",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"Objectif du jour : {a}/{b} révisions",
 "Mục tiêu {s}":"Objectif {s}",
 "Nghe chậm hơn":"Plus lentement",
 "Nghe rảnh tay":"Écoute mains libres",
@@ -67,6 +69,7 @@
 "Trả lời câu hỏi":"Répondez à la question",
 "Trọng âm rơi vào âm tiết {n}/{m}":"L'accent tombe sur la syllabe {n} sur {m}",
 "Tuyệt!":"Super !",
+"Tuần này bạn đã nhớ {n} từ mới":"Cette semaine, vous avez retenu {n} nouveaux mots",
 "Tìm từ sai":"Trouvez le mot faux",
 "Tìm từ…":"Chercher un mot…",
 "Tăng điểm":"Booster de score",
@@ -92,8 +95,5 @@
 "Định nghĩa:":"Définition :",
 "Đối thoại":"Dialogue",
 "Ảnh minh họa":"Image",
-"Tuần này bạn đã nhớ {n} từ mới":"Cette semaine, vous avez retenu {n} nouveaux mots",
-"Bạn đã đạt mục tiêu hôm nay!":"Vous avez atteint votre objectif du jour !",
-"Mục tiêu hôm nay: {a}/{b} lượt ôn":"Objectif du jour : {a}/{b} révisions",
 });
 })(typeof self !== 'undefined' ? self : this);

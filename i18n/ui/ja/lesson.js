@@ -7,6 +7,7 @@
 "Bài thử (không lưu tiến độ)":"お試しレッスン（進み具合は保存されません）",
 "Báo lỗi câu hỏi":"問題を報告",
 "Bạn nói: {s}":"あなたの発話：{s}",
+"Bạn đã đạt mục tiêu hôm nay!":"今日の目標を達成しました！",
 "Bản đồ bài học":"レッスンマップ",
 "COMBO cao nhất":"最高COMBO",
 "COMBO ×{n}":"COMBO ×{n}",
@@ -48,6 +49,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"Lexkite レッスンを終了しました: {a}% 正解、+{x} XP",
 "Mẫu âm thanh":"音声サンプル",
 "Mẹo nhớ:":"覚え方：",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"今日の目標：{a}/{b} 回の復習",
 "Mục tiêu {s}":"目標 {s}",
 "Nghe chậm hơn":"ゆっくり再生",
 "Nghe rảnh tay":"ハンズフリーで聴く",
@@ -67,6 +69,7 @@
 "Trả lời câu hỏi":"質問に答えよう",
 "Trọng âm rơi vào âm tiết {n}/{m}":"アクセントは {m} 音節中 {n} 番目",
 "Tuyệt!":"すごい！",
+"Tuần này bạn đã nhớ {n} từ mới":"今週は新しい単語を {n} 語覚えました",
 "Tìm từ sai":"間違いを探そう",
 "Tìm từ…":"単語を検索…",
 "Tăng điểm":"スコアアップ",
@@ -92,8 +95,5 @@
 "Định nghĩa:":"定義：",
 "Đối thoại":"会話",
 "Ảnh minh họa":"イラスト",
-"Tuần này bạn đã nhớ {n} từ mới":"今週は新しい単語を {n} 語覚えました",
-"Bạn đã đạt mục tiêu hôm nay!":"今日の目標を達成しました！",
-"Mục tiêu hôm nay: {a}/{b} lượt ôn":"今日の目標：{a}/{b} 回の復習",
 });
 })(typeof self !== 'undefined' ? self : this);

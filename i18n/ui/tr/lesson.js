@@ -7,6 +7,7 @@
 "Bài thử (không lưu tiến độ)":"Deneme dersi (ilerleme kaydedilmez)",
 "Báo lỗi câu hỏi":"Soruyu bildir",
 "Bạn nói: {s}":"Söylediğin: {s}",
+"Bạn đã đạt mục tiêu hôm nay!":"Bugünkü hedefine ulaştın!",
 "Bản đồ bài học":"Ders haritası",
 "COMBO cao nhất":"En iyi COMBO",
 "COMBO ×{n}":"COMBO ×{n}",
@@ -48,6 +49,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"Bir Lexkite dersini az önce bitirdim: %{a} doğru, +{x} XP",
 "Mẫu âm thanh":"Ses örneği",
 "Mẹo nhớ:":"Hatırlatma ipucu:",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"Bugünkü hedef: {a}/{b} tekrar",
 "Mục tiêu {s}":"Hedef {s}",
 "Nghe chậm hơn":"Daha yavaş",
 "Nghe rảnh tay":"Eller serbest dinle",
@@ -67,6 +69,7 @@
 "Trả lời câu hỏi":"Soruyu cevapla",
 "Trọng âm rơi vào âm tiết {n}/{m}":"Vurgu {m} heceden {n}. hecede",
 "Tuyệt!":"Harika!",
+"Tuần này bạn đã nhớ {n} từ mới":"Bu hafta {n} yeni kelime hatırladın",
 "Tìm từ sai":"Yanlış kelimeyi bul",
 "Tìm từ…":"Kelime ara…",
 "Tăng điểm":"Puan artırıcı",
@@ -92,8 +95,5 @@
 "Định nghĩa:":"Tanım:",
 "Đối thoại":"Diyalog",
 "Ảnh minh họa":"Görsel",
-"Tuần này bạn đã nhớ {n} từ mới":"Bu hafta {n} yeni kelime hatırladın",
-"Bạn đã đạt mục tiêu hôm nay!":"Bugünkü hedefine ulaştın!",
-"Mục tiêu hôm nay: {a}/{b} lượt ôn":"Bugünkü hedef: {a}/{b} tekrar",
 });
 })(typeof self !== 'undefined' ? self : this);

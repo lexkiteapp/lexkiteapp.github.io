@@ -7,6 +7,7 @@
 "Bài thử (không lưu tiến độ)":"试用课（不保存进度）",
 "Báo lỗi câu hỏi":"报告问题",
 "Bạn nói: {s}":"你说的是：{s}",
+"Bạn đã đạt mục tiêu hôm nay!":"你完成了今天的目标！",
 "Bản đồ bài học":"课程地图",
 "COMBO cao nhất":"最高连击",
 "COMBO ×{n}":"COMBO ×{n}",
@@ -48,6 +49,7 @@
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"我刚刚完成 Lexkite 课程：{a}% 正确，+{x} XP",
 "Mẫu âm thanh":"示范音频",
 "Mẹo nhớ:":"记忆窍门：",
+"Mục tiêu hôm nay: {a}/{b} lượt ôn":"今日目标：{a}/{b} 次复习",
 "Mục tiêu {s}":"目标 {s}",
 "Nghe chậm hơn":"慢速播放",
 "Nghe rảnh tay":"免提收听",
@@ -67,6 +69,7 @@
 "Trả lời câu hỏi":"回答问题",
 "Trọng âm rơi vào âm tiết {n}/{m}":"重音在第 {n} 个音节（共 {m} 个）",
 "Tuyệt!":"太棒了！",
+"Tuần này bạn đã nhớ {n} từ mới":"本周你记住了 {n} 个新单词",
 "Tìm từ sai":"找出错词",
 "Tìm từ…":"搜索单词…",
 "Tăng điểm":"提分技巧",
@@ -92,8 +95,5 @@
 "Định nghĩa:":"释义：",
 "Đối thoại":"对话",
 "Ảnh minh họa":"配图",
-"Tuần này bạn đã nhớ {n} từ mới":"本周你记住了 {n} 个新单词",
-"Bạn đã đạt mục tiêu hôm nay!":"你完成了今天的目标！",
-"Mục tiêu hôm nay: {a}/{b} lượt ôn":"今日目标：{a}/{b} 次复习",
 });
 })(typeof self !== 'undefined' ? self : this);
