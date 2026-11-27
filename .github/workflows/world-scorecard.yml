@@ -48,6 +48,10 @@ jobs:
         id: probe
         continue-on-error: true   # vẫn chấm + lưu số đo khác (Duolingo, cổng QA); bước cuối làm đỏ lượt chạy
         run: node scripts/world/probe.mjs --root dist --lang en
+      - name: Perf trung vị 5 lần trên dist tĩnh (Lighthouse, 0 lượt chạm prod) – scripts/world/lh-local.mjs
+        timeout-minutes: 15
+        continue-on-error: true   # lỗi → World dùng reports/lighthouse.json như trước
+        run: node scripts/world/lh-local.mjs --root dist --runs 5
       - name: Cổng QA trên main (GitHub API)
         env: { GITHUB_TOKEN: '${{ github.token }}' }
         run: node scripts/world/ci-status.mjs
