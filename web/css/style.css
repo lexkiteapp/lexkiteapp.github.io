@@ -136,6 +136,7 @@ p { margin: .4rem 0; }
 .btn.ghost:hover { background: var(--surface-2); }
 .btn.danger { color: var(--again); }
 .btn.sm { padding: .38rem .75rem; font-size: .85rem; border-radius: 10px; }
+#clearFixed { min-height: 44px; }
 .btn.lg { padding: .9rem 1.5rem; font-size: 1.05rem; border-radius: 14px; }
 .btn.block { width: 100%; }
 .btn[disabled] { opacity: .5; cursor: default; pointer-events: none; }
