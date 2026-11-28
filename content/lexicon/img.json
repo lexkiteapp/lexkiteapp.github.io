@@ -181699,6 +181699,32 @@
    "b": "41775450761",
    "repo": "m4"
   },
+  "skipper#n": {
+   "h": "2f3ea51e3977e1cb",
+   "url": "https://media.lexkite.com/vimg/2f3ea51e3977e1cb.webp",
+   "alt": "skipper",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.377,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 4
+   },
+   "ph": "e5c6b42e70cc8f98",
+   "at": "2026-11-28",
+   "b": "46086649175",
+   "repo": "m4"
+  },
   "skirt#n": {
    "alt": "skirt",
    "photo": {

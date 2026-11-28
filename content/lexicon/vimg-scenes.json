@@ -9992,8 +9992,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 10,
-   "badAt": "2026-11-25T08:22:44.678Z"
+   "e4bad": 11,
+   "badAt": "2026-11-28T00:15:42.998Z"
   },
   "boolean#n": {
    "ex": "The flag is stored as a boolean in the settings table.",
@@ -11261,8 +11261,8 @@
    "draw": 5,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 11,
-   "badAt": "2026-11-25T08:20:26.371Z"
+   "e4bad": 12,
+   "badAt": "2026-11-28T00:15:10.757Z"
   },
   "bush#n": {
    "ex": "How do you like my rose bushes?",
@@ -27529,8 +27529,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 11,
-   "badAt": "2026-11-25T07:43:32.108Z"
+   "e4bad": 12,
+   "badAt": "2026-11-28T00:15:10.222Z"
   },
   "distance#n": {
    "skip": "sentence refers to specific places; cannot depict without text or symbols",
@@ -66721,8 +66721,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "peripheral#n": {
-   "e4bad": 10,
-   "badAt": "2026-11-25T07:43:32.108Z"
+   "e4bad": 11,
+   "badAt": "2026-11-28T00:15:42.998Z"
   },
   "perishable goods#n": {
    "ex": "Perishable goods receive priority handling at the airport.",
@@ -75009,8 +75009,18 @@
    "by": "openai/gpt-oss-120b"
   },
   "recalculation#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-27T04:32:28.843Z"
+   "ex": "The following are the preliminary results after the recalculation was undertaken.",
+   "ps": "a man sits at a table moving beads on a large wooden abacus again",
+   "sc": "a man sits at a table moving beads on a large wooden abacus again",
+   "check": "Is the person repeating a calculation with the beads on the abacus?",
+   "cap": "a man adjusting beads on a wooden abacus",
+   "key": "a large wooden abacus with movable beads; the man's hand sliding beads a second time",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "recall#v": {
    "ex": "I can't recall the name of the hotel.",
