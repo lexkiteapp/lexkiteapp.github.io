@@ -1,6 +1,7 @@
 // Cổng chặn LOẠI lỗi "đường dẫn nội bộ ghép từ biến rỗng/undefined" (vd. /vi/blog/-lang, /vi/blog/undefined/, //).
 // Dùng ở nơi dựng URL (build) và ở test quét liên kết (scripts/test/links-js.mjs, scripts/test/crawl.js).
-const BAD_VAR = /(^|[^a-z])(undefined|null|nan)([^a-z]|$)|\[object/i;
+// "null"/"nan" chỉ là biến rỗng khi cả đoạn đúng bằng từ đó (tránh báo sai slug như "zhi-nan" = "chỉ nam").
+const BAD_VAR = /(^|[^a-z])undefined([^a-z]|$)|^(null|nan)$|\[object/i;
 /** Lý do nếu pathname nội bộ có dấu hiệu ghép hỏng, ngược lại null. */
 export function badPath(p) {
   p = String(p); if (!p.startsWith('/') || p.startsWith('//')) return null;
