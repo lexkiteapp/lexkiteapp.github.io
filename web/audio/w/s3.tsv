@@ -10046,6 +10046,11 @@ overemphasis	cut_wordis: câu mang: "The word is, over in farses." · dot100:"Ov
 arthralgia	ok	ok
 misstate	cut_wordis:"Ms. State" 0.69s · cut_wordis:"Missed state" 0.67s · dot100:"Ms. State" 0.86s · cut_wordis100:"Ms. State" 0.66s · cut_wordis100:"Missed state" 0.65s · cut_next:"and mistake." 0.71s · plain095:"A misstate" 0.81s · dot090:"Mr. State" 0.97s	ok
 vaginitis	ok	ok
+borough	cut_wordis: câu mang: "The word is barriff." · dot100:"Berrith" 0.80s · cut_wordis100: câu mang: "The word is burrath." · cut_next: câu mang: "Next word, burrow." · plain095:"Barret." 0.53s · dot090:"The beareth." 0.89s	cut_wordis: câu mang: "The word is borrow." · dot100:"Burrow" 0.57s · cut_wordis100: câu mang: "The word is borrow." · cut_next: câu mang: "Next word, borrow." · plain095:"Burrow" 0.59s · dot090:"Burrow" 0.64s
+bulwark	ok	ok
+dentate	ok	ok
+limnology	ok	ok
+wonderment	ok	ok
 retaliate	ok	ok
 alimony	ok	ok
 incoherent	ok	ok
@@ -10068,14 +10073,14 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
-borough	cut_wordis: câu mang: "The word is barriff." · dot100:"Berrith" 0.80s · cut_wordis100: câu mang: "The word is burrath." · cut_next: câu mang: "Next word, burrow." · plain095:"Barret." 0.53s · dot090:"The beareth." 0.89s	cut_wordis: câu mang: "The word is borrow." · dot100:"Burrow" 0.57s · cut_wordis100: câu mang: "The word is borrow." · cut_next: câu mang: "Next word, borrow." · plain095:"Burrow" 0.59s · dot090:"Burrow" 0.64s
-bulwark	ok	ok
-dentate	ok	ok
-limnology	ok	ok
-wonderment	ok	ok
-climber	ok	ok
-promisingly	ok	ok
 repurchase	ok	ok
 preeclampsia	cut_wordis: câu mang: "The word is preclampsia." · dot100:"Preclampsia" 1.03s · cut_wordis100:"Spryclampsia" 0.97s · cut_wordis100:"Preclampsia" 0.91s · cut_next:"Preclampsia" 1.00s · cut_next:"Clampsia" 0.87s · plain095:"Preclampsia" 0.98s · dot090:"Preclampsia" 1.14s	cut_wordis:"Preclampsia" 1.12s · cut_wordis:"Preclampsia" 0.91s · dot100:"Preclampsia" 0.93s · cut_wordis100:"Spreclampsia" 1.05s · cut_wordis100:"Preclampsia" 0.86s · cut_next:"Preclampsia" 0.88s · cut_next:"Clampsia" 0.74s · plain095:"Preclampsia" 0.94s · dot090:"Preclampsia" 0.99s
 hydrologist	ok	ok
 emesis	ok	ok
+uselessly	ok	ok
+palpably	ok	ok
+landward	ok	ok
+horsemeat	ok	ok
+bagasse	cut_wordis: câu mang: "The word is bagus." · dot100:"baggers" 0.70s · cut_wordis100: câu mang: "The word is bagus." · cut_next: câu mang: "Next word bagerses" · plain095:"Beggars" 0.68s · dot090:"Bagas" 0.76s	cut_wordis: câu mang: "The word is baguess." · dot100:"baguess" 0.68s · cut_wordis100: câu mang: "The word is baguess." · cut_next: câu mang: "Next word, baguess." · plain095:"bag us" 0.68s · dot090:"Bag us." 0.72s
+vasculitis	ok	ok
+pleurisy	ok	ok
