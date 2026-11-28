@@ -6,7 +6,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **59.9** | 59.9 | 59.9% | 100% | 0 |
+| Kho từ | **60** | 59.9 | 60% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **89.7** | 89.7 | 89.7% | 100% | 0 |
 | 4 kỹ năng | **97.6** | 97.6 | 97.6% | 100% | 0 |
@@ -25,7 +25,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 5064 / 20000 | 25% | 12 |
 | đồng nghĩa | 3182 / 20000 | 16% | 8 |
 | IPA Mỹ | 7062 / 20000 | 35% | 5 |
-| ảnh theo nghĩa | 8357 / 20000 | 42% | 15 |
+| ảnh theo nghĩa | 8367 / 20000 | 42% | 15 |
 | C2 | 1305 / 1000 | 100% | 10 |
 | A1 | 871 / 1000 | 87% | 5 |
 
@@ -99,7 +99,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | đáp án cân bằng vị trí (lệch ≤ 3 %) | 100 / 100 | 100% | 15 |
 | đáp án đúng không lộ qua độ dài (≤ 10 %) | 100 / 100 | 100% | 20 |
-| lời giải riêng từng câu (rập khuôn ≤ 2 %) | 91.7 / 100 | 92% | 15 |
+| lời giải riêng từng câu (rập khuôn ≤ 2 %) | 92.1 / 100 | 92% | 15 |
 | không trùng câu / đáp án nhiễu trùng | 94.7 / 100 | 95% | 15 |
 | qua giám khảo LLM (mẫu ≥ 1.500) (chưa làm) | 0 / 100 | 0% | 35 |
 
