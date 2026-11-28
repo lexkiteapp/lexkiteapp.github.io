@@ -10075,3 +10075,7 @@ limnology	ok	ok
 wonderment	ok	ok
 climber	ok	ok
 promisingly	ok	ok
+repurchase	ok	ok
+preeclampsia	cut_wordis: câu mang: "The word is preclampsia." · dot100:"Preclampsia" 1.03s · cut_wordis100:"Spryclampsia" 0.97s · cut_wordis100:"Preclampsia" 0.91s · cut_next:"Preclampsia" 1.00s · cut_next:"Clampsia" 0.87s · plain095:"Preclampsia" 0.98s · dot090:"Preclampsia" 1.14s	cut_wordis:"Preclampsia" 1.12s · cut_wordis:"Preclampsia" 0.91s · dot100:"Preclampsia" 0.93s · cut_wordis100:"Spreclampsia" 1.05s · cut_wordis100:"Preclampsia" 0.86s · cut_next:"Preclampsia" 0.88s · cut_next:"Clampsia" 0.74s · plain095:"Preclampsia" 0.94s · dot090:"Preclampsia" 0.99s
+hydrologist	ok	ok
+emesis	ok	ok
