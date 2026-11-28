@@ -7797,6 +7797,18 @@
    "tries": 3,
    "refix": 1
   },
+  "bagasse#n": {
+   "ex": "Strand board can also be made from bagasse.",
+   "ps": "a pile of brown fibrous pulp lies next to a cut sugarcane stalk",
+   "sc": "a pile of brown fibrous pulp lies next to a cut sugarcane stalk",
+   "check": "Is there a brown fibrous material that comes from processed sugarcane?",
+   "cap": "dry pulp beside a piece of sugarcane",
+   "key": "a pile of brown fibrous pulp; a cut sugarcane stalk",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
   "baggage allowance#n": {
    "ex": "The economy ticket includes a baggage allowance of twenty kilograms.",
    "ps": "a man places a suitcase on a scale while a woman agent watches at an airport desk",
@@ -10073,6 +10085,18 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3
   },
+  "borough#n": {
+   "ex": "The appearance of the city boroughs is quite different.",
+   "ps": "a man stands near a municipal building with columns in a city street",
+   "sc": "a man stands near a municipal building with columns in a city street",
+   "check": "Is there a person standing close to a city administrative building?",
+   "cap": "a man beside a city hall style building",
+   "key": "a municipal building with columns; the man's presence",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
   "borrow#v": {
    "ex": "Can I borrow your pen?",
    "sc": "person A reaches toward person B, who holds out a pen; both stand by a desk, person A looks hopeful, person B smiles, the pen is large and central",
@@ -11078,6 +11102,20 @@
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "bulwark#n": {
+   "ex": "Today remnants of the brick bulwark are still visible under a blanket of weeds.",
+   "ps": "a tall thick stone wall stands solid with a man standing behind it",
+   "sc": "a tall thick stone wall stands solid with a man standing behind it",
+   "check": "Is there a massive stone wall that looks built for protection?",
+   "cap": "a massive stone wall with a person behind it",
+   "key": "tall thick stone wall; a man standing behind the wall",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "bunch#n": {
    "ex": "She bought a bunch of bananas.",
@@ -24625,6 +24663,10 @@
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "dentate#adj": {
+   "e4bad": 1,
+   "badAt": "2026-11-28T07:35:55.141Z"
+  },
   "dentition#n": {
    "ex": "Between species, the dentition varied considerably.",
    "ps": "a wide open human mouth showing a full set of white teeth in a bright smile",
@@ -25286,8 +25328,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "desktop#n": {
-   "e4bad": 10,
-   "badAt": "2026-11-26T01:59:27.125Z"
+   "e4bad": 11,
+   "badAt": "2026-11-28T07:36:01.105Z"
   },
   "desolate#adj": {
    "ex": "Some of the routes go through more desolate landscapes.",
@@ -29300,8 +29342,8 @@
    "cap": "employees learning on computers in a meeting",
    "who": 2,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 11,
-   "badAt": "2026-11-26T01:59:27.834Z"
+   "e4bad": 12,
+   "badAt": "2026-11-28T07:36:01.105Z"
   },
   "eager#adj": {
    "ex": "The new staff members are eager to learn about our products.",
@@ -43742,6 +43784,20 @@
    "v": "e6",
    "by": "openai/gpt-oss-120b"
   },
+  "horsemeat#n": {
+   "ex": "Others are bred solely for horsemeat.",
+   "ps": "a large red steak on a white plate sits beside a standing brown horse",
+   "sc": "a large red steak on a white plate sits beside a standing brown horse",
+   "check": "Is there a large red piece of meat on a plate next to a horse?",
+   "cap": "a red steak on a plate next to a horse",
+   "key": "large red steak on a white plate; a standing brown horse beside the plate",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
+  },
   "horsepower#n": {
    "skip": "concept relies on abstract measurement symbols, not easily shown concretely",
    "by": "@cf/openai/gpt-oss-120b"
@@ -44380,6 +44436,20 @@
    "by": "openai/gpt-oss-120b",
    "tries": 3,
    "refix": 2
+  },
+  "hydrologist#n": {
+   "ex": "A hydrologist from the U.S.",
+   "ps": "a man kneels by a flowing river holding a clear water sampling bottle",
+   "sc": "a man kneels by a flowing river holding a clear water sampling bottle",
+   "check": "Is the person collecting a water sample from a river?",
+   "cap": "a person collecting water from a river",
+   "key": "man kneeling by a river; clear water sampling bottle",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "hydrology#n": {
    "ex": "Hydrology is the study of the water cycle.",
@@ -51254,6 +51324,20 @@
    "tries": 3,
    "refix": 2
   },
+  "landward#adv": {
+   "ex": "Internal waters are landward of the baseline.",
+   "ps": "a small wooden boat glides across calm water toward a sandy shoreline with trees",
+   "sc": "a small wooden boat glides across calm water toward a sandy shoreline with trees",
+   "check": "Is the boat moving toward the land?",
+   "cap": "a boat heading toward a sandy shore",
+   "key": "a boat moving toward a sandy shoreline; the water beside the land",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "lane swimming#n": {
    "ex": "Lane swimming is available every weekday from 7 to 9 a.m.",
    "ps": "a man swims forward in a clear pool lane marked by floating ropes",
@@ -53077,6 +53161,18 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "limnology#n": {
+   "ex": "Limnology is the study of inland aquatic ecosystems.",
+   "ps": "a woman in a hat uses a net to collect water from a clear lake while a man watches",
+   "sc": "a woman in a hat uses a net to collect water from a clear lake while a man watches",
+   "check": "Are the people studying a freshwater lake by collecting water samples?",
+   "cap": "two people gathering water samples from a lake",
+   "key": "a net collecting water; a clear lake",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "limp#v": {
    "ex": "I'm still limping a bit.",
@@ -64792,6 +64888,20 @@
    "tries": 3,
    "refix": 1
   },
+  "palpably#adv": {
+   "ex": "The atmosphere within Northern Ireland remained palpably tense as a result.",
+   "ps": "a man presses his hand against a thick rope stretched tightly across a room",
+   "sc": "a man presses his hand against a thick rope stretched tightly across a room",
+   "check": "Is the rope stretched so tightly that the man can feel its tension?",
+   "cap": "a man feeling the tight pull of a stretched rope",
+   "key": "a thick rope stretched tightly across the room; the man's hand pressing on the rope",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
+  },
   "pamphlet#n": {
    "ex": "Pick up a pamphlet about our services at the front desk.",
    "ps": "a woman reaches for a small folded paper on a reception desk",
@@ -68435,6 +68545,20 @@
    "tries": 3,
    "refix": 2
   },
+  "pleurisy#n": {
+   "ex": "The girl died at around eight years-old of pleurisy.",
+   "ps": "a young girl clutches her chest and looks in pain with a red glow around her lungs",
+   "sc": "a young girl clutches her chest and looks in pain with a red glow around her lungs",
+   "check": "Is the child showing signs of chest pain with a red area near her lungs?",
+   "cap": "a girl holding her chest with a red lung area",
+   "key": "young girl clutching her chest; red glow around lung area",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
+  },
   "plosive#n": {
    "ex": "Plosives are formed by the sudden release of air.",
    "ps": "a man opens his mouth wide, a white puff of air bursts outward",
@@ -70005,6 +70129,10 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 1
+  },
+  "preeclampsia#n": {
+   "e4bad": 1,
+   "badAt": "2026-11-28T07:35:55.142Z"
   },
   "prefer#v": {
    "ex": "I prefer tea to coffee.",
@@ -74656,8 +74784,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 11,
-   "badAt": "2026-11-25T08:20:26.371Z"
+   "e4bad": 12,
+   "badAt": "2026-11-28T07:36:01.105Z"
   },
   "readjustment#n": {
    "ex": "A difficult period of economic readjustment started.",
@@ -77711,8 +77839,21 @@
    "refix": 1
   },
   "republish#v": {
-   "e4bad": 5,
-   "badAt": "2026-11-26T01:59:27.126Z"
+   "e4bad": 6,
+   "badAt": "2026-11-28T07:36:01.105Z"
+  },
+  "repurchase#n": {
+   "ex": "The treaty also included the possibility of a repurchase of Luxembourg by Belgium.",
+   "ps": "a man hands a bicycle to a shopkeeper, who hands back an identical bicycle",
+   "sc": "a man hands a bicycle to a shopkeeper, who hands back an identical bicycle",
+   "check": "Is the person receiving back the same item they previously gave away?",
+   "cap": "a man swapping a bicycle with a shopkeeper",
+   "key": "two identical bicycles being exchanged between the people",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "reputation management#n": {
    "ex": "Online reputation management includes replying politely to negative reviews.",
@@ -97254,6 +97395,20 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "uselessly#adv": {
+   "ex": "The blade would often spin above the grass uselessly.",
+   "ps": "a man swings a large scythe over a patch of green grass without cutting anything",
+   "sc": "a man swings a large scythe over a patch of green grass without cutting anything",
+   "check": "Is the scythe moving over the grass without affecting it?",
+   "cap": "a man swings a scythe over untouched grass",
+   "key": "a large scythe swinging over grass; the grass remains untouched",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "user account#n": {
    "ex": "IT will create your user account on your first day.",
    "ps": "a person holding a key standing before a locked door",
@@ -97859,6 +98014,10 @@
   "vary#v": {
    "skip": "hard to show price variation without numbers or text",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "vasculitis#n": {
+   "e4bad": 1,
+   "badAt": "2026-11-28T07:36:01.105Z"
   },
   "vasoconstriction#n": {
    "ex": "Higher doses also cause vasoconstriction that further increases blood pressure.",
@@ -100844,6 +101003,18 @@
    "draw": 5,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "wonderment#n": {
+   "ex": "Beauty does create in us a strange wonderment and awe.",
+   "ps": "a child stands under a night sky full of bright fireworks, eyes wide and mouth open",
+   "sc": "a child stands under a night sky full of bright fireworks, eyes wide and mouth open",
+   "check": "Is the child showing a clear feeling of amazement?",
+   "cap": "a child watching fireworks with wide eyes",
+   "key": "child's wide eyes and open mouth; colorful fireworks overhead",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "woodcut#n": {
    "ex": "Japanese woodcuts had a strong influence on European painters.",
