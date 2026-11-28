@@ -1,0 +1,54 @@
+{
+ "id": "20261128-r292",
+ "source": "lexicon-expand",
+ "n": 10,
+ "checked": [
+  {
+   "id": "bagasse#n",
+   "ok": true
+  },
+  {
+   "id": "pleurisy#n",
+   "ok": true
+  },
+  {
+   "id": "vasculitis#n",
+   "ok": true
+  },
+  {
+   "id": "repurchase#n",
+   "ok": true
+  },
+  {
+   "id": "horsemeat#n",
+   "ok": true
+  },
+  {
+   "id": "palpably#adv",
+   "ok": true
+  },
+  {
+   "id": "hydrologist#n",
+   "ok": true
+  },
+  {
+   "id": "landward#adv",
+   "ok": true
+  },
+  {
+   "id": "preeclampsia#n",
+   "ok": true
+  },
+  {
+   "id": "emesis#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): sense: wrong sense, should be emesis.n.01"
+  },
+  {
+   "id": "uselessly#adv",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-28",
+ "status": "published"
+}
