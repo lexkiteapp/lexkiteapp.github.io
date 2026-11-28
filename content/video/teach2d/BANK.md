@@ -1079,7 +1079,7 @@
 | t2a_mistake_a79c3048 | 100.0 | 100.0 | banked | 46124651881 |
 | t2a_mistake_ec31bdce | – | 100.0 | red ×2: short: no render | 46129490967 |
 | t2a_mistake_f0648eea | 100.0 | 100.0 | banked | 46133583514 |
-| t2a_mistake_f61282a1 | – | – | red ×1: short: no render; wide: no render | 46133583514 |
+| t2a_mistake_f61282a1 | – | – | red ×2: short: no render; wide: no render | 46133583514 |
 | t2a_phrasal_8580f675 | 100.0 | 100.0 | banked | 46114901661 |
 | t2a_prog_breakfast_1 | 100.0 | 100.0 | banked | 45533215258 |
 | t2a_prog_card_1 | 100.0 | 100.0 | banked | 45533215258 |
